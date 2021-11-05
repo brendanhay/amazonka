@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes a @COPY@ command for Amazon Redshift.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCopyCommand' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679269475"><span id="local-6989586621679269476"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyCommand"><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-var">CopyCommand</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyCommand%27"><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-var">CopyCommand'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679269484"><span id="local-6989586621679269485"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyCommand"><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-var">CopyCommand</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyCommand%27"><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-var">CopyCommand'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional parameters to use with the Amazon Redshift @COPY@ command. For</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- more information, see the \&quot;Optional Parameters\&quot; section of</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html Amazon Redshift COPY command&gt;.</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdataTableName%3ACopyCommand%27"><span class="annot"><span class="annottext">CopyCommand -&gt; Text
 </span><a href="Network.AWS.Firehose.Types.CopyCommand.html#%24sel%3AdataTableName%3ACopyCommand%27"><span class="hs-identifier hs-var hs-var">dataTableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269467"><span id="local-6989586621679269469"><span class="annot"><span class="annottext">CopyCommand -&gt; CopyCommand -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269476"><span id="local-6989586621679269478"><span class="annot"><span class="annottext">CopyCommand -&gt; CopyCommand -&gt; Bool
 (CopyCommand -&gt; CopyCommand -&gt; Bool)
 -&gt; (CopyCommand -&gt; CopyCommand -&gt; Bool) -&gt; Eq CopyCommand
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CopyCommand -&gt; CopyCommand -&gt; Bool
 == :: CopyCommand -&gt; CopyCommand -&gt; Bool
 $c== :: CopyCommand -&gt; CopyCommand -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269458"><span id="local-6989586621679269460"><span id="local-6989586621679269462"><span id="local-6989586621679269464"><span class="annot"><span class="annottext">ReadPrec [CopyCommand]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269467"><span id="local-6989586621679269469"><span id="local-6989586621679269471"><span id="local-6989586621679269473"><span class="annot"><span class="annottext">ReadPrec [CopyCommand]
 ReadPrec CopyCommand
 Int -&gt; ReadS CopyCommand
 ReadS [CopyCommand]
@@ -88,7 +88,7 @@ readList :: ReadS [CopyCommand]
 $creadList :: ReadS [CopyCommand]
 readsPrec :: Int -&gt; ReadS CopyCommand
 $creadsPrec :: Int -&gt; ReadS CopyCommand
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269451"><span id="local-6989586621679269453"><span id="local-6989586621679269455"><span class="annot"><span class="annottext">Int -&gt; CopyCommand -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269460"><span id="local-6989586621679269462"><span id="local-6989586621679269464"><span class="annot"><span class="annottext">Int -&gt; CopyCommand -&gt; ShowS
 [CopyCommand] -&gt; ShowS
 CopyCommand -&gt; String
 (Int -&gt; CopyCommand -&gt; ShowS)
@@ -155,8 +155,8 @@ $cfrom :: forall x. CopyCommand -&gt; Rep CopyCommand x
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span><span>
 </span><span id="line-102"></span><span id="newCopyCommand"><span class="annot"><span class="annottext">newCopyCommand :: Text -&gt; CopyCommand
-</span><a href="Network.AWS.Firehose.Types.CopyCommand.html#newCopyCommand"><span class="hs-identifier hs-var hs-var">newCopyCommand</span></a></span></span><span> </span><span id="local-6989586621679269445"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269445"><span class="hs-identifier hs-var">pDataTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Firehose.Types.CopyCommand.html#newCopyCommand"><span class="hs-identifier hs-var hs-var">newCopyCommand</span></a></span></span><span> </span><span id="local-6989586621679269454"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269454"><span class="hs-identifier hs-var">pDataTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">CopyCommand' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; CopyCommand
 </span><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-type">CopyCommand'</span></a></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:copyOptions:CopyCommand' :: Maybe Text
@@ -169,7 +169,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataTableName:CopyCommand' :: Text
 </span><a href="Network.AWS.Firehose.Types.CopyCommand.html#%24sel%3AdataTableName%3ACopyCommand%27"><span class="hs-identifier hs-var">dataTableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269445"><span class="hs-identifier hs-var">pDataTableName_</span></a></span><span>
+</span><a href="#local-6989586621679269454"><span class="hs-identifier hs-var">pDataTableName_</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | Optional parameters to use with the Amazon Redshift @COPY@ command. For</span><span>
@@ -201,16 +201,16 @@ forall a. Maybe a
 -&gt; (CopyCommand -&gt; Maybe Text -&gt; CopyCommand)
 -&gt; Lens CopyCommand CopyCommand (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-type">CopyCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269441"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-type">CopyCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269450"><span class="annot"><span class="annottext">Maybe Text
 copyOptions :: Maybe Text
 $sel:copyOptions:CopyCommand' :: CopyCommand -&gt; Maybe Text
-</span><a href="#local-6989586621679269441"><span class="hs-identifier hs-var hs-var">copyOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269441"><span class="hs-identifier hs-var">copyOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269440"><span class="annot"><span class="annottext">s :: CopyCommand
-</span><a href="#local-6989586621679269440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-type">CopyCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269439"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyCommand
-</span><a href="#local-6989586621679269440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:copyOptions:CopyCommand' :: Maybe Text
+</span><a href="#local-6989586621679269450"><span class="hs-identifier hs-var hs-var">copyOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269450"><span class="hs-identifier hs-var">copyOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269449"><span class="annot"><span class="annottext">s :: CopyCommand
+</span><a href="#local-6989586621679269449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-type">CopyCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269448"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyCommand
+</span><a href="#local-6989586621679269449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:copyOptions:CopyCommand' :: Maybe Text
 </span><a href="Network.AWS.Firehose.Types.CopyCommand.html#%24sel%3AcopyOptions%3ACopyCommand%27"><span class="hs-identifier hs-var">copyOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679269448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | A comma-separated list of column names.</span><span>
 </span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#copyCommand_dataTableColumns"><span class="hs-identifier hs-type">copyCommand_dataTableColumns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -219,16 +219,16 @@ $sel:copyOptions:CopyCommand' :: CopyCommand -&gt; Maybe Text
 -&gt; (CopyCommand -&gt; Maybe Text -&gt; CopyCommand)
 -&gt; Lens CopyCommand CopyCommand (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-type">CopyCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269437"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-type">CopyCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269446"><span class="annot"><span class="annottext">Maybe Text
 dataTableColumns :: Maybe Text
 $sel:dataTableColumns:CopyCommand' :: CopyCommand -&gt; Maybe Text
-</span><a href="#local-6989586621679269437"><span class="hs-identifier hs-var hs-var">dataTableColumns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269437"><span class="hs-identifier hs-var">dataTableColumns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269436"><span class="annot"><span class="annottext">s :: CopyCommand
-</span><a href="#local-6989586621679269436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-type">CopyCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269435"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyCommand
-</span><a href="#local-6989586621679269436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataTableColumns:CopyCommand' :: Maybe Text
+</span><a href="#local-6989586621679269446"><span class="hs-identifier hs-var hs-var">dataTableColumns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269446"><span class="hs-identifier hs-var">dataTableColumns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269445"><span class="annot"><span class="annottext">s :: CopyCommand
+</span><a href="#local-6989586621679269445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-type">CopyCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269444"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyCommand
+</span><a href="#local-6989586621679269445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataTableColumns:CopyCommand' :: Maybe Text
 </span><a href="Network.AWS.Firehose.Types.CopyCommand.html#%24sel%3AdataTableColumns%3ACopyCommand%27"><span class="hs-identifier hs-var">dataTableColumns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679269444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The name of the target table. The table must already exist in the</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- database.</span><span>
@@ -238,19 +238,19 @@ $sel:dataTableColumns:CopyCommand' :: CopyCommand -&gt; Maybe Text
 -&gt; (CopyCommand -&gt; Text -&gt; CopyCommand)
 -&gt; Lens CopyCommand CopyCommand Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-type">CopyCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269433"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-type">CopyCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269442"><span class="annot"><span class="annottext">Text
 dataTableName :: Text
 $sel:dataTableName:CopyCommand' :: CopyCommand -&gt; Text
-</span><a href="#local-6989586621679269433"><span class="hs-identifier hs-var hs-var">dataTableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269433"><span class="hs-identifier hs-var">dataTableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269432"><span class="annot"><span class="annottext">s :: CopyCommand
-</span><a href="#local-6989586621679269432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-type">CopyCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269431"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyCommand
-</span><a href="#local-6989586621679269432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataTableName:CopyCommand' :: Text
+</span><a href="#local-6989586621679269442"><span class="hs-identifier hs-var hs-var">dataTableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269442"><span class="hs-identifier hs-var">dataTableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269441"><span class="annot"><span class="annottext">s :: CopyCommand
+</span><a href="#local-6989586621679269441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-type">CopyCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269440"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyCommand
+</span><a href="#local-6989586621679269441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataTableName:CopyCommand' :: Text
 </span><a href="Network.AWS.Firehose.Types.CopyCommand.html#%24sel%3AdataTableName%3ACopyCommand%27"><span class="hs-identifier hs-var">dataTableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679269440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269428"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679269426"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CopyCommand
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269437"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679269435"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CopyCommand
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CopyCommand) -&gt; Value -&gt; Parser CopyCommand
@@ -258,8 +258,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CopyCommand&quot;</span></span><span>
-</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679269423"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679269423"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679269432"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269432"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Text -&gt; CopyCommand
 </span><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-var">CopyCommand'</span></a></span><span>
 </span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Text -&gt; CopyCommand)
@@ -267,7 +267,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Text -&gt; CopyCommand)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679269423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679269432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CopyOptions&quot;</span></span><span class="hs-special">)</span><span>
@@ -275,26 +275,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; CopyCommand)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679269423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679269432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataTableColumns&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; CopyCommand) -&gt; Parser Text -&gt; Parser CopyCommand
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679269423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679269432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataTableName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269416"><span id="local-6989586621679269418"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269425"><span id="local-6989586621679269427"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span></span></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269413"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269422"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span></span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269405"><span id="local-6989586621679269407"><span id="local-6989586621679269409"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679269403"><span class="annot"><span class="annottext">toJSON :: CopyCommand -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-type">CopyCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269399"><span id="local-6989586621679269400"><span id="local-6989586621679269401"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269414"><span id="local-6989586621679269416"><span id="local-6989586621679269418"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand"><span class="hs-identifier hs-type">CopyCommand</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679269412"><span class="annot"><span class="annottext">toJSON :: CopyCommand -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CopyCommand.html#CopyCommand%27"><span class="hs-identifier hs-type">CopyCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269408"><span id="local-6989586621679269409"><span id="local-6989586621679269410"><span class="annot"><span class="annottext">Maybe Text
 Text
 dataTableName :: Text
 dataTableColumns :: Maybe Text
@@ -302,7 +302,7 @@ copyOptions :: Maybe Text
 $sel:dataTableName:CopyCommand' :: CopyCommand -&gt; Text
 $sel:dataTableColumns:CopyCommand' :: CopyCommand -&gt; Maybe Text
 $sel:copyOptions:CopyCommand' :: CopyCommand -&gt; Maybe Text
-</span><a href="#local-6989586621679269399"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679269408"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -314,7 +314,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269401"><span class="hs-identifier hs-var">copyOptions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679269410"><span class="hs-identifier hs-var">copyOptions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataTableColumns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -322,7 +322,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679269400"><span class="hs-identifier hs-var">dataTableColumns</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679269409"><span class="hs-identifier hs-var">dataTableColumns</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -330,7 +330,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DataTableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269399"><span class="hs-identifier hs-var">dataTableName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679269408"><span class="hs-identifier hs-var">dataTableName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span></pre></body></html>

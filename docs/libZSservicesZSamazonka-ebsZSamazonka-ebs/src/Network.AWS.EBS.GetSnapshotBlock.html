@@ -1,0 +1,644 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EBS.GetSnapshotBlock</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the data in a block in an Amazon Elastic Block Store snapshot.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EBS.GetSnapshotBlock</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock"><span class="hs-identifier">GetSnapshotBlock</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#newGetSnapshotBlock"><span class="hs-identifier">newGetSnapshotBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlock_snapshotId"><span class="hs-identifier">getSnapshotBlock_snapshotId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlock_blockIndex"><span class="hs-identifier">getSnapshotBlock_blockIndex</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlock_blockToken"><span class="hs-identifier">getSnapshotBlock_blockToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse"><span class="hs-identifier">GetSnapshotBlockResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#newGetSnapshotBlockResponse"><span class="hs-identifier">newGetSnapshotBlockResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlockResponse_dataLength"><span class="hs-identifier">getSnapshotBlockResponse_dataLength</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlockResponse_checksumAlgorithm"><span class="hs-identifier">getSnapshotBlockResponse_checksumAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlockResponse_checksum"><span class="hs-identifier">getSnapshotBlockResponse_checksum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlockResponse_httpStatus"><span class="hs-identifier">getSnapshotBlockResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlockResponse_blockData"><span class="hs-identifier">getSnapshotBlockResponse_blockData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EBS.Types.html"><span class="hs-identifier">Network.AWS.EBS.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newGetSnapshotBlock' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679155963"><span id="local-6989586621679155964"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSnapshotBlock"><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock"><span class="hs-identifier hs-var">GetSnapshotBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSnapshotBlock%27"><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock%27"><span class="hs-identifier hs-var">GetSnapshotBlock'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the snapshot containing the block from which to get data.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AsnapshotId%3AGetSnapshotBlock%27"><span class="annot"><span class="annottext">GetSnapshotBlock -&gt; Text
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AsnapshotId%3AGetSnapshotBlock%27"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The block index of the block from which to get data.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Obtain the @BlockIndex@ by running the @ListChangedBlocks@ or</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @ListSnapshotBlocks@ operations.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AblockIndex%3AGetSnapshotBlock%27"><span class="annot"><span class="annottext">GetSnapshotBlock -&gt; Natural
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AblockIndex%3AGetSnapshotBlock%27"><span class="hs-identifier hs-var hs-var">blockIndex</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The block token of the block from which to get data.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- Obtain the @BlockToken@ by running the @ListChangedBlocks@ or</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @ListSnapshotBlocks@ operations.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AblockToken%3AGetSnapshotBlock%27"><span class="annot"><span class="annottext">GetSnapshotBlock -&gt; Text
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AblockToken%3AGetSnapshotBlock%27"><span class="hs-identifier hs-var hs-var">blockToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679155955"><span id="local-6989586621679155957"><span class="annot"><span class="annottext">GetSnapshotBlock -&gt; GetSnapshotBlock -&gt; Bool
+(GetSnapshotBlock -&gt; GetSnapshotBlock -&gt; Bool)
+-&gt; (GetSnapshotBlock -&gt; GetSnapshotBlock -&gt; Bool)
+-&gt; Eq GetSnapshotBlock
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetSnapshotBlock -&gt; GetSnapshotBlock -&gt; Bool
+$c/= :: GetSnapshotBlock -&gt; GetSnapshotBlock -&gt; Bool
+== :: GetSnapshotBlock -&gt; GetSnapshotBlock -&gt; Bool
+$c== :: GetSnapshotBlock -&gt; GetSnapshotBlock -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155946"><span id="local-6989586621679155948"><span id="local-6989586621679155950"><span id="local-6989586621679155952"><span class="annot"><span class="annottext">ReadPrec [GetSnapshotBlock]
+ReadPrec GetSnapshotBlock
+Int -&gt; ReadS GetSnapshotBlock
+ReadS [GetSnapshotBlock]
+(Int -&gt; ReadS GetSnapshotBlock)
+-&gt; ReadS [GetSnapshotBlock]
+-&gt; ReadPrec GetSnapshotBlock
+-&gt; ReadPrec [GetSnapshotBlock]
+-&gt; Read GetSnapshotBlock
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetSnapshotBlock]
+$creadListPrec :: ReadPrec [GetSnapshotBlock]
+readPrec :: ReadPrec GetSnapshotBlock
+$creadPrec :: ReadPrec GetSnapshotBlock
+readList :: ReadS [GetSnapshotBlock]
+$creadList :: ReadS [GetSnapshotBlock]
+readsPrec :: Int -&gt; ReadS GetSnapshotBlock
+$creadsPrec :: Int -&gt; ReadS GetSnapshotBlock
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155939"><span id="local-6989586621679155941"><span id="local-6989586621679155943"><span class="annot"><span class="annottext">Int -&gt; GetSnapshotBlock -&gt; ShowS
+[GetSnapshotBlock] -&gt; ShowS
+GetSnapshotBlock -&gt; String
+(Int -&gt; GetSnapshotBlock -&gt; ShowS)
+-&gt; (GetSnapshotBlock -&gt; String)
+-&gt; ([GetSnapshotBlock] -&gt; ShowS)
+-&gt; Show GetSnapshotBlock
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSnapshotBlock] -&gt; ShowS
+$cshowList :: [GetSnapshotBlock] -&gt; ShowS
+show :: GetSnapshotBlock -&gt; String
+$cshow :: GetSnapshotBlock -&gt; String
+showsPrec :: Int -&gt; GetSnapshotBlock -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSnapshotBlock -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetSnapshotBlock -&gt; Rep GetSnapshotBlock x)
+-&gt; (forall x. Rep GetSnapshotBlock x -&gt; GetSnapshotBlock)
+-&gt; Generic GetSnapshotBlock
+forall x. Rep GetSnapshotBlock x -&gt; GetSnapshotBlock
+forall x. GetSnapshotBlock -&gt; Rep GetSnapshotBlock x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetSnapshotBlock x -&gt; GetSnapshotBlock
+$cfrom :: forall x. GetSnapshotBlock -&gt; Rep GetSnapshotBlock x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'GetSnapshotBlock' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'snapshotId', 'getSnapshotBlock_snapshotId' - The ID of the snapshot containing the block from which to get data.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'blockIndex', 'getSnapshotBlock_blockIndex' - The block index of the block from which to get data.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Obtain the @BlockIndex@ by running the @ListChangedBlocks@ or</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- @ListSnapshotBlocks@ operations.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'blockToken', 'getSnapshotBlock_blockToken' - The block token of the block from which to get data.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Obtain the @BlockToken@ by running the @ListChangedBlocks@ or</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- @ListSnapshotBlocks@ operations.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#newGetSnapshotBlock"><span class="hs-identifier hs-type">newGetSnapshotBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'snapshotId'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'blockIndex'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'blockToken'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock"><span class="hs-identifier hs-type">GetSnapshotBlock</span></a></span><span>
+</span><span id="line-98"></span><span id="newGetSnapshotBlock"><span class="annot"><span class="annottext">newGetSnapshotBlock :: Text -&gt; Natural -&gt; Text -&gt; GetSnapshotBlock
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#newGetSnapshotBlock"><span class="hs-identifier hs-var hs-var">newGetSnapshotBlock</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679155934"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155934"><span class="hs-identifier hs-var">pSnapshotId_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679155933"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679155933"><span class="hs-identifier hs-var">pBlockIndex_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679155932"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155932"><span class="hs-identifier hs-var">pBlockToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">GetSnapshotBlock' :: Text -&gt; Natural -&gt; Text -&gt; GetSnapshotBlock
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock%27"><span class="hs-identifier hs-type">GetSnapshotBlock'</span></a></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:snapshotId:GetSnapshotBlock' :: Text
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AsnapshotId%3AGetSnapshotBlock%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155934"><span class="hs-identifier hs-var">pSnapshotId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:blockIndex:GetSnapshotBlock' :: Natural
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AblockIndex%3AGetSnapshotBlock%27"><span class="hs-identifier hs-var">blockIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679155933"><span class="hs-identifier hs-var">pBlockIndex_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:blockToken:GetSnapshotBlock' :: Text
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AblockToken%3AGetSnapshotBlock%27"><span class="hs-identifier hs-var">blockToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155932"><span class="hs-identifier hs-var">pBlockToken_</span></a></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The ID of the snapshot containing the block from which to get data.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlock_snapshotId"><span class="hs-identifier hs-type">getSnapshotBlock_snapshotId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock"><span class="hs-identifier hs-type">GetSnapshotBlock</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-110"></span><span id="getSnapshotBlock_snapshotId"><span class="annot"><span class="annottext">getSnapshotBlock_snapshotId :: (Text -&gt; f Text) -&gt; GetSnapshotBlock -&gt; f GetSnapshotBlock
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlock_snapshotId"><span class="hs-identifier hs-var hs-var">getSnapshotBlock_snapshotId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSnapshotBlock -&gt; Text)
+-&gt; (GetSnapshotBlock -&gt; Text -&gt; GetSnapshotBlock)
+-&gt; Lens GetSnapshotBlock GetSnapshotBlock Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock%27"><span class="hs-identifier hs-type">GetSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155929"><span class="annot"><span class="annottext">Text
+snapshotId :: Text
+$sel:snapshotId:GetSnapshotBlock' :: GetSnapshotBlock -&gt; Text
+</span><a href="#local-6989586621679155929"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155929"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155928"><span class="annot"><span class="annottext">s :: GetSnapshotBlock
+</span><a href="#local-6989586621679155928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock%27"><span class="hs-identifier hs-type">GetSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155927"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSnapshotBlock
+</span><a href="#local-6989586621679155928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotId:GetSnapshotBlock' :: Text
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AsnapshotId%3AGetSnapshotBlock%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock"><span class="hs-identifier hs-type">GetSnapshotBlock</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The block index of the block from which to get data.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Obtain the @BlockIndex@ by running the @ListChangedBlocks@ or</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- @ListSnapshotBlocks@ operations.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlock_blockIndex"><span class="hs-identifier hs-type">getSnapshotBlock_blockIndex</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock"><span class="hs-identifier hs-type">GetSnapshotBlock</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-117"></span><span id="getSnapshotBlock_blockIndex"><span class="annot"><span class="annottext">getSnapshotBlock_blockIndex :: (Natural -&gt; f Natural) -&gt; GetSnapshotBlock -&gt; f GetSnapshotBlock
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlock_blockIndex"><span class="hs-identifier hs-var hs-var">getSnapshotBlock_blockIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSnapshotBlock -&gt; Natural)
+-&gt; (GetSnapshotBlock -&gt; Natural -&gt; GetSnapshotBlock)
+-&gt; Lens GetSnapshotBlock GetSnapshotBlock Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock%27"><span class="hs-identifier hs-type">GetSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155926"><span class="annot"><span class="annottext">Natural
+blockIndex :: Natural
+$sel:blockIndex:GetSnapshotBlock' :: GetSnapshotBlock -&gt; Natural
+</span><a href="#local-6989586621679155926"><span class="hs-identifier hs-var hs-var">blockIndex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679155926"><span class="hs-identifier hs-var">blockIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155925"><span class="annot"><span class="annottext">s :: GetSnapshotBlock
+</span><a href="#local-6989586621679155925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock%27"><span class="hs-identifier hs-type">GetSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155924"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679155924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSnapshotBlock
+</span><a href="#local-6989586621679155925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockIndex:GetSnapshotBlock' :: Natural
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AblockIndex%3AGetSnapshotBlock%27"><span class="hs-identifier hs-var">blockIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679155924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock"><span class="hs-identifier hs-type">GetSnapshotBlock</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The block token of the block from which to get data.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Obtain the @BlockToken@ by running the @ListChangedBlocks@ or</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- @ListSnapshotBlocks@ operations.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlock_blockToken"><span class="hs-identifier hs-type">getSnapshotBlock_blockToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock"><span class="hs-identifier hs-type">GetSnapshotBlock</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-124"></span><span id="getSnapshotBlock_blockToken"><span class="annot"><span class="annottext">getSnapshotBlock_blockToken :: (Text -&gt; f Text) -&gt; GetSnapshotBlock -&gt; f GetSnapshotBlock
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlock_blockToken"><span class="hs-identifier hs-var hs-var">getSnapshotBlock_blockToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSnapshotBlock -&gt; Text)
+-&gt; (GetSnapshotBlock -&gt; Text -&gt; GetSnapshotBlock)
+-&gt; Lens GetSnapshotBlock GetSnapshotBlock Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock%27"><span class="hs-identifier hs-type">GetSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155923"><span class="annot"><span class="annottext">Text
+blockToken :: Text
+$sel:blockToken:GetSnapshotBlock' :: GetSnapshotBlock -&gt; Text
+</span><a href="#local-6989586621679155923"><span class="hs-identifier hs-var hs-var">blockToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155923"><span class="hs-identifier hs-var">blockToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155922"><span class="annot"><span class="annottext">s :: GetSnapshotBlock
+</span><a href="#local-6989586621679155922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock%27"><span class="hs-identifier hs-type">GetSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155921"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSnapshotBlock
+</span><a href="#local-6989586621679155922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockToken:GetSnapshotBlock' :: Text
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AblockToken%3AGetSnapshotBlock%27"><span class="hs-identifier hs-var">blockToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock"><span class="hs-identifier hs-type">GetSnapshotBlock</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock"><span class="hs-identifier hs-type">GetSnapshotBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock"><span class="hs-identifier hs-type">GetSnapshotBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse"><span class="hs-identifier hs-type">GetSnapshotBlockResponse</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679155917"><span class="annot"><span class="annottext">request :: GetSnapshotBlock -&gt; Request GetSnapshotBlock
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetSnapshotBlock -&gt; Request GetSnapshotBlock
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EBS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679155913"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetSnapshotBlock
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetSnapshotBlock)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ResponseBody
+ -&gt; Either String (AWSResponse GetSnapshotBlock))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetSnapshotBlock
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetSnapshotBlock)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int
+ -&gt; ResponseHeaders
+ -&gt; ResponseBody
+ -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveBody</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679155910"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155910"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679155909"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679155909"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679155908"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679155908"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe ChecksumAlgorithm
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ResponseBody
+-&gt; GetSnapshotBlockResponse
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse%27"><span class="hs-identifier hs-var">GetSnapshotBlockResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe ChecksumAlgorithm
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; ResponseBody
+ -&gt; GetSnapshotBlockResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe ChecksumAlgorithm
+      -&gt; Maybe Text -&gt; Int -&gt; ResponseBody -&gt; GetSnapshotBlockResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679155909"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Int)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-Data-Length&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ChecksumAlgorithm
+   -&gt; Maybe Text -&gt; Int -&gt; ResponseBody -&gt; GetSnapshotBlockResponse)
+-&gt; Either String (Maybe ChecksumAlgorithm)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Int -&gt; ResponseBody -&gt; GetSnapshotBlockResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679155909"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; HeaderName -&gt; Either String (Maybe ChecksumAlgorithm)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-Checksum-Algorithm&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; ResponseBody -&gt; GetSnapshotBlockResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ResponseBody -&gt; GetSnapshotBlockResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679155909"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-Checksum&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ResponseBody -&gt; GetSnapshotBlockResponse)
+-&gt; Either String Int
+-&gt; Either String (ResponseBody -&gt; GetSnapshotBlockResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155910"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either String (ResponseBody -&gt; GetSnapshotBlockResponse)
+-&gt; Either String ResponseBody
+-&gt; Either String GetSnapshotBlockResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseBody -&gt; Either String ResponseBody
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679155908"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155900"><span id="local-6989586621679155902"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock"><span class="hs-identifier hs-type">GetSnapshotBlock</span></a></span></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155897"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock"><span class="hs-identifier hs-type">GetSnapshotBlock</span></a></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock"><span class="hs-identifier hs-type">GetSnapshotBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679155893"><span class="annot"><span class="annottext">toHeaders :: GetSnapshotBlock -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetSnapshotBlock -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-153"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock"><span class="hs-identifier hs-type">GetSnapshotBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679155887"><span class="annot"><span class="annottext">toPath :: GetSnapshotBlock -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock%27"><span class="hs-identifier hs-type">GetSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155883"><span id="local-6989586621679155884"><span id="local-6989586621679155885"><span class="annot"><span class="annottext">Natural
+Text
+blockToken :: Text
+blockIndex :: Natural
+snapshotId :: Text
+$sel:blockToken:GetSnapshotBlock' :: GetSnapshotBlock -&gt; Text
+$sel:blockIndex:GetSnapshotBlock' :: GetSnapshotBlock -&gt; Natural
+$sel:snapshotId:GetSnapshotBlock' :: GetSnapshotBlock -&gt; Text
+</span><a href="#local-6989586621679155883"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/snapshots/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155885"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/blocks/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">Natural -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679155884"><span class="hs-identifier hs-var">blockIndex</span></a></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock"><span class="hs-identifier hs-type">GetSnapshotBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679155879"><span class="annot"><span class="annottext">toQuery :: GetSnapshotBlock -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlock%27"><span class="hs-identifier hs-type">GetSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155875"><span id="local-6989586621679155876"><span id="local-6989586621679155877"><span class="annot"><span class="annottext">Natural
+Text
+blockToken :: Text
+blockIndex :: Natural
+snapshotId :: Text
+$sel:blockToken:GetSnapshotBlock' :: GetSnapshotBlock -&gt; Text
+$sel:blockIndex:GetSnapshotBlock' :: GetSnapshotBlock -&gt; Natural
+$sel:snapshotId:GetSnapshotBlock' :: GetSnapshotBlock -&gt; Text
+</span><a href="#local-6989586621679155875"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;blockToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155875"><span class="hs-identifier hs-var">blockToken</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | /See:/ 'newGetSnapshotBlockResponse' smart constructor.</span><span>
+</span><span id="line-171"></span><span id="local-6989586621679155872"><span id="local-6989586621679155873"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSnapshotBlockResponse"><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse"><span class="hs-identifier hs-var">GetSnapshotBlockResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSnapshotBlockResponse%27"><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse%27"><span class="hs-identifier hs-var">GetSnapshotBlockResponse'</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The size of the data in the block.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AdataLength%3AGetSnapshotBlockResponse%27"><span class="annot"><span class="annottext">GetSnapshotBlockResponse -&gt; Maybe Int
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AdataLength%3AGetSnapshotBlockResponse%27"><span class="hs-identifier hs-var hs-var">dataLength</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | The algorithm used to generate the checksum for the block, such as</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- SHA256.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AchecksumAlgorithm%3AGetSnapshotBlockResponse%27"><span class="annot"><span class="annottext">GetSnapshotBlockResponse -&gt; Maybe ChecksumAlgorithm
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AchecksumAlgorithm%3AGetSnapshotBlockResponse%27"><span class="hs-identifier hs-var hs-var">checksumAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.Types.ChecksumAlgorithm.html#ChecksumAlgorithm"><span class="hs-identifier hs-type">ChecksumAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The checksum generated for the block, which is Base64 encoded.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3Achecksum%3AGetSnapshotBlockResponse%27"><span class="annot"><span class="annottext">GetSnapshotBlockResponse -&gt; Maybe Text
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3Achecksum%3AGetSnapshotBlockResponse%27"><span class="hs-identifier hs-var hs-var">checksum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSnapshotBlockResponse%27"><span class="annot"><span class="annottext">GetSnapshotBlockResponse -&gt; Int
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AhttpStatus%3AGetSnapshotBlockResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | The data content of the block.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AblockData%3AGetSnapshotBlockResponse%27"><span class="annot"><span class="annottext">GetSnapshotBlockResponse -&gt; ResponseBody
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AblockData%3AGetSnapshotBlockResponse%27"><span class="hs-identifier hs-var hs-var">blockData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679155861"><span id="local-6989586621679155863"><span id="local-6989586621679155865"><span class="annot"><span class="annottext">Int -&gt; GetSnapshotBlockResponse -&gt; ShowS
+[GetSnapshotBlockResponse] -&gt; ShowS
+GetSnapshotBlockResponse -&gt; String
+(Int -&gt; GetSnapshotBlockResponse -&gt; ShowS)
+-&gt; (GetSnapshotBlockResponse -&gt; String)
+-&gt; ([GetSnapshotBlockResponse] -&gt; ShowS)
+-&gt; Show GetSnapshotBlockResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSnapshotBlockResponse] -&gt; ShowS
+$cshowList :: [GetSnapshotBlockResponse] -&gt; ShowS
+show :: GetSnapshotBlockResponse -&gt; String
+$cshow :: GetSnapshotBlockResponse -&gt; String
+showsPrec :: Int -&gt; GetSnapshotBlockResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSnapshotBlockResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetSnapshotBlockResponse -&gt; Rep GetSnapshotBlockResponse x)
+-&gt; (forall x.
+    Rep GetSnapshotBlockResponse x -&gt; GetSnapshotBlockResponse)
+-&gt; Generic GetSnapshotBlockResponse
+forall x.
+Rep GetSnapshotBlockResponse x -&gt; GetSnapshotBlockResponse
+forall x.
+GetSnapshotBlockResponse -&gt; Rep GetSnapshotBlockResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetSnapshotBlockResponse x -&gt; GetSnapshotBlockResponse
+$cfrom :: forall x.
+GetSnapshotBlockResponse -&gt; Rep GetSnapshotBlockResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Create a value of 'GetSnapshotBlockResponse' with all optional fields omitted.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'dataLength', 'getSnapshotBlockResponse_dataLength' - The size of the data in the block.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'checksumAlgorithm', 'getSnapshotBlockResponse_checksumAlgorithm' - The algorithm used to generate the checksum for the block, such as</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- SHA256.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'checksum', 'getSnapshotBlockResponse_checksum' - The checksum generated for the block, which is Base64 encoded.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'httpStatus', 'getSnapshotBlockResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'blockData', 'getSnapshotBlockResponse_blockData' - The data content of the block.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#newGetSnapshotBlockResponse"><span class="hs-identifier hs-type">newGetSnapshotBlockResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-comment">-- | 'blockData'</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse"><span class="hs-identifier hs-type">GetSnapshotBlockResponse</span></a></span><span>
+</span><span id="line-210"></span><span id="newGetSnapshotBlockResponse"><span class="annot"><span class="annottext">newGetSnapshotBlockResponse :: Int -&gt; ResponseBody -&gt; GetSnapshotBlockResponse
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#newGetSnapshotBlockResponse"><span class="hs-identifier hs-var hs-var">newGetSnapshotBlockResponse</span></a></span></span><span> </span><span id="local-6989586621679155858"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155858"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679155857"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679155857"><span class="hs-identifier hs-var">pBlockData_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><span class="annottext">GetSnapshotBlockResponse' :: Maybe Int
+-&gt; Maybe ChecksumAlgorithm
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ResponseBody
+-&gt; GetSnapshotBlockResponse
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse%27"><span class="hs-identifier hs-type">GetSnapshotBlockResponse'</span></a></span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataLength:GetSnapshotBlockResponse' :: Maybe Int
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AdataLength%3AGetSnapshotBlockResponse%27"><span class="hs-identifier hs-var">dataLength</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:checksumAlgorithm:GetSnapshotBlockResponse' :: Maybe ChecksumAlgorithm
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AchecksumAlgorithm%3AGetSnapshotBlockResponse%27"><span class="hs-identifier hs-var">checksumAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChecksumAlgorithm
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:checksum:GetSnapshotBlockResponse' :: Maybe Text
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3Achecksum%3AGetSnapshotBlockResponse%27"><span class="hs-identifier hs-var">checksum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSnapshotBlockResponse' :: Int
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AhttpStatus%3AGetSnapshotBlockResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155858"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:blockData:GetSnapshotBlockResponse' :: ResponseBody
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AblockData%3AGetSnapshotBlockResponse%27"><span class="hs-identifier hs-var">blockData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679155857"><span class="hs-identifier hs-var">pBlockData_</span></a></span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The size of the data in the block.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlockResponse_dataLength"><span class="hs-identifier hs-type">getSnapshotBlockResponse_dataLength</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse"><span class="hs-identifier hs-type">GetSnapshotBlockResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="getSnapshotBlockResponse_dataLength"><span class="annot"><span class="annottext">getSnapshotBlockResponse_dataLength :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; GetSnapshotBlockResponse -&gt; f GetSnapshotBlockResponse
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlockResponse_dataLength"><span class="hs-identifier hs-var hs-var">getSnapshotBlockResponse_dataLength</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSnapshotBlockResponse -&gt; Maybe Int)
+-&gt; (GetSnapshotBlockResponse
+    -&gt; Maybe Int -&gt; GetSnapshotBlockResponse)
+-&gt; Lens
+     GetSnapshotBlockResponse
+     GetSnapshotBlockResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse%27"><span class="hs-identifier hs-type">GetSnapshotBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155856"><span class="annot"><span class="annottext">Maybe Int
+dataLength :: Maybe Int
+$sel:dataLength:GetSnapshotBlockResponse' :: GetSnapshotBlockResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679155856"><span class="hs-identifier hs-var hs-var">dataLength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155856"><span class="hs-identifier hs-var">dataLength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155855"><span class="annot"><span class="annottext">s :: GetSnapshotBlockResponse
+</span><a href="#local-6989586621679155855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse%27"><span class="hs-identifier hs-type">GetSnapshotBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155854"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSnapshotBlockResponse
+</span><a href="#local-6989586621679155855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataLength:GetSnapshotBlockResponse' :: Maybe Int
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AdataLength%3AGetSnapshotBlockResponse%27"><span class="hs-identifier hs-var">dataLength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679155854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse"><span class="hs-identifier hs-type">GetSnapshotBlockResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The algorithm used to generate the checksum for the block, such as</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- SHA256.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlockResponse_checksumAlgorithm"><span class="hs-identifier hs-type">getSnapshotBlockResponse_checksumAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse"><span class="hs-identifier hs-type">GetSnapshotBlockResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.Types.ChecksumAlgorithm.html#ChecksumAlgorithm"><span class="hs-identifier hs-type">ChecksumAlgorithm</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="getSnapshotBlockResponse_checksumAlgorithm"><span class="annot"><span class="annottext">getSnapshotBlockResponse_checksumAlgorithm :: (Maybe ChecksumAlgorithm -&gt; f (Maybe ChecksumAlgorithm))
+-&gt; GetSnapshotBlockResponse -&gt; f GetSnapshotBlockResponse
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlockResponse_checksumAlgorithm"><span class="hs-identifier hs-var hs-var">getSnapshotBlockResponse_checksumAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSnapshotBlockResponse -&gt; Maybe ChecksumAlgorithm)
+-&gt; (GetSnapshotBlockResponse
+    -&gt; Maybe ChecksumAlgorithm -&gt; GetSnapshotBlockResponse)
+-&gt; Lens
+     GetSnapshotBlockResponse
+     GetSnapshotBlockResponse
+     (Maybe ChecksumAlgorithm)
+     (Maybe ChecksumAlgorithm)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse%27"><span class="hs-identifier hs-type">GetSnapshotBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155853"><span class="annot"><span class="annottext">Maybe ChecksumAlgorithm
+checksumAlgorithm :: Maybe ChecksumAlgorithm
+$sel:checksumAlgorithm:GetSnapshotBlockResponse' :: GetSnapshotBlockResponse -&gt; Maybe ChecksumAlgorithm
+</span><a href="#local-6989586621679155853"><span class="hs-identifier hs-var hs-var">checksumAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChecksumAlgorithm
+</span><a href="#local-6989586621679155853"><span class="hs-identifier hs-var">checksumAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155852"><span class="annot"><span class="annottext">s :: GetSnapshotBlockResponse
+</span><a href="#local-6989586621679155852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse%27"><span class="hs-identifier hs-type">GetSnapshotBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155851"><span class="annot"><span class="annottext">Maybe ChecksumAlgorithm
+</span><a href="#local-6989586621679155851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSnapshotBlockResponse
+</span><a href="#local-6989586621679155852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checksumAlgorithm:GetSnapshotBlockResponse' :: Maybe ChecksumAlgorithm
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AchecksumAlgorithm%3AGetSnapshotBlockResponse%27"><span class="hs-identifier hs-var">checksumAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChecksumAlgorithm
+</span><a href="#local-6989586621679155851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse"><span class="hs-identifier hs-type">GetSnapshotBlockResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The checksum generated for the block, which is Base64 encoded.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlockResponse_checksum"><span class="hs-identifier hs-type">getSnapshotBlockResponse_checksum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse"><span class="hs-identifier hs-type">GetSnapshotBlockResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="getSnapshotBlockResponse_checksum"><span class="annot"><span class="annottext">getSnapshotBlockResponse_checksum :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSnapshotBlockResponse -&gt; f GetSnapshotBlockResponse
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlockResponse_checksum"><span class="hs-identifier hs-var hs-var">getSnapshotBlockResponse_checksum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSnapshotBlockResponse -&gt; Maybe Text)
+-&gt; (GetSnapshotBlockResponse
+    -&gt; Maybe Text -&gt; GetSnapshotBlockResponse)
+-&gt; Lens
+     GetSnapshotBlockResponse
+     GetSnapshotBlockResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse%27"><span class="hs-identifier hs-type">GetSnapshotBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155850"><span class="annot"><span class="annottext">Maybe Text
+checksum :: Maybe Text
+$sel:checksum:GetSnapshotBlockResponse' :: GetSnapshotBlockResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679155850"><span class="hs-identifier hs-var hs-var">checksum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155850"><span class="hs-identifier hs-var">checksum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155849"><span class="annot"><span class="annottext">s :: GetSnapshotBlockResponse
+</span><a href="#local-6989586621679155849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse%27"><span class="hs-identifier hs-type">GetSnapshotBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155848"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSnapshotBlockResponse
+</span><a href="#local-6989586621679155849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checksum:GetSnapshotBlockResponse' :: Maybe Text
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3Achecksum%3AGetSnapshotBlockResponse%27"><span class="hs-identifier hs-var">checksum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse"><span class="hs-identifier hs-type">GetSnapshotBlockResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlockResponse_httpStatus"><span class="hs-identifier hs-type">getSnapshotBlockResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse"><span class="hs-identifier hs-type">GetSnapshotBlockResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-235"></span><span id="getSnapshotBlockResponse_httpStatus"><span class="annot"><span class="annottext">getSnapshotBlockResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetSnapshotBlockResponse -&gt; f GetSnapshotBlockResponse
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlockResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getSnapshotBlockResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSnapshotBlockResponse -&gt; Int)
+-&gt; (GetSnapshotBlockResponse -&gt; Int -&gt; GetSnapshotBlockResponse)
+-&gt; Lens GetSnapshotBlockResponse GetSnapshotBlockResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse%27"><span class="hs-identifier hs-type">GetSnapshotBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155847"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetSnapshotBlockResponse' :: GetSnapshotBlockResponse -&gt; Int
+</span><a href="#local-6989586621679155847"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155847"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155846"><span class="annot"><span class="annottext">s :: GetSnapshotBlockResponse
+</span><a href="#local-6989586621679155846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse%27"><span class="hs-identifier hs-type">GetSnapshotBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155845"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSnapshotBlockResponse
+</span><a href="#local-6989586621679155846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSnapshotBlockResponse' :: Int
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AhttpStatus%3AGetSnapshotBlockResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse"><span class="hs-identifier hs-type">GetSnapshotBlockResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The data content of the block.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlockResponse_blockData"><span class="hs-identifier hs-type">getSnapshotBlockResponse_blockData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse"><span class="hs-identifier hs-type">GetSnapshotBlockResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span>
+</span><span id="line-239"></span><span id="getSnapshotBlockResponse_blockData"><span class="annot"><span class="annottext">getSnapshotBlockResponse_blockData :: (ResponseBody -&gt; f ResponseBody)
+-&gt; GetSnapshotBlockResponse -&gt; f GetSnapshotBlockResponse
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#getSnapshotBlockResponse_blockData"><span class="hs-identifier hs-var hs-var">getSnapshotBlockResponse_blockData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSnapshotBlockResponse -&gt; ResponseBody)
+-&gt; (GetSnapshotBlockResponse
+    -&gt; ResponseBody -&gt; GetSnapshotBlockResponse)
+-&gt; Lens
+     GetSnapshotBlockResponse
+     GetSnapshotBlockResponse
+     ResponseBody
+     ResponseBody
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse%27"><span class="hs-identifier hs-type">GetSnapshotBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155844"><span class="annot"><span class="annottext">ResponseBody
+blockData :: ResponseBody
+$sel:blockData:GetSnapshotBlockResponse' :: GetSnapshotBlockResponse -&gt; ResponseBody
+</span><a href="#local-6989586621679155844"><span class="hs-identifier hs-var hs-var">blockData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679155844"><span class="hs-identifier hs-var">blockData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155843"><span class="annot"><span class="annottext">s :: GetSnapshotBlockResponse
+</span><a href="#local-6989586621679155843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse%27"><span class="hs-identifier hs-type">GetSnapshotBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155842"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679155842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSnapshotBlockResponse
+</span><a href="#local-6989586621679155843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockData:GetSnapshotBlockResponse' :: ResponseBody
+</span><a href="Network.AWS.EBS.GetSnapshotBlock.html#%24sel%3AblockData%3AGetSnapshotBlockResponse%27"><span class="hs-identifier hs-var">blockData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679155842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.GetSnapshotBlock.html#GetSnapshotBlockResponse"><span class="hs-identifier hs-type">GetSnapshotBlockResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span></pre></body></html>

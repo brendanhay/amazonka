@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- /See:/ 'newCacheBehavior' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679405679"><span id="local-6989586621679405680"></span></span><span class="hs-keyword">data</span><span> </span><span id="CacheBehavior"><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-var">CacheBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CacheBehavior%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-var">CacheBehavior'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679405688"><span id="local-6989586621679405689"></span></span><span class="hs-keyword">data</span><span> </span><span id="CacheBehavior"><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-var">CacheBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CacheBehavior%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-var">CacheBehavior'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AallowedMethods%3ACacheBehavior%27"><span class="annot"><span class="annottext">CacheBehavior -&gt; Maybe AllowedMethods
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AallowedMethods%3ACacheBehavior%27"><span class="hs-identifier hs-var hs-var">allowedMethods</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.AllowedMethods.html#AllowedMethods"><span class="hs-identifier hs-type">AllowedMethods</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | A complex type that contains zero or more Lambda\@Edge function</span><span>
@@ -278,7 +278,7 @@
 </span><span id="line-261"></span><span>    </span><span id="%24sel%3AviewerProtocolPolicy%3ACacheBehavior%27"><span class="annot"><span class="annottext">CacheBehavior -&gt; ViewerProtocolPolicy
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AviewerProtocolPolicy%3ACacheBehavior%27"><span class="hs-identifier hs-var hs-var">viewerProtocolPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerProtocolPolicy.html#ViewerProtocolPolicy"><span class="hs-identifier hs-type">ViewerProtocolPolicy</span></a></span><span>
 </span><span id="line-262"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-263"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405656"><span id="local-6989586621679405658"><span class="annot"><span class="annottext">CacheBehavior -&gt; CacheBehavior -&gt; Bool
+</span><span id="line-263"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405665"><span id="local-6989586621679405667"><span class="annot"><span class="annottext">CacheBehavior -&gt; CacheBehavior -&gt; Bool
 (CacheBehavior -&gt; CacheBehavior -&gt; Bool)
 -&gt; (CacheBehavior -&gt; CacheBehavior -&gt; Bool) -&gt; Eq CacheBehavior
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -286,7 +286,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CacheBehavior -&gt; CacheBehavior -&gt; Bool
 == :: CacheBehavior -&gt; CacheBehavior -&gt; Bool
 $c== :: CacheBehavior -&gt; CacheBehavior -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405647"><span id="local-6989586621679405649"><span id="local-6989586621679405651"><span id="local-6989586621679405653"><span class="annot"><span class="annottext">ReadPrec [CacheBehavior]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405656"><span id="local-6989586621679405658"><span id="local-6989586621679405660"><span id="local-6989586621679405662"><span class="annot"><span class="annottext">ReadPrec [CacheBehavior]
 ReadPrec CacheBehavior
 Int -&gt; ReadS CacheBehavior
 ReadS [CacheBehavior]
@@ -306,7 +306,7 @@ readList :: ReadS [CacheBehavior]
 $creadList :: ReadS [CacheBehavior]
 readsPrec :: Int -&gt; ReadS CacheBehavior
 $creadsPrec :: Int -&gt; ReadS CacheBehavior
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405640"><span id="local-6989586621679405642"><span id="local-6989586621679405644"><span class="annot"><span class="annottext">Int -&gt; CacheBehavior -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405649"><span id="local-6989586621679405651"><span id="local-6989586621679405653"><span class="annot"><span class="annottext">Int -&gt; CacheBehavior -&gt; ShowS
 [CacheBehavior] -&gt; ShowS
 CacheBehavior -&gt; String
 (Int -&gt; CacheBehavior -&gt; ShowS)
@@ -546,12 +546,12 @@ $cfrom :: forall x. CacheBehavior -&gt; Rep CacheBehavior x
 </span><span id="line-476"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span>
 </span><span id="line-477"></span><span id="newCacheBehavior"><span class="annot"><span class="annottext">newCacheBehavior :: Text -&gt; Text -&gt; ViewerProtocolPolicy -&gt; CacheBehavior
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#newCacheBehavior"><span class="hs-identifier hs-var hs-var">newCacheBehavior</span></a></span></span><span>
-</span><span id="line-478"></span><span>  </span><span id="local-6989586621679405634"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679405634"><span class="hs-identifier hs-var">pPathPattern_</span></a></span></span><span>
-</span><span id="line-479"></span><span>  </span><span id="local-6989586621679405633"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679405633"><span class="hs-identifier hs-var">pTargetOriginId_</span></a></span></span><span>
-</span><span id="line-480"></span><span>  </span><span id="local-6989586621679405632"><span class="annot"><span class="annottext">ViewerProtocolPolicy
-</span><a href="#local-6989586621679405632"><span class="hs-identifier hs-var">pViewerProtocolPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-478"></span><span>  </span><span id="local-6989586621679405643"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405643"><span class="hs-identifier hs-var">pPathPattern_</span></a></span></span><span>
+</span><span id="line-479"></span><span>  </span><span id="local-6989586621679405642"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405642"><span class="hs-identifier hs-var">pTargetOriginId_</span></a></span></span><span>
+</span><span id="line-480"></span><span>  </span><span id="local-6989586621679405641"><span class="annot"><span class="annottext">ViewerProtocolPolicy
+</span><a href="#local-6989586621679405641"><span class="hs-identifier hs-var">pViewerProtocolPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-481"></span><span>    </span><span class="annot"><span class="annottext">CacheBehavior' :: Maybe AllowedMethods
 -&gt; Maybe LambdaFunctionAssociations
 -&gt; Maybe Integer
@@ -634,13 +634,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-497"></span><span>        </span><span class="annot"><span class="annottext">$sel:pathPattern:CacheBehavior' :: Text
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3ApathPattern%3ACacheBehavior%27"><span class="hs-identifier hs-var">pathPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679405634"><span class="hs-identifier hs-var">pPathPattern_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405643"><span class="hs-identifier hs-var">pPathPattern_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-498"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetOriginId:CacheBehavior' :: Text
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AtargetOriginId%3ACacheBehavior%27"><span class="hs-identifier hs-var">targetOriginId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679405633"><span class="hs-identifier hs-var">pTargetOriginId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405642"><span class="hs-identifier hs-var">pTargetOriginId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-499"></span><span>        </span><span class="annot"><span class="annottext">$sel:viewerProtocolPolicy:CacheBehavior' :: ViewerProtocolPolicy
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AviewerProtocolPolicy%3ACacheBehavior%27"><span class="hs-identifier hs-var">viewerProtocolPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ViewerProtocolPolicy
-</span><a href="#local-6989586621679405632"><span class="hs-identifier hs-var">pViewerProtocolPolicy_</span></a></span><span>
+</span><a href="#local-6989586621679405641"><span class="hs-identifier hs-var">pViewerProtocolPolicy_</span></a></span><span>
 </span><span id="line-500"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-501"></span><span>
 </span><span id="line-502"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -655,16 +655,16 @@ forall a. Maybe a
      (Maybe AllowedMethods)
      (Maybe AllowedMethods)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405628"><span class="annot"><span class="annottext">Maybe AllowedMethods
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405637"><span class="annot"><span class="annottext">Maybe AllowedMethods
 allowedMethods :: Maybe AllowedMethods
 $sel:allowedMethods:CacheBehavior' :: CacheBehavior -&gt; Maybe AllowedMethods
-</span><a href="#local-6989586621679405628"><span class="hs-identifier hs-var hs-var">allowedMethods</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AllowedMethods
-</span><a href="#local-6989586621679405628"><span class="hs-identifier hs-var">allowedMethods</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405627"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405626"><span class="annot"><span class="annottext">Maybe AllowedMethods
-</span><a href="#local-6989586621679405626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedMethods:CacheBehavior' :: Maybe AllowedMethods
+</span><a href="#local-6989586621679405637"><span class="hs-identifier hs-var hs-var">allowedMethods</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AllowedMethods
+</span><a href="#local-6989586621679405637"><span class="hs-identifier hs-var">allowedMethods</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405636"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405635"><span class="annot"><span class="annottext">Maybe AllowedMethods
+</span><a href="#local-6989586621679405635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedMethods:CacheBehavior' :: Maybe AllowedMethods
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AallowedMethods%3ACacheBehavior%27"><span class="hs-identifier hs-var">allowedMethods</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AllowedMethods
-</span><a href="#local-6989586621679405626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-505"></span><span>
 </span><span id="line-506"></span><span class="hs-comment">-- | A complex type that contains zero or more Lambda\@Edge function</span><span>
 </span><span id="line-507"></span><span class="hs-comment">-- associations for a cache behavior.</span><span>
@@ -681,16 +681,16 @@ $sel:allowedMethods:CacheBehavior' :: CacheBehavior -&gt; Maybe AllowedMethods
      (Maybe LambdaFunctionAssociations)
      (Maybe LambdaFunctionAssociations)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405624"><span class="annot"><span class="annottext">Maybe LambdaFunctionAssociations
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405633"><span class="annot"><span class="annottext">Maybe LambdaFunctionAssociations
 lambdaFunctionAssociations :: Maybe LambdaFunctionAssociations
 $sel:lambdaFunctionAssociations:CacheBehavior' :: CacheBehavior -&gt; Maybe LambdaFunctionAssociations
-</span><a href="#local-6989586621679405624"><span class="hs-identifier hs-var hs-var">lambdaFunctionAssociations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFunctionAssociations
-</span><a href="#local-6989586621679405624"><span class="hs-identifier hs-var">lambdaFunctionAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405623"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405622"><span class="annot"><span class="annottext">Maybe LambdaFunctionAssociations
-</span><a href="#local-6989586621679405622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaFunctionAssociations:CacheBehavior' :: Maybe LambdaFunctionAssociations
+</span><a href="#local-6989586621679405633"><span class="hs-identifier hs-var hs-var">lambdaFunctionAssociations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFunctionAssociations
+</span><a href="#local-6989586621679405633"><span class="hs-identifier hs-var">lambdaFunctionAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405632"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405631"><span class="annot"><span class="annottext">Maybe LambdaFunctionAssociations
+</span><a href="#local-6989586621679405631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaFunctionAssociations:CacheBehavior' :: Maybe LambdaFunctionAssociations
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AlambdaFunctionAssociations%3ACacheBehavior%27"><span class="hs-identifier hs-var">lambdaFunctionAssociations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFunctionAssociations
-</span><a href="#local-6989586621679405622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-510"></span><span>
 </span><span id="line-511"></span><span class="hs-comment">-- | This field is deprecated. We recommend that you use the @MaxTTL@ field</span><span>
 </span><span id="line-512"></span><span class="hs-comment">-- in a cache policy instead of this field. For more information, see</span><span>
@@ -714,16 +714,16 @@ $sel:lambdaFunctionAssociations:CacheBehavior' :: CacheBehavior -&gt; Maybe Lamb
 -&gt; (CacheBehavior -&gt; Maybe Integer -&gt; CacheBehavior)
 -&gt; Lens CacheBehavior CacheBehavior (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405620"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405629"><span class="annot"><span class="annottext">Maybe Integer
 maxTTL :: Maybe Integer
 $sel:maxTTL:CacheBehavior' :: CacheBehavior -&gt; Maybe Integer
-</span><a href="#local-6989586621679405620"><span class="hs-identifier hs-var hs-var">maxTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679405620"><span class="hs-identifier hs-var">maxTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405619"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405618"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679405618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxTTL:CacheBehavior' :: Maybe Integer
+</span><a href="#local-6989586621679405629"><span class="hs-identifier hs-var hs-var">maxTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679405629"><span class="hs-identifier hs-var">maxTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405628"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405627"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679405627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxTTL:CacheBehavior' :: Maybe Integer
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AmaxTTL%3ACacheBehavior%27"><span class="hs-identifier hs-var">maxTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679405618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-528"></span><span>
 </span><span id="line-529"></span><span class="hs-comment">-- | This field is deprecated. We recommend that you use the @MinTTL@ field</span><span>
 </span><span id="line-530"></span><span class="hs-comment">-- in a cache policy instead of this field. For more information, see</span><span>
@@ -748,16 +748,16 @@ $sel:maxTTL:CacheBehavior' :: CacheBehavior -&gt; Maybe Integer
 -&gt; (CacheBehavior -&gt; Maybe Integer -&gt; CacheBehavior)
 -&gt; Lens CacheBehavior CacheBehavior (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405616"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405625"><span class="annot"><span class="annottext">Maybe Integer
 minTTL :: Maybe Integer
 $sel:minTTL:CacheBehavior' :: CacheBehavior -&gt; Maybe Integer
-</span><a href="#local-6989586621679405616"><span class="hs-identifier hs-var hs-var">minTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679405616"><span class="hs-identifier hs-var">minTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405615"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405614"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679405614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minTTL:CacheBehavior' :: Maybe Integer
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var hs-var">minTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679405625"><span class="hs-identifier hs-var">minTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405624"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405623"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679405623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minTTL:CacheBehavior' :: Maybe Integer
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AminTTL%3ACacheBehavior%27"><span class="hs-identifier hs-var">minTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679405614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-547"></span><span>
 </span><span id="line-548"></span><span class="hs-comment">-- | Whether you want CloudFront to automatically compress certain files for</span><span>
 </span><span id="line-549"></span><span class="hs-comment">-- this cache behavior. If so, specify true; if not, specify false. For</span><span>
@@ -770,16 +770,16 @@ $sel:minTTL:CacheBehavior' :: CacheBehavior -&gt; Maybe Integer
 -&gt; (CacheBehavior -&gt; Maybe Bool -&gt; CacheBehavior)
 -&gt; Lens CacheBehavior CacheBehavior (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405612"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405621"><span class="annot"><span class="annottext">Maybe Bool
 compress :: Maybe Bool
 $sel:compress:CacheBehavior' :: CacheBehavior -&gt; Maybe Bool
-</span><a href="#local-6989586621679405612"><span class="hs-identifier hs-var hs-var">compress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679405612"><span class="hs-identifier hs-var">compress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405611"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405610"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679405610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compress:CacheBehavior' :: Maybe Bool
+</span><a href="#local-6989586621679405621"><span class="hs-identifier hs-var hs-var">compress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405621"><span class="hs-identifier hs-var">compress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405620"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405619"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compress:CacheBehavior' :: Maybe Bool
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3Acompress%3ACacheBehavior%27"><span class="hs-identifier hs-var">compress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679405610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-555"></span><span>
 </span><span id="line-556"></span><span class="hs-comment">-- | Indicates whether you want to distribute media files in the Microsoft</span><span>
 </span><span id="line-557"></span><span class="hs-comment">-- Smooth Streaming format using the origin that is associated with this</span><span>
@@ -793,16 +793,16 @@ $sel:compress:CacheBehavior' :: CacheBehavior -&gt; Maybe Bool
 -&gt; (CacheBehavior -&gt; Maybe Bool -&gt; CacheBehavior)
 -&gt; Lens CacheBehavior CacheBehavior (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405608"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405617"><span class="annot"><span class="annottext">Maybe Bool
 smoothStreaming :: Maybe Bool
 $sel:smoothStreaming:CacheBehavior' :: CacheBehavior -&gt; Maybe Bool
-</span><a href="#local-6989586621679405608"><span class="hs-identifier hs-var hs-var">smoothStreaming</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679405608"><span class="hs-identifier hs-var">smoothStreaming</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405607"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405606"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679405606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smoothStreaming:CacheBehavior' :: Maybe Bool
+</span><a href="#local-6989586621679405617"><span class="hs-identifier hs-var hs-var">smoothStreaming</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405617"><span class="hs-identifier hs-var">smoothStreaming</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405616"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405615"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smoothStreaming:CacheBehavior' :: Maybe Bool
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AsmoothStreaming%3ACacheBehavior%27"><span class="hs-identifier hs-var">smoothStreaming</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679405606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-564"></span><span>
 </span><span id="line-565"></span><span class="hs-comment">-- | A list of key groups that CloudFront can use to validate signed URLs or</span><span>
 </span><span id="line-566"></span><span class="hs-comment">-- signed cookies.</span><span>
@@ -826,16 +826,16 @@ $sel:smoothStreaming:CacheBehavior' :: CacheBehavior -&gt; Maybe Bool
      (Maybe TrustedKeyGroups)
      (Maybe TrustedKeyGroups)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405604"><span class="annot"><span class="annottext">Maybe TrustedKeyGroups
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405613"><span class="annot"><span class="annottext">Maybe TrustedKeyGroups
 trustedKeyGroups :: Maybe TrustedKeyGroups
 $sel:trustedKeyGroups:CacheBehavior' :: CacheBehavior -&gt; Maybe TrustedKeyGroups
-</span><a href="#local-6989586621679405604"><span class="hs-identifier hs-var hs-var">trustedKeyGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrustedKeyGroups
-</span><a href="#local-6989586621679405604"><span class="hs-identifier hs-var">trustedKeyGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405603"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405602"><span class="annot"><span class="annottext">Maybe TrustedKeyGroups
-</span><a href="#local-6989586621679405602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustedKeyGroups:CacheBehavior' :: Maybe TrustedKeyGroups
+</span><a href="#local-6989586621679405613"><span class="hs-identifier hs-var hs-var">trustedKeyGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrustedKeyGroups
+</span><a href="#local-6989586621679405613"><span class="hs-identifier hs-var">trustedKeyGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405612"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405611"><span class="annot"><span class="annottext">Maybe TrustedKeyGroups
+</span><a href="#local-6989586621679405611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustedKeyGroups:CacheBehavior' :: Maybe TrustedKeyGroups
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AtrustedKeyGroups%3ACacheBehavior%27"><span class="hs-identifier hs-var">trustedKeyGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrustedKeyGroups
-</span><a href="#local-6989586621679405602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-578"></span><span>
 </span><span id="line-579"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the real-time log configuration that</span><span>
 </span><span id="line-580"></span><span class="hs-comment">-- is attached to this cache behavior. For more information, see</span><span>
@@ -847,16 +847,16 @@ $sel:trustedKeyGroups:CacheBehavior' :: CacheBehavior -&gt; Maybe TrustedKeyGrou
 -&gt; (CacheBehavior -&gt; Maybe Text -&gt; CacheBehavior)
 -&gt; Lens CacheBehavior CacheBehavior (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405600"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405609"><span class="annot"><span class="annottext">Maybe Text
 realtimeLogConfigArn :: Maybe Text
 $sel:realtimeLogConfigArn:CacheBehavior' :: CacheBehavior -&gt; Maybe Text
-</span><a href="#local-6989586621679405600"><span class="hs-identifier hs-var hs-var">realtimeLogConfigArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405600"><span class="hs-identifier hs-var">realtimeLogConfigArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405599"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405598"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:realtimeLogConfigArn:CacheBehavior' :: Maybe Text
+</span><a href="#local-6989586621679405609"><span class="hs-identifier hs-var hs-var">realtimeLogConfigArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405609"><span class="hs-identifier hs-var">realtimeLogConfigArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405608"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405607"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:realtimeLogConfigArn:CacheBehavior' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3ArealtimeLogConfigArn%3ACacheBehavior%27"><span class="hs-identifier hs-var">realtimeLogConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-585"></span><span>
 </span><span id="line-586"></span><span class="hs-comment">-- | This field is deprecated. We recommend that you use the @DefaultTTL@</span><span>
 </span><span id="line-587"></span><span class="hs-comment">-- field in a cache policy instead of this field. For more information, see</span><span>
@@ -880,16 +880,16 @@ $sel:realtimeLogConfigArn:CacheBehavior' :: CacheBehavior -&gt; Maybe Text
 -&gt; (CacheBehavior -&gt; Maybe Integer -&gt; CacheBehavior)
 -&gt; Lens CacheBehavior CacheBehavior (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405596"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405605"><span class="annot"><span class="annottext">Maybe Integer
 defaultTTL :: Maybe Integer
 $sel:defaultTTL:CacheBehavior' :: CacheBehavior -&gt; Maybe Integer
-</span><a href="#local-6989586621679405596"><span class="hs-identifier hs-var hs-var">defaultTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679405596"><span class="hs-identifier hs-var">defaultTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405595"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405594"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679405594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultTTL:CacheBehavior' :: Maybe Integer
+</span><a href="#local-6989586621679405605"><span class="hs-identifier hs-var hs-var">defaultTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679405605"><span class="hs-identifier hs-var">defaultTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405604"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405603"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679405603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultTTL:CacheBehavior' :: Maybe Integer
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AdefaultTTL%3ACacheBehavior%27"><span class="hs-identifier hs-var">defaultTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679405594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-603"></span><span>
 </span><span id="line-604"></span><span class="hs-comment">-- | This field is deprecated. We recommend that you use a cache policy or an</span><span>
 </span><span id="line-605"></span><span class="hs-comment">-- origin request policy instead of this field. For more information, see</span><span>
@@ -926,16 +926,16 @@ $sel:defaultTTL:CacheBehavior' :: CacheBehavior -&gt; Maybe Integer
      (Maybe ForwardedValues)
      (Maybe ForwardedValues)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405592"><span class="annot"><span class="annottext">Maybe ForwardedValues
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405601"><span class="annot"><span class="annottext">Maybe ForwardedValues
 forwardedValues :: Maybe ForwardedValues
 $sel:forwardedValues:CacheBehavior' :: CacheBehavior -&gt; Maybe ForwardedValues
-</span><a href="#local-6989586621679405592"><span class="hs-identifier hs-var hs-var">forwardedValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ForwardedValues
-</span><a href="#local-6989586621679405592"><span class="hs-identifier hs-var">forwardedValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405591"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405590"><span class="annot"><span class="annottext">Maybe ForwardedValues
-</span><a href="#local-6989586621679405590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forwardedValues:CacheBehavior' :: Maybe ForwardedValues
+</span><a href="#local-6989586621679405601"><span class="hs-identifier hs-var hs-var">forwardedValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ForwardedValues
+</span><a href="#local-6989586621679405601"><span class="hs-identifier hs-var">forwardedValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405600"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405599"><span class="annot"><span class="annottext">Maybe ForwardedValues
+</span><a href="#local-6989586621679405599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forwardedValues:CacheBehavior' :: Maybe ForwardedValues
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AforwardedValues%3ACacheBehavior%27"><span class="hs-identifier hs-var">forwardedValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ForwardedValues
-</span><a href="#local-6989586621679405590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-630"></span><span>
 </span><span id="line-631"></span><span class="hs-comment">-- | We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.</span><span>
 </span><span id="line-632"></span><span class="hs-comment">--</span><span>
@@ -961,16 +961,16 @@ $sel:forwardedValues:CacheBehavior' :: CacheBehavior -&gt; Maybe ForwardedValues
      (Maybe TrustedSigners)
      (Maybe TrustedSigners)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405588"><span class="annot"><span class="annottext">Maybe TrustedSigners
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405597"><span class="annot"><span class="annottext">Maybe TrustedSigners
 trustedSigners :: Maybe TrustedSigners
 $sel:trustedSigners:CacheBehavior' :: CacheBehavior -&gt; Maybe TrustedSigners
-</span><a href="#local-6989586621679405588"><span class="hs-identifier hs-var hs-var">trustedSigners</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrustedSigners
-</span><a href="#local-6989586621679405588"><span class="hs-identifier hs-var">trustedSigners</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405587"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405586"><span class="annot"><span class="annottext">Maybe TrustedSigners
-</span><a href="#local-6989586621679405586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustedSigners:CacheBehavior' :: Maybe TrustedSigners
+</span><a href="#local-6989586621679405597"><span class="hs-identifier hs-var hs-var">trustedSigners</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrustedSigners
+</span><a href="#local-6989586621679405597"><span class="hs-identifier hs-var">trustedSigners</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405596"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405595"><span class="annot"><span class="annottext">Maybe TrustedSigners
+</span><a href="#local-6989586621679405595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustedSigners:CacheBehavior' :: Maybe TrustedSigners
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AtrustedSigners%3ACacheBehavior%27"><span class="hs-identifier hs-var">trustedSigners</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrustedSigners
-</span><a href="#local-6989586621679405586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-646"></span><span>
 </span><span id="line-647"></span><span class="hs-comment">-- | A list of CloudFront functions that are associated with this cache</span><span>
 </span><span id="line-648"></span><span class="hs-comment">-- behavior. CloudFront functions must be published to the @LIVE@ stage to</span><span>
@@ -986,16 +986,16 @@ $sel:trustedSigners:CacheBehavior' :: CacheBehavior -&gt; Maybe TrustedSigners
      (Maybe FunctionAssociations)
      (Maybe FunctionAssociations)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405584"><span class="annot"><span class="annottext">Maybe FunctionAssociations
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405593"><span class="annot"><span class="annottext">Maybe FunctionAssociations
 functionAssociations :: Maybe FunctionAssociations
 $sel:functionAssociations:CacheBehavior' :: CacheBehavior -&gt; Maybe FunctionAssociations
-</span><a href="#local-6989586621679405584"><span class="hs-identifier hs-var hs-var">functionAssociations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionAssociations
-</span><a href="#local-6989586621679405584"><span class="hs-identifier hs-var">functionAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405583"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405582"><span class="annot"><span class="annottext">Maybe FunctionAssociations
-</span><a href="#local-6989586621679405582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionAssociations:CacheBehavior' :: Maybe FunctionAssociations
+</span><a href="#local-6989586621679405593"><span class="hs-identifier hs-var hs-var">functionAssociations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionAssociations
+</span><a href="#local-6989586621679405593"><span class="hs-identifier hs-var">functionAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405592"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405591"><span class="annot"><span class="annottext">Maybe FunctionAssociations
+</span><a href="#local-6989586621679405591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionAssociations:CacheBehavior' :: Maybe FunctionAssociations
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AfunctionAssociations%3ACacheBehavior%27"><span class="hs-identifier hs-var">functionAssociations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionAssociations
-</span><a href="#local-6989586621679405582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-652"></span><span>
 </span><span id="line-653"></span><span class="hs-comment">-- | The unique identifier of the origin request policy that is attached to</span><span>
 </span><span id="line-654"></span><span class="hs-comment">-- this cache behavior. For more information, see</span><span>
@@ -1009,16 +1009,16 @@ $sel:functionAssociations:CacheBehavior' :: CacheBehavior -&gt; Maybe FunctionAs
 -&gt; (CacheBehavior -&gt; Maybe Text -&gt; CacheBehavior)
 -&gt; Lens CacheBehavior CacheBehavior (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405580"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405589"><span class="annot"><span class="annottext">Maybe Text
 originRequestPolicyId :: Maybe Text
 $sel:originRequestPolicyId:CacheBehavior' :: CacheBehavior -&gt; Maybe Text
-</span><a href="#local-6989586621679405580"><span class="hs-identifier hs-var hs-var">originRequestPolicyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405580"><span class="hs-identifier hs-var">originRequestPolicyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405579"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405578"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originRequestPolicyId:CacheBehavior' :: Maybe Text
+</span><a href="#local-6989586621679405589"><span class="hs-identifier hs-var hs-var">originRequestPolicyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405589"><span class="hs-identifier hs-var">originRequestPolicyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405588"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405587"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originRequestPolicyId:CacheBehavior' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AoriginRequestPolicyId%3ACacheBehavior%27"><span class="hs-identifier hs-var">originRequestPolicyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-661"></span><span>
 </span><span id="line-662"></span><span class="hs-comment">-- | The value of @ID@ for the field-level encryption configuration that you</span><span>
 </span><span id="line-663"></span><span class="hs-comment">-- want CloudFront to use for encrypting specific fields of data for this</span><span>
@@ -1029,16 +1029,16 @@ $sel:originRequestPolicyId:CacheBehavior' :: CacheBehavior -&gt; Maybe Text
 -&gt; (CacheBehavior -&gt; Maybe Text -&gt; CacheBehavior)
 -&gt; Lens CacheBehavior CacheBehavior (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405576"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405585"><span class="annot"><span class="annottext">Maybe Text
 fieldLevelEncryptionId :: Maybe Text
 $sel:fieldLevelEncryptionId:CacheBehavior' :: CacheBehavior -&gt; Maybe Text
-</span><a href="#local-6989586621679405576"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405576"><span class="hs-identifier hs-var">fieldLevelEncryptionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405575"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405574"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldLevelEncryptionId:CacheBehavior' :: Maybe Text
+</span><a href="#local-6989586621679405585"><span class="hs-identifier hs-var hs-var">fieldLevelEncryptionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405585"><span class="hs-identifier hs-var">fieldLevelEncryptionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405584"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405583"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldLevelEncryptionId:CacheBehavior' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AfieldLevelEncryptionId%3ACacheBehavior%27"><span class="hs-identifier hs-var">fieldLevelEncryptionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-667"></span><span>
 </span><span id="line-668"></span><span class="hs-comment">-- | The unique identifier of the cache policy that is attached to this cache</span><span>
 </span><span id="line-669"></span><span class="hs-comment">-- behavior. For more information, see</span><span>
@@ -1055,16 +1055,16 @@ $sel:fieldLevelEncryptionId:CacheBehavior' :: CacheBehavior -&gt; Maybe Text
 -&gt; (CacheBehavior -&gt; Maybe Text -&gt; CacheBehavior)
 -&gt; Lens CacheBehavior CacheBehavior (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405572"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405581"><span class="annot"><span class="annottext">Maybe Text
 cachePolicyId :: Maybe Text
 $sel:cachePolicyId:CacheBehavior' :: CacheBehavior -&gt; Maybe Text
-</span><a href="#local-6989586621679405572"><span class="hs-identifier hs-var hs-var">cachePolicyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405572"><span class="hs-identifier hs-var">cachePolicyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405571"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405570"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cachePolicyId:CacheBehavior' :: Maybe Text
+</span><a href="#local-6989586621679405581"><span class="hs-identifier hs-var hs-var">cachePolicyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405581"><span class="hs-identifier hs-var">cachePolicyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405580"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405579"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cachePolicyId:CacheBehavior' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AcachePolicyId%3ACacheBehavior%27"><span class="hs-identifier hs-var">cachePolicyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-679"></span><span>
 </span><span id="line-680"></span><span class="hs-comment">-- | The pattern (for example, @images\/*.jpg@) that specifies which requests</span><span>
 </span><span id="line-681"></span><span class="hs-comment">-- to apply the behavior to. When CloudFront receives a viewer request, the</span><span>
@@ -1089,16 +1089,16 @@ $sel:cachePolicyId:CacheBehavior' :: CacheBehavior -&gt; Maybe Text
 -&gt; (CacheBehavior -&gt; Text -&gt; CacheBehavior)
 -&gt; Lens CacheBehavior CacheBehavior Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405568"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405577"><span class="annot"><span class="annottext">Text
 pathPattern :: Text
 $sel:pathPattern:CacheBehavior' :: CacheBehavior -&gt; Text
-</span><a href="#local-6989586621679405568"><span class="hs-identifier hs-var hs-var">pathPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679405568"><span class="hs-identifier hs-var">pathPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405567"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405566"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679405566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathPattern:CacheBehavior' :: Text
+</span><a href="#local-6989586621679405577"><span class="hs-identifier hs-var hs-var">pathPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405577"><span class="hs-identifier hs-var">pathPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405576"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405575"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathPattern:CacheBehavior' :: Text
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3ApathPattern%3ACacheBehavior%27"><span class="hs-identifier hs-var">pathPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679405566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-699"></span><span>
 </span><span id="line-700"></span><span class="hs-comment">-- | The value of @ID@ for the origin that you want CloudFront to route</span><span>
 </span><span id="line-701"></span><span class="hs-comment">-- requests to when they match this cache behavior.</span><span>
@@ -1108,16 +1108,16 @@ $sel:pathPattern:CacheBehavior' :: CacheBehavior -&gt; Text
 -&gt; (CacheBehavior -&gt; Text -&gt; CacheBehavior)
 -&gt; Lens CacheBehavior CacheBehavior Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405564"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405573"><span class="annot"><span class="annottext">Text
 targetOriginId :: Text
 $sel:targetOriginId:CacheBehavior' :: CacheBehavior -&gt; Text
-</span><a href="#local-6989586621679405564"><span class="hs-identifier hs-var hs-var">targetOriginId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679405564"><span class="hs-identifier hs-var">targetOriginId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405563"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405562"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetOriginId:CacheBehavior' :: Text
+</span><a href="#local-6989586621679405573"><span class="hs-identifier hs-var hs-var">targetOriginId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405573"><span class="hs-identifier hs-var">targetOriginId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405572"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405571"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679405571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetOriginId:CacheBehavior' :: Text
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AtargetOriginId%3ACacheBehavior%27"><span class="hs-identifier hs-var">targetOriginId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-704"></span><span>
 </span><span id="line-705"></span><span class="hs-comment">-- | The protocol that viewers can use to access the files in the origin</span><span>
 </span><span id="line-706"></span><span class="hs-comment">-- specified by @TargetOriginId@ when a request matches the path pattern in</span><span>
@@ -1157,21 +1157,21 @@ $sel:targetOriginId:CacheBehavior' :: CacheBehavior -&gt; Text
      ViewerProtocolPolicy
      ViewerProtocolPolicy
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405560"><span class="annot"><span class="annottext">ViewerProtocolPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405569"><span class="annot"><span class="annottext">ViewerProtocolPolicy
 viewerProtocolPolicy :: ViewerProtocolPolicy
 $sel:viewerProtocolPolicy:CacheBehavior' :: CacheBehavior -&gt; ViewerProtocolPolicy
-</span><a href="#local-6989586621679405560"><span class="hs-identifier hs-var hs-var">viewerProtocolPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerProtocolPolicy
-</span><a href="#local-6989586621679405560"><span class="hs-identifier hs-var">viewerProtocolPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405559"><span class="annot"><span class="annottext">s :: CacheBehavior
-</span><a href="#local-6989586621679405559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405558"><span class="annot"><span class="annottext">ViewerProtocolPolicy
-</span><a href="#local-6989586621679405558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679405559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:viewerProtocolPolicy:CacheBehavior' :: ViewerProtocolPolicy
+</span><a href="#local-6989586621679405569"><span class="hs-identifier hs-var hs-var">viewerProtocolPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerProtocolPolicy
+</span><a href="#local-6989586621679405569"><span class="hs-identifier hs-var">viewerProtocolPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405568"><span class="annot"><span class="annottext">s :: CacheBehavior
+</span><a href="#local-6989586621679405568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405567"><span class="annot"><span class="annottext">ViewerProtocolPolicy
+</span><a href="#local-6989586621679405567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679405568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:viewerProtocolPolicy:CacheBehavior' :: ViewerProtocolPolicy
 </span><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#%24sel%3AviewerProtocolPolicy%3ACacheBehavior%27"><span class="hs-identifier hs-var">viewerProtocolPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ViewerProtocolPolicy
-</span><a href="#local-6989586621679405558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-734"></span><span>
 </span><span id="line-735"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-736"></span><span>  </span><span id="local-6989586621679405555"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CacheBehavior
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679405553"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-736"></span><span>  </span><span id="local-6989586621679405564"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CacheBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679405562"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-737"></span><span>    </span><span class="annot"><span class="annottext">Maybe AllowedMethods
 -&gt; Maybe LambdaFunctionAssociations
 -&gt; Maybe Integer
@@ -1234,7 +1234,7 @@ $sel:viewerProtocolPolicy:CacheBehavior' :: CacheBehavior -&gt; ViewerProtocolPo
       -&gt; CacheBehavior)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AllowedMethods)
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AllowedMethods)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllowedMethods&quot;</span></span><span class="hs-special">)</span><span>
@@ -1280,7 +1280,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; CacheBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LambdaFunctionAssociations)
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LambdaFunctionAssociations)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LambdaFunctionAssociations&quot;</span></span><span class="hs-special">)</span><span>
@@ -1324,7 +1324,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; CacheBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxTTL&quot;</span></span><span class="hs-special">)</span><span>
@@ -1366,7 +1366,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; CacheBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinTTL&quot;</span></span><span class="hs-special">)</span><span>
@@ -1406,7 +1406,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; CacheBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Compress&quot;</span></span><span class="hs-special">)</span><span>
@@ -1444,7 +1444,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; CacheBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SmoothStreaming&quot;</span></span><span class="hs-special">)</span><span>
@@ -1480,7 +1480,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; CacheBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TrustedKeyGroups)
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TrustedKeyGroups)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrustedKeyGroups&quot;</span></span><span class="hs-special">)</span><span>
@@ -1514,7 +1514,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; CacheBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RealtimeLogConfigArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -1546,7 +1546,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; CacheBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultTTL&quot;</span></span><span class="hs-special">)</span><span>
@@ -1576,7 +1576,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; CacheBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ForwardedValues)
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ForwardedValues)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ForwardedValues&quot;</span></span><span class="hs-special">)</span><span>
@@ -1604,7 +1604,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; CacheBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TrustedSigners)
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TrustedSigners)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrustedSigners&quot;</span></span><span class="hs-special">)</span><span>
@@ -1630,7 +1630,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; CacheBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe FunctionAssociations)
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe FunctionAssociations)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FunctionAssociations&quot;</span></span><span class="hs-special">)</span><span>
@@ -1654,7 +1654,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; CacheBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OriginRequestPolicyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -1673,7 +1673,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Text -&gt; Text -&gt; ViewerProtocolPolicy -&gt; CacheBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FieldLevelEncryptionId&quot;</span></span><span class="hs-special">)</span><span>
@@ -1686,7 +1686,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Text -&gt; Text -&gt; ViewerProtocolPolicy -&gt; CacheBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CachePolicyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -1696,7 +1696,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Text -&gt; ViewerProtocolPolicy -&gt; CacheBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PathPattern&quot;</span></span><span class="hs-special">)</span><span>
@@ -1705,7 +1705,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (ViewerProtocolPolicy -&gt; CacheBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetOriginId&quot;</span></span><span class="hs-special">)</span><span>
@@ -1714,18 +1714,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String CacheBehavior
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ViewerProtocolPolicy
+</span><a href="#local-6989586621679405562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ViewerProtocolPolicy
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ViewerProtocolPolicy&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-756"></span><span>
-</span><span id="line-757"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405546"><span id="local-6989586621679405548"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span></span></span><span>
+</span><span id="line-757"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405555"><span id="local-6989586621679405557"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span></span></span><span>
 </span><span id="line-758"></span><span>
-</span><span id="line-759"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405543"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span></span><span>
+</span><span id="line-759"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405552"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span></span><span>
 </span><span id="line-760"></span><span>
 </span><span id="line-761"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior"><span class="hs-identifier hs-type">CacheBehavior</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-762"></span><span>  </span><span id="local-6989586621679405539"><span class="annot"><span class="annottext">toXML :: CacheBehavior -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405520"><span id="local-6989586621679405521"><span id="local-6989586621679405522"><span id="local-6989586621679405523"><span id="local-6989586621679405524"><span id="local-6989586621679405525"><span id="local-6989586621679405526"><span id="local-6989586621679405527"><span id="local-6989586621679405528"><span id="local-6989586621679405529"><span id="local-6989586621679405530"><span id="local-6989586621679405531"><span id="local-6989586621679405532"><span id="local-6989586621679405533"><span id="local-6989586621679405534"><span id="local-6989586621679405535"><span id="local-6989586621679405536"><span id="local-6989586621679405537"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-762"></span><span>  </span><span id="local-6989586621679405548"><span class="annot"><span class="annottext">toXML :: CacheBehavior -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CacheBehavior.html#CacheBehavior%27"><span class="hs-identifier hs-type">CacheBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405529"><span id="local-6989586621679405530"><span id="local-6989586621679405531"><span id="local-6989586621679405532"><span id="local-6989586621679405533"><span id="local-6989586621679405534"><span id="local-6989586621679405535"><span id="local-6989586621679405536"><span id="local-6989586621679405537"><span id="local-6989586621679405538"><span id="local-6989586621679405539"><span id="local-6989586621679405540"><span id="local-6989586621679405541"><span id="local-6989586621679405542"><span id="local-6989586621679405543"><span id="local-6989586621679405544"><span id="local-6989586621679405545"><span id="local-6989586621679405546"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Integer
 Maybe Text
 Maybe FunctionAssociations
@@ -1772,7 +1772,7 @@ $sel:minTTL:CacheBehavior' :: CacheBehavior -&gt; Maybe Integer
 $sel:maxTTL:CacheBehavior' :: CacheBehavior -&gt; Maybe Integer
 $sel:lambdaFunctionAssociations:CacheBehavior' :: CacheBehavior -&gt; Maybe LambdaFunctionAssociations
 $sel:allowedMethods:CacheBehavior' :: CacheBehavior -&gt; Maybe AllowedMethods
-</span><a href="#local-6989586621679405520"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679405529"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-763"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -1780,94 +1780,94 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;AllowedMethods&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe AllowedMethods -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe AllowedMethods
-</span><a href="#local-6989586621679405537"><span class="hs-identifier hs-var">allowedMethods</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405546"><span class="hs-identifier hs-var">allowedMethods</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-765"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;LambdaFunctionAssociations&quot;</span></span><span>
 </span><span id="line-766"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe LambdaFunctionAssociations -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFunctionAssociations
-</span><a href="#local-6989586621679405536"><span class="hs-identifier hs-var">lambdaFunctionAssociations</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405545"><span class="hs-identifier hs-var">lambdaFunctionAssociations</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-767"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;MaxTTL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Integer -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679405535"><span class="hs-identifier hs-var">maxTTL</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405544"><span class="hs-identifier hs-var">maxTTL</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-768"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;MinTTL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Integer -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679405534"><span class="hs-identifier hs-var">minTTL</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405543"><span class="hs-identifier hs-var">minTTL</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-769"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Compress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Bool -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679405533"><span class="hs-identifier hs-var">compress</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405542"><span class="hs-identifier hs-var">compress</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-770"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;SmoothStreaming&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Bool -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679405532"><span class="hs-identifier hs-var">smoothStreaming</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405541"><span class="hs-identifier hs-var">smoothStreaming</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-771"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;TrustedKeyGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe TrustedKeyGroups -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrustedKeyGroups
-</span><a href="#local-6989586621679405531"><span class="hs-identifier hs-var">trustedKeyGroups</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405540"><span class="hs-identifier hs-var">trustedKeyGroups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-772"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;RealtimeLogConfigArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405530"><span class="hs-identifier hs-var">realtimeLogConfigArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405539"><span class="hs-identifier hs-var">realtimeLogConfigArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-773"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;DefaultTTL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Integer -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679405529"><span class="hs-identifier hs-var">defaultTTL</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405538"><span class="hs-identifier hs-var">defaultTTL</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-774"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ForwardedValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe ForwardedValues -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ForwardedValues
-</span><a href="#local-6989586621679405528"><span class="hs-identifier hs-var">forwardedValues</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405537"><span class="hs-identifier hs-var">forwardedValues</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-775"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;TrustedSigners&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe TrustedSigners -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrustedSigners
-</span><a href="#local-6989586621679405527"><span class="hs-identifier hs-var">trustedSigners</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405536"><span class="hs-identifier hs-var">trustedSigners</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-776"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;FunctionAssociations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe FunctionAssociations -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe FunctionAssociations
-</span><a href="#local-6989586621679405526"><span class="hs-identifier hs-var">functionAssociations</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405535"><span class="hs-identifier hs-var">functionAssociations</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-777"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;OriginRequestPolicyId&quot;</span></span><span>
 </span><span id="line-778"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405525"><span class="hs-identifier hs-var">originRequestPolicyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405534"><span class="hs-identifier hs-var">originRequestPolicyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-779"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;FieldLevelEncryptionId&quot;</span></span><span>
 </span><span id="line-780"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405524"><span class="hs-identifier hs-var">fieldLevelEncryptionId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405533"><span class="hs-identifier hs-var">fieldLevelEncryptionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-781"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;CachePolicyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405523"><span class="hs-identifier hs-var">cachePolicyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405532"><span class="hs-identifier hs-var">cachePolicyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-782"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;PathPattern&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679405522"><span class="hs-identifier hs-var">pathPattern</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405531"><span class="hs-identifier hs-var">pathPattern</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-783"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;TargetOriginId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679405521"><span class="hs-identifier hs-var">targetOriginId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405530"><span class="hs-identifier hs-var">targetOriginId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-784"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ViewerProtocolPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; ViewerProtocolPolicy -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">ViewerProtocolPolicy
-</span><a href="#local-6989586621679405520"><span class="hs-identifier hs-var">viewerProtocolPolicy</span></a></span><span>
+</span><a href="#local-6989586621679405529"><span class="hs-identifier hs-var">viewerProtocolPolicy</span></a></span><span>
 </span><span id="line-785"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-786"></span></pre></body></html>

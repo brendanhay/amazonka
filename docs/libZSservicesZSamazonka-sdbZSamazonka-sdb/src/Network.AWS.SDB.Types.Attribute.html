@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAttribute' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679149155"><span id="local-6989586621679149156"></span></span><span class="hs-keyword">data</span><span> </span><span id="Attribute"><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-var">Attribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Attribute%27"><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-var">Attribute'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679149164"><span id="local-6989586621679149165"></span></span><span class="hs-keyword">data</span><span> </span><span id="Attribute"><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-var">Attribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Attribute%27"><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-var">Attribute'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AalternateValueEncoding%3AAttribute%27"><span class="annot"><span class="annottext">Attribute -&gt; Maybe Text
 </span><a href="Network.AWS.SDB.Types.Attribute.html#%24sel%3AalternateValueEncoding%3AAttribute%27"><span class="hs-identifier hs-var hs-var">alternateValueEncoding</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AalternateNameEncoding%3AAttribute%27"><span class="annot"><span class="annottext">Attribute -&gt; Maybe Text
@@ -38,7 +38,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Avalue%3AAttribute%27"><span class="annot"><span class="annottext">Attribute -&gt; Text
 </span><a href="Network.AWS.SDB.Types.Attribute.html#%24sel%3Avalue%3AAttribute%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679149146"><span id="local-6989586621679149148"><span class="annot"><span class="annottext">Attribute -&gt; Attribute -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679149155"><span id="local-6989586621679149157"><span class="annot"><span class="annottext">Attribute -&gt; Attribute -&gt; Bool
 (Attribute -&gt; Attribute -&gt; Bool)
 -&gt; (Attribute -&gt; Attribute -&gt; Bool) -&gt; Eq Attribute
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Attribute -&gt; Attribute -&gt; Bool
 == :: Attribute -&gt; Attribute -&gt; Bool
 $c== :: Attribute -&gt; Attribute -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149137"><span id="local-6989586621679149139"><span id="local-6989586621679149141"><span id="local-6989586621679149143"><span class="annot"><span class="annottext">ReadPrec [Attribute]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149146"><span id="local-6989586621679149148"><span id="local-6989586621679149150"><span id="local-6989586621679149152"><span class="annot"><span class="annottext">ReadPrec [Attribute]
 ReadPrec Attribute
 Int -&gt; ReadS Attribute
 ReadS [Attribute]
@@ -66,7 +66,7 @@ readList :: ReadS [Attribute]
 $creadList :: ReadS [Attribute]
 readsPrec :: Int -&gt; ReadS Attribute
 $creadsPrec :: Int -&gt; ReadS Attribute
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149130"><span id="local-6989586621679149132"><span id="local-6989586621679149134"><span class="annot"><span class="annottext">Int -&gt; Attribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149139"><span id="local-6989586621679149141"><span id="local-6989586621679149143"><span class="annot"><span class="annottext">Int -&gt; Attribute -&gt; ShowS
 [Attribute] -&gt; ShowS
 Attribute -&gt; String
 (Int -&gt; Attribute -&gt; ShowS)
@@ -113,9 +113,9 @@ $cfrom :: forall x. Attribute -&gt; Rep Attribute x
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span>
 </span><span id="line-60"></span><span id="newAttribute"><span class="annot"><span class="annottext">newAttribute :: Text -&gt; Text -&gt; Attribute
-</span><a href="Network.AWS.SDB.Types.Attribute.html#newAttribute"><span class="hs-identifier hs-var hs-var">newAttribute</span></a></span></span><span> </span><span id="local-6989586621679149124"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149124"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679149123"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149123"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SDB.Types.Attribute.html#newAttribute"><span class="hs-identifier hs-var hs-var">newAttribute</span></a></span></span><span> </span><span id="local-6989586621679149133"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149133"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679149132"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149132"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">Attribute' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Attribute
 </span><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:alternateValueEncoding:Attribute' :: Maybe Text
@@ -129,10 +129,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Attribute' :: Text
 </span><a href="Network.AWS.SDB.Types.Attribute.html#%24sel%3Aname%3AAttribute%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149124"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679149133"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:Attribute' :: Text
 </span><a href="Network.AWS.SDB.Types.Attribute.html#%24sel%3Avalue%3AAttribute%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149123"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
+</span><a href="#local-6989586621679149132"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
@@ -142,16 +142,16 @@ forall a. Maybe a
 -&gt; (Attribute -&gt; Maybe Text -&gt; Attribute)
 -&gt; Lens Attribute Attribute (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149119"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149128"><span class="annot"><span class="annottext">Maybe Text
 alternateValueEncoding :: Maybe Text
 $sel:alternateValueEncoding:Attribute' :: Attribute -&gt; Maybe Text
-</span><a href="#local-6989586621679149119"><span class="hs-identifier hs-var hs-var">alternateValueEncoding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149119"><span class="hs-identifier hs-var">alternateValueEncoding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149118"><span class="annot"><span class="annottext">s :: Attribute
-</span><a href="#local-6989586621679149118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149117"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
-</span><a href="#local-6989586621679149118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alternateValueEncoding:Attribute' :: Maybe Text
+</span><a href="#local-6989586621679149128"><span class="hs-identifier hs-var hs-var">alternateValueEncoding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149128"><span class="hs-identifier hs-var">alternateValueEncoding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149127"><span class="annot"><span class="annottext">s :: Attribute
+</span><a href="#local-6989586621679149127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149126"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
+</span><a href="#local-6989586621679149127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alternateValueEncoding:Attribute' :: Maybe Text
 </span><a href="Network.AWS.SDB.Types.Attribute.html#%24sel%3AalternateValueEncoding%3AAttribute%27"><span class="hs-identifier hs-var">alternateValueEncoding</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679149126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#attribute_alternateNameEncoding"><span class="hs-identifier hs-type">attribute_alternateNameEncoding</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -160,16 +160,16 @@ $sel:alternateValueEncoding:Attribute' :: Attribute -&gt; Maybe Text
 -&gt; (Attribute -&gt; Maybe Text -&gt; Attribute)
 -&gt; Lens Attribute Attribute (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149115"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149124"><span class="annot"><span class="annottext">Maybe Text
 alternateNameEncoding :: Maybe Text
 $sel:alternateNameEncoding:Attribute' :: Attribute -&gt; Maybe Text
-</span><a href="#local-6989586621679149115"><span class="hs-identifier hs-var hs-var">alternateNameEncoding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149115"><span class="hs-identifier hs-var">alternateNameEncoding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149114"><span class="annot"><span class="annottext">s :: Attribute
-</span><a href="#local-6989586621679149114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149113"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
-</span><a href="#local-6989586621679149114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alternateNameEncoding:Attribute' :: Maybe Text
+</span><a href="#local-6989586621679149124"><span class="hs-identifier hs-var hs-var">alternateNameEncoding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149124"><span class="hs-identifier hs-var">alternateNameEncoding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149123"><span class="annot"><span class="annottext">s :: Attribute
+</span><a href="#local-6989586621679149123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149122"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
+</span><a href="#local-6989586621679149123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alternateNameEncoding:Attribute' :: Maybe Text
 </span><a href="Network.AWS.SDB.Types.Attribute.html#%24sel%3AalternateNameEncoding%3AAttribute%27"><span class="hs-identifier hs-var">alternateNameEncoding</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679149122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The name of the attribute.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#attribute_name"><span class="hs-identifier hs-type">attribute_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -178,16 +178,16 @@ $sel:alternateNameEncoding:Attribute' :: Attribute -&gt; Maybe Text
 -&gt; (Attribute -&gt; Text -&gt; Attribute)
 -&gt; Lens Attribute Attribute Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149111"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149120"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:Attribute' :: Attribute -&gt; Text
-</span><a href="#local-6989586621679149111"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149111"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149110"><span class="annot"><span class="annottext">s :: Attribute
-</span><a href="#local-6989586621679149110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149109"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
-</span><a href="#local-6989586621679149110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Attribute' :: Text
+</span><a href="#local-6989586621679149120"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149120"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149119"><span class="annot"><span class="annottext">s :: Attribute
+</span><a href="#local-6989586621679149119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149118"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
+</span><a href="#local-6989586621679149119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Attribute' :: Text
 </span><a href="Network.AWS.SDB.Types.Attribute.html#%24sel%3Aname%3AAttribute%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679149118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The value of the attribute.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#attribute_value"><span class="hs-identifier hs-type">attribute_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -196,21 +196,21 @@ $sel:name:Attribute' :: Attribute -&gt; Text
 -&gt; (Attribute -&gt; Text -&gt; Attribute)
 -&gt; Lens Attribute Attribute Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149107"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149116"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:Attribute' :: Attribute -&gt; Text
-</span><a href="#local-6989586621679149107"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149107"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149106"><span class="annot"><span class="annottext">s :: Attribute
-</span><a href="#local-6989586621679149106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149105"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
-</span><a href="#local-6989586621679149106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Attribute' :: Text
+</span><a href="#local-6989586621679149116"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149116"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149115"><span class="annot"><span class="annottext">s :: Attribute
+</span><a href="#local-6989586621679149115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149114"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
+</span><a href="#local-6989586621679149115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Attribute' :: Text
 </span><a href="Network.AWS.SDB.Types.Attribute.html#%24sel%3Avalue%3AAttribute%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679149114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679149102"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Attribute
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679149100"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679149100"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679149111"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Attribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679149109"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679149109"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Attribute
 </span><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-var">Attribute'</span></a></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Attribute)
@@ -218,7 +218,7 @@ $sel:value:Attribute' :: Attribute -&gt; Text
 -&gt; Either String (Maybe Text -&gt; Text -&gt; Text -&gt; Attribute)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679149100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679149109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlternateValueEncoding&quot;</span></span><span class="hs-special">)</span><span>
@@ -227,7 +227,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Text -&gt; Text -&gt; Attribute)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679149100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679149109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlternateNameEncoding&quot;</span></span><span class="hs-special">)</span><span>
@@ -235,7 +235,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Text -&gt; Either String (Text -&gt; Attribute)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679149100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679149109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -243,18 +243,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String Attribute
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679149100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679149109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149093"><span id="local-6989586621679149095"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149102"><span id="local-6989586621679149104"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149090"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149099"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679149086"><span class="annot"><span class="annottext">toQuery :: Attribute -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149081"><span id="local-6989586621679149082"><span id="local-6989586621679149083"><span id="local-6989586621679149084"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679149095"><span class="annot"><span class="annottext">toQuery :: Attribute -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149090"><span id="local-6989586621679149091"><span id="local-6989586621679149092"><span id="local-6989586621679149093"><span class="annot"><span class="annottext">Maybe Text
 Text
 value :: Text
 name :: Text
@@ -264,7 +264,7 @@ $sel:value:Attribute' :: Attribute -&gt; Text
 $sel:name:Attribute' :: Attribute -&gt; Text
 $sel:alternateNameEncoding:Attribute' :: Attribute -&gt; Maybe Text
 $sel:alternateValueEncoding:Attribute' :: Attribute -&gt; Maybe Text
-</span><a href="#local-6989586621679149081"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679149090"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -273,22 +273,22 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149084"><span class="hs-identifier hs-var">alternateValueEncoding</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679149093"><span class="hs-identifier hs-var">alternateValueEncoding</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AlternateNameEncoding&quot;</span></span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149083"><span class="hs-identifier hs-var">alternateNameEncoding</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679149092"><span class="hs-identifier hs-var">alternateNameEncoding</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149082"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679149091"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149081"><span class="hs-identifier hs-var">value</span></a></span><span>
+</span><a href="#local-6989586621679149090"><span class="hs-identifier hs-var">value</span></a></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span></pre></body></html>

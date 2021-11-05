@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes service integrations with VPC Flow logs.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newIntegrateServices' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681132087"><span id="local-6989586621681132088"></span></span><span class="hs-keyword">data</span><span> </span><span id="IntegrateServices"><span class="annot"><a href="Network.AWS.EC2.Types.IntegrateServices.html#IntegrateServices"><span class="hs-identifier hs-var">IntegrateServices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntegrateServices%27"><span class="annot"><a href="Network.AWS.EC2.Types.IntegrateServices.html#IntegrateServices%27"><span class="hs-identifier hs-var">IntegrateServices'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681132096"><span id="local-6989586621681132097"></span></span><span class="hs-keyword">data</span><span> </span><span id="IntegrateServices"><span class="annot"><a href="Network.AWS.EC2.Types.IntegrateServices.html#IntegrateServices"><span class="hs-identifier hs-var">IntegrateServices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntegrateServices%27"><span class="annot"><a href="Network.AWS.EC2.Types.IntegrateServices.html#IntegrateServices%27"><span class="hs-identifier hs-var">IntegrateServices'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the integration with Amazon Athena.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AathenaIntegrations%3AIntegrateServices%27"><span class="annot"><span class="annottext">IntegrateServices -&gt; Maybe (NonEmpty AthenaIntegration)
 </span><a href="Network.AWS.EC2.Types.IntegrateServices.html#%24sel%3AathenaIntegrations%3AIntegrateServices%27"><span class="hs-identifier hs-var hs-var">athenaIntegrations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AthenaIntegration.html#AthenaIntegration"><span class="hs-identifier hs-type">AthenaIntegration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681132081"><span id="local-6989586621681132083"><span class="annot"><span class="annottext">IntegrateServices -&gt; IntegrateServices -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681132090"><span id="local-6989586621681132092"><span class="annot"><span class="annottext">IntegrateServices -&gt; IntegrateServices -&gt; Bool
 (IntegrateServices -&gt; IntegrateServices -&gt; Bool)
 -&gt; (IntegrateServices -&gt; IntegrateServices -&gt; Bool)
 -&gt; Eq IntegrateServices
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IntegrateServices -&gt; IntegrateServices -&gt; Bool
 == :: IntegrateServices -&gt; IntegrateServices -&gt; Bool
 $c== :: IntegrateServices -&gt; IntegrateServices -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681132072"><span id="local-6989586621681132074"><span id="local-6989586621681132076"><span id="local-6989586621681132078"><span class="annot"><span class="annottext">ReadPrec [IntegrateServices]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681132081"><span id="local-6989586621681132083"><span id="local-6989586621681132085"><span id="local-6989586621681132087"><span class="annot"><span class="annottext">ReadPrec [IntegrateServices]
 ReadPrec IntegrateServices
 Int -&gt; ReadS IntegrateServices
 ReadS [IntegrateServices]
@@ -62,7 +62,7 @@ readList :: ReadS [IntegrateServices]
 $creadList :: ReadS [IntegrateServices]
 readsPrec :: Int -&gt; ReadS IntegrateServices
 $creadsPrec :: Int -&gt; ReadS IntegrateServices
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681132065"><span id="local-6989586621681132067"><span id="local-6989586621681132069"><span class="annot"><span class="annottext">Int -&gt; IntegrateServices -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681132074"><span id="local-6989586621681132076"><span id="local-6989586621681132078"><span class="annot"><span class="annottext">Int -&gt; IntegrateServices -&gt; ShowS
 [IntegrateServices] -&gt; ShowS
 IntegrateServices -&gt; String
 (Int -&gt; IntegrateServices -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Maybe a
      (Maybe (NonEmpty AthenaIntegration))
      (Maybe (NonEmpty AthenaIntegration))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.IntegrateServices.html#IntegrateServices%27"><span class="hs-identifier hs-type">IntegrateServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681132056"><span class="annot"><span class="annottext">Maybe (NonEmpty AthenaIntegration)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.IntegrateServices.html#IntegrateServices%27"><span class="hs-identifier hs-type">IntegrateServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681132065"><span class="annot"><span class="annottext">Maybe (NonEmpty AthenaIntegration)
 athenaIntegrations :: Maybe (NonEmpty AthenaIntegration)
 $sel:athenaIntegrations:IntegrateServices' :: IntegrateServices -&gt; Maybe (NonEmpty AthenaIntegration)
-</span><a href="#local-6989586621681132056"><span class="hs-identifier hs-var hs-var">athenaIntegrations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AthenaIntegration)
-</span><a href="#local-6989586621681132056"><span class="hs-identifier hs-var">athenaIntegrations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681132055"><span class="annot"><span class="annottext">s :: IntegrateServices
-</span><a href="#local-6989586621681132055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.IntegrateServices.html#IntegrateServices%27"><span class="hs-identifier hs-type">IntegrateServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681132054"><span class="annot"><span class="annottext">Maybe (NonEmpty AthenaIntegration)
-</span><a href="#local-6989586621681132054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntegrateServices
-</span><a href="#local-6989586621681132055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:athenaIntegrations:IntegrateServices' :: Maybe (NonEmpty AthenaIntegration)
+</span><a href="#local-6989586621681132065"><span class="hs-identifier hs-var hs-var">athenaIntegrations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AthenaIntegration)
+</span><a href="#local-6989586621681132065"><span class="hs-identifier hs-var">athenaIntegrations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681132064"><span class="annot"><span class="annottext">s :: IntegrateServices
+</span><a href="#local-6989586621681132064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.IntegrateServices.html#IntegrateServices%27"><span class="hs-identifier hs-type">IntegrateServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681132063"><span class="annot"><span class="annottext">Maybe (NonEmpty AthenaIntegration)
+</span><a href="#local-6989586621681132063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntegrateServices
+</span><a href="#local-6989586621681132064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:athenaIntegrations:IntegrateServices' :: Maybe (NonEmpty AthenaIntegration)
 </span><a href="Network.AWS.EC2.Types.IntegrateServices.html#%24sel%3AathenaIntegrations%3AIntegrateServices%27"><span class="hs-identifier hs-var">athenaIntegrations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AthenaIntegration)
-</span><a href="#local-6989586621681132054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IntegrateServices.html#IntegrateServices"><span class="hs-identifier hs-type">IntegrateServices</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty AthenaIntegration)
+</span><a href="#local-6989586621681132063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IntegrateServices.html#IntegrateServices"><span class="hs-identifier hs-type">IntegrateServices</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty AthenaIntegration)
   -&gt; f (Maybe (NonEmpty AthenaIntegration)))
  -&gt; IntegrateServices -&gt; f IntegrateServices)
 -&gt; ((Maybe (NonEmpty AthenaIntegration)
@@ -166,16 +166,16 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681132047"><span id="local-6989586621681132049"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IntegrateServices.html#IntegrateServices"><span class="hs-identifier hs-type">IntegrateServices</span></a></span></span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681132056"><span id="local-6989586621681132058"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IntegrateServices.html#IntegrateServices"><span class="hs-identifier hs-type">IntegrateServices</span></a></span></span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681132044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IntegrateServices.html#IntegrateServices"><span class="hs-identifier hs-type">IntegrateServices</span></a></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681132053"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IntegrateServices.html#IntegrateServices"><span class="hs-identifier hs-type">IntegrateServices</span></a></span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IntegrateServices.html#IntegrateServices"><span class="hs-identifier hs-type">IntegrateServices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621681132040"><span class="annot"><span class="annottext">toQuery :: IntegrateServices -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IntegrateServices.html#IntegrateServices%27"><span class="hs-identifier hs-type">IntegrateServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681132038"><span class="annot"><span class="annottext">Maybe (NonEmpty AthenaIntegration)
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621681132049"><span class="annot"><span class="annottext">toQuery :: IntegrateServices -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IntegrateServices.html#IntegrateServices%27"><span class="hs-identifier hs-type">IntegrateServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681132047"><span class="annot"><span class="annottext">Maybe (NonEmpty AthenaIntegration)
 athenaIntegrations :: Maybe (NonEmpty AthenaIntegration)
 $sel:athenaIntegrations:IntegrateServices' :: IntegrateServices -&gt; Maybe (NonEmpty AthenaIntegration)
-</span><a href="#local-6989586621681132038"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681132047"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -192,7 +192,7 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe (NonEmpty AthenaIntegration) -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AthenaIntegration)
-</span><a href="#local-6989586621681132038"><span class="hs-identifier hs-var">athenaIntegrations</span></a></span><span>
+</span><a href="#local-6989586621681132047"><span class="hs-identifier hs-var">athenaIntegrations</span></a></span><span>
 </span><span id="line-68"></span><span>          </span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span></pre></body></html>

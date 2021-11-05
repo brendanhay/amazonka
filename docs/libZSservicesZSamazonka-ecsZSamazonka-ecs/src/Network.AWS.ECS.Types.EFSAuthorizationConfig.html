@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The authorization configuration details for the Amazon EFS file system.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEFSAuthorizationConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679451702"><span id="local-6989586621679451703"></span></span><span class="hs-keyword">data</span><span> </span><span id="EFSAuthorizationConfig"><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig"><span class="hs-identifier hs-var">EFSAuthorizationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EFSAuthorizationConfig%27"><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig%27"><span class="hs-identifier hs-var">EFSAuthorizationConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679451711"><span id="local-6989586621679451712"></span></span><span class="hs-keyword">data</span><span> </span><span id="EFSAuthorizationConfig"><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig"><span class="hs-identifier hs-var">EFSAuthorizationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EFSAuthorizationConfig%27"><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig%27"><span class="hs-identifier hs-var">EFSAuthorizationConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon EFS access point ID to use. If an access point is specified,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the root directory value specified in the @EFSVolumeConfiguration@ must</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- either be omitted or set to @\/@ which will enforce the path set on the</span><span>
@@ -47,7 +47,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3Aiam%3AEFSAuthorizationConfig%27"><span class="annot"><span class="annottext">EFSAuthorizationConfig -&gt; Maybe EFSAuthorizationConfigIAM
 </span><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#%24sel%3Aiam%3AEFSAuthorizationConfig%27"><span class="hs-identifier hs-var hs-var">iam</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfigIAM.html#EFSAuthorizationConfigIAM"><span class="hs-identifier hs-type">EFSAuthorizationConfigIAM</span></a></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679451695"><span id="local-6989586621679451697"><span class="annot"><span class="annottext">EFSAuthorizationConfig -&gt; EFSAuthorizationConfig -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679451704"><span id="local-6989586621679451706"><span class="annot"><span class="annottext">EFSAuthorizationConfig -&gt; EFSAuthorizationConfig -&gt; Bool
 (EFSAuthorizationConfig -&gt; EFSAuthorizationConfig -&gt; Bool)
 -&gt; (EFSAuthorizationConfig -&gt; EFSAuthorizationConfig -&gt; Bool)
 -&gt; Eq EFSAuthorizationConfig
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EFSAuthorizationConfig -&gt; EFSAuthorizationConfig -&gt; Bool
 == :: EFSAuthorizationConfig -&gt; EFSAuthorizationConfig -&gt; Bool
 $c== :: EFSAuthorizationConfig -&gt; EFSAuthorizationConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451686"><span id="local-6989586621679451688"><span id="local-6989586621679451690"><span id="local-6989586621679451692"><span class="annot"><span class="annottext">ReadPrec [EFSAuthorizationConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451695"><span id="local-6989586621679451697"><span id="local-6989586621679451699"><span id="local-6989586621679451701"><span class="annot"><span class="annottext">ReadPrec [EFSAuthorizationConfig]
 ReadPrec EFSAuthorizationConfig
 Int -&gt; ReadS EFSAuthorizationConfig
 ReadS [EFSAuthorizationConfig]
@@ -76,7 +76,7 @@ readList :: ReadS [EFSAuthorizationConfig]
 $creadList :: ReadS [EFSAuthorizationConfig]
 readsPrec :: Int -&gt; ReadS EFSAuthorizationConfig
 $creadsPrec :: Int -&gt; ReadS EFSAuthorizationConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451679"><span id="local-6989586621679451681"><span id="local-6989586621679451683"><span class="annot"><span class="annottext">Int -&gt; EFSAuthorizationConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451688"><span id="local-6989586621679451690"><span id="local-6989586621679451692"><span class="annot"><span class="annottext">Int -&gt; EFSAuthorizationConfig -&gt; ShowS
 [EFSAuthorizationConfig] -&gt; ShowS
 EFSAuthorizationConfig -&gt; String
 (Int -&gt; EFSAuthorizationConfig -&gt; ShowS)
@@ -162,16 +162,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig%27"><span class="hs-identifier hs-type">EFSAuthorizationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451670"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig%27"><span class="hs-identifier hs-type">EFSAuthorizationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451679"><span class="annot"><span class="annottext">Maybe Text
 accessPointId :: Maybe Text
 $sel:accessPointId:EFSAuthorizationConfig' :: EFSAuthorizationConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679451670"><span class="hs-identifier hs-var hs-var">accessPointId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679451670"><span class="hs-identifier hs-var">accessPointId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451669"><span class="annot"><span class="annottext">s :: EFSAuthorizationConfig
-</span><a href="#local-6989586621679451669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig%27"><span class="hs-identifier hs-type">EFSAuthorizationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451668"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679451668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EFSAuthorizationConfig
-</span><a href="#local-6989586621679451669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessPointId:EFSAuthorizationConfig' :: Maybe Text
+</span><a href="#local-6989586621679451679"><span class="hs-identifier hs-var hs-var">accessPointId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679451679"><span class="hs-identifier hs-var">accessPointId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451678"><span class="annot"><span class="annottext">s :: EFSAuthorizationConfig
+</span><a href="#local-6989586621679451678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig%27"><span class="hs-identifier hs-type">EFSAuthorizationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451677"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679451677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EFSAuthorizationConfig
+</span><a href="#local-6989586621679451678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessPointId:EFSAuthorizationConfig' :: Maybe Text
 </span><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#%24sel%3AaccessPointId%3AEFSAuthorizationConfig%27"><span class="hs-identifier hs-var">accessPointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679451668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig"><span class="hs-identifier hs-type">EFSAuthorizationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679451677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig"><span class="hs-identifier hs-type">EFSAuthorizationConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | Whether or not to use the Amazon ECS task IAM role defined in a task</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- definition when mounting the Amazon EFS file system. If enabled, transit</span><span>
@@ -193,19 +193,19 @@ $sel:accessPointId:EFSAuthorizationConfig' :: EFSAuthorizationConfig -&gt; Maybe
      (Maybe EFSAuthorizationConfigIAM)
      (Maybe EFSAuthorizationConfigIAM)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig%27"><span class="hs-identifier hs-type">EFSAuthorizationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451666"><span class="annot"><span class="annottext">Maybe EFSAuthorizationConfigIAM
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig%27"><span class="hs-identifier hs-type">EFSAuthorizationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451675"><span class="annot"><span class="annottext">Maybe EFSAuthorizationConfigIAM
 iam :: Maybe EFSAuthorizationConfigIAM
 $sel:iam:EFSAuthorizationConfig' :: EFSAuthorizationConfig -&gt; Maybe EFSAuthorizationConfigIAM
-</span><a href="#local-6989586621679451666"><span class="hs-identifier hs-var hs-var">iam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EFSAuthorizationConfigIAM
-</span><a href="#local-6989586621679451666"><span class="hs-identifier hs-var">iam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451665"><span class="annot"><span class="annottext">s :: EFSAuthorizationConfig
-</span><a href="#local-6989586621679451665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig%27"><span class="hs-identifier hs-type">EFSAuthorizationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451664"><span class="annot"><span class="annottext">Maybe EFSAuthorizationConfigIAM
-</span><a href="#local-6989586621679451664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EFSAuthorizationConfig
-</span><a href="#local-6989586621679451665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iam:EFSAuthorizationConfig' :: Maybe EFSAuthorizationConfigIAM
+</span><a href="#local-6989586621679451675"><span class="hs-identifier hs-var hs-var">iam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EFSAuthorizationConfigIAM
+</span><a href="#local-6989586621679451675"><span class="hs-identifier hs-var">iam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451674"><span class="annot"><span class="annottext">s :: EFSAuthorizationConfig
+</span><a href="#local-6989586621679451674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig%27"><span class="hs-identifier hs-type">EFSAuthorizationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451673"><span class="annot"><span class="annottext">Maybe EFSAuthorizationConfigIAM
+</span><a href="#local-6989586621679451673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EFSAuthorizationConfig
+</span><a href="#local-6989586621679451674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iam:EFSAuthorizationConfig' :: Maybe EFSAuthorizationConfigIAM
 </span><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#%24sel%3Aiam%3AEFSAuthorizationConfig%27"><span class="hs-identifier hs-var">iam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EFSAuthorizationConfigIAM
-</span><a href="#local-6989586621679451664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig"><span class="hs-identifier hs-type">EFSAuthorizationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679451673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig"><span class="hs-identifier hs-type">EFSAuthorizationConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451661"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig"><span class="hs-identifier hs-type">EFSAuthorizationConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679451659"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EFSAuthorizationConfig
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451670"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig"><span class="hs-identifier hs-type">EFSAuthorizationConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679451668"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EFSAuthorizationConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EFSAuthorizationConfig)
@@ -215,8 +215,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EFSAuthorizationConfig&quot;</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679451656"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679451656"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679451665"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679451665"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe EFSAuthorizationConfigIAM -&gt; EFSAuthorizationConfig
 </span><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig%27"><span class="hs-identifier hs-var">EFSAuthorizationConfig'</span></a></span><span>
@@ -227,7 +227,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe EFSAuthorizationConfigIAM -&gt; EFSAuthorizationConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679451656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679451665"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;accessPointId&quot;</span></span><span class="hs-special">)</span><span>
@@ -236,25 +236,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser EFSAuthorizationConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679451656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EFSAuthorizationConfigIAM)
+</span><a href="#local-6989586621679451665"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EFSAuthorizationConfigIAM)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iam&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451650"><span id="local-6989586621679451652"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig"><span class="hs-identifier hs-type">EFSAuthorizationConfig</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451659"><span id="local-6989586621679451661"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig"><span class="hs-identifier hs-type">EFSAuthorizationConfig</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451647"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig"><span class="hs-identifier hs-type">EFSAuthorizationConfig</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451656"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig"><span class="hs-identifier hs-type">EFSAuthorizationConfig</span></a></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451639"><span id="local-6989586621679451641"><span id="local-6989586621679451643"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig"><span class="hs-identifier hs-type">EFSAuthorizationConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679451637"><span class="annot"><span class="annottext">toJSON :: EFSAuthorizationConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig%27"><span class="hs-identifier hs-type">EFSAuthorizationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451634"><span id="local-6989586621679451635"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451648"><span id="local-6989586621679451650"><span id="local-6989586621679451652"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig"><span class="hs-identifier hs-type">EFSAuthorizationConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679451646"><span class="annot"><span class="annottext">toJSON :: EFSAuthorizationConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig%27"><span class="hs-identifier hs-type">EFSAuthorizationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451643"><span id="local-6989586621679451644"><span class="annot"><span class="annottext">Maybe Text
 Maybe EFSAuthorizationConfigIAM
 iam :: Maybe EFSAuthorizationConfigIAM
 accessPointId :: Maybe Text
 $sel:iam:EFSAuthorizationConfig' :: EFSAuthorizationConfig -&gt; Maybe EFSAuthorizationConfigIAM
 $sel:accessPointId:EFSAuthorizationConfig' :: EFSAuthorizationConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679451634"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679451643"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -266,7 +266,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679451635"><span class="hs-identifier hs-var">accessPointId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679451644"><span class="hs-identifier hs-var">accessPointId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iam&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EFSAuthorizationConfigIAM -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -274,7 +274,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe EFSAuthorizationConfigIAM -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EFSAuthorizationConfigIAM
-</span><a href="#local-6989586621679451634"><span class="hs-identifier hs-var">iam</span></a></span><span>
+</span><a href="#local-6989586621679451643"><span class="hs-identifier hs-var">iam</span></a></span><span>
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span></pre></body></html>

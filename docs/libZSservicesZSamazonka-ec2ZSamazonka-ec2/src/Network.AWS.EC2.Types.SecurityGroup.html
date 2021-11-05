@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes a security group.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSecurityGroup' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681179073"><span id="local-6989586621681179074"></span></span><span class="hs-keyword">data</span><span> </span><span id="SecurityGroup"><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-var">SecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecurityGroup%27"><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-var">SecurityGroup'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681179082"><span id="local-6989586621681179083"></span></span><span class="hs-keyword">data</span><span> </span><span id="SecurityGroup"><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-var">SecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecurityGroup%27"><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-var">SecurityGroup'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | [VPC only] The ID of the VPC for the security group.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AvpcId%3ASecurityGroup%27"><span class="annot"><span class="annottext">SecurityGroup -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.SecurityGroup.html#%24sel%3AvpcId%3ASecurityGroup%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3Adescription%3ASecurityGroup%27"><span class="annot"><span class="annottext">SecurityGroup -&gt; Text
 </span><a href="Network.AWS.EC2.Types.SecurityGroup.html#%24sel%3Adescription%3ASecurityGroup%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681179060"><span id="local-6989586621681179062"><span class="annot"><span class="annottext">SecurityGroup -&gt; SecurityGroup -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681179069"><span id="local-6989586621681179071"><span class="annot"><span class="annottext">SecurityGroup -&gt; SecurityGroup -&gt; Bool
 (SecurityGroup -&gt; SecurityGroup -&gt; Bool)
 -&gt; (SecurityGroup -&gt; SecurityGroup -&gt; Bool) -&gt; Eq SecurityGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SecurityGroup -&gt; SecurityGroup -&gt; Bool
 == :: SecurityGroup -&gt; SecurityGroup -&gt; Bool
 $c== :: SecurityGroup -&gt; SecurityGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681179051"><span id="local-6989586621681179053"><span id="local-6989586621681179055"><span id="local-6989586621681179057"><span class="annot"><span class="annottext">ReadPrec [SecurityGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681179060"><span id="local-6989586621681179062"><span id="local-6989586621681179064"><span id="local-6989586621681179066"><span class="annot"><span class="annottext">ReadPrec [SecurityGroup]
 ReadPrec SecurityGroup
 Int -&gt; ReadS SecurityGroup
 ReadS [SecurityGroup]
@@ -83,7 +83,7 @@ readList :: ReadS [SecurityGroup]
 $creadList :: ReadS [SecurityGroup]
 readsPrec :: Int -&gt; ReadS SecurityGroup
 $creadsPrec :: Int -&gt; ReadS SecurityGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681179044"><span id="local-6989586621681179046"><span id="local-6989586621681179048"><span class="annot"><span class="annottext">Int -&gt; SecurityGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681179053"><span id="local-6989586621681179055"><span id="local-6989586621681179057"><span class="annot"><span class="annottext">Int -&gt; SecurityGroup -&gt; ShowS
 [SecurityGroup] -&gt; ShowS
 SecurityGroup -&gt; String
 (Int -&gt; SecurityGroup -&gt; ShowS)
@@ -144,14 +144,14 @@ $cfrom :: forall x. SecurityGroup -&gt; Rep SecurityGroup x
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span>
 </span><span id="line-85"></span><span id="newSecurityGroup"><span class="annot"><span class="annottext">newSecurityGroup :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; SecurityGroup
 </span><a href="Network.AWS.EC2.Types.SecurityGroup.html#newSecurityGroup"><span class="hs-identifier hs-var hs-var">newSecurityGroup</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621681179038"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179038"><span class="hs-identifier hs-var">pOwnerId_</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621681179037"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179037"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621681179036"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179036"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621681179035"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179035"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621681179047"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681179047"><span class="hs-identifier hs-var">pOwnerId_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621681179046"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681179046"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621681179045"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681179045"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621681179044"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681179044"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">SecurityGroup' :: Maybe Text
 -&gt; Maybe [IpPermission]
 -&gt; Maybe [IpPermission]
@@ -180,16 +180,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:ownerId:SecurityGroup' :: Text
 </span><a href="Network.AWS.EC2.Types.SecurityGroup.html#%24sel%3AownerId%3ASecurityGroup%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179038"><span class="hs-identifier hs-var">pOwnerId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681179047"><span class="hs-identifier hs-var">pOwnerId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:groupId:SecurityGroup' :: Text
 </span><a href="Network.AWS.EC2.Types.SecurityGroup.html#%24sel%3AgroupId%3ASecurityGroup%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179037"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681179046"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:groupName:SecurityGroup' :: Text
 </span><a href="Network.AWS.EC2.Types.SecurityGroup.html#%24sel%3AgroupName%3ASecurityGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179036"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681179045"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:SecurityGroup' :: Text
 </span><a href="Network.AWS.EC2.Types.SecurityGroup.html#%24sel%3Adescription%3ASecurityGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179035"><span class="hs-identifier hs-var">pDescription_</span></a></span><span>
+</span><a href="#local-6989586621681179044"><span class="hs-identifier hs-var">pDescription_</span></a></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | [VPC only] The ID of the VPC for the security group.</span><span>
@@ -199,16 +199,16 @@ forall a. Maybe a
 -&gt; (SecurityGroup -&gt; Maybe Text -&gt; SecurityGroup)
 -&gt; Lens SecurityGroup SecurityGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179031"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179040"><span class="annot"><span class="annottext">Maybe Text
 vpcId :: Maybe Text
 $sel:vpcId:SecurityGroup' :: SecurityGroup -&gt; Maybe Text
-</span><a href="#local-6989586621681179031"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681179031"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179030"><span class="annot"><span class="annottext">s :: SecurityGroup
-</span><a href="#local-6989586621681179030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179029"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681179029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
-</span><a href="#local-6989586621681179030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:SecurityGroup' :: Maybe Text
+</span><a href="#local-6989586621681179040"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681179040"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179039"><span class="annot"><span class="annottext">s :: SecurityGroup
+</span><a href="#local-6989586621681179039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179038"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681179038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
+</span><a href="#local-6989586621681179039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:SecurityGroup' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.SecurityGroup.html#%24sel%3AvpcId%3ASecurityGroup%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681179029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681179038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The inbound rules associated with the security group.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#securityGroup_ipPermissions"><span class="hs-identifier hs-type">securityGroup_ipPermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -222,16 +222,16 @@ $sel:vpcId:SecurityGroup' :: SecurityGroup -&gt; Maybe Text
      (Maybe [IpPermission])
      (Maybe [IpPermission])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179027"><span class="annot"><span class="annottext">Maybe [IpPermission]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179036"><span class="annot"><span class="annottext">Maybe [IpPermission]
 ipPermissions :: Maybe [IpPermission]
 $sel:ipPermissions:SecurityGroup' :: SecurityGroup -&gt; Maybe [IpPermission]
-</span><a href="#local-6989586621681179027"><span class="hs-identifier hs-var hs-var">ipPermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IpPermission]
-</span><a href="#local-6989586621681179027"><span class="hs-identifier hs-var">ipPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179026"><span class="annot"><span class="annottext">s :: SecurityGroup
-</span><a href="#local-6989586621681179026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179025"><span class="annot"><span class="annottext">Maybe [IpPermission]
-</span><a href="#local-6989586621681179025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
-</span><a href="#local-6989586621681179026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipPermissions:SecurityGroup' :: Maybe [IpPermission]
+</span><a href="#local-6989586621681179036"><span class="hs-identifier hs-var hs-var">ipPermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IpPermission]
+</span><a href="#local-6989586621681179036"><span class="hs-identifier hs-var">ipPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179035"><span class="annot"><span class="annottext">s :: SecurityGroup
+</span><a href="#local-6989586621681179035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179034"><span class="annot"><span class="annottext">Maybe [IpPermission]
+</span><a href="#local-6989586621681179034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
+</span><a href="#local-6989586621681179035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipPermissions:SecurityGroup' :: Maybe [IpPermission]
 </span><a href="Network.AWS.EC2.Types.SecurityGroup.html#%24sel%3AipPermissions%3ASecurityGroup%27"><span class="hs-identifier hs-var">ipPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IpPermission]
-</span><a href="#local-6989586621681179025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
+</span><a href="#local-6989586621681179034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
  -&gt; SecurityGroup -&gt; f SecurityGroup)
 -&gt; ((Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
     -&gt; Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
@@ -264,16 +264,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [IpPermission])
      (Maybe [IpPermission])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179020"><span class="annot"><span class="annottext">Maybe [IpPermission]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179029"><span class="annot"><span class="annottext">Maybe [IpPermission]
 ipPermissionsEgress :: Maybe [IpPermission]
 $sel:ipPermissionsEgress:SecurityGroup' :: SecurityGroup -&gt; Maybe [IpPermission]
-</span><a href="#local-6989586621681179020"><span class="hs-identifier hs-var hs-var">ipPermissionsEgress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IpPermission]
-</span><a href="#local-6989586621681179020"><span class="hs-identifier hs-var">ipPermissionsEgress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179019"><span class="annot"><span class="annottext">s :: SecurityGroup
-</span><a href="#local-6989586621681179019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179018"><span class="annot"><span class="annottext">Maybe [IpPermission]
-</span><a href="#local-6989586621681179018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
-</span><a href="#local-6989586621681179019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipPermissionsEgress:SecurityGroup' :: Maybe [IpPermission]
+</span><a href="#local-6989586621681179029"><span class="hs-identifier hs-var hs-var">ipPermissionsEgress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IpPermission]
+</span><a href="#local-6989586621681179029"><span class="hs-identifier hs-var">ipPermissionsEgress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179028"><span class="annot"><span class="annottext">s :: SecurityGroup
+</span><a href="#local-6989586621681179028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179027"><span class="annot"><span class="annottext">Maybe [IpPermission]
+</span><a href="#local-6989586621681179027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
+</span><a href="#local-6989586621681179028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipPermissionsEgress:SecurityGroup' :: Maybe [IpPermission]
 </span><a href="Network.AWS.EC2.Types.SecurityGroup.html#%24sel%3AipPermissionsEgress%3ASecurityGroup%27"><span class="hs-identifier hs-var">ipPermissionsEgress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IpPermission]
-</span><a href="#local-6989586621681179018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
+</span><a href="#local-6989586621681179027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
  -&gt; SecurityGroup -&gt; f SecurityGroup)
 -&gt; ((Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
     -&gt; Maybe [IpPermission] -&gt; f (Maybe [IpPermission]))
@@ -302,16 +302,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (SecurityGroup -&gt; Maybe [Tag] -&gt; SecurityGroup)
 -&gt; Lens SecurityGroup SecurityGroup (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179016"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179025"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:SecurityGroup' :: SecurityGroup -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681179016"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681179016"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179015"><span class="annot"><span class="annottext">s :: SecurityGroup
-</span><a href="#local-6989586621681179015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179014"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681179014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
-</span><a href="#local-6989586621681179015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:SecurityGroup' :: Maybe [Tag]
+</span><a href="#local-6989586621681179025"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681179025"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179024"><span class="annot"><span class="annottext">s :: SecurityGroup
+</span><a href="#local-6989586621681179024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179023"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681179023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
+</span><a href="#local-6989586621681179024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:SecurityGroup' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.SecurityGroup.html#%24sel%3Atags%3ASecurityGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681179014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621681179023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; SecurityGroup -&gt; f SecurityGroup)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -335,16 +335,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (SecurityGroup -&gt; Text -&gt; SecurityGroup)
 -&gt; Lens SecurityGroup SecurityGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179012"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179021"><span class="annot"><span class="annottext">Text
 ownerId :: Text
 $sel:ownerId:SecurityGroup' :: SecurityGroup -&gt; Text
-</span><a href="#local-6989586621681179012"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179012"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179011"><span class="annot"><span class="annottext">s :: SecurityGroup
-</span><a href="#local-6989586621681179011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179010"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
-</span><a href="#local-6989586621681179011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:SecurityGroup' :: Text
+</span><a href="#local-6989586621681179021"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681179021"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179020"><span class="annot"><span class="annottext">s :: SecurityGroup
+</span><a href="#local-6989586621681179020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179019"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681179019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
+</span><a href="#local-6989586621681179020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:SecurityGroup' :: Text
 </span><a href="Network.AWS.EC2.Types.SecurityGroup.html#%24sel%3AownerId%3ASecurityGroup%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681179019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The ID of the security group.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#securityGroup_groupId"><span class="hs-identifier hs-type">securityGroup_groupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -353,16 +353,16 @@ $sel:ownerId:SecurityGroup' :: SecurityGroup -&gt; Text
 -&gt; (SecurityGroup -&gt; Text -&gt; SecurityGroup)
 -&gt; Lens SecurityGroup SecurityGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179008"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179017"><span class="annot"><span class="annottext">Text
 groupId :: Text
 $sel:groupId:SecurityGroup' :: SecurityGroup -&gt; Text
-</span><a href="#local-6989586621681179008"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179008"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179007"><span class="annot"><span class="annottext">s :: SecurityGroup
-</span><a href="#local-6989586621681179007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179006"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
-</span><a href="#local-6989586621681179007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:SecurityGroup' :: Text
+</span><a href="#local-6989586621681179017"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681179017"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179016"><span class="annot"><span class="annottext">s :: SecurityGroup
+</span><a href="#local-6989586621681179016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179015"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681179015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
+</span><a href="#local-6989586621681179016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:SecurityGroup' :: Text
 </span><a href="Network.AWS.EC2.Types.SecurityGroup.html#%24sel%3AgroupId%3ASecurityGroup%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681179015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The name of the security group.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#securityGroup_groupName"><span class="hs-identifier hs-type">securityGroup_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -371,16 +371,16 @@ $sel:groupId:SecurityGroup' :: SecurityGroup -&gt; Text
 -&gt; (SecurityGroup -&gt; Text -&gt; SecurityGroup)
 -&gt; Lens SecurityGroup SecurityGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179004"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179013"><span class="annot"><span class="annottext">Text
 groupName :: Text
 $sel:groupName:SecurityGroup' :: SecurityGroup -&gt; Text
-</span><a href="#local-6989586621681179004"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179004"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179003"><span class="annot"><span class="annottext">s :: SecurityGroup
-</span><a href="#local-6989586621681179003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179002"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
-</span><a href="#local-6989586621681179003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:SecurityGroup' :: Text
+</span><a href="#local-6989586621681179013"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681179013"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179012"><span class="annot"><span class="annottext">s :: SecurityGroup
+</span><a href="#local-6989586621681179012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179011"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681179011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
+</span><a href="#local-6989586621681179012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:SecurityGroup' :: Text
 </span><a href="Network.AWS.EC2.Types.SecurityGroup.html#%24sel%3AgroupName%3ASecurityGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681179011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | A description of the security group.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#securityGroup_description"><span class="hs-identifier hs-type">securityGroup_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -389,21 +389,21 @@ $sel:groupName:SecurityGroup' :: SecurityGroup -&gt; Text
 -&gt; (SecurityGroup -&gt; Text -&gt; SecurityGroup)
 -&gt; Lens SecurityGroup SecurityGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179000"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179009"><span class="annot"><span class="annottext">Text
 description :: Text
 $sel:description:SecurityGroup' :: SecurityGroup -&gt; Text
-</span><a href="#local-6989586621681179000"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681179000"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681178999"><span class="annot"><span class="annottext">s :: SecurityGroup
-</span><a href="#local-6989586621681178999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681178998"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681178998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
-</span><a href="#local-6989586621681178999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:SecurityGroup' :: Text
+</span><a href="#local-6989586621681179009"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681179009"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179008"><span class="annot"><span class="annottext">s :: SecurityGroup
+</span><a href="#local-6989586621681179008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179007"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681179007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
+</span><a href="#local-6989586621681179008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:SecurityGroup' :: Text
 </span><a href="Network.AWS.EC2.Types.SecurityGroup.html#%24sel%3Adescription%3ASecurityGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681178998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681179007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621681178995"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SecurityGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681178993"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681178993"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621681179004"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SecurityGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681179002"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681179002"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [IpPermission]
 -&gt; Maybe [IpPermission]
@@ -436,7 +436,7 @@ $sel:description:SecurityGroup' :: SecurityGroup -&gt; Text
       -&gt; SecurityGroup)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681178993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681179002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vpcId&quot;</span></span><span class="hs-special">)</span><span>
@@ -457,7 +457,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe [Tag] -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; SecurityGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681178993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681179002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ipPermissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -489,7 +489,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
      (Maybe [Tag] -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; SecurityGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681178993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681179002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ipPermissionsEgress&quot;</span></span><span>
@@ -519,7 +519,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Text -&gt; Text -&gt; Text -&gt; Text -&gt; SecurityGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681178993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681179002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -546,7 +546,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Text -&gt; Text -&gt; Text -&gt; SecurityGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681178993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681179002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
@@ -555,7 +555,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; Text -&gt; SecurityGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681178993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681179002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;groupId&quot;</span></span><span class="hs-special">)</span><span>
@@ -563,7 +563,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String (Text -&gt; SecurityGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681178993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681179002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;groupName&quot;</span></span><span class="hs-special">)</span><span>
@@ -571,12 +571,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String SecurityGroup
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681178993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681179002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;groupDescription&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681178983"><span id="local-6989586621681178985"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681178992"><span id="local-6989586621681178994"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span></span></span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681178980"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681178989"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span></span><span>
 </span><span id="line-155"></span></pre></body></html>

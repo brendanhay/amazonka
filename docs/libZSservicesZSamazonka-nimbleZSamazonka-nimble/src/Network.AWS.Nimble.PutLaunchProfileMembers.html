@@ -1,0 +1,660 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Nimble.PutLaunchProfileMembers</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Add\/update users with given persona to launch profile membership.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Nimble.PutLaunchProfileMembers</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier">PutLaunchProfileMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#newPutLaunchProfileMembers"><span class="hs-identifier">newPutLaunchProfileMembers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembers_clientToken"><span class="hs-identifier">putLaunchProfileMembers_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembers_studioId"><span class="hs-identifier">putLaunchProfileMembers_studioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembers_members"><span class="hs-identifier">putLaunchProfileMembers_members</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembers_launchProfileId"><span class="hs-identifier">putLaunchProfileMembers_launchProfileId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembers_identityStoreId"><span class="hs-identifier">putLaunchProfileMembers_identityStoreId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembersResponse"><span class="hs-identifier">PutLaunchProfileMembersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#newPutLaunchProfileMembersResponse"><span class="hs-identifier">newPutLaunchProfileMembersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembersResponse_httpStatus"><span class="hs-identifier">putLaunchProfileMembersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.html"><span class="hs-identifier">Network.AWS.Nimble.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | Information about a launch profile membership.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newPutLaunchProfileMembers' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679290753"><span id="local-6989586621679290754"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLaunchProfileMembers"><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-var">PutLaunchProfileMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLaunchProfileMembers%27"><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers%27"><span class="hs-identifier hs-var">PutLaunchProfileMembers'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | To make an idempotent API request using one of these actions, specify a</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- client token in the request. You should not reuse the same client token</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- for other API requests. If you retry a request that completed</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- successfully using the same client token and the same parameters, the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- retry succeeds without performing any further actions. If you retry a</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- successful request using the same client token, but one or more of the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- parameters are different, the retry fails with a ValidationException</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AclientToken%3APutLaunchProfileMembers%27"><span class="annot"><span class="annottext">PutLaunchProfileMembers -&gt; Maybe Text
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3AclientToken%3APutLaunchProfileMembers%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The studio ID.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AstudioId%3APutLaunchProfileMembers%27"><span class="annot"><span class="annottext">PutLaunchProfileMembers -&gt; Text
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3AstudioId%3APutLaunchProfileMembers%27"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | A list of members.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Amembers%3APutLaunchProfileMembers%27"><span class="annot"><span class="annottext">PutLaunchProfileMembers -&gt; NonEmpty NewLaunchProfileMember
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3Amembers%3APutLaunchProfileMembers%27"><span class="hs-identifier hs-var hs-var">members</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.NewLaunchProfileMember.html#NewLaunchProfileMember"><span class="hs-identifier hs-type">NewLaunchProfileMember</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The launch profile ID.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AlaunchProfileId%3APutLaunchProfileMembers%27"><span class="annot"><span class="annottext">PutLaunchProfileMembers -&gt; Text
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3AlaunchProfileId%3APutLaunchProfileMembers%27"><span class="hs-identifier hs-var hs-var">launchProfileId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The ID of the identity store.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AidentityStoreId%3APutLaunchProfileMembers%27"><span class="annot"><span class="annottext">PutLaunchProfileMembers -&gt; Text
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3AidentityStoreId%3APutLaunchProfileMembers%27"><span class="hs-identifier hs-var hs-var">identityStoreId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290743"><span id="local-6989586621679290745"><span class="annot"><span class="annottext">PutLaunchProfileMembers -&gt; PutLaunchProfileMembers -&gt; Bool
+(PutLaunchProfileMembers -&gt; PutLaunchProfileMembers -&gt; Bool)
+-&gt; (PutLaunchProfileMembers -&gt; PutLaunchProfileMembers -&gt; Bool)
+-&gt; Eq PutLaunchProfileMembers
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutLaunchProfileMembers -&gt; PutLaunchProfileMembers -&gt; Bool
+$c/= :: PutLaunchProfileMembers -&gt; PutLaunchProfileMembers -&gt; Bool
+== :: PutLaunchProfileMembers -&gt; PutLaunchProfileMembers -&gt; Bool
+$c== :: PutLaunchProfileMembers -&gt; PutLaunchProfileMembers -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290734"><span id="local-6989586621679290736"><span id="local-6989586621679290738"><span id="local-6989586621679290740"><span class="annot"><span class="annottext">ReadPrec [PutLaunchProfileMembers]
+ReadPrec PutLaunchProfileMembers
+Int -&gt; ReadS PutLaunchProfileMembers
+ReadS [PutLaunchProfileMembers]
+(Int -&gt; ReadS PutLaunchProfileMembers)
+-&gt; ReadS [PutLaunchProfileMembers]
+-&gt; ReadPrec PutLaunchProfileMembers
+-&gt; ReadPrec [PutLaunchProfileMembers]
+-&gt; Read PutLaunchProfileMembers
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutLaunchProfileMembers]
+$creadListPrec :: ReadPrec [PutLaunchProfileMembers]
+readPrec :: ReadPrec PutLaunchProfileMembers
+$creadPrec :: ReadPrec PutLaunchProfileMembers
+readList :: ReadS [PutLaunchProfileMembers]
+$creadList :: ReadS [PutLaunchProfileMembers]
+readsPrec :: Int -&gt; ReadS PutLaunchProfileMembers
+$creadsPrec :: Int -&gt; ReadS PutLaunchProfileMembers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290727"><span id="local-6989586621679290729"><span id="local-6989586621679290731"><span class="annot"><span class="annottext">Int -&gt; PutLaunchProfileMembers -&gt; ShowS
+[PutLaunchProfileMembers] -&gt; ShowS
+PutLaunchProfileMembers -&gt; String
+(Int -&gt; PutLaunchProfileMembers -&gt; ShowS)
+-&gt; (PutLaunchProfileMembers -&gt; String)
+-&gt; ([PutLaunchProfileMembers] -&gt; ShowS)
+-&gt; Show PutLaunchProfileMembers
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutLaunchProfileMembers] -&gt; ShowS
+$cshowList :: [PutLaunchProfileMembers] -&gt; ShowS
+show :: PutLaunchProfileMembers -&gt; String
+$cshow :: PutLaunchProfileMembers -&gt; String
+showsPrec :: Int -&gt; PutLaunchProfileMembers -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutLaunchProfileMembers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutLaunchProfileMembers -&gt; Rep PutLaunchProfileMembers x)
+-&gt; (forall x.
+    Rep PutLaunchProfileMembers x -&gt; PutLaunchProfileMembers)
+-&gt; Generic PutLaunchProfileMembers
+forall x. Rep PutLaunchProfileMembers x -&gt; PutLaunchProfileMembers
+forall x. PutLaunchProfileMembers -&gt; Rep PutLaunchProfileMembers x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutLaunchProfileMembers x -&gt; PutLaunchProfileMembers
+$cfrom :: forall x. PutLaunchProfileMembers -&gt; Rep PutLaunchProfileMembers x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'PutLaunchProfileMembers' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'clientToken', 'putLaunchProfileMembers_clientToken' - To make an idempotent API request using one of these actions, specify a</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- client token in the request. You should not reuse the same client token</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for other API requests. If you retry a request that completed</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- successfully using the same client token and the same parameters, the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- retry succeeds without performing any further actions. If you retry a</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- successful request using the same client token, but one or more of the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- parameters are different, the retry fails with a ValidationException</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'studioId', 'putLaunchProfileMembers_studioId' - The studio ID.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'members', 'putLaunchProfileMembers_members' - A list of members.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'launchProfileId', 'putLaunchProfileMembers_launchProfileId' - The launch profile ID.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'identityStoreId', 'putLaunchProfileMembers_identityStoreId' - The ID of the identity store.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#newPutLaunchProfileMembers"><span class="hs-identifier hs-type">newPutLaunchProfileMembers</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'studioId'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'members'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.NewLaunchProfileMember.html#NewLaunchProfileMember"><span class="hs-identifier hs-type">NewLaunchProfileMember</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'launchProfileId'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'identityStoreId'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span><span>
+</span><span id="line-110"></span><span id="newPutLaunchProfileMembers"><span class="annot"><span class="annottext">newPutLaunchProfileMembers :: Text
+-&gt; NonEmpty NewLaunchProfileMember
+-&gt; Text
+-&gt; Text
+-&gt; PutLaunchProfileMembers
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#newPutLaunchProfileMembers"><span class="hs-identifier hs-var hs-var">newPutLaunchProfileMembers</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679290722"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290722"><span class="hs-identifier hs-var">pStudioId_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679290721"><span class="annot"><span class="annottext">NonEmpty NewLaunchProfileMember
+</span><a href="#local-6989586621679290721"><span class="hs-identifier hs-var">pMembers_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679290720"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290720"><span class="hs-identifier hs-var">pLaunchProfileId_</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679290719"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290719"><span class="hs-identifier hs-var">pIdentityStoreId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">PutLaunchProfileMembers' :: Maybe Text
+-&gt; Text
+-&gt; NonEmpty NewLaunchProfileMember
+-&gt; Text
+-&gt; Text
+-&gt; PutLaunchProfileMembers
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers%27"><span class="hs-identifier hs-type">PutLaunchProfileMembers'</span></a></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:PutLaunchProfileMembers' :: Maybe Text
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3AclientToken%3APutLaunchProfileMembers%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:studioId:PutLaunchProfileMembers' :: Text
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3AstudioId%3APutLaunchProfileMembers%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290722"><span class="hs-identifier hs-var">pStudioId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:members:PutLaunchProfileMembers' :: NonEmpty NewLaunchProfileMember
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3Amembers%3APutLaunchProfileMembers%27"><span class="hs-identifier hs-var">members</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty NewLaunchProfileMember)
+  (Identity (NonEmpty NewLaunchProfileMember))
+-&gt; Tagged
+     (NonEmpty NewLaunchProfileMember)
+     (Identity (NonEmpty NewLaunchProfileMember))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty NewLaunchProfileMember)
+   (Identity (NonEmpty NewLaunchProfileMember))
+ -&gt; Tagged
+      (NonEmpty NewLaunchProfileMember)
+      (Identity (NonEmpty NewLaunchProfileMember)))
+-&gt; NonEmpty NewLaunchProfileMember
+-&gt; NonEmpty NewLaunchProfileMember
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty NewLaunchProfileMember
+</span><a href="#local-6989586621679290721"><span class="hs-identifier hs-var">pMembers_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:launchProfileId:PutLaunchProfileMembers' :: Text
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3AlaunchProfileId%3APutLaunchProfileMembers%27"><span class="hs-identifier hs-var">launchProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290720"><span class="hs-identifier hs-var">pLaunchProfileId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:identityStoreId:PutLaunchProfileMembers' :: Text
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3AidentityStoreId%3APutLaunchProfileMembers%27"><span class="hs-identifier hs-var">identityStoreId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290719"><span class="hs-identifier hs-var">pIdentityStoreId_</span></a></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | To make an idempotent API request using one of these actions, specify a</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- client token in the request. You should not reuse the same client token</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- for other API requests. If you retry a request that completed</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- successfully using the same client token and the same parameters, the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- retry succeeds without performing any further actions. If you retry a</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- successful request using the same client token, but one or more of the</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- parameters are different, the retry fails with a ValidationException</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembers_clientToken"><span class="hs-identifier hs-type">putLaunchProfileMembers_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="putLaunchProfileMembers_clientToken"><span class="annot"><span class="annottext">putLaunchProfileMembers_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutLaunchProfileMembers -&gt; f PutLaunchProfileMembers
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembers_clientToken"><span class="hs-identifier hs-var hs-var">putLaunchProfileMembers_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLaunchProfileMembers -&gt; Maybe Text)
+-&gt; (PutLaunchProfileMembers
+    -&gt; Maybe Text -&gt; PutLaunchProfileMembers)
+-&gt; Lens
+     PutLaunchProfileMembers
+     PutLaunchProfileMembers
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers%27"><span class="hs-identifier hs-type">PutLaunchProfileMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290714"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; Maybe Text
+</span><a href="#local-6989586621679290714"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290714"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290713"><span class="annot"><span class="annottext">s :: PutLaunchProfileMembers
+</span><a href="#local-6989586621679290713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers%27"><span class="hs-identifier hs-type">PutLaunchProfileMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290712"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLaunchProfileMembers
+</span><a href="#local-6989586621679290713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:PutLaunchProfileMembers' :: Maybe Text
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3AclientToken%3APutLaunchProfileMembers%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The studio ID.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembers_studioId"><span class="hs-identifier hs-type">putLaunchProfileMembers_studioId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-137"></span><span id="putLaunchProfileMembers_studioId"><span class="annot"><span class="annottext">putLaunchProfileMembers_studioId :: (Text -&gt; f Text)
+-&gt; PutLaunchProfileMembers -&gt; f PutLaunchProfileMembers
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembers_studioId"><span class="hs-identifier hs-var hs-var">putLaunchProfileMembers_studioId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLaunchProfileMembers -&gt; Text)
+-&gt; (PutLaunchProfileMembers -&gt; Text -&gt; PutLaunchProfileMembers)
+-&gt; Lens PutLaunchProfileMembers PutLaunchProfileMembers Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers%27"><span class="hs-identifier hs-type">PutLaunchProfileMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290711"><span class="annot"><span class="annottext">Text
+studioId :: Text
+$sel:studioId:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; Text
+</span><a href="#local-6989586621679290711"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290711"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290710"><span class="annot"><span class="annottext">s :: PutLaunchProfileMembers
+</span><a href="#local-6989586621679290710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers%27"><span class="hs-identifier hs-type">PutLaunchProfileMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290709"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLaunchProfileMembers
+</span><a href="#local-6989586621679290710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioId:PutLaunchProfileMembers' :: Text
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3AstudioId%3APutLaunchProfileMembers%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | A list of members.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembers_members"><span class="hs-identifier hs-type">putLaunchProfileMembers_members</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.NewLaunchProfileMember.html#NewLaunchProfileMember"><span class="hs-identifier hs-type">NewLaunchProfileMember</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="putLaunchProfileMembers_members"><span class="annot"><span class="annottext">putLaunchProfileMembers_members :: (NonEmpty NewLaunchProfileMember
+ -&gt; f (NonEmpty NewLaunchProfileMember))
+-&gt; PutLaunchProfileMembers -&gt; f PutLaunchProfileMembers
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembers_members"><span class="hs-identifier hs-var hs-var">putLaunchProfileMembers_members</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLaunchProfileMembers -&gt; NonEmpty NewLaunchProfileMember)
+-&gt; (PutLaunchProfileMembers
+    -&gt; NonEmpty NewLaunchProfileMember -&gt; PutLaunchProfileMembers)
+-&gt; Lens
+     PutLaunchProfileMembers
+     PutLaunchProfileMembers
+     (NonEmpty NewLaunchProfileMember)
+     (NonEmpty NewLaunchProfileMember)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers%27"><span class="hs-identifier hs-type">PutLaunchProfileMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290708"><span class="annot"><span class="annottext">NonEmpty NewLaunchProfileMember
+members :: NonEmpty NewLaunchProfileMember
+$sel:members:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; NonEmpty NewLaunchProfileMember
+</span><a href="#local-6989586621679290708"><span class="hs-identifier hs-var hs-var">members</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty NewLaunchProfileMember
+</span><a href="#local-6989586621679290708"><span class="hs-identifier hs-var">members</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290707"><span class="annot"><span class="annottext">s :: PutLaunchProfileMembers
+</span><a href="#local-6989586621679290707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers%27"><span class="hs-identifier hs-type">PutLaunchProfileMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290706"><span class="annot"><span class="annottext">NonEmpty NewLaunchProfileMember
+</span><a href="#local-6989586621679290706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLaunchProfileMembers
+</span><a href="#local-6989586621679290707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:members:PutLaunchProfileMembers' :: NonEmpty NewLaunchProfileMember
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3Amembers%3APutLaunchProfileMembers%27"><span class="hs-identifier hs-var">members</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty NewLaunchProfileMember
+</span><a href="#local-6989586621679290706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty NewLaunchProfileMember
+  -&gt; f (NonEmpty NewLaunchProfileMember))
+ -&gt; PutLaunchProfileMembers -&gt; f PutLaunchProfileMembers)
+-&gt; ((NonEmpty NewLaunchProfileMember
+     -&gt; f (NonEmpty NewLaunchProfileMember))
+    -&gt; NonEmpty NewLaunchProfileMember
+    -&gt; f (NonEmpty NewLaunchProfileMember))
+-&gt; (NonEmpty NewLaunchProfileMember
+    -&gt; f (NonEmpty NewLaunchProfileMember))
+-&gt; PutLaunchProfileMembers
+-&gt; f PutLaunchProfileMembers
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty NewLaunchProfileMember
+ -&gt; f (NonEmpty NewLaunchProfileMember))
+-&gt; NonEmpty NewLaunchProfileMember
+-&gt; f (NonEmpty NewLaunchProfileMember)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The launch profile ID.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembers_launchProfileId"><span class="hs-identifier hs-type">putLaunchProfileMembers_launchProfileId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-145"></span><span id="putLaunchProfileMembers_launchProfileId"><span class="annot"><span class="annottext">putLaunchProfileMembers_launchProfileId :: (Text -&gt; f Text)
+-&gt; PutLaunchProfileMembers -&gt; f PutLaunchProfileMembers
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembers_launchProfileId"><span class="hs-identifier hs-var hs-var">putLaunchProfileMembers_launchProfileId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLaunchProfileMembers -&gt; Text)
+-&gt; (PutLaunchProfileMembers -&gt; Text -&gt; PutLaunchProfileMembers)
+-&gt; Lens PutLaunchProfileMembers PutLaunchProfileMembers Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers%27"><span class="hs-identifier hs-type">PutLaunchProfileMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290704"><span class="annot"><span class="annottext">Text
+launchProfileId :: Text
+$sel:launchProfileId:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; Text
+</span><a href="#local-6989586621679290704"><span class="hs-identifier hs-var hs-var">launchProfileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290704"><span class="hs-identifier hs-var">launchProfileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290703"><span class="annot"><span class="annottext">s :: PutLaunchProfileMembers
+</span><a href="#local-6989586621679290703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers%27"><span class="hs-identifier hs-type">PutLaunchProfileMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290702"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLaunchProfileMembers
+</span><a href="#local-6989586621679290703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchProfileId:PutLaunchProfileMembers' :: Text
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3AlaunchProfileId%3APutLaunchProfileMembers%27"><span class="hs-identifier hs-var">launchProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The ID of the identity store.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembers_identityStoreId"><span class="hs-identifier hs-type">putLaunchProfileMembers_identityStoreId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-149"></span><span id="putLaunchProfileMembers_identityStoreId"><span class="annot"><span class="annottext">putLaunchProfileMembers_identityStoreId :: (Text -&gt; f Text)
+-&gt; PutLaunchProfileMembers -&gt; f PutLaunchProfileMembers
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembers_identityStoreId"><span class="hs-identifier hs-var hs-var">putLaunchProfileMembers_identityStoreId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLaunchProfileMembers -&gt; Text)
+-&gt; (PutLaunchProfileMembers -&gt; Text -&gt; PutLaunchProfileMembers)
+-&gt; Lens PutLaunchProfileMembers PutLaunchProfileMembers Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers%27"><span class="hs-identifier hs-type">PutLaunchProfileMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290701"><span class="annot"><span class="annottext">Text
+identityStoreId :: Text
+$sel:identityStoreId:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; Text
+</span><a href="#local-6989586621679290701"><span class="hs-identifier hs-var hs-var">identityStoreId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290701"><span class="hs-identifier hs-var">identityStoreId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290700"><span class="annot"><span class="annottext">s :: PutLaunchProfileMembers
+</span><a href="#local-6989586621679290700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers%27"><span class="hs-identifier hs-type">PutLaunchProfileMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290699"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLaunchProfileMembers
+</span><a href="#local-6989586621679290700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityStoreId:PutLaunchProfileMembers' :: Text
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3AidentityStoreId%3APutLaunchProfileMembers%27"><span class="hs-identifier hs-var">identityStoreId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-153"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembersResponse"><span class="hs-identifier hs-type">PutLaunchProfileMembersResponse</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679290695"><span class="annot"><span class="annottext">request :: PutLaunchProfileMembers -&gt; Request PutLaunchProfileMembers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; PutLaunchProfileMembers -&gt; Request PutLaunchProfileMembers
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Nimble.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679290691"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutLaunchProfileMembers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutLaunchProfileMembers)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse PutLaunchProfileMembers))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutLaunchProfileMembers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse PutLaunchProfileMembers)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679290688"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290688"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679290687"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679290687"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679290686"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679290686"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutLaunchProfileMembersResponse
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembersResponse%27"><span class="hs-identifier hs-var">PutLaunchProfileMembersResponse'</span></a></span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutLaunchProfileMembersResponse)
+-&gt; Either String Int
+-&gt; Either String PutLaunchProfileMembersResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290688"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290679"><span id="local-6989586621679290681"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span></span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290676"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679290672"><span class="annot"><span class="annottext">toHeaders :: PutLaunchProfileMembers -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers%27"><span class="hs-identifier hs-type">PutLaunchProfileMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290666"><span id="local-6989586621679290667"><span id="local-6989586621679290668"><span id="local-6989586621679290669"><span id="local-6989586621679290670"><span class="annot"><span class="annottext">Maybe Text
+NonEmpty NewLaunchProfileMember
+Text
+identityStoreId :: Text
+launchProfileId :: Text
+members :: NonEmpty NewLaunchProfileMember
+studioId :: Text
+clientToken :: Maybe Text
+$sel:identityStoreId:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; Text
+$sel:launchProfileId:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; Text
+$sel:members:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; NonEmpty NewLaunchProfileMember
+$sel:studioId:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; Text
+$sel:clientToken:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; Maybe Text
+</span><a href="#local-6989586621679290666"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Client-Token&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290670"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290658"><span id="local-6989586621679290660"><span id="local-6989586621679290662"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679290656"><span class="annot"><span class="annottext">toJSON :: PutLaunchProfileMembers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers%27"><span class="hs-identifier hs-type">PutLaunchProfileMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290650"><span id="local-6989586621679290651"><span id="local-6989586621679290652"><span id="local-6989586621679290653"><span id="local-6989586621679290654"><span class="annot"><span class="annottext">Maybe Text
+NonEmpty NewLaunchProfileMember
+Text
+identityStoreId :: Text
+launchProfileId :: Text
+members :: NonEmpty NewLaunchProfileMember
+studioId :: Text
+clientToken :: Maybe Text
+$sel:identityStoreId:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; Text
+$sel:launchProfileId:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; Text
+$sel:members:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; NonEmpty NewLaunchProfileMember
+$sel:studioId:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; Text
+$sel:clientToken:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; Maybe Text
+</span><a href="#local-6989586621679290650"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-179"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;members&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty NewLaunchProfileMember -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty NewLaunchProfileMember
+</span><a href="#local-6989586621679290652"><span class="hs-identifier hs-var">members</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-181"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;identityStoreId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290650"><span class="hs-identifier hs-var">identityStoreId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679290644"><span class="annot"><span class="annottext">toPath :: PutLaunchProfileMembers -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers%27"><span class="hs-identifier hs-type">PutLaunchProfileMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290638"><span id="local-6989586621679290639"><span id="local-6989586621679290640"><span id="local-6989586621679290641"><span id="local-6989586621679290642"><span class="annot"><span class="annottext">Maybe Text
+NonEmpty NewLaunchProfileMember
+Text
+identityStoreId :: Text
+launchProfileId :: Text
+members :: NonEmpty NewLaunchProfileMember
+studioId :: Text
+clientToken :: Maybe Text
+$sel:identityStoreId:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; Text
+$sel:launchProfileId:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; Text
+$sel:members:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; NonEmpty NewLaunchProfileMember
+$sel:studioId:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; Text
+$sel:clientToken:PutLaunchProfileMembers' :: PutLaunchProfileMembers -&gt; Maybe Text
+</span><a href="#local-6989586621679290638"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-08-01/studios/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290641"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/launch-profiles/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679290639"><span class="hs-identifier hs-var">launchProfileId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/membership&quot;</span></span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembers"><span class="hs-identifier hs-type">PutLaunchProfileMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679290634"><span class="annot"><span class="annottext">toQuery :: PutLaunchProfileMembers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutLaunchProfileMembers -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | /See:/ 'newPutLaunchProfileMembersResponse' smart constructor.</span><span>
+</span><span id="line-199"></span><span id="local-6989586621679290630"><span id="local-6989586621679290631"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLaunchProfileMembersResponse"><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembersResponse"><span class="hs-identifier hs-var">PutLaunchProfileMembersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLaunchProfileMembersResponse%27"><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembersResponse%27"><span class="hs-identifier hs-var">PutLaunchProfileMembersResponse'</span></a></span></span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutLaunchProfileMembersResponse%27"><span class="annot"><span class="annottext">PutLaunchProfileMembersResponse -&gt; Int
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3AhttpStatus%3APutLaunchProfileMembersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290625"><span id="local-6989586621679290627"><span class="annot"><span class="annottext">PutLaunchProfileMembersResponse
+-&gt; PutLaunchProfileMembersResponse -&gt; Bool
+(PutLaunchProfileMembersResponse
+ -&gt; PutLaunchProfileMembersResponse -&gt; Bool)
+-&gt; (PutLaunchProfileMembersResponse
+    -&gt; PutLaunchProfileMembersResponse -&gt; Bool)
+-&gt; Eq PutLaunchProfileMembersResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutLaunchProfileMembersResponse
+-&gt; PutLaunchProfileMembersResponse -&gt; Bool
+$c/= :: PutLaunchProfileMembersResponse
+-&gt; PutLaunchProfileMembersResponse -&gt; Bool
+== :: PutLaunchProfileMembersResponse
+-&gt; PutLaunchProfileMembersResponse -&gt; Bool
+$c== :: PutLaunchProfileMembersResponse
+-&gt; PutLaunchProfileMembersResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290617"><span id="local-6989586621679290619"><span id="local-6989586621679290621"><span id="local-6989586621679290623"><span class="annot"><span class="annottext">ReadPrec [PutLaunchProfileMembersResponse]
+ReadPrec PutLaunchProfileMembersResponse
+Int -&gt; ReadS PutLaunchProfileMembersResponse
+ReadS [PutLaunchProfileMembersResponse]
+(Int -&gt; ReadS PutLaunchProfileMembersResponse)
+-&gt; ReadS [PutLaunchProfileMembersResponse]
+-&gt; ReadPrec PutLaunchProfileMembersResponse
+-&gt; ReadPrec [PutLaunchProfileMembersResponse]
+-&gt; Read PutLaunchProfileMembersResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutLaunchProfileMembersResponse]
+$creadListPrec :: ReadPrec [PutLaunchProfileMembersResponse]
+readPrec :: ReadPrec PutLaunchProfileMembersResponse
+$creadPrec :: ReadPrec PutLaunchProfileMembersResponse
+readList :: ReadS [PutLaunchProfileMembersResponse]
+$creadList :: ReadS [PutLaunchProfileMembersResponse]
+readsPrec :: Int -&gt; ReadS PutLaunchProfileMembersResponse
+$creadsPrec :: Int -&gt; ReadS PutLaunchProfileMembersResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290611"><span id="local-6989586621679290613"><span id="local-6989586621679290615"><span class="annot"><span class="annottext">Int -&gt; PutLaunchProfileMembersResponse -&gt; ShowS
+[PutLaunchProfileMembersResponse] -&gt; ShowS
+PutLaunchProfileMembersResponse -&gt; String
+(Int -&gt; PutLaunchProfileMembersResponse -&gt; ShowS)
+-&gt; (PutLaunchProfileMembersResponse -&gt; String)
+-&gt; ([PutLaunchProfileMembersResponse] -&gt; ShowS)
+-&gt; Show PutLaunchProfileMembersResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutLaunchProfileMembersResponse] -&gt; ShowS
+$cshowList :: [PutLaunchProfileMembersResponse] -&gt; ShowS
+show :: PutLaunchProfileMembersResponse -&gt; String
+$cshow :: PutLaunchProfileMembersResponse -&gt; String
+showsPrec :: Int -&gt; PutLaunchProfileMembersResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutLaunchProfileMembersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutLaunchProfileMembersResponse
+ -&gt; Rep PutLaunchProfileMembersResponse x)
+-&gt; (forall x.
+    Rep PutLaunchProfileMembersResponse x
+    -&gt; PutLaunchProfileMembersResponse)
+-&gt; Generic PutLaunchProfileMembersResponse
+forall x.
+Rep PutLaunchProfileMembersResponse x
+-&gt; PutLaunchProfileMembersResponse
+forall x.
+PutLaunchProfileMembersResponse
+-&gt; Rep PutLaunchProfileMembersResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutLaunchProfileMembersResponse x
+-&gt; PutLaunchProfileMembersResponse
+$cfrom :: forall x.
+PutLaunchProfileMembersResponse
+-&gt; Rep PutLaunchProfileMembersResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Create a value of 'PutLaunchProfileMembersResponse' with all optional fields omitted.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'httpStatus', 'putLaunchProfileMembersResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#newPutLaunchProfileMembersResponse"><span class="hs-identifier hs-type">newPutLaunchProfileMembersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembersResponse"><span class="hs-identifier hs-type">PutLaunchProfileMembersResponse</span></a></span><span>
+</span><span id="line-218"></span><span id="newPutLaunchProfileMembersResponse"><span class="annot"><span class="annottext">newPutLaunchProfileMembersResponse :: Int -&gt; PutLaunchProfileMembersResponse
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#newPutLaunchProfileMembersResponse"><span class="hs-identifier hs-var hs-var">newPutLaunchProfileMembersResponse</span></a></span></span><span> </span><span id="local-6989586621679290608"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290608"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><span class="annottext">PutLaunchProfileMembersResponse' :: Int -&gt; PutLaunchProfileMembersResponse
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembersResponse%27"><span class="hs-identifier hs-type">PutLaunchProfileMembersResponse'</span></a></span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutLaunchProfileMembersResponse' :: Int
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3AhttpStatus%3APutLaunchProfileMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290608"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembersResponse_httpStatus"><span class="hs-identifier hs-type">putLaunchProfileMembersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembersResponse"><span class="hs-identifier hs-type">PutLaunchProfileMembersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-226"></span><span id="putLaunchProfileMembersResponse_httpStatus"><span class="annot"><span class="annottext">putLaunchProfileMembersResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutLaunchProfileMembersResponse
+-&gt; f PutLaunchProfileMembersResponse
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#putLaunchProfileMembersResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putLaunchProfileMembersResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLaunchProfileMembersResponse -&gt; Int)
+-&gt; (PutLaunchProfileMembersResponse
+    -&gt; Int -&gt; PutLaunchProfileMembersResponse)
+-&gt; Lens
+     PutLaunchProfileMembersResponse
+     PutLaunchProfileMembersResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembersResponse%27"><span class="hs-identifier hs-type">PutLaunchProfileMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290607"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutLaunchProfileMembersResponse' :: PutLaunchProfileMembersResponse -&gt; Int
+</span><a href="#local-6989586621679290607"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290607"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290606"><span class="annot"><span class="annottext">s :: PutLaunchProfileMembersResponse
+</span><a href="#local-6989586621679290606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembersResponse%27"><span class="hs-identifier hs-type">PutLaunchProfileMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290605"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLaunchProfileMembersResponse
+</span><a href="#local-6989586621679290606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutLaunchProfileMembersResponse' :: Int
+</span><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#%24sel%3AhttpStatus%3APutLaunchProfileMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembersResponse"><span class="hs-identifier hs-type">PutLaunchProfileMembersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679290603"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.PutLaunchProfileMembers.html#PutLaunchProfileMembersResponse"><span class="hs-identifier hs-type">PutLaunchProfileMembersResponse</span></a></span></span><span>
+</span><span id="line-231"></span></pre></body></html>

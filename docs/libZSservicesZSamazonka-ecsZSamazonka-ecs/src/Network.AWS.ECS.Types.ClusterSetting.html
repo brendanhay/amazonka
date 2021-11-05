@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- enable CloudWatch Container Insights for a cluster.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newClusterSetting' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679449287"><span id="local-6989586621679449288"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClusterSetting"><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting"><span class="hs-identifier hs-var">ClusterSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterSetting%27"><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting%27"><span class="hs-identifier hs-var">ClusterSetting'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679449296"><span id="local-6989586621679449297"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClusterSetting"><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting"><span class="hs-identifier hs-var">ClusterSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterSetting%27"><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting%27"><span class="hs-identifier hs-var">ClusterSetting'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value to set for the cluster setting. The supported values are</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @enabled@ and @disabled@. If @enabled@ is specified, CloudWatch</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Container Insights will be enabled for the cluster, otherwise it will be</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Aname%3AClusterSetting%27"><span class="annot"><span class="annottext">ClusterSetting -&gt; Maybe ClusterSettingName
 </span><a href="Network.AWS.ECS.Types.ClusterSetting.html#%24sel%3Aname%3AClusterSetting%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSettingName.html#ClusterSettingName"><span class="hs-identifier hs-type">ClusterSettingName</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449280"><span id="local-6989586621679449282"><span class="annot"><span class="annottext">ClusterSetting -&gt; ClusterSetting -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449289"><span id="local-6989586621679449291"><span class="annot"><span class="annottext">ClusterSetting -&gt; ClusterSetting -&gt; Bool
 (ClusterSetting -&gt; ClusterSetting -&gt; Bool)
 -&gt; (ClusterSetting -&gt; ClusterSetting -&gt; Bool) -&gt; Eq ClusterSetting
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ClusterSetting -&gt; ClusterSetting -&gt; Bool
 == :: ClusterSetting -&gt; ClusterSetting -&gt; Bool
 $c== :: ClusterSetting -&gt; ClusterSetting -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449271"><span id="local-6989586621679449273"><span id="local-6989586621679449275"><span id="local-6989586621679449277"><span class="annot"><span class="annottext">ReadPrec [ClusterSetting]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449280"><span id="local-6989586621679449282"><span id="local-6989586621679449284"><span id="local-6989586621679449286"><span class="annot"><span class="annottext">ReadPrec [ClusterSetting]
 ReadPrec ClusterSetting
 Int -&gt; ReadS ClusterSetting
 ReadS [ClusterSetting]
@@ -70,7 +70,7 @@ readList :: ReadS [ClusterSetting]
 $creadList :: ReadS [ClusterSetting]
 readsPrec :: Int -&gt; ReadS ClusterSetting
 $creadsPrec :: Int -&gt; ReadS ClusterSetting
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449264"><span id="local-6989586621679449266"><span id="local-6989586621679449268"><span class="annot"><span class="annottext">Int -&gt; ClusterSetting -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449273"><span id="local-6989586621679449275"><span id="local-6989586621679449277"><span class="annot"><span class="annottext">Int -&gt; ClusterSetting -&gt; ShowS
 [ClusterSetting] -&gt; ShowS
 ClusterSetting -&gt; String
 (Int -&gt; ClusterSetting -&gt; ShowS)
@@ -142,16 +142,16 @@ forall a. Maybe a
 -&gt; (ClusterSetting -&gt; Maybe Text -&gt; ClusterSetting)
 -&gt; Lens ClusterSetting ClusterSetting (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting%27"><span class="hs-identifier hs-type">ClusterSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449255"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting%27"><span class="hs-identifier hs-type">ClusterSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449264"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:ClusterSetting' :: ClusterSetting -&gt; Maybe Text
-</span><a href="#local-6989586621679449255"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679449255"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449254"><span class="annot"><span class="annottext">s :: ClusterSetting
-</span><a href="#local-6989586621679449254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting%27"><span class="hs-identifier hs-type">ClusterSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449253"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679449253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterSetting
-</span><a href="#local-6989586621679449254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ClusterSetting' :: Maybe Text
+</span><a href="#local-6989586621679449264"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679449264"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449263"><span class="annot"><span class="annottext">s :: ClusterSetting
+</span><a href="#local-6989586621679449263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting%27"><span class="hs-identifier hs-type">ClusterSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449262"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679449262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterSetting
+</span><a href="#local-6989586621679449263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ClusterSetting' :: Maybe Text
 </span><a href="Network.AWS.ECS.Types.ClusterSetting.html#%24sel%3Avalue%3AClusterSetting%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679449253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting"><span class="hs-identifier hs-type">ClusterSetting</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting"><span class="hs-identifier hs-type">ClusterSetting</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The name of the cluster setting. The only supported value is</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- @containerInsights@.</span><span>
@@ -166,19 +166,19 @@ $sel:value:ClusterSetting' :: ClusterSetting -&gt; Maybe Text
      (Maybe ClusterSettingName)
      (Maybe ClusterSettingName)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting%27"><span class="hs-identifier hs-type">ClusterSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449251"><span class="annot"><span class="annottext">Maybe ClusterSettingName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting%27"><span class="hs-identifier hs-type">ClusterSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449260"><span class="annot"><span class="annottext">Maybe ClusterSettingName
 name :: Maybe ClusterSettingName
 $sel:name:ClusterSetting' :: ClusterSetting -&gt; Maybe ClusterSettingName
-</span><a href="#local-6989586621679449251"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterSettingName
-</span><a href="#local-6989586621679449251"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449250"><span class="annot"><span class="annottext">s :: ClusterSetting
-</span><a href="#local-6989586621679449250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting%27"><span class="hs-identifier hs-type">ClusterSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449249"><span class="annot"><span class="annottext">Maybe ClusterSettingName
-</span><a href="#local-6989586621679449249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterSetting
-</span><a href="#local-6989586621679449250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ClusterSetting' :: Maybe ClusterSettingName
+</span><a href="#local-6989586621679449260"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterSettingName
+</span><a href="#local-6989586621679449260"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449259"><span class="annot"><span class="annottext">s :: ClusterSetting
+</span><a href="#local-6989586621679449259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting%27"><span class="hs-identifier hs-type">ClusterSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449258"><span class="annot"><span class="annottext">Maybe ClusterSettingName
+</span><a href="#local-6989586621679449258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterSetting
+</span><a href="#local-6989586621679449259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ClusterSetting' :: Maybe ClusterSettingName
 </span><a href="Network.AWS.ECS.Types.ClusterSetting.html#%24sel%3Aname%3AClusterSetting%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterSettingName
-</span><a href="#local-6989586621679449249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting"><span class="hs-identifier hs-type">ClusterSetting</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting"><span class="hs-identifier hs-type">ClusterSetting</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449246"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting"><span class="hs-identifier hs-type">ClusterSetting</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679449244"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClusterSetting
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449255"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting"><span class="hs-identifier hs-type">ClusterSetting</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679449253"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClusterSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ClusterSetting)
@@ -188,8 +188,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ClusterSetting&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679449241"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679449241"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679449250"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679449250"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe ClusterSettingName -&gt; ClusterSetting
 </span><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting%27"><span class="hs-identifier hs-var">ClusterSetting'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe ClusterSettingName -&gt; ClusterSetting)
@@ -197,32 +197,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe ClusterSettingName -&gt; ClusterSetting)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679449241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679449250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe ClusterSettingName -&gt; ClusterSetting)
 -&gt; Parser (Maybe ClusterSettingName) -&gt; Parser ClusterSetting
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679449241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ClusterSettingName)
+</span><a href="#local-6989586621679449250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ClusterSettingName)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449235"><span id="local-6989586621679449237"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting"><span class="hs-identifier hs-type">ClusterSetting</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449244"><span id="local-6989586621679449246"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting"><span class="hs-identifier hs-type">ClusterSetting</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449232"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting"><span class="hs-identifier hs-type">ClusterSetting</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449241"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting"><span class="hs-identifier hs-type">ClusterSetting</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449224"><span id="local-6989586621679449226"><span id="local-6989586621679449228"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting"><span class="hs-identifier hs-type">ClusterSetting</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679449222"><span class="annot"><span class="annottext">toJSON :: ClusterSetting -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting%27"><span class="hs-identifier hs-type">ClusterSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449219"><span id="local-6989586621679449220"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449233"><span id="local-6989586621679449235"><span id="local-6989586621679449237"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting"><span class="hs-identifier hs-type">ClusterSetting</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679449231"><span class="annot"><span class="annottext">toJSON :: ClusterSetting -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting%27"><span class="hs-identifier hs-type">ClusterSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449228"><span id="local-6989586621679449229"><span class="annot"><span class="annottext">Maybe Text
 Maybe ClusterSettingName
 name :: Maybe ClusterSettingName
 value :: Maybe Text
 $sel:name:ClusterSetting' :: ClusterSetting -&gt; Maybe ClusterSettingName
 $sel:value:ClusterSetting' :: ClusterSetting -&gt; Maybe Text
-</span><a href="#local-6989586621679449219"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679449228"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -234,7 +234,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679449220"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679449229"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ClusterSettingName -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -242,7 +242,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ClusterSettingName -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ClusterSettingName
-</span><a href="#local-6989586621679449219"><span class="hs-identifier hs-var">name</span></a></span><span>
+</span><a href="#local-6989586621679449228"><span class="hs-identifier hs-var">name</span></a></span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>

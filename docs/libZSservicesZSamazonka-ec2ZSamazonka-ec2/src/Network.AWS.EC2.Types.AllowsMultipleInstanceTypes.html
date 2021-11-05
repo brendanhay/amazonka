@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681085446"><span id="local-6989586621681085447"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AllowsMultipleInstanceTypes"><span class="annot"><a href="Network.AWS.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes"><span class="hs-identifier hs-var">AllowsMultipleInstanceTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AllowsMultipleInstanceTypes%27"><span class="annot"><a href="Network.AWS.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes%27"><span class="hs-identifier hs-var">AllowsMultipleInstanceTypes'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681085455"><span id="local-6989586621681085456"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AllowsMultipleInstanceTypes"><span class="annot"><a href="Network.AWS.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes"><span class="hs-identifier hs-var">AllowsMultipleInstanceTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AllowsMultipleInstanceTypes%27"><span class="annot"><a href="Network.AWS.EC2.Types.AllowsMultipleInstanceTypes.html#AllowsMultipleInstanceTypes%27"><span class="hs-identifier hs-var">AllowsMultipleInstanceTypes'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAllowsMultipleInstanceTypes"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; Text
 </span><a href="Network.AWS.EC2.Types.AllowsMultipleInstanceTypes.html#fromAllowsMultipleInstanceTypes"><span class="hs-identifier hs-var hs-var">fromAllowsMultipleInstanceTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681085438"><span id="local-6989586621681085440"><span id="local-6989586621681085442"><span class="annot"><span class="annottext">Int -&gt; AllowsMultipleInstanceTypes -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681085447"><span id="local-6989586621681085449"><span id="local-6989586621681085451"><span class="annot"><span class="annottext">Int -&gt; AllowsMultipleInstanceTypes -&gt; ShowS
 [AllowsMultipleInstanceTypes] -&gt; ShowS
 AllowsMultipleInstanceTypes -&gt; String
 (Int -&gt; AllowsMultipleInstanceTypes -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AllowsMultipleInstanceTypes -&gt; String
 showsPrec :: Int -&gt; AllowsMultipleInstanceTypes -&gt; ShowS
 $cshowsPrec :: Int -&gt; AllowsMultipleInstanceTypes -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681085429"><span id="local-6989586621681085431"><span id="local-6989586621681085433"><span id="local-6989586621681085435"><span class="annot"><span class="annottext">ReadPrec [AllowsMultipleInstanceTypes]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681085438"><span id="local-6989586621681085440"><span id="local-6989586621681085442"><span id="local-6989586621681085444"><span class="annot"><span class="annottext">ReadPrec [AllowsMultipleInstanceTypes]
 ReadPrec AllowsMultipleInstanceTypes
 Int -&gt; ReadS AllowsMultipleInstanceTypes
 ReadS [AllowsMultipleInstanceTypes]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AllowsMultipleInstanceTypes]
 readsPrec :: Int -&gt; ReadS AllowsMultipleInstanceTypes
 $creadsPrec :: Int -&gt; ReadS AllowsMultipleInstanceTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681085424"><span id="local-6989586621681085426"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681085433"><span id="local-6989586621681085435"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
 (AllowsMultipleInstanceTypes
  -&gt; AllowsMultipleInstanceTypes -&gt; Bool)
 -&gt; (AllowsMultipleInstanceTypes
@@ -85,7 +85,7 @@ $c/= :: AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
 == :: AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
 $c== :: AllowsMultipleInstanceTypes -&gt; AllowsMultipleInstanceTypes -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681085408"><span id="local-6989586621681085410"><span id="local-6989586621681085412"><span id="local-6989586621681085414"><span id="local-6989586621681085416"><span id="local-6989586621681085418"><span id="local-6989586621681085420"><span class="annot"><span class="annottext">Eq AllowsMultipleInstanceTypes
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681085417"><span id="local-6989586621681085419"><span id="local-6989586621681085421"><span id="local-6989586621681085423"><span id="local-6989586621681085425"><span id="local-6989586621681085427"><span id="local-6989586621681085429"><span class="annot"><span class="annottext">Eq AllowsMultipleInstanceTypes
 Eq AllowsMultipleInstanceTypes
 -&gt; (AllowsMultipleInstanceTypes
     -&gt; AllowsMultipleInstanceTypes -&gt; Ordering)
@@ -157,7 +157,7 @@ AllowsMultipleInstanceTypes -&gt; Rep AllowsMultipleInstanceTypes x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681085400"><span id="local-6989586621681085402"><span class="annot"><span class="annottext">Int -&gt; AllowsMultipleInstanceTypes -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681085409"><span id="local-6989586621681085411"><span class="annot"><span class="annottext">Int -&gt; AllowsMultipleInstanceTypes -&gt; Int
 AllowsMultipleInstanceTypes -&gt; Int
 (Int -&gt; AllowsMultipleInstanceTypes -&gt; Int)
 -&gt; (AllowsMultipleInstanceTypes -&gt; Int)
@@ -168,56 +168,56 @@ $chash :: AllowsMultipleInstanceTypes -&gt; Int
 hashWithSalt :: Int -&gt; AllowsMultipleInstanceTypes -&gt; Int
 $chashWithSalt :: Int -&gt; AllowsMultipleInstanceTypes -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681085397"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681085406"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; ()
 (AllowsMultipleInstanceTypes -&gt; ())
 -&gt; NFData AllowsMultipleInstanceTypes
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AllowsMultipleInstanceTypes -&gt; ()
 $crnf :: AllowsMultipleInstanceTypes -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681085394"><span class="annot"><span class="annottext">Text -&gt; Either String AllowsMultipleInstanceTypes
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681085403"><span class="annot"><span class="annottext">Text -&gt; Either String AllowsMultipleInstanceTypes
 (Text -&gt; Either String AllowsMultipleInstanceTypes)
 -&gt; FromText AllowsMultipleInstanceTypes
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AllowsMultipleInstanceTypes
 $cfromText :: Text -&gt; Either String AllowsMultipleInstanceTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681085391"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681085400"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; Text
 (AllowsMultipleInstanceTypes -&gt; Text)
 -&gt; ToText AllowsMultipleInstanceTypes
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AllowsMultipleInstanceTypes -&gt; Text
 $ctoText :: AllowsMultipleInstanceTypes -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681085388"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681085397"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; ByteString
 (AllowsMultipleInstanceTypes -&gt; ByteString)
 -&gt; ToByteString AllowsMultipleInstanceTypes
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AllowsMultipleInstanceTypes -&gt; ByteString
 $ctoBS :: AllowsMultipleInstanceTypes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681085385"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681085394"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; ByteStringBuilder
 (AllowsMultipleInstanceTypes -&gt; ByteStringBuilder)
 -&gt; ToLog AllowsMultipleInstanceTypes
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AllowsMultipleInstanceTypes -&gt; ByteStringBuilder
 $cbuild :: AllowsMultipleInstanceTypes -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681085382"><span class="annot"><span class="annottext">HeaderName -&gt; AllowsMultipleInstanceTypes -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681085391"><span class="annot"><span class="annottext">HeaderName -&gt; AllowsMultipleInstanceTypes -&gt; [Header]
 (HeaderName -&gt; AllowsMultipleInstanceTypes -&gt; [Header])
 -&gt; ToHeader AllowsMultipleInstanceTypes
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AllowsMultipleInstanceTypes -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AllowsMultipleInstanceTypes -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681085379"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681085388"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; QueryString
 (AllowsMultipleInstanceTypes -&gt; QueryString)
 -&gt; ToQuery AllowsMultipleInstanceTypes
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AllowsMultipleInstanceTypes -&gt; QueryString
 $ctoQuery :: AllowsMultipleInstanceTypes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681085374"><span id="local-6989586621681085376"><span class="annot"><span class="annottext">Value -&gt; Parser [AllowsMultipleInstanceTypes]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681085383"><span id="local-6989586621681085385"><span class="annot"><span class="annottext">Value -&gt; Parser [AllowsMultipleInstanceTypes]
 Value -&gt; Parser AllowsMultipleInstanceTypes
 (Value -&gt; Parser AllowsMultipleInstanceTypes)
 -&gt; (Value -&gt; Parser [AllowsMultipleInstanceTypes])
@@ -229,7 +229,7 @@ $cparseJSONList :: Value -&gt; Parser [AllowsMultipleInstanceTypes]
 parseJSON :: Value -&gt; Parser AllowsMultipleInstanceTypes
 $cparseJSON :: Value -&gt; Parser AllowsMultipleInstanceTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681085369"><span id="local-6989586621681085371"><span class="annot"><span class="annottext">FromJSONKeyFunction [AllowsMultipleInstanceTypes]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681085378"><span id="local-6989586621681085380"><span class="annot"><span class="annottext">FromJSONKeyFunction [AllowsMultipleInstanceTypes]
 FromJSONKeyFunction AllowsMultipleInstanceTypes
 FromJSONKeyFunction AllowsMultipleInstanceTypes
 -&gt; FromJSONKeyFunction [AllowsMultipleInstanceTypes]
@@ -241,7 +241,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AllowsMultipleInstanceTypes]
 fromJSONKey :: FromJSONKeyFunction AllowsMultipleInstanceTypes
 $cfromJSONKey :: FromJSONKeyFunction AllowsMultipleInstanceTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681085360"><span id="local-6989586621681085362"><span id="local-6989586621681085364"><span id="local-6989586621681085366"><span class="annot"><span class="annottext">[AllowsMultipleInstanceTypes] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681085369"><span id="local-6989586621681085371"><span id="local-6989586621681085373"><span id="local-6989586621681085375"><span class="annot"><span class="annottext">[AllowsMultipleInstanceTypes] -&gt; Encoding
 [AllowsMultipleInstanceTypes] -&gt; Value
 AllowsMultipleInstanceTypes -&gt; Encoding
 AllowsMultipleInstanceTypes -&gt; Value
@@ -265,7 +265,7 @@ $ctoEncoding :: AllowsMultipleInstanceTypes -&gt; Encoding
 toJSON :: AllowsMultipleInstanceTypes -&gt; Value
 $ctoJSON :: AllowsMultipleInstanceTypes -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681085355"><span id="local-6989586621681085357"><span class="annot"><span class="annottext">ToJSONKeyFunction [AllowsMultipleInstanceTypes]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681085364"><span id="local-6989586621681085366"><span class="annot"><span class="annottext">ToJSONKeyFunction [AllowsMultipleInstanceTypes]
 ToJSONKeyFunction AllowsMultipleInstanceTypes
 ToJSONKeyFunction AllowsMultipleInstanceTypes
 -&gt; ToJSONKeyFunction [AllowsMultipleInstanceTypes]
@@ -277,14 +277,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AllowsMultipleInstanceTypes]
 toJSONKey :: ToJSONKeyFunction AllowsMultipleInstanceTypes
 $ctoJSONKey :: ToJSONKeyFunction AllowsMultipleInstanceTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681085352"><span class="annot"><span class="annottext">[Node] -&gt; Either String AllowsMultipleInstanceTypes
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681085361"><span class="annot"><span class="annottext">[Node] -&gt; Either String AllowsMultipleInstanceTypes
 ([Node] -&gt; Either String AllowsMultipleInstanceTypes)
 -&gt; FromXML AllowsMultipleInstanceTypes
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AllowsMultipleInstanceTypes
 $cparseXML :: [Node] -&gt; Either String AllowsMultipleInstanceTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681085349"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681085358"><span class="annot"><span class="annottext">AllowsMultipleInstanceTypes -&gt; XML
 (AllowsMultipleInstanceTypes -&gt; XML)
 -&gt; ToXML AllowsMultipleInstanceTypes
 forall a. (a -&gt; XML) -&gt; ToXML a

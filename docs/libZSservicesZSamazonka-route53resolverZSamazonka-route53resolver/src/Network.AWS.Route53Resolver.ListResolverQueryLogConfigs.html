@@ -1,0 +1,1268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Route53Resolver.ListResolverQueryLogConfigs</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists information about the specified query logging configurations. Each</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- configuration defines where you want Resolver to save DNS query logs and</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- specifies the VPCs that you want to log queries for.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53Resolver.ListResolverQueryLogConfigs</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier">ListResolverQueryLogConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#newListResolverQueryLogConfigs"><span class="hs-identifier">newListResolverQueryLogConfigs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigs_filters"><span class="hs-identifier">listResolverQueryLogConfigs_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigs_nextToken"><span class="hs-identifier">listResolverQueryLogConfigs_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigs_sortOrder"><span class="hs-identifier">listResolverQueryLogConfigs_sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigs_maxResults"><span class="hs-identifier">listResolverQueryLogConfigs_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigs_sortBy"><span class="hs-identifier">listResolverQueryLogConfigs_sortBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse"><span class="hs-identifier">ListResolverQueryLogConfigsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#newListResolverQueryLogConfigsResponse"><span class="hs-identifier">newListResolverQueryLogConfigsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_totalFilteredCount"><span class="hs-identifier">listResolverQueryLogConfigsResponse_totalFilteredCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_resolverQueryLogConfigs"><span class="hs-identifier">listResolverQueryLogConfigsResponse_resolverQueryLogConfigs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_nextToken"><span class="hs-identifier">listResolverQueryLogConfigsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_totalCount"><span class="hs-identifier">listResolverQueryLogConfigsResponse_totalCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_httpStatus"><span class="hs-identifier">listResolverQueryLogConfigsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.html"><span class="hs-identifier">Network.AWS.Route53Resolver.Types</span></a></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newListResolverQueryLogConfigs' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679290405"><span id="local-6989586621679290406"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResolverQueryLogConfigs"><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-var">ListResolverQueryLogConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResolverQueryLogConfigs%27"><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs%27"><span class="hs-identifier hs-var">ListResolverQueryLogConfigs'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional specification to return a subset of query logging</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- configurations.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- If you submit a second or subsequent @ListResolverQueryLogConfigs@</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- request and specify the @NextToken@ parameter, you must use the same</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- values for @Filters@, if any, as in the previous request.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Afilters%3AListResolverQueryLogConfigs%27"><span class="annot"><span class="annottext">ListResolverQueryLogConfigs -&gt; Maybe [Filter]
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3Afilters%3AListResolverQueryLogConfigs%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | For the first @ListResolverQueryLogConfigs@ request, omit this value.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- If there are more than @MaxResults@ query logging configurations that</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- match the values that you specify for @Filters@, you can submit another</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- @ListResolverQueryLogConfigs@ request to get the next group of</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- configurations. In the next request, specify the value of @NextToken@</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- from the previous response.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AnextToken%3AListResolverQueryLogConfigs%27"><span class="annot"><span class="annottext">ListResolverQueryLogConfigs -&gt; Maybe Text
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AnextToken%3AListResolverQueryLogConfigs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | If you specified a value for @SortBy@, the order that you want query</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- logging configurations to be listed in, @ASCENDING@ or @DESCENDING@.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- If you submit a second or subsequent @ListResolverQueryLogConfigs@</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- request and specify the @NextToken@ parameter, you must use the same</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- value for @SortOrder@, if any, as in the previous request.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AsortOrder%3AListResolverQueryLogConfigs%27"><span class="annot"><span class="annottext">ListResolverQueryLogConfigs -&gt; Maybe SortOrder
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AsortOrder%3AListResolverQueryLogConfigs%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The maximum number of query logging configurations that you want to</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- return in the response to a @ListResolverQueryLogConfigs@ request. If</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- you don\'t specify a value for @MaxResults@, Resolver returns up to 100</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- query logging configurations.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AmaxResults%3AListResolverQueryLogConfigs%27"><span class="annot"><span class="annottext">ListResolverQueryLogConfigs -&gt; Maybe Natural
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AmaxResults%3AListResolverQueryLogConfigs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The element that you want Resolver to sort query logging configurations</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- by.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- If you submit a second or subsequent @ListResolverQueryLogConfigs@</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- request and specify the @NextToken@ parameter, you must use the same</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- value for @SortBy@, if any, as in the previous request.</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- Valid values include the following elements:</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- -   @Arn@: The ARN of the query logging configuration</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- -   @AssociationCount@: The number of VPCs that are associated with the</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--     specified configuration</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- -   @CreationTime@: The date and time that Resolver returned when the</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--     configuration was created</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- -   @CreatorRequestId@: The value that was specified for</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--     @CreatorRequestId@ when the configuration was created</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- -   @DestinationArn@: The location that logs are sent to</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- -   @Id@: The ID of the configuration</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- -   @Name@: The name of the configuration</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- -   @OwnerId@: The Amazon Web Services account number of the account</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--     that created the configuration</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- -   @ShareStatus@: Whether the configuration is shared with other Amazon</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--     Web Services accounts or shared with the current account by another</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--     Amazon Web Services account. Sharing is configured through Resource</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--     Access Manager (RAM).</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- -   @Status@: The current status of the configuration. Valid values</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--     include the following:</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--     -   @CREATING@: Resolver is creating the query logging</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--         configuration.</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--     -   @CREATED@: The query logging configuration was successfully</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">--         created. Resolver is logging queries that originate in the</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--         specified VPC.</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">--     -   @DELETING@: Resolver is deleting this query logging</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">--         configuration.</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">--     -   @FAILED@: Resolver either couldn\'t create or couldn\'t delete</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--         the query logging configuration. Here are two common causes:</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">--         -   The specified destination (for example, an Amazon S3 bucket)</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">--             was deleted.</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">--         -   Permissions don\'t allow sending logs to the destination.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AsortBy%3AListResolverQueryLogConfigs%27"><span class="annot"><span class="annottext">ListResolverQueryLogConfigs -&gt; Maybe Text
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AsortBy%3AListResolverQueryLogConfigs%27"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290395"><span id="local-6989586621679290397"><span class="annot"><span class="annottext">ListResolverQueryLogConfigs -&gt; ListResolverQueryLogConfigs -&gt; Bool
+(ListResolverQueryLogConfigs
+ -&gt; ListResolverQueryLogConfigs -&gt; Bool)
+-&gt; (ListResolverQueryLogConfigs
+    -&gt; ListResolverQueryLogConfigs -&gt; Bool)
+-&gt; Eq ListResolverQueryLogConfigs
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListResolverQueryLogConfigs -&gt; ListResolverQueryLogConfigs -&gt; Bool
+$c/= :: ListResolverQueryLogConfigs -&gt; ListResolverQueryLogConfigs -&gt; Bool
+== :: ListResolverQueryLogConfigs -&gt; ListResolverQueryLogConfigs -&gt; Bool
+$c== :: ListResolverQueryLogConfigs -&gt; ListResolverQueryLogConfigs -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290386"><span id="local-6989586621679290388"><span id="local-6989586621679290390"><span id="local-6989586621679290392"><span class="annot"><span class="annottext">ReadPrec [ListResolverQueryLogConfigs]
+ReadPrec ListResolverQueryLogConfigs
+Int -&gt; ReadS ListResolverQueryLogConfigs
+ReadS [ListResolverQueryLogConfigs]
+(Int -&gt; ReadS ListResolverQueryLogConfigs)
+-&gt; ReadS [ListResolverQueryLogConfigs]
+-&gt; ReadPrec ListResolverQueryLogConfigs
+-&gt; ReadPrec [ListResolverQueryLogConfigs]
+-&gt; Read ListResolverQueryLogConfigs
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListResolverQueryLogConfigs]
+$creadListPrec :: ReadPrec [ListResolverQueryLogConfigs]
+readPrec :: ReadPrec ListResolverQueryLogConfigs
+$creadPrec :: ReadPrec ListResolverQueryLogConfigs
+readList :: ReadS [ListResolverQueryLogConfigs]
+$creadList :: ReadS [ListResolverQueryLogConfigs]
+readsPrec :: Int -&gt; ReadS ListResolverQueryLogConfigs
+$creadsPrec :: Int -&gt; ReadS ListResolverQueryLogConfigs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290379"><span id="local-6989586621679290381"><span id="local-6989586621679290383"><span class="annot"><span class="annottext">Int -&gt; ListResolverQueryLogConfigs -&gt; ShowS
+[ListResolverQueryLogConfigs] -&gt; ShowS
+ListResolverQueryLogConfigs -&gt; String
+(Int -&gt; ListResolverQueryLogConfigs -&gt; ShowS)
+-&gt; (ListResolverQueryLogConfigs -&gt; String)
+-&gt; ([ListResolverQueryLogConfigs] -&gt; ShowS)
+-&gt; Show ListResolverQueryLogConfigs
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListResolverQueryLogConfigs] -&gt; ShowS
+$cshowList :: [ListResolverQueryLogConfigs] -&gt; ShowS
+show :: ListResolverQueryLogConfigs -&gt; String
+$cshow :: ListResolverQueryLogConfigs -&gt; String
+showsPrec :: Int -&gt; ListResolverQueryLogConfigs -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListResolverQueryLogConfigs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListResolverQueryLogConfigs -&gt; Rep ListResolverQueryLogConfigs x)
+-&gt; (forall x.
+    Rep ListResolverQueryLogConfigs x -&gt; ListResolverQueryLogConfigs)
+-&gt; Generic ListResolverQueryLogConfigs
+forall x.
+Rep ListResolverQueryLogConfigs x -&gt; ListResolverQueryLogConfigs
+forall x.
+ListResolverQueryLogConfigs -&gt; Rep ListResolverQueryLogConfigs x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListResolverQueryLogConfigs x -&gt; ListResolverQueryLogConfigs
+$cfrom :: forall x.
+ListResolverQueryLogConfigs -&gt; Rep ListResolverQueryLogConfigs x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Create a value of 'ListResolverQueryLogConfigs' with all optional fields omitted.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'filters', 'listResolverQueryLogConfigs_filters' - An optional specification to return a subset of query logging</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- configurations.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- If you submit a second or subsequent @ListResolverQueryLogConfigs@</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- request and specify the @NextToken@ parameter, you must use the same</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- values for @Filters@, if any, as in the previous request.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'nextToken', 'listResolverQueryLogConfigs_nextToken' - For the first @ListResolverQueryLogConfigs@ request, omit this value.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- If there are more than @MaxResults@ query logging configurations that</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- match the values that you specify for @Filters@, you can submit another</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- @ListResolverQueryLogConfigs@ request to get the next group of</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- configurations. In the next request, specify the value of @NextToken@</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- from the previous response.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'sortOrder', 'listResolverQueryLogConfigs_sortOrder' - If you specified a value for @SortBy@, the order that you want query</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- logging configurations to be listed in, @ASCENDING@ or @DESCENDING@.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- If you submit a second or subsequent @ListResolverQueryLogConfigs@</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- request and specify the @NextToken@ parameter, you must use the same</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- value for @SortOrder@, if any, as in the previous request.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'maxResults', 'listResolverQueryLogConfigs_maxResults' - The maximum number of query logging configurations that you want to</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- return in the response to a @ListResolverQueryLogConfigs@ request. If</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- you don\'t specify a value for @MaxResults@, Resolver returns up to 100</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- query logging configurations.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'sortBy', 'listResolverQueryLogConfigs_sortBy' - The element that you want Resolver to sort query logging configurations</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- by.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- If you submit a second or subsequent @ListResolverQueryLogConfigs@</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- request and specify the @NextToken@ parameter, you must use the same</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- value for @SortBy@, if any, as in the previous request.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Valid values include the following elements:</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- -   @Arn@: The ARN of the query logging configuration</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- -   @AssociationCount@: The number of VPCs that are associated with the</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--     specified configuration</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- -   @CreationTime@: The date and time that Resolver returned when the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--     configuration was created</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- -   @CreatorRequestId@: The value that was specified for</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--     @CreatorRequestId@ when the configuration was created</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- -   @DestinationArn@: The location that logs are sent to</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- -   @Id@: The ID of the configuration</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- -   @Name@: The name of the configuration</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- -   @OwnerId@: The Amazon Web Services account number of the account</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--     that created the configuration</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- -   @ShareStatus@: Whether the configuration is shared with other Amazon</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--     Web Services accounts or shared with the current account by another</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--     Amazon Web Services account. Sharing is configured through Resource</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--     Access Manager (RAM).</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- -   @Status@: The current status of the configuration. Valid values</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--     include the following:</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--     -   @CREATING@: Resolver is creating the query logging</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--         configuration.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--     -   @CREATED@: The query logging configuration was successfully</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--         created. Resolver is logging queries that originate in the</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--         specified VPC.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--     -   @DELETING@: Resolver is deleting this query logging</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--         configuration.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--     -   @FAILED@: Resolver either couldn\'t create or couldn\'t delete</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--         the query logging configuration. Here are two common causes:</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--         -   The specified destination (for example, an Amazon S3 bucket)</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--             was deleted.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--         -   Permissions don\'t allow sending logs to the destination.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#newListResolverQueryLogConfigs"><span class="hs-identifier hs-type">newListResolverQueryLogConfigs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-237"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span><span>
+</span><span id="line-238"></span><span id="newListResolverQueryLogConfigs"><span class="annot"><span class="annottext">newListResolverQueryLogConfigs :: ListResolverQueryLogConfigs
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#newListResolverQueryLogConfigs"><span class="hs-identifier hs-var hs-var">newListResolverQueryLogConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>  </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigs' :: Maybe [Filter]
+-&gt; Maybe Text
+-&gt; Maybe SortOrder
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; ListResolverQueryLogConfigs
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs'</span></a></span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:ListResolverQueryLogConfigs' :: Maybe [Filter]
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3Afilters%3AListResolverQueryLogConfigs%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListResolverQueryLogConfigs' :: Maybe Text
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AnextToken%3AListResolverQueryLogConfigs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortOrder:ListResolverQueryLogConfigs' :: Maybe SortOrder
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AsortOrder%3AListResolverQueryLogConfigs%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListResolverQueryLogConfigs' :: Maybe Natural
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AmaxResults%3AListResolverQueryLogConfigs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortBy:ListResolverQueryLogConfigs' :: Maybe Text
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AsortBy%3AListResolverQueryLogConfigs%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | An optional specification to return a subset of query logging</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- configurations.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- If you submit a second or subsequent @ListResolverQueryLogConfigs@</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- request and specify the @NextToken@ parameter, you must use the same</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- values for @Filters@, if any, as in the previous request.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigs_filters"><span class="hs-identifier hs-type">listResolverQueryLogConfigs_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="listResolverQueryLogConfigs_filters"><span class="annot"><span class="annottext">listResolverQueryLogConfigs_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; ListResolverQueryLogConfigs -&gt; f ListResolverQueryLogConfigs
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigs_filters"><span class="hs-identifier hs-var hs-var">listResolverQueryLogConfigs_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResolverQueryLogConfigs -&gt; Maybe [Filter])
+-&gt; (ListResolverQueryLogConfigs
+    -&gt; Maybe [Filter] -&gt; ListResolverQueryLogConfigs)
+-&gt; Lens
+     ListResolverQueryLogConfigs
+     ListResolverQueryLogConfigs
+     (Maybe [Filter])
+     (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290373"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:ListResolverQueryLogConfigs' :: ListResolverQueryLogConfigs -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679290373"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679290373"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290372"><span class="annot"><span class="annottext">s :: ListResolverQueryLogConfigs
+</span><a href="#local-6989586621679290372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290371"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679290371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigs
+</span><a href="#local-6989586621679290372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListResolverQueryLogConfigs' :: Maybe [Filter]
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3Afilters%3AListResolverQueryLogConfigs%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679290371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; ListResolverQueryLogConfigs -&gt; f ListResolverQueryLogConfigs)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; ListResolverQueryLogConfigs
+-&gt; f ListResolverQueryLogConfigs
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | For the first @ListResolverQueryLogConfigs@ request, omit this value.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- If there are more than @MaxResults@ query logging configurations that</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- match the values that you specify for @Filters@, you can submit another</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- @ListResolverQueryLogConfigs@ request to get the next group of</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- configurations. In the next request, specify the value of @NextToken@</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- from the previous response.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigs_nextToken"><span class="hs-identifier hs-type">listResolverQueryLogConfigs_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span id="listResolverQueryLogConfigs_nextToken"><span class="annot"><span class="annottext">listResolverQueryLogConfigs_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListResolverQueryLogConfigs -&gt; f ListResolverQueryLogConfigs
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigs_nextToken"><span class="hs-identifier hs-var hs-var">listResolverQueryLogConfigs_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResolverQueryLogConfigs -&gt; Maybe Text)
+-&gt; (ListResolverQueryLogConfigs
+    -&gt; Maybe Text -&gt; ListResolverQueryLogConfigs)
+-&gt; Lens
+     ListResolverQueryLogConfigs
+     ListResolverQueryLogConfigs
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290367"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListResolverQueryLogConfigs' :: ListResolverQueryLogConfigs -&gt; Maybe Text
+</span><a href="#local-6989586621679290367"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290367"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290366"><span class="annot"><span class="annottext">s :: ListResolverQueryLogConfigs
+</span><a href="#local-6989586621679290366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290365"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigs
+</span><a href="#local-6989586621679290366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListResolverQueryLogConfigs' :: Maybe Text
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AnextToken%3AListResolverQueryLogConfigs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | If you specified a value for @SortBy@, the order that you want query</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- logging configurations to be listed in, @ASCENDING@ or @DESCENDING@.</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- If you submit a second or subsequent @ListResolverQueryLogConfigs@</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- request and specify the @NextToken@ parameter, you must use the same</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- value for @SortOrder@, if any, as in the previous request.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigs_sortOrder"><span class="hs-identifier hs-type">listResolverQueryLogConfigs_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="listResolverQueryLogConfigs_sortOrder"><span class="annot"><span class="annottext">listResolverQueryLogConfigs_sortOrder :: (Maybe SortOrder -&gt; f (Maybe SortOrder))
+-&gt; ListResolverQueryLogConfigs -&gt; f ListResolverQueryLogConfigs
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigs_sortOrder"><span class="hs-identifier hs-var hs-var">listResolverQueryLogConfigs_sortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResolverQueryLogConfigs -&gt; Maybe SortOrder)
+-&gt; (ListResolverQueryLogConfigs
+    -&gt; Maybe SortOrder -&gt; ListResolverQueryLogConfigs)
+-&gt; Lens
+     ListResolverQueryLogConfigs
+     ListResolverQueryLogConfigs
+     (Maybe SortOrder)
+     (Maybe SortOrder)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290364"><span class="annot"><span class="annottext">Maybe SortOrder
+sortOrder :: Maybe SortOrder
+$sel:sortOrder:ListResolverQueryLogConfigs' :: ListResolverQueryLogConfigs -&gt; Maybe SortOrder
+</span><a href="#local-6989586621679290364"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621679290364"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290363"><span class="annot"><span class="annottext">s :: ListResolverQueryLogConfigs
+</span><a href="#local-6989586621679290363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290362"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621679290362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigs
+</span><a href="#local-6989586621679290363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListResolverQueryLogConfigs' :: Maybe SortOrder
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AsortOrder%3AListResolverQueryLogConfigs%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621679290362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | The maximum number of query logging configurations that you want to</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- return in the response to a @ListResolverQueryLogConfigs@ request. If</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- you don\'t specify a value for @MaxResults@, Resolver returns up to 100</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- query logging configurations.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigs_maxResults"><span class="hs-identifier hs-type">listResolverQueryLogConfigs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span id="listResolverQueryLogConfigs_maxResults"><span class="annot"><span class="annottext">listResolverQueryLogConfigs_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListResolverQueryLogConfigs -&gt; f ListResolverQueryLogConfigs
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigs_maxResults"><span class="hs-identifier hs-var hs-var">listResolverQueryLogConfigs_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResolverQueryLogConfigs -&gt; Maybe Natural)
+-&gt; (ListResolverQueryLogConfigs
+    -&gt; Maybe Natural -&gt; ListResolverQueryLogConfigs)
+-&gt; Lens
+     ListResolverQueryLogConfigs
+     ListResolverQueryLogConfigs
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290361"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListResolverQueryLogConfigs' :: ListResolverQueryLogConfigs -&gt; Maybe Natural
+</span><a href="#local-6989586621679290361"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679290361"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290360"><span class="annot"><span class="annottext">s :: ListResolverQueryLogConfigs
+</span><a href="#local-6989586621679290360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290359"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679290359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigs
+</span><a href="#local-6989586621679290360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListResolverQueryLogConfigs' :: Maybe Natural
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AmaxResults%3AListResolverQueryLogConfigs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679290359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | The element that you want Resolver to sort query logging configurations</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- by.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- If you submit a second or subsequent @ListResolverQueryLogConfigs@</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- request and specify the @NextToken@ parameter, you must use the same</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- value for @SortBy@, if any, as in the previous request.</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- Valid values include the following elements:</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- -   @Arn@: The ARN of the query logging configuration</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- -   @AssociationCount@: The number of VPCs that are associated with the</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--     specified configuration</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- -   @CreationTime@: The date and time that Resolver returned when the</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--     configuration was created</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- -   @CreatorRequestId@: The value that was specified for</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--     @CreatorRequestId@ when the configuration was created</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- -   @DestinationArn@: The location that logs are sent to</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- -   @Id@: The ID of the configuration</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- -   @Name@: The name of the configuration</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- -   @OwnerId@: The Amazon Web Services account number of the account</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--     that created the configuration</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- -   @ShareStatus@: Whether the configuration is shared with other Amazon</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--     Web Services accounts or shared with the current account by another</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--     Amazon Web Services account. Sharing is configured through Resource</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--     Access Manager (RAM).</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- -   @Status@: The current status of the configuration. Valid values</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--     include the following:</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--     -   @CREATING@: Resolver is creating the query logging</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--         configuration.</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--     -   @CREATED@: The query logging configuration was successfully</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--         created. Resolver is logging queries that originate in the</span><span>
+</span><span id="line-325"></span><span class="hs-comment">--         specified VPC.</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--</span><span>
+</span><span id="line-327"></span><span class="hs-comment">--     -   @DELETING@: Resolver is deleting this query logging</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--         configuration.</span><span>
+</span><span id="line-329"></span><span class="hs-comment">--</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--     -   @FAILED@: Resolver either couldn\'t create or couldn\'t delete</span><span>
+</span><span id="line-331"></span><span class="hs-comment">--         the query logging configuration. Here are two common causes:</span><span>
+</span><span id="line-332"></span><span class="hs-comment">--</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--         -   The specified destination (for example, an Amazon S3 bucket)</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--             was deleted.</span><span>
+</span><span id="line-335"></span><span class="hs-comment">--</span><span>
+</span><span id="line-336"></span><span class="hs-comment">--         -   Permissions don\'t allow sending logs to the destination.</span><span>
+</span><span id="line-337"></span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigs_sortBy"><span class="hs-identifier hs-type">listResolverQueryLogConfigs_sortBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span id="listResolverQueryLogConfigs_sortBy"><span class="annot"><span class="annottext">listResolverQueryLogConfigs_sortBy :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListResolverQueryLogConfigs -&gt; f ListResolverQueryLogConfigs
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigs_sortBy"><span class="hs-identifier hs-var hs-var">listResolverQueryLogConfigs_sortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResolverQueryLogConfigs -&gt; Maybe Text)
+-&gt; (ListResolverQueryLogConfigs
+    -&gt; Maybe Text -&gt; ListResolverQueryLogConfigs)
+-&gt; Lens
+     ListResolverQueryLogConfigs
+     ListResolverQueryLogConfigs
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290358"><span class="annot"><span class="annottext">Maybe Text
+sortBy :: Maybe Text
+$sel:sortBy:ListResolverQueryLogConfigs' :: ListResolverQueryLogConfigs -&gt; Maybe Text
+</span><a href="#local-6989586621679290358"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290358"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290357"><span class="annot"><span class="annottext">s :: ListResolverQueryLogConfigs
+</span><a href="#local-6989586621679290357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290356"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigs
+</span><a href="#local-6989586621679290357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListResolverQueryLogConfigs' :: Maybe Text
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AsortBy%3AListResolverQueryLogConfigs%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span>
+</span><span id="line-340"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-341"></span><span>  </span><span id="local-6989586621679290352"><span class="annot"><span class="annottext">page :: ListResolverQueryLogConfigs
+-&gt; AWSResponse ListResolverQueryLogConfigs
+-&gt; Maybe ListResolverQueryLogConfigs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679290350"><span class="annot"><span class="annottext">ListResolverQueryLogConfigs
+</span><a href="#local-6989586621679290350"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679290349"><span class="annot"><span class="annottext">AWSResponse ListResolverQueryLogConfigs
+</span><a href="#local-6989586621679290349"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-342"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-343"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResolverQueryLogConfigs
+ListResolverQueryLogConfigsResponse
+</span><a href="#local-6989586621679290349"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-344"></span><span>            </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigsResponse
+-&gt; Getting (First Text) ListResolverQueryLogConfigsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListResolverQueryLogConfigsResponse
+-&gt; Const (First Text) ListResolverQueryLogConfigsResponse
+Lens' ListResolverQueryLogConfigsResponse (Maybe Text)
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_nextToken"><span class="hs-identifier hs-var">listResolverQueryLogConfigsResponse_nextToken</span></a></span><span>
+</span><span id="line-345"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListResolverQueryLogConfigsResponse
+ -&gt; Const (First Text) ListResolverQueryLogConfigsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListResolverQueryLogConfigsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-346"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-347"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListResolverQueryLogConfigs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-348"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ResolverQueryLogConfig] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-349"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResolverQueryLogConfigs
+ListResolverQueryLogConfigsResponse
+</span><a href="#local-6989586621679290349"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-350"></span><span>            </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigsResponse
+-&gt; Getting
+     (First [ResolverQueryLogConfig])
+     ListResolverQueryLogConfigsResponse
+     [ResolverQueryLogConfig]
+-&gt; Maybe [ResolverQueryLogConfig]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ResolverQueryLogConfig]
+ -&gt; Const
+      (First [ResolverQueryLogConfig]) (Maybe [ResolverQueryLogConfig]))
+-&gt; ListResolverQueryLogConfigsResponse
+-&gt; Const
+     (First [ResolverQueryLogConfig])
+     ListResolverQueryLogConfigsResponse
+Lens'
+  ListResolverQueryLogConfigsResponse
+  (Maybe [ResolverQueryLogConfig])
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_resolverQueryLogConfigs"><span class="hs-identifier hs-var">listResolverQueryLogConfigsResponse_resolverQueryLogConfigs</span></a></span><span>
+</span><span id="line-351"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ResolverQueryLogConfig]
+  -&gt; Const
+       (First [ResolverQueryLogConfig]) (Maybe [ResolverQueryLogConfig]))
+ -&gt; ListResolverQueryLogConfigsResponse
+ -&gt; Const
+      (First [ResolverQueryLogConfig])
+      ListResolverQueryLogConfigsResponse)
+-&gt; (([ResolverQueryLogConfig]
+     -&gt; Const (First [ResolverQueryLogConfig]) [ResolverQueryLogConfig])
+    -&gt; Maybe [ResolverQueryLogConfig]
+    -&gt; Const
+         (First [ResolverQueryLogConfig]) (Maybe [ResolverQueryLogConfig]))
+-&gt; Getting
+     (First [ResolverQueryLogConfig])
+     ListResolverQueryLogConfigsResponse
+     [ResolverQueryLogConfig]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ResolverQueryLogConfig]
+ -&gt; Const (First [ResolverQueryLogConfig]) [ResolverQueryLogConfig])
+-&gt; Maybe [ResolverQueryLogConfig]
+-&gt; Const
+     (First [ResolverQueryLogConfig]) (Maybe [ResolverQueryLogConfig])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-352"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-353"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListResolverQueryLogConfigs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-354"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-355"></span><span>      </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigs -&gt; Maybe ListResolverQueryLogConfigs
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListResolverQueryLogConfigs -&gt; Maybe ListResolverQueryLogConfigs)
+-&gt; ListResolverQueryLogConfigs -&gt; Maybe ListResolverQueryLogConfigs
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-356"></span><span>        </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigs
+</span><a href="#local-6989586621679290350"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-357"></span><span>          </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigs
+-&gt; (ListResolverQueryLogConfigs -&gt; ListResolverQueryLogConfigs)
+-&gt; ListResolverQueryLogConfigs
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListResolverQueryLogConfigs
+-&gt; Identity ListResolverQueryLogConfigs
+Lens
+  ListResolverQueryLogConfigs
+  ListResolverQueryLogConfigs
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigs_nextToken"><span class="hs-identifier hs-var">listResolverQueryLogConfigs_nextToken</span></a></span><span>
+</span><span id="line-358"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListResolverQueryLogConfigs
+ -&gt; Identity ListResolverQueryLogConfigs)
+-&gt; Maybe Text
+-&gt; ListResolverQueryLogConfigs
+-&gt; ListResolverQueryLogConfigs
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResolverQueryLogConfigs
+ListResolverQueryLogConfigsResponse
+</span><a href="#local-6989586621679290349"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-359"></span><span>          </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigsResponse
+-&gt; Getting (First Text) ListResolverQueryLogConfigsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListResolverQueryLogConfigsResponse
+-&gt; Const (First Text) ListResolverQueryLogConfigsResponse
+Lens' ListResolverQueryLogConfigsResponse (Maybe Text)
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_nextToken"><span class="hs-identifier hs-var">listResolverQueryLogConfigsResponse_nextToken</span></a></span><span>
+</span><span id="line-360"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListResolverQueryLogConfigsResponse
+ -&gt; Const (First Text) ListResolverQueryLogConfigsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListResolverQueryLogConfigsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-363"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-364"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-365"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse</span></a></span><span>
+</span><span id="line-366"></span><span>  </span><span id="local-6989586621679290340"><span class="annot"><span class="annottext">request :: ListResolverQueryLogConfigs -&gt; Request ListResolverQueryLogConfigs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListResolverQueryLogConfigs
+-&gt; Request ListResolverQueryLogConfigs
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Route53Resolver.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-367"></span><span>  </span><span id="local-6989586621679290336"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListResolverQueryLogConfigs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListResolverQueryLogConfigs)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-368"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListResolverQueryLogConfigs))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListResolverQueryLogConfigs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListResolverQueryLogConfigs)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-369"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679290333"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290333"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679290332"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679290332"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679290331"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679290331"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-370"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe [ResolverQueryLogConfig]
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Int
+-&gt; ListResolverQueryLogConfigsResponse
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-var">ListResolverQueryLogConfigsResponse'</span></a></span><span>
+</span><span id="line-371"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe [ResolverQueryLogConfig]
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Int
+ -&gt; ListResolverQueryLogConfigsResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe [ResolverQueryLogConfig]
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Int
+      -&gt; ListResolverQueryLogConfigsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679290331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TotalFilteredCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-372"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ResolverQueryLogConfig]
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Int
+   -&gt; ListResolverQueryLogConfigsResponse)
+-&gt; Either String (Maybe [ResolverQueryLogConfig])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Int -&gt; Int -&gt; ListResolverQueryLogConfigsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679290331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [ResolverQueryLogConfig]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResolverQueryLogConfigs&quot;</span></span><span>
+</span><span id="line-373"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ResolverQueryLogConfig]))
+-&gt; Maybe [ResolverQueryLogConfig]
+-&gt; Either String (Maybe [ResolverQueryLogConfig])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResolverQueryLogConfig]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-374"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-375"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Int -&gt; Int -&gt; ListResolverQueryLogConfigsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Int -&gt; Int -&gt; ListResolverQueryLogConfigsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679290331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Int -&gt; Int -&gt; ListResolverQueryLogConfigsResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either String (Int -&gt; ListResolverQueryLogConfigsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679290331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TotalCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListResolverQueryLogConfigsResponse)
+-&gt; Either String Int
+-&gt; Either String ListResolverQueryLogConfigsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290333"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-378"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-379"></span><span>
+</span><span id="line-380"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290322"><span id="local-6989586621679290324"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span></span></span><span>
+</span><span id="line-381"></span><span>
+</span><span id="line-382"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290319"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span></span><span>
+</span><span id="line-383"></span><span>
+</span><span id="line-384"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-385"></span><span>  </span><span id="local-6989586621679290315"><span class="annot"><span class="annottext">toHeaders :: ListResolverQueryLogConfigs -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-386"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListResolverQueryLogConfigs -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-387"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-388"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-389"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Route53Resolver.ListResolverQueryLogConfigs&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-390"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-391"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-392"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-393"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-394"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-395"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-396"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-397"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-398"></span><span>
+</span><span id="line-399"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290305"><span id="local-6989586621679290307"><span id="local-6989586621679290309"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-400"></span><span>  </span><span id="local-6989586621679290303"><span class="annot"><span class="annottext">toJSON :: ListResolverQueryLogConfigs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290297"><span id="local-6989586621679290298"><span id="local-6989586621679290299"><span id="local-6989586621679290300"><span id="local-6989586621679290301"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Filter]
+Maybe Text
+Maybe SortOrder
+sortBy :: Maybe Text
+maxResults :: Maybe Natural
+sortOrder :: Maybe SortOrder
+nextToken :: Maybe Text
+filters :: Maybe [Filter]
+$sel:sortBy:ListResolverQueryLogConfigs' :: ListResolverQueryLogConfigs -&gt; Maybe Text
+$sel:maxResults:ListResolverQueryLogConfigs' :: ListResolverQueryLogConfigs -&gt; Maybe Natural
+$sel:sortOrder:ListResolverQueryLogConfigs' :: ListResolverQueryLogConfigs -&gt; Maybe SortOrder
+$sel:nextToken:ListResolverQueryLogConfigs' :: ListResolverQueryLogConfigs -&gt; Maybe Text
+$sel:filters:ListResolverQueryLogConfigs' :: ListResolverQueryLogConfigs -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679290297"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-401"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-402"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-403"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Filter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; Pair) -&gt; Maybe [Filter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679290301"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-404"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290300"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-405"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortOrder -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621679290299"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-406"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679290298"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-407"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290297"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
+</span><span id="line-408"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-409"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-410"></span><span>
+</span><span id="line-411"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-412"></span><span>  </span><span id="local-6989586621679290291"><span class="annot"><span class="annottext">toPath :: ListResolverQueryLogConfigs -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListResolverQueryLogConfigs -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-413"></span><span>
+</span><span id="line-414"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigs"><span class="hs-identifier hs-type">ListResolverQueryLogConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-415"></span><span>  </span><span id="local-6989586621679290287"><span class="annot"><span class="annottext">toQuery :: ListResolverQueryLogConfigs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListResolverQueryLogConfigs -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-416"></span><span>
+</span><span id="line-417"></span><span class="hs-comment">-- | /See:/ 'newListResolverQueryLogConfigsResponse' smart constructor.</span><span>
+</span><span id="line-418"></span><span id="local-6989586621679290284"><span id="local-6989586621679290285"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResolverQueryLogConfigsResponse"><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse"><span class="hs-identifier hs-var">ListResolverQueryLogConfigsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResolverQueryLogConfigsResponse%27"><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-var">ListResolverQueryLogConfigsResponse'</span></a></span></span><span>
+</span><span id="line-419"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total number of query logging configurations that were created by</span><span>
+</span><span id="line-420"></span><span>    </span><span class="hs-comment">-- the current account in the specified Region and that match the filters</span><span>
+</span><span id="line-421"></span><span>    </span><span class="hs-comment">-- that were specified in the @ListResolverQueryLogConfigs@ request. For</span><span>
+</span><span id="line-422"></span><span>    </span><span class="hs-comment">-- the total number of query logging configurations that were created by</span><span>
+</span><span id="line-423"></span><span>    </span><span class="hs-comment">-- the current account in the specified Region, see @TotalCount@.</span><span>
+</span><span id="line-424"></span><span>    </span><span id="%24sel%3AtotalFilteredCount%3AListResolverQueryLogConfigsResponse%27"><span class="annot"><span class="annottext">ListResolverQueryLogConfigsResponse -&gt; Maybe Int
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AtotalFilteredCount%3AListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-var hs-var">totalFilteredCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-425"></span><span>    </span><span class="hs-comment">-- | A list that contains one @ResolverQueryLogConfig@ element for each query</span><span>
+</span><span id="line-426"></span><span>    </span><span class="hs-comment">-- logging configuration that matches the values that you specified for</span><span>
+</span><span id="line-427"></span><span>    </span><span class="hs-comment">-- @Filter@.</span><span>
+</span><span id="line-428"></span><span>    </span><span id="%24sel%3AresolverQueryLogConfigs%3AListResolverQueryLogConfigsResponse%27"><span class="annot"><span class="annottext">ListResolverQueryLogConfigsResponse
+-&gt; Maybe [ResolverQueryLogConfig]
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AresolverQueryLogConfigs%3AListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-var hs-var">resolverQueryLogConfigs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverQueryLogConfig.html#ResolverQueryLogConfig"><span class="hs-identifier hs-type">ResolverQueryLogConfig</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-429"></span><span>    </span><span class="hs-comment">-- | If there are more than @MaxResults@ query logging configurations, you</span><span>
+</span><span id="line-430"></span><span>    </span><span class="hs-comment">-- can submit another @ListResolverQueryLogConfigs@ request to get the next</span><span>
+</span><span id="line-431"></span><span>    </span><span class="hs-comment">-- group of configurations. In the next request, specify the value of</span><span>
+</span><span id="line-432"></span><span>    </span><span class="hs-comment">-- @NextToken@ from the previous response.</span><span>
+</span><span id="line-433"></span><span>    </span><span id="%24sel%3AnextToken%3AListResolverQueryLogConfigsResponse%27"><span class="annot"><span class="annottext">ListResolverQueryLogConfigsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AnextToken%3AListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-434"></span><span>    </span><span class="hs-comment">-- | The total number of query logging configurations that were created by</span><span>
+</span><span id="line-435"></span><span>    </span><span class="hs-comment">-- the current account in the specified Region. This count can differ from</span><span>
+</span><span id="line-436"></span><span>    </span><span class="hs-comment">-- the number of query logging configurations that are returned in a</span><span>
+</span><span id="line-437"></span><span>    </span><span class="hs-comment">-- @ListResolverQueryLogConfigs@ response, depending on the values that you</span><span>
+</span><span id="line-438"></span><span>    </span><span class="hs-comment">-- specify in the request.</span><span>
+</span><span id="line-439"></span><span>    </span><span id="%24sel%3AtotalCount%3AListResolverQueryLogConfigsResponse%27"><span class="annot"><span class="annottext">ListResolverQueryLogConfigsResponse -&gt; Maybe Int
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AtotalCount%3AListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-var hs-var">totalCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-440"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-441"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListResolverQueryLogConfigsResponse%27"><span class="annot"><span class="annottext">ListResolverQueryLogConfigsResponse -&gt; Int
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AhttpStatus%3AListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-442"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-443"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290275"><span id="local-6989586621679290277"><span class="annot"><span class="annottext">ListResolverQueryLogConfigsResponse
+-&gt; ListResolverQueryLogConfigsResponse -&gt; Bool
+(ListResolverQueryLogConfigsResponse
+ -&gt; ListResolverQueryLogConfigsResponse -&gt; Bool)
+-&gt; (ListResolverQueryLogConfigsResponse
+    -&gt; ListResolverQueryLogConfigsResponse -&gt; Bool)
+-&gt; Eq ListResolverQueryLogConfigsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListResolverQueryLogConfigsResponse
+-&gt; ListResolverQueryLogConfigsResponse -&gt; Bool
+$c/= :: ListResolverQueryLogConfigsResponse
+-&gt; ListResolverQueryLogConfigsResponse -&gt; Bool
+== :: ListResolverQueryLogConfigsResponse
+-&gt; ListResolverQueryLogConfigsResponse -&gt; Bool
+$c== :: ListResolverQueryLogConfigsResponse
+-&gt; ListResolverQueryLogConfigsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290267"><span id="local-6989586621679290269"><span id="local-6989586621679290271"><span id="local-6989586621679290273"><span class="annot"><span class="annottext">ReadPrec [ListResolverQueryLogConfigsResponse]
+ReadPrec ListResolverQueryLogConfigsResponse
+Int -&gt; ReadS ListResolverQueryLogConfigsResponse
+ReadS [ListResolverQueryLogConfigsResponse]
+(Int -&gt; ReadS ListResolverQueryLogConfigsResponse)
+-&gt; ReadS [ListResolverQueryLogConfigsResponse]
+-&gt; ReadPrec ListResolverQueryLogConfigsResponse
+-&gt; ReadPrec [ListResolverQueryLogConfigsResponse]
+-&gt; Read ListResolverQueryLogConfigsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListResolverQueryLogConfigsResponse]
+$creadListPrec :: ReadPrec [ListResolverQueryLogConfigsResponse]
+readPrec :: ReadPrec ListResolverQueryLogConfigsResponse
+$creadPrec :: ReadPrec ListResolverQueryLogConfigsResponse
+readList :: ReadS [ListResolverQueryLogConfigsResponse]
+$creadList :: ReadS [ListResolverQueryLogConfigsResponse]
+readsPrec :: Int -&gt; ReadS ListResolverQueryLogConfigsResponse
+$creadsPrec :: Int -&gt; ReadS ListResolverQueryLogConfigsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290261"><span id="local-6989586621679290263"><span id="local-6989586621679290265"><span class="annot"><span class="annottext">Int -&gt; ListResolverQueryLogConfigsResponse -&gt; ShowS
+[ListResolverQueryLogConfigsResponse] -&gt; ShowS
+ListResolverQueryLogConfigsResponse -&gt; String
+(Int -&gt; ListResolverQueryLogConfigsResponse -&gt; ShowS)
+-&gt; (ListResolverQueryLogConfigsResponse -&gt; String)
+-&gt; ([ListResolverQueryLogConfigsResponse] -&gt; ShowS)
+-&gt; Show ListResolverQueryLogConfigsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListResolverQueryLogConfigsResponse] -&gt; ShowS
+$cshowList :: [ListResolverQueryLogConfigsResponse] -&gt; ShowS
+show :: ListResolverQueryLogConfigsResponse -&gt; String
+$cshow :: ListResolverQueryLogConfigsResponse -&gt; String
+showsPrec :: Int -&gt; ListResolverQueryLogConfigsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListResolverQueryLogConfigsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListResolverQueryLogConfigsResponse
+ -&gt; Rep ListResolverQueryLogConfigsResponse x)
+-&gt; (forall x.
+    Rep ListResolverQueryLogConfigsResponse x
+    -&gt; ListResolverQueryLogConfigsResponse)
+-&gt; Generic ListResolverQueryLogConfigsResponse
+forall x.
+Rep ListResolverQueryLogConfigsResponse x
+-&gt; ListResolverQueryLogConfigsResponse
+forall x.
+ListResolverQueryLogConfigsResponse
+-&gt; Rep ListResolverQueryLogConfigsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListResolverQueryLogConfigsResponse x
+-&gt; ListResolverQueryLogConfigsResponse
+$cfrom :: forall x.
+ListResolverQueryLogConfigsResponse
+-&gt; Rep ListResolverQueryLogConfigsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-444"></span><span>
+</span><span id="line-445"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- Create a value of 'ListResolverQueryLogConfigsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-447"></span><span class="hs-comment">--</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-449"></span><span class="hs-comment">--</span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-451"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-452"></span><span class="hs-comment">--</span><span>
+</span><span id="line-453"></span><span class="hs-comment">-- 'totalFilteredCount', 'listResolverQueryLogConfigsResponse_totalFilteredCount' - The total number of query logging configurations that were created by</span><span>
+</span><span id="line-454"></span><span class="hs-comment">-- the current account in the specified Region and that match the filters</span><span>
+</span><span id="line-455"></span><span class="hs-comment">-- that were specified in the @ListResolverQueryLogConfigs@ request. For</span><span>
+</span><span id="line-456"></span><span class="hs-comment">-- the total number of query logging configurations that were created by</span><span>
+</span><span id="line-457"></span><span class="hs-comment">-- the current account in the specified Region, see @TotalCount@.</span><span>
+</span><span id="line-458"></span><span class="hs-comment">--</span><span>
+</span><span id="line-459"></span><span class="hs-comment">-- 'resolverQueryLogConfigs', 'listResolverQueryLogConfigsResponse_resolverQueryLogConfigs' - A list that contains one @ResolverQueryLogConfig@ element for each query</span><span>
+</span><span id="line-460"></span><span class="hs-comment">-- logging configuration that matches the values that you specified for</span><span>
+</span><span id="line-461"></span><span class="hs-comment">-- @Filter@.</span><span>
+</span><span id="line-462"></span><span class="hs-comment">--</span><span>
+</span><span id="line-463"></span><span class="hs-comment">-- 'nextToken', 'listResolverQueryLogConfigsResponse_nextToken' - If there are more than @MaxResults@ query logging configurations, you</span><span>
+</span><span id="line-464"></span><span class="hs-comment">-- can submit another @ListResolverQueryLogConfigs@ request to get the next</span><span>
+</span><span id="line-465"></span><span class="hs-comment">-- group of configurations. In the next request, specify the value of</span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- @NextToken@ from the previous response.</span><span>
+</span><span id="line-467"></span><span class="hs-comment">--</span><span>
+</span><span id="line-468"></span><span class="hs-comment">-- 'totalCount', 'listResolverQueryLogConfigsResponse_totalCount' - The total number of query logging configurations that were created by</span><span>
+</span><span id="line-469"></span><span class="hs-comment">-- the current account in the specified Region. This count can differ from</span><span>
+</span><span id="line-470"></span><span class="hs-comment">-- the number of query logging configurations that are returned in a</span><span>
+</span><span id="line-471"></span><span class="hs-comment">-- @ListResolverQueryLogConfigs@ response, depending on the values that you</span><span>
+</span><span id="line-472"></span><span class="hs-comment">-- specify in the request.</span><span>
+</span><span id="line-473"></span><span class="hs-comment">--</span><span>
+</span><span id="line-474"></span><span class="hs-comment">-- 'httpStatus', 'listResolverQueryLogConfigsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-475"></span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#newListResolverQueryLogConfigsResponse"><span class="hs-identifier hs-type">newListResolverQueryLogConfigsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-476"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-477"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-478"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse</span></a></span><span>
+</span><span id="line-479"></span><span id="newListResolverQueryLogConfigsResponse"><span class="annot"><span class="annottext">newListResolverQueryLogConfigsResponse :: Int -&gt; ListResolverQueryLogConfigsResponse
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#newListResolverQueryLogConfigsResponse"><span class="hs-identifier hs-var hs-var">newListResolverQueryLogConfigsResponse</span></a></span></span><span> </span><span id="local-6989586621679290258"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-480"></span><span>  </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigsResponse' :: Maybe Int
+-&gt; Maybe [ResolverQueryLogConfig]
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Int
+-&gt; ListResolverQueryLogConfigsResponse
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse'</span></a></span><span>
+</span><span id="line-481"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:totalFilteredCount:ListResolverQueryLogConfigsResponse' :: Maybe Int
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AtotalFilteredCount%3AListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-var">totalFilteredCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-482"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-483"></span><span>      </span><span class="annot"><span class="annottext">$sel:resolverQueryLogConfigs:ListResolverQueryLogConfigsResponse' :: Maybe [ResolverQueryLogConfig]
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AresolverQueryLogConfigs%3AListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-var">resolverQueryLogConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-484"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ResolverQueryLogConfig]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-485"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListResolverQueryLogConfigsResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AnextToken%3AListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-486"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalCount:ListResolverQueryLogConfigsResponse' :: Maybe Int
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AtotalCount%3AListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-var">totalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-487"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListResolverQueryLogConfigsResponse' :: Int
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AhttpStatus%3AListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-488"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-489"></span><span>
+</span><span id="line-490"></span><span class="hs-comment">-- | The total number of query logging configurations that were created by</span><span>
+</span><span id="line-491"></span><span class="hs-comment">-- the current account in the specified Region and that match the filters</span><span>
+</span><span id="line-492"></span><span class="hs-comment">-- that were specified in the @ListResolverQueryLogConfigs@ request. For</span><span>
+</span><span id="line-493"></span><span class="hs-comment">-- the total number of query logging configurations that were created by</span><span>
+</span><span id="line-494"></span><span class="hs-comment">-- the current account in the specified Region, see @TotalCount@.</span><span>
+</span><span id="line-495"></span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_totalFilteredCount"><span class="hs-identifier hs-type">listResolverQueryLogConfigsResponse_totalFilteredCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-496"></span><span id="listResolverQueryLogConfigsResponse_totalFilteredCount"><span class="annot"><span class="annottext">listResolverQueryLogConfigsResponse_totalFilteredCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ListResolverQueryLogConfigsResponse
+-&gt; f ListResolverQueryLogConfigsResponse
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_totalFilteredCount"><span class="hs-identifier hs-var hs-var">listResolverQueryLogConfigsResponse_totalFilteredCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResolverQueryLogConfigsResponse -&gt; Maybe Int)
+-&gt; (ListResolverQueryLogConfigsResponse
+    -&gt; Maybe Int -&gt; ListResolverQueryLogConfigsResponse)
+-&gt; Lens
+     ListResolverQueryLogConfigsResponse
+     ListResolverQueryLogConfigsResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290257"><span class="annot"><span class="annottext">Maybe Int
+totalFilteredCount :: Maybe Int
+$sel:totalFilteredCount:ListResolverQueryLogConfigsResponse' :: ListResolverQueryLogConfigsResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679290257"><span class="hs-identifier hs-var hs-var">totalFilteredCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679290257"><span class="hs-identifier hs-var">totalFilteredCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290256"><span class="annot"><span class="annottext">s :: ListResolverQueryLogConfigsResponse
+</span><a href="#local-6989586621679290256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290255"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679290255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigsResponse
+</span><a href="#local-6989586621679290256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalFilteredCount:ListResolverQueryLogConfigsResponse' :: Maybe Int
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AtotalFilteredCount%3AListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-var">totalFilteredCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679290255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-497"></span><span>
+</span><span id="line-498"></span><span class="hs-comment">-- | A list that contains one @ResolverQueryLogConfig@ element for each query</span><span>
+</span><span id="line-499"></span><span class="hs-comment">-- logging configuration that matches the values that you specified for</span><span>
+</span><span id="line-500"></span><span class="hs-comment">-- @Filter@.</span><span>
+</span><span id="line-501"></span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_resolverQueryLogConfigs"><span class="hs-identifier hs-type">listResolverQueryLogConfigsResponse_resolverQueryLogConfigs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverQueryLogConfig.html#ResolverQueryLogConfig"><span class="hs-identifier hs-type">ResolverQueryLogConfig</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-502"></span><span id="listResolverQueryLogConfigsResponse_resolverQueryLogConfigs"><span class="annot"><span class="annottext">listResolverQueryLogConfigsResponse_resolverQueryLogConfigs :: (Maybe [ResolverQueryLogConfig]
+ -&gt; f (Maybe [ResolverQueryLogConfig]))
+-&gt; ListResolverQueryLogConfigsResponse
+-&gt; f ListResolverQueryLogConfigsResponse
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_resolverQueryLogConfigs"><span class="hs-identifier hs-var hs-var">listResolverQueryLogConfigsResponse_resolverQueryLogConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResolverQueryLogConfigsResponse
+ -&gt; Maybe [ResolverQueryLogConfig])
+-&gt; (ListResolverQueryLogConfigsResponse
+    -&gt; Maybe [ResolverQueryLogConfig]
+    -&gt; ListResolverQueryLogConfigsResponse)
+-&gt; Lens'
+     ListResolverQueryLogConfigsResponse
+     (Maybe [ResolverQueryLogConfig])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290254"><span class="annot"><span class="annottext">Maybe [ResolverQueryLogConfig]
+resolverQueryLogConfigs :: Maybe [ResolverQueryLogConfig]
+$sel:resolverQueryLogConfigs:ListResolverQueryLogConfigsResponse' :: ListResolverQueryLogConfigsResponse
+-&gt; Maybe [ResolverQueryLogConfig]
+</span><a href="#local-6989586621679290254"><span class="hs-identifier hs-var hs-var">resolverQueryLogConfigs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResolverQueryLogConfig]
+</span><a href="#local-6989586621679290254"><span class="hs-identifier hs-var">resolverQueryLogConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290253"><span class="annot"><span class="annottext">s :: ListResolverQueryLogConfigsResponse
+</span><a href="#local-6989586621679290253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290252"><span class="annot"><span class="annottext">Maybe [ResolverQueryLogConfig]
+</span><a href="#local-6989586621679290252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigsResponse
+</span><a href="#local-6989586621679290253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolverQueryLogConfigs:ListResolverQueryLogConfigsResponse' :: Maybe [ResolverQueryLogConfig]
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AresolverQueryLogConfigs%3AListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-var">resolverQueryLogConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResolverQueryLogConfig]
+</span><a href="#local-6989586621679290252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResolverQueryLogConfig]
+  -&gt; f (Maybe [ResolverQueryLogConfig]))
+ -&gt; ListResolverQueryLogConfigsResponse
+ -&gt; f ListResolverQueryLogConfigsResponse)
+-&gt; ((Maybe [ResolverQueryLogConfig]
+     -&gt; f (Maybe [ResolverQueryLogConfig]))
+    -&gt; Maybe [ResolverQueryLogConfig]
+    -&gt; f (Maybe [ResolverQueryLogConfig]))
+-&gt; (Maybe [ResolverQueryLogConfig]
+    -&gt; f (Maybe [ResolverQueryLogConfig]))
+-&gt; ListResolverQueryLogConfigsResponse
+-&gt; f ListResolverQueryLogConfigsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResolverQueryLogConfig]
+  [ResolverQueryLogConfig]
+  [ResolverQueryLogConfig]
+  [ResolverQueryLogConfig]
+-&gt; Iso
+     (Maybe [ResolverQueryLogConfig])
+     (Maybe [ResolverQueryLogConfig])
+     (Maybe [ResolverQueryLogConfig])
+     (Maybe [ResolverQueryLogConfig])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResolverQueryLogConfig]
+  [ResolverQueryLogConfig]
+  [ResolverQueryLogConfig]
+  [ResolverQueryLogConfig]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-503"></span><span>
+</span><span id="line-504"></span><span class="hs-comment">-- | If there are more than @MaxResults@ query logging configurations, you</span><span>
+</span><span id="line-505"></span><span class="hs-comment">-- can submit another @ListResolverQueryLogConfigs@ request to get the next</span><span>
+</span><span id="line-506"></span><span class="hs-comment">-- group of configurations. In the next request, specify the value of</span><span>
+</span><span id="line-507"></span><span class="hs-comment">-- @NextToken@ from the previous response.</span><span>
+</span><span id="line-508"></span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_nextToken"><span class="hs-identifier hs-type">listResolverQueryLogConfigsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-509"></span><span id="listResolverQueryLogConfigsResponse_nextToken"><span class="annot"><span class="annottext">listResolverQueryLogConfigsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListResolverQueryLogConfigsResponse
+-&gt; f ListResolverQueryLogConfigsResponse
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listResolverQueryLogConfigsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResolverQueryLogConfigsResponse -&gt; Maybe Text)
+-&gt; (ListResolverQueryLogConfigsResponse
+    -&gt; Maybe Text -&gt; ListResolverQueryLogConfigsResponse)
+-&gt; Lens' ListResolverQueryLogConfigsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290251"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListResolverQueryLogConfigsResponse' :: ListResolverQueryLogConfigsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679290251"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290251"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290250"><span class="annot"><span class="annottext">s :: ListResolverQueryLogConfigsResponse
+</span><a href="#local-6989586621679290250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290249"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigsResponse
+</span><a href="#local-6989586621679290250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListResolverQueryLogConfigsResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AnextToken%3AListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-510"></span><span>
+</span><span id="line-511"></span><span class="hs-comment">-- | The total number of query logging configurations that were created by</span><span>
+</span><span id="line-512"></span><span class="hs-comment">-- the current account in the specified Region. This count can differ from</span><span>
+</span><span id="line-513"></span><span class="hs-comment">-- the number of query logging configurations that are returned in a</span><span>
+</span><span id="line-514"></span><span class="hs-comment">-- @ListResolverQueryLogConfigs@ response, depending on the values that you</span><span>
+</span><span id="line-515"></span><span class="hs-comment">-- specify in the request.</span><span>
+</span><span id="line-516"></span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_totalCount"><span class="hs-identifier hs-type">listResolverQueryLogConfigsResponse_totalCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-517"></span><span id="listResolverQueryLogConfigsResponse_totalCount"><span class="annot"><span class="annottext">listResolverQueryLogConfigsResponse_totalCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ListResolverQueryLogConfigsResponse
+-&gt; f ListResolverQueryLogConfigsResponse
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_totalCount"><span class="hs-identifier hs-var hs-var">listResolverQueryLogConfigsResponse_totalCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResolverQueryLogConfigsResponse -&gt; Maybe Int)
+-&gt; (ListResolverQueryLogConfigsResponse
+    -&gt; Maybe Int -&gt; ListResolverQueryLogConfigsResponse)
+-&gt; Lens
+     ListResolverQueryLogConfigsResponse
+     ListResolverQueryLogConfigsResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290248"><span class="annot"><span class="annottext">Maybe Int
+totalCount :: Maybe Int
+$sel:totalCount:ListResolverQueryLogConfigsResponse' :: ListResolverQueryLogConfigsResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679290248"><span class="hs-identifier hs-var hs-var">totalCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679290248"><span class="hs-identifier hs-var">totalCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290247"><span class="annot"><span class="annottext">s :: ListResolverQueryLogConfigsResponse
+</span><a href="#local-6989586621679290247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290246"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679290246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigsResponse
+</span><a href="#local-6989586621679290247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalCount:ListResolverQueryLogConfigsResponse' :: Maybe Int
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AtotalCount%3AListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-var">totalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679290246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-518"></span><span>
+</span><span id="line-519"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-520"></span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_httpStatus"><span class="hs-identifier hs-type">listResolverQueryLogConfigsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-521"></span><span id="listResolverQueryLogConfigsResponse_httpStatus"><span class="annot"><span class="annottext">listResolverQueryLogConfigsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListResolverQueryLogConfigsResponse
+-&gt; f ListResolverQueryLogConfigsResponse
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#listResolverQueryLogConfigsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listResolverQueryLogConfigsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResolverQueryLogConfigsResponse -&gt; Int)
+-&gt; (ListResolverQueryLogConfigsResponse
+    -&gt; Int -&gt; ListResolverQueryLogConfigsResponse)
+-&gt; Lens
+     ListResolverQueryLogConfigsResponse
+     ListResolverQueryLogConfigsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290245"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListResolverQueryLogConfigsResponse' :: ListResolverQueryLogConfigsResponse -&gt; Int
+</span><a href="#local-6989586621679290245"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290245"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290244"><span class="annot"><span class="annottext">s :: ListResolverQueryLogConfigsResponse
+</span><a href="#local-6989586621679290244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290243"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResolverQueryLogConfigsResponse
+</span><a href="#local-6989586621679290244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListResolverQueryLogConfigsResponse' :: Int
+</span><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#%24sel%3AhttpStatus%3AListResolverQueryLogConfigsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-522"></span><span>
+</span><span id="line-523"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-524"></span><span>  </span><span id="local-6989586621679290241"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-525"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Resolver.ListResolverQueryLogConfigs.html#ListResolverQueryLogConfigsResponse"><span class="hs-identifier hs-type">ListResolverQueryLogConfigsResponse</span></a></span></span><span>
+</span><span id="line-526"></span></pre></body></html>

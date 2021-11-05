@@ -1,0 +1,597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.OpenSearch.ListDomainsForPackage</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists all Amazon OpenSearch Service domains associated with the package.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.OpenSearch.ListDomainsForPackage</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage"><span class="hs-identifier">ListDomainsForPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#newListDomainsForPackage"><span class="hs-identifier">newListDomainsForPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackage_nextToken"><span class="hs-identifier">listDomainsForPackage_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackage_maxResults"><span class="hs-identifier">listDomainsForPackage_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackage_packageID"><span class="hs-identifier">listDomainsForPackage_packageID</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse"><span class="hs-identifier">ListDomainsForPackageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#newListDomainsForPackageResponse"><span class="hs-identifier">newListDomainsForPackageResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackageResponse_domainPackageDetailsList"><span class="hs-identifier">listDomainsForPackageResponse_domainPackageDetailsList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackageResponse_nextToken"><span class="hs-identifier">listDomainsForPackageResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackageResponse_httpStatus"><span class="hs-identifier">listDomainsForPackageResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.html"><span class="hs-identifier">Network.AWS.OpenSearch.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | Container for the request parameters to the @ ListDomainsForPackage @</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newListDomainsForPackage' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679312725"><span id="local-6989586621679312726"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDomainsForPackage"><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage"><span class="hs-identifier hs-var">ListDomainsForPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDomainsForPackage%27"><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage%27"><span class="hs-identifier hs-var">ListDomainsForPackage'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Used for pagination. Only necessary if a previous API call includes a</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- non-null NextToken value. If provided, returns results for the next</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- page.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnextToken%3AListDomainsForPackage%27"><span class="annot"><span class="annottext">ListDomainsForPackage -&gt; Maybe Text
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3AnextToken%3AListDomainsForPackage%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Limits the results to a maximum number of domains.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxResults%3AListDomainsForPackage%27"><span class="annot"><span class="annottext">ListDomainsForPackage -&gt; Maybe Int
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3AmaxResults%3AListDomainsForPackage%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The package for which to list associated domains.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3ApackageID%3AListDomainsForPackage%27"><span class="annot"><span class="annottext">ListDomainsForPackage -&gt; Text
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3ApackageID%3AListDomainsForPackage%27"><span class="hs-identifier hs-var hs-var">packageID</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312717"><span id="local-6989586621679312719"><span class="annot"><span class="annottext">ListDomainsForPackage -&gt; ListDomainsForPackage -&gt; Bool
+(ListDomainsForPackage -&gt; ListDomainsForPackage -&gt; Bool)
+-&gt; (ListDomainsForPackage -&gt; ListDomainsForPackage -&gt; Bool)
+-&gt; Eq ListDomainsForPackage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDomainsForPackage -&gt; ListDomainsForPackage -&gt; Bool
+$c/= :: ListDomainsForPackage -&gt; ListDomainsForPackage -&gt; Bool
+== :: ListDomainsForPackage -&gt; ListDomainsForPackage -&gt; Bool
+$c== :: ListDomainsForPackage -&gt; ListDomainsForPackage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312708"><span id="local-6989586621679312710"><span id="local-6989586621679312712"><span id="local-6989586621679312714"><span class="annot"><span class="annottext">ReadPrec [ListDomainsForPackage]
+ReadPrec ListDomainsForPackage
+Int -&gt; ReadS ListDomainsForPackage
+ReadS [ListDomainsForPackage]
+(Int -&gt; ReadS ListDomainsForPackage)
+-&gt; ReadS [ListDomainsForPackage]
+-&gt; ReadPrec ListDomainsForPackage
+-&gt; ReadPrec [ListDomainsForPackage]
+-&gt; Read ListDomainsForPackage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDomainsForPackage]
+$creadListPrec :: ReadPrec [ListDomainsForPackage]
+readPrec :: ReadPrec ListDomainsForPackage
+$creadPrec :: ReadPrec ListDomainsForPackage
+readList :: ReadS [ListDomainsForPackage]
+$creadList :: ReadS [ListDomainsForPackage]
+readsPrec :: Int -&gt; ReadS ListDomainsForPackage
+$creadsPrec :: Int -&gt; ReadS ListDomainsForPackage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312701"><span id="local-6989586621679312703"><span id="local-6989586621679312705"><span class="annot"><span class="annottext">Int -&gt; ListDomainsForPackage -&gt; ShowS
+[ListDomainsForPackage] -&gt; ShowS
+ListDomainsForPackage -&gt; String
+(Int -&gt; ListDomainsForPackage -&gt; ShowS)
+-&gt; (ListDomainsForPackage -&gt; String)
+-&gt; ([ListDomainsForPackage] -&gt; ShowS)
+-&gt; Show ListDomainsForPackage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDomainsForPackage] -&gt; ShowS
+$cshowList :: [ListDomainsForPackage] -&gt; ShowS
+show :: ListDomainsForPackage -&gt; String
+$cshow :: ListDomainsForPackage -&gt; String
+showsPrec :: Int -&gt; ListDomainsForPackage -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDomainsForPackage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListDomainsForPackage -&gt; Rep ListDomainsForPackage x)
+-&gt; (forall x. Rep ListDomainsForPackage x -&gt; ListDomainsForPackage)
+-&gt; Generic ListDomainsForPackage
+forall x. Rep ListDomainsForPackage x -&gt; ListDomainsForPackage
+forall x. ListDomainsForPackage -&gt; Rep ListDomainsForPackage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListDomainsForPackage x -&gt; ListDomainsForPackage
+$cfrom :: forall x. ListDomainsForPackage -&gt; Rep ListDomainsForPackage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'ListDomainsForPackage' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'nextToken', 'listDomainsForPackage_nextToken' - Used for pagination. Only necessary if a previous API call includes a</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- non-null NextToken value. If provided, returns results for the next</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- page.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'maxResults', 'listDomainsForPackage_maxResults' - Limits the results to a maximum number of domains.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'packageID', 'listDomainsForPackage_packageID' - The package for which to list associated domains.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#newListDomainsForPackage"><span class="hs-identifier hs-type">newListDomainsForPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'packageID'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage"><span class="hs-identifier hs-type">ListDomainsForPackage</span></a></span><span>
+</span><span id="line-87"></span><span id="newListDomainsForPackage"><span class="annot"><span class="annottext">newListDomainsForPackage :: Text -&gt; ListDomainsForPackage
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#newListDomainsForPackage"><span class="hs-identifier hs-var hs-var">newListDomainsForPackage</span></a></span></span><span> </span><span id="local-6989586621679312696"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312696"><span class="hs-identifier hs-var">pPackageID_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">ListDomainsForPackage' :: Maybe Text -&gt; Maybe Int -&gt; Text -&gt; ListDomainsForPackage
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage%27"><span class="hs-identifier hs-type">ListDomainsForPackage'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListDomainsForPackage' :: Maybe Text
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3AnextToken%3AListDomainsForPackage%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListDomainsForPackage' :: Maybe Int
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3AmaxResults%3AListDomainsForPackage%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:packageID:ListDomainsForPackage' :: Text
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3ApackageID%3AListDomainsForPackage%27"><span class="hs-identifier hs-var">packageID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312696"><span class="hs-identifier hs-var">pPackageID_</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Used for pagination. Only necessary if a previous API call includes a</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- non-null NextToken value. If provided, returns results for the next</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- page.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackage_nextToken"><span class="hs-identifier hs-type">listDomainsForPackage_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage"><span class="hs-identifier hs-type">ListDomainsForPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="listDomainsForPackage_nextToken"><span class="annot"><span class="annottext">listDomainsForPackage_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDomainsForPackage -&gt; f ListDomainsForPackage
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackage_nextToken"><span class="hs-identifier hs-var hs-var">listDomainsForPackage_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDomainsForPackage -&gt; Maybe Text)
+-&gt; (ListDomainsForPackage -&gt; Maybe Text -&gt; ListDomainsForPackage)
+-&gt; Lens
+     ListDomainsForPackage
+     ListDomainsForPackage
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage%27"><span class="hs-identifier hs-type">ListDomainsForPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312693"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDomainsForPackage' :: ListDomainsForPackage -&gt; Maybe Text
+</span><a href="#local-6989586621679312693"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312693"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312692"><span class="annot"><span class="annottext">s :: ListDomainsForPackage
+</span><a href="#local-6989586621679312692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage%27"><span class="hs-identifier hs-type">ListDomainsForPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312691"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainsForPackage
+</span><a href="#local-6989586621679312692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDomainsForPackage' :: Maybe Text
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3AnextToken%3AListDomainsForPackage%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage"><span class="hs-identifier hs-type">ListDomainsForPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Limits the results to a maximum number of domains.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackage_maxResults"><span class="hs-identifier hs-type">listDomainsForPackage_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage"><span class="hs-identifier hs-type">ListDomainsForPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="listDomainsForPackage_maxResults"><span class="annot"><span class="annottext">listDomainsForPackage_maxResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ListDomainsForPackage -&gt; f ListDomainsForPackage
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackage_maxResults"><span class="hs-identifier hs-var hs-var">listDomainsForPackage_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDomainsForPackage -&gt; Maybe Int)
+-&gt; (ListDomainsForPackage -&gt; Maybe Int -&gt; ListDomainsForPackage)
+-&gt; Lens
+     ListDomainsForPackage ListDomainsForPackage (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage%27"><span class="hs-identifier hs-type">ListDomainsForPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312690"><span class="annot"><span class="annottext">Maybe Int
+maxResults :: Maybe Int
+$sel:maxResults:ListDomainsForPackage' :: ListDomainsForPackage -&gt; Maybe Int
+</span><a href="#local-6989586621679312690"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679312690"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312689"><span class="annot"><span class="annottext">s :: ListDomainsForPackage
+</span><a href="#local-6989586621679312689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage%27"><span class="hs-identifier hs-type">ListDomainsForPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312688"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679312688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainsForPackage
+</span><a href="#local-6989586621679312689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDomainsForPackage' :: Maybe Int
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3AmaxResults%3AListDomainsForPackage%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679312688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage"><span class="hs-identifier hs-type">ListDomainsForPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The package for which to list associated domains.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackage_packageID"><span class="hs-identifier hs-type">listDomainsForPackage_packageID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage"><span class="hs-identifier hs-type">ListDomainsForPackage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-106"></span><span id="listDomainsForPackage_packageID"><span class="annot"><span class="annottext">listDomainsForPackage_packageID :: (Text -&gt; f Text)
+-&gt; ListDomainsForPackage -&gt; f ListDomainsForPackage
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackage_packageID"><span class="hs-identifier hs-var hs-var">listDomainsForPackage_packageID</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDomainsForPackage -&gt; Text)
+-&gt; (ListDomainsForPackage -&gt; Text -&gt; ListDomainsForPackage)
+-&gt; Lens ListDomainsForPackage ListDomainsForPackage Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage%27"><span class="hs-identifier hs-type">ListDomainsForPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312687"><span class="annot"><span class="annottext">Text
+packageID :: Text
+$sel:packageID:ListDomainsForPackage' :: ListDomainsForPackage -&gt; Text
+</span><a href="#local-6989586621679312687"><span class="hs-identifier hs-var hs-var">packageID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312687"><span class="hs-identifier hs-var">packageID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312686"><span class="annot"><span class="annottext">s :: ListDomainsForPackage
+</span><a href="#local-6989586621679312686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage%27"><span class="hs-identifier hs-type">ListDomainsForPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312685"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainsForPackage
+</span><a href="#local-6989586621679312686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageID:ListDomainsForPackage' :: Text
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3ApackageID%3AListDomainsForPackage%27"><span class="hs-identifier hs-var">packageID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage"><span class="hs-identifier hs-type">ListDomainsForPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage"><span class="hs-identifier hs-type">ListDomainsForPackage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-110"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage"><span class="hs-identifier hs-type">ListDomainsForPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse"><span class="hs-identifier hs-type">ListDomainsForPackageResponse</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679312681"><span class="annot"><span class="annottext">request :: ListDomainsForPackage -&gt; Request ListDomainsForPackage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListDomainsForPackage -&gt; Request ListDomainsForPackage
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.OpenSearch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679312677"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListDomainsForPackage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListDomainsForPackage)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListDomainsForPackage))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListDomainsForPackage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListDomainsForPackage)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312674"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312674"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312673"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312673"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312672"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312672"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DomainPackageDetails]
+-&gt; Maybe Text -&gt; Int -&gt; ListDomainsForPackageResponse
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse%27"><span class="hs-identifier hs-var">ListDomainsForPackageResponse'</span></a></span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [DomainPackageDetails]
+ -&gt; Maybe Text -&gt; Int -&gt; ListDomainsForPackageResponse)
+-&gt; Either String (Maybe [DomainPackageDetails])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListDomainsForPackageResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [DomainPackageDetails]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainPackageDetailsList&quot;</span></span><span>
+</span><span id="line-118"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DomainPackageDetails]))
+-&gt; Maybe [DomainPackageDetails]
+-&gt; Either String (Maybe [DomainPackageDetails])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DomainPackageDetails]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListDomainsForPackageResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListDomainsForPackageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListDomainsForPackageResponse)
+-&gt; Either String Int -&gt; Either String ListDomainsForPackageResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312674"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312663"><span id="local-6989586621679312665"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage"><span class="hs-identifier hs-type">ListDomainsForPackage</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312660"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage"><span class="hs-identifier hs-type">ListDomainsForPackage</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage"><span class="hs-identifier hs-type">ListDomainsForPackage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679312656"><span class="annot"><span class="annottext">toHeaders :: ListDomainsForPackage -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDomainsForPackage -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage"><span class="hs-identifier hs-type">ListDomainsForPackage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679312651"><span class="annot"><span class="annottext">toPath :: ListDomainsForPackage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage%27"><span class="hs-identifier hs-type">ListDomainsForPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312647"><span id="local-6989586621679312648"><span id="local-6989586621679312649"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Text
+packageID :: Text
+maxResults :: Maybe Int
+nextToken :: Maybe Text
+$sel:packageID:ListDomainsForPackage' :: ListDomainsForPackage -&gt; Text
+$sel:maxResults:ListDomainsForPackage' :: ListDomainsForPackage -&gt; Maybe Int
+$sel:nextToken:ListDomainsForPackage' :: ListDomainsForPackage -&gt; Maybe Text
+</span><a href="#local-6989586621679312647"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2021-01-01/packages/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312647"><span class="hs-identifier hs-var">packageID</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/domains&quot;</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage"><span class="hs-identifier hs-type">ListDomainsForPackage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679312643"><span class="annot"><span class="annottext">toQuery :: ListDomainsForPackage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackage%27"><span class="hs-identifier hs-type">ListDomainsForPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312639"><span id="local-6989586621679312640"><span id="local-6989586621679312641"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Text
+packageID :: Text
+maxResults :: Maybe Int
+nextToken :: Maybe Text
+$sel:packageID:ListDomainsForPackage' :: ListDomainsForPackage -&gt; Text
+$sel:maxResults:ListDomainsForPackage' :: ListDomainsForPackage -&gt; Maybe Int
+$sel:nextToken:ListDomainsForPackage' :: ListDomainsForPackage -&gt; Maybe Text
+</span><a href="#local-6989586621679312639"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312641"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679312640"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | Container for the response parameters to the @ ListDomainsForPackage @</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- /See:/ 'newListDomainsForPackageResponse' smart constructor.</span><span>
+</span><span id="line-150"></span><span id="local-6989586621679312636"><span id="local-6989586621679312637"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDomainsForPackageResponse"><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse"><span class="hs-identifier hs-var">ListDomainsForPackageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDomainsForPackageResponse%27"><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse%27"><span class="hs-identifier hs-var">ListDomainsForPackageResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of @DomainPackageDetails@ objects.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AdomainPackageDetailsList%3AListDomainsForPackageResponse%27"><span class="annot"><span class="annottext">ListDomainsForPackageResponse -&gt; Maybe [DomainPackageDetails]
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3AdomainPackageDetailsList%3AListDomainsForPackageResponse%27"><span class="hs-identifier hs-var hs-var">domainPackageDetailsList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DomainPackageDetails.html#DomainPackageDetails"><span class="hs-identifier hs-type">DomainPackageDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AnextToken%3AListDomainsForPackageResponse%27"><span class="annot"><span class="annottext">ListDomainsForPackageResponse -&gt; Maybe Text
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3AnextToken%3AListDomainsForPackageResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListDomainsForPackageResponse%27"><span class="annot"><span class="annottext">ListDomainsForPackageResponse -&gt; Int
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3AhttpStatus%3AListDomainsForPackageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312629"><span id="local-6989586621679312631"><span class="annot"><span class="annottext">ListDomainsForPackageResponse
+-&gt; ListDomainsForPackageResponse -&gt; Bool
+(ListDomainsForPackageResponse
+ -&gt; ListDomainsForPackageResponse -&gt; Bool)
+-&gt; (ListDomainsForPackageResponse
+    -&gt; ListDomainsForPackageResponse -&gt; Bool)
+-&gt; Eq ListDomainsForPackageResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDomainsForPackageResponse
+-&gt; ListDomainsForPackageResponse -&gt; Bool
+$c/= :: ListDomainsForPackageResponse
+-&gt; ListDomainsForPackageResponse -&gt; Bool
+== :: ListDomainsForPackageResponse
+-&gt; ListDomainsForPackageResponse -&gt; Bool
+$c== :: ListDomainsForPackageResponse
+-&gt; ListDomainsForPackageResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312621"><span id="local-6989586621679312623"><span id="local-6989586621679312625"><span id="local-6989586621679312627"><span class="annot"><span class="annottext">ReadPrec [ListDomainsForPackageResponse]
+ReadPrec ListDomainsForPackageResponse
+Int -&gt; ReadS ListDomainsForPackageResponse
+ReadS [ListDomainsForPackageResponse]
+(Int -&gt; ReadS ListDomainsForPackageResponse)
+-&gt; ReadS [ListDomainsForPackageResponse]
+-&gt; ReadPrec ListDomainsForPackageResponse
+-&gt; ReadPrec [ListDomainsForPackageResponse]
+-&gt; Read ListDomainsForPackageResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDomainsForPackageResponse]
+$creadListPrec :: ReadPrec [ListDomainsForPackageResponse]
+readPrec :: ReadPrec ListDomainsForPackageResponse
+$creadPrec :: ReadPrec ListDomainsForPackageResponse
+readList :: ReadS [ListDomainsForPackageResponse]
+$creadList :: ReadS [ListDomainsForPackageResponse]
+readsPrec :: Int -&gt; ReadS ListDomainsForPackageResponse
+$creadsPrec :: Int -&gt; ReadS ListDomainsForPackageResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312615"><span id="local-6989586621679312617"><span id="local-6989586621679312619"><span class="annot"><span class="annottext">Int -&gt; ListDomainsForPackageResponse -&gt; ShowS
+[ListDomainsForPackageResponse] -&gt; ShowS
+ListDomainsForPackageResponse -&gt; String
+(Int -&gt; ListDomainsForPackageResponse -&gt; ShowS)
+-&gt; (ListDomainsForPackageResponse -&gt; String)
+-&gt; ([ListDomainsForPackageResponse] -&gt; ShowS)
+-&gt; Show ListDomainsForPackageResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDomainsForPackageResponse] -&gt; ShowS
+$cshowList :: [ListDomainsForPackageResponse] -&gt; ShowS
+show :: ListDomainsForPackageResponse -&gt; String
+$cshow :: ListDomainsForPackageResponse -&gt; String
+showsPrec :: Int -&gt; ListDomainsForPackageResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDomainsForPackageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListDomainsForPackageResponse
+ -&gt; Rep ListDomainsForPackageResponse x)
+-&gt; (forall x.
+    Rep ListDomainsForPackageResponse x
+    -&gt; ListDomainsForPackageResponse)
+-&gt; Generic ListDomainsForPackageResponse
+forall x.
+Rep ListDomainsForPackageResponse x
+-&gt; ListDomainsForPackageResponse
+forall x.
+ListDomainsForPackageResponse
+-&gt; Rep ListDomainsForPackageResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListDomainsForPackageResponse x
+-&gt; ListDomainsForPackageResponse
+$cfrom :: forall x.
+ListDomainsForPackageResponse
+-&gt; Rep ListDomainsForPackageResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Create a value of 'ListDomainsForPackageResponse' with all optional fields omitted.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'domainPackageDetailsList', 'listDomainsForPackageResponse_domainPackageDetailsList' - List of @DomainPackageDetails@ objects.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'nextToken', 'listDomainsForPackageResponse_nextToken' - Undocumented member.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'listDomainsForPackageResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#newListDomainsForPackageResponse"><span class="hs-identifier hs-type">newListDomainsForPackageResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse"><span class="hs-identifier hs-type">ListDomainsForPackageResponse</span></a></span><span>
+</span><span id="line-176"></span><span id="newListDomainsForPackageResponse"><span class="annot"><span class="annottext">newListDomainsForPackageResponse :: Int -&gt; ListDomainsForPackageResponse
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#newListDomainsForPackageResponse"><span class="hs-identifier hs-var hs-var">newListDomainsForPackageResponse</span></a></span></span><span> </span><span id="local-6989586621679312612"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312612"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">ListDomainsForPackageResponse' :: Maybe [DomainPackageDetails]
+-&gt; Maybe Text -&gt; Int -&gt; ListDomainsForPackageResponse
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse%27"><span class="hs-identifier hs-type">ListDomainsForPackageResponse'</span></a></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainPackageDetailsList:ListDomainsForPackageResponse' :: Maybe [DomainPackageDetails]
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3AdomainPackageDetailsList%3AListDomainsForPackageResponse%27"><span class="hs-identifier hs-var">domainPackageDetailsList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe [DomainPackageDetails]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListDomainsForPackageResponse' :: Maybe Text
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3AnextToken%3AListDomainsForPackageResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDomainsForPackageResponse' :: Int
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3AhttpStatus%3AListDomainsForPackageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312612"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | List of @DomainPackageDetails@ objects.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackageResponse_domainPackageDetailsList"><span class="hs-identifier hs-type">listDomainsForPackageResponse_domainPackageDetailsList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse"><span class="hs-identifier hs-type">ListDomainsForPackageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DomainPackageDetails.html#DomainPackageDetails"><span class="hs-identifier hs-type">DomainPackageDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="listDomainsForPackageResponse_domainPackageDetailsList"><span class="annot"><span class="annottext">listDomainsForPackageResponse_domainPackageDetailsList :: (Maybe [DomainPackageDetails] -&gt; f (Maybe [DomainPackageDetails]))
+-&gt; ListDomainsForPackageResponse -&gt; f ListDomainsForPackageResponse
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackageResponse_domainPackageDetailsList"><span class="hs-identifier hs-var hs-var">listDomainsForPackageResponse_domainPackageDetailsList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDomainsForPackageResponse -&gt; Maybe [DomainPackageDetails])
+-&gt; (ListDomainsForPackageResponse
+    -&gt; Maybe [DomainPackageDetails] -&gt; ListDomainsForPackageResponse)
+-&gt; Lens
+     ListDomainsForPackageResponse
+     ListDomainsForPackageResponse
+     (Maybe [DomainPackageDetails])
+     (Maybe [DomainPackageDetails])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse%27"><span class="hs-identifier hs-type">ListDomainsForPackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312611"><span class="annot"><span class="annottext">Maybe [DomainPackageDetails]
+domainPackageDetailsList :: Maybe [DomainPackageDetails]
+$sel:domainPackageDetailsList:ListDomainsForPackageResponse' :: ListDomainsForPackageResponse -&gt; Maybe [DomainPackageDetails]
+</span><a href="#local-6989586621679312611"><span class="hs-identifier hs-var hs-var">domainPackageDetailsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DomainPackageDetails]
+</span><a href="#local-6989586621679312611"><span class="hs-identifier hs-var">domainPackageDetailsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312610"><span class="annot"><span class="annottext">s :: ListDomainsForPackageResponse
+</span><a href="#local-6989586621679312610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse%27"><span class="hs-identifier hs-type">ListDomainsForPackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312609"><span class="annot"><span class="annottext">Maybe [DomainPackageDetails]
+</span><a href="#local-6989586621679312609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainsForPackageResponse
+</span><a href="#local-6989586621679312610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainPackageDetailsList:ListDomainsForPackageResponse' :: Maybe [DomainPackageDetails]
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3AdomainPackageDetailsList%3AListDomainsForPackageResponse%27"><span class="hs-identifier hs-var">domainPackageDetailsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DomainPackageDetails]
+</span><a href="#local-6989586621679312609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse"><span class="hs-identifier hs-type">ListDomainsForPackageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DomainPackageDetails] -&gt; f (Maybe [DomainPackageDetails]))
+ -&gt; ListDomainsForPackageResponse
+ -&gt; f ListDomainsForPackageResponse)
+-&gt; ((Maybe [DomainPackageDetails]
+     -&gt; f (Maybe [DomainPackageDetails]))
+    -&gt; Maybe [DomainPackageDetails]
+    -&gt; f (Maybe [DomainPackageDetails]))
+-&gt; (Maybe [DomainPackageDetails]
+    -&gt; f (Maybe [DomainPackageDetails]))
+-&gt; ListDomainsForPackageResponse
+-&gt; f ListDomainsForPackageResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DomainPackageDetails]
+  [DomainPackageDetails]
+  [DomainPackageDetails]
+  [DomainPackageDetails]
+-&gt; Iso
+     (Maybe [DomainPackageDetails])
+     (Maybe [DomainPackageDetails])
+     (Maybe [DomainPackageDetails])
+     (Maybe [DomainPackageDetails])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DomainPackageDetails]
+  [DomainPackageDetails]
+  [DomainPackageDetails]
+  [DomainPackageDetails]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackageResponse_nextToken"><span class="hs-identifier hs-type">listDomainsForPackageResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse"><span class="hs-identifier hs-type">ListDomainsForPackageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="listDomainsForPackageResponse_nextToken"><span class="annot"><span class="annottext">listDomainsForPackageResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDomainsForPackageResponse -&gt; f ListDomainsForPackageResponse
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackageResponse_nextToken"><span class="hs-identifier hs-var hs-var">listDomainsForPackageResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDomainsForPackageResponse -&gt; Maybe Text)
+-&gt; (ListDomainsForPackageResponse
+    -&gt; Maybe Text -&gt; ListDomainsForPackageResponse)
+-&gt; Lens
+     ListDomainsForPackageResponse
+     ListDomainsForPackageResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse%27"><span class="hs-identifier hs-type">ListDomainsForPackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312605"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDomainsForPackageResponse' :: ListDomainsForPackageResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679312605"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312605"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312604"><span class="annot"><span class="annottext">s :: ListDomainsForPackageResponse
+</span><a href="#local-6989586621679312604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse%27"><span class="hs-identifier hs-type">ListDomainsForPackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312603"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainsForPackageResponse
+</span><a href="#local-6989586621679312604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDomainsForPackageResponse' :: Maybe Text
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3AnextToken%3AListDomainsForPackageResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse"><span class="hs-identifier hs-type">ListDomainsForPackageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackageResponse_httpStatus"><span class="hs-identifier hs-type">listDomainsForPackageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse"><span class="hs-identifier hs-type">ListDomainsForPackageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span id="listDomainsForPackageResponse_httpStatus"><span class="annot"><span class="annottext">listDomainsForPackageResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListDomainsForPackageResponse -&gt; f ListDomainsForPackageResponse
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#listDomainsForPackageResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listDomainsForPackageResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDomainsForPackageResponse -&gt; Int)
+-&gt; (ListDomainsForPackageResponse
+    -&gt; Int -&gt; ListDomainsForPackageResponse)
+-&gt; Lens
+     ListDomainsForPackageResponse ListDomainsForPackageResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse%27"><span class="hs-identifier hs-type">ListDomainsForPackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312602"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListDomainsForPackageResponse' :: ListDomainsForPackageResponse -&gt; Int
+</span><a href="#local-6989586621679312602"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312602"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312601"><span class="annot"><span class="annottext">s :: ListDomainsForPackageResponse
+</span><a href="#local-6989586621679312601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse%27"><span class="hs-identifier hs-type">ListDomainsForPackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312600"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainsForPackageResponse
+</span><a href="#local-6989586621679312601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDomainsForPackageResponse' :: Int
+</span><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#%24sel%3AhttpStatus%3AListDomainsForPackageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse"><span class="hs-identifier hs-type">ListDomainsForPackageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312598"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.ListDomainsForPackage.html#ListDomainsForPackageResponse"><span class="hs-identifier hs-type">ListDomainsForPackageResponse</span></a></span></span><span>
+</span><span id="line-197"></span></pre></body></html>

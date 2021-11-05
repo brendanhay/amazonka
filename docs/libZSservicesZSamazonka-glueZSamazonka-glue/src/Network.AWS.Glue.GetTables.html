@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetTables' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679721359"><span id="local-6989586621679721360"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTables"><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-var">GetTables</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTables%27"><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-var">GetTables'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679721368"><span id="local-6989586621679721369"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTables"><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-var">GetTables</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTables%27"><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-var">GetTables'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Data Catalog where the tables reside. If none is provided,</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- the Amazon Web Services account ID is used by default.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AcatalogId%3AGetTables%27"><span class="annot"><span class="annottext">GetTables -&gt; Maybe Text
@@ -75,7 +75,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AdatabaseName%3AGetTables%27"><span class="annot"><span class="annottext">GetTables -&gt; Text
 </span><a href="Network.AWS.Glue.GetTables.html#%24sel%3AdatabaseName%3AGetTables%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679721349"><span id="local-6989586621679721351"><span class="annot"><span class="annottext">GetTables -&gt; GetTables -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679721358"><span id="local-6989586621679721360"><span class="annot"><span class="annottext">GetTables -&gt; GetTables -&gt; Bool
 (GetTables -&gt; GetTables -&gt; Bool)
 -&gt; (GetTables -&gt; GetTables -&gt; Bool) -&gt; Eq GetTables
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTables -&gt; GetTables -&gt; Bool
 == :: GetTables -&gt; GetTables -&gt; Bool
 $c== :: GetTables -&gt; GetTables -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721340"><span id="local-6989586621679721342"><span id="local-6989586621679721344"><span id="local-6989586621679721346"><span class="annot"><span class="annottext">ReadPrec [GetTables]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721349"><span id="local-6989586621679721351"><span id="local-6989586621679721353"><span id="local-6989586621679721355"><span class="annot"><span class="annottext">ReadPrec [GetTables]
 ReadPrec GetTables
 Int -&gt; ReadS GetTables
 ReadS [GetTables]
@@ -103,7 +103,7 @@ readList :: ReadS [GetTables]
 $creadList :: ReadS [GetTables]
 readsPrec :: Int -&gt; ReadS GetTables
 $creadsPrec :: Int -&gt; ReadS GetTables
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721333"><span id="local-6989586621679721335"><span id="local-6989586621679721337"><span class="annot"><span class="annottext">Int -&gt; GetTables -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721342"><span id="local-6989586621679721344"><span id="local-6989586621679721346"><span class="annot"><span class="annottext">Int -&gt; GetTables -&gt; ShowS
 [GetTables] -&gt; ShowS
 GetTables -&gt; String
 (Int -&gt; GetTables -&gt; ShowS)
@@ -153,8 +153,8 @@ $cfrom :: forall x. GetTables -&gt; Rep GetTables x
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span>
 </span><span id="line-99"></span><span id="newGetTables"><span class="annot"><span class="annottext">newGetTables :: Text -&gt; GetTables
-</span><a href="Network.AWS.Glue.GetTables.html#newGetTables"><span class="hs-identifier hs-var hs-var">newGetTables</span></a></span></span><span> </span><span id="local-6989586621679721328"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721328"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetTables.html#newGetTables"><span class="hs-identifier hs-var hs-var">newGetTables</span></a></span></span><span> </span><span id="local-6989586621679721337"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679721337"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">GetTables' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; GetTables
 </span><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span>
@@ -176,7 +176,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:GetTables' :: Text
 </span><a href="Network.AWS.Glue.GetTables.html#%24sel%3AdatabaseName%3AGetTables%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721328"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span>
+</span><a href="#local-6989586621679721337"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The ID of the Data Catalog where the tables reside. If none is provided,</span><span>
@@ -187,16 +187,16 @@ forall a. Maybe a
 -&gt; (GetTables -&gt; Maybe Text -&gt; GetTables)
 -&gt; Lens GetTables GetTables (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721326"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721335"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:GetTables' :: GetTables -&gt; Maybe Text
-</span><a href="#local-6989586621679721326"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721326"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721325"><span class="annot"><span class="annottext">s :: GetTables
-</span><a href="#local-6989586621679721325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721324"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTables
-</span><a href="#local-6989586621679721325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:GetTables' :: Maybe Text
+</span><a href="#local-6989586621679721335"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679721335"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721334"><span class="annot"><span class="annottext">s :: GetTables
+</span><a href="#local-6989586621679721334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721333"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679721333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTables
+</span><a href="#local-6989586621679721334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:GetTables' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetTables.html#%24sel%3AcatalogId%3AGetTables%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | A continuation token, included if this is a continuation call.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#getTables_nextToken"><span class="hs-identifier hs-type">getTables_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -205,16 +205,16 @@ $sel:catalogId:GetTables' :: GetTables -&gt; Maybe Text
 -&gt; (GetTables -&gt; Maybe Text -&gt; GetTables)
 -&gt; Lens GetTables GetTables (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721323"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721332"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetTables' :: GetTables -&gt; Maybe Text
-</span><a href="#local-6989586621679721323"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721323"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721322"><span class="annot"><span class="annottext">s :: GetTables
-</span><a href="#local-6989586621679721322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721321"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTables
-</span><a href="#local-6989586621679721322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetTables' :: Maybe Text
+</span><a href="#local-6989586621679721332"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679721332"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721331"><span class="annot"><span class="annottext">s :: GetTables
+</span><a href="#local-6989586621679721331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721330"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679721330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTables
+</span><a href="#local-6989586621679721331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetTables' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetTables.html#%24sel%3AnextToken%3AGetTables%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | A regular expression pattern. If present, only those tables whose names</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- match the pattern are returned.</span><span>
@@ -224,16 +224,16 @@ $sel:nextToken:GetTables' :: GetTables -&gt; Maybe Text
 -&gt; (GetTables -&gt; Maybe Text -&gt; GetTables)
 -&gt; Lens GetTables GetTables (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721320"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721329"><span class="annot"><span class="annottext">Maybe Text
 expression :: Maybe Text
 $sel:expression:GetTables' :: GetTables -&gt; Maybe Text
-</span><a href="#local-6989586621679721320"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721320"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721319"><span class="annot"><span class="annottext">s :: GetTables
-</span><a href="#local-6989586621679721319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721318"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTables
-</span><a href="#local-6989586621679721319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expression:GetTables' :: Maybe Text
+</span><a href="#local-6989586621679721329"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679721329"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721328"><span class="annot"><span class="annottext">s :: GetTables
+</span><a href="#local-6989586621679721328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721327"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679721327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTables
+</span><a href="#local-6989586621679721328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expression:GetTables' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetTables.html#%24sel%3Aexpression%3AGetTables%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The maximum number of tables to return in a single response.</span><span>
 </span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#getTables_maxResults"><span class="hs-identifier hs-type">getTables_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -242,16 +242,16 @@ $sel:expression:GetTables' :: GetTables -&gt; Maybe Text
 -&gt; (GetTables -&gt; Maybe Natural -&gt; GetTables)
 -&gt; Lens GetTables GetTables (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721317"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721326"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:GetTables' :: GetTables -&gt; Maybe Natural
-</span><a href="#local-6989586621679721317"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679721317"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721316"><span class="annot"><span class="annottext">s :: GetTables
-</span><a href="#local-6989586621679721316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721315"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679721315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTables
-</span><a href="#local-6989586621679721316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetTables' :: Maybe Natural
+</span><a href="#local-6989586621679721326"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679721326"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721325"><span class="annot"><span class="annottext">s :: GetTables
+</span><a href="#local-6989586621679721325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721324"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679721324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTables
+</span><a href="#local-6989586621679721325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetTables' :: Maybe Natural
 </span><a href="Network.AWS.Glue.GetTables.html#%24sel%3AmaxResults%3AGetTables%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679721315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The database in the catalog whose tables to list. For Hive</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- compatibility, this name is entirely lowercase.</span><span>
@@ -261,28 +261,28 @@ $sel:maxResults:GetTables' :: GetTables -&gt; Maybe Natural
 -&gt; (GetTables -&gt; Text -&gt; GetTables)
 -&gt; Lens GetTables GetTables Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721314"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721323"><span class="annot"><span class="annottext">Text
 databaseName :: Text
 $sel:databaseName:GetTables' :: GetTables -&gt; Text
-</span><a href="#local-6989586621679721314"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721314"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721313"><span class="annot"><span class="annottext">s :: GetTables
-</span><a href="#local-6989586621679721313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721312"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTables
-</span><a href="#local-6989586621679721313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:GetTables' :: Text
+</span><a href="#local-6989586621679721323"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679721323"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721322"><span class="annot"><span class="annottext">s :: GetTables
+</span><a href="#local-6989586621679721322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721321"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679721321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTables
+</span><a href="#local-6989586621679721322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:GetTables' :: Text
 </span><a href="Network.AWS.Glue.GetTables.html#%24sel%3AdatabaseName%3AGetTables%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679721308"><span class="annot"><span class="annottext">page :: GetTables -&gt; AWSResponse GetTables -&gt; Maybe GetTables
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679721306"><span class="annot"><span class="annottext">GetTables
-</span><a href="#local-6989586621679721306"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679721305"><span class="annot"><span class="annottext">AWSResponse GetTables
-</span><a href="#local-6989586621679721305"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679721317"><span class="annot"><span class="annottext">page :: GetTables -&gt; AWSResponse GetTables -&gt; Maybe GetTables
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679721315"><span class="annot"><span class="annottext">GetTables
+</span><a href="#local-6989586621679721315"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679721314"><span class="annot"><span class="annottext">AWSResponse GetTables
+</span><a href="#local-6989586621679721314"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-134"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetTables
 GetTablesResponse
-</span><a href="#local-6989586621679721305"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679721314"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">GetTablesResponse
 -&gt; Getting (First Text) GetTablesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -308,7 +308,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-139"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetTables
 GetTablesResponse
-</span><a href="#local-6989586621679721305"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679721314"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">GetTablesResponse
 -&gt; Getting (First [Table]) GetTablesResponse [Table]
 -&gt; Maybe [Table]
@@ -338,7 +338,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">GetTables
-</span><a href="#local-6989586621679721306"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679721315"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">GetTables -&gt; (GetTables -&gt; GetTables) -&gt; GetTables
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -351,7 +351,7 @@ Lens GetTables GetTables (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetTables
 GetTablesResponse
-</span><a href="#local-6989586621679721305"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679721314"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">GetTablesResponse
 -&gt; Getting (First Text) GetTablesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -371,12 +371,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse"><span class="hs-identifier hs-type">GetTablesResponse</span></a></span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679721295"><span class="annot"><span class="annottext">request :: GetTables -&gt; Request GetTables
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679721304"><span class="annot"><span class="annottext">request :: GetTables -&gt; Request GetTables
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetTables -&gt; Request GetTables
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679721291"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679721300"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetTables
 -&gt; ClientResponse ClientBody
@@ -400,10 +400,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679721288"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721288"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679721287"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679721287"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679721286"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679721286"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679721297"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679721297"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679721296"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679721296"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679721295"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679721295"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Table] -&gt; Maybe Text -&gt; Int -&gt; GetTablesResponse
 </span><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse%27"><span class="hs-identifier hs-var">GetTablesResponse'</span></a></span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Table] -&gt; Maybe Text -&gt; Int -&gt; GetTablesResponse)
@@ -411,7 +411,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; GetTablesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679721286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Table]))
+</span><a href="#local-6989586621679721295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Table]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Table]))
@@ -425,7 +425,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; GetTablesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679721286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679721295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -437,15 +437,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721288"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721297"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721277"><span id="local-6989586621679721279"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721286"><span id="local-6989586621679721288"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span></span></span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721274"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679721270"><span class="annot"><span class="annottext">toHeaders :: GetTables -&gt; ResponseHeaders
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679721279"><span class="annot"><span class="annottext">toHeaders :: GetTables -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetTables -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -470,9 +470,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721260"><span id="local-6989586621679721262"><span id="local-6989586621679721264"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679721258"><span class="annot"><span class="annottext">toJSON :: GetTables -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721252"><span id="local-6989586621679721253"><span id="local-6989586621679721254"><span id="local-6989586621679721255"><span id="local-6989586621679721256"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721269"><span id="local-6989586621679721271"><span id="local-6989586621679721273"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679721267"><span class="annot"><span class="annottext">toJSON :: GetTables -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables%27"><span class="hs-identifier hs-type">GetTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721261"><span id="local-6989586621679721262"><span id="local-6989586621679721263"><span id="local-6989586621679721264"><span id="local-6989586621679721265"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 databaseName :: Text
@@ -485,7 +485,7 @@ $sel:maxResults:GetTables' :: GetTables -&gt; Maybe Natural
 $sel:expression:GetTables' :: GetTables -&gt; Maybe Text
 $sel:nextToken:GetTables' :: GetTables -&gt; Maybe Text
 $sel:catalogId:GetTables' :: GetTables -&gt; Maybe Text
-</span><a href="#local-6989586621679721252"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679721261"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -497,47 +497,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721256"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679721265"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721255"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679721264"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Expression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721254"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679721263"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679721253"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679721262"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679721252"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721261"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679721246"><span class="annot"><span class="annottext">toPath :: GetTables -&gt; ByteString
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679721255"><span class="annot"><span class="annottext">toPath :: GetTables -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetTables -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTables"><span class="hs-identifier hs-type">GetTables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679721242"><span class="annot"><span class="annottext">toQuery :: GetTables -&gt; QueryString
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679721251"><span class="annot"><span class="annottext">toQuery :: GetTables -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetTables -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -545,7 +545,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | /See:/ 'newGetTablesResponse' smart constructor.</span><span>
-</span><span id="line-198"></span><span id="local-6989586621679721239"><span id="local-6989586621679721240"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTablesResponse"><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse"><span class="hs-identifier hs-var">GetTablesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTablesResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse%27"><span class="hs-identifier hs-var">GetTablesResponse'</span></a></span></span><span>
+</span><span id="line-198"></span><span id="local-6989586621679721248"><span id="local-6989586621679721249"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTablesResponse"><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse"><span class="hs-identifier hs-var">GetTablesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTablesResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse%27"><span class="hs-identifier hs-var">GetTablesResponse'</span></a></span></span><span>
 </span><span id="line-199"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the requested @Table@ objects.</span><span>
 </span><span id="line-200"></span><span>    </span><span id="%24sel%3AtableList%3AGetTablesResponse%27"><span class="annot"><span class="annottext">GetTablesResponse -&gt; Maybe [Table]
 </span><a href="Network.AWS.Glue.GetTables.html#%24sel%3AtableList%3AGetTablesResponse%27"><span class="hs-identifier hs-var hs-var">tableList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Table.html#Table"><span class="hs-identifier hs-type">Table</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -557,7 +557,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-205"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetTablesResponse%27"><span class="annot"><span class="annottext">GetTablesResponse -&gt; Int
 </span><a href="Network.AWS.Glue.GetTables.html#%24sel%3AhttpStatus%3AGetTablesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-206"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-207"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679721232"><span id="local-6989586621679721234"><span class="annot"><span class="annottext">GetTablesResponse -&gt; GetTablesResponse -&gt; Bool
+</span><span id="line-207"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679721241"><span id="local-6989586621679721243"><span class="annot"><span class="annottext">GetTablesResponse -&gt; GetTablesResponse -&gt; Bool
 (GetTablesResponse -&gt; GetTablesResponse -&gt; Bool)
 -&gt; (GetTablesResponse -&gt; GetTablesResponse -&gt; Bool)
 -&gt; Eq GetTablesResponse
@@ -566,7 +566,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTablesResponse -&gt; GetTablesResponse -&gt; Bool
 == :: GetTablesResponse -&gt; GetTablesResponse -&gt; Bool
 $c== :: GetTablesResponse -&gt; GetTablesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721224"><span id="local-6989586621679721226"><span id="local-6989586621679721228"><span id="local-6989586621679721230"><span class="annot"><span class="annottext">ReadPrec [GetTablesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721233"><span id="local-6989586621679721235"><span id="local-6989586621679721237"><span id="local-6989586621679721239"><span class="annot"><span class="annottext">ReadPrec [GetTablesResponse]
 ReadPrec GetTablesResponse
 Int -&gt; ReadS GetTablesResponse
 ReadS [GetTablesResponse]
@@ -586,7 +586,7 @@ readList :: ReadS [GetTablesResponse]
 $creadList :: ReadS [GetTablesResponse]
 readsPrec :: Int -&gt; ReadS GetTablesResponse
 $creadsPrec :: Int -&gt; ReadS GetTablesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721218"><span id="local-6989586621679721220"><span id="local-6989586621679721222"><span class="annot"><span class="annottext">Int -&gt; GetTablesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679721227"><span id="local-6989586621679721229"><span id="local-6989586621679721231"><span class="annot"><span class="annottext">Int -&gt; GetTablesResponse -&gt; ShowS
 [GetTablesResponse] -&gt; ShowS
 GetTablesResponse -&gt; String
 (Int -&gt; GetTablesResponse -&gt; ShowS)
@@ -631,8 +631,8 @@ $cfrom :: forall x. GetTablesResponse -&gt; Rep GetTablesResponse x
 </span><span id="line-225"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-226"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse"><span class="hs-identifier hs-type">GetTablesResponse</span></a></span><span>
 </span><span id="line-227"></span><span id="newGetTablesResponse"><span class="annot"><span class="annottext">newGetTablesResponse :: Int -&gt; GetTablesResponse
-</span><a href="Network.AWS.Glue.GetTables.html#newGetTablesResponse"><span class="hs-identifier hs-var hs-var">newGetTablesResponse</span></a></span></span><span> </span><span id="local-6989586621679721215"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721215"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetTables.html#newGetTablesResponse"><span class="hs-identifier hs-var hs-var">newGetTablesResponse</span></a></span></span><span> </span><span id="local-6989586621679721224"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679721224"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-228"></span><span>  </span><span class="annot"><span class="annottext">GetTablesResponse' :: Maybe [Table] -&gt; Maybe Text -&gt; Int -&gt; GetTablesResponse
 </span><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse%27"><span class="hs-identifier hs-type">GetTablesResponse'</span></a></span><span>
 </span><span id="line-229"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tableList:GetTablesResponse' :: Maybe [Table]
@@ -645,7 +645,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetTablesResponse' :: Int
 </span><a href="Network.AWS.Glue.GetTables.html#%24sel%3AhttpStatus%3AGetTablesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721215"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679721224"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-232"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | A list of the requested @Table@ objects.</span><span>
@@ -656,16 +656,16 @@ forall a. Maybe a
 -&gt; (GetTablesResponse -&gt; Maybe [Table] -&gt; GetTablesResponse)
 -&gt; Lens' GetTablesResponse (Maybe [Table])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse%27"><span class="hs-identifier hs-type">GetTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721214"><span class="annot"><span class="annottext">Maybe [Table]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse%27"><span class="hs-identifier hs-type">GetTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721223"><span class="annot"><span class="annottext">Maybe [Table]
 tableList :: Maybe [Table]
 $sel:tableList:GetTablesResponse' :: GetTablesResponse -&gt; Maybe [Table]
-</span><a href="#local-6989586621679721214"><span class="hs-identifier hs-var hs-var">tableList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Table]
-</span><a href="#local-6989586621679721214"><span class="hs-identifier hs-var">tableList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721213"><span class="annot"><span class="annottext">s :: GetTablesResponse
-</span><a href="#local-6989586621679721213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse%27"><span class="hs-identifier hs-type">GetTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721212"><span class="annot"><span class="annottext">Maybe [Table]
-</span><a href="#local-6989586621679721212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTablesResponse
-</span><a href="#local-6989586621679721213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableList:GetTablesResponse' :: Maybe [Table]
+</span><a href="#local-6989586621679721223"><span class="hs-identifier hs-var hs-var">tableList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Table]
+</span><a href="#local-6989586621679721223"><span class="hs-identifier hs-var">tableList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721222"><span class="annot"><span class="annottext">s :: GetTablesResponse
+</span><a href="#local-6989586621679721222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse%27"><span class="hs-identifier hs-type">GetTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721221"><span class="annot"><span class="annottext">Maybe [Table]
+</span><a href="#local-6989586621679721221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTablesResponse
+</span><a href="#local-6989586621679721222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableList:GetTablesResponse' :: Maybe [Table]
 </span><a href="Network.AWS.Glue.GetTables.html#%24sel%3AtableList%3AGetTablesResponse%27"><span class="hs-identifier hs-var">tableList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Table]
-</span><a href="#local-6989586621679721212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse"><span class="hs-identifier hs-type">GetTablesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Table] -&gt; f (Maybe [Table]))
+</span><a href="#local-6989586621679721221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse"><span class="hs-identifier hs-type">GetTablesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Table] -&gt; f (Maybe [Table]))
  -&gt; GetTablesResponse -&gt; f GetTablesResponse)
 -&gt; ((Maybe [Table] -&gt; f (Maybe [Table]))
     -&gt; Maybe [Table] -&gt; f (Maybe [Table]))
@@ -692,16 +692,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetTablesResponse -&gt; Maybe Text -&gt; GetTablesResponse)
 -&gt; Lens' GetTablesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse%27"><span class="hs-identifier hs-type">GetTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721209"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse%27"><span class="hs-identifier hs-type">GetTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721218"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetTablesResponse' :: GetTablesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679721209"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721209"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721208"><span class="annot"><span class="annottext">s :: GetTablesResponse
-</span><a href="#local-6989586621679721208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse%27"><span class="hs-identifier hs-type">GetTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721207"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTablesResponse
-</span><a href="#local-6989586621679721208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetTablesResponse' :: Maybe Text
+</span><a href="#local-6989586621679721218"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679721218"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721217"><span class="annot"><span class="annottext">s :: GetTablesResponse
+</span><a href="#local-6989586621679721217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse%27"><span class="hs-identifier hs-type">GetTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721216"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679721216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTablesResponse
+</span><a href="#local-6989586621679721217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetTablesResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetTables.html#%24sel%3AnextToken%3AGetTablesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679721207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse"><span class="hs-identifier hs-type">GetTablesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse"><span class="hs-identifier hs-type">GetTablesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span><span>
 </span><span id="line-243"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-244"></span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#getTablesResponse_httpStatus"><span class="hs-identifier hs-type">getTablesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse"><span class="hs-identifier hs-type">GetTablesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -710,16 +710,16 @@ $sel:nextToken:GetTablesResponse' :: GetTablesResponse -&gt; Maybe Text
 -&gt; (GetTablesResponse -&gt; Int -&gt; GetTablesResponse)
 -&gt; Lens GetTablesResponse GetTablesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse%27"><span class="hs-identifier hs-type">GetTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721206"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse%27"><span class="hs-identifier hs-type">GetTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679721215"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetTablesResponse' :: GetTablesResponse -&gt; Int
-</span><a href="#local-6989586621679721206"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721206"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721205"><span class="annot"><span class="annottext">s :: GetTablesResponse
-</span><a href="#local-6989586621679721205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse%27"><span class="hs-identifier hs-type">GetTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721204"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTablesResponse
-</span><a href="#local-6989586621679721205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTablesResponse' :: Int
+</span><a href="#local-6989586621679721215"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679721215"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679721214"><span class="annot"><span class="annottext">s :: GetTablesResponse
+</span><a href="#local-6989586621679721214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse%27"><span class="hs-identifier hs-type">GetTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679721213"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679721213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTablesResponse
+</span><a href="#local-6989586621679721214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTablesResponse' :: Int
 </span><a href="Network.AWS.Glue.GetTables.html#%24sel%3AhttpStatus%3AGetTablesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679721204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse"><span class="hs-identifier hs-type">GetTablesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679721213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse"><span class="hs-identifier hs-type">GetTablesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>
-</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721202"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse"><span class="hs-identifier hs-type">GetTablesResponse</span></a></span></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679721211"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetTables.html#GetTablesResponse"><span class="hs-identifier hs-type">GetTablesResponse</span></a></span></span><span>
 </span><span id="line-248"></span></pre></body></html>

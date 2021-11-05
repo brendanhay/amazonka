@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-comment">-- | Request to describe an existing Method resource.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- /See:/ 'newGetMethod' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679381361"><span id="local-6989586621679381362"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMethod"><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-var">GetMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMethod%27"><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod%27"><span class="hs-identifier hs-var">GetMethod'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679381370"><span id="local-6989586621679381371"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMethod"><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-var">GetMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMethod%27"><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod%27"><span class="hs-identifier hs-var">GetMethod'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3ArestApiId%3AGetMethod%27"><span class="annot"><span class="annottext">GetMethod -&gt; Text
 </span><a href="Network.AWS.APIGateway.GetMethod.html#%24sel%3ArestApiId%3AGetMethod%27"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AhttpMethod%3AGetMethod%27"><span class="annot"><span class="annottext">GetMethod -&gt; Text
 </span><a href="Network.AWS.APIGateway.GetMethod.html#%24sel%3AhttpMethod%3AGetMethod%27"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381353"><span id="local-6989586621679381355"><span class="annot"><span class="annottext">GetMethod -&gt; GetMethod -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381362"><span id="local-6989586621679381364"><span class="annot"><span class="annottext">GetMethod -&gt; GetMethod -&gt; Bool
 (GetMethod -&gt; GetMethod -&gt; Bool)
 -&gt; (GetMethod -&gt; GetMethod -&gt; Bool) -&gt; Eq GetMethod
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetMethod -&gt; GetMethod -&gt; Bool
 == :: GetMethod -&gt; GetMethod -&gt; Bool
 $c== :: GetMethod -&gt; GetMethod -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381344"><span id="local-6989586621679381346"><span id="local-6989586621679381348"><span id="local-6989586621679381350"><span class="annot"><span class="annottext">ReadPrec [GetMethod]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381353"><span id="local-6989586621679381355"><span id="local-6989586621679381357"><span id="local-6989586621679381359"><span class="annot"><span class="annottext">ReadPrec [GetMethod]
 ReadPrec GetMethod
 Int -&gt; ReadS GetMethod
 ReadS [GetMethod]
@@ -99,7 +99,7 @@ readList :: ReadS [GetMethod]
 $creadList :: ReadS [GetMethod]
 readsPrec :: Int -&gt; ReadS GetMethod
 $creadsPrec :: Int -&gt; ReadS GetMethod
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381337"><span id="local-6989586621679381339"><span id="local-6989586621679381341"><span class="annot"><span class="annottext">Int -&gt; GetMethod -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381346"><span id="local-6989586621679381348"><span id="local-6989586621679381350"><span class="annot"><span class="annottext">Int -&gt; GetMethod -&gt; ShowS
 [GetMethod] -&gt; ShowS
 GetMethod -&gt; String
 (Int -&gt; GetMethod -&gt; ShowS)
@@ -146,21 +146,21 @@ $cfrom :: forall x. GetMethod -&gt; Rep GetMethod x
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span><span>
 </span><span id="line-94"></span><span id="newGetMethod"><span class="annot"><span class="annottext">newGetMethod :: Text -&gt; Text -&gt; Text -&gt; GetMethod
-</span><a href="Network.AWS.APIGateway.GetMethod.html#newGetMethod"><span class="hs-identifier hs-var hs-var">newGetMethod</span></a></span></span><span> </span><span id="local-6989586621679381332"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381332"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679381331"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381331"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span id="local-6989586621679381330"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381330"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.GetMethod.html#newGetMethod"><span class="hs-identifier hs-var hs-var">newGetMethod</span></a></span></span><span> </span><span id="local-6989586621679381341"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381341"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679381340"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381340"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span id="local-6989586621679381339"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381339"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">GetMethod' :: Text -&gt; Text -&gt; Text -&gt; GetMethod
 </span><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod%27"><span class="hs-identifier hs-type">GetMethod'</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:restApiId:GetMethod' :: Text
 </span><a href="Network.AWS.APIGateway.GetMethod.html#%24sel%3ArestApiId%3AGetMethod%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381332"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679381341"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceId:GetMethod' :: Text
 </span><a href="Network.AWS.APIGateway.GetMethod.html#%24sel%3AresourceId%3AGetMethod%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381331"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679381340"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpMethod:GetMethod' :: Text
 </span><a href="Network.AWS.APIGateway.GetMethod.html#%24sel%3AhttpMethod%3AGetMethod%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381330"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span><span>
+</span><a href="#local-6989586621679381339"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
@@ -170,16 +170,16 @@ $cfrom :: forall x. GetMethod -&gt; Rep GetMethod x
 -&gt; (GetMethod -&gt; Text -&gt; GetMethod)
 -&gt; Lens GetMethod GetMethod Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod%27"><span class="hs-identifier hs-type">GetMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381327"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod%27"><span class="hs-identifier hs-type">GetMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381336"><span class="annot"><span class="annottext">Text
 restApiId :: Text
 $sel:restApiId:GetMethod' :: GetMethod -&gt; Text
-</span><a href="#local-6989586621679381327"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381327"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381326"><span class="annot"><span class="annottext">s :: GetMethod
-</span><a href="#local-6989586621679381326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod%27"><span class="hs-identifier hs-type">GetMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381325"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMethod
-</span><a href="#local-6989586621679381326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:GetMethod' :: Text
+</span><a href="#local-6989586621679381336"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381336"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381335"><span class="annot"><span class="annottext">s :: GetMethod
+</span><a href="#local-6989586621679381335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod%27"><span class="hs-identifier hs-type">GetMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381334"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMethod
+</span><a href="#local-6989586621679381335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:GetMethod' :: Text
 </span><a href="Network.AWS.APIGateway.GetMethod.html#%24sel%3ArestApiId%3AGetMethod%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | [Required] The Resource identifier for the Method resource.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#getMethod_resourceId"><span class="hs-identifier hs-type">getMethod_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -188,16 +188,16 @@ $sel:restApiId:GetMethod' :: GetMethod -&gt; Text
 -&gt; (GetMethod -&gt; Text -&gt; GetMethod)
 -&gt; Lens GetMethod GetMethod Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod%27"><span class="hs-identifier hs-type">GetMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381324"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod%27"><span class="hs-identifier hs-type">GetMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381333"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:GetMethod' :: GetMethod -&gt; Text
-</span><a href="#local-6989586621679381324"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381324"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381323"><span class="annot"><span class="annottext">s :: GetMethod
-</span><a href="#local-6989586621679381323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod%27"><span class="hs-identifier hs-type">GetMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381322"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMethod
-</span><a href="#local-6989586621679381323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:GetMethod' :: Text
+</span><a href="#local-6989586621679381333"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381333"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381332"><span class="annot"><span class="annottext">s :: GetMethod
+</span><a href="#local-6989586621679381332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod%27"><span class="hs-identifier hs-type">GetMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381331"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMethod
+</span><a href="#local-6989586621679381332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:GetMethod' :: Text
 </span><a href="Network.AWS.APIGateway.GetMethod.html#%24sel%3AresourceId%3AGetMethod%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | [Required] Specifies the method request\'s HTTP method type.</span><span>
 </span><span id="line-110"></span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#getMethod_httpMethod"><span class="hs-identifier hs-type">getMethod_httpMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -206,25 +206,25 @@ $sel:resourceId:GetMethod' :: GetMethod -&gt; Text
 -&gt; (GetMethod -&gt; Text -&gt; GetMethod)
 -&gt; Lens GetMethod GetMethod Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod%27"><span class="hs-identifier hs-type">GetMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381321"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod%27"><span class="hs-identifier hs-type">GetMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381330"><span class="annot"><span class="annottext">Text
 httpMethod :: Text
 $sel:httpMethod:GetMethod' :: GetMethod -&gt; Text
-</span><a href="#local-6989586621679381321"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381321"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381320"><span class="annot"><span class="annottext">s :: GetMethod
-</span><a href="#local-6989586621679381320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod%27"><span class="hs-identifier hs-type">GetMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381319"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMethod
-</span><a href="#local-6989586621679381320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpMethod:GetMethod' :: Text
+</span><a href="#local-6989586621679381330"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381330"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381329"><span class="annot"><span class="annottext">s :: GetMethod
+</span><a href="#local-6989586621679381329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod%27"><span class="hs-identifier hs-type">GetMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381328"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMethod
+</span><a href="#local-6989586621679381329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpMethod:GetMethod' :: Text
 </span><a href="Network.AWS.APIGateway.GetMethod.html#%24sel%3AhttpMethod%3AGetMethod%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679381315"><span class="annot"><span class="annottext">request :: GetMethod -&gt; Request GetMethod
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679381324"><span class="annot"><span class="annottext">request :: GetMethod -&gt; Request GetMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetMethod -&gt; Request GetMethod
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679381311"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679381320"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetMethod
 -&gt; ClientResponse ClientBody
@@ -248,20 +248,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381308"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381308"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679381307"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679381307"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679381306"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381306"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Method
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381317"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381317"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679381316"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679381316"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679381315"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381315"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Method
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381306"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381315"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381301"><span id="local-6989586621679381303"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381310"><span id="local-6989586621679381312"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381298"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381307"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679381294"><span class="annot"><span class="annottext">toHeaders :: GetMethod -&gt; ResponseHeaders
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679381303"><span class="annot"><span class="annottext">toHeaders :: GetMethod -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetMethod -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -279,15 +279,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679381288"><span class="annot"><span class="annottext">toPath :: GetMethod -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod%27"><span class="hs-identifier hs-type">GetMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381284"><span id="local-6989586621679381285"><span id="local-6989586621679381286"><span class="annot"><span class="annottext">Text
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679381297"><span class="annot"><span class="annottext">toPath :: GetMethod -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod%27"><span class="hs-identifier hs-type">GetMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381293"><span id="local-6989586621679381294"><span id="local-6989586621679381295"><span class="annot"><span class="annottext">Text
 httpMethod :: Text
 resourceId :: Text
 restApiId :: Text
 $sel:httpMethod:GetMethod' :: GetMethod -&gt; Text
 $sel:resourceId:GetMethod' :: GetMethod -&gt; Text
 $sel:restApiId:GetMethod' :: GetMethod -&gt; Text
-</span><a href="#local-6989586621679381284"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679381293"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -296,23 +296,23 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381286"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679381295"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/resources/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381285"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679381294"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/methods/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381284"><span class="hs-identifier hs-var">httpMethod</span></a></span><span>
+</span><a href="#local-6989586621679381293"><span class="hs-identifier hs-var">httpMethod</span></a></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetMethod.html#GetMethod"><span class="hs-identifier hs-type">GetMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679381280"><span class="annot"><span class="annottext">toQuery :: GetMethod -&gt; QueryString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679381289"><span class="annot"><span class="annottext">toQuery :: GetMethod -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetMethod -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

@@ -45,12 +45,12 @@
 </span><span id="line-45"></span><span class="hs-comment">-- | Represents the request to delete a user.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- /See:/ 'newDeleteUser' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679450241"><span id="local-6989586621679450242"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUser"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-var">DeleteUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUser%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-var">DeleteUser'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679450250"><span id="local-6989586621679450251"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUser"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-var">DeleteUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUser%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-var">DeleteUser'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The access token from a request to delete a user.</span><span>
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3AaccessToken%3ADeleteUser%27"><span class="annot"><span class="annottext">DeleteUser -&gt; Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#%24sel%3AaccessToken%3ADeleteUser%27"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450235"><span id="local-6989586621679450237"><span class="annot"><span class="annottext">DeleteUser -&gt; DeleteUser -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450244"><span id="local-6989586621679450246"><span class="annot"><span class="annottext">DeleteUser -&gt; DeleteUser -&gt; Bool
 (DeleteUser -&gt; DeleteUser -&gt; Bool)
 -&gt; (DeleteUser -&gt; DeleteUser -&gt; Bool) -&gt; Eq DeleteUser
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteUser -&gt; DeleteUser -&gt; Bool
 == :: DeleteUser -&gt; DeleteUser -&gt; Bool
 $c== :: DeleteUser -&gt; DeleteUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450228"><span id="local-6989586621679450230"><span id="local-6989586621679450232"><span class="annot"><span class="annottext">Int -&gt; DeleteUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450237"><span id="local-6989586621679450239"><span id="local-6989586621679450241"><span class="annot"><span class="annottext">Int -&gt; DeleteUser -&gt; ShowS
 [DeleteUser] -&gt; ShowS
 DeleteUser -&gt; String
 (Int -&gt; DeleteUser -&gt; ShowS)
@@ -97,8 +97,8 @@ $cfrom :: forall x. DeleteUser -&gt; Rep DeleteUser x
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span>
 </span><span id="line-67"></span><span id="newDeleteUser"><span class="annot"><span class="annottext">newDeleteUser :: Text -&gt; DeleteUser
-</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#newDeleteUser"><span class="hs-identifier hs-var hs-var">newDeleteUser</span></a></span></span><span> </span><span id="local-6989586621679450223"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450223"><span class="hs-identifier hs-var">pAccessToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#newDeleteUser"><span class="hs-identifier hs-var hs-var">newDeleteUser</span></a></span></span><span> </span><span id="local-6989586621679450232"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450232"><span class="hs-identifier hs-var">pAccessToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">DeleteUser' :: Sensitive Text -&gt; DeleteUser
 </span><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accessToken:DeleteUser' :: Sensitive Text
@@ -111,7 +111,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450223"><span class="hs-identifier hs-var">pAccessToken_</span></a></span><span>
+</span><a href="#local-6989586621679450232"><span class="hs-identifier hs-var">pAccessToken_</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The access token from a request to delete a user.</span><span>
@@ -121,16 +121,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (DeleteUser -&gt; Sensitive Text -&gt; DeleteUser)
 -&gt; Lens DeleteUser DeleteUser (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450218"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450227"><span class="annot"><span class="annottext">Sensitive Text
 accessToken :: Sensitive Text
 $sel:accessToken:DeleteUser' :: DeleteUser -&gt; Sensitive Text
-</span><a href="#local-6989586621679450218"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679450218"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450217"><span class="annot"><span class="annottext">s :: DeleteUser
-</span><a href="#local-6989586621679450217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450216"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679450216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUser
-</span><a href="#local-6989586621679450217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:DeleteUser' :: Sensitive Text
+</span><a href="#local-6989586621679450227"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679450227"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450226"><span class="annot"><span class="annottext">s :: DeleteUser
+</span><a href="#local-6989586621679450226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450225"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679450225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUser
+</span><a href="#local-6989586621679450226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:DeleteUser' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#%24sel%3AaccessToken%3ADeleteUser%27"><span class="hs-identifier hs-var">accessToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679450216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679450225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; DeleteUser -&gt; f DeleteUser)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -143,12 +143,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679450211"><span class="annot"><span class="annottext">request :: DeleteUser -&gt; Request DeleteUser
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679450220"><span class="annot"><span class="annottext">request :: DeleteUser -&gt; Request DeleteUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteUser -&gt; Request DeleteUser
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679450207"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679450216"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteUser
 -&gt; ClientResponse ClientBody
@@ -171,12 +171,12 @@ AWSResponse a
 DeleteUserResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-var">DeleteUserResponse'</span></a></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450200"><span id="local-6989586621679450202"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450209"><span id="local-6989586621679450211"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450197"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450206"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679450193"><span class="annot"><span class="annottext">toHeaders :: DeleteUser -&gt; [Header]
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679450202"><span class="annot"><span class="annottext">toHeaders :: DeleteUser -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteUser -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -203,12 +203,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450183"><span id="local-6989586621679450185"><span id="local-6989586621679450187"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679450181"><span class="annot"><span class="annottext">toJSON :: DeleteUser -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450179"><span class="annot"><span class="annottext">Sensitive Text
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450192"><span id="local-6989586621679450194"><span id="local-6989586621679450196"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679450190"><span class="annot"><span class="annottext">toJSON :: DeleteUser -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450188"><span class="annot"><span class="annottext">Sensitive Text
 accessToken :: Sensitive Text
 $sel:accessToken:DeleteUser' :: DeleteUser -&gt; Sensitive Text
-</span><a href="#local-6989586621679450179"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679450188"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -220,18 +220,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AccessToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679450179"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679450188"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679450173"><span class="annot"><span class="annottext">toPath :: DeleteUser -&gt; ByteString
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679450182"><span class="annot"><span class="annottext">toPath :: DeleteUser -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteUser -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679450169"><span class="annot"><span class="annottext">toQuery :: DeleteUser -&gt; QueryString
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679450178"><span class="annot"><span class="annottext">toQuery :: DeleteUser -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteUser -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -239,10 +239,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | /See:/ 'newDeleteUserResponse' smart constructor.</span><span>
-</span><span id="line-115"></span><span id="local-6989586621679450166"><span id="local-6989586621679450167"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUserResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-var">DeleteUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUserResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-var">DeleteUserResponse'</span></a></span></span><span>
+</span><span id="line-115"></span><span id="local-6989586621679450175"><span id="local-6989586621679450176"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUserResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-var">DeleteUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUserResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-var">DeleteUserResponse'</span></a></span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450162"><span id="local-6989586621679450164"><span class="annot"><span class="annottext">DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450171"><span id="local-6989586621679450173"><span class="annot"><span class="annottext">DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
 (DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool)
 -&gt; (DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool)
 -&gt; Eq DeleteUserResponse
@@ -251,7 +251,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
 == :: DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
 $c== :: DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450154"><span id="local-6989586621679450156"><span id="local-6989586621679450158"><span id="local-6989586621679450160"><span class="annot"><span class="annottext">ReadPrec [DeleteUserResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450163"><span id="local-6989586621679450165"><span id="local-6989586621679450167"><span id="local-6989586621679450169"><span class="annot"><span class="annottext">ReadPrec [DeleteUserResponse]
 ReadPrec DeleteUserResponse
 Int -&gt; ReadS DeleteUserResponse
 ReadS [DeleteUserResponse]
@@ -271,7 +271,7 @@ readList :: ReadS [DeleteUserResponse]
 $creadList :: ReadS [DeleteUserResponse]
 readsPrec :: Int -&gt; ReadS DeleteUserResponse
 $creadsPrec :: Int -&gt; ReadS DeleteUserResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450147"><span id="local-6989586621679450149"><span id="local-6989586621679450151"><span class="annot"><span class="annottext">Int -&gt; DeleteUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450156"><span id="local-6989586621679450158"><span id="local-6989586621679450160"><span class="annot"><span class="annottext">Int -&gt; DeleteUserResponse -&gt; ShowS
 [DeleteUserResponse] -&gt; ShowS
 DeleteUserResponse -&gt; String
 (Int -&gt; DeleteUserResponse -&gt; ShowS)
@@ -307,5 +307,5 @@ $cfrom :: forall x. DeleteUserResponse -&gt; Rep DeleteUserResponse x
 </span><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#newDeleteUserResponse"><span class="hs-identifier hs-var hs-var">newDeleteUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteUserResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-var">DeleteUserResponse'</span></a></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450143"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450152"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span></span><span>
 </span><span id="line-129"></span></pre></body></html>

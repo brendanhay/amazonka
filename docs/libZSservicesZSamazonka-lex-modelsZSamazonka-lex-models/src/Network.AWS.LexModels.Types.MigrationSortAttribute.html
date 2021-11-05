@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679313783"><span id="local-6989586621679313784"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MigrationSortAttribute"><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSortAttribute.html#MigrationSortAttribute"><span class="hs-identifier hs-var">MigrationSortAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MigrationSortAttribute%27"><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSortAttribute.html#MigrationSortAttribute%27"><span class="hs-identifier hs-var">MigrationSortAttribute'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679313792"><span id="local-6989586621679313793"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MigrationSortAttribute"><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSortAttribute.html#MigrationSortAttribute"><span class="hs-identifier hs-var">MigrationSortAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MigrationSortAttribute%27"><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSortAttribute.html#MigrationSortAttribute%27"><span class="hs-identifier hs-var">MigrationSortAttribute'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMigrationSortAttribute"><span class="annot"><span class="annottext">MigrationSortAttribute -&gt; Text
 </span><a href="Network.AWS.LexModels.Types.MigrationSortAttribute.html#fromMigrationSortAttribute"><span class="hs-identifier hs-var hs-var">fromMigrationSortAttribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679313775"><span id="local-6989586621679313777"><span id="local-6989586621679313779"><span class="annot"><span class="annottext">Int -&gt; MigrationSortAttribute -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679313784"><span id="local-6989586621679313786"><span id="local-6989586621679313788"><span class="annot"><span class="annottext">Int -&gt; MigrationSortAttribute -&gt; ShowS
 [MigrationSortAttribute] -&gt; ShowS
 MigrationSortAttribute -&gt; String
 (Int -&gt; MigrationSortAttribute -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: MigrationSortAttribute -&gt; String
 showsPrec :: Int -&gt; MigrationSortAttribute -&gt; ShowS
 $cshowsPrec :: Int -&gt; MigrationSortAttribute -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679313766"><span id="local-6989586621679313768"><span id="local-6989586621679313770"><span id="local-6989586621679313772"><span class="annot"><span class="annottext">ReadPrec [MigrationSortAttribute]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679313775"><span id="local-6989586621679313777"><span id="local-6989586621679313779"><span id="local-6989586621679313781"><span class="annot"><span class="annottext">ReadPrec [MigrationSortAttribute]
 ReadPrec MigrationSortAttribute
 Int -&gt; ReadS MigrationSortAttribute
 ReadS [MigrationSortAttribute]
@@ -72,7 +72,7 @@ $creadList :: ReadS [MigrationSortAttribute]
 readsPrec :: Int -&gt; ReadS MigrationSortAttribute
 $creadsPrec :: Int -&gt; ReadS MigrationSortAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679313761"><span id="local-6989586621679313763"><span class="annot"><span class="annottext">MigrationSortAttribute -&gt; MigrationSortAttribute -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679313770"><span id="local-6989586621679313772"><span class="annot"><span class="annottext">MigrationSortAttribute -&gt; MigrationSortAttribute -&gt; Bool
 (MigrationSortAttribute -&gt; MigrationSortAttribute -&gt; Bool)
 -&gt; (MigrationSortAttribute -&gt; MigrationSortAttribute -&gt; Bool)
 -&gt; Eq MigrationSortAttribute
@@ -82,7 +82,7 @@ $c/= :: MigrationSortAttribute -&gt; MigrationSortAttribute -&gt; Bool
 == :: MigrationSortAttribute -&gt; MigrationSortAttribute -&gt; Bool
 $c== :: MigrationSortAttribute -&gt; MigrationSortAttribute -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679313745"><span id="local-6989586621679313747"><span id="local-6989586621679313749"><span id="local-6989586621679313751"><span id="local-6989586621679313753"><span id="local-6989586621679313755"><span id="local-6989586621679313757"><span class="annot"><span class="annottext">Eq MigrationSortAttribute
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679313754"><span id="local-6989586621679313756"><span id="local-6989586621679313758"><span id="local-6989586621679313760"><span id="local-6989586621679313762"><span id="local-6989586621679313764"><span id="local-6989586621679313766"><span class="annot"><span class="annottext">Eq MigrationSortAttribute
 Eq MigrationSortAttribute
 -&gt; (MigrationSortAttribute -&gt; MigrationSortAttribute -&gt; Ordering)
 -&gt; (MigrationSortAttribute -&gt; MigrationSortAttribute -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. MigrationSortAttribute -&gt; Rep MigrationSortAttribute x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679313737"><span id="local-6989586621679313739"><span class="annot"><span class="annottext">Int -&gt; MigrationSortAttribute -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679313746"><span id="local-6989586621679313748"><span class="annot"><span class="annottext">Int -&gt; MigrationSortAttribute -&gt; Int
 MigrationSortAttribute -&gt; Int
 (Int -&gt; MigrationSortAttribute -&gt; Int)
 -&gt; (MigrationSortAttribute -&gt; Int)
@@ -152,54 +152,54 @@ $chash :: MigrationSortAttribute -&gt; Int
 hashWithSalt :: Int -&gt; MigrationSortAttribute -&gt; Int
 $chashWithSalt :: Int -&gt; MigrationSortAttribute -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679313734"><span class="annot"><span class="annottext">MigrationSortAttribute -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679313743"><span class="annot"><span class="annottext">MigrationSortAttribute -&gt; ()
 (MigrationSortAttribute -&gt; ()) -&gt; NFData MigrationSortAttribute
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MigrationSortAttribute -&gt; ()
 $crnf :: MigrationSortAttribute -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679313731"><span class="annot"><span class="annottext">Text -&gt; Either String MigrationSortAttribute
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679313740"><span class="annot"><span class="annottext">Text -&gt; Either String MigrationSortAttribute
 (Text -&gt; Either String MigrationSortAttribute)
 -&gt; FromText MigrationSortAttribute
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MigrationSortAttribute
 $cfromText :: Text -&gt; Either String MigrationSortAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679313728"><span class="annot"><span class="annottext">MigrationSortAttribute -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679313737"><span class="annot"><span class="annottext">MigrationSortAttribute -&gt; Text
 (MigrationSortAttribute -&gt; Text) -&gt; ToText MigrationSortAttribute
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MigrationSortAttribute -&gt; Text
 $ctoText :: MigrationSortAttribute -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679313725"><span class="annot"><span class="annottext">MigrationSortAttribute -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679313734"><span class="annot"><span class="annottext">MigrationSortAttribute -&gt; ByteString
 (MigrationSortAttribute -&gt; ByteString)
 -&gt; ToByteString MigrationSortAttribute
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MigrationSortAttribute -&gt; ByteString
 $ctoBS :: MigrationSortAttribute -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679313722"><span class="annot"><span class="annottext">MigrationSortAttribute -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679313731"><span class="annot"><span class="annottext">MigrationSortAttribute -&gt; ByteStringBuilder
 (MigrationSortAttribute -&gt; ByteStringBuilder)
 -&gt; ToLog MigrationSortAttribute
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MigrationSortAttribute -&gt; ByteStringBuilder
 $cbuild :: MigrationSortAttribute -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679313719"><span class="annot"><span class="annottext">HeaderName -&gt; MigrationSortAttribute -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679313728"><span class="annot"><span class="annottext">HeaderName -&gt; MigrationSortAttribute -&gt; [Header]
 (HeaderName -&gt; MigrationSortAttribute -&gt; [Header])
 -&gt; ToHeader MigrationSortAttribute
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MigrationSortAttribute -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MigrationSortAttribute -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679313716"><span class="annot"><span class="annottext">MigrationSortAttribute -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679313725"><span class="annot"><span class="annottext">MigrationSortAttribute -&gt; QueryString
 (MigrationSortAttribute -&gt; QueryString)
 -&gt; ToQuery MigrationSortAttribute
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MigrationSortAttribute -&gt; QueryString
 $ctoQuery :: MigrationSortAttribute -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679313711"><span id="local-6989586621679313713"><span class="annot"><span class="annottext">Value -&gt; Parser [MigrationSortAttribute]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679313720"><span id="local-6989586621679313722"><span class="annot"><span class="annottext">Value -&gt; Parser [MigrationSortAttribute]
 Value -&gt; Parser MigrationSortAttribute
 (Value -&gt; Parser MigrationSortAttribute)
 -&gt; (Value -&gt; Parser [MigrationSortAttribute])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [MigrationSortAttribute]
 parseJSON :: Value -&gt; Parser MigrationSortAttribute
 $cparseJSON :: Value -&gt; Parser MigrationSortAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679313706"><span id="local-6989586621679313708"><span class="annot"><span class="annottext">FromJSONKeyFunction [MigrationSortAttribute]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679313715"><span id="local-6989586621679313717"><span class="annot"><span class="annottext">FromJSONKeyFunction [MigrationSortAttribute]
 FromJSONKeyFunction MigrationSortAttribute
 FromJSONKeyFunction MigrationSortAttribute
 -&gt; FromJSONKeyFunction [MigrationSortAttribute]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MigrationSortAttribute]
 fromJSONKey :: FromJSONKeyFunction MigrationSortAttribute
 $cfromJSONKey :: FromJSONKeyFunction MigrationSortAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679313697"><span id="local-6989586621679313699"><span id="local-6989586621679313701"><span id="local-6989586621679313703"><span class="annot"><span class="annottext">[MigrationSortAttribute] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679313706"><span id="local-6989586621679313708"><span id="local-6989586621679313710"><span id="local-6989586621679313712"><span class="annot"><span class="annottext">[MigrationSortAttribute] -&gt; Encoding
 [MigrationSortAttribute] -&gt; Value
 MigrationSortAttribute -&gt; Encoding
 MigrationSortAttribute -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: MigrationSortAttribute -&gt; Encoding
 toJSON :: MigrationSortAttribute -&gt; Value
 $ctoJSON :: MigrationSortAttribute -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679313692"><span id="local-6989586621679313694"><span class="annot"><span class="annottext">ToJSONKeyFunction [MigrationSortAttribute]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679313701"><span id="local-6989586621679313703"><span class="annot"><span class="annottext">ToJSONKeyFunction [MigrationSortAttribute]
 ToJSONKeyFunction MigrationSortAttribute
 ToJSONKeyFunction MigrationSortAttribute
 -&gt; ToJSONKeyFunction [MigrationSortAttribute]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MigrationSortAttribute]
 toJSONKey :: ToJSONKeyFunction MigrationSortAttribute
 $ctoJSONKey :: ToJSONKeyFunction MigrationSortAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679313689"><span class="annot"><span class="annottext">[Node] -&gt; Either String MigrationSortAttribute
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679313698"><span class="annot"><span class="annottext">[Node] -&gt; Either String MigrationSortAttribute
 ([Node] -&gt; Either String MigrationSortAttribute)
 -&gt; FromXML MigrationSortAttribute
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MigrationSortAttribute
 $cparseXML :: [Node] -&gt; Either String MigrationSortAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679313686"><span class="annot"><span class="annottext">MigrationSortAttribute -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679313695"><span class="annot"><span class="annottext">MigrationSortAttribute -&gt; XML
 (MigrationSortAttribute -&gt; XML) -&gt; ToXML MigrationSortAttribute
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MigrationSortAttribute -&gt; XML

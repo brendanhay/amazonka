@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EMRContainers.DescribeVirtualCluster</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Displays detailed information about a specified virtual cluster. Virtual</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- cluster is a managed entity on Amazon EMR on EKS. You can create,</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- describe, list and delete virtual clusters. They do not consume any</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- additional resource in your system. A single virtual cluster maps to a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- single Kubernetes namespace. Given this relationship, you can model</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- virtual clusters the same way you model Kubernetes namespaces to meet</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- your requirements.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EMRContainers.DescribeVirtualCluster</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualCluster"><span class="hs-identifier">DescribeVirtualCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#newDescribeVirtualCluster"><span class="hs-identifier">newDescribeVirtualCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#describeVirtualCluster_id"><span class="hs-identifier">describeVirtualCluster_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualClusterResponse"><span class="hs-identifier">DescribeVirtualClusterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#newDescribeVirtualClusterResponse"><span class="hs-identifier">newDescribeVirtualClusterResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#describeVirtualClusterResponse_virtualCluster"><span class="hs-identifier">describeVirtualClusterResponse_virtualCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#describeVirtualClusterResponse_httpStatus"><span class="hs-identifier">describeVirtualClusterResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.html"><span class="hs-identifier">Network.AWS.EMRContainers.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDescribeVirtualCluster' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679188168"><span id="local-6989586621679188169"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVirtualCluster"><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualCluster"><span class="hs-identifier hs-var">DescribeVirtualCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVirtualCluster%27"><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualCluster%27"><span class="hs-identifier hs-var">DescribeVirtualCluster'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the virtual cluster that will be described.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aid%3ADescribeVirtualCluster%27"><span class="annot"><span class="annottext">DescribeVirtualCluster -&gt; Text
+</span><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#%24sel%3Aid%3ADescribeVirtualCluster%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188162"><span id="local-6989586621679188164"><span class="annot"><span class="annottext">DescribeVirtualCluster -&gt; DescribeVirtualCluster -&gt; Bool
+(DescribeVirtualCluster -&gt; DescribeVirtualCluster -&gt; Bool)
+-&gt; (DescribeVirtualCluster -&gt; DescribeVirtualCluster -&gt; Bool)
+-&gt; Eq DescribeVirtualCluster
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeVirtualCluster -&gt; DescribeVirtualCluster -&gt; Bool
+$c/= :: DescribeVirtualCluster -&gt; DescribeVirtualCluster -&gt; Bool
+== :: DescribeVirtualCluster -&gt; DescribeVirtualCluster -&gt; Bool
+$c== :: DescribeVirtualCluster -&gt; DescribeVirtualCluster -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188153"><span id="local-6989586621679188155"><span id="local-6989586621679188157"><span id="local-6989586621679188159"><span class="annot"><span class="annottext">ReadPrec [DescribeVirtualCluster]
+ReadPrec DescribeVirtualCluster
+Int -&gt; ReadS DescribeVirtualCluster
+ReadS [DescribeVirtualCluster]
+(Int -&gt; ReadS DescribeVirtualCluster)
+-&gt; ReadS [DescribeVirtualCluster]
+-&gt; ReadPrec DescribeVirtualCluster
+-&gt; ReadPrec [DescribeVirtualCluster]
+-&gt; Read DescribeVirtualCluster
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeVirtualCluster]
+$creadListPrec :: ReadPrec [DescribeVirtualCluster]
+readPrec :: ReadPrec DescribeVirtualCluster
+$creadPrec :: ReadPrec DescribeVirtualCluster
+readList :: ReadS [DescribeVirtualCluster]
+$creadList :: ReadS [DescribeVirtualCluster]
+readsPrec :: Int -&gt; ReadS DescribeVirtualCluster
+$creadsPrec :: Int -&gt; ReadS DescribeVirtualCluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188146"><span id="local-6989586621679188148"><span id="local-6989586621679188150"><span class="annot"><span class="annottext">Int -&gt; DescribeVirtualCluster -&gt; ShowS
+[DescribeVirtualCluster] -&gt; ShowS
+DescribeVirtualCluster -&gt; String
+(Int -&gt; DescribeVirtualCluster -&gt; ShowS)
+-&gt; (DescribeVirtualCluster -&gt; String)
+-&gt; ([DescribeVirtualCluster] -&gt; ShowS)
+-&gt; Show DescribeVirtualCluster
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeVirtualCluster] -&gt; ShowS
+$cshowList :: [DescribeVirtualCluster] -&gt; ShowS
+show :: DescribeVirtualCluster -&gt; String
+$cshow :: DescribeVirtualCluster -&gt; String
+showsPrec :: Int -&gt; DescribeVirtualCluster -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeVirtualCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeVirtualCluster -&gt; Rep DescribeVirtualCluster x)
+-&gt; (forall x.
+    Rep DescribeVirtualCluster x -&gt; DescribeVirtualCluster)
+-&gt; Generic DescribeVirtualCluster
+forall x. Rep DescribeVirtualCluster x -&gt; DescribeVirtualCluster
+forall x. DescribeVirtualCluster -&gt; Rep DescribeVirtualCluster x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeVirtualCluster x -&gt; DescribeVirtualCluster
+$cfrom :: forall x. DescribeVirtualCluster -&gt; Rep DescribeVirtualCluster x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'DescribeVirtualCluster' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'id', 'describeVirtualCluster_id' - The ID of the virtual cluster that will be described.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#newDescribeVirtualCluster"><span class="hs-identifier hs-type">newDescribeVirtualCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualCluster"><span class="hs-identifier hs-type">DescribeVirtualCluster</span></a></span><span>
+</span><span id="line-75"></span><span id="newDescribeVirtualCluster"><span class="annot"><span class="annottext">newDescribeVirtualCluster :: Text -&gt; DescribeVirtualCluster
+</span><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#newDescribeVirtualCluster"><span class="hs-identifier hs-var hs-var">newDescribeVirtualCluster</span></a></span></span><span> </span><span id="local-6989586621679188141"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188141"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DescribeVirtualCluster' :: Text -&gt; DescribeVirtualCluster
+</span><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualCluster%27"><span class="hs-identifier hs-type">DescribeVirtualCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DescribeVirtualCluster' :: Text
+</span><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#%24sel%3Aid%3ADescribeVirtualCluster%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188141"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The ID of the virtual cluster that will be described.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#describeVirtualCluster_id"><span class="hs-identifier hs-type">describeVirtualCluster_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualCluster"><span class="hs-identifier hs-type">DescribeVirtualCluster</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span id="describeVirtualCluster_id"><span class="annot"><span class="annottext">describeVirtualCluster_id :: (Text -&gt; f Text)
+-&gt; DescribeVirtualCluster -&gt; f DescribeVirtualCluster
+</span><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#describeVirtualCluster_id"><span class="hs-identifier hs-var hs-var">describeVirtualCluster_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVirtualCluster -&gt; Text)
+-&gt; (DescribeVirtualCluster -&gt; Text -&gt; DescribeVirtualCluster)
+-&gt; Lens DescribeVirtualCluster DescribeVirtualCluster Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualCluster%27"><span class="hs-identifier hs-type">DescribeVirtualCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188138"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DescribeVirtualCluster' :: DescribeVirtualCluster -&gt; Text
+</span><a href="#local-6989586621679188138"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188138"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188137"><span class="annot"><span class="annottext">s :: DescribeVirtualCluster
+</span><a href="#local-6989586621679188137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualCluster%27"><span class="hs-identifier hs-type">DescribeVirtualCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188136"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVirtualCluster
+</span><a href="#local-6989586621679188137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DescribeVirtualCluster' :: Text
+</span><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#%24sel%3Aid%3ADescribeVirtualCluster%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualCluster"><span class="hs-identifier hs-type">DescribeVirtualCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualCluster"><span class="hs-identifier hs-type">DescribeVirtualCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualCluster"><span class="hs-identifier hs-type">DescribeVirtualCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualClusterResponse"><span class="hs-identifier hs-type">DescribeVirtualClusterResponse</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679188132"><span class="annot"><span class="annottext">request :: DescribeVirtualCluster -&gt; Request DescribeVirtualCluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeVirtualCluster -&gt; Request DescribeVirtualCluster
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EMRContainers.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679188128"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeVirtualCluster
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeVirtualCluster)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeVirtualCluster))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeVirtualCluster
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeVirtualCluster)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679188125"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188125"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679188124"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679188124"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679188123"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188123"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe VirtualCluster -&gt; Int -&gt; DescribeVirtualClusterResponse
+</span><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualClusterResponse%27"><span class="hs-identifier hs-var">DescribeVirtualClusterResponse'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VirtualCluster -&gt; Int -&gt; DescribeVirtualClusterResponse)
+-&gt; Either String (Maybe VirtualCluster)
+-&gt; Either String (Int -&gt; DescribeVirtualClusterResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VirtualCluster)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;virtualCluster&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeVirtualClusterResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeVirtualClusterResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188125"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188115"><span id="local-6989586621679188117"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualCluster"><span class="hs-identifier hs-type">DescribeVirtualCluster</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188112"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualCluster"><span class="hs-identifier hs-type">DescribeVirtualCluster</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualCluster"><span class="hs-identifier hs-type">DescribeVirtualCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679188108"><span class="annot"><span class="annottext">toHeaders :: DescribeVirtualCluster -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeVirtualCluster -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-106"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualCluster"><span class="hs-identifier hs-type">DescribeVirtualCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679188102"><span class="annot"><span class="annottext">toPath :: DescribeVirtualCluster -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualCluster%27"><span class="hs-identifier hs-type">DescribeVirtualCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188100"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DescribeVirtualCluster' :: DescribeVirtualCluster -&gt; Text
+</span><a href="#local-6989586621679188100"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/virtualclusters/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188100"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualCluster"><span class="hs-identifier hs-type">DescribeVirtualCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679188096"><span class="annot"><span class="annottext">toQuery :: DescribeVirtualCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeVirtualCluster -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | /See:/ 'newDescribeVirtualClusterResponse' smart constructor.</span><span>
+</span><span id="line-118"></span><span id="local-6989586621679188093"><span id="local-6989586621679188094"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVirtualClusterResponse"><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualClusterResponse"><span class="hs-identifier hs-var">DescribeVirtualClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVirtualClusterResponse%27"><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualClusterResponse%27"><span class="hs-identifier hs-var">DescribeVirtualClusterResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This output displays information about the specified virtual cluster.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AvirtualCluster%3ADescribeVirtualClusterResponse%27"><span class="annot"><span class="annottext">DescribeVirtualClusterResponse -&gt; Maybe VirtualCluster
+</span><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#%24sel%3AvirtualCluster%3ADescribeVirtualClusterResponse%27"><span class="hs-identifier hs-var hs-var">virtualCluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.VirtualCluster.html#VirtualCluster"><span class="hs-identifier hs-type">VirtualCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeVirtualClusterResponse%27"><span class="annot"><span class="annottext">DescribeVirtualClusterResponse -&gt; Int
+</span><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#%24sel%3AhttpStatus%3ADescribeVirtualClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188087"><span id="local-6989586621679188089"><span class="annot"><span class="annottext">DescribeVirtualClusterResponse
+-&gt; DescribeVirtualClusterResponse -&gt; Bool
+(DescribeVirtualClusterResponse
+ -&gt; DescribeVirtualClusterResponse -&gt; Bool)
+-&gt; (DescribeVirtualClusterResponse
+    -&gt; DescribeVirtualClusterResponse -&gt; Bool)
+-&gt; Eq DescribeVirtualClusterResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeVirtualClusterResponse
+-&gt; DescribeVirtualClusterResponse -&gt; Bool
+$c/= :: DescribeVirtualClusterResponse
+-&gt; DescribeVirtualClusterResponse -&gt; Bool
+== :: DescribeVirtualClusterResponse
+-&gt; DescribeVirtualClusterResponse -&gt; Bool
+$c== :: DescribeVirtualClusterResponse
+-&gt; DescribeVirtualClusterResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188079"><span id="local-6989586621679188081"><span id="local-6989586621679188083"><span id="local-6989586621679188085"><span class="annot"><span class="annottext">ReadPrec [DescribeVirtualClusterResponse]
+ReadPrec DescribeVirtualClusterResponse
+Int -&gt; ReadS DescribeVirtualClusterResponse
+ReadS [DescribeVirtualClusterResponse]
+(Int -&gt; ReadS DescribeVirtualClusterResponse)
+-&gt; ReadS [DescribeVirtualClusterResponse]
+-&gt; ReadPrec DescribeVirtualClusterResponse
+-&gt; ReadPrec [DescribeVirtualClusterResponse]
+-&gt; Read DescribeVirtualClusterResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeVirtualClusterResponse]
+$creadListPrec :: ReadPrec [DescribeVirtualClusterResponse]
+readPrec :: ReadPrec DescribeVirtualClusterResponse
+$creadPrec :: ReadPrec DescribeVirtualClusterResponse
+readList :: ReadS [DescribeVirtualClusterResponse]
+$creadList :: ReadS [DescribeVirtualClusterResponse]
+readsPrec :: Int -&gt; ReadS DescribeVirtualClusterResponse
+$creadsPrec :: Int -&gt; ReadS DescribeVirtualClusterResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188073"><span id="local-6989586621679188075"><span id="local-6989586621679188077"><span class="annot"><span class="annottext">Int -&gt; DescribeVirtualClusterResponse -&gt; ShowS
+[DescribeVirtualClusterResponse] -&gt; ShowS
+DescribeVirtualClusterResponse -&gt; String
+(Int -&gt; DescribeVirtualClusterResponse -&gt; ShowS)
+-&gt; (DescribeVirtualClusterResponse -&gt; String)
+-&gt; ([DescribeVirtualClusterResponse] -&gt; ShowS)
+-&gt; Show DescribeVirtualClusterResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeVirtualClusterResponse] -&gt; ShowS
+$cshowList :: [DescribeVirtualClusterResponse] -&gt; ShowS
+show :: DescribeVirtualClusterResponse -&gt; String
+$cshow :: DescribeVirtualClusterResponse -&gt; String
+showsPrec :: Int -&gt; DescribeVirtualClusterResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeVirtualClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeVirtualClusterResponse
+ -&gt; Rep DescribeVirtualClusterResponse x)
+-&gt; (forall x.
+    Rep DescribeVirtualClusterResponse x
+    -&gt; DescribeVirtualClusterResponse)
+-&gt; Generic DescribeVirtualClusterResponse
+forall x.
+Rep DescribeVirtualClusterResponse x
+-&gt; DescribeVirtualClusterResponse
+forall x.
+DescribeVirtualClusterResponse
+-&gt; Rep DescribeVirtualClusterResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeVirtualClusterResponse x
+-&gt; DescribeVirtualClusterResponse
+$cfrom :: forall x.
+DescribeVirtualClusterResponse
+-&gt; Rep DescribeVirtualClusterResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Create a value of 'DescribeVirtualClusterResponse' with all optional fields omitted.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'virtualCluster', 'describeVirtualClusterResponse_virtualCluster' - This output displays information about the specified virtual cluster.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'httpStatus', 'describeVirtualClusterResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#newDescribeVirtualClusterResponse"><span class="hs-identifier hs-type">newDescribeVirtualClusterResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualClusterResponse"><span class="hs-identifier hs-type">DescribeVirtualClusterResponse</span></a></span><span>
+</span><span id="line-141"></span><span id="newDescribeVirtualClusterResponse"><span class="annot"><span class="annottext">newDescribeVirtualClusterResponse :: Int -&gt; DescribeVirtualClusterResponse
+</span><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#newDescribeVirtualClusterResponse"><span class="hs-identifier hs-var hs-var">newDescribeVirtualClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679188070"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188070"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">DescribeVirtualClusterResponse' :: Maybe VirtualCluster -&gt; Int -&gt; DescribeVirtualClusterResponse
+</span><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualClusterResponse%27"><span class="hs-identifier hs-type">DescribeVirtualClusterResponse'</span></a></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:virtualCluster:DescribeVirtualClusterResponse' :: Maybe VirtualCluster
+</span><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#%24sel%3AvirtualCluster%3ADescribeVirtualClusterResponse%27"><span class="hs-identifier hs-var">virtualCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">Maybe VirtualCluster
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVirtualClusterResponse' :: Int
+</span><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#%24sel%3AhttpStatus%3ADescribeVirtualClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188070"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | This output displays information about the specified virtual cluster.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#describeVirtualClusterResponse_virtualCluster"><span class="hs-identifier hs-type">describeVirtualClusterResponse_virtualCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualClusterResponse"><span class="hs-identifier hs-type">DescribeVirtualClusterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.Types.VirtualCluster.html#VirtualCluster"><span class="hs-identifier hs-type">VirtualCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="describeVirtualClusterResponse_virtualCluster"><span class="annot"><span class="annottext">describeVirtualClusterResponse_virtualCluster :: (Maybe VirtualCluster -&gt; f (Maybe VirtualCluster))
+-&gt; DescribeVirtualClusterResponse
+-&gt; f DescribeVirtualClusterResponse
+</span><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#describeVirtualClusterResponse_virtualCluster"><span class="hs-identifier hs-var hs-var">describeVirtualClusterResponse_virtualCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVirtualClusterResponse -&gt; Maybe VirtualCluster)
+-&gt; (DescribeVirtualClusterResponse
+    -&gt; Maybe VirtualCluster -&gt; DescribeVirtualClusterResponse)
+-&gt; Lens
+     DescribeVirtualClusterResponse
+     DescribeVirtualClusterResponse
+     (Maybe VirtualCluster)
+     (Maybe VirtualCluster)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualClusterResponse%27"><span class="hs-identifier hs-type">DescribeVirtualClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188069"><span class="annot"><span class="annottext">Maybe VirtualCluster
+virtualCluster :: Maybe VirtualCluster
+$sel:virtualCluster:DescribeVirtualClusterResponse' :: DescribeVirtualClusterResponse -&gt; Maybe VirtualCluster
+</span><a href="#local-6989586621679188069"><span class="hs-identifier hs-var hs-var">virtualCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualCluster
+</span><a href="#local-6989586621679188069"><span class="hs-identifier hs-var">virtualCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188068"><span class="annot"><span class="annottext">s :: DescribeVirtualClusterResponse
+</span><a href="#local-6989586621679188068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualClusterResponse%27"><span class="hs-identifier hs-type">DescribeVirtualClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188067"><span class="annot"><span class="annottext">Maybe VirtualCluster
+</span><a href="#local-6989586621679188067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVirtualClusterResponse
+</span><a href="#local-6989586621679188068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualCluster:DescribeVirtualClusterResponse' :: Maybe VirtualCluster
+</span><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#%24sel%3AvirtualCluster%3ADescribeVirtualClusterResponse%27"><span class="hs-identifier hs-var">virtualCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualCluster
+</span><a href="#local-6989586621679188067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualClusterResponse"><span class="hs-identifier hs-type">DescribeVirtualClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#describeVirtualClusterResponse_httpStatus"><span class="hs-identifier hs-type">describeVirtualClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualClusterResponse"><span class="hs-identifier hs-type">DescribeVirtualClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-154"></span><span id="describeVirtualClusterResponse_httpStatus"><span class="annot"><span class="annottext">describeVirtualClusterResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeVirtualClusterResponse
+-&gt; f DescribeVirtualClusterResponse
+</span><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#describeVirtualClusterResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeVirtualClusterResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVirtualClusterResponse -&gt; Int)
+-&gt; (DescribeVirtualClusterResponse
+    -&gt; Int -&gt; DescribeVirtualClusterResponse)
+-&gt; Lens
+     DescribeVirtualClusterResponse
+     DescribeVirtualClusterResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualClusterResponse%27"><span class="hs-identifier hs-type">DescribeVirtualClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188066"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeVirtualClusterResponse' :: DescribeVirtualClusterResponse -&gt; Int
+</span><a href="#local-6989586621679188066"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188066"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188065"><span class="annot"><span class="annottext">s :: DescribeVirtualClusterResponse
+</span><a href="#local-6989586621679188065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualClusterResponse%27"><span class="hs-identifier hs-type">DescribeVirtualClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188064"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVirtualClusterResponse
+</span><a href="#local-6989586621679188065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVirtualClusterResponse' :: Int
+</span><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#%24sel%3AhttpStatus%3ADescribeVirtualClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualClusterResponse"><span class="hs-identifier hs-type">DescribeVirtualClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679188062"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.EMRContainers.DescribeVirtualCluster.html#DescribeVirtualClusterResponse"><span class="hs-identifier hs-type">DescribeVirtualClusterResponse</span></a></span></span><span>
+</span><span id="line-159"></span></pre></body></html>

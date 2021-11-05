@@ -1,0 +1,961 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AuditManager.Types.Framework</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AuditManager.Types.Framework</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlSet.html"><span class="hs-identifier">Network.AWS.AuditManager.Types.ControlSet</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.FrameworkType.html"><span class="hs-identifier">Network.AWS.AuditManager.Types.FrameworkType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The file used to structure and automate Audit Manager assessments for a</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- given compliance standard.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newFramework' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679297649"><span id="local-6989586621679297650"></span></span><span class="hs-keyword">data</span><span> </span><span id="Framework"><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-var">Framework</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Framework%27"><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-var">Framework'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IAM user or role that most recently updated the framework.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlastUpdatedBy%3AFramework%27"><span class="annot"><span class="annottext">Framework -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AlastUpdatedBy%3AFramework%27"><span class="hs-identifier hs-var hs-var">lastUpdatedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Specifies when the framework was most recently updated.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlastUpdatedAt%3AFramework%27"><span class="annot"><span class="annottext">Framework -&gt; Maybe POSIX
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AlastUpdatedAt%3AFramework%27"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the specified framework.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aarn%3AFramework%27"><span class="annot"><span class="annottext">Framework -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Aarn%3AFramework%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Specifies when the framework was created.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcreatedAt%3AFramework%27"><span class="annot"><span class="annottext">Framework -&gt; Maybe POSIX
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AcreatedAt%3AFramework%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The IAM user or role that created the framework.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcreatedBy%3AFramework%27"><span class="annot"><span class="annottext">Framework -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AcreatedBy%3AFramework%27"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The control sets associated with the framework.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcontrolSets%3AFramework%27"><span class="annot"><span class="annottext">Framework -&gt; Maybe (NonEmpty ControlSet)
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AcontrolSets%3AFramework%27"><span class="hs-identifier hs-var hs-var">controlSets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlSet.html#ControlSet"><span class="hs-identifier hs-type">ControlSet</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The sources from which Audit Manager collects evidence for the control.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AcontrolSources%3AFramework%27"><span class="annot"><span class="annottext">Framework -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AcontrolSources%3AFramework%27"><span class="hs-identifier hs-var hs-var">controlSources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The name of the specified framework.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aname%3AFramework%27"><span class="annot"><span class="annottext">Framework -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Aname%3AFramework%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The compliance type that the new custom framework supports, such as CIS</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- or HIPAA.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AcomplianceType%3AFramework%27"><span class="annot"><span class="annottext">Framework -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AcomplianceType%3AFramework%27"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the specified framework.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aid%3AFramework%27"><span class="annot"><span class="annottext">Framework -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Aid%3AFramework%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The framework type, such as custom or standard.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Atype%27%3AFramework%27"><span class="annot"><span class="annottext">Framework -&gt; Maybe FrameworkType
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Atype%27%3AFramework%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.FrameworkType.html#FrameworkType"><span class="hs-identifier hs-type">FrameworkType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The logo associated with the framework.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Alogo%3AFramework%27"><span class="annot"><span class="annottext">Framework -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Alogo%3AFramework%27"><span class="hs-identifier hs-var hs-var">logo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The description of the specified framework.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Adescription%3AFramework%27"><span class="annot"><span class="annottext">Framework -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Adescription%3AFramework%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The tags associated with the framework.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Atags%3AFramework%27"><span class="annot"><span class="annottext">Framework -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Atags%3AFramework%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297630"><span id="local-6989586621679297632"><span class="annot"><span class="annottext">Framework -&gt; Framework -&gt; Bool
+(Framework -&gt; Framework -&gt; Bool)
+-&gt; (Framework -&gt; Framework -&gt; Bool) -&gt; Eq Framework
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Framework -&gt; Framework -&gt; Bool
+$c/= :: Framework -&gt; Framework -&gt; Bool
+== :: Framework -&gt; Framework -&gt; Bool
+$c== :: Framework -&gt; Framework -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297621"><span id="local-6989586621679297623"><span id="local-6989586621679297625"><span id="local-6989586621679297627"><span class="annot"><span class="annottext">ReadPrec [Framework]
+ReadPrec Framework
+Int -&gt; ReadS Framework
+ReadS [Framework]
+(Int -&gt; ReadS Framework)
+-&gt; ReadS [Framework]
+-&gt; ReadPrec Framework
+-&gt; ReadPrec [Framework]
+-&gt; Read Framework
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Framework]
+$creadListPrec :: ReadPrec [Framework]
+readPrec :: ReadPrec Framework
+$creadPrec :: ReadPrec Framework
+readList :: ReadS [Framework]
+$creadList :: ReadS [Framework]
+readsPrec :: Int -&gt; ReadS Framework
+$creadsPrec :: Int -&gt; ReadS Framework
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297614"><span id="local-6989586621679297616"><span id="local-6989586621679297618"><span class="annot"><span class="annottext">Int -&gt; Framework -&gt; ShowS
+[Framework] -&gt; ShowS
+Framework -&gt; String
+(Int -&gt; Framework -&gt; ShowS)
+-&gt; (Framework -&gt; String)
+-&gt; ([Framework] -&gt; ShowS)
+-&gt; Show Framework
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Framework] -&gt; ShowS
+$cshowList :: [Framework] -&gt; ShowS
+show :: Framework -&gt; String
+$cshow :: Framework -&gt; String
+showsPrec :: Int -&gt; Framework -&gt; ShowS
+$cshowsPrec :: Int -&gt; Framework -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Framework -&gt; Rep Framework x)
+-&gt; (forall x. Rep Framework x -&gt; Framework) -&gt; Generic Framework
+forall x. Rep Framework x -&gt; Framework
+forall x. Framework -&gt; Rep Framework x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Framework x -&gt; Framework
+$cfrom :: forall x. Framework -&gt; Rep Framework x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'Framework' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'lastUpdatedBy', 'framework_lastUpdatedBy' - The IAM user or role that most recently updated the framework.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'lastUpdatedAt', 'framework_lastUpdatedAt' - Specifies when the framework was most recently updated.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'arn', 'framework_arn' - The Amazon Resource Name (ARN) of the specified framework.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'createdAt', 'framework_createdAt' - Specifies when the framework was created.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'createdBy', 'framework_createdBy' - The IAM user or role that created the framework.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'controlSets', 'framework_controlSets' - The control sets associated with the framework.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'controlSources', 'framework_controlSources' - The sources from which Audit Manager collects evidence for the control.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'name', 'framework_name' - The name of the specified framework.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'complianceType', 'framework_complianceType' - The compliance type that the new custom framework supports, such as CIS</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- or HIPAA.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'id', 'framework_id' - The unique identifier for the specified framework.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'type'', 'framework_type' - The framework type, such as custom or standard.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'logo', 'framework_logo' - The logo associated with the framework.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'description', 'framework_description' - The description of the specified framework.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'tags', 'framework_tags' - The tags associated with the framework.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#newFramework"><span class="hs-identifier hs-type">newFramework</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span>
+</span><span id="line-103"></span><span id="newFramework"><span class="annot"><span class="annottext">newFramework :: Framework
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#newFramework"><span class="hs-identifier hs-var hs-var">newFramework</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">Framework' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty ControlSet)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe FrameworkType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Framework
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastUpdatedBy:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AlastUpdatedBy%3AFramework%27"><span class="hs-identifier hs-var">lastUpdatedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:Framework' :: Maybe POSIX
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AlastUpdatedAt%3AFramework%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Aarn%3AFramework%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:Framework' :: Maybe POSIX
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AcreatedAt%3AFramework%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBy:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AcreatedBy%3AFramework%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:controlSets:Framework' :: Maybe (NonEmpty ControlSet)
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AcontrolSets%3AFramework%27"><span class="hs-identifier hs-var">controlSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ControlSet)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:controlSources:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AcontrolSources%3AFramework%27"><span class="hs-identifier hs-var">controlSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Aname%3AFramework%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:complianceType:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AcomplianceType%3AFramework%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Aid%3AFramework%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Framework' :: Maybe FrameworkType
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Atype%27%3AFramework%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FrameworkType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:logo:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Alogo%3AFramework%27"><span class="hs-identifier hs-var">logo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Adescription%3AFramework%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Framework' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Atags%3AFramework%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The IAM user or role that most recently updated the framework.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#framework_lastUpdatedBy"><span class="hs-identifier hs-type">framework_lastUpdatedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="framework_lastUpdatedBy"><span class="annot"><span class="annottext">framework_lastUpdatedBy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Framework -&gt; f Framework
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#framework_lastUpdatedBy"><span class="hs-identifier hs-var hs-var">framework_lastUpdatedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Framework -&gt; Maybe Text)
+-&gt; (Framework -&gt; Maybe Text -&gt; Framework)
+-&gt; Lens Framework Framework (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297605"><span class="annot"><span class="annottext">Maybe Text
+lastUpdatedBy :: Maybe Text
+$sel:lastUpdatedBy:Framework' :: Framework -&gt; Maybe Text
+</span><a href="#local-6989586621679297605"><span class="hs-identifier hs-var hs-var">lastUpdatedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297605"><span class="hs-identifier hs-var">lastUpdatedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297604"><span class="annot"><span class="annottext">s :: Framework
+</span><a href="#local-6989586621679297604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297603"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Framework
+</span><a href="#local-6989586621679297604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedBy:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AlastUpdatedBy%3AFramework%27"><span class="hs-identifier hs-var">lastUpdatedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Specifies when the framework was most recently updated.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#framework_lastUpdatedAt"><span class="hs-identifier hs-type">framework_lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="framework_lastUpdatedAt"><span class="annot"><span class="annottext">framework_lastUpdatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Framework -&gt; f Framework
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#framework_lastUpdatedAt"><span class="hs-identifier hs-var hs-var">framework_lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Framework -&gt; Maybe POSIX)
+-&gt; (Framework -&gt; Maybe POSIX -&gt; Framework)
+-&gt; Lens Framework Framework (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297601"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedAt :: Maybe POSIX
+$sel:lastUpdatedAt:Framework' :: Framework -&gt; Maybe POSIX
+</span><a href="#local-6989586621679297601"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679297601"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297600"><span class="annot"><span class="annottext">s :: Framework
+</span><a href="#local-6989586621679297600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297599"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679297599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Framework
+</span><a href="#local-6989586621679297600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:Framework' :: Maybe POSIX
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AlastUpdatedAt%3AFramework%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679297599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Framework -&gt; f Framework)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Framework
+-&gt; f Framework
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the specified framework.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#framework_arn"><span class="hs-identifier hs-type">framework_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="framework_arn"><span class="annot"><span class="annottext">framework_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Framework -&gt; f Framework
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#framework_arn"><span class="hs-identifier hs-var hs-var">framework_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Framework -&gt; Maybe Text)
+-&gt; (Framework -&gt; Maybe Text -&gt; Framework)
+-&gt; Lens Framework Framework (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297594"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:Framework' :: Framework -&gt; Maybe Text
+</span><a href="#local-6989586621679297594"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297594"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297593"><span class="annot"><span class="annottext">s :: Framework
+</span><a href="#local-6989586621679297593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297592"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Framework
+</span><a href="#local-6989586621679297593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Aarn%3AFramework%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Specifies when the framework was created.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#framework_createdAt"><span class="hs-identifier hs-type">framework_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="framework_createdAt"><span class="annot"><span class="annottext">framework_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Framework -&gt; f Framework
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#framework_createdAt"><span class="hs-identifier hs-var hs-var">framework_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Framework -&gt; Maybe POSIX)
+-&gt; (Framework -&gt; Maybe POSIX -&gt; Framework)
+-&gt; Lens Framework Framework (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297590"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:Framework' :: Framework -&gt; Maybe POSIX
+</span><a href="#local-6989586621679297590"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679297590"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297589"><span class="annot"><span class="annottext">s :: Framework
+</span><a href="#local-6989586621679297589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297588"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679297588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Framework
+</span><a href="#local-6989586621679297589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:Framework' :: Maybe POSIX
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AcreatedAt%3AFramework%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679297588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Framework -&gt; f Framework)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Framework
+-&gt; f Framework
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The IAM user or role that created the framework.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#framework_createdBy"><span class="hs-identifier hs-type">framework_createdBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="framework_createdBy"><span class="annot"><span class="annottext">framework_createdBy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Framework -&gt; f Framework
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#framework_createdBy"><span class="hs-identifier hs-var hs-var">framework_createdBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Framework -&gt; Maybe Text)
+-&gt; (Framework -&gt; Maybe Text -&gt; Framework)
+-&gt; Lens Framework Framework (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297586"><span class="annot"><span class="annottext">Maybe Text
+createdBy :: Maybe Text
+$sel:createdBy:Framework' :: Framework -&gt; Maybe Text
+</span><a href="#local-6989586621679297586"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297586"><span class="hs-identifier hs-var">createdBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297585"><span class="annot"><span class="annottext">s :: Framework
+</span><a href="#local-6989586621679297585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297584"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Framework
+</span><a href="#local-6989586621679297585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBy:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AcreatedBy%3AFramework%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The control sets associated with the framework.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#framework_controlSets"><span class="hs-identifier hs-type">framework_controlSets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlSet.html#ControlSet"><span class="hs-identifier hs-type">ControlSet</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="framework_controlSets"><span class="annot"><span class="annottext">framework_controlSets :: (Maybe (NonEmpty ControlSet) -&gt; f (Maybe (NonEmpty ControlSet)))
+-&gt; Framework -&gt; f Framework
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#framework_controlSets"><span class="hs-identifier hs-var hs-var">framework_controlSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Framework -&gt; Maybe (NonEmpty ControlSet))
+-&gt; (Framework -&gt; Maybe (NonEmpty ControlSet) -&gt; Framework)
+-&gt; Lens
+     Framework
+     Framework
+     (Maybe (NonEmpty ControlSet))
+     (Maybe (NonEmpty ControlSet))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297582"><span class="annot"><span class="annottext">Maybe (NonEmpty ControlSet)
+controlSets :: Maybe (NonEmpty ControlSet)
+$sel:controlSets:Framework' :: Framework -&gt; Maybe (NonEmpty ControlSet)
+</span><a href="#local-6989586621679297582"><span class="hs-identifier hs-var hs-var">controlSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ControlSet)
+</span><a href="#local-6989586621679297582"><span class="hs-identifier hs-var">controlSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297581"><span class="annot"><span class="annottext">s :: Framework
+</span><a href="#local-6989586621679297581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297580"><span class="annot"><span class="annottext">Maybe (NonEmpty ControlSet)
+</span><a href="#local-6989586621679297580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Framework
+</span><a href="#local-6989586621679297581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlSets:Framework' :: Maybe (NonEmpty ControlSet)
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AcontrolSets%3AFramework%27"><span class="hs-identifier hs-var">controlSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ControlSet)
+</span><a href="#local-6989586621679297580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ControlSet) -&gt; f (Maybe (NonEmpty ControlSet)))
+ -&gt; Framework -&gt; f Framework)
+-&gt; ((Maybe (NonEmpty ControlSet)
+     -&gt; f (Maybe (NonEmpty ControlSet)))
+    -&gt; Maybe (NonEmpty ControlSet) -&gt; f (Maybe (NonEmpty ControlSet)))
+-&gt; (Maybe (NonEmpty ControlSet) -&gt; f (Maybe (NonEmpty ControlSet)))
+-&gt; Framework
+-&gt; f Framework
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ControlSet)
+  (NonEmpty ControlSet)
+  (NonEmpty ControlSet)
+  (NonEmpty ControlSet)
+-&gt; Iso
+     (Maybe (NonEmpty ControlSet))
+     (Maybe (NonEmpty ControlSet))
+     (Maybe (NonEmpty ControlSet))
+     (Maybe (NonEmpty ControlSet))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ControlSet)
+  (NonEmpty ControlSet)
+  (NonEmpty ControlSet)
+  (NonEmpty ControlSet)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The sources from which Audit Manager collects evidence for the control.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#framework_controlSources"><span class="hs-identifier hs-type">framework_controlSources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="framework_controlSources"><span class="annot"><span class="annottext">framework_controlSources :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Framework -&gt; f Framework
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#framework_controlSources"><span class="hs-identifier hs-var hs-var">framework_controlSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Framework -&gt; Maybe Text)
+-&gt; (Framework -&gt; Maybe Text -&gt; Framework)
+-&gt; Lens Framework Framework (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297577"><span class="annot"><span class="annottext">Maybe Text
+controlSources :: Maybe Text
+$sel:controlSources:Framework' :: Framework -&gt; Maybe Text
+</span><a href="#local-6989586621679297577"><span class="hs-identifier hs-var hs-var">controlSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297577"><span class="hs-identifier hs-var">controlSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297576"><span class="annot"><span class="annottext">s :: Framework
+</span><a href="#local-6989586621679297576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297575"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Framework
+</span><a href="#local-6989586621679297576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlSources:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AcontrolSources%3AFramework%27"><span class="hs-identifier hs-var">controlSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The name of the specified framework.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#framework_name"><span class="hs-identifier hs-type">framework_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="framework_name"><span class="annot"><span class="annottext">framework_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Framework -&gt; f Framework
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#framework_name"><span class="hs-identifier hs-var hs-var">framework_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Framework -&gt; Maybe Text)
+-&gt; (Framework -&gt; Maybe Text -&gt; Framework)
+-&gt; Lens Framework Framework (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297573"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Framework' :: Framework -&gt; Maybe Text
+</span><a href="#local-6989586621679297573"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297573"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297572"><span class="annot"><span class="annottext">s :: Framework
+</span><a href="#local-6989586621679297572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297571"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Framework
+</span><a href="#local-6989586621679297572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Aname%3AFramework%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The compliance type that the new custom framework supports, such as CIS</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- or HIPAA.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#framework_complianceType"><span class="hs-identifier hs-type">framework_complianceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="framework_complianceType"><span class="annot"><span class="annottext">framework_complianceType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Framework -&gt; f Framework
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#framework_complianceType"><span class="hs-identifier hs-var hs-var">framework_complianceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Framework -&gt; Maybe Text)
+-&gt; (Framework -&gt; Maybe Text -&gt; Framework)
+-&gt; Lens Framework Framework (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297569"><span class="annot"><span class="annottext">Maybe Text
+complianceType :: Maybe Text
+$sel:complianceType:Framework' :: Framework -&gt; Maybe Text
+</span><a href="#local-6989586621679297569"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297569"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297568"><span class="annot"><span class="annottext">s :: Framework
+</span><a href="#local-6989586621679297568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297567"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Framework
+</span><a href="#local-6989586621679297568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3AcomplianceType%3AFramework%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The unique identifier for the specified framework.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#framework_id"><span class="hs-identifier hs-type">framework_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="framework_id"><span class="annot"><span class="annottext">framework_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Framework -&gt; f Framework
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#framework_id"><span class="hs-identifier hs-var hs-var">framework_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Framework -&gt; Maybe Text)
+-&gt; (Framework -&gt; Maybe Text -&gt; Framework)
+-&gt; Lens Framework Framework (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297565"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:Framework' :: Framework -&gt; Maybe Text
+</span><a href="#local-6989586621679297565"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297565"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297564"><span class="annot"><span class="annottext">s :: Framework
+</span><a href="#local-6989586621679297564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297563"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Framework
+</span><a href="#local-6989586621679297564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Aid%3AFramework%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The framework type, such as custom or standard.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#framework_type"><span class="hs-identifier hs-type">framework_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.FrameworkType.html#FrameworkType"><span class="hs-identifier hs-type">FrameworkType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="framework_type"><span class="annot"><span class="annottext">framework_type :: (Maybe FrameworkType -&gt; f (Maybe FrameworkType))
+-&gt; Framework -&gt; f Framework
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#framework_type"><span class="hs-identifier hs-var hs-var">framework_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Framework -&gt; Maybe FrameworkType)
+-&gt; (Framework -&gt; Maybe FrameworkType -&gt; Framework)
+-&gt; Lens
+     Framework Framework (Maybe FrameworkType) (Maybe FrameworkType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297561"><span class="annot"><span class="annottext">Maybe FrameworkType
+type' :: Maybe FrameworkType
+$sel:type':Framework' :: Framework -&gt; Maybe FrameworkType
+</span><a href="#local-6989586621679297561"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FrameworkType
+</span><a href="#local-6989586621679297561"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297560"><span class="annot"><span class="annottext">s :: Framework
+</span><a href="#local-6989586621679297560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297559"><span class="annot"><span class="annottext">Maybe FrameworkType
+</span><a href="#local-6989586621679297559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Framework
+</span><a href="#local-6989586621679297560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Framework' :: Maybe FrameworkType
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Atype%27%3AFramework%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FrameworkType
+</span><a href="#local-6989586621679297559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The logo associated with the framework.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#framework_logo"><span class="hs-identifier hs-type">framework_logo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="framework_logo"><span class="annot"><span class="annottext">framework_logo :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Framework -&gt; f Framework
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#framework_logo"><span class="hs-identifier hs-var hs-var">framework_logo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Framework -&gt; Maybe Text)
+-&gt; (Framework -&gt; Maybe Text -&gt; Framework)
+-&gt; Lens Framework Framework (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297557"><span class="annot"><span class="annottext">Maybe Text
+logo :: Maybe Text
+$sel:logo:Framework' :: Framework -&gt; Maybe Text
+</span><a href="#local-6989586621679297557"><span class="hs-identifier hs-var hs-var">logo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297557"><span class="hs-identifier hs-var">logo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297556"><span class="annot"><span class="annottext">s :: Framework
+</span><a href="#local-6989586621679297556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297555"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Framework
+</span><a href="#local-6989586621679297556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logo:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Alogo%3AFramework%27"><span class="hs-identifier hs-var">logo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The description of the specified framework.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#framework_description"><span class="hs-identifier hs-type">framework_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="framework_description"><span class="annot"><span class="annottext">framework_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Framework -&gt; f Framework
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#framework_description"><span class="hs-identifier hs-var hs-var">framework_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Framework -&gt; Maybe Text)
+-&gt; (Framework -&gt; Maybe Text -&gt; Framework)
+-&gt; Lens Framework Framework (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297553"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:Framework' :: Framework -&gt; Maybe Text
+</span><a href="#local-6989586621679297553"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297553"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297552"><span class="annot"><span class="annottext">s :: Framework
+</span><a href="#local-6989586621679297552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297551"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Framework
+</span><a href="#local-6989586621679297552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Framework' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Adescription%3AFramework%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The tags associated with the framework.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#framework_tags"><span class="hs-identifier hs-type">framework_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="framework_tags"><span class="annot"><span class="annottext">framework_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Framework -&gt; f Framework
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#framework_tags"><span class="hs-identifier hs-var hs-var">framework_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Framework -&gt; Maybe (HashMap Text Text))
+-&gt; (Framework -&gt; Maybe (HashMap Text Text) -&gt; Framework)
+-&gt; Lens
+     Framework
+     Framework
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297549"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:Framework' :: Framework -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679297549"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679297549"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297548"><span class="annot"><span class="annottext">s :: Framework
+</span><a href="#local-6989586621679297548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-type">Framework'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297547"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679297547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Framework
+</span><a href="#local-6989586621679297548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Framework' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#%24sel%3Atags%3AFramework%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679297547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Framework -&gt; f Framework)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Framework
+-&gt; f Framework
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297544"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679297542"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Framework
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Framework) -&gt; Value -&gt; Parser Framework
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Framework&quot;</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297539"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297539"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty ControlSet)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe FrameworkType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Framework
+</span><a href="Network.AWS.AuditManager.Types.Framework.html#Framework%27"><span class="hs-identifier hs-var">Framework'</span></a></span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe (NonEmpty ControlSet)
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe FrameworkType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Framework)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty ControlSet)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe FrameworkType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Framework)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty ControlSet)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe FrameworkType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Framework)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty ControlSet)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe FrameworkType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Framework)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty ControlSet)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe FrameworkType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Framework)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty ControlSet)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe FrameworkType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Framework)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty ControlSet)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe FrameworkType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Framework)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (NonEmpty ControlSet)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe FrameworkType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Framework)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (NonEmpty ControlSet)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe FrameworkType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Framework)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (NonEmpty ControlSet)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe FrameworkType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Framework)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty ControlSet)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe FrameworkType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Framework)
+-&gt; Parser (Maybe (NonEmpty ControlSet))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe FrameworkType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Framework)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty ControlSet))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;controlSets&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe FrameworkType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Framework)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe FrameworkType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Framework)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;controlSources&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe FrameworkType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Framework)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe FrameworkType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Framework)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe FrameworkType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Framework)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe FrameworkType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Framework)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;complianceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe FrameworkType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Framework)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe FrameworkType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Framework)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FrameworkType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Framework)
+-&gt; Parser (Maybe FrameworkType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Framework)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FrameworkType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Framework)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Framework)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Framework)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (HashMap Text Text) -&gt; Framework)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; Framework)
+-&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser Framework
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297532"><span id="local-6989586621679297534"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span></span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297529"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span></span><span>
+</span><span id="line-203"></span></pre></body></html>

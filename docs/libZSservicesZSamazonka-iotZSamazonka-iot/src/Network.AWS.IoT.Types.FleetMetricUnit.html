@@ -54,13 +54,13 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span id="local-6989586621679785738"><span id="local-6989586621679785739"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetMetricUnit"><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricUnit.html#FleetMetricUnit"><span class="hs-identifier hs-var">FleetMetricUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetMetricUnit%27"><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricUnit.html#FleetMetricUnit%27"><span class="hs-identifier hs-var">FleetMetricUnit'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679785747"><span id="local-6989586621679785748"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetMetricUnit"><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricUnit.html#FleetMetricUnit"><span class="hs-identifier hs-var">FleetMetricUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetMetricUnit%27"><span class="annot"><a href="Network.AWS.IoT.Types.FleetMetricUnit.html#FleetMetricUnit%27"><span class="hs-identifier hs-var">FleetMetricUnit'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFleetMetricUnit"><span class="annot"><span class="annottext">FleetMetricUnit -&gt; Text
 </span><a href="Network.AWS.IoT.Types.FleetMetricUnit.html#fromFleetMetricUnit"><span class="hs-identifier hs-var hs-var">fromFleetMetricUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679785730"><span id="local-6989586621679785732"><span id="local-6989586621679785734"><span class="annot"><span class="annottext">Int -&gt; FleetMetricUnit -&gt; ShowS
+</span><span id="line-62"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679785739"><span id="local-6989586621679785741"><span id="local-6989586621679785743"><span class="annot"><span class="annottext">Int -&gt; FleetMetricUnit -&gt; ShowS
 [FleetMetricUnit] -&gt; ShowS
 FleetMetricUnit -&gt; String
 (Int -&gt; FleetMetricUnit -&gt; ShowS)
@@ -76,7 +76,7 @@ $cshow :: FleetMetricUnit -&gt; String
 showsPrec :: Int -&gt; FleetMetricUnit -&gt; ShowS
 $cshowsPrec :: Int -&gt; FleetMetricUnit -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679785721"><span id="local-6989586621679785723"><span id="local-6989586621679785725"><span id="local-6989586621679785727"><span class="annot"><span class="annottext">ReadPrec [FleetMetricUnit]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679785730"><span id="local-6989586621679785732"><span id="local-6989586621679785734"><span id="local-6989586621679785736"><span class="annot"><span class="annottext">ReadPrec [FleetMetricUnit]
 ReadPrec FleetMetricUnit
 Int -&gt; ReadS FleetMetricUnit
 ReadS [FleetMetricUnit]
@@ -97,7 +97,7 @@ $creadList :: ReadS [FleetMetricUnit]
 readsPrec :: Int -&gt; ReadS FleetMetricUnit
 $creadsPrec :: Int -&gt; ReadS FleetMetricUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679785716"><span id="local-6989586621679785718"><span class="annot"><span class="annottext">FleetMetricUnit -&gt; FleetMetricUnit -&gt; Bool
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679785725"><span id="local-6989586621679785727"><span class="annot"><span class="annottext">FleetMetricUnit -&gt; FleetMetricUnit -&gt; Bool
 (FleetMetricUnit -&gt; FleetMetricUnit -&gt; Bool)
 -&gt; (FleetMetricUnit -&gt; FleetMetricUnit -&gt; Bool)
 -&gt; Eq FleetMetricUnit
@@ -107,7 +107,7 @@ $c/= :: FleetMetricUnit -&gt; FleetMetricUnit -&gt; Bool
 == :: FleetMetricUnit -&gt; FleetMetricUnit -&gt; Bool
 $c== :: FleetMetricUnit -&gt; FleetMetricUnit -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679785700"><span id="local-6989586621679785702"><span id="local-6989586621679785704"><span id="local-6989586621679785706"><span id="local-6989586621679785708"><span id="local-6989586621679785710"><span id="local-6989586621679785712"><span class="annot"><span class="annottext">Eq FleetMetricUnit
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679785709"><span id="local-6989586621679785711"><span id="local-6989586621679785713"><span id="local-6989586621679785715"><span id="local-6989586621679785717"><span id="local-6989586621679785719"><span id="local-6989586621679785721"><span class="annot"><span class="annottext">Eq FleetMetricUnit
 Eq FleetMetricUnit
 -&gt; (FleetMetricUnit -&gt; FleetMetricUnit -&gt; Ordering)
 -&gt; (FleetMetricUnit -&gt; FleetMetricUnit -&gt; Bool)
@@ -158,7 +158,7 @@ $cfrom :: forall x. FleetMetricUnit -&gt; Rep FleetMetricUnit x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679785692"><span id="local-6989586621679785694"><span class="annot"><span class="annottext">Int -&gt; FleetMetricUnit -&gt; Int
+</span><span id="line-69"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679785701"><span id="local-6989586621679785703"><span class="annot"><span class="annottext">Int -&gt; FleetMetricUnit -&gt; Int
 FleetMetricUnit -&gt; Int
 (Int -&gt; FleetMetricUnit -&gt; Int)
 -&gt; (FleetMetricUnit -&gt; Int) -&gt; Hashable FleetMetricUnit
@@ -168,50 +168,50 @@ $chash :: FleetMetricUnit -&gt; Int
 hashWithSalt :: Int -&gt; FleetMetricUnit -&gt; Int
 $chashWithSalt :: Int -&gt; FleetMetricUnit -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679785689"><span class="annot"><span class="annottext">FleetMetricUnit -&gt; ()
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679785698"><span class="annot"><span class="annottext">FleetMetricUnit -&gt; ()
 (FleetMetricUnit -&gt; ()) -&gt; NFData FleetMetricUnit
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FleetMetricUnit -&gt; ()
 $crnf :: FleetMetricUnit -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679785686"><span class="annot"><span class="annottext">Text -&gt; Either String FleetMetricUnit
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679785695"><span class="annot"><span class="annottext">Text -&gt; Either String FleetMetricUnit
 (Text -&gt; Either String FleetMetricUnit) -&gt; FromText FleetMetricUnit
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FleetMetricUnit
 $cfromText :: Text -&gt; Either String FleetMetricUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679785683"><span class="annot"><span class="annottext">FleetMetricUnit -&gt; Text
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679785692"><span class="annot"><span class="annottext">FleetMetricUnit -&gt; Text
 (FleetMetricUnit -&gt; Text) -&gt; ToText FleetMetricUnit
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FleetMetricUnit -&gt; Text
 $ctoText :: FleetMetricUnit -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679785680"><span class="annot"><span class="annottext">FleetMetricUnit -&gt; ByteString
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679785689"><span class="annot"><span class="annottext">FleetMetricUnit -&gt; ByteString
 (FleetMetricUnit -&gt; ByteString) -&gt; ToByteString FleetMetricUnit
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FleetMetricUnit -&gt; ByteString
 $ctoBS :: FleetMetricUnit -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679785677"><span class="annot"><span class="annottext">FleetMetricUnit -&gt; ByteStringBuilder
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679785686"><span class="annot"><span class="annottext">FleetMetricUnit -&gt; ByteStringBuilder
 (FleetMetricUnit -&gt; ByteStringBuilder) -&gt; ToLog FleetMetricUnit
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FleetMetricUnit -&gt; ByteStringBuilder
 $cbuild :: FleetMetricUnit -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679785674"><span class="annot"><span class="annottext">HeaderName -&gt; FleetMetricUnit -&gt; [Header]
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679785683"><span class="annot"><span class="annottext">HeaderName -&gt; FleetMetricUnit -&gt; [Header]
 (HeaderName -&gt; FleetMetricUnit -&gt; [Header])
 -&gt; ToHeader FleetMetricUnit
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FleetMetricUnit -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FleetMetricUnit -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679785671"><span class="annot"><span class="annottext">FleetMetricUnit -&gt; QueryString
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679785680"><span class="annot"><span class="annottext">FleetMetricUnit -&gt; QueryString
 (FleetMetricUnit -&gt; QueryString) -&gt; ToQuery FleetMetricUnit
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FleetMetricUnit -&gt; QueryString
 $ctoQuery :: FleetMetricUnit -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679785666"><span id="local-6989586621679785668"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetMetricUnit]
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679785675"><span id="local-6989586621679785677"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetMetricUnit]
 Value -&gt; Parser FleetMetricUnit
 (Value -&gt; Parser FleetMetricUnit)
 -&gt; (Value -&gt; Parser [FleetMetricUnit]) -&gt; FromJSON FleetMetricUnit
@@ -222,7 +222,7 @@ $cparseJSONList :: Value -&gt; Parser [FleetMetricUnit]
 parseJSON :: Value -&gt; Parser FleetMetricUnit
 $cparseJSON :: Value -&gt; Parser FleetMetricUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621679785661"><span id="local-6989586621679785663"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetMetricUnit]
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679785670"><span id="local-6989586621679785672"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetMetricUnit]
 FromJSONKeyFunction FleetMetricUnit
 FromJSONKeyFunction FleetMetricUnit
 -&gt; FromJSONKeyFunction [FleetMetricUnit]
@@ -234,7 +234,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FleetMetricUnit]
 fromJSONKey :: FromJSONKeyFunction FleetMetricUnit
 $cfromJSONKey :: FromJSONKeyFunction FleetMetricUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span id="local-6989586621679785652"><span id="local-6989586621679785654"><span id="local-6989586621679785656"><span id="local-6989586621679785658"><span class="annot"><span class="annottext">[FleetMetricUnit] -&gt; Encoding
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679785661"><span id="local-6989586621679785663"><span id="local-6989586621679785665"><span id="local-6989586621679785667"><span class="annot"><span class="annottext">[FleetMetricUnit] -&gt; Encoding
 [FleetMetricUnit] -&gt; Value
 FleetMetricUnit -&gt; Encoding
 FleetMetricUnit -&gt; Value
@@ -258,7 +258,7 @@ $ctoEncoding :: FleetMetricUnit -&gt; Encoding
 toJSON :: FleetMetricUnit -&gt; Value
 $ctoJSON :: FleetMetricUnit -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621679785647"><span id="local-6989586621679785649"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetMetricUnit]
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679785656"><span id="local-6989586621679785658"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetMetricUnit]
 ToJSONKeyFunction FleetMetricUnit
 ToJSONKeyFunction FleetMetricUnit
 -&gt; ToJSONKeyFunction [FleetMetricUnit] -&gt; ToJSONKey FleetMetricUnit
@@ -269,14 +269,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FleetMetricUnit]
 toJSONKey :: ToJSONKeyFunction FleetMetricUnit
 $ctoJSONKey :: ToJSONKeyFunction FleetMetricUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span id="local-6989586621679785644"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetMetricUnit
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679785653"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetMetricUnit
 ([Node] -&gt; Either String FleetMetricUnit)
 -&gt; FromXML FleetMetricUnit
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FleetMetricUnit
 $cparseXML :: [Node] -&gt; Either String FleetMetricUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span id="local-6989586621679785641"><span class="annot"><span class="annottext">FleetMetricUnit -&gt; XML
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679785650"><span class="annot"><span class="annottext">FleetMetricUnit -&gt; XML
 (FleetMetricUnit -&gt; XML) -&gt; ToXML FleetMetricUnit
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FleetMetricUnit -&gt; XML

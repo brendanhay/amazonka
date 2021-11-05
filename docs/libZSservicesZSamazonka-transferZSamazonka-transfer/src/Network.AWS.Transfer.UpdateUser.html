@@ -1,0 +1,1006 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Transfer.UpdateUser</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Assigns new properties to a user. Parameters you pass modify any or all</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- of the following: the home directory, role, and policy for the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- @UserName@ and @ServerId@ you specify.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- The response returns the @ServerId@ and the @UserName@ for the updated</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- user.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Transfer.UpdateUser</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier">UpdateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#newUpdateUser"><span class="hs-identifier">newUpdateUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_homeDirectoryType"><span class="hs-identifier">updateUser_homeDirectoryType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_posixProfile"><span class="hs-identifier">updateUser_posixProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_homeDirectoryMappings"><span class="hs-identifier">updateUser_homeDirectoryMappings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_role"><span class="hs-identifier">updateUser_role</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_policy"><span class="hs-identifier">updateUser_policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_homeDirectory"><span class="hs-identifier">updateUser_homeDirectory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_serverId"><span class="hs-identifier">updateUser_serverId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_userName"><span class="hs-identifier">updateUser_userName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier">UpdateUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#newUpdateUserResponse"><span class="hs-identifier">newUpdateUserResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUserResponse_httpStatus"><span class="hs-identifier">updateUserResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUserResponse_serverId"><span class="hs-identifier">updateUserResponse_serverId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUserResponse_userName"><span class="hs-identifier">updateUserResponse_userName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Transfer.Types.html"><span class="hs-identifier">Network.AWS.Transfer.Types</span></a></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newUpdateUser' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679250445"><span id="local-6989586621679250446"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUser"><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-var">UpdateUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUser%27"><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-var">UpdateUser'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of landing directory (folder) you want your users\' home</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- directory to be when they log into the server. If you set it to @PATH@,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- the user will see the absolute Amazon S3 bucket or EFS paths as is in</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- their file transfer protocol clients. If you set it @LOGICAL@, you need</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- to provide mappings in the @HomeDirectoryMappings@ for how you want to</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- make Amazon S3 or EFS paths visible to your users.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AhomeDirectoryType%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Maybe HomeDirectoryType
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AhomeDirectoryType%3AUpdateUser%27"><span class="hs-identifier hs-var hs-var">homeDirectoryType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.Types.HomeDirectoryType.html#HomeDirectoryType"><span class="hs-identifier hs-type">HomeDirectoryType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | Specifies the full POSIX identity, including user ID (@Uid@), group ID</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- (@Gid@), and any secondary groups IDs (@SecondaryGids@), that controls</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- your users\' access to your Amazon Elastic File Systems (Amazon EFS).</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- The POSIX permissions that are set on files and directories in your file</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- system determines the level of access your users get when transferring</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- files into and out of your Amazon EFS file systems.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AposixProfile%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Maybe PosixProfile
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AposixProfile%3AUpdateUser%27"><span class="hs-identifier hs-var hs-var">posixProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.Types.PosixProfile.html#PosixProfile"><span class="hs-identifier hs-type">PosixProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | Logical directory mappings that specify what Amazon S3 or Amazon EFS</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- paths and keys should be visible to your user and how you want to make</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- them visible. You must specify the @Entry@ and @Target@ pair, where</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- @Entry@ shows how the path is made visible and @Target@ is the actual</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- Amazon S3 or Amazon EFS path. If you only specify a target, it is</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- displayed as is. You also must ensure that your Amazon Web Services</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- Identity and Access Management (IAM) role provides access to paths in</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- @Target@. This value can only be set when @HomeDirectoryType@ is set to</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- /LOGICAL/.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- The following is an @Entry@ and @Target@ pair example.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- @[ { \&quot;Entry\&quot;: \&quot;\/directory1\&quot;, \&quot;Target\&quot;: \&quot;\/bucket_name\/home\/mydirectory\&quot; } ]@</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- In most cases, you can use this value instead of the session policy to</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- lock down your user to the designated home directory (\&quot;@chroot@\&quot;). To</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- do this, you can set @Entry@ to \'\/\' and set @Target@ to the</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- HomeDirectory parameter value.</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- The following is an @Entry@ and @Target@ pair example for @chroot@.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- @[ { \&quot;Entry:\&quot;: \&quot;\/\&quot;, \&quot;Target\&quot;: \&quot;\/bucket_name\/home\/mydirectory\&quot; } ]@</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- If the target of a logical directory entry does not exist in Amazon S3</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- or EFS, the entry is ignored. As a workaround, you can use the Amazon S3</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- API or EFS API to create 0 byte objects as place holders for your</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- directory. If using the CLI, use the @s3api@ or @efsapi@ call instead of</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- @s3@ or @efs@ so you can use the put-object operation. For example, you</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- use the following:</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- @aws s3api put-object --bucket bucketname --key path\/to\/folder\/@.</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- Make sure that the end of the key name ends in a @\/@ for it to be</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- considered a folder.</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3AhomeDirectoryMappings%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Maybe (NonEmpty HomeDirectoryMapEntry)
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AhomeDirectoryMappings%3AUpdateUser%27"><span class="hs-identifier hs-var hs-var">homeDirectoryMappings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.Types.HomeDirectoryMapEntry.html#HomeDirectoryMapEntry"><span class="hs-identifier hs-type">HomeDirectoryMapEntry</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- | Specifies the Amazon Resource Name (ARN) of the IAM role that controls</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- your users\' access to your Amazon S3 bucket or EFS file system. The</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- policies attached to this role determine the level of access that you</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- want to provide your users when transferring files into and out of your</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- Amazon S3 bucket or EFS file system. The IAM role should also contain a</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- trust relationship that allows the server to access your resources when</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- servicing your users\' transfer requests.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3Arole%27%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Maybe Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3Arole%27%3AUpdateUser%27"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | A session policy for your user so that you can use the same IAM role</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- across multiple users. This policy scopes down user access to portions</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- of their Amazon S3 bucket. Variables that you can use inside this policy</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- @${Transfer:HomeBucket}@.</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- This only applies when the domain of @ServerId@ is S3. EFS does not use</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- session policies.</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- For session policies, Amazon Web Services Transfer Family stores the</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- policy. You save the policy as a JSON blob and pass it in the @Policy@</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- argument.</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- For an example of a session policy, see</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transfer/latest/userguide/session-policy Creating a session policy&gt;.</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html AssumeRole&gt;</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Security Token Service API Reference/.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3Apolicy%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Maybe Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3Apolicy%3AUpdateUser%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The landing directory (folder) for a user when they log in to the server</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- using the client.</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AhomeDirectory%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Maybe Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AhomeDirectory%3AUpdateUser%27"><span class="hs-identifier hs-var hs-var">homeDirectory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | A system-assigned unique identifier for a server instance that the user</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- account is assigned to.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AserverId%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AserverId%3AUpdateUser%27"><span class="hs-identifier hs-var hs-var">serverId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | A unique string that identifies a user and is associated with a server</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- as specified by the @ServerId@. This user name must be a minimum of 3</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- and a maximum of 100 characters long. The following are valid</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- characters: a-z, A-Z, 0-9, underscore \'_\', hyphen \'-\', period \'.\',</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- and at sign \'\@\'. The user name can\'t start with a hyphen, period, or</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- at sign.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AuserName%3AUpdateUser%27"><span class="annot"><span class="annottext">UpdateUser -&gt; Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AuserName%3AUpdateUser%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250432"><span id="local-6989586621679250434"><span class="annot"><span class="annottext">UpdateUser -&gt; UpdateUser -&gt; Bool
+(UpdateUser -&gt; UpdateUser -&gt; Bool)
+-&gt; (UpdateUser -&gt; UpdateUser -&gt; Bool) -&gt; Eq UpdateUser
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateUser -&gt; UpdateUser -&gt; Bool
+$c/= :: UpdateUser -&gt; UpdateUser -&gt; Bool
+== :: UpdateUser -&gt; UpdateUser -&gt; Bool
+$c== :: UpdateUser -&gt; UpdateUser -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250423"><span id="local-6989586621679250425"><span id="local-6989586621679250427"><span id="local-6989586621679250429"><span class="annot"><span class="annottext">ReadPrec [UpdateUser]
+ReadPrec UpdateUser
+Int -&gt; ReadS UpdateUser
+ReadS [UpdateUser]
+(Int -&gt; ReadS UpdateUser)
+-&gt; ReadS [UpdateUser]
+-&gt; ReadPrec UpdateUser
+-&gt; ReadPrec [UpdateUser]
+-&gt; Read UpdateUser
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateUser]
+$creadListPrec :: ReadPrec [UpdateUser]
+readPrec :: ReadPrec UpdateUser
+$creadPrec :: ReadPrec UpdateUser
+readList :: ReadS [UpdateUser]
+$creadList :: ReadS [UpdateUser]
+readsPrec :: Int -&gt; ReadS UpdateUser
+$creadsPrec :: Int -&gt; ReadS UpdateUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250416"><span id="local-6989586621679250418"><span id="local-6989586621679250420"><span class="annot"><span class="annottext">Int -&gt; UpdateUser -&gt; ShowS
+[UpdateUser] -&gt; ShowS
+UpdateUser -&gt; String
+(Int -&gt; UpdateUser -&gt; ShowS)
+-&gt; (UpdateUser -&gt; String)
+-&gt; ([UpdateUser] -&gt; ShowS)
+-&gt; Show UpdateUser
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateUser] -&gt; ShowS
+$cshowList :: [UpdateUser] -&gt; ShowS
+show :: UpdateUser -&gt; String
+$cshow :: UpdateUser -&gt; String
+showsPrec :: Int -&gt; UpdateUser -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateUser -&gt; Rep UpdateUser x)
+-&gt; (forall x. Rep UpdateUser x -&gt; UpdateUser) -&gt; Generic UpdateUser
+forall x. Rep UpdateUser x -&gt; UpdateUser
+forall x. UpdateUser -&gt; Rep UpdateUser x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateUser x -&gt; UpdateUser
+$cfrom :: forall x. UpdateUser -&gt; Rep UpdateUser x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'UpdateUser' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'homeDirectoryType', 'updateUser_homeDirectoryType' - The type of landing directory (folder) you want your users\' home</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- directory to be when they log into the server. If you set it to @PATH@,</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- the user will see the absolute Amazon S3 bucket or EFS paths as is in</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- their file transfer protocol clients. If you set it @LOGICAL@, you need</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- to provide mappings in the @HomeDirectoryMappings@ for how you want to</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- make Amazon S3 or EFS paths visible to your users.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'posixProfile', 'updateUser_posixProfile' - Specifies the full POSIX identity, including user ID (@Uid@), group ID</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- (@Gid@), and any secondary groups IDs (@SecondaryGids@), that controls</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- your users\' access to your Amazon Elastic File Systems (Amazon EFS).</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- The POSIX permissions that are set on files and directories in your file</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- system determines the level of access your users get when transferring</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- files into and out of your Amazon EFS file systems.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'homeDirectoryMappings', 'updateUser_homeDirectoryMappings' - Logical directory mappings that specify what Amazon S3 or Amazon EFS</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- paths and keys should be visible to your user and how you want to make</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- them visible. You must specify the @Entry@ and @Target@ pair, where</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- @Entry@ shows how the path is made visible and @Target@ is the actual</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Amazon S3 or Amazon EFS path. If you only specify a target, it is</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- displayed as is. You also must ensure that your Amazon Web Services</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Identity and Access Management (IAM) role provides access to paths in</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- @Target@. This value can only be set when @HomeDirectoryType@ is set to</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- /LOGICAL/.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- The following is an @Entry@ and @Target@ pair example.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- @[ { \&quot;Entry\&quot;: \&quot;\/directory1\&quot;, \&quot;Target\&quot;: \&quot;\/bucket_name\/home\/mydirectory\&quot; } ]@</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- In most cases, you can use this value instead of the session policy to</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- lock down your user to the designated home directory (\&quot;@chroot@\&quot;). To</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- do this, you can set @Entry@ to \'\/\' and set @Target@ to the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- HomeDirectory parameter value.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- The following is an @Entry@ and @Target@ pair example for @chroot@.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- @[ { \&quot;Entry:\&quot;: \&quot;\/\&quot;, \&quot;Target\&quot;: \&quot;\/bucket_name\/home\/mydirectory\&quot; } ]@</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- If the target of a logical directory entry does not exist in Amazon S3</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- or EFS, the entry is ignored. As a workaround, you can use the Amazon S3</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- API or EFS API to create 0 byte objects as place holders for your</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- directory. If using the CLI, use the @s3api@ or @efsapi@ call instead of</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- @s3@ or @efs@ so you can use the put-object operation. For example, you</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- use the following:</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- @aws s3api put-object --bucket bucketname --key path\/to\/folder\/@.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- Make sure that the end of the key name ends in a @\/@ for it to be</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- considered a folder.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'role'', 'updateUser_role' - Specifies the Amazon Resource Name (ARN) of the IAM role that controls</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- your users\' access to your Amazon S3 bucket or EFS file system. The</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- policies attached to this role determine the level of access that you</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- want to provide your users when transferring files into and out of your</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- Amazon S3 bucket or EFS file system. The IAM role should also contain a</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- trust relationship that allows the server to access your resources when</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- servicing your users\' transfer requests.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'policy', 'updateUser_policy' - A session policy for your user so that you can use the same IAM role</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- across multiple users. This policy scopes down user access to portions</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- of their Amazon S3 bucket. Variables that you can use inside this policy</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- @${Transfer:HomeBucket}@.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- This only applies when the domain of @ServerId@ is S3. EFS does not use</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- session policies.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- For session policies, Amazon Web Services Transfer Family stores the</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- policy. You save the policy as a JSON blob and pass it in the @Policy@</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- argument.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- For an example of a session policy, see</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transfer/latest/userguide/session-policy Creating a session policy&gt;.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html AssumeRole&gt;</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- in the /Amazon Web Services Security Token Service API Reference/.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'homeDirectory', 'updateUser_homeDirectory' - The landing directory (folder) for a user when they log in to the server</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- using the client.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- 'serverId', 'updateUser_serverId' - A system-assigned unique identifier for a server instance that the user</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- account is assigned to.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- 'userName', 'updateUser_userName' - A unique string that identifies a user and is associated with a server</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- as specified by the @ServerId@. This user name must be a minimum of 3</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- and a maximum of 100 characters long. The following are valid</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- characters: a-z, A-Z, 0-9, underscore \'_\', hyphen \'-\', period \'.\',</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- and at sign \'\@\'. The user name can\'t start with a hyphen, period, or</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- at sign.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#newUpdateUser"><span class="hs-identifier hs-type">newUpdateUser</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-257"></span><span>  </span><span class="hs-comment">-- | 'serverId'</span><span>
+</span><span id="line-258"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-259"></span><span>  </span><span class="hs-comment">-- | 'userName'</span><span>
+</span><span id="line-260"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-261"></span><span>  </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span>
+</span><span id="line-262"></span><span id="newUpdateUser"><span class="annot"><span class="annottext">newUpdateUser :: Text -&gt; Text -&gt; UpdateUser
+</span><a href="Network.AWS.Transfer.UpdateUser.html#newUpdateUser"><span class="hs-identifier hs-var hs-var">newUpdateUser</span></a></span></span><span> </span><span id="local-6989586621679250411"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250411"><span class="hs-identifier hs-var">pServerId_</span></a></span></span><span> </span><span id="local-6989586621679250410"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250410"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>  </span><span class="annot"><span class="annottext">UpdateUser' :: Maybe HomeDirectoryType
+-&gt; Maybe PosixProfile
+-&gt; Maybe (NonEmpty HomeDirectoryMapEntry)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; UpdateUser
+</span><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:homeDirectoryType:UpdateUser' :: Maybe HomeDirectoryType
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AhomeDirectoryType%3AUpdateUser%27"><span class="hs-identifier hs-var">homeDirectoryType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HomeDirectoryType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>      </span><span class="annot"><span class="annottext">$sel:posixProfile:UpdateUser' :: Maybe PosixProfile
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AposixProfile%3AUpdateUser%27"><span class="hs-identifier hs-var">posixProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PosixProfile
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:homeDirectoryMappings:UpdateUser' :: Maybe (NonEmpty HomeDirectoryMapEntry)
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AhomeDirectoryMappings%3AUpdateUser%27"><span class="hs-identifier hs-var">homeDirectoryMappings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HomeDirectoryMapEntry)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">$sel:role':UpdateUser' :: Maybe Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3Arole%27%3AUpdateUser%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:policy:UpdateUser' :: Maybe Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3Apolicy%3AUpdateUser%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">$sel:homeDirectory:UpdateUser' :: Maybe Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AhomeDirectory%3AUpdateUser%27"><span class="hs-identifier hs-var">homeDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverId:UpdateUser' :: Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AserverId%3AUpdateUser%27"><span class="hs-identifier hs-var">serverId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250411"><span class="hs-identifier hs-var">pServerId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>      </span><span class="annot"><span class="annottext">$sel:userName:UpdateUser' :: Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AuserName%3AUpdateUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250410"><span class="hs-identifier hs-var">pUserName_</span></a></span><span>
+</span><span id="line-272"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | The type of landing directory (folder) you want your users\' home</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- directory to be when they log into the server. If you set it to @PATH@,</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- the user will see the absolute Amazon S3 bucket or EFS paths as is in</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- their file transfer protocol clients. If you set it @LOGICAL@, you need</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- to provide mappings in the @HomeDirectoryMappings@ for how you want to</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- make Amazon S3 or EFS paths visible to your users.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_homeDirectoryType"><span class="hs-identifier hs-type">updateUser_homeDirectoryType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.Types.HomeDirectoryType.html#HomeDirectoryType"><span class="hs-identifier hs-type">HomeDirectoryType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span id="updateUser_homeDirectoryType"><span class="annot"><span class="annottext">updateUser_homeDirectoryType :: (Maybe HomeDirectoryType -&gt; f (Maybe HomeDirectoryType))
+-&gt; UpdateUser -&gt; f UpdateUser
+</span><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_homeDirectoryType"><span class="hs-identifier hs-var hs-var">updateUser_homeDirectoryType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUser -&gt; Maybe HomeDirectoryType)
+-&gt; (UpdateUser -&gt; Maybe HomeDirectoryType -&gt; UpdateUser)
+-&gt; Lens
+     UpdateUser
+     UpdateUser
+     (Maybe HomeDirectoryType)
+     (Maybe HomeDirectoryType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250407"><span class="annot"><span class="annottext">Maybe HomeDirectoryType
+homeDirectoryType :: Maybe HomeDirectoryType
+$sel:homeDirectoryType:UpdateUser' :: UpdateUser -&gt; Maybe HomeDirectoryType
+</span><a href="#local-6989586621679250407"><span class="hs-identifier hs-var hs-var">homeDirectoryType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HomeDirectoryType
+</span><a href="#local-6989586621679250407"><span class="hs-identifier hs-var">homeDirectoryType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250406"><span class="annot"><span class="annottext">s :: UpdateUser
+</span><a href="#local-6989586621679250406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250405"><span class="annot"><span class="annottext">Maybe HomeDirectoryType
+</span><a href="#local-6989586621679250405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
+</span><a href="#local-6989586621679250406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:homeDirectoryType:UpdateUser' :: Maybe HomeDirectoryType
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AhomeDirectoryType%3AUpdateUser%27"><span class="hs-identifier hs-var">homeDirectoryType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HomeDirectoryType
+</span><a href="#local-6989586621679250405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | Specifies the full POSIX identity, including user ID (@Uid@), group ID</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- (@Gid@), and any secondary groups IDs (@SecondaryGids@), that controls</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- your users\' access to your Amazon Elastic File Systems (Amazon EFS).</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- The POSIX permissions that are set on files and directories in your file</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- system determines the level of access your users get when transferring</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- files into and out of your Amazon EFS file systems.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_posixProfile"><span class="hs-identifier hs-type">updateUser_posixProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.Types.PosixProfile.html#PosixProfile"><span class="hs-identifier hs-type">PosixProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span id="updateUser_posixProfile"><span class="annot"><span class="annottext">updateUser_posixProfile :: (Maybe PosixProfile -&gt; f (Maybe PosixProfile))
+-&gt; UpdateUser -&gt; f UpdateUser
+</span><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_posixProfile"><span class="hs-identifier hs-var hs-var">updateUser_posixProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUser -&gt; Maybe PosixProfile)
+-&gt; (UpdateUser -&gt; Maybe PosixProfile -&gt; UpdateUser)
+-&gt; Lens
+     UpdateUser UpdateUser (Maybe PosixProfile) (Maybe PosixProfile)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250404"><span class="annot"><span class="annottext">Maybe PosixProfile
+posixProfile :: Maybe PosixProfile
+$sel:posixProfile:UpdateUser' :: UpdateUser -&gt; Maybe PosixProfile
+</span><a href="#local-6989586621679250404"><span class="hs-identifier hs-var hs-var">posixProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PosixProfile
+</span><a href="#local-6989586621679250404"><span class="hs-identifier hs-var">posixProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250403"><span class="annot"><span class="annottext">s :: UpdateUser
+</span><a href="#local-6989586621679250403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250402"><span class="annot"><span class="annottext">Maybe PosixProfile
+</span><a href="#local-6989586621679250402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
+</span><a href="#local-6989586621679250403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:posixProfile:UpdateUser' :: Maybe PosixProfile
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AposixProfile%3AUpdateUser%27"><span class="hs-identifier hs-var">posixProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PosixProfile
+</span><a href="#local-6989586621679250402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- | Logical directory mappings that specify what Amazon S3 or Amazon EFS</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- paths and keys should be visible to your user and how you want to make</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- them visible. You must specify the @Entry@ and @Target@ pair, where</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- @Entry@ shows how the path is made visible and @Target@ is the actual</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- Amazon S3 or Amazon EFS path. If you only specify a target, it is</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- displayed as is. You also must ensure that your Amazon Web Services</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- Identity and Access Management (IAM) role provides access to paths in</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- @Target@. This value can only be set when @HomeDirectoryType@ is set to</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- /LOGICAL/.</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- The following is an @Entry@ and @Target@ pair example.</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- @[ { \&quot;Entry\&quot;: \&quot;\/directory1\&quot;, \&quot;Target\&quot;: \&quot;\/bucket_name\/home\/mydirectory\&quot; } ]@</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- In most cases, you can use this value instead of the session policy to</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- lock down your user to the designated home directory (\&quot;@chroot@\&quot;). To</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- do this, you can set @Entry@ to \'\/\' and set @Target@ to the</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- HomeDirectory parameter value.</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- The following is an @Entry@ and @Target@ pair example for @chroot@.</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- @[ { \&quot;Entry:\&quot;: \&quot;\/\&quot;, \&quot;Target\&quot;: \&quot;\/bucket_name\/home\/mydirectory\&quot; } ]@</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- If the target of a logical directory entry does not exist in Amazon S3</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- or EFS, the entry is ignored. As a workaround, you can use the Amazon S3</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- API or EFS API to create 0 byte objects as place holders for your</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- directory. If using the CLI, use the @s3api@ or @efsapi@ call instead of</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- @s3@ or @efs@ so you can use the put-object operation. For example, you</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- use the following:</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- @aws s3api put-object --bucket bucketname --key path\/to\/folder\/@.</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- Make sure that the end of the key name ends in a @\/@ for it to be</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- considered a folder.</span><span>
+</span><span id="line-324"></span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_homeDirectoryMappings"><span class="hs-identifier hs-type">updateUser_homeDirectoryMappings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.Types.HomeDirectoryMapEntry.html#HomeDirectoryMapEntry"><span class="hs-identifier hs-type">HomeDirectoryMapEntry</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span id="updateUser_homeDirectoryMappings"><span class="annot"><span class="annottext">updateUser_homeDirectoryMappings :: (Maybe (NonEmpty HomeDirectoryMapEntry)
+ -&gt; f (Maybe (NonEmpty HomeDirectoryMapEntry)))
+-&gt; UpdateUser -&gt; f UpdateUser
+</span><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_homeDirectoryMappings"><span class="hs-identifier hs-var hs-var">updateUser_homeDirectoryMappings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUser -&gt; Maybe (NonEmpty HomeDirectoryMapEntry))
+-&gt; (UpdateUser
+    -&gt; Maybe (NonEmpty HomeDirectoryMapEntry) -&gt; UpdateUser)
+-&gt; Lens
+     UpdateUser
+     UpdateUser
+     (Maybe (NonEmpty HomeDirectoryMapEntry))
+     (Maybe (NonEmpty HomeDirectoryMapEntry))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250401"><span class="annot"><span class="annottext">Maybe (NonEmpty HomeDirectoryMapEntry)
+homeDirectoryMappings :: Maybe (NonEmpty HomeDirectoryMapEntry)
+$sel:homeDirectoryMappings:UpdateUser' :: UpdateUser -&gt; Maybe (NonEmpty HomeDirectoryMapEntry)
+</span><a href="#local-6989586621679250401"><span class="hs-identifier hs-var hs-var">homeDirectoryMappings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HomeDirectoryMapEntry)
+</span><a href="#local-6989586621679250401"><span class="hs-identifier hs-var">homeDirectoryMappings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250400"><span class="annot"><span class="annottext">s :: UpdateUser
+</span><a href="#local-6989586621679250400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250399"><span class="annot"><span class="annottext">Maybe (NonEmpty HomeDirectoryMapEntry)
+</span><a href="#local-6989586621679250399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
+</span><a href="#local-6989586621679250400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:homeDirectoryMappings:UpdateUser' :: Maybe (NonEmpty HomeDirectoryMapEntry)
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AhomeDirectoryMappings%3AUpdateUser%27"><span class="hs-identifier hs-var">homeDirectoryMappings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HomeDirectoryMapEntry)
+</span><a href="#local-6989586621679250399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty HomeDirectoryMapEntry)
+  -&gt; f (Maybe (NonEmpty HomeDirectoryMapEntry)))
+ -&gt; UpdateUser -&gt; f UpdateUser)
+-&gt; ((Maybe (NonEmpty HomeDirectoryMapEntry)
+     -&gt; f (Maybe (NonEmpty HomeDirectoryMapEntry)))
+    -&gt; Maybe (NonEmpty HomeDirectoryMapEntry)
+    -&gt; f (Maybe (NonEmpty HomeDirectoryMapEntry)))
+-&gt; (Maybe (NonEmpty HomeDirectoryMapEntry)
+    -&gt; f (Maybe (NonEmpty HomeDirectoryMapEntry)))
+-&gt; UpdateUser
+-&gt; f UpdateUser
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty HomeDirectoryMapEntry)
+  (NonEmpty HomeDirectoryMapEntry)
+  (NonEmpty HomeDirectoryMapEntry)
+  (NonEmpty HomeDirectoryMapEntry)
+-&gt; Iso
+     (Maybe (NonEmpty HomeDirectoryMapEntry))
+     (Maybe (NonEmpty HomeDirectoryMapEntry))
+     (Maybe (NonEmpty HomeDirectoryMapEntry))
+     (Maybe (NonEmpty HomeDirectoryMapEntry))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty HomeDirectoryMapEntry)
+  (NonEmpty HomeDirectoryMapEntry)
+  (NonEmpty HomeDirectoryMapEntry)
+  (NonEmpty HomeDirectoryMapEntry)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-326"></span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- | Specifies the Amazon Resource Name (ARN) of the IAM role that controls</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- your users\' access to your Amazon S3 bucket or EFS file system. The</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- policies attached to this role determine the level of access that you</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- want to provide your users when transferring files into and out of your</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- Amazon S3 bucket or EFS file system. The IAM role should also contain a</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- trust relationship that allows the server to access your resources when</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- servicing your users\' transfer requests.</span><span>
+</span><span id="line-334"></span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_role"><span class="hs-identifier hs-type">updateUser_role</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span id="updateUser_role"><span class="annot"><span class="annottext">updateUser_role :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateUser -&gt; f UpdateUser
+</span><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_role"><span class="hs-identifier hs-var hs-var">updateUser_role</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUser -&gt; Maybe Text)
+-&gt; (UpdateUser -&gt; Maybe Text -&gt; UpdateUser)
+-&gt; Lens UpdateUser UpdateUser (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250395"><span class="annot"><span class="annottext">Maybe Text
+role' :: Maybe Text
+$sel:role':UpdateUser' :: UpdateUser -&gt; Maybe Text
+</span><a href="#local-6989586621679250395"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250395"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250394"><span class="annot"><span class="annottext">s :: UpdateUser
+</span><a href="#local-6989586621679250394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250393"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
+</span><a href="#local-6989586621679250394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:role':UpdateUser' :: Maybe Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3Arole%27%3AUpdateUser%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- | A session policy for your user so that you can use the same IAM role</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- across multiple users. This policy scopes down user access to portions</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- of their Amazon S3 bucket. Variables that you can use inside this policy</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- @${Transfer:HomeBucket}@.</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- This only applies when the domain of @ServerId@ is S3. EFS does not use</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- session policies.</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- For session policies, Amazon Web Services Transfer Family stores the</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- policy. You save the policy as a JSON blob and pass it in the @Policy@</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- argument.</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- For an example of a session policy, see</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transfer/latest/userguide/session-policy Creating a session policy&gt;.</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html AssumeRole&gt;</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- in the /Amazon Web Services Security Token Service API Reference/.</span><span>
+</span><span id="line-357"></span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_policy"><span class="hs-identifier hs-type">updateUser_policy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-358"></span><span id="updateUser_policy"><span class="annot"><span class="annottext">updateUser_policy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateUser -&gt; f UpdateUser
+</span><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_policy"><span class="hs-identifier hs-var hs-var">updateUser_policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUser -&gt; Maybe Text)
+-&gt; (UpdateUser -&gt; Maybe Text -&gt; UpdateUser)
+-&gt; Lens UpdateUser UpdateUser (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250392"><span class="annot"><span class="annottext">Maybe Text
+policy :: Maybe Text
+$sel:policy:UpdateUser' :: UpdateUser -&gt; Maybe Text
+</span><a href="#local-6989586621679250392"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250392"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250391"><span class="annot"><span class="annottext">s :: UpdateUser
+</span><a href="#local-6989586621679250391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250390"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
+</span><a href="#local-6989586621679250391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:UpdateUser' :: Maybe Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3Apolicy%3AUpdateUser%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-359"></span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- | The landing directory (folder) for a user when they log in to the server</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- using the client.</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.</span><span>
+</span><span id="line-364"></span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_homeDirectory"><span class="hs-identifier hs-type">updateUser_homeDirectory</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-365"></span><span id="updateUser_homeDirectory"><span class="annot"><span class="annottext">updateUser_homeDirectory :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateUser -&gt; f UpdateUser
+</span><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_homeDirectory"><span class="hs-identifier hs-var hs-var">updateUser_homeDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUser -&gt; Maybe Text)
+-&gt; (UpdateUser -&gt; Maybe Text -&gt; UpdateUser)
+-&gt; Lens UpdateUser UpdateUser (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250389"><span class="annot"><span class="annottext">Maybe Text
+homeDirectory :: Maybe Text
+$sel:homeDirectory:UpdateUser' :: UpdateUser -&gt; Maybe Text
+</span><a href="#local-6989586621679250389"><span class="hs-identifier hs-var hs-var">homeDirectory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250389"><span class="hs-identifier hs-var">homeDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250388"><span class="annot"><span class="annottext">s :: UpdateUser
+</span><a href="#local-6989586621679250388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250387"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
+</span><a href="#local-6989586621679250388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:homeDirectory:UpdateUser' :: Maybe Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AhomeDirectory%3AUpdateUser%27"><span class="hs-identifier hs-var">homeDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-366"></span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- | A system-assigned unique identifier for a server instance that the user</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- account is assigned to.</span><span>
+</span><span id="line-369"></span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_serverId"><span class="hs-identifier hs-type">updateUser_serverId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-370"></span><span id="updateUser_serverId"><span class="annot"><span class="annottext">updateUser_serverId :: (Text -&gt; f Text) -&gt; UpdateUser -&gt; f UpdateUser
+</span><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_serverId"><span class="hs-identifier hs-var hs-var">updateUser_serverId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUser -&gt; Text)
+-&gt; (UpdateUser -&gt; Text -&gt; UpdateUser)
+-&gt; Lens UpdateUser UpdateUser Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250386"><span class="annot"><span class="annottext">Text
+serverId :: Text
+$sel:serverId:UpdateUser' :: UpdateUser -&gt; Text
+</span><a href="#local-6989586621679250386"><span class="hs-identifier hs-var hs-var">serverId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250386"><span class="hs-identifier hs-var">serverId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250385"><span class="annot"><span class="annottext">s :: UpdateUser
+</span><a href="#local-6989586621679250385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250384"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
+</span><a href="#local-6989586621679250385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverId:UpdateUser' :: Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AserverId%3AUpdateUser%27"><span class="hs-identifier hs-var">serverId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-371"></span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- | A unique string that identifies a user and is associated with a server</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- as specified by the @ServerId@. This user name must be a minimum of 3</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- and a maximum of 100 characters long. The following are valid</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- characters: a-z, A-Z, 0-9, underscore \'_\', hyphen \'-\', period \'.\',</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- and at sign \'\@\'. The user name can\'t start with a hyphen, period, or</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- at sign.</span><span>
+</span><span id="line-378"></span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_userName"><span class="hs-identifier hs-type">updateUser_userName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-379"></span><span id="updateUser_userName"><span class="annot"><span class="annottext">updateUser_userName :: (Text -&gt; f Text) -&gt; UpdateUser -&gt; f UpdateUser
+</span><a href="Network.AWS.Transfer.UpdateUser.html#updateUser_userName"><span class="hs-identifier hs-var hs-var">updateUser_userName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUser -&gt; Text)
+-&gt; (UpdateUser -&gt; Text -&gt; UpdateUser)
+-&gt; Lens UpdateUser UpdateUser Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250383"><span class="annot"><span class="annottext">Text
+userName :: Text
+$sel:userName:UpdateUser' :: UpdateUser -&gt; Text
+</span><a href="#local-6989586621679250383"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250383"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250382"><span class="annot"><span class="annottext">s :: UpdateUser
+</span><a href="#local-6989586621679250382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250381"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUser
+</span><a href="#local-6989586621679250382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:UpdateUser' :: Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AuserName%3AUpdateUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-380"></span><span>
+</span><span id="line-381"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-382"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span><span>
+</span><span id="line-383"></span><span>  </span><span id="local-6989586621679250377"><span class="annot"><span class="annottext">request :: UpdateUser -&gt; Request UpdateUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateUser -&gt; Request UpdateUser
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Transfer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-384"></span><span>  </span><span id="local-6989586621679250373"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateUser)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-385"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateUser))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateUser)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-386"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250370"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250370"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679250369"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679250369"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679250368"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250368"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-387"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; Text -&gt; UpdateUserResponse
+</span><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-var">UpdateUserResponse'</span></a></span><span>
+</span><span id="line-388"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; Text -&gt; UpdateUserResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; Text -&gt; UpdateUserResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250370"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-389"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; UpdateUserResponse)
+-&gt; Either String Text -&gt; Either String (Text -&gt; UpdateUserResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-390"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; UpdateUserResponse)
+-&gt; Either String Text -&gt; Either String UpdateUserResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-391"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-392"></span><span>
+</span><span id="line-393"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250360"><span id="local-6989586621679250362"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span></span></span><span>
+</span><span id="line-394"></span><span>
+</span><span id="line-395"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250357"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span></span><span>
+</span><span id="line-396"></span><span>
+</span><span id="line-397"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-398"></span><span>  </span><span id="local-6989586621679250353"><span class="annot"><span class="annottext">toHeaders :: UpdateUser -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-399"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateUser -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-400"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-401"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-402"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TransferService.UpdateUser&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-403"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-404"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-405"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-406"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-407"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-408"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-409"></span><span>
+</span><span id="line-410"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250343"><span id="local-6989586621679250345"><span id="local-6989586621679250347"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-411"></span><span>  </span><span id="local-6989586621679250341"><span class="annot"><span class="annottext">toJSON :: UpdateUser -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser%27"><span class="hs-identifier hs-type">UpdateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250332"><span id="local-6989586621679250333"><span id="local-6989586621679250334"><span id="local-6989586621679250335"><span id="local-6989586621679250336"><span id="local-6989586621679250337"><span id="local-6989586621679250338"><span id="local-6989586621679250339"><span class="annot"><span class="annottext">Maybe (NonEmpty HomeDirectoryMapEntry)
+Maybe Text
+Maybe HomeDirectoryType
+Maybe PosixProfile
+Text
+userName :: Text
+serverId :: Text
+homeDirectory :: Maybe Text
+policy :: Maybe Text
+role' :: Maybe Text
+homeDirectoryMappings :: Maybe (NonEmpty HomeDirectoryMapEntry)
+posixProfile :: Maybe PosixProfile
+homeDirectoryType :: Maybe HomeDirectoryType
+$sel:userName:UpdateUser' :: UpdateUser -&gt; Text
+$sel:serverId:UpdateUser' :: UpdateUser -&gt; Text
+$sel:homeDirectory:UpdateUser' :: UpdateUser -&gt; Maybe Text
+$sel:policy:UpdateUser' :: UpdateUser -&gt; Maybe Text
+$sel:role':UpdateUser' :: UpdateUser -&gt; Maybe Text
+$sel:homeDirectoryMappings:UpdateUser' :: UpdateUser -&gt; Maybe (NonEmpty HomeDirectoryMapEntry)
+$sel:posixProfile:UpdateUser' :: UpdateUser -&gt; Maybe PosixProfile
+$sel:homeDirectoryType:UpdateUser' :: UpdateUser -&gt; Maybe HomeDirectoryType
+</span><a href="#local-6989586621679250332"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-412"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-413"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-414"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HomeDirectoryType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HomeDirectoryType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-415"></span><span>              </span><span class="annot"><span class="annottext">(HomeDirectoryType -&gt; Pair)
+-&gt; Maybe HomeDirectoryType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HomeDirectoryType
+</span><a href="#local-6989586621679250339"><span class="hs-identifier hs-var">homeDirectoryType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-416"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PosixProfile&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PosixProfile -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(PosixProfile -&gt; Pair) -&gt; Maybe PosixProfile -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PosixProfile
+</span><a href="#local-6989586621679250338"><span class="hs-identifier hs-var">posixProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-417"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HomeDirectoryMappings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty HomeDirectoryMapEntry -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-418"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty HomeDirectoryMapEntry -&gt; Pair)
+-&gt; Maybe (NonEmpty HomeDirectoryMapEntry) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty HomeDirectoryMapEntry)
+</span><a href="#local-6989586621679250337"><span class="hs-identifier hs-var">homeDirectoryMappings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-419"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Role&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250336"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-420"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Policy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250335"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-421"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HomeDirectory&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250334"><span class="hs-identifier hs-var">homeDirectory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-422"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250333"><span class="hs-identifier hs-var">serverId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-423"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250332"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-424"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-425"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-426"></span><span>
+</span><span id="line-427"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-428"></span><span>  </span><span id="local-6989586621679250326"><span class="annot"><span class="annottext">toPath :: UpdateUser -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateUser -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-429"></span><span>
+</span><span id="line-430"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUser"><span class="hs-identifier hs-type">UpdateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-431"></span><span>  </span><span id="local-6989586621679250322"><span class="annot"><span class="annottext">toQuery :: UpdateUser -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateUser -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-432"></span><span>
+</span><span id="line-433"></span><span class="hs-comment">-- | @UpdateUserResponse@ returns the user name and identifier for the</span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- request to update a user\'s properties.</span><span>
+</span><span id="line-435"></span><span class="hs-comment">--</span><span>
+</span><span id="line-436"></span><span class="hs-comment">-- /See:/ 'newUpdateUserResponse' smart constructor.</span><span>
+</span><span id="line-437"></span><span id="local-6989586621679250319"><span id="local-6989586621679250320"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUserResponse"><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-var">UpdateUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUserResponse%27"><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-var">UpdateUserResponse'</span></a></span></span><span>
+</span><span id="line-438"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-439"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateUserResponse%27"><span class="annot"><span class="annottext">UpdateUserResponse -&gt; Int
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AhttpStatus%3AUpdateUserResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-440"></span><span>    </span><span class="hs-comment">-- | A system-assigned unique identifier for a server instance that the user</span><span>
+</span><span id="line-441"></span><span>    </span><span class="hs-comment">-- account is assigned to.</span><span>
+</span><span id="line-442"></span><span>    </span><span id="%24sel%3AserverId%3AUpdateUserResponse%27"><span class="annot"><span class="annottext">UpdateUserResponse -&gt; Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AserverId%3AUpdateUserResponse%27"><span class="hs-identifier hs-var hs-var">serverId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-443"></span><span>    </span><span class="hs-comment">-- | The unique identifier for a user that is assigned to a server instance</span><span>
+</span><span id="line-444"></span><span>    </span><span class="hs-comment">-- that was specified in the request.</span><span>
+</span><span id="line-445"></span><span>    </span><span id="%24sel%3AuserName%3AUpdateUserResponse%27"><span class="annot"><span class="annottext">UpdateUserResponse -&gt; Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AuserName%3AUpdateUserResponse%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-446"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-447"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250312"><span id="local-6989586621679250314"><span class="annot"><span class="annottext">UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool
+(UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool)
+-&gt; (UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool)
+-&gt; Eq UpdateUserResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool
+$c/= :: UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool
+== :: UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool
+$c== :: UpdateUserResponse -&gt; UpdateUserResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250304"><span id="local-6989586621679250306"><span id="local-6989586621679250308"><span id="local-6989586621679250310"><span class="annot"><span class="annottext">ReadPrec [UpdateUserResponse]
+ReadPrec UpdateUserResponse
+Int -&gt; ReadS UpdateUserResponse
+ReadS [UpdateUserResponse]
+(Int -&gt; ReadS UpdateUserResponse)
+-&gt; ReadS [UpdateUserResponse]
+-&gt; ReadPrec UpdateUserResponse
+-&gt; ReadPrec [UpdateUserResponse]
+-&gt; Read UpdateUserResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateUserResponse]
+$creadListPrec :: ReadPrec [UpdateUserResponse]
+readPrec :: ReadPrec UpdateUserResponse
+$creadPrec :: ReadPrec UpdateUserResponse
+readList :: ReadS [UpdateUserResponse]
+$creadList :: ReadS [UpdateUserResponse]
+readsPrec :: Int -&gt; ReadS UpdateUserResponse
+$creadsPrec :: Int -&gt; ReadS UpdateUserResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250298"><span id="local-6989586621679250300"><span id="local-6989586621679250302"><span class="annot"><span class="annottext">Int -&gt; UpdateUserResponse -&gt; ShowS
+[UpdateUserResponse] -&gt; ShowS
+UpdateUserResponse -&gt; String
+(Int -&gt; UpdateUserResponse -&gt; ShowS)
+-&gt; (UpdateUserResponse -&gt; String)
+-&gt; ([UpdateUserResponse] -&gt; ShowS)
+-&gt; Show UpdateUserResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateUserResponse] -&gt; ShowS
+$cshowList :: [UpdateUserResponse] -&gt; ShowS
+show :: UpdateUserResponse -&gt; String
+$cshow :: UpdateUserResponse -&gt; String
+showsPrec :: Int -&gt; UpdateUserResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateUserResponse -&gt; Rep UpdateUserResponse x)
+-&gt; (forall x. Rep UpdateUserResponse x -&gt; UpdateUserResponse)
+-&gt; Generic UpdateUserResponse
+forall x. Rep UpdateUserResponse x -&gt; UpdateUserResponse
+forall x. UpdateUserResponse -&gt; Rep UpdateUserResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateUserResponse x -&gt; UpdateUserResponse
+$cfrom :: forall x. UpdateUserResponse -&gt; Rep UpdateUserResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-448"></span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- Create a value of 'UpdateUserResponse' with all optional fields omitted.</span><span>
+</span><span id="line-451"></span><span class="hs-comment">--</span><span>
+</span><span id="line-452"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-453"></span><span class="hs-comment">--</span><span>
+</span><span id="line-454"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-455"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-456"></span><span class="hs-comment">--</span><span>
+</span><span id="line-457"></span><span class="hs-comment">-- 'httpStatus', 'updateUserResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-458"></span><span class="hs-comment">--</span><span>
+</span><span id="line-459"></span><span class="hs-comment">-- 'serverId', 'updateUserResponse_serverId' - A system-assigned unique identifier for a server instance that the user</span><span>
+</span><span id="line-460"></span><span class="hs-comment">-- account is assigned to.</span><span>
+</span><span id="line-461"></span><span class="hs-comment">--</span><span>
+</span><span id="line-462"></span><span class="hs-comment">-- 'userName', 'updateUserResponse_userName' - The unique identifier for a user that is assigned to a server instance</span><span>
+</span><span id="line-463"></span><span class="hs-comment">-- that was specified in the request.</span><span>
+</span><span id="line-464"></span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#newUpdateUserResponse"><span class="hs-identifier hs-type">newUpdateUserResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-465"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-466"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-467"></span><span>  </span><span class="hs-comment">-- | 'serverId'</span><span>
+</span><span id="line-468"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-469"></span><span>  </span><span class="hs-comment">-- | 'userName'</span><span>
+</span><span id="line-470"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-471"></span><span>  </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span><span>
+</span><span id="line-472"></span><span id="newUpdateUserResponse"><span class="annot"><span class="annottext">newUpdateUserResponse :: Int -&gt; Text -&gt; Text -&gt; UpdateUserResponse
+</span><a href="Network.AWS.Transfer.UpdateUser.html#newUpdateUserResponse"><span class="hs-identifier hs-var hs-var">newUpdateUserResponse</span></a></span></span><span>
+</span><span id="line-473"></span><span>  </span><span id="local-6989586621679250295"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250295"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-474"></span><span>  </span><span id="local-6989586621679250294"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250294"><span class="hs-identifier hs-var">pServerId_</span></a></span></span><span>
+</span><span id="line-475"></span><span>  </span><span id="local-6989586621679250293"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250293"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-476"></span><span>    </span><span class="annot"><span class="annottext">UpdateUserResponse' :: Int -&gt; Text -&gt; Text -&gt; UpdateUserResponse
+</span><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-type">UpdateUserResponse'</span></a></span><span>
+</span><span id="line-477"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateUserResponse' :: Int
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AhttpStatus%3AUpdateUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250295"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-478"></span><span>        </span><span class="annot"><span class="annottext">$sel:serverId:UpdateUserResponse' :: Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AserverId%3AUpdateUserResponse%27"><span class="hs-identifier hs-var">serverId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250294"><span class="hs-identifier hs-var">pServerId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-479"></span><span>        </span><span class="annot"><span class="annottext">$sel:userName:UpdateUserResponse' :: Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AuserName%3AUpdateUserResponse%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250293"><span class="hs-identifier hs-var">pUserName_</span></a></span><span>
+</span><span id="line-480"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-481"></span><span>
+</span><span id="line-482"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-483"></span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUserResponse_httpStatus"><span class="hs-identifier hs-type">updateUserResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-484"></span><span id="updateUserResponse_httpStatus"><span class="annot"><span class="annottext">updateUserResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateUserResponse -&gt; f UpdateUserResponse
+</span><a href="Network.AWS.Transfer.UpdateUser.html#updateUserResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateUserResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUserResponse -&gt; Int)
+-&gt; (UpdateUserResponse -&gt; Int -&gt; UpdateUserResponse)
+-&gt; Lens UpdateUserResponse UpdateUserResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-type">UpdateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250292"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateUserResponse' :: UpdateUserResponse -&gt; Int
+</span><a href="#local-6989586621679250292"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250292"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250291"><span class="annot"><span class="annottext">s :: UpdateUserResponse
+</span><a href="#local-6989586621679250291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-type">UpdateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250290"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserResponse
+</span><a href="#local-6989586621679250291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateUserResponse' :: Int
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AhttpStatus%3AUpdateUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-485"></span><span>
+</span><span id="line-486"></span><span class="hs-comment">-- | A system-assigned unique identifier for a server instance that the user</span><span>
+</span><span id="line-487"></span><span class="hs-comment">-- account is assigned to.</span><span>
+</span><span id="line-488"></span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUserResponse_serverId"><span class="hs-identifier hs-type">updateUserResponse_serverId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-489"></span><span id="updateUserResponse_serverId"><span class="annot"><span class="annottext">updateUserResponse_serverId :: (Text -&gt; f Text) -&gt; UpdateUserResponse -&gt; f UpdateUserResponse
+</span><a href="Network.AWS.Transfer.UpdateUser.html#updateUserResponse_serverId"><span class="hs-identifier hs-var hs-var">updateUserResponse_serverId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUserResponse -&gt; Text)
+-&gt; (UpdateUserResponse -&gt; Text -&gt; UpdateUserResponse)
+-&gt; Lens UpdateUserResponse UpdateUserResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-type">UpdateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250289"><span class="annot"><span class="annottext">Text
+serverId :: Text
+$sel:serverId:UpdateUserResponse' :: UpdateUserResponse -&gt; Text
+</span><a href="#local-6989586621679250289"><span class="hs-identifier hs-var hs-var">serverId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250289"><span class="hs-identifier hs-var">serverId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250288"><span class="annot"><span class="annottext">s :: UpdateUserResponse
+</span><a href="#local-6989586621679250288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-type">UpdateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250287"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserResponse
+</span><a href="#local-6989586621679250288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverId:UpdateUserResponse' :: Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AserverId%3AUpdateUserResponse%27"><span class="hs-identifier hs-var">serverId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-490"></span><span>
+</span><span id="line-491"></span><span class="hs-comment">-- | The unique identifier for a user that is assigned to a server instance</span><span>
+</span><span id="line-492"></span><span class="hs-comment">-- that was specified in the request.</span><span>
+</span><span id="line-493"></span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#updateUserResponse_userName"><span class="hs-identifier hs-type">updateUserResponse_userName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-494"></span><span id="updateUserResponse_userName"><span class="annot"><span class="annottext">updateUserResponse_userName :: (Text -&gt; f Text) -&gt; UpdateUserResponse -&gt; f UpdateUserResponse
+</span><a href="Network.AWS.Transfer.UpdateUser.html#updateUserResponse_userName"><span class="hs-identifier hs-var hs-var">updateUserResponse_userName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUserResponse -&gt; Text)
+-&gt; (UpdateUserResponse -&gt; Text -&gt; UpdateUserResponse)
+-&gt; Lens UpdateUserResponse UpdateUserResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-type">UpdateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250286"><span class="annot"><span class="annottext">Text
+userName :: Text
+$sel:userName:UpdateUserResponse' :: UpdateUserResponse -&gt; Text
+</span><a href="#local-6989586621679250286"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250286"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250285"><span class="annot"><span class="annottext">s :: UpdateUserResponse
+</span><a href="#local-6989586621679250285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse%27"><span class="hs-identifier hs-type">UpdateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250284"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserResponse
+</span><a href="#local-6989586621679250285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:UpdateUserResponse' :: Text
+</span><a href="Network.AWS.Transfer.UpdateUser.html#%24sel%3AuserName%3AUpdateUserResponse%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-495"></span><span>
+</span><span id="line-496"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transfer.UpdateUser.html#UpdateUserResponse"><span class="hs-identifier hs-type">UpdateUserResponse</span></a></span></span><span>
+</span><span id="line-497"></span></pre></body></html>

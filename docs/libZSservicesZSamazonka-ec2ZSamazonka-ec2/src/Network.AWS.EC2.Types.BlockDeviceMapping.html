@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- instance store volumes to attach to an instance at launch.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newBlockDeviceMapping' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681184743"><span id="local-6989586621681184744"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlockDeviceMapping"><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-var">BlockDeviceMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlockDeviceMapping%27"><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-var">BlockDeviceMapping'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681184752"><span id="local-6989586621681184753"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlockDeviceMapping"><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-var">BlockDeviceMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlockDeviceMapping%27"><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-var">BlockDeviceMapping'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The virtual device name (@ephemeral@N). Instance store volumes are</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- numbered starting from 0. An instance type with 2 available instance</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- store volumes can specify mappings for @ephemeral0@ and @ephemeral1@.</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AdeviceName%3ABlockDeviceMapping%27"><span class="annot"><span class="annottext">BlockDeviceMapping -&gt; Text
 </span><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#%24sel%3AdeviceName%3ABlockDeviceMapping%27"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681184734"><span id="local-6989586621681184736"><span class="annot"><span class="annottext">BlockDeviceMapping -&gt; BlockDeviceMapping -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681184743"><span id="local-6989586621681184745"><span class="annot"><span class="annottext">BlockDeviceMapping -&gt; BlockDeviceMapping -&gt; Bool
 (BlockDeviceMapping -&gt; BlockDeviceMapping -&gt; Bool)
 -&gt; (BlockDeviceMapping -&gt; BlockDeviceMapping -&gt; Bool)
 -&gt; Eq BlockDeviceMapping
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BlockDeviceMapping -&gt; BlockDeviceMapping -&gt; Bool
 == :: BlockDeviceMapping -&gt; BlockDeviceMapping -&gt; Bool
 $c== :: BlockDeviceMapping -&gt; BlockDeviceMapping -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681184725"><span id="local-6989586621681184727"><span id="local-6989586621681184729"><span id="local-6989586621681184731"><span class="annot"><span class="annottext">ReadPrec [BlockDeviceMapping]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681184734"><span id="local-6989586621681184736"><span id="local-6989586621681184738"><span id="local-6989586621681184740"><span class="annot"><span class="annottext">ReadPrec [BlockDeviceMapping]
 ReadPrec BlockDeviceMapping
 Int -&gt; ReadS BlockDeviceMapping
 ReadS [BlockDeviceMapping]
@@ -87,7 +87,7 @@ readList :: ReadS [BlockDeviceMapping]
 $creadList :: ReadS [BlockDeviceMapping]
 readsPrec :: Int -&gt; ReadS BlockDeviceMapping
 $creadsPrec :: Int -&gt; ReadS BlockDeviceMapping
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681184718"><span id="local-6989586621681184720"><span id="local-6989586621681184722"><span class="annot"><span class="annottext">Int -&gt; BlockDeviceMapping -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681184727"><span id="local-6989586621681184729"><span id="local-6989586621681184731"><span class="annot"><span class="annottext">Int -&gt; BlockDeviceMapping -&gt; ShowS
 [BlockDeviceMapping] -&gt; ShowS
 BlockDeviceMapping -&gt; String
 (Int -&gt; BlockDeviceMapping -&gt; ShowS)
@@ -148,8 +148,8 @@ $cfrom :: forall x. BlockDeviceMapping -&gt; Rep BlockDeviceMapping x
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-type">BlockDeviceMapping</span></a></span><span>
 </span><span id="line-93"></span><span id="newBlockDeviceMapping"><span class="annot"><span class="annottext">newBlockDeviceMapping :: Text -&gt; BlockDeviceMapping
-</span><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#newBlockDeviceMapping"><span class="hs-identifier hs-var hs-var">newBlockDeviceMapping</span></a></span></span><span> </span><span id="local-6989586621681184712"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681184712"><span class="hs-identifier hs-var">pDeviceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#newBlockDeviceMapping"><span class="hs-identifier hs-var hs-var">newBlockDeviceMapping</span></a></span></span><span> </span><span id="local-6989586621681184721"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681184721"><span class="hs-identifier hs-var">pDeviceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">BlockDeviceMapping' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe EbsBlockDevice -&gt; Text -&gt; BlockDeviceMapping
 </span><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span>
@@ -167,7 +167,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceName:BlockDeviceMapping' :: Text
 </span><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#%24sel%3AdeviceName%3ABlockDeviceMapping%27"><span class="hs-identifier hs-var">deviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681184712"><span class="hs-identifier hs-var">pDeviceName_</span></a></span><span>
+</span><a href="#local-6989586621681184721"><span class="hs-identifier hs-var">pDeviceName_</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The virtual device name (@ephemeral@N). Instance store volumes are</span><span>
@@ -191,16 +191,16 @@ forall a. Maybe a
 -&gt; Lens
      BlockDeviceMapping BlockDeviceMapping (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681184708"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681184717"><span class="annot"><span class="annottext">Maybe Text
 virtualName :: Maybe Text
 $sel:virtualName:BlockDeviceMapping' :: BlockDeviceMapping -&gt; Maybe Text
-</span><a href="#local-6989586621681184708"><span class="hs-identifier hs-var hs-var">virtualName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681184708"><span class="hs-identifier hs-var">virtualName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681184707"><span class="annot"><span class="annottext">s :: BlockDeviceMapping
-</span><a href="#local-6989586621681184707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681184706"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681184706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockDeviceMapping
-</span><a href="#local-6989586621681184707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualName:BlockDeviceMapping' :: Maybe Text
+</span><a href="#local-6989586621681184717"><span class="hs-identifier hs-var hs-var">virtualName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681184717"><span class="hs-identifier hs-var">virtualName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681184716"><span class="annot"><span class="annottext">s :: BlockDeviceMapping
+</span><a href="#local-6989586621681184716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681184715"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681184715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockDeviceMapping
+</span><a href="#local-6989586621681184716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualName:BlockDeviceMapping' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#%24sel%3AvirtualName%3ABlockDeviceMapping%27"><span class="hs-identifier hs-var">virtualName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681184706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-type">BlockDeviceMapping</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681184715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-type">BlockDeviceMapping</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | To omit the device from the block device mapping, specify an empty</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- string. When this property is specified, the device is removed from the</span><span>
@@ -213,16 +213,16 @@ $sel:virtualName:BlockDeviceMapping' :: BlockDeviceMapping -&gt; Maybe Text
 -&gt; Lens
      BlockDeviceMapping BlockDeviceMapping (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681184704"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681184713"><span class="annot"><span class="annottext">Maybe Text
 noDevice :: Maybe Text
 $sel:noDevice:BlockDeviceMapping' :: BlockDeviceMapping -&gt; Maybe Text
-</span><a href="#local-6989586621681184704"><span class="hs-identifier hs-var hs-var">noDevice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681184704"><span class="hs-identifier hs-var">noDevice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681184703"><span class="annot"><span class="annottext">s :: BlockDeviceMapping
-</span><a href="#local-6989586621681184703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681184702"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681184702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockDeviceMapping
-</span><a href="#local-6989586621681184703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noDevice:BlockDeviceMapping' :: Maybe Text
+</span><a href="#local-6989586621681184713"><span class="hs-identifier hs-var hs-var">noDevice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681184713"><span class="hs-identifier hs-var">noDevice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681184712"><span class="annot"><span class="annottext">s :: BlockDeviceMapping
+</span><a href="#local-6989586621681184712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681184711"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681184711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockDeviceMapping
+</span><a href="#local-6989586621681184712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noDevice:BlockDeviceMapping' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#%24sel%3AnoDevice%3ABlockDeviceMapping%27"><span class="hs-identifier hs-var">noDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681184702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-type">BlockDeviceMapping</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681184711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-type">BlockDeviceMapping</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | Parameters used to automatically set up EBS volumes when the instance is</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- launched.</span><span>
@@ -238,16 +238,16 @@ $sel:noDevice:BlockDeviceMapping' :: BlockDeviceMapping -&gt; Maybe Text
      (Maybe EbsBlockDevice)
      (Maybe EbsBlockDevice)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681184700"><span class="annot"><span class="annottext">Maybe EbsBlockDevice
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681184709"><span class="annot"><span class="annottext">Maybe EbsBlockDevice
 ebs :: Maybe EbsBlockDevice
 $sel:ebs:BlockDeviceMapping' :: BlockDeviceMapping -&gt; Maybe EbsBlockDevice
-</span><a href="#local-6989586621681184700"><span class="hs-identifier hs-var hs-var">ebs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EbsBlockDevice
-</span><a href="#local-6989586621681184700"><span class="hs-identifier hs-var">ebs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681184699"><span class="annot"><span class="annottext">s :: BlockDeviceMapping
-</span><a href="#local-6989586621681184699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681184698"><span class="annot"><span class="annottext">Maybe EbsBlockDevice
-</span><a href="#local-6989586621681184698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockDeviceMapping
-</span><a href="#local-6989586621681184699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ebs:BlockDeviceMapping' :: Maybe EbsBlockDevice
+</span><a href="#local-6989586621681184709"><span class="hs-identifier hs-var hs-var">ebs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EbsBlockDevice
+</span><a href="#local-6989586621681184709"><span class="hs-identifier hs-var">ebs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681184708"><span class="annot"><span class="annottext">s :: BlockDeviceMapping
+</span><a href="#local-6989586621681184708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681184707"><span class="annot"><span class="annottext">Maybe EbsBlockDevice
+</span><a href="#local-6989586621681184707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockDeviceMapping
+</span><a href="#local-6989586621681184708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ebs:BlockDeviceMapping' :: Maybe EbsBlockDevice
 </span><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#%24sel%3Aebs%3ABlockDeviceMapping%27"><span class="hs-identifier hs-var">ebs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EbsBlockDevice
-</span><a href="#local-6989586621681184698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-type">BlockDeviceMapping</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681184707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-type">BlockDeviceMapping</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The device name (for example, @\/dev\/sdh@ or @xvdh@).</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#blockDeviceMapping_deviceName"><span class="hs-identifier hs-type">blockDeviceMapping_deviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-type">BlockDeviceMapping</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -256,21 +256,21 @@ $sel:ebs:BlockDeviceMapping' :: BlockDeviceMapping -&gt; Maybe EbsBlockDevice
 -&gt; (BlockDeviceMapping -&gt; Text -&gt; BlockDeviceMapping)
 -&gt; Lens BlockDeviceMapping BlockDeviceMapping Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681184696"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681184705"><span class="annot"><span class="annottext">Text
 deviceName :: Text
 $sel:deviceName:BlockDeviceMapping' :: BlockDeviceMapping -&gt; Text
-</span><a href="#local-6989586621681184696"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681184696"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681184695"><span class="annot"><span class="annottext">s :: BlockDeviceMapping
-</span><a href="#local-6989586621681184695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681184694"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681184694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockDeviceMapping
-</span><a href="#local-6989586621681184695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceName:BlockDeviceMapping' :: Text
+</span><a href="#local-6989586621681184705"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681184705"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681184704"><span class="annot"><span class="annottext">s :: BlockDeviceMapping
+</span><a href="#local-6989586621681184704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681184703"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681184703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockDeviceMapping
+</span><a href="#local-6989586621681184704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceName:BlockDeviceMapping' :: Text
 </span><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#%24sel%3AdeviceName%3ABlockDeviceMapping%27"><span class="hs-identifier hs-var">deviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681184694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-type">BlockDeviceMapping</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681184703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-type">BlockDeviceMapping</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-type">BlockDeviceMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621681184691"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String BlockDeviceMapping
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681184689"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681184689"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621681184700"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String BlockDeviceMapping
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681184698"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681184698"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe EbsBlockDevice -&gt; Text -&gt; BlockDeviceMapping
 </span><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-var">BlockDeviceMapping'</span></a></span><span>
@@ -285,7 +285,7 @@ $sel:deviceName:BlockDeviceMapping' :: BlockDeviceMapping -&gt; Text
      (Maybe Text -&gt; Maybe EbsBlockDevice -&gt; Text -&gt; BlockDeviceMapping)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681184689"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681184698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;virtualName&quot;</span></span><span class="hs-special">)</span><span>
@@ -297,7 +297,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe EbsBlockDevice -&gt; Text -&gt; BlockDeviceMapping)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681184689"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681184698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;noDevice&quot;</span></span><span class="hs-special">)</span><span>
@@ -306,7 +306,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Text -&gt; BlockDeviceMapping)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681184689"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe EbsBlockDevice)
+</span><a href="#local-6989586621681184698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe EbsBlockDevice)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ebs&quot;</span></span><span class="hs-special">)</span><span>
@@ -314,18 +314,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Text -&gt; Either String BlockDeviceMapping
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681184689"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681184698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deviceName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681184682"><span id="local-6989586621681184684"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-type">BlockDeviceMapping</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681184691"><span id="local-6989586621681184693"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-type">BlockDeviceMapping</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681184679"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-type">BlockDeviceMapping</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681184688"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-type">BlockDeviceMapping</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping"><span class="hs-identifier hs-type">BlockDeviceMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621681184675"><span class="annot"><span class="annottext">toQuery :: BlockDeviceMapping -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681184670"><span id="local-6989586621681184671"><span id="local-6989586621681184672"><span id="local-6989586621681184673"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621681184684"><span class="annot"><span class="annottext">toQuery :: BlockDeviceMapping -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlockDeviceMapping.html#BlockDeviceMapping%27"><span class="hs-identifier hs-type">BlockDeviceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681184679"><span id="local-6989586621681184680"><span id="local-6989586621681184681"><span id="local-6989586621681184682"><span class="annot"><span class="annottext">Maybe Text
 Maybe EbsBlockDevice
 Text
 deviceName :: Text
@@ -336,7 +336,7 @@ $sel:deviceName:BlockDeviceMapping' :: BlockDeviceMapping -&gt; Text
 $sel:ebs:BlockDeviceMapping' :: BlockDeviceMapping -&gt; Maybe EbsBlockDevice
 $sel:noDevice:BlockDeviceMapping' :: BlockDeviceMapping -&gt; Maybe Text
 $sel:virtualName:BlockDeviceMapping' :: BlockDeviceMapping -&gt; Maybe Text
-</span><a href="#local-6989586621681184670"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681184679"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -344,21 +344,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;VirtualName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681184673"><span class="hs-identifier hs-var">virtualName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681184682"><span class="hs-identifier hs-var">virtualName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NoDevice&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681184672"><span class="hs-identifier hs-var">noDevice</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681184681"><span class="hs-identifier hs-var">noDevice</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Ebs&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe EbsBlockDevice -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe EbsBlockDevice
-</span><a href="#local-6989586621681184671"><span class="hs-identifier hs-var">ebs</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681184680"><span class="hs-identifier hs-var">ebs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DeviceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681184670"><span class="hs-identifier hs-var">deviceName</span></a></span><span>
+</span><a href="#local-6989586621681184679"><span class="hs-identifier hs-var">deviceName</span></a></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span></pre></body></html>

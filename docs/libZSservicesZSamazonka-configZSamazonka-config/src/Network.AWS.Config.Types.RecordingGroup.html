@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html Selecting Which Resources Config Records&gt;.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newRecordingGroup' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679407565"><span id="local-6989586621679407566"></span></span><span class="hs-keyword">data</span><span> </span><span id="RecordingGroup"><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup"><span class="hs-identifier hs-var">RecordingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecordingGroup%27"><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup%27"><span class="hs-identifier hs-var">RecordingGroup'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679407574"><span id="local-6989586621679407575"></span></span><span class="hs-keyword">data</span><span> </span><span id="RecordingGroup"><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup"><span class="hs-identifier hs-var">RecordingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecordingGroup%27"><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup%27"><span class="hs-identifier hs-var">RecordingGroup'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether Config records configuration changes for every</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- supported type of regional resource.</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -104,7 +104,7 @@
 </span><span id="line-102"></span><span>    </span><span id="%24sel%3AresourceTypes%3ARecordingGroup%27"><span class="annot"><span class="annottext">RecordingGroup -&gt; Maybe [ResourceType]
 </span><a href="Network.AWS.Config.Types.RecordingGroup.html#%24sel%3AresourceTypes%3ARecordingGroup%27"><span class="hs-identifier hs-var hs-var">resourceTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679407557"><span id="local-6989586621679407559"><span class="annot"><span class="annottext">RecordingGroup -&gt; RecordingGroup -&gt; Bool
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679407566"><span id="local-6989586621679407568"><span class="annot"><span class="annottext">RecordingGroup -&gt; RecordingGroup -&gt; Bool
 (RecordingGroup -&gt; RecordingGroup -&gt; Bool)
 -&gt; (RecordingGroup -&gt; RecordingGroup -&gt; Bool) -&gt; Eq RecordingGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -112,7 +112,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RecordingGroup -&gt; RecordingGroup -&gt; Bool
 == :: RecordingGroup -&gt; RecordingGroup -&gt; Bool
 $c== :: RecordingGroup -&gt; RecordingGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407548"><span id="local-6989586621679407550"><span id="local-6989586621679407552"><span id="local-6989586621679407554"><span class="annot"><span class="annottext">ReadPrec [RecordingGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407557"><span id="local-6989586621679407559"><span id="local-6989586621679407561"><span id="local-6989586621679407563"><span class="annot"><span class="annottext">ReadPrec [RecordingGroup]
 ReadPrec RecordingGroup
 Int -&gt; ReadS RecordingGroup
 ReadS [RecordingGroup]
@@ -132,7 +132,7 @@ readList :: ReadS [RecordingGroup]
 $creadList :: ReadS [RecordingGroup]
 readsPrec :: Int -&gt; ReadS RecordingGroup
 $creadsPrec :: Int -&gt; ReadS RecordingGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407541"><span id="local-6989586621679407543"><span id="local-6989586621679407545"><span class="annot"><span class="annottext">Int -&gt; RecordingGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407550"><span id="local-6989586621679407552"><span id="local-6989586621679407554"><span class="annot"><span class="annottext">Int -&gt; RecordingGroup -&gt; ShowS
 [RecordingGroup] -&gt; ShowS
 RecordingGroup -&gt; String
 (Int -&gt; RecordingGroup -&gt; ShowS)
@@ -241,16 +241,16 @@ forall a. Maybe a
 -&gt; (RecordingGroup -&gt; Maybe Bool -&gt; RecordingGroup)
 -&gt; Lens RecordingGroup RecordingGroup (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup%27"><span class="hs-identifier hs-type">RecordingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407532"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup%27"><span class="hs-identifier hs-type">RecordingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407541"><span class="annot"><span class="annottext">Maybe Bool
 allSupported :: Maybe Bool
 $sel:allSupported:RecordingGroup' :: RecordingGroup -&gt; Maybe Bool
-</span><a href="#local-6989586621679407532"><span class="hs-identifier hs-var hs-var">allSupported</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679407532"><span class="hs-identifier hs-var">allSupported</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407531"><span class="annot"><span class="annottext">s :: RecordingGroup
-</span><a href="#local-6989586621679407531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup%27"><span class="hs-identifier hs-type">RecordingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407530"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679407530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordingGroup
-</span><a href="#local-6989586621679407531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allSupported:RecordingGroup' :: Maybe Bool
+</span><a href="#local-6989586621679407541"><span class="hs-identifier hs-var hs-var">allSupported</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679407541"><span class="hs-identifier hs-var">allSupported</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407540"><span class="annot"><span class="annottext">s :: RecordingGroup
+</span><a href="#local-6989586621679407540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup%27"><span class="hs-identifier hs-type">RecordingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407539"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679407539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordingGroup
+</span><a href="#local-6989586621679407540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allSupported:RecordingGroup' :: Maybe Bool
 </span><a href="Network.AWS.Config.Types.RecordingGroup.html#%24sel%3AallSupported%3ARecordingGroup%27"><span class="hs-identifier hs-var">allSupported</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679407530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup"><span class="hs-identifier hs-type">RecordingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679407539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup"><span class="hs-identifier hs-type">RecordingGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | Specifies whether Config includes all supported types of global</span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- resources (for example, IAM resources) with the resources that it</span><span>
@@ -273,16 +273,16 @@ $sel:allSupported:RecordingGroup' :: RecordingGroup -&gt; Maybe Bool
 -&gt; (RecordingGroup -&gt; Maybe Bool -&gt; RecordingGroup)
 -&gt; Lens RecordingGroup RecordingGroup (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup%27"><span class="hs-identifier hs-type">RecordingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407528"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup%27"><span class="hs-identifier hs-type">RecordingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407537"><span class="annot"><span class="annottext">Maybe Bool
 includeGlobalResourceTypes :: Maybe Bool
 $sel:includeGlobalResourceTypes:RecordingGroup' :: RecordingGroup -&gt; Maybe Bool
-</span><a href="#local-6989586621679407528"><span class="hs-identifier hs-var hs-var">includeGlobalResourceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679407528"><span class="hs-identifier hs-var">includeGlobalResourceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407527"><span class="annot"><span class="annottext">s :: RecordingGroup
-</span><a href="#local-6989586621679407527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup%27"><span class="hs-identifier hs-type">RecordingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407526"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679407526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordingGroup
-</span><a href="#local-6989586621679407527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeGlobalResourceTypes:RecordingGroup' :: Maybe Bool
+</span><a href="#local-6989586621679407537"><span class="hs-identifier hs-var hs-var">includeGlobalResourceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679407537"><span class="hs-identifier hs-var">includeGlobalResourceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407536"><span class="annot"><span class="annottext">s :: RecordingGroup
+</span><a href="#local-6989586621679407536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup%27"><span class="hs-identifier hs-type">RecordingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407535"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679407535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordingGroup
+</span><a href="#local-6989586621679407536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeGlobalResourceTypes:RecordingGroup' :: Maybe Bool
 </span><a href="Network.AWS.Config.Types.RecordingGroup.html#%24sel%3AincludeGlobalResourceTypes%3ARecordingGroup%27"><span class="hs-identifier hs-var">includeGlobalResourceTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679407526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup"><span class="hs-identifier hs-type">RecordingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679407535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup"><span class="hs-identifier hs-type">RecordingGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | A comma-separated list that specifies the types of Amazon Web Services</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- resources for which Config records configuration changes (for example,</span><span>
@@ -309,16 +309,16 @@ $sel:includeGlobalResourceTypes:RecordingGroup' :: RecordingGroup -&gt; Maybe Bo
      (Maybe [ResourceType])
      (Maybe [ResourceType])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup%27"><span class="hs-identifier hs-type">RecordingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407524"><span class="annot"><span class="annottext">Maybe [ResourceType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup%27"><span class="hs-identifier hs-type">RecordingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407533"><span class="annot"><span class="annottext">Maybe [ResourceType]
 resourceTypes :: Maybe [ResourceType]
 $sel:resourceTypes:RecordingGroup' :: RecordingGroup -&gt; Maybe [ResourceType]
-</span><a href="#local-6989586621679407524"><span class="hs-identifier hs-var hs-var">resourceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceType]
-</span><a href="#local-6989586621679407524"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407523"><span class="annot"><span class="annottext">s :: RecordingGroup
-</span><a href="#local-6989586621679407523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup%27"><span class="hs-identifier hs-type">RecordingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407522"><span class="annot"><span class="annottext">Maybe [ResourceType]
-</span><a href="#local-6989586621679407522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordingGroup
-</span><a href="#local-6989586621679407523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTypes:RecordingGroup' :: Maybe [ResourceType]
+</span><a href="#local-6989586621679407533"><span class="hs-identifier hs-var hs-var">resourceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceType]
+</span><a href="#local-6989586621679407533"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407532"><span class="annot"><span class="annottext">s :: RecordingGroup
+</span><a href="#local-6989586621679407532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup%27"><span class="hs-identifier hs-type">RecordingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407531"><span class="annot"><span class="annottext">Maybe [ResourceType]
+</span><a href="#local-6989586621679407531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordingGroup
+</span><a href="#local-6989586621679407532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTypes:RecordingGroup' :: Maybe [ResourceType]
 </span><a href="Network.AWS.Config.Types.RecordingGroup.html#%24sel%3AresourceTypes%3ARecordingGroup%27"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceType]
-</span><a href="#local-6989586621679407522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup"><span class="hs-identifier hs-type">RecordingGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceType] -&gt; f (Maybe [ResourceType]))
+</span><a href="#local-6989586621679407531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup"><span class="hs-identifier hs-type">RecordingGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceType] -&gt; f (Maybe [ResourceType]))
  -&gt; RecordingGroup -&gt; f RecordingGroup)
 -&gt; ((Maybe [ResourceType] -&gt; f (Maybe [ResourceType]))
     -&gt; Maybe [ResourceType] -&gt; f (Maybe [ResourceType]))
@@ -339,8 +339,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407516"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup"><span class="hs-identifier hs-type">RecordingGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621679407514"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RecordingGroup
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407525"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup"><span class="hs-identifier hs-type">RecordingGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679407523"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RecordingGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RecordingGroup)
@@ -350,8 +350,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RecordingGroup&quot;</span></span><span>
-</span><span id="line-212"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679407511"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679407511"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679407520"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679407520"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-213"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Bool -&gt; Maybe [ResourceType] -&gt; RecordingGroup
 </span><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup%27"><span class="hs-identifier hs-var">RecordingGroup'</span></a></span><span>
 </span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
@@ -360,7 +360,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Bool -&gt; Maybe [ResourceType] -&gt; RecordingGroup)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679407511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679407520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;allSupported&quot;</span></span><span class="hs-special">)</span><span>
@@ -369,7 +369,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [ResourceType] -&gt; RecordingGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679407511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679407520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;includeGlobalResourceTypes&quot;</span></span><span class="hs-special">)</span><span>
@@ -377,7 +377,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [ResourceType]) -&gt; Parser RecordingGroup
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679407511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ResourceType]))
+</span><a href="#local-6989586621679407520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ResourceType]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resourceTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ResourceType]))
@@ -388,13 +388,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407504"><span id="local-6989586621679407506"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup"><span class="hs-identifier hs-type">RecordingGroup</span></a></span></span></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407513"><span id="local-6989586621679407515"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup"><span class="hs-identifier hs-type">RecordingGroup</span></a></span></span></span><span>
 </span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup"><span class="hs-identifier hs-type">RecordingGroup</span></a></span></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup"><span class="hs-identifier hs-type">RecordingGroup</span></a></span></span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407493"><span id="local-6989586621679407495"><span id="local-6989586621679407497"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup"><span class="hs-identifier hs-type">RecordingGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679407491"><span class="annot"><span class="annottext">toJSON :: RecordingGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup%27"><span class="hs-identifier hs-type">RecordingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407487"><span id="local-6989586621679407488"><span id="local-6989586621679407489"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407502"><span id="local-6989586621679407504"><span id="local-6989586621679407506"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup"><span class="hs-identifier hs-type">RecordingGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679407500"><span class="annot"><span class="annottext">toJSON :: RecordingGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RecordingGroup.html#RecordingGroup%27"><span class="hs-identifier hs-type">RecordingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407496"><span id="local-6989586621679407497"><span id="local-6989586621679407498"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [ResourceType]
 resourceTypes :: Maybe [ResourceType]
 includeGlobalResourceTypes :: Maybe Bool
@@ -402,7 +402,7 @@ allSupported :: Maybe Bool
 $sel:resourceTypes:RecordingGroup' :: RecordingGroup -&gt; Maybe [ResourceType]
 $sel:includeGlobalResourceTypes:RecordingGroup' :: RecordingGroup -&gt; Maybe Bool
 $sel:allSupported:RecordingGroup' :: RecordingGroup -&gt; Maybe Bool
-</span><a href="#local-6989586621679407487"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679407496"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-226"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -414,7 +414,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679407489"><span class="hs-identifier hs-var">allSupported</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679407498"><span class="hs-identifier hs-var">allSupported</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;includeGlobalResourceTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -422,14 +422,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-229"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679407488"><span class="hs-identifier hs-var">includeGlobalResourceTypes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679407497"><span class="hs-identifier hs-var">includeGlobalResourceTypes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resourceTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ResourceType] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ResourceType] -&gt; Pair) -&gt; Maybe [ResourceType] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceType]
-</span><a href="#local-6989586621679407487"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span>
+</span><a href="#local-6989586621679407496"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span>
 </span><span id="line-231"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-232"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span></pre></body></html>

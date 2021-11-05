@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType"><span class="hs-identifier">ThreatIntelIndicatorType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_DOMAIN"><span class="hs-identifier">ThreatIntelIndicatorType_DOMAIN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_EMAIL_ADDRESS"><span class="hs-identifier">ThreatIntelIndicatorType_EMAIL_ADDRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_HASH_MD5"><span class="hs-identifier">ThreatIntelIndicatorType_HASH_MD5</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_HASH_SHA1"><span class="hs-identifier">ThreatIntelIndicatorType_HASH_SHA1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_HASH_SHA256"><span class="hs-identifier">ThreatIntelIndicatorType_HASH_SHA256</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_HASH_SHA512"><span class="hs-identifier">ThreatIntelIndicatorType_HASH_SHA512</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_IPV4_ADDRESS"><span class="hs-identifier">ThreatIntelIndicatorType_IPV4_ADDRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_IPV6_ADDRESS"><span class="hs-identifier">ThreatIntelIndicatorType_IPV6_ADDRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_MUTEX"><span class="hs-identifier">ThreatIntelIndicatorType_MUTEX</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_PROCESS"><span class="hs-identifier">ThreatIntelIndicatorType_PROCESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_URL"><span class="hs-identifier">ThreatIntelIndicatorType_URL</span></a></span><span>
+</span><span id="line-34"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679989706"><span id="local-6989586621679989707"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ThreatIntelIndicatorType"><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType"><span class="hs-identifier hs-var">ThreatIntelIndicatorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThreatIntelIndicatorType%27"><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType%27"><span class="hs-identifier hs-var">ThreatIntelIndicatorType'</span></a></span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromThreatIntelIndicatorType"><span class="annot"><span class="annottext">ThreatIntelIndicatorType -&gt; Text
+</span><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#fromThreatIntelIndicatorType"><span class="hs-identifier hs-var hs-var">fromThreatIntelIndicatorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679989698"><span id="local-6989586621679989700"><span id="local-6989586621679989702"><span class="annot"><span class="annottext">Int -&gt; ThreatIntelIndicatorType -&gt; ShowS
+[ThreatIntelIndicatorType] -&gt; ShowS
+ThreatIntelIndicatorType -&gt; String
+(Int -&gt; ThreatIntelIndicatorType -&gt; ShowS)
+-&gt; (ThreatIntelIndicatorType -&gt; String)
+-&gt; ([ThreatIntelIndicatorType] -&gt; ShowS)
+-&gt; Show ThreatIntelIndicatorType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ThreatIntelIndicatorType] -&gt; ShowS
+$cshowList :: [ThreatIntelIndicatorType] -&gt; ShowS
+show :: ThreatIntelIndicatorType -&gt; String
+$cshow :: ThreatIntelIndicatorType -&gt; String
+showsPrec :: Int -&gt; ThreatIntelIndicatorType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ThreatIntelIndicatorType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679989689"><span id="local-6989586621679989691"><span id="local-6989586621679989693"><span id="local-6989586621679989695"><span class="annot"><span class="annottext">ReadPrec [ThreatIntelIndicatorType]
+ReadPrec ThreatIntelIndicatorType
+Int -&gt; ReadS ThreatIntelIndicatorType
+ReadS [ThreatIntelIndicatorType]
+(Int -&gt; ReadS ThreatIntelIndicatorType)
+-&gt; ReadS [ThreatIntelIndicatorType]
+-&gt; ReadPrec ThreatIntelIndicatorType
+-&gt; ReadPrec [ThreatIntelIndicatorType]
+-&gt; Read ThreatIntelIndicatorType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ThreatIntelIndicatorType]
+$creadListPrec :: ReadPrec [ThreatIntelIndicatorType]
+readPrec :: ReadPrec ThreatIntelIndicatorType
+$creadPrec :: ReadPrec ThreatIntelIndicatorType
+readList :: ReadS [ThreatIntelIndicatorType]
+$creadList :: ReadS [ThreatIntelIndicatorType]
+readsPrec :: Int -&gt; ReadS ThreatIntelIndicatorType
+$creadsPrec :: Int -&gt; ReadS ThreatIntelIndicatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679989684"><span id="local-6989586621679989686"><span class="annot"><span class="annottext">ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool
+(ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool)
+-&gt; (ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool)
+-&gt; Eq ThreatIntelIndicatorType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool
+$c/= :: ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool
+== :: ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool
+$c== :: ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679989668"><span id="local-6989586621679989670"><span id="local-6989586621679989672"><span id="local-6989586621679989674"><span id="local-6989586621679989676"><span id="local-6989586621679989678"><span id="local-6989586621679989680"><span class="annot"><span class="annottext">Eq ThreatIntelIndicatorType
+Eq ThreatIntelIndicatorType
+-&gt; (ThreatIntelIndicatorType
+    -&gt; ThreatIntelIndicatorType -&gt; Ordering)
+-&gt; (ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool)
+-&gt; (ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool)
+-&gt; (ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool)
+-&gt; (ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool)
+-&gt; (ThreatIntelIndicatorType
+    -&gt; ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType)
+-&gt; (ThreatIntelIndicatorType
+    -&gt; ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType)
+-&gt; Ord ThreatIntelIndicatorType
+ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool
+ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Ordering
+ThreatIntelIndicatorType
+-&gt; ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ThreatIntelIndicatorType
+-&gt; ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType
+$cmin :: ThreatIntelIndicatorType
+-&gt; ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType
+max :: ThreatIntelIndicatorType
+-&gt; ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType
+$cmax :: ThreatIntelIndicatorType
+-&gt; ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType
+&gt;= :: ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool
+$c&gt;= :: ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool
+&gt; :: ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool
+$c&gt; :: ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool
+&lt;= :: ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool
+$c&lt;= :: ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool
+&lt; :: ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool
+$c&lt; :: ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Bool
+compare :: ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Ordering
+$ccompare :: ThreatIntelIndicatorType -&gt; ThreatIntelIndicatorType -&gt; Ordering
+$cp1Ord :: Eq ThreatIntelIndicatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ThreatIntelIndicatorType -&gt; Rep ThreatIntelIndicatorType x)
+-&gt; (forall x.
+    Rep ThreatIntelIndicatorType x -&gt; ThreatIntelIndicatorType)
+-&gt; Generic ThreatIntelIndicatorType
+forall x.
+Rep ThreatIntelIndicatorType x -&gt; ThreatIntelIndicatorType
+forall x.
+ThreatIntelIndicatorType -&gt; Rep ThreatIntelIndicatorType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ThreatIntelIndicatorType x -&gt; ThreatIntelIndicatorType
+$cfrom :: forall x.
+ThreatIntelIndicatorType -&gt; Rep ThreatIntelIndicatorType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679989660"><span id="local-6989586621679989662"><span class="annot"><span class="annottext">Int -&gt; ThreatIntelIndicatorType -&gt; Int
+ThreatIntelIndicatorType -&gt; Int
+(Int -&gt; ThreatIntelIndicatorType -&gt; Int)
+-&gt; (ThreatIntelIndicatorType -&gt; Int)
+-&gt; Hashable ThreatIntelIndicatorType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ThreatIntelIndicatorType -&gt; Int
+$chash :: ThreatIntelIndicatorType -&gt; Int
+hashWithSalt :: Int -&gt; ThreatIntelIndicatorType -&gt; Int
+$chashWithSalt :: Int -&gt; ThreatIntelIndicatorType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679989657"><span class="annot"><span class="annottext">ThreatIntelIndicatorType -&gt; ()
+(ThreatIntelIndicatorType -&gt; ()) -&gt; NFData ThreatIntelIndicatorType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ThreatIntelIndicatorType -&gt; ()
+$crnf :: ThreatIntelIndicatorType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679989654"><span class="annot"><span class="annottext">Text -&gt; Either String ThreatIntelIndicatorType
+(Text -&gt; Either String ThreatIntelIndicatorType)
+-&gt; FromText ThreatIntelIndicatorType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ThreatIntelIndicatorType
+$cfromText :: Text -&gt; Either String ThreatIntelIndicatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679989651"><span class="annot"><span class="annottext">ThreatIntelIndicatorType -&gt; Text
+(ThreatIntelIndicatorType -&gt; Text)
+-&gt; ToText ThreatIntelIndicatorType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ThreatIntelIndicatorType -&gt; Text
+$ctoText :: ThreatIntelIndicatorType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679989648"><span class="annot"><span class="annottext">ThreatIntelIndicatorType -&gt; ByteString
+(ThreatIntelIndicatorType -&gt; ByteString)
+-&gt; ToByteString ThreatIntelIndicatorType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ThreatIntelIndicatorType -&gt; ByteString
+$ctoBS :: ThreatIntelIndicatorType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679989645"><span class="annot"><span class="annottext">ThreatIntelIndicatorType -&gt; ByteStringBuilder
+(ThreatIntelIndicatorType -&gt; ByteStringBuilder)
+-&gt; ToLog ThreatIntelIndicatorType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ThreatIntelIndicatorType -&gt; ByteStringBuilder
+$cbuild :: ThreatIntelIndicatorType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679989642"><span class="annot"><span class="annottext">HeaderName -&gt; ThreatIntelIndicatorType -&gt; [Header]
+(HeaderName -&gt; ThreatIntelIndicatorType -&gt; [Header])
+-&gt; ToHeader ThreatIntelIndicatorType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ThreatIntelIndicatorType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ThreatIntelIndicatorType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679989639"><span class="annot"><span class="annottext">ThreatIntelIndicatorType -&gt; QueryString
+(ThreatIntelIndicatorType -&gt; QueryString)
+-&gt; ToQuery ThreatIntelIndicatorType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ThreatIntelIndicatorType -&gt; QueryString
+$ctoQuery :: ThreatIntelIndicatorType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679989634"><span id="local-6989586621679989636"><span class="annot"><span class="annottext">Value -&gt; Parser [ThreatIntelIndicatorType]
+Value -&gt; Parser ThreatIntelIndicatorType
+(Value -&gt; Parser ThreatIntelIndicatorType)
+-&gt; (Value -&gt; Parser [ThreatIntelIndicatorType])
+-&gt; FromJSON ThreatIntelIndicatorType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ThreatIntelIndicatorType]
+$cparseJSONList :: Value -&gt; Parser [ThreatIntelIndicatorType]
+parseJSON :: Value -&gt; Parser ThreatIntelIndicatorType
+$cparseJSON :: Value -&gt; Parser ThreatIntelIndicatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679989629"><span id="local-6989586621679989631"><span class="annot"><span class="annottext">FromJSONKeyFunction [ThreatIntelIndicatorType]
+FromJSONKeyFunction ThreatIntelIndicatorType
+FromJSONKeyFunction ThreatIntelIndicatorType
+-&gt; FromJSONKeyFunction [ThreatIntelIndicatorType]
+-&gt; FromJSONKey ThreatIntelIndicatorType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ThreatIntelIndicatorType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ThreatIntelIndicatorType]
+fromJSONKey :: FromJSONKeyFunction ThreatIntelIndicatorType
+$cfromJSONKey :: FromJSONKeyFunction ThreatIntelIndicatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679989620"><span id="local-6989586621679989622"><span id="local-6989586621679989624"><span id="local-6989586621679989626"><span class="annot"><span class="annottext">[ThreatIntelIndicatorType] -&gt; Encoding
+[ThreatIntelIndicatorType] -&gt; Value
+ThreatIntelIndicatorType -&gt; Encoding
+ThreatIntelIndicatorType -&gt; Value
+(ThreatIntelIndicatorType -&gt; Value)
+-&gt; (ThreatIntelIndicatorType -&gt; Encoding)
+-&gt; ([ThreatIntelIndicatorType] -&gt; Value)
+-&gt; ([ThreatIntelIndicatorType] -&gt; Encoding)
+-&gt; ToJSON ThreatIntelIndicatorType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ThreatIntelIndicatorType] -&gt; Encoding
+$ctoEncodingList :: [ThreatIntelIndicatorType] -&gt; Encoding
+toJSONList :: [ThreatIntelIndicatorType] -&gt; Value
+$ctoJSONList :: [ThreatIntelIndicatorType] -&gt; Value
+toEncoding :: ThreatIntelIndicatorType -&gt; Encoding
+$ctoEncoding :: ThreatIntelIndicatorType -&gt; Encoding
+toJSON :: ThreatIntelIndicatorType -&gt; Value
+$ctoJSON :: ThreatIntelIndicatorType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679989615"><span id="local-6989586621679989617"><span class="annot"><span class="annottext">ToJSONKeyFunction [ThreatIntelIndicatorType]
+ToJSONKeyFunction ThreatIntelIndicatorType
+ToJSONKeyFunction ThreatIntelIndicatorType
+-&gt; ToJSONKeyFunction [ThreatIntelIndicatorType]
+-&gt; ToJSONKey ThreatIntelIndicatorType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ThreatIntelIndicatorType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ThreatIntelIndicatorType]
+toJSONKey :: ToJSONKeyFunction ThreatIntelIndicatorType
+$ctoJSONKey :: ToJSONKeyFunction ThreatIntelIndicatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679989612"><span class="annot"><span class="annottext">[Node] -&gt; Either String ThreatIntelIndicatorType
+([Node] -&gt; Either String ThreatIntelIndicatorType)
+-&gt; FromXML ThreatIntelIndicatorType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ThreatIntelIndicatorType
+$cparseXML :: [Node] -&gt; Either String ThreatIntelIndicatorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679989609"><span class="annot"><span class="annottext">ThreatIntelIndicatorType -&gt; XML
+(ThreatIntelIndicatorType -&gt; XML) -&gt; ToXML ThreatIntelIndicatorType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ThreatIntelIndicatorType -&gt; XML
+$ctoXML :: ThreatIntelIndicatorType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_DOMAIN"><span class="hs-identifier hs-type">ThreatIntelIndicatorType_DOMAIN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType"><span class="hs-identifier hs-type">ThreatIntelIndicatorType</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThreatIntelIndicatorType_DOMAIN"><span id="%24mThreatIntelIndicatorType_DOMAIN"><span id="ThreatIntelIndicatorType_DOMAIN"><span class="annot"><span class="annottext">$bThreatIntelIndicatorType_DOMAIN :: ThreatIntelIndicatorType
+$mThreatIntelIndicatorType_DOMAIN :: forall r.
+ThreatIntelIndicatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#%24bThreatIntelIndicatorType_DOMAIN"><span class="hs-identifier hs-var hs-var hs-var">ThreatIntelIndicatorType_DOMAIN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType%27"><span class="hs-identifier hs-type">ThreatIntelIndicatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DOMAIN&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_EMAIL_ADDRESS"><span class="hs-identifier hs-type">ThreatIntelIndicatorType_EMAIL_ADDRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType"><span class="hs-identifier hs-type">ThreatIntelIndicatorType</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThreatIntelIndicatorType_EMAIL_ADDRESS"><span id="%24mThreatIntelIndicatorType_EMAIL_ADDRESS"><span id="ThreatIntelIndicatorType_EMAIL_ADDRESS"><span class="annot"><span class="annottext">$bThreatIntelIndicatorType_EMAIL_ADDRESS :: ThreatIntelIndicatorType
+$mThreatIntelIndicatorType_EMAIL_ADDRESS :: forall r.
+ThreatIntelIndicatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#%24bThreatIntelIndicatorType_EMAIL_ADDRESS"><span class="hs-identifier hs-var hs-var hs-var">ThreatIntelIndicatorType_EMAIL_ADDRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType%27"><span class="hs-identifier hs-type">ThreatIntelIndicatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EMAIL_ADDRESS&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_HASH_MD5"><span class="hs-identifier hs-type">ThreatIntelIndicatorType_HASH_MD5</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType"><span class="hs-identifier hs-type">ThreatIntelIndicatorType</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThreatIntelIndicatorType_HASH_MD5"><span id="%24mThreatIntelIndicatorType_HASH_MD5"><span id="ThreatIntelIndicatorType_HASH_MD5"><span class="annot"><span class="annottext">$bThreatIntelIndicatorType_HASH_MD5 :: ThreatIntelIndicatorType
+$mThreatIntelIndicatorType_HASH_MD5 :: forall r.
+ThreatIntelIndicatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#%24bThreatIntelIndicatorType_HASH_MD5"><span class="hs-identifier hs-var hs-var hs-var">ThreatIntelIndicatorType_HASH_MD5</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType%27"><span class="hs-identifier hs-type">ThreatIntelIndicatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HASH_MD5&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_HASH_SHA1"><span class="hs-identifier hs-type">ThreatIntelIndicatorType_HASH_SHA1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType"><span class="hs-identifier hs-type">ThreatIntelIndicatorType</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThreatIntelIndicatorType_HASH_SHA1"><span id="%24mThreatIntelIndicatorType_HASH_SHA1"><span id="ThreatIntelIndicatorType_HASH_SHA1"><span class="annot"><span class="annottext">$bThreatIntelIndicatorType_HASH_SHA1 :: ThreatIntelIndicatorType
+$mThreatIntelIndicatorType_HASH_SHA1 :: forall r.
+ThreatIntelIndicatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#%24bThreatIntelIndicatorType_HASH_SHA1"><span class="hs-identifier hs-var hs-var hs-var">ThreatIntelIndicatorType_HASH_SHA1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType%27"><span class="hs-identifier hs-type">ThreatIntelIndicatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HASH_SHA1&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_HASH_SHA256"><span class="hs-identifier hs-type">ThreatIntelIndicatorType_HASH_SHA256</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType"><span class="hs-identifier hs-type">ThreatIntelIndicatorType</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThreatIntelIndicatorType_HASH_SHA256"><span id="%24mThreatIntelIndicatorType_HASH_SHA256"><span id="ThreatIntelIndicatorType_HASH_SHA256"><span class="annot"><span class="annottext">$bThreatIntelIndicatorType_HASH_SHA256 :: ThreatIntelIndicatorType
+$mThreatIntelIndicatorType_HASH_SHA256 :: forall r.
+ThreatIntelIndicatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#%24bThreatIntelIndicatorType_HASH_SHA256"><span class="hs-identifier hs-var hs-var hs-var">ThreatIntelIndicatorType_HASH_SHA256</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType%27"><span class="hs-identifier hs-type">ThreatIntelIndicatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HASH_SHA256&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_HASH_SHA512"><span class="hs-identifier hs-type">ThreatIntelIndicatorType_HASH_SHA512</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType"><span class="hs-identifier hs-type">ThreatIntelIndicatorType</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThreatIntelIndicatorType_HASH_SHA512"><span id="%24mThreatIntelIndicatorType_HASH_SHA512"><span id="ThreatIntelIndicatorType_HASH_SHA512"><span class="annot"><span class="annottext">$bThreatIntelIndicatorType_HASH_SHA512 :: ThreatIntelIndicatorType
+$mThreatIntelIndicatorType_HASH_SHA512 :: forall r.
+ThreatIntelIndicatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#%24bThreatIntelIndicatorType_HASH_SHA512"><span class="hs-identifier hs-var hs-var hs-var">ThreatIntelIndicatorType_HASH_SHA512</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType%27"><span class="hs-identifier hs-type">ThreatIntelIndicatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HASH_SHA512&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_IPV4_ADDRESS"><span class="hs-identifier hs-type">ThreatIntelIndicatorType_IPV4_ADDRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType"><span class="hs-identifier hs-type">ThreatIntelIndicatorType</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThreatIntelIndicatorType_IPV4_ADDRESS"><span id="%24mThreatIntelIndicatorType_IPV4_ADDRESS"><span id="ThreatIntelIndicatorType_IPV4_ADDRESS"><span class="annot"><span class="annottext">$bThreatIntelIndicatorType_IPV4_ADDRESS :: ThreatIntelIndicatorType
+$mThreatIntelIndicatorType_IPV4_ADDRESS :: forall r.
+ThreatIntelIndicatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#%24bThreatIntelIndicatorType_IPV4_ADDRESS"><span class="hs-identifier hs-var hs-var hs-var">ThreatIntelIndicatorType_IPV4_ADDRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType%27"><span class="hs-identifier hs-type">ThreatIntelIndicatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IPV4_ADDRESS&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_IPV6_ADDRESS"><span class="hs-identifier hs-type">ThreatIntelIndicatorType_IPV6_ADDRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType"><span class="hs-identifier hs-type">ThreatIntelIndicatorType</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThreatIntelIndicatorType_IPV6_ADDRESS"><span id="%24mThreatIntelIndicatorType_IPV6_ADDRESS"><span id="ThreatIntelIndicatorType_IPV6_ADDRESS"><span class="annot"><span class="annottext">$bThreatIntelIndicatorType_IPV6_ADDRESS :: ThreatIntelIndicatorType
+$mThreatIntelIndicatorType_IPV6_ADDRESS :: forall r.
+ThreatIntelIndicatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#%24bThreatIntelIndicatorType_IPV6_ADDRESS"><span class="hs-identifier hs-var hs-var hs-var">ThreatIntelIndicatorType_IPV6_ADDRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType%27"><span class="hs-identifier hs-type">ThreatIntelIndicatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IPV6_ADDRESS&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_MUTEX"><span class="hs-identifier hs-type">ThreatIntelIndicatorType_MUTEX</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType"><span class="hs-identifier hs-type">ThreatIntelIndicatorType</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThreatIntelIndicatorType_MUTEX"><span id="%24mThreatIntelIndicatorType_MUTEX"><span id="ThreatIntelIndicatorType_MUTEX"><span class="annot"><span class="annottext">$bThreatIntelIndicatorType_MUTEX :: ThreatIntelIndicatorType
+$mThreatIntelIndicatorType_MUTEX :: forall r.
+ThreatIntelIndicatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#%24bThreatIntelIndicatorType_MUTEX"><span class="hs-identifier hs-var hs-var hs-var">ThreatIntelIndicatorType_MUTEX</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType%27"><span class="hs-identifier hs-type">ThreatIntelIndicatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MUTEX&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_PROCESS"><span class="hs-identifier hs-type">ThreatIntelIndicatorType_PROCESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType"><span class="hs-identifier hs-type">ThreatIntelIndicatorType</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThreatIntelIndicatorType_PROCESS"><span id="%24mThreatIntelIndicatorType_PROCESS"><span id="ThreatIntelIndicatorType_PROCESS"><span class="annot"><span class="annottext">$bThreatIntelIndicatorType_PROCESS :: ThreatIntelIndicatorType
+$mThreatIntelIndicatorType_PROCESS :: forall r.
+ThreatIntelIndicatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#%24bThreatIntelIndicatorType_PROCESS"><span class="hs-identifier hs-var hs-var hs-var">ThreatIntelIndicatorType_PROCESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType%27"><span class="hs-identifier hs-type">ThreatIntelIndicatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROCESS&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_URL"><span class="hs-identifier hs-type">ThreatIntelIndicatorType_URL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType"><span class="hs-identifier hs-type">ThreatIntelIndicatorType</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bThreatIntelIndicatorType_URL"><span id="%24mThreatIntelIndicatorType_URL"><span id="ThreatIntelIndicatorType_URL"><span class="annot"><span class="annottext">$bThreatIntelIndicatorType_URL :: ThreatIntelIndicatorType
+$mThreatIntelIndicatorType_URL :: forall r.
+ThreatIntelIndicatorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#%24bThreatIntelIndicatorType_URL"><span class="hs-identifier hs-var hs-var hs-var">ThreatIntelIndicatorType_URL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType%27"><span class="hs-identifier hs-type">ThreatIntelIndicatorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;URL&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_DOMAIN"><span class="hs-pragma hs-type">ThreatIntelIndicatorType_DOMAIN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_EMAIL_ADDRESS"><span class="hs-pragma hs-type">ThreatIntelIndicatorType_EMAIL_ADDRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_HASH_MD5"><span class="hs-pragma hs-type">ThreatIntelIndicatorType_HASH_MD5</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_HASH_SHA1"><span class="hs-pragma hs-type">ThreatIntelIndicatorType_HASH_SHA1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_HASH_SHA256"><span class="hs-pragma hs-type">ThreatIntelIndicatorType_HASH_SHA256</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_HASH_SHA512"><span class="hs-pragma hs-type">ThreatIntelIndicatorType_HASH_SHA512</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_IPV4_ADDRESS"><span class="hs-pragma hs-type">ThreatIntelIndicatorType_IPV4_ADDRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_IPV6_ADDRESS"><span class="hs-pragma hs-type">ThreatIntelIndicatorType_IPV6_ADDRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_MUTEX"><span class="hs-pragma hs-type">ThreatIntelIndicatorType_MUTEX</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_PROCESS"><span class="hs-pragma hs-type">ThreatIntelIndicatorType_PROCESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType_URL"><span class="hs-pragma hs-type">ThreatIntelIndicatorType_URL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType%27"><span class="hs-pragma hs-type">ThreatIntelIndicatorType'</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-116"></span></pre></body></html>

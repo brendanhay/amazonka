@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Amazon S3.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newS3EncryptionSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680004730"><span id="local-6989586621680004731"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3EncryptionSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-var">S3EncryptionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3EncryptionSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings%27"><span class="hs-identifier hs-var">S3EncryptionSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680004739"><span id="local-6989586621680004740"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3EncryptionSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-var">S3EncryptionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3EncryptionSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings%27"><span class="hs-identifier hs-var">S3EncryptionSettings'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify how you want your data keys managed. AWS uses data keys to</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- encrypt your content. AWS also encrypts the data keys themselves, using</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- a customer master key (CMK), and then stores the encrypted data keys</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AkmsEncryptionContext%3AS3EncryptionSettings%27"><span class="annot"><span class="annottext">S3EncryptionSettings -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#%24sel%3AkmsEncryptionContext%3AS3EncryptionSettings%27"><span class="hs-identifier hs-var hs-var">kmsEncryptionContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680004722"><span id="local-6989586621680004724"><span class="annot"><span class="annottext">S3EncryptionSettings -&gt; S3EncryptionSettings -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680004731"><span id="local-6989586621680004733"><span class="annot"><span class="annottext">S3EncryptionSettings -&gt; S3EncryptionSettings -&gt; Bool
 (S3EncryptionSettings -&gt; S3EncryptionSettings -&gt; Bool)
 -&gt; (S3EncryptionSettings -&gt; S3EncryptionSettings -&gt; Bool)
 -&gt; Eq S3EncryptionSettings
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3EncryptionSettings -&gt; S3EncryptionSettings -&gt; Bool
 == :: S3EncryptionSettings -&gt; S3EncryptionSettings -&gt; Bool
 $c== :: S3EncryptionSettings -&gt; S3EncryptionSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680004713"><span id="local-6989586621680004715"><span id="local-6989586621680004717"><span id="local-6989586621680004719"><span class="annot"><span class="annottext">ReadPrec [S3EncryptionSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680004722"><span id="local-6989586621680004724"><span id="local-6989586621680004726"><span id="local-6989586621680004728"><span class="annot"><span class="annottext">ReadPrec [S3EncryptionSettings]
 ReadPrec S3EncryptionSettings
 Int -&gt; ReadS S3EncryptionSettings
 ReadS [S3EncryptionSettings]
@@ -93,7 +93,7 @@ readList :: ReadS [S3EncryptionSettings]
 $creadList :: ReadS [S3EncryptionSettings]
 readsPrec :: Int -&gt; ReadS S3EncryptionSettings
 $creadsPrec :: Int -&gt; ReadS S3EncryptionSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680004706"><span id="local-6989586621680004708"><span id="local-6989586621680004710"><span class="annot"><span class="annottext">Int -&gt; S3EncryptionSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680004715"><span id="local-6989586621680004717"><span id="local-6989586621680004719"><span class="annot"><span class="annottext">Int -&gt; S3EncryptionSettings -&gt; ShowS
 [S3EncryptionSettings] -&gt; ShowS
 S3EncryptionSettings -&gt; String
 (Int -&gt; S3EncryptionSettings -&gt; ShowS)
@@ -204,16 +204,16 @@ forall a. Maybe a
      (Maybe S3ServerSideEncryptionType)
      (Maybe S3ServerSideEncryptionType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings%27"><span class="hs-identifier hs-type">S3EncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680004697"><span class="annot"><span class="annottext">Maybe S3ServerSideEncryptionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings%27"><span class="hs-identifier hs-type">S3EncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680004706"><span class="annot"><span class="annottext">Maybe S3ServerSideEncryptionType
 encryptionType :: Maybe S3ServerSideEncryptionType
 $sel:encryptionType:S3EncryptionSettings' :: S3EncryptionSettings -&gt; Maybe S3ServerSideEncryptionType
-</span><a href="#local-6989586621680004697"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3ServerSideEncryptionType
-</span><a href="#local-6989586621680004697"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680004696"><span class="annot"><span class="annottext">s :: S3EncryptionSettings
-</span><a href="#local-6989586621680004696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings%27"><span class="hs-identifier hs-type">S3EncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680004695"><span class="annot"><span class="annottext">Maybe S3ServerSideEncryptionType
-</span><a href="#local-6989586621680004695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3EncryptionSettings
-</span><a href="#local-6989586621680004696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionType:S3EncryptionSettings' :: Maybe S3ServerSideEncryptionType
+</span><a href="#local-6989586621680004706"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3ServerSideEncryptionType
+</span><a href="#local-6989586621680004706"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680004705"><span class="annot"><span class="annottext">s :: S3EncryptionSettings
+</span><a href="#local-6989586621680004705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings%27"><span class="hs-identifier hs-type">S3EncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680004704"><span class="annot"><span class="annottext">Maybe S3ServerSideEncryptionType
+</span><a href="#local-6989586621680004704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3EncryptionSettings
+</span><a href="#local-6989586621680004705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionType:S3EncryptionSettings' :: Maybe S3ServerSideEncryptionType
 </span><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#%24sel%3AencryptionType%3AS3EncryptionSettings%27"><span class="hs-identifier hs-var">encryptionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3ServerSideEncryptionType
-</span><a href="#local-6989586621680004695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680004704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | Optionally, specify the customer master key (CMK) that you want to use</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- to encrypt the data key that AWS uses to encrypt your output content.</span><span>
@@ -230,16 +230,16 @@ $sel:encryptionType:S3EncryptionSettings' :: S3EncryptionSettings -&gt; Maybe S3
 -&gt; Lens
      S3EncryptionSettings S3EncryptionSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings%27"><span class="hs-identifier hs-type">S3EncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680004693"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings%27"><span class="hs-identifier hs-type">S3EncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680004702"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyArn :: Maybe Text
 $sel:kmsKeyArn:S3EncryptionSettings' :: S3EncryptionSettings -&gt; Maybe Text
-</span><a href="#local-6989586621680004693"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680004693"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680004692"><span class="annot"><span class="annottext">s :: S3EncryptionSettings
-</span><a href="#local-6989586621680004692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings%27"><span class="hs-identifier hs-type">S3EncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680004691"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680004691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3EncryptionSettings
-</span><a href="#local-6989586621680004692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:S3EncryptionSettings' :: Maybe Text
+</span><a href="#local-6989586621680004702"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680004702"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680004701"><span class="annot"><span class="annottext">s :: S3EncryptionSettings
+</span><a href="#local-6989586621680004701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings%27"><span class="hs-identifier hs-type">S3EncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680004700"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680004700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3EncryptionSettings
+</span><a href="#local-6989586621680004701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:S3EncryptionSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#%24sel%3AkmsKeyArn%3AS3EncryptionSettings%27"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680004691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680004700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | Optionally, specify the encryption context that you want to use</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- alongside your KMS key. AWS KMS uses this encryption context as</span><span>
@@ -258,19 +258,19 @@ $sel:kmsKeyArn:S3EncryptionSettings' :: S3EncryptionSettings -&gt; Maybe Text
 -&gt; Lens
      S3EncryptionSettings S3EncryptionSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings%27"><span class="hs-identifier hs-type">S3EncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680004689"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings%27"><span class="hs-identifier hs-type">S3EncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680004698"><span class="annot"><span class="annottext">Maybe Text
 kmsEncryptionContext :: Maybe Text
 $sel:kmsEncryptionContext:S3EncryptionSettings' :: S3EncryptionSettings -&gt; Maybe Text
-</span><a href="#local-6989586621680004689"><span class="hs-identifier hs-var hs-var">kmsEncryptionContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680004689"><span class="hs-identifier hs-var">kmsEncryptionContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680004688"><span class="annot"><span class="annottext">s :: S3EncryptionSettings
-</span><a href="#local-6989586621680004688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings%27"><span class="hs-identifier hs-type">S3EncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680004687"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680004687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3EncryptionSettings
-</span><a href="#local-6989586621680004688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsEncryptionContext:S3EncryptionSettings' :: Maybe Text
+</span><a href="#local-6989586621680004698"><span class="hs-identifier hs-var hs-var">kmsEncryptionContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680004698"><span class="hs-identifier hs-var">kmsEncryptionContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680004697"><span class="annot"><span class="annottext">s :: S3EncryptionSettings
+</span><a href="#local-6989586621680004697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings%27"><span class="hs-identifier hs-type">S3EncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680004696"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680004696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3EncryptionSettings
+</span><a href="#local-6989586621680004697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsEncryptionContext:S3EncryptionSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#%24sel%3AkmsEncryptionContext%3AS3EncryptionSettings%27"><span class="hs-identifier hs-var">kmsEncryptionContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680004687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680004696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680004684"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621680004682"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3EncryptionSettings
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680004693"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621680004691"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3EncryptionSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser S3EncryptionSettings)
@@ -280,8 +280,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;S3EncryptionSettings&quot;</span></span><span>
-</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680004679"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680004679"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680004688"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680004688"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe S3ServerSideEncryptionType
 -&gt; Maybe Text -&gt; Maybe Text -&gt; S3EncryptionSettings
 </span><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings%27"><span class="hs-identifier hs-var">S3EncryptionSettings'</span></a></span><span>
@@ -291,7 +291,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; S3EncryptionSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680004679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3ServerSideEncryptionType)
+</span><a href="#local-6989586621680004688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3ServerSideEncryptionType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;encryptionType&quot;</span></span><span class="hs-special">)</span><span>
@@ -300,7 +300,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; S3EncryptionSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680004679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680004688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kmsKeyArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -308,19 +308,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser S3EncryptionSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680004679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680004688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kmsEncryptionContext&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680004673"><span id="local-6989586621680004675"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680004682"><span id="local-6989586621680004684"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span></span></span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680004670"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680004679"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span></span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680004662"><span id="local-6989586621680004664"><span id="local-6989586621680004666"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621680004660"><span class="annot"><span class="annottext">toJSON :: S3EncryptionSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings%27"><span class="hs-identifier hs-type">S3EncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680004656"><span id="local-6989586621680004657"><span id="local-6989586621680004658"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680004671"><span id="local-6989586621680004673"><span id="local-6989586621680004675"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621680004669"><span class="annot"><span class="annottext">toJSON :: S3EncryptionSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings%27"><span class="hs-identifier hs-type">S3EncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680004665"><span id="local-6989586621680004666"><span id="local-6989586621680004667"><span class="annot"><span class="annottext">Maybe Text
 Maybe S3ServerSideEncryptionType
 kmsEncryptionContext :: Maybe Text
 kmsKeyArn :: Maybe Text
@@ -328,7 +328,7 @@ encryptionType :: Maybe S3ServerSideEncryptionType
 $sel:kmsEncryptionContext:S3EncryptionSettings' :: S3EncryptionSettings -&gt; Maybe Text
 $sel:kmsKeyArn:S3EncryptionSettings' :: S3EncryptionSettings -&gt; Maybe Text
 $sel:encryptionType:S3EncryptionSettings' :: S3EncryptionSettings -&gt; Maybe S3ServerSideEncryptionType
-</span><a href="#local-6989586621680004656"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680004665"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -342,14 +342,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe S3ServerSideEncryptionType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3ServerSideEncryptionType
-</span><a href="#local-6989586621680004658"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680004667"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kmsKeyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680004657"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680004666"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kmsEncryptionContext&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -357,7 +357,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680004656"><span class="hs-identifier hs-var">kmsEncryptionContext</span></a></span><span>
+</span><a href="#local-6989586621680004665"><span class="hs-identifier hs-var">kmsEncryptionContext</span></a></span><span>
 </span><span id="line-175"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span></pre></body></html>

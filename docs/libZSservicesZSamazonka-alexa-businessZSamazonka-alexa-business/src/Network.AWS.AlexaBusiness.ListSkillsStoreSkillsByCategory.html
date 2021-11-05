@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListSkillsStoreSkillsByCategory' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679381763"><span id="local-6989586621679381764"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSkillsStoreSkillsByCategory"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-var">ListSkillsStoreSkillsByCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSkillsStoreSkillsByCategory%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-var">ListSkillsStoreSkillsByCategory'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679381772"><span id="local-6989586621679381773"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSkillsStoreSkillsByCategory"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-var">ListSkillsStoreSkillsByCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSkillsStoreSkillsByCategory%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-var">ListSkillsStoreSkillsByCategory'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tokens used for pagination.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3AListSkillsStoreSkillsByCategory%27"><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategory -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#%24sel%3AnextToken%3AListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AcategoryId%3AListSkillsStoreSkillsByCategory%27"><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategory -&gt; Natural
 </span><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#%24sel%3AcategoryId%3AListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-var hs-var">categoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381755"><span id="local-6989586621679381757"><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategory
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381764"><span id="local-6989586621679381766"><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategory
 -&gt; ListSkillsStoreSkillsByCategory -&gt; Bool
 (ListSkillsStoreSkillsByCategory
  -&gt; ListSkillsStoreSkillsByCategory -&gt; Bool)
@@ -80,7 +80,7 @@ $c/= :: ListSkillsStoreSkillsByCategory
 -&gt; ListSkillsStoreSkillsByCategory -&gt; Bool
 $c== :: ListSkillsStoreSkillsByCategory
 -&gt; ListSkillsStoreSkillsByCategory -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381746"><span id="local-6989586621679381748"><span id="local-6989586621679381750"><span id="local-6989586621679381752"><span class="annot"><span class="annottext">ReadPrec [ListSkillsStoreSkillsByCategory]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381755"><span id="local-6989586621679381757"><span id="local-6989586621679381759"><span id="local-6989586621679381761"><span class="annot"><span class="annottext">ReadPrec [ListSkillsStoreSkillsByCategory]
 ReadPrec ListSkillsStoreSkillsByCategory
 Int -&gt; ReadS ListSkillsStoreSkillsByCategory
 ReadS [ListSkillsStoreSkillsByCategory]
@@ -100,7 +100,7 @@ readList :: ReadS [ListSkillsStoreSkillsByCategory]
 $creadList :: ReadS [ListSkillsStoreSkillsByCategory]
 readsPrec :: Int -&gt; ReadS ListSkillsStoreSkillsByCategory
 $creadsPrec :: Int -&gt; ReadS ListSkillsStoreSkillsByCategory
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381739"><span id="local-6989586621679381741"><span id="local-6989586621679381743"><span class="annot"><span class="annottext">Int -&gt; ListSkillsStoreSkillsByCategory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381748"><span id="local-6989586621679381750"><span id="local-6989586621679381752"><span class="annot"><span class="annottext">Int -&gt; ListSkillsStoreSkillsByCategory -&gt; ShowS
 [ListSkillsStoreSkillsByCategory] -&gt; ShowS
 ListSkillsStoreSkillsByCategory -&gt; String
 (Int -&gt; ListSkillsStoreSkillsByCategory -&gt; ShowS)
@@ -157,8 +157,8 @@ ListSkillsStoreSkillsByCategory
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory</span></a></span><span>
 </span><span id="line-84"></span><span id="newListSkillsStoreSkillsByCategory"><span class="annot"><span class="annottext">newListSkillsStoreSkillsByCategory :: Natural -&gt; ListSkillsStoreSkillsByCategory
-</span><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#newListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-var hs-var">newListSkillsStoreSkillsByCategory</span></a></span></span><span> </span><span id="local-6989586621679381734"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679381734"><span class="hs-identifier hs-var">pCategoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#newListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-var hs-var">newListSkillsStoreSkillsByCategory</span></a></span></span><span> </span><span id="local-6989586621679381743"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679381743"><span class="hs-identifier hs-var">pCategoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategory' :: Maybe Text
 -&gt; Maybe Natural -&gt; Natural -&gt; ListSkillsStoreSkillsByCategory
 </span><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory'</span></a></span><span>
@@ -173,7 +173,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:categoryId:ListSkillsStoreSkillsByCategory' :: Natural
 </span><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#%24sel%3AcategoryId%3AListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-var">categoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679381734"><span class="hs-identifier hs-var">pCategoryId_</span></a></span><span>
+</span><a href="#local-6989586621679381743"><span class="hs-identifier hs-var">pCategoryId_</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The tokens used for pagination.</span><span>
@@ -190,16 +190,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381732"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381741"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListSkillsStoreSkillsByCategory' :: ListSkillsStoreSkillsByCategory -&gt; Maybe Text
-</span><a href="#local-6989586621679381732"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381732"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381731"><span class="annot"><span class="annottext">s :: ListSkillsStoreSkillsByCategory
-</span><a href="#local-6989586621679381731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381730"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategory
-</span><a href="#local-6989586621679381731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSkillsStoreSkillsByCategory' :: Maybe Text
+</span><a href="#local-6989586621679381741"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381741"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381740"><span class="annot"><span class="annottext">s :: ListSkillsStoreSkillsByCategory
+</span><a href="#local-6989586621679381740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381739"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategory
+</span><a href="#local-6989586621679381740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSkillsStoreSkillsByCategory' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#%24sel%3AnextToken%3AListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The maximum number of skills returned per paginated calls.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#listSkillsStoreSkillsByCategory_maxResults"><span class="hs-identifier hs-type">listSkillsStoreSkillsByCategory_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -215,16 +215,16 @@ $sel:nextToken:ListSkillsStoreSkillsByCategory' :: ListSkillsStoreSkillsByCatego
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381729"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381738"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListSkillsStoreSkillsByCategory' :: ListSkillsStoreSkillsByCategory -&gt; Maybe Natural
-</span><a href="#local-6989586621679381729"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679381729"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381728"><span class="annot"><span class="annottext">s :: ListSkillsStoreSkillsByCategory
-</span><a href="#local-6989586621679381728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381727"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679381727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategory
-</span><a href="#local-6989586621679381728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListSkillsStoreSkillsByCategory' :: Maybe Natural
+</span><a href="#local-6989586621679381738"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381738"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381737"><span class="annot"><span class="annottext">s :: ListSkillsStoreSkillsByCategory
+</span><a href="#local-6989586621679381737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381736"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategory
+</span><a href="#local-6989586621679381737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListSkillsStoreSkillsByCategory' :: Maybe Natural
 </span><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#%24sel%3AmaxResults%3AListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679381727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The category ID for which the skills are being retrieved from the skill</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- store.</span><span>
@@ -241,33 +241,33 @@ $sel:maxResults:ListSkillsStoreSkillsByCategory' :: ListSkillsStoreSkillsByCateg
      Natural
      Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381726"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381735"><span class="annot"><span class="annottext">Natural
 categoryId :: Natural
 $sel:categoryId:ListSkillsStoreSkillsByCategory' :: ListSkillsStoreSkillsByCategory -&gt; Natural
-</span><a href="#local-6989586621679381726"><span class="hs-identifier hs-var hs-var">categoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679381726"><span class="hs-identifier hs-var">categoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381725"><span class="annot"><span class="annottext">s :: ListSkillsStoreSkillsByCategory
-</span><a href="#local-6989586621679381725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381724"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679381724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategory
-</span><a href="#local-6989586621679381725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:categoryId:ListSkillsStoreSkillsByCategory' :: Natural
+</span><a href="#local-6989586621679381735"><span class="hs-identifier hs-var hs-var">categoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679381735"><span class="hs-identifier hs-var">categoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381734"><span class="annot"><span class="annottext">s :: ListSkillsStoreSkillsByCategory
+</span><a href="#local-6989586621679381734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381733"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679381733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategory
+</span><a href="#local-6989586621679381734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:categoryId:ListSkillsStoreSkillsByCategory' :: Natural
 </span><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#%24sel%3AcategoryId%3AListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-var">categoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679381724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory</span></a></span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679381720"><span class="annot"><span class="annottext">page :: ListSkillsStoreSkillsByCategory
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679381729"><span class="annot"><span class="annottext">page :: ListSkillsStoreSkillsByCategory
 -&gt; AWSResponse ListSkillsStoreSkillsByCategory
 -&gt; Maybe ListSkillsStoreSkillsByCategory
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679381718"><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategory
-</span><a href="#local-6989586621679381718"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679381717"><span class="annot"><span class="annottext">AWSResponse ListSkillsStoreSkillsByCategory
-</span><a href="#local-6989586621679381717"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679381727"><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategory
+</span><a href="#local-6989586621679381727"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679381726"><span class="annot"><span class="annottext">AWSResponse ListSkillsStoreSkillsByCategory
+</span><a href="#local-6989586621679381726"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-111"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSkillsStoreSkillsByCategory
 ListSkillsStoreSkillsByCategoryResponse
-</span><a href="#local-6989586621679381717"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679381726"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategoryResponse
 -&gt; Getting
      (First Text) ListSkillsStoreSkillsByCategoryResponse Text
@@ -299,7 +299,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-117"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSkillsStoreSkillsByCategory
 ListSkillsStoreSkillsByCategoryResponse
-</span><a href="#local-6989586621679381717"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679381726"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategoryResponse
 -&gt; Getting
      (First [SkillsStoreSkill])
@@ -351,7 +351,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategory
-</span><a href="#local-6989586621679381718"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679381727"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategory
 -&gt; (ListSkillsStoreSkillsByCategory
     -&gt; ListSkillsStoreSkillsByCategory)
@@ -375,7 +375,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSkillsStoreSkillsByCategory
 ListSkillsStoreSkillsByCategoryResponse
-</span><a href="#local-6989586621679381717"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679381726"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategoryResponse
 -&gt; Getting
      (First Text) ListSkillsStoreSkillsByCategoryResponse Text
@@ -406,7 +406,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679381707"><span class="annot"><span class="annottext">request :: ListSkillsStoreSkillsByCategory
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679381716"><span class="annot"><span class="annottext">request :: ListSkillsStoreSkillsByCategory
 -&gt; Request ListSkillsStoreSkillsByCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListSkillsStoreSkillsByCategory
@@ -414,7 +414,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679381703"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679381712"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListSkillsStoreSkillsByCategory
 -&gt; ClientResponse ClientBody
@@ -442,10 +442,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381700"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381700"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679381699"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679381699"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679381698"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381698"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381709"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381709"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679381708"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679381708"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679381707"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381707"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [SkillsStoreSkill]
 -&gt; Int
@@ -462,7 +462,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; ListSkillsStoreSkillsByCategoryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679381707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -474,7 +474,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListSkillsStoreSkillsByCategoryResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SkillsStoreSkill]))
+</span><a href="#local-6989586621679381707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SkillsStoreSkill]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SkillsStoreSkills&quot;</span></span><span>
@@ -495,22 +495,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381700"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381709"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679381689"><span id="local-6989586621679381691"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679381698"><span id="local-6989586621679381700"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679381686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679381695"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory</span></a></span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory</span></a></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679381682"><span class="annot"><span class="annottext">toHeaders :: ListSkillsStoreSkillsByCategory -&gt; ResponseHeaders
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679381691"><span class="annot"><span class="annottext">toHeaders :: ListSkillsStoreSkillsByCategory -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; ListSkillsStoreSkillsByCategory -&gt; ResponseHeaders
@@ -538,9 +538,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381672"><span id="local-6989586621679381674"><span id="local-6989586621679381676"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679381670"><span class="annot"><span class="annottext">toJSON :: ListSkillsStoreSkillsByCategory -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381666"><span id="local-6989586621679381667"><span id="local-6989586621679381668"><span class="annot"><span class="annottext">Natural
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381681"><span id="local-6989586621679381683"><span id="local-6989586621679381685"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679381679"><span class="annot"><span class="annottext">toJSON :: ListSkillsStoreSkillsByCategory -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381675"><span id="local-6989586621679381676"><span id="local-6989586621679381677"><span class="annot"><span class="annottext">Natural
 Maybe Natural
 Maybe Text
 categoryId :: Natural
@@ -549,7 +549,7 @@ nextToken :: Maybe Text
 $sel:categoryId:ListSkillsStoreSkillsByCategory' :: ListSkillsStoreSkillsByCategory -&gt; Natural
 $sel:maxResults:ListSkillsStoreSkillsByCategory' :: ListSkillsStoreSkillsByCategory -&gt; Maybe Natural
 $sel:nextToken:ListSkillsStoreSkillsByCategory' :: ListSkillsStoreSkillsByCategory -&gt; Maybe Text
-</span><a href="#local-6989586621679381666"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679381675"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -561,33 +561,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381668"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679381677"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679381667"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679381676"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CategoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679381666"><span class="hs-identifier hs-var">categoryId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381675"><span class="hs-identifier hs-var">categoryId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679381660"><span class="annot"><span class="annottext">toPath :: ListSkillsStoreSkillsByCategory -&gt; ByteString
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679381669"><span class="annot"><span class="annottext">toPath :: ListSkillsStoreSkillsByCategory -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListSkillsStoreSkillsByCategory -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategory"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679381656"><span class="annot"><span class="annottext">toQuery :: ListSkillsStoreSkillsByCategory -&gt; QueryString
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679381665"><span class="annot"><span class="annottext">toQuery :: ListSkillsStoreSkillsByCategory -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListSkillsStoreSkillsByCategory -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -595,7 +595,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | /See:/ 'newListSkillsStoreSkillsByCategoryResponse' smart constructor.</span><span>
-</span><span id="line-192"></span><span id="local-6989586621679381653"><span id="local-6989586621679381654"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSkillsStoreSkillsByCategoryResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse"><span class="hs-identifier hs-var">ListSkillsStoreSkillsByCategoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSkillsStoreSkillsByCategoryResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-var">ListSkillsStoreSkillsByCategoryResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span id="local-6989586621679381662"><span id="local-6989586621679381663"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSkillsStoreSkillsByCategoryResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse"><span class="hs-identifier hs-var">ListSkillsStoreSkillsByCategoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSkillsStoreSkillsByCategoryResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-var">ListSkillsStoreSkillsByCategoryResponse'</span></a></span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tokens used for pagination.</span><span>
 </span><span id="line-194"></span><span>    </span><span id="%24sel%3AnextToken%3AListSkillsStoreSkillsByCategoryResponse%27"><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategoryResponse -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#%24sel%3AnextToken%3AListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -606,7 +606,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-198"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListSkillsStoreSkillsByCategoryResponse%27"><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategoryResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#%24sel%3AhttpStatus%3AListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381646"><span id="local-6989586621679381648"><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategoryResponse
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381655"><span id="local-6989586621679381657"><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategoryResponse
 -&gt; ListSkillsStoreSkillsByCategoryResponse -&gt; Bool
 (ListSkillsStoreSkillsByCategoryResponse
  -&gt; ListSkillsStoreSkillsByCategoryResponse -&gt; Bool)
@@ -622,7 +622,7 @@ $c/= :: ListSkillsStoreSkillsByCategoryResponse
 -&gt; ListSkillsStoreSkillsByCategoryResponse -&gt; Bool
 $c== :: ListSkillsStoreSkillsByCategoryResponse
 -&gt; ListSkillsStoreSkillsByCategoryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381638"><span id="local-6989586621679381640"><span id="local-6989586621679381642"><span id="local-6989586621679381644"><span class="annot"><span class="annottext">ReadPrec [ListSkillsStoreSkillsByCategoryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381647"><span id="local-6989586621679381649"><span id="local-6989586621679381651"><span id="local-6989586621679381653"><span class="annot"><span class="annottext">ReadPrec [ListSkillsStoreSkillsByCategoryResponse]
 ReadPrec ListSkillsStoreSkillsByCategoryResponse
 Int -&gt; ReadS ListSkillsStoreSkillsByCategoryResponse
 ReadS [ListSkillsStoreSkillsByCategoryResponse]
@@ -642,7 +642,7 @@ readList :: ReadS [ListSkillsStoreSkillsByCategoryResponse]
 $creadList :: ReadS [ListSkillsStoreSkillsByCategoryResponse]
 readsPrec :: Int -&gt; ReadS ListSkillsStoreSkillsByCategoryResponse
 $creadsPrec :: Int -&gt; ReadS ListSkillsStoreSkillsByCategoryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381632"><span id="local-6989586621679381634"><span id="local-6989586621679381636"><span class="annot"><span class="annottext">Int -&gt; ListSkillsStoreSkillsByCategoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381641"><span id="local-6989586621679381643"><span id="local-6989586621679381645"><span class="annot"><span class="annottext">Int -&gt; ListSkillsStoreSkillsByCategoryResponse -&gt; ShowS
 [ListSkillsStoreSkillsByCategoryResponse] -&gt; ShowS
 ListSkillsStoreSkillsByCategoryResponse -&gt; String
 (Int -&gt; ListSkillsStoreSkillsByCategoryResponse -&gt; ShowS)
@@ -699,8 +699,8 @@ ListSkillsStoreSkillsByCategoryResponse
 </span><span id="line-218"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse</span></a></span><span>
 </span><span id="line-219"></span><span id="newListSkillsStoreSkillsByCategoryResponse"><span class="annot"><span class="annottext">newListSkillsStoreSkillsByCategoryResponse :: Int -&gt; ListSkillsStoreSkillsByCategoryResponse
 </span><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#newListSkillsStoreSkillsByCategoryResponse"><span class="hs-identifier hs-var hs-var">newListSkillsStoreSkillsByCategoryResponse</span></a></span></span><span>
-</span><span id="line-220"></span><span>  </span><span id="local-6989586621679381629"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381629"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679381638"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381638"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategoryResponse' :: Maybe Text
 -&gt; Maybe [SkillsStoreSkill]
 -&gt; Int
@@ -718,7 +718,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListSkillsStoreSkillsByCategoryResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#%24sel%3AhttpStatus%3AListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381629"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679381638"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-227"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | The tokens used for pagination.</span><span>
@@ -731,16 +731,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListSkillsStoreSkillsByCategoryResponse)
 -&gt; Lens' ListSkillsStoreSkillsByCategoryResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381628"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381637"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListSkillsStoreSkillsByCategoryResponse' :: ListSkillsStoreSkillsByCategoryResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679381628"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381628"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381627"><span class="annot"><span class="annottext">s :: ListSkillsStoreSkillsByCategoryResponse
-</span><a href="#local-6989586621679381627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381626"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategoryResponse
-</span><a href="#local-6989586621679381627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSkillsStoreSkillsByCategoryResponse' :: Maybe Text
+</span><a href="#local-6989586621679381637"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381637"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381636"><span class="annot"><span class="annottext">s :: ListSkillsStoreSkillsByCategoryResponse
+</span><a href="#local-6989586621679381636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381635"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategoryResponse
+</span><a href="#local-6989586621679381636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSkillsStoreSkillsByCategoryResponse' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#%24sel%3AnextToken%3AListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | The skill store skills.</span><span>
 </span><span id="line-234"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills"><span class="hs-identifier hs-type">listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.SkillsStoreSkill.html#SkillsStoreSkill"><span class="hs-identifier hs-type">SkillsStoreSkill</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -755,16 +755,16 @@ $sel:nextToken:ListSkillsStoreSkillsByCategoryResponse' :: ListSkillsStoreSkills
 -&gt; Lens'
      ListSkillsStoreSkillsByCategoryResponse (Maybe [SkillsStoreSkill])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381625"><span class="annot"><span class="annottext">Maybe [SkillsStoreSkill]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381634"><span class="annot"><span class="annottext">Maybe [SkillsStoreSkill]
 skillsStoreSkills :: Maybe [SkillsStoreSkill]
 $sel:skillsStoreSkills:ListSkillsStoreSkillsByCategoryResponse' :: ListSkillsStoreSkillsByCategoryResponse -&gt; Maybe [SkillsStoreSkill]
-</span><a href="#local-6989586621679381625"><span class="hs-identifier hs-var hs-var">skillsStoreSkills</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SkillsStoreSkill]
-</span><a href="#local-6989586621679381625"><span class="hs-identifier hs-var">skillsStoreSkills</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381624"><span class="annot"><span class="annottext">s :: ListSkillsStoreSkillsByCategoryResponse
-</span><a href="#local-6989586621679381624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381623"><span class="annot"><span class="annottext">Maybe [SkillsStoreSkill]
-</span><a href="#local-6989586621679381623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategoryResponse
-</span><a href="#local-6989586621679381624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skillsStoreSkills:ListSkillsStoreSkillsByCategoryResponse' :: Maybe [SkillsStoreSkill]
+</span><a href="#local-6989586621679381634"><span class="hs-identifier hs-var hs-var">skillsStoreSkills</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SkillsStoreSkill]
+</span><a href="#local-6989586621679381634"><span class="hs-identifier hs-var">skillsStoreSkills</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381633"><span class="annot"><span class="annottext">s :: ListSkillsStoreSkillsByCategoryResponse
+</span><a href="#local-6989586621679381633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381632"><span class="annot"><span class="annottext">Maybe [SkillsStoreSkill]
+</span><a href="#local-6989586621679381632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategoryResponse
+</span><a href="#local-6989586621679381633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skillsStoreSkills:ListSkillsStoreSkillsByCategoryResponse' :: Maybe [SkillsStoreSkill]
 </span><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#%24sel%3AskillsStoreSkills%3AListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-var">skillsStoreSkills</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SkillsStoreSkill]
-</span><a href="#local-6989586621679381623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SkillsStoreSkill] -&gt; f (Maybe [SkillsStoreSkill]))
+</span><a href="#local-6989586621679381632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SkillsStoreSkill] -&gt; f (Maybe [SkillsStoreSkill]))
  -&gt; ListSkillsStoreSkillsByCategoryResponse
  -&gt; f ListSkillsStoreSkillsByCategoryResponse)
 -&gt; ((Maybe [SkillsStoreSkill] -&gt; f (Maybe [SkillsStoreSkill]))
@@ -808,18 +808,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381620"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381629"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListSkillsStoreSkillsByCategoryResponse' :: ListSkillsStoreSkillsByCategoryResponse -&gt; Int
-</span><a href="#local-6989586621679381620"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381620"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381619"><span class="annot"><span class="annottext">s :: ListSkillsStoreSkillsByCategoryResponse
-</span><a href="#local-6989586621679381619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381618"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategoryResponse
-</span><a href="#local-6989586621679381619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSkillsStoreSkillsByCategoryResponse' :: Int
+</span><a href="#local-6989586621679381629"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381629"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381628"><span class="annot"><span class="annottext">s :: ListSkillsStoreSkillsByCategoryResponse
+</span><a href="#local-6989586621679381628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381627"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSkillsStoreSkillsByCategoryResponse
+</span><a href="#local-6989586621679381628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSkillsStoreSkillsByCategoryResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#%24sel%3AhttpStatus%3AListSkillsStoreSkillsByCategoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-242"></span><span>  </span><span id="local-6989586621679381616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679381625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-243"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory.html#ListSkillsStoreSkillsByCategoryResponse"><span class="hs-identifier hs-type">ListSkillsStoreSkillsByCategoryResponse</span></a></span></span><span>
 </span><span id="line-244"></span></pre></body></html>

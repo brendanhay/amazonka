@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | Contains the parameters for AddTags.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newAddTags' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679181113"><span id="local-6989586621679181114"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTags"><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-var">AddTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTags%27"><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags%27"><span class="hs-identifier hs-var">AddTags'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679181122"><span id="local-6989586621679181123"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTags"><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-var">AddTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTags%27"><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags%27"><span class="hs-identifier hs-var">AddTags'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the pipeline.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3ApipelineId%3AAddTags%27"><span class="annot"><span class="annottext">AddTags -&gt; Text
 </span><a href="Network.AWS.DataPipeline.AddTags.html#%24sel%3ApipelineId%3AAddTags%27"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3Atags%3AAddTags%27"><span class="annot"><span class="annottext">AddTags -&gt; [Tag]
 </span><a href="Network.AWS.DataPipeline.AddTags.html#%24sel%3Atags%3AAddTags%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181106"><span id="local-6989586621679181108"><span class="annot"><span class="annottext">AddTags -&gt; AddTags -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181115"><span id="local-6989586621679181117"><span class="annot"><span class="annottext">AddTags -&gt; AddTags -&gt; Bool
 (AddTags -&gt; AddTags -&gt; Bool)
 -&gt; (AddTags -&gt; AddTags -&gt; Bool) -&gt; Eq AddTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddTags -&gt; AddTags -&gt; Bool
 == :: AddTags -&gt; AddTags -&gt; Bool
 $c== :: AddTags -&gt; AddTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181097"><span id="local-6989586621679181099"><span id="local-6989586621679181101"><span id="local-6989586621679181103"><span class="annot"><span class="annottext">ReadPrec [AddTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181106"><span id="local-6989586621679181108"><span id="local-6989586621679181110"><span id="local-6989586621679181112"><span class="annot"><span class="annottext">ReadPrec [AddTags]
 ReadPrec AddTags
 Int -&gt; ReadS AddTags
 ReadS [AddTags]
@@ -85,7 +85,7 @@ readList :: ReadS [AddTags]
 $creadList :: ReadS [AddTags]
 readsPrec :: Int -&gt; ReadS AddTags
 $creadsPrec :: Int -&gt; ReadS AddTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181090"><span id="local-6989586621679181092"><span id="local-6989586621679181094"><span class="annot"><span class="annottext">Int -&gt; AddTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181099"><span id="local-6989586621679181101"><span id="local-6989586621679181103"><span class="annot"><span class="annottext">Int -&gt; AddTags -&gt; ShowS
 [AddTags] -&gt; ShowS
 AddTags -&gt; String
 (Int -&gt; AddTags -&gt; ShowS)
@@ -124,13 +124,13 @@ $cfrom :: forall x. AddTags -&gt; Rep AddTags x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span>
 </span><span id="line-75"></span><span id="newAddTags"><span class="annot"><span class="annottext">newAddTags :: Text -&gt; AddTags
-</span><a href="Network.AWS.DataPipeline.AddTags.html#newAddTags"><span class="hs-identifier hs-var hs-var">newAddTags</span></a></span></span><span> </span><span id="local-6989586621679181085"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181085"><span class="hs-identifier hs-var">pPipelineId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DataPipeline.AddTags.html#newAddTags"><span class="hs-identifier hs-var hs-var">newAddTags</span></a></span></span><span> </span><span id="local-6989586621679181094"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181094"><span class="hs-identifier hs-var">pPipelineId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">AddTags' :: Text -&gt; [Tag] -&gt; AddTags
 </span><a href="Network.AWS.DataPipeline.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pipelineId:AddTags' :: Text
 </span><a href="Network.AWS.DataPipeline.AddTags.html#%24sel%3ApipelineId%3AAddTags%27"><span class="hs-identifier hs-var">pipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181085"><span class="hs-identifier hs-var">pPipelineId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679181094"><span class="hs-identifier hs-var">pPipelineId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:AddTags' :: [Tag]
 </span><a href="Network.AWS.DataPipeline.AddTags.html#%24sel%3Atags%3AAddTags%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
 forall a. Monoid a =&gt; a
@@ -143,16 +143,16 @@ forall a. Monoid a =&gt; a
 </span><a href="Network.AWS.DataPipeline.AddTags.html#addTags_pipelineId"><span class="hs-identifier hs-var hs-var">addTags_pipelineId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddTags -&gt; Text)
 -&gt; (AddTags -&gt; Text -&gt; AddTags) -&gt; Lens AddTags AddTags Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181082"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181091"><span class="annot"><span class="annottext">Text
 pipelineId :: Text
 $sel:pipelineId:AddTags' :: AddTags -&gt; Text
-</span><a href="#local-6989586621679181082"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181082"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181081"><span class="annot"><span class="annottext">s :: AddTags
-</span><a href="#local-6989586621679181081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181080"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTags
-</span><a href="#local-6989586621679181081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineId:AddTags' :: Text
+</span><a href="#local-6989586621679181091"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181091"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181090"><span class="annot"><span class="annottext">s :: AddTags
+</span><a href="#local-6989586621679181090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181089"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTags
+</span><a href="#local-6989586621679181090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineId:AddTags' :: Text
 </span><a href="Network.AWS.DataPipeline.AddTags.html#%24sel%3ApipelineId%3AAddTags%27"><span class="hs-identifier hs-var">pipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679181089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The tags to add, as key\/value pairs.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#addTags_tags"><span class="hs-identifier hs-type">addTags_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
@@ -161,16 +161,16 @@ $sel:pipelineId:AddTags' :: AddTags -&gt; Text
 -&gt; (AddTags -&gt; [Tag] -&gt; AddTags)
 -&gt; Lens AddTags AddTags [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181079"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181088"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:AddTags' :: AddTags -&gt; [Tag]
-</span><a href="#local-6989586621679181079"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679181079"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181078"><span class="annot"><span class="annottext">s :: AddTags
-</span><a href="#local-6989586621679181078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181077"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679181077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTags
-</span><a href="#local-6989586621679181078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AddTags' :: [Tag]
+</span><a href="#local-6989586621679181088"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679181088"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181087"><span class="annot"><span class="annottext">s :: AddTags
+</span><a href="#local-6989586621679181087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181086"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679181086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTags
+</span><a href="#local-6989586621679181087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AddTags' :: [Tag]
 </span><a href="Network.AWS.DataPipeline.AddTags.html#%24sel%3Atags%3AAddTags%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679181077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; AddTags -&gt; f AddTags)
+</span><a href="#local-6989586621679181086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; AddTags -&gt; f AddTags)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
 -&gt; AddTags
@@ -182,12 +182,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679181071"><span class="annot"><span class="annottext">request :: AddTags -&gt; Request AddTags
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679181080"><span class="annot"><span class="annottext">request :: AddTags -&gt; Request AddTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AddTags -&gt; Request AddTags
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DataPipeline.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679181067"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679181076"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AddTags
 -&gt; ClientResponse ClientBody
@@ -209,10 +209,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679181064"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679181064"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679181063"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679181063"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679181062"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679181062"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679181073"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181073"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679181072"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679181072"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679181071"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679181071"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AddTagsResponse
 </span><a href="Network.AWS.DataPipeline.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-var">AddTagsResponse'</span></a></span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AddTagsResponse)
@@ -223,15 +223,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679181064"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679181073"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181055"><span id="local-6989586621679181057"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181064"><span id="local-6989586621679181066"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181052"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679181048"><span class="annot"><span class="annottext">toHeaders :: AddTags -&gt; ResponseHeaders
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679181057"><span class="annot"><span class="annottext">toHeaders :: AddTags -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AddTags -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -256,15 +256,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181038"><span id="local-6989586621679181040"><span id="local-6989586621679181042"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679181036"><span class="annot"><span class="annottext">toJSON :: AddTags -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181033"><span id="local-6989586621679181034"><span class="annot"><span class="annottext">[Tag]
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181047"><span id="local-6989586621679181049"><span id="local-6989586621679181051"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679181045"><span class="annot"><span class="annottext">toJSON :: AddTags -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181042"><span id="local-6989586621679181043"><span class="annot"><span class="annottext">[Tag]
 Text
 tags :: [Tag]
 pipelineId :: Text
 $sel:tags:AddTags' :: AddTags -&gt; [Tag]
 $sel:pipelineId:AddTags' :: AddTags -&gt; Text
-</span><a href="#local-6989586621679181033"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679181042"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -276,26 +276,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;pipelineId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181034"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679181043"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679181033"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679181042"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679181027"><span class="annot"><span class="annottext">toPath :: AddTags -&gt; ByteString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679181036"><span class="annot"><span class="annottext">toPath :: AddTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AddTags -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679181023"><span class="annot"><span class="annottext">toQuery :: AddTags -&gt; QueryString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679181032"><span class="annot"><span class="annottext">toQuery :: AddTags -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AddTags -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -305,12 +305,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-131"></span><span class="hs-comment">-- | Contains the output of AddTags.</span><span>
 </span><span id="line-132"></span><span class="hs-comment">--</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- /See:/ 'newAddTagsResponse' smart constructor.</span><span>
-</span><span id="line-134"></span><span id="local-6989586621679181020"><span id="local-6989586621679181021"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsResponse"><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-var">AddTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsResponse%27"><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-var">AddTagsResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span id="local-6989586621679181029"><span id="local-6989586621679181030"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsResponse"><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-var">AddTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsResponse%27"><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-var">AddTagsResponse'</span></a></span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddTagsResponse%27"><span class="annot"><span class="annottext">AddTagsResponse -&gt; Int
 </span><a href="Network.AWS.DataPipeline.AddTags.html#%24sel%3AhttpStatus%3AAddTagsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181015"><span id="local-6989586621679181017"><span class="annot"><span class="annottext">AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181024"><span id="local-6989586621679181026"><span class="annot"><span class="annottext">AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
 (AddTagsResponse -&gt; AddTagsResponse -&gt; Bool)
 -&gt; (AddTagsResponse -&gt; AddTagsResponse -&gt; Bool)
 -&gt; Eq AddTagsResponse
@@ -319,7 +319,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
 == :: AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
 $c== :: AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181007"><span id="local-6989586621679181009"><span id="local-6989586621679181011"><span id="local-6989586621679181013"><span class="annot"><span class="annottext">ReadPrec [AddTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181016"><span id="local-6989586621679181018"><span id="local-6989586621679181020"><span id="local-6989586621679181022"><span class="annot"><span class="annottext">ReadPrec [AddTagsResponse]
 ReadPrec AddTagsResponse
 Int -&gt; ReadS AddTagsResponse
 ReadS [AddTagsResponse]
@@ -339,7 +339,7 @@ readList :: ReadS [AddTagsResponse]
 $creadList :: ReadS [AddTagsResponse]
 readsPrec :: Int -&gt; ReadS AddTagsResponse
 $creadsPrec :: Int -&gt; ReadS AddTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181001"><span id="local-6989586621679181003"><span id="local-6989586621679181005"><span class="annot"><span class="annottext">Int -&gt; AddTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181010"><span id="local-6989586621679181012"><span id="local-6989586621679181014"><span class="annot"><span class="annottext">Int -&gt; AddTagsResponse -&gt; ShowS
 [AddTagsResponse] -&gt; ShowS
 AddTagsResponse -&gt; String
 (Int -&gt; AddTagsResponse -&gt; ShowS)
@@ -379,12 +379,12 @@ $cfrom :: forall x. AddTagsResponse -&gt; Rep AddTagsResponse x
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span>
 </span><span id="line-153"></span><span id="newAddTagsResponse"><span class="annot"><span class="annottext">newAddTagsResponse :: Int -&gt; AddTagsResponse
-</span><a href="Network.AWS.DataPipeline.AddTags.html#newAddTagsResponse"><span class="hs-identifier hs-var hs-var">newAddTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679180998"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180998"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DataPipeline.AddTags.html#newAddTagsResponse"><span class="hs-identifier hs-var hs-var">newAddTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679181007"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181007"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">AddTagsResponse' :: Int -&gt; AddTagsResponse
 </span><a href="Network.AWS.DataPipeline.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsResponse' :: Int
 </span><a href="Network.AWS.DataPipeline.AddTags.html#%24sel%3AhttpStatus%3AAddTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180998"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679181007"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#addTagsResponse_httpStatus"><span class="hs-identifier hs-type">addTagsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -393,16 +393,16 @@ $cfrom :: forall x. AddTagsResponse -&gt; Rep AddTagsResponse x
 -&gt; (AddTagsResponse -&gt; Int -&gt; AddTagsResponse)
 -&gt; Lens AddTagsResponse AddTagsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180997"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181006"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AddTagsResponse' :: AddTagsResponse -&gt; Int
-</span><a href="#local-6989586621679180997"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180997"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180996"><span class="annot"><span class="annottext">s :: AddTagsResponse
-</span><a href="#local-6989586621679180996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180995"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsResponse
-</span><a href="#local-6989586621679180996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsResponse' :: Int
+</span><a href="#local-6989586621679181006"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181006"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181005"><span class="annot"><span class="annottext">s :: AddTagsResponse
+</span><a href="#local-6989586621679181005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181004"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsResponse
+</span><a href="#local-6989586621679181005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsResponse' :: Int
 </span><a href="Network.AWS.DataPipeline.AddTags.html#%24sel%3AhttpStatus%3AAddTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679180995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679181004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180993"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181002"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span></span><span>
 </span><span id="line-161"></span></pre></body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AuditManager.Types.KeywordInputType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AuditManager.Types.KeywordInputType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.KeywordInputType.html#KeywordInputType"><span class="hs-identifier">KeywordInputType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.KeywordInputType.html#KeywordInputType_SELECT_FROM_LIST"><span class="hs-identifier">KeywordInputType_SELECT_FROM_LIST</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679293195"><span id="local-6989586621679293196"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="KeywordInputType"><span class="annot"><a href="Network.AWS.AuditManager.Types.KeywordInputType.html#KeywordInputType"><span class="hs-identifier hs-var">KeywordInputType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeywordInputType%27"><span class="annot"><a href="Network.AWS.AuditManager.Types.KeywordInputType.html#KeywordInputType%27"><span class="hs-identifier hs-var">KeywordInputType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromKeywordInputType"><span class="annot"><span class="annottext">KeywordInputType -&gt; Text
+</span><a href="Network.AWS.AuditManager.Types.KeywordInputType.html#fromKeywordInputType"><span class="hs-identifier hs-var hs-var">fromKeywordInputType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293187"><span id="local-6989586621679293189"><span id="local-6989586621679293191"><span class="annot"><span class="annottext">Int -&gt; KeywordInputType -&gt; ShowS
+[KeywordInputType] -&gt; ShowS
+KeywordInputType -&gt; String
+(Int -&gt; KeywordInputType -&gt; ShowS)
+-&gt; (KeywordInputType -&gt; String)
+-&gt; ([KeywordInputType] -&gt; ShowS)
+-&gt; Show KeywordInputType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [KeywordInputType] -&gt; ShowS
+$cshowList :: [KeywordInputType] -&gt; ShowS
+show :: KeywordInputType -&gt; String
+$cshow :: KeywordInputType -&gt; String
+showsPrec :: Int -&gt; KeywordInputType -&gt; ShowS
+$cshowsPrec :: Int -&gt; KeywordInputType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679293178"><span id="local-6989586621679293180"><span id="local-6989586621679293182"><span id="local-6989586621679293184"><span class="annot"><span class="annottext">ReadPrec [KeywordInputType]
+ReadPrec KeywordInputType
+Int -&gt; ReadS KeywordInputType
+ReadS [KeywordInputType]
+(Int -&gt; ReadS KeywordInputType)
+-&gt; ReadS [KeywordInputType]
+-&gt; ReadPrec KeywordInputType
+-&gt; ReadPrec [KeywordInputType]
+-&gt; Read KeywordInputType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [KeywordInputType]
+$creadListPrec :: ReadPrec [KeywordInputType]
+readPrec :: ReadPrec KeywordInputType
+$creadPrec :: ReadPrec KeywordInputType
+readList :: ReadS [KeywordInputType]
+$creadList :: ReadS [KeywordInputType]
+readsPrec :: Int -&gt; ReadS KeywordInputType
+$creadsPrec :: Int -&gt; ReadS KeywordInputType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679293173"><span id="local-6989586621679293175"><span class="annot"><span class="annottext">KeywordInputType -&gt; KeywordInputType -&gt; Bool
+(KeywordInputType -&gt; KeywordInputType -&gt; Bool)
+-&gt; (KeywordInputType -&gt; KeywordInputType -&gt; Bool)
+-&gt; Eq KeywordInputType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: KeywordInputType -&gt; KeywordInputType -&gt; Bool
+$c/= :: KeywordInputType -&gt; KeywordInputType -&gt; Bool
+== :: KeywordInputType -&gt; KeywordInputType -&gt; Bool
+$c== :: KeywordInputType -&gt; KeywordInputType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679293157"><span id="local-6989586621679293159"><span id="local-6989586621679293161"><span id="local-6989586621679293163"><span id="local-6989586621679293165"><span id="local-6989586621679293167"><span id="local-6989586621679293169"><span class="annot"><span class="annottext">Eq KeywordInputType
+Eq KeywordInputType
+-&gt; (KeywordInputType -&gt; KeywordInputType -&gt; Ordering)
+-&gt; (KeywordInputType -&gt; KeywordInputType -&gt; Bool)
+-&gt; (KeywordInputType -&gt; KeywordInputType -&gt; Bool)
+-&gt; (KeywordInputType -&gt; KeywordInputType -&gt; Bool)
+-&gt; (KeywordInputType -&gt; KeywordInputType -&gt; Bool)
+-&gt; (KeywordInputType -&gt; KeywordInputType -&gt; KeywordInputType)
+-&gt; (KeywordInputType -&gt; KeywordInputType -&gt; KeywordInputType)
+-&gt; Ord KeywordInputType
+KeywordInputType -&gt; KeywordInputType -&gt; Bool
+KeywordInputType -&gt; KeywordInputType -&gt; Ordering
+KeywordInputType -&gt; KeywordInputType -&gt; KeywordInputType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: KeywordInputType -&gt; KeywordInputType -&gt; KeywordInputType
+$cmin :: KeywordInputType -&gt; KeywordInputType -&gt; KeywordInputType
+max :: KeywordInputType -&gt; KeywordInputType -&gt; KeywordInputType
+$cmax :: KeywordInputType -&gt; KeywordInputType -&gt; KeywordInputType
+&gt;= :: KeywordInputType -&gt; KeywordInputType -&gt; Bool
+$c&gt;= :: KeywordInputType -&gt; KeywordInputType -&gt; Bool
+&gt; :: KeywordInputType -&gt; KeywordInputType -&gt; Bool
+$c&gt; :: KeywordInputType -&gt; KeywordInputType -&gt; Bool
+&lt;= :: KeywordInputType -&gt; KeywordInputType -&gt; Bool
+$c&lt;= :: KeywordInputType -&gt; KeywordInputType -&gt; Bool
+&lt; :: KeywordInputType -&gt; KeywordInputType -&gt; Bool
+$c&lt; :: KeywordInputType -&gt; KeywordInputType -&gt; Bool
+compare :: KeywordInputType -&gt; KeywordInputType -&gt; Ordering
+$ccompare :: KeywordInputType -&gt; KeywordInputType -&gt; Ordering
+$cp1Ord :: Eq KeywordInputType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. KeywordInputType -&gt; Rep KeywordInputType x)
+-&gt; (forall x. Rep KeywordInputType x -&gt; KeywordInputType)
+-&gt; Generic KeywordInputType
+forall x. Rep KeywordInputType x -&gt; KeywordInputType
+forall x. KeywordInputType -&gt; Rep KeywordInputType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep KeywordInputType x -&gt; KeywordInputType
+$cfrom :: forall x. KeywordInputType -&gt; Rep KeywordInputType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679293149"><span id="local-6989586621679293151"><span class="annot"><span class="annottext">Int -&gt; KeywordInputType -&gt; Int
+KeywordInputType -&gt; Int
+(Int -&gt; KeywordInputType -&gt; Int)
+-&gt; (KeywordInputType -&gt; Int) -&gt; Hashable KeywordInputType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: KeywordInputType -&gt; Int
+$chash :: KeywordInputType -&gt; Int
+hashWithSalt :: Int -&gt; KeywordInputType -&gt; Int
+$chashWithSalt :: Int -&gt; KeywordInputType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679293146"><span class="annot"><span class="annottext">KeywordInputType -&gt; ()
+(KeywordInputType -&gt; ()) -&gt; NFData KeywordInputType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: KeywordInputType -&gt; ()
+$crnf :: KeywordInputType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679293143"><span class="annot"><span class="annottext">Text -&gt; Either String KeywordInputType
+(Text -&gt; Either String KeywordInputType)
+-&gt; FromText KeywordInputType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String KeywordInputType
+$cfromText :: Text -&gt; Either String KeywordInputType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679293140"><span class="annot"><span class="annottext">KeywordInputType -&gt; Text
+(KeywordInputType -&gt; Text) -&gt; ToText KeywordInputType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: KeywordInputType -&gt; Text
+$ctoText :: KeywordInputType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679293137"><span class="annot"><span class="annottext">KeywordInputType -&gt; ByteString
+(KeywordInputType -&gt; ByteString) -&gt; ToByteString KeywordInputType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: KeywordInputType -&gt; ByteString
+$ctoBS :: KeywordInputType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679293134"><span class="annot"><span class="annottext">KeywordInputType -&gt; ByteStringBuilder
+(KeywordInputType -&gt; ByteStringBuilder) -&gt; ToLog KeywordInputType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: KeywordInputType -&gt; ByteStringBuilder
+$cbuild :: KeywordInputType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679293131"><span class="annot"><span class="annottext">HeaderName -&gt; KeywordInputType -&gt; [Header]
+(HeaderName -&gt; KeywordInputType -&gt; [Header])
+-&gt; ToHeader KeywordInputType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; KeywordInputType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; KeywordInputType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679293128"><span class="annot"><span class="annottext">KeywordInputType -&gt; QueryString
+(KeywordInputType -&gt; QueryString) -&gt; ToQuery KeywordInputType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: KeywordInputType -&gt; QueryString
+$ctoQuery :: KeywordInputType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679293123"><span id="local-6989586621679293125"><span class="annot"><span class="annottext">Value -&gt; Parser [KeywordInputType]
+Value -&gt; Parser KeywordInputType
+(Value -&gt; Parser KeywordInputType)
+-&gt; (Value -&gt; Parser [KeywordInputType])
+-&gt; FromJSON KeywordInputType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [KeywordInputType]
+$cparseJSONList :: Value -&gt; Parser [KeywordInputType]
+parseJSON :: Value -&gt; Parser KeywordInputType
+$cparseJSON :: Value -&gt; Parser KeywordInputType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679293118"><span id="local-6989586621679293120"><span class="annot"><span class="annottext">FromJSONKeyFunction [KeywordInputType]
+FromJSONKeyFunction KeywordInputType
+FromJSONKeyFunction KeywordInputType
+-&gt; FromJSONKeyFunction [KeywordInputType]
+-&gt; FromJSONKey KeywordInputType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [KeywordInputType]
+$cfromJSONKeyList :: FromJSONKeyFunction [KeywordInputType]
+fromJSONKey :: FromJSONKeyFunction KeywordInputType
+$cfromJSONKey :: FromJSONKeyFunction KeywordInputType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679293109"><span id="local-6989586621679293111"><span id="local-6989586621679293113"><span id="local-6989586621679293115"><span class="annot"><span class="annottext">[KeywordInputType] -&gt; Encoding
+[KeywordInputType] -&gt; Value
+KeywordInputType -&gt; Encoding
+KeywordInputType -&gt; Value
+(KeywordInputType -&gt; Value)
+-&gt; (KeywordInputType -&gt; Encoding)
+-&gt; ([KeywordInputType] -&gt; Value)
+-&gt; ([KeywordInputType] -&gt; Encoding)
+-&gt; ToJSON KeywordInputType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [KeywordInputType] -&gt; Encoding
+$ctoEncodingList :: [KeywordInputType] -&gt; Encoding
+toJSONList :: [KeywordInputType] -&gt; Value
+$ctoJSONList :: [KeywordInputType] -&gt; Value
+toEncoding :: KeywordInputType -&gt; Encoding
+$ctoEncoding :: KeywordInputType -&gt; Encoding
+toJSON :: KeywordInputType -&gt; Value
+$ctoJSON :: KeywordInputType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679293104"><span id="local-6989586621679293106"><span class="annot"><span class="annottext">ToJSONKeyFunction [KeywordInputType]
+ToJSONKeyFunction KeywordInputType
+ToJSONKeyFunction KeywordInputType
+-&gt; ToJSONKeyFunction [KeywordInputType]
+-&gt; ToJSONKey KeywordInputType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [KeywordInputType]
+$ctoJSONKeyList :: ToJSONKeyFunction [KeywordInputType]
+toJSONKey :: ToJSONKeyFunction KeywordInputType
+$ctoJSONKey :: ToJSONKeyFunction KeywordInputType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679293101"><span class="annot"><span class="annottext">[Node] -&gt; Either String KeywordInputType
+([Node] -&gt; Either String KeywordInputType)
+-&gt; FromXML KeywordInputType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String KeywordInputType
+$cparseXML :: [Node] -&gt; Either String KeywordInputType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679293098"><span class="annot"><span class="annottext">KeywordInputType -&gt; XML
+(KeywordInputType -&gt; XML) -&gt; ToXML KeywordInputType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: KeywordInputType -&gt; XML
+$ctoXML :: KeywordInputType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.KeywordInputType.html#KeywordInputType_SELECT_FROM_LIST"><span class="hs-identifier hs-type">KeywordInputType_SELECT_FROM_LIST</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.KeywordInputType.html#KeywordInputType"><span class="hs-identifier hs-type">KeywordInputType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bKeywordInputType_SELECT_FROM_LIST"><span id="%24mKeywordInputType_SELECT_FROM_LIST"><span id="KeywordInputType_SELECT_FROM_LIST"><span class="annot"><span class="annottext">$bKeywordInputType_SELECT_FROM_LIST :: KeywordInputType
+$mKeywordInputType_SELECT_FROM_LIST :: forall r. KeywordInputType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.KeywordInputType.html#%24bKeywordInputType_SELECT_FROM_LIST"><span class="hs-identifier hs-var hs-var hs-var">KeywordInputType_SELECT_FROM_LIST</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.KeywordInputType.html#KeywordInputType%27"><span class="hs-identifier hs-type">KeywordInputType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SELECT_FROM_LIST&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.KeywordInputType.html#KeywordInputType_SELECT_FROM_LIST"><span class="hs-pragma hs-type">KeywordInputType_SELECT_FROM_LIST</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.KeywordInputType.html#KeywordInputType%27"><span class="hs-pragma hs-type">KeywordInputType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

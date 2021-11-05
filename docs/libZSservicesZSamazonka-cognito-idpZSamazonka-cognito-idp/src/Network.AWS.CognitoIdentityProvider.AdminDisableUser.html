@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | Represents the request to disable the user as an administrator.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newAdminDisableUser' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679458681"><span id="local-6989586621679458682"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminDisableUser"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-var">AdminDisableUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminDisableUser%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser%27"><span class="hs-identifier hs-var">AdminDisableUser'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679458690"><span id="local-6989586621679458691"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminDisableUser"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-var">AdminDisableUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminDisableUser%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser%27"><span class="hs-identifier hs-var">AdminDisableUser'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user pool ID for the user pool where you want to disable the user.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AuserPoolId%3AAdminDisableUser%27"><span class="annot"><span class="annottext">AdminDisableUser -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#%24sel%3AuserPoolId%3AAdminDisableUser%27"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Ausername%3AAdminDisableUser%27"><span class="annot"><span class="annottext">AdminDisableUser -&gt; Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#%24sel%3Ausername%3AAdminDisableUser%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679458674"><span id="local-6989586621679458676"><span class="annot"><span class="annottext">AdminDisableUser -&gt; AdminDisableUser -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679458683"><span id="local-6989586621679458685"><span class="annot"><span class="annottext">AdminDisableUser -&gt; AdminDisableUser -&gt; Bool
 (AdminDisableUser -&gt; AdminDisableUser -&gt; Bool)
 -&gt; (AdminDisableUser -&gt; AdminDisableUser -&gt; Bool)
 -&gt; Eq AdminDisableUser
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AdminDisableUser -&gt; AdminDisableUser -&gt; Bool
 == :: AdminDisableUser -&gt; AdminDisableUser -&gt; Bool
 $c== :: AdminDisableUser -&gt; AdminDisableUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458667"><span id="local-6989586621679458669"><span id="local-6989586621679458671"><span class="annot"><span class="annottext">Int -&gt; AdminDisableUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458676"><span id="local-6989586621679458678"><span id="local-6989586621679458680"><span class="annot"><span class="annottext">Int -&gt; AdminDisableUser -&gt; ShowS
 [AdminDisableUser] -&gt; ShowS
 AdminDisableUser -&gt; String
 (Int -&gt; AdminDisableUser -&gt; ShowS)
@@ -112,14 +112,14 @@ $cfrom :: forall x. AdminDisableUser -&gt; Rep AdminDisableUser x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-type">AdminDisableUser</span></a></span><span>
 </span><span id="line-79"></span><span id="newAdminDisableUser"><span class="annot"><span class="annottext">newAdminDisableUser :: Text -&gt; Text -&gt; AdminDisableUser
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#newAdminDisableUser"><span class="hs-identifier hs-var hs-var">newAdminDisableUser</span></a></span></span><span> </span><span id="local-6989586621679458662"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458662"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679458661"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458661"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#newAdminDisableUser"><span class="hs-identifier hs-var hs-var">newAdminDisableUser</span></a></span></span><span> </span><span id="local-6989586621679458671"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458671"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679458670"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458670"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">AdminDisableUser' :: Text -&gt; Sensitive Text -&gt; AdminDisableUser
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser%27"><span class="hs-identifier hs-type">AdminDisableUser'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userPoolId:AdminDisableUser' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#%24sel%3AuserPoolId%3AAdminDisableUser%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458662"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679458671"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:AdminDisableUser' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#%24sel%3Ausername%3AAdminDisableUser%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -129,7 +129,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458661"><span class="hs-identifier hs-var">pUsername_</span></a></span><span>
+</span><a href="#local-6989586621679458670"><span class="hs-identifier hs-var">pUsername_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The user pool ID for the user pool where you want to disable the user.</span><span>
@@ -139,16 +139,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (AdminDisableUser -&gt; Text -&gt; AdminDisableUser)
 -&gt; Lens AdminDisableUser AdminDisableUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser%27"><span class="hs-identifier hs-type">AdminDisableUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458656"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser%27"><span class="hs-identifier hs-type">AdminDisableUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458665"><span class="annot"><span class="annottext">Text
 userPoolId :: Text
 $sel:userPoolId:AdminDisableUser' :: AdminDisableUser -&gt; Text
-</span><a href="#local-6989586621679458656"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458656"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458655"><span class="annot"><span class="annottext">s :: AdminDisableUser
-</span><a href="#local-6989586621679458655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser%27"><span class="hs-identifier hs-type">AdminDisableUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458654"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminDisableUser
-</span><a href="#local-6989586621679458655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:AdminDisableUser' :: Text
+</span><a href="#local-6989586621679458665"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458665"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458664"><span class="annot"><span class="annottext">s :: AdminDisableUser
+</span><a href="#local-6989586621679458664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser%27"><span class="hs-identifier hs-type">AdminDisableUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458663"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminDisableUser
+</span><a href="#local-6989586621679458664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:AdminDisableUser' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#%24sel%3AuserPoolId%3AAdminDisableUser%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-type">AdminDisableUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-type">AdminDisableUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The user name of the user you wish to disable.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#adminDisableUser_username"><span class="hs-identifier hs-type">adminDisableUser_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-type">AdminDisableUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -158,16 +158,16 @@ $sel:userPoolId:AdminDisableUser' :: AdminDisableUser -&gt; Text
 -&gt; Lens
      AdminDisableUser AdminDisableUser (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser%27"><span class="hs-identifier hs-type">AdminDisableUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458653"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser%27"><span class="hs-identifier hs-type">AdminDisableUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458662"><span class="annot"><span class="annottext">Sensitive Text
 username :: Sensitive Text
 $sel:username:AdminDisableUser' :: AdminDisableUser -&gt; Sensitive Text
-</span><a href="#local-6989586621679458653"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679458653"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458652"><span class="annot"><span class="annottext">s :: AdminDisableUser
-</span><a href="#local-6989586621679458652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser%27"><span class="hs-identifier hs-type">AdminDisableUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458651"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679458651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminDisableUser
-</span><a href="#local-6989586621679458652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:AdminDisableUser' :: Sensitive Text
+</span><a href="#local-6989586621679458662"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679458662"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458661"><span class="annot"><span class="annottext">s :: AdminDisableUser
+</span><a href="#local-6989586621679458661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser%27"><span class="hs-identifier hs-type">AdminDisableUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458660"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679458660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminDisableUser
+</span><a href="#local-6989586621679458661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:AdminDisableUser' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#%24sel%3Ausername%3AAdminDisableUser%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679458651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-type">AdminDisableUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679458660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-type">AdminDisableUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; AdminDisableUser -&gt; f AdminDisableUser)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -182,12 +182,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-type">AdminDisableUser</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUserResponse"><span class="hs-identifier hs-type">AdminDisableUserResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679458646"><span class="annot"><span class="annottext">request :: AdminDisableUser -&gt; Request AdminDisableUser
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679458655"><span class="annot"><span class="annottext">request :: AdminDisableUser -&gt; Request AdminDisableUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AdminDisableUser -&gt; Request AdminDisableUser
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679458642"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679458651"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AdminDisableUser
 -&gt; ClientResponse ClientBody
@@ -211,10 +211,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679458639"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458639"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679458638"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679458638"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679458637"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679458637"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679458648"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679458648"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679458647"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679458647"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679458646"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679458646"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AdminDisableUserResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUserResponse%27"><span class="hs-identifier hs-var">AdminDisableUserResponse'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AdminDisableUserResponse)
@@ -225,15 +225,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458639"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458648"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458630"><span id="local-6989586621679458632"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-type">AdminDisableUser</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458639"><span id="local-6989586621679458641"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-type">AdminDisableUser</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458627"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-type">AdminDisableUser</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458636"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-type">AdminDisableUser</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-type">AdminDisableUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679458623"><span class="annot"><span class="annottext">toHeaders :: AdminDisableUser -&gt; ResponseHeaders
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679458632"><span class="annot"><span class="annottext">toHeaders :: AdminDisableUser -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AdminDisableUser -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -260,15 +260,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458613"><span id="local-6989586621679458615"><span id="local-6989586621679458617"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-type">AdminDisableUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679458611"><span class="annot"><span class="annottext">toJSON :: AdminDisableUser -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser%27"><span class="hs-identifier hs-type">AdminDisableUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458608"><span id="local-6989586621679458609"><span class="annot"><span class="annottext">Text
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458622"><span id="local-6989586621679458624"><span id="local-6989586621679458626"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-type">AdminDisableUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679458620"><span class="annot"><span class="annottext">toJSON :: AdminDisableUser -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser%27"><span class="hs-identifier hs-type">AdminDisableUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458617"><span id="local-6989586621679458618"><span class="annot"><span class="annottext">Text
 Sensitive Text
 username :: Sensitive Text
 userPoolId :: Text
 $sel:username:AdminDisableUser' :: AdminDisableUser -&gt; Sensitive Text
 $sel:userPoolId:AdminDisableUser' :: AdminDisableUser -&gt; Text
-</span><a href="#local-6989586621679458608"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679458617"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -280,26 +280,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458609"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679458618"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679458608"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458617"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-type">AdminDisableUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679458602"><span class="annot"><span class="annottext">toPath :: AdminDisableUser -&gt; ByteString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679458611"><span class="annot"><span class="annottext">toPath :: AdminDisableUser -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AdminDisableUser -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUser"><span class="hs-identifier hs-type">AdminDisableUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679458598"><span class="annot"><span class="annottext">toQuery :: AdminDisableUser -&gt; QueryString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679458607"><span class="annot"><span class="annottext">toQuery :: AdminDisableUser -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AdminDisableUser -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -310,12 +310,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-140"></span><span class="hs-comment">-- an administrator.</span><span>
 </span><span id="line-141"></span><span class="hs-comment">--</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- /See:/ 'newAdminDisableUserResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679458595"><span id="local-6989586621679458596"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminDisableUserResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUserResponse"><span class="hs-identifier hs-var">AdminDisableUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminDisableUserResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUserResponse%27"><span class="hs-identifier hs-var">AdminDisableUserResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span id="local-6989586621679458604"><span id="local-6989586621679458605"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminDisableUserResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUserResponse"><span class="hs-identifier hs-var">AdminDisableUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminDisableUserResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUserResponse%27"><span class="hs-identifier hs-var">AdminDisableUserResponse'</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAdminDisableUserResponse%27"><span class="annot"><span class="annottext">AdminDisableUserResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#%24sel%3AhttpStatus%3AAdminDisableUserResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679458590"><span id="local-6989586621679458592"><span class="annot"><span class="annottext">AdminDisableUserResponse -&gt; AdminDisableUserResponse -&gt; Bool
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679458599"><span id="local-6989586621679458601"><span class="annot"><span class="annottext">AdminDisableUserResponse -&gt; AdminDisableUserResponse -&gt; Bool
 (AdminDisableUserResponse -&gt; AdminDisableUserResponse -&gt; Bool)
 -&gt; (AdminDisableUserResponse -&gt; AdminDisableUserResponse -&gt; Bool)
 -&gt; Eq AdminDisableUserResponse
@@ -324,7 +324,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AdminDisableUserResponse -&gt; AdminDisableUserResponse -&gt; Bool
 == :: AdminDisableUserResponse -&gt; AdminDisableUserResponse -&gt; Bool
 $c== :: AdminDisableUserResponse -&gt; AdminDisableUserResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458582"><span id="local-6989586621679458584"><span id="local-6989586621679458586"><span id="local-6989586621679458588"><span class="annot"><span class="annottext">ReadPrec [AdminDisableUserResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458591"><span id="local-6989586621679458593"><span id="local-6989586621679458595"><span id="local-6989586621679458597"><span class="annot"><span class="annottext">ReadPrec [AdminDisableUserResponse]
 ReadPrec AdminDisableUserResponse
 Int -&gt; ReadS AdminDisableUserResponse
 ReadS [AdminDisableUserResponse]
@@ -344,7 +344,7 @@ readList :: ReadS [AdminDisableUserResponse]
 $creadList :: ReadS [AdminDisableUserResponse]
 readsPrec :: Int -&gt; ReadS AdminDisableUserResponse
 $creadsPrec :: Int -&gt; ReadS AdminDisableUserResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458575"><span id="local-6989586621679458577"><span id="local-6989586621679458579"><span class="annot"><span class="annottext">Int -&gt; AdminDisableUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458584"><span id="local-6989586621679458586"><span id="local-6989586621679458588"><span class="annot"><span class="annottext">Int -&gt; AdminDisableUserResponse -&gt; ShowS
 [AdminDisableUserResponse] -&gt; ShowS
 AdminDisableUserResponse -&gt; String
 (Int -&gt; AdminDisableUserResponse -&gt; ShowS)
@@ -390,14 +390,14 @@ AdminDisableUserResponse -&gt; Rep AdminDisableUserResponse x
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUserResponse"><span class="hs-identifier hs-type">AdminDisableUserResponse</span></a></span><span>
 </span><span id="line-162"></span><span id="newAdminDisableUserResponse"><span class="annot"><span class="annottext">newAdminDisableUserResponse :: Int -&gt; AdminDisableUserResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#newAdminDisableUserResponse"><span class="hs-identifier hs-var hs-var">newAdminDisableUserResponse</span></a></span></span><span> </span><span id="local-6989586621679458572"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458572"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#newAdminDisableUserResponse"><span class="hs-identifier hs-var hs-var">newAdminDisableUserResponse</span></a></span></span><span> </span><span id="local-6989586621679458581"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679458581"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">AdminDisableUserResponse' :: Int -&gt; AdminDisableUserResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUserResponse%27"><span class="hs-identifier hs-type">AdminDisableUserResponse'</span></a></span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AdminDisableUserResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#%24sel%3AhttpStatus%3AAdminDisableUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458572"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679458581"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -408,16 +408,16 @@ AdminDisableUserResponse -&gt; Rep AdminDisableUserResponse x
 -&gt; (AdminDisableUserResponse -&gt; Int -&gt; AdminDisableUserResponse)
 -&gt; Lens AdminDisableUserResponse AdminDisableUserResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUserResponse%27"><span class="hs-identifier hs-type">AdminDisableUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458571"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUserResponse%27"><span class="hs-identifier hs-type">AdminDisableUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458580"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AdminDisableUserResponse' :: AdminDisableUserResponse -&gt; Int
-</span><a href="#local-6989586621679458571"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458571"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458570"><span class="annot"><span class="annottext">s :: AdminDisableUserResponse
-</span><a href="#local-6989586621679458570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUserResponse%27"><span class="hs-identifier hs-type">AdminDisableUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458569"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminDisableUserResponse
-</span><a href="#local-6989586621679458570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AdminDisableUserResponse' :: Int
+</span><a href="#local-6989586621679458580"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679458580"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458579"><span class="annot"><span class="annottext">s :: AdminDisableUserResponse
+</span><a href="#local-6989586621679458579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUserResponse%27"><span class="hs-identifier hs-type">AdminDisableUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458578"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679458578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminDisableUserResponse
+</span><a href="#local-6989586621679458579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AdminDisableUserResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#%24sel%3AhttpStatus%3AAdminDisableUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUserResponse"><span class="hs-identifier hs-type">AdminDisableUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUserResponse"><span class="hs-identifier hs-type">AdminDisableUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458567"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUserResponse"><span class="hs-identifier hs-type">AdminDisableUserResponse</span></a></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458576"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminDisableUser.html#AdminDisableUserResponse"><span class="hs-identifier hs-type">AdminDisableUserResponse</span></a></span></span><span>
 </span><span id="line-173"></span></pre></body></html>

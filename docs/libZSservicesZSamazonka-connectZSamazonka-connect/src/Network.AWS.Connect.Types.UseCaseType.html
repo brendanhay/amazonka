@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679406479"><span id="local-6989586621679406480"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UseCaseType"><span class="annot"><a href="Network.AWS.Connect.Types.UseCaseType.html#UseCaseType"><span class="hs-identifier hs-var">UseCaseType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UseCaseType%27"><span class="annot"><a href="Network.AWS.Connect.Types.UseCaseType.html#UseCaseType%27"><span class="hs-identifier hs-var">UseCaseType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679406488"><span id="local-6989586621679406489"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UseCaseType"><span class="annot"><a href="Network.AWS.Connect.Types.UseCaseType.html#UseCaseType"><span class="hs-identifier hs-var">UseCaseType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UseCaseType%27"><span class="annot"><a href="Network.AWS.Connect.Types.UseCaseType.html#UseCaseType%27"><span class="hs-identifier hs-var">UseCaseType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUseCaseType"><span class="annot"><span class="annottext">UseCaseType -&gt; Text
 </span><a href="Network.AWS.Connect.Types.UseCaseType.html#fromUseCaseType"><span class="hs-identifier hs-var hs-var">fromUseCaseType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679406471"><span id="local-6989586621679406473"><span id="local-6989586621679406475"><span class="annot"><span class="annottext">Int -&gt; UseCaseType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679406480"><span id="local-6989586621679406482"><span id="local-6989586621679406484"><span class="annot"><span class="annottext">Int -&gt; UseCaseType -&gt; ShowS
 [UseCaseType] -&gt; ShowS
 UseCaseType -&gt; String
 (Int -&gt; UseCaseType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: UseCaseType -&gt; String
 showsPrec :: Int -&gt; UseCaseType -&gt; ShowS
 $cshowsPrec :: Int -&gt; UseCaseType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679406462"><span id="local-6989586621679406464"><span id="local-6989586621679406466"><span id="local-6989586621679406468"><span class="annot"><span class="annottext">ReadPrec [UseCaseType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679406471"><span id="local-6989586621679406473"><span id="local-6989586621679406475"><span id="local-6989586621679406477"><span class="annot"><span class="annottext">ReadPrec [UseCaseType]
 ReadPrec UseCaseType
 Int -&gt; ReadS UseCaseType
 ReadS [UseCaseType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [UseCaseType]
 readsPrec :: Int -&gt; ReadS UseCaseType
 $creadsPrec :: Int -&gt; ReadS UseCaseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679406457"><span id="local-6989586621679406459"><span class="annot"><span class="annottext">UseCaseType -&gt; UseCaseType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679406466"><span id="local-6989586621679406468"><span class="annot"><span class="annottext">UseCaseType -&gt; UseCaseType -&gt; Bool
 (UseCaseType -&gt; UseCaseType -&gt; Bool)
 -&gt; (UseCaseType -&gt; UseCaseType -&gt; Bool) -&gt; Eq UseCaseType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: UseCaseType -&gt; UseCaseType -&gt; Bool
 == :: UseCaseType -&gt; UseCaseType -&gt; Bool
 $c== :: UseCaseType -&gt; UseCaseType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679406441"><span id="local-6989586621679406443"><span id="local-6989586621679406445"><span id="local-6989586621679406447"><span id="local-6989586621679406449"><span id="local-6989586621679406451"><span id="local-6989586621679406453"><span class="annot"><span class="annottext">Eq UseCaseType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679406450"><span id="local-6989586621679406452"><span id="local-6989586621679406454"><span id="local-6989586621679406456"><span id="local-6989586621679406458"><span id="local-6989586621679406460"><span id="local-6989586621679406462"><span class="annot"><span class="annottext">Eq UseCaseType
 Eq UseCaseType
 -&gt; (UseCaseType -&gt; UseCaseType -&gt; Ordering)
 -&gt; (UseCaseType -&gt; UseCaseType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. UseCaseType -&gt; Rep UseCaseType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679406433"><span id="local-6989586621679406435"><span class="annot"><span class="annottext">Int -&gt; UseCaseType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679406442"><span id="local-6989586621679406444"><span class="annot"><span class="annottext">Int -&gt; UseCaseType -&gt; Int
 UseCaseType -&gt; Int
 (Int -&gt; UseCaseType -&gt; Int)
 -&gt; (UseCaseType -&gt; Int) -&gt; Hashable UseCaseType
@@ -142,49 +142,49 @@ $chash :: UseCaseType -&gt; Int
 hashWithSalt :: Int -&gt; UseCaseType -&gt; Int
 $chashWithSalt :: Int -&gt; UseCaseType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679406430"><span class="annot"><span class="annottext">UseCaseType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679406439"><span class="annot"><span class="annottext">UseCaseType -&gt; ()
 (UseCaseType -&gt; ()) -&gt; NFData UseCaseType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UseCaseType -&gt; ()
 $crnf :: UseCaseType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679406427"><span class="annot"><span class="annottext">Text -&gt; Either String UseCaseType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679406436"><span class="annot"><span class="annottext">Text -&gt; Either String UseCaseType
 (Text -&gt; Either String UseCaseType) -&gt; FromText UseCaseType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UseCaseType
 $cfromText :: Text -&gt; Either String UseCaseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679406424"><span class="annot"><span class="annottext">UseCaseType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679406433"><span class="annot"><span class="annottext">UseCaseType -&gt; Text
 (UseCaseType -&gt; Text) -&gt; ToText UseCaseType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UseCaseType -&gt; Text
 $ctoText :: UseCaseType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679406421"><span class="annot"><span class="annottext">UseCaseType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679406430"><span class="annot"><span class="annottext">UseCaseType -&gt; ByteString
 (UseCaseType -&gt; ByteString) -&gt; ToByteString UseCaseType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UseCaseType -&gt; ByteString
 $ctoBS :: UseCaseType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679406418"><span class="annot"><span class="annottext">UseCaseType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679406427"><span class="annot"><span class="annottext">UseCaseType -&gt; ByteStringBuilder
 (UseCaseType -&gt; ByteStringBuilder) -&gt; ToLog UseCaseType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UseCaseType -&gt; ByteStringBuilder
 $cbuild :: UseCaseType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679406415"><span class="annot"><span class="annottext">HeaderName -&gt; UseCaseType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679406424"><span class="annot"><span class="annottext">HeaderName -&gt; UseCaseType -&gt; [Header]
 (HeaderName -&gt; UseCaseType -&gt; [Header]) -&gt; ToHeader UseCaseType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UseCaseType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UseCaseType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679406412"><span class="annot"><span class="annottext">UseCaseType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679406421"><span class="annot"><span class="annottext">UseCaseType -&gt; QueryString
 (UseCaseType -&gt; QueryString) -&gt; ToQuery UseCaseType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UseCaseType -&gt; QueryString
 $ctoQuery :: UseCaseType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679406407"><span id="local-6989586621679406409"><span class="annot"><span class="annottext">Value -&gt; Parser [UseCaseType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679406416"><span id="local-6989586621679406418"><span class="annot"><span class="annottext">Value -&gt; Parser [UseCaseType]
 Value -&gt; Parser UseCaseType
 (Value -&gt; Parser UseCaseType)
 -&gt; (Value -&gt; Parser [UseCaseType]) -&gt; FromJSON UseCaseType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [UseCaseType]
 parseJSON :: Value -&gt; Parser UseCaseType
 $cparseJSON :: Value -&gt; Parser UseCaseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679406402"><span id="local-6989586621679406404"><span class="annot"><span class="annottext">FromJSONKeyFunction [UseCaseType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679406411"><span id="local-6989586621679406413"><span class="annot"><span class="annottext">FromJSONKeyFunction [UseCaseType]
 FromJSONKeyFunction UseCaseType
 FromJSONKeyFunction UseCaseType
 -&gt; FromJSONKeyFunction [UseCaseType] -&gt; FromJSONKey UseCaseType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UseCaseType]
 fromJSONKey :: FromJSONKeyFunction UseCaseType
 $cfromJSONKey :: FromJSONKeyFunction UseCaseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679406393"><span id="local-6989586621679406395"><span id="local-6989586621679406397"><span id="local-6989586621679406399"><span class="annot"><span class="annottext">[UseCaseType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679406402"><span id="local-6989586621679406404"><span id="local-6989586621679406406"><span id="local-6989586621679406408"><span class="annot"><span class="annottext">[UseCaseType] -&gt; Encoding
 [UseCaseType] -&gt; Value
 UseCaseType -&gt; Encoding
 UseCaseType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: UseCaseType -&gt; Encoding
 toJSON :: UseCaseType -&gt; Value
 $ctoJSON :: UseCaseType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679406388"><span id="local-6989586621679406390"><span class="annot"><span class="annottext">ToJSONKeyFunction [UseCaseType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679406397"><span id="local-6989586621679406399"><span class="annot"><span class="annottext">ToJSONKeyFunction [UseCaseType]
 ToJSONKeyFunction UseCaseType
 ToJSONKeyFunction UseCaseType
 -&gt; ToJSONKeyFunction [UseCaseType] -&gt; ToJSONKey UseCaseType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UseCaseType]
 toJSONKey :: ToJSONKeyFunction UseCaseType
 $ctoJSONKey :: ToJSONKeyFunction UseCaseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679406385"><span class="annot"><span class="annottext">[Node] -&gt; Either String UseCaseType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679406394"><span class="annot"><span class="annottext">[Node] -&gt; Either String UseCaseType
 ([Node] -&gt; Either String UseCaseType) -&gt; FromXML UseCaseType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UseCaseType
 $cparseXML :: [Node] -&gt; Either String UseCaseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679406382"><span class="annot"><span class="annottext">UseCaseType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679406391"><span class="annot"><span class="annottext">UseCaseType -&gt; XML
 (UseCaseType -&gt; XML) -&gt; ToXML UseCaseType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UseCaseType -&gt; XML

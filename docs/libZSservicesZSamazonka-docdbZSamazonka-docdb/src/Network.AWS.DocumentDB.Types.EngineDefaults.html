@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DocumentDB.Types.EngineDefaults</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DocumentDB.Types.EngineDefaults</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.Parameter.html"><span class="hs-identifier">Network.AWS.DocumentDB.Types.Parameter</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains the result of a successful invocation of the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- @DescribeEngineDefaultClusterParameters@ operation.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEngineDefaults' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679299486"><span id="local-6989586621679299487"></span></span><span class="hs-keyword">data</span><span> </span><span id="EngineDefaults"><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-var">EngineDefaults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EngineDefaults%27"><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-var">EngineDefaults'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the cluster parameter group family to return the engine</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- parameter information for.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdbParameterGroupFamily%3AEngineDefaults%27"><span class="annot"><span class="annottext">EngineDefaults -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#%24sel%3AdbParameterGroupFamily%3AEngineDefaults%27"><span class="hs-identifier hs-var hs-var">dbParameterGroupFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Amarker%3AEngineDefaults%27"><span class="annot"><span class="annottext">EngineDefaults -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#%24sel%3Amarker%3AEngineDefaults%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The parameters of a particular cluster parameter group family.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aparameters%3AEngineDefaults%27"><span class="annot"><span class="annottext">EngineDefaults -&gt; Maybe [Parameter]
+</span><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#%24sel%3Aparameters%3AEngineDefaults%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299478"><span id="local-6989586621679299480"><span class="annot"><span class="annottext">EngineDefaults -&gt; EngineDefaults -&gt; Bool
+(EngineDefaults -&gt; EngineDefaults -&gt; Bool)
+-&gt; (EngineDefaults -&gt; EngineDefaults -&gt; Bool) -&gt; Eq EngineDefaults
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EngineDefaults -&gt; EngineDefaults -&gt; Bool
+$c/= :: EngineDefaults -&gt; EngineDefaults -&gt; Bool
+== :: EngineDefaults -&gt; EngineDefaults -&gt; Bool
+$c== :: EngineDefaults -&gt; EngineDefaults -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299469"><span id="local-6989586621679299471"><span id="local-6989586621679299473"><span id="local-6989586621679299475"><span class="annot"><span class="annottext">ReadPrec [EngineDefaults]
+ReadPrec EngineDefaults
+Int -&gt; ReadS EngineDefaults
+ReadS [EngineDefaults]
+(Int -&gt; ReadS EngineDefaults)
+-&gt; ReadS [EngineDefaults]
+-&gt; ReadPrec EngineDefaults
+-&gt; ReadPrec [EngineDefaults]
+-&gt; Read EngineDefaults
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EngineDefaults]
+$creadListPrec :: ReadPrec [EngineDefaults]
+readPrec :: ReadPrec EngineDefaults
+$creadPrec :: ReadPrec EngineDefaults
+readList :: ReadS [EngineDefaults]
+$creadList :: ReadS [EngineDefaults]
+readsPrec :: Int -&gt; ReadS EngineDefaults
+$creadsPrec :: Int -&gt; ReadS EngineDefaults
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299462"><span id="local-6989586621679299464"><span id="local-6989586621679299466"><span class="annot"><span class="annottext">Int -&gt; EngineDefaults -&gt; ShowS
+[EngineDefaults] -&gt; ShowS
+EngineDefaults -&gt; String
+(Int -&gt; EngineDefaults -&gt; ShowS)
+-&gt; (EngineDefaults -&gt; String)
+-&gt; ([EngineDefaults] -&gt; ShowS)
+-&gt; Show EngineDefaults
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EngineDefaults] -&gt; ShowS
+$cshowList :: [EngineDefaults] -&gt; ShowS
+show :: EngineDefaults -&gt; String
+$cshow :: EngineDefaults -&gt; String
+showsPrec :: Int -&gt; EngineDefaults -&gt; ShowS
+$cshowsPrec :: Int -&gt; EngineDefaults -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EngineDefaults -&gt; Rep EngineDefaults x)
+-&gt; (forall x. Rep EngineDefaults x -&gt; EngineDefaults)
+-&gt; Generic EngineDefaults
+forall x. Rep EngineDefaults x -&gt; EngineDefaults
+forall x. EngineDefaults -&gt; Rep EngineDefaults x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EngineDefaults x -&gt; EngineDefaults
+$cfrom :: forall x. EngineDefaults -&gt; Rep EngineDefaults x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'EngineDefaults' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'dbParameterGroupFamily', 'engineDefaults_dbParameterGroupFamily' - The name of the cluster parameter group family to return the engine</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- parameter information for.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'marker', 'engineDefaults_marker' - An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'parameters', 'engineDefaults_parameters' - The parameters of a particular cluster parameter group family.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#newEngineDefaults"><span class="hs-identifier hs-type">newEngineDefaults</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span>
+</span><span id="line-62"></span><span id="newEngineDefaults"><span class="annot"><span class="annottext">newEngineDefaults :: EngineDefaults
+</span><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#newEngineDefaults"><span class="hs-identifier hs-var hs-var">newEngineDefaults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">EngineDefaults' :: Maybe Text -&gt; Maybe Text -&gt; Maybe [Parameter] -&gt; EngineDefaults
+</span><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbParameterGroupFamily:EngineDefaults' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#%24sel%3AdbParameterGroupFamily%3AEngineDefaults%27"><span class="hs-identifier hs-var">dbParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:EngineDefaults' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#%24sel%3Amarker%3AEngineDefaults%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameters:EngineDefaults' :: Maybe [Parameter]
+</span><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#%24sel%3Aparameters%3AEngineDefaults%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The name of the cluster parameter group family to return the engine</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- parameter information for.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#engineDefaults_dbParameterGroupFamily"><span class="hs-identifier hs-type">engineDefaults_dbParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="engineDefaults_dbParameterGroupFamily"><span class="annot"><span class="annottext">engineDefaults_dbParameterGroupFamily :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EngineDefaults -&gt; f EngineDefaults
+</span><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#engineDefaults_dbParameterGroupFamily"><span class="hs-identifier hs-var hs-var">engineDefaults_dbParameterGroupFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineDefaults -&gt; Maybe Text)
+-&gt; (EngineDefaults -&gt; Maybe Text -&gt; EngineDefaults)
+-&gt; Lens EngineDefaults EngineDefaults (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299453"><span class="annot"><span class="annottext">Maybe Text
+dbParameterGroupFamily :: Maybe Text
+$sel:dbParameterGroupFamily:EngineDefaults' :: EngineDefaults -&gt; Maybe Text
+</span><a href="#local-6989586621679299453"><span class="hs-identifier hs-var hs-var">dbParameterGroupFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299453"><span class="hs-identifier hs-var">dbParameterGroupFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299452"><span class="annot"><span class="annottext">s :: EngineDefaults
+</span><a href="#local-6989586621679299452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299451"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineDefaults
+</span><a href="#local-6989586621679299452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbParameterGroupFamily:EngineDefaults' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#%24sel%3AdbParameterGroupFamily%3AEngineDefaults%27"><span class="hs-identifier hs-var">dbParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#engineDefaults_marker"><span class="hs-identifier hs-type">engineDefaults_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="engineDefaults_marker"><span class="annot"><span class="annottext">engineDefaults_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EngineDefaults -&gt; f EngineDefaults
+</span><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#engineDefaults_marker"><span class="hs-identifier hs-var hs-var">engineDefaults_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineDefaults -&gt; Maybe Text)
+-&gt; (EngineDefaults -&gt; Maybe Text -&gt; EngineDefaults)
+-&gt; Lens EngineDefaults EngineDefaults (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299449"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:EngineDefaults' :: EngineDefaults -&gt; Maybe Text
+</span><a href="#local-6989586621679299449"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299449"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299448"><span class="annot"><span class="annottext">s :: EngineDefaults
+</span><a href="#local-6989586621679299448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299447"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineDefaults
+</span><a href="#local-6989586621679299448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:EngineDefaults' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#%24sel%3Amarker%3AEngineDefaults%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The parameters of a particular cluster parameter group family.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#engineDefaults_parameters"><span class="hs-identifier hs-type">engineDefaults_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="engineDefaults_parameters"><span class="annot"><span class="annottext">engineDefaults_parameters :: (Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+-&gt; EngineDefaults -&gt; f EngineDefaults
+</span><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#engineDefaults_parameters"><span class="hs-identifier hs-var hs-var">engineDefaults_parameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineDefaults -&gt; Maybe [Parameter])
+-&gt; (EngineDefaults -&gt; Maybe [Parameter] -&gt; EngineDefaults)
+-&gt; Lens
+     EngineDefaults
+     EngineDefaults
+     (Maybe [Parameter])
+     (Maybe [Parameter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299445"><span class="annot"><span class="annottext">Maybe [Parameter]
+parameters :: Maybe [Parameter]
+$sel:parameters:EngineDefaults' :: EngineDefaults -&gt; Maybe [Parameter]
+</span><a href="#local-6989586621679299445"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679299445"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299444"><span class="annot"><span class="annottext">s :: EngineDefaults
+</span><a href="#local-6989586621679299444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299443"><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679299443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineDefaults
+</span><a href="#local-6989586621679299444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:EngineDefaults' :: Maybe [Parameter]
+</span><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#%24sel%3Aparameters%3AEngineDefaults%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679299443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+ -&gt; EngineDefaults -&gt; f EngineDefaults)
+-&gt; ((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+    -&gt; Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+-&gt; (Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+-&gt; EngineDefaults
+-&gt; f EngineDefaults
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Parameter] [Parameter] [Parameter] [Parameter]
+-&gt; Iso
+     (Maybe [Parameter])
+     (Maybe [Parameter])
+     (Maybe [Parameter])
+     (Maybe [Parameter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Parameter] [Parameter] [Parameter] [Parameter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679299437"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EngineDefaults
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679299435"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679299435"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe [Parameter] -&gt; EngineDefaults
+</span><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-var">EngineDefaults'</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe [Parameter] -&gt; EngineDefaults)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe [Parameter] -&gt; EngineDefaults)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679299435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBParameterGroupFamily&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe [Parameter] -&gt; EngineDefaults)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Parameter] -&gt; EngineDefaults)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679299435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Parameter] -&gt; EngineDefaults)
+-&gt; Either String (Maybe [Parameter])
+-&gt; Either String EngineDefaults
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679299435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-91"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Parameter]))
+-&gt; Either String (Maybe [Parameter])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Parameter])
+-&gt; [Node] -&gt; Either String (Maybe [Parameter])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Parameter]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Parameter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299426"><span id="local-6989586621679299428"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299423"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span></span><span>
+</span><span id="line-97"></span></pre></body></html>

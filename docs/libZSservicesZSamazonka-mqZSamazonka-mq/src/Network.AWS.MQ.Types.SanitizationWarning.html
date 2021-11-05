@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- sanitized in the configuration.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSanitizationWarning' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679224825"><span id="local-6989586621679224826"></span></span><span class="hs-keyword">data</span><span> </span><span id="SanitizationWarning"><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-var">SanitizationWarning</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SanitizationWarning%27"><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning%27"><span class="hs-identifier hs-var">SanitizationWarning'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679224834"><span id="local-6989586621679224835"></span></span><span class="hs-keyword">data</span><span> </span><span id="SanitizationWarning"><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-var">SanitizationWarning</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SanitizationWarning%27"><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning%27"><span class="hs-identifier hs-var">SanitizationWarning'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the XML attribute that has been sanitized.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AattributeName%3ASanitizationWarning%27"><span class="annot"><span class="annottext">SanitizationWarning -&gt; Maybe Text
 </span><a href="Network.AWS.MQ.Types.SanitizationWarning.html#%24sel%3AattributeName%3ASanitizationWarning%27"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Areason%3ASanitizationWarning%27"><span class="annot"><span class="annottext">SanitizationWarning -&gt; SanitizationWarningReason
 </span><a href="Network.AWS.MQ.Types.SanitizationWarning.html#%24sel%3Areason%3ASanitizationWarning%27"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarningReason.html#SanitizationWarningReason"><span class="hs-identifier hs-type">SanitizationWarningReason</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224817"><span id="local-6989586621679224819"><span class="annot"><span class="annottext">SanitizationWarning -&gt; SanitizationWarning -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224826"><span id="local-6989586621679224828"><span class="annot"><span class="annottext">SanitizationWarning -&gt; SanitizationWarning -&gt; Bool
 (SanitizationWarning -&gt; SanitizationWarning -&gt; Bool)
 -&gt; (SanitizationWarning -&gt; SanitizationWarning -&gt; Bool)
 -&gt; Eq SanitizationWarning
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SanitizationWarning -&gt; SanitizationWarning -&gt; Bool
 == :: SanitizationWarning -&gt; SanitizationWarning -&gt; Bool
 $c== :: SanitizationWarning -&gt; SanitizationWarning -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224808"><span id="local-6989586621679224810"><span id="local-6989586621679224812"><span id="local-6989586621679224814"><span class="annot"><span class="annottext">ReadPrec [SanitizationWarning]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224817"><span id="local-6989586621679224819"><span id="local-6989586621679224821"><span id="local-6989586621679224823"><span class="annot"><span class="annottext">ReadPrec [SanitizationWarning]
 ReadPrec SanitizationWarning
 Int -&gt; ReadS SanitizationWarning
 ReadS [SanitizationWarning]
@@ -69,7 +69,7 @@ readList :: ReadS [SanitizationWarning]
 $creadList :: ReadS [SanitizationWarning]
 readsPrec :: Int -&gt; ReadS SanitizationWarning
 $creadsPrec :: Int -&gt; ReadS SanitizationWarning
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224801"><span id="local-6989586621679224803"><span id="local-6989586621679224805"><span class="annot"><span class="annottext">Int -&gt; SanitizationWarning -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224810"><span id="local-6989586621679224812"><span id="local-6989586621679224814"><span class="annot"><span class="annottext">Int -&gt; SanitizationWarning -&gt; ShowS
 [SanitizationWarning] -&gt; ShowS
 SanitizationWarning -&gt; String
 (Int -&gt; SanitizationWarning -&gt; ShowS)
@@ -114,8 +114,8 @@ $cfrom :: forall x. SanitizationWarning -&gt; Rep SanitizationWarning x
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarningReason.html#SanitizationWarningReason"><span class="hs-identifier hs-type">SanitizationWarningReason</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-type">SanitizationWarning</span></a></span><span>
 </span><span id="line-60"></span><span id="newSanitizationWarning"><span class="annot"><span class="annottext">newSanitizationWarning :: SanitizationWarningReason -&gt; SanitizationWarning
-</span><a href="Network.AWS.MQ.Types.SanitizationWarning.html#newSanitizationWarning"><span class="hs-identifier hs-var hs-var">newSanitizationWarning</span></a></span></span><span> </span><span id="local-6989586621679224795"><span class="annot"><span class="annottext">SanitizationWarningReason
-</span><a href="#local-6989586621679224795"><span class="hs-identifier hs-var">pReason_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.Types.SanitizationWarning.html#newSanitizationWarning"><span class="hs-identifier hs-var hs-var">newSanitizationWarning</span></a></span></span><span> </span><span id="local-6989586621679224804"><span class="annot"><span class="annottext">SanitizationWarningReason
+</span><a href="#local-6989586621679224804"><span class="hs-identifier hs-var">pReason_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">SanitizationWarning' :: Maybe Text
 -&gt; Maybe Text -&gt; SanitizationWarningReason -&gt; SanitizationWarning
 </span><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning%27"><span class="hs-identifier hs-type">SanitizationWarning'</span></a></span><span>
@@ -130,7 +130,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:reason:SanitizationWarning' :: SanitizationWarningReason
 </span><a href="Network.AWS.MQ.Types.SanitizationWarning.html#%24sel%3Areason%3ASanitizationWarning%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SanitizationWarningReason
-</span><a href="#local-6989586621679224795"><span class="hs-identifier hs-var">pReason_</span></a></span><span>
+</span><a href="#local-6989586621679224804"><span class="hs-identifier hs-var">pReason_</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The name of the XML attribute that has been sanitized.</span><span>
@@ -142,16 +142,16 @@ forall a. Maybe a
 -&gt; Lens
      SanitizationWarning SanitizationWarning (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning%27"><span class="hs-identifier hs-type">SanitizationWarning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224791"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning%27"><span class="hs-identifier hs-type">SanitizationWarning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224800"><span class="annot"><span class="annottext">Maybe Text
 attributeName :: Maybe Text
 $sel:attributeName:SanitizationWarning' :: SanitizationWarning -&gt; Maybe Text
-</span><a href="#local-6989586621679224791"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224791"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224790"><span class="annot"><span class="annottext">s :: SanitizationWarning
-</span><a href="#local-6989586621679224790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning%27"><span class="hs-identifier hs-type">SanitizationWarning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224789"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SanitizationWarning
-</span><a href="#local-6989586621679224790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeName:SanitizationWarning' :: Maybe Text
+</span><a href="#local-6989586621679224800"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224800"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224799"><span class="annot"><span class="annottext">s :: SanitizationWarning
+</span><a href="#local-6989586621679224799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning%27"><span class="hs-identifier hs-type">SanitizationWarning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224798"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SanitizationWarning
+</span><a href="#local-6989586621679224799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeName:SanitizationWarning' :: Maybe Text
 </span><a href="Network.AWS.MQ.Types.SanitizationWarning.html#%24sel%3AattributeName%3ASanitizationWarning%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-type">SanitizationWarning</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-type">SanitizationWarning</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of the XML element that has been sanitized.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#sanitizationWarning_elementName"><span class="hs-identifier hs-type">sanitizationWarning_elementName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-type">SanitizationWarning</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -162,16 +162,16 @@ $sel:attributeName:SanitizationWarning' :: SanitizationWarning -&gt; Maybe Text
 -&gt; Lens
      SanitizationWarning SanitizationWarning (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning%27"><span class="hs-identifier hs-type">SanitizationWarning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224787"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning%27"><span class="hs-identifier hs-type">SanitizationWarning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224796"><span class="annot"><span class="annottext">Maybe Text
 elementName :: Maybe Text
 $sel:elementName:SanitizationWarning' :: SanitizationWarning -&gt; Maybe Text
-</span><a href="#local-6989586621679224787"><span class="hs-identifier hs-var hs-var">elementName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224787"><span class="hs-identifier hs-var">elementName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224786"><span class="annot"><span class="annottext">s :: SanitizationWarning
-</span><a href="#local-6989586621679224786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning%27"><span class="hs-identifier hs-type">SanitizationWarning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224785"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SanitizationWarning
-</span><a href="#local-6989586621679224786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elementName:SanitizationWarning' :: Maybe Text
+</span><a href="#local-6989586621679224796"><span class="hs-identifier hs-var hs-var">elementName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224796"><span class="hs-identifier hs-var">elementName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224795"><span class="annot"><span class="annottext">s :: SanitizationWarning
+</span><a href="#local-6989586621679224795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning%27"><span class="hs-identifier hs-type">SanitizationWarning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224794"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SanitizationWarning
+</span><a href="#local-6989586621679224795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elementName:SanitizationWarning' :: Maybe Text
 </span><a href="Network.AWS.MQ.Types.SanitizationWarning.html#%24sel%3AelementName%3ASanitizationWarning%27"><span class="hs-identifier hs-var">elementName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-type">SanitizationWarning</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-type">SanitizationWarning</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | Required. The reason for which the XML elements or attributes were</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- sanitized.</span><span>
@@ -187,19 +187,19 @@ $sel:elementName:SanitizationWarning' :: SanitizationWarning -&gt; Maybe Text
      SanitizationWarningReason
      SanitizationWarningReason
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning%27"><span class="hs-identifier hs-type">SanitizationWarning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224783"><span class="annot"><span class="annottext">SanitizationWarningReason
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning%27"><span class="hs-identifier hs-type">SanitizationWarning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224792"><span class="annot"><span class="annottext">SanitizationWarningReason
 reason :: SanitizationWarningReason
 $sel:reason:SanitizationWarning' :: SanitizationWarning -&gt; SanitizationWarningReason
-</span><a href="#local-6989586621679224783"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SanitizationWarningReason
-</span><a href="#local-6989586621679224783"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224782"><span class="annot"><span class="annottext">s :: SanitizationWarning
-</span><a href="#local-6989586621679224782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning%27"><span class="hs-identifier hs-type">SanitizationWarning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224781"><span class="annot"><span class="annottext">SanitizationWarningReason
-</span><a href="#local-6989586621679224781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SanitizationWarning
-</span><a href="#local-6989586621679224782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:SanitizationWarning' :: SanitizationWarningReason
+</span><a href="#local-6989586621679224792"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SanitizationWarningReason
+</span><a href="#local-6989586621679224792"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224791"><span class="annot"><span class="annottext">s :: SanitizationWarning
+</span><a href="#local-6989586621679224791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning%27"><span class="hs-identifier hs-type">SanitizationWarning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224790"><span class="annot"><span class="annottext">SanitizationWarningReason
+</span><a href="#local-6989586621679224790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SanitizationWarning
+</span><a href="#local-6989586621679224791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:SanitizationWarning' :: SanitizationWarningReason
 </span><a href="Network.AWS.MQ.Types.SanitizationWarning.html#%24sel%3Areason%3ASanitizationWarning%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SanitizationWarningReason
-</span><a href="#local-6989586621679224781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-type">SanitizationWarning</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-type">SanitizationWarning</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224778"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-type">SanitizationWarning</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679224776"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SanitizationWarning
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224787"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-type">SanitizationWarning</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679224785"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SanitizationWarning
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SanitizationWarning)
@@ -209,8 +209,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SanitizationWarning&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224773"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224773"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224782"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224782"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; SanitizationWarningReason -&gt; SanitizationWarning
 </span><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning%27"><span class="hs-identifier hs-var">SanitizationWarning'</span></a></span><span>
@@ -221,7 +221,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; SanitizationWarningReason -&gt; SanitizationWarning)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679224782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;attributeName&quot;</span></span><span class="hs-special">)</span><span>
@@ -231,7 +231,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (SanitizationWarningReason -&gt; SanitizationWarning)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679224782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;elementName&quot;</span></span><span class="hs-special">)</span><span>
@@ -239,13 +239,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser SanitizationWarningReason -&gt; Parser SanitizationWarning
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SanitizationWarningReason
+</span><a href="#local-6989586621679224782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SanitizationWarningReason
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;reason&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224766"><span id="local-6989586621679224768"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-type">SanitizationWarning</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224775"><span id="local-6989586621679224777"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-type">SanitizationWarning</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224763"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-type">SanitizationWarning</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224772"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.SanitizationWarning.html#SanitizationWarning"><span class="hs-identifier hs-type">SanitizationWarning</span></a></span></span><span>
 </span><span id="line-95"></span></pre></body></html>

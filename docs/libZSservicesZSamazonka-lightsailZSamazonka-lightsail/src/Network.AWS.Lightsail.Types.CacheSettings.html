@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span class="hs-comment">-- @cache@.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newCacheSettings' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679619313"><span id="local-6989586621679619314"></span></span><span class="hs-keyword">data</span><span> </span><span id="CacheSettings"><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-var">CacheSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CacheSettings%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-var">CacheSettings'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679619322"><span id="local-6989586621679619323"></span></span><span class="hs-keyword">data</span><span> </span><span id="CacheSettings"><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-var">CacheSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CacheSettings%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-var">CacheSettings'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum amount of time that objects stay in the distribution\'s</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- cache before the distribution forwards another request to the origin to</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- determine whether the object has been updated.</span><span>
@@ -106,7 +106,7 @@
 </span><span id="line-99"></span><span>    </span><span id="%24sel%3AforwardedQueryStrings%3ACacheSettings%27"><span class="annot"><span class="annottext">CacheSettings -&gt; Maybe QueryStringObject
 </span><a href="Network.AWS.Lightsail.Types.CacheSettings.html#%24sel%3AforwardedQueryStrings%3ACacheSettings%27"><span class="hs-identifier hs-var hs-var">forwardedQueryStrings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.QueryStringObject.html#QueryStringObject"><span class="hs-identifier hs-type">QueryStringObject</span></a></span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679619300"><span id="local-6989586621679619302"><span class="annot"><span class="annottext">CacheSettings -&gt; CacheSettings -&gt; Bool
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679619309"><span id="local-6989586621679619311"><span class="annot"><span class="annottext">CacheSettings -&gt; CacheSettings -&gt; Bool
 (CacheSettings -&gt; CacheSettings -&gt; Bool)
 -&gt; (CacheSettings -&gt; CacheSettings -&gt; Bool) -&gt; Eq CacheSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -114,7 +114,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CacheSettings -&gt; CacheSettings -&gt; Bool
 == :: CacheSettings -&gt; CacheSettings -&gt; Bool
 $c== :: CacheSettings -&gt; CacheSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679619291"><span id="local-6989586621679619293"><span id="local-6989586621679619295"><span id="local-6989586621679619297"><span class="annot"><span class="annottext">ReadPrec [CacheSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679619300"><span id="local-6989586621679619302"><span id="local-6989586621679619304"><span id="local-6989586621679619306"><span class="annot"><span class="annottext">ReadPrec [CacheSettings]
 ReadPrec CacheSettings
 Int -&gt; ReadS CacheSettings
 ReadS [CacheSettings]
@@ -134,7 +134,7 @@ readList :: ReadS [CacheSettings]
 $creadList :: ReadS [CacheSettings]
 readsPrec :: Int -&gt; ReadS CacheSettings
 $creadsPrec :: Int -&gt; ReadS CacheSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679619284"><span id="local-6989586621679619286"><span id="local-6989586621679619288"><span class="annot"><span class="annottext">Int -&gt; CacheSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679619293"><span id="local-6989586621679619295"><span id="local-6989586621679619297"><span class="annot"><span class="annottext">Int -&gt; CacheSettings -&gt; ShowS
 [CacheSettings] -&gt; ShowS
 CacheSettings -&gt; String
 (Int -&gt; CacheSettings -&gt; ShowS)
@@ -291,16 +291,16 @@ forall a. Maybe a
 -&gt; (CacheSettings -&gt; Maybe Integer -&gt; CacheSettings)
 -&gt; Lens CacheSettings CacheSettings (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619275"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619284"><span class="annot"><span class="annottext">Maybe Integer
 maximumTTL :: Maybe Integer
 $sel:maximumTTL:CacheSettings' :: CacheSettings -&gt; Maybe Integer
-</span><a href="#local-6989586621679619275"><span class="hs-identifier hs-var hs-var">maximumTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679619275"><span class="hs-identifier hs-var">maximumTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619274"><span class="annot"><span class="annottext">s :: CacheSettings
-</span><a href="#local-6989586621679619274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619273"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679619273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSettings
-</span><a href="#local-6989586621679619274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumTTL:CacheSettings' :: Maybe Integer
+</span><a href="#local-6989586621679619284"><span class="hs-identifier hs-var hs-var">maximumTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679619284"><span class="hs-identifier hs-var">maximumTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619283"><span class="annot"><span class="annottext">s :: CacheSettings
+</span><a href="#local-6989586621679619283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619282"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679619282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSettings
+</span><a href="#local-6989586621679619283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumTTL:CacheSettings' :: Maybe Integer
 </span><a href="Network.AWS.Lightsail.Types.CacheSettings.html#%24sel%3AmaximumTTL%3ACacheSettings%27"><span class="hs-identifier hs-var">maximumTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679619273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679619282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The HTTP method responses that are cached by your distribution.</span><span>
 </span><span id="line-197"></span><span class="hs-comment">--</span><span>
@@ -317,16 +317,16 @@ $sel:maximumTTL:CacheSettings' :: CacheSettings -&gt; Maybe Integer
 -&gt; (CacheSettings -&gt; Maybe Text -&gt; CacheSettings)
 -&gt; Lens CacheSettings CacheSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619271"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619280"><span class="annot"><span class="annottext">Maybe Text
 cachedHTTPMethods :: Maybe Text
 $sel:cachedHTTPMethods:CacheSettings' :: CacheSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679619271"><span class="hs-identifier hs-var hs-var">cachedHTTPMethods</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679619271"><span class="hs-identifier hs-var">cachedHTTPMethods</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619270"><span class="annot"><span class="annottext">s :: CacheSettings
-</span><a href="#local-6989586621679619270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619269"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679619269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSettings
-</span><a href="#local-6989586621679619270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cachedHTTPMethods:CacheSettings' :: Maybe Text
+</span><a href="#local-6989586621679619280"><span class="hs-identifier hs-var hs-var">cachedHTTPMethods</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679619280"><span class="hs-identifier hs-var">cachedHTTPMethods</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619279"><span class="annot"><span class="annottext">s :: CacheSettings
+</span><a href="#local-6989586621679619279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619278"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679619278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSettings
+</span><a href="#local-6989586621679619279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cachedHTTPMethods:CacheSettings' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.CacheSettings.html#%24sel%3AcachedHTTPMethods%3ACacheSettings%27"><span class="hs-identifier hs-var">cachedHTTPMethods</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679619269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679619278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | An object that describes the cookies that are forwarded to the origin.</span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- Your content is cached based on the cookies that are forwarded.</span><span>
@@ -341,16 +341,16 @@ $sel:cachedHTTPMethods:CacheSettings' :: CacheSettings -&gt; Maybe Text
      (Maybe CookieObject)
      (Maybe CookieObject)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619267"><span class="annot"><span class="annottext">Maybe CookieObject
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619276"><span class="annot"><span class="annottext">Maybe CookieObject
 forwardedCookies :: Maybe CookieObject
 $sel:forwardedCookies:CacheSettings' :: CacheSettings -&gt; Maybe CookieObject
-</span><a href="#local-6989586621679619267"><span class="hs-identifier hs-var hs-var">forwardedCookies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CookieObject
-</span><a href="#local-6989586621679619267"><span class="hs-identifier hs-var">forwardedCookies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619266"><span class="annot"><span class="annottext">s :: CacheSettings
-</span><a href="#local-6989586621679619266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619265"><span class="annot"><span class="annottext">Maybe CookieObject
-</span><a href="#local-6989586621679619265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSettings
-</span><a href="#local-6989586621679619266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forwardedCookies:CacheSettings' :: Maybe CookieObject
+</span><a href="#local-6989586621679619276"><span class="hs-identifier hs-var hs-var">forwardedCookies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CookieObject
+</span><a href="#local-6989586621679619276"><span class="hs-identifier hs-var">forwardedCookies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619275"><span class="annot"><span class="annottext">s :: CacheSettings
+</span><a href="#local-6989586621679619275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619274"><span class="annot"><span class="annottext">Maybe CookieObject
+</span><a href="#local-6989586621679619274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSettings
+</span><a href="#local-6989586621679619275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forwardedCookies:CacheSettings' :: Maybe CookieObject
 </span><a href="Network.AWS.Lightsail.Types.CacheSettings.html#%24sel%3AforwardedCookies%3ACacheSettings%27"><span class="hs-identifier hs-var">forwardedCookies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CookieObject
-</span><a href="#local-6989586621679619265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679619274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | The HTTP methods that are processed and forwarded to the distribution\'s</span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- origin.</span><span>
@@ -376,16 +376,16 @@ $sel:forwardedCookies:CacheSettings' :: CacheSettings -&gt; Maybe CookieObject
 -&gt; (CacheSettings -&gt; Maybe Text -&gt; CacheSettings)
 -&gt; Lens CacheSettings CacheSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619263"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619272"><span class="annot"><span class="annottext">Maybe Text
 allowedHTTPMethods :: Maybe Text
 $sel:allowedHTTPMethods:CacheSettings' :: CacheSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679619263"><span class="hs-identifier hs-var hs-var">allowedHTTPMethods</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679619263"><span class="hs-identifier hs-var">allowedHTTPMethods</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619262"><span class="annot"><span class="annottext">s :: CacheSettings
-</span><a href="#local-6989586621679619262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619261"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679619261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSettings
-</span><a href="#local-6989586621679619262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedHTTPMethods:CacheSettings' :: Maybe Text
+</span><a href="#local-6989586621679619272"><span class="hs-identifier hs-var hs-var">allowedHTTPMethods</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679619272"><span class="hs-identifier hs-var">allowedHTTPMethods</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619271"><span class="annot"><span class="annottext">s :: CacheSettings
+</span><a href="#local-6989586621679619271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619270"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679619270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSettings
+</span><a href="#local-6989586621679619271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedHTTPMethods:CacheSettings' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.CacheSettings.html#%24sel%3AallowedHTTPMethods%3ACacheSettings%27"><span class="hs-identifier hs-var">allowedHTTPMethods</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679619261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679619270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | The default amount of time that objects stay in the distribution\'s</span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- cache before the distribution forwards another request to the origin to</span><span>
@@ -401,16 +401,16 @@ $sel:allowedHTTPMethods:CacheSettings' :: CacheSettings -&gt; Maybe Text
 -&gt; (CacheSettings -&gt; Maybe Integer -&gt; CacheSettings)
 -&gt; Lens CacheSettings CacheSettings (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619259"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619268"><span class="annot"><span class="annottext">Maybe Integer
 defaultTTL :: Maybe Integer
 $sel:defaultTTL:CacheSettings' :: CacheSettings -&gt; Maybe Integer
-</span><a href="#local-6989586621679619259"><span class="hs-identifier hs-var hs-var">defaultTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679619259"><span class="hs-identifier hs-var">defaultTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619258"><span class="annot"><span class="annottext">s :: CacheSettings
-</span><a href="#local-6989586621679619258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619257"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679619257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSettings
-</span><a href="#local-6989586621679619258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultTTL:CacheSettings' :: Maybe Integer
+</span><a href="#local-6989586621679619268"><span class="hs-identifier hs-var hs-var">defaultTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679619268"><span class="hs-identifier hs-var">defaultTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619267"><span class="annot"><span class="annottext">s :: CacheSettings
+</span><a href="#local-6989586621679619267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619266"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679619266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSettings
+</span><a href="#local-6989586621679619267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultTTL:CacheSettings' :: Maybe Integer
 </span><a href="Network.AWS.Lightsail.Types.CacheSettings.html#%24sel%3AdefaultTTL%3ACacheSettings%27"><span class="hs-identifier hs-var">defaultTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679619257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679619266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- | The minimum amount of time that objects stay in the distribution\'s</span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- cache before the distribution forwards another request to the origin to</span><span>
@@ -425,16 +425,16 @@ $sel:defaultTTL:CacheSettings' :: CacheSettings -&gt; Maybe Integer
 -&gt; (CacheSettings -&gt; Maybe Integer -&gt; CacheSettings)
 -&gt; Lens CacheSettings CacheSettings (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619255"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619264"><span class="annot"><span class="annottext">Maybe Integer
 minimumTTL :: Maybe Integer
 $sel:minimumTTL:CacheSettings' :: CacheSettings -&gt; Maybe Integer
-</span><a href="#local-6989586621679619255"><span class="hs-identifier hs-var hs-var">minimumTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679619255"><span class="hs-identifier hs-var">minimumTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619254"><span class="annot"><span class="annottext">s :: CacheSettings
-</span><a href="#local-6989586621679619254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619253"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679619253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSettings
-</span><a href="#local-6989586621679619254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumTTL:CacheSettings' :: Maybe Integer
+</span><a href="#local-6989586621679619264"><span class="hs-identifier hs-var hs-var">minimumTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679619264"><span class="hs-identifier hs-var">minimumTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619263"><span class="annot"><span class="annottext">s :: CacheSettings
+</span><a href="#local-6989586621679619263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619262"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679619262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSettings
+</span><a href="#local-6989586621679619263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumTTL:CacheSettings' :: Maybe Integer
 </span><a href="Network.AWS.Lightsail.Types.CacheSettings.html#%24sel%3AminimumTTL%3ACacheSettings%27"><span class="hs-identifier hs-var">minimumTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679619253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679619262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | An object that describes the headers that are forwarded to the origin.</span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- Your content is cached based on the headers that are forwarded.</span><span>
@@ -449,16 +449,16 @@ $sel:minimumTTL:CacheSettings' :: CacheSettings -&gt; Maybe Integer
      (Maybe HeaderObject)
      (Maybe HeaderObject)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619251"><span class="annot"><span class="annottext">Maybe HeaderObject
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619260"><span class="annot"><span class="annottext">Maybe HeaderObject
 forwardedHeaders :: Maybe HeaderObject
 $sel:forwardedHeaders:CacheSettings' :: CacheSettings -&gt; Maybe HeaderObject
-</span><a href="#local-6989586621679619251"><span class="hs-identifier hs-var hs-var">forwardedHeaders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HeaderObject
-</span><a href="#local-6989586621679619251"><span class="hs-identifier hs-var">forwardedHeaders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619250"><span class="annot"><span class="annottext">s :: CacheSettings
-</span><a href="#local-6989586621679619250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619249"><span class="annot"><span class="annottext">Maybe HeaderObject
-</span><a href="#local-6989586621679619249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSettings
-</span><a href="#local-6989586621679619250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forwardedHeaders:CacheSettings' :: Maybe HeaderObject
+</span><a href="#local-6989586621679619260"><span class="hs-identifier hs-var hs-var">forwardedHeaders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HeaderObject
+</span><a href="#local-6989586621679619260"><span class="hs-identifier hs-var">forwardedHeaders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619259"><span class="annot"><span class="annottext">s :: CacheSettings
+</span><a href="#local-6989586621679619259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619258"><span class="annot"><span class="annottext">Maybe HeaderObject
+</span><a href="#local-6989586621679619258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSettings
+</span><a href="#local-6989586621679619259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forwardedHeaders:CacheSettings' :: Maybe HeaderObject
 </span><a href="Network.AWS.Lightsail.Types.CacheSettings.html#%24sel%3AforwardedHeaders%3ACacheSettings%27"><span class="hs-identifier hs-var">forwardedHeaders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HeaderObject
-</span><a href="#local-6989586621679619249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679619258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>
 </span><span id="line-258"></span><span class="hs-comment">-- | An object that describes the query strings that are forwarded to the</span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- origin. Your content is cached based on the query strings that are</span><span>
@@ -474,19 +474,19 @@ $sel:forwardedHeaders:CacheSettings' :: CacheSettings -&gt; Maybe HeaderObject
      (Maybe QueryStringObject)
      (Maybe QueryStringObject)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619247"><span class="annot"><span class="annottext">Maybe QueryStringObject
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619256"><span class="annot"><span class="annottext">Maybe QueryStringObject
 forwardedQueryStrings :: Maybe QueryStringObject
 $sel:forwardedQueryStrings:CacheSettings' :: CacheSettings -&gt; Maybe QueryStringObject
-</span><a href="#local-6989586621679619247"><span class="hs-identifier hs-var hs-var">forwardedQueryStrings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStringObject
-</span><a href="#local-6989586621679619247"><span class="hs-identifier hs-var">forwardedQueryStrings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619246"><span class="annot"><span class="annottext">s :: CacheSettings
-</span><a href="#local-6989586621679619246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619245"><span class="annot"><span class="annottext">Maybe QueryStringObject
-</span><a href="#local-6989586621679619245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSettings
-</span><a href="#local-6989586621679619246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forwardedQueryStrings:CacheSettings' :: Maybe QueryStringObject
+</span><a href="#local-6989586621679619256"><span class="hs-identifier hs-var hs-var">forwardedQueryStrings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStringObject
+</span><a href="#local-6989586621679619256"><span class="hs-identifier hs-var">forwardedQueryStrings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619255"><span class="annot"><span class="annottext">s :: CacheSettings
+</span><a href="#local-6989586621679619255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619254"><span class="annot"><span class="annottext">Maybe QueryStringObject
+</span><a href="#local-6989586621679619254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheSettings
+</span><a href="#local-6989586621679619255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forwardedQueryStrings:CacheSettings' :: Maybe QueryStringObject
 </span><a href="Network.AWS.Lightsail.Types.CacheSettings.html#%24sel%3AforwardedQueryStrings%3ACacheSettings%27"><span class="hs-identifier hs-var">forwardedQueryStrings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStringObject
-</span><a href="#local-6989586621679619245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679619254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-263"></span><span>
-</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679619242"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-265"></span><span>  </span><span id="local-6989586621679619240"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CacheSettings
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679619251"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-265"></span><span>  </span><span id="local-6989586621679619249"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CacheSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-266"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CacheSettings)
@@ -496,8 +496,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CacheSettings&quot;</span></span><span>
-</span><span id="line-268"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679619237"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619237"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-268"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679619246"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679619246"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-269"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
 -&gt; Maybe Text
 -&gt; Maybe CookieObject
@@ -529,7 +529,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; CacheSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679619246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maximumTTL&quot;</span></span><span class="hs-special">)</span><span>
@@ -553,7 +553,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CacheSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679619246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cachedHTTPMethods&quot;</span></span><span class="hs-special">)</span><span>
@@ -575,7 +575,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CacheSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CookieObject)
+</span><a href="#local-6989586621679619246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CookieObject)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;forwardedCookies&quot;</span></span><span class="hs-special">)</span><span>
@@ -595,7 +595,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CacheSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679619246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;allowedHTTPMethods&quot;</span></span><span class="hs-special">)</span><span>
@@ -611,7 +611,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe HeaderObject -&gt; Maybe QueryStringObject -&gt; CacheSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679619246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;defaultTTL&quot;</span></span><span class="hs-special">)</span><span>
@@ -623,7 +623,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe HeaderObject -&gt; Maybe QueryStringObject -&gt; CacheSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679619246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;minimumTTL&quot;</span></span><span class="hs-special">)</span><span>
@@ -633,7 +633,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe QueryStringObject -&gt; CacheSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HeaderObject)
+</span><a href="#local-6989586621679619246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HeaderObject)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;forwardedHeaders&quot;</span></span><span class="hs-special">)</span><span>
@@ -641,19 +641,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe QueryStringObject) -&gt; Parser CacheSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe QueryStringObject)
+</span><a href="#local-6989586621679619246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe QueryStringObject)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;forwardedQueryStrings&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-278"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-279"></span><span>
-</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679619231"><span id="local-6989586621679619233"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span></span></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679619240"><span id="local-6989586621679619242"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span></span></span><span>
 </span><span id="line-281"></span><span>
-</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679619228"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679619237"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span></span><span>
 </span><span id="line-283"></span><span>
-</span><span id="line-284"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679619220"><span id="local-6989586621679619222"><span id="local-6989586621679619224"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-285"></span><span>  </span><span id="local-6989586621679619218"><span class="annot"><span class="annottext">toJSON :: CacheSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619209"><span id="local-6989586621679619210"><span id="local-6989586621679619211"><span id="local-6989586621679619212"><span id="local-6989586621679619213"><span id="local-6989586621679619214"><span id="local-6989586621679619215"><span id="local-6989586621679619216"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-284"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679619229"><span id="local-6989586621679619231"><span id="local-6989586621679619233"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-285"></span><span>  </span><span id="local-6989586621679619227"><span class="annot"><span class="annottext">toJSON :: CacheSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings%27"><span class="hs-identifier hs-type">CacheSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619218"><span id="local-6989586621679619219"><span id="local-6989586621679619220"><span id="local-6989586621679619221"><span id="local-6989586621679619222"><span id="local-6989586621679619223"><span id="local-6989586621679619224"><span id="local-6989586621679619225"><span class="annot"><span class="annottext">Maybe Integer
 Maybe Text
 Maybe CookieObject
 Maybe HeaderObject
@@ -674,7 +674,7 @@ $sel:allowedHTTPMethods:CacheSettings' :: CacheSettings -&gt; Maybe Text
 $sel:forwardedCookies:CacheSettings' :: CacheSettings -&gt; Maybe CookieObject
 $sel:cachedHTTPMethods:CacheSettings' :: CacheSettings -&gt; Maybe Text
 $sel:maximumTTL:CacheSettings' :: CacheSettings -&gt; Maybe Integer
-</span><a href="#local-6989586621679619209"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679619218"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-286"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-287"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -686,7 +686,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679619216"><span class="hs-identifier hs-var">maximumTTL</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679619225"><span class="hs-identifier hs-var">maximumTTL</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-289"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cachedHTTPMethods&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -694,7 +694,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-290"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679619215"><span class="hs-identifier hs-var">cachedHTTPMethods</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679619224"><span class="hs-identifier hs-var">cachedHTTPMethods</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-291"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;forwardedCookies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CookieObject -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -702,7 +702,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-292"></span><span>              </span><span class="annot"><span class="annottext">(CookieObject -&gt; Pair) -&gt; Maybe CookieObject -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CookieObject
-</span><a href="#local-6989586621679619214"><span class="hs-identifier hs-var">forwardedCookies</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679619223"><span class="hs-identifier hs-var">forwardedCookies</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-293"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;allowedHTTPMethods&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -710,21 +710,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-294"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679619213"><span class="hs-identifier hs-var">allowedHTTPMethods</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679619222"><span class="hs-identifier hs-var">allowedHTTPMethods</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-295"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;defaultTTL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679619212"><span class="hs-identifier hs-var">defaultTTL</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679619221"><span class="hs-identifier hs-var">defaultTTL</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-296"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;minimumTTL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679619211"><span class="hs-identifier hs-var">minimumTTL</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679619220"><span class="hs-identifier hs-var">minimumTTL</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-297"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;forwardedHeaders&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HeaderObject -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -732,7 +732,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-298"></span><span>              </span><span class="annot"><span class="annottext">(HeaderObject -&gt; Pair) -&gt; Maybe HeaderObject -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HeaderObject
-</span><a href="#local-6989586621679619210"><span class="hs-identifier hs-var">forwardedHeaders</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679619219"><span class="hs-identifier hs-var">forwardedHeaders</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-299"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;forwardedQueryStrings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; QueryStringObject -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -741,7 +741,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe QueryStringObject -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryStringObject
-</span><a href="#local-6989586621679619209"><span class="hs-identifier hs-var">forwardedQueryStrings</span></a></span><span>
+</span><a href="#local-6989586621679619218"><span class="hs-identifier hs-var">forwardedQueryStrings</span></a></span><span>
 </span><span id="line-301"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-302"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-303"></span></pre></body></html>

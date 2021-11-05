@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | Contains the parameters for SetStatus.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newSetStatus' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679177558"><span id="local-6989586621679177559"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetStatus"><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-var">SetStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetStatus%27"><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus%27"><span class="hs-identifier hs-var">SetStatus'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679177567"><span id="local-6989586621679177568"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetStatus"><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-var">SetStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetStatus%27"><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus%27"><span class="hs-identifier hs-var">SetStatus'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the pipeline that contains the objects.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3ApipelineId%3ASetStatus%27"><span class="annot"><span class="annottext">SetStatus -&gt; Text
 </span><a href="Network.AWS.DataPipeline.SetStatus.html#%24sel%3ApipelineId%3ASetStatus%27"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3Astatus%3ASetStatus%27"><span class="annot"><span class="annottext">SetStatus -&gt; Text
 </span><a href="Network.AWS.DataPipeline.SetStatus.html#%24sel%3Astatus%3ASetStatus%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177550"><span id="local-6989586621679177552"><span class="annot"><span class="annottext">SetStatus -&gt; SetStatus -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177559"><span id="local-6989586621679177561"><span class="annot"><span class="annottext">SetStatus -&gt; SetStatus -&gt; Bool
 (SetStatus -&gt; SetStatus -&gt; Bool)
 -&gt; (SetStatus -&gt; SetStatus -&gt; Bool) -&gt; Eq SetStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetStatus -&gt; SetStatus -&gt; Bool
 == :: SetStatus -&gt; SetStatus -&gt; Bool
 $c== :: SetStatus -&gt; SetStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177541"><span id="local-6989586621679177543"><span id="local-6989586621679177545"><span id="local-6989586621679177547"><span class="annot"><span class="annottext">ReadPrec [SetStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177550"><span id="local-6989586621679177552"><span id="local-6989586621679177554"><span id="local-6989586621679177556"><span class="annot"><span class="annottext">ReadPrec [SetStatus]
 ReadPrec SetStatus
 Int -&gt; ReadS SetStatus
 ReadS [SetStatus]
@@ -94,7 +94,7 @@ readList :: ReadS [SetStatus]
 $creadList :: ReadS [SetStatus]
 readsPrec :: Int -&gt; ReadS SetStatus
 $creadsPrec :: Int -&gt; ReadS SetStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177534"><span id="local-6989586621679177536"><span id="local-6989586621679177538"><span class="annot"><span class="annottext">Int -&gt; SetStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177543"><span id="local-6989586621679177545"><span id="local-6989586621679177547"><span class="annot"><span class="annottext">Int -&gt; SetStatus -&gt; ShowS
 [SetStatus] -&gt; ShowS
 SetStatus -&gt; String
 (Int -&gt; SetStatus -&gt; ShowS)
@@ -142,21 +142,21 @@ $cfrom :: forall x. SetStatus -&gt; Rep SetStatus x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span><span>
 </span><span id="line-90"></span><span id="newSetStatus"><span class="annot"><span class="annottext">newSetStatus :: Text -&gt; Text -&gt; SetStatus
-</span><a href="Network.AWS.DataPipeline.SetStatus.html#newSetStatus"><span class="hs-identifier hs-var hs-var">newSetStatus</span></a></span></span><span> </span><span id="local-6989586621679177529"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177529"><span class="hs-identifier hs-var">pPipelineId_</span></a></span></span><span> </span><span id="local-6989586621679177528"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177528"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DataPipeline.SetStatus.html#newSetStatus"><span class="hs-identifier hs-var hs-var">newSetStatus</span></a></span></span><span> </span><span id="local-6989586621679177538"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177538"><span class="hs-identifier hs-var">pPipelineId_</span></a></span></span><span> </span><span id="local-6989586621679177537"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177537"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">SetStatus' :: Text -&gt; [Text] -&gt; Text -&gt; SetStatus
 </span><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus%27"><span class="hs-identifier hs-type">SetStatus'</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pipelineId:SetStatus' :: Text
 </span><a href="Network.AWS.DataPipeline.SetStatus.html#%24sel%3ApipelineId%3ASetStatus%27"><span class="hs-identifier hs-var">pipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177529"><span class="hs-identifier hs-var">pPipelineId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177538"><span class="hs-identifier hs-var">pPipelineId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:objectIds:SetStatus' :: [Text]
 </span><a href="Network.AWS.DataPipeline.SetStatus.html#%24sel%3AobjectIds%3ASetStatus%27"><span class="hs-identifier hs-var">objectIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:SetStatus' :: Text
 </span><a href="Network.AWS.DataPipeline.SetStatus.html#%24sel%3Astatus%3ASetStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177528"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679177537"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The ID of the pipeline that contains the objects.</span><span>
@@ -166,16 +166,16 @@ forall a. Monoid a =&gt; a
 -&gt; (SetStatus -&gt; Text -&gt; SetStatus)
 -&gt; Lens SetStatus SetStatus Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus%27"><span class="hs-identifier hs-type">SetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177525"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus%27"><span class="hs-identifier hs-type">SetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177534"><span class="annot"><span class="annottext">Text
 pipelineId :: Text
 $sel:pipelineId:SetStatus' :: SetStatus -&gt; Text
-</span><a href="#local-6989586621679177525"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177525"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177524"><span class="annot"><span class="annottext">s :: SetStatus
-</span><a href="#local-6989586621679177524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus%27"><span class="hs-identifier hs-type">SetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177523"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetStatus
-</span><a href="#local-6989586621679177524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineId:SetStatus' :: Text
+</span><a href="#local-6989586621679177534"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177534"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177533"><span class="annot"><span class="annottext">s :: SetStatus
+</span><a href="#local-6989586621679177533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus%27"><span class="hs-identifier hs-type">SetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177532"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetStatus
+</span><a href="#local-6989586621679177533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineId:SetStatus' :: Text
 </span><a href="Network.AWS.DataPipeline.SetStatus.html#%24sel%3ApipelineId%3ASetStatus%27"><span class="hs-identifier hs-var">pipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The IDs of the objects. The corresponding objects can be either physical</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- or components, but not a mix of both types.</span><span>
@@ -185,16 +185,16 @@ $sel:pipelineId:SetStatus' :: SetStatus -&gt; Text
 -&gt; (SetStatus -&gt; [Text] -&gt; SetStatus)
 -&gt; Lens SetStatus SetStatus [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus%27"><span class="hs-identifier hs-type">SetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177522"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus%27"><span class="hs-identifier hs-type">SetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177531"><span class="annot"><span class="annottext">[Text]
 objectIds :: [Text]
 $sel:objectIds:SetStatus' :: SetStatus -&gt; [Text]
-</span><a href="#local-6989586621679177522"><span class="hs-identifier hs-var hs-var">objectIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679177522"><span class="hs-identifier hs-var">objectIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177521"><span class="annot"><span class="annottext">s :: SetStatus
-</span><a href="#local-6989586621679177521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus%27"><span class="hs-identifier hs-type">SetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177520"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679177520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetStatus
-</span><a href="#local-6989586621679177521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectIds:SetStatus' :: [Text]
+</span><a href="#local-6989586621679177531"><span class="hs-identifier hs-var hs-var">objectIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679177531"><span class="hs-identifier hs-var">objectIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177530"><span class="annot"><span class="annottext">s :: SetStatus
+</span><a href="#local-6989586621679177530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus%27"><span class="hs-identifier hs-type">SetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177529"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679177529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetStatus
+</span><a href="#local-6989586621679177530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectIds:SetStatus' :: [Text]
 </span><a href="Network.AWS.DataPipeline.SetStatus.html#%24sel%3AobjectIds%3ASetStatus%27"><span class="hs-identifier hs-var">objectIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679177520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; SetStatus -&gt; f SetStatus)
+</span><a href="#local-6989586621679177529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; SetStatus -&gt; f SetStatus)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; SetStatus
@@ -213,25 +213,25 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (SetStatus -&gt; Text -&gt; SetStatus)
 -&gt; Lens SetStatus SetStatus Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus%27"><span class="hs-identifier hs-type">SetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177517"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus%27"><span class="hs-identifier hs-type">SetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177526"><span class="annot"><span class="annottext">Text
 status :: Text
 $sel:status:SetStatus' :: SetStatus -&gt; Text
-</span><a href="#local-6989586621679177517"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177517"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177516"><span class="annot"><span class="annottext">s :: SetStatus
-</span><a href="#local-6989586621679177516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus%27"><span class="hs-identifier hs-type">SetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177515"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetStatus
-</span><a href="#local-6989586621679177516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SetStatus' :: Text
+</span><a href="#local-6989586621679177526"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177526"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177525"><span class="annot"><span class="annottext">s :: SetStatus
+</span><a href="#local-6989586621679177525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus%27"><span class="hs-identifier hs-type">SetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177524"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetStatus
+</span><a href="#local-6989586621679177525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SetStatus' :: Text
 </span><a href="Network.AWS.DataPipeline.SetStatus.html#%24sel%3Astatus%3ASetStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatusResponse"><span class="hs-identifier hs-type">SetStatusResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679177511"><span class="annot"><span class="annottext">request :: SetStatus -&gt; Request SetStatus
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679177520"><span class="annot"><span class="annottext">request :: SetStatus -&gt; Request SetStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetStatus -&gt; Request SetStatus
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DataPipeline.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679177507"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679177516"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetStatus
 -&gt; ClientResponse ClientBody
@@ -254,12 +254,12 @@ AWSResponse a
 SetStatusResponse
 </span><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatusResponse%27"><span class="hs-identifier hs-var">SetStatusResponse'</span></a></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177500"><span id="local-6989586621679177502"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177509"><span id="local-6989586621679177511"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177497"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177506"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679177493"><span class="annot"><span class="annottext">toHeaders :: SetStatus -&gt; [Header]
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679177502"><span class="annot"><span class="annottext">toHeaders :: SetStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; SetStatus -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -284,9 +284,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177483"><span id="local-6989586621679177485"><span id="local-6989586621679177487"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679177481"><span class="annot"><span class="annottext">toJSON :: SetStatus -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus%27"><span class="hs-identifier hs-type">SetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177477"><span id="local-6989586621679177478"><span id="local-6989586621679177479"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177492"><span id="local-6989586621679177494"><span id="local-6989586621679177496"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679177490"><span class="annot"><span class="annottext">toJSON :: SetStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus%27"><span class="hs-identifier hs-type">SetStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177486"><span id="local-6989586621679177487"><span id="local-6989586621679177488"><span class="annot"><span class="annottext">[Text]
 Text
 status :: Text
 objectIds :: [Text]
@@ -294,7 +294,7 @@ pipelineId :: Text
 $sel:status:SetStatus' :: SetStatus -&gt; Text
 $sel:objectIds:SetStatus' :: SetStatus -&gt; [Text]
 $sel:pipelineId:SetStatus' :: SetStatus -&gt; Text
-</span><a href="#local-6989586621679177477"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679177486"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -306,33 +306,33 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;pipelineId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177479"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177488"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;objectIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679177478"><span class="hs-identifier hs-var">objectIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177487"><span class="hs-identifier hs-var">objectIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177477"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177486"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679177471"><span class="annot"><span class="annottext">toPath :: SetStatus -&gt; ByteString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679177480"><span class="annot"><span class="annottext">toPath :: SetStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetStatus -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatus"><span class="hs-identifier hs-type">SetStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679177467"><span class="annot"><span class="annottext">toQuery :: SetStatus -&gt; QueryString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679177476"><span class="annot"><span class="annottext">toQuery :: SetStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SetStatus -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -340,10 +340,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newSetStatusResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679177464"><span id="local-6989586621679177465"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetStatusResponse"><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatusResponse"><span class="hs-identifier hs-var">SetStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetStatusResponse%27"><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatusResponse%27"><span class="hs-identifier hs-var">SetStatusResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679177473"><span id="local-6989586621679177474"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetStatusResponse"><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatusResponse"><span class="hs-identifier hs-var">SetStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetStatusResponse%27"><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatusResponse%27"><span class="hs-identifier hs-var">SetStatusResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177460"><span id="local-6989586621679177462"><span class="annot"><span class="annottext">SetStatusResponse -&gt; SetStatusResponse -&gt; Bool
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177469"><span id="local-6989586621679177471"><span class="annot"><span class="annottext">SetStatusResponse -&gt; SetStatusResponse -&gt; Bool
 (SetStatusResponse -&gt; SetStatusResponse -&gt; Bool)
 -&gt; (SetStatusResponse -&gt; SetStatusResponse -&gt; Bool)
 -&gt; Eq SetStatusResponse
@@ -352,7 +352,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetStatusResponse -&gt; SetStatusResponse -&gt; Bool
 == :: SetStatusResponse -&gt; SetStatusResponse -&gt; Bool
 $c== :: SetStatusResponse -&gt; SetStatusResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177452"><span id="local-6989586621679177454"><span id="local-6989586621679177456"><span id="local-6989586621679177458"><span class="annot"><span class="annottext">ReadPrec [SetStatusResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177461"><span id="local-6989586621679177463"><span id="local-6989586621679177465"><span id="local-6989586621679177467"><span class="annot"><span class="annottext">ReadPrec [SetStatusResponse]
 ReadPrec SetStatusResponse
 Int -&gt; ReadS SetStatusResponse
 ReadS [SetStatusResponse]
@@ -372,7 +372,7 @@ readList :: ReadS [SetStatusResponse]
 $creadList :: ReadS [SetStatusResponse]
 readsPrec :: Int -&gt; ReadS SetStatusResponse
 $creadsPrec :: Int -&gt; ReadS SetStatusResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177446"><span id="local-6989586621679177448"><span id="local-6989586621679177450"><span class="annot"><span class="annottext">Int -&gt; SetStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177455"><span id="local-6989586621679177457"><span id="local-6989586621679177459"><span class="annot"><span class="annottext">Int -&gt; SetStatusResponse -&gt; ShowS
 [SetStatusResponse] -&gt; ShowS
 SetStatusResponse -&gt; String
 (Int -&gt; SetStatusResponse -&gt; ShowS)
@@ -408,5 +408,5 @@ $cfrom :: forall x. SetStatusResponse -&gt; Rep SetStatusResponse x
 </span><a href="Network.AWS.DataPipeline.SetStatus.html#newSetStatusResponse"><span class="hs-identifier hs-var hs-var">newSetStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SetStatusResponse
 </span><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatusResponse%27"><span class="hs-identifier hs-var">SetStatusResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatusResponse"><span class="hs-identifier hs-type">SetStatusResponse</span></a></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177451"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.SetStatus.html#SetStatusResponse"><span class="hs-identifier hs-type">SetStatusResponse</span></a></span></span><span>
 </span><span id="line-165"></span></pre></body></html>

@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newEFSVolumeConfiguration' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679260183"><span id="local-6989586621679260184"></span></span><span class="hs-keyword">data</span><span> </span><span id="EFSVolumeConfiguration"><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-var">EFSVolumeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EFSVolumeConfiguration%27"><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-var">EFSVolumeConfiguration'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679260192"><span id="local-6989586621679260193"></span></span><span class="hs-keyword">data</span><span> </span><span id="EFSVolumeConfiguration"><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-var">EFSVolumeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EFSVolumeConfiguration%27"><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-var">EFSVolumeConfiguration'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The directory within the Amazon EFS file system to mount as the root</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- directory inside the host. If this parameter is omitted, the root of the</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Amazon EFS volume is used instead. Specifying @\/@ has the same effect</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AfileSystemId%3AEFSVolumeConfiguration%27"><span class="annot"><span class="annottext">EFSVolumeConfiguration -&gt; Text
 </span><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#%24sel%3AfileSystemId%3AEFSVolumeConfiguration%27"><span class="hs-identifier hs-var hs-var">fileSystemId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260173"><span id="local-6989586621679260175"><span class="annot"><span class="annottext">EFSVolumeConfiguration -&gt; EFSVolumeConfiguration -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260182"><span id="local-6989586621679260184"><span class="annot"><span class="annottext">EFSVolumeConfiguration -&gt; EFSVolumeConfiguration -&gt; Bool
 (EFSVolumeConfiguration -&gt; EFSVolumeConfiguration -&gt; Bool)
 -&gt; (EFSVolumeConfiguration -&gt; EFSVolumeConfiguration -&gt; Bool)
 -&gt; Eq EFSVolumeConfiguration
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EFSVolumeConfiguration -&gt; EFSVolumeConfiguration -&gt; Bool
 == :: EFSVolumeConfiguration -&gt; EFSVolumeConfiguration -&gt; Bool
 $c== :: EFSVolumeConfiguration -&gt; EFSVolumeConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260164"><span id="local-6989586621679260166"><span id="local-6989586621679260168"><span id="local-6989586621679260170"><span class="annot"><span class="annottext">ReadPrec [EFSVolumeConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260173"><span id="local-6989586621679260175"><span id="local-6989586621679260177"><span id="local-6989586621679260179"><span class="annot"><span class="annottext">ReadPrec [EFSVolumeConfiguration]
 ReadPrec EFSVolumeConfiguration
 Int -&gt; ReadS EFSVolumeConfiguration
 ReadS [EFSVolumeConfiguration]
@@ -96,7 +96,7 @@ readList :: ReadS [EFSVolumeConfiguration]
 $creadList :: ReadS [EFSVolumeConfiguration]
 readsPrec :: Int -&gt; ReadS EFSVolumeConfiguration
 $creadsPrec :: Int -&gt; ReadS EFSVolumeConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260157"><span id="local-6989586621679260159"><span id="local-6989586621679260161"><span class="annot"><span class="annottext">Int -&gt; EFSVolumeConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260166"><span id="local-6989586621679260168"><span id="local-6989586621679260170"><span class="annot"><span class="annottext">Int -&gt; EFSVolumeConfiguration -&gt; ShowS
 [EFSVolumeConfiguration] -&gt; ShowS
 EFSVolumeConfiguration -&gt; String
 (Int -&gt; EFSVolumeConfiguration -&gt; ShowS)
@@ -164,8 +164,8 @@ $cfrom :: forall x. EFSVolumeConfiguration -&gt; Rep EFSVolumeConfiguration x
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span><span>
 </span><span id="line-107"></span><span id="newEFSVolumeConfiguration"><span class="annot"><span class="annottext">newEFSVolumeConfiguration :: Text -&gt; EFSVolumeConfiguration
-</span><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#newEFSVolumeConfiguration"><span class="hs-identifier hs-var hs-var">newEFSVolumeConfiguration</span></a></span></span><span> </span><span id="local-6989586621679260151"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260151"><span class="hs-identifier hs-var">pFileSystemId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#newEFSVolumeConfiguration"><span class="hs-identifier hs-var hs-var">newEFSVolumeConfiguration</span></a></span></span><span> </span><span id="local-6989586621679260160"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260160"><span class="hs-identifier hs-var">pFileSystemId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">EFSVolumeConfiguration' :: Maybe Text
 -&gt; Maybe EFSTransitEncryption
 -&gt; Maybe EFSAuthorizationConfig
@@ -192,7 +192,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileSystemId:EFSVolumeConfiguration' :: Text
 </span><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#%24sel%3AfileSystemId%3AEFSVolumeConfiguration%27"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260151"><span class="hs-identifier hs-var">pFileSystemId_</span></a></span><span>
+</span><a href="#local-6989586621679260160"><span class="hs-identifier hs-var">pFileSystemId_</span></a></span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The directory within the Amazon EFS file system to mount as the root</span><span>
@@ -214,16 +214,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260147"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260156"><span class="annot"><span class="annottext">Maybe Text
 rootDirectory :: Maybe Text
 $sel:rootDirectory:EFSVolumeConfiguration' :: EFSVolumeConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679260147"><span class="hs-identifier hs-var hs-var">rootDirectory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260147"><span class="hs-identifier hs-var">rootDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260146"><span class="annot"><span class="annottext">s :: EFSVolumeConfiguration
-</span><a href="#local-6989586621679260146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260145"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EFSVolumeConfiguration
-</span><a href="#local-6989586621679260146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rootDirectory:EFSVolumeConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679260156"><span class="hs-identifier hs-var hs-var">rootDirectory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260156"><span class="hs-identifier hs-var">rootDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260155"><span class="annot"><span class="annottext">s :: EFSVolumeConfiguration
+</span><a href="#local-6989586621679260155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260154"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EFSVolumeConfiguration
+</span><a href="#local-6989586621679260155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rootDirectory:EFSVolumeConfiguration' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#%24sel%3ArootDirectory%3AEFSVolumeConfiguration%27"><span class="hs-identifier hs-var">rootDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | Determines whether to enable encryption for Amazon EFS data in transit</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- between the Amazon ECS host and the Amazon EFS server. Transit</span><span>
@@ -244,16 +244,16 @@ $sel:rootDirectory:EFSVolumeConfiguration' :: EFSVolumeConfiguration -&gt; Maybe
      (Maybe EFSTransitEncryption)
      (Maybe EFSTransitEncryption)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260143"><span class="annot"><span class="annottext">Maybe EFSTransitEncryption
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260152"><span class="annot"><span class="annottext">Maybe EFSTransitEncryption
 transitEncryption :: Maybe EFSTransitEncryption
 $sel:transitEncryption:EFSVolumeConfiguration' :: EFSVolumeConfiguration -&gt; Maybe EFSTransitEncryption
-</span><a href="#local-6989586621679260143"><span class="hs-identifier hs-var hs-var">transitEncryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EFSTransitEncryption
-</span><a href="#local-6989586621679260143"><span class="hs-identifier hs-var">transitEncryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260142"><span class="annot"><span class="annottext">s :: EFSVolumeConfiguration
-</span><a href="#local-6989586621679260142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260141"><span class="annot"><span class="annottext">Maybe EFSTransitEncryption
-</span><a href="#local-6989586621679260141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EFSVolumeConfiguration
-</span><a href="#local-6989586621679260142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitEncryption:EFSVolumeConfiguration' :: Maybe EFSTransitEncryption
+</span><a href="#local-6989586621679260152"><span class="hs-identifier hs-var hs-var">transitEncryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EFSTransitEncryption
+</span><a href="#local-6989586621679260152"><span class="hs-identifier hs-var">transitEncryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260151"><span class="annot"><span class="annottext">s :: EFSVolumeConfiguration
+</span><a href="#local-6989586621679260151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260150"><span class="annot"><span class="annottext">Maybe EFSTransitEncryption
+</span><a href="#local-6989586621679260150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EFSVolumeConfiguration
+</span><a href="#local-6989586621679260151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitEncryption:EFSVolumeConfiguration' :: Maybe EFSTransitEncryption
 </span><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#%24sel%3AtransitEncryption%3AEFSVolumeConfiguration%27"><span class="hs-identifier hs-var">transitEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EFSTransitEncryption
-</span><a href="#local-6989586621679260141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The authorization configuration details for the Amazon EFS file system.</span><span>
 </span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#eFSVolumeConfiguration_authorizationConfig"><span class="hs-identifier hs-type">eFSVolumeConfiguration_authorizationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSAuthorizationConfig.html#EFSAuthorizationConfig"><span class="hs-identifier hs-type">EFSAuthorizationConfig</span></a></span><span class="hs-special">)</span><span>
@@ -268,16 +268,16 @@ $sel:transitEncryption:EFSVolumeConfiguration' :: EFSVolumeConfiguration -&gt; M
      (Maybe EFSAuthorizationConfig)
      (Maybe EFSAuthorizationConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260139"><span class="annot"><span class="annottext">Maybe EFSAuthorizationConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260148"><span class="annot"><span class="annottext">Maybe EFSAuthorizationConfig
 authorizationConfig :: Maybe EFSAuthorizationConfig
 $sel:authorizationConfig:EFSVolumeConfiguration' :: EFSVolumeConfiguration -&gt; Maybe EFSAuthorizationConfig
-</span><a href="#local-6989586621679260139"><span class="hs-identifier hs-var hs-var">authorizationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EFSAuthorizationConfig
-</span><a href="#local-6989586621679260139"><span class="hs-identifier hs-var">authorizationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260138"><span class="annot"><span class="annottext">s :: EFSVolumeConfiguration
-</span><a href="#local-6989586621679260138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260137"><span class="annot"><span class="annottext">Maybe EFSAuthorizationConfig
-</span><a href="#local-6989586621679260137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EFSVolumeConfiguration
-</span><a href="#local-6989586621679260138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationConfig:EFSVolumeConfiguration' :: Maybe EFSAuthorizationConfig
+</span><a href="#local-6989586621679260148"><span class="hs-identifier hs-var hs-var">authorizationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EFSAuthorizationConfig
+</span><a href="#local-6989586621679260148"><span class="hs-identifier hs-var">authorizationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260147"><span class="annot"><span class="annottext">s :: EFSVolumeConfiguration
+</span><a href="#local-6989586621679260147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260146"><span class="annot"><span class="annottext">Maybe EFSAuthorizationConfig
+</span><a href="#local-6989586621679260146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EFSVolumeConfiguration
+</span><a href="#local-6989586621679260147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationConfig:EFSVolumeConfiguration' :: Maybe EFSAuthorizationConfig
 </span><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#%24sel%3AauthorizationConfig%3AEFSVolumeConfiguration%27"><span class="hs-identifier hs-var">authorizationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EFSAuthorizationConfig
-</span><a href="#local-6989586621679260137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The port to use when sending encrypted data between the Amazon ECS host</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- and the Amazon EFS server. If you don\'t specify a transit encryption</span><span>
@@ -297,16 +297,16 @@ $sel:authorizationConfig:EFSVolumeConfiguration' :: EFSVolumeConfiguration -&gt;
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260135"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260144"><span class="annot"><span class="annottext">Maybe Int
 transitEncryptionPort :: Maybe Int
 $sel:transitEncryptionPort:EFSVolumeConfiguration' :: EFSVolumeConfiguration -&gt; Maybe Int
-</span><a href="#local-6989586621679260135"><span class="hs-identifier hs-var hs-var">transitEncryptionPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679260135"><span class="hs-identifier hs-var">transitEncryptionPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260134"><span class="annot"><span class="annottext">s :: EFSVolumeConfiguration
-</span><a href="#local-6989586621679260134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260133"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679260133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EFSVolumeConfiguration
-</span><a href="#local-6989586621679260134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitEncryptionPort:EFSVolumeConfiguration' :: Maybe Int
+</span><a href="#local-6989586621679260144"><span class="hs-identifier hs-var hs-var">transitEncryptionPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679260144"><span class="hs-identifier hs-var">transitEncryptionPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260143"><span class="annot"><span class="annottext">s :: EFSVolumeConfiguration
+</span><a href="#local-6989586621679260143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260142"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679260142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EFSVolumeConfiguration
+</span><a href="#local-6989586621679260143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitEncryptionPort:EFSVolumeConfiguration' :: Maybe Int
 </span><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#%24sel%3AtransitEncryptionPort%3AEFSVolumeConfiguration%27"><span class="hs-identifier hs-var">transitEncryptionPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679260133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The Amazon EFS file system ID to use.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#eFSVolumeConfiguration_fileSystemId"><span class="hs-identifier hs-type">eFSVolumeConfiguration_fileSystemId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -316,19 +316,19 @@ $sel:transitEncryptionPort:EFSVolumeConfiguration' :: EFSVolumeConfiguration -&g
 -&gt; (EFSVolumeConfiguration -&gt; Text -&gt; EFSVolumeConfiguration)
 -&gt; Lens EFSVolumeConfiguration EFSVolumeConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260131"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260140"><span class="annot"><span class="annottext">Text
 fileSystemId :: Text
 $sel:fileSystemId:EFSVolumeConfiguration' :: EFSVolumeConfiguration -&gt; Text
-</span><a href="#local-6989586621679260131"><span class="hs-identifier hs-var hs-var">fileSystemId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260131"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260130"><span class="annot"><span class="annottext">s :: EFSVolumeConfiguration
-</span><a href="#local-6989586621679260130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260129"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EFSVolumeConfiguration
-</span><a href="#local-6989586621679260130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemId:EFSVolumeConfiguration' :: Text
+</span><a href="#local-6989586621679260140"><span class="hs-identifier hs-var hs-var">fileSystemId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260140"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260139"><span class="annot"><span class="annottext">s :: EFSVolumeConfiguration
+</span><a href="#local-6989586621679260139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260138"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EFSVolumeConfiguration
+</span><a href="#local-6989586621679260139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemId:EFSVolumeConfiguration' :: Text
 </span><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#%24sel%3AfileSystemId%3AEFSVolumeConfiguration%27"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260126"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679260124"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EFSVolumeConfiguration
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260135"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679260133"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EFSVolumeConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EFSVolumeConfiguration)
@@ -338,8 +338,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EFSVolumeConfiguration&quot;</span></span><span>
-</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260121"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260121"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260130"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260130"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe EFSTransitEncryption
 -&gt; Maybe EFSAuthorizationConfig
@@ -362,7 +362,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; EFSVolumeConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679260130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rootDirectory&quot;</span></span><span class="hs-special">)</span><span>
@@ -378,7 +378,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Int -&gt; Text -&gt; EFSVolumeConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EFSTransitEncryption)
+</span><a href="#local-6989586621679260130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EFSTransitEncryption)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transitEncryption&quot;</span></span><span class="hs-special">)</span><span>
@@ -389,7 +389,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int -&gt; Text -&gt; EFSVolumeConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EFSAuthorizationConfig)
+</span><a href="#local-6989586621679260130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EFSAuthorizationConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authorizationConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -397,7 +397,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser (Text -&gt; EFSVolumeConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679260130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transitEncryptionPort&quot;</span></span><span class="hs-special">)</span><span>
@@ -405,19 +405,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser EFSVolumeConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679260130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fileSystemId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260114"><span id="local-6989586621679260116"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260123"><span id="local-6989586621679260125"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span></span></span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260103"><span id="local-6989586621679260105"><span id="local-6989586621679260107"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679260101"><span class="annot"><span class="annottext">toJSON :: EFSVolumeConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260095"><span id="local-6989586621679260096"><span id="local-6989586621679260097"><span id="local-6989586621679260098"><span id="local-6989586621679260099"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260112"><span id="local-6989586621679260114"><span id="local-6989586621679260116"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679260110"><span class="annot"><span class="annottext">toJSON :: EFSVolumeConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration%27"><span class="hs-identifier hs-type">EFSVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260104"><span id="local-6989586621679260105"><span id="local-6989586621679260106"><span id="local-6989586621679260107"><span id="local-6989586621679260108"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Maybe EFSAuthorizationConfig
 Maybe EFSTransitEncryption
@@ -432,7 +432,7 @@ $sel:transitEncryptionPort:EFSVolumeConfiguration' :: EFSVolumeConfiguration -&g
 $sel:authorizationConfig:EFSVolumeConfiguration' :: EFSVolumeConfiguration -&gt; Maybe EFSAuthorizationConfig
 $sel:transitEncryption:EFSVolumeConfiguration' :: EFSVolumeConfiguration -&gt; Maybe EFSTransitEncryption
 $sel:rootDirectory:EFSVolumeConfiguration' :: EFSVolumeConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679260095"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679260104"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -444,7 +444,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260099"><span class="hs-identifier hs-var">rootDirectory</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679260108"><span class="hs-identifier hs-var">rootDirectory</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transitEncryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EFSTransitEncryption -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -453,7 +453,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe EFSTransitEncryption -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EFSTransitEncryption
-</span><a href="#local-6989586621679260098"><span class="hs-identifier hs-var">transitEncryption</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679260107"><span class="hs-identifier hs-var">transitEncryption</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authorizationConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EFSAuthorizationConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -462,7 +462,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe EFSAuthorizationConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EFSAuthorizationConfig
-</span><a href="#local-6989586621679260097"><span class="hs-identifier hs-var">authorizationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679260106"><span class="hs-identifier hs-var">authorizationConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transitEncryptionPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -470,14 +470,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679260096"><span class="hs-identifier hs-var">transitEncryptionPort</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679260105"><span class="hs-identifier hs-var">transitEncryptionPort</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fileSystemId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260095"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260104"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span></pre></body></html>

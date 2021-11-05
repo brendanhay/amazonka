@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newGetMergeCommit' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679364624"><span id="local-6989586621679364625"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMergeCommit"><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-var">GetMergeCommit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMergeCommit%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-var">GetMergeCommit'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679364633"><span id="local-6989586621679364634"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMergeCommit"><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-var">GetMergeCommit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMergeCommit%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-var">GetMergeCommit'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The level of conflict detail to use. If unspecified, the default</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- FILE_LEVEL is used, which returns a not-mergeable result if the same</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- file has differences in both branches. If LINE_LEVEL is specified, a</span><span>
@@ -81,7 +81,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AdestinationCommitSpecifier%3AGetMergeCommit%27"><span class="annot"><span class="annottext">GetMergeCommit -&gt; Text
 </span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#%24sel%3AdestinationCommitSpecifier%3AGetMergeCommit%27"><span class="hs-identifier hs-var hs-var">destinationCommitSpecifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364614"><span id="local-6989586621679364616"><span class="annot"><span class="annottext">GetMergeCommit -&gt; GetMergeCommit -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364623"><span id="local-6989586621679364625"><span class="annot"><span class="annottext">GetMergeCommit -&gt; GetMergeCommit -&gt; Bool
 (GetMergeCommit -&gt; GetMergeCommit -&gt; Bool)
 -&gt; (GetMergeCommit -&gt; GetMergeCommit -&gt; Bool) -&gt; Eq GetMergeCommit
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetMergeCommit -&gt; GetMergeCommit -&gt; Bool
 == :: GetMergeCommit -&gt; GetMergeCommit -&gt; Bool
 $c== :: GetMergeCommit -&gt; GetMergeCommit -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364605"><span id="local-6989586621679364607"><span id="local-6989586621679364609"><span id="local-6989586621679364611"><span class="annot"><span class="annottext">ReadPrec [GetMergeCommit]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364614"><span id="local-6989586621679364616"><span id="local-6989586621679364618"><span id="local-6989586621679364620"><span class="annot"><span class="annottext">ReadPrec [GetMergeCommit]
 ReadPrec GetMergeCommit
 Int -&gt; ReadS GetMergeCommit
 ReadS [GetMergeCommit]
@@ -109,7 +109,7 @@ readList :: ReadS [GetMergeCommit]
 $creadList :: ReadS [GetMergeCommit]
 readsPrec :: Int -&gt; ReadS GetMergeCommit
 $creadsPrec :: Int -&gt; ReadS GetMergeCommit
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364598"><span id="local-6989586621679364600"><span id="local-6989586621679364602"><span class="annot"><span class="annottext">Int -&gt; GetMergeCommit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364607"><span id="local-6989586621679364609"><span id="local-6989586621679364611"><span class="annot"><span class="annottext">Int -&gt; GetMergeCommit -&gt; ShowS
 [GetMergeCommit] -&gt; ShowS
 GetMergeCommit -&gt; String
 (Int -&gt; GetMergeCommit -&gt; ShowS)
@@ -172,12 +172,12 @@ $cfrom :: forall x. GetMergeCommit -&gt; Rep GetMergeCommit x
 </span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span><span>
 </span><span id="line-116"></span><span id="newGetMergeCommit"><span class="annot"><span class="annottext">newGetMergeCommit :: Text -&gt; Text -&gt; Text -&gt; GetMergeCommit
 </span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#newGetMergeCommit"><span class="hs-identifier hs-var hs-var">newGetMergeCommit</span></a></span></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679364593"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364593"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679364592"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364592"><span class="hs-identifier hs-var">pSourceCommitSpecifier_</span></a></span></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679364591"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364591"><span class="hs-identifier hs-var">pDestinationCommitSpecifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679364602"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364602"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679364601"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364601"><span class="hs-identifier hs-var">pSourceCommitSpecifier_</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679364600"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364600"><span class="hs-identifier hs-var">pDestinationCommitSpecifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">GetMergeCommit' :: Maybe ConflictDetailLevelTypeEnum
 -&gt; Maybe ConflictResolutionStrategyTypeEnum
 -&gt; Text
@@ -196,14 +196,14 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:repositoryName:GetMergeCommit' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#%24sel%3ArepositoryName%3AGetMergeCommit%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364593"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679364602"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceCommitSpecifier:GetMergeCommit' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#%24sel%3AsourceCommitSpecifier%3AGetMergeCommit%27"><span class="hs-identifier hs-var">sourceCommitSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364592"><span class="hs-identifier hs-var">pSourceCommitSpecifier_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679364601"><span class="hs-identifier hs-var">pSourceCommitSpecifier_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationCommitSpecifier:GetMergeCommit' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#%24sel%3AdestinationCommitSpecifier%3AGetMergeCommit%27"><span class="hs-identifier hs-var">destinationCommitSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364591"><span class="hs-identifier hs-var">pDestinationCommitSpecifier_</span></a></span><span>
+</span><a href="#local-6989586621679364600"><span class="hs-identifier hs-var">pDestinationCommitSpecifier_</span></a></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The level of conflict detail to use. If unspecified, the default</span><span>
@@ -224,16 +224,16 @@ forall a. Maybe a
      (Maybe ConflictDetailLevelTypeEnum)
      (Maybe ConflictDetailLevelTypeEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364588"><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364597"><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
 conflictDetailLevel :: Maybe ConflictDetailLevelTypeEnum
 $sel:conflictDetailLevel:GetMergeCommit' :: GetMergeCommit -&gt; Maybe ConflictDetailLevelTypeEnum
-</span><a href="#local-6989586621679364588"><span class="hs-identifier hs-var hs-var">conflictDetailLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
-</span><a href="#local-6989586621679364588"><span class="hs-identifier hs-var">conflictDetailLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364587"><span class="annot"><span class="annottext">s :: GetMergeCommit
-</span><a href="#local-6989586621679364587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364586"><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
-</span><a href="#local-6989586621679364586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommit
-</span><a href="#local-6989586621679364587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictDetailLevel:GetMergeCommit' :: Maybe ConflictDetailLevelTypeEnum
+</span><a href="#local-6989586621679364597"><span class="hs-identifier hs-var hs-var">conflictDetailLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
+</span><a href="#local-6989586621679364597"><span class="hs-identifier hs-var">conflictDetailLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364596"><span class="annot"><span class="annottext">s :: GetMergeCommit
+</span><a href="#local-6989586621679364596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364595"><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
+</span><a href="#local-6989586621679364595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommit
+</span><a href="#local-6989586621679364596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictDetailLevel:GetMergeCommit' :: Maybe ConflictDetailLevelTypeEnum
 </span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#%24sel%3AconflictDetailLevel%3AGetMergeCommit%27"><span class="hs-identifier hs-var">conflictDetailLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
-</span><a href="#local-6989586621679364586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | Specifies which branch to use when resolving conflicts, or whether to</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- attempt automatically merging two versions of a file. The default is</span><span>
@@ -252,16 +252,16 @@ $sel:conflictDetailLevel:GetMergeCommit' :: GetMergeCommit -&gt; Maybe ConflictD
      (Maybe ConflictResolutionStrategyTypeEnum)
      (Maybe ConflictResolutionStrategyTypeEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364585"><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364594"><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
 conflictResolutionStrategy :: Maybe ConflictResolutionStrategyTypeEnum
 $sel:conflictResolutionStrategy:GetMergeCommit' :: GetMergeCommit -&gt; Maybe ConflictResolutionStrategyTypeEnum
-</span><a href="#local-6989586621679364585"><span class="hs-identifier hs-var hs-var">conflictResolutionStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
-</span><a href="#local-6989586621679364585"><span class="hs-identifier hs-var">conflictResolutionStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364584"><span class="annot"><span class="annottext">s :: GetMergeCommit
-</span><a href="#local-6989586621679364584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364583"><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
-</span><a href="#local-6989586621679364583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommit
-</span><a href="#local-6989586621679364584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictResolutionStrategy:GetMergeCommit' :: Maybe ConflictResolutionStrategyTypeEnum
+</span><a href="#local-6989586621679364594"><span class="hs-identifier hs-var hs-var">conflictResolutionStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
+</span><a href="#local-6989586621679364594"><span class="hs-identifier hs-var">conflictResolutionStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364593"><span class="annot"><span class="annottext">s :: GetMergeCommit
+</span><a href="#local-6989586621679364593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364592"><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
+</span><a href="#local-6989586621679364592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommit
+</span><a href="#local-6989586621679364593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictResolutionStrategy:GetMergeCommit' :: Maybe ConflictResolutionStrategyTypeEnum
 </span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#%24sel%3AconflictResolutionStrategy%3AGetMergeCommit%27"><span class="hs-identifier hs-var">conflictResolutionStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
-</span><a href="#local-6989586621679364583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The name of the repository that contains the merge commit about which</span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- you want to get information.</span><span>
@@ -271,16 +271,16 @@ $sel:conflictResolutionStrategy:GetMergeCommit' :: GetMergeCommit -&gt; Maybe Co
 -&gt; (GetMergeCommit -&gt; Text -&gt; GetMergeCommit)
 -&gt; Lens GetMergeCommit GetMergeCommit Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364582"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364591"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:GetMergeCommit' :: GetMergeCommit -&gt; Text
-</span><a href="#local-6989586621679364582"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364582"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364581"><span class="annot"><span class="annottext">s :: GetMergeCommit
-</span><a href="#local-6989586621679364581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364580"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommit
-</span><a href="#local-6989586621679364581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetMergeCommit' :: Text
+</span><a href="#local-6989586621679364591"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364591"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364590"><span class="annot"><span class="annottext">s :: GetMergeCommit
+</span><a href="#local-6989586621679364590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364589"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommit
+</span><a href="#local-6989586621679364590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetMergeCommit' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#%24sel%3ArepositoryName%3AGetMergeCommit%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The branch, tag, HEAD, or other fully qualified reference used to</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- identify a commit (for example, a branch name or a full commit ID).</span><span>
@@ -290,16 +290,16 @@ $sel:repositoryName:GetMergeCommit' :: GetMergeCommit -&gt; Text
 -&gt; (GetMergeCommit -&gt; Text -&gt; GetMergeCommit)
 -&gt; Lens GetMergeCommit GetMergeCommit Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364579"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364588"><span class="annot"><span class="annottext">Text
 sourceCommitSpecifier :: Text
 $sel:sourceCommitSpecifier:GetMergeCommit' :: GetMergeCommit -&gt; Text
-</span><a href="#local-6989586621679364579"><span class="hs-identifier hs-var hs-var">sourceCommitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364579"><span class="hs-identifier hs-var">sourceCommitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364578"><span class="annot"><span class="annottext">s :: GetMergeCommit
-</span><a href="#local-6989586621679364578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364577"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommit
-</span><a href="#local-6989586621679364578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCommitSpecifier:GetMergeCommit' :: Text
+</span><a href="#local-6989586621679364588"><span class="hs-identifier hs-var hs-var">sourceCommitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364588"><span class="hs-identifier hs-var">sourceCommitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364587"><span class="annot"><span class="annottext">s :: GetMergeCommit
+</span><a href="#local-6989586621679364587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364586"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommit
+</span><a href="#local-6989586621679364587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCommitSpecifier:GetMergeCommit' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#%24sel%3AsourceCommitSpecifier%3AGetMergeCommit%27"><span class="hs-identifier hs-var">sourceCommitSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The branch, tag, HEAD, or other fully qualified reference used to</span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- identify a commit (for example, a branch name or a full commit ID).</span><span>
@@ -309,27 +309,27 @@ $sel:sourceCommitSpecifier:GetMergeCommit' :: GetMergeCommit -&gt; Text
 -&gt; (GetMergeCommit -&gt; Text -&gt; GetMergeCommit)
 -&gt; Lens GetMergeCommit GetMergeCommit Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364576"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364585"><span class="annot"><span class="annottext">Text
 destinationCommitSpecifier :: Text
 $sel:destinationCommitSpecifier:GetMergeCommit' :: GetMergeCommit -&gt; Text
-</span><a href="#local-6989586621679364576"><span class="hs-identifier hs-var hs-var">destinationCommitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364576"><span class="hs-identifier hs-var">destinationCommitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364575"><span class="annot"><span class="annottext">s :: GetMergeCommit
-</span><a href="#local-6989586621679364575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364574"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommit
-</span><a href="#local-6989586621679364575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCommitSpecifier:GetMergeCommit' :: Text
+</span><a href="#local-6989586621679364585"><span class="hs-identifier hs-var hs-var">destinationCommitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364585"><span class="hs-identifier hs-var">destinationCommitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364584"><span class="annot"><span class="annottext">s :: GetMergeCommit
+</span><a href="#local-6989586621679364584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364583"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommit
+</span><a href="#local-6989586621679364584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCommitSpecifier:GetMergeCommit' :: Text
 </span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#%24sel%3AdestinationCommitSpecifier%3AGetMergeCommit%27"><span class="hs-identifier hs-var">destinationCommitSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-162"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-type">GetMergeCommitResponse</span></a></span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679364570"><span class="annot"><span class="annottext">request :: GetMergeCommit -&gt; Request GetMergeCommit
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679364579"><span class="annot"><span class="annottext">request :: GetMergeCommit -&gt; Request GetMergeCommit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetMergeCommit -&gt; Request GetMergeCommit
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679364566"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679364575"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetMergeCommit
 -&gt; ClientResponse ClientBody
@@ -353,10 +353,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679364563"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364563"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679364562"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679364562"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679364561"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364561"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679364572"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364572"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679364571"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679364571"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679364570"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679364570"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -377,7 +377,7 @@ MonadResource m =&gt;
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetMergeCommitResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679364570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mergedCommitId&quot;</span></span><span class="hs-special">)</span><span>
@@ -390,7 +390,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetMergeCommitResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679364570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destinationCommitId&quot;</span></span><span class="hs-special">)</span><span>
@@ -400,7 +400,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; GetMergeCommitResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679364570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;baseCommitId&quot;</span></span><span class="hs-special">)</span><span>
@@ -409,7 +409,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetMergeCommitResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679364570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceCommitId&quot;</span></span><span class="hs-special">)</span><span>
@@ -421,15 +421,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364563"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364572"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364553"><span id="local-6989586621679364555"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364562"><span id="local-6989586621679364564"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364550"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679364546"><span class="annot"><span class="annottext">toHeaders :: GetMergeCommit -&gt; ResponseHeaders
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679364555"><span class="annot"><span class="annottext">toHeaders :: GetMergeCommit -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetMergeCommit -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -456,9 +456,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364536"><span id="local-6989586621679364538"><span id="local-6989586621679364540"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679364534"><span class="annot"><span class="annottext">toJSON :: GetMergeCommit -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364528"><span id="local-6989586621679364529"><span id="local-6989586621679364530"><span id="local-6989586621679364531"><span id="local-6989586621679364532"><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364545"><span id="local-6989586621679364547"><span id="local-6989586621679364549"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679364543"><span class="annot"><span class="annottext">toJSON :: GetMergeCommit -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit%27"><span class="hs-identifier hs-type">GetMergeCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364537"><span id="local-6989586621679364538"><span id="local-6989586621679364539"><span id="local-6989586621679364540"><span id="local-6989586621679364541"><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
 Maybe ConflictResolutionStrategyTypeEnum
 Text
 destinationCommitSpecifier :: Text
@@ -471,7 +471,7 @@ $sel:sourceCommitSpecifier:GetMergeCommit' :: GetMergeCommit -&gt; Text
 $sel:repositoryName:GetMergeCommit' :: GetMergeCommit -&gt; Text
 $sel:conflictResolutionStrategy:GetMergeCommit' :: GetMergeCommit -&gt; Maybe ConflictResolutionStrategyTypeEnum
 $sel:conflictDetailLevel:GetMergeCommit' :: GetMergeCommit -&gt; Maybe ConflictDetailLevelTypeEnum
-</span><a href="#local-6989586621679364528"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679364537"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -485,7 +485,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ConflictDetailLevelTypeEnum -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConflictDetailLevelTypeEnum
-</span><a href="#local-6989586621679364532"><span class="hs-identifier hs-var">conflictDetailLevel</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679364541"><span class="hs-identifier hs-var">conflictDetailLevel</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;conflictResolutionStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConflictResolutionStrategyTypeEnum -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -494,7 +494,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ConflictResolutionStrategyTypeEnum -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConflictResolutionStrategyTypeEnum
-</span><a href="#local-6989586621679364531"><span class="hs-identifier hs-var">conflictResolutionStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679364540"><span class="hs-identifier hs-var">conflictResolutionStrategy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -502,7 +502,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364530"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679364539"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -511,7 +511,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-207"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364529"><span class="hs-identifier hs-var">sourceCommitSpecifier</span></a></span><span>
+</span><a href="#local-6989586621679364538"><span class="hs-identifier hs-var">sourceCommitSpecifier</span></a></span><span>
 </span><span id="line-208"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -521,20 +521,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-211"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364528"><span class="hs-identifier hs-var">destinationCommitSpecifier</span></a></span><span>
+</span><a href="#local-6989586621679364537"><span class="hs-identifier hs-var">destinationCommitSpecifier</span></a></span><span>
 </span><span id="line-212"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679364522"><span class="annot"><span class="annottext">toPath :: GetMergeCommit -&gt; ByteString
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679364531"><span class="annot"><span class="annottext">toPath :: GetMergeCommit -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetMergeCommit -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommit"><span class="hs-identifier hs-type">GetMergeCommit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-220"></span><span>  </span><span id="local-6989586621679364518"><span class="annot"><span class="annottext">toQuery :: GetMergeCommit -&gt; QueryString
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679364527"><span class="annot"><span class="annottext">toQuery :: GetMergeCommit -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetMergeCommit -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -542,7 +542,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | /See:/ 'newGetMergeCommitResponse' smart constructor.</span><span>
-</span><span id="line-223"></span><span id="local-6989586621679364515"><span id="local-6989586621679364516"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMergeCommitResponse"><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-var">GetMergeCommitResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMergeCommitResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-var">GetMergeCommitResponse'</span></a></span></span><span>
+</span><span id="line-223"></span><span id="local-6989586621679364524"><span id="local-6989586621679364525"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMergeCommitResponse"><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-var">GetMergeCommitResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMergeCommitResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-var">GetMergeCommitResponse'</span></a></span></span><span>
 </span><span id="line-224"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The commit ID for the merge commit created when the source branch was</span><span>
 </span><span id="line-225"></span><span>    </span><span class="hs-comment">-- merged into the destination branch. If the fast-forward merge strategy</span><span>
 </span><span id="line-226"></span><span>    </span><span class="hs-comment">-- was used, there is no merge commit.</span><span>
@@ -563,7 +563,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-237"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetMergeCommitResponse%27"><span class="annot"><span class="annottext">GetMergeCommitResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#%24sel%3AhttpStatus%3AGetMergeCommitResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-238"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-239"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364506"><span id="local-6989586621679364508"><span class="annot"><span class="annottext">GetMergeCommitResponse -&gt; GetMergeCommitResponse -&gt; Bool
+</span><span id="line-239"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364515"><span id="local-6989586621679364517"><span class="annot"><span class="annottext">GetMergeCommitResponse -&gt; GetMergeCommitResponse -&gt; Bool
 (GetMergeCommitResponse -&gt; GetMergeCommitResponse -&gt; Bool)
 -&gt; (GetMergeCommitResponse -&gt; GetMergeCommitResponse -&gt; Bool)
 -&gt; Eq GetMergeCommitResponse
@@ -572,7 +572,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetMergeCommitResponse -&gt; GetMergeCommitResponse -&gt; Bool
 == :: GetMergeCommitResponse -&gt; GetMergeCommitResponse -&gt; Bool
 $c== :: GetMergeCommitResponse -&gt; GetMergeCommitResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364498"><span id="local-6989586621679364500"><span id="local-6989586621679364502"><span id="local-6989586621679364504"><span class="annot"><span class="annottext">ReadPrec [GetMergeCommitResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364507"><span id="local-6989586621679364509"><span id="local-6989586621679364511"><span id="local-6989586621679364513"><span class="annot"><span class="annottext">ReadPrec [GetMergeCommitResponse]
 ReadPrec GetMergeCommitResponse
 Int -&gt; ReadS GetMergeCommitResponse
 ReadS [GetMergeCommitResponse]
@@ -592,7 +592,7 @@ readList :: ReadS [GetMergeCommitResponse]
 $creadList :: ReadS [GetMergeCommitResponse]
 readsPrec :: Int -&gt; ReadS GetMergeCommitResponse
 $creadsPrec :: Int -&gt; ReadS GetMergeCommitResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364492"><span id="local-6989586621679364494"><span id="local-6989586621679364496"><span class="annot"><span class="annottext">Int -&gt; GetMergeCommitResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364501"><span id="local-6989586621679364503"><span id="local-6989586621679364505"><span class="annot"><span class="annottext">Int -&gt; GetMergeCommitResponse -&gt; ShowS
 [GetMergeCommitResponse] -&gt; ShowS
 GetMergeCommitResponse -&gt; String
 (Int -&gt; GetMergeCommitResponse -&gt; ShowS)
@@ -645,8 +645,8 @@ $cfrom :: forall x. GetMergeCommitResponse -&gt; Rep GetMergeCommitResponse x
 </span><span id="line-264"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-265"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-type">GetMergeCommitResponse</span></a></span><span>
 </span><span id="line-266"></span><span id="newGetMergeCommitResponse"><span class="annot"><span class="annottext">newGetMergeCommitResponse :: Int -&gt; GetMergeCommitResponse
-</span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#newGetMergeCommitResponse"><span class="hs-identifier hs-var hs-var">newGetMergeCommitResponse</span></a></span></span><span> </span><span id="local-6989586621679364489"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364489"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#newGetMergeCommitResponse"><span class="hs-identifier hs-var hs-var">newGetMergeCommitResponse</span></a></span></span><span> </span><span id="local-6989586621679364498"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364498"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-267"></span><span>  </span><span class="annot"><span class="annottext">GetMergeCommitResponse' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -673,7 +673,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetMergeCommitResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#%24sel%3AhttpStatus%3AGetMergeCommitResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364489"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679364498"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-274"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-275"></span><span>
 </span><span id="line-276"></span><span class="hs-comment">-- | The commit ID for the merge commit created when the source branch was</span><span>
@@ -690,16 +690,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364488"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364497"><span class="annot"><span class="annottext">Maybe Text
 mergedCommitId :: Maybe Text
 $sel:mergedCommitId:GetMergeCommitResponse' :: GetMergeCommitResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679364488"><span class="hs-identifier hs-var hs-var">mergedCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364488"><span class="hs-identifier hs-var">mergedCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364487"><span class="annot"><span class="annottext">s :: GetMergeCommitResponse
-</span><a href="#local-6989586621679364487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364486"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommitResponse
-</span><a href="#local-6989586621679364487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergedCommitId:GetMergeCommitResponse' :: Maybe Text
+</span><a href="#local-6989586621679364497"><span class="hs-identifier hs-var hs-var">mergedCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364497"><span class="hs-identifier hs-var">mergedCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364496"><span class="annot"><span class="annottext">s :: GetMergeCommitResponse
+</span><a href="#local-6989586621679364496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364495"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommitResponse
+</span><a href="#local-6989586621679364496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergedCommitId:GetMergeCommitResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#%24sel%3AmergedCommitId%3AGetMergeCommitResponse%27"><span class="hs-identifier hs-var">mergedCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-type">GetMergeCommitResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-type">GetMergeCommitResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-281"></span><span>
 </span><span id="line-282"></span><span class="hs-comment">-- | The commit ID of the destination commit specifier that was used in the</span><span>
 </span><span id="line-283"></span><span class="hs-comment">-- merge evaluation.</span><span>
@@ -714,16 +714,16 @@ $sel:mergedCommitId:GetMergeCommitResponse' :: GetMergeCommitResponse -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364485"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364494"><span class="annot"><span class="annottext">Maybe Text
 destinationCommitId :: Maybe Text
 $sel:destinationCommitId:GetMergeCommitResponse' :: GetMergeCommitResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679364485"><span class="hs-identifier hs-var hs-var">destinationCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364485"><span class="hs-identifier hs-var">destinationCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364484"><span class="annot"><span class="annottext">s :: GetMergeCommitResponse
-</span><a href="#local-6989586621679364484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364483"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommitResponse
-</span><a href="#local-6989586621679364484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCommitId:GetMergeCommitResponse' :: Maybe Text
+</span><a href="#local-6989586621679364494"><span class="hs-identifier hs-var hs-var">destinationCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364494"><span class="hs-identifier hs-var">destinationCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364493"><span class="annot"><span class="annottext">s :: GetMergeCommitResponse
+</span><a href="#local-6989586621679364493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364492"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommitResponse
+</span><a href="#local-6989586621679364493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCommitId:GetMergeCommitResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#%24sel%3AdestinationCommitId%3AGetMergeCommitResponse%27"><span class="hs-identifier hs-var">destinationCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-type">GetMergeCommitResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-type">GetMergeCommitResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-286"></span><span>
 </span><span id="line-287"></span><span class="hs-comment">-- | The commit ID of the merge base.</span><span>
 </span><span id="line-288"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#getMergeCommitResponse_baseCommitId"><span class="hs-identifier hs-type">getMergeCommitResponse_baseCommitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-type">GetMergeCommitResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -737,16 +737,16 @@ $sel:destinationCommitId:GetMergeCommitResponse' :: GetMergeCommitResponse -&gt;
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364482"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364491"><span class="annot"><span class="annottext">Maybe Text
 baseCommitId :: Maybe Text
 $sel:baseCommitId:GetMergeCommitResponse' :: GetMergeCommitResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679364482"><span class="hs-identifier hs-var hs-var">baseCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364482"><span class="hs-identifier hs-var">baseCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364481"><span class="annot"><span class="annottext">s :: GetMergeCommitResponse
-</span><a href="#local-6989586621679364481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364480"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommitResponse
-</span><a href="#local-6989586621679364481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseCommitId:GetMergeCommitResponse' :: Maybe Text
+</span><a href="#local-6989586621679364491"><span class="hs-identifier hs-var hs-var">baseCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364491"><span class="hs-identifier hs-var">baseCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364490"><span class="annot"><span class="annottext">s :: GetMergeCommitResponse
+</span><a href="#local-6989586621679364490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364489"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommitResponse
+</span><a href="#local-6989586621679364490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseCommitId:GetMergeCommitResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#%24sel%3AbaseCommitId%3AGetMergeCommitResponse%27"><span class="hs-identifier hs-var">baseCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-type">GetMergeCommitResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-type">GetMergeCommitResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-290"></span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- | The commit ID of the source commit specifier that was used in the merge</span><span>
 </span><span id="line-292"></span><span class="hs-comment">-- evaluation.</span><span>
@@ -761,16 +761,16 @@ $sel:baseCommitId:GetMergeCommitResponse' :: GetMergeCommitResponse -&gt; Maybe 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364479"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364488"><span class="annot"><span class="annottext">Maybe Text
 sourceCommitId :: Maybe Text
 $sel:sourceCommitId:GetMergeCommitResponse' :: GetMergeCommitResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679364479"><span class="hs-identifier hs-var hs-var">sourceCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364479"><span class="hs-identifier hs-var">sourceCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364478"><span class="annot"><span class="annottext">s :: GetMergeCommitResponse
-</span><a href="#local-6989586621679364478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364477"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommitResponse
-</span><a href="#local-6989586621679364478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCommitId:GetMergeCommitResponse' :: Maybe Text
+</span><a href="#local-6989586621679364488"><span class="hs-identifier hs-var hs-var">sourceCommitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364488"><span class="hs-identifier hs-var">sourceCommitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364487"><span class="annot"><span class="annottext">s :: GetMergeCommitResponse
+</span><a href="#local-6989586621679364487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364486"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommitResponse
+</span><a href="#local-6989586621679364487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCommitId:GetMergeCommitResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#%24sel%3AsourceCommitId%3AGetMergeCommitResponse%27"><span class="hs-identifier hs-var">sourceCommitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-type">GetMergeCommitResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-type">GetMergeCommitResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-295"></span><span>
 </span><span id="line-296"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-297"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#getMergeCommitResponse_httpStatus"><span class="hs-identifier hs-type">getMergeCommitResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-type">GetMergeCommitResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -780,16 +780,16 @@ $sel:sourceCommitId:GetMergeCommitResponse' :: GetMergeCommitResponse -&gt; Mayb
 -&gt; (GetMergeCommitResponse -&gt; Int -&gt; GetMergeCommitResponse)
 -&gt; Lens GetMergeCommitResponse GetMergeCommitResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364476"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364485"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetMergeCommitResponse' :: GetMergeCommitResponse -&gt; Int
-</span><a href="#local-6989586621679364476"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364476"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364475"><span class="annot"><span class="annottext">s :: GetMergeCommitResponse
-</span><a href="#local-6989586621679364475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364474"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommitResponse
-</span><a href="#local-6989586621679364475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMergeCommitResponse' :: Int
+</span><a href="#local-6989586621679364485"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364485"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364484"><span class="annot"><span class="annottext">s :: GetMergeCommitResponse
+</span><a href="#local-6989586621679364484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse%27"><span class="hs-identifier hs-type">GetMergeCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364483"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMergeCommitResponse
+</span><a href="#local-6989586621679364484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMergeCommitResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.GetMergeCommit.html#%24sel%3AhttpStatus%3AGetMergeCommitResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-type">GetMergeCommitResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-type">GetMergeCommitResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-299"></span><span>
-</span><span id="line-300"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364472"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-type">GetMergeCommitResponse</span></a></span></span><span>
+</span><span id="line-300"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364481"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetMergeCommit.html#GetMergeCommitResponse"><span class="hs-identifier hs-type">GetMergeCommitResponse</span></a></span></span><span>
 </span><span id="line-301"></span></pre></body></html>

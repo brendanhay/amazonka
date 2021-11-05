@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679347400"><span id="local-6989586621679347401"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RecordMarkerFailedCause"><span class="annot"><a href="Network.AWS.SWF.Types.RecordMarkerFailedCause.html#RecordMarkerFailedCause"><span class="hs-identifier hs-var">RecordMarkerFailedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecordMarkerFailedCause%27"><span class="annot"><a href="Network.AWS.SWF.Types.RecordMarkerFailedCause.html#RecordMarkerFailedCause%27"><span class="hs-identifier hs-var">RecordMarkerFailedCause'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679347409"><span id="local-6989586621679347410"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RecordMarkerFailedCause"><span class="annot"><a href="Network.AWS.SWF.Types.RecordMarkerFailedCause.html#RecordMarkerFailedCause"><span class="hs-identifier hs-var">RecordMarkerFailedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecordMarkerFailedCause%27"><span class="annot"><a href="Network.AWS.SWF.Types.RecordMarkerFailedCause.html#RecordMarkerFailedCause%27"><span class="hs-identifier hs-var">RecordMarkerFailedCause'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRecordMarkerFailedCause"><span class="annot"><span class="annottext">RecordMarkerFailedCause -&gt; Text
 </span><a href="Network.AWS.SWF.Types.RecordMarkerFailedCause.html#fromRecordMarkerFailedCause"><span class="hs-identifier hs-var hs-var">fromRecordMarkerFailedCause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347392"><span id="local-6989586621679347394"><span id="local-6989586621679347396"><span class="annot"><span class="annottext">Int -&gt; RecordMarkerFailedCause -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347401"><span id="local-6989586621679347403"><span id="local-6989586621679347405"><span class="annot"><span class="annottext">Int -&gt; RecordMarkerFailedCause -&gt; ShowS
 [RecordMarkerFailedCause] -&gt; ShowS
 RecordMarkerFailedCause -&gt; String
 (Int -&gt; RecordMarkerFailedCause -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: RecordMarkerFailedCause -&gt; String
 showsPrec :: Int -&gt; RecordMarkerFailedCause -&gt; ShowS
 $cshowsPrec :: Int -&gt; RecordMarkerFailedCause -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679347383"><span id="local-6989586621679347385"><span id="local-6989586621679347387"><span id="local-6989586621679347389"><span class="annot"><span class="annottext">ReadPrec [RecordMarkerFailedCause]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679347392"><span id="local-6989586621679347394"><span id="local-6989586621679347396"><span id="local-6989586621679347398"><span class="annot"><span class="annottext">ReadPrec [RecordMarkerFailedCause]
 ReadPrec RecordMarkerFailedCause
 Int -&gt; ReadS RecordMarkerFailedCause
 ReadS [RecordMarkerFailedCause]
@@ -71,7 +71,7 @@ $creadList :: ReadS [RecordMarkerFailedCause]
 readsPrec :: Int -&gt; ReadS RecordMarkerFailedCause
 $creadsPrec :: Int -&gt; ReadS RecordMarkerFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679347378"><span id="local-6989586621679347380"><span class="annot"><span class="annottext">RecordMarkerFailedCause -&gt; RecordMarkerFailedCause -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679347387"><span id="local-6989586621679347389"><span class="annot"><span class="annottext">RecordMarkerFailedCause -&gt; RecordMarkerFailedCause -&gt; Bool
 (RecordMarkerFailedCause -&gt; RecordMarkerFailedCause -&gt; Bool)
 -&gt; (RecordMarkerFailedCause -&gt; RecordMarkerFailedCause -&gt; Bool)
 -&gt; Eq RecordMarkerFailedCause
@@ -81,7 +81,7 @@ $c/= :: RecordMarkerFailedCause -&gt; RecordMarkerFailedCause -&gt; Bool
 == :: RecordMarkerFailedCause -&gt; RecordMarkerFailedCause -&gt; Bool
 $c== :: RecordMarkerFailedCause -&gt; RecordMarkerFailedCause -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679347362"><span id="local-6989586621679347364"><span id="local-6989586621679347366"><span id="local-6989586621679347368"><span id="local-6989586621679347370"><span id="local-6989586621679347372"><span id="local-6989586621679347374"><span class="annot"><span class="annottext">Eq RecordMarkerFailedCause
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679347371"><span id="local-6989586621679347373"><span id="local-6989586621679347375"><span id="local-6989586621679347377"><span id="local-6989586621679347379"><span id="local-6989586621679347381"><span id="local-6989586621679347383"><span class="annot"><span class="annottext">Eq RecordMarkerFailedCause
 Eq RecordMarkerFailedCause
 -&gt; (RecordMarkerFailedCause -&gt; RecordMarkerFailedCause -&gt; Ordering)
 -&gt; (RecordMarkerFailedCause -&gt; RecordMarkerFailedCause -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. RecordMarkerFailedCause -&gt; Rep RecordMarkerFailedCause x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347354"><span id="local-6989586621679347356"><span class="annot"><span class="annottext">Int -&gt; RecordMarkerFailedCause -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347363"><span id="local-6989586621679347365"><span class="annot"><span class="annottext">Int -&gt; RecordMarkerFailedCause -&gt; Int
 RecordMarkerFailedCause -&gt; Int
 (Int -&gt; RecordMarkerFailedCause -&gt; Int)
 -&gt; (RecordMarkerFailedCause -&gt; Int)
@@ -152,54 +152,54 @@ $chash :: RecordMarkerFailedCause -&gt; Int
 hashWithSalt :: Int -&gt; RecordMarkerFailedCause -&gt; Int
 $chashWithSalt :: Int -&gt; RecordMarkerFailedCause -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679347351"><span class="annot"><span class="annottext">RecordMarkerFailedCause -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679347360"><span class="annot"><span class="annottext">RecordMarkerFailedCause -&gt; ()
 (RecordMarkerFailedCause -&gt; ()) -&gt; NFData RecordMarkerFailedCause
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RecordMarkerFailedCause -&gt; ()
 $crnf :: RecordMarkerFailedCause -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679347348"><span class="annot"><span class="annottext">Text -&gt; Either String RecordMarkerFailedCause
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679347357"><span class="annot"><span class="annottext">Text -&gt; Either String RecordMarkerFailedCause
 (Text -&gt; Either String RecordMarkerFailedCause)
 -&gt; FromText RecordMarkerFailedCause
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RecordMarkerFailedCause
 $cfromText :: Text -&gt; Either String RecordMarkerFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679347345"><span class="annot"><span class="annottext">RecordMarkerFailedCause -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679347354"><span class="annot"><span class="annottext">RecordMarkerFailedCause -&gt; Text
 (RecordMarkerFailedCause -&gt; Text) -&gt; ToText RecordMarkerFailedCause
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RecordMarkerFailedCause -&gt; Text
 $ctoText :: RecordMarkerFailedCause -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679347342"><span class="annot"><span class="annottext">RecordMarkerFailedCause -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679347351"><span class="annot"><span class="annottext">RecordMarkerFailedCause -&gt; ByteString
 (RecordMarkerFailedCause -&gt; ByteString)
 -&gt; ToByteString RecordMarkerFailedCause
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RecordMarkerFailedCause -&gt; ByteString
 $ctoBS :: RecordMarkerFailedCause -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679347339"><span class="annot"><span class="annottext">RecordMarkerFailedCause -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679347348"><span class="annot"><span class="annottext">RecordMarkerFailedCause -&gt; ByteStringBuilder
 (RecordMarkerFailedCause -&gt; ByteStringBuilder)
 -&gt; ToLog RecordMarkerFailedCause
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RecordMarkerFailedCause -&gt; ByteStringBuilder
 $cbuild :: RecordMarkerFailedCause -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679347336"><span class="annot"><span class="annottext">HeaderName -&gt; RecordMarkerFailedCause -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679347345"><span class="annot"><span class="annottext">HeaderName -&gt; RecordMarkerFailedCause -&gt; [Header]
 (HeaderName -&gt; RecordMarkerFailedCause -&gt; [Header])
 -&gt; ToHeader RecordMarkerFailedCause
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RecordMarkerFailedCause -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RecordMarkerFailedCause -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679347333"><span class="annot"><span class="annottext">RecordMarkerFailedCause -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679347342"><span class="annot"><span class="annottext">RecordMarkerFailedCause -&gt; QueryString
 (RecordMarkerFailedCause -&gt; QueryString)
 -&gt; ToQuery RecordMarkerFailedCause
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RecordMarkerFailedCause -&gt; QueryString
 $ctoQuery :: RecordMarkerFailedCause -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679347328"><span id="local-6989586621679347330"><span class="annot"><span class="annottext">Value -&gt; Parser [RecordMarkerFailedCause]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679347337"><span id="local-6989586621679347339"><span class="annot"><span class="annottext">Value -&gt; Parser [RecordMarkerFailedCause]
 Value -&gt; Parser RecordMarkerFailedCause
 (Value -&gt; Parser RecordMarkerFailedCause)
 -&gt; (Value -&gt; Parser [RecordMarkerFailedCause])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [RecordMarkerFailedCause]
 parseJSON :: Value -&gt; Parser RecordMarkerFailedCause
 $cparseJSON :: Value -&gt; Parser RecordMarkerFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679347323"><span id="local-6989586621679347325"><span class="annot"><span class="annottext">FromJSONKeyFunction [RecordMarkerFailedCause]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679347332"><span id="local-6989586621679347334"><span class="annot"><span class="annottext">FromJSONKeyFunction [RecordMarkerFailedCause]
 FromJSONKeyFunction RecordMarkerFailedCause
 FromJSONKeyFunction RecordMarkerFailedCause
 -&gt; FromJSONKeyFunction [RecordMarkerFailedCause]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RecordMarkerFailedCause]
 fromJSONKey :: FromJSONKeyFunction RecordMarkerFailedCause
 $cfromJSONKey :: FromJSONKeyFunction RecordMarkerFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679347314"><span id="local-6989586621679347316"><span id="local-6989586621679347318"><span id="local-6989586621679347320"><span class="annot"><span class="annottext">[RecordMarkerFailedCause] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679347323"><span id="local-6989586621679347325"><span id="local-6989586621679347327"><span id="local-6989586621679347329"><span class="annot"><span class="annottext">[RecordMarkerFailedCause] -&gt; Encoding
 [RecordMarkerFailedCause] -&gt; Value
 RecordMarkerFailedCause -&gt; Encoding
 RecordMarkerFailedCause -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: RecordMarkerFailedCause -&gt; Encoding
 toJSON :: RecordMarkerFailedCause -&gt; Value
 $ctoJSON :: RecordMarkerFailedCause -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679347309"><span id="local-6989586621679347311"><span class="annot"><span class="annottext">ToJSONKeyFunction [RecordMarkerFailedCause]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679347318"><span id="local-6989586621679347320"><span class="annot"><span class="annottext">ToJSONKeyFunction [RecordMarkerFailedCause]
 ToJSONKeyFunction RecordMarkerFailedCause
 ToJSONKeyFunction RecordMarkerFailedCause
 -&gt; ToJSONKeyFunction [RecordMarkerFailedCause]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RecordMarkerFailedCause]
 toJSONKey :: ToJSONKeyFunction RecordMarkerFailedCause
 $ctoJSONKey :: ToJSONKeyFunction RecordMarkerFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679347306"><span class="annot"><span class="annottext">[Node] -&gt; Either String RecordMarkerFailedCause
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679347315"><span class="annot"><span class="annottext">[Node] -&gt; Either String RecordMarkerFailedCause
 ([Node] -&gt; Either String RecordMarkerFailedCause)
 -&gt; FromXML RecordMarkerFailedCause
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RecordMarkerFailedCause
 $cparseXML :: [Node] -&gt; Either String RecordMarkerFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679347303"><span class="annot"><span class="annottext">RecordMarkerFailedCause -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679347312"><span class="annot"><span class="annottext">RecordMarkerFailedCause -&gt; XML
 (RecordMarkerFailedCause -&gt; XML) -&gt; ToXML RecordMarkerFailedCause
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RecordMarkerFailedCause -&gt; XML

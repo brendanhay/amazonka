@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.FraudDetector.CancelBatchImportJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Cancels an in-progress batch import job.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FraudDetector.CancelBatchImportJob</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob"><span class="hs-identifier">CancelBatchImportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#newCancelBatchImportJob"><span class="hs-identifier">newCancelBatchImportJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#cancelBatchImportJob_jobId"><span class="hs-identifier">cancelBatchImportJob_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJobResponse"><span class="hs-identifier">CancelBatchImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#newCancelBatchImportJobResponse"><span class="hs-identifier">newCancelBatchImportJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#cancelBatchImportJobResponse_httpStatus"><span class="hs-identifier">cancelBatchImportJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.html"><span class="hs-identifier">Network.AWS.FraudDetector.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newCancelBatchImportJob' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679322168"><span id="local-6989586621679322169"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelBatchImportJob"><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob"><span class="hs-identifier hs-var">CancelBatchImportJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelBatchImportJob%27"><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob%27"><span class="hs-identifier hs-var">CancelBatchImportJob'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of an in-progress batch import job to cancel.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- Amazon Fraud Detector will throw an error if the batch import job is in</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @FAILED@, @CANCELED@, or @COMPLETED@ state.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AjobId%3ACancelBatchImportJob%27"><span class="annot"><span class="annottext">CancelBatchImportJob -&gt; Text
+</span><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#%24sel%3AjobId%3ACancelBatchImportJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322162"><span id="local-6989586621679322164"><span class="annot"><span class="annottext">CancelBatchImportJob -&gt; CancelBatchImportJob -&gt; Bool
+(CancelBatchImportJob -&gt; CancelBatchImportJob -&gt; Bool)
+-&gt; (CancelBatchImportJob -&gt; CancelBatchImportJob -&gt; Bool)
+-&gt; Eq CancelBatchImportJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelBatchImportJob -&gt; CancelBatchImportJob -&gt; Bool
+$c/= :: CancelBatchImportJob -&gt; CancelBatchImportJob -&gt; Bool
+== :: CancelBatchImportJob -&gt; CancelBatchImportJob -&gt; Bool
+$c== :: CancelBatchImportJob -&gt; CancelBatchImportJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322153"><span id="local-6989586621679322155"><span id="local-6989586621679322157"><span id="local-6989586621679322159"><span class="annot"><span class="annottext">ReadPrec [CancelBatchImportJob]
+ReadPrec CancelBatchImportJob
+Int -&gt; ReadS CancelBatchImportJob
+ReadS [CancelBatchImportJob]
+(Int -&gt; ReadS CancelBatchImportJob)
+-&gt; ReadS [CancelBatchImportJob]
+-&gt; ReadPrec CancelBatchImportJob
+-&gt; ReadPrec [CancelBatchImportJob]
+-&gt; Read CancelBatchImportJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelBatchImportJob]
+$creadListPrec :: ReadPrec [CancelBatchImportJob]
+readPrec :: ReadPrec CancelBatchImportJob
+$creadPrec :: ReadPrec CancelBatchImportJob
+readList :: ReadS [CancelBatchImportJob]
+$creadList :: ReadS [CancelBatchImportJob]
+readsPrec :: Int -&gt; ReadS CancelBatchImportJob
+$creadsPrec :: Int -&gt; ReadS CancelBatchImportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322146"><span id="local-6989586621679322148"><span id="local-6989586621679322150"><span class="annot"><span class="annottext">Int -&gt; CancelBatchImportJob -&gt; ShowS
+[CancelBatchImportJob] -&gt; ShowS
+CancelBatchImportJob -&gt; String
+(Int -&gt; CancelBatchImportJob -&gt; ShowS)
+-&gt; (CancelBatchImportJob -&gt; String)
+-&gt; ([CancelBatchImportJob] -&gt; ShowS)
+-&gt; Show CancelBatchImportJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelBatchImportJob] -&gt; ShowS
+$cshowList :: [CancelBatchImportJob] -&gt; ShowS
+show :: CancelBatchImportJob -&gt; String
+$cshow :: CancelBatchImportJob -&gt; String
+showsPrec :: Int -&gt; CancelBatchImportJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelBatchImportJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CancelBatchImportJob -&gt; Rep CancelBatchImportJob x)
+-&gt; (forall x. Rep CancelBatchImportJob x -&gt; CancelBatchImportJob)
+-&gt; Generic CancelBatchImportJob
+forall x. Rep CancelBatchImportJob x -&gt; CancelBatchImportJob
+forall x. CancelBatchImportJob -&gt; Rep CancelBatchImportJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CancelBatchImportJob x -&gt; CancelBatchImportJob
+$cfrom :: forall x. CancelBatchImportJob -&gt; Rep CancelBatchImportJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'CancelBatchImportJob' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'jobId', 'cancelBatchImportJob_jobId' - The ID of an in-progress batch import job to cancel.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Amazon Fraud Detector will throw an error if the batch import job is in</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- @FAILED@, @CANCELED@, or @COMPLETED@ state.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#newCancelBatchImportJob"><span class="hs-identifier hs-type">newCancelBatchImportJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob"><span class="hs-identifier hs-type">CancelBatchImportJob</span></a></span><span>
+</span><span id="line-74"></span><span id="newCancelBatchImportJob"><span class="annot"><span class="annottext">newCancelBatchImportJob :: Text -&gt; CancelBatchImportJob
+</span><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#newCancelBatchImportJob"><span class="hs-identifier hs-var hs-var">newCancelBatchImportJob</span></a></span></span><span> </span><span id="local-6989586621679322141"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679322141"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">CancelBatchImportJob' :: Text -&gt; CancelBatchImportJob
+</span><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob%27"><span class="hs-identifier hs-type">CancelBatchImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:CancelBatchImportJob' :: Text
+</span><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#%24sel%3AjobId%3ACancelBatchImportJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679322141"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The ID of an in-progress batch import job to cancel.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Amazon Fraud Detector will throw an error if the batch import job is in</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- @FAILED@, @CANCELED@, or @COMPLETED@ state.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#cancelBatchImportJob_jobId"><span class="hs-identifier hs-type">cancelBatchImportJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob"><span class="hs-identifier hs-type">CancelBatchImportJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="cancelBatchImportJob_jobId"><span class="annot"><span class="annottext">cancelBatchImportJob_jobId :: (Text -&gt; f Text) -&gt; CancelBatchImportJob -&gt; f CancelBatchImportJob
+</span><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#cancelBatchImportJob_jobId"><span class="hs-identifier hs-var hs-var">cancelBatchImportJob_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelBatchImportJob -&gt; Text)
+-&gt; (CancelBatchImportJob -&gt; Text -&gt; CancelBatchImportJob)
+-&gt; Lens CancelBatchImportJob CancelBatchImportJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob%27"><span class="hs-identifier hs-type">CancelBatchImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322138"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:CancelBatchImportJob' :: CancelBatchImportJob -&gt; Text
+</span><a href="#local-6989586621679322138"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679322138"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322137"><span class="annot"><span class="annottext">s :: CancelBatchImportJob
+</span><a href="#local-6989586621679322137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob%27"><span class="hs-identifier hs-type">CancelBatchImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322136"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679322136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelBatchImportJob
+</span><a href="#local-6989586621679322137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:CancelBatchImportJob' :: Text
+</span><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#%24sel%3AjobId%3ACancelBatchImportJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679322136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob"><span class="hs-identifier hs-type">CancelBatchImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob"><span class="hs-identifier hs-type">CancelBatchImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob"><span class="hs-identifier hs-type">CancelBatchImportJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJobResponse"><span class="hs-identifier hs-type">CancelBatchImportJobResponse</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679322132"><span class="annot"><span class="annottext">request :: CancelBatchImportJob -&gt; Request CancelBatchImportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CancelBatchImportJob -&gt; Request CancelBatchImportJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679322128"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CancelBatchImportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CancelBatchImportJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse CancelBatchImportJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CancelBatchImportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CancelBatchImportJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679322125"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322125"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679322124"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679322124"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679322123"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679322123"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CancelBatchImportJobResponse
+</span><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJobResponse%27"><span class="hs-identifier hs-var">CancelBatchImportJobResponse'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CancelBatchImportJobResponse)
+-&gt; Either String Int -&gt; Either String CancelBatchImportJobResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322125"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322116"><span id="local-6989586621679322118"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob"><span class="hs-identifier hs-type">CancelBatchImportJob</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob"><span class="hs-identifier hs-type">CancelBatchImportJob</span></a></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob"><span class="hs-identifier hs-type">CancelBatchImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679322109"><span class="annot"><span class="annottext">toHeaders :: CancelBatchImportJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CancelBatchImportJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSHawksNestServiceFacade.CancelBatchImportJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-111"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322099"><span id="local-6989586621679322101"><span id="local-6989586621679322103"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob"><span class="hs-identifier hs-type">CancelBatchImportJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679322097"><span class="annot"><span class="annottext">toJSON :: CancelBatchImportJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob%27"><span class="hs-identifier hs-type">CancelBatchImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322095"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:CancelBatchImportJob' :: CancelBatchImportJob -&gt; Text
+</span><a href="#local-6989586621679322095"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679322095"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob"><span class="hs-identifier hs-type">CancelBatchImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679322089"><span class="annot"><span class="annottext">toPath :: CancelBatchImportJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CancelBatchImportJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJob"><span class="hs-identifier hs-type">CancelBatchImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679322085"><span class="annot"><span class="annottext">toQuery :: CancelBatchImportJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CancelBatchImportJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newCancelBatchImportJobResponse' smart constructor.</span><span>
+</span><span id="line-129"></span><span id="local-6989586621679322082"><span id="local-6989586621679322083"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelBatchImportJobResponse"><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJobResponse"><span class="hs-identifier hs-var">CancelBatchImportJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelBatchImportJobResponse%27"><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJobResponse%27"><span class="hs-identifier hs-var">CancelBatchImportJobResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACancelBatchImportJobResponse%27"><span class="annot"><span class="annottext">CancelBatchImportJobResponse -&gt; Int
+</span><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#%24sel%3AhttpStatus%3ACancelBatchImportJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322077"><span id="local-6989586621679322079"><span class="annot"><span class="annottext">CancelBatchImportJobResponse
+-&gt; CancelBatchImportJobResponse -&gt; Bool
+(CancelBatchImportJobResponse
+ -&gt; CancelBatchImportJobResponse -&gt; Bool)
+-&gt; (CancelBatchImportJobResponse
+    -&gt; CancelBatchImportJobResponse -&gt; Bool)
+-&gt; Eq CancelBatchImportJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancelBatchImportJobResponse
+-&gt; CancelBatchImportJobResponse -&gt; Bool
+$c/= :: CancelBatchImportJobResponse
+-&gt; CancelBatchImportJobResponse -&gt; Bool
+== :: CancelBatchImportJobResponse
+-&gt; CancelBatchImportJobResponse -&gt; Bool
+$c== :: CancelBatchImportJobResponse
+-&gt; CancelBatchImportJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322069"><span id="local-6989586621679322071"><span id="local-6989586621679322073"><span id="local-6989586621679322075"><span class="annot"><span class="annottext">ReadPrec [CancelBatchImportJobResponse]
+ReadPrec CancelBatchImportJobResponse
+Int -&gt; ReadS CancelBatchImportJobResponse
+ReadS [CancelBatchImportJobResponse]
+(Int -&gt; ReadS CancelBatchImportJobResponse)
+-&gt; ReadS [CancelBatchImportJobResponse]
+-&gt; ReadPrec CancelBatchImportJobResponse
+-&gt; ReadPrec [CancelBatchImportJobResponse]
+-&gt; Read CancelBatchImportJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancelBatchImportJobResponse]
+$creadListPrec :: ReadPrec [CancelBatchImportJobResponse]
+readPrec :: ReadPrec CancelBatchImportJobResponse
+$creadPrec :: ReadPrec CancelBatchImportJobResponse
+readList :: ReadS [CancelBatchImportJobResponse]
+$creadList :: ReadS [CancelBatchImportJobResponse]
+readsPrec :: Int -&gt; ReadS CancelBatchImportJobResponse
+$creadsPrec :: Int -&gt; ReadS CancelBatchImportJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322063"><span id="local-6989586621679322065"><span id="local-6989586621679322067"><span class="annot"><span class="annottext">Int -&gt; CancelBatchImportJobResponse -&gt; ShowS
+[CancelBatchImportJobResponse] -&gt; ShowS
+CancelBatchImportJobResponse -&gt; String
+(Int -&gt; CancelBatchImportJobResponse -&gt; ShowS)
+-&gt; (CancelBatchImportJobResponse -&gt; String)
+-&gt; ([CancelBatchImportJobResponse] -&gt; ShowS)
+-&gt; Show CancelBatchImportJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancelBatchImportJobResponse] -&gt; ShowS
+$cshowList :: [CancelBatchImportJobResponse] -&gt; ShowS
+show :: CancelBatchImportJobResponse -&gt; String
+$cshow :: CancelBatchImportJobResponse -&gt; String
+showsPrec :: Int -&gt; CancelBatchImportJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancelBatchImportJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CancelBatchImportJobResponse -&gt; Rep CancelBatchImportJobResponse x)
+-&gt; (forall x.
+    Rep CancelBatchImportJobResponse x -&gt; CancelBatchImportJobResponse)
+-&gt; Generic CancelBatchImportJobResponse
+forall x.
+Rep CancelBatchImportJobResponse x -&gt; CancelBatchImportJobResponse
+forall x.
+CancelBatchImportJobResponse -&gt; Rep CancelBatchImportJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CancelBatchImportJobResponse x -&gt; CancelBatchImportJobResponse
+$cfrom :: forall x.
+CancelBatchImportJobResponse -&gt; Rep CancelBatchImportJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Create a value of 'CancelBatchImportJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'httpStatus', 'cancelBatchImportJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#newCancelBatchImportJobResponse"><span class="hs-identifier hs-type">newCancelBatchImportJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJobResponse"><span class="hs-identifier hs-type">CancelBatchImportJobResponse</span></a></span><span>
+</span><span id="line-148"></span><span id="newCancelBatchImportJobResponse"><span class="annot"><span class="annottext">newCancelBatchImportJobResponse :: Int -&gt; CancelBatchImportJobResponse
+</span><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#newCancelBatchImportJobResponse"><span class="hs-identifier hs-var hs-var">newCancelBatchImportJobResponse</span></a></span></span><span> </span><span id="local-6989586621679322060"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322060"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="annottext">CancelBatchImportJobResponse' :: Int -&gt; CancelBatchImportJobResponse
+</span><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJobResponse%27"><span class="hs-identifier hs-type">CancelBatchImportJobResponse'</span></a></span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CancelBatchImportJobResponse' :: Int
+</span><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#%24sel%3AhttpStatus%3ACancelBatchImportJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322060"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#cancelBatchImportJobResponse_httpStatus"><span class="hs-identifier hs-type">cancelBatchImportJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJobResponse"><span class="hs-identifier hs-type">CancelBatchImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-156"></span><span id="cancelBatchImportJobResponse_httpStatus"><span class="annot"><span class="annottext">cancelBatchImportJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CancelBatchImportJobResponse -&gt; f CancelBatchImportJobResponse
+</span><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#cancelBatchImportJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">cancelBatchImportJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelBatchImportJobResponse -&gt; Int)
+-&gt; (CancelBatchImportJobResponse
+    -&gt; Int -&gt; CancelBatchImportJobResponse)
+-&gt; Lens
+     CancelBatchImportJobResponse CancelBatchImportJobResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJobResponse%27"><span class="hs-identifier hs-type">CancelBatchImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322059"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CancelBatchImportJobResponse' :: CancelBatchImportJobResponse -&gt; Int
+</span><a href="#local-6989586621679322059"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322059"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322058"><span class="annot"><span class="annottext">s :: CancelBatchImportJobResponse
+</span><a href="#local-6989586621679322058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJobResponse%27"><span class="hs-identifier hs-type">CancelBatchImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322057"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelBatchImportJobResponse
+</span><a href="#local-6989586621679322058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelBatchImportJobResponse' :: Int
+</span><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#%24sel%3AhttpStatus%3ACancelBatchImportJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJobResponse"><span class="hs-identifier hs-type">CancelBatchImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322055"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.CancelBatchImportJob.html#CancelBatchImportJobResponse"><span class="hs-identifier hs-type">CancelBatchImportJobResponse</span></a></span></span><span>
+</span><span id="line-159"></span></pre></body></html>

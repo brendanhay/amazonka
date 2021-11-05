@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679253423"><span id="local-6989586621679253424"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AnomalyDetectorStateValue"><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue"><span class="hs-identifier hs-var">AnomalyDetectorStateValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnomalyDetectorStateValue%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue%27"><span class="hs-identifier hs-var">AnomalyDetectorStateValue'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679253432"><span id="local-6989586621679253433"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AnomalyDetectorStateValue"><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue"><span class="hs-identifier hs-var">AnomalyDetectorStateValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnomalyDetectorStateValue%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue%27"><span class="hs-identifier hs-var">AnomalyDetectorStateValue'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAnomalyDetectorStateValue"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; Text
 </span><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#fromAnomalyDetectorStateValue"><span class="hs-identifier hs-var hs-var">fromAnomalyDetectorStateValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679253415"><span id="local-6989586621679253417"><span id="local-6989586621679253419"><span class="annot"><span class="annottext">Int -&gt; AnomalyDetectorStateValue -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679253424"><span id="local-6989586621679253426"><span id="local-6989586621679253428"><span class="annot"><span class="annottext">Int -&gt; AnomalyDetectorStateValue -&gt; ShowS
 [AnomalyDetectorStateValue] -&gt; ShowS
 AnomalyDetectorStateValue -&gt; String
 (Int -&gt; AnomalyDetectorStateValue -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AnomalyDetectorStateValue -&gt; String
 showsPrec :: Int -&gt; AnomalyDetectorStateValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; AnomalyDetectorStateValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679253406"><span id="local-6989586621679253408"><span id="local-6989586621679253410"><span id="local-6989586621679253412"><span class="annot"><span class="annottext">ReadPrec [AnomalyDetectorStateValue]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679253415"><span id="local-6989586621679253417"><span id="local-6989586621679253419"><span id="local-6989586621679253421"><span class="annot"><span class="annottext">ReadPrec [AnomalyDetectorStateValue]
 ReadPrec AnomalyDetectorStateValue
 Int -&gt; ReadS AnomalyDetectorStateValue
 ReadS [AnomalyDetectorStateValue]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AnomalyDetectorStateValue]
 readsPrec :: Int -&gt; ReadS AnomalyDetectorStateValue
 $creadsPrec :: Int -&gt; ReadS AnomalyDetectorStateValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679253401"><span id="local-6989586621679253403"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679253410"><span id="local-6989586621679253412"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
 (AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool)
 -&gt; (AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool)
 -&gt; Eq AnomalyDetectorStateValue
@@ -83,7 +83,7 @@ $c/= :: AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
 == :: AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
 $c== :: AnomalyDetectorStateValue -&gt; AnomalyDetectorStateValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679253385"><span id="local-6989586621679253387"><span id="local-6989586621679253389"><span id="local-6989586621679253391"><span id="local-6989586621679253393"><span id="local-6989586621679253395"><span id="local-6989586621679253397"><span class="annot"><span class="annottext">Eq AnomalyDetectorStateValue
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679253394"><span id="local-6989586621679253396"><span id="local-6989586621679253398"><span id="local-6989586621679253400"><span id="local-6989586621679253402"><span id="local-6989586621679253404"><span id="local-6989586621679253406"><span class="annot"><span class="annottext">Eq AnomalyDetectorStateValue
 Eq AnomalyDetectorStateValue
 -&gt; (AnomalyDetectorStateValue
     -&gt; AnomalyDetectorStateValue -&gt; Ordering)
@@ -148,7 +148,7 @@ AnomalyDetectorStateValue -&gt; Rep AnomalyDetectorStateValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679253377"><span id="local-6989586621679253379"><span class="annot"><span class="annottext">Int -&gt; AnomalyDetectorStateValue -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679253386"><span id="local-6989586621679253388"><span class="annot"><span class="annottext">Int -&gt; AnomalyDetectorStateValue -&gt; Int
 AnomalyDetectorStateValue -&gt; Int
 (Int -&gt; AnomalyDetectorStateValue -&gt; Int)
 -&gt; (AnomalyDetectorStateValue -&gt; Int)
@@ -159,56 +159,56 @@ $chash :: AnomalyDetectorStateValue -&gt; Int
 hashWithSalt :: Int -&gt; AnomalyDetectorStateValue -&gt; Int
 $chashWithSalt :: Int -&gt; AnomalyDetectorStateValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679253374"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679253383"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; ()
 (AnomalyDetectorStateValue -&gt; ())
 -&gt; NFData AnomalyDetectorStateValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AnomalyDetectorStateValue -&gt; ()
 $crnf :: AnomalyDetectorStateValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679253371"><span class="annot"><span class="annottext">Text -&gt; Either String AnomalyDetectorStateValue
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679253380"><span class="annot"><span class="annottext">Text -&gt; Either String AnomalyDetectorStateValue
 (Text -&gt; Either String AnomalyDetectorStateValue)
 -&gt; FromText AnomalyDetectorStateValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AnomalyDetectorStateValue
 $cfromText :: Text -&gt; Either String AnomalyDetectorStateValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679253368"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679253377"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; Text
 (AnomalyDetectorStateValue -&gt; Text)
 -&gt; ToText AnomalyDetectorStateValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AnomalyDetectorStateValue -&gt; Text
 $ctoText :: AnomalyDetectorStateValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679253365"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679253374"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; ByteString
 (AnomalyDetectorStateValue -&gt; ByteString)
 -&gt; ToByteString AnomalyDetectorStateValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AnomalyDetectorStateValue -&gt; ByteString
 $ctoBS :: AnomalyDetectorStateValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679253362"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679253371"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; ByteStringBuilder
 (AnomalyDetectorStateValue -&gt; ByteStringBuilder)
 -&gt; ToLog AnomalyDetectorStateValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AnomalyDetectorStateValue -&gt; ByteStringBuilder
 $cbuild :: AnomalyDetectorStateValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679253359"><span class="annot"><span class="annottext">HeaderName -&gt; AnomalyDetectorStateValue -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679253368"><span class="annot"><span class="annottext">HeaderName -&gt; AnomalyDetectorStateValue -&gt; [Header]
 (HeaderName -&gt; AnomalyDetectorStateValue -&gt; [Header])
 -&gt; ToHeader AnomalyDetectorStateValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AnomalyDetectorStateValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AnomalyDetectorStateValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679253356"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679253365"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; QueryString
 (AnomalyDetectorStateValue -&gt; QueryString)
 -&gt; ToQuery AnomalyDetectorStateValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AnomalyDetectorStateValue -&gt; QueryString
 $ctoQuery :: AnomalyDetectorStateValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679253351"><span id="local-6989586621679253353"><span class="annot"><span class="annottext">Value -&gt; Parser [AnomalyDetectorStateValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679253360"><span id="local-6989586621679253362"><span class="annot"><span class="annottext">Value -&gt; Parser [AnomalyDetectorStateValue]
 Value -&gt; Parser AnomalyDetectorStateValue
 (Value -&gt; Parser AnomalyDetectorStateValue)
 -&gt; (Value -&gt; Parser [AnomalyDetectorStateValue])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [AnomalyDetectorStateValue]
 parseJSON :: Value -&gt; Parser AnomalyDetectorStateValue
 $cparseJSON :: Value -&gt; Parser AnomalyDetectorStateValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679253346"><span id="local-6989586621679253348"><span class="annot"><span class="annottext">FromJSONKeyFunction [AnomalyDetectorStateValue]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679253355"><span id="local-6989586621679253357"><span class="annot"><span class="annottext">FromJSONKeyFunction [AnomalyDetectorStateValue]
 FromJSONKeyFunction AnomalyDetectorStateValue
 FromJSONKeyFunction AnomalyDetectorStateValue
 -&gt; FromJSONKeyFunction [AnomalyDetectorStateValue]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AnomalyDetectorStateValue]
 fromJSONKey :: FromJSONKeyFunction AnomalyDetectorStateValue
 $cfromJSONKey :: FromJSONKeyFunction AnomalyDetectorStateValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679253337"><span id="local-6989586621679253339"><span id="local-6989586621679253341"><span id="local-6989586621679253343"><span class="annot"><span class="annottext">[AnomalyDetectorStateValue] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679253346"><span id="local-6989586621679253348"><span id="local-6989586621679253350"><span id="local-6989586621679253352"><span class="annot"><span class="annottext">[AnomalyDetectorStateValue] -&gt; Encoding
 [AnomalyDetectorStateValue] -&gt; Value
 AnomalyDetectorStateValue -&gt; Encoding
 AnomalyDetectorStateValue -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: AnomalyDetectorStateValue -&gt; Encoding
 toJSON :: AnomalyDetectorStateValue -&gt; Value
 $ctoJSON :: AnomalyDetectorStateValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679253332"><span id="local-6989586621679253334"><span class="annot"><span class="annottext">ToJSONKeyFunction [AnomalyDetectorStateValue]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679253341"><span id="local-6989586621679253343"><span class="annot"><span class="annottext">ToJSONKeyFunction [AnomalyDetectorStateValue]
 ToJSONKeyFunction AnomalyDetectorStateValue
 ToJSONKeyFunction AnomalyDetectorStateValue
 -&gt; ToJSONKeyFunction [AnomalyDetectorStateValue]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AnomalyDetectorStateValue]
 toJSONKey :: ToJSONKeyFunction AnomalyDetectorStateValue
 $ctoJSONKey :: ToJSONKeyFunction AnomalyDetectorStateValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679253329"><span class="annot"><span class="annottext">[Node] -&gt; Either String AnomalyDetectorStateValue
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679253338"><span class="annot"><span class="annottext">[Node] -&gt; Either String AnomalyDetectorStateValue
 ([Node] -&gt; Either String AnomalyDetectorStateValue)
 -&gt; FromXML AnomalyDetectorStateValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AnomalyDetectorStateValue
 $cparseXML :: [Node] -&gt; Either String AnomalyDetectorStateValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679253326"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679253335"><span class="annot"><span class="annottext">AnomalyDetectorStateValue -&gt; XML
 (AnomalyDetectorStateValue -&gt; XML)
 -&gt; ToXML AnomalyDetectorStateValue
 forall a. (a -&gt; XML) -&gt; ToXML a

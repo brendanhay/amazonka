@@ -73,7 +73,7 @@
 </span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | /See:/ 'newResumeGameServerGroup' smart constructor.</span><span>
-</span><span id="line-76"></span><span id="local-6989586621679446246"><span id="local-6989586621679446247"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResumeGameServerGroup"><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-var">ResumeGameServerGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResumeGameServerGroup%27"><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup%27"><span class="hs-identifier hs-var">ResumeGameServerGroup'</span></a></span></span><span>
+</span><span id="line-76"></span><span id="local-6989586621679446255"><span id="local-6989586621679446256"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResumeGameServerGroup"><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-var">ResumeGameServerGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResumeGameServerGroup%27"><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup%27"><span class="hs-identifier hs-var">ResumeGameServerGroup'</span></a></span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the game server group. Use either the</span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-comment">-- GameServerGroup name or ARN value.</span><span>
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3AgameServerGroupName%3AResumeGameServerGroup%27"><span class="annot"><span class="annottext">ResumeGameServerGroup -&gt; Text
@@ -82,7 +82,7 @@
 </span><span id="line-81"></span><span>    </span><span id="%24sel%3AresumeActions%3AResumeGameServerGroup%27"><span class="annot"><span class="annottext">ResumeGameServerGroup -&gt; NonEmpty GameServerGroupAction
 </span><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#%24sel%3AresumeActions%3AResumeGameServerGroup%27"><span class="hs-identifier hs-var hs-var">resumeActions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerGroupAction.html#GameServerGroupAction"><span class="hs-identifier hs-type">GameServerGroupAction</span></a></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446239"><span id="local-6989586621679446241"><span class="annot"><span class="annottext">ResumeGameServerGroup -&gt; ResumeGameServerGroup -&gt; Bool
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446248"><span id="local-6989586621679446250"><span class="annot"><span class="annottext">ResumeGameServerGroup -&gt; ResumeGameServerGroup -&gt; Bool
 (ResumeGameServerGroup -&gt; ResumeGameServerGroup -&gt; Bool)
 -&gt; (ResumeGameServerGroup -&gt; ResumeGameServerGroup -&gt; Bool)
 -&gt; Eq ResumeGameServerGroup
@@ -91,7 +91,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResumeGameServerGroup -&gt; ResumeGameServerGroup -&gt; Bool
 == :: ResumeGameServerGroup -&gt; ResumeGameServerGroup -&gt; Bool
 $c== :: ResumeGameServerGroup -&gt; ResumeGameServerGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446230"><span id="local-6989586621679446232"><span id="local-6989586621679446234"><span id="local-6989586621679446236"><span class="annot"><span class="annottext">ReadPrec [ResumeGameServerGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446239"><span id="local-6989586621679446241"><span id="local-6989586621679446243"><span id="local-6989586621679446245"><span class="annot"><span class="annottext">ReadPrec [ResumeGameServerGroup]
 ReadPrec ResumeGameServerGroup
 Int -&gt; ReadS ResumeGameServerGroup
 ReadS [ResumeGameServerGroup]
@@ -111,7 +111,7 @@ readList :: ReadS [ResumeGameServerGroup]
 $creadList :: ReadS [ResumeGameServerGroup]
 readsPrec :: Int -&gt; ReadS ResumeGameServerGroup
 $creadsPrec :: Int -&gt; ReadS ResumeGameServerGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446223"><span id="local-6989586621679446225"><span id="local-6989586621679446227"><span class="annot"><span class="annottext">Int -&gt; ResumeGameServerGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446232"><span id="local-6989586621679446234"><span id="local-6989586621679446236"><span class="annot"><span class="annottext">Int -&gt; ResumeGameServerGroup -&gt; ShowS
 [ResumeGameServerGroup] -&gt; ShowS
 ResumeGameServerGroup -&gt; String
 (Int -&gt; ResumeGameServerGroup -&gt; ShowS)
@@ -157,16 +157,16 @@ $cfrom :: forall x. ResumeGameServerGroup -&gt; Rep ResumeGameServerGroup x
 </span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-type">ResumeGameServerGroup</span></a></span><span>
 </span><span id="line-103"></span><span id="newResumeGameServerGroup"><span class="annot"><span class="annottext">newResumeGameServerGroup :: Text -&gt; NonEmpty GameServerGroupAction -&gt; ResumeGameServerGroup
 </span><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#newResumeGameServerGroup"><span class="hs-identifier hs-var hs-var">newResumeGameServerGroup</span></a></span></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679446218"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446218"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679446217"><span class="annot"><span class="annottext">NonEmpty GameServerGroupAction
-</span><a href="#local-6989586621679446217"><span class="hs-identifier hs-var">pResumeActions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679446227"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446227"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679446226"><span class="annot"><span class="annottext">NonEmpty GameServerGroupAction
+</span><a href="#local-6989586621679446226"><span class="hs-identifier hs-var">pResumeActions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResumeGameServerGroup' :: Text -&gt; NonEmpty GameServerGroupAction -&gt; ResumeGameServerGroup
 </span><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup%27"><span class="hs-identifier hs-type">ResumeGameServerGroup'</span></a></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gameServerGroupName:ResumeGameServerGroup' :: Text
 </span><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#%24sel%3AgameServerGroupName%3AResumeGameServerGroup%27"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446218"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679446227"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:resumeActions:ResumeGameServerGroup' :: NonEmpty GameServerGroupAction
 </span><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#%24sel%3AresumeActions%3AResumeGameServerGroup%27"><span class="hs-identifier hs-var">resumeActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
   (NonEmpty GameServerGroupAction)
@@ -184,7 +184,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty GameServerGroupAction -&gt; NonEmpty GameServerGroupAction
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty GameServerGroupAction
-</span><a href="#local-6989586621679446217"><span class="hs-identifier hs-var">pResumeActions_</span></a></span><span>
+</span><a href="#local-6989586621679446226"><span class="hs-identifier hs-var">pResumeActions_</span></a></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | A unique identifier for the game server group. Use either the</span><span>
@@ -196,16 +196,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (ResumeGameServerGroup -&gt; Text -&gt; ResumeGameServerGroup)
 -&gt; Lens ResumeGameServerGroup ResumeGameServerGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup%27"><span class="hs-identifier hs-type">ResumeGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446212"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup%27"><span class="hs-identifier hs-type">ResumeGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446221"><span class="annot"><span class="annottext">Text
 gameServerGroupName :: Text
 $sel:gameServerGroupName:ResumeGameServerGroup' :: ResumeGameServerGroup -&gt; Text
-</span><a href="#local-6989586621679446212"><span class="hs-identifier hs-var hs-var">gameServerGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446212"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446211"><span class="annot"><span class="annottext">s :: ResumeGameServerGroup
-</span><a href="#local-6989586621679446211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup%27"><span class="hs-identifier hs-type">ResumeGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446210"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeGameServerGroup
-</span><a href="#local-6989586621679446211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroupName:ResumeGameServerGroup' :: Text
+</span><a href="#local-6989586621679446221"><span class="hs-identifier hs-var hs-var">gameServerGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446221"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446220"><span class="annot"><span class="annottext">s :: ResumeGameServerGroup
+</span><a href="#local-6989586621679446220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup%27"><span class="hs-identifier hs-type">ResumeGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446219"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeGameServerGroup
+</span><a href="#local-6989586621679446220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroupName:ResumeGameServerGroup' :: Text
 </span><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#%24sel%3AgameServerGroupName%3AResumeGameServerGroup%27"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-type">ResumeGameServerGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-type">ResumeGameServerGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The activity to resume for this game server group.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#resumeGameServerGroup_resumeActions"><span class="hs-identifier hs-type">resumeGameServerGroup_resumeActions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-type">ResumeGameServerGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerGroupAction.html#GameServerGroupAction"><span class="hs-identifier hs-type">GameServerGroupAction</span></a></span><span class="hs-special">)</span><span>
@@ -221,16 +221,16 @@ $sel:gameServerGroupName:ResumeGameServerGroup' :: ResumeGameServerGroup -&gt; T
      (NonEmpty GameServerGroupAction)
      (NonEmpty GameServerGroupAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup%27"><span class="hs-identifier hs-type">ResumeGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446209"><span class="annot"><span class="annottext">NonEmpty GameServerGroupAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup%27"><span class="hs-identifier hs-type">ResumeGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446218"><span class="annot"><span class="annottext">NonEmpty GameServerGroupAction
 resumeActions :: NonEmpty GameServerGroupAction
 $sel:resumeActions:ResumeGameServerGroup' :: ResumeGameServerGroup -&gt; NonEmpty GameServerGroupAction
-</span><a href="#local-6989586621679446209"><span class="hs-identifier hs-var hs-var">resumeActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty GameServerGroupAction
-</span><a href="#local-6989586621679446209"><span class="hs-identifier hs-var">resumeActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446208"><span class="annot"><span class="annottext">s :: ResumeGameServerGroup
-</span><a href="#local-6989586621679446208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup%27"><span class="hs-identifier hs-type">ResumeGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446207"><span class="annot"><span class="annottext">NonEmpty GameServerGroupAction
-</span><a href="#local-6989586621679446207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeGameServerGroup
-</span><a href="#local-6989586621679446208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resumeActions:ResumeGameServerGroup' :: NonEmpty GameServerGroupAction
+</span><a href="#local-6989586621679446218"><span class="hs-identifier hs-var hs-var">resumeActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty GameServerGroupAction
+</span><a href="#local-6989586621679446218"><span class="hs-identifier hs-var">resumeActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446217"><span class="annot"><span class="annottext">s :: ResumeGameServerGroup
+</span><a href="#local-6989586621679446217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup%27"><span class="hs-identifier hs-type">ResumeGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446216"><span class="annot"><span class="annottext">NonEmpty GameServerGroupAction
+</span><a href="#local-6989586621679446216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeGameServerGroup
+</span><a href="#local-6989586621679446217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resumeActions:ResumeGameServerGroup' :: NonEmpty GameServerGroupAction
 </span><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#%24sel%3AresumeActions%3AResumeGameServerGroup%27"><span class="hs-identifier hs-var">resumeActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty GameServerGroupAction
-</span><a href="#local-6989586621679446207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-type">ResumeGameServerGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty GameServerGroupAction
+</span><a href="#local-6989586621679446216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-type">ResumeGameServerGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty GameServerGroupAction
   -&gt; f (NonEmpty GameServerGroupAction))
  -&gt; ResumeGameServerGroup -&gt; f ResumeGameServerGroup)
 -&gt; ((NonEmpty GameServerGroupAction
@@ -253,12 +253,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-122"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-123"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-type">ResumeGameServerGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679446202"><span class="annot"><span class="annottext">request :: ResumeGameServerGroup -&gt; Request ResumeGameServerGroup
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679446211"><span class="annot"><span class="annottext">request :: ResumeGameServerGroup -&gt; Request ResumeGameServerGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ResumeGameServerGroup -&gt; Request ResumeGameServerGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679446198"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679446207"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ResumeGameServerGroup
 -&gt; ClientResponse ClientBody
@@ -284,10 +284,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679446195"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446195"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679446194"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679446194"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679446193"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679446193"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679446204"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446204"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679446203"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679446203"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679446202"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679446202"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe GameServerGroup -&gt; Int -&gt; ResumeGameServerGroupResponse
 </span><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse%27"><span class="hs-identifier hs-var">ResumeGameServerGroupResponse'</span></a></span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GameServerGroup -&gt; Int -&gt; ResumeGameServerGroupResponse)
@@ -295,7 +295,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ResumeGameServerGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679446193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameServerGroup)
+</span><a href="#local-6989586621679446202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameServerGroup)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GameServerGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -307,15 +307,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446195"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446204"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446185"><span id="local-6989586621679446187"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-type">ResumeGameServerGroup</span></a></span></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446194"><span id="local-6989586621679446196"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-type">ResumeGameServerGroup</span></a></span></span></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446182"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-type">ResumeGameServerGroup</span></a></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446191"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-type">ResumeGameServerGroup</span></a></span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-type">ResumeGameServerGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679446178"><span class="annot"><span class="annottext">toHeaders :: ResumeGameServerGroup -&gt; ResponseHeaders
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679446187"><span class="annot"><span class="annottext">toHeaders :: ResumeGameServerGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ResumeGameServerGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -342,15 +342,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446168"><span id="local-6989586621679446170"><span id="local-6989586621679446172"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-type">ResumeGameServerGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679446166"><span class="annot"><span class="annottext">toJSON :: ResumeGameServerGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup%27"><span class="hs-identifier hs-type">ResumeGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446163"><span id="local-6989586621679446164"><span class="annot"><span class="annottext">NonEmpty GameServerGroupAction
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446177"><span id="local-6989586621679446179"><span id="local-6989586621679446181"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-type">ResumeGameServerGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679446175"><span class="annot"><span class="annottext">toJSON :: ResumeGameServerGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup%27"><span class="hs-identifier hs-type">ResumeGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446172"><span id="local-6989586621679446173"><span class="annot"><span class="annottext">NonEmpty GameServerGroupAction
 Text
 resumeActions :: NonEmpty GameServerGroupAction
 gameServerGroupName :: Text
 $sel:resumeActions:ResumeGameServerGroup' :: ResumeGameServerGroup -&gt; NonEmpty GameServerGroupAction
 $sel:gameServerGroupName:ResumeGameServerGroup' :: ResumeGameServerGroup -&gt; Text
-</span><a href="#local-6989586621679446163"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679446172"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -363,7 +363,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;GameServerGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446164"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679446173"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -371,19 +371,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResumeActions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty GameServerGroupAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty GameServerGroupAction
-</span><a href="#local-6989586621679446163"><span class="hs-identifier hs-var">resumeActions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446172"><span class="hs-identifier hs-var">resumeActions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-type">ResumeGameServerGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679446157"><span class="annot"><span class="annottext">toPath :: ResumeGameServerGroup -&gt; ByteString
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679446166"><span class="annot"><span class="annottext">toPath :: ResumeGameServerGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ResumeGameServerGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroup"><span class="hs-identifier hs-type">ResumeGameServerGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679446153"><span class="annot"><span class="annottext">toQuery :: ResumeGameServerGroup -&gt; QueryString
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679446162"><span class="annot"><span class="annottext">toQuery :: ResumeGameServerGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ResumeGameServerGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -391,7 +391,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | /See:/ 'newResumeGameServerGroupResponse' smart constructor.</span><span>
-</span><span id="line-171"></span><span id="local-6989586621679446150"><span id="local-6989586621679446151"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResumeGameServerGroupResponse"><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse"><span class="hs-identifier hs-var">ResumeGameServerGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResumeGameServerGroupResponse%27"><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse%27"><span class="hs-identifier hs-var">ResumeGameServerGroupResponse'</span></a></span></span><span>
+</span><span id="line-171"></span><span id="local-6989586621679446159"><span id="local-6989586621679446160"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResumeGameServerGroupResponse"><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse"><span class="hs-identifier hs-var">ResumeGameServerGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResumeGameServerGroupResponse%27"><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse%27"><span class="hs-identifier hs-var">ResumeGameServerGroupResponse'</span></a></span></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that describes the game server group resource, with the</span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-comment">-- @SuspendedActions@ property updated to reflect the resumed activity.</span><span>
 </span><span id="line-174"></span><span>    </span><span id="%24sel%3AgameServerGroup%3AResumeGameServerGroupResponse%27"><span class="annot"><span class="annottext">ResumeGameServerGroupResponse -&gt; Maybe GameServerGroup
@@ -400,7 +400,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3AResumeGameServerGroupResponse%27"><span class="annot"><span class="annottext">ResumeGameServerGroupResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#%24sel%3AhttpStatus%3AResumeGameServerGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446144"><span id="local-6989586621679446146"><span class="annot"><span class="annottext">ResumeGameServerGroupResponse
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446153"><span id="local-6989586621679446155"><span class="annot"><span class="annottext">ResumeGameServerGroupResponse
 -&gt; ResumeGameServerGroupResponse -&gt; Bool
 (ResumeGameServerGroupResponse
  -&gt; ResumeGameServerGroupResponse -&gt; Bool)
@@ -416,7 +416,7 @@ $c/= :: ResumeGameServerGroupResponse
 -&gt; ResumeGameServerGroupResponse -&gt; Bool
 $c== :: ResumeGameServerGroupResponse
 -&gt; ResumeGameServerGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446136"><span id="local-6989586621679446138"><span id="local-6989586621679446140"><span id="local-6989586621679446142"><span class="annot"><span class="annottext">ReadPrec [ResumeGameServerGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446145"><span id="local-6989586621679446147"><span id="local-6989586621679446149"><span id="local-6989586621679446151"><span class="annot"><span class="annottext">ReadPrec [ResumeGameServerGroupResponse]
 ReadPrec ResumeGameServerGroupResponse
 Int -&gt; ReadS ResumeGameServerGroupResponse
 ReadS [ResumeGameServerGroupResponse]
@@ -436,7 +436,7 @@ readList :: ReadS [ResumeGameServerGroupResponse]
 $creadList :: ReadS [ResumeGameServerGroupResponse]
 readsPrec :: Int -&gt; ReadS ResumeGameServerGroupResponse
 $creadsPrec :: Int -&gt; ReadS ResumeGameServerGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446130"><span id="local-6989586621679446132"><span id="local-6989586621679446134"><span class="annot"><span class="annottext">Int -&gt; ResumeGameServerGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446139"><span id="local-6989586621679446141"><span id="local-6989586621679446143"><span class="annot"><span class="annottext">Int -&gt; ResumeGameServerGroupResponse -&gt; ShowS
 [ResumeGameServerGroupResponse] -&gt; ShowS
 ResumeGameServerGroupResponse -&gt; String
 (Int -&gt; ResumeGameServerGroupResponse -&gt; ShowS)
@@ -491,8 +491,8 @@ ResumeGameServerGroupResponse
 </span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-195"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse</span></a></span><span>
 </span><span id="line-196"></span><span id="newResumeGameServerGroupResponse"><span class="annot"><span class="annottext">newResumeGameServerGroupResponse :: Int -&gt; ResumeGameServerGroupResponse
-</span><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#newResumeGameServerGroupResponse"><span class="hs-identifier hs-var hs-var">newResumeGameServerGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679446127"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446127"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#newResumeGameServerGroupResponse"><span class="hs-identifier hs-var hs-var">newResumeGameServerGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679446136"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446136"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>  </span><span class="annot"><span class="annottext">ResumeGameServerGroupResponse' :: Maybe GameServerGroup -&gt; Int -&gt; ResumeGameServerGroupResponse
 </span><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse%27"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse'</span></a></span><span>
 </span><span id="line-198"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gameServerGroup:ResumeGameServerGroupResponse' :: Maybe GameServerGroup
@@ -502,7 +502,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ResumeGameServerGroupResponse' :: Int
 </span><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#%24sel%3AhttpStatus%3AResumeGameServerGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446127"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679446136"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-201"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | An object that describes the game server group resource, with the</span><span>
@@ -519,16 +519,16 @@ forall a. Maybe a
      (Maybe GameServerGroup)
      (Maybe GameServerGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse%27"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446126"><span class="annot"><span class="annottext">Maybe GameServerGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse%27"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446135"><span class="annot"><span class="annottext">Maybe GameServerGroup
 gameServerGroup :: Maybe GameServerGroup
 $sel:gameServerGroup:ResumeGameServerGroupResponse' :: ResumeGameServerGroupResponse -&gt; Maybe GameServerGroup
-</span><a href="#local-6989586621679446126"><span class="hs-identifier hs-var hs-var">gameServerGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroup
-</span><a href="#local-6989586621679446126"><span class="hs-identifier hs-var">gameServerGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446125"><span class="annot"><span class="annottext">s :: ResumeGameServerGroupResponse
-</span><a href="#local-6989586621679446125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse%27"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446124"><span class="annot"><span class="annottext">Maybe GameServerGroup
-</span><a href="#local-6989586621679446124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeGameServerGroupResponse
-</span><a href="#local-6989586621679446125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroup:ResumeGameServerGroupResponse' :: Maybe GameServerGroup
+</span><a href="#local-6989586621679446135"><span class="hs-identifier hs-var hs-var">gameServerGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroup
+</span><a href="#local-6989586621679446135"><span class="hs-identifier hs-var">gameServerGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446134"><span class="annot"><span class="annottext">s :: ResumeGameServerGroupResponse
+</span><a href="#local-6989586621679446134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse%27"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446133"><span class="annot"><span class="annottext">Maybe GameServerGroup
+</span><a href="#local-6989586621679446133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeGameServerGroupResponse
+</span><a href="#local-6989586621679446134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroup:ResumeGameServerGroupResponse' :: Maybe GameServerGroup
 </span><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#%24sel%3AgameServerGroup%3AResumeGameServerGroupResponse%27"><span class="hs-identifier hs-var">gameServerGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroup
-</span><a href="#local-6989586621679446124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-209"></span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#resumeGameServerGroupResponse_httpStatus"><span class="hs-identifier hs-type">resumeGameServerGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -540,16 +540,16 @@ $sel:gameServerGroup:ResumeGameServerGroupResponse' :: ResumeGameServerGroupResp
 -&gt; Lens
      ResumeGameServerGroupResponse ResumeGameServerGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse%27"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446123"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse%27"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446132"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ResumeGameServerGroupResponse' :: ResumeGameServerGroupResponse -&gt; Int
-</span><a href="#local-6989586621679446123"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446123"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446122"><span class="annot"><span class="annottext">s :: ResumeGameServerGroupResponse
-</span><a href="#local-6989586621679446122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse%27"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446121"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeGameServerGroupResponse
-</span><a href="#local-6989586621679446122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ResumeGameServerGroupResponse' :: Int
+</span><a href="#local-6989586621679446132"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446132"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446131"><span class="annot"><span class="annottext">s :: ResumeGameServerGroupResponse
+</span><a href="#local-6989586621679446131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse%27"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446130"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeGameServerGroupResponse
+</span><a href="#local-6989586621679446131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ResumeGameServerGroupResponse' :: Int
 </span><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#%24sel%3AhttpStatus%3AResumeGameServerGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446119"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse</span></a></span></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446128"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ResumeGameServerGroup.html#ResumeGameServerGroupResponse"><span class="hs-identifier hs-type">ResumeGameServerGroupResponse</span></a></span></span><span>
 </span><span id="line-213"></span></pre></body></html>

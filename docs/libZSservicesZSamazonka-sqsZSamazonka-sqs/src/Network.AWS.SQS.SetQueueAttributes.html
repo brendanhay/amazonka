@@ -63,7 +63,7 @@
 </span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- /See:/ 'newSetQueueAttributes' smart constructor.</span><span>
-</span><span id="line-66"></span><span id="local-6989586621679177230"><span id="local-6989586621679177231"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetQueueAttributes"><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes"><span class="hs-identifier hs-var">SetQueueAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetQueueAttributes%27"><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes%27"><span class="hs-identifier hs-var">SetQueueAttributes'</span></a></span></span><span>
+</span><span id="line-66"></span><span id="local-6989586621679177239"><span id="local-6989586621679177240"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetQueueAttributes"><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes"><span class="hs-identifier hs-var">SetQueueAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetQueueAttributes%27"><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes%27"><span class="hs-identifier hs-var">SetQueueAttributes'</span></a></span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URL of the Amazon SQS queue whose attributes are set.</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Queue URLs and names are case-sensitive.</span><span>
@@ -239,7 +239,7 @@
 </span><span id="line-238"></span><span>    </span><span id="%24sel%3Aattributes%3ASetQueueAttributes%27"><span class="annot"><span class="annottext">SetQueueAttributes -&gt; HashMap QueueAttributeName Text
 </span><a href="Network.AWS.SQS.SetQueueAttributes.html#%24sel%3Aattributes%3ASetQueueAttributes%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.QueueAttributeName.html#QueueAttributeName"><span class="hs-identifier hs-type">QueueAttributeName</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-239"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-240"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177223"><span id="local-6989586621679177225"><span class="annot"><span class="annottext">SetQueueAttributes -&gt; SetQueueAttributes -&gt; Bool
+</span><span id="line-240"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177232"><span id="local-6989586621679177234"><span class="annot"><span class="annottext">SetQueueAttributes -&gt; SetQueueAttributes -&gt; Bool
 (SetQueueAttributes -&gt; SetQueueAttributes -&gt; Bool)
 -&gt; (SetQueueAttributes -&gt; SetQueueAttributes -&gt; Bool)
 -&gt; Eq SetQueueAttributes
@@ -248,7 +248,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetQueueAttributes -&gt; SetQueueAttributes -&gt; Bool
 == :: SetQueueAttributes -&gt; SetQueueAttributes -&gt; Bool
 $c== :: SetQueueAttributes -&gt; SetQueueAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177214"><span id="local-6989586621679177216"><span id="local-6989586621679177218"><span id="local-6989586621679177220"><span class="annot"><span class="annottext">ReadPrec [SetQueueAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177223"><span id="local-6989586621679177225"><span id="local-6989586621679177227"><span id="local-6989586621679177229"><span class="annot"><span class="annottext">ReadPrec [SetQueueAttributes]
 ReadPrec SetQueueAttributes
 Int -&gt; ReadS SetQueueAttributes
 ReadS [SetQueueAttributes]
@@ -268,7 +268,7 @@ readList :: ReadS [SetQueueAttributes]
 $creadList :: ReadS [SetQueueAttributes]
 readsPrec :: Int -&gt; ReadS SetQueueAttributes
 $creadsPrec :: Int -&gt; ReadS SetQueueAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177207"><span id="local-6989586621679177209"><span id="local-6989586621679177211"><span class="annot"><span class="annottext">Int -&gt; SetQueueAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177216"><span id="local-6989586621679177218"><span id="local-6989586621679177220"><span class="annot"><span class="annottext">Int -&gt; SetQueueAttributes -&gt; ShowS
 [SetQueueAttributes] -&gt; ShowS
 SetQueueAttributes -&gt; String
 (Int -&gt; SetQueueAttributes -&gt; ShowS)
@@ -478,13 +478,13 @@ $cfrom :: forall x. SetQueueAttributes -&gt; Rep SetQueueAttributes x
 </span><span id="line-423"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-424"></span><span>  </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes"><span class="hs-identifier hs-type">SetQueueAttributes</span></a></span><span>
 </span><span id="line-425"></span><span id="newSetQueueAttributes"><span class="annot"><span class="annottext">newSetQueueAttributes :: Text -&gt; SetQueueAttributes
-</span><a href="Network.AWS.SQS.SetQueueAttributes.html#newSetQueueAttributes"><span class="hs-identifier hs-var hs-var">newSetQueueAttributes</span></a></span></span><span> </span><span id="local-6989586621679177202"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177202"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SQS.SetQueueAttributes.html#newSetQueueAttributes"><span class="hs-identifier hs-var hs-var">newSetQueueAttributes</span></a></span></span><span> </span><span id="local-6989586621679177211"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177211"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-426"></span><span>  </span><span class="annot"><span class="annottext">SetQueueAttributes' :: Text -&gt; HashMap QueueAttributeName Text -&gt; SetQueueAttributes
 </span><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes%27"><span class="hs-identifier hs-type">SetQueueAttributes'</span></a></span><span>
 </span><span id="line-427"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queueUrl:SetQueueAttributes' :: Text
 </span><a href="Network.AWS.SQS.SetQueueAttributes.html#%24sel%3AqueueUrl%3ASetQueueAttributes%27"><span class="hs-identifier hs-var">queueUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177202"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177211"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-428"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:SetQueueAttributes' :: HashMap QueueAttributeName Text
 </span><a href="Network.AWS.SQS.SetQueueAttributes.html#%24sel%3Aattributes%3ASetQueueAttributes%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap QueueAttributeName Text
 forall a. Monoid a =&gt; a
@@ -500,16 +500,16 @@ forall a. Monoid a =&gt; a
 -&gt; (SetQueueAttributes -&gt; Text -&gt; SetQueueAttributes)
 -&gt; Lens SetQueueAttributes SetQueueAttributes Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes%27"><span class="hs-identifier hs-type">SetQueueAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177199"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes%27"><span class="hs-identifier hs-type">SetQueueAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177208"><span class="annot"><span class="annottext">Text
 queueUrl :: Text
 $sel:queueUrl:SetQueueAttributes' :: SetQueueAttributes -&gt; Text
-</span><a href="#local-6989586621679177199"><span class="hs-identifier hs-var hs-var">queueUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177199"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177198"><span class="annot"><span class="annottext">s :: SetQueueAttributes
-</span><a href="#local-6989586621679177198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes%27"><span class="hs-identifier hs-type">SetQueueAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177197"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetQueueAttributes
-</span><a href="#local-6989586621679177198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueUrl:SetQueueAttributes' :: Text
+</span><a href="#local-6989586621679177208"><span class="hs-identifier hs-var hs-var">queueUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177208"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177207"><span class="annot"><span class="annottext">s :: SetQueueAttributes
+</span><a href="#local-6989586621679177207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes%27"><span class="hs-identifier hs-type">SetQueueAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177206"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetQueueAttributes
+</span><a href="#local-6989586621679177207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueUrl:SetQueueAttributes' :: Text
 </span><a href="Network.AWS.SQS.SetQueueAttributes.html#%24sel%3AqueueUrl%3ASetQueueAttributes%27"><span class="hs-identifier hs-var">queueUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes"><span class="hs-identifier hs-type">SetQueueAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes"><span class="hs-identifier hs-type">SetQueueAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-436"></span><span>
 </span><span id="line-437"></span><span class="hs-comment">-- | A map of attributes to set.</span><span>
 </span><span id="line-438"></span><span class="hs-comment">--</span><span>
@@ -691,16 +691,16 @@ $sel:queueUrl:SetQueueAttributes' :: SetQueueAttributes -&gt; Text
      (HashMap QueueAttributeName Text)
      (HashMap QueueAttributeName Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes%27"><span class="hs-identifier hs-type">SetQueueAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177196"><span class="annot"><span class="annottext">HashMap QueueAttributeName Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes%27"><span class="hs-identifier hs-type">SetQueueAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177205"><span class="annot"><span class="annottext">HashMap QueueAttributeName Text
 attributes :: HashMap QueueAttributeName Text
 $sel:attributes:SetQueueAttributes' :: SetQueueAttributes -&gt; HashMap QueueAttributeName Text
-</span><a href="#local-6989586621679177196"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap QueueAttributeName Text
-</span><a href="#local-6989586621679177196"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177195"><span class="annot"><span class="annottext">s :: SetQueueAttributes
-</span><a href="#local-6989586621679177195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes%27"><span class="hs-identifier hs-type">SetQueueAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177194"><span class="annot"><span class="annottext">HashMap QueueAttributeName Text
-</span><a href="#local-6989586621679177194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetQueueAttributes
-</span><a href="#local-6989586621679177195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:SetQueueAttributes' :: HashMap QueueAttributeName Text
+</span><a href="#local-6989586621679177205"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap QueueAttributeName Text
+</span><a href="#local-6989586621679177205"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177204"><span class="annot"><span class="annottext">s :: SetQueueAttributes
+</span><a href="#local-6989586621679177204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes%27"><span class="hs-identifier hs-type">SetQueueAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177203"><span class="annot"><span class="annottext">HashMap QueueAttributeName Text
+</span><a href="#local-6989586621679177203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetQueueAttributes
+</span><a href="#local-6989586621679177204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:SetQueueAttributes' :: HashMap QueueAttributeName Text
 </span><a href="Network.AWS.SQS.SetQueueAttributes.html#%24sel%3Aattributes%3ASetQueueAttributes%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap QueueAttributeName Text
-</span><a href="#local-6989586621679177194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes"><span class="hs-identifier hs-type">SetQueueAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap QueueAttributeName Text
+</span><a href="#local-6989586621679177203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes"><span class="hs-identifier hs-type">SetQueueAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap QueueAttributeName Text
   -&gt; f (HashMap QueueAttributeName Text))
  -&gt; SetQueueAttributes -&gt; f SetQueueAttributes)
 -&gt; ((HashMap QueueAttributeName Text
@@ -723,12 +723,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-608"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-609"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes"><span class="hs-identifier hs-type">SetQueueAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-610"></span><span>      </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributesResponse"><span class="hs-identifier hs-type">SetQueueAttributesResponse</span></a></span><span>
-</span><span id="line-611"></span><span>  </span><span id="local-6989586621679177188"><span class="annot"><span class="annottext">request :: SetQueueAttributes -&gt; Request SetQueueAttributes
+</span><span id="line-611"></span><span>  </span><span id="local-6989586621679177197"><span class="annot"><span class="annottext">request :: SetQueueAttributes -&gt; Request SetQueueAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetQueueAttributes -&gt; Request SetQueueAttributes
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SQS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-612"></span><span>  </span><span id="local-6989586621679177184"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-612"></span><span>  </span><span id="local-6989586621679177193"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetQueueAttributes
 -&gt; ClientResponse ClientBody
@@ -754,12 +754,12 @@ AWSResponse a
 SetQueueAttributesResponse
 </span><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributesResponse%27"><span class="hs-identifier hs-var">SetQueueAttributesResponse'</span></a></span><span>
 </span><span id="line-614"></span><span>
-</span><span id="line-615"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177177"><span id="local-6989586621679177179"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes"><span class="hs-identifier hs-type">SetQueueAttributes</span></a></span></span></span><span>
+</span><span id="line-615"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177186"><span id="local-6989586621679177188"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes"><span class="hs-identifier hs-type">SetQueueAttributes</span></a></span></span></span><span>
 </span><span id="line-616"></span><span>
-</span><span id="line-617"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177174"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes"><span class="hs-identifier hs-type">SetQueueAttributes</span></a></span></span><span>
+</span><span id="line-617"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177183"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes"><span class="hs-identifier hs-type">SetQueueAttributes</span></a></span></span><span>
 </span><span id="line-618"></span><span>
 </span><span id="line-619"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes"><span class="hs-identifier hs-type">SetQueueAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-620"></span><span>  </span><span id="local-6989586621679177170"><span class="annot"><span class="annottext">toHeaders :: SetQueueAttributes -&gt; [Header]
+</span><span id="line-620"></span><span>  </span><span id="local-6989586621679177179"><span class="annot"><span class="annottext">toHeaders :: SetQueueAttributes -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; SetQueueAttributes -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -767,21 +767,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-621"></span><span>
 </span><span id="line-622"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes"><span class="hs-identifier hs-type">SetQueueAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-623"></span><span>  </span><span id="local-6989586621679177165"><span class="annot"><span class="annottext">toPath :: SetQueueAttributes -&gt; ByteString
+</span><span id="line-623"></span><span>  </span><span id="local-6989586621679177174"><span class="annot"><span class="annottext">toPath :: SetQueueAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetQueueAttributes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-624"></span><span>
 </span><span id="line-625"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes"><span class="hs-identifier hs-type">SetQueueAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-626"></span><span>  </span><span id="local-6989586621679177161"><span class="annot"><span class="annottext">toQuery :: SetQueueAttributes -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes%27"><span class="hs-identifier hs-type">SetQueueAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177158"><span id="local-6989586621679177159"><span class="annot"><span class="annottext">Text
+</span><span id="line-626"></span><span>  </span><span id="local-6989586621679177170"><span class="annot"><span class="annottext">toQuery :: SetQueueAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributes%27"><span class="hs-identifier hs-type">SetQueueAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177167"><span id="local-6989586621679177168"><span class="annot"><span class="annottext">Text
 HashMap QueueAttributeName Text
 attributes :: HashMap QueueAttributeName Text
 queueUrl :: Text
 $sel:attributes:SetQueueAttributes' :: SetQueueAttributes -&gt; HashMap QueueAttributeName Text
 $sel:queueUrl:SetQueueAttributes' :: SetQueueAttributes -&gt; Text
-</span><a href="#local-6989586621679177158"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679177167"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-627"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -801,7 +801,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;QueueUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177159"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177168"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-633"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 -&gt; ByteString
 -&gt; ByteString
@@ -819,14 +819,14 @@ ByteString
 </span><span id="line-636"></span><span>          </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Value&quot;</span></span><span>
 </span><span id="line-637"></span><span>          </span><span class="annot"><span class="annottext">HashMap QueueAttributeName Text
-</span><a href="#local-6989586621679177158"><span class="hs-identifier hs-var">attributes</span></a></span><span>
+</span><a href="#local-6989586621679177167"><span class="hs-identifier hs-var">attributes</span></a></span><span>
 </span><span id="line-638"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-639"></span><span>
 </span><span id="line-640"></span><span class="hs-comment">-- | /See:/ 'newSetQueueAttributesResponse' smart constructor.</span><span>
-</span><span id="line-641"></span><span id="local-6989586621679177154"><span id="local-6989586621679177155"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetQueueAttributesResponse"><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributesResponse"><span class="hs-identifier hs-var">SetQueueAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetQueueAttributesResponse%27"><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributesResponse%27"><span class="hs-identifier hs-var">SetQueueAttributesResponse'</span></a></span></span><span>
+</span><span id="line-641"></span><span id="local-6989586621679177163"><span id="local-6989586621679177164"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetQueueAttributesResponse"><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributesResponse"><span class="hs-identifier hs-var">SetQueueAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetQueueAttributesResponse%27"><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributesResponse%27"><span class="hs-identifier hs-var">SetQueueAttributesResponse'</span></a></span></span><span>
 </span><span id="line-642"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-643"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-644"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177150"><span id="local-6989586621679177152"><span class="annot"><span class="annottext">SetQueueAttributesResponse -&gt; SetQueueAttributesResponse -&gt; Bool
+</span><span id="line-644"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177159"><span id="local-6989586621679177161"><span class="annot"><span class="annottext">SetQueueAttributesResponse -&gt; SetQueueAttributesResponse -&gt; Bool
 (SetQueueAttributesResponse -&gt; SetQueueAttributesResponse -&gt; Bool)
 -&gt; (SetQueueAttributesResponse
     -&gt; SetQueueAttributesResponse -&gt; Bool)
@@ -836,7 +836,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetQueueAttributesResponse -&gt; SetQueueAttributesResponse -&gt; Bool
 == :: SetQueueAttributesResponse -&gt; SetQueueAttributesResponse -&gt; Bool
 $c== :: SetQueueAttributesResponse -&gt; SetQueueAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177142"><span id="local-6989586621679177144"><span id="local-6989586621679177146"><span id="local-6989586621679177148"><span class="annot"><span class="annottext">ReadPrec [SetQueueAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177151"><span id="local-6989586621679177153"><span id="local-6989586621679177155"><span id="local-6989586621679177157"><span class="annot"><span class="annottext">ReadPrec [SetQueueAttributesResponse]
 ReadPrec SetQueueAttributesResponse
 Int -&gt; ReadS SetQueueAttributesResponse
 ReadS [SetQueueAttributesResponse]
@@ -856,7 +856,7 @@ readList :: ReadS [SetQueueAttributesResponse]
 $creadList :: ReadS [SetQueueAttributesResponse]
 readsPrec :: Int -&gt; ReadS SetQueueAttributesResponse
 $creadsPrec :: Int -&gt; ReadS SetQueueAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177136"><span id="local-6989586621679177138"><span id="local-6989586621679177140"><span class="annot"><span class="annottext">Int -&gt; SetQueueAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177145"><span id="local-6989586621679177147"><span id="local-6989586621679177149"><span class="annot"><span class="annottext">Int -&gt; SetQueueAttributesResponse -&gt; ShowS
 [SetQueueAttributesResponse] -&gt; ShowS
 SetQueueAttributesResponse -&gt; String
 (Int -&gt; SetQueueAttributesResponse -&gt; ShowS)
@@ -899,5 +899,5 @@ SetQueueAttributesResponse -&gt; Rep SetQueueAttributesResponse x
 </span><span id="line-653"></span><span>  </span><span class="annot"><span class="annottext">SetQueueAttributesResponse
 </span><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributesResponse%27"><span class="hs-identifier hs-var">SetQueueAttributesResponse'</span></a></span><span>
 </span><span id="line-654"></span><span>
-</span><span id="line-655"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177132"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributesResponse"><span class="hs-identifier hs-type">SetQueueAttributesResponse</span></a></span></span><span>
+</span><span id="line-655"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.SetQueueAttributes.html#SetQueueAttributesResponse"><span class="hs-identifier hs-type">SetQueueAttributesResponse</span></a></span></span><span>
 </span><span id="line-656"></span></pre></body></html>

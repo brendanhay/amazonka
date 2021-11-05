@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- route traffic that is received from the load balancer to a target group.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTrafficRoute' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679315224"><span id="local-6989586621679315225"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrafficRoute"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute"><span class="hs-identifier hs-var">TrafficRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrafficRoute%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute%27"><span class="hs-identifier hs-var">TrafficRoute'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679315233"><span id="local-6989586621679315234"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrafficRoute"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute"><span class="hs-identifier hs-var">TrafficRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrafficRoute%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute%27"><span class="hs-identifier hs-var">TrafficRoute'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of one listener. The listener identifies</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the route between a target group and a load balancer. This is an array</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- of strings with a maximum size of one.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AlistenerArns%3ATrafficRoute%27"><span class="annot"><span class="annottext">TrafficRoute -&gt; Maybe [Text]
 </span><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#%24sel%3AlistenerArns%3ATrafficRoute%27"><span class="hs-identifier hs-var hs-var">listenerArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315218"><span id="local-6989586621679315220"><span class="annot"><span class="annottext">TrafficRoute -&gt; TrafficRoute -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315227"><span id="local-6989586621679315229"><span class="annot"><span class="annottext">TrafficRoute -&gt; TrafficRoute -&gt; Bool
 (TrafficRoute -&gt; TrafficRoute -&gt; Bool)
 -&gt; (TrafficRoute -&gt; TrafficRoute -&gt; Bool) -&gt; Eq TrafficRoute
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TrafficRoute -&gt; TrafficRoute -&gt; Bool
 == :: TrafficRoute -&gt; TrafficRoute -&gt; Bool
 $c== :: TrafficRoute -&gt; TrafficRoute -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315209"><span id="local-6989586621679315211"><span id="local-6989586621679315213"><span id="local-6989586621679315215"><span class="annot"><span class="annottext">ReadPrec [TrafficRoute]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315218"><span id="local-6989586621679315220"><span id="local-6989586621679315222"><span id="local-6989586621679315224"><span class="annot"><span class="annottext">ReadPrec [TrafficRoute]
 ReadPrec TrafficRoute
 Int -&gt; ReadS TrafficRoute
 ReadS [TrafficRoute]
@@ -62,7 +62,7 @@ readList :: ReadS [TrafficRoute]
 $creadList :: ReadS [TrafficRoute]
 readsPrec :: Int -&gt; ReadS TrafficRoute
 $creadsPrec :: Int -&gt; ReadS TrafficRoute
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315202"><span id="local-6989586621679315204"><span id="local-6989586621679315206"><span class="annot"><span class="annottext">Int -&gt; TrafficRoute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315211"><span id="local-6989586621679315213"><span id="local-6989586621679315215"><span class="annot"><span class="annottext">Int -&gt; TrafficRoute -&gt; ShowS
 [TrafficRoute] -&gt; ShowS
 TrafficRoute -&gt; String
 (Int -&gt; TrafficRoute -&gt; ShowS)
@@ -119,16 +119,16 @@ forall a. Maybe a
 -&gt; (TrafficRoute -&gt; Maybe [Text] -&gt; TrafficRoute)
 -&gt; Lens TrafficRoute TrafficRoute (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute%27"><span class="hs-identifier hs-type">TrafficRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315193"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute%27"><span class="hs-identifier hs-type">TrafficRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315202"><span class="annot"><span class="annottext">Maybe [Text]
 listenerArns :: Maybe [Text]
 $sel:listenerArns:TrafficRoute' :: TrafficRoute -&gt; Maybe [Text]
-</span><a href="#local-6989586621679315193"><span class="hs-identifier hs-var hs-var">listenerArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679315193"><span class="hs-identifier hs-var">listenerArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315192"><span class="annot"><span class="annottext">s :: TrafficRoute
-</span><a href="#local-6989586621679315192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute%27"><span class="hs-identifier hs-type">TrafficRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315191"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679315191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficRoute
-</span><a href="#local-6989586621679315192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listenerArns:TrafficRoute' :: Maybe [Text]
+</span><a href="#local-6989586621679315202"><span class="hs-identifier hs-var hs-var">listenerArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679315202"><span class="hs-identifier hs-var">listenerArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315201"><span class="annot"><span class="annottext">s :: TrafficRoute
+</span><a href="#local-6989586621679315201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute%27"><span class="hs-identifier hs-type">TrafficRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315200"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679315200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficRoute
+</span><a href="#local-6989586621679315201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listenerArns:TrafficRoute' :: Maybe [Text]
 </span><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#%24sel%3AlistenerArns%3ATrafficRoute%27"><span class="hs-identifier hs-var">listenerArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679315191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute"><span class="hs-identifier hs-type">TrafficRoute</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679315200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute"><span class="hs-identifier hs-type">TrafficRoute</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; TrafficRoute -&gt; f TrafficRoute)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -145,8 +145,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315185"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute"><span class="hs-identifier hs-type">TrafficRoute</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679315183"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrafficRoute
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315194"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute"><span class="hs-identifier hs-type">TrafficRoute</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679315192"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrafficRoute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TrafficRoute) -&gt; Value -&gt; Parser TrafficRoute
@@ -154,15 +154,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TrafficRoute&quot;</span></span><span>
-</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315180"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315180"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315189"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679315189"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; TrafficRoute
 </span><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute%27"><span class="hs-identifier hs-var">TrafficRoute'</span></a></span><span>
 </span><span id="line-66"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; TrafficRoute)
 -&gt; Parser (Maybe [Text]) -&gt; Parser TrafficRoute
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315180"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679315189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;listenerArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -173,16 +173,16 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315173"><span id="local-6989586621679315175"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute"><span class="hs-identifier hs-type">TrafficRoute</span></a></span></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315182"><span id="local-6989586621679315184"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute"><span class="hs-identifier hs-type">TrafficRoute</span></a></span></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315170"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute"><span class="hs-identifier hs-type">TrafficRoute</span></a></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315179"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute"><span class="hs-identifier hs-type">TrafficRoute</span></a></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315162"><span id="local-6989586621679315164"><span id="local-6989586621679315166"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute"><span class="hs-identifier hs-type">TrafficRoute</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679315160"><span class="annot"><span class="annottext">toJSON :: TrafficRoute -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute%27"><span class="hs-identifier hs-type">TrafficRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315158"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315171"><span id="local-6989586621679315173"><span id="local-6989586621679315175"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute"><span class="hs-identifier hs-type">TrafficRoute</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679315169"><span class="annot"><span class="annottext">toJSON :: TrafficRoute -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TrafficRoute.html#TrafficRoute%27"><span class="hs-identifier hs-type">TrafficRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315167"><span class="annot"><span class="annottext">Maybe [Text]
 listenerArns :: Maybe [Text]
 $sel:listenerArns:TrafficRoute' :: TrafficRoute -&gt; Maybe [Text]
-</span><a href="#local-6989586621679315158"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679315167"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -194,6 +194,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679315158"><span class="hs-identifier hs-var">listenerArns</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679315167"><span class="hs-identifier hs-var">listenerArns</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span></pre></body></html>

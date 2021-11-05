@@ -1,0 +1,638 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudControl.GetResource</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about the current state of the specified resource.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- For details, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-read.html Reading a resource\'s current state&gt;.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- You can use this action to return information about an existing resource</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- in your account and Amazon Web Services Region, whether or not those</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- resources were provisioned using Cloud Control API.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudControl.GetResource</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier">GetResource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#newGetResource"><span class="hs-identifier">newGetResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#getResource_typeVersionId"><span class="hs-identifier">getResource_typeVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#getResource_roleArn"><span class="hs-identifier">getResource_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#getResource_typeName"><span class="hs-identifier">getResource_typeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#getResource_identifier"><span class="hs-identifier">getResource_identifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse"><span class="hs-identifier">GetResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#newGetResourceResponse"><span class="hs-identifier">newGetResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#getResourceResponse_typeName"><span class="hs-identifier">getResourceResponse_typeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#getResourceResponse_resourceDescription"><span class="hs-identifier">getResourceResponse_resourceDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#getResourceResponse_httpStatus"><span class="hs-identifier">getResourceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.html"><span class="hs-identifier">Network.AWS.CloudControl.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newGetResource' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679156359"><span id="local-6989586621679156360"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetResource"><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-var">GetResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetResource%27"><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource%27"><span class="hs-identifier hs-var">GetResource'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For private resource types, the type version to use in this resource</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- operation. If you do not specify a resource version, CloudFormation uses</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the default version.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AtypeVersionId%3AGetResource%27"><span class="annot"><span class="annottext">GetResource -&gt; Maybe Text
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AtypeVersionId%3AGetResource%27"><span class="hs-identifier hs-var hs-var">typeVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- (IAM) for Cloud Control API to use when performing this resource</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- operation. The role specified must have the permissions required for</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- this operation. The necessary permissions for each event handler are</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- defined in the @ handlers @ section of the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html resource type definition schema&gt;.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- If you do not specify a role, Cloud Control API uses a temporary session</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- created using your Amazon Web Services user credentials.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions Specifying credentials&gt;</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AroleArn%3AGetResource%27"><span class="annot"><span class="annottext">GetResource -&gt; Maybe Text
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AroleArn%3AGetResource%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The name of the resource type.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AtypeName%3AGetResource%27"><span class="annot"><span class="annottext">GetResource -&gt; Text
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AtypeName%3AGetResource%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The identifier for the resource.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- You can specify the primary identifier, or any secondary identifier</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- defined for the resource type in its resource schema. You can only</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- specify one identifier. Primary identifiers can be specified as a string</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- or JSON; secondary identifiers must be specified as JSON.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- For compound primary identifiers (that is, one that consists of multiple</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- resource properties strung together), to specify the primary identifier</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- as a string, list the property values /in the order they are specified/</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- in the primary identifier definition, separated by @|@.</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html Identifying resources&gt;</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3Aidentifier%3AGetResource%27"><span class="annot"><span class="annottext">GetResource -&gt; Text
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3Aidentifier%3AGetResource%27"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679156350"><span id="local-6989586621679156352"><span class="annot"><span class="annottext">GetResource -&gt; GetResource -&gt; Bool
+(GetResource -&gt; GetResource -&gt; Bool)
+-&gt; (GetResource -&gt; GetResource -&gt; Bool) -&gt; Eq GetResource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetResource -&gt; GetResource -&gt; Bool
+$c/= :: GetResource -&gt; GetResource -&gt; Bool
+== :: GetResource -&gt; GetResource -&gt; Bool
+$c== :: GetResource -&gt; GetResource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156341"><span id="local-6989586621679156343"><span id="local-6989586621679156345"><span id="local-6989586621679156347"><span class="annot"><span class="annottext">ReadPrec [GetResource]
+ReadPrec GetResource
+Int -&gt; ReadS GetResource
+ReadS [GetResource]
+(Int -&gt; ReadS GetResource)
+-&gt; ReadS [GetResource]
+-&gt; ReadPrec GetResource
+-&gt; ReadPrec [GetResource]
+-&gt; Read GetResource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetResource]
+$creadListPrec :: ReadPrec [GetResource]
+readPrec :: ReadPrec GetResource
+$creadPrec :: ReadPrec GetResource
+readList :: ReadS [GetResource]
+$creadList :: ReadS [GetResource]
+readsPrec :: Int -&gt; ReadS GetResource
+$creadsPrec :: Int -&gt; ReadS GetResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156334"><span id="local-6989586621679156336"><span id="local-6989586621679156338"><span class="annot"><span class="annottext">Int -&gt; GetResource -&gt; ShowS
+[GetResource] -&gt; ShowS
+GetResource -&gt; String
+(Int -&gt; GetResource -&gt; ShowS)
+-&gt; (GetResource -&gt; String)
+-&gt; ([GetResource] -&gt; ShowS)
+-&gt; Show GetResource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetResource] -&gt; ShowS
+$cshowList :: [GetResource] -&gt; ShowS
+show :: GetResource -&gt; String
+$cshow :: GetResource -&gt; String
+showsPrec :: Int -&gt; GetResource -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetResource -&gt; Rep GetResource x)
+-&gt; (forall x. Rep GetResource x -&gt; GetResource)
+-&gt; Generic GetResource
+forall x. Rep GetResource x -&gt; GetResource
+forall x. GetResource -&gt; Rep GetResource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetResource x -&gt; GetResource
+$cfrom :: forall x. GetResource -&gt; Rep GetResource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Create a value of 'GetResource' with all optional fields omitted.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'typeVersionId', 'getResource_typeVersionId' - For private resource types, the type version to use in this resource</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- operation. If you do not specify a resource version, CloudFormation uses</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- the default version.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'roleArn', 'getResource_roleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- (IAM) for Cloud Control API to use when performing this resource</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- operation. The role specified must have the permissions required for</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- this operation. The necessary permissions for each event handler are</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- defined in the @ handlers @ section of the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html resource type definition schema&gt;.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- If you do not specify a role, Cloud Control API uses a temporary session</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- created using your Amazon Web Services user credentials.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions Specifying credentials&gt;</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'typeName', 'getResource_typeName' - The name of the resource type.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'identifier', 'getResource_identifier' - The identifier for the resource.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- You can specify the primary identifier, or any secondary identifier</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- defined for the resource type in its resource schema. You can only</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- specify one identifier. Primary identifiers can be specified as a string</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- or JSON; secondary identifiers must be specified as JSON.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- For compound primary identifiers (that is, one that consists of multiple</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- resource properties strung together), to specify the primary identifier</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- as a string, list the property values /in the order they are specified/</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- in the primary identifier definition, separated by @|@.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html Identifying resources&gt;</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#newGetResource"><span class="hs-identifier hs-type">newGetResource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | 'typeName'</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'identifier'</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span>
+</span><span id="line-149"></span><span id="newGetResource"><span class="annot"><span class="annottext">newGetResource :: Text -&gt; Text -&gt; GetResource
+</span><a href="Network.AWS.CloudControl.GetResource.html#newGetResource"><span class="hs-identifier hs-var hs-var">newGetResource</span></a></span></span><span> </span><span id="local-6989586621679156329"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156329"><span class="hs-identifier hs-var">pTypeName_</span></a></span></span><span> </span><span id="local-6989586621679156328"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156328"><span class="hs-identifier hs-var">pIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">GetResource' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; GetResource
+</span><a href="Network.AWS.CloudControl.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:typeVersionId:GetResource' :: Maybe Text
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AtypeVersionId%3AGetResource%27"><span class="hs-identifier hs-var">typeVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:GetResource' :: Maybe Text
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AroleArn%3AGetResource%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:typeName:GetResource' :: Text
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AtypeName%3AGetResource%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156329"><span class="hs-identifier hs-var">pTypeName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:identifier:GetResource' :: Text
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3Aidentifier%3AGetResource%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156328"><span class="hs-identifier hs-var">pIdentifier_</span></a></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | For private resource types, the type version to use in this resource</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- operation. If you do not specify a resource version, CloudFormation uses</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- the default version.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#getResource_typeVersionId"><span class="hs-identifier hs-type">getResource_typeVersionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="getResource_typeVersionId"><span class="annot"><span class="annottext">getResource_typeVersionId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetResource -&gt; f GetResource
+</span><a href="Network.AWS.CloudControl.GetResource.html#getResource_typeVersionId"><span class="hs-identifier hs-var hs-var">getResource_typeVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResource -&gt; Maybe Text)
+-&gt; (GetResource -&gt; Maybe Text -&gt; GetResource)
+-&gt; Lens GetResource GetResource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156325"><span class="annot"><span class="annottext">Maybe Text
+typeVersionId :: Maybe Text
+$sel:typeVersionId:GetResource' :: GetResource -&gt; Maybe Text
+</span><a href="#local-6989586621679156325"><span class="hs-identifier hs-var hs-var">typeVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156325"><span class="hs-identifier hs-var">typeVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156324"><span class="annot"><span class="annottext">s :: GetResource
+</span><a href="#local-6989586621679156324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156323"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResource
+</span><a href="#local-6989586621679156324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeVersionId:GetResource' :: Maybe Text
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AtypeVersionId%3AGetResource%27"><span class="hs-identifier hs-var">typeVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- (IAM) for Cloud Control API to use when performing this resource</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- operation. The role specified must have the permissions required for</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- this operation. The necessary permissions for each event handler are</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- defined in the @ handlers @ section of the</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html resource type definition schema&gt;.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- If you do not specify a role, Cloud Control API uses a temporary session</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- created using your Amazon Web Services user credentials.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions Specifying credentials&gt;</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#getResource_roleArn"><span class="hs-identifier hs-type">getResource_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="getResource_roleArn"><span class="annot"><span class="annottext">getResource_roleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetResource -&gt; f GetResource
+</span><a href="Network.AWS.CloudControl.GetResource.html#getResource_roleArn"><span class="hs-identifier hs-var hs-var">getResource_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResource -&gt; Maybe Text)
+-&gt; (GetResource -&gt; Maybe Text -&gt; GetResource)
+-&gt; Lens GetResource GetResource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156322"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:GetResource' :: GetResource -&gt; Maybe Text
+</span><a href="#local-6989586621679156322"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156322"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156321"><span class="annot"><span class="annottext">s :: GetResource
+</span><a href="#local-6989586621679156321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156320"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResource
+</span><a href="#local-6989586621679156321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:GetResource' :: Maybe Text
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AroleArn%3AGetResource%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The name of the resource type.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#getResource_typeName"><span class="hs-identifier hs-type">getResource_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-181"></span><span id="getResource_typeName"><span class="annot"><span class="annottext">getResource_typeName :: (Text -&gt; f Text) -&gt; GetResource -&gt; f GetResource
+</span><a href="Network.AWS.CloudControl.GetResource.html#getResource_typeName"><span class="hs-identifier hs-var hs-var">getResource_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResource -&gt; Text)
+-&gt; (GetResource -&gt; Text -&gt; GetResource)
+-&gt; Lens GetResource GetResource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156319"><span class="annot"><span class="annottext">Text
+typeName :: Text
+$sel:typeName:GetResource' :: GetResource -&gt; Text
+</span><a href="#local-6989586621679156319"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156319"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156318"><span class="annot"><span class="annottext">s :: GetResource
+</span><a href="#local-6989586621679156318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156317"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResource
+</span><a href="#local-6989586621679156318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:GetResource' :: Text
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AtypeName%3AGetResource%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The identifier for the resource.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- You can specify the primary identifier, or any secondary identifier</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- defined for the resource type in its resource schema. You can only</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- specify one identifier. Primary identifiers can be specified as a string</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- or JSON; secondary identifiers must be specified as JSON.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- For compound primary identifiers (that is, one that consists of multiple</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- resource properties strung together), to specify the primary identifier</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- as a string, list the property values /in the order they are specified/</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- in the primary identifier definition, separated by @|@.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html Identifying resources&gt;</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#getResource_identifier"><span class="hs-identifier hs-type">getResource_identifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-199"></span><span id="getResource_identifier"><span class="annot"><span class="annottext">getResource_identifier :: (Text -&gt; f Text) -&gt; GetResource -&gt; f GetResource
+</span><a href="Network.AWS.CloudControl.GetResource.html#getResource_identifier"><span class="hs-identifier hs-var hs-var">getResource_identifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResource -&gt; Text)
+-&gt; (GetResource -&gt; Text -&gt; GetResource)
+-&gt; Lens GetResource GetResource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156316"><span class="annot"><span class="annottext">Text
+identifier :: Text
+$sel:identifier:GetResource' :: GetResource -&gt; Text
+</span><a href="#local-6989586621679156316"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156316"><span class="hs-identifier hs-var">identifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156315"><span class="annot"><span class="annottext">s :: GetResource
+</span><a href="#local-6989586621679156315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156314"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResource
+</span><a href="#local-6989586621679156315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identifier:GetResource' :: Text
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3Aidentifier%3AGetResource%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse"><span class="hs-identifier hs-type">GetResourceResponse</span></a></span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679156310"><span class="annot"><span class="annottext">request :: GetResource -&gt; Request GetResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetResource -&gt; Request GetResource
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudControl.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679156306"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetResource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetResource)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetResource))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetResource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetResource)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679156303"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156303"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679156302"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679156302"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679156301"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679156301"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-207"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ResourceDescription -&gt; Int -&gt; GetResourceResponse
+</span><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse%27"><span class="hs-identifier hs-var">GetResourceResponse'</span></a></span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ResourceDescription -&gt; Int -&gt; GetResourceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe ResourceDescription -&gt; Int -&gt; GetResourceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679156301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TypeName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe ResourceDescription -&gt; Int -&gt; GetResourceResponse)
+-&gt; Either String (Maybe ResourceDescription)
+-&gt; Either String (Int -&gt; GetResourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679156301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ResourceDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetResourceResponse)
+-&gt; Either String Int -&gt; Either String GetResourceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156303"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156293"><span id="local-6989586621679156295"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span></span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156290"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679156286"><span class="annot"><span class="annottext">toHeaders :: GetResource -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetResource -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-221"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-222"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CloudApiService.GetResource&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-223"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-224"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-226"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-227"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-228"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156276"><span id="local-6989586621679156278"><span id="local-6989586621679156280"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679156274"><span class="annot"><span class="annottext">toJSON :: GetResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource%27"><span class="hs-identifier hs-type">GetResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156269"><span id="local-6989586621679156270"><span id="local-6989586621679156271"><span id="local-6989586621679156272"><span class="annot"><span class="annottext">Maybe Text
+Text
+identifier :: Text
+typeName :: Text
+roleArn :: Maybe Text
+typeVersionId :: Maybe Text
+$sel:identifier:GetResource' :: GetResource -&gt; Text
+$sel:typeName:GetResource' :: GetResource -&gt; Text
+$sel:roleArn:GetResource' :: GetResource -&gt; Maybe Text
+$sel:typeVersionId:GetResource' :: GetResource -&gt; Maybe Text
+</span><a href="#local-6989586621679156269"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-235"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-236"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TypeVersionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156272"><span class="hs-identifier hs-var">typeVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156271"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156270"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Identifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156269"><span class="hs-identifier hs-var">identifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-241"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679156263"><span class="annot"><span class="annottext">toPath :: GetResource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetResource -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResource"><span class="hs-identifier hs-type">GetResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679156259"><span class="annot"><span class="annottext">toQuery :: GetResource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetResource -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | /See:/ 'newGetResourceResponse' smart constructor.</span><span>
+</span><span id="line-250"></span><span id="local-6989586621679156256"><span id="local-6989586621679156257"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetResourceResponse"><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse"><span class="hs-identifier hs-var">GetResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetResourceResponse%27"><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse%27"><span class="hs-identifier hs-var">GetResourceResponse'</span></a></span></span><span>
+</span><span id="line-251"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the resource type.</span><span>
+</span><span id="line-252"></span><span>    </span><span id="%24sel%3AtypeName%3AGetResourceResponse%27"><span class="annot"><span class="annottext">GetResourceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AtypeName%3AGetResourceResponse%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span id="%24sel%3AresourceDescription%3AGetResourceResponse%27"><span class="annot"><span class="annottext">GetResourceResponse -&gt; Maybe ResourceDescription
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AresourceDescription%3AGetResourceResponse%27"><span class="hs-identifier hs-var hs-var">resourceDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ResourceDescription.html#ResourceDescription"><span class="hs-identifier hs-type">ResourceDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-255"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetResourceResponse%27"><span class="annot"><span class="annottext">GetResourceResponse -&gt; Int
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AhttpStatus%3AGetResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-256"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-257"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679156249"><span id="local-6989586621679156251"><span class="annot"><span class="annottext">GetResourceResponse -&gt; GetResourceResponse -&gt; Bool
+(GetResourceResponse -&gt; GetResourceResponse -&gt; Bool)
+-&gt; (GetResourceResponse -&gt; GetResourceResponse -&gt; Bool)
+-&gt; Eq GetResourceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetResourceResponse -&gt; GetResourceResponse -&gt; Bool
+$c/= :: GetResourceResponse -&gt; GetResourceResponse -&gt; Bool
+== :: GetResourceResponse -&gt; GetResourceResponse -&gt; Bool
+$c== :: GetResourceResponse -&gt; GetResourceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156243"><span id="local-6989586621679156245"><span id="local-6989586621679156247"><span class="annot"><span class="annottext">Int -&gt; GetResourceResponse -&gt; ShowS
+[GetResourceResponse] -&gt; ShowS
+GetResourceResponse -&gt; String
+(Int -&gt; GetResourceResponse -&gt; ShowS)
+-&gt; (GetResourceResponse -&gt; String)
+-&gt; ([GetResourceResponse] -&gt; ShowS)
+-&gt; Show GetResourceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetResourceResponse] -&gt; ShowS
+$cshowList :: [GetResourceResponse] -&gt; ShowS
+show :: GetResourceResponse -&gt; String
+$cshow :: GetResourceResponse -&gt; String
+showsPrec :: Int -&gt; GetResourceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetResourceResponse -&gt; Rep GetResourceResponse x)
+-&gt; (forall x. Rep GetResourceResponse x -&gt; GetResourceResponse)
+-&gt; Generic GetResourceResponse
+forall x. Rep GetResourceResponse x -&gt; GetResourceResponse
+forall x. GetResourceResponse -&gt; Rep GetResourceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetResourceResponse x -&gt; GetResourceResponse
+$cfrom :: forall x. GetResourceResponse -&gt; Rep GetResourceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- Create a value of 'GetResourceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- 'typeName', 'getResourceResponse_typeName' - The name of the resource type.</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- 'resourceDescription', 'getResourceResponse_resourceDescription' - Undocumented member.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- 'httpStatus', 'getResourceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#newGetResourceResponse"><span class="hs-identifier hs-type">newGetResourceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-273"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-274"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-275"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse"><span class="hs-identifier hs-type">GetResourceResponse</span></a></span><span>
+</span><span id="line-276"></span><span id="newGetResourceResponse"><span class="annot"><span class="annottext">newGetResourceResponse :: Int -&gt; GetResourceResponse
+</span><a href="Network.AWS.CloudControl.GetResource.html#newGetResourceResponse"><span class="hs-identifier hs-var hs-var">newGetResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679156240"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156240"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-277"></span><span>  </span><span class="annot"><span class="annottext">GetResourceResponse' :: Maybe Text
+-&gt; Maybe ResourceDescription -&gt; Int -&gt; GetResourceResponse
+</span><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse%27"><span class="hs-identifier hs-type">GetResourceResponse'</span></a></span><span>
+</span><span id="line-278"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:typeName:GetResourceResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AtypeName%3AGetResourceResponse%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceDescription:GetResourceResponse' :: Maybe ResourceDescription
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AresourceDescription%3AGetResourceResponse%27"><span class="hs-identifier hs-var">resourceDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetResourceResponse' :: Int
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AhttpStatus%3AGetResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156240"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-281"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | The name of the resource type.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#getResourceResponse_typeName"><span class="hs-identifier hs-type">getResourceResponse_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse"><span class="hs-identifier hs-type">GetResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span id="getResourceResponse_typeName"><span class="annot"><span class="annottext">getResourceResponse_typeName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetResourceResponse -&gt; f GetResourceResponse
+</span><a href="Network.AWS.CloudControl.GetResource.html#getResourceResponse_typeName"><span class="hs-identifier hs-var hs-var">getResourceResponse_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceResponse -&gt; Maybe Text)
+-&gt; (GetResourceResponse -&gt; Maybe Text -&gt; GetResourceResponse)
+-&gt; Lens
+     GetResourceResponse GetResourceResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse%27"><span class="hs-identifier hs-type">GetResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156239"><span class="annot"><span class="annottext">Maybe Text
+typeName :: Maybe Text
+$sel:typeName:GetResourceResponse' :: GetResourceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679156239"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156239"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156238"><span class="annot"><span class="annottext">s :: GetResourceResponse
+</span><a href="#local-6989586621679156238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse%27"><span class="hs-identifier hs-type">GetResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156237"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceResponse
+</span><a href="#local-6989586621679156238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:GetResourceResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AtypeName%3AGetResourceResponse%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse"><span class="hs-identifier hs-type">GetResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#getResourceResponse_resourceDescription"><span class="hs-identifier hs-type">getResourceResponse_resourceDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse"><span class="hs-identifier hs-type">GetResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ResourceDescription.html#ResourceDescription"><span class="hs-identifier hs-type">ResourceDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span id="getResourceResponse_resourceDescription"><span class="annot"><span class="annottext">getResourceResponse_resourceDescription :: (Maybe ResourceDescription -&gt; f (Maybe ResourceDescription))
+-&gt; GetResourceResponse -&gt; f GetResourceResponse
+</span><a href="Network.AWS.CloudControl.GetResource.html#getResourceResponse_resourceDescription"><span class="hs-identifier hs-var hs-var">getResourceResponse_resourceDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceResponse -&gt; Maybe ResourceDescription)
+-&gt; (GetResourceResponse
+    -&gt; Maybe ResourceDescription -&gt; GetResourceResponse)
+-&gt; Lens
+     GetResourceResponse
+     GetResourceResponse
+     (Maybe ResourceDescription)
+     (Maybe ResourceDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse%27"><span class="hs-identifier hs-type">GetResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156236"><span class="annot"><span class="annottext">Maybe ResourceDescription
+resourceDescription :: Maybe ResourceDescription
+$sel:resourceDescription:GetResourceResponse' :: GetResourceResponse -&gt; Maybe ResourceDescription
+</span><a href="#local-6989586621679156236"><span class="hs-identifier hs-var hs-var">resourceDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDescription
+</span><a href="#local-6989586621679156236"><span class="hs-identifier hs-var">resourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156235"><span class="annot"><span class="annottext">s :: GetResourceResponse
+</span><a href="#local-6989586621679156235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse%27"><span class="hs-identifier hs-type">GetResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156234"><span class="annot"><span class="annottext">Maybe ResourceDescription
+</span><a href="#local-6989586621679156234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceResponse
+</span><a href="#local-6989586621679156235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceDescription:GetResourceResponse' :: Maybe ResourceDescription
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AresourceDescription%3AGetResourceResponse%27"><span class="hs-identifier hs-var">resourceDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceDescription
+</span><a href="#local-6989586621679156234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse"><span class="hs-identifier hs-type">GetResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-292"></span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#getResourceResponse_httpStatus"><span class="hs-identifier hs-type">getResourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse"><span class="hs-identifier hs-type">GetResourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-293"></span><span id="getResourceResponse_httpStatus"><span class="annot"><span class="annottext">getResourceResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetResourceResponse -&gt; f GetResourceResponse
+</span><a href="Network.AWS.CloudControl.GetResource.html#getResourceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getResourceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceResponse -&gt; Int)
+-&gt; (GetResourceResponse -&gt; Int -&gt; GetResourceResponse)
+-&gt; Lens GetResourceResponse GetResourceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse%27"><span class="hs-identifier hs-type">GetResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156233"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetResourceResponse' :: GetResourceResponse -&gt; Int
+</span><a href="#local-6989586621679156233"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156233"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156232"><span class="annot"><span class="annottext">s :: GetResourceResponse
+</span><a href="#local-6989586621679156232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse%27"><span class="hs-identifier hs-type">GetResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156231"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceResponse
+</span><a href="#local-6989586621679156232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetResourceResponse' :: Int
+</span><a href="Network.AWS.CloudControl.GetResource.html#%24sel%3AhttpStatus%3AGetResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse"><span class="hs-identifier hs-type">GetResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156229"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResource.html#GetResourceResponse"><span class="hs-identifier hs-type">GetResourceResponse</span></a></span></span><span>
+</span><span id="line-296"></span></pre></body></html>

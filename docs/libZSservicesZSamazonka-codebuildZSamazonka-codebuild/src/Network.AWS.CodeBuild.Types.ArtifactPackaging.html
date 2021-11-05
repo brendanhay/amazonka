@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679368366"><span id="local-6989586621679368367"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ArtifactPackaging"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactPackaging.html#ArtifactPackaging"><span class="hs-identifier hs-var">ArtifactPackaging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactPackaging%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactPackaging.html#ArtifactPackaging%27"><span class="hs-identifier hs-var">ArtifactPackaging'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679368375"><span id="local-6989586621679368376"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ArtifactPackaging"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactPackaging.html#ArtifactPackaging"><span class="hs-identifier hs-var">ArtifactPackaging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactPackaging%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactPackaging.html#ArtifactPackaging%27"><span class="hs-identifier hs-var">ArtifactPackaging'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromArtifactPackaging"><span class="annot"><span class="annottext">ArtifactPackaging -&gt; Text
 </span><a href="Network.AWS.CodeBuild.Types.ArtifactPackaging.html#fromArtifactPackaging"><span class="hs-identifier hs-var hs-var">fromArtifactPackaging</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368358"><span id="local-6989586621679368360"><span id="local-6989586621679368362"><span class="annot"><span class="annottext">Int -&gt; ArtifactPackaging -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368367"><span id="local-6989586621679368369"><span id="local-6989586621679368371"><span class="annot"><span class="annottext">Int -&gt; ArtifactPackaging -&gt; ShowS
 [ArtifactPackaging] -&gt; ShowS
 ArtifactPackaging -&gt; String
 (Int -&gt; ArtifactPackaging -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ArtifactPackaging -&gt; String
 showsPrec :: Int -&gt; ArtifactPackaging -&gt; ShowS
 $cshowsPrec :: Int -&gt; ArtifactPackaging -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679368349"><span id="local-6989586621679368351"><span id="local-6989586621679368353"><span id="local-6989586621679368355"><span class="annot"><span class="annottext">ReadPrec [ArtifactPackaging]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679368358"><span id="local-6989586621679368360"><span id="local-6989586621679368362"><span id="local-6989586621679368364"><span class="annot"><span class="annottext">ReadPrec [ArtifactPackaging]
 ReadPrec ArtifactPackaging
 Int -&gt; ReadS ArtifactPackaging
 ReadS [ArtifactPackaging]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ArtifactPackaging]
 readsPrec :: Int -&gt; ReadS ArtifactPackaging
 $creadsPrec :: Int -&gt; ReadS ArtifactPackaging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679368344"><span id="local-6989586621679368346"><span class="annot"><span class="annottext">ArtifactPackaging -&gt; ArtifactPackaging -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679368353"><span id="local-6989586621679368355"><span class="annot"><span class="annottext">ArtifactPackaging -&gt; ArtifactPackaging -&gt; Bool
 (ArtifactPackaging -&gt; ArtifactPackaging -&gt; Bool)
 -&gt; (ArtifactPackaging -&gt; ArtifactPackaging -&gt; Bool)
 -&gt; Eq ArtifactPackaging
@@ -82,7 +82,7 @@ $c/= :: ArtifactPackaging -&gt; ArtifactPackaging -&gt; Bool
 == :: ArtifactPackaging -&gt; ArtifactPackaging -&gt; Bool
 $c== :: ArtifactPackaging -&gt; ArtifactPackaging -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679368328"><span id="local-6989586621679368330"><span id="local-6989586621679368332"><span id="local-6989586621679368334"><span id="local-6989586621679368336"><span id="local-6989586621679368338"><span id="local-6989586621679368340"><span class="annot"><span class="annottext">Eq ArtifactPackaging
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679368337"><span id="local-6989586621679368339"><span id="local-6989586621679368341"><span id="local-6989586621679368343"><span id="local-6989586621679368345"><span id="local-6989586621679368347"><span id="local-6989586621679368349"><span class="annot"><span class="annottext">Eq ArtifactPackaging
 Eq ArtifactPackaging
 -&gt; (ArtifactPackaging -&gt; ArtifactPackaging -&gt; Ordering)
 -&gt; (ArtifactPackaging -&gt; ArtifactPackaging -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ArtifactPackaging -&gt; Rep ArtifactPackaging x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368320"><span id="local-6989586621679368322"><span class="annot"><span class="annottext">Int -&gt; ArtifactPackaging -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368329"><span id="local-6989586621679368331"><span class="annot"><span class="annottext">Int -&gt; ArtifactPackaging -&gt; Int
 ArtifactPackaging -&gt; Int
 (Int -&gt; ArtifactPackaging -&gt; Int)
 -&gt; (ArtifactPackaging -&gt; Int) -&gt; Hashable ArtifactPackaging
@@ -143,51 +143,51 @@ $chash :: ArtifactPackaging -&gt; Int
 hashWithSalt :: Int -&gt; ArtifactPackaging -&gt; Int
 $chashWithSalt :: Int -&gt; ArtifactPackaging -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679368317"><span class="annot"><span class="annottext">ArtifactPackaging -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679368326"><span class="annot"><span class="annottext">ArtifactPackaging -&gt; ()
 (ArtifactPackaging -&gt; ()) -&gt; NFData ArtifactPackaging
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ArtifactPackaging -&gt; ()
 $crnf :: ArtifactPackaging -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679368314"><span class="annot"><span class="annottext">Text -&gt; Either String ArtifactPackaging
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679368323"><span class="annot"><span class="annottext">Text -&gt; Either String ArtifactPackaging
 (Text -&gt; Either String ArtifactPackaging)
 -&gt; FromText ArtifactPackaging
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ArtifactPackaging
 $cfromText :: Text -&gt; Either String ArtifactPackaging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679368311"><span class="annot"><span class="annottext">ArtifactPackaging -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679368320"><span class="annot"><span class="annottext">ArtifactPackaging -&gt; Text
 (ArtifactPackaging -&gt; Text) -&gt; ToText ArtifactPackaging
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ArtifactPackaging -&gt; Text
 $ctoText :: ArtifactPackaging -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679368308"><span class="annot"><span class="annottext">ArtifactPackaging -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679368317"><span class="annot"><span class="annottext">ArtifactPackaging -&gt; ByteString
 (ArtifactPackaging -&gt; ByteString) -&gt; ToByteString ArtifactPackaging
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ArtifactPackaging -&gt; ByteString
 $ctoBS :: ArtifactPackaging -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679368305"><span class="annot"><span class="annottext">ArtifactPackaging -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679368314"><span class="annot"><span class="annottext">ArtifactPackaging -&gt; ByteStringBuilder
 (ArtifactPackaging -&gt; ByteStringBuilder) -&gt; ToLog ArtifactPackaging
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ArtifactPackaging -&gt; ByteStringBuilder
 $cbuild :: ArtifactPackaging -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679368302"><span class="annot"><span class="annottext">HeaderName -&gt; ArtifactPackaging -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679368311"><span class="annot"><span class="annottext">HeaderName -&gt; ArtifactPackaging -&gt; [Header]
 (HeaderName -&gt; ArtifactPackaging -&gt; [Header])
 -&gt; ToHeader ArtifactPackaging
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ArtifactPackaging -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ArtifactPackaging -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679368299"><span class="annot"><span class="annottext">ArtifactPackaging -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679368308"><span class="annot"><span class="annottext">ArtifactPackaging -&gt; QueryString
 (ArtifactPackaging -&gt; QueryString) -&gt; ToQuery ArtifactPackaging
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ArtifactPackaging -&gt; QueryString
 $ctoQuery :: ArtifactPackaging -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679368294"><span id="local-6989586621679368296"><span class="annot"><span class="annottext">Value -&gt; Parser [ArtifactPackaging]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679368303"><span id="local-6989586621679368305"><span class="annot"><span class="annottext">Value -&gt; Parser [ArtifactPackaging]
 Value -&gt; Parser ArtifactPackaging
 (Value -&gt; Parser ArtifactPackaging)
 -&gt; (Value -&gt; Parser [ArtifactPackaging])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ArtifactPackaging]
 parseJSON :: Value -&gt; Parser ArtifactPackaging
 $cparseJSON :: Value -&gt; Parser ArtifactPackaging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679368289"><span id="local-6989586621679368291"><span class="annot"><span class="annottext">FromJSONKeyFunction [ArtifactPackaging]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679368298"><span id="local-6989586621679368300"><span class="annot"><span class="annottext">FromJSONKeyFunction [ArtifactPackaging]
 FromJSONKeyFunction ArtifactPackaging
 FromJSONKeyFunction ArtifactPackaging
 -&gt; FromJSONKeyFunction [ArtifactPackaging]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ArtifactPackaging]
 fromJSONKey :: FromJSONKeyFunction ArtifactPackaging
 $cfromJSONKey :: FromJSONKeyFunction ArtifactPackaging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679368280"><span id="local-6989586621679368282"><span id="local-6989586621679368284"><span id="local-6989586621679368286"><span class="annot"><span class="annottext">[ArtifactPackaging] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679368289"><span id="local-6989586621679368291"><span id="local-6989586621679368293"><span id="local-6989586621679368295"><span class="annot"><span class="annottext">[ArtifactPackaging] -&gt; Encoding
 [ArtifactPackaging] -&gt; Value
 ArtifactPackaging -&gt; Encoding
 ArtifactPackaging -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: ArtifactPackaging -&gt; Encoding
 toJSON :: ArtifactPackaging -&gt; Value
 $ctoJSON :: ArtifactPackaging -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679368275"><span id="local-6989586621679368277"><span class="annot"><span class="annottext">ToJSONKeyFunction [ArtifactPackaging]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679368284"><span id="local-6989586621679368286"><span class="annot"><span class="annottext">ToJSONKeyFunction [ArtifactPackaging]
 ToJSONKeyFunction ArtifactPackaging
 ToJSONKeyFunction ArtifactPackaging
 -&gt; ToJSONKeyFunction [ArtifactPackaging]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ArtifactPackaging]
 toJSONKey :: ToJSONKeyFunction ArtifactPackaging
 $ctoJSONKey :: ToJSONKeyFunction ArtifactPackaging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679368272"><span class="annot"><span class="annottext">[Node] -&gt; Either String ArtifactPackaging
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679368281"><span class="annot"><span class="annottext">[Node] -&gt; Either String ArtifactPackaging
 ([Node] -&gt; Either String ArtifactPackaging)
 -&gt; FromXML ArtifactPackaging
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ArtifactPackaging
 $cparseXML :: [Node] -&gt; Either String ArtifactPackaging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679368269"><span class="annot"><span class="annottext">ArtifactPackaging -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679368278"><span class="annot"><span class="annottext">ArtifactPackaging -&gt; XML
 (ArtifactPackaging -&gt; XML) -&gt; ToXML ArtifactPackaging
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ArtifactPackaging -&gt; XML

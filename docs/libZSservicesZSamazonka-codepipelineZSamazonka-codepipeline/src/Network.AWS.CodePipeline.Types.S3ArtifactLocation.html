@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The location of the S3 bucket that contains a revision.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newS3ArtifactLocation' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679280237"><span id="local-6989586621679280238"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3ArtifactLocation"><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation"><span class="hs-identifier hs-var">S3ArtifactLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ArtifactLocation%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation%27"><span class="hs-identifier hs-var">S3ArtifactLocation'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679280246"><span id="local-6989586621679280247"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3ArtifactLocation"><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation"><span class="hs-identifier hs-var">S3ArtifactLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ArtifactLocation%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation%27"><span class="hs-identifier hs-var">S3ArtifactLocation'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the S3 bucket.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AbucketName%3AS3ArtifactLocation%27"><span class="annot"><span class="annottext">S3ArtifactLocation -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#%24sel%3AbucketName%3AS3ArtifactLocation%27"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AobjectKey%3AS3ArtifactLocation%27"><span class="annot"><span class="annottext">S3ArtifactLocation -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#%24sel%3AobjectKey%3AS3ArtifactLocation%27"><span class="hs-identifier hs-var hs-var">objectKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280230"><span id="local-6989586621679280232"><span class="annot"><span class="annottext">S3ArtifactLocation -&gt; S3ArtifactLocation -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280239"><span id="local-6989586621679280241"><span class="annot"><span class="annottext">S3ArtifactLocation -&gt; S3ArtifactLocation -&gt; Bool
 (S3ArtifactLocation -&gt; S3ArtifactLocation -&gt; Bool)
 -&gt; (S3ArtifactLocation -&gt; S3ArtifactLocation -&gt; Bool)
 -&gt; Eq S3ArtifactLocation
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3ArtifactLocation -&gt; S3ArtifactLocation -&gt; Bool
 == :: S3ArtifactLocation -&gt; S3ArtifactLocation -&gt; Bool
 $c== :: S3ArtifactLocation -&gt; S3ArtifactLocation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280221"><span id="local-6989586621679280223"><span id="local-6989586621679280225"><span id="local-6989586621679280227"><span class="annot"><span class="annottext">ReadPrec [S3ArtifactLocation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280230"><span id="local-6989586621679280232"><span id="local-6989586621679280234"><span id="local-6989586621679280236"><span class="annot"><span class="annottext">ReadPrec [S3ArtifactLocation]
 ReadPrec S3ArtifactLocation
 Int -&gt; ReadS S3ArtifactLocation
 ReadS [S3ArtifactLocation]
@@ -64,7 +64,7 @@ readList :: ReadS [S3ArtifactLocation]
 $creadList :: ReadS [S3ArtifactLocation]
 readsPrec :: Int -&gt; ReadS S3ArtifactLocation
 $creadsPrec :: Int -&gt; ReadS S3ArtifactLocation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280214"><span id="local-6989586621679280216"><span id="local-6989586621679280218"><span class="annot"><span class="annottext">Int -&gt; S3ArtifactLocation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280223"><span id="local-6989586621679280225"><span id="local-6989586621679280227"><span class="annot"><span class="annottext">Int -&gt; S3ArtifactLocation -&gt; ShowS
 [S3ArtifactLocation] -&gt; ShowS
 S3ArtifactLocation -&gt; String
 (Int -&gt; S3ArtifactLocation -&gt; ShowS)
@@ -109,17 +109,17 @@ $cfrom :: forall x. S3ArtifactLocation -&gt; Rep S3ArtifactLocation x
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation"><span class="hs-identifier hs-type">S3ArtifactLocation</span></a></span><span>
 </span><span id="line-56"></span><span id="newS3ArtifactLocation"><span class="annot"><span class="annottext">newS3ArtifactLocation :: Text -&gt; Text -&gt; S3ArtifactLocation
-</span><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#newS3ArtifactLocation"><span class="hs-identifier hs-var hs-var">newS3ArtifactLocation</span></a></span></span><span> </span><span id="local-6989586621679280208"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280208"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span> </span><span id="local-6989586621679280207"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280207"><span class="hs-identifier hs-var">pObjectKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#newS3ArtifactLocation"><span class="hs-identifier hs-var hs-var">newS3ArtifactLocation</span></a></span></span><span> </span><span id="local-6989586621679280217"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280217"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span> </span><span id="local-6989586621679280216"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280216"><span class="hs-identifier hs-var">pObjectKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">S3ArtifactLocation' :: Text -&gt; Text -&gt; S3ArtifactLocation
 </span><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation%27"><span class="hs-identifier hs-type">S3ArtifactLocation'</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bucketName:S3ArtifactLocation' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#%24sel%3AbucketName%3AS3ArtifactLocation%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280208"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679280217"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:objectKey:S3ArtifactLocation' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#%24sel%3AobjectKey%3AS3ArtifactLocation%27"><span class="hs-identifier hs-var">objectKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280207"><span class="hs-identifier hs-var">pObjectKey_</span></a></span><span>
+</span><a href="#local-6989586621679280216"><span class="hs-identifier hs-var">pObjectKey_</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The name of the S3 bucket.</span><span>
@@ -129,16 +129,16 @@ $cfrom :: forall x. S3ArtifactLocation -&gt; Rep S3ArtifactLocation x
 -&gt; (S3ArtifactLocation -&gt; Text -&gt; S3ArtifactLocation)
 -&gt; Lens S3ArtifactLocation S3ArtifactLocation Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation%27"><span class="hs-identifier hs-type">S3ArtifactLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280203"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation%27"><span class="hs-identifier hs-type">S3ArtifactLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280212"><span class="annot"><span class="annottext">Text
 bucketName :: Text
 $sel:bucketName:S3ArtifactLocation' :: S3ArtifactLocation -&gt; Text
-</span><a href="#local-6989586621679280203"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280203"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280202"><span class="annot"><span class="annottext">s :: S3ArtifactLocation
-</span><a href="#local-6989586621679280202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation%27"><span class="hs-identifier hs-type">S3ArtifactLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280201"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ArtifactLocation
-</span><a href="#local-6989586621679280202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:S3ArtifactLocation' :: Text
+</span><a href="#local-6989586621679280212"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280212"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280211"><span class="annot"><span class="annottext">s :: S3ArtifactLocation
+</span><a href="#local-6989586621679280211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation%27"><span class="hs-identifier hs-type">S3ArtifactLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280210"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ArtifactLocation
+</span><a href="#local-6989586621679280211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:S3ArtifactLocation' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#%24sel%3AbucketName%3AS3ArtifactLocation%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation"><span class="hs-identifier hs-type">S3ArtifactLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation"><span class="hs-identifier hs-type">S3ArtifactLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The key of the object in the S3 bucket, which uniquely identifies the</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- object in the bucket.</span><span>
@@ -148,19 +148,19 @@ $sel:bucketName:S3ArtifactLocation' :: S3ArtifactLocation -&gt; Text
 -&gt; (S3ArtifactLocation -&gt; Text -&gt; S3ArtifactLocation)
 -&gt; Lens S3ArtifactLocation S3ArtifactLocation Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation%27"><span class="hs-identifier hs-type">S3ArtifactLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280199"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation%27"><span class="hs-identifier hs-type">S3ArtifactLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280208"><span class="annot"><span class="annottext">Text
 objectKey :: Text
 $sel:objectKey:S3ArtifactLocation' :: S3ArtifactLocation -&gt; Text
-</span><a href="#local-6989586621679280199"><span class="hs-identifier hs-var hs-var">objectKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280199"><span class="hs-identifier hs-var">objectKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280198"><span class="annot"><span class="annottext">s :: S3ArtifactLocation
-</span><a href="#local-6989586621679280198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation%27"><span class="hs-identifier hs-type">S3ArtifactLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280197"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ArtifactLocation
-</span><a href="#local-6989586621679280198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectKey:S3ArtifactLocation' :: Text
+</span><a href="#local-6989586621679280208"><span class="hs-identifier hs-var hs-var">objectKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280208"><span class="hs-identifier hs-var">objectKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280207"><span class="annot"><span class="annottext">s :: S3ArtifactLocation
+</span><a href="#local-6989586621679280207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation%27"><span class="hs-identifier hs-type">S3ArtifactLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280206"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ArtifactLocation
+</span><a href="#local-6989586621679280207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectKey:S3ArtifactLocation' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#%24sel%3AobjectKey%3AS3ArtifactLocation%27"><span class="hs-identifier hs-var">objectKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation"><span class="hs-identifier hs-type">S3ArtifactLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation"><span class="hs-identifier hs-type">S3ArtifactLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280194"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation"><span class="hs-identifier hs-type">S3ArtifactLocation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679280192"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3ArtifactLocation
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280203"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation"><span class="hs-identifier hs-type">S3ArtifactLocation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679280201"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3ArtifactLocation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser S3ArtifactLocation)
@@ -170,15 +170,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;S3ArtifactLocation&quot;</span></span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280189"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280189"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280198"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280198"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; S3ArtifactLocation
 </span><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation%27"><span class="hs-identifier hs-var">S3ArtifactLocation'</span></a></span><span>
 </span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; S3ArtifactLocation)
 -&gt; Parser Text -&gt; Parser (Text -&gt; S3ArtifactLocation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679280198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bucketName&quot;</span></span><span class="hs-special">)</span><span>
@@ -186,13 +186,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser S3ArtifactLocation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679280198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;objectKey&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280183"><span id="local-6989586621679280185"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation"><span class="hs-identifier hs-type">S3ArtifactLocation</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280192"><span id="local-6989586621679280194"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation"><span class="hs-identifier hs-type">S3ArtifactLocation</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280180"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation"><span class="hs-identifier hs-type">S3ArtifactLocation</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280189"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.S3ArtifactLocation.html#S3ArtifactLocation"><span class="hs-identifier hs-type">S3ArtifactLocation</span></a></span></span><span>
 </span><span id="line-84"></span></pre></body></html>

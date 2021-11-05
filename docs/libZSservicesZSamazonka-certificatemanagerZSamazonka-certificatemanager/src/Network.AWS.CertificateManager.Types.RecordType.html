@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679189071"><span id="local-6989586621679189072"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RecordType"><span class="annot"><a href="Network.AWS.CertificateManager.Types.RecordType.html#RecordType"><span class="hs-identifier hs-var">RecordType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecordType%27"><span class="annot"><a href="Network.AWS.CertificateManager.Types.RecordType.html#RecordType%27"><span class="hs-identifier hs-var">RecordType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679189080"><span id="local-6989586621679189081"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RecordType"><span class="annot"><a href="Network.AWS.CertificateManager.Types.RecordType.html#RecordType"><span class="hs-identifier hs-var">RecordType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecordType%27"><span class="annot"><a href="Network.AWS.CertificateManager.Types.RecordType.html#RecordType%27"><span class="hs-identifier hs-var">RecordType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRecordType"><span class="annot"><span class="annottext">RecordType -&gt; Text
 </span><a href="Network.AWS.CertificateManager.Types.RecordType.html#fromRecordType"><span class="hs-identifier hs-var hs-var">fromRecordType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679189063"><span id="local-6989586621679189065"><span id="local-6989586621679189067"><span class="annot"><span class="annottext">Int -&gt; RecordType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679189072"><span id="local-6989586621679189074"><span id="local-6989586621679189076"><span class="annot"><span class="annottext">Int -&gt; RecordType -&gt; ShowS
 [RecordType] -&gt; ShowS
 RecordType -&gt; String
 (Int -&gt; RecordType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: RecordType -&gt; String
 showsPrec :: Int -&gt; RecordType -&gt; ShowS
 $cshowsPrec :: Int -&gt; RecordType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679189054"><span id="local-6989586621679189056"><span id="local-6989586621679189058"><span id="local-6989586621679189060"><span class="annot"><span class="annottext">ReadPrec [RecordType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679189063"><span id="local-6989586621679189065"><span id="local-6989586621679189067"><span id="local-6989586621679189069"><span class="annot"><span class="annottext">ReadPrec [RecordType]
 ReadPrec RecordType
 Int -&gt; ReadS RecordType
 ReadS [RecordType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [RecordType]
 readsPrec :: Int -&gt; ReadS RecordType
 $creadsPrec :: Int -&gt; ReadS RecordType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679189049"><span id="local-6989586621679189051"><span class="annot"><span class="annottext">RecordType -&gt; RecordType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679189058"><span id="local-6989586621679189060"><span class="annot"><span class="annottext">RecordType -&gt; RecordType -&gt; Bool
 (RecordType -&gt; RecordType -&gt; Bool)
 -&gt; (RecordType -&gt; RecordType -&gt; Bool) -&gt; Eq RecordType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: RecordType -&gt; RecordType -&gt; Bool
 == :: RecordType -&gt; RecordType -&gt; Bool
 $c== :: RecordType -&gt; RecordType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679189033"><span id="local-6989586621679189035"><span id="local-6989586621679189037"><span id="local-6989586621679189039"><span id="local-6989586621679189041"><span id="local-6989586621679189043"><span id="local-6989586621679189045"><span class="annot"><span class="annottext">Eq RecordType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679189042"><span id="local-6989586621679189044"><span id="local-6989586621679189046"><span id="local-6989586621679189048"><span id="local-6989586621679189050"><span id="local-6989586621679189052"><span id="local-6989586621679189054"><span class="annot"><span class="annottext">Eq RecordType
 Eq RecordType
 -&gt; (RecordType -&gt; RecordType -&gt; Ordering)
 -&gt; (RecordType -&gt; RecordType -&gt; Bool)
@@ -130,7 +130,7 @@ $cfrom :: forall x. RecordType -&gt; Rep RecordType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679189025"><span id="local-6989586621679189027"><span class="annot"><span class="annottext">Int -&gt; RecordType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679189034"><span id="local-6989586621679189036"><span class="annot"><span class="annottext">Int -&gt; RecordType -&gt; Int
 RecordType -&gt; Int
 (Int -&gt; RecordType -&gt; Int)
 -&gt; (RecordType -&gt; Int) -&gt; Hashable RecordType
@@ -140,49 +140,49 @@ $chash :: RecordType -&gt; Int
 hashWithSalt :: Int -&gt; RecordType -&gt; Int
 $chashWithSalt :: Int -&gt; RecordType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679189022"><span class="annot"><span class="annottext">RecordType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679189031"><span class="annot"><span class="annottext">RecordType -&gt; ()
 (RecordType -&gt; ()) -&gt; NFData RecordType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RecordType -&gt; ()
 $crnf :: RecordType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679189019"><span class="annot"><span class="annottext">Text -&gt; Either String RecordType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679189028"><span class="annot"><span class="annottext">Text -&gt; Either String RecordType
 (Text -&gt; Either String RecordType) -&gt; FromText RecordType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RecordType
 $cfromText :: Text -&gt; Either String RecordType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679189016"><span class="annot"><span class="annottext">RecordType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679189025"><span class="annot"><span class="annottext">RecordType -&gt; Text
 (RecordType -&gt; Text) -&gt; ToText RecordType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RecordType -&gt; Text
 $ctoText :: RecordType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679189013"><span class="annot"><span class="annottext">RecordType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679189022"><span class="annot"><span class="annottext">RecordType -&gt; ByteString
 (RecordType -&gt; ByteString) -&gt; ToByteString RecordType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RecordType -&gt; ByteString
 $ctoBS :: RecordType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679189010"><span class="annot"><span class="annottext">RecordType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679189019"><span class="annot"><span class="annottext">RecordType -&gt; ByteStringBuilder
 (RecordType -&gt; ByteStringBuilder) -&gt; ToLog RecordType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RecordType -&gt; ByteStringBuilder
 $cbuild :: RecordType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679189007"><span class="annot"><span class="annottext">HeaderName -&gt; RecordType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679189016"><span class="annot"><span class="annottext">HeaderName -&gt; RecordType -&gt; [Header]
 (HeaderName -&gt; RecordType -&gt; [Header]) -&gt; ToHeader RecordType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RecordType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RecordType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679189004"><span class="annot"><span class="annottext">RecordType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679189013"><span class="annot"><span class="annottext">RecordType -&gt; QueryString
 (RecordType -&gt; QueryString) -&gt; ToQuery RecordType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RecordType -&gt; QueryString
 $ctoQuery :: RecordType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679188999"><span id="local-6989586621679189001"><span class="annot"><span class="annottext">Value -&gt; Parser [RecordType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679189008"><span id="local-6989586621679189010"><span class="annot"><span class="annottext">Value -&gt; Parser [RecordType]
 Value -&gt; Parser RecordType
 (Value -&gt; Parser RecordType)
 -&gt; (Value -&gt; Parser [RecordType]) -&gt; FromJSON RecordType
@@ -193,7 +193,7 @@ $cparseJSONList :: Value -&gt; Parser [RecordType]
 parseJSON :: Value -&gt; Parser RecordType
 $cparseJSON :: Value -&gt; Parser RecordType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679188994"><span id="local-6989586621679188996"><span class="annot"><span class="annottext">FromJSONKeyFunction [RecordType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679189003"><span id="local-6989586621679189005"><span class="annot"><span class="annottext">FromJSONKeyFunction [RecordType]
 FromJSONKeyFunction RecordType
 FromJSONKeyFunction RecordType
 -&gt; FromJSONKeyFunction [RecordType] -&gt; FromJSONKey RecordType
@@ -204,7 +204,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RecordType]
 fromJSONKey :: FromJSONKeyFunction RecordType
 $cfromJSONKey :: FromJSONKeyFunction RecordType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679188985"><span id="local-6989586621679188987"><span id="local-6989586621679188989"><span id="local-6989586621679188991"><span class="annot"><span class="annottext">[RecordType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679188994"><span id="local-6989586621679188996"><span id="local-6989586621679188998"><span id="local-6989586621679189000"><span class="annot"><span class="annottext">[RecordType] -&gt; Encoding
 [RecordType] -&gt; Value
 RecordType -&gt; Encoding
 RecordType -&gt; Value
@@ -228,7 +228,7 @@ $ctoEncoding :: RecordType -&gt; Encoding
 toJSON :: RecordType -&gt; Value
 $ctoJSON :: RecordType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679188980"><span id="local-6989586621679188982"><span class="annot"><span class="annottext">ToJSONKeyFunction [RecordType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679188989"><span id="local-6989586621679188991"><span class="annot"><span class="annottext">ToJSONKeyFunction [RecordType]
 ToJSONKeyFunction RecordType
 ToJSONKeyFunction RecordType
 -&gt; ToJSONKeyFunction [RecordType] -&gt; ToJSONKey RecordType
@@ -239,13 +239,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RecordType]
 toJSONKey :: ToJSONKeyFunction RecordType
 $ctoJSONKey :: ToJSONKeyFunction RecordType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679188977"><span class="annot"><span class="annottext">[Node] -&gt; Either String RecordType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679188986"><span class="annot"><span class="annottext">[Node] -&gt; Either String RecordType
 ([Node] -&gt; Either String RecordType) -&gt; FromXML RecordType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RecordType
 $cparseXML :: [Node] -&gt; Either String RecordType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679188974"><span class="annot"><span class="annottext">RecordType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679188983"><span class="annot"><span class="annottext">RecordType -&gt; XML
 (RecordType -&gt; XML) -&gt; ToXML RecordType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RecordType -&gt; XML

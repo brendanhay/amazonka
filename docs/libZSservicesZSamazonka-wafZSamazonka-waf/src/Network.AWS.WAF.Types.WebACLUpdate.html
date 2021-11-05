@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span class="hs-comment">-- @WebACL@.</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newWebACLUpdate' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679307977"><span id="local-6989586621679307978"></span></span><span class="hs-keyword">data</span><span> </span><span id="WebACLUpdate"><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate"><span class="hs-identifier hs-var">WebACLUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebACLUpdate%27"><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate%27"><span class="hs-identifier hs-var">WebACLUpdate'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679307986"><span id="local-6989586621679307987"></span></span><span class="hs-keyword">data</span><span> </span><span id="WebACLUpdate"><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate"><span class="hs-identifier hs-var">WebACLUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebACLUpdate%27"><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate%27"><span class="hs-identifier hs-var">WebACLUpdate'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether to insert a @Rule@ into or delete a @Rule@ from a</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @WebACL@.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Aaction%3AWebACLUpdate%27"><span class="annot"><span class="annottext">WebACLUpdate -&gt; ChangeAction
@@ -50,7 +50,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AactivatedRule%3AWebACLUpdate%27"><span class="annot"><span class="annottext">WebACLUpdate -&gt; ActivatedRule
 </span><a href="Network.AWS.WAF.Types.WebACLUpdate.html#%24sel%3AactivatedRule%3AWebACLUpdate%27"><span class="hs-identifier hs-var hs-var">activatedRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.ActivatedRule.html#ActivatedRule"><span class="hs-identifier hs-type">ActivatedRule</span></a></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307970"><span id="local-6989586621679307972"><span class="annot"><span class="annottext">WebACLUpdate -&gt; WebACLUpdate -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307979"><span id="local-6989586621679307981"><span class="annot"><span class="annottext">WebACLUpdate -&gt; WebACLUpdate -&gt; Bool
 (WebACLUpdate -&gt; WebACLUpdate -&gt; Bool)
 -&gt; (WebACLUpdate -&gt; WebACLUpdate -&gt; Bool) -&gt; Eq WebACLUpdate
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WebACLUpdate -&gt; WebACLUpdate -&gt; Bool
 == :: WebACLUpdate -&gt; WebACLUpdate -&gt; Bool
 $c== :: WebACLUpdate -&gt; WebACLUpdate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307961"><span id="local-6989586621679307963"><span id="local-6989586621679307965"><span id="local-6989586621679307967"><span class="annot"><span class="annottext">ReadPrec [WebACLUpdate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307970"><span id="local-6989586621679307972"><span id="local-6989586621679307974"><span id="local-6989586621679307976"><span class="annot"><span class="annottext">ReadPrec [WebACLUpdate]
 ReadPrec WebACLUpdate
 Int -&gt; ReadS WebACLUpdate
 ReadS [WebACLUpdate]
@@ -78,7 +78,7 @@ readList :: ReadS [WebACLUpdate]
 $creadList :: ReadS [WebACLUpdate]
 readsPrec :: Int -&gt; ReadS WebACLUpdate
 $creadsPrec :: Int -&gt; ReadS WebACLUpdate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307954"><span id="local-6989586621679307956"><span id="local-6989586621679307958"><span class="annot"><span class="annottext">Int -&gt; WebACLUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307963"><span id="local-6989586621679307965"><span id="local-6989586621679307967"><span class="annot"><span class="annottext">Int -&gt; WebACLUpdate -&gt; ShowS
 [WebACLUpdate] -&gt; ShowS
 WebACLUpdate -&gt; String
 (Int -&gt; WebACLUpdate -&gt; ShowS)
@@ -126,17 +126,17 @@ $cfrom :: forall x. WebACLUpdate -&gt; Rep WebACLUpdate x
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.Types.ActivatedRule.html#ActivatedRule"><span class="hs-identifier hs-type">ActivatedRule</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate"><span class="hs-identifier hs-type">WebACLUpdate</span></a></span><span>
 </span><span id="line-74"></span><span id="newWebACLUpdate"><span class="annot"><span class="annottext">newWebACLUpdate :: ChangeAction -&gt; ActivatedRule -&gt; WebACLUpdate
-</span><a href="Network.AWS.WAF.Types.WebACLUpdate.html#newWebACLUpdate"><span class="hs-identifier hs-var hs-var">newWebACLUpdate</span></a></span></span><span> </span><span id="local-6989586621679307948"><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679307948"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span> </span><span id="local-6989586621679307947"><span class="annot"><span class="annottext">ActivatedRule
-</span><a href="#local-6989586621679307947"><span class="hs-identifier hs-var">pActivatedRule_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAF.Types.WebACLUpdate.html#newWebACLUpdate"><span class="hs-identifier hs-var hs-var">newWebACLUpdate</span></a></span></span><span> </span><span id="local-6989586621679307957"><span class="annot"><span class="annottext">ChangeAction
+</span><a href="#local-6989586621679307957"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span> </span><span id="local-6989586621679307956"><span class="annot"><span class="annottext">ActivatedRule
+</span><a href="#local-6989586621679307956"><span class="hs-identifier hs-var">pActivatedRule_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">WebACLUpdate' :: ChangeAction -&gt; ActivatedRule -&gt; WebACLUpdate
 </span><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate%27"><span class="hs-identifier hs-type">WebACLUpdate'</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:action:WebACLUpdate' :: ChangeAction
 </span><a href="Network.AWS.WAF.Types.WebACLUpdate.html#%24sel%3Aaction%3AWebACLUpdate%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679307948"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307957"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:activatedRule:WebACLUpdate' :: ActivatedRule
 </span><a href="Network.AWS.WAF.Types.WebACLUpdate.html#%24sel%3AactivatedRule%3AWebACLUpdate%27"><span class="hs-identifier hs-var">activatedRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActivatedRule
-</span><a href="#local-6989586621679307947"><span class="hs-identifier hs-var">pActivatedRule_</span></a></span><span>
+</span><a href="#local-6989586621679307956"><span class="hs-identifier hs-var">pActivatedRule_</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Specifies whether to insert a @Rule@ into or delete a @Rule@ from a</span><span>
@@ -147,16 +147,16 @@ $cfrom :: forall x. WebACLUpdate -&gt; Rep WebACLUpdate x
 -&gt; (WebACLUpdate -&gt; ChangeAction -&gt; WebACLUpdate)
 -&gt; Lens WebACLUpdate WebACLUpdate ChangeAction ChangeAction
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate%27"><span class="hs-identifier hs-type">WebACLUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307943"><span class="annot"><span class="annottext">ChangeAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate%27"><span class="hs-identifier hs-type">WebACLUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307952"><span class="annot"><span class="annottext">ChangeAction
 action :: ChangeAction
 $sel:action:WebACLUpdate' :: WebACLUpdate -&gt; ChangeAction
-</span><a href="#local-6989586621679307943"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679307943"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307942"><span class="annot"><span class="annottext">s :: WebACLUpdate
-</span><a href="#local-6989586621679307942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate%27"><span class="hs-identifier hs-type">WebACLUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307941"><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679307941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebACLUpdate
-</span><a href="#local-6989586621679307942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:WebACLUpdate' :: ChangeAction
+</span><a href="#local-6989586621679307952"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeAction
+</span><a href="#local-6989586621679307952"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307951"><span class="annot"><span class="annottext">s :: WebACLUpdate
+</span><a href="#local-6989586621679307951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate%27"><span class="hs-identifier hs-type">WebACLUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307950"><span class="annot"><span class="annottext">ChangeAction
+</span><a href="#local-6989586621679307950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebACLUpdate
+</span><a href="#local-6989586621679307951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:WebACLUpdate' :: ChangeAction
 </span><a href="Network.AWS.WAF.Types.WebACLUpdate.html#%24sel%3Aaction%3AWebACLUpdate%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679307941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate"><span class="hs-identifier hs-type">WebACLUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate"><span class="hs-identifier hs-type">WebACLUpdate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The @ActivatedRule@ object in an UpdateWebACL request specifies a @Rule@</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- that you want to insert or delete, the priority of the @Rule@ in the</span><span>
@@ -169,30 +169,30 @@ $sel:action:WebACLUpdate' :: WebACLUpdate -&gt; ChangeAction
 -&gt; (WebACLUpdate -&gt; ActivatedRule -&gt; WebACLUpdate)
 -&gt; Lens WebACLUpdate WebACLUpdate ActivatedRule ActivatedRule
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate%27"><span class="hs-identifier hs-type">WebACLUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307939"><span class="annot"><span class="annottext">ActivatedRule
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate%27"><span class="hs-identifier hs-type">WebACLUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307948"><span class="annot"><span class="annottext">ActivatedRule
 activatedRule :: ActivatedRule
 $sel:activatedRule:WebACLUpdate' :: WebACLUpdate -&gt; ActivatedRule
-</span><a href="#local-6989586621679307939"><span class="hs-identifier hs-var hs-var">activatedRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivatedRule
-</span><a href="#local-6989586621679307939"><span class="hs-identifier hs-var">activatedRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307938"><span class="annot"><span class="annottext">s :: WebACLUpdate
-</span><a href="#local-6989586621679307938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate%27"><span class="hs-identifier hs-type">WebACLUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307937"><span class="annot"><span class="annottext">ActivatedRule
-</span><a href="#local-6989586621679307937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebACLUpdate
-</span><a href="#local-6989586621679307938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activatedRule:WebACLUpdate' :: ActivatedRule
+</span><a href="#local-6989586621679307948"><span class="hs-identifier hs-var hs-var">activatedRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivatedRule
+</span><a href="#local-6989586621679307948"><span class="hs-identifier hs-var">activatedRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307947"><span class="annot"><span class="annottext">s :: WebACLUpdate
+</span><a href="#local-6989586621679307947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate%27"><span class="hs-identifier hs-type">WebACLUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307946"><span class="annot"><span class="annottext">ActivatedRule
+</span><a href="#local-6989586621679307946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebACLUpdate
+</span><a href="#local-6989586621679307947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activatedRule:WebACLUpdate' :: ActivatedRule
 </span><a href="Network.AWS.WAF.Types.WebACLUpdate.html#%24sel%3AactivatedRule%3AWebACLUpdate%27"><span class="hs-identifier hs-var">activatedRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActivatedRule
-</span><a href="#local-6989586621679307937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate"><span class="hs-identifier hs-type">WebACLUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate"><span class="hs-identifier hs-type">WebACLUpdate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307933"><span id="local-6989586621679307935"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate"><span class="hs-identifier hs-type">WebACLUpdate</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307942"><span id="local-6989586621679307944"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate"><span class="hs-identifier hs-type">WebACLUpdate</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307930"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate"><span class="hs-identifier hs-type">WebACLUpdate</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate"><span class="hs-identifier hs-type">WebACLUpdate</span></a></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307922"><span id="local-6989586621679307924"><span id="local-6989586621679307926"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate"><span class="hs-identifier hs-type">WebACLUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679307920"><span class="annot"><span class="annottext">toJSON :: WebACLUpdate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate%27"><span class="hs-identifier hs-type">WebACLUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307917"><span id="local-6989586621679307918"><span class="annot"><span class="annottext">ChangeAction
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307931"><span id="local-6989586621679307933"><span id="local-6989586621679307935"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate"><span class="hs-identifier hs-type">WebACLUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679307929"><span class="annot"><span class="annottext">toJSON :: WebACLUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.WebACLUpdate.html#WebACLUpdate%27"><span class="hs-identifier hs-type">WebACLUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307926"><span id="local-6989586621679307927"><span class="annot"><span class="annottext">ChangeAction
 ActivatedRule
 activatedRule :: ActivatedRule
 action :: ChangeAction
 $sel:activatedRule:WebACLUpdate' :: WebACLUpdate -&gt; ActivatedRule
 $sel:action:WebACLUpdate' :: WebACLUpdate -&gt; ChangeAction
-</span><a href="#local-6989586621679307917"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679307926"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -204,7 +204,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Action&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ChangeAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679307918"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307927"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -212,7 +212,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ActivatedRule&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ActivatedRule -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ActivatedRule
-</span><a href="#local-6989586621679307917"><span class="hs-identifier hs-var">activatedRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307926"><span class="hs-identifier hs-var">activatedRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>

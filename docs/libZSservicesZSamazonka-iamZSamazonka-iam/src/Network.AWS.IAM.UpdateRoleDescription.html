@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdateRoleDescription' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679464499"><span id="local-6989586621679464500"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoleDescription"><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-var">UpdateRoleDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoleDescription%27"><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-var">UpdateRoleDescription'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679464508"><span id="local-6989586621679464509"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoleDescription"><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-var">UpdateRoleDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoleDescription%27"><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-var">UpdateRoleDescription'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the role that you want to modify.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AroleName%3AUpdateRoleDescription%27"><span class="annot"><span class="annottext">UpdateRoleDescription -&gt; Text
 </span><a href="Network.AWS.IAM.UpdateRoleDescription.html#%24sel%3AroleName%3AUpdateRoleDescription%27"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateRoleDescription%27"><span class="annot"><span class="annottext">UpdateRoleDescription -&gt; Text
 </span><a href="Network.AWS.IAM.UpdateRoleDescription.html#%24sel%3Adescription%3AUpdateRoleDescription%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679464492"><span id="local-6989586621679464494"><span class="annot"><span class="annottext">UpdateRoleDescription -&gt; UpdateRoleDescription -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679464501"><span id="local-6989586621679464503"><span class="annot"><span class="annottext">UpdateRoleDescription -&gt; UpdateRoleDescription -&gt; Bool
 (UpdateRoleDescription -&gt; UpdateRoleDescription -&gt; Bool)
 -&gt; (UpdateRoleDescription -&gt; UpdateRoleDescription -&gt; Bool)
 -&gt; Eq UpdateRoleDescription
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateRoleDescription -&gt; UpdateRoleDescription -&gt; Bool
 == :: UpdateRoleDescription -&gt; UpdateRoleDescription -&gt; Bool
 $c== :: UpdateRoleDescription -&gt; UpdateRoleDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464483"><span id="local-6989586621679464485"><span id="local-6989586621679464487"><span id="local-6989586621679464489"><span class="annot"><span class="annottext">ReadPrec [UpdateRoleDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464492"><span id="local-6989586621679464494"><span id="local-6989586621679464496"><span id="local-6989586621679464498"><span class="annot"><span class="annottext">ReadPrec [UpdateRoleDescription]
 ReadPrec UpdateRoleDescription
 Int -&gt; ReadS UpdateRoleDescription
 ReadS [UpdateRoleDescription]
@@ -89,7 +89,7 @@ readList :: ReadS [UpdateRoleDescription]
 $creadList :: ReadS [UpdateRoleDescription]
 readsPrec :: Int -&gt; ReadS UpdateRoleDescription
 $creadsPrec :: Int -&gt; ReadS UpdateRoleDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464476"><span id="local-6989586621679464478"><span id="local-6989586621679464480"><span class="annot"><span class="annottext">Int -&gt; UpdateRoleDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464485"><span id="local-6989586621679464487"><span id="local-6989586621679464489"><span class="annot"><span class="annottext">Int -&gt; UpdateRoleDescription -&gt; ShowS
 [UpdateRoleDescription] -&gt; ShowS
 UpdateRoleDescription -&gt; String
 (Int -&gt; UpdateRoleDescription -&gt; ShowS)
@@ -133,17 +133,17 @@ $cfrom :: forall x. UpdateRoleDescription -&gt; Rep UpdateRoleDescription x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span>
 </span><span id="line-80"></span><span id="newUpdateRoleDescription"><span class="annot"><span class="annottext">newUpdateRoleDescription :: Text -&gt; Text -&gt; UpdateRoleDescription
-</span><a href="Network.AWS.IAM.UpdateRoleDescription.html#newUpdateRoleDescription"><span class="hs-identifier hs-var hs-var">newUpdateRoleDescription</span></a></span></span><span> </span><span id="local-6989586621679464471"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464471"><span class="hs-identifier hs-var">pRoleName_</span></a></span></span><span> </span><span id="local-6989586621679464470"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464470"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.UpdateRoleDescription.html#newUpdateRoleDescription"><span class="hs-identifier hs-var hs-var">newUpdateRoleDescription</span></a></span></span><span> </span><span id="local-6989586621679464480"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464480"><span class="hs-identifier hs-var">pRoleName_</span></a></span></span><span> </span><span id="local-6989586621679464479"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464479"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">UpdateRoleDescription' :: Text -&gt; Text -&gt; UpdateRoleDescription
 </span><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-type">UpdateRoleDescription'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleName:UpdateRoleDescription' :: Text
 </span><a href="Network.AWS.IAM.UpdateRoleDescription.html#%24sel%3AroleName%3AUpdateRoleDescription%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464471"><span class="hs-identifier hs-var">pRoleName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679464480"><span class="hs-identifier hs-var">pRoleName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateRoleDescription' :: Text
 </span><a href="Network.AWS.IAM.UpdateRoleDescription.html#%24sel%3Adescription%3AUpdateRoleDescription%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464470"><span class="hs-identifier hs-var">pDescription_</span></a></span><span>
+</span><a href="#local-6989586621679464479"><span class="hs-identifier hs-var">pDescription_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The name of the role that you want to modify.</span><span>
@@ -154,16 +154,16 @@ $cfrom :: forall x. UpdateRoleDescription -&gt; Rep UpdateRoleDescription x
 -&gt; (UpdateRoleDescription -&gt; Text -&gt; UpdateRoleDescription)
 -&gt; Lens UpdateRoleDescription UpdateRoleDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-type">UpdateRoleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464467"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-type">UpdateRoleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464476"><span class="annot"><span class="annottext">Text
 roleName :: Text
 $sel:roleName:UpdateRoleDescription' :: UpdateRoleDescription -&gt; Text
-</span><a href="#local-6989586621679464467"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464467"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464466"><span class="annot"><span class="annottext">s :: UpdateRoleDescription
-</span><a href="#local-6989586621679464466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-type">UpdateRoleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464465"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleDescription
-</span><a href="#local-6989586621679464466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:UpdateRoleDescription' :: Text
+</span><a href="#local-6989586621679464476"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464476"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464475"><span class="annot"><span class="annottext">s :: UpdateRoleDescription
+</span><a href="#local-6989586621679464475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-type">UpdateRoleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464474"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleDescription
+</span><a href="#local-6989586621679464475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:UpdateRoleDescription' :: Text
 </span><a href="Network.AWS.IAM.UpdateRoleDescription.html#%24sel%3AroleName%3AUpdateRoleDescription%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679464474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The new description that you want to apply to the specified role.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#updateRoleDescription_description"><span class="hs-identifier hs-type">updateRoleDescription_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -173,27 +173,27 @@ $sel:roleName:UpdateRoleDescription' :: UpdateRoleDescription -&gt; Text
 -&gt; (UpdateRoleDescription -&gt; Text -&gt; UpdateRoleDescription)
 -&gt; Lens UpdateRoleDescription UpdateRoleDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-type">UpdateRoleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464464"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-type">UpdateRoleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464473"><span class="annot"><span class="annottext">Text
 description :: Text
 $sel:description:UpdateRoleDescription' :: UpdateRoleDescription -&gt; Text
-</span><a href="#local-6989586621679464464"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464464"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464463"><span class="annot"><span class="annottext">s :: UpdateRoleDescription
-</span><a href="#local-6989586621679464463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-type">UpdateRoleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464462"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleDescription
-</span><a href="#local-6989586621679464463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateRoleDescription' :: Text
+</span><a href="#local-6989586621679464473"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464473"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464472"><span class="annot"><span class="annottext">s :: UpdateRoleDescription
+</span><a href="#local-6989586621679464472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-type">UpdateRoleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464471"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679464471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleDescription
+</span><a href="#local-6989586621679464472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateRoleDescription' :: Text
 </span><a href="Network.AWS.IAM.UpdateRoleDescription.html#%24sel%3Adescription%3AUpdateRoleDescription%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679464471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679464458"><span class="annot"><span class="annottext">request :: UpdateRoleDescription -&gt; Request UpdateRoleDescription
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679464467"><span class="annot"><span class="annottext">request :: UpdateRoleDescription -&gt; Request UpdateRoleDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateRoleDescription -&gt; Request UpdateRoleDescription
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679464454"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679464463"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateRoleDescription
 -&gt; ClientResponse ClientBody
@@ -224,10 +224,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UpdateRoleDescriptionResult&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679464451"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679464451"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679464450"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679464450"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679464449"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679464449"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679464460"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679464460"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679464459"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679464459"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679464458"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679464458"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Role -&gt; Int -&gt; UpdateRoleDescriptionResponse
 </span><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-var">UpdateRoleDescriptionResponse'</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Role -&gt; Int -&gt; UpdateRoleDescriptionResponse)
@@ -235,7 +235,7 @@ Text
 -&gt; Either String (Int -&gt; UpdateRoleDescriptionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679464449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Role)
+</span><a href="#local-6989586621679464458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Role)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Role&quot;</span></span><span class="hs-special">)</span><span>
@@ -247,15 +247,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679464451"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679464460"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464441"><span id="local-6989586621679464443"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464450"><span id="local-6989586621679464452"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464438"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679464434"><span class="annot"><span class="annottext">toHeaders :: UpdateRoleDescription -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679464443"><span class="annot"><span class="annottext">toHeaders :: UpdateRoleDescription -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateRoleDescription -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -263,20 +263,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679464429"><span class="annot"><span class="annottext">toPath :: UpdateRoleDescription -&gt; ByteString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679464438"><span class="annot"><span class="annottext">toPath :: UpdateRoleDescription -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateRoleDescription -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription"><span class="hs-identifier hs-type">UpdateRoleDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679464425"><span class="annot"><span class="annottext">toQuery :: UpdateRoleDescription -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-type">UpdateRoleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464422"><span id="local-6989586621679464423"><span class="annot"><span class="annottext">Text
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679464434"><span class="annot"><span class="annottext">toQuery :: UpdateRoleDescription -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescription%27"><span class="hs-identifier hs-type">UpdateRoleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464431"><span id="local-6989586621679464432"><span class="annot"><span class="annottext">Text
 description :: Text
 roleName :: Text
 $sel:description:UpdateRoleDescription' :: UpdateRoleDescription -&gt; Text
 $sel:roleName:UpdateRoleDescription' :: UpdateRoleDescription -&gt; Text
-</span><a href="#local-6989586621679464422"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679464431"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -296,16 +296,16 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;RoleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464423"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679464432"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679464422"><span class="hs-identifier hs-var">description</span></a></span><span>
+</span><a href="#local-6989586621679464431"><span class="hs-identifier hs-var">description</span></a></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newUpdateRoleDescriptionResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679464419"><span id="local-6989586621679464420"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoleDescriptionResponse"><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-var">UpdateRoleDescriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoleDescriptionResponse%27"><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-var">UpdateRoleDescriptionResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679464428"><span id="local-6989586621679464429"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoleDescriptionResponse"><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-var">UpdateRoleDescriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoleDescriptionResponse%27"><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-var">UpdateRoleDescriptionResponse'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A structure that contains details about the modified role.</span><span>
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3Arole%27%3AUpdateRoleDescriptionResponse%27"><span class="annot"><span class="annottext">UpdateRoleDescriptionResponse -&gt; Maybe Role
 </span><a href="Network.AWS.IAM.UpdateRoleDescription.html#%24sel%3Arole%27%3AUpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Role.html#Role"><span class="hs-identifier hs-type">Role</span></a></span><span class="hs-special">,</span><span>
@@ -313,7 +313,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-134"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateRoleDescriptionResponse%27"><span class="annot"><span class="annottext">UpdateRoleDescriptionResponse -&gt; Int
 </span><a href="Network.AWS.IAM.UpdateRoleDescription.html#%24sel%3AhttpStatus%3AUpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679464413"><span id="local-6989586621679464415"><span class="annot"><span class="annottext">UpdateRoleDescriptionResponse
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679464422"><span id="local-6989586621679464424"><span class="annot"><span class="annottext">UpdateRoleDescriptionResponse
 -&gt; UpdateRoleDescriptionResponse -&gt; Bool
 (UpdateRoleDescriptionResponse
  -&gt; UpdateRoleDescriptionResponse -&gt; Bool)
@@ -329,7 +329,7 @@ $c/= :: UpdateRoleDescriptionResponse
 -&gt; UpdateRoleDescriptionResponse -&gt; Bool
 $c== :: UpdateRoleDescriptionResponse
 -&gt; UpdateRoleDescriptionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464405"><span id="local-6989586621679464407"><span id="local-6989586621679464409"><span id="local-6989586621679464411"><span class="annot"><span class="annottext">ReadPrec [UpdateRoleDescriptionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464414"><span id="local-6989586621679464416"><span id="local-6989586621679464418"><span id="local-6989586621679464420"><span class="annot"><span class="annottext">ReadPrec [UpdateRoleDescriptionResponse]
 ReadPrec UpdateRoleDescriptionResponse
 Int -&gt; ReadS UpdateRoleDescriptionResponse
 ReadS [UpdateRoleDescriptionResponse]
@@ -349,7 +349,7 @@ readList :: ReadS [UpdateRoleDescriptionResponse]
 $creadList :: ReadS [UpdateRoleDescriptionResponse]
 readsPrec :: Int -&gt; ReadS UpdateRoleDescriptionResponse
 $creadsPrec :: Int -&gt; ReadS UpdateRoleDescriptionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464399"><span id="local-6989586621679464401"><span id="local-6989586621679464403"><span class="annot"><span class="annottext">Int -&gt; UpdateRoleDescriptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679464408"><span id="local-6989586621679464410"><span id="local-6989586621679464412"><span class="annot"><span class="annottext">Int -&gt; UpdateRoleDescriptionResponse -&gt; ShowS
 [UpdateRoleDescriptionResponse] -&gt; ShowS
 UpdateRoleDescriptionResponse -&gt; String
 (Int -&gt; UpdateRoleDescriptionResponse -&gt; ShowS)
@@ -403,8 +403,8 @@ UpdateRoleDescriptionResponse
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse</span></a></span><span>
 </span><span id="line-153"></span><span id="newUpdateRoleDescriptionResponse"><span class="annot"><span class="annottext">newUpdateRoleDescriptionResponse :: Int -&gt; UpdateRoleDescriptionResponse
-</span><a href="Network.AWS.IAM.UpdateRoleDescription.html#newUpdateRoleDescriptionResponse"><span class="hs-identifier hs-var hs-var">newUpdateRoleDescriptionResponse</span></a></span></span><span> </span><span id="local-6989586621679464396"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679464396"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.UpdateRoleDescription.html#newUpdateRoleDescriptionResponse"><span class="hs-identifier hs-var hs-var">newUpdateRoleDescriptionResponse</span></a></span></span><span> </span><span id="local-6989586621679464405"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679464405"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">UpdateRoleDescriptionResponse' :: Maybe Role -&gt; Int -&gt; UpdateRoleDescriptionResponse
 </span><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse'</span></a></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:role':UpdateRoleDescriptionResponse' :: Maybe Role
@@ -414,7 +414,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRoleDescriptionResponse' :: Int
 </span><a href="Network.AWS.IAM.UpdateRoleDescription.html#%24sel%3AhttpStatus%3AUpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679464396"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679464405"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | A structure that contains details about the modified role.</span><span>
@@ -430,16 +430,16 @@ forall a. Maybe a
      (Maybe Role)
      (Maybe Role)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464395"><span class="annot"><span class="annottext">Maybe Role
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464404"><span class="annot"><span class="annottext">Maybe Role
 role' :: Maybe Role
 $sel:role':UpdateRoleDescriptionResponse' :: UpdateRoleDescriptionResponse -&gt; Maybe Role
-</span><a href="#local-6989586621679464395"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Role
-</span><a href="#local-6989586621679464395"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464394"><span class="annot"><span class="annottext">s :: UpdateRoleDescriptionResponse
-</span><a href="#local-6989586621679464394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464393"><span class="annot"><span class="annottext">Maybe Role
-</span><a href="#local-6989586621679464393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleDescriptionResponse
-</span><a href="#local-6989586621679464394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:role':UpdateRoleDescriptionResponse' :: Maybe Role
+</span><a href="#local-6989586621679464404"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Role
+</span><a href="#local-6989586621679464404"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464403"><span class="annot"><span class="annottext">s :: UpdateRoleDescriptionResponse
+</span><a href="#local-6989586621679464403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464402"><span class="annot"><span class="annottext">Maybe Role
+</span><a href="#local-6989586621679464402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleDescriptionResponse
+</span><a href="#local-6989586621679464403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:role':UpdateRoleDescriptionResponse' :: Maybe Role
 </span><a href="Network.AWS.IAM.UpdateRoleDescription.html#%24sel%3Arole%27%3AUpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Role
-</span><a href="#local-6989586621679464393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679464402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-165"></span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#updateRoleDescriptionResponse_httpStatus"><span class="hs-identifier hs-type">updateRoleDescriptionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -451,16 +451,16 @@ $sel:role':UpdateRoleDescriptionResponse' :: UpdateRoleDescriptionResponse -&gt;
 -&gt; Lens
      UpdateRoleDescriptionResponse UpdateRoleDescriptionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464392"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679464401"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateRoleDescriptionResponse' :: UpdateRoleDescriptionResponse -&gt; Int
-</span><a href="#local-6989586621679464392"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679464392"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464391"><span class="annot"><span class="annottext">s :: UpdateRoleDescriptionResponse
-</span><a href="#local-6989586621679464391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464390"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679464390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleDescriptionResponse
-</span><a href="#local-6989586621679464391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRoleDescriptionResponse' :: Int
+</span><a href="#local-6989586621679464401"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679464401"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679464400"><span class="annot"><span class="annottext">s :: UpdateRoleDescriptionResponse
+</span><a href="#local-6989586621679464400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679464399"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679464399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoleDescriptionResponse
+</span><a href="#local-6989586621679464400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRoleDescriptionResponse' :: Int
 </span><a href="Network.AWS.IAM.UpdateRoleDescription.html#%24sel%3AhttpStatus%3AUpdateRoleDescriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679464390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679464399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464388"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679464397"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateRoleDescription.html#UpdateRoleDescriptionResponse"><span class="hs-identifier hs-type">UpdateRoleDescriptionResponse</span></a></span></span><span>
 </span><span id="line-169"></span></pre></body></html>

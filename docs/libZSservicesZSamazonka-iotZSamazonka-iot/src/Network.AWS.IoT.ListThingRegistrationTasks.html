@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListThingRegistrationTasks' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679818366"><span id="local-6989586621679818367"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListThingRegistrationTasks"><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-var">ListThingRegistrationTasks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListThingRegistrationTasks%27"><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks%27"><span class="hs-identifier hs-var">ListThingRegistrationTasks'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679818375"><span id="local-6989586621679818376"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListThingRegistrationTasks"><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-var">ListThingRegistrationTasks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListThingRegistrationTasks%27"><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks%27"><span class="hs-identifier hs-var">ListThingRegistrationTasks'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the bulk thing provisioning task.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3Astatus%3AListThingRegistrationTasks%27"><span class="annot"><span class="annottext">ListThingRegistrationTasks -&gt; Maybe TaskStatus
 </span><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#%24sel%3Astatus%3AListThingRegistrationTasks%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TaskStatus.html#TaskStatus"><span class="hs-identifier hs-type">TaskStatus</span></a></span><span class="hs-special">,</span><span>
@@ -69,7 +69,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AmaxResults%3AListThingRegistrationTasks%27"><span class="annot"><span class="annottext">ListThingRegistrationTasks -&gt; Maybe Natural
 </span><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#%24sel%3AmaxResults%3AListThingRegistrationTasks%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679818358"><span id="local-6989586621679818360"><span class="annot"><span class="annottext">ListThingRegistrationTasks -&gt; ListThingRegistrationTasks -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679818367"><span id="local-6989586621679818369"><span class="annot"><span class="annottext">ListThingRegistrationTasks -&gt; ListThingRegistrationTasks -&gt; Bool
 (ListThingRegistrationTasks -&gt; ListThingRegistrationTasks -&gt; Bool)
 -&gt; (ListThingRegistrationTasks
     -&gt; ListThingRegistrationTasks -&gt; Bool)
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListThingRegistrationTasks -&gt; ListThingRegistrationTasks -&gt; Bool
 == :: ListThingRegistrationTasks -&gt; ListThingRegistrationTasks -&gt; Bool
 $c== :: ListThingRegistrationTasks -&gt; ListThingRegistrationTasks -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679818349"><span id="local-6989586621679818351"><span id="local-6989586621679818353"><span id="local-6989586621679818355"><span class="annot"><span class="annottext">ReadPrec [ListThingRegistrationTasks]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679818358"><span id="local-6989586621679818360"><span id="local-6989586621679818362"><span id="local-6989586621679818364"><span class="annot"><span class="annottext">ReadPrec [ListThingRegistrationTasks]
 ReadPrec ListThingRegistrationTasks
 Int -&gt; ReadS ListThingRegistrationTasks
 ReadS [ListThingRegistrationTasks]
@@ -99,7 +99,7 @@ readList :: ReadS [ListThingRegistrationTasks]
 $creadList :: ReadS [ListThingRegistrationTasks]
 readsPrec :: Int -&gt; ReadS ListThingRegistrationTasks
 $creadsPrec :: Int -&gt; ReadS ListThingRegistrationTasks
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679818342"><span id="local-6989586621679818344"><span id="local-6989586621679818346"><span class="annot"><span class="annottext">Int -&gt; ListThingRegistrationTasks -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679818351"><span id="local-6989586621679818353"><span id="local-6989586621679818355"><span class="annot"><span class="annottext">Int -&gt; ListThingRegistrationTasks -&gt; ShowS
 [ListThingRegistrationTasks] -&gt; ShowS
 ListThingRegistrationTasks -&gt; String
 (Int -&gt; ListThingRegistrationTasks -&gt; ShowS)
@@ -181,16 +181,16 @@ forall a. Maybe a
      (Maybe TaskStatus)
      (Maybe TaskStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks%27"><span class="hs-identifier hs-type">ListThingRegistrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818336"><span class="annot"><span class="annottext">Maybe TaskStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks%27"><span class="hs-identifier hs-type">ListThingRegistrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818345"><span class="annot"><span class="annottext">Maybe TaskStatus
 status :: Maybe TaskStatus
 $sel:status:ListThingRegistrationTasks' :: ListThingRegistrationTasks -&gt; Maybe TaskStatus
-</span><a href="#local-6989586621679818336"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskStatus
-</span><a href="#local-6989586621679818336"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818335"><span class="annot"><span class="annottext">s :: ListThingRegistrationTasks
-</span><a href="#local-6989586621679818335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks%27"><span class="hs-identifier hs-type">ListThingRegistrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818334"><span class="annot"><span class="annottext">Maybe TaskStatus
-</span><a href="#local-6989586621679818334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingRegistrationTasks
-</span><a href="#local-6989586621679818335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListThingRegistrationTasks' :: Maybe TaskStatus
+</span><a href="#local-6989586621679818345"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskStatus
+</span><a href="#local-6989586621679818345"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818344"><span class="annot"><span class="annottext">s :: ListThingRegistrationTasks
+</span><a href="#local-6989586621679818344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks%27"><span class="hs-identifier hs-type">ListThingRegistrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818343"><span class="annot"><span class="annottext">Maybe TaskStatus
+</span><a href="#local-6989586621679818343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingRegistrationTasks
+</span><a href="#local-6989586621679818344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListThingRegistrationTasks' :: Maybe TaskStatus
 </span><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#%24sel%3Astatus%3AListThingRegistrationTasks%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskStatus
-</span><a href="#local-6989586621679818334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-type">ListThingRegistrationTasks</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679818343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-type">ListThingRegistrationTasks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | To retrieve the next set of results, the @nextToken@ value from a</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- previous response; otherwise __null__ to receive the first set of</span><span>
@@ -207,16 +207,16 @@ $sel:status:ListThingRegistrationTasks' :: ListThingRegistrationTasks -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks%27"><span class="hs-identifier hs-type">ListThingRegistrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818333"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks%27"><span class="hs-identifier hs-type">ListThingRegistrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818342"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListThingRegistrationTasks' :: ListThingRegistrationTasks -&gt; Maybe Text
-</span><a href="#local-6989586621679818333"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679818333"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818332"><span class="annot"><span class="annottext">s :: ListThingRegistrationTasks
-</span><a href="#local-6989586621679818332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks%27"><span class="hs-identifier hs-type">ListThingRegistrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818331"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679818331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingRegistrationTasks
-</span><a href="#local-6989586621679818332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListThingRegistrationTasks' :: Maybe Text
+</span><a href="#local-6989586621679818342"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818342"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818341"><span class="annot"><span class="annottext">s :: ListThingRegistrationTasks
+</span><a href="#local-6989586621679818341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks%27"><span class="hs-identifier hs-type">ListThingRegistrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818340"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingRegistrationTasks
+</span><a href="#local-6989586621679818341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListThingRegistrationTasks' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#%24sel%3AnextToken%3AListThingRegistrationTasks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679818331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-type">ListThingRegistrationTasks</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679818340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-type">ListThingRegistrationTasks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The maximum number of results to return at one time.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#listThingRegistrationTasks_maxResults"><span class="hs-identifier hs-type">listThingRegistrationTasks_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-type">ListThingRegistrationTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -231,30 +231,30 @@ $sel:nextToken:ListThingRegistrationTasks' :: ListThingRegistrationTasks -&gt; M
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks%27"><span class="hs-identifier hs-type">ListThingRegistrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818330"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks%27"><span class="hs-identifier hs-type">ListThingRegistrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818339"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListThingRegistrationTasks' :: ListThingRegistrationTasks -&gt; Maybe Natural
-</span><a href="#local-6989586621679818330"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679818330"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818329"><span class="annot"><span class="annottext">s :: ListThingRegistrationTasks
-</span><a href="#local-6989586621679818329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks%27"><span class="hs-identifier hs-type">ListThingRegistrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818328"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679818328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingRegistrationTasks
-</span><a href="#local-6989586621679818329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListThingRegistrationTasks' :: Maybe Natural
+</span><a href="#local-6989586621679818339"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679818339"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818338"><span class="annot"><span class="annottext">s :: ListThingRegistrationTasks
+</span><a href="#local-6989586621679818338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks%27"><span class="hs-identifier hs-type">ListThingRegistrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818337"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679818337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingRegistrationTasks
+</span><a href="#local-6989586621679818338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListThingRegistrationTasks' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#%24sel%3AmaxResults%3AListThingRegistrationTasks%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679818328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-type">ListThingRegistrationTasks</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679818337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-type">ListThingRegistrationTasks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-type">ListThingRegistrationTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679818324"><span class="annot"><span class="annottext">page :: ListThingRegistrationTasks
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679818333"><span class="annot"><span class="annottext">page :: ListThingRegistrationTasks
 -&gt; AWSResponse ListThingRegistrationTasks
 -&gt; Maybe ListThingRegistrationTasks
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679818322"><span class="annot"><span class="annottext">ListThingRegistrationTasks
-</span><a href="#local-6989586621679818322"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679818321"><span class="annot"><span class="annottext">AWSResponse ListThingRegistrationTasks
-</span><a href="#local-6989586621679818321"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679818331"><span class="annot"><span class="annottext">ListThingRegistrationTasks
+</span><a href="#local-6989586621679818331"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679818330"><span class="annot"><span class="annottext">AWSResponse ListThingRegistrationTasks
+</span><a href="#local-6989586621679818330"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListThingRegistrationTasks
 ListThingRegistrationTasksResponse
-</span><a href="#local-6989586621679818321"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679818330"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">ListThingRegistrationTasksResponse
 -&gt; Getting (First Text) ListThingRegistrationTasksResponse Text
 -&gt; Maybe Text
@@ -284,7 +284,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-119"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListThingRegistrationTasks
 ListThingRegistrationTasksResponse
-</span><a href="#local-6989586621679818321"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679818330"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">ListThingRegistrationTasksResponse
 -&gt; Getting (First [Text]) ListThingRegistrationTasksResponse [Text]
 -&gt; Maybe [Text]
@@ -318,7 +318,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ListThingRegistrationTasks
-</span><a href="#local-6989586621679818322"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679818331"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ListThingRegistrationTasks
 -&gt; (ListThingRegistrationTasks -&gt; ListThingRegistrationTasks)
 -&gt; ListThingRegistrationTasks
@@ -341,7 +341,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListThingRegistrationTasks
 ListThingRegistrationTasksResponse
-</span><a href="#local-6989586621679818321"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679818330"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">ListThingRegistrationTasksResponse
 -&gt; Getting (First Text) ListThingRegistrationTasksResponse Text
 -&gt; Maybe Text
@@ -367,13 +367,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-type">ListThingRegistrationTasks</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679818311"><span class="annot"><span class="annottext">request :: ListThingRegistrationTasks -&gt; Request ListThingRegistrationTasks
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679818320"><span class="annot"><span class="annottext">request :: ListThingRegistrationTasks -&gt; Request ListThingRegistrationTasks
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListThingRegistrationTasks -&gt; Request ListThingRegistrationTasks
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679818307"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679818316"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListThingRegistrationTasks
 -&gt; ClientResponse ClientBody
@@ -399,10 +399,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679818304"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679818304"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679818303"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679818303"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679818302"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679818302"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679818313"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679818313"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679818312"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679818312"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679818311"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679818311"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [Text] -&gt; Int -&gt; ListThingRegistrationTasksResponse
 </span><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-var">ListThingRegistrationTasksResponse'</span></a></span><span>
@@ -413,7 +413,7 @@ MonadResource m =&gt;
      String (Maybe [Text] -&gt; Int -&gt; ListThingRegistrationTasksResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679818302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679818311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -423,7 +423,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListThingRegistrationTasksResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679818302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679818311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;taskIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -441,15 +441,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679818304"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679818313"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679818293"><span id="local-6989586621679818295"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-type">ListThingRegistrationTasks</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679818302"><span id="local-6989586621679818304"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-type">ListThingRegistrationTasks</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679818290"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-type">ListThingRegistrationTasks</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679818299"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-type">ListThingRegistrationTasks</span></a></span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-type">ListThingRegistrationTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679818286"><span class="annot"><span class="annottext">toHeaders :: ListThingRegistrationTasks -&gt; ResponseHeaders
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679818295"><span class="annot"><span class="annottext">toHeaders :: ListThingRegistrationTasks -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListThingRegistrationTasks -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -457,15 +457,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-type">ListThingRegistrationTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679818281"><span class="annot"><span class="annottext">toPath :: ListThingRegistrationTasks -&gt; ByteString
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679818290"><span class="annot"><span class="annottext">toPath :: ListThingRegistrationTasks -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListThingRegistrationTasks -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/thing-registration-tasks&quot;</span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks"><span class="hs-identifier hs-type">ListThingRegistrationTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679818277"><span class="annot"><span class="annottext">toQuery :: ListThingRegistrationTasks -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks%27"><span class="hs-identifier hs-type">ListThingRegistrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818273"><span id="local-6989586621679818274"><span id="local-6989586621679818275"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679818286"><span class="annot"><span class="annottext">toQuery :: ListThingRegistrationTasks -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasks%27"><span class="hs-identifier hs-type">ListThingRegistrationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818282"><span id="local-6989586621679818283"><span id="local-6989586621679818284"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe TaskStatus
 maxResults :: Maybe Natural
@@ -474,7 +474,7 @@ status :: Maybe TaskStatus
 $sel:maxResults:ListThingRegistrationTasks' :: ListThingRegistrationTasks -&gt; Maybe Natural
 $sel:nextToken:ListThingRegistrationTasks' :: ListThingRegistrationTasks -&gt; Maybe Text
 $sel:status:ListThingRegistrationTasks' :: ListThingRegistrationTasks -&gt; Maybe TaskStatus
-</span><a href="#local-6989586621679818273"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679818282"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -482,21 +482,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;status&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe TaskStatus -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe TaskStatus
-</span><a href="#local-6989586621679818275"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679818284"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679818274"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679818283"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679818273"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679818282"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newListThingRegistrationTasksResponse' smart constructor.</span><span>
-</span><span id="line-165"></span><span id="local-6989586621679818270"><span id="local-6989586621679818271"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListThingRegistrationTasksResponse"><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse"><span class="hs-identifier hs-var">ListThingRegistrationTasksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListThingRegistrationTasksResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-var">ListThingRegistrationTasksResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span id="local-6989586621679818279"><span id="local-6989586621679818280"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListThingRegistrationTasksResponse"><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse"><span class="hs-identifier hs-var">ListThingRegistrationTasksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListThingRegistrationTasksResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-var">ListThingRegistrationTasksResponse'</span></a></span></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to get the next set of results, or __null__ if there</span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-comment">-- are no additional results.</span><span>
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3AnextToken%3AListThingRegistrationTasksResponse%27"><span class="annot"><span class="annottext">ListThingRegistrationTasksResponse -&gt; Maybe Text
@@ -508,7 +508,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListThingRegistrationTasksResponse%27"><span class="annot"><span class="annottext">ListThingRegistrationTasksResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#%24sel%3AhttpStatus%3AListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679818263"><span id="local-6989586621679818265"><span class="annot"><span class="annottext">ListThingRegistrationTasksResponse
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679818272"><span id="local-6989586621679818274"><span class="annot"><span class="annottext">ListThingRegistrationTasksResponse
 -&gt; ListThingRegistrationTasksResponse -&gt; Bool
 (ListThingRegistrationTasksResponse
  -&gt; ListThingRegistrationTasksResponse -&gt; Bool)
@@ -524,7 +524,7 @@ $c/= :: ListThingRegistrationTasksResponse
 -&gt; ListThingRegistrationTasksResponse -&gt; Bool
 $c== :: ListThingRegistrationTasksResponse
 -&gt; ListThingRegistrationTasksResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679818255"><span id="local-6989586621679818257"><span id="local-6989586621679818259"><span id="local-6989586621679818261"><span class="annot"><span class="annottext">ReadPrec [ListThingRegistrationTasksResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679818264"><span id="local-6989586621679818266"><span id="local-6989586621679818268"><span id="local-6989586621679818270"><span class="annot"><span class="annottext">ReadPrec [ListThingRegistrationTasksResponse]
 ReadPrec ListThingRegistrationTasksResponse
 Int -&gt; ReadS ListThingRegistrationTasksResponse
 ReadS [ListThingRegistrationTasksResponse]
@@ -544,7 +544,7 @@ readList :: ReadS [ListThingRegistrationTasksResponse]
 $creadList :: ReadS [ListThingRegistrationTasksResponse]
 readsPrec :: Int -&gt; ReadS ListThingRegistrationTasksResponse
 $creadsPrec :: Int -&gt; ReadS ListThingRegistrationTasksResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679818249"><span id="local-6989586621679818251"><span id="local-6989586621679818253"><span class="annot"><span class="annottext">Int -&gt; ListThingRegistrationTasksResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679818258"><span id="local-6989586621679818260"><span id="local-6989586621679818262"><span class="annot"><span class="annottext">Int -&gt; ListThingRegistrationTasksResponse -&gt; ShowS
 [ListThingRegistrationTasksResponse] -&gt; ShowS
 ListThingRegistrationTasksResponse -&gt; String
 (Int -&gt; ListThingRegistrationTasksResponse -&gt; ShowS)
@@ -601,8 +601,8 @@ ListThingRegistrationTasksResponse
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse</span></a></span><span>
 </span><span id="line-194"></span><span id="newListThingRegistrationTasksResponse"><span class="annot"><span class="annottext">newListThingRegistrationTasksResponse :: Int -&gt; ListThingRegistrationTasksResponse
-</span><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#newListThingRegistrationTasksResponse"><span class="hs-identifier hs-var hs-var">newListThingRegistrationTasksResponse</span></a></span></span><span> </span><span id="local-6989586621679818246"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679818246"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#newListThingRegistrationTasksResponse"><span class="hs-identifier hs-var hs-var">newListThingRegistrationTasksResponse</span></a></span></span><span> </span><span id="local-6989586621679818255"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679818255"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>  </span><span class="annot"><span class="annottext">ListThingRegistrationTasksResponse' :: Maybe Text
 -&gt; Maybe [Text] -&gt; Int -&gt; ListThingRegistrationTasksResponse
 </span><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse'</span></a></span><span>
@@ -617,7 +617,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListThingRegistrationTasksResponse' :: Int
 </span><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#%24sel%3AhttpStatus%3AListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679818246"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679818255"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The token to use to get the next set of results, or __null__ if there</span><span>
@@ -631,16 +631,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListThingRegistrationTasksResponse)
 -&gt; Lens' ListThingRegistrationTasksResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818245"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818254"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListThingRegistrationTasksResponse' :: ListThingRegistrationTasksResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679818245"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679818245"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818244"><span class="annot"><span class="annottext">s :: ListThingRegistrationTasksResponse
-</span><a href="#local-6989586621679818244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818243"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679818243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingRegistrationTasksResponse
-</span><a href="#local-6989586621679818244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListThingRegistrationTasksResponse' :: Maybe Text
+</span><a href="#local-6989586621679818254"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818254"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818253"><span class="annot"><span class="annottext">s :: ListThingRegistrationTasksResponse
+</span><a href="#local-6989586621679818253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818252"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingRegistrationTasksResponse
+</span><a href="#local-6989586621679818253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListThingRegistrationTasksResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#%24sel%3AnextToken%3AListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679818243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679818252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | A list of bulk thing provisioning task IDs.</span><span>
 </span><span id="line-208"></span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#listThingRegistrationTasksResponse_taskIds"><span class="hs-identifier hs-type">listThingRegistrationTasksResponse_taskIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -652,16 +652,16 @@ $sel:nextToken:ListThingRegistrationTasksResponse' :: ListThingRegistrationTasks
     -&gt; Maybe [Text] -&gt; ListThingRegistrationTasksResponse)
 -&gt; Lens' ListThingRegistrationTasksResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818242"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818251"><span class="annot"><span class="annottext">Maybe [Text]
 taskIds :: Maybe [Text]
 $sel:taskIds:ListThingRegistrationTasksResponse' :: ListThingRegistrationTasksResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679818242"><span class="hs-identifier hs-var hs-var">taskIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679818242"><span class="hs-identifier hs-var">taskIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818241"><span class="annot"><span class="annottext">s :: ListThingRegistrationTasksResponse
-</span><a href="#local-6989586621679818241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818240"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679818240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingRegistrationTasksResponse
-</span><a href="#local-6989586621679818241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskIds:ListThingRegistrationTasksResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679818251"><span class="hs-identifier hs-var hs-var">taskIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679818251"><span class="hs-identifier hs-var">taskIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818250"><span class="annot"><span class="annottext">s :: ListThingRegistrationTasksResponse
+</span><a href="#local-6989586621679818250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818249"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679818249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingRegistrationTasksResponse
+</span><a href="#local-6989586621679818250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskIds:ListThingRegistrationTasksResponse' :: Maybe [Text]
 </span><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#%24sel%3AtaskIds%3AListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-var">taskIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679818240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679818249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListThingRegistrationTasksResponse
  -&gt; f ListThingRegistrationTasksResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -693,18 +693,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818237"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818246"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListThingRegistrationTasksResponse' :: ListThingRegistrationTasksResponse -&gt; Int
-</span><a href="#local-6989586621679818237"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679818237"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818236"><span class="annot"><span class="annottext">s :: ListThingRegistrationTasksResponse
-</span><a href="#local-6989586621679818236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818235"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679818235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingRegistrationTasksResponse
-</span><a href="#local-6989586621679818236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListThingRegistrationTasksResponse' :: Int
+</span><a href="#local-6989586621679818246"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679818246"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818245"><span class="annot"><span class="annottext">s :: ListThingRegistrationTasksResponse
+</span><a href="#local-6989586621679818245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818244"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679818244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingRegistrationTasksResponse
+</span><a href="#local-6989586621679818245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListThingRegistrationTasksResponse' :: Int
 </span><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#%24sel%3AhttpStatus%3AListThingRegistrationTasksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679818235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679818244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679818233"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679818242"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-217"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListThingRegistrationTasks.html#ListThingRegistrationTasksResponse"><span class="hs-identifier hs-type">ListThingRegistrationTasksResponse</span></a></span></span><span>
 </span><span id="line-218"></span></pre></body></html>

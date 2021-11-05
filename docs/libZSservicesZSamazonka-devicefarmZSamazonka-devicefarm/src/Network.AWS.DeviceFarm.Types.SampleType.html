@@ -44,13 +44,13 @@
 </span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-46"></span><span>
-</span><span id="line-47"></span><span id="local-6989586621679367995"><span id="local-6989586621679367996"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SampleType"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.SampleType.html#SampleType"><span class="hs-identifier hs-var">SampleType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SampleType%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.SampleType.html#SampleType%27"><span class="hs-identifier hs-var">SampleType'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679368004"><span id="local-6989586621679368005"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SampleType"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.SampleType.html#SampleType"><span class="hs-identifier hs-var">SampleType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SampleType%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.SampleType.html#SampleType%27"><span class="hs-identifier hs-var">SampleType'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSampleType"><span class="annot"><span class="annottext">SampleType -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.Types.SampleType.html#fromSampleType"><span class="hs-identifier hs-var hs-var">fromSampleType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367987"><span id="local-6989586621679367989"><span id="local-6989586621679367991"><span class="annot"><span class="annottext">Int -&gt; SampleType -&gt; ShowS
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367996"><span id="local-6989586621679367998"><span id="local-6989586621679368000"><span class="annot"><span class="annottext">Int -&gt; SampleType -&gt; ShowS
 [SampleType] -&gt; ShowS
 SampleType -&gt; String
 (Int -&gt; SampleType -&gt; ShowS)
@@ -66,7 +66,7 @@ $cshow :: SampleType -&gt; String
 showsPrec :: Int -&gt; SampleType -&gt; ShowS
 $cshowsPrec :: Int -&gt; SampleType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679367978"><span id="local-6989586621679367980"><span id="local-6989586621679367982"><span id="local-6989586621679367984"><span class="annot"><span class="annottext">ReadPrec [SampleType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679367987"><span id="local-6989586621679367989"><span id="local-6989586621679367991"><span id="local-6989586621679367993"><span class="annot"><span class="annottext">ReadPrec [SampleType]
 ReadPrec SampleType
 Int -&gt; ReadS SampleType
 ReadS [SampleType]
@@ -87,7 +87,7 @@ $creadList :: ReadS [SampleType]
 readsPrec :: Int -&gt; ReadS SampleType
 $creadsPrec :: Int -&gt; ReadS SampleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679367973"><span id="local-6989586621679367975"><span class="annot"><span class="annottext">SampleType -&gt; SampleType -&gt; Bool
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679367982"><span id="local-6989586621679367984"><span class="annot"><span class="annottext">SampleType -&gt; SampleType -&gt; Bool
 (SampleType -&gt; SampleType -&gt; Bool)
 -&gt; (SampleType -&gt; SampleType -&gt; Bool) -&gt; Eq SampleType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -96,7 +96,7 @@ $c/= :: SampleType -&gt; SampleType -&gt; Bool
 == :: SampleType -&gt; SampleType -&gt; Bool
 $c== :: SampleType -&gt; SampleType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679367957"><span id="local-6989586621679367959"><span id="local-6989586621679367961"><span id="local-6989586621679367963"><span id="local-6989586621679367965"><span id="local-6989586621679367967"><span id="local-6989586621679367969"><span class="annot"><span class="annottext">Eq SampleType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679367966"><span id="local-6989586621679367968"><span id="local-6989586621679367970"><span id="local-6989586621679367972"><span id="local-6989586621679367974"><span id="local-6989586621679367976"><span id="local-6989586621679367978"><span class="annot"><span class="annottext">Eq SampleType
 Eq SampleType
 -&gt; (SampleType -&gt; SampleType -&gt; Ordering)
 -&gt; (SampleType -&gt; SampleType -&gt; Bool)
@@ -146,7 +146,7 @@ $cfrom :: forall x. SampleType -&gt; Rep SampleType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367949"><span id="local-6989586621679367951"><span class="annot"><span class="annottext">Int -&gt; SampleType -&gt; Int
+</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367958"><span id="local-6989586621679367960"><span class="annot"><span class="annottext">Int -&gt; SampleType -&gt; Int
 SampleType -&gt; Int
 (Int -&gt; SampleType -&gt; Int)
 -&gt; (SampleType -&gt; Int) -&gt; Hashable SampleType
@@ -156,49 +156,49 @@ $chash :: SampleType -&gt; Int
 hashWithSalt :: Int -&gt; SampleType -&gt; Int
 $chashWithSalt :: Int -&gt; SampleType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679367946"><span class="annot"><span class="annottext">SampleType -&gt; ()
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679367955"><span class="annot"><span class="annottext">SampleType -&gt; ()
 (SampleType -&gt; ()) -&gt; NFData SampleType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SampleType -&gt; ()
 $crnf :: SampleType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679367943"><span class="annot"><span class="annottext">Text -&gt; Either String SampleType
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679367952"><span class="annot"><span class="annottext">Text -&gt; Either String SampleType
 (Text -&gt; Either String SampleType) -&gt; FromText SampleType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SampleType
 $cfromText :: Text -&gt; Either String SampleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679367940"><span class="annot"><span class="annottext">SampleType -&gt; Text
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679367949"><span class="annot"><span class="annottext">SampleType -&gt; Text
 (SampleType -&gt; Text) -&gt; ToText SampleType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SampleType -&gt; Text
 $ctoText :: SampleType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679367937"><span class="annot"><span class="annottext">SampleType -&gt; ByteString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679367946"><span class="annot"><span class="annottext">SampleType -&gt; ByteString
 (SampleType -&gt; ByteString) -&gt; ToByteString SampleType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SampleType -&gt; ByteString
 $ctoBS :: SampleType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679367934"><span class="annot"><span class="annottext">SampleType -&gt; ByteStringBuilder
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679367943"><span class="annot"><span class="annottext">SampleType -&gt; ByteStringBuilder
 (SampleType -&gt; ByteStringBuilder) -&gt; ToLog SampleType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SampleType -&gt; ByteStringBuilder
 $cbuild :: SampleType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679367931"><span class="annot"><span class="annottext">HeaderName -&gt; SampleType -&gt; [Header]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679367940"><span class="annot"><span class="annottext">HeaderName -&gt; SampleType -&gt; [Header]
 (HeaderName -&gt; SampleType -&gt; [Header]) -&gt; ToHeader SampleType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SampleType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SampleType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679367928"><span class="annot"><span class="annottext">SampleType -&gt; QueryString
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679367937"><span class="annot"><span class="annottext">SampleType -&gt; QueryString
 (SampleType -&gt; QueryString) -&gt; ToQuery SampleType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SampleType -&gt; QueryString
 $ctoQuery :: SampleType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679367923"><span id="local-6989586621679367925"><span class="annot"><span class="annottext">Value -&gt; Parser [SampleType]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679367932"><span id="local-6989586621679367934"><span class="annot"><span class="annottext">Value -&gt; Parser [SampleType]
 Value -&gt; Parser SampleType
 (Value -&gt; Parser SampleType)
 -&gt; (Value -&gt; Parser [SampleType]) -&gt; FromJSON SampleType
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [SampleType]
 parseJSON :: Value -&gt; Parser SampleType
 $cparseJSON :: Value -&gt; Parser SampleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679367918"><span id="local-6989586621679367920"><span class="annot"><span class="annottext">FromJSONKeyFunction [SampleType]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679367927"><span id="local-6989586621679367929"><span class="annot"><span class="annottext">FromJSONKeyFunction [SampleType]
 FromJSONKeyFunction SampleType
 FromJSONKeyFunction SampleType
 -&gt; FromJSONKeyFunction [SampleType] -&gt; FromJSONKey SampleType
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SampleType]
 fromJSONKey :: FromJSONKeyFunction SampleType
 $cfromJSONKey :: FromJSONKeyFunction SampleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679367909"><span id="local-6989586621679367911"><span id="local-6989586621679367913"><span id="local-6989586621679367915"><span class="annot"><span class="annottext">[SampleType] -&gt; Encoding
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679367918"><span id="local-6989586621679367920"><span id="local-6989586621679367922"><span id="local-6989586621679367924"><span class="annot"><span class="annottext">[SampleType] -&gt; Encoding
 [SampleType] -&gt; Value
 SampleType -&gt; Encoding
 SampleType -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: SampleType -&gt; Encoding
 toJSON :: SampleType -&gt; Value
 $ctoJSON :: SampleType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679367904"><span id="local-6989586621679367906"><span class="annot"><span class="annottext">ToJSONKeyFunction [SampleType]
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679367913"><span id="local-6989586621679367915"><span class="annot"><span class="annottext">ToJSONKeyFunction [SampleType]
 ToJSONKeyFunction SampleType
 ToJSONKeyFunction SampleType
 -&gt; ToJSONKeyFunction [SampleType] -&gt; ToJSONKey SampleType
@@ -255,13 +255,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SampleType]
 toJSONKey :: ToJSONKeyFunction SampleType
 $ctoJSONKey :: ToJSONKeyFunction SampleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679367901"><span class="annot"><span class="annottext">[Node] -&gt; Either String SampleType
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679367910"><span class="annot"><span class="annottext">[Node] -&gt; Either String SampleType
 ([Node] -&gt; Either String SampleType) -&gt; FromXML SampleType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SampleType
 $cparseXML :: [Node] -&gt; Either String SampleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679367898"><span class="annot"><span class="annottext">SampleType -&gt; XML
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679367907"><span class="annot"><span class="annottext">SampleType -&gt; XML
 (SampleType -&gt; XML) -&gt; ToXML SampleType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SampleType -&gt; XML

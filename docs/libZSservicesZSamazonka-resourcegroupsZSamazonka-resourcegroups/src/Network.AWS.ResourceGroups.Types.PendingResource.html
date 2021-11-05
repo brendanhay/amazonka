@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-comment">-- completed yet.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPendingResource' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679176310"><span id="local-6989586621679176311"></span></span><span class="hs-keyword">data</span><span> </span><span id="PendingResource"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#PendingResource"><span class="hs-identifier hs-var">PendingResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PendingResource%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#PendingResource%27"><span class="hs-identifier hs-var">PendingResource'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679176319"><span id="local-6989586621679176320"></span></span><span class="hs-keyword">data</span><span> </span><span id="PendingResource"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#PendingResource"><span class="hs-identifier hs-var">PendingResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PendingResource%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#PendingResource%27"><span class="hs-identifier hs-var">PendingResource'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon resource name (ARN) of the resource that\'s in a pending</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- state.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AresourceArn%3APendingResource%27"><span class="annot"><span class="annottext">PendingResource -&gt; Maybe Text
 </span><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#%24sel%3AresourceArn%3APendingResource%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176304"><span id="local-6989586621679176306"><span class="annot"><span class="annottext">PendingResource -&gt; PendingResource -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176313"><span id="local-6989586621679176315"><span class="annot"><span class="annottext">PendingResource -&gt; PendingResource -&gt; Bool
 (PendingResource -&gt; PendingResource -&gt; Bool)
 -&gt; (PendingResource -&gt; PendingResource -&gt; Bool)
 -&gt; Eq PendingResource
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PendingResource -&gt; PendingResource -&gt; Bool
 == :: PendingResource -&gt; PendingResource -&gt; Bool
 $c== :: PendingResource -&gt; PendingResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176295"><span id="local-6989586621679176297"><span id="local-6989586621679176299"><span id="local-6989586621679176301"><span class="annot"><span class="annottext">ReadPrec [PendingResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176304"><span id="local-6989586621679176306"><span id="local-6989586621679176308"><span id="local-6989586621679176310"><span class="annot"><span class="annottext">ReadPrec [PendingResource]
 ReadPrec PendingResource
 Int -&gt; ReadS PendingResource
 ReadS [PendingResource]
@@ -64,7 +64,7 @@ readList :: ReadS [PendingResource]
 $creadList :: ReadS [PendingResource]
 readsPrec :: Int -&gt; ReadS PendingResource
 $creadsPrec :: Int -&gt; ReadS PendingResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176288"><span id="local-6989586621679176290"><span id="local-6989586621679176292"><span class="annot"><span class="annottext">Int -&gt; PendingResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176297"><span id="local-6989586621679176299"><span id="local-6989586621679176301"><span class="annot"><span class="annottext">Int -&gt; PendingResource -&gt; ShowS
 [PendingResource] -&gt; ShowS
 PendingResource -&gt; String
 (Int -&gt; PendingResource -&gt; ShowS)
@@ -119,19 +119,19 @@ forall a. Maybe a
 -&gt; (PendingResource -&gt; Maybe Text -&gt; PendingResource)
 -&gt; Lens PendingResource PendingResource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#PendingResource%27"><span class="hs-identifier hs-type">PendingResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176279"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#PendingResource%27"><span class="hs-identifier hs-type">PendingResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176288"><span class="annot"><span class="annottext">Maybe Text
 resourceArn :: Maybe Text
 $sel:resourceArn:PendingResource' :: PendingResource -&gt; Maybe Text
-</span><a href="#local-6989586621679176279"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176279"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176278"><span class="annot"><span class="annottext">s :: PendingResource
-</span><a href="#local-6989586621679176278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#PendingResource%27"><span class="hs-identifier hs-type">PendingResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176277"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingResource
-</span><a href="#local-6989586621679176278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:PendingResource' :: Maybe Text
+</span><a href="#local-6989586621679176288"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176288"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176287"><span class="annot"><span class="annottext">s :: PendingResource
+</span><a href="#local-6989586621679176287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#PendingResource%27"><span class="hs-identifier hs-type">PendingResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176286"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingResource
+</span><a href="#local-6989586621679176287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:PendingResource' :: Maybe Text
 </span><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#%24sel%3AresourceArn%3APendingResource%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#PendingResource"><span class="hs-identifier hs-type">PendingResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#PendingResource"><span class="hs-identifier hs-type">PendingResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176274"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#PendingResource"><span class="hs-identifier hs-type">PendingResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679176272"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PendingResource
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176283"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#PendingResource"><span class="hs-identifier hs-type">PendingResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679176281"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PendingResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PendingResource)
@@ -141,21 +141,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PendingResource&quot;</span></span><span>
-</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176269"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679176269"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176278"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176278"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; PendingResource
 </span><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#PendingResource%27"><span class="hs-identifier hs-var">PendingResource'</span></a></span><span>
 </span><span id="line-65"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; PendingResource)
 -&gt; Parser (Maybe Text) -&gt; Parser PendingResource
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679176269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679176278"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176263"><span id="local-6989586621679176265"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#PendingResource"><span class="hs-identifier hs-type">PendingResource</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176272"><span id="local-6989586621679176274"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#PendingResource"><span class="hs-identifier hs-type">PendingResource</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176260"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#PendingResource"><span class="hs-identifier hs-type">PendingResource</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176269"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.PendingResource.html#PendingResource"><span class="hs-identifier hs-type">PendingResource</span></a></span></span><span>
 </span><span id="line-71"></span></pre></body></html>

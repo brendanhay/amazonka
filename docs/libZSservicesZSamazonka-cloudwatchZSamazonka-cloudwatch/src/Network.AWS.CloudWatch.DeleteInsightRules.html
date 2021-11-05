@@ -51,14 +51,14 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDeleteInsightRules' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679266549"><span id="local-6989586621679266550"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInsightRules"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules"><span class="hs-identifier hs-var">DeleteInsightRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInsightRules%27"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules%27"><span class="hs-identifier hs-var">DeleteInsightRules'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679266558"><span id="local-6989586621679266559"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInsightRules"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules"><span class="hs-identifier hs-var">DeleteInsightRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInsightRules%27"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules%27"><span class="hs-identifier hs-var">DeleteInsightRules'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of the rule names to delete. If you need to find out the names</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- of your rules, use</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules&gt;.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AruleNames%3ADeleteInsightRules%27"><span class="annot"><span class="annottext">DeleteInsightRules -&gt; [Text]
 </span><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#%24sel%3AruleNames%3ADeleteInsightRules%27"><span class="hs-identifier hs-var hs-var">ruleNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266543"><span id="local-6989586621679266545"><span class="annot"><span class="annottext">DeleteInsightRules -&gt; DeleteInsightRules -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266552"><span id="local-6989586621679266554"><span class="annot"><span class="annottext">DeleteInsightRules -&gt; DeleteInsightRules -&gt; Bool
 (DeleteInsightRules -&gt; DeleteInsightRules -&gt; Bool)
 -&gt; (DeleteInsightRules -&gt; DeleteInsightRules -&gt; Bool)
 -&gt; Eq DeleteInsightRules
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteInsightRules -&gt; DeleteInsightRules -&gt; Bool
 == :: DeleteInsightRules -&gt; DeleteInsightRules -&gt; Bool
 $c== :: DeleteInsightRules -&gt; DeleteInsightRules -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266534"><span id="local-6989586621679266536"><span id="local-6989586621679266538"><span id="local-6989586621679266540"><span class="annot"><span class="annottext">ReadPrec [DeleteInsightRules]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266543"><span id="local-6989586621679266545"><span id="local-6989586621679266547"><span id="local-6989586621679266549"><span class="annot"><span class="annottext">ReadPrec [DeleteInsightRules]
 ReadPrec DeleteInsightRules
 Int -&gt; ReadS DeleteInsightRules
 ReadS [DeleteInsightRules]
@@ -87,7 +87,7 @@ readList :: ReadS [DeleteInsightRules]
 $creadList :: ReadS [DeleteInsightRules]
 readsPrec :: Int -&gt; ReadS DeleteInsightRules
 $creadsPrec :: Int -&gt; ReadS DeleteInsightRules
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266527"><span id="local-6989586621679266529"><span id="local-6989586621679266531"><span class="annot"><span class="annottext">Int -&gt; DeleteInsightRules -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266536"><span id="local-6989586621679266538"><span id="local-6989586621679266540"><span class="annot"><span class="annottext">Int -&gt; DeleteInsightRules -&gt; ShowS
 [DeleteInsightRules] -&gt; ShowS
 DeleteInsightRules -&gt; String
 (Int -&gt; DeleteInsightRules -&gt; ShowS)
@@ -143,16 +143,16 @@ forall a. Monoid a =&gt; a
 -&gt; (DeleteInsightRules -&gt; [Text] -&gt; DeleteInsightRules)
 -&gt; Lens DeleteInsightRules DeleteInsightRules [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules%27"><span class="hs-identifier hs-type">DeleteInsightRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266520"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules%27"><span class="hs-identifier hs-type">DeleteInsightRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266529"><span class="annot"><span class="annottext">[Text]
 ruleNames :: [Text]
 $sel:ruleNames:DeleteInsightRules' :: DeleteInsightRules -&gt; [Text]
-</span><a href="#local-6989586621679266520"><span class="hs-identifier hs-var hs-var">ruleNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679266520"><span class="hs-identifier hs-var">ruleNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266519"><span class="annot"><span class="annottext">s :: DeleteInsightRules
-</span><a href="#local-6989586621679266519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules%27"><span class="hs-identifier hs-type">DeleteInsightRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266518"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679266518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInsightRules
-</span><a href="#local-6989586621679266519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleNames:DeleteInsightRules' :: [Text]
+</span><a href="#local-6989586621679266529"><span class="hs-identifier hs-var hs-var">ruleNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679266529"><span class="hs-identifier hs-var">ruleNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266528"><span class="annot"><span class="annottext">s :: DeleteInsightRules
+</span><a href="#local-6989586621679266528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules%27"><span class="hs-identifier hs-type">DeleteInsightRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266527"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679266527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInsightRules
+</span><a href="#local-6989586621679266528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleNames:DeleteInsightRules' :: [Text]
 </span><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#%24sel%3AruleNames%3ADeleteInsightRules%27"><span class="hs-identifier hs-var">ruleNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679266518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules"><span class="hs-identifier hs-type">DeleteInsightRules</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679266527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules"><span class="hs-identifier hs-type">DeleteInsightRules</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; DeleteInsightRules -&gt; f DeleteInsightRules)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -167,12 +167,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules"><span class="hs-identifier hs-type">DeleteInsightRules</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse"><span class="hs-identifier hs-type">DeleteInsightRulesResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679266512"><span class="annot"><span class="annottext">request :: DeleteInsightRules -&gt; Request DeleteInsightRules
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679266521"><span class="annot"><span class="annottext">request :: DeleteInsightRules -&gt; Request DeleteInsightRules
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteInsightRules -&gt; Request DeleteInsightRules
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679266508"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679266517"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteInsightRules
 -&gt; ClientResponse ClientBody
@@ -203,10 +203,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteInsightRulesResult&quot;</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266505"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266505"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679266504"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679266504"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679266503"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679266503"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266514"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266514"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679266513"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679266513"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679266512"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679266512"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PartialFailure] -&gt; Int -&gt; DeleteInsightRulesResponse
 </span><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse%27"><span class="hs-identifier hs-var">DeleteInsightRulesResponse'</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PartialFailure] -&gt; Int -&gt; DeleteInsightRulesResponse)
@@ -214,7 +214,7 @@ Text
 -&gt; Either String (Int -&gt; DeleteInsightRulesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679266503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679266512"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Failures&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -244,15 +244,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266505"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266514"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266492"><span id="local-6989586621679266494"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules"><span class="hs-identifier hs-type">DeleteInsightRules</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266501"><span id="local-6989586621679266503"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules"><span class="hs-identifier hs-type">DeleteInsightRules</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266489"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules"><span class="hs-identifier hs-type">DeleteInsightRules</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules"><span class="hs-identifier hs-type">DeleteInsightRules</span></a></span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules"><span class="hs-identifier hs-type">DeleteInsightRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679266485"><span class="annot"><span class="annottext">toHeaders :: DeleteInsightRules -&gt; ResponseHeaders
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679266494"><span class="annot"><span class="annottext">toHeaders :: DeleteInsightRules -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteInsightRules -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -260,18 +260,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules"><span class="hs-identifier hs-type">DeleteInsightRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679266480"><span class="annot"><span class="annottext">toPath :: DeleteInsightRules -&gt; ByteString
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679266489"><span class="annot"><span class="annottext">toPath :: DeleteInsightRules -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteInsightRules -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules"><span class="hs-identifier hs-type">DeleteInsightRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679266476"><span class="annot"><span class="annottext">toQuery :: DeleteInsightRules -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules%27"><span class="hs-identifier hs-type">DeleteInsightRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266474"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679266485"><span class="annot"><span class="annottext">toQuery :: DeleteInsightRules -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRules%27"><span class="hs-identifier hs-type">DeleteInsightRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266483"><span class="annot"><span class="annottext">[Text]
 ruleNames :: [Text]
 $sel:ruleNames:DeleteInsightRules' :: DeleteInsightRules -&gt; [Text]
-</span><a href="#local-6989586621679266474"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679266483"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -297,11 +297,11 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679266474"><span class="hs-identifier hs-var">ruleNames</span></a></span><span>
+</span><a href="#local-6989586621679266483"><span class="hs-identifier hs-var">ruleNames</span></a></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newDeleteInsightRulesResponse' smart constructor.</span><span>
-</span><span id="line-122"></span><span id="local-6989586621679266470"><span id="local-6989586621679266471"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInsightRulesResponse"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse"><span class="hs-identifier hs-var">DeleteInsightRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInsightRulesResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse%27"><span class="hs-identifier hs-var">DeleteInsightRulesResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span id="local-6989586621679266479"><span id="local-6989586621679266480"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteInsightRulesResponse"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse"><span class="hs-identifier hs-var">DeleteInsightRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteInsightRulesResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse%27"><span class="hs-identifier hs-var">DeleteInsightRulesResponse'</span></a></span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array listing the rules that could not be deleted. You cannot delete</span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-comment">-- built-in rules.</span><span>
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3Afailures%3ADeleteInsightRulesResponse%27"><span class="annot"><span class="annottext">DeleteInsightRulesResponse -&gt; Maybe [PartialFailure]
@@ -310,7 +310,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteInsightRulesResponse%27"><span class="annot"><span class="annottext">DeleteInsightRulesResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#%24sel%3AhttpStatus%3ADeleteInsightRulesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266464"><span id="local-6989586621679266466"><span class="annot"><span class="annottext">DeleteInsightRulesResponse -&gt; DeleteInsightRulesResponse -&gt; Bool
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266473"><span id="local-6989586621679266475"><span class="annot"><span class="annottext">DeleteInsightRulesResponse -&gt; DeleteInsightRulesResponse -&gt; Bool
 (DeleteInsightRulesResponse -&gt; DeleteInsightRulesResponse -&gt; Bool)
 -&gt; (DeleteInsightRulesResponse
     -&gt; DeleteInsightRulesResponse -&gt; Bool)
@@ -320,7 +320,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteInsightRulesResponse -&gt; DeleteInsightRulesResponse -&gt; Bool
 == :: DeleteInsightRulesResponse -&gt; DeleteInsightRulesResponse -&gt; Bool
 $c== :: DeleteInsightRulesResponse -&gt; DeleteInsightRulesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266456"><span id="local-6989586621679266458"><span id="local-6989586621679266460"><span id="local-6989586621679266462"><span class="annot"><span class="annottext">ReadPrec [DeleteInsightRulesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266465"><span id="local-6989586621679266467"><span id="local-6989586621679266469"><span id="local-6989586621679266471"><span class="annot"><span class="annottext">ReadPrec [DeleteInsightRulesResponse]
 ReadPrec DeleteInsightRulesResponse
 Int -&gt; ReadS DeleteInsightRulesResponse
 ReadS [DeleteInsightRulesResponse]
@@ -340,7 +340,7 @@ readList :: ReadS [DeleteInsightRulesResponse]
 $creadList :: ReadS [DeleteInsightRulesResponse]
 readsPrec :: Int -&gt; ReadS DeleteInsightRulesResponse
 $creadsPrec :: Int -&gt; ReadS DeleteInsightRulesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266450"><span id="local-6989586621679266452"><span id="local-6989586621679266454"><span class="annot"><span class="annottext">Int -&gt; DeleteInsightRulesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266459"><span id="local-6989586621679266461"><span id="local-6989586621679266463"><span class="annot"><span class="annottext">Int -&gt; DeleteInsightRulesResponse -&gt; ShowS
 [DeleteInsightRulesResponse] -&gt; ShowS
 DeleteInsightRulesResponse -&gt; String
 (Int -&gt; DeleteInsightRulesResponse -&gt; ShowS)
@@ -389,8 +389,8 @@ DeleteInsightRulesResponse -&gt; Rep DeleteInsightRulesResponse x
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse"><span class="hs-identifier hs-type">DeleteInsightRulesResponse</span></a></span><span>
 </span><span id="line-147"></span><span id="newDeleteInsightRulesResponse"><span class="annot"><span class="annottext">newDeleteInsightRulesResponse :: Int -&gt; DeleteInsightRulesResponse
-</span><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#newDeleteInsightRulesResponse"><span class="hs-identifier hs-var hs-var">newDeleteInsightRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679266447"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266447"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#newDeleteInsightRulesResponse"><span class="hs-identifier hs-var hs-var">newDeleteInsightRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679266456"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266456"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">DeleteInsightRulesResponse' :: Maybe [PartialFailure] -&gt; Int -&gt; DeleteInsightRulesResponse
 </span><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse%27"><span class="hs-identifier hs-type">DeleteInsightRulesResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failures:DeleteInsightRulesResponse' :: Maybe [PartialFailure]
@@ -400,7 +400,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInsightRulesResponse' :: Int
 </span><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#%24sel%3AhttpStatus%3ADeleteInsightRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266447"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679266456"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | An array listing the rules that could not be deleted. You cannot delete</span><span>
@@ -417,16 +417,16 @@ forall a. Maybe a
      (Maybe [PartialFailure])
      (Maybe [PartialFailure])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse%27"><span class="hs-identifier hs-type">DeleteInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266446"><span class="annot"><span class="annottext">Maybe [PartialFailure]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse%27"><span class="hs-identifier hs-type">DeleteInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266455"><span class="annot"><span class="annottext">Maybe [PartialFailure]
 failures :: Maybe [PartialFailure]
 $sel:failures:DeleteInsightRulesResponse' :: DeleteInsightRulesResponse -&gt; Maybe [PartialFailure]
-</span><a href="#local-6989586621679266446"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PartialFailure]
-</span><a href="#local-6989586621679266446"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266445"><span class="annot"><span class="annottext">s :: DeleteInsightRulesResponse
-</span><a href="#local-6989586621679266445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse%27"><span class="hs-identifier hs-type">DeleteInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266444"><span class="annot"><span class="annottext">Maybe [PartialFailure]
-</span><a href="#local-6989586621679266444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInsightRulesResponse
-</span><a href="#local-6989586621679266445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:DeleteInsightRulesResponse' :: Maybe [PartialFailure]
+</span><a href="#local-6989586621679266455"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PartialFailure]
+</span><a href="#local-6989586621679266455"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266454"><span class="annot"><span class="annottext">s :: DeleteInsightRulesResponse
+</span><a href="#local-6989586621679266454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse%27"><span class="hs-identifier hs-type">DeleteInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266453"><span class="annot"><span class="annottext">Maybe [PartialFailure]
+</span><a href="#local-6989586621679266453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInsightRulesResponse
+</span><a href="#local-6989586621679266454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:DeleteInsightRulesResponse' :: Maybe [PartialFailure]
 </span><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#%24sel%3Afailures%3ADeleteInsightRulesResponse%27"><span class="hs-identifier hs-var">failures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PartialFailure]
-</span><a href="#local-6989586621679266444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse"><span class="hs-identifier hs-type">DeleteInsightRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PartialFailure] -&gt; f (Maybe [PartialFailure]))
+</span><a href="#local-6989586621679266453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse"><span class="hs-identifier hs-type">DeleteInsightRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PartialFailure] -&gt; f (Maybe [PartialFailure]))
  -&gt; DeleteInsightRulesResponse -&gt; f DeleteInsightRulesResponse)
 -&gt; ((Maybe [PartialFailure] -&gt; f (Maybe [PartialFailure]))
     -&gt; Maybe [PartialFailure] -&gt; f (Maybe [PartialFailure]))
@@ -459,16 +459,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DeleteInsightRulesResponse DeleteInsightRulesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse%27"><span class="hs-identifier hs-type">DeleteInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266442"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse%27"><span class="hs-identifier hs-type">DeleteInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266451"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteInsightRulesResponse' :: DeleteInsightRulesResponse -&gt; Int
-</span><a href="#local-6989586621679266442"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266442"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266441"><span class="annot"><span class="annottext">s :: DeleteInsightRulesResponse
-</span><a href="#local-6989586621679266441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse%27"><span class="hs-identifier hs-type">DeleteInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266440"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInsightRulesResponse
-</span><a href="#local-6989586621679266441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInsightRulesResponse' :: Int
+</span><a href="#local-6989586621679266451"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266451"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266450"><span class="annot"><span class="annottext">s :: DeleteInsightRulesResponse
+</span><a href="#local-6989586621679266450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse%27"><span class="hs-identifier hs-type">DeleteInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266449"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteInsightRulesResponse
+</span><a href="#local-6989586621679266450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteInsightRulesResponse' :: Int
 </span><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#%24sel%3AhttpStatus%3ADeleteInsightRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse"><span class="hs-identifier hs-type">DeleteInsightRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse"><span class="hs-identifier hs-type">DeleteInsightRulesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266438"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse"><span class="hs-identifier hs-type">DeleteInsightRulesResponse</span></a></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteInsightRules.html#DeleteInsightRulesResponse"><span class="hs-identifier hs-type">DeleteInsightRulesResponse</span></a></span></span><span>
 </span><span id="line-164"></span></pre></body></html>

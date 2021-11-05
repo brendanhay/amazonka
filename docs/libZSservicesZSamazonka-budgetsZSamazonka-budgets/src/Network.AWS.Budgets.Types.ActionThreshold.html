@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The trigger threshold of the action.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newActionThreshold' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679208849"><span id="local-6989586621679208850"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionThreshold"><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold"><span class="hs-identifier hs-var">ActionThreshold</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionThreshold%27"><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold%27"><span class="hs-identifier hs-var">ActionThreshold'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679208858"><span id="local-6989586621679208859"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionThreshold"><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold"><span class="hs-identifier hs-var">ActionThreshold</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionThreshold%27"><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold%27"><span class="hs-identifier hs-var">ActionThreshold'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AactionThresholdValue%3AActionThreshold%27"><span class="annot"><span class="annottext">ActionThreshold -&gt; Double
 </span><a href="Network.AWS.Budgets.Types.ActionThreshold.html#%24sel%3AactionThresholdValue%3AActionThreshold%27"><span class="hs-identifier hs-var hs-var">actionThresholdValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AactionThresholdType%3AActionThreshold%27"><span class="annot"><span class="annottext">ActionThreshold -&gt; ThresholdType
 </span><a href="Network.AWS.Budgets.Types.ActionThreshold.html#%24sel%3AactionThresholdType%3AActionThreshold%27"><span class="hs-identifier hs-var hs-var">actionThresholdType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ThresholdType.html#ThresholdType"><span class="hs-identifier hs-type">ThresholdType</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208842"><span id="local-6989586621679208844"><span class="annot"><span class="annottext">ActionThreshold -&gt; ActionThreshold -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208851"><span id="local-6989586621679208853"><span class="annot"><span class="annottext">ActionThreshold -&gt; ActionThreshold -&gt; Bool
 (ActionThreshold -&gt; ActionThreshold -&gt; Bool)
 -&gt; (ActionThreshold -&gt; ActionThreshold -&gt; Bool)
 -&gt; Eq ActionThreshold
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActionThreshold -&gt; ActionThreshold -&gt; Bool
 == :: ActionThreshold -&gt; ActionThreshold -&gt; Bool
 $c== :: ActionThreshold -&gt; ActionThreshold -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208833"><span id="local-6989586621679208835"><span id="local-6989586621679208837"><span id="local-6989586621679208839"><span class="annot"><span class="annottext">ReadPrec [ActionThreshold]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208842"><span id="local-6989586621679208844"><span id="local-6989586621679208846"><span id="local-6989586621679208848"><span class="annot"><span class="annottext">ReadPrec [ActionThreshold]
 ReadPrec ActionThreshold
 Int -&gt; ReadS ActionThreshold
 ReadS [ActionThreshold]
@@ -62,7 +62,7 @@ readList :: ReadS [ActionThreshold]
 $creadList :: ReadS [ActionThreshold]
 readsPrec :: Int -&gt; ReadS ActionThreshold
 $creadsPrec :: Int -&gt; ReadS ActionThreshold
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208826"><span id="local-6989586621679208828"><span id="local-6989586621679208830"><span class="annot"><span class="annottext">Int -&gt; ActionThreshold -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208835"><span id="local-6989586621679208837"><span id="local-6989586621679208839"><span class="annot"><span class="annottext">Int -&gt; ActionThreshold -&gt; ShowS
 [ActionThreshold] -&gt; ShowS
 ActionThreshold -&gt; String
 (Int -&gt; ActionThreshold -&gt; ShowS)
@@ -107,19 +107,19 @@ $cfrom :: forall x. ActionThreshold -&gt; Rep ActionThreshold x
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold"><span class="hs-identifier hs-type">ActionThreshold</span></a></span><span>
 </span><span id="line-53"></span><span id="newActionThreshold"><span class="annot"><span class="annottext">newActionThreshold :: Double -&gt; ThresholdType -&gt; ActionThreshold
 </span><a href="Network.AWS.Budgets.Types.ActionThreshold.html#newActionThreshold"><span class="hs-identifier hs-var hs-var">newActionThreshold</span></a></span></span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679208820"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679208820"><span class="hs-identifier hs-var">pActionThresholdValue_</span></a></span></span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679208819"><span class="annot"><span class="annottext">ThresholdType
-</span><a href="#local-6989586621679208819"><span class="hs-identifier hs-var">pActionThresholdType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679208829"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679208829"><span class="hs-identifier hs-var">pActionThresholdValue_</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679208828"><span class="annot"><span class="annottext">ThresholdType
+</span><a href="#local-6989586621679208828"><span class="hs-identifier hs-var">pActionThresholdType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">ActionThreshold' :: Double -&gt; ThresholdType -&gt; ActionThreshold
 </span><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold%27"><span class="hs-identifier hs-type">ActionThreshold'</span></a></span><span>
 </span><span id="line-57"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:actionThresholdValue:ActionThreshold' :: Double
 </span><a href="Network.AWS.Budgets.Types.ActionThreshold.html#%24sel%3AactionThresholdValue%3AActionThreshold%27"><span class="hs-identifier hs-var">actionThresholdValue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679208820"><span class="hs-identifier hs-var">pActionThresholdValue_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679208829"><span class="hs-identifier hs-var">pActionThresholdValue_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">$sel:actionThresholdType:ActionThreshold' :: ThresholdType
 </span><a href="Network.AWS.Budgets.Types.ActionThreshold.html#%24sel%3AactionThresholdType%3AActionThreshold%27"><span class="hs-identifier hs-var">actionThresholdType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ThresholdType
-</span><a href="#local-6989586621679208819"><span class="hs-identifier hs-var">pActionThresholdType_</span></a></span><span>
+</span><a href="#local-6989586621679208828"><span class="hs-identifier hs-var">pActionThresholdType_</span></a></span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -129,16 +129,16 @@ $cfrom :: forall x. ActionThreshold -&gt; Rep ActionThreshold x
 -&gt; (ActionThreshold -&gt; Double -&gt; ActionThreshold)
 -&gt; Lens ActionThreshold ActionThreshold Double Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold%27"><span class="hs-identifier hs-type">ActionThreshold'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208815"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold%27"><span class="hs-identifier hs-type">ActionThreshold'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208824"><span class="annot"><span class="annottext">Double
 actionThresholdValue :: Double
 $sel:actionThresholdValue:ActionThreshold' :: ActionThreshold -&gt; Double
-</span><a href="#local-6989586621679208815"><span class="hs-identifier hs-var hs-var">actionThresholdValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679208815"><span class="hs-identifier hs-var">actionThresholdValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208814"><span class="annot"><span class="annottext">s :: ActionThreshold
-</span><a href="#local-6989586621679208814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold%27"><span class="hs-identifier hs-type">ActionThreshold'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208813"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679208813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionThreshold
-</span><a href="#local-6989586621679208814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionThresholdValue:ActionThreshold' :: Double
+</span><a href="#local-6989586621679208824"><span class="hs-identifier hs-var hs-var">actionThresholdValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679208824"><span class="hs-identifier hs-var">actionThresholdValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208823"><span class="annot"><span class="annottext">s :: ActionThreshold
+</span><a href="#local-6989586621679208823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold%27"><span class="hs-identifier hs-type">ActionThreshold'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208822"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679208822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionThreshold
+</span><a href="#local-6989586621679208823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionThresholdValue:ActionThreshold' :: Double
 </span><a href="Network.AWS.Budgets.Types.ActionThreshold.html#%24sel%3AactionThresholdValue%3AActionThreshold%27"><span class="hs-identifier hs-var">actionThresholdValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679208813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold"><span class="hs-identifier hs-type">ActionThreshold</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold"><span class="hs-identifier hs-type">ActionThreshold</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#actionThreshold_actionThresholdType"><span class="hs-identifier hs-type">actionThreshold_actionThresholdType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold"><span class="hs-identifier hs-type">ActionThreshold</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ThresholdType.html#ThresholdType"><span class="hs-identifier hs-type">ThresholdType</span></a></span><span>
@@ -148,19 +148,19 @@ $sel:actionThresholdValue:ActionThreshold' :: ActionThreshold -&gt; Double
 -&gt; (ActionThreshold -&gt; ThresholdType -&gt; ActionThreshold)
 -&gt; Lens ActionThreshold ActionThreshold ThresholdType ThresholdType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold%27"><span class="hs-identifier hs-type">ActionThreshold'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208811"><span class="annot"><span class="annottext">ThresholdType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold%27"><span class="hs-identifier hs-type">ActionThreshold'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208820"><span class="annot"><span class="annottext">ThresholdType
 actionThresholdType :: ThresholdType
 $sel:actionThresholdType:ActionThreshold' :: ActionThreshold -&gt; ThresholdType
-</span><a href="#local-6989586621679208811"><span class="hs-identifier hs-var hs-var">actionThresholdType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThresholdType
-</span><a href="#local-6989586621679208811"><span class="hs-identifier hs-var">actionThresholdType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208810"><span class="annot"><span class="annottext">s :: ActionThreshold
-</span><a href="#local-6989586621679208810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold%27"><span class="hs-identifier hs-type">ActionThreshold'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208809"><span class="annot"><span class="annottext">ThresholdType
-</span><a href="#local-6989586621679208809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionThreshold
-</span><a href="#local-6989586621679208810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionThresholdType:ActionThreshold' :: ThresholdType
+</span><a href="#local-6989586621679208820"><span class="hs-identifier hs-var hs-var">actionThresholdType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThresholdType
+</span><a href="#local-6989586621679208820"><span class="hs-identifier hs-var">actionThresholdType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208819"><span class="annot"><span class="annottext">s :: ActionThreshold
+</span><a href="#local-6989586621679208819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold%27"><span class="hs-identifier hs-type">ActionThreshold'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208818"><span class="annot"><span class="annottext">ThresholdType
+</span><a href="#local-6989586621679208818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionThreshold
+</span><a href="#local-6989586621679208819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionThresholdType:ActionThreshold' :: ThresholdType
 </span><a href="Network.AWS.Budgets.Types.ActionThreshold.html#%24sel%3AactionThresholdType%3AActionThreshold%27"><span class="hs-identifier hs-var">actionThresholdType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ThresholdType
-</span><a href="#local-6989586621679208809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold"><span class="hs-identifier hs-type">ActionThreshold</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold"><span class="hs-identifier hs-type">ActionThreshold</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208806"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold"><span class="hs-identifier hs-type">ActionThreshold</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679208804"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionThreshold
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208815"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold"><span class="hs-identifier hs-type">ActionThreshold</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679208813"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionThreshold
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ActionThreshold)
@@ -170,15 +170,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ActionThreshold&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679208801"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679208801"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679208810"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679208810"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Double -&gt; ThresholdType -&gt; ActionThreshold
 </span><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold%27"><span class="hs-identifier hs-var">ActionThreshold'</span></a></span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Double -&gt; ThresholdType -&gt; ActionThreshold)
 -&gt; Parser Double -&gt; Parser (ThresholdType -&gt; ActionThreshold)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679208801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+</span><a href="#local-6989586621679208810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ActionThresholdValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -186,25 +186,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ThresholdType -&gt; Parser ActionThreshold
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679208801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ThresholdType
+</span><a href="#local-6989586621679208810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ThresholdType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ActionThresholdType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208795"><span id="local-6989586621679208797"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold"><span class="hs-identifier hs-type">ActionThreshold</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208804"><span id="local-6989586621679208806"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold"><span class="hs-identifier hs-type">ActionThreshold</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208792"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold"><span class="hs-identifier hs-type">ActionThreshold</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208801"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold"><span class="hs-identifier hs-type">ActionThreshold</span></a></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208784"><span id="local-6989586621679208786"><span id="local-6989586621679208788"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold"><span class="hs-identifier hs-type">ActionThreshold</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679208782"><span class="annot"><span class="annottext">toJSON :: ActionThreshold -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold%27"><span class="hs-identifier hs-type">ActionThreshold'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208779"><span id="local-6989586621679208780"><span class="annot"><span class="annottext">Double
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208793"><span id="local-6989586621679208795"><span id="local-6989586621679208797"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold"><span class="hs-identifier hs-type">ActionThreshold</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679208791"><span class="annot"><span class="annottext">toJSON :: ActionThreshold -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionThreshold.html#ActionThreshold%27"><span class="hs-identifier hs-type">ActionThreshold'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208788"><span id="local-6989586621679208789"><span class="annot"><span class="annottext">Double
 ThresholdType
 actionThresholdType :: ThresholdType
 actionThresholdValue :: Double
 $sel:actionThresholdType:ActionThreshold' :: ActionThreshold -&gt; ThresholdType
 $sel:actionThresholdValue:ActionThreshold' :: ActionThreshold -&gt; Double
-</span><a href="#local-6989586621679208779"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679208788"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -218,7 +218,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-90"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679208780"><span class="hs-identifier hs-var">actionThresholdValue</span></a></span><span>
+</span><a href="#local-6989586621679208789"><span class="hs-identifier hs-var">actionThresholdValue</span></a></span><span>
 </span><span id="line-91"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -227,7 +227,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ActionThresholdType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ThresholdType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ThresholdType
-</span><a href="#local-6989586621679208779"><span class="hs-identifier hs-var">actionThresholdType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208788"><span class="hs-identifier hs-var">actionThresholdType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span></pre></body></html>

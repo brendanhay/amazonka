@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- removing a node, or rebooting a node.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newEvent' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679196199"><span id="local-6989586621679196200"></span></span><span class="hs-keyword">data</span><span> </span><span id="Event"><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event"><span class="hs-identifier hs-var">Event</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Event%27"><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-var">Event'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679196208"><span id="local-6989586621679196209"></span></span><span class="hs-keyword">data</span><span> </span><span id="Event"><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event"><span class="hs-identifier hs-var">Event</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Event%27"><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-var">Event'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The source of the event. For example, if the event occurred at the node</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- level, the source would be the node ID.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AsourceName%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
@@ -45,14 +45,14 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Amessage%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
 </span><a href="Network.AWS.DAX.Types.Event.html#%24sel%3Amessage%3AEvent%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196190"><span id="local-6989586621679196192"><span class="annot"><span class="annottext">Event -&gt; Event -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196199"><span id="local-6989586621679196201"><span class="annot"><span class="annottext">Event -&gt; Event -&gt; Bool
 (Event -&gt; Event -&gt; Bool) -&gt; (Event -&gt; Event -&gt; Bool) -&gt; Eq Event
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Event -&gt; Event -&gt; Bool
 $c/= :: Event -&gt; Event -&gt; Bool
 == :: Event -&gt; Event -&gt; Bool
 $c== :: Event -&gt; Event -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196181"><span id="local-6989586621679196183"><span id="local-6989586621679196185"><span id="local-6989586621679196187"><span class="annot"><span class="annottext">ReadPrec [Event]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196190"><span id="local-6989586621679196192"><span id="local-6989586621679196194"><span id="local-6989586621679196196"><span class="annot"><span class="annottext">ReadPrec [Event]
 ReadPrec Event
 Int -&gt; ReadS Event
 ReadS [Event]
@@ -72,7 +72,7 @@ readList :: ReadS [Event]
 $creadList :: ReadS [Event]
 readsPrec :: Int -&gt; ReadS Event
 $creadsPrec :: Int -&gt; ReadS Event
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196174"><span id="local-6989586621679196176"><span id="local-6989586621679196178"><span class="annot"><span class="annottext">Int -&gt; Event -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196183"><span id="local-6989586621679196185"><span id="local-6989586621679196187"><span class="annot"><span class="annottext">Int -&gt; Event -&gt; ShowS
 [Event] -&gt; ShowS
 Event -&gt; String
 (Int -&gt; Event -&gt; ShowS)
@@ -145,16 +145,16 @@ forall a. Maybe a
 -&gt; (Event -&gt; Maybe Text -&gt; Event)
 -&gt; Lens Event Event (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196165"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196174"><span class="annot"><span class="annottext">Maybe Text
 sourceName :: Maybe Text
 $sel:sourceName:Event' :: Event -&gt; Maybe Text
-</span><a href="#local-6989586621679196165"><span class="hs-identifier hs-var hs-var">sourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196165"><span class="hs-identifier hs-var">sourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196164"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679196164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196163"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679196164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceName:Event' :: Maybe Text
+</span><a href="#local-6989586621679196174"><span class="hs-identifier hs-var hs-var">sourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196174"><span class="hs-identifier hs-var">sourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196173"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679196173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196172"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679196173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceName:Event' :: Maybe Text
 </span><a href="Network.AWS.DAX.Types.Event.html#%24sel%3AsourceName%3AEvent%27"><span class="hs-identifier hs-var">sourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | Specifies the origin of this event - a cluster, a parameter group, a</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- node ID, etc.</span><span>
@@ -164,16 +164,16 @@ $sel:sourceName:Event' :: Event -&gt; Maybe Text
 -&gt; (Event -&gt; Maybe SourceType -&gt; Event)
 -&gt; Lens Event Event (Maybe SourceType) (Maybe SourceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196161"><span class="annot"><span class="annottext">Maybe SourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196170"><span class="annot"><span class="annottext">Maybe SourceType
 sourceType :: Maybe SourceType
 $sel:sourceType:Event' :: Event -&gt; Maybe SourceType
-</span><a href="#local-6989586621679196161"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceType
-</span><a href="#local-6989586621679196161"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196160"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679196160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196159"><span class="annot"><span class="annottext">Maybe SourceType
-</span><a href="#local-6989586621679196159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679196160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:Event' :: Maybe SourceType
+</span><a href="#local-6989586621679196170"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceType
+</span><a href="#local-6989586621679196170"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196169"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679196169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196168"><span class="annot"><span class="annottext">Maybe SourceType
+</span><a href="#local-6989586621679196168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679196169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:Event' :: Maybe SourceType
 </span><a href="Network.AWS.DAX.Types.Event.html#%24sel%3AsourceType%3AEvent%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceType
-</span><a href="#local-6989586621679196159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The date and time when the event occurred.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#event_date"><span class="hs-identifier hs-type">event_date</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -182,16 +182,16 @@ $sel:sourceType:Event' :: Event -&gt; Maybe SourceType
 -&gt; (Event -&gt; Maybe POSIX -&gt; Event)
 -&gt; Lens Event Event (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196157"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196166"><span class="annot"><span class="annottext">Maybe POSIX
 date :: Maybe POSIX
 $sel:date:Event' :: Event -&gt; Maybe POSIX
-</span><a href="#local-6989586621679196157"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679196157"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196156"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679196156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196155"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679196155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679196156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:date:Event' :: Maybe POSIX
+</span><a href="#local-6989586621679196166"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679196166"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196165"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679196165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196164"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679196164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679196165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:date:Event' :: Maybe POSIX
 </span><a href="Network.AWS.DAX.Types.Event.html#%24sel%3Adate%3AEvent%27"><span class="hs-identifier hs-var">date</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679196155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Event -&gt; f Event)
+</span><a href="#local-6989586621679196164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Event -&gt; f Event)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -214,27 +214,27 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (Event -&gt; Maybe Text -&gt; Event)
 -&gt; Lens Event Event (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196150"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196159"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:Event' :: Event -&gt; Maybe Text
-</span><a href="#local-6989586621679196150"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196150"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196149"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679196149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196148"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679196149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:Event' :: Maybe Text
+</span><a href="#local-6989586621679196159"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196159"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196158"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679196158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196157"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679196158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:Event' :: Maybe Text
 </span><a href="Network.AWS.DAX.Types.Event.html#%24sel%3Amessage%3AEvent%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196145"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679196143"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Event
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196154"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679196152"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Event
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Event) -&gt; Value -&gt; Parser Event
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Event&quot;</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679196140"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196140"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679196149"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679196149"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe SourceType -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Event
 </span><a href="Network.AWS.DAX.Types.Event.html#Event%27"><span class="hs-identifier hs-var">Event'</span></a></span><span>
@@ -244,7 +244,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe SourceType -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Event)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196140"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679196149"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceName&quot;</span></span><span class="hs-special">)</span><span>
@@ -253,7 +253,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; Event)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196140"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceType)
+</span><a href="#local-6989586621679196149"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceType&quot;</span></span><span class="hs-special">)</span><span>
@@ -261,20 +261,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; Event)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196140"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679196149"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Date&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Event) -&gt; Parser (Maybe Text) -&gt; Parser Event
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196140"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679196149"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196134"><span id="local-6989586621679196136"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196143"><span id="local-6989586621679196145"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196131"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196140"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span>
 </span><span id="line-106"></span></pre></body></html>

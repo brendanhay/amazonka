@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Internal.html"><span class="hs-identifier">Network.AWS.Redshift.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679491739"><span id="local-6989586621679491740"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataShareStatusForConsumer"><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareStatusForConsumer.html#DataShareStatusForConsumer"><span class="hs-identifier hs-var">DataShareStatusForConsumer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataShareStatusForConsumer%27"><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareStatusForConsumer.html#DataShareStatusForConsumer%27"><span class="hs-identifier hs-var">DataShareStatusForConsumer'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679491748"><span id="local-6989586621679491749"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataShareStatusForConsumer"><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareStatusForConsumer.html#DataShareStatusForConsumer"><span class="hs-identifier hs-var">DataShareStatusForConsumer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataShareStatusForConsumer%27"><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareStatusForConsumer.html#DataShareStatusForConsumer%27"><span class="hs-identifier hs-var">DataShareStatusForConsumer'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDataShareStatusForConsumer"><span class="annot"><span class="annottext">DataShareStatusForConsumer -&gt; Text
 </span><a href="Network.AWS.Redshift.Types.DataShareStatusForConsumer.html#fromDataShareStatusForConsumer"><span class="hs-identifier hs-var hs-var">fromDataShareStatusForConsumer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679491731"><span id="local-6989586621679491733"><span id="local-6989586621679491735"><span class="annot"><span class="annottext">Int -&gt; DataShareStatusForConsumer -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679491740"><span id="local-6989586621679491742"><span id="local-6989586621679491744"><span class="annot"><span class="annottext">Int -&gt; DataShareStatusForConsumer -&gt; ShowS
 [DataShareStatusForConsumer] -&gt; ShowS
 DataShareStatusForConsumer -&gt; String
 (Int -&gt; DataShareStatusForConsumer -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: DataShareStatusForConsumer -&gt; String
 showsPrec :: Int -&gt; DataShareStatusForConsumer -&gt; ShowS
 $cshowsPrec :: Int -&gt; DataShareStatusForConsumer -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679491722"><span id="local-6989586621679491724"><span id="local-6989586621679491726"><span id="local-6989586621679491728"><span class="annot"><span class="annottext">ReadPrec [DataShareStatusForConsumer]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679491731"><span id="local-6989586621679491733"><span id="local-6989586621679491735"><span id="local-6989586621679491737"><span class="annot"><span class="annottext">ReadPrec [DataShareStatusForConsumer]
 ReadPrec DataShareStatusForConsumer
 Int -&gt; ReadS DataShareStatusForConsumer
 ReadS [DataShareStatusForConsumer]
@@ -73,7 +73,7 @@ $creadList :: ReadS [DataShareStatusForConsumer]
 readsPrec :: Int -&gt; ReadS DataShareStatusForConsumer
 $creadsPrec :: Int -&gt; ReadS DataShareStatusForConsumer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679491717"><span id="local-6989586621679491719"><span class="annot"><span class="annottext">DataShareStatusForConsumer -&gt; DataShareStatusForConsumer -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679491726"><span id="local-6989586621679491728"><span class="annot"><span class="annottext">DataShareStatusForConsumer -&gt; DataShareStatusForConsumer -&gt; Bool
 (DataShareStatusForConsumer -&gt; DataShareStatusForConsumer -&gt; Bool)
 -&gt; (DataShareStatusForConsumer
     -&gt; DataShareStatusForConsumer -&gt; Bool)
@@ -84,7 +84,7 @@ $c/= :: DataShareStatusForConsumer -&gt; DataShareStatusForConsumer -&gt; Bool
 == :: DataShareStatusForConsumer -&gt; DataShareStatusForConsumer -&gt; Bool
 $c== :: DataShareStatusForConsumer -&gt; DataShareStatusForConsumer -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679491701"><span id="local-6989586621679491703"><span id="local-6989586621679491705"><span id="local-6989586621679491707"><span id="local-6989586621679491709"><span id="local-6989586621679491711"><span id="local-6989586621679491713"><span class="annot"><span class="annottext">Eq DataShareStatusForConsumer
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679491710"><span id="local-6989586621679491712"><span id="local-6989586621679491714"><span id="local-6989586621679491716"><span id="local-6989586621679491718"><span id="local-6989586621679491720"><span id="local-6989586621679491722"><span class="annot"><span class="annottext">Eq DataShareStatusForConsumer
 Eq DataShareStatusForConsumer
 -&gt; (DataShareStatusForConsumer
     -&gt; DataShareStatusForConsumer -&gt; Ordering)
@@ -156,7 +156,7 @@ DataShareStatusForConsumer -&gt; Rep DataShareStatusForConsumer x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679491693"><span id="local-6989586621679491695"><span class="annot"><span class="annottext">Int -&gt; DataShareStatusForConsumer -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679491702"><span id="local-6989586621679491704"><span class="annot"><span class="annottext">Int -&gt; DataShareStatusForConsumer -&gt; Int
 DataShareStatusForConsumer -&gt; Int
 (Int -&gt; DataShareStatusForConsumer -&gt; Int)
 -&gt; (DataShareStatusForConsumer -&gt; Int)
@@ -167,56 +167,56 @@ $chash :: DataShareStatusForConsumer -&gt; Int
 hashWithSalt :: Int -&gt; DataShareStatusForConsumer -&gt; Int
 $chashWithSalt :: Int -&gt; DataShareStatusForConsumer -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679491690"><span class="annot"><span class="annottext">DataShareStatusForConsumer -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679491699"><span class="annot"><span class="annottext">DataShareStatusForConsumer -&gt; ()
 (DataShareStatusForConsumer -&gt; ())
 -&gt; NFData DataShareStatusForConsumer
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DataShareStatusForConsumer -&gt; ()
 $crnf :: DataShareStatusForConsumer -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679491687"><span class="annot"><span class="annottext">Text -&gt; Either String DataShareStatusForConsumer
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679491696"><span class="annot"><span class="annottext">Text -&gt; Either String DataShareStatusForConsumer
 (Text -&gt; Either String DataShareStatusForConsumer)
 -&gt; FromText DataShareStatusForConsumer
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DataShareStatusForConsumer
 $cfromText :: Text -&gt; Either String DataShareStatusForConsumer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679491684"><span class="annot"><span class="annottext">DataShareStatusForConsumer -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679491693"><span class="annot"><span class="annottext">DataShareStatusForConsumer -&gt; Text
 (DataShareStatusForConsumer -&gt; Text)
 -&gt; ToText DataShareStatusForConsumer
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DataShareStatusForConsumer -&gt; Text
 $ctoText :: DataShareStatusForConsumer -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679491681"><span class="annot"><span class="annottext">DataShareStatusForConsumer -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679491690"><span class="annot"><span class="annottext">DataShareStatusForConsumer -&gt; ByteString
 (DataShareStatusForConsumer -&gt; ByteString)
 -&gt; ToByteString DataShareStatusForConsumer
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DataShareStatusForConsumer -&gt; ByteString
 $ctoBS :: DataShareStatusForConsumer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679491678"><span class="annot"><span class="annottext">DataShareStatusForConsumer -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679491687"><span class="annot"><span class="annottext">DataShareStatusForConsumer -&gt; ByteStringBuilder
 (DataShareStatusForConsumer -&gt; ByteStringBuilder)
 -&gt; ToLog DataShareStatusForConsumer
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DataShareStatusForConsumer -&gt; ByteStringBuilder
 $cbuild :: DataShareStatusForConsumer -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679491675"><span class="annot"><span class="annottext">HeaderName -&gt; DataShareStatusForConsumer -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679491684"><span class="annot"><span class="annottext">HeaderName -&gt; DataShareStatusForConsumer -&gt; [Header]
 (HeaderName -&gt; DataShareStatusForConsumer -&gt; [Header])
 -&gt; ToHeader DataShareStatusForConsumer
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DataShareStatusForConsumer -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DataShareStatusForConsumer -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679491672"><span class="annot"><span class="annottext">DataShareStatusForConsumer -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679491681"><span class="annot"><span class="annottext">DataShareStatusForConsumer -&gt; QueryString
 (DataShareStatusForConsumer -&gt; QueryString)
 -&gt; ToQuery DataShareStatusForConsumer
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DataShareStatusForConsumer -&gt; QueryString
 $ctoQuery :: DataShareStatusForConsumer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679491667"><span id="local-6989586621679491669"><span class="annot"><span class="annottext">Value -&gt; Parser [DataShareStatusForConsumer]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679491676"><span id="local-6989586621679491678"><span class="annot"><span class="annottext">Value -&gt; Parser [DataShareStatusForConsumer]
 Value -&gt; Parser DataShareStatusForConsumer
 (Value -&gt; Parser DataShareStatusForConsumer)
 -&gt; (Value -&gt; Parser [DataShareStatusForConsumer])
@@ -228,7 +228,7 @@ $cparseJSONList :: Value -&gt; Parser [DataShareStatusForConsumer]
 parseJSON :: Value -&gt; Parser DataShareStatusForConsumer
 $cparseJSON :: Value -&gt; Parser DataShareStatusForConsumer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679491662"><span id="local-6989586621679491664"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataShareStatusForConsumer]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679491671"><span id="local-6989586621679491673"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataShareStatusForConsumer]
 FromJSONKeyFunction DataShareStatusForConsumer
 FromJSONKeyFunction DataShareStatusForConsumer
 -&gt; FromJSONKeyFunction [DataShareStatusForConsumer]
@@ -240,7 +240,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DataShareStatusForConsumer]
 fromJSONKey :: FromJSONKeyFunction DataShareStatusForConsumer
 $cfromJSONKey :: FromJSONKeyFunction DataShareStatusForConsumer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679491653"><span id="local-6989586621679491655"><span id="local-6989586621679491657"><span id="local-6989586621679491659"><span class="annot"><span class="annottext">[DataShareStatusForConsumer] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679491662"><span id="local-6989586621679491664"><span id="local-6989586621679491666"><span id="local-6989586621679491668"><span class="annot"><span class="annottext">[DataShareStatusForConsumer] -&gt; Encoding
 [DataShareStatusForConsumer] -&gt; Value
 DataShareStatusForConsumer -&gt; Encoding
 DataShareStatusForConsumer -&gt; Value
@@ -264,7 +264,7 @@ $ctoEncoding :: DataShareStatusForConsumer -&gt; Encoding
 toJSON :: DataShareStatusForConsumer -&gt; Value
 $ctoJSON :: DataShareStatusForConsumer -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679491648"><span id="local-6989586621679491650"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataShareStatusForConsumer]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679491657"><span id="local-6989586621679491659"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataShareStatusForConsumer]
 ToJSONKeyFunction DataShareStatusForConsumer
 ToJSONKeyFunction DataShareStatusForConsumer
 -&gt; ToJSONKeyFunction [DataShareStatusForConsumer]
@@ -276,14 +276,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DataShareStatusForConsumer]
 toJSONKey :: ToJSONKeyFunction DataShareStatusForConsumer
 $ctoJSONKey :: ToJSONKeyFunction DataShareStatusForConsumer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679491645"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataShareStatusForConsumer
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679491654"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataShareStatusForConsumer
 ([Node] -&gt; Either String DataShareStatusForConsumer)
 -&gt; FromXML DataShareStatusForConsumer
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DataShareStatusForConsumer
 $cparseXML :: [Node] -&gt; Either String DataShareStatusForConsumer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679491642"><span class="annot"><span class="annottext">DataShareStatusForConsumer -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679491651"><span class="annot"><span class="annottext">DataShareStatusForConsumer -&gt; XML
 (DataShareStatusForConsumer -&gt; XML)
 -&gt; ToXML DataShareStatusForConsumer
 forall a. (a -&gt; XML) -&gt; ToXML a

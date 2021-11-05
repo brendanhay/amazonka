@@ -1,0 +1,648 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MarketplaceCatalog.DescribeEntity</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the metadata and content of the entity.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MarketplaceCatalog.DescribeEntity</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity"><span class="hs-identifier">DescribeEntity</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#newDescribeEntity"><span class="hs-identifier">newDescribeEntity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntity_catalog"><span class="hs-identifier">describeEntity_catalog</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntity_entityId"><span class="hs-identifier">describeEntity_entityId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse"><span class="hs-identifier">DescribeEntityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#newDescribeEntityResponse"><span class="hs-identifier">newDescribeEntityResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_lastModifiedDate"><span class="hs-identifier">describeEntityResponse_lastModifiedDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_entityType"><span class="hs-identifier">describeEntityResponse_entityType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_details"><span class="hs-identifier">describeEntityResponse_details</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_entityIdentifier"><span class="hs-identifier">describeEntityResponse_entityIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_entityArn"><span class="hs-identifier">describeEntityResponse_entityArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_httpStatus"><span class="hs-identifier">describeEntityResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.html"><span class="hs-identifier">Network.AWS.MarketplaceCatalog.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDescribeEntity' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679160209"><span id="local-6989586621679160210"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEntity"><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity"><span class="hs-identifier hs-var">DescribeEntity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEntity%27"><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity%27"><span class="hs-identifier hs-var">DescribeEntity'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Required. The catalog related to the request. Fixed value:</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @AWSMarketplace@</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Acatalog%3ADescribeEntity%27"><span class="annot"><span class="annottext">DescribeEntity -&gt; Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3Acatalog%3ADescribeEntity%27"><span class="hs-identifier hs-var hs-var">catalog</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Required. The unique ID of the entity to describe.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AentityId%3ADescribeEntity%27"><span class="annot"><span class="annottext">DescribeEntity -&gt; Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AentityId%3ADescribeEntity%27"><span class="hs-identifier hs-var hs-var">entityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679160202"><span id="local-6989586621679160204"><span class="annot"><span class="annottext">DescribeEntity -&gt; DescribeEntity -&gt; Bool
+(DescribeEntity -&gt; DescribeEntity -&gt; Bool)
+-&gt; (DescribeEntity -&gt; DescribeEntity -&gt; Bool) -&gt; Eq DescribeEntity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEntity -&gt; DescribeEntity -&gt; Bool
+$c/= :: DescribeEntity -&gt; DescribeEntity -&gt; Bool
+== :: DescribeEntity -&gt; DescribeEntity -&gt; Bool
+$c== :: DescribeEntity -&gt; DescribeEntity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679160193"><span id="local-6989586621679160195"><span id="local-6989586621679160197"><span id="local-6989586621679160199"><span class="annot"><span class="annottext">ReadPrec [DescribeEntity]
+ReadPrec DescribeEntity
+Int -&gt; ReadS DescribeEntity
+ReadS [DescribeEntity]
+(Int -&gt; ReadS DescribeEntity)
+-&gt; ReadS [DescribeEntity]
+-&gt; ReadPrec DescribeEntity
+-&gt; ReadPrec [DescribeEntity]
+-&gt; Read DescribeEntity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEntity]
+$creadListPrec :: ReadPrec [DescribeEntity]
+readPrec :: ReadPrec DescribeEntity
+$creadPrec :: ReadPrec DescribeEntity
+readList :: ReadS [DescribeEntity]
+$creadList :: ReadS [DescribeEntity]
+readsPrec :: Int -&gt; ReadS DescribeEntity
+$creadsPrec :: Int -&gt; ReadS DescribeEntity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679160186"><span id="local-6989586621679160188"><span id="local-6989586621679160190"><span class="annot"><span class="annottext">Int -&gt; DescribeEntity -&gt; ShowS
+[DescribeEntity] -&gt; ShowS
+DescribeEntity -&gt; String
+(Int -&gt; DescribeEntity -&gt; ShowS)
+-&gt; (DescribeEntity -&gt; String)
+-&gt; ([DescribeEntity] -&gt; ShowS)
+-&gt; Show DescribeEntity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEntity] -&gt; ShowS
+$cshowList :: [DescribeEntity] -&gt; ShowS
+show :: DescribeEntity -&gt; String
+$cshow :: DescribeEntity -&gt; String
+showsPrec :: Int -&gt; DescribeEntity -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEntity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeEntity -&gt; Rep DescribeEntity x)
+-&gt; (forall x. Rep DescribeEntity x -&gt; DescribeEntity)
+-&gt; Generic DescribeEntity
+forall x. Rep DescribeEntity x -&gt; DescribeEntity
+forall x. DescribeEntity -&gt; Rep DescribeEntity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeEntity x -&gt; DescribeEntity
+$cfrom :: forall x. DescribeEntity -&gt; Rep DescribeEntity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'DescribeEntity' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'catalog', 'describeEntity_catalog' - Required. The catalog related to the request. Fixed value:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- @AWSMarketplace@</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'entityId', 'describeEntity_entityId' - Required. The unique ID of the entity to describe.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#newDescribeEntity"><span class="hs-identifier hs-type">newDescribeEntity</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'catalog'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'entityId'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity"><span class="hs-identifier hs-type">DescribeEntity</span></a></span><span>
+</span><span id="line-82"></span><span id="newDescribeEntity"><span class="annot"><span class="annottext">newDescribeEntity :: Text -&gt; Text -&gt; DescribeEntity
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#newDescribeEntity"><span class="hs-identifier hs-var hs-var">newDescribeEntity</span></a></span></span><span> </span><span id="local-6989586621679160181"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679160181"><span class="hs-identifier hs-var">pCatalog_</span></a></span></span><span> </span><span id="local-6989586621679160180"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679160180"><span class="hs-identifier hs-var">pEntityId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">DescribeEntity' :: Text -&gt; Text -&gt; DescribeEntity
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity%27"><span class="hs-identifier hs-type">DescribeEntity'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:catalog:DescribeEntity' :: Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3Acatalog%3ADescribeEntity%27"><span class="hs-identifier hs-var">catalog</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679160181"><span class="hs-identifier hs-var">pCatalog_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityId:DescribeEntity' :: Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AentityId%3ADescribeEntity%27"><span class="hs-identifier hs-var">entityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679160180"><span class="hs-identifier hs-var">pEntityId_</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Required. The catalog related to the request. Fixed value:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- @AWSMarketplace@</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntity_catalog"><span class="hs-identifier hs-type">describeEntity_catalog</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity"><span class="hs-identifier hs-type">DescribeEntity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span id="describeEntity_catalog"><span class="annot"><span class="annottext">describeEntity_catalog :: (Text -&gt; f Text) -&gt; DescribeEntity -&gt; f DescribeEntity
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntity_catalog"><span class="hs-identifier hs-var hs-var">describeEntity_catalog</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEntity -&gt; Text)
+-&gt; (DescribeEntity -&gt; Text -&gt; DescribeEntity)
+-&gt; Lens DescribeEntity DescribeEntity Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity%27"><span class="hs-identifier hs-type">DescribeEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160177"><span class="annot"><span class="annottext">Text
+catalog :: Text
+$sel:catalog:DescribeEntity' :: DescribeEntity -&gt; Text
+</span><a href="#local-6989586621679160177"><span class="hs-identifier hs-var hs-var">catalog</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679160177"><span class="hs-identifier hs-var">catalog</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160176"><span class="annot"><span class="annottext">s :: DescribeEntity
+</span><a href="#local-6989586621679160176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity%27"><span class="hs-identifier hs-type">DescribeEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160175"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679160175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEntity
+</span><a href="#local-6989586621679160176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalog:DescribeEntity' :: Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3Acatalog%3ADescribeEntity%27"><span class="hs-identifier hs-var">catalog</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679160175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity"><span class="hs-identifier hs-type">DescribeEntity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Required. The unique ID of the entity to describe.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntity_entityId"><span class="hs-identifier hs-type">describeEntity_entityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity"><span class="hs-identifier hs-type">DescribeEntity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="describeEntity_entityId"><span class="annot"><span class="annottext">describeEntity_entityId :: (Text -&gt; f Text) -&gt; DescribeEntity -&gt; f DescribeEntity
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntity_entityId"><span class="hs-identifier hs-var hs-var">describeEntity_entityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEntity -&gt; Text)
+-&gt; (DescribeEntity -&gt; Text -&gt; DescribeEntity)
+-&gt; Lens DescribeEntity DescribeEntity Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity%27"><span class="hs-identifier hs-type">DescribeEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160174"><span class="annot"><span class="annottext">Text
+entityId :: Text
+$sel:entityId:DescribeEntity' :: DescribeEntity -&gt; Text
+</span><a href="#local-6989586621679160174"><span class="hs-identifier hs-var hs-var">entityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679160174"><span class="hs-identifier hs-var">entityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160173"><span class="annot"><span class="annottext">s :: DescribeEntity
+</span><a href="#local-6989586621679160173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity%27"><span class="hs-identifier hs-type">DescribeEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160172"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679160172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEntity
+</span><a href="#local-6989586621679160173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityId:DescribeEntity' :: Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AentityId%3ADescribeEntity%27"><span class="hs-identifier hs-var">entityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679160172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity"><span class="hs-identifier hs-type">DescribeEntity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity"><span class="hs-identifier hs-type">DescribeEntity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity"><span class="hs-identifier hs-type">DescribeEntity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse"><span class="hs-identifier hs-type">DescribeEntityResponse</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679160168"><span class="annot"><span class="annottext">request :: DescribeEntity -&gt; Request DescribeEntity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeEntity -&gt; Request DescribeEntity
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MarketplaceCatalog.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679160164"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeEntity
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeEntity)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeEntity))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeEntity
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeEntity)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679160161"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679160161"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679160160"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679160160"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679160159"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160159"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeEntityResponse
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse%27"><span class="hs-identifier hs-var">DescribeEntityResponse'</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; DescribeEntityResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeEntityResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeEntityResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeEntityResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EntityType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeEntityResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeEntityResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Details&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeEntityResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeEntityResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EntityIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeEntityResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeEntityResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EntityArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeEntityResponse)
+-&gt; Either String Int -&gt; Either String DescribeEntityResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679160161"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679160151"><span id="local-6989586621679160153"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity"><span class="hs-identifier hs-type">DescribeEntity</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679160148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity"><span class="hs-identifier hs-type">DescribeEntity</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity"><span class="hs-identifier hs-type">DescribeEntity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679160144"><span class="annot"><span class="annottext">toHeaders :: DescribeEntity -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeEntity -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity"><span class="hs-identifier hs-type">DescribeEntity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679160138"><span class="annot"><span class="annottext">toPath :: DescribeEntity -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeEntity -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/DescribeEntity&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity"><span class="hs-identifier hs-type">DescribeEntity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679160134"><span class="annot"><span class="annottext">toQuery :: DescribeEntity -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntity%27"><span class="hs-identifier hs-type">DescribeEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160131"><span id="local-6989586621679160132"><span class="annot"><span class="annottext">Text
+entityId :: Text
+catalog :: Text
+$sel:entityId:DescribeEntity' :: DescribeEntity -&gt; Text
+$sel:catalog:DescribeEntity' :: DescribeEntity -&gt; Text
+</span><a href="#local-6989586621679160131"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;catalog&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679160132"><span class="hs-identifier hs-var">catalog</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;entityId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679160131"><span class="hs-identifier hs-var">entityId</span></a></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newDescribeEntityResponse' smart constructor.</span><span>
+</span><span id="line-140"></span><span id="local-6989586621679160128"><span id="local-6989586621679160129"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEntityResponse"><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse"><span class="hs-identifier hs-var">DescribeEntityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEntityResponse%27"><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse%27"><span class="hs-identifier hs-var">DescribeEntityResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The last modified date of the entity, in ISO 8601 format</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- (2018-02-27T13:45:22Z).</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3ADescribeEntityResponse%27"><span class="annot"><span class="annottext">DescribeEntityResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AlastModifiedDate%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | The named type of the entity, in the format of @EntityType\@Version@.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AentityType%3ADescribeEntityResponse%27"><span class="annot"><span class="annottext">DescribeEntityResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AentityType%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var hs-var">entityType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | This stringified JSON object includes the details of the entity.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3Adetails%3ADescribeEntityResponse%27"><span class="annot"><span class="annottext">DescribeEntityResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3Adetails%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The identifier of the entity, in the format of @EntityId\@RevisionId@.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AentityIdentifier%3ADescribeEntityResponse%27"><span class="annot"><span class="annottext">DescribeEntityResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AentityIdentifier%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var hs-var">entityIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The ARN associated to the unique identifier for the change set</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- referenced in this request.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AentityArn%3ADescribeEntityResponse%27"><span class="annot"><span class="annottext">DescribeEntityResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AentityArn%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var hs-var">entityArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeEntityResponse%27"><span class="annot"><span class="annottext">DescribeEntityResponse -&gt; Int
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AhttpStatus%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679160118"><span id="local-6989586621679160120"><span class="annot"><span class="annottext">DescribeEntityResponse -&gt; DescribeEntityResponse -&gt; Bool
+(DescribeEntityResponse -&gt; DescribeEntityResponse -&gt; Bool)
+-&gt; (DescribeEntityResponse -&gt; DescribeEntityResponse -&gt; Bool)
+-&gt; Eq DescribeEntityResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEntityResponse -&gt; DescribeEntityResponse -&gt; Bool
+$c/= :: DescribeEntityResponse -&gt; DescribeEntityResponse -&gt; Bool
+== :: DescribeEntityResponse -&gt; DescribeEntityResponse -&gt; Bool
+$c== :: DescribeEntityResponse -&gt; DescribeEntityResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679160110"><span id="local-6989586621679160112"><span id="local-6989586621679160114"><span id="local-6989586621679160116"><span class="annot"><span class="annottext">ReadPrec [DescribeEntityResponse]
+ReadPrec DescribeEntityResponse
+Int -&gt; ReadS DescribeEntityResponse
+ReadS [DescribeEntityResponse]
+(Int -&gt; ReadS DescribeEntityResponse)
+-&gt; ReadS [DescribeEntityResponse]
+-&gt; ReadPrec DescribeEntityResponse
+-&gt; ReadPrec [DescribeEntityResponse]
+-&gt; Read DescribeEntityResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEntityResponse]
+$creadListPrec :: ReadPrec [DescribeEntityResponse]
+readPrec :: ReadPrec DescribeEntityResponse
+$creadPrec :: ReadPrec DescribeEntityResponse
+readList :: ReadS [DescribeEntityResponse]
+$creadList :: ReadS [DescribeEntityResponse]
+readsPrec :: Int -&gt; ReadS DescribeEntityResponse
+$creadsPrec :: Int -&gt; ReadS DescribeEntityResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679160104"><span id="local-6989586621679160106"><span id="local-6989586621679160108"><span class="annot"><span class="annottext">Int -&gt; DescribeEntityResponse -&gt; ShowS
+[DescribeEntityResponse] -&gt; ShowS
+DescribeEntityResponse -&gt; String
+(Int -&gt; DescribeEntityResponse -&gt; ShowS)
+-&gt; (DescribeEntityResponse -&gt; String)
+-&gt; ([DescribeEntityResponse] -&gt; ShowS)
+-&gt; Show DescribeEntityResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEntityResponse] -&gt; ShowS
+$cshowList :: [DescribeEntityResponse] -&gt; ShowS
+show :: DescribeEntityResponse -&gt; String
+$cshow :: DescribeEntityResponse -&gt; String
+showsPrec :: Int -&gt; DescribeEntityResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEntityResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeEntityResponse -&gt; Rep DescribeEntityResponse x)
+-&gt; (forall x.
+    Rep DescribeEntityResponse x -&gt; DescribeEntityResponse)
+-&gt; Generic DescribeEntityResponse
+forall x. Rep DescribeEntityResponse x -&gt; DescribeEntityResponse
+forall x. DescribeEntityResponse -&gt; Rep DescribeEntityResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeEntityResponse x -&gt; DescribeEntityResponse
+$cfrom :: forall x. DescribeEntityResponse -&gt; Rep DescribeEntityResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'DescribeEntityResponse' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'lastModifiedDate', 'describeEntityResponse_lastModifiedDate' - The last modified date of the entity, in ISO 8601 format</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- (2018-02-27T13:45:22Z).</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'entityType', 'describeEntityResponse_entityType' - The named type of the entity, in the format of @EntityType\@Version@.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'details', 'describeEntityResponse_details' - This stringified JSON object includes the details of the entity.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'entityIdentifier', 'describeEntityResponse_entityIdentifier' - The identifier of the entity, in the format of @EntityId\@RevisionId@.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'entityArn', 'describeEntityResponse_entityArn' - The ARN associated to the unique identifier for the change set</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- referenced in this request.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'httpStatus', 'describeEntityResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#newDescribeEntityResponse"><span class="hs-identifier hs-type">newDescribeEntityResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse"><span class="hs-identifier hs-type">DescribeEntityResponse</span></a></span><span>
+</span><span id="line-183"></span><span id="newDescribeEntityResponse"><span class="annot"><span class="annottext">newDescribeEntityResponse :: Int -&gt; DescribeEntityResponse
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#newDescribeEntityResponse"><span class="hs-identifier hs-var hs-var">newDescribeEntityResponse</span></a></span></span><span> </span><span id="local-6989586621679160101"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679160101"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><span class="annottext">DescribeEntityResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeEntityResponse
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse%27"><span class="hs-identifier hs-type">DescribeEntityResponse'</span></a></span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:DescribeEntityResponse' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AlastModifiedDate%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityType:DescribeEntityResponse' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AentityType%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var">entityType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:details:DescribeEntityResponse' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3Adetails%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityIdentifier:DescribeEntityResponse' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AentityIdentifier%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var">entityIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityArn:DescribeEntityResponse' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AentityArn%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var">entityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEntityResponse' :: Int
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AhttpStatus%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679160101"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The last modified date of the entity, in ISO 8601 format</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- (2018-02-27T13:45:22Z).</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_lastModifiedDate"><span class="hs-identifier hs-type">describeEntityResponse_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse"><span class="hs-identifier hs-type">DescribeEntityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="describeEntityResponse_lastModifiedDate"><span class="annot"><span class="annottext">describeEntityResponse_lastModifiedDate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEntityResponse -&gt; f DescribeEntityResponse
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_lastModifiedDate"><span class="hs-identifier hs-var hs-var">describeEntityResponse_lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEntityResponse -&gt; Maybe Text)
+-&gt; (DescribeEntityResponse -&gt; Maybe Text -&gt; DescribeEntityResponse)
+-&gt; Lens
+     DescribeEntityResponse
+     DescribeEntityResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse%27"><span class="hs-identifier hs-type">DescribeEntityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160100"><span class="annot"><span class="annottext">Maybe Text
+lastModifiedDate :: Maybe Text
+$sel:lastModifiedDate:DescribeEntityResponse' :: DescribeEntityResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679160100"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160100"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160099"><span class="annot"><span class="annottext">s :: DescribeEntityResponse
+</span><a href="#local-6989586621679160099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse%27"><span class="hs-identifier hs-type">DescribeEntityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160098"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEntityResponse
+</span><a href="#local-6989586621679160099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:DescribeEntityResponse' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AlastModifiedDate%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse"><span class="hs-identifier hs-type">DescribeEntityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The named type of the entity, in the format of @EntityType\@Version@.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_entityType"><span class="hs-identifier hs-type">describeEntityResponse_entityType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse"><span class="hs-identifier hs-type">DescribeEntityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="describeEntityResponse_entityType"><span class="annot"><span class="annottext">describeEntityResponse_entityType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEntityResponse -&gt; f DescribeEntityResponse
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_entityType"><span class="hs-identifier hs-var hs-var">describeEntityResponse_entityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEntityResponse -&gt; Maybe Text)
+-&gt; (DescribeEntityResponse -&gt; Maybe Text -&gt; DescribeEntityResponse)
+-&gt; Lens
+     DescribeEntityResponse
+     DescribeEntityResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse%27"><span class="hs-identifier hs-type">DescribeEntityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160097"><span class="annot"><span class="annottext">Maybe Text
+entityType :: Maybe Text
+$sel:entityType:DescribeEntityResponse' :: DescribeEntityResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679160097"><span class="hs-identifier hs-var hs-var">entityType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160097"><span class="hs-identifier hs-var">entityType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160096"><span class="annot"><span class="annottext">s :: DescribeEntityResponse
+</span><a href="#local-6989586621679160096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse%27"><span class="hs-identifier hs-type">DescribeEntityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160095"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEntityResponse
+</span><a href="#local-6989586621679160096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityType:DescribeEntityResponse' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AentityType%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var">entityType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse"><span class="hs-identifier hs-type">DescribeEntityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | This stringified JSON object includes the details of the entity.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_details"><span class="hs-identifier hs-type">describeEntityResponse_details</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse"><span class="hs-identifier hs-type">DescribeEntityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="describeEntityResponse_details"><span class="annot"><span class="annottext">describeEntityResponse_details :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEntityResponse -&gt; f DescribeEntityResponse
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_details"><span class="hs-identifier hs-var hs-var">describeEntityResponse_details</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEntityResponse -&gt; Maybe Text)
+-&gt; (DescribeEntityResponse -&gt; Maybe Text -&gt; DescribeEntityResponse)
+-&gt; Lens
+     DescribeEntityResponse
+     DescribeEntityResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse%27"><span class="hs-identifier hs-type">DescribeEntityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160094"><span class="annot"><span class="annottext">Maybe Text
+details :: Maybe Text
+$sel:details:DescribeEntityResponse' :: DescribeEntityResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679160094"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160094"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160093"><span class="annot"><span class="annottext">s :: DescribeEntityResponse
+</span><a href="#local-6989586621679160093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse%27"><span class="hs-identifier hs-type">DescribeEntityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160092"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEntityResponse
+</span><a href="#local-6989586621679160093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:DescribeEntityResponse' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3Adetails%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse"><span class="hs-identifier hs-type">DescribeEntityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The identifier of the entity, in the format of @EntityId\@RevisionId@.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_entityIdentifier"><span class="hs-identifier hs-type">describeEntityResponse_entityIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse"><span class="hs-identifier hs-type">DescribeEntityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="describeEntityResponse_entityIdentifier"><span class="annot"><span class="annottext">describeEntityResponse_entityIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEntityResponse -&gt; f DescribeEntityResponse
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_entityIdentifier"><span class="hs-identifier hs-var hs-var">describeEntityResponse_entityIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEntityResponse -&gt; Maybe Text)
+-&gt; (DescribeEntityResponse -&gt; Maybe Text -&gt; DescribeEntityResponse)
+-&gt; Lens
+     DescribeEntityResponse
+     DescribeEntityResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse%27"><span class="hs-identifier hs-type">DescribeEntityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160091"><span class="annot"><span class="annottext">Maybe Text
+entityIdentifier :: Maybe Text
+$sel:entityIdentifier:DescribeEntityResponse' :: DescribeEntityResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679160091"><span class="hs-identifier hs-var hs-var">entityIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160091"><span class="hs-identifier hs-var">entityIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160090"><span class="annot"><span class="annottext">s :: DescribeEntityResponse
+</span><a href="#local-6989586621679160090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse%27"><span class="hs-identifier hs-type">DescribeEntityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160089"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEntityResponse
+</span><a href="#local-6989586621679160090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityIdentifier:DescribeEntityResponse' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AentityIdentifier%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var">entityIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse"><span class="hs-identifier hs-type">DescribeEntityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The ARN associated to the unique identifier for the change set</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- referenced in this request.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_entityArn"><span class="hs-identifier hs-type">describeEntityResponse_entityArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse"><span class="hs-identifier hs-type">DescribeEntityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="describeEntityResponse_entityArn"><span class="annot"><span class="annottext">describeEntityResponse_entityArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEntityResponse -&gt; f DescribeEntityResponse
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_entityArn"><span class="hs-identifier hs-var hs-var">describeEntityResponse_entityArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEntityResponse -&gt; Maybe Text)
+-&gt; (DescribeEntityResponse -&gt; Maybe Text -&gt; DescribeEntityResponse)
+-&gt; Lens
+     DescribeEntityResponse
+     DescribeEntityResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse%27"><span class="hs-identifier hs-type">DescribeEntityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160088"><span class="annot"><span class="annottext">Maybe Text
+entityArn :: Maybe Text
+$sel:entityArn:DescribeEntityResponse' :: DescribeEntityResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679160088"><span class="hs-identifier hs-var hs-var">entityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160088"><span class="hs-identifier hs-var">entityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160087"><span class="annot"><span class="annottext">s :: DescribeEntityResponse
+</span><a href="#local-6989586621679160087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse%27"><span class="hs-identifier hs-type">DescribeEntityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160086"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEntityResponse
+</span><a href="#local-6989586621679160087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityArn:DescribeEntityResponse' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AentityArn%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var">entityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse"><span class="hs-identifier hs-type">DescribeEntityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_httpStatus"><span class="hs-identifier hs-type">describeEntityResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse"><span class="hs-identifier hs-type">DescribeEntityResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-218"></span><span id="describeEntityResponse_httpStatus"><span class="annot"><span class="annottext">describeEntityResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeEntityResponse -&gt; f DescribeEntityResponse
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#describeEntityResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeEntityResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEntityResponse -&gt; Int)
+-&gt; (DescribeEntityResponse -&gt; Int -&gt; DescribeEntityResponse)
+-&gt; Lens DescribeEntityResponse DescribeEntityResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse%27"><span class="hs-identifier hs-type">DescribeEntityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160085"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeEntityResponse' :: DescribeEntityResponse -&gt; Int
+</span><a href="#local-6989586621679160085"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679160085"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160084"><span class="annot"><span class="annottext">s :: DescribeEntityResponse
+</span><a href="#local-6989586621679160084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse%27"><span class="hs-identifier hs-type">DescribeEntityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160083"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679160083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEntityResponse
+</span><a href="#local-6989586621679160084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEntityResponse' :: Int
+</span><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#%24sel%3AhttpStatus%3ADescribeEntityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679160083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse"><span class="hs-identifier hs-type">DescribeEntityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679160081"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.DescribeEntity.html#DescribeEntityResponse"><span class="hs-identifier hs-type">DescribeEntityResponse</span></a></span></span><span>
+</span><span id="line-221"></span></pre></body></html>

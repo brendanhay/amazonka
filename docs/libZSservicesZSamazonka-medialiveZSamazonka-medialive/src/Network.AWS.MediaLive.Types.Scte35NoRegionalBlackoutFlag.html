@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- REGIONAL_BLACKOUT corresponds to 0 (false) in the SCTE-35 specification.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- If you include one of the \&quot;restriction\&quot; flags then you must include</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- all four of them.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679918194"><span id="local-6989586621679918195"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Scte35NoRegionalBlackoutFlag"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35NoRegionalBlackoutFlag.html#Scte35NoRegionalBlackoutFlag"><span class="hs-identifier hs-var">Scte35NoRegionalBlackoutFlag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scte35NoRegionalBlackoutFlag%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35NoRegionalBlackoutFlag.html#Scte35NoRegionalBlackoutFlag%27"><span class="hs-identifier hs-var">Scte35NoRegionalBlackoutFlag'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679918203"><span id="local-6989586621679918204"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Scte35NoRegionalBlackoutFlag"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35NoRegionalBlackoutFlag.html#Scte35NoRegionalBlackoutFlag"><span class="hs-identifier hs-var">Scte35NoRegionalBlackoutFlag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scte35NoRegionalBlackoutFlag%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35NoRegionalBlackoutFlag.html#Scte35NoRegionalBlackoutFlag%27"><span class="hs-identifier hs-var">Scte35NoRegionalBlackoutFlag'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScte35NoRegionalBlackoutFlag"><span class="annot"><span class="annottext">Scte35NoRegionalBlackoutFlag -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.Scte35NoRegionalBlackoutFlag.html#fromScte35NoRegionalBlackoutFlag"><span class="hs-identifier hs-var hs-var">fromScte35NoRegionalBlackoutFlag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679918186"><span id="local-6989586621679918188"><span id="local-6989586621679918190"><span class="annot"><span class="annottext">Int -&gt; Scte35NoRegionalBlackoutFlag -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679918195"><span id="local-6989586621679918197"><span id="local-6989586621679918199"><span class="annot"><span class="annottext">Int -&gt; Scte35NoRegionalBlackoutFlag -&gt; ShowS
 [Scte35NoRegionalBlackoutFlag] -&gt; ShowS
 Scte35NoRegionalBlackoutFlag -&gt; String
 (Int -&gt; Scte35NoRegionalBlackoutFlag -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: Scte35NoRegionalBlackoutFlag -&gt; String
 showsPrec :: Int -&gt; Scte35NoRegionalBlackoutFlag -&gt; ShowS
 $cshowsPrec :: Int -&gt; Scte35NoRegionalBlackoutFlag -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679918177"><span id="local-6989586621679918179"><span id="local-6989586621679918181"><span id="local-6989586621679918183"><span class="annot"><span class="annottext">ReadPrec [Scte35NoRegionalBlackoutFlag]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679918186"><span id="local-6989586621679918188"><span id="local-6989586621679918190"><span id="local-6989586621679918192"><span class="annot"><span class="annottext">ReadPrec [Scte35NoRegionalBlackoutFlag]
 ReadPrec Scte35NoRegionalBlackoutFlag
 Int -&gt; ReadS Scte35NoRegionalBlackoutFlag
 ReadS [Scte35NoRegionalBlackoutFlag]
@@ -76,7 +76,7 @@ $creadList :: ReadS [Scte35NoRegionalBlackoutFlag]
 readsPrec :: Int -&gt; ReadS Scte35NoRegionalBlackoutFlag
 $creadsPrec :: Int -&gt; ReadS Scte35NoRegionalBlackoutFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679918172"><span id="local-6989586621679918174"><span class="annot"><span class="annottext">Scte35NoRegionalBlackoutFlag
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679918181"><span id="local-6989586621679918183"><span class="annot"><span class="annottext">Scte35NoRegionalBlackoutFlag
 -&gt; Scte35NoRegionalBlackoutFlag -&gt; Bool
 (Scte35NoRegionalBlackoutFlag
  -&gt; Scte35NoRegionalBlackoutFlag -&gt; Bool)
@@ -93,7 +93,7 @@ $c/= :: Scte35NoRegionalBlackoutFlag
 $c== :: Scte35NoRegionalBlackoutFlag
 -&gt; Scte35NoRegionalBlackoutFlag -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679918156"><span id="local-6989586621679918158"><span id="local-6989586621679918160"><span id="local-6989586621679918162"><span id="local-6989586621679918164"><span id="local-6989586621679918166"><span id="local-6989586621679918168"><span class="annot"><span class="annottext">Eq Scte35NoRegionalBlackoutFlag
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679918165"><span id="local-6989586621679918167"><span id="local-6989586621679918169"><span id="local-6989586621679918171"><span id="local-6989586621679918173"><span id="local-6989586621679918175"><span id="local-6989586621679918177"><span class="annot"><span class="annottext">Eq Scte35NoRegionalBlackoutFlag
 Eq Scte35NoRegionalBlackoutFlag
 -&gt; (Scte35NoRegionalBlackoutFlag
     -&gt; Scte35NoRegionalBlackoutFlag -&gt; Ordering)
@@ -174,7 +174,7 @@ Scte35NoRegionalBlackoutFlag -&gt; Rep Scte35NoRegionalBlackoutFlag x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679918148"><span id="local-6989586621679918150"><span class="annot"><span class="annottext">Int -&gt; Scte35NoRegionalBlackoutFlag -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679918157"><span id="local-6989586621679918159"><span class="annot"><span class="annottext">Int -&gt; Scte35NoRegionalBlackoutFlag -&gt; Int
 Scte35NoRegionalBlackoutFlag -&gt; Int
 (Int -&gt; Scte35NoRegionalBlackoutFlag -&gt; Int)
 -&gt; (Scte35NoRegionalBlackoutFlag -&gt; Int)
@@ -185,56 +185,56 @@ $chash :: Scte35NoRegionalBlackoutFlag -&gt; Int
 hashWithSalt :: Int -&gt; Scte35NoRegionalBlackoutFlag -&gt; Int
 $chashWithSalt :: Int -&gt; Scte35NoRegionalBlackoutFlag -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679918145"><span class="annot"><span class="annottext">Scte35NoRegionalBlackoutFlag -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679918154"><span class="annot"><span class="annottext">Scte35NoRegionalBlackoutFlag -&gt; ()
 (Scte35NoRegionalBlackoutFlag -&gt; ())
 -&gt; NFData Scte35NoRegionalBlackoutFlag
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Scte35NoRegionalBlackoutFlag -&gt; ()
 $crnf :: Scte35NoRegionalBlackoutFlag -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679918142"><span class="annot"><span class="annottext">Text -&gt; Either String Scte35NoRegionalBlackoutFlag
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679918151"><span class="annot"><span class="annottext">Text -&gt; Either String Scte35NoRegionalBlackoutFlag
 (Text -&gt; Either String Scte35NoRegionalBlackoutFlag)
 -&gt; FromText Scte35NoRegionalBlackoutFlag
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Scte35NoRegionalBlackoutFlag
 $cfromText :: Text -&gt; Either String Scte35NoRegionalBlackoutFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679918139"><span class="annot"><span class="annottext">Scte35NoRegionalBlackoutFlag -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679918148"><span class="annot"><span class="annottext">Scte35NoRegionalBlackoutFlag -&gt; Text
 (Scte35NoRegionalBlackoutFlag -&gt; Text)
 -&gt; ToText Scte35NoRegionalBlackoutFlag
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Scte35NoRegionalBlackoutFlag -&gt; Text
 $ctoText :: Scte35NoRegionalBlackoutFlag -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679918136"><span class="annot"><span class="annottext">Scte35NoRegionalBlackoutFlag -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679918145"><span class="annot"><span class="annottext">Scte35NoRegionalBlackoutFlag -&gt; ByteString
 (Scte35NoRegionalBlackoutFlag -&gt; ByteString)
 -&gt; ToByteString Scte35NoRegionalBlackoutFlag
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Scte35NoRegionalBlackoutFlag -&gt; ByteString
 $ctoBS :: Scte35NoRegionalBlackoutFlag -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679918133"><span class="annot"><span class="annottext">Scte35NoRegionalBlackoutFlag -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679918142"><span class="annot"><span class="annottext">Scte35NoRegionalBlackoutFlag -&gt; ByteStringBuilder
 (Scte35NoRegionalBlackoutFlag -&gt; ByteStringBuilder)
 -&gt; ToLog Scte35NoRegionalBlackoutFlag
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Scte35NoRegionalBlackoutFlag -&gt; ByteStringBuilder
 $cbuild :: Scte35NoRegionalBlackoutFlag -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679918130"><span class="annot"><span class="annottext">HeaderName -&gt; Scte35NoRegionalBlackoutFlag -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679918139"><span class="annot"><span class="annottext">HeaderName -&gt; Scte35NoRegionalBlackoutFlag -&gt; [Header]
 (HeaderName -&gt; Scte35NoRegionalBlackoutFlag -&gt; [Header])
 -&gt; ToHeader Scte35NoRegionalBlackoutFlag
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Scte35NoRegionalBlackoutFlag -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Scte35NoRegionalBlackoutFlag -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679918127"><span class="annot"><span class="annottext">Scte35NoRegionalBlackoutFlag -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679918136"><span class="annot"><span class="annottext">Scte35NoRegionalBlackoutFlag -&gt; QueryString
 (Scte35NoRegionalBlackoutFlag -&gt; QueryString)
 -&gt; ToQuery Scte35NoRegionalBlackoutFlag
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Scte35NoRegionalBlackoutFlag -&gt; QueryString
 $ctoQuery :: Scte35NoRegionalBlackoutFlag -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679918122"><span id="local-6989586621679918124"><span class="annot"><span class="annottext">Value -&gt; Parser [Scte35NoRegionalBlackoutFlag]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679918131"><span id="local-6989586621679918133"><span class="annot"><span class="annottext">Value -&gt; Parser [Scte35NoRegionalBlackoutFlag]
 Value -&gt; Parser Scte35NoRegionalBlackoutFlag
 (Value -&gt; Parser Scte35NoRegionalBlackoutFlag)
 -&gt; (Value -&gt; Parser [Scte35NoRegionalBlackoutFlag])
@@ -246,7 +246,7 @@ $cparseJSONList :: Value -&gt; Parser [Scte35NoRegionalBlackoutFlag]
 parseJSON :: Value -&gt; Parser Scte35NoRegionalBlackoutFlag
 $cparseJSON :: Value -&gt; Parser Scte35NoRegionalBlackoutFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679918117"><span id="local-6989586621679918119"><span class="annot"><span class="annottext">FromJSONKeyFunction [Scte35NoRegionalBlackoutFlag]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679918126"><span id="local-6989586621679918128"><span class="annot"><span class="annottext">FromJSONKeyFunction [Scte35NoRegionalBlackoutFlag]
 FromJSONKeyFunction Scte35NoRegionalBlackoutFlag
 FromJSONKeyFunction Scte35NoRegionalBlackoutFlag
 -&gt; FromJSONKeyFunction [Scte35NoRegionalBlackoutFlag]
@@ -258,7 +258,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Scte35NoRegionalBlackoutFlag]
 fromJSONKey :: FromJSONKeyFunction Scte35NoRegionalBlackoutFlag
 $cfromJSONKey :: FromJSONKeyFunction Scte35NoRegionalBlackoutFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679918108"><span id="local-6989586621679918110"><span id="local-6989586621679918112"><span id="local-6989586621679918114"><span class="annot"><span class="annottext">[Scte35NoRegionalBlackoutFlag] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679918117"><span id="local-6989586621679918119"><span id="local-6989586621679918121"><span id="local-6989586621679918123"><span class="annot"><span class="annottext">[Scte35NoRegionalBlackoutFlag] -&gt; Encoding
 [Scte35NoRegionalBlackoutFlag] -&gt; Value
 Scte35NoRegionalBlackoutFlag -&gt; Encoding
 Scte35NoRegionalBlackoutFlag -&gt; Value
@@ -282,7 +282,7 @@ $ctoEncoding :: Scte35NoRegionalBlackoutFlag -&gt; Encoding
 toJSON :: Scte35NoRegionalBlackoutFlag -&gt; Value
 $ctoJSON :: Scte35NoRegionalBlackoutFlag -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679918103"><span id="local-6989586621679918105"><span class="annot"><span class="annottext">ToJSONKeyFunction [Scte35NoRegionalBlackoutFlag]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679918112"><span id="local-6989586621679918114"><span class="annot"><span class="annottext">ToJSONKeyFunction [Scte35NoRegionalBlackoutFlag]
 ToJSONKeyFunction Scte35NoRegionalBlackoutFlag
 ToJSONKeyFunction Scte35NoRegionalBlackoutFlag
 -&gt; ToJSONKeyFunction [Scte35NoRegionalBlackoutFlag]
@@ -294,14 +294,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Scte35NoRegionalBlackoutFlag]
 toJSONKey :: ToJSONKeyFunction Scte35NoRegionalBlackoutFlag
 $ctoJSONKey :: ToJSONKeyFunction Scte35NoRegionalBlackoutFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679918100"><span class="annot"><span class="annottext">[Node] -&gt; Either String Scte35NoRegionalBlackoutFlag
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679918109"><span class="annot"><span class="annottext">[Node] -&gt; Either String Scte35NoRegionalBlackoutFlag
 ([Node] -&gt; Either String Scte35NoRegionalBlackoutFlag)
 -&gt; FromXML Scte35NoRegionalBlackoutFlag
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Scte35NoRegionalBlackoutFlag
 $cparseXML :: [Node] -&gt; Either String Scte35NoRegionalBlackoutFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679918097"><span class="annot"><span class="annottext">Scte35NoRegionalBlackoutFlag -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679918106"><span class="annot"><span class="annottext">Scte35NoRegionalBlackoutFlag -&gt; XML
 (Scte35NoRegionalBlackoutFlag -&gt; XML)
 -&gt; ToXML Scte35NoRegionalBlackoutFlag
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621681128468"><span id="local-6989586621681128469"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NatGatewayState"><span class="annot"><a href="Network.AWS.EC2.Types.NatGatewayState.html#NatGatewayState"><span class="hs-identifier hs-var">NatGatewayState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NatGatewayState%27"><span class="annot"><a href="Network.AWS.EC2.Types.NatGatewayState.html#NatGatewayState%27"><span class="hs-identifier hs-var">NatGatewayState'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621681128477"><span id="local-6989586621681128478"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NatGatewayState"><span class="annot"><a href="Network.AWS.EC2.Types.NatGatewayState.html#NatGatewayState"><span class="hs-identifier hs-var">NatGatewayState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NatGatewayState%27"><span class="annot"><a href="Network.AWS.EC2.Types.NatGatewayState.html#NatGatewayState%27"><span class="hs-identifier hs-var">NatGatewayState'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNatGatewayState"><span class="annot"><span class="annottext">NatGatewayState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.NatGatewayState.html#fromNatGatewayState"><span class="hs-identifier hs-var hs-var">fromNatGatewayState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681128460"><span id="local-6989586621681128462"><span id="local-6989586621681128464"><span class="annot"><span class="annottext">Int -&gt; NatGatewayState -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681128469"><span id="local-6989586621681128471"><span id="local-6989586621681128473"><span class="annot"><span class="annottext">Int -&gt; NatGatewayState -&gt; ShowS
 [NatGatewayState] -&gt; ShowS
 NatGatewayState -&gt; String
 (Int -&gt; NatGatewayState -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: NatGatewayState -&gt; String
 showsPrec :: Int -&gt; NatGatewayState -&gt; ShowS
 $cshowsPrec :: Int -&gt; NatGatewayState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681128451"><span id="local-6989586621681128453"><span id="local-6989586621681128455"><span id="local-6989586621681128457"><span class="annot"><span class="annottext">ReadPrec [NatGatewayState]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681128460"><span id="local-6989586621681128462"><span id="local-6989586621681128464"><span id="local-6989586621681128466"><span class="annot"><span class="annottext">ReadPrec [NatGatewayState]
 ReadPrec NatGatewayState
 Int -&gt; ReadS NatGatewayState
 ReadS [NatGatewayState]
@@ -76,7 +76,7 @@ $creadList :: ReadS [NatGatewayState]
 readsPrec :: Int -&gt; ReadS NatGatewayState
 $creadsPrec :: Int -&gt; ReadS NatGatewayState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681128446"><span id="local-6989586621681128448"><span class="annot"><span class="annottext">NatGatewayState -&gt; NatGatewayState -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681128455"><span id="local-6989586621681128457"><span class="annot"><span class="annottext">NatGatewayState -&gt; NatGatewayState -&gt; Bool
 (NatGatewayState -&gt; NatGatewayState -&gt; Bool)
 -&gt; (NatGatewayState -&gt; NatGatewayState -&gt; Bool)
 -&gt; Eq NatGatewayState
@@ -86,7 +86,7 @@ $c/= :: NatGatewayState -&gt; NatGatewayState -&gt; Bool
 == :: NatGatewayState -&gt; NatGatewayState -&gt; Bool
 $c== :: NatGatewayState -&gt; NatGatewayState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621681128430"><span id="local-6989586621681128432"><span id="local-6989586621681128434"><span id="local-6989586621681128436"><span id="local-6989586621681128438"><span id="local-6989586621681128440"><span id="local-6989586621681128442"><span class="annot"><span class="annottext">Eq NatGatewayState
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681128439"><span id="local-6989586621681128441"><span id="local-6989586621681128443"><span id="local-6989586621681128445"><span id="local-6989586621681128447"><span id="local-6989586621681128449"><span id="local-6989586621681128451"><span class="annot"><span class="annottext">Eq NatGatewayState
 Eq NatGatewayState
 -&gt; (NatGatewayState -&gt; NatGatewayState -&gt; Ordering)
 -&gt; (NatGatewayState -&gt; NatGatewayState -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. NatGatewayState -&gt; Rep NatGatewayState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681128422"><span id="local-6989586621681128424"><span class="annot"><span class="annottext">Int -&gt; NatGatewayState -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681128431"><span id="local-6989586621681128433"><span class="annot"><span class="annottext">Int -&gt; NatGatewayState -&gt; Int
 NatGatewayState -&gt; Int
 (Int -&gt; NatGatewayState -&gt; Int)
 -&gt; (NatGatewayState -&gt; Int) -&gt; Hashable NatGatewayState
@@ -147,50 +147,50 @@ $chash :: NatGatewayState -&gt; Int
 hashWithSalt :: Int -&gt; NatGatewayState -&gt; Int
 $chashWithSalt :: Int -&gt; NatGatewayState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681128419"><span class="annot"><span class="annottext">NatGatewayState -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681128428"><span class="annot"><span class="annottext">NatGatewayState -&gt; ()
 (NatGatewayState -&gt; ()) -&gt; NFData NatGatewayState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NatGatewayState -&gt; ()
 $crnf :: NatGatewayState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681128416"><span class="annot"><span class="annottext">Text -&gt; Either String NatGatewayState
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681128425"><span class="annot"><span class="annottext">Text -&gt; Either String NatGatewayState
 (Text -&gt; Either String NatGatewayState) -&gt; FromText NatGatewayState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NatGatewayState
 $cfromText :: Text -&gt; Either String NatGatewayState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681128413"><span class="annot"><span class="annottext">NatGatewayState -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681128422"><span class="annot"><span class="annottext">NatGatewayState -&gt; Text
 (NatGatewayState -&gt; Text) -&gt; ToText NatGatewayState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NatGatewayState -&gt; Text
 $ctoText :: NatGatewayState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681128410"><span class="annot"><span class="annottext">NatGatewayState -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681128419"><span class="annot"><span class="annottext">NatGatewayState -&gt; ByteString
 (NatGatewayState -&gt; ByteString) -&gt; ToByteString NatGatewayState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NatGatewayState -&gt; ByteString
 $ctoBS :: NatGatewayState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681128407"><span class="annot"><span class="annottext">NatGatewayState -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681128416"><span class="annot"><span class="annottext">NatGatewayState -&gt; ByteStringBuilder
 (NatGatewayState -&gt; ByteStringBuilder) -&gt; ToLog NatGatewayState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NatGatewayState -&gt; ByteStringBuilder
 $cbuild :: NatGatewayState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681128404"><span class="annot"><span class="annottext">HeaderName -&gt; NatGatewayState -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681128413"><span class="annot"><span class="annottext">HeaderName -&gt; NatGatewayState -&gt; [Header]
 (HeaderName -&gt; NatGatewayState -&gt; [Header])
 -&gt; ToHeader NatGatewayState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NatGatewayState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NatGatewayState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681128401"><span class="annot"><span class="annottext">NatGatewayState -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681128410"><span class="annot"><span class="annottext">NatGatewayState -&gt; QueryString
 (NatGatewayState -&gt; QueryString) -&gt; ToQuery NatGatewayState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NatGatewayState -&gt; QueryString
 $ctoQuery :: NatGatewayState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681128396"><span id="local-6989586621681128398"><span class="annot"><span class="annottext">Value -&gt; Parser [NatGatewayState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681128405"><span id="local-6989586621681128407"><span class="annot"><span class="annottext">Value -&gt; Parser [NatGatewayState]
 Value -&gt; Parser NatGatewayState
 (Value -&gt; Parser NatGatewayState)
 -&gt; (Value -&gt; Parser [NatGatewayState]) -&gt; FromJSON NatGatewayState
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [NatGatewayState]
 parseJSON :: Value -&gt; Parser NatGatewayState
 $cparseJSON :: Value -&gt; Parser NatGatewayState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681128391"><span id="local-6989586621681128393"><span class="annot"><span class="annottext">FromJSONKeyFunction [NatGatewayState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681128400"><span id="local-6989586621681128402"><span class="annot"><span class="annottext">FromJSONKeyFunction [NatGatewayState]
 FromJSONKeyFunction NatGatewayState
 FromJSONKeyFunction NatGatewayState
 -&gt; FromJSONKeyFunction [NatGatewayState]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NatGatewayState]
 fromJSONKey :: FromJSONKeyFunction NatGatewayState
 $cfromJSONKey :: FromJSONKeyFunction NatGatewayState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681128382"><span id="local-6989586621681128384"><span id="local-6989586621681128386"><span id="local-6989586621681128388"><span class="annot"><span class="annottext">[NatGatewayState] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681128391"><span id="local-6989586621681128393"><span id="local-6989586621681128395"><span id="local-6989586621681128397"><span class="annot"><span class="annottext">[NatGatewayState] -&gt; Encoding
 [NatGatewayState] -&gt; Value
 NatGatewayState -&gt; Encoding
 NatGatewayState -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: NatGatewayState -&gt; Encoding
 toJSON :: NatGatewayState -&gt; Value
 $ctoJSON :: NatGatewayState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681128377"><span id="local-6989586621681128379"><span class="annot"><span class="annottext">ToJSONKeyFunction [NatGatewayState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681128386"><span id="local-6989586621681128388"><span class="annot"><span class="annottext">ToJSONKeyFunction [NatGatewayState]
 ToJSONKeyFunction NatGatewayState
 ToJSONKeyFunction NatGatewayState
 -&gt; ToJSONKeyFunction [NatGatewayState] -&gt; ToJSONKey NatGatewayState
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NatGatewayState]
 toJSONKey :: ToJSONKeyFunction NatGatewayState
 $ctoJSONKey :: ToJSONKeyFunction NatGatewayState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681128374"><span class="annot"><span class="annottext">[Node] -&gt; Either String NatGatewayState
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681128383"><span class="annot"><span class="annottext">[Node] -&gt; Either String NatGatewayState
 ([Node] -&gt; Either String NatGatewayState)
 -&gt; FromXML NatGatewayState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NatGatewayState
 $cparseXML :: [Node] -&gt; Either String NatGatewayState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681128371"><span class="annot"><span class="annottext">NatGatewayState -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681128380"><span class="annot"><span class="annottext">NatGatewayState -&gt; XML
 (NatGatewayState -&gt; XML) -&gt; ToXML NatGatewayState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NatGatewayState -&gt; XML

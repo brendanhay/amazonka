@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- traffic is routed to the load balancer.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newELBInfo' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679308340"><span id="local-6989586621679308341"></span></span><span class="hs-keyword">data</span><span> </span><span id="ELBInfo"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo"><span class="hs-identifier hs-var">ELBInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ELBInfo%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo%27"><span class="hs-identifier hs-var">ELBInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679308349"><span id="local-6989586621679308350"></span></span><span class="hs-keyword">data</span><span> </span><span id="ELBInfo"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo"><span class="hs-identifier hs-var">ELBInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ELBInfo%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo%27"><span class="hs-identifier hs-var">ELBInfo'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For blue\/green deployments, the name of the load balancer that is used</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- to route traffic from original instances to replacement instances in a</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- blue\/green deployment. For in-place deployments, the name of the load</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Aname%3AELBInfo%27"><span class="annot"><span class="annottext">ELBInfo -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#%24sel%3Aname%3AELBInfo%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308334"><span id="local-6989586621679308336"><span class="annot"><span class="annottext">ELBInfo -&gt; ELBInfo -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308343"><span id="local-6989586621679308345"><span class="annot"><span class="annottext">ELBInfo -&gt; ELBInfo -&gt; Bool
 (ELBInfo -&gt; ELBInfo -&gt; Bool)
 -&gt; (ELBInfo -&gt; ELBInfo -&gt; Bool) -&gt; Eq ELBInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ELBInfo -&gt; ELBInfo -&gt; Bool
 == :: ELBInfo -&gt; ELBInfo -&gt; Bool
 $c== :: ELBInfo -&gt; ELBInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308325"><span id="local-6989586621679308327"><span id="local-6989586621679308329"><span id="local-6989586621679308331"><span class="annot"><span class="annottext">ReadPrec [ELBInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308334"><span id="local-6989586621679308336"><span id="local-6989586621679308338"><span id="local-6989586621679308340"><span class="annot"><span class="annottext">ReadPrec [ELBInfo]
 ReadPrec ELBInfo
 Int -&gt; ReadS ELBInfo
 ReadS [ELBInfo]
@@ -66,7 +66,7 @@ readList :: ReadS [ELBInfo]
 $creadList :: ReadS [ELBInfo]
 readsPrec :: Int -&gt; ReadS ELBInfo
 $creadsPrec :: Int -&gt; ReadS ELBInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308318"><span id="local-6989586621679308320"><span id="local-6989586621679308322"><span class="annot"><span class="annottext">Int -&gt; ELBInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308327"><span id="local-6989586621679308329"><span id="local-6989586621679308331"><span class="annot"><span class="annottext">Int -&gt; ELBInfo -&gt; ShowS
 [ELBInfo] -&gt; ShowS
 ELBInfo -&gt; String
 (Int -&gt; ELBInfo -&gt; ShowS)
@@ -124,45 +124,45 @@ forall a. Maybe a
 -&gt; (ELBInfo -&gt; Maybe Text -&gt; ELBInfo)
 -&gt; Lens ELBInfo ELBInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo%27"><span class="hs-identifier hs-type">ELBInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308309"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo%27"><span class="hs-identifier hs-type">ELBInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308318"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:ELBInfo' :: ELBInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679308309"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308309"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308308"><span class="annot"><span class="annottext">s :: ELBInfo
-</span><a href="#local-6989586621679308308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo%27"><span class="hs-identifier hs-type">ELBInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308307"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ELBInfo
-</span><a href="#local-6989586621679308308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ELBInfo' :: Maybe Text
+</span><a href="#local-6989586621679308318"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308318"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308317"><span class="annot"><span class="annottext">s :: ELBInfo
+</span><a href="#local-6989586621679308317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo%27"><span class="hs-identifier hs-type">ELBInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308316"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ELBInfo
+</span><a href="#local-6989586621679308317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ELBInfo' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#%24sel%3Aname%3AELBInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo"><span class="hs-identifier hs-type">ELBInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo"><span class="hs-identifier hs-type">ELBInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308304"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo"><span class="hs-identifier hs-type">ELBInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679308302"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ELBInfo
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308313"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo"><span class="hs-identifier hs-type">ELBInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679308311"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ELBInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser ELBInfo) -&gt; Value -&gt; Parser ELBInfo
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ELBInfo&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308299"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308299"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; ELBInfo
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308308"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679308308"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; ELBInfo
 </span><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo%27"><span class="hs-identifier hs-var">ELBInfo'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; ELBInfo) -&gt; Parser (Maybe Text) -&gt; Parser ELBInfo
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679308308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308293"><span id="local-6989586621679308295"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo"><span class="hs-identifier hs-type">ELBInfo</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308302"><span id="local-6989586621679308304"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo"><span class="hs-identifier hs-type">ELBInfo</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308290"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo"><span class="hs-identifier hs-type">ELBInfo</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308299"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo"><span class="hs-identifier hs-type">ELBInfo</span></a></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308282"><span id="local-6989586621679308284"><span id="local-6989586621679308286"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo"><span class="hs-identifier hs-type">ELBInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679308280"><span class="annot"><span class="annottext">toJSON :: ELBInfo -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo%27"><span class="hs-identifier hs-type">ELBInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308278"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308291"><span id="local-6989586621679308293"><span id="local-6989586621679308295"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo"><span class="hs-identifier hs-type">ELBInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679308289"><span class="annot"><span class="annottext">toJSON :: ELBInfo -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ELBInfo.html#ELBInfo%27"><span class="hs-identifier hs-type">ELBInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308287"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:ELBInfo' :: ELBInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679308278"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679308287"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -174,6 +174,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308278"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679308287"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span></pre></body></html>

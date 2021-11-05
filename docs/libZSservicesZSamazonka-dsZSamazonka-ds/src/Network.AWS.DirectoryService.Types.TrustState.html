@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-40"></span><span>
-</span><span id="line-41"></span><span id="local-6989586621679301814"><span id="local-6989586621679301815"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrustState"><span class="annot"><a href="Network.AWS.DirectoryService.Types.TrustState.html#TrustState"><span class="hs-identifier hs-var">TrustState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrustState%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.TrustState.html#TrustState%27"><span class="hs-identifier hs-var">TrustState'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679301823"><span id="local-6989586621679301824"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrustState"><span class="annot"><a href="Network.AWS.DirectoryService.Types.TrustState.html#TrustState"><span class="hs-identifier hs-var">TrustState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrustState%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.TrustState.html#TrustState%27"><span class="hs-identifier hs-var">TrustState'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTrustState"><span class="annot"><span class="annottext">TrustState -&gt; Text
 </span><a href="Network.AWS.DirectoryService.Types.TrustState.html#fromTrustState"><span class="hs-identifier hs-var hs-var">fromTrustState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301806"><span id="local-6989586621679301808"><span id="local-6989586621679301810"><span class="annot"><span class="annottext">Int -&gt; TrustState -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301815"><span id="local-6989586621679301817"><span id="local-6989586621679301819"><span class="annot"><span class="annottext">Int -&gt; TrustState -&gt; ShowS
 [TrustState] -&gt; ShowS
 TrustState -&gt; String
 (Int -&gt; TrustState -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: TrustState -&gt; String
 showsPrec :: Int -&gt; TrustState -&gt; ShowS
 $cshowsPrec :: Int -&gt; TrustState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679301797"><span id="local-6989586621679301799"><span id="local-6989586621679301801"><span id="local-6989586621679301803"><span class="annot"><span class="annottext">ReadPrec [TrustState]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679301806"><span id="local-6989586621679301808"><span id="local-6989586621679301810"><span id="local-6989586621679301812"><span class="annot"><span class="annottext">ReadPrec [TrustState]
 ReadPrec TrustState
 Int -&gt; ReadS TrustState
 ReadS [TrustState]
@@ -81,7 +81,7 @@ $creadList :: ReadS [TrustState]
 readsPrec :: Int -&gt; ReadS TrustState
 $creadsPrec :: Int -&gt; ReadS TrustState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679301792"><span id="local-6989586621679301794"><span class="annot"><span class="annottext">TrustState -&gt; TrustState -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679301801"><span id="local-6989586621679301803"><span class="annot"><span class="annottext">TrustState -&gt; TrustState -&gt; Bool
 (TrustState -&gt; TrustState -&gt; Bool)
 -&gt; (TrustState -&gt; TrustState -&gt; Bool) -&gt; Eq TrustState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ $c/= :: TrustState -&gt; TrustState -&gt; Bool
 == :: TrustState -&gt; TrustState -&gt; Bool
 $c== :: TrustState -&gt; TrustState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679301776"><span id="local-6989586621679301778"><span id="local-6989586621679301780"><span id="local-6989586621679301782"><span id="local-6989586621679301784"><span id="local-6989586621679301786"><span id="local-6989586621679301788"><span class="annot"><span class="annottext">Eq TrustState
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679301785"><span id="local-6989586621679301787"><span id="local-6989586621679301789"><span id="local-6989586621679301791"><span id="local-6989586621679301793"><span id="local-6989586621679301795"><span id="local-6989586621679301797"><span class="annot"><span class="annottext">Eq TrustState
 Eq TrustState
 -&gt; (TrustState -&gt; TrustState -&gt; Ordering)
 -&gt; (TrustState -&gt; TrustState -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. TrustState -&gt; Rep TrustState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301768"><span id="local-6989586621679301770"><span class="annot"><span class="annottext">Int -&gt; TrustState -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301777"><span id="local-6989586621679301779"><span class="annot"><span class="annottext">Int -&gt; TrustState -&gt; Int
 TrustState -&gt; Int
 (Int -&gt; TrustState -&gt; Int)
 -&gt; (TrustState -&gt; Int) -&gt; Hashable TrustState
@@ -150,49 +150,49 @@ $chash :: TrustState -&gt; Int
 hashWithSalt :: Int -&gt; TrustState -&gt; Int
 $chashWithSalt :: Int -&gt; TrustState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301765"><span class="annot"><span class="annottext">TrustState -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301774"><span class="annot"><span class="annottext">TrustState -&gt; ()
 (TrustState -&gt; ()) -&gt; NFData TrustState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TrustState -&gt; ()
 $crnf :: TrustState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301762"><span class="annot"><span class="annottext">Text -&gt; Either String TrustState
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301771"><span class="annot"><span class="annottext">Text -&gt; Either String TrustState
 (Text -&gt; Either String TrustState) -&gt; FromText TrustState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TrustState
 $cfromText :: Text -&gt; Either String TrustState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301759"><span class="annot"><span class="annottext">TrustState -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301768"><span class="annot"><span class="annottext">TrustState -&gt; Text
 (TrustState -&gt; Text) -&gt; ToText TrustState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TrustState -&gt; Text
 $ctoText :: TrustState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301756"><span class="annot"><span class="annottext">TrustState -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301765"><span class="annot"><span class="annottext">TrustState -&gt; ByteString
 (TrustState -&gt; ByteString) -&gt; ToByteString TrustState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TrustState -&gt; ByteString
 $ctoBS :: TrustState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679301753"><span class="annot"><span class="annottext">TrustState -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679301762"><span class="annot"><span class="annottext">TrustState -&gt; ByteStringBuilder
 (TrustState -&gt; ByteStringBuilder) -&gt; ToLog TrustState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TrustState -&gt; ByteStringBuilder
 $cbuild :: TrustState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679301750"><span class="annot"><span class="annottext">HeaderName -&gt; TrustState -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679301759"><span class="annot"><span class="annottext">HeaderName -&gt; TrustState -&gt; [Header]
 (HeaderName -&gt; TrustState -&gt; [Header]) -&gt; ToHeader TrustState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TrustState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TrustState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679301747"><span class="annot"><span class="annottext">TrustState -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679301756"><span class="annot"><span class="annottext">TrustState -&gt; QueryString
 (TrustState -&gt; QueryString) -&gt; ToQuery TrustState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TrustState -&gt; QueryString
 $ctoQuery :: TrustState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679301742"><span id="local-6989586621679301744"><span class="annot"><span class="annottext">Value -&gt; Parser [TrustState]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679301751"><span id="local-6989586621679301753"><span class="annot"><span class="annottext">Value -&gt; Parser [TrustState]
 Value -&gt; Parser TrustState
 (Value -&gt; Parser TrustState)
 -&gt; (Value -&gt; Parser [TrustState]) -&gt; FromJSON TrustState
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [TrustState]
 parseJSON :: Value -&gt; Parser TrustState
 $cparseJSON :: Value -&gt; Parser TrustState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679301737"><span id="local-6989586621679301739"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrustState]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679301746"><span id="local-6989586621679301748"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrustState]
 FromJSONKeyFunction TrustState
 FromJSONKeyFunction TrustState
 -&gt; FromJSONKeyFunction [TrustState] -&gt; FromJSONKey TrustState
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TrustState]
 fromJSONKey :: FromJSONKeyFunction TrustState
 $cfromJSONKey :: FromJSONKeyFunction TrustState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679301728"><span id="local-6989586621679301730"><span id="local-6989586621679301732"><span id="local-6989586621679301734"><span class="annot"><span class="annottext">[TrustState] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679301737"><span id="local-6989586621679301739"><span id="local-6989586621679301741"><span id="local-6989586621679301743"><span class="annot"><span class="annottext">[TrustState] -&gt; Encoding
 [TrustState] -&gt; Value
 TrustState -&gt; Encoding
 TrustState -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: TrustState -&gt; Encoding
 toJSON :: TrustState -&gt; Value
 $ctoJSON :: TrustState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679301723"><span id="local-6989586621679301725"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrustState]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679301732"><span id="local-6989586621679301734"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrustState]
 ToJSONKeyFunction TrustState
 ToJSONKeyFunction TrustState
 -&gt; ToJSONKeyFunction [TrustState] -&gt; ToJSONKey TrustState
@@ -249,13 +249,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TrustState]
 toJSONKey :: ToJSONKeyFunction TrustState
 $ctoJSONKey :: ToJSONKeyFunction TrustState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679301720"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrustState
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679301729"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrustState
 ([Node] -&gt; Either String TrustState) -&gt; FromXML TrustState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TrustState
 $cparseXML :: [Node] -&gt; Either String TrustState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679301717"><span class="annot"><span class="annottext">TrustState -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679301726"><span class="annot"><span class="annottext">TrustState -&gt; XML
 (TrustState -&gt; XML) -&gt; ToXML TrustState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TrustState -&gt; XML

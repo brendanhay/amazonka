@@ -1,0 +1,728 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Nimble.ListEulaAcceptances</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- List Eula Acceptances.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Nimble.ListEulaAcceptances</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances"><span class="hs-identifier">ListEulaAcceptances</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#newListEulaAcceptances"><span class="hs-identifier">newListEulaAcceptances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptances_nextToken"><span class="hs-identifier">listEulaAcceptances_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptances_eulaIds"><span class="hs-identifier">listEulaAcceptances_eulaIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptances_studioId"><span class="hs-identifier">listEulaAcceptances_studioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse"><span class="hs-identifier">ListEulaAcceptancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#newListEulaAcceptancesResponse"><span class="hs-identifier">newListEulaAcceptancesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptancesResponse_nextToken"><span class="hs-identifier">listEulaAcceptancesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptancesResponse_eulaAcceptances"><span class="hs-identifier">listEulaAcceptancesResponse_eulaAcceptances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptancesResponse_httpStatus"><span class="hs-identifier">listEulaAcceptancesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.html"><span class="hs-identifier">Network.AWS.Nimble.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListEulaAcceptances' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679293401"><span id="local-6989586621679293402"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEulaAcceptances"><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances"><span class="hs-identifier hs-var">ListEulaAcceptances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEulaAcceptances%27"><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances%27"><span class="hs-identifier hs-var">ListEulaAcceptances'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListEulaAcceptances%27"><span class="annot"><span class="annottext">ListEulaAcceptances -&gt; Maybe Text
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AnextToken%3AListEulaAcceptances%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | A collection of EULA IDs.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AeulaIds%3AListEulaAcceptances%27"><span class="annot"><span class="annottext">ListEulaAcceptances -&gt; Maybe [Text]
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AeulaIds%3AListEulaAcceptances%27"><span class="hs-identifier hs-var hs-var">eulaIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The studio ID.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AstudioId%3AListEulaAcceptances%27"><span class="annot"><span class="annottext">ListEulaAcceptances -&gt; Text
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AstudioId%3AListEulaAcceptances%27"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293393"><span id="local-6989586621679293395"><span class="annot"><span class="annottext">ListEulaAcceptances -&gt; ListEulaAcceptances -&gt; Bool
+(ListEulaAcceptances -&gt; ListEulaAcceptances -&gt; Bool)
+-&gt; (ListEulaAcceptances -&gt; ListEulaAcceptances -&gt; Bool)
+-&gt; Eq ListEulaAcceptances
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListEulaAcceptances -&gt; ListEulaAcceptances -&gt; Bool
+$c/= :: ListEulaAcceptances -&gt; ListEulaAcceptances -&gt; Bool
+== :: ListEulaAcceptances -&gt; ListEulaAcceptances -&gt; Bool
+$c== :: ListEulaAcceptances -&gt; ListEulaAcceptances -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293384"><span id="local-6989586621679293386"><span id="local-6989586621679293388"><span id="local-6989586621679293390"><span class="annot"><span class="annottext">ReadPrec [ListEulaAcceptances]
+ReadPrec ListEulaAcceptances
+Int -&gt; ReadS ListEulaAcceptances
+ReadS [ListEulaAcceptances]
+(Int -&gt; ReadS ListEulaAcceptances)
+-&gt; ReadS [ListEulaAcceptances]
+-&gt; ReadPrec ListEulaAcceptances
+-&gt; ReadPrec [ListEulaAcceptances]
+-&gt; Read ListEulaAcceptances
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListEulaAcceptances]
+$creadListPrec :: ReadPrec [ListEulaAcceptances]
+readPrec :: ReadPrec ListEulaAcceptances
+$creadPrec :: ReadPrec ListEulaAcceptances
+readList :: ReadS [ListEulaAcceptances]
+$creadList :: ReadS [ListEulaAcceptances]
+readsPrec :: Int -&gt; ReadS ListEulaAcceptances
+$creadsPrec :: Int -&gt; ReadS ListEulaAcceptances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293377"><span id="local-6989586621679293379"><span id="local-6989586621679293381"><span class="annot"><span class="annottext">Int -&gt; ListEulaAcceptances -&gt; ShowS
+[ListEulaAcceptances] -&gt; ShowS
+ListEulaAcceptances -&gt; String
+(Int -&gt; ListEulaAcceptances -&gt; ShowS)
+-&gt; (ListEulaAcceptances -&gt; String)
+-&gt; ([ListEulaAcceptances] -&gt; ShowS)
+-&gt; Show ListEulaAcceptances
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListEulaAcceptances] -&gt; ShowS
+$cshowList :: [ListEulaAcceptances] -&gt; ShowS
+show :: ListEulaAcceptances -&gt; String
+$cshow :: ListEulaAcceptances -&gt; String
+showsPrec :: Int -&gt; ListEulaAcceptances -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListEulaAcceptances -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListEulaAcceptances -&gt; Rep ListEulaAcceptances x)
+-&gt; (forall x. Rep ListEulaAcceptances x -&gt; ListEulaAcceptances)
+-&gt; Generic ListEulaAcceptances
+forall x. Rep ListEulaAcceptances x -&gt; ListEulaAcceptances
+forall x. ListEulaAcceptances -&gt; Rep ListEulaAcceptances x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListEulaAcceptances x -&gt; ListEulaAcceptances
+$cfrom :: forall x. ListEulaAcceptances -&gt; Rep ListEulaAcceptances x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'ListEulaAcceptances' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'nextToken', 'listEulaAcceptances_nextToken' - The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'eulaIds', 'listEulaAcceptances_eulaIds' - A collection of EULA IDs.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'studioId', 'listEulaAcceptances_studioId' - The studio ID.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#newListEulaAcceptances"><span class="hs-identifier hs-type">newListEulaAcceptances</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'studioId'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances"><span class="hs-identifier hs-type">ListEulaAcceptances</span></a></span><span>
+</span><span id="line-84"></span><span id="newListEulaAcceptances"><span class="annot"><span class="annottext">newListEulaAcceptances :: Text -&gt; ListEulaAcceptances
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#newListEulaAcceptances"><span class="hs-identifier hs-var hs-var">newListEulaAcceptances</span></a></span></span><span> </span><span id="local-6989586621679293372"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293372"><span class="hs-identifier hs-var">pStudioId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">ListEulaAcceptances' :: Maybe Text -&gt; Maybe [Text] -&gt; Text -&gt; ListEulaAcceptances
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances%27"><span class="hs-identifier hs-type">ListEulaAcceptances'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListEulaAcceptances' :: Maybe Text
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AnextToken%3AListEulaAcceptances%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:eulaIds:ListEulaAcceptances' :: Maybe [Text]
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AeulaIds%3AListEulaAcceptances%27"><span class="hs-identifier hs-var">eulaIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:studioId:ListEulaAcceptances' :: Text
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AstudioId%3AListEulaAcceptances%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293372"><span class="hs-identifier hs-var">pStudioId_</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptances_nextToken"><span class="hs-identifier hs-type">listEulaAcceptances_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances"><span class="hs-identifier hs-type">ListEulaAcceptances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="listEulaAcceptances_nextToken"><span class="annot"><span class="annottext">listEulaAcceptances_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListEulaAcceptances -&gt; f ListEulaAcceptances
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptances_nextToken"><span class="hs-identifier hs-var hs-var">listEulaAcceptances_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEulaAcceptances -&gt; Maybe Text)
+-&gt; (ListEulaAcceptances -&gt; Maybe Text -&gt; ListEulaAcceptances)
+-&gt; Lens
+     ListEulaAcceptances ListEulaAcceptances (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances%27"><span class="hs-identifier hs-type">ListEulaAcceptances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293370"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListEulaAcceptances' :: ListEulaAcceptances -&gt; Maybe Text
+</span><a href="#local-6989586621679293370"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293370"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293369"><span class="annot"><span class="annottext">s :: ListEulaAcceptances
+</span><a href="#local-6989586621679293369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances%27"><span class="hs-identifier hs-type">ListEulaAcceptances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293368"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEulaAcceptances
+</span><a href="#local-6989586621679293369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEulaAcceptances' :: Maybe Text
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AnextToken%3AListEulaAcceptances%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances"><span class="hs-identifier hs-type">ListEulaAcceptances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | A collection of EULA IDs.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptances_eulaIds"><span class="hs-identifier hs-type">listEulaAcceptances_eulaIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances"><span class="hs-identifier hs-type">ListEulaAcceptances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="listEulaAcceptances_eulaIds"><span class="annot"><span class="annottext">listEulaAcceptances_eulaIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListEulaAcceptances -&gt; f ListEulaAcceptances
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptances_eulaIds"><span class="hs-identifier hs-var hs-var">listEulaAcceptances_eulaIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEulaAcceptances -&gt; Maybe [Text])
+-&gt; (ListEulaAcceptances -&gt; Maybe [Text] -&gt; ListEulaAcceptances)
+-&gt; Lens
+     ListEulaAcceptances
+     ListEulaAcceptances
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances%27"><span class="hs-identifier hs-type">ListEulaAcceptances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293367"><span class="annot"><span class="annottext">Maybe [Text]
+eulaIds :: Maybe [Text]
+$sel:eulaIds:ListEulaAcceptances' :: ListEulaAcceptances -&gt; Maybe [Text]
+</span><a href="#local-6989586621679293367"><span class="hs-identifier hs-var hs-var">eulaIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679293367"><span class="hs-identifier hs-var">eulaIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293366"><span class="annot"><span class="annottext">s :: ListEulaAcceptances
+</span><a href="#local-6989586621679293366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances%27"><span class="hs-identifier hs-type">ListEulaAcceptances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293365"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679293365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEulaAcceptances
+</span><a href="#local-6989586621679293366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eulaIds:ListEulaAcceptances' :: Maybe [Text]
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AeulaIds%3AListEulaAcceptances%27"><span class="hs-identifier hs-var">eulaIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679293365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances"><span class="hs-identifier hs-type">ListEulaAcceptances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ListEulaAcceptances -&gt; f ListEulaAcceptances)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListEulaAcceptances
+-&gt; f ListEulaAcceptances
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The studio ID.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptances_studioId"><span class="hs-identifier hs-type">listEulaAcceptances_studioId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances"><span class="hs-identifier hs-type">ListEulaAcceptances</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-102"></span><span id="listEulaAcceptances_studioId"><span class="annot"><span class="annottext">listEulaAcceptances_studioId :: (Text -&gt; f Text) -&gt; ListEulaAcceptances -&gt; f ListEulaAcceptances
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptances_studioId"><span class="hs-identifier hs-var hs-var">listEulaAcceptances_studioId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEulaAcceptances -&gt; Text)
+-&gt; (ListEulaAcceptances -&gt; Text -&gt; ListEulaAcceptances)
+-&gt; Lens ListEulaAcceptances ListEulaAcceptances Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances%27"><span class="hs-identifier hs-type">ListEulaAcceptances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293361"><span class="annot"><span class="annottext">Text
+studioId :: Text
+$sel:studioId:ListEulaAcceptances' :: ListEulaAcceptances -&gt; Text
+</span><a href="#local-6989586621679293361"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293361"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293360"><span class="annot"><span class="annottext">s :: ListEulaAcceptances
+</span><a href="#local-6989586621679293360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances%27"><span class="hs-identifier hs-type">ListEulaAcceptances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293359"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEulaAcceptances
+</span><a href="#local-6989586621679293360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioId:ListEulaAcceptances' :: Text
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AstudioId%3AListEulaAcceptances%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances"><span class="hs-identifier hs-type">ListEulaAcceptances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances"><span class="hs-identifier hs-type">ListEulaAcceptances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679293355"><span class="annot"><span class="annottext">page :: ListEulaAcceptances
+-&gt; AWSResponse ListEulaAcceptances -&gt; Maybe ListEulaAcceptances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679293353"><span class="annot"><span class="annottext">ListEulaAcceptances
+</span><a href="#local-6989586621679293353"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679293352"><span class="annot"><span class="annottext">AWSResponse ListEulaAcceptances
+</span><a href="#local-6989586621679293352"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-107"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEulaAcceptances
+ListEulaAcceptancesResponse
+</span><a href="#local-6989586621679293352"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">ListEulaAcceptancesResponse
+-&gt; Getting (First Text) ListEulaAcceptancesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListEulaAcceptancesResponse
+-&gt; Const (First Text) ListEulaAcceptancesResponse
+Lens' ListEulaAcceptancesResponse (Maybe Text)
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptancesResponse_nextToken"><span class="hs-identifier hs-var">listEulaAcceptancesResponse_nextToken</span></a></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListEulaAcceptancesResponse
+ -&gt; Const (First Text) ListEulaAcceptancesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListEulaAcceptancesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-110"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListEulaAcceptances
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [EulaAcceptance] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEulaAcceptances
+ListEulaAcceptancesResponse
+</span><a href="#local-6989586621679293352"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">ListEulaAcceptancesResponse
+-&gt; Getting
+     (First [EulaAcceptance])
+     ListEulaAcceptancesResponse
+     [EulaAcceptance]
+-&gt; Maybe [EulaAcceptance]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [EulaAcceptance]
+ -&gt; Const (First [EulaAcceptance]) (Maybe [EulaAcceptance]))
+-&gt; ListEulaAcceptancesResponse
+-&gt; Const (First [EulaAcceptance]) ListEulaAcceptancesResponse
+Lens' ListEulaAcceptancesResponse (Maybe [EulaAcceptance])
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptancesResponse_eulaAcceptances"><span class="hs-identifier hs-var">listEulaAcceptancesResponse_eulaAcceptances</span></a></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [EulaAcceptance]
+  -&gt; Const (First [EulaAcceptance]) (Maybe [EulaAcceptance]))
+ -&gt; ListEulaAcceptancesResponse
+ -&gt; Const (First [EulaAcceptance]) ListEulaAcceptancesResponse)
+-&gt; (([EulaAcceptance]
+     -&gt; Const (First [EulaAcceptance]) [EulaAcceptance])
+    -&gt; Maybe [EulaAcceptance]
+    -&gt; Const (First [EulaAcceptance]) (Maybe [EulaAcceptance]))
+-&gt; Getting
+     (First [EulaAcceptance])
+     ListEulaAcceptancesResponse
+     [EulaAcceptance]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([EulaAcceptance]
+ -&gt; Const (First [EulaAcceptance]) [EulaAcceptance])
+-&gt; Maybe [EulaAcceptance]
+-&gt; Const (First [EulaAcceptance]) (Maybe [EulaAcceptance])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-116"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListEulaAcceptances
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">ListEulaAcceptances -&gt; Maybe ListEulaAcceptances
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListEulaAcceptances -&gt; Maybe ListEulaAcceptances)
+-&gt; ListEulaAcceptances -&gt; Maybe ListEulaAcceptances
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">ListEulaAcceptances
+</span><a href="#local-6989586621679293353"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">ListEulaAcceptances
+-&gt; (ListEulaAcceptances -&gt; ListEulaAcceptances)
+-&gt; ListEulaAcceptances
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListEulaAcceptances -&gt; Identity ListEulaAcceptances
+Lens
+  ListEulaAcceptances ListEulaAcceptances (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptances_nextToken"><span class="hs-identifier hs-var">listEulaAcceptances_nextToken</span></a></span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListEulaAcceptances -&gt; Identity ListEulaAcceptances)
+-&gt; Maybe Text -&gt; ListEulaAcceptances -&gt; ListEulaAcceptances
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEulaAcceptances
+ListEulaAcceptancesResponse
+</span><a href="#local-6989586621679293352"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">ListEulaAcceptancesResponse
+-&gt; Getting (First Text) ListEulaAcceptancesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListEulaAcceptancesResponse
+-&gt; Const (First Text) ListEulaAcceptancesResponse
+Lens' ListEulaAcceptancesResponse (Maybe Text)
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptancesResponse_nextToken"><span class="hs-identifier hs-var">listEulaAcceptancesResponse_nextToken</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListEulaAcceptancesResponse
+ -&gt; Const (First Text) ListEulaAcceptancesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListEulaAcceptancesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances"><span class="hs-identifier hs-type">ListEulaAcceptances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances"><span class="hs-identifier hs-type">ListEulaAcceptances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse"><span class="hs-identifier hs-type">ListEulaAcceptancesResponse</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679293343"><span class="annot"><span class="annottext">request :: ListEulaAcceptances -&gt; Request ListEulaAcceptances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListEulaAcceptances -&gt; Request ListEulaAcceptances
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Nimble.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679293339"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListEulaAcceptances
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListEulaAcceptances)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListEulaAcceptances))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListEulaAcceptances
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListEulaAcceptances)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293336"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293336"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679293335"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679293335"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679293334"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293334"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [EulaAcceptance] -&gt; Int -&gt; ListEulaAcceptancesResponse
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse%27"><span class="hs-identifier hs-var">ListEulaAcceptancesResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [EulaAcceptance] -&gt; Int -&gt; ListEulaAcceptancesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [EulaAcceptance] -&gt; Int -&gt; ListEulaAcceptancesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293334"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [EulaAcceptance] -&gt; Int -&gt; ListEulaAcceptancesResponse)
+-&gt; Either String (Maybe [EulaAcceptance])
+-&gt; Either String (Int -&gt; ListEulaAcceptancesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293334"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [EulaAcceptance]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eulaAcceptances&quot;</span></span><span>
+</span><span id="line-137"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [EulaAcceptance]))
+-&gt; Maybe [EulaAcceptance] -&gt; Either String (Maybe [EulaAcceptance])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EulaAcceptance]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-138"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListEulaAcceptancesResponse)
+-&gt; Either String Int -&gt; Either String ListEulaAcceptancesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293336"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293325"><span id="local-6989586621679293327"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances"><span class="hs-identifier hs-type">ListEulaAcceptances</span></a></span></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293322"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances"><span class="hs-identifier hs-type">ListEulaAcceptances</span></a></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances"><span class="hs-identifier hs-type">ListEulaAcceptances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679293318"><span class="annot"><span class="annottext">toHeaders :: ListEulaAcceptances -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListEulaAcceptances -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-153"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances"><span class="hs-identifier hs-type">ListEulaAcceptances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679293312"><span class="annot"><span class="annottext">toPath :: ListEulaAcceptances -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances%27"><span class="hs-identifier hs-type">ListEulaAcceptances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293308"><span id="local-6989586621679293309"><span id="local-6989586621679293310"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe Text
+Text
+studioId :: Text
+eulaIds :: Maybe [Text]
+nextToken :: Maybe Text
+$sel:studioId:ListEulaAcceptances' :: ListEulaAcceptances -&gt; Text
+$sel:eulaIds:ListEulaAcceptances' :: ListEulaAcceptances -&gt; Maybe [Text]
+$sel:nextToken:ListEulaAcceptances' :: ListEulaAcceptances -&gt; Maybe Text
+</span><a href="#local-6989586621679293308"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-08-01/studios/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293308"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/eula-acceptances&quot;</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances"><span class="hs-identifier hs-type">ListEulaAcceptances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679293304"><span class="annot"><span class="annottext">toQuery :: ListEulaAcceptances -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptances%27"><span class="hs-identifier hs-type">ListEulaAcceptances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293300"><span id="local-6989586621679293301"><span id="local-6989586621679293302"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe Text
+Text
+studioId :: Text
+eulaIds :: Maybe [Text]
+nextToken :: Maybe Text
+$sel:studioId:ListEulaAcceptances' :: ListEulaAcceptances -&gt; Text
+$sel:eulaIds:ListEulaAcceptances' :: ListEulaAcceptances -&gt; Maybe [Text]
+$sel:nextToken:ListEulaAcceptances' :: ListEulaAcceptances -&gt; Maybe Text
+</span><a href="#local-6989586621679293300"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293302"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;eulaIds&quot;</span></span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679293301"><span class="hs-identifier hs-var">eulaIds</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | /See:/ 'newListEulaAcceptancesResponse' smart constructor.</span><span>
+</span><span id="line-175"></span><span id="local-6989586621679293296"><span id="local-6989586621679293297"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEulaAcceptancesResponse"><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse"><span class="hs-identifier hs-var">ListEulaAcceptancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEulaAcceptancesResponse%27"><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse%27"><span class="hs-identifier hs-var">ListEulaAcceptancesResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AnextToken%3AListEulaAcceptancesResponse%27"><span class="annot"><span class="annottext">ListEulaAcceptancesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AnextToken%3AListEulaAcceptancesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | A collection of EULA acceptances.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3AeulaAcceptances%3AListEulaAcceptancesResponse%27"><span class="annot"><span class="annottext">ListEulaAcceptancesResponse -&gt; Maybe [EulaAcceptance]
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AeulaAcceptances%3AListEulaAcceptancesResponse%27"><span class="hs-identifier hs-var hs-var">eulaAcceptances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Nimble.Types.EulaAcceptance.html#EulaAcceptance"><span class="hs-identifier hs-type">EulaAcceptance</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListEulaAcceptancesResponse%27"><span class="annot"><span class="annottext">ListEulaAcceptancesResponse -&gt; Int
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AhttpStatus%3AListEulaAcceptancesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293289"><span id="local-6989586621679293291"><span class="annot"><span class="annottext">ListEulaAcceptancesResponse -&gt; ListEulaAcceptancesResponse -&gt; Bool
+(ListEulaAcceptancesResponse
+ -&gt; ListEulaAcceptancesResponse -&gt; Bool)
+-&gt; (ListEulaAcceptancesResponse
+    -&gt; ListEulaAcceptancesResponse -&gt; Bool)
+-&gt; Eq ListEulaAcceptancesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListEulaAcceptancesResponse -&gt; ListEulaAcceptancesResponse -&gt; Bool
+$c/= :: ListEulaAcceptancesResponse -&gt; ListEulaAcceptancesResponse -&gt; Bool
+== :: ListEulaAcceptancesResponse -&gt; ListEulaAcceptancesResponse -&gt; Bool
+$c== :: ListEulaAcceptancesResponse -&gt; ListEulaAcceptancesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293281"><span id="local-6989586621679293283"><span id="local-6989586621679293285"><span id="local-6989586621679293287"><span class="annot"><span class="annottext">ReadPrec [ListEulaAcceptancesResponse]
+ReadPrec ListEulaAcceptancesResponse
+Int -&gt; ReadS ListEulaAcceptancesResponse
+ReadS [ListEulaAcceptancesResponse]
+(Int -&gt; ReadS ListEulaAcceptancesResponse)
+-&gt; ReadS [ListEulaAcceptancesResponse]
+-&gt; ReadPrec ListEulaAcceptancesResponse
+-&gt; ReadPrec [ListEulaAcceptancesResponse]
+-&gt; Read ListEulaAcceptancesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListEulaAcceptancesResponse]
+$creadListPrec :: ReadPrec [ListEulaAcceptancesResponse]
+readPrec :: ReadPrec ListEulaAcceptancesResponse
+$creadPrec :: ReadPrec ListEulaAcceptancesResponse
+readList :: ReadS [ListEulaAcceptancesResponse]
+$creadList :: ReadS [ListEulaAcceptancesResponse]
+readsPrec :: Int -&gt; ReadS ListEulaAcceptancesResponse
+$creadsPrec :: Int -&gt; ReadS ListEulaAcceptancesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293275"><span id="local-6989586621679293277"><span id="local-6989586621679293279"><span class="annot"><span class="annottext">Int -&gt; ListEulaAcceptancesResponse -&gt; ShowS
+[ListEulaAcceptancesResponse] -&gt; ShowS
+ListEulaAcceptancesResponse -&gt; String
+(Int -&gt; ListEulaAcceptancesResponse -&gt; ShowS)
+-&gt; (ListEulaAcceptancesResponse -&gt; String)
+-&gt; ([ListEulaAcceptancesResponse] -&gt; ShowS)
+-&gt; Show ListEulaAcceptancesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListEulaAcceptancesResponse] -&gt; ShowS
+$cshowList :: [ListEulaAcceptancesResponse] -&gt; ShowS
+show :: ListEulaAcceptancesResponse -&gt; String
+$cshow :: ListEulaAcceptancesResponse -&gt; String
+showsPrec :: Int -&gt; ListEulaAcceptancesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListEulaAcceptancesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListEulaAcceptancesResponse -&gt; Rep ListEulaAcceptancesResponse x)
+-&gt; (forall x.
+    Rep ListEulaAcceptancesResponse x -&gt; ListEulaAcceptancesResponse)
+-&gt; Generic ListEulaAcceptancesResponse
+forall x.
+Rep ListEulaAcceptancesResponse x -&gt; ListEulaAcceptancesResponse
+forall x.
+ListEulaAcceptancesResponse -&gt; Rep ListEulaAcceptancesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListEulaAcceptancesResponse x -&gt; ListEulaAcceptancesResponse
+$cfrom :: forall x.
+ListEulaAcceptancesResponse -&gt; Rep ListEulaAcceptancesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Create a value of 'ListEulaAcceptancesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'nextToken', 'listEulaAcceptancesResponse_nextToken' - The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'eulaAcceptances', 'listEulaAcceptancesResponse_eulaAcceptances' - A collection of EULA acceptances.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'httpStatus', 'listEulaAcceptancesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#newListEulaAcceptancesResponse"><span class="hs-identifier hs-type">newListEulaAcceptancesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse"><span class="hs-identifier hs-type">ListEulaAcceptancesResponse</span></a></span><span>
+</span><span id="line-204"></span><span id="newListEulaAcceptancesResponse"><span class="annot"><span class="annottext">newListEulaAcceptancesResponse :: Int -&gt; ListEulaAcceptancesResponse
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#newListEulaAcceptancesResponse"><span class="hs-identifier hs-var hs-var">newListEulaAcceptancesResponse</span></a></span></span><span> </span><span id="local-6989586621679293272"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293272"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><span class="annottext">ListEulaAcceptancesResponse' :: Maybe Text
+-&gt; Maybe [EulaAcceptance] -&gt; Int -&gt; ListEulaAcceptancesResponse
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse%27"><span class="hs-identifier hs-type">ListEulaAcceptancesResponse'</span></a></span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListEulaAcceptancesResponse' :: Maybe Text
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AnextToken%3AListEulaAcceptancesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:eulaAcceptances:ListEulaAcceptancesResponse' :: Maybe [EulaAcceptance]
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AeulaAcceptances%3AListEulaAcceptancesResponse%27"><span class="hs-identifier hs-var">eulaAcceptances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EulaAcceptance]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListEulaAcceptancesResponse' :: Int
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AhttpStatus%3AListEulaAcceptancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293272"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptancesResponse_nextToken"><span class="hs-identifier hs-type">listEulaAcceptancesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse"><span class="hs-identifier hs-type">ListEulaAcceptancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="listEulaAcceptancesResponse_nextToken"><span class="annot"><span class="annottext">listEulaAcceptancesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListEulaAcceptancesResponse -&gt; f ListEulaAcceptancesResponse
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptancesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listEulaAcceptancesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEulaAcceptancesResponse -&gt; Maybe Text)
+-&gt; (ListEulaAcceptancesResponse
+    -&gt; Maybe Text -&gt; ListEulaAcceptancesResponse)
+-&gt; Lens' ListEulaAcceptancesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse%27"><span class="hs-identifier hs-type">ListEulaAcceptancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293271"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListEulaAcceptancesResponse' :: ListEulaAcceptancesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679293271"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293271"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293270"><span class="annot"><span class="annottext">s :: ListEulaAcceptancesResponse
+</span><a href="#local-6989586621679293270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse%27"><span class="hs-identifier hs-type">ListEulaAcceptancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293269"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEulaAcceptancesResponse
+</span><a href="#local-6989586621679293270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEulaAcceptancesResponse' :: Maybe Text
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AnextToken%3AListEulaAcceptancesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse"><span class="hs-identifier hs-type">ListEulaAcceptancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | A collection of EULA acceptances.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptancesResponse_eulaAcceptances"><span class="hs-identifier hs-type">listEulaAcceptancesResponse_eulaAcceptances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse"><span class="hs-identifier hs-type">ListEulaAcceptancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Nimble.Types.EulaAcceptance.html#EulaAcceptance"><span class="hs-identifier hs-type">EulaAcceptance</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="listEulaAcceptancesResponse_eulaAcceptances"><span class="annot"><span class="annottext">listEulaAcceptancesResponse_eulaAcceptances :: (Maybe [EulaAcceptance] -&gt; f (Maybe [EulaAcceptance]))
+-&gt; ListEulaAcceptancesResponse -&gt; f ListEulaAcceptancesResponse
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptancesResponse_eulaAcceptances"><span class="hs-identifier hs-var hs-var">listEulaAcceptancesResponse_eulaAcceptances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEulaAcceptancesResponse -&gt; Maybe [EulaAcceptance])
+-&gt; (ListEulaAcceptancesResponse
+    -&gt; Maybe [EulaAcceptance] -&gt; ListEulaAcceptancesResponse)
+-&gt; Lens' ListEulaAcceptancesResponse (Maybe [EulaAcceptance])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse%27"><span class="hs-identifier hs-type">ListEulaAcceptancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293268"><span class="annot"><span class="annottext">Maybe [EulaAcceptance]
+eulaAcceptances :: Maybe [EulaAcceptance]
+$sel:eulaAcceptances:ListEulaAcceptancesResponse' :: ListEulaAcceptancesResponse -&gt; Maybe [EulaAcceptance]
+</span><a href="#local-6989586621679293268"><span class="hs-identifier hs-var hs-var">eulaAcceptances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EulaAcceptance]
+</span><a href="#local-6989586621679293268"><span class="hs-identifier hs-var">eulaAcceptances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293267"><span class="annot"><span class="annottext">s :: ListEulaAcceptancesResponse
+</span><a href="#local-6989586621679293267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse%27"><span class="hs-identifier hs-type">ListEulaAcceptancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293266"><span class="annot"><span class="annottext">Maybe [EulaAcceptance]
+</span><a href="#local-6989586621679293266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEulaAcceptancesResponse
+</span><a href="#local-6989586621679293267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eulaAcceptances:ListEulaAcceptancesResponse' :: Maybe [EulaAcceptance]
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AeulaAcceptances%3AListEulaAcceptancesResponse%27"><span class="hs-identifier hs-var">eulaAcceptances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EulaAcceptance]
+</span><a href="#local-6989586621679293266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse"><span class="hs-identifier hs-type">ListEulaAcceptancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EulaAcceptance] -&gt; f (Maybe [EulaAcceptance]))
+ -&gt; ListEulaAcceptancesResponse -&gt; f ListEulaAcceptancesResponse)
+-&gt; ((Maybe [EulaAcceptance] -&gt; f (Maybe [EulaAcceptance]))
+    -&gt; Maybe [EulaAcceptance] -&gt; f (Maybe [EulaAcceptance]))
+-&gt; (Maybe [EulaAcceptance] -&gt; f (Maybe [EulaAcceptance]))
+-&gt; ListEulaAcceptancesResponse
+-&gt; f ListEulaAcceptancesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EulaAcceptance] [EulaAcceptance] [EulaAcceptance] [EulaAcceptance]
+-&gt; Iso
+     (Maybe [EulaAcceptance])
+     (Maybe [EulaAcceptance])
+     (Maybe [EulaAcceptance])
+     (Maybe [EulaAcceptance])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EulaAcceptance] [EulaAcceptance] [EulaAcceptance] [EulaAcceptance]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptancesResponse_httpStatus"><span class="hs-identifier hs-type">listEulaAcceptancesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse"><span class="hs-identifier hs-type">ListEulaAcceptancesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-223"></span><span id="listEulaAcceptancesResponse_httpStatus"><span class="annot"><span class="annottext">listEulaAcceptancesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListEulaAcceptancesResponse -&gt; f ListEulaAcceptancesResponse
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#listEulaAcceptancesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listEulaAcceptancesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEulaAcceptancesResponse -&gt; Int)
+-&gt; (ListEulaAcceptancesResponse
+    -&gt; Int -&gt; ListEulaAcceptancesResponse)
+-&gt; Lens
+     ListEulaAcceptancesResponse ListEulaAcceptancesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse%27"><span class="hs-identifier hs-type">ListEulaAcceptancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293265"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListEulaAcceptancesResponse' :: ListEulaAcceptancesResponse -&gt; Int
+</span><a href="#local-6989586621679293265"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293265"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293264"><span class="annot"><span class="annottext">s :: ListEulaAcceptancesResponse
+</span><a href="#local-6989586621679293264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse%27"><span class="hs-identifier hs-type">ListEulaAcceptancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293263"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEulaAcceptancesResponse
+</span><a href="#local-6989586621679293264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListEulaAcceptancesResponse' :: Int
+</span><a href="Network.AWS.Nimble.ListEulaAcceptances.html#%24sel%3AhttpStatus%3AListEulaAcceptancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse"><span class="hs-identifier hs-type">ListEulaAcceptancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListEulaAcceptances.html#ListEulaAcceptancesResponse"><span class="hs-identifier hs-type">ListEulaAcceptancesResponse</span></a></span></span><span>
+</span><span id="line-226"></span></pre></body></html>

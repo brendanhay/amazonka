@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679436844"><span id="local-6989586621679436845"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicationEndpointTypeValue"><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationEndpointTypeValue.html#ReplicationEndpointTypeValue"><span class="hs-identifier hs-var">ReplicationEndpointTypeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationEndpointTypeValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationEndpointTypeValue.html#ReplicationEndpointTypeValue%27"><span class="hs-identifier hs-var">ReplicationEndpointTypeValue'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679436853"><span id="local-6989586621679436854"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicationEndpointTypeValue"><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationEndpointTypeValue.html#ReplicationEndpointTypeValue"><span class="hs-identifier hs-var">ReplicationEndpointTypeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationEndpointTypeValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationEndpointTypeValue.html#ReplicationEndpointTypeValue%27"><span class="hs-identifier hs-var">ReplicationEndpointTypeValue'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReplicationEndpointTypeValue"><span class="annot"><span class="annottext">ReplicationEndpointTypeValue -&gt; Text
 </span><a href="Network.AWS.DMS.Types.ReplicationEndpointTypeValue.html#fromReplicationEndpointTypeValue"><span class="hs-identifier hs-var hs-var">fromReplicationEndpointTypeValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436836"><span id="local-6989586621679436838"><span id="local-6989586621679436840"><span class="annot"><span class="annottext">Int -&gt; ReplicationEndpointTypeValue -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436845"><span id="local-6989586621679436847"><span id="local-6989586621679436849"><span class="annot"><span class="annottext">Int -&gt; ReplicationEndpointTypeValue -&gt; ShowS
 [ReplicationEndpointTypeValue] -&gt; ShowS
 ReplicationEndpointTypeValue -&gt; String
 (Int -&gt; ReplicationEndpointTypeValue -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ReplicationEndpointTypeValue -&gt; String
 showsPrec :: Int -&gt; ReplicationEndpointTypeValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReplicationEndpointTypeValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679436827"><span id="local-6989586621679436829"><span id="local-6989586621679436831"><span id="local-6989586621679436833"><span class="annot"><span class="annottext">ReadPrec [ReplicationEndpointTypeValue]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679436836"><span id="local-6989586621679436838"><span id="local-6989586621679436840"><span id="local-6989586621679436842"><span class="annot"><span class="annottext">ReadPrec [ReplicationEndpointTypeValue]
 ReadPrec ReplicationEndpointTypeValue
 Int -&gt; ReadS ReplicationEndpointTypeValue
 ReadS [ReplicationEndpointTypeValue]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ReplicationEndpointTypeValue]
 readsPrec :: Int -&gt; ReadS ReplicationEndpointTypeValue
 $creadsPrec :: Int -&gt; ReadS ReplicationEndpointTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679436822"><span id="local-6989586621679436824"><span class="annot"><span class="annottext">ReplicationEndpointTypeValue
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679436831"><span id="local-6989586621679436833"><span class="annot"><span class="annottext">ReplicationEndpointTypeValue
 -&gt; ReplicationEndpointTypeValue -&gt; Bool
 (ReplicationEndpointTypeValue
  -&gt; ReplicationEndpointTypeValue -&gt; Bool)
@@ -89,7 +89,7 @@ $c/= :: ReplicationEndpointTypeValue
 $c== :: ReplicationEndpointTypeValue
 -&gt; ReplicationEndpointTypeValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679436806"><span id="local-6989586621679436808"><span id="local-6989586621679436810"><span id="local-6989586621679436812"><span id="local-6989586621679436814"><span id="local-6989586621679436816"><span id="local-6989586621679436818"><span class="annot"><span class="annottext">Eq ReplicationEndpointTypeValue
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679436815"><span id="local-6989586621679436817"><span id="local-6989586621679436819"><span id="local-6989586621679436821"><span id="local-6989586621679436823"><span id="local-6989586621679436825"><span id="local-6989586621679436827"><span class="annot"><span class="annottext">Eq ReplicationEndpointTypeValue
 Eq ReplicationEndpointTypeValue
 -&gt; (ReplicationEndpointTypeValue
     -&gt; ReplicationEndpointTypeValue -&gt; Ordering)
@@ -170,7 +170,7 @@ ReplicationEndpointTypeValue -&gt; Rep ReplicationEndpointTypeValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436798"><span id="local-6989586621679436800"><span class="annot"><span class="annottext">Int -&gt; ReplicationEndpointTypeValue -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436807"><span id="local-6989586621679436809"><span class="annot"><span class="annottext">Int -&gt; ReplicationEndpointTypeValue -&gt; Int
 ReplicationEndpointTypeValue -&gt; Int
 (Int -&gt; ReplicationEndpointTypeValue -&gt; Int)
 -&gt; (ReplicationEndpointTypeValue -&gt; Int)
@@ -181,56 +181,56 @@ $chash :: ReplicationEndpointTypeValue -&gt; Int
 hashWithSalt :: Int -&gt; ReplicationEndpointTypeValue -&gt; Int
 $chashWithSalt :: Int -&gt; ReplicationEndpointTypeValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679436795"><span class="annot"><span class="annottext">ReplicationEndpointTypeValue -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679436804"><span class="annot"><span class="annottext">ReplicationEndpointTypeValue -&gt; ()
 (ReplicationEndpointTypeValue -&gt; ())
 -&gt; NFData ReplicationEndpointTypeValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReplicationEndpointTypeValue -&gt; ()
 $crnf :: ReplicationEndpointTypeValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679436792"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicationEndpointTypeValue
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679436801"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicationEndpointTypeValue
 (Text -&gt; Either String ReplicationEndpointTypeValue)
 -&gt; FromText ReplicationEndpointTypeValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReplicationEndpointTypeValue
 $cfromText :: Text -&gt; Either String ReplicationEndpointTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679436789"><span class="annot"><span class="annottext">ReplicationEndpointTypeValue -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679436798"><span class="annot"><span class="annottext">ReplicationEndpointTypeValue -&gt; Text
 (ReplicationEndpointTypeValue -&gt; Text)
 -&gt; ToText ReplicationEndpointTypeValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReplicationEndpointTypeValue -&gt; Text
 $ctoText :: ReplicationEndpointTypeValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679436786"><span class="annot"><span class="annottext">ReplicationEndpointTypeValue -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679436795"><span class="annot"><span class="annottext">ReplicationEndpointTypeValue -&gt; ByteString
 (ReplicationEndpointTypeValue -&gt; ByteString)
 -&gt; ToByteString ReplicationEndpointTypeValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReplicationEndpointTypeValue -&gt; ByteString
 $ctoBS :: ReplicationEndpointTypeValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679436783"><span class="annot"><span class="annottext">ReplicationEndpointTypeValue -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679436792"><span class="annot"><span class="annottext">ReplicationEndpointTypeValue -&gt; ByteStringBuilder
 (ReplicationEndpointTypeValue -&gt; ByteStringBuilder)
 -&gt; ToLog ReplicationEndpointTypeValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReplicationEndpointTypeValue -&gt; ByteStringBuilder
 $cbuild :: ReplicationEndpointTypeValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679436780"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicationEndpointTypeValue -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679436789"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicationEndpointTypeValue -&gt; [Header]
 (HeaderName -&gt; ReplicationEndpointTypeValue -&gt; [Header])
 -&gt; ToHeader ReplicationEndpointTypeValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReplicationEndpointTypeValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReplicationEndpointTypeValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679436777"><span class="annot"><span class="annottext">ReplicationEndpointTypeValue -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679436786"><span class="annot"><span class="annottext">ReplicationEndpointTypeValue -&gt; QueryString
 (ReplicationEndpointTypeValue -&gt; QueryString)
 -&gt; ToQuery ReplicationEndpointTypeValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReplicationEndpointTypeValue -&gt; QueryString
 $ctoQuery :: ReplicationEndpointTypeValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679436772"><span id="local-6989586621679436774"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicationEndpointTypeValue]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679436781"><span id="local-6989586621679436783"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicationEndpointTypeValue]
 Value -&gt; Parser ReplicationEndpointTypeValue
 (Value -&gt; Parser ReplicationEndpointTypeValue)
 -&gt; (Value -&gt; Parser [ReplicationEndpointTypeValue])
@@ -242,7 +242,7 @@ $cparseJSONList :: Value -&gt; Parser [ReplicationEndpointTypeValue]
 parseJSON :: Value -&gt; Parser ReplicationEndpointTypeValue
 $cparseJSON :: Value -&gt; Parser ReplicationEndpointTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679436767"><span id="local-6989586621679436769"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicationEndpointTypeValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679436776"><span id="local-6989586621679436778"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicationEndpointTypeValue]
 FromJSONKeyFunction ReplicationEndpointTypeValue
 FromJSONKeyFunction ReplicationEndpointTypeValue
 -&gt; FromJSONKeyFunction [ReplicationEndpointTypeValue]
@@ -254,7 +254,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReplicationEndpointTypeValue]
 fromJSONKey :: FromJSONKeyFunction ReplicationEndpointTypeValue
 $cfromJSONKey :: FromJSONKeyFunction ReplicationEndpointTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679436758"><span id="local-6989586621679436760"><span id="local-6989586621679436762"><span id="local-6989586621679436764"><span class="annot"><span class="annottext">[ReplicationEndpointTypeValue] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679436767"><span id="local-6989586621679436769"><span id="local-6989586621679436771"><span id="local-6989586621679436773"><span class="annot"><span class="annottext">[ReplicationEndpointTypeValue] -&gt; Encoding
 [ReplicationEndpointTypeValue] -&gt; Value
 ReplicationEndpointTypeValue -&gt; Encoding
 ReplicationEndpointTypeValue -&gt; Value
@@ -278,7 +278,7 @@ $ctoEncoding :: ReplicationEndpointTypeValue -&gt; Encoding
 toJSON :: ReplicationEndpointTypeValue -&gt; Value
 $ctoJSON :: ReplicationEndpointTypeValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679436753"><span id="local-6989586621679436755"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicationEndpointTypeValue]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679436762"><span id="local-6989586621679436764"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicationEndpointTypeValue]
 ToJSONKeyFunction ReplicationEndpointTypeValue
 ToJSONKeyFunction ReplicationEndpointTypeValue
 -&gt; ToJSONKeyFunction [ReplicationEndpointTypeValue]
@@ -290,14 +290,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReplicationEndpointTypeValue]
 toJSONKey :: ToJSONKeyFunction ReplicationEndpointTypeValue
 $ctoJSONKey :: ToJSONKeyFunction ReplicationEndpointTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679436750"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicationEndpointTypeValue
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679436759"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicationEndpointTypeValue
 ([Node] -&gt; Either String ReplicationEndpointTypeValue)
 -&gt; FromXML ReplicationEndpointTypeValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReplicationEndpointTypeValue
 $cparseXML :: [Node] -&gt; Either String ReplicationEndpointTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679436747"><span class="annot"><span class="annottext">ReplicationEndpointTypeValue -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679436756"><span class="annot"><span class="annottext">ReplicationEndpointTypeValue -&gt; XML
 (ReplicationEndpointTypeValue -&gt; XML)
 -&gt; ToXML ReplicationEndpointTypeValue
 forall a. (a -&gt; XML) -&gt; ToXML a

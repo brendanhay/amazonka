@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- instances only.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newPatchSource' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679810046"><span id="local-6989586621679810047"></span></span><span class="hs-keyword">data</span><span> </span><span id="PatchSource"><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource"><span class="hs-identifier hs-var">PatchSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchSource%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-var">PatchSource'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679810055"><span id="local-6989586621679810056"></span></span><span class="hs-keyword">data</span><span> </span><span id="PatchSource"><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource"><span class="hs-identifier hs-var">PatchSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchSource%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-var">PatchSource'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name specified to identify the patch source.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3APatchSource%27"><span class="annot"><span class="annottext">PatchSource -&gt; Text
 </span><a href="Network.AWS.SSM.Types.PatchSource.html#%24sel%3Aname%3APatchSource%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Aconfiguration%3APatchSource%27"><span class="annot"><span class="annottext">PatchSource -&gt; Sensitive Text
 </span><a href="Network.AWS.SSM.Types.PatchSource.html#%24sel%3Aconfiguration%3APatchSource%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679810038"><span id="local-6989586621679810040"><span class="annot"><span class="annottext">PatchSource -&gt; PatchSource -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679810047"><span id="local-6989586621679810049"><span class="annot"><span class="annottext">PatchSource -&gt; PatchSource -&gt; Bool
 (PatchSource -&gt; PatchSource -&gt; Bool)
 -&gt; (PatchSource -&gt; PatchSource -&gt; Bool) -&gt; Eq PatchSource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PatchSource -&gt; PatchSource -&gt; Bool
 == :: PatchSource -&gt; PatchSource -&gt; Bool
 $c== :: PatchSource -&gt; PatchSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810031"><span id="local-6989586621679810033"><span id="local-6989586621679810035"><span class="annot"><span class="annottext">Int -&gt; PatchSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810040"><span id="local-6989586621679810042"><span id="local-6989586621679810044"><span class="annot"><span class="annottext">Int -&gt; PatchSource -&gt; ShowS
 [PatchSource] -&gt; ShowS
 PatchSource -&gt; String
 (Int -&gt; PatchSource -&gt; ShowS)
@@ -125,15 +125,15 @@ $cfrom :: forall x. PatchSource -&gt; Rep PatchSource x
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource"><span class="hs-identifier hs-type">PatchSource</span></a></span><span>
 </span><span id="line-92"></span><span id="newPatchSource"><span class="annot"><span class="annottext">newPatchSource :: Text -&gt; NonEmpty Text -&gt; Text -&gt; PatchSource
-</span><a href="Network.AWS.SSM.Types.PatchSource.html#newPatchSource"><span class="hs-identifier hs-var hs-var">newPatchSource</span></a></span></span><span> </span><span id="local-6989586621679810025"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679810025"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679810024"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679810024"><span class="hs-identifier hs-var">pProducts_</span></a></span></span><span> </span><span id="local-6989586621679810023"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679810023"><span class="hs-identifier hs-var">pConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.Types.PatchSource.html#newPatchSource"><span class="hs-identifier hs-var hs-var">newPatchSource</span></a></span></span><span> </span><span id="local-6989586621679810034"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679810034"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679810033"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679810033"><span class="hs-identifier hs-var">pProducts_</span></a></span></span><span> </span><span id="local-6989586621679810032"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679810032"><span class="hs-identifier hs-var">pConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">PatchSource' :: Text -&gt; NonEmpty Text -&gt; Sensitive Text -&gt; PatchSource
 </span><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-type">PatchSource'</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:PatchSource' :: Text
 </span><a href="Network.AWS.SSM.Types.PatchSource.html#%24sel%3Aname%3APatchSource%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679810025"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679810034"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:products:PatchSource' :: NonEmpty Text
 </span><a href="Network.AWS.SSM.Types.PatchSource.html#%24sel%3Aproducts%3APatchSource%27"><span class="hs-identifier hs-var">products</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
@@ -143,7 +143,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679810024"><span class="hs-identifier hs-var">pProducts_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679810033"><span class="hs-identifier hs-var">pProducts_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:configuration:PatchSource' :: Sensitive Text
 </span><a href="Network.AWS.SSM.Types.PatchSource.html#%24sel%3Aconfiguration%3APatchSource%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
@@ -154,7 +154,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679810023"><span class="hs-identifier hs-var">pConfiguration_</span></a></span><span>
+</span><a href="#local-6989586621679810032"><span class="hs-identifier hs-var">pConfiguration_</span></a></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The name specified to identify the patch source.</span><span>
@@ -164,16 +164,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (PatchSource -&gt; Text -&gt; PatchSource)
 -&gt; Lens PatchSource PatchSource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-type">PatchSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810016"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-type">PatchSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810025"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:PatchSource' :: PatchSource -&gt; Text
-</span><a href="#local-6989586621679810016"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679810016"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810015"><span class="annot"><span class="annottext">s :: PatchSource
-</span><a href="#local-6989586621679810015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-type">PatchSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810014"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679810014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchSource
-</span><a href="#local-6989586621679810015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PatchSource' :: Text
+</span><a href="#local-6989586621679810025"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679810025"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810024"><span class="annot"><span class="annottext">s :: PatchSource
+</span><a href="#local-6989586621679810024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-type">PatchSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810023"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679810023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchSource
+</span><a href="#local-6989586621679810024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PatchSource' :: Text
 </span><a href="Network.AWS.SSM.Types.PatchSource.html#%24sel%3Aname%3APatchSource%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679810014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource"><span class="hs-identifier hs-type">PatchSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679810023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource"><span class="hs-identifier hs-type">PatchSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The specific operating system versions a patch repository applies to,</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- such as \&quot;Ubuntu16.04\&quot;, \&quot;AmazonLinux2016.09\&quot;,</span><span>
@@ -186,16 +186,16 @@ $sel:name:PatchSource' :: PatchSource -&gt; Text
 -&gt; (PatchSource -&gt; NonEmpty Text -&gt; PatchSource)
 -&gt; Lens PatchSource PatchSource (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-type">PatchSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810012"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-type">PatchSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810021"><span class="annot"><span class="annottext">NonEmpty Text
 products :: NonEmpty Text
 $sel:products:PatchSource' :: PatchSource -&gt; NonEmpty Text
-</span><a href="#local-6989586621679810012"><span class="hs-identifier hs-var hs-var">products</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679810012"><span class="hs-identifier hs-var">products</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810011"><span class="annot"><span class="annottext">s :: PatchSource
-</span><a href="#local-6989586621679810011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-type">PatchSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810010"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679810010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchSource
-</span><a href="#local-6989586621679810011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:products:PatchSource' :: NonEmpty Text
+</span><a href="#local-6989586621679810021"><span class="hs-identifier hs-var hs-var">products</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679810021"><span class="hs-identifier hs-var">products</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810020"><span class="annot"><span class="annottext">s :: PatchSource
+</span><a href="#local-6989586621679810020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-type">PatchSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810019"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679810019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchSource
+</span><a href="#local-6989586621679810020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:products:PatchSource' :: NonEmpty Text
 </span><a href="Network.AWS.SSM.Types.PatchSource.html#%24sel%3Aproducts%3APatchSource%27"><span class="hs-identifier hs-var">products</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679810010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource"><span class="hs-identifier hs-type">PatchSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679810019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource"><span class="hs-identifier hs-type">PatchSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; PatchSource -&gt; f PatchSource)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -227,16 +227,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (PatchSource -&gt; Sensitive Text -&gt; PatchSource)
 -&gt; Lens PatchSource PatchSource (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-type">PatchSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810007"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-type">PatchSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810016"><span class="annot"><span class="annottext">Sensitive Text
 configuration :: Sensitive Text
 $sel:configuration:PatchSource' :: PatchSource -&gt; Sensitive Text
-</span><a href="#local-6989586621679810007"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679810007"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810006"><span class="annot"><span class="annottext">s :: PatchSource
-</span><a href="#local-6989586621679810006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-type">PatchSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810005"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679810005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchSource
-</span><a href="#local-6989586621679810006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:PatchSource' :: Sensitive Text
+</span><a href="#local-6989586621679810016"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679810016"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810015"><span class="annot"><span class="annottext">s :: PatchSource
+</span><a href="#local-6989586621679810015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-type">PatchSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810014"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679810014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchSource
+</span><a href="#local-6989586621679810015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:PatchSource' :: Sensitive Text
 </span><a href="Network.AWS.SSM.Types.PatchSource.html#%24sel%3Aconfiguration%3APatchSource%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679810005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource"><span class="hs-identifier hs-type">PatchSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679810014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource"><span class="hs-identifier hs-type">PatchSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; PatchSource -&gt; f PatchSource)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -247,8 +247,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810002"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource"><span class="hs-identifier hs-type">PatchSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679810000"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PatchSource
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810011"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource"><span class="hs-identifier hs-type">PatchSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679810009"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PatchSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PatchSource) -&gt; Value -&gt; Parser PatchSource
@@ -256,8 +256,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PatchSource&quot;</span></span><span>
-</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679809997"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679809997"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679810006"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679810006"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Sensitive Text -&gt; PatchSource
 </span><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-var">PatchSource'</span></a></span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; NonEmpty Text -&gt; Sensitive Text -&gt; PatchSource)
@@ -265,7 +265,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (NonEmpty Text -&gt; Sensitive Text -&gt; PatchSource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679809997"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679810006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -273,7 +273,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (NonEmpty Text) -&gt; Parser (Sensitive Text -&gt; PatchSource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679809997"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
+</span><a href="#local-6989586621679810006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Products&quot;</span></span><span class="hs-special">)</span><span>
@@ -281,19 +281,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Sensitive Text) -&gt; Parser PatchSource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679809997"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive Text)
+</span><a href="#local-6989586621679810006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Configuration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679809991"><span id="local-6989586621679809993"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource"><span class="hs-identifier hs-type">PatchSource</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810000"><span id="local-6989586621679810002"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource"><span class="hs-identifier hs-type">PatchSource</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679809988"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource"><span class="hs-identifier hs-type">PatchSource</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679809997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource"><span class="hs-identifier hs-type">PatchSource</span></a></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679809980"><span id="local-6989586621679809982"><span id="local-6989586621679809984"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource"><span class="hs-identifier hs-type">PatchSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679809978"><span class="annot"><span class="annottext">toJSON :: PatchSource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-type">PatchSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679809974"><span id="local-6989586621679809975"><span id="local-6989586621679809976"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679809989"><span id="local-6989586621679809991"><span id="local-6989586621679809993"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource"><span class="hs-identifier hs-type">PatchSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679809987"><span class="annot"><span class="annottext">toJSON :: PatchSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchSource.html#PatchSource%27"><span class="hs-identifier hs-type">PatchSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679809983"><span id="local-6989586621679809984"><span id="local-6989586621679809985"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 Sensitive Text
 configuration :: Sensitive Text
@@ -302,7 +302,7 @@ name :: Text
 $sel:configuration:PatchSource' :: PatchSource -&gt; Sensitive Text
 $sel:products:PatchSource' :: PatchSource -&gt; NonEmpty Text
 $sel:name:PatchSource' :: PatchSource -&gt; Text
-</span><a href="#local-6989586621679809974"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679809983"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -314,14 +314,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679809976"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679809985"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Products&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679809975"><span class="hs-identifier hs-var">products</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679809984"><span class="hs-identifier hs-var">products</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -329,7 +329,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Configuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679809974"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679809983"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span></pre></body></html>

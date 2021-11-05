@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- these container images is represented by a SageMaker @ImageVersion@.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newImage' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680310178"><span id="local-6989586621680310179"></span></span><span class="hs-keyword">data</span><span> </span><span id="Image"><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-var">Image</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Image%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-var">Image'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680310187"><span id="local-6989586621680310188"></span></span><span class="hs-keyword">data</span><span> </span><span id="Image"><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-var">Image</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Image%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-var">Image'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When a create, update, or delete operation fails, the reason for the</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- failure.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AfailureReason%3AImage%27"><span class="annot"><span class="annottext">Image -&gt; Maybe Text
@@ -56,14 +56,14 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AImage%27"><span class="annot"><span class="annottext">Image -&gt; POSIX
 </span><a href="Network.AWS.SageMaker.Types.Image.html#%24sel%3AlastModifiedTime%3AImage%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680310165"><span id="local-6989586621680310167"><span class="annot"><span class="annottext">Image -&gt; Image -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680310174"><span id="local-6989586621680310176"><span class="annot"><span class="annottext">Image -&gt; Image -&gt; Bool
 (Image -&gt; Image -&gt; Bool) -&gt; (Image -&gt; Image -&gt; Bool) -&gt; Eq Image
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Image -&gt; Image -&gt; Bool
 $c/= :: Image -&gt; Image -&gt; Bool
 == :: Image -&gt; Image -&gt; Bool
 $c== :: Image -&gt; Image -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680310156"><span id="local-6989586621680310158"><span id="local-6989586621680310160"><span id="local-6989586621680310162"><span class="annot"><span class="annottext">ReadPrec [Image]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680310165"><span id="local-6989586621680310167"><span id="local-6989586621680310169"><span id="local-6989586621680310171"><span class="annot"><span class="annottext">ReadPrec [Image]
 ReadPrec Image
 Int -&gt; ReadS Image
 ReadS [Image]
@@ -83,7 +83,7 @@ readList :: ReadS [Image]
 $creadList :: ReadS [Image]
 readsPrec :: Int -&gt; ReadS Image
 $creadsPrec :: Int -&gt; ReadS Image
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680310149"><span id="local-6989586621680310151"><span id="local-6989586621680310153"><span class="annot"><span class="annottext">Int -&gt; Image -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680310158"><span id="local-6989586621680310160"><span id="local-6989586621680310162"><span class="annot"><span class="annottext">Int -&gt; Image -&gt; ShowS
 [Image] -&gt; ShowS
 Image -&gt; String
 (Int -&gt; Image -&gt; ShowS)
@@ -144,16 +144,16 @@ $cfrom :: forall x. Image -&gt; Rep Image x
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span>
 </span><span id="line-89"></span><span id="newImage"><span class="annot"><span class="annottext">newImage :: UTCTime -&gt; Text -&gt; Text -&gt; ImageStatus -&gt; UTCTime -&gt; Image
 </span><a href="Network.AWS.SageMaker.Types.Image.html#newImage"><span class="hs-identifier hs-var hs-var">newImage</span></a></span></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621680310143"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680310143"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621680310142"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680310142"><span class="hs-identifier hs-var">pImageArn_</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621680310141"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680310141"><span class="hs-identifier hs-var">pImageName_</span></a></span></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621680310140"><span class="annot"><span class="annottext">ImageStatus
-</span><a href="#local-6989586621680310140"><span class="hs-identifier hs-var">pImageStatus_</span></a></span></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621680310139"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680310139"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621680310152"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680310152"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621680310151"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680310151"><span class="hs-identifier hs-var">pImageArn_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621680310150"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680310150"><span class="hs-identifier hs-var">pImageName_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621680310149"><span class="annot"><span class="annottext">ImageStatus
+</span><a href="#local-6989586621680310149"><span class="hs-identifier hs-var">pImageStatus_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621680310148"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680310148"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">Image' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -184,16 +184,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680310143"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680310152"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:imageArn:Image' :: Text
 </span><a href="Network.AWS.SageMaker.Types.Image.html#%24sel%3AimageArn%3AImage%27"><span class="hs-identifier hs-var">imageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680310142"><span class="hs-identifier hs-var">pImageArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680310151"><span class="hs-identifier hs-var">pImageArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:imageName:Image' :: Text
 </span><a href="Network.AWS.SageMaker.Types.Image.html#%24sel%3AimageName%3AImage%27"><span class="hs-identifier hs-var">imageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680310141"><span class="hs-identifier hs-var">pImageName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680310150"><span class="hs-identifier hs-var">pImageName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:imageStatus:Image' :: ImageStatus
 </span><a href="Network.AWS.SageMaker.Types.Image.html#%24sel%3AimageStatus%3AImage%27"><span class="hs-identifier hs-var">imageStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImageStatus
-</span><a href="#local-6989586621680310140"><span class="hs-identifier hs-var">pImageStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680310149"><span class="hs-identifier hs-var">pImageStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:Image' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.Image.html#%24sel%3AlastModifiedTime%3AImage%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
@@ -203,7 +203,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680310139"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span>
+</span><a href="#local-6989586621680310148"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | When a create, update, or delete operation fails, the reason for the</span><span>
@@ -214,16 +214,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (Image -&gt; Maybe Text -&gt; Image)
 -&gt; Lens Image Image (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310133"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310142"><span class="annot"><span class="annottext">Maybe Text
 failureReason :: Maybe Text
 $sel:failureReason:Image' :: Image -&gt; Maybe Text
-</span><a href="#local-6989586621680310133"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680310133"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310132"><span class="annot"><span class="annottext">s :: Image
-</span><a href="#local-6989586621680310132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310131"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680310131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621680310132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:Image' :: Maybe Text
+</span><a href="#local-6989586621680310142"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680310142"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310141"><span class="annot"><span class="annottext">s :: Image
+</span><a href="#local-6989586621680310141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310140"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680310140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621680310141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:Image' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.Image.html#%24sel%3AfailureReason%3AImage%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680310131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680310140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The name of the image as displayed.</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#image_displayName"><span class="hs-identifier hs-type">image_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -232,16 +232,16 @@ $sel:failureReason:Image' :: Image -&gt; Maybe Text
 -&gt; (Image -&gt; Maybe Text -&gt; Image)
 -&gt; Lens Image Image (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310129"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310138"><span class="annot"><span class="annottext">Maybe Text
 displayName :: Maybe Text
 $sel:displayName:Image' :: Image -&gt; Maybe Text
-</span><a href="#local-6989586621680310129"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680310129"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310128"><span class="annot"><span class="annottext">s :: Image
-</span><a href="#local-6989586621680310128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310127"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680310127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621680310128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:Image' :: Maybe Text
+</span><a href="#local-6989586621680310138"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680310138"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310137"><span class="annot"><span class="annottext">s :: Image
+</span><a href="#local-6989586621680310137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310136"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680310136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621680310137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:Image' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.Image.html#%24sel%3AdisplayName%3AImage%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680310127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680310136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The description of the image.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#image_description"><span class="hs-identifier hs-type">image_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -250,16 +250,16 @@ $sel:displayName:Image' :: Image -&gt; Maybe Text
 -&gt; (Image -&gt; Maybe Text -&gt; Image)
 -&gt; Lens Image Image (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310125"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310134"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:Image' :: Image -&gt; Maybe Text
-</span><a href="#local-6989586621680310125"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680310125"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310124"><span class="annot"><span class="annottext">s :: Image
-</span><a href="#local-6989586621680310124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310123"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680310123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621680310124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Image' :: Maybe Text
+</span><a href="#local-6989586621680310134"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680310134"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310133"><span class="annot"><span class="annottext">s :: Image
+</span><a href="#local-6989586621680310133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310132"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680310132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621680310133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Image' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.Image.html#%24sel%3Adescription%3AImage%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680310123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680310132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | When the image was created.</span><span>
 </span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#image_creationTime"><span class="hs-identifier hs-type">image_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -267,16 +267,16 @@ $sel:description:Image' :: Image -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.Image.html#image_creationTime"><span class="hs-identifier hs-var hs-var">image_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Image -&gt; POSIX)
 -&gt; (Image -&gt; POSIX -&gt; Image) -&gt; Lens Image Image POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310121"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310130"><span class="annot"><span class="annottext">POSIX
 creationTime :: POSIX
 $sel:creationTime:Image' :: Image -&gt; POSIX
-</span><a href="#local-6989586621680310121"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680310121"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310120"><span class="annot"><span class="annottext">s :: Image
-</span><a href="#local-6989586621680310120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310119"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680310119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621680310120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Image' :: POSIX
+</span><a href="#local-6989586621680310130"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680310130"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310129"><span class="annot"><span class="annottext">s :: Image
+</span><a href="#local-6989586621680310129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310128"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680310128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621680310129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Image' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.Image.html#%24sel%3AcreationTime%3AImage%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680310119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; Image -&gt; f Image)
+</span><a href="#local-6989586621680310128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; Image -&gt; f Image)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; Image
@@ -292,16 +292,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 </span><a href="Network.AWS.SageMaker.Types.Image.html#image_imageArn"><span class="hs-identifier hs-var hs-var">image_imageArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Image -&gt; Text)
 -&gt; (Image -&gt; Text -&gt; Image) -&gt; Lens Image Image Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310116"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310125"><span class="annot"><span class="annottext">Text
 imageArn :: Text
 $sel:imageArn:Image' :: Image -&gt; Text
-</span><a href="#local-6989586621680310116"><span class="hs-identifier hs-var hs-var">imageArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680310116"><span class="hs-identifier hs-var">imageArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310115"><span class="annot"><span class="annottext">s :: Image
-</span><a href="#local-6989586621680310115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310114"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680310114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621680310115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageArn:Image' :: Text
+</span><a href="#local-6989586621680310125"><span class="hs-identifier hs-var hs-var">imageArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680310125"><span class="hs-identifier hs-var">imageArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310124"><span class="annot"><span class="annottext">s :: Image
+</span><a href="#local-6989586621680310124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310123"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680310123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621680310124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageArn:Image' :: Text
 </span><a href="Network.AWS.SageMaker.Types.Image.html#%24sel%3AimageArn%3AImage%27"><span class="hs-identifier hs-var">imageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680310114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680310123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The name of the image.</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#image_imageName"><span class="hs-identifier hs-type">image_imageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -309,16 +309,16 @@ $sel:imageArn:Image' :: Image -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.Image.html#image_imageName"><span class="hs-identifier hs-var hs-var">image_imageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Image -&gt; Text)
 -&gt; (Image -&gt; Text -&gt; Image) -&gt; Lens Image Image Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310112"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310121"><span class="annot"><span class="annottext">Text
 imageName :: Text
 $sel:imageName:Image' :: Image -&gt; Text
-</span><a href="#local-6989586621680310112"><span class="hs-identifier hs-var hs-var">imageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680310112"><span class="hs-identifier hs-var">imageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310111"><span class="annot"><span class="annottext">s :: Image
-</span><a href="#local-6989586621680310111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310110"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680310110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621680310111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageName:Image' :: Text
+</span><a href="#local-6989586621680310121"><span class="hs-identifier hs-var hs-var">imageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680310121"><span class="hs-identifier hs-var">imageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310120"><span class="annot"><span class="annottext">s :: Image
+</span><a href="#local-6989586621680310120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310119"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680310119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621680310120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageName:Image' :: Text
 </span><a href="Network.AWS.SageMaker.Types.Image.html#%24sel%3AimageName%3AImage%27"><span class="hs-identifier hs-var">imageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680310110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680310119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | The status of the image.</span><span>
 </span><span id="line-133"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#image_imageStatus"><span class="hs-identifier hs-type">image_imageStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ImageStatus.html#ImageStatus"><span class="hs-identifier hs-type">ImageStatus</span></a></span><span>
@@ -327,16 +327,16 @@ $sel:imageName:Image' :: Image -&gt; Text
 -&gt; (Image -&gt; ImageStatus -&gt; Image)
 -&gt; Lens Image Image ImageStatus ImageStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310108"><span class="annot"><span class="annottext">ImageStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310117"><span class="annot"><span class="annottext">ImageStatus
 imageStatus :: ImageStatus
 $sel:imageStatus:Image' :: Image -&gt; ImageStatus
-</span><a href="#local-6989586621680310108"><span class="hs-identifier hs-var hs-var">imageStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageStatus
-</span><a href="#local-6989586621680310108"><span class="hs-identifier hs-var">imageStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310107"><span class="annot"><span class="annottext">s :: Image
-</span><a href="#local-6989586621680310107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310106"><span class="annot"><span class="annottext">ImageStatus
-</span><a href="#local-6989586621680310106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621680310107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageStatus:Image' :: ImageStatus
+</span><a href="#local-6989586621680310117"><span class="hs-identifier hs-var hs-var">imageStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageStatus
+</span><a href="#local-6989586621680310117"><span class="hs-identifier hs-var">imageStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310116"><span class="annot"><span class="annottext">s :: Image
+</span><a href="#local-6989586621680310116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310115"><span class="annot"><span class="annottext">ImageStatus
+</span><a href="#local-6989586621680310115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621680310116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageStatus:Image' :: ImageStatus
 </span><a href="Network.AWS.SageMaker.Types.Image.html#%24sel%3AimageStatus%3AImage%27"><span class="hs-identifier hs-var">imageStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImageStatus
-</span><a href="#local-6989586621680310106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680310115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | When the image was last modified.</span><span>
 </span><span id="line-137"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#image_lastModifiedTime"><span class="hs-identifier hs-type">image_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -344,16 +344,16 @@ $sel:imageStatus:Image' :: Image -&gt; ImageStatus
 </span><a href="Network.AWS.SageMaker.Types.Image.html#image_lastModifiedTime"><span class="hs-identifier hs-var hs-var">image_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Image -&gt; POSIX)
 -&gt; (Image -&gt; POSIX -&gt; Image) -&gt; Lens Image Image POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310104"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680310113"><span class="annot"><span class="annottext">POSIX
 lastModifiedTime :: POSIX
 $sel:lastModifiedTime:Image' :: Image -&gt; POSIX
-</span><a href="#local-6989586621680310104"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680310104"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310103"><span class="annot"><span class="annottext">s :: Image
-</span><a href="#local-6989586621680310103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310102"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680310102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621680310103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:Image' :: POSIX
+</span><a href="#local-6989586621680310113"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680310113"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680310112"><span class="annot"><span class="annottext">s :: Image
+</span><a href="#local-6989586621680310112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680310111"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680310111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621680310112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:Image' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.Image.html#%24sel%3AlastModifiedTime%3AImage%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680310102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; Image -&gt; f Image)
+</span><a href="#local-6989586621680310111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; Image -&gt; f Image)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; Image
@@ -363,16 +363,16 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680310099"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621680310097"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Image
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680310108"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621680310106"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Image
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Image) -&gt; Value -&gt; Parser Image
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Image&quot;</span></span><span>
-</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680310094"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680310094"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680310103"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680310103"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -404,7 +404,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Image)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680310094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680310103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
@@ -423,7 +423,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; POSIX -&gt; Text -&gt; Text -&gt; ImageStatus -&gt; POSIX -&gt; Image)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680310094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680310103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DisplayName&quot;</span></span><span class="hs-special">)</span><span>
@@ -434,7 +434,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (POSIX -&gt; Text -&gt; Text -&gt; ImageStatus -&gt; POSIX -&gt; Image)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680310094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680310103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
@@ -443,7 +443,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; Text -&gt; ImageStatus -&gt; POSIX -&gt; Image)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680310094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621680310103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -451,7 +451,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; ImageStatus -&gt; POSIX -&gt; Image)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680310094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680310103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImageArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -459,7 +459,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (ImageStatus -&gt; POSIX -&gt; Image)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680310094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680310103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImageName&quot;</span></span><span class="hs-special">)</span><span>
@@ -467,20 +467,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ImageStatus -&gt; Parser (POSIX -&gt; Image)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680310094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ImageStatus
+</span><a href="#local-6989586621680310103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ImageStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImageStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; Image) -&gt; Parser POSIX -&gt; Parser Image
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680310094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621680310103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680310087"><span id="local-6989586621680310089"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680310096"><span id="local-6989586621680310098"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680310084"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680310093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span><span>
 </span><span id="line-159"></span></pre></body></html>

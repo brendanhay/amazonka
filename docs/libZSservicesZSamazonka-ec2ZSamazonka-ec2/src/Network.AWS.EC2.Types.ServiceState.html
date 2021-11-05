@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621681149729"><span id="local-6989586621681149730"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServiceState"><span class="annot"><a href="Network.AWS.EC2.Types.ServiceState.html#ServiceState"><span class="hs-identifier hs-var">ServiceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ServiceState.html#ServiceState%27"><span class="hs-identifier hs-var">ServiceState'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621681149738"><span id="local-6989586621681149739"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServiceState"><span class="annot"><a href="Network.AWS.EC2.Types.ServiceState.html#ServiceState"><span class="hs-identifier hs-var">ServiceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ServiceState.html#ServiceState%27"><span class="hs-identifier hs-var">ServiceState'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromServiceState"><span class="annot"><span class="annottext">ServiceState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ServiceState.html#fromServiceState"><span class="hs-identifier hs-var hs-var">fromServiceState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681149721"><span id="local-6989586621681149723"><span id="local-6989586621681149725"><span class="annot"><span class="annottext">Int -&gt; ServiceState -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681149730"><span id="local-6989586621681149732"><span id="local-6989586621681149734"><span class="annot"><span class="annottext">Int -&gt; ServiceState -&gt; ShowS
 [ServiceState] -&gt; ShowS
 ServiceState -&gt; String
 (Int -&gt; ServiceState -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: ServiceState -&gt; String
 showsPrec :: Int -&gt; ServiceState -&gt; ShowS
 $cshowsPrec :: Int -&gt; ServiceState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681149712"><span id="local-6989586621681149714"><span id="local-6989586621681149716"><span id="local-6989586621681149718"><span class="annot"><span class="annottext">ReadPrec [ServiceState]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681149721"><span id="local-6989586621681149723"><span id="local-6989586621681149725"><span id="local-6989586621681149727"><span class="annot"><span class="annottext">ReadPrec [ServiceState]
 ReadPrec ServiceState
 Int -&gt; ReadS ServiceState
 ReadS [ServiceState]
@@ -76,7 +76,7 @@ $creadList :: ReadS [ServiceState]
 readsPrec :: Int -&gt; ReadS ServiceState
 $creadsPrec :: Int -&gt; ReadS ServiceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681149707"><span id="local-6989586621681149709"><span class="annot"><span class="annottext">ServiceState -&gt; ServiceState -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681149716"><span id="local-6989586621681149718"><span class="annot"><span class="annottext">ServiceState -&gt; ServiceState -&gt; Bool
 (ServiceState -&gt; ServiceState -&gt; Bool)
 -&gt; (ServiceState -&gt; ServiceState -&gt; Bool) -&gt; Eq ServiceState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: ServiceState -&gt; ServiceState -&gt; Bool
 == :: ServiceState -&gt; ServiceState -&gt; Bool
 $c== :: ServiceState -&gt; ServiceState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621681149691"><span id="local-6989586621681149693"><span id="local-6989586621681149695"><span id="local-6989586621681149697"><span id="local-6989586621681149699"><span id="local-6989586621681149701"><span id="local-6989586621681149703"><span class="annot"><span class="annottext">Eq ServiceState
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681149700"><span id="local-6989586621681149702"><span id="local-6989586621681149704"><span id="local-6989586621681149706"><span id="local-6989586621681149708"><span id="local-6989586621681149710"><span id="local-6989586621681149712"><span class="annot"><span class="annottext">Eq ServiceState
 Eq ServiceState
 -&gt; (ServiceState -&gt; ServiceState -&gt; Ordering)
 -&gt; (ServiceState -&gt; ServiceState -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. ServiceState -&gt; Rep ServiceState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681149683"><span id="local-6989586621681149685"><span class="annot"><span class="annottext">Int -&gt; ServiceState -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681149692"><span id="local-6989586621681149694"><span class="annot"><span class="annottext">Int -&gt; ServiceState -&gt; Int
 ServiceState -&gt; Int
 (Int -&gt; ServiceState -&gt; Int)
 -&gt; (ServiceState -&gt; Int) -&gt; Hashable ServiceState
@@ -146,49 +146,49 @@ $chash :: ServiceState -&gt; Int
 hashWithSalt :: Int -&gt; ServiceState -&gt; Int
 $chashWithSalt :: Int -&gt; ServiceState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681149680"><span class="annot"><span class="annottext">ServiceState -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681149689"><span class="annot"><span class="annottext">ServiceState -&gt; ()
 (ServiceState -&gt; ()) -&gt; NFData ServiceState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ServiceState -&gt; ()
 $crnf :: ServiceState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681149677"><span class="annot"><span class="annottext">Text -&gt; Either String ServiceState
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681149686"><span class="annot"><span class="annottext">Text -&gt; Either String ServiceState
 (Text -&gt; Either String ServiceState) -&gt; FromText ServiceState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ServiceState
 $cfromText :: Text -&gt; Either String ServiceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681149674"><span class="annot"><span class="annottext">ServiceState -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681149683"><span class="annot"><span class="annottext">ServiceState -&gt; Text
 (ServiceState -&gt; Text) -&gt; ToText ServiceState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ServiceState -&gt; Text
 $ctoText :: ServiceState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681149671"><span class="annot"><span class="annottext">ServiceState -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681149680"><span class="annot"><span class="annottext">ServiceState -&gt; ByteString
 (ServiceState -&gt; ByteString) -&gt; ToByteString ServiceState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ServiceState -&gt; ByteString
 $ctoBS :: ServiceState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681149668"><span class="annot"><span class="annottext">ServiceState -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681149677"><span class="annot"><span class="annottext">ServiceState -&gt; ByteStringBuilder
 (ServiceState -&gt; ByteStringBuilder) -&gt; ToLog ServiceState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ServiceState -&gt; ByteStringBuilder
 $cbuild :: ServiceState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681149665"><span class="annot"><span class="annottext">HeaderName -&gt; ServiceState -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681149674"><span class="annot"><span class="annottext">HeaderName -&gt; ServiceState -&gt; [Header]
 (HeaderName -&gt; ServiceState -&gt; [Header]) -&gt; ToHeader ServiceState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ServiceState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ServiceState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681149662"><span class="annot"><span class="annottext">ServiceState -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681149671"><span class="annot"><span class="annottext">ServiceState -&gt; QueryString
 (ServiceState -&gt; QueryString) -&gt; ToQuery ServiceState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ServiceState -&gt; QueryString
 $ctoQuery :: ServiceState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681149657"><span id="local-6989586621681149659"><span class="annot"><span class="annottext">Value -&gt; Parser [ServiceState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681149666"><span id="local-6989586621681149668"><span class="annot"><span class="annottext">Value -&gt; Parser [ServiceState]
 Value -&gt; Parser ServiceState
 (Value -&gt; Parser ServiceState)
 -&gt; (Value -&gt; Parser [ServiceState]) -&gt; FromJSON ServiceState
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ServiceState]
 parseJSON :: Value -&gt; Parser ServiceState
 $cparseJSON :: Value -&gt; Parser ServiceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681149652"><span id="local-6989586621681149654"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServiceState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681149661"><span id="local-6989586621681149663"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServiceState]
 FromJSONKeyFunction ServiceState
 FromJSONKeyFunction ServiceState
 -&gt; FromJSONKeyFunction [ServiceState] -&gt; FromJSONKey ServiceState
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ServiceState]
 fromJSONKey :: FromJSONKeyFunction ServiceState
 $cfromJSONKey :: FromJSONKeyFunction ServiceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681149643"><span id="local-6989586621681149645"><span id="local-6989586621681149647"><span id="local-6989586621681149649"><span class="annot"><span class="annottext">[ServiceState] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681149652"><span id="local-6989586621681149654"><span id="local-6989586621681149656"><span id="local-6989586621681149658"><span class="annot"><span class="annottext">[ServiceState] -&gt; Encoding
 [ServiceState] -&gt; Value
 ServiceState -&gt; Encoding
 ServiceState -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: ServiceState -&gt; Encoding
 toJSON :: ServiceState -&gt; Value
 $ctoJSON :: ServiceState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681149638"><span id="local-6989586621681149640"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServiceState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681149647"><span id="local-6989586621681149649"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServiceState]
 ToJSONKeyFunction ServiceState
 ToJSONKeyFunction ServiceState
 -&gt; ToJSONKeyFunction [ServiceState] -&gt; ToJSONKey ServiceState
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ServiceState]
 toJSONKey :: ToJSONKeyFunction ServiceState
 $ctoJSONKey :: ToJSONKeyFunction ServiceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681149635"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServiceState
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681149644"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServiceState
 ([Node] -&gt; Either String ServiceState) -&gt; FromXML ServiceState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ServiceState
 $cparseXML :: [Node] -&gt; Either String ServiceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681149632"><span class="annot"><span class="annottext">ServiceState -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681149641"><span class="annot"><span class="annottext">ServiceState -&gt; XML
 (ServiceState -&gt; XML) -&gt; ToXML ServiceState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ServiceState -&gt; XML

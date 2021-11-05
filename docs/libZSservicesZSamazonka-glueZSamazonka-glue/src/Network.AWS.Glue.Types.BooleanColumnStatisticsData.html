@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Defines column statistics supported for Boolean data columns.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newBooleanColumnStatisticsData' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679679564"><span id="local-6989586621679679565"></span></span><span class="hs-keyword">data</span><span> </span><span id="BooleanColumnStatisticsData"><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-var">BooleanColumnStatisticsData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BooleanColumnStatisticsData%27"><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-var">BooleanColumnStatisticsData'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679679573"><span id="local-6989586621679679574"></span></span><span class="hs-keyword">data</span><span> </span><span id="BooleanColumnStatisticsData"><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-var">BooleanColumnStatisticsData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BooleanColumnStatisticsData%27"><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-var">BooleanColumnStatisticsData'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of true values in the column.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AnumberOfTrues%3ABooleanColumnStatisticsData%27"><span class="annot"><span class="annottext">BooleanColumnStatisticsData -&gt; Natural
 </span><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#%24sel%3AnumberOfTrues%3ABooleanColumnStatisticsData%27"><span class="hs-identifier hs-var hs-var">numberOfTrues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AnumberOfNulls%3ABooleanColumnStatisticsData%27"><span class="annot"><span class="annottext">BooleanColumnStatisticsData -&gt; Natural
 </span><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#%24sel%3AnumberOfNulls%3ABooleanColumnStatisticsData%27"><span class="hs-identifier hs-var hs-var">numberOfNulls</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679679556"><span id="local-6989586621679679558"><span class="annot"><span class="annottext">BooleanColumnStatisticsData -&gt; BooleanColumnStatisticsData -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679679565"><span id="local-6989586621679679567"><span class="annot"><span class="annottext">BooleanColumnStatisticsData -&gt; BooleanColumnStatisticsData -&gt; Bool
 (BooleanColumnStatisticsData
  -&gt; BooleanColumnStatisticsData -&gt; Bool)
 -&gt; (BooleanColumnStatisticsData
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BooleanColumnStatisticsData -&gt; BooleanColumnStatisticsData -&gt; Bool
 == :: BooleanColumnStatisticsData -&gt; BooleanColumnStatisticsData -&gt; Bool
 $c== :: BooleanColumnStatisticsData -&gt; BooleanColumnStatisticsData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679679547"><span id="local-6989586621679679549"><span id="local-6989586621679679551"><span id="local-6989586621679679553"><span class="annot"><span class="annottext">ReadPrec [BooleanColumnStatisticsData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679679556"><span id="local-6989586621679679558"><span id="local-6989586621679679560"><span id="local-6989586621679679562"><span class="annot"><span class="annottext">ReadPrec [BooleanColumnStatisticsData]
 ReadPrec BooleanColumnStatisticsData
 Int -&gt; ReadS BooleanColumnStatisticsData
 ReadS [BooleanColumnStatisticsData]
@@ -68,7 +68,7 @@ readList :: ReadS [BooleanColumnStatisticsData]
 $creadList :: ReadS [BooleanColumnStatisticsData]
 readsPrec :: Int -&gt; ReadS BooleanColumnStatisticsData
 $creadsPrec :: Int -&gt; ReadS BooleanColumnStatisticsData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679679540"><span id="local-6989586621679679542"><span id="local-6989586621679679544"><span class="annot"><span class="annottext">Int -&gt; BooleanColumnStatisticsData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679679549"><span id="local-6989586621679679551"><span id="local-6989586621679679553"><span class="annot"><span class="annottext">Int -&gt; BooleanColumnStatisticsData -&gt; ShowS
 [BooleanColumnStatisticsData] -&gt; ShowS
 BooleanColumnStatisticsData -&gt; String
 (Int -&gt; BooleanColumnStatisticsData -&gt; ShowS)
@@ -123,24 +123,24 @@ BooleanColumnStatisticsData -&gt; Rep BooleanColumnStatisticsData x
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-type">BooleanColumnStatisticsData</span></a></span><span>
 </span><span id="line-60"></span><span id="newBooleanColumnStatisticsData"><span class="annot"><span class="annottext">newBooleanColumnStatisticsData :: Natural -&gt; Natural -&gt; Natural -&gt; BooleanColumnStatisticsData
 </span><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#newBooleanColumnStatisticsData"><span class="hs-identifier hs-var hs-var">newBooleanColumnStatisticsData</span></a></span></span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679679534"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679534"><span class="hs-identifier hs-var">pNumberOfTrues_</span></a></span></span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679679533"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679533"><span class="hs-identifier hs-var">pNumberOfFalses_</span></a></span></span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679679532"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679532"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679679543"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679679543"><span class="hs-identifier hs-var">pNumberOfTrues_</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679679542"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679679542"><span class="hs-identifier hs-var">pNumberOfFalses_</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679679541"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679679541"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">BooleanColumnStatisticsData' :: Natural -&gt; Natural -&gt; Natural -&gt; BooleanColumnStatisticsData
 </span><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-type">BooleanColumnStatisticsData'</span></a></span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:numberOfTrues:BooleanColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#%24sel%3AnumberOfTrues%3ABooleanColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfTrues</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679534"><span class="hs-identifier hs-var">pNumberOfTrues_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679679543"><span class="hs-identifier hs-var">pNumberOfTrues_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">$sel:numberOfFalses:BooleanColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#%24sel%3AnumberOfFalses%3ABooleanColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfFalses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679533"><span class="hs-identifier hs-var">pNumberOfFalses_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679679542"><span class="hs-identifier hs-var">pNumberOfFalses_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">$sel:numberOfNulls:BooleanColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#%24sel%3AnumberOfNulls%3ABooleanColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679532"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span><span>
+</span><a href="#local-6989586621679679541"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The number of true values in the column.</span><span>
@@ -156,16 +156,16 @@ BooleanColumnStatisticsData -&gt; Rep BooleanColumnStatisticsData x
      Natural
      Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-type">BooleanColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679528"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-type">BooleanColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679537"><span class="annot"><span class="annottext">Natural
 numberOfTrues :: Natural
 $sel:numberOfTrues:BooleanColumnStatisticsData' :: BooleanColumnStatisticsData -&gt; Natural
-</span><a href="#local-6989586621679679528"><span class="hs-identifier hs-var hs-var">numberOfTrues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679528"><span class="hs-identifier hs-var">numberOfTrues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679679527"><span class="annot"><span class="annottext">s :: BooleanColumnStatisticsData
-</span><a href="#local-6989586621679679527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-type">BooleanColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679679526"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BooleanColumnStatisticsData
-</span><a href="#local-6989586621679679527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfTrues:BooleanColumnStatisticsData' :: Natural
+</span><a href="#local-6989586621679679537"><span class="hs-identifier hs-var hs-var">numberOfTrues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679679537"><span class="hs-identifier hs-var">numberOfTrues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679679536"><span class="annot"><span class="annottext">s :: BooleanColumnStatisticsData
+</span><a href="#local-6989586621679679536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-type">BooleanColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679679535"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679679535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BooleanColumnStatisticsData
+</span><a href="#local-6989586621679679536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfTrues:BooleanColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#%24sel%3AnumberOfTrues%3ABooleanColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfTrues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-type">BooleanColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679679535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-type">BooleanColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The number of false values in the column.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#booleanColumnStatisticsData_numberOfFalses"><span class="hs-identifier hs-type">booleanColumnStatisticsData_numberOfFalses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-type">BooleanColumnStatisticsData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -180,16 +180,16 @@ $sel:numberOfTrues:BooleanColumnStatisticsData' :: BooleanColumnStatisticsData -
      Natural
      Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-type">BooleanColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679524"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-type">BooleanColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679533"><span class="annot"><span class="annottext">Natural
 numberOfFalses :: Natural
 $sel:numberOfFalses:BooleanColumnStatisticsData' :: BooleanColumnStatisticsData -&gt; Natural
-</span><a href="#local-6989586621679679524"><span class="hs-identifier hs-var hs-var">numberOfFalses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679524"><span class="hs-identifier hs-var">numberOfFalses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679679523"><span class="annot"><span class="annottext">s :: BooleanColumnStatisticsData
-</span><a href="#local-6989586621679679523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-type">BooleanColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679679522"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BooleanColumnStatisticsData
-</span><a href="#local-6989586621679679523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfFalses:BooleanColumnStatisticsData' :: Natural
+</span><a href="#local-6989586621679679533"><span class="hs-identifier hs-var hs-var">numberOfFalses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679679533"><span class="hs-identifier hs-var">numberOfFalses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679679532"><span class="annot"><span class="annottext">s :: BooleanColumnStatisticsData
+</span><a href="#local-6989586621679679532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-type">BooleanColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679679531"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679679531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BooleanColumnStatisticsData
+</span><a href="#local-6989586621679679532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfFalses:BooleanColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#%24sel%3AnumberOfFalses%3ABooleanColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfFalses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-type">BooleanColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679679531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-type">BooleanColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The number of null values in the column.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#booleanColumnStatisticsData_numberOfNulls"><span class="hs-identifier hs-type">booleanColumnStatisticsData_numberOfNulls</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-type">BooleanColumnStatisticsData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -204,19 +204,19 @@ $sel:numberOfFalses:BooleanColumnStatisticsData' :: BooleanColumnStatisticsData 
      Natural
      Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-type">BooleanColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679520"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-type">BooleanColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679529"><span class="annot"><span class="annottext">Natural
 numberOfNulls :: Natural
 $sel:numberOfNulls:BooleanColumnStatisticsData' :: BooleanColumnStatisticsData -&gt; Natural
-</span><a href="#local-6989586621679679520"><span class="hs-identifier hs-var hs-var">numberOfNulls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679520"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679679519"><span class="annot"><span class="annottext">s :: BooleanColumnStatisticsData
-</span><a href="#local-6989586621679679519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-type">BooleanColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679679518"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BooleanColumnStatisticsData
-</span><a href="#local-6989586621679679519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfNulls:BooleanColumnStatisticsData' :: Natural
+</span><a href="#local-6989586621679679529"><span class="hs-identifier hs-var hs-var">numberOfNulls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679679529"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679679528"><span class="annot"><span class="annottext">s :: BooleanColumnStatisticsData
+</span><a href="#local-6989586621679679528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-type">BooleanColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679679527"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679679527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BooleanColumnStatisticsData
+</span><a href="#local-6989586621679679528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfNulls:BooleanColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#%24sel%3AnumberOfNulls%3ABooleanColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-type">BooleanColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679679527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-type">BooleanColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679515"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-type">BooleanColumnStatisticsData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679679513"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BooleanColumnStatisticsData
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679524"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-type">BooleanColumnStatisticsData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679679522"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BooleanColumnStatisticsData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BooleanColumnStatisticsData)
@@ -226,8 +226,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BooleanColumnStatisticsData&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679679510"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679510"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679679519"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679679519"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Natural -&gt; Natural -&gt; Natural -&gt; BooleanColumnStatisticsData
 </span><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-var">BooleanColumnStatisticsData'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Natural -&gt; Natural -&gt; Natural -&gt; BooleanColumnStatisticsData)
@@ -235,7 +235,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Natural -&gt; Natural -&gt; BooleanColumnStatisticsData)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679510"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679679519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfTrues&quot;</span></span><span class="hs-special">)</span><span>
@@ -244,7 +244,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Natural -&gt; BooleanColumnStatisticsData)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679510"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679679519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfFalses&quot;</span></span><span class="hs-special">)</span><span>
@@ -252,26 +252,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser BooleanColumnStatisticsData
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679510"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679679519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfNulls&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679504"><span id="local-6989586621679679506"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-type">BooleanColumnStatisticsData</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679513"><span id="local-6989586621679679515"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-type">BooleanColumnStatisticsData</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-type">BooleanColumnStatisticsData</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-type">BooleanColumnStatisticsData</span></a></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679493"><span id="local-6989586621679679495"><span id="local-6989586621679679497"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-type">BooleanColumnStatisticsData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679679491"><span class="annot"><span class="annottext">toJSON :: BooleanColumnStatisticsData -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-type">BooleanColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679487"><span id="local-6989586621679679488"><span id="local-6989586621679679489"><span class="annot"><span class="annottext">Natural
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679502"><span id="local-6989586621679679504"><span id="local-6989586621679679506"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData"><span class="hs-identifier hs-type">BooleanColumnStatisticsData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679679500"><span class="annot"><span class="annottext">toJSON :: BooleanColumnStatisticsData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BooleanColumnStatisticsData.html#BooleanColumnStatisticsData%27"><span class="hs-identifier hs-type">BooleanColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679496"><span id="local-6989586621679679497"><span id="local-6989586621679679498"><span class="annot"><span class="annottext">Natural
 numberOfNulls :: Natural
 numberOfFalses :: Natural
 numberOfTrues :: Natural
 $sel:numberOfNulls:BooleanColumnStatisticsData' :: BooleanColumnStatisticsData -&gt; Natural
 $sel:numberOfFalses:BooleanColumnStatisticsData' :: BooleanColumnStatisticsData -&gt; Natural
 $sel:numberOfTrues:BooleanColumnStatisticsData' :: BooleanColumnStatisticsData -&gt; Natural
-</span><a href="#local-6989586621679679487"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679679496"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -284,7 +284,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;NumberOfTrues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679489"><span class="hs-identifier hs-var">numberOfTrues</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679679498"><span class="hs-identifier hs-var">numberOfTrues</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -292,7 +292,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;NumberOfFalses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679488"><span class="hs-identifier hs-var">numberOfFalses</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679679497"><span class="hs-identifier hs-var">numberOfFalses</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -300,7 +300,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;NumberOfNulls&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679679487"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679679496"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679456012"><span id="local-6989586621679456013"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ManagedScalingStatus"><span class="annot"><a href="Network.AWS.ECS.Types.ManagedScalingStatus.html#ManagedScalingStatus"><span class="hs-identifier hs-var">ManagedScalingStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ManagedScalingStatus%27"><span class="annot"><a href="Network.AWS.ECS.Types.ManagedScalingStatus.html#ManagedScalingStatus%27"><span class="hs-identifier hs-var">ManagedScalingStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679456021"><span id="local-6989586621679456022"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ManagedScalingStatus"><span class="annot"><a href="Network.AWS.ECS.Types.ManagedScalingStatus.html#ManagedScalingStatus"><span class="hs-identifier hs-var">ManagedScalingStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ManagedScalingStatus%27"><span class="annot"><a href="Network.AWS.ECS.Types.ManagedScalingStatus.html#ManagedScalingStatus%27"><span class="hs-identifier hs-var">ManagedScalingStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromManagedScalingStatus"><span class="annot"><span class="annottext">ManagedScalingStatus -&gt; Text
 </span><a href="Network.AWS.ECS.Types.ManagedScalingStatus.html#fromManagedScalingStatus"><span class="hs-identifier hs-var hs-var">fromManagedScalingStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679456004"><span id="local-6989586621679456006"><span id="local-6989586621679456008"><span class="annot"><span class="annottext">Int -&gt; ManagedScalingStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679456013"><span id="local-6989586621679456015"><span id="local-6989586621679456017"><span class="annot"><span class="annottext">Int -&gt; ManagedScalingStatus -&gt; ShowS
 [ManagedScalingStatus] -&gt; ShowS
 ManagedScalingStatus -&gt; String
 (Int -&gt; ManagedScalingStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ManagedScalingStatus -&gt; String
 showsPrec :: Int -&gt; ManagedScalingStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ManagedScalingStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679455995"><span id="local-6989586621679455997"><span id="local-6989586621679455999"><span id="local-6989586621679456001"><span class="annot"><span class="annottext">ReadPrec [ManagedScalingStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679456004"><span id="local-6989586621679456006"><span id="local-6989586621679456008"><span id="local-6989586621679456010"><span class="annot"><span class="annottext">ReadPrec [ManagedScalingStatus]
 ReadPrec ManagedScalingStatus
 Int -&gt; ReadS ManagedScalingStatus
 ReadS [ManagedScalingStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ManagedScalingStatus]
 readsPrec :: Int -&gt; ReadS ManagedScalingStatus
 $creadsPrec :: Int -&gt; ReadS ManagedScalingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679455990"><span id="local-6989586621679455992"><span class="annot"><span class="annottext">ManagedScalingStatus -&gt; ManagedScalingStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679455999"><span id="local-6989586621679456001"><span class="annot"><span class="annottext">ManagedScalingStatus -&gt; ManagedScalingStatus -&gt; Bool
 (ManagedScalingStatus -&gt; ManagedScalingStatus -&gt; Bool)
 -&gt; (ManagedScalingStatus -&gt; ManagedScalingStatus -&gt; Bool)
 -&gt; Eq ManagedScalingStatus
@@ -82,7 +82,7 @@ $c/= :: ManagedScalingStatus -&gt; ManagedScalingStatus -&gt; Bool
 == :: ManagedScalingStatus -&gt; ManagedScalingStatus -&gt; Bool
 $c== :: ManagedScalingStatus -&gt; ManagedScalingStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679455974"><span id="local-6989586621679455976"><span id="local-6989586621679455978"><span id="local-6989586621679455980"><span id="local-6989586621679455982"><span id="local-6989586621679455984"><span id="local-6989586621679455986"><span class="annot"><span class="annottext">Eq ManagedScalingStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679455983"><span id="local-6989586621679455985"><span id="local-6989586621679455987"><span id="local-6989586621679455989"><span id="local-6989586621679455991"><span id="local-6989586621679455993"><span id="local-6989586621679455995"><span class="annot"><span class="annottext">Eq ManagedScalingStatus
 Eq ManagedScalingStatus
 -&gt; (ManagedScalingStatus -&gt; ManagedScalingStatus -&gt; Ordering)
 -&gt; (ManagedScalingStatus -&gt; ManagedScalingStatus -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. ManagedScalingStatus -&gt; Rep ManagedScalingStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679455966"><span id="local-6989586621679455968"><span class="annot"><span class="annottext">Int -&gt; ManagedScalingStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679455975"><span id="local-6989586621679455977"><span class="annot"><span class="annottext">Int -&gt; ManagedScalingStatus -&gt; Int
 ManagedScalingStatus -&gt; Int
 (Int -&gt; ManagedScalingStatus -&gt; Int)
 -&gt; (ManagedScalingStatus -&gt; Int) -&gt; Hashable ManagedScalingStatus
@@ -150,54 +150,54 @@ $chash :: ManagedScalingStatus -&gt; Int
 hashWithSalt :: Int -&gt; ManagedScalingStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ManagedScalingStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679455963"><span class="annot"><span class="annottext">ManagedScalingStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679455972"><span class="annot"><span class="annottext">ManagedScalingStatus -&gt; ()
 (ManagedScalingStatus -&gt; ()) -&gt; NFData ManagedScalingStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ManagedScalingStatus -&gt; ()
 $crnf :: ManagedScalingStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679455960"><span class="annot"><span class="annottext">Text -&gt; Either String ManagedScalingStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679455969"><span class="annot"><span class="annottext">Text -&gt; Either String ManagedScalingStatus
 (Text -&gt; Either String ManagedScalingStatus)
 -&gt; FromText ManagedScalingStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ManagedScalingStatus
 $cfromText :: Text -&gt; Either String ManagedScalingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679455957"><span class="annot"><span class="annottext">ManagedScalingStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679455966"><span class="annot"><span class="annottext">ManagedScalingStatus -&gt; Text
 (ManagedScalingStatus -&gt; Text) -&gt; ToText ManagedScalingStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ManagedScalingStatus -&gt; Text
 $ctoText :: ManagedScalingStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679455954"><span class="annot"><span class="annottext">ManagedScalingStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679455963"><span class="annot"><span class="annottext">ManagedScalingStatus -&gt; ByteString
 (ManagedScalingStatus -&gt; ByteString)
 -&gt; ToByteString ManagedScalingStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ManagedScalingStatus -&gt; ByteString
 $ctoBS :: ManagedScalingStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679455951"><span class="annot"><span class="annottext">ManagedScalingStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679455960"><span class="annot"><span class="annottext">ManagedScalingStatus -&gt; ByteStringBuilder
 (ManagedScalingStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ManagedScalingStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ManagedScalingStatus -&gt; ByteStringBuilder
 $cbuild :: ManagedScalingStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679455948"><span class="annot"><span class="annottext">HeaderName -&gt; ManagedScalingStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679455957"><span class="annot"><span class="annottext">HeaderName -&gt; ManagedScalingStatus -&gt; [Header]
 (HeaderName -&gt; ManagedScalingStatus -&gt; [Header])
 -&gt; ToHeader ManagedScalingStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ManagedScalingStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ManagedScalingStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679455945"><span class="annot"><span class="annottext">ManagedScalingStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679455954"><span class="annot"><span class="annottext">ManagedScalingStatus -&gt; QueryString
 (ManagedScalingStatus -&gt; QueryString)
 -&gt; ToQuery ManagedScalingStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ManagedScalingStatus -&gt; QueryString
 $ctoQuery :: ManagedScalingStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679455940"><span id="local-6989586621679455942"><span class="annot"><span class="annottext">Value -&gt; Parser [ManagedScalingStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679455949"><span id="local-6989586621679455951"><span class="annot"><span class="annottext">Value -&gt; Parser [ManagedScalingStatus]
 Value -&gt; Parser ManagedScalingStatus
 (Value -&gt; Parser ManagedScalingStatus)
 -&gt; (Value -&gt; Parser [ManagedScalingStatus])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [ManagedScalingStatus]
 parseJSON :: Value -&gt; Parser ManagedScalingStatus
 $cparseJSON :: Value -&gt; Parser ManagedScalingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679455935"><span id="local-6989586621679455937"><span class="annot"><span class="annottext">FromJSONKeyFunction [ManagedScalingStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679455944"><span id="local-6989586621679455946"><span class="annot"><span class="annottext">FromJSONKeyFunction [ManagedScalingStatus]
 FromJSONKeyFunction ManagedScalingStatus
 FromJSONKeyFunction ManagedScalingStatus
 -&gt; FromJSONKeyFunction [ManagedScalingStatus]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ManagedScalingStatus]
 fromJSONKey :: FromJSONKeyFunction ManagedScalingStatus
 $cfromJSONKey :: FromJSONKeyFunction ManagedScalingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679455926"><span id="local-6989586621679455928"><span id="local-6989586621679455930"><span id="local-6989586621679455932"><span class="annot"><span class="annottext">[ManagedScalingStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679455935"><span id="local-6989586621679455937"><span id="local-6989586621679455939"><span id="local-6989586621679455941"><span class="annot"><span class="annottext">[ManagedScalingStatus] -&gt; Encoding
 [ManagedScalingStatus] -&gt; Value
 ManagedScalingStatus -&gt; Encoding
 ManagedScalingStatus -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: ManagedScalingStatus -&gt; Encoding
 toJSON :: ManagedScalingStatus -&gt; Value
 $ctoJSON :: ManagedScalingStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679455921"><span id="local-6989586621679455923"><span class="annot"><span class="annottext">ToJSONKeyFunction [ManagedScalingStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679455930"><span id="local-6989586621679455932"><span class="annot"><span class="annottext">ToJSONKeyFunction [ManagedScalingStatus]
 ToJSONKeyFunction ManagedScalingStatus
 ToJSONKeyFunction ManagedScalingStatus
 -&gt; ToJSONKeyFunction [ManagedScalingStatus]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ManagedScalingStatus]
 toJSONKey :: ToJSONKeyFunction ManagedScalingStatus
 $ctoJSONKey :: ToJSONKeyFunction ManagedScalingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679455918"><span class="annot"><span class="annottext">[Node] -&gt; Either String ManagedScalingStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679455927"><span class="annot"><span class="annottext">[Node] -&gt; Either String ManagedScalingStatus
 ([Node] -&gt; Either String ManagedScalingStatus)
 -&gt; FromXML ManagedScalingStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ManagedScalingStatus
 $cparseXML :: [Node] -&gt; Either String ManagedScalingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679455915"><span class="annot"><span class="annottext">ManagedScalingStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679455924"><span class="annot"><span class="annottext">ManagedScalingStatus -&gt; XML
 (ManagedScalingStatus -&gt; XML) -&gt; ToXML ManagedScalingStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ManagedScalingStatus -&gt; XML

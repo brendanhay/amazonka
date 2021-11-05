@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- NetworkInterface data type.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSecurityGroup' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679248421"><span id="local-6989586621679248422"></span></span><span class="hs-keyword">data</span><span> </span><span id="SecurityGroup"><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-var">SecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecurityGroup%27"><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-var">SecurityGroup'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679248430"><span id="local-6989586621679248431"></span></span><span class="hs-keyword">data</span><span> </span><span id="SecurityGroup"><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-var">SecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecurityGroup%27"><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-var">SecurityGroup'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the security group.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AgroupId%3ASecurityGroup%27"><span class="annot"><span class="annottext">SecurityGroup -&gt; Maybe Text
 </span><a href="Network.AWS.Inspector.Types.SecurityGroup.html#%24sel%3AgroupId%3ASecurityGroup%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AgroupName%3ASecurityGroup%27"><span class="annot"><span class="annottext">SecurityGroup -&gt; Maybe Text
 </span><a href="Network.AWS.Inspector.Types.SecurityGroup.html#%24sel%3AgroupName%3ASecurityGroup%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248414"><span id="local-6989586621679248416"><span class="annot"><span class="annottext">SecurityGroup -&gt; SecurityGroup -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248423"><span id="local-6989586621679248425"><span class="annot"><span class="annottext">SecurityGroup -&gt; SecurityGroup -&gt; Bool
 (SecurityGroup -&gt; SecurityGroup -&gt; Bool)
 -&gt; (SecurityGroup -&gt; SecurityGroup -&gt; Bool) -&gt; Eq SecurityGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SecurityGroup -&gt; SecurityGroup -&gt; Bool
 == :: SecurityGroup -&gt; SecurityGroup -&gt; Bool
 $c== :: SecurityGroup -&gt; SecurityGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248405"><span id="local-6989586621679248407"><span id="local-6989586621679248409"><span id="local-6989586621679248411"><span class="annot"><span class="annottext">ReadPrec [SecurityGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248414"><span id="local-6989586621679248416"><span id="local-6989586621679248418"><span id="local-6989586621679248420"><span class="annot"><span class="annottext">ReadPrec [SecurityGroup]
 ReadPrec SecurityGroup
 Int -&gt; ReadS SecurityGroup
 ReadS [SecurityGroup]
@@ -64,7 +64,7 @@ readList :: ReadS [SecurityGroup]
 $creadList :: ReadS [SecurityGroup]
 readsPrec :: Int -&gt; ReadS SecurityGroup
 $creadsPrec :: Int -&gt; ReadS SecurityGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248398"><span id="local-6989586621679248400"><span id="local-6989586621679248402"><span class="annot"><span class="annottext">Int -&gt; SecurityGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248407"><span id="local-6989586621679248409"><span id="local-6989586621679248411"><span class="annot"><span class="annottext">Int -&gt; SecurityGroup -&gt; ShowS
 [SecurityGroup] -&gt; ShowS
 SecurityGroup -&gt; String
 (Int -&gt; SecurityGroup -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Maybe a
 -&gt; (SecurityGroup -&gt; Maybe Text -&gt; SecurityGroup)
 -&gt; Lens SecurityGroup SecurityGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248389"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248398"><span class="annot"><span class="annottext">Maybe Text
 groupId :: Maybe Text
 $sel:groupId:SecurityGroup' :: SecurityGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679248389"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248389"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248388"><span class="annot"><span class="annottext">s :: SecurityGroup
-</span><a href="#local-6989586621679248388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248387"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
-</span><a href="#local-6989586621679248388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:SecurityGroup' :: Maybe Text
+</span><a href="#local-6989586621679248398"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248398"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248397"><span class="annot"><span class="annottext">s :: SecurityGroup
+</span><a href="#local-6989586621679248397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248396"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
+</span><a href="#local-6989586621679248397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:SecurityGroup' :: Maybe Text
 </span><a href="Network.AWS.Inspector.Types.SecurityGroup.html#%24sel%3AgroupId%3ASecurityGroup%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The name of the security group.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#securityGroup_groupName"><span class="hs-identifier hs-type">securityGroup_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -142,19 +142,19 @@ $sel:groupId:SecurityGroup' :: SecurityGroup -&gt; Maybe Text
 -&gt; (SecurityGroup -&gt; Maybe Text -&gt; SecurityGroup)
 -&gt; Lens SecurityGroup SecurityGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248385"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248394"><span class="annot"><span class="annottext">Maybe Text
 groupName :: Maybe Text
 $sel:groupName:SecurityGroup' :: SecurityGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679248385"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248385"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248384"><span class="annot"><span class="annottext">s :: SecurityGroup
-</span><a href="#local-6989586621679248384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248383"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
-</span><a href="#local-6989586621679248384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:SecurityGroup' :: Maybe Text
+</span><a href="#local-6989586621679248394"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248394"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248393"><span class="annot"><span class="annottext">s :: SecurityGroup
+</span><a href="#local-6989586621679248393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-type">SecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248392"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroup
+</span><a href="#local-6989586621679248393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:SecurityGroup' :: Maybe Text
 </span><a href="Network.AWS.Inspector.Types.SecurityGroup.html#%24sel%3AgroupName%3ASecurityGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248380"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679248378"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SecurityGroup
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248389"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679248387"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SecurityGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SecurityGroup)
@@ -164,15 +164,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SecurityGroup&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248375"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248375"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248384"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248384"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; SecurityGroup
 </span><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup%27"><span class="hs-identifier hs-var">SecurityGroup'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; SecurityGroup)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; SecurityGroup)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679248384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;groupId&quot;</span></span><span class="hs-special">)</span><span>
@@ -180,13 +180,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser SecurityGroup
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679248384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;groupName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248369"><span id="local-6989586621679248371"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248378"><span id="local-6989586621679248380"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248366"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.SecurityGroup.html#SecurityGroup"><span class="hs-identifier hs-type">SecurityGroup</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

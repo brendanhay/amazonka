@@ -26,14 +26,14 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Settings specific to Teletext caption sources, including Page number.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTeletextSourceSettings' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680009197"><span id="local-6989586621680009198"></span></span><span class="hs-keyword">data</span><span> </span><span id="TeletextSourceSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings"><span class="hs-identifier hs-var">TeletextSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TeletextSourceSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings%27"><span class="hs-identifier hs-var">TeletextSourceSettings'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680009206"><span id="local-6989586621680009207"></span></span><span class="hs-keyword">data</span><span> </span><span id="TeletextSourceSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings"><span class="hs-identifier hs-var">TeletextSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TeletextSourceSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings%27"><span class="hs-identifier hs-var">TeletextSourceSettings'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use Page Number (PageNumber) to specify the three-digit hexadecimal page</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- number that will be used for Teletext captions. Do not use this setting</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- if you are passing through teletext from the input source to output.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3ApageNumber%3ATeletextSourceSettings%27"><span class="annot"><span class="annottext">TeletextSourceSettings -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#%24sel%3ApageNumber%3ATeletextSourceSettings%27"><span class="hs-identifier hs-var hs-var">pageNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680009191"><span id="local-6989586621680009193"><span class="annot"><span class="annottext">TeletextSourceSettings -&gt; TeletextSourceSettings -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680009200"><span id="local-6989586621680009202"><span class="annot"><span class="annottext">TeletextSourceSettings -&gt; TeletextSourceSettings -&gt; Bool
 (TeletextSourceSettings -&gt; TeletextSourceSettings -&gt; Bool)
 -&gt; (TeletextSourceSettings -&gt; TeletextSourceSettings -&gt; Bool)
 -&gt; Eq TeletextSourceSettings
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TeletextSourceSettings -&gt; TeletextSourceSettings -&gt; Bool
 == :: TeletextSourceSettings -&gt; TeletextSourceSettings -&gt; Bool
 $c== :: TeletextSourceSettings -&gt; TeletextSourceSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680009182"><span id="local-6989586621680009184"><span id="local-6989586621680009186"><span id="local-6989586621680009188"><span class="annot"><span class="annottext">ReadPrec [TeletextSourceSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680009191"><span id="local-6989586621680009193"><span id="local-6989586621680009195"><span id="local-6989586621680009197"><span class="annot"><span class="annottext">ReadPrec [TeletextSourceSettings]
 ReadPrec TeletextSourceSettings
 Int -&gt; ReadS TeletextSourceSettings
 ReadS [TeletextSourceSettings]
@@ -62,7 +62,7 @@ readList :: ReadS [TeletextSourceSettings]
 $creadList :: ReadS [TeletextSourceSettings]
 readsPrec :: Int -&gt; ReadS TeletextSourceSettings
 $creadsPrec :: Int -&gt; ReadS TeletextSourceSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680009175"><span id="local-6989586621680009177"><span id="local-6989586621680009179"><span class="annot"><span class="annottext">Int -&gt; TeletextSourceSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680009184"><span id="local-6989586621680009186"><span id="local-6989586621680009188"><span class="annot"><span class="annottext">Int -&gt; TeletextSourceSettings -&gt; ShowS
 [TeletextSourceSettings] -&gt; ShowS
 TeletextSourceSettings -&gt; String
 (Int -&gt; TeletextSourceSettings -&gt; ShowS)
@@ -127,19 +127,19 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings%27"><span class="hs-identifier hs-type">TeletextSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009166"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings%27"><span class="hs-identifier hs-type">TeletextSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009175"><span class="annot"><span class="annottext">Maybe Text
 pageNumber :: Maybe Text
 $sel:pageNumber:TeletextSourceSettings' :: TeletextSourceSettings -&gt; Maybe Text
-</span><a href="#local-6989586621680009166"><span class="hs-identifier hs-var hs-var">pageNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680009166"><span class="hs-identifier hs-var">pageNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009165"><span class="annot"><span class="annottext">s :: TeletextSourceSettings
-</span><a href="#local-6989586621680009165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings%27"><span class="hs-identifier hs-type">TeletextSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009164"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680009164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TeletextSourceSettings
-</span><a href="#local-6989586621680009165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageNumber:TeletextSourceSettings' :: Maybe Text
+</span><a href="#local-6989586621680009175"><span class="hs-identifier hs-var hs-var">pageNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680009175"><span class="hs-identifier hs-var">pageNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009174"><span class="annot"><span class="annottext">s :: TeletextSourceSettings
+</span><a href="#local-6989586621680009174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings%27"><span class="hs-identifier hs-type">TeletextSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009173"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680009173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TeletextSourceSettings
+</span><a href="#local-6989586621680009174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageNumber:TeletextSourceSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#%24sel%3ApageNumber%3ATeletextSourceSettings%27"><span class="hs-identifier hs-var">pageNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680009164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings"><span class="hs-identifier hs-type">TeletextSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680009173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings"><span class="hs-identifier hs-type">TeletextSourceSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009161"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings"><span class="hs-identifier hs-type">TeletextSourceSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621680009159"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TeletextSourceSettings
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009170"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings"><span class="hs-identifier hs-type">TeletextSourceSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621680009168"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TeletextSourceSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TeletextSourceSettings)
@@ -149,30 +149,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TeletextSourceSettings&quot;</span></span><span>
-</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680009156"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680009156"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680009165"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680009165"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; TeletextSourceSettings
 </span><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings%27"><span class="hs-identifier hs-var">TeletextSourceSettings'</span></a></span><span>
 </span><span id="line-68"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; TeletextSourceSettings)
 -&gt; Parser (Maybe Text) -&gt; Parser TeletextSourceSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680009156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680009165"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pageNumber&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009150"><span id="local-6989586621680009152"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings"><span class="hs-identifier hs-type">TeletextSourceSettings</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009159"><span id="local-6989586621680009161"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings"><span class="hs-identifier hs-type">TeletextSourceSettings</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009147"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings"><span class="hs-identifier hs-type">TeletextSourceSettings</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009156"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings"><span class="hs-identifier hs-type">TeletextSourceSettings</span></a></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009139"><span id="local-6989586621680009141"><span id="local-6989586621680009143"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings"><span class="hs-identifier hs-type">TeletextSourceSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621680009137"><span class="annot"><span class="annottext">toJSON :: TeletextSourceSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings%27"><span class="hs-identifier hs-type">TeletextSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009135"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009148"><span id="local-6989586621680009150"><span id="local-6989586621680009152"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings"><span class="hs-identifier hs-type">TeletextSourceSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621680009146"><span class="annot"><span class="annottext">toJSON :: TeletextSourceSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings%27"><span class="hs-identifier hs-type">TeletextSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009144"><span class="annot"><span class="annottext">Maybe Text
 pageNumber :: Maybe Text
 $sel:pageNumber:TeletextSourceSettings' :: TeletextSourceSettings -&gt; Maybe Text
-</span><a href="#local-6989586621680009135"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680009144"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -184,6 +184,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680009135"><span class="hs-identifier hs-var">pageNumber</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680009144"><span class="hs-identifier hs-var">pageNumber</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span></pre></body></html>

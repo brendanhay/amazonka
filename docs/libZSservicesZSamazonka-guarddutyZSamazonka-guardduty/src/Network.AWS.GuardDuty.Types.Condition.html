@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains information about the condition.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCondition' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679294339"><span id="local-6989586621679294340"></span></span><span class="hs-keyword">data</span><span> </span><span id="Condition"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-var">Condition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Condition%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-var">Condition'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679294348"><span id="local-6989586621679294349"></span></span><span class="hs-keyword">data</span><span> </span><span id="Condition"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-var">Condition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Condition%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-var">Condition'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the /equal/ condition to be applied to a single field when</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- querying for findings.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aeq%3ACondition%27"><span class="annot"><span class="annottext">Condition -&gt; Maybe [Text]
@@ -76,7 +76,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AgreaterThan%3ACondition%27"><span class="annot"><span class="annottext">Condition -&gt; Maybe Integer
 </span><a href="Network.AWS.GuardDuty.Types.Condition.html#%24sel%3AgreaterThan%3ACondition%27"><span class="hs-identifier hs-var hs-var">greaterThan</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294322"><span id="local-6989586621679294324"><span class="annot"><span class="annottext">Condition -&gt; Condition -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294331"><span id="local-6989586621679294333"><span class="annot"><span class="annottext">Condition -&gt; Condition -&gt; Bool
 (Condition -&gt; Condition -&gt; Bool)
 -&gt; (Condition -&gt; Condition -&gt; Bool) -&gt; Eq Condition
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Condition -&gt; Condition -&gt; Bool
 == :: Condition -&gt; Condition -&gt; Bool
 $c== :: Condition -&gt; Condition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294313"><span id="local-6989586621679294315"><span id="local-6989586621679294317"><span id="local-6989586621679294319"><span class="annot"><span class="annottext">ReadPrec [Condition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294322"><span id="local-6989586621679294324"><span id="local-6989586621679294326"><span id="local-6989586621679294328"><span class="annot"><span class="annottext">ReadPrec [Condition]
 ReadPrec Condition
 Int -&gt; ReadS Condition
 ReadS [Condition]
@@ -104,7 +104,7 @@ readList :: ReadS [Condition]
 $creadList :: ReadS [Condition]
 readsPrec :: Int -&gt; ReadS Condition
 $creadsPrec :: Int -&gt; ReadS Condition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294306"><span id="local-6989586621679294308"><span id="local-6989586621679294310"><span class="annot"><span class="annottext">Int -&gt; Condition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294315"><span id="local-6989586621679294317"><span id="local-6989586621679294319"><span class="annot"><span class="annottext">Int -&gt; Condition -&gt; ShowS
 [Condition] -&gt; ShowS
 Condition -&gt; String
 (Int -&gt; Condition -&gt; ShowS)
@@ -248,16 +248,16 @@ forall a. Maybe a
 -&gt; (Condition -&gt; Maybe [Text] -&gt; Condition)
 -&gt; Lens Condition Condition (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294297"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294306"><span class="annot"><span class="annottext">Maybe [Text]
 eq :: Maybe [Text]
 $sel:eq:Condition' :: Condition -&gt; Maybe [Text]
-</span><a href="#local-6989586621679294297"><span class="hs-identifier hs-var hs-var">eq</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294297"><span class="hs-identifier hs-var">eq</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294296"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679294296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294295"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679294296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eq:Condition' :: Maybe [Text]
+</span><a href="#local-6989586621679294306"><span class="hs-identifier hs-var hs-var">eq</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679294306"><span class="hs-identifier hs-var">eq</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294305"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679294305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294304"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679294304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679294305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eq:Condition' :: Maybe [Text]
 </span><a href="Network.AWS.GuardDuty.Types.Condition.html#%24sel%3Aeq%3ACondition%27"><span class="hs-identifier hs-var">eq</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Condition -&gt; f Condition)
+</span><a href="#local-6989586621679294304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Condition -&gt; f Condition)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -281,16 +281,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Condition -&gt; Maybe Integer -&gt; Condition)
 -&gt; Lens Condition Condition (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294290"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294299"><span class="annot"><span class="annottext">Maybe Integer
 lessThan :: Maybe Integer
 $sel:lessThan:Condition' :: Condition -&gt; Maybe Integer
-</span><a href="#local-6989586621679294290"><span class="hs-identifier hs-var hs-var">lessThan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679294290"><span class="hs-identifier hs-var">lessThan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294289"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679294289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294288"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679294288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679294289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lessThan:Condition' :: Maybe Integer
+</span><a href="#local-6989586621679294299"><span class="hs-identifier hs-var hs-var">lessThan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679294299"><span class="hs-identifier hs-var">lessThan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294298"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679294298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294297"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679294297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679294298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lessThan:Condition' :: Maybe Integer
 </span><a href="Network.AWS.GuardDuty.Types.Condition.html#%24sel%3AlessThan%3ACondition%27"><span class="hs-identifier hs-var">lessThan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679294288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | Represents a /less than or equal/ condition to be applied to a single</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- field when querying for findings.</span><span>
@@ -300,16 +300,16 @@ $sel:lessThan:Condition' :: Condition -&gt; Maybe Integer
 -&gt; (Condition -&gt; Maybe Int -&gt; Condition)
 -&gt; Lens Condition Condition (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294286"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294295"><span class="annot"><span class="annottext">Maybe Int
 lte :: Maybe Int
 $sel:lte:Condition' :: Condition -&gt; Maybe Int
-</span><a href="#local-6989586621679294286"><span class="hs-identifier hs-var hs-var">lte</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679294286"><span class="hs-identifier hs-var">lte</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294285"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679294285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294284"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679294284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679294285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lte:Condition' :: Maybe Int
+</span><a href="#local-6989586621679294295"><span class="hs-identifier hs-var hs-var">lte</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679294295"><span class="hs-identifier hs-var">lte</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294294"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679294294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294293"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679294293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679294294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lte:Condition' :: Maybe Int
 </span><a href="Network.AWS.GuardDuty.Types.Condition.html#%24sel%3Alte%3ACondition%27"><span class="hs-identifier hs-var">lte</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679294284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | Represents a /greater than or equal/ condition to be applied to a single</span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- field when querying for findings.</span><span>
@@ -319,16 +319,16 @@ $sel:lte:Condition' :: Condition -&gt; Maybe Int
 -&gt; (Condition -&gt; Maybe Integer -&gt; Condition)
 -&gt; Lens Condition Condition (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294282"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294291"><span class="annot"><span class="annottext">Maybe Integer
 greaterThanOrEqual :: Maybe Integer
 $sel:greaterThanOrEqual:Condition' :: Condition -&gt; Maybe Integer
-</span><a href="#local-6989586621679294282"><span class="hs-identifier hs-var hs-var">greaterThanOrEqual</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679294282"><span class="hs-identifier hs-var">greaterThanOrEqual</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294281"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679294281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294280"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679294280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679294281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:greaterThanOrEqual:Condition' :: Maybe Integer
+</span><a href="#local-6989586621679294291"><span class="hs-identifier hs-var hs-var">greaterThanOrEqual</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679294291"><span class="hs-identifier hs-var">greaterThanOrEqual</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294290"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679294290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294289"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679294289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679294290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:greaterThanOrEqual:Condition' :: Maybe Integer
 </span><a href="Network.AWS.GuardDuty.Types.Condition.html#%24sel%3AgreaterThanOrEqual%3ACondition%27"><span class="hs-identifier hs-var">greaterThanOrEqual</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679294280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | Represents a /less than or equal/ condition to be applied to a single</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- field when querying for findings.</span><span>
@@ -338,16 +338,16 @@ $sel:greaterThanOrEqual:Condition' :: Condition -&gt; Maybe Integer
 -&gt; (Condition -&gt; Maybe Integer -&gt; Condition)
 -&gt; Lens Condition Condition (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294278"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294287"><span class="annot"><span class="annottext">Maybe Integer
 lessThanOrEqual :: Maybe Integer
 $sel:lessThanOrEqual:Condition' :: Condition -&gt; Maybe Integer
-</span><a href="#local-6989586621679294278"><span class="hs-identifier hs-var hs-var">lessThanOrEqual</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679294278"><span class="hs-identifier hs-var">lessThanOrEqual</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294277"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679294277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294276"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679294276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679294277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lessThanOrEqual:Condition' :: Maybe Integer
+</span><a href="#local-6989586621679294287"><span class="hs-identifier hs-var hs-var">lessThanOrEqual</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679294287"><span class="hs-identifier hs-var">lessThanOrEqual</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294286"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679294286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294285"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679294285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679294286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lessThanOrEqual:Condition' :: Maybe Integer
 </span><a href="Network.AWS.GuardDuty.Types.Condition.html#%24sel%3AlessThanOrEqual%3ACondition%27"><span class="hs-identifier hs-var">lessThanOrEqual</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679294276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | Represents a /greater than/ condition to be applied to a single field</span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- when querying for findings.</span><span>
@@ -357,16 +357,16 @@ $sel:lessThanOrEqual:Condition' :: Condition -&gt; Maybe Integer
 -&gt; (Condition -&gt; Maybe Int -&gt; Condition)
 -&gt; Lens Condition Condition (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294274"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294283"><span class="annot"><span class="annottext">Maybe Int
 gt :: Maybe Int
 $sel:gt:Condition' :: Condition -&gt; Maybe Int
-</span><a href="#local-6989586621679294274"><span class="hs-identifier hs-var hs-var">gt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679294274"><span class="hs-identifier hs-var">gt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294273"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679294273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294272"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679294272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679294273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gt:Condition' :: Maybe Int
+</span><a href="#local-6989586621679294283"><span class="hs-identifier hs-var hs-var">gt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679294283"><span class="hs-identifier hs-var">gt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294282"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679294282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294281"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679294281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679294282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gt:Condition' :: Maybe Int
 </span><a href="Network.AWS.GuardDuty.Types.Condition.html#%24sel%3Agt%3ACondition%27"><span class="hs-identifier hs-var">gt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679294272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | Represents an /equal/ ____ condition to be applied to a single field</span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- when querying for findings.</span><span>
@@ -376,16 +376,16 @@ $sel:gt:Condition' :: Condition -&gt; Maybe Int
 -&gt; (Condition -&gt; Maybe [Text] -&gt; Condition)
 -&gt; Lens Condition Condition (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294270"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294279"><span class="annot"><span class="annottext">Maybe [Text]
 equals :: Maybe [Text]
 $sel:equals:Condition' :: Condition -&gt; Maybe [Text]
-</span><a href="#local-6989586621679294270"><span class="hs-identifier hs-var hs-var">equals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294270"><span class="hs-identifier hs-var">equals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294269"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679294269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294268"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679294269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:equals:Condition' :: Maybe [Text]
+</span><a href="#local-6989586621679294279"><span class="hs-identifier hs-var hs-var">equals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679294279"><span class="hs-identifier hs-var">equals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294278"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679294278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294277"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679294277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679294278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:equals:Condition' :: Maybe [Text]
 </span><a href="Network.AWS.GuardDuty.Types.Condition.html#%24sel%3Aequals%3ACondition%27"><span class="hs-identifier hs-var">equals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Condition -&gt; f Condition)
+</span><a href="#local-6989586621679294277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Condition -&gt; f Condition)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -409,16 +409,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Condition -&gt; Maybe [Text] -&gt; Condition)
 -&gt; Lens Condition Condition (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294266"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294275"><span class="annot"><span class="annottext">Maybe [Text]
 neq :: Maybe [Text]
 $sel:neq:Condition' :: Condition -&gt; Maybe [Text]
-</span><a href="#local-6989586621679294266"><span class="hs-identifier hs-var hs-var">neq</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294266"><span class="hs-identifier hs-var">neq</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294265"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679294265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294264"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679294265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:neq:Condition' :: Maybe [Text]
+</span><a href="#local-6989586621679294275"><span class="hs-identifier hs-var hs-var">neq</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679294275"><span class="hs-identifier hs-var">neq</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294274"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679294274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294273"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679294273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679294274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:neq:Condition' :: Maybe [Text]
 </span><a href="Network.AWS.GuardDuty.Types.Condition.html#%24sel%3Aneq%3ACondition%27"><span class="hs-identifier hs-var">neq</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Condition -&gt; f Condition)
+</span><a href="#local-6989586621679294273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Condition -&gt; f Condition)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -442,16 +442,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Condition -&gt; Maybe [Text] -&gt; Condition)
 -&gt; Lens Condition Condition (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294262"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294271"><span class="annot"><span class="annottext">Maybe [Text]
 notEquals :: Maybe [Text]
 $sel:notEquals:Condition' :: Condition -&gt; Maybe [Text]
-</span><a href="#local-6989586621679294262"><span class="hs-identifier hs-var hs-var">notEquals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294262"><span class="hs-identifier hs-var">notEquals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294261"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679294261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294260"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679294261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notEquals:Condition' :: Maybe [Text]
+</span><a href="#local-6989586621679294271"><span class="hs-identifier hs-var hs-var">notEquals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679294271"><span class="hs-identifier hs-var">notEquals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294270"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679294270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294269"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679294269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679294270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notEquals:Condition' :: Maybe [Text]
 </span><a href="Network.AWS.GuardDuty.Types.Condition.html#%24sel%3AnotEquals%3ACondition%27"><span class="hs-identifier hs-var">notEquals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Condition -&gt; f Condition)
+</span><a href="#local-6989586621679294269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Condition -&gt; f Condition)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -475,16 +475,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Condition -&gt; Maybe Int -&gt; Condition)
 -&gt; Lens Condition Condition (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294258"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294267"><span class="annot"><span class="annottext">Maybe Int
 lt :: Maybe Int
 $sel:lt:Condition' :: Condition -&gt; Maybe Int
-</span><a href="#local-6989586621679294258"><span class="hs-identifier hs-var hs-var">lt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679294258"><span class="hs-identifier hs-var">lt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294257"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679294257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294256"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679294256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679294257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lt:Condition' :: Maybe Int
+</span><a href="#local-6989586621679294267"><span class="hs-identifier hs-var hs-var">lt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679294267"><span class="hs-identifier hs-var">lt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294266"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679294266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294265"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679294265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679294266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lt:Condition' :: Maybe Int
 </span><a href="Network.AWS.GuardDuty.Types.Condition.html#%24sel%3Alt%3ACondition%27"><span class="hs-identifier hs-var">lt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679294256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | Represents a /greater than or equal/ condition to be applied to a single</span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- field when querying for findings.</span><span>
@@ -494,16 +494,16 @@ $sel:lt:Condition' :: Condition -&gt; Maybe Int
 -&gt; (Condition -&gt; Maybe Int -&gt; Condition)
 -&gt; Lens Condition Condition (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294254"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294263"><span class="annot"><span class="annottext">Maybe Int
 gte :: Maybe Int
 $sel:gte:Condition' :: Condition -&gt; Maybe Int
-</span><a href="#local-6989586621679294254"><span class="hs-identifier hs-var hs-var">gte</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679294254"><span class="hs-identifier hs-var">gte</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294253"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679294253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294252"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679294252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679294253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gte:Condition' :: Maybe Int
+</span><a href="#local-6989586621679294263"><span class="hs-identifier hs-var hs-var">gte</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679294263"><span class="hs-identifier hs-var">gte</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294262"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679294262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294261"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679294261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679294262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gte:Condition' :: Maybe Int
 </span><a href="Network.AWS.GuardDuty.Types.Condition.html#%24sel%3Agte%3ACondition%27"><span class="hs-identifier hs-var">gte</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679294252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | Represents a /greater than/ condition to be applied to a single field</span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- when querying for findings.</span><span>
@@ -513,27 +513,27 @@ $sel:gte:Condition' :: Condition -&gt; Maybe Int
 -&gt; (Condition -&gt; Maybe Integer -&gt; Condition)
 -&gt; Lens Condition Condition (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294250"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294259"><span class="annot"><span class="annottext">Maybe Integer
 greaterThan :: Maybe Integer
 $sel:greaterThan:Condition' :: Condition -&gt; Maybe Integer
-</span><a href="#local-6989586621679294250"><span class="hs-identifier hs-var hs-var">greaterThan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679294250"><span class="hs-identifier hs-var">greaterThan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294249"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679294249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294248"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679294248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679294249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:greaterThan:Condition' :: Maybe Integer
+</span><a href="#local-6989586621679294259"><span class="hs-identifier hs-var hs-var">greaterThan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679294259"><span class="hs-identifier hs-var">greaterThan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294258"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679294258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294257"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679294257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679294258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:greaterThan:Condition' :: Maybe Integer
 </span><a href="Network.AWS.GuardDuty.Types.Condition.html#%24sel%3AgreaterThan%3ACondition%27"><span class="hs-identifier hs-var">greaterThan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679294248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294245"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679294243"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Condition
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294254"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679294252"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Condition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Condition) -&gt; Value -&gt; Parser Condition
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Condition&quot;</span></span><span>
-</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294240"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294240"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294249"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294249"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe Integer
 -&gt; Maybe Int
@@ -577,7 +577,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Condition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679294249"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;eq&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -614,7 +614,7 @@ forall a. Monoid a =&gt; a
       -&gt; Condition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679294249"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lessThan&quot;</span></span><span class="hs-special">)</span><span>
@@ -644,7 +644,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Condition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679294249"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lte&quot;</span></span><span class="hs-special">)</span><span>
@@ -672,7 +672,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Condition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679294249"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;greaterThanOrEqual&quot;</span></span><span class="hs-special">)</span><span>
@@ -698,7 +698,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Condition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679294249"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lessThanOrEqual&quot;</span></span><span class="hs-special">)</span><span>
@@ -722,7 +722,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Condition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679294249"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gt&quot;</span></span><span class="hs-special">)</span><span>
@@ -744,7 +744,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Condition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679294249"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;equals&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -766,7 +766,7 @@ forall a. Monoid a =&gt; a
       -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe Integer -&gt; Condition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679294249"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;neq&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -782,7 +782,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; Maybe Integer -&gt; Condition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679294249"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;notEquals&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -796,7 +796,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Int -&gt; Maybe Integer -&gt; Condition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679294249"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lt&quot;</span></span><span class="hs-special">)</span><span>
@@ -804,7 +804,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser (Maybe Integer -&gt; Condition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679294249"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gte&quot;</span></span><span class="hs-special">)</span><span>
@@ -812,19 +812,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Integer) -&gt; Parser Condition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679294249"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;greaterThan&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294233"><span id="local-6989586621679294235"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294242"><span id="local-6989586621679294244"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294230"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294239"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span><span>
 </span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294222"><span id="local-6989586621679294224"><span id="local-6989586621679294226"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679294220"><span class="annot"><span class="annottext">toJSON :: Condition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294207"><span id="local-6989586621679294208"><span id="local-6989586621679294209"><span id="local-6989586621679294210"><span id="local-6989586621679294211"><span id="local-6989586621679294212"><span id="local-6989586621679294213"><span id="local-6989586621679294214"><span id="local-6989586621679294215"><span id="local-6989586621679294216"><span id="local-6989586621679294217"><span id="local-6989586621679294218"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294231"><span id="local-6989586621679294233"><span id="local-6989586621679294235"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679294229"><span class="annot"><span class="annottext">toJSON :: Condition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294216"><span id="local-6989586621679294217"><span id="local-6989586621679294218"><span id="local-6989586621679294219"><span id="local-6989586621679294220"><span id="local-6989586621679294221"><span id="local-6989586621679294222"><span id="local-6989586621679294223"><span id="local-6989586621679294224"><span id="local-6989586621679294225"><span id="local-6989586621679294226"><span id="local-6989586621679294227"><span class="annot"><span class="annottext">Maybe Int
 Maybe Integer
 Maybe [Text]
 greaterThan :: Maybe Integer
@@ -851,7 +851,7 @@ $sel:greaterThanOrEqual:Condition' :: Condition -&gt; Maybe Integer
 $sel:lte:Condition' :: Condition -&gt; Maybe Int
 $sel:lessThan:Condition' :: Condition -&gt; Maybe Integer
 $sel:eq:Condition' :: Condition -&gt; Maybe [Text]
-</span><a href="#local-6989586621679294207"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679294216"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-216"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-217"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -863,21 +863,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294218"><span class="hs-identifier hs-var">eq</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294227"><span class="hs-identifier hs-var">eq</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lessThan&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679294217"><span class="hs-identifier hs-var">lessThan</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294226"><span class="hs-identifier hs-var">lessThan</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lte&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679294216"><span class="hs-identifier hs-var">lte</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294225"><span class="hs-identifier hs-var">lte</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;greaterThanOrEqual&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -885,7 +885,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-222"></span><span>              </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679294215"><span class="hs-identifier hs-var">greaterThanOrEqual</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294224"><span class="hs-identifier hs-var">greaterThanOrEqual</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lessThanOrEqual&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -893,56 +893,56 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-224"></span><span>              </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679294214"><span class="hs-identifier hs-var">lessThanOrEqual</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294223"><span class="hs-identifier hs-var">lessThanOrEqual</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gt&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679294213"><span class="hs-identifier hs-var">gt</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294222"><span class="hs-identifier hs-var">gt</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;equals&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294212"><span class="hs-identifier hs-var">equals</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294221"><span class="hs-identifier hs-var">equals</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-227"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;neq&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294211"><span class="hs-identifier hs-var">neq</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294220"><span class="hs-identifier hs-var">neq</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;notEquals&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294210"><span class="hs-identifier hs-var">notEquals</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294219"><span class="hs-identifier hs-var">notEquals</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-229"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lt&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679294209"><span class="hs-identifier hs-var">lt</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294218"><span class="hs-identifier hs-var">lt</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gte&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679294208"><span class="hs-identifier hs-var">gte</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294217"><span class="hs-identifier hs-var">gte</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;greaterThan&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679294207"><span class="hs-identifier hs-var">greaterThan</span></a></span><span>
+</span><a href="#local-6989586621679294216"><span class="hs-identifier hs-var">greaterThan</span></a></span><span>
 </span><span id="line-232"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-233"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span></pre></body></html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Panorama.ListNodes</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of nodes.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Panorama.ListNodes</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier">ListNodes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#newListNodes"><span class="hs-identifier">newListNodes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodes_patchVersion"><span class="hs-identifier">listNodes_patchVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodes_packageName"><span class="hs-identifier">listNodes_packageName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodes_packageVersion"><span class="hs-identifier">listNodes_packageVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodes_category"><span class="hs-identifier">listNodes_category</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodes_nextToken"><span class="hs-identifier">listNodes_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodes_ownerAccount"><span class="hs-identifier">listNodes_ownerAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodes_maxResults"><span class="hs-identifier">listNodes_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse"><span class="hs-identifier">ListNodesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#newListNodesResponse"><span class="hs-identifier">newListNodesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodesResponse_nextToken"><span class="hs-identifier">listNodesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodesResponse_nodes"><span class="hs-identifier">listNodesResponse_nodes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodesResponse_httpStatus"><span class="hs-identifier">listNodesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.html"><span class="hs-identifier">Network.AWS.Panorama.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListNodes' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679262730"><span id="local-6989586621679262731"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListNodes"><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-var">ListNodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListNodes%27"><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes%27"><span class="hs-identifier hs-var">ListNodes'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Search for nodes by patch version.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3ApatchVersion%3AListNodes%27"><span class="annot"><span class="annottext">ListNodes -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3ApatchVersion%3AListNodes%27"><span class="hs-identifier hs-var hs-var">patchVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Search for nodes by name.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3ApackageName%3AListNodes%27"><span class="annot"><span class="annottext">ListNodes -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3ApackageName%3AListNodes%27"><span class="hs-identifier hs-var hs-var">packageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Search for nodes by version.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3ApackageVersion%3AListNodes%27"><span class="annot"><span class="annottext">ListNodes -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3ApackageVersion%3AListNodes%27"><span class="hs-identifier hs-var hs-var">packageVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Search for nodes by category.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Acategory%3AListNodes%27"><span class="annot"><span class="annottext">ListNodes -&gt; Maybe NodeCategory
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3Acategory%3AListNodes%27"><span class="hs-identifier hs-var hs-var">category</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory"><span class="hs-identifier hs-type">NodeCategory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Specify the pagination token from a previous request to retrieve the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- next page of results.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AnextToken%3AListNodes%27"><span class="annot"><span class="annottext">ListNodes -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3AnextToken%3AListNodes%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Search for nodes by the account ID of the nodes\' owner.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AownerAccount%3AListNodes%27"><span class="annot"><span class="annottext">ListNodes -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3AownerAccount%3AListNodes%27"><span class="hs-identifier hs-var hs-var">ownerAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The maximum number of nodes to return in one page of results.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaxResults%3AListNodes%27"><span class="annot"><span class="annottext">ListNodes -&gt; Maybe Natural
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3AmaxResults%3AListNodes%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262718"><span id="local-6989586621679262720"><span class="annot"><span class="annottext">ListNodes -&gt; ListNodes -&gt; Bool
+(ListNodes -&gt; ListNodes -&gt; Bool)
+-&gt; (ListNodes -&gt; ListNodes -&gt; Bool) -&gt; Eq ListNodes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListNodes -&gt; ListNodes -&gt; Bool
+$c/= :: ListNodes -&gt; ListNodes -&gt; Bool
+== :: ListNodes -&gt; ListNodes -&gt; Bool
+$c== :: ListNodes -&gt; ListNodes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262709"><span id="local-6989586621679262711"><span id="local-6989586621679262713"><span id="local-6989586621679262715"><span class="annot"><span class="annottext">ReadPrec [ListNodes]
+ReadPrec ListNodes
+Int -&gt; ReadS ListNodes
+ReadS [ListNodes]
+(Int -&gt; ReadS ListNodes)
+-&gt; ReadS [ListNodes]
+-&gt; ReadPrec ListNodes
+-&gt; ReadPrec [ListNodes]
+-&gt; Read ListNodes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListNodes]
+$creadListPrec :: ReadPrec [ListNodes]
+readPrec :: ReadPrec ListNodes
+$creadPrec :: ReadPrec ListNodes
+readList :: ReadS [ListNodes]
+$creadList :: ReadS [ListNodes]
+readsPrec :: Int -&gt; ReadS ListNodes
+$creadsPrec :: Int -&gt; ReadS ListNodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262702"><span id="local-6989586621679262704"><span id="local-6989586621679262706"><span class="annot"><span class="annottext">Int -&gt; ListNodes -&gt; ShowS
+[ListNodes] -&gt; ShowS
+ListNodes -&gt; String
+(Int -&gt; ListNodes -&gt; ShowS)
+-&gt; (ListNodes -&gt; String)
+-&gt; ([ListNodes] -&gt; ShowS)
+-&gt; Show ListNodes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListNodes] -&gt; ShowS
+$cshowList :: [ListNodes] -&gt; ShowS
+show :: ListNodes -&gt; String
+$cshow :: ListNodes -&gt; String
+showsPrec :: Int -&gt; ListNodes -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListNodes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListNodes -&gt; Rep ListNodes x)
+-&gt; (forall x. Rep ListNodes x -&gt; ListNodes) -&gt; Generic ListNodes
+forall x. Rep ListNodes x -&gt; ListNodes
+forall x. ListNodes -&gt; Rep ListNodes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListNodes x -&gt; ListNodes
+$cfrom :: forall x. ListNodes -&gt; Rep ListNodes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'ListNodes' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'patchVersion', 'listNodes_patchVersion' - Search for nodes by patch version.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'packageName', 'listNodes_packageName' - Search for nodes by name.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'packageVersion', 'listNodes_packageVersion' - Search for nodes by version.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'category', 'listNodes_category' - Search for nodes by category.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'nextToken', 'listNodes_nextToken' - Specify the pagination token from a previous request to retrieve the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- next page of results.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'ownerAccount', 'listNodes_ownerAccount' - Search for nodes by the account ID of the nodes\' owner.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'maxResults', 'listNodes_maxResults' - The maximum number of nodes to return in one page of results.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#newListNodes"><span class="hs-identifier hs-type">newListNodes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span>
+</span><span id="line-100"></span><span id="newListNodes"><span class="annot"><span class="annottext">newListNodes :: ListNodes
+</span><a href="Network.AWS.Panorama.ListNodes.html#newListNodes"><span class="hs-identifier hs-var hs-var">newListNodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">ListNodes' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe NodeCategory
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; ListNodes
+</span><a href="Network.AWS.Panorama.ListNodes.html#ListNodes%27"><span class="hs-identifier hs-type">ListNodes'</span></a></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:patchVersion:ListNodes' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3ApatchVersion%3AListNodes%27"><span class="hs-identifier hs-var">patchVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:packageName:ListNodes' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3ApackageName%3AListNodes%27"><span class="hs-identifier hs-var">packageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:packageVersion:ListNodes' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3ApackageVersion%3AListNodes%27"><span class="hs-identifier hs-var">packageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:category:ListNodes' :: Maybe NodeCategory
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3Acategory%3AListNodes%27"><span class="hs-identifier hs-var">category</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodeCategory
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListNodes' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3AnextToken%3AListNodes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerAccount:ListNodes' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3AownerAccount%3AListNodes%27"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListNodes' :: Maybe Natural
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3AmaxResults%3AListNodes%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Search for nodes by patch version.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodes_patchVersion"><span class="hs-identifier hs-type">listNodes_patchVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="listNodes_patchVersion"><span class="annot"><span class="annottext">listNodes_patchVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListNodes -&gt; f ListNodes
+</span><a href="Network.AWS.Panorama.ListNodes.html#listNodes_patchVersion"><span class="hs-identifier hs-var hs-var">listNodes_patchVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNodes -&gt; Maybe Text)
+-&gt; (ListNodes -&gt; Maybe Text -&gt; ListNodes)
+-&gt; Lens ListNodes ListNodes (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes%27"><span class="hs-identifier hs-type">ListNodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262695"><span class="annot"><span class="annottext">Maybe Text
+patchVersion :: Maybe Text
+$sel:patchVersion:ListNodes' :: ListNodes -&gt; Maybe Text
+</span><a href="#local-6989586621679262695"><span class="hs-identifier hs-var hs-var">patchVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262695"><span class="hs-identifier hs-var">patchVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262694"><span class="annot"><span class="annottext">s :: ListNodes
+</span><a href="#local-6989586621679262694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes%27"><span class="hs-identifier hs-type">ListNodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262693"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNodes
+</span><a href="#local-6989586621679262694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchVersion:ListNodes' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3ApatchVersion%3AListNodes%27"><span class="hs-identifier hs-var">patchVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Search for nodes by name.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodes_packageName"><span class="hs-identifier hs-type">listNodes_packageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="listNodes_packageName"><span class="annot"><span class="annottext">listNodes_packageName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListNodes -&gt; f ListNodes
+</span><a href="Network.AWS.Panorama.ListNodes.html#listNodes_packageName"><span class="hs-identifier hs-var hs-var">listNodes_packageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNodes -&gt; Maybe Text)
+-&gt; (ListNodes -&gt; Maybe Text -&gt; ListNodes)
+-&gt; Lens ListNodes ListNodes (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes%27"><span class="hs-identifier hs-type">ListNodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262692"><span class="annot"><span class="annottext">Maybe Text
+packageName :: Maybe Text
+$sel:packageName:ListNodes' :: ListNodes -&gt; Maybe Text
+</span><a href="#local-6989586621679262692"><span class="hs-identifier hs-var hs-var">packageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262692"><span class="hs-identifier hs-var">packageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262691"><span class="annot"><span class="annottext">s :: ListNodes
+</span><a href="#local-6989586621679262691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes%27"><span class="hs-identifier hs-type">ListNodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262690"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNodes
+</span><a href="#local-6989586621679262691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageName:ListNodes' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3ApackageName%3AListNodes%27"><span class="hs-identifier hs-var">packageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | Search for nodes by version.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodes_packageVersion"><span class="hs-identifier hs-type">listNodes_packageVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="listNodes_packageVersion"><span class="annot"><span class="annottext">listNodes_packageVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListNodes -&gt; f ListNodes
+</span><a href="Network.AWS.Panorama.ListNodes.html#listNodes_packageVersion"><span class="hs-identifier hs-var hs-var">listNodes_packageVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNodes -&gt; Maybe Text)
+-&gt; (ListNodes -&gt; Maybe Text -&gt; ListNodes)
+-&gt; Lens ListNodes ListNodes (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes%27"><span class="hs-identifier hs-type">ListNodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262689"><span class="annot"><span class="annottext">Maybe Text
+packageVersion :: Maybe Text
+$sel:packageVersion:ListNodes' :: ListNodes -&gt; Maybe Text
+</span><a href="#local-6989586621679262689"><span class="hs-identifier hs-var hs-var">packageVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262689"><span class="hs-identifier hs-var">packageVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262688"><span class="annot"><span class="annottext">s :: ListNodes
+</span><a href="#local-6989586621679262688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes%27"><span class="hs-identifier hs-type">ListNodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262687"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNodes
+</span><a href="#local-6989586621679262688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageVersion:ListNodes' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3ApackageVersion%3AListNodes%27"><span class="hs-identifier hs-var">packageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Search for nodes by category.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodes_category"><span class="hs-identifier hs-type">listNodes_category</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory"><span class="hs-identifier hs-type">NodeCategory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="listNodes_category"><span class="annot"><span class="annottext">listNodes_category :: (Maybe NodeCategory -&gt; f (Maybe NodeCategory))
+-&gt; ListNodes -&gt; f ListNodes
+</span><a href="Network.AWS.Panorama.ListNodes.html#listNodes_category"><span class="hs-identifier hs-var hs-var">listNodes_category</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNodes -&gt; Maybe NodeCategory)
+-&gt; (ListNodes -&gt; Maybe NodeCategory -&gt; ListNodes)
+-&gt; Lens
+     ListNodes ListNodes (Maybe NodeCategory) (Maybe NodeCategory)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes%27"><span class="hs-identifier hs-type">ListNodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262686"><span class="annot"><span class="annottext">Maybe NodeCategory
+category :: Maybe NodeCategory
+$sel:category:ListNodes' :: ListNodes -&gt; Maybe NodeCategory
+</span><a href="#local-6989586621679262686"><span class="hs-identifier hs-var hs-var">category</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NodeCategory
+</span><a href="#local-6989586621679262686"><span class="hs-identifier hs-var">category</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262685"><span class="annot"><span class="annottext">s :: ListNodes
+</span><a href="#local-6989586621679262685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes%27"><span class="hs-identifier hs-type">ListNodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262684"><span class="annot"><span class="annottext">Maybe NodeCategory
+</span><a href="#local-6989586621679262684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNodes
+</span><a href="#local-6989586621679262685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:category:ListNodes' :: Maybe NodeCategory
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3Acategory%3AListNodes%27"><span class="hs-identifier hs-var">category</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodeCategory
+</span><a href="#local-6989586621679262684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Specify the pagination token from a previous request to retrieve the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- next page of results.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodes_nextToken"><span class="hs-identifier hs-type">listNodes_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="listNodes_nextToken"><span class="annot"><span class="annottext">listNodes_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListNodes -&gt; f ListNodes
+</span><a href="Network.AWS.Panorama.ListNodes.html#listNodes_nextToken"><span class="hs-identifier hs-var hs-var">listNodes_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNodes -&gt; Maybe Text)
+-&gt; (ListNodes -&gt; Maybe Text -&gt; ListNodes)
+-&gt; Lens ListNodes ListNodes (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes%27"><span class="hs-identifier hs-type">ListNodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262683"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListNodes' :: ListNodes -&gt; Maybe Text
+</span><a href="#local-6989586621679262683"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262683"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262682"><span class="annot"><span class="annottext">s :: ListNodes
+</span><a href="#local-6989586621679262682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes%27"><span class="hs-identifier hs-type">ListNodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262681"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNodes
+</span><a href="#local-6989586621679262682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListNodes' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3AnextToken%3AListNodes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Search for nodes by the account ID of the nodes\' owner.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodes_ownerAccount"><span class="hs-identifier hs-type">listNodes_ownerAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="listNodes_ownerAccount"><span class="annot"><span class="annottext">listNodes_ownerAccount :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListNodes -&gt; f ListNodes
+</span><a href="Network.AWS.Panorama.ListNodes.html#listNodes_ownerAccount"><span class="hs-identifier hs-var hs-var">listNodes_ownerAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNodes -&gt; Maybe Text)
+-&gt; (ListNodes -&gt; Maybe Text -&gt; ListNodes)
+-&gt; Lens ListNodes ListNodes (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes%27"><span class="hs-identifier hs-type">ListNodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262680"><span class="annot"><span class="annottext">Maybe Text
+ownerAccount :: Maybe Text
+$sel:ownerAccount:ListNodes' :: ListNodes -&gt; Maybe Text
+</span><a href="#local-6989586621679262680"><span class="hs-identifier hs-var hs-var">ownerAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262680"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262679"><span class="annot"><span class="annottext">s :: ListNodes
+</span><a href="#local-6989586621679262679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes%27"><span class="hs-identifier hs-type">ListNodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262678"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNodes
+</span><a href="#local-6989586621679262679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerAccount:ListNodes' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3AownerAccount%3AListNodes%27"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The maximum number of nodes to return in one page of results.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodes_maxResults"><span class="hs-identifier hs-type">listNodes_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="listNodes_maxResults"><span class="annot"><span class="annottext">listNodes_maxResults :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; ListNodes -&gt; f ListNodes
+</span><a href="Network.AWS.Panorama.ListNodes.html#listNodes_maxResults"><span class="hs-identifier hs-var hs-var">listNodes_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNodes -&gt; Maybe Natural)
+-&gt; (ListNodes -&gt; Maybe Natural -&gt; ListNodes)
+-&gt; Lens ListNodes ListNodes (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes%27"><span class="hs-identifier hs-type">ListNodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262677"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListNodes' :: ListNodes -&gt; Maybe Natural
+</span><a href="#local-6989586621679262677"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679262677"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262676"><span class="annot"><span class="annottext">s :: ListNodes
+</span><a href="#local-6989586621679262676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes%27"><span class="hs-identifier hs-type">ListNodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262675"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679262675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNodes
+</span><a href="#local-6989586621679262676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListNodes' :: Maybe Natural
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3AmaxResults%3AListNodes%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679262675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse"><span class="hs-identifier hs-type">ListNodesResponse</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679262671"><span class="annot"><span class="annottext">request :: ListNodes -&gt; Request ListNodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListNodes -&gt; Request ListNodes
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Panorama.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679262667"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListNodes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListNodes)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListNodes))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListNodes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListNodes)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262664"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262664"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679262663"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679262663"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679262662"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262662"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Node] -&gt; Int -&gt; ListNodesResponse
+</span><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse%27"><span class="hs-identifier hs-var">ListNodesResponse'</span></a></span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Node] -&gt; Int -&gt; ListNodesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Node] -&gt; Int -&gt; ListNodesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Node] -&gt; Int -&gt; ListNodesResponse)
+-&gt; Either String (Maybe [Node])
+-&gt; Either String (Int -&gt; ListNodesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Node]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Nodes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Node]))
+-&gt; Maybe [Node] -&gt; Either String (Maybe [Node])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListNodesResponse)
+-&gt; Either String Int -&gt; Either String ListNodesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262664"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262653"><span id="local-6989586621679262655"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262650"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679262646"><span class="annot"><span class="annottext">toHeaders :: ListNodes -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListNodes -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-162"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-163"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679262640"><span class="annot"><span class="annottext">toPath :: ListNodes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListNodes -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/nodes&quot;</span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes"><span class="hs-identifier hs-type">ListNodes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679262636"><span class="annot"><span class="annottext">toQuery :: ListNodes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodes%27"><span class="hs-identifier hs-type">ListNodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262628"><span id="local-6989586621679262629"><span id="local-6989586621679262630"><span id="local-6989586621679262631"><span id="local-6989586621679262632"><span id="local-6989586621679262633"><span id="local-6989586621679262634"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe NodeCategory
+maxResults :: Maybe Natural
+ownerAccount :: Maybe Text
+nextToken :: Maybe Text
+category :: Maybe NodeCategory
+packageVersion :: Maybe Text
+packageName :: Maybe Text
+patchVersion :: Maybe Text
+$sel:maxResults:ListNodes' :: ListNodes -&gt; Maybe Natural
+$sel:ownerAccount:ListNodes' :: ListNodes -&gt; Maybe Text
+$sel:nextToken:ListNodes' :: ListNodes -&gt; Maybe Text
+$sel:category:ListNodes' :: ListNodes -&gt; Maybe NodeCategory
+$sel:packageVersion:ListNodes' :: ListNodes -&gt; Maybe Text
+$sel:packageName:ListNodes' :: ListNodes -&gt; Maybe Text
+$sel:patchVersion:ListNodes' :: ListNodes -&gt; Maybe Text
+</span><a href="#local-6989586621679262628"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;patchVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262634"><span class="hs-identifier hs-var">patchVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;packageName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262633"><span class="hs-identifier hs-var">packageName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;packageVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262632"><span class="hs-identifier hs-var">packageVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;category&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe NodeCategory -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe NodeCategory
+</span><a href="#local-6989586621679262631"><span class="hs-identifier hs-var">category</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262630"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ownerAccount&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262629"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679262628"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newListNodesResponse' smart constructor.</span><span>
+</span><span id="line-183"></span><span id="local-6989586621679262625"><span id="local-6989586621679262626"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListNodesResponse"><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse"><span class="hs-identifier hs-var">ListNodesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListNodesResponse%27"><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse%27"><span class="hs-identifier hs-var">ListNodesResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AnextToken%3AListNodesResponse%27"><span class="annot"><span class="annottext">ListNodesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3AnextToken%3AListNodesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | A list of nodes.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3Anodes%3AListNodesResponse%27"><span class="annot"><span class="annottext">ListNodesResponse -&gt; Maybe [Node]
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3Anodes%3AListNodesResponse%27"><span class="hs-identifier hs-var hs-var">nodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Panorama.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-189"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListNodesResponse%27"><span class="annot"><span class="annottext">ListNodesResponse -&gt; Int
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3AhttpStatus%3AListNodesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262618"><span id="local-6989586621679262620"><span class="annot"><span class="annottext">ListNodesResponse -&gt; ListNodesResponse -&gt; Bool
+(ListNodesResponse -&gt; ListNodesResponse -&gt; Bool)
+-&gt; (ListNodesResponse -&gt; ListNodesResponse -&gt; Bool)
+-&gt; Eq ListNodesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListNodesResponse -&gt; ListNodesResponse -&gt; Bool
+$c/= :: ListNodesResponse -&gt; ListNodesResponse -&gt; Bool
+== :: ListNodesResponse -&gt; ListNodesResponse -&gt; Bool
+$c== :: ListNodesResponse -&gt; ListNodesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262610"><span id="local-6989586621679262612"><span id="local-6989586621679262614"><span id="local-6989586621679262616"><span class="annot"><span class="annottext">ReadPrec [ListNodesResponse]
+ReadPrec ListNodesResponse
+Int -&gt; ReadS ListNodesResponse
+ReadS [ListNodesResponse]
+(Int -&gt; ReadS ListNodesResponse)
+-&gt; ReadS [ListNodesResponse]
+-&gt; ReadPrec ListNodesResponse
+-&gt; ReadPrec [ListNodesResponse]
+-&gt; Read ListNodesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListNodesResponse]
+$creadListPrec :: ReadPrec [ListNodesResponse]
+readPrec :: ReadPrec ListNodesResponse
+$creadPrec :: ReadPrec ListNodesResponse
+readList :: ReadS [ListNodesResponse]
+$creadList :: ReadS [ListNodesResponse]
+readsPrec :: Int -&gt; ReadS ListNodesResponse
+$creadsPrec :: Int -&gt; ReadS ListNodesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262604"><span id="local-6989586621679262606"><span id="local-6989586621679262608"><span class="annot"><span class="annottext">Int -&gt; ListNodesResponse -&gt; ShowS
+[ListNodesResponse] -&gt; ShowS
+ListNodesResponse -&gt; String
+(Int -&gt; ListNodesResponse -&gt; ShowS)
+-&gt; (ListNodesResponse -&gt; String)
+-&gt; ([ListNodesResponse] -&gt; ShowS)
+-&gt; Show ListNodesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListNodesResponse] -&gt; ShowS
+$cshowList :: [ListNodesResponse] -&gt; ShowS
+show :: ListNodesResponse -&gt; String
+$cshow :: ListNodesResponse -&gt; String
+showsPrec :: Int -&gt; ListNodesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListNodesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListNodesResponse -&gt; Rep ListNodesResponse x)
+-&gt; (forall x. Rep ListNodesResponse x -&gt; ListNodesResponse)
+-&gt; Generic ListNodesResponse
+forall x. Rep ListNodesResponse x -&gt; ListNodesResponse
+forall x. ListNodesResponse -&gt; Rep ListNodesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListNodesResponse x -&gt; ListNodesResponse
+$cfrom :: forall x. ListNodesResponse -&gt; Rep ListNodesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Create a value of 'ListNodesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'nextToken', 'listNodesResponse_nextToken' - A pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'nodes', 'listNodesResponse_nodes' - A list of nodes.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'httpStatus', 'listNodesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#newListNodesResponse"><span class="hs-identifier hs-type">newListNodesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse"><span class="hs-identifier hs-type">ListNodesResponse</span></a></span><span>
+</span><span id="line-210"></span><span id="newListNodesResponse"><span class="annot"><span class="annottext">newListNodesResponse :: Int -&gt; ListNodesResponse
+</span><a href="Network.AWS.Panorama.ListNodes.html#newListNodesResponse"><span class="hs-identifier hs-var hs-var">newListNodesResponse</span></a></span></span><span> </span><span id="local-6989586621679262601"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262601"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><span class="annottext">ListNodesResponse' :: Maybe Text -&gt; Maybe [Node] -&gt; Int -&gt; ListNodesResponse
+</span><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse%27"><span class="hs-identifier hs-type">ListNodesResponse'</span></a></span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListNodesResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3AnextToken%3AListNodesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodes:ListNodesResponse' :: Maybe [Node]
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3Anodes%3AListNodesResponse%27"><span class="hs-identifier hs-var">nodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Node]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListNodesResponse' :: Int
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3AhttpStatus%3AListNodesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262601"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | A pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodesResponse_nextToken"><span class="hs-identifier hs-type">listNodesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse"><span class="hs-identifier hs-type">ListNodesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="listNodesResponse_nextToken"><span class="annot"><span class="annottext">listNodesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListNodesResponse -&gt; f ListNodesResponse
+</span><a href="Network.AWS.Panorama.ListNodes.html#listNodesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listNodesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNodesResponse -&gt; Maybe Text)
+-&gt; (ListNodesResponse -&gt; Maybe Text -&gt; ListNodesResponse)
+-&gt; Lens
+     ListNodesResponse ListNodesResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse%27"><span class="hs-identifier hs-type">ListNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262600"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListNodesResponse' :: ListNodesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679262600"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262600"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262599"><span class="annot"><span class="annottext">s :: ListNodesResponse
+</span><a href="#local-6989586621679262599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse%27"><span class="hs-identifier hs-type">ListNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262598"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNodesResponse
+</span><a href="#local-6989586621679262599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListNodesResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3AnextToken%3AListNodesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse"><span class="hs-identifier hs-type">ListNodesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | A list of nodes.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodesResponse_nodes"><span class="hs-identifier hs-type">listNodesResponse_nodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse"><span class="hs-identifier hs-type">ListNodesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Panorama.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="listNodesResponse_nodes"><span class="annot"><span class="annottext">listNodesResponse_nodes :: (Maybe [Node] -&gt; f (Maybe [Node]))
+-&gt; ListNodesResponse -&gt; f ListNodesResponse
+</span><a href="Network.AWS.Panorama.ListNodes.html#listNodesResponse_nodes"><span class="hs-identifier hs-var hs-var">listNodesResponse_nodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNodesResponse -&gt; Maybe [Node])
+-&gt; (ListNodesResponse -&gt; Maybe [Node] -&gt; ListNodesResponse)
+-&gt; Lens
+     ListNodesResponse ListNodesResponse (Maybe [Node]) (Maybe [Node])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse%27"><span class="hs-identifier hs-type">ListNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262597"><span class="annot"><span class="annottext">Maybe [Node]
+nodes :: Maybe [Node]
+$sel:nodes:ListNodesResponse' :: ListNodesResponse -&gt; Maybe [Node]
+</span><a href="#local-6989586621679262597"><span class="hs-identifier hs-var hs-var">nodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Node]
+</span><a href="#local-6989586621679262597"><span class="hs-identifier hs-var">nodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262596"><span class="annot"><span class="annottext">s :: ListNodesResponse
+</span><a href="#local-6989586621679262596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse%27"><span class="hs-identifier hs-type">ListNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262595"><span class="annot"><span class="annottext">Maybe [Node]
+</span><a href="#local-6989586621679262595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNodesResponse
+</span><a href="#local-6989586621679262596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodes:ListNodesResponse' :: Maybe [Node]
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3Anodes%3AListNodesResponse%27"><span class="hs-identifier hs-var">nodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Node]
+</span><a href="#local-6989586621679262595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse"><span class="hs-identifier hs-type">ListNodesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Node] -&gt; f (Maybe [Node]))
+ -&gt; ListNodesResponse -&gt; f ListNodesResponse)
+-&gt; ((Maybe [Node] -&gt; f (Maybe [Node]))
+    -&gt; Maybe [Node] -&gt; f (Maybe [Node]))
+-&gt; (Maybe [Node] -&gt; f (Maybe [Node]))
+-&gt; ListNodesResponse
+-&gt; f ListNodesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Node] [Node] [Node] [Node]
+-&gt; Iso (Maybe [Node]) (Maybe [Node]) (Maybe [Node]) (Maybe [Node])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Node] [Node] [Node] [Node]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#listNodesResponse_httpStatus"><span class="hs-identifier hs-type">listNodesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse"><span class="hs-identifier hs-type">ListNodesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-227"></span><span id="listNodesResponse_httpStatus"><span class="annot"><span class="annottext">listNodesResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListNodesResponse -&gt; f ListNodesResponse
+</span><a href="Network.AWS.Panorama.ListNodes.html#listNodesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listNodesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNodesResponse -&gt; Int)
+-&gt; (ListNodesResponse -&gt; Int -&gt; ListNodesResponse)
+-&gt; Lens ListNodesResponse ListNodesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse%27"><span class="hs-identifier hs-type">ListNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262591"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListNodesResponse' :: ListNodesResponse -&gt; Int
+</span><a href="#local-6989586621679262591"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262591"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262590"><span class="annot"><span class="annottext">s :: ListNodesResponse
+</span><a href="#local-6989586621679262590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse%27"><span class="hs-identifier hs-type">ListNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262589"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNodesResponse
+</span><a href="#local-6989586621679262590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListNodesResponse' :: Int
+</span><a href="Network.AWS.Panorama.ListNodes.html#%24sel%3AhttpStatus%3AListNodesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse"><span class="hs-identifier hs-type">ListNodesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262587"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListNodes.html#ListNodesResponse"><span class="hs-identifier hs-type">ListNodesResponse</span></a></span></span><span>
+</span><span id="line-230"></span></pre></body></html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Backup.ListReportPlans</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of your report plans. For detailed information about a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- single report plan, use @DescribeReportPlan@.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Backup.ListReportPlans</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans"><span class="hs-identifier">ListReportPlans</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#newListReportPlans"><span class="hs-identifier">newListReportPlans</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#listReportPlans_nextToken"><span class="hs-identifier">listReportPlans_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#listReportPlans_maxResults"><span class="hs-identifier">listReportPlans_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse"><span class="hs-identifier">ListReportPlansResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#newListReportPlansResponse"><span class="hs-identifier">newListReportPlansResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#listReportPlansResponse_reportPlans"><span class="hs-identifier">listReportPlansResponse_reportPlans</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#listReportPlansResponse_nextToken"><span class="hs-identifier">listReportPlansResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#listReportPlansResponse_httpStatus"><span class="hs-identifier">listReportPlansResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.html"><span class="hs-identifier">Network.AWS.Backup.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newListReportPlans' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679314022"><span id="local-6989586621679314023"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReportPlans"><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans"><span class="hs-identifier hs-var">ListReportPlans</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReportPlans%27"><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans%27"><span class="hs-identifier hs-var">ListReportPlans'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3AListReportPlans%27"><span class="annot"><span class="annottext">ListReportPlans -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.ListReportPlans.html#%24sel%3AnextToken%3AListReportPlans%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The number of desired results from 1 to 1000. Optional. If unspecified,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- the query will return 1 MB of data.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AListReportPlans%27"><span class="annot"><span class="annottext">ListReportPlans -&gt; Maybe Natural
+</span><a href="Network.AWS.Backup.ListReportPlans.html#%24sel%3AmaxResults%3AListReportPlans%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314015"><span id="local-6989586621679314017"><span class="annot"><span class="annottext">ListReportPlans -&gt; ListReportPlans -&gt; Bool
+(ListReportPlans -&gt; ListReportPlans -&gt; Bool)
+-&gt; (ListReportPlans -&gt; ListReportPlans -&gt; Bool)
+-&gt; Eq ListReportPlans
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListReportPlans -&gt; ListReportPlans -&gt; Bool
+$c/= :: ListReportPlans -&gt; ListReportPlans -&gt; Bool
+== :: ListReportPlans -&gt; ListReportPlans -&gt; Bool
+$c== :: ListReportPlans -&gt; ListReportPlans -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314006"><span id="local-6989586621679314008"><span id="local-6989586621679314010"><span id="local-6989586621679314012"><span class="annot"><span class="annottext">ReadPrec [ListReportPlans]
+ReadPrec ListReportPlans
+Int -&gt; ReadS ListReportPlans
+ReadS [ListReportPlans]
+(Int -&gt; ReadS ListReportPlans)
+-&gt; ReadS [ListReportPlans]
+-&gt; ReadPrec ListReportPlans
+-&gt; ReadPrec [ListReportPlans]
+-&gt; Read ListReportPlans
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListReportPlans]
+$creadListPrec :: ReadPrec [ListReportPlans]
+readPrec :: ReadPrec ListReportPlans
+$creadPrec :: ReadPrec ListReportPlans
+readList :: ReadS [ListReportPlans]
+$creadList :: ReadS [ListReportPlans]
+readsPrec :: Int -&gt; ReadS ListReportPlans
+$creadsPrec :: Int -&gt; ReadS ListReportPlans
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313999"><span id="local-6989586621679314001"><span id="local-6989586621679314003"><span class="annot"><span class="annottext">Int -&gt; ListReportPlans -&gt; ShowS
+[ListReportPlans] -&gt; ShowS
+ListReportPlans -&gt; String
+(Int -&gt; ListReportPlans -&gt; ShowS)
+-&gt; (ListReportPlans -&gt; String)
+-&gt; ([ListReportPlans] -&gt; ShowS)
+-&gt; Show ListReportPlans
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListReportPlans] -&gt; ShowS
+$cshowList :: [ListReportPlans] -&gt; ShowS
+show :: ListReportPlans -&gt; String
+$cshow :: ListReportPlans -&gt; String
+showsPrec :: Int -&gt; ListReportPlans -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListReportPlans -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListReportPlans -&gt; Rep ListReportPlans x)
+-&gt; (forall x. Rep ListReportPlans x -&gt; ListReportPlans)
+-&gt; Generic ListReportPlans
+forall x. Rep ListReportPlans x -&gt; ListReportPlans
+forall x. ListReportPlans -&gt; Rep ListReportPlans x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListReportPlans x -&gt; ListReportPlans
+$cfrom :: forall x. ListReportPlans -&gt; Rep ListReportPlans x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'ListReportPlans' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'nextToken', 'listReportPlans_nextToken' - An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'maxResults', 'listReportPlans_maxResults' - The number of desired results from 1 to 1000. Optional. If unspecified,</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- the query will return 1 MB of data.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#newListReportPlans"><span class="hs-identifier hs-type">newListReportPlans</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans"><span class="hs-identifier hs-type">ListReportPlans</span></a></span><span>
+</span><span id="line-80"></span><span id="newListReportPlans"><span class="annot"><span class="annottext">newListReportPlans :: ListReportPlans
+</span><a href="Network.AWS.Backup.ListReportPlans.html#newListReportPlans"><span class="hs-identifier hs-var hs-var">newListReportPlans</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">ListReportPlans' :: Maybe Text -&gt; Maybe Natural -&gt; ListReportPlans
+</span><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans%27"><span class="hs-identifier hs-type">ListReportPlans'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListReportPlans' :: Maybe Text
+</span><a href="Network.AWS.Backup.ListReportPlans.html#%24sel%3AnextToken%3AListReportPlans%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListReportPlans' :: Maybe Natural
+</span><a href="Network.AWS.Backup.ListReportPlans.html#%24sel%3AmaxResults%3AListReportPlans%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#listReportPlans_nextToken"><span class="hs-identifier hs-type">listReportPlans_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans"><span class="hs-identifier hs-type">ListReportPlans</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="listReportPlans_nextToken"><span class="annot"><span class="annottext">listReportPlans_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListReportPlans -&gt; f ListReportPlans
+</span><a href="Network.AWS.Backup.ListReportPlans.html#listReportPlans_nextToken"><span class="hs-identifier hs-var hs-var">listReportPlans_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReportPlans -&gt; Maybe Text)
+-&gt; (ListReportPlans -&gt; Maybe Text -&gt; ListReportPlans)
+-&gt; Lens ListReportPlans ListReportPlans (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans%27"><span class="hs-identifier hs-type">ListReportPlans'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313992"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListReportPlans' :: ListReportPlans -&gt; Maybe Text
+</span><a href="#local-6989586621679313992"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313992"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313991"><span class="annot"><span class="annottext">s :: ListReportPlans
+</span><a href="#local-6989586621679313991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans%27"><span class="hs-identifier hs-type">ListReportPlans'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313990"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportPlans
+</span><a href="#local-6989586621679313991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListReportPlans' :: Maybe Text
+</span><a href="Network.AWS.Backup.ListReportPlans.html#%24sel%3AnextToken%3AListReportPlans%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans"><span class="hs-identifier hs-type">ListReportPlans</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The number of desired results from 1 to 1000. Optional. If unspecified,</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- the query will return 1 MB of data.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#listReportPlans_maxResults"><span class="hs-identifier hs-type">listReportPlans_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans"><span class="hs-identifier hs-type">ListReportPlans</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="listReportPlans_maxResults"><span class="annot"><span class="annottext">listReportPlans_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListReportPlans -&gt; f ListReportPlans
+</span><a href="Network.AWS.Backup.ListReportPlans.html#listReportPlans_maxResults"><span class="hs-identifier hs-var hs-var">listReportPlans_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReportPlans -&gt; Maybe Natural)
+-&gt; (ListReportPlans -&gt; Maybe Natural -&gt; ListReportPlans)
+-&gt; Lens
+     ListReportPlans ListReportPlans (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans%27"><span class="hs-identifier hs-type">ListReportPlans'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313989"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListReportPlans' :: ListReportPlans -&gt; Maybe Natural
+</span><a href="#local-6989586621679313989"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679313989"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313988"><span class="annot"><span class="annottext">s :: ListReportPlans
+</span><a href="#local-6989586621679313988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans%27"><span class="hs-identifier hs-type">ListReportPlans'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313987"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679313987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportPlans
+</span><a href="#local-6989586621679313988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListReportPlans' :: Maybe Natural
+</span><a href="Network.AWS.Backup.ListReportPlans.html#%24sel%3AmaxResults%3AListReportPlans%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679313987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans"><span class="hs-identifier hs-type">ListReportPlans</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans"><span class="hs-identifier hs-type">ListReportPlans</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans"><span class="hs-identifier hs-type">ListReportPlans</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse"><span class="hs-identifier hs-type">ListReportPlansResponse</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679313983"><span class="annot"><span class="annottext">request :: ListReportPlans -&gt; Request ListReportPlans
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListReportPlans -&gt; Request ListReportPlans
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679313979"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListReportPlans
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListReportPlans)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListReportPlans))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListReportPlans
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListReportPlans)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313976"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313976"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313975"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679313975"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313974"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313974"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ReportPlan] -&gt; Maybe Text -&gt; Int -&gt; ListReportPlansResponse
+</span><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse%27"><span class="hs-identifier hs-var">ListReportPlansResponse'</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ReportPlan]
+ -&gt; Maybe Text -&gt; Int -&gt; ListReportPlansResponse)
+-&gt; Either String (Maybe [ReportPlan])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListReportPlansResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ReportPlan]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportPlans&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ReportPlan]))
+-&gt; Maybe [ReportPlan] -&gt; Either String (Maybe [ReportPlan])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ReportPlan]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListReportPlansResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListReportPlansResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListReportPlansResponse)
+-&gt; Either String Int -&gt; Either String ListReportPlansResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313976"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313965"><span id="local-6989586621679313967"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans"><span class="hs-identifier hs-type">ListReportPlans</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313962"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans"><span class="hs-identifier hs-type">ListReportPlans</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans"><span class="hs-identifier hs-type">ListReportPlans</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679313958"><span class="annot"><span class="annottext">toHeaders :: ListReportPlans -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListReportPlans -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-122"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans"><span class="hs-identifier hs-type">ListReportPlans</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679313952"><span class="annot"><span class="annottext">toPath :: ListReportPlans -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListReportPlans -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/audit/report-plans&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans"><span class="hs-identifier hs-type">ListReportPlans</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679313948"><span class="annot"><span class="annottext">toQuery :: ListReportPlans -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlans%27"><span class="hs-identifier hs-type">ListReportPlans'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313945"><span id="local-6989586621679313946"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListReportPlans' :: ListReportPlans -&gt; Maybe Natural
+$sel:nextToken:ListReportPlans' :: ListReportPlans -&gt; Maybe Text
+</span><a href="#local-6989586621679313945"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313946"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679313945"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newListReportPlansResponse' smart constructor.</span><span>
+</span><span id="line-137"></span><span id="local-6989586621679313942"><span id="local-6989586621679313943"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReportPlansResponse"><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse"><span class="hs-identifier hs-var">ListReportPlansResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReportPlansResponse%27"><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse%27"><span class="hs-identifier hs-var">ListReportPlansResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of your report plans with detailed information for each plan.</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- This information includes the Amazon Resource Name (ARN), report plan</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- name, description, settings, delivery channel, deployment status,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- creation time, and last times the report plan attempted to and</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- successfully ran.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AreportPlans%3AListReportPlansResponse%27"><span class="annot"><span class="annottext">ListReportPlansResponse -&gt; Maybe [ReportPlan]
+</span><a href="Network.AWS.Backup.ListReportPlans.html#%24sel%3AreportPlans%3AListReportPlansResponse%27"><span class="hs-identifier hs-var hs-var">reportPlans</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Backup.Types.ReportPlan.html#ReportPlan"><span class="hs-identifier hs-type">ReportPlan</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AnextToken%3AListReportPlansResponse%27"><span class="annot"><span class="annottext">ListReportPlansResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.ListReportPlans.html#%24sel%3AnextToken%3AListReportPlansResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListReportPlansResponse%27"><span class="annot"><span class="annottext">ListReportPlansResponse -&gt; Int
+</span><a href="Network.AWS.Backup.ListReportPlans.html#%24sel%3AhttpStatus%3AListReportPlansResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313935"><span id="local-6989586621679313937"><span class="annot"><span class="annottext">ListReportPlansResponse -&gt; ListReportPlansResponse -&gt; Bool
+(ListReportPlansResponse -&gt; ListReportPlansResponse -&gt; Bool)
+-&gt; (ListReportPlansResponse -&gt; ListReportPlansResponse -&gt; Bool)
+-&gt; Eq ListReportPlansResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListReportPlansResponse -&gt; ListReportPlansResponse -&gt; Bool
+$c/= :: ListReportPlansResponse -&gt; ListReportPlansResponse -&gt; Bool
+== :: ListReportPlansResponse -&gt; ListReportPlansResponse -&gt; Bool
+$c== :: ListReportPlansResponse -&gt; ListReportPlansResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313927"><span id="local-6989586621679313929"><span id="local-6989586621679313931"><span id="local-6989586621679313933"><span class="annot"><span class="annottext">ReadPrec [ListReportPlansResponse]
+ReadPrec ListReportPlansResponse
+Int -&gt; ReadS ListReportPlansResponse
+ReadS [ListReportPlansResponse]
+(Int -&gt; ReadS ListReportPlansResponse)
+-&gt; ReadS [ListReportPlansResponse]
+-&gt; ReadPrec ListReportPlansResponse
+-&gt; ReadPrec [ListReportPlansResponse]
+-&gt; Read ListReportPlansResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListReportPlansResponse]
+$creadListPrec :: ReadPrec [ListReportPlansResponse]
+readPrec :: ReadPrec ListReportPlansResponse
+$creadPrec :: ReadPrec ListReportPlansResponse
+readList :: ReadS [ListReportPlansResponse]
+$creadList :: ReadS [ListReportPlansResponse]
+readsPrec :: Int -&gt; ReadS ListReportPlansResponse
+$creadsPrec :: Int -&gt; ReadS ListReportPlansResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313921"><span id="local-6989586621679313923"><span id="local-6989586621679313925"><span class="annot"><span class="annottext">Int -&gt; ListReportPlansResponse -&gt; ShowS
+[ListReportPlansResponse] -&gt; ShowS
+ListReportPlansResponse -&gt; String
+(Int -&gt; ListReportPlansResponse -&gt; ShowS)
+-&gt; (ListReportPlansResponse -&gt; String)
+-&gt; ([ListReportPlansResponse] -&gt; ShowS)
+-&gt; Show ListReportPlansResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListReportPlansResponse] -&gt; ShowS
+$cshowList :: [ListReportPlansResponse] -&gt; ShowS
+show :: ListReportPlansResponse -&gt; String
+$cshow :: ListReportPlansResponse -&gt; String
+showsPrec :: Int -&gt; ListReportPlansResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListReportPlansResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListReportPlansResponse -&gt; Rep ListReportPlansResponse x)
+-&gt; (forall x.
+    Rep ListReportPlansResponse x -&gt; ListReportPlansResponse)
+-&gt; Generic ListReportPlansResponse
+forall x. Rep ListReportPlansResponse x -&gt; ListReportPlansResponse
+forall x. ListReportPlansResponse -&gt; Rep ListReportPlansResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListReportPlansResponse x -&gt; ListReportPlansResponse
+$cfrom :: forall x. ListReportPlansResponse -&gt; Rep ListReportPlansResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Create a value of 'ListReportPlansResponse' with all optional fields omitted.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'reportPlans', 'listReportPlansResponse_reportPlans' - A list of your report plans with detailed information for each plan.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- This information includes the Amazon Resource Name (ARN), report plan</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- name, description, settings, delivery channel, deployment status,</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- creation time, and last times the report plan attempted to and</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- successfully ran.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'nextToken', 'listReportPlansResponse_nextToken' - An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'listReportPlansResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#newListReportPlansResponse"><span class="hs-identifier hs-type">newListReportPlansResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse"><span class="hs-identifier hs-type">ListReportPlansResponse</span></a></span><span>
+</span><span id="line-176"></span><span id="newListReportPlansResponse"><span class="annot"><span class="annottext">newListReportPlansResponse :: Int -&gt; ListReportPlansResponse
+</span><a href="Network.AWS.Backup.ListReportPlans.html#newListReportPlansResponse"><span class="hs-identifier hs-var hs-var">newListReportPlansResponse</span></a></span></span><span> </span><span id="local-6989586621679313918"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313918"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">ListReportPlansResponse' :: Maybe [ReportPlan] -&gt; Maybe Text -&gt; Int -&gt; ListReportPlansResponse
+</span><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse%27"><span class="hs-identifier hs-type">ListReportPlansResponse'</span></a></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reportPlans:ListReportPlansResponse' :: Maybe [ReportPlan]
+</span><a href="Network.AWS.Backup.ListReportPlans.html#%24sel%3AreportPlans%3AListReportPlansResponse%27"><span class="hs-identifier hs-var">reportPlans</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ReportPlan]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListReportPlansResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.ListReportPlans.html#%24sel%3AnextToken%3AListReportPlansResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListReportPlansResponse' :: Int
+</span><a href="Network.AWS.Backup.ListReportPlans.html#%24sel%3AhttpStatus%3AListReportPlansResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313918"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | A list of your report plans with detailed information for each plan.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- This information includes the Amazon Resource Name (ARN), report plan</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- name, description, settings, delivery channel, deployment status,</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- creation time, and last times the report plan attempted to and</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- successfully ran.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#listReportPlansResponse_reportPlans"><span class="hs-identifier hs-type">listReportPlansResponse_reportPlans</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse"><span class="hs-identifier hs-type">ListReportPlansResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Backup.Types.ReportPlan.html#ReportPlan"><span class="hs-identifier hs-type">ReportPlan</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="listReportPlansResponse_reportPlans"><span class="annot"><span class="annottext">listReportPlansResponse_reportPlans :: (Maybe [ReportPlan] -&gt; f (Maybe [ReportPlan]))
+-&gt; ListReportPlansResponse -&gt; f ListReportPlansResponse
+</span><a href="Network.AWS.Backup.ListReportPlans.html#listReportPlansResponse_reportPlans"><span class="hs-identifier hs-var hs-var">listReportPlansResponse_reportPlans</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReportPlansResponse -&gt; Maybe [ReportPlan])
+-&gt; (ListReportPlansResponse
+    -&gt; Maybe [ReportPlan] -&gt; ListReportPlansResponse)
+-&gt; Lens
+     ListReportPlansResponse
+     ListReportPlansResponse
+     (Maybe [ReportPlan])
+     (Maybe [ReportPlan])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse%27"><span class="hs-identifier hs-type">ListReportPlansResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313917"><span class="annot"><span class="annottext">Maybe [ReportPlan]
+reportPlans :: Maybe [ReportPlan]
+$sel:reportPlans:ListReportPlansResponse' :: ListReportPlansResponse -&gt; Maybe [ReportPlan]
+</span><a href="#local-6989586621679313917"><span class="hs-identifier hs-var hs-var">reportPlans</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReportPlan]
+</span><a href="#local-6989586621679313917"><span class="hs-identifier hs-var">reportPlans</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313916"><span class="annot"><span class="annottext">s :: ListReportPlansResponse
+</span><a href="#local-6989586621679313916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse%27"><span class="hs-identifier hs-type">ListReportPlansResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313915"><span class="annot"><span class="annottext">Maybe [ReportPlan]
+</span><a href="#local-6989586621679313915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportPlansResponse
+</span><a href="#local-6989586621679313916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportPlans:ListReportPlansResponse' :: Maybe [ReportPlan]
+</span><a href="Network.AWS.Backup.ListReportPlans.html#%24sel%3AreportPlans%3AListReportPlansResponse%27"><span class="hs-identifier hs-var">reportPlans</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReportPlan]
+</span><a href="#local-6989586621679313915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse"><span class="hs-identifier hs-type">ListReportPlansResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReportPlan] -&gt; f (Maybe [ReportPlan]))
+ -&gt; ListReportPlansResponse -&gt; f ListReportPlansResponse)
+-&gt; ((Maybe [ReportPlan] -&gt; f (Maybe [ReportPlan]))
+    -&gt; Maybe [ReportPlan] -&gt; f (Maybe [ReportPlan]))
+-&gt; (Maybe [ReportPlan] -&gt; f (Maybe [ReportPlan]))
+-&gt; ListReportPlansResponse
+-&gt; f ListReportPlansResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ReportPlan] [ReportPlan] [ReportPlan] [ReportPlan]
+-&gt; Iso
+     (Maybe [ReportPlan])
+     (Maybe [ReportPlan])
+     (Maybe [ReportPlan])
+     (Maybe [ReportPlan])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ReportPlan] [ReportPlan] [ReportPlan] [ReportPlan]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#listReportPlansResponse_nextToken"><span class="hs-identifier hs-type">listReportPlansResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse"><span class="hs-identifier hs-type">ListReportPlansResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="listReportPlansResponse_nextToken"><span class="annot"><span class="annottext">listReportPlansResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListReportPlansResponse -&gt; f ListReportPlansResponse
+</span><a href="Network.AWS.Backup.ListReportPlans.html#listReportPlansResponse_nextToken"><span class="hs-identifier hs-var hs-var">listReportPlansResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReportPlansResponse -&gt; Maybe Text)
+-&gt; (ListReportPlansResponse
+    -&gt; Maybe Text -&gt; ListReportPlansResponse)
+-&gt; Lens
+     ListReportPlansResponse
+     ListReportPlansResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse%27"><span class="hs-identifier hs-type">ListReportPlansResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313911"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListReportPlansResponse' :: ListReportPlansResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679313911"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313911"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313910"><span class="annot"><span class="annottext">s :: ListReportPlansResponse
+</span><a href="#local-6989586621679313910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse%27"><span class="hs-identifier hs-type">ListReportPlansResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313909"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportPlansResponse
+</span><a href="#local-6989586621679313910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListReportPlansResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.ListReportPlans.html#%24sel%3AnextToken%3AListReportPlansResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse"><span class="hs-identifier hs-type">ListReportPlansResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#listReportPlansResponse_httpStatus"><span class="hs-identifier hs-type">listReportPlansResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse"><span class="hs-identifier hs-type">ListReportPlansResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-200"></span><span id="listReportPlansResponse_httpStatus"><span class="annot"><span class="annottext">listReportPlansResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListReportPlansResponse -&gt; f ListReportPlansResponse
+</span><a href="Network.AWS.Backup.ListReportPlans.html#listReportPlansResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listReportPlansResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReportPlansResponse -&gt; Int)
+-&gt; (ListReportPlansResponse -&gt; Int -&gt; ListReportPlansResponse)
+-&gt; Lens ListReportPlansResponse ListReportPlansResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse%27"><span class="hs-identifier hs-type">ListReportPlansResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313908"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListReportPlansResponse' :: ListReportPlansResponse -&gt; Int
+</span><a href="#local-6989586621679313908"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313908"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313907"><span class="annot"><span class="annottext">s :: ListReportPlansResponse
+</span><a href="#local-6989586621679313907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse%27"><span class="hs-identifier hs-type">ListReportPlansResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313906"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportPlansResponse
+</span><a href="#local-6989586621679313907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListReportPlansResponse' :: Int
+</span><a href="Network.AWS.Backup.ListReportPlans.html#%24sel%3AhttpStatus%3AListReportPlansResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse"><span class="hs-identifier hs-type">ListReportPlansResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313904"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListReportPlans.html#ListReportPlansResponse"><span class="hs-identifier hs-type">ListReportPlansResponse</span></a></span></span><span>
+</span><span id="line-203"></span></pre></body></html>

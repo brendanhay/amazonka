@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- successful.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newProjectStatus' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679173648"><span id="local-6989586621679173649"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectStatus"><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-var">ProjectStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectStatus%27"><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus%27"><span class="hs-identifier hs-var">ProjectStatus'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679173657"><span id="local-6989586621679173658"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectStatus"><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-var">ProjectStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectStatus%27"><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus%27"><span class="hs-identifier hs-var">ProjectStatus'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | In the case of a project creation or deletion failure, a reason for the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- failure.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Areason%3AProjectStatus%27"><span class="annot"><span class="annottext">ProjectStatus -&gt; Maybe Text
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Astate%3AProjectStatus%27"><span class="annot"><span class="annottext">ProjectStatus -&gt; Text
 </span><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#%24sel%3Astate%3AProjectStatus%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679173641"><span id="local-6989586621679173643"><span class="annot"><span class="annottext">ProjectStatus -&gt; ProjectStatus -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679173650"><span id="local-6989586621679173652"><span class="annot"><span class="annottext">ProjectStatus -&gt; ProjectStatus -&gt; Bool
 (ProjectStatus -&gt; ProjectStatus -&gt; Bool)
 -&gt; (ProjectStatus -&gt; ProjectStatus -&gt; Bool) -&gt; Eq ProjectStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProjectStatus -&gt; ProjectStatus -&gt; Bool
 == :: ProjectStatus -&gt; ProjectStatus -&gt; Bool
 $c== :: ProjectStatus -&gt; ProjectStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173632"><span id="local-6989586621679173634"><span id="local-6989586621679173636"><span id="local-6989586621679173638"><span class="annot"><span class="annottext">ReadPrec [ProjectStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173641"><span id="local-6989586621679173643"><span id="local-6989586621679173645"><span id="local-6989586621679173647"><span class="annot"><span class="annottext">ReadPrec [ProjectStatus]
 ReadPrec ProjectStatus
 Int -&gt; ReadS ProjectStatus
 ReadS [ProjectStatus]
@@ -64,7 +64,7 @@ readList :: ReadS [ProjectStatus]
 $creadList :: ReadS [ProjectStatus]
 readsPrec :: Int -&gt; ReadS ProjectStatus
 $creadsPrec :: Int -&gt; ReadS ProjectStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173625"><span id="local-6989586621679173627"><span id="local-6989586621679173629"><span class="annot"><span class="annottext">Int -&gt; ProjectStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173634"><span id="local-6989586621679173636"><span id="local-6989586621679173638"><span class="annot"><span class="annottext">Int -&gt; ProjectStatus -&gt; ShowS
 [ProjectStatus] -&gt; ShowS
 ProjectStatus -&gt; String
 (Int -&gt; ProjectStatus -&gt; ShowS)
@@ -107,8 +107,8 @@ $cfrom :: forall x. ProjectStatus -&gt; Rep ProjectStatus x
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span><span>
 </span><span id="line-55"></span><span id="newProjectStatus"><span class="annot"><span class="annottext">newProjectStatus :: Text -&gt; ProjectStatus
-</span><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#newProjectStatus"><span class="hs-identifier hs-var hs-var">newProjectStatus</span></a></span></span><span> </span><span id="local-6989586621679173619"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679173619"><span class="hs-identifier hs-var">pState_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#newProjectStatus"><span class="hs-identifier hs-var hs-var">newProjectStatus</span></a></span></span><span> </span><span id="local-6989586621679173628"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173628"><span class="hs-identifier hs-var">pState_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">ProjectStatus' :: Maybe Text -&gt; Text -&gt; ProjectStatus
 </span><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus%27"><span class="hs-identifier hs-type">ProjectStatus'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reason:ProjectStatus' :: Maybe Text
@@ -117,7 +117,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:ProjectStatus' :: Text
 </span><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#%24sel%3Astate%3AProjectStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679173619"><span class="hs-identifier hs-var">pState_</span></a></span><span>
+</span><a href="#local-6989586621679173628"><span class="hs-identifier hs-var">pState_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | In the case of a project creation or deletion failure, a reason for the</span><span>
@@ -128,16 +128,16 @@ forall a. Maybe a
 -&gt; (ProjectStatus -&gt; Maybe Text -&gt; ProjectStatus)
 -&gt; Lens ProjectStatus ProjectStatus (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus%27"><span class="hs-identifier hs-type">ProjectStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173615"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus%27"><span class="hs-identifier hs-type">ProjectStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173624"><span class="annot"><span class="annottext">Maybe Text
 reason :: Maybe Text
 $sel:reason:ProjectStatus' :: ProjectStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679173615"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173615"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173614"><span class="annot"><span class="annottext">s :: ProjectStatus
-</span><a href="#local-6989586621679173614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus%27"><span class="hs-identifier hs-type">ProjectStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173613"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectStatus
-</span><a href="#local-6989586621679173614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:ProjectStatus' :: Maybe Text
+</span><a href="#local-6989586621679173624"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173624"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173623"><span class="annot"><span class="annottext">s :: ProjectStatus
+</span><a href="#local-6989586621679173623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus%27"><span class="hs-identifier hs-type">ProjectStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173622"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectStatus
+</span><a href="#local-6989586621679173623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:ProjectStatus' :: Maybe Text
 </span><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#%24sel%3Areason%3AProjectStatus%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679173622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The phase of completion for a project creation or deletion.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#projectStatus_state"><span class="hs-identifier hs-type">projectStatus_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -146,19 +146,19 @@ $sel:reason:ProjectStatus' :: ProjectStatus -&gt; Maybe Text
 -&gt; (ProjectStatus -&gt; Text -&gt; ProjectStatus)
 -&gt; Lens ProjectStatus ProjectStatus Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus%27"><span class="hs-identifier hs-type">ProjectStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173611"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus%27"><span class="hs-identifier hs-type">ProjectStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173620"><span class="annot"><span class="annottext">Text
 state :: Text
 $sel:state:ProjectStatus' :: ProjectStatus -&gt; Text
-</span><a href="#local-6989586621679173611"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679173611"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173610"><span class="annot"><span class="annottext">s :: ProjectStatus
-</span><a href="#local-6989586621679173610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus%27"><span class="hs-identifier hs-type">ProjectStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173609"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679173609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectStatus
-</span><a href="#local-6989586621679173610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:ProjectStatus' :: Text
+</span><a href="#local-6989586621679173620"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173620"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173619"><span class="annot"><span class="annottext">s :: ProjectStatus
+</span><a href="#local-6989586621679173619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus%27"><span class="hs-identifier hs-type">ProjectStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173618"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectStatus
+</span><a href="#local-6989586621679173619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:ProjectStatus' :: Text
 </span><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#%24sel%3Astate%3AProjectStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679173609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679173618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173606"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679173604"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectStatus
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173615"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679173613"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProjectStatus)
@@ -168,15 +168,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProjectStatus&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679173601"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173601"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679173610"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173610"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; ProjectStatus
 </span><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus%27"><span class="hs-identifier hs-var">ProjectStatus'</span></a></span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; ProjectStatus)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; ProjectStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679173610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;reason&quot;</span></span><span class="hs-special">)</span><span>
@@ -184,13 +184,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser ProjectStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679173610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173594"><span id="local-6989586621679173596"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173603"><span id="local-6989586621679173605"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173591"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173600"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.ProjectStatus.html#ProjectStatus"><span class="hs-identifier hs-type">ProjectStatus</span></a></span></span><span>
 </span><span id="line-83"></span></pre></body></html>

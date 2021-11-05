@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Internal.html"><span class="hs-identifier">Network.AWS.Redshift.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679495260"><span id="local-6989586621679495261"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReservedNodeOfferingType"><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOfferingType.html#ReservedNodeOfferingType"><span class="hs-identifier hs-var">ReservedNodeOfferingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservedNodeOfferingType%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOfferingType.html#ReservedNodeOfferingType%27"><span class="hs-identifier hs-var">ReservedNodeOfferingType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679495269"><span id="local-6989586621679495270"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReservedNodeOfferingType"><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOfferingType.html#ReservedNodeOfferingType"><span class="hs-identifier hs-var">ReservedNodeOfferingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservedNodeOfferingType%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNodeOfferingType.html#ReservedNodeOfferingType%27"><span class="hs-identifier hs-var">ReservedNodeOfferingType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReservedNodeOfferingType"><span class="annot"><span class="annottext">ReservedNodeOfferingType -&gt; Text
 </span><a href="Network.AWS.Redshift.Types.ReservedNodeOfferingType.html#fromReservedNodeOfferingType"><span class="hs-identifier hs-var hs-var">fromReservedNodeOfferingType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679495252"><span id="local-6989586621679495254"><span id="local-6989586621679495256"><span class="annot"><span class="annottext">Int -&gt; ReservedNodeOfferingType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679495261"><span id="local-6989586621679495263"><span id="local-6989586621679495265"><span class="annot"><span class="annottext">Int -&gt; ReservedNodeOfferingType -&gt; ShowS
 [ReservedNodeOfferingType] -&gt; ShowS
 ReservedNodeOfferingType -&gt; String
 (Int -&gt; ReservedNodeOfferingType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ReservedNodeOfferingType -&gt; String
 showsPrec :: Int -&gt; ReservedNodeOfferingType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReservedNodeOfferingType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679495243"><span id="local-6989586621679495245"><span id="local-6989586621679495247"><span id="local-6989586621679495249"><span class="annot"><span class="annottext">ReadPrec [ReservedNodeOfferingType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679495252"><span id="local-6989586621679495254"><span id="local-6989586621679495256"><span id="local-6989586621679495258"><span class="annot"><span class="annottext">ReadPrec [ReservedNodeOfferingType]
 ReadPrec ReservedNodeOfferingType
 Int -&gt; ReadS ReservedNodeOfferingType
 ReadS [ReservedNodeOfferingType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ReservedNodeOfferingType]
 readsPrec :: Int -&gt; ReadS ReservedNodeOfferingType
 $creadsPrec :: Int -&gt; ReadS ReservedNodeOfferingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679495238"><span id="local-6989586621679495240"><span class="annot"><span class="annottext">ReservedNodeOfferingType -&gt; ReservedNodeOfferingType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679495247"><span id="local-6989586621679495249"><span class="annot"><span class="annottext">ReservedNodeOfferingType -&gt; ReservedNodeOfferingType -&gt; Bool
 (ReservedNodeOfferingType -&gt; ReservedNodeOfferingType -&gt; Bool)
 -&gt; (ReservedNodeOfferingType -&gt; ReservedNodeOfferingType -&gt; Bool)
 -&gt; Eq ReservedNodeOfferingType
@@ -83,7 +83,7 @@ $c/= :: ReservedNodeOfferingType -&gt; ReservedNodeOfferingType -&gt; Bool
 == :: ReservedNodeOfferingType -&gt; ReservedNodeOfferingType -&gt; Bool
 $c== :: ReservedNodeOfferingType -&gt; ReservedNodeOfferingType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679495222"><span id="local-6989586621679495224"><span id="local-6989586621679495226"><span id="local-6989586621679495228"><span id="local-6989586621679495230"><span id="local-6989586621679495232"><span id="local-6989586621679495234"><span class="annot"><span class="annottext">Eq ReservedNodeOfferingType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679495231"><span id="local-6989586621679495233"><span id="local-6989586621679495235"><span id="local-6989586621679495237"><span id="local-6989586621679495239"><span id="local-6989586621679495241"><span id="local-6989586621679495243"><span class="annot"><span class="annottext">Eq ReservedNodeOfferingType
 Eq ReservedNodeOfferingType
 -&gt; (ReservedNodeOfferingType
     -&gt; ReservedNodeOfferingType -&gt; Ordering)
@@ -148,7 +148,7 @@ ReservedNodeOfferingType -&gt; Rep ReservedNodeOfferingType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679495214"><span id="local-6989586621679495216"><span class="annot"><span class="annottext">Int -&gt; ReservedNodeOfferingType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679495223"><span id="local-6989586621679495225"><span class="annot"><span class="annottext">Int -&gt; ReservedNodeOfferingType -&gt; Int
 ReservedNodeOfferingType -&gt; Int
 (Int -&gt; ReservedNodeOfferingType -&gt; Int)
 -&gt; (ReservedNodeOfferingType -&gt; Int)
@@ -159,55 +159,55 @@ $chash :: ReservedNodeOfferingType -&gt; Int
 hashWithSalt :: Int -&gt; ReservedNodeOfferingType -&gt; Int
 $chashWithSalt :: Int -&gt; ReservedNodeOfferingType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679495211"><span class="annot"><span class="annottext">ReservedNodeOfferingType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679495220"><span class="annot"><span class="annottext">ReservedNodeOfferingType -&gt; ()
 (ReservedNodeOfferingType -&gt; ()) -&gt; NFData ReservedNodeOfferingType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReservedNodeOfferingType -&gt; ()
 $crnf :: ReservedNodeOfferingType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679495208"><span class="annot"><span class="annottext">Text -&gt; Either String ReservedNodeOfferingType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679495217"><span class="annot"><span class="annottext">Text -&gt; Either String ReservedNodeOfferingType
 (Text -&gt; Either String ReservedNodeOfferingType)
 -&gt; FromText ReservedNodeOfferingType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReservedNodeOfferingType
 $cfromText :: Text -&gt; Either String ReservedNodeOfferingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679495205"><span class="annot"><span class="annottext">ReservedNodeOfferingType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679495214"><span class="annot"><span class="annottext">ReservedNodeOfferingType -&gt; Text
 (ReservedNodeOfferingType -&gt; Text)
 -&gt; ToText ReservedNodeOfferingType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReservedNodeOfferingType -&gt; Text
 $ctoText :: ReservedNodeOfferingType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679495202"><span class="annot"><span class="annottext">ReservedNodeOfferingType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679495211"><span class="annot"><span class="annottext">ReservedNodeOfferingType -&gt; ByteString
 (ReservedNodeOfferingType -&gt; ByteString)
 -&gt; ToByteString ReservedNodeOfferingType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReservedNodeOfferingType -&gt; ByteString
 $ctoBS :: ReservedNodeOfferingType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679495199"><span class="annot"><span class="annottext">ReservedNodeOfferingType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679495208"><span class="annot"><span class="annottext">ReservedNodeOfferingType -&gt; ByteStringBuilder
 (ReservedNodeOfferingType -&gt; ByteStringBuilder)
 -&gt; ToLog ReservedNodeOfferingType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReservedNodeOfferingType -&gt; ByteStringBuilder
 $cbuild :: ReservedNodeOfferingType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679495196"><span class="annot"><span class="annottext">HeaderName -&gt; ReservedNodeOfferingType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679495205"><span class="annot"><span class="annottext">HeaderName -&gt; ReservedNodeOfferingType -&gt; [Header]
 (HeaderName -&gt; ReservedNodeOfferingType -&gt; [Header])
 -&gt; ToHeader ReservedNodeOfferingType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReservedNodeOfferingType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReservedNodeOfferingType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679495193"><span class="annot"><span class="annottext">ReservedNodeOfferingType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679495202"><span class="annot"><span class="annottext">ReservedNodeOfferingType -&gt; QueryString
 (ReservedNodeOfferingType -&gt; QueryString)
 -&gt; ToQuery ReservedNodeOfferingType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReservedNodeOfferingType -&gt; QueryString
 $ctoQuery :: ReservedNodeOfferingType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679495188"><span id="local-6989586621679495190"><span class="annot"><span class="annottext">Value -&gt; Parser [ReservedNodeOfferingType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679495197"><span id="local-6989586621679495199"><span class="annot"><span class="annottext">Value -&gt; Parser [ReservedNodeOfferingType]
 Value -&gt; Parser ReservedNodeOfferingType
 (Value -&gt; Parser ReservedNodeOfferingType)
 -&gt; (Value -&gt; Parser [ReservedNodeOfferingType])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [ReservedNodeOfferingType]
 parseJSON :: Value -&gt; Parser ReservedNodeOfferingType
 $cparseJSON :: Value -&gt; Parser ReservedNodeOfferingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679495183"><span id="local-6989586621679495185"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReservedNodeOfferingType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679495192"><span id="local-6989586621679495194"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReservedNodeOfferingType]
 FromJSONKeyFunction ReservedNodeOfferingType
 FromJSONKeyFunction ReservedNodeOfferingType
 -&gt; FromJSONKeyFunction [ReservedNodeOfferingType]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReservedNodeOfferingType]
 fromJSONKey :: FromJSONKeyFunction ReservedNodeOfferingType
 $cfromJSONKey :: FromJSONKeyFunction ReservedNodeOfferingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679495174"><span id="local-6989586621679495176"><span id="local-6989586621679495178"><span id="local-6989586621679495180"><span class="annot"><span class="annottext">[ReservedNodeOfferingType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679495183"><span id="local-6989586621679495185"><span id="local-6989586621679495187"><span id="local-6989586621679495189"><span class="annot"><span class="annottext">[ReservedNodeOfferingType] -&gt; Encoding
 [ReservedNodeOfferingType] -&gt; Value
 ReservedNodeOfferingType -&gt; Encoding
 ReservedNodeOfferingType -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: ReservedNodeOfferingType -&gt; Encoding
 toJSON :: ReservedNodeOfferingType -&gt; Value
 $ctoJSON :: ReservedNodeOfferingType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679495169"><span id="local-6989586621679495171"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReservedNodeOfferingType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679495178"><span id="local-6989586621679495180"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReservedNodeOfferingType]
 ToJSONKeyFunction ReservedNodeOfferingType
 ToJSONKeyFunction ReservedNodeOfferingType
 -&gt; ToJSONKeyFunction [ReservedNodeOfferingType]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReservedNodeOfferingType]
 toJSONKey :: ToJSONKeyFunction ReservedNodeOfferingType
 $ctoJSONKey :: ToJSONKeyFunction ReservedNodeOfferingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679495166"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReservedNodeOfferingType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679495175"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReservedNodeOfferingType
 ([Node] -&gt; Either String ReservedNodeOfferingType)
 -&gt; FromXML ReservedNodeOfferingType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReservedNodeOfferingType
 $cparseXML :: [Node] -&gt; Either String ReservedNodeOfferingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679495163"><span class="annot"><span class="annottext">ReservedNodeOfferingType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679495172"><span class="annot"><span class="annottext">ReservedNodeOfferingType -&gt; XML
 (ReservedNodeOfferingType -&gt; XML) -&gt; ToXML ReservedNodeOfferingType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReservedNodeOfferingType -&gt; XML

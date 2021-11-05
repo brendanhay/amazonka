@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Defines column statistics supported for bit sequence data values.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newBinaryColumnStatisticsData' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679678833"><span id="local-6989586621679678834"></span></span><span class="hs-keyword">data</span><span> </span><span id="BinaryColumnStatisticsData"><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-var">BinaryColumnStatisticsData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BinaryColumnStatisticsData%27"><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-var">BinaryColumnStatisticsData'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679678842"><span id="local-6989586621679678843"></span></span><span class="hs-keyword">data</span><span> </span><span id="BinaryColumnStatisticsData"><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-var">BinaryColumnStatisticsData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BinaryColumnStatisticsData%27"><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-var">BinaryColumnStatisticsData'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The size of the longest bit sequence in the column.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AmaximumLength%3ABinaryColumnStatisticsData%27"><span class="annot"><span class="annottext">BinaryColumnStatisticsData -&gt; Natural
 </span><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#%24sel%3AmaximumLength%3ABinaryColumnStatisticsData%27"><span class="hs-identifier hs-var hs-var">maximumLength</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AnumberOfNulls%3ABinaryColumnStatisticsData%27"><span class="annot"><span class="annottext">BinaryColumnStatisticsData -&gt; Natural
 </span><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#%24sel%3AnumberOfNulls%3ABinaryColumnStatisticsData%27"><span class="hs-identifier hs-var hs-var">numberOfNulls</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679678825"><span id="local-6989586621679678827"><span class="annot"><span class="annottext">BinaryColumnStatisticsData -&gt; BinaryColumnStatisticsData -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679678834"><span id="local-6989586621679678836"><span class="annot"><span class="annottext">BinaryColumnStatisticsData -&gt; BinaryColumnStatisticsData -&gt; Bool
 (BinaryColumnStatisticsData -&gt; BinaryColumnStatisticsData -&gt; Bool)
 -&gt; (BinaryColumnStatisticsData
     -&gt; BinaryColumnStatisticsData -&gt; Bool)
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BinaryColumnStatisticsData -&gt; BinaryColumnStatisticsData -&gt; Bool
 == :: BinaryColumnStatisticsData -&gt; BinaryColumnStatisticsData -&gt; Bool
 $c== :: BinaryColumnStatisticsData -&gt; BinaryColumnStatisticsData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679678816"><span id="local-6989586621679678818"><span id="local-6989586621679678820"><span id="local-6989586621679678822"><span class="annot"><span class="annottext">ReadPrec [BinaryColumnStatisticsData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679678825"><span id="local-6989586621679678827"><span id="local-6989586621679678829"><span id="local-6989586621679678831"><span class="annot"><span class="annottext">ReadPrec [BinaryColumnStatisticsData]
 ReadPrec BinaryColumnStatisticsData
 Int -&gt; ReadS BinaryColumnStatisticsData
 ReadS [BinaryColumnStatisticsData]
@@ -67,7 +67,7 @@ readList :: ReadS [BinaryColumnStatisticsData]
 $creadList :: ReadS [BinaryColumnStatisticsData]
 readsPrec :: Int -&gt; ReadS BinaryColumnStatisticsData
 $creadsPrec :: Int -&gt; ReadS BinaryColumnStatisticsData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679678809"><span id="local-6989586621679678811"><span id="local-6989586621679678813"><span class="annot"><span class="annottext">Int -&gt; BinaryColumnStatisticsData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679678818"><span id="local-6989586621679678820"><span id="local-6989586621679678822"><span class="annot"><span class="annottext">Int -&gt; BinaryColumnStatisticsData -&gt; ShowS
 [BinaryColumnStatisticsData] -&gt; ShowS
 BinaryColumnStatisticsData -&gt; String
 (Int -&gt; BinaryColumnStatisticsData -&gt; ShowS)
@@ -122,24 +122,24 @@ BinaryColumnStatisticsData -&gt; Rep BinaryColumnStatisticsData x
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-type">BinaryColumnStatisticsData</span></a></span><span>
 </span><span id="line-60"></span><span id="newBinaryColumnStatisticsData"><span class="annot"><span class="annottext">newBinaryColumnStatisticsData :: Natural -&gt; Double -&gt; Natural -&gt; BinaryColumnStatisticsData
 </span><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#newBinaryColumnStatisticsData"><span class="hs-identifier hs-var hs-var">newBinaryColumnStatisticsData</span></a></span></span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679678803"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679678803"><span class="hs-identifier hs-var">pMaximumLength_</span></a></span></span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679678802"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679678802"><span class="hs-identifier hs-var">pAverageLength_</span></a></span></span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679678801"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679678801"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679678812"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679678812"><span class="hs-identifier hs-var">pMaximumLength_</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679678811"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679678811"><span class="hs-identifier hs-var">pAverageLength_</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679678810"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679678810"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">BinaryColumnStatisticsData' :: Natural -&gt; Double -&gt; Natural -&gt; BinaryColumnStatisticsData
 </span><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-type">BinaryColumnStatisticsData'</span></a></span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maximumLength:BinaryColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#%24sel%3AmaximumLength%3ABinaryColumnStatisticsData%27"><span class="hs-identifier hs-var">maximumLength</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679678803"><span class="hs-identifier hs-var">pMaximumLength_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679678812"><span class="hs-identifier hs-var">pMaximumLength_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">$sel:averageLength:BinaryColumnStatisticsData' :: Double
 </span><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#%24sel%3AaverageLength%3ABinaryColumnStatisticsData%27"><span class="hs-identifier hs-var">averageLength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679678802"><span class="hs-identifier hs-var">pAverageLength_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679678811"><span class="hs-identifier hs-var">pAverageLength_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">$sel:numberOfNulls:BinaryColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#%24sel%3AnumberOfNulls%3ABinaryColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679678801"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span><span>
+</span><a href="#local-6989586621679678810"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The size of the longest bit sequence in the column.</span><span>
@@ -155,16 +155,16 @@ BinaryColumnStatisticsData -&gt; Rep BinaryColumnStatisticsData x
      Natural
      Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-type">BinaryColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678797"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-type">BinaryColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678806"><span class="annot"><span class="annottext">Natural
 maximumLength :: Natural
 $sel:maximumLength:BinaryColumnStatisticsData' :: BinaryColumnStatisticsData -&gt; Natural
-</span><a href="#local-6989586621679678797"><span class="hs-identifier hs-var hs-var">maximumLength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679678797"><span class="hs-identifier hs-var">maximumLength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678796"><span class="annot"><span class="annottext">s :: BinaryColumnStatisticsData
-</span><a href="#local-6989586621679678796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-type">BinaryColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678795"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679678795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BinaryColumnStatisticsData
-</span><a href="#local-6989586621679678796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumLength:BinaryColumnStatisticsData' :: Natural
+</span><a href="#local-6989586621679678806"><span class="hs-identifier hs-var hs-var">maximumLength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679678806"><span class="hs-identifier hs-var">maximumLength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678805"><span class="annot"><span class="annottext">s :: BinaryColumnStatisticsData
+</span><a href="#local-6989586621679678805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-type">BinaryColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678804"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679678804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BinaryColumnStatisticsData
+</span><a href="#local-6989586621679678805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumLength:BinaryColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#%24sel%3AmaximumLength%3ABinaryColumnStatisticsData%27"><span class="hs-identifier hs-var">maximumLength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679678795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-type">BinaryColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679678804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-type">BinaryColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The average bit sequence length in the column.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#binaryColumnStatisticsData_averageLength"><span class="hs-identifier hs-type">binaryColumnStatisticsData_averageLength</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-type">BinaryColumnStatisticsData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
@@ -176,16 +176,16 @@ $sel:maximumLength:BinaryColumnStatisticsData' :: BinaryColumnStatisticsData -&g
 -&gt; Lens
      BinaryColumnStatisticsData BinaryColumnStatisticsData Double Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-type">BinaryColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678793"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-type">BinaryColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678802"><span class="annot"><span class="annottext">Double
 averageLength :: Double
 $sel:averageLength:BinaryColumnStatisticsData' :: BinaryColumnStatisticsData -&gt; Double
-</span><a href="#local-6989586621679678793"><span class="hs-identifier hs-var hs-var">averageLength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679678793"><span class="hs-identifier hs-var">averageLength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678792"><span class="annot"><span class="annottext">s :: BinaryColumnStatisticsData
-</span><a href="#local-6989586621679678792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-type">BinaryColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678791"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679678791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BinaryColumnStatisticsData
-</span><a href="#local-6989586621679678792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:averageLength:BinaryColumnStatisticsData' :: Double
+</span><a href="#local-6989586621679678802"><span class="hs-identifier hs-var hs-var">averageLength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679678802"><span class="hs-identifier hs-var">averageLength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678801"><span class="annot"><span class="annottext">s :: BinaryColumnStatisticsData
+</span><a href="#local-6989586621679678801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-type">BinaryColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678800"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679678800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BinaryColumnStatisticsData
+</span><a href="#local-6989586621679678801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:averageLength:BinaryColumnStatisticsData' :: Double
 </span><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#%24sel%3AaverageLength%3ABinaryColumnStatisticsData%27"><span class="hs-identifier hs-var">averageLength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679678791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-type">BinaryColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679678800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-type">BinaryColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The number of null values in the column.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#binaryColumnStatisticsData_numberOfNulls"><span class="hs-identifier hs-type">binaryColumnStatisticsData_numberOfNulls</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-type">BinaryColumnStatisticsData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -200,19 +200,19 @@ $sel:averageLength:BinaryColumnStatisticsData' :: BinaryColumnStatisticsData -&g
      Natural
      Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-type">BinaryColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678789"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-type">BinaryColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678798"><span class="annot"><span class="annottext">Natural
 numberOfNulls :: Natural
 $sel:numberOfNulls:BinaryColumnStatisticsData' :: BinaryColumnStatisticsData -&gt; Natural
-</span><a href="#local-6989586621679678789"><span class="hs-identifier hs-var hs-var">numberOfNulls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679678789"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678788"><span class="annot"><span class="annottext">s :: BinaryColumnStatisticsData
-</span><a href="#local-6989586621679678788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-type">BinaryColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678787"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679678787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BinaryColumnStatisticsData
-</span><a href="#local-6989586621679678788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfNulls:BinaryColumnStatisticsData' :: Natural
+</span><a href="#local-6989586621679678798"><span class="hs-identifier hs-var hs-var">numberOfNulls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679678798"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679678797"><span class="annot"><span class="annottext">s :: BinaryColumnStatisticsData
+</span><a href="#local-6989586621679678797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-type">BinaryColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679678796"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679678796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BinaryColumnStatisticsData
+</span><a href="#local-6989586621679678797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfNulls:BinaryColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#%24sel%3AnumberOfNulls%3ABinaryColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679678787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-type">BinaryColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679678796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-type">BinaryColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678784"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-type">BinaryColumnStatisticsData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679678782"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BinaryColumnStatisticsData
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678793"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-type">BinaryColumnStatisticsData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679678791"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BinaryColumnStatisticsData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BinaryColumnStatisticsData)
@@ -222,8 +222,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BinaryColumnStatisticsData&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679678779"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679678779"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679678788"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679678788"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Natural -&gt; Double -&gt; Natural -&gt; BinaryColumnStatisticsData
 </span><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-var">BinaryColumnStatisticsData'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Natural -&gt; Double -&gt; Natural -&gt; BinaryColumnStatisticsData)
@@ -231,7 +231,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Double -&gt; Natural -&gt; BinaryColumnStatisticsData)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679678779"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679678788"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaximumLength&quot;</span></span><span class="hs-special">)</span><span>
@@ -239,7 +239,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Double -&gt; Parser (Natural -&gt; BinaryColumnStatisticsData)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679678779"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+</span><a href="#local-6989586621679678788"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AverageLength&quot;</span></span><span class="hs-special">)</span><span>
@@ -247,19 +247,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser BinaryColumnStatisticsData
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679678779"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679678788"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfNulls&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678773"><span id="local-6989586621679678775"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-type">BinaryColumnStatisticsData</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678782"><span id="local-6989586621679678784"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-type">BinaryColumnStatisticsData</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678770"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-type">BinaryColumnStatisticsData</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678779"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-type">BinaryColumnStatisticsData</span></a></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678762"><span id="local-6989586621679678764"><span id="local-6989586621679678766"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-type">BinaryColumnStatisticsData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679678760"><span class="annot"><span class="annottext">toJSON :: BinaryColumnStatisticsData -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-type">BinaryColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678756"><span id="local-6989586621679678757"><span id="local-6989586621679678758"><span class="annot"><span class="annottext">Double
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679678771"><span id="local-6989586621679678773"><span id="local-6989586621679678775"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData"><span class="hs-identifier hs-type">BinaryColumnStatisticsData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679678769"><span class="annot"><span class="annottext">toJSON :: BinaryColumnStatisticsData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.BinaryColumnStatisticsData.html#BinaryColumnStatisticsData%27"><span class="hs-identifier hs-type">BinaryColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679678765"><span id="local-6989586621679678766"><span id="local-6989586621679678767"><span class="annot"><span class="annottext">Double
 Natural
 numberOfNulls :: Natural
 averageLength :: Double
@@ -267,7 +267,7 @@ maximumLength :: Natural
 $sel:numberOfNulls:BinaryColumnStatisticsData' :: BinaryColumnStatisticsData -&gt; Natural
 $sel:averageLength:BinaryColumnStatisticsData' :: BinaryColumnStatisticsData -&gt; Double
 $sel:maximumLength:BinaryColumnStatisticsData' :: BinaryColumnStatisticsData -&gt; Natural
-</span><a href="#local-6989586621679678756"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679678765"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -280,14 +280,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;MaximumLength&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679678758"><span class="hs-identifier hs-var">maximumLength</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679678767"><span class="hs-identifier hs-var">maximumLength</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AverageLength&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679678757"><span class="hs-identifier hs-var">averageLength</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679678766"><span class="hs-identifier hs-var">averageLength</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -295,7 +295,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;NumberOfNulls&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679678756"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679678765"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span></pre></body></html>

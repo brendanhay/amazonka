@@ -1,0 +1,836 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Network.AWS.Backup.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Backup.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.html#_InvalidRequestException"><span class="hs-identifier">_InvalidRequestException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.html#_DependencyFailureException"><span class="hs-identifier">_DependencyFailureException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.html#_InvalidResourceStateException"><span class="hs-identifier">_InvalidResourceStateException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.html#_ConflictException"><span class="hs-identifier">_ConflictException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.html#_InvalidParameterValueException"><span class="hs-identifier">_InvalidParameterValueException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.html#_ServiceUnavailableException"><span class="hs-identifier">_ServiceUnavailableException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.html#_AlreadyExistsException"><span class="hs-identifier">_AlreadyExistsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.html#_MissingParameterValueException"><span class="hs-identifier">_MissingParameterValueException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BackupJobState</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJobState.html#BackupJobState"><span class="hs-identifier">BackupJobState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BackupVaultEvent</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupVaultEvent.html#BackupVaultEvent"><span class="hs-identifier">BackupVaultEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ConditionType</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ConditionType.html#ConditionType"><span class="hs-identifier">ConditionType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CopyJobState</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJobState.html#CopyJobState"><span class="hs-identifier">CopyJobState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RecoveryPointStatus</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointStatus.html#RecoveryPointStatus"><span class="hs-identifier">RecoveryPointStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RestoreJobStatus</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobStatus.html#RestoreJobStatus"><span class="hs-identifier">RestoreJobStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StorageClass</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.StorageClass.html#StorageClass"><span class="hs-identifier">StorageClass</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AdvancedBackupSetting</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.AdvancedBackupSetting.html#AdvancedBackupSetting"><span class="hs-identifier">AdvancedBackupSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.AdvancedBackupSetting.html#newAdvancedBackupSetting"><span class="hs-identifier">newAdvancedBackupSetting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.AdvancedBackupSetting.html#advancedBackupSetting_resourceType"><span class="hs-identifier">advancedBackupSetting_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.AdvancedBackupSetting.html#advancedBackupSetting_backupOptions"><span class="hs-identifier">advancedBackupSetting_backupOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BackupJob</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#BackupJob"><span class="hs-identifier">BackupJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#newBackupJob"><span class="hs-identifier">newBackupJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_iamRoleArn"><span class="hs-identifier">backupJob_iamRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_state"><span class="hs-identifier">backupJob_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_resourceType"><span class="hs-identifier">backupJob_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_percentDone"><span class="hs-identifier">backupJob_percentDone</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_startBy"><span class="hs-identifier">backupJob_startBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_createdBy"><span class="hs-identifier">backupJob_createdBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_expectedCompletionDate"><span class="hs-identifier">backupJob_expectedCompletionDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_bytesTransferred"><span class="hs-identifier">backupJob_bytesTransferred</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_backupVaultArn"><span class="hs-identifier">backupJob_backupVaultArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_accountId"><span class="hs-identifier">backupJob_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_backupJobId"><span class="hs-identifier">backupJob_backupJobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_resourceArn"><span class="hs-identifier">backupJob_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_statusMessage"><span class="hs-identifier">backupJob_statusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_recoveryPointArn"><span class="hs-identifier">backupJob_recoveryPointArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_backupSizeInBytes"><span class="hs-identifier">backupJob_backupSizeInBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_creationDate"><span class="hs-identifier">backupJob_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_completionDate"><span class="hs-identifier">backupJob_completionDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_backupVaultName"><span class="hs-identifier">backupJob_backupVaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_backupType"><span class="hs-identifier">backupJob_backupType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#backupJob_backupOptions"><span class="hs-identifier">backupJob_backupOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BackupPlan</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlan.html#BackupPlan"><span class="hs-identifier">BackupPlan</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlan.html#newBackupPlan"><span class="hs-identifier">newBackupPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlan.html#backupPlan_advancedBackupSettings"><span class="hs-identifier">backupPlan_advancedBackupSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlan.html#backupPlan_backupPlanName"><span class="hs-identifier">backupPlan_backupPlanName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlan.html#backupPlan_rules"><span class="hs-identifier">backupPlan_rules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BackupPlanInput</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlanInput.html#BackupPlanInput"><span class="hs-identifier">BackupPlanInput</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlanInput.html#newBackupPlanInput"><span class="hs-identifier">newBackupPlanInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlanInput.html#backupPlanInput_advancedBackupSettings"><span class="hs-identifier">backupPlanInput_advancedBackupSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlanInput.html#backupPlanInput_backupPlanName"><span class="hs-identifier">backupPlanInput_backupPlanName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlanInput.html#backupPlanInput_rules"><span class="hs-identifier">backupPlanInput_rules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BackupPlanTemplatesListMember</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlanTemplatesListMember.html#BackupPlanTemplatesListMember"><span class="hs-identifier">BackupPlanTemplatesListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlanTemplatesListMember.html#newBackupPlanTemplatesListMember"><span class="hs-identifier">newBackupPlanTemplatesListMember</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlanTemplatesListMember.html#backupPlanTemplatesListMember_backupPlanTemplateName"><span class="hs-identifier">backupPlanTemplatesListMember_backupPlanTemplateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlanTemplatesListMember.html#backupPlanTemplatesListMember_backupPlanTemplateId"><span class="hs-identifier">backupPlanTemplatesListMember_backupPlanTemplateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BackupPlansListMember</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlansListMember.html#BackupPlansListMember"><span class="hs-identifier">BackupPlansListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlansListMember.html#newBackupPlansListMember"><span class="hs-identifier">newBackupPlansListMember</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlansListMember.html#backupPlansListMember_versionId"><span class="hs-identifier">backupPlansListMember_versionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlansListMember.html#backupPlansListMember_backupPlanName"><span class="hs-identifier">backupPlansListMember_backupPlanName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlansListMember.html#backupPlansListMember_advancedBackupSettings"><span class="hs-identifier">backupPlansListMember_advancedBackupSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlansListMember.html#backupPlansListMember_backupPlanId"><span class="hs-identifier">backupPlansListMember_backupPlanId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlansListMember.html#backupPlansListMember_creatorRequestId"><span class="hs-identifier">backupPlansListMember_creatorRequestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlansListMember.html#backupPlansListMember_backupPlanArn"><span class="hs-identifier">backupPlansListMember_backupPlanArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlansListMember.html#backupPlansListMember_lastExecutionDate"><span class="hs-identifier">backupPlansListMember_lastExecutionDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlansListMember.html#backupPlansListMember_creationDate"><span class="hs-identifier">backupPlansListMember_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlansListMember.html#backupPlansListMember_deletionDate"><span class="hs-identifier">backupPlansListMember_deletionDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BackupRule</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRule.html#BackupRule"><span class="hs-identifier">BackupRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRule.html#newBackupRule"><span class="hs-identifier">newBackupRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRule.html#backupRule_ruleId"><span class="hs-identifier">backupRule_ruleId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRule.html#backupRule_lifecycle"><span class="hs-identifier">backupRule_lifecycle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRule.html#backupRule_recoveryPointTags"><span class="hs-identifier">backupRule_recoveryPointTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRule.html#backupRule_scheduleExpression"><span class="hs-identifier">backupRule_scheduleExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRule.html#backupRule_enableContinuousBackup"><span class="hs-identifier">backupRule_enableContinuousBackup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRule.html#backupRule_completionWindowMinutes"><span class="hs-identifier">backupRule_completionWindowMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRule.html#backupRule_copyActions"><span class="hs-identifier">backupRule_copyActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRule.html#backupRule_startWindowMinutes"><span class="hs-identifier">backupRule_startWindowMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRule.html#backupRule_ruleName"><span class="hs-identifier">backupRule_ruleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRule.html#backupRule_targetBackupVaultName"><span class="hs-identifier">backupRule_targetBackupVaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BackupRuleInput</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRuleInput.html#BackupRuleInput"><span class="hs-identifier">BackupRuleInput</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRuleInput.html#newBackupRuleInput"><span class="hs-identifier">newBackupRuleInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRuleInput.html#backupRuleInput_lifecycle"><span class="hs-identifier">backupRuleInput_lifecycle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRuleInput.html#backupRuleInput_recoveryPointTags"><span class="hs-identifier">backupRuleInput_recoveryPointTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRuleInput.html#backupRuleInput_scheduleExpression"><span class="hs-identifier">backupRuleInput_scheduleExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRuleInput.html#backupRuleInput_enableContinuousBackup"><span class="hs-identifier">backupRuleInput_enableContinuousBackup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRuleInput.html#backupRuleInput_completionWindowMinutes"><span class="hs-identifier">backupRuleInput_completionWindowMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRuleInput.html#backupRuleInput_copyActions"><span class="hs-identifier">backupRuleInput_copyActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRuleInput.html#backupRuleInput_startWindowMinutes"><span class="hs-identifier">backupRuleInput_startWindowMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRuleInput.html#backupRuleInput_ruleName"><span class="hs-identifier">backupRuleInput_ruleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRuleInput.html#backupRuleInput_targetBackupVaultName"><span class="hs-identifier">backupRuleInput_targetBackupVaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BackupSelection</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelection.html#BackupSelection"><span class="hs-identifier">BackupSelection</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelection.html#newBackupSelection"><span class="hs-identifier">newBackupSelection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelection.html#backupSelection_resources"><span class="hs-identifier">backupSelection_resources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelection.html#backupSelection_listOfTags"><span class="hs-identifier">backupSelection_listOfTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelection.html#backupSelection_selectionName"><span class="hs-identifier">backupSelection_selectionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelection.html#backupSelection_iamRoleArn"><span class="hs-identifier">backupSelection_iamRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BackupSelectionsListMember</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#BackupSelectionsListMember"><span class="hs-identifier">BackupSelectionsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#newBackupSelectionsListMember"><span class="hs-identifier">newBackupSelectionsListMember</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_iamRoleArn"><span class="hs-identifier">backupSelectionsListMember_iamRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_selectionName"><span class="hs-identifier">backupSelectionsListMember_selectionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_selectionId"><span class="hs-identifier">backupSelectionsListMember_selectionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_backupPlanId"><span class="hs-identifier">backupSelectionsListMember_backupPlanId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_creatorRequestId"><span class="hs-identifier">backupSelectionsListMember_creatorRequestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html#backupSelectionsListMember_creationDate"><span class="hs-identifier">backupSelectionsListMember_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BackupVaultListMember</span></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupVaultListMember.html#BackupVaultListMember"><span class="hs-identifier">BackupVaultListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupVaultListMember.html#newBackupVaultListMember"><span class="hs-identifier">newBackupVaultListMember</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupVaultListMember.html#backupVaultListMember_lockDate"><span class="hs-identifier">backupVaultListMember_lockDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupVaultListMember.html#backupVaultListMember_maxRetentionDays"><span class="hs-identifier">backupVaultListMember_maxRetentionDays</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupVaultListMember.html#backupVaultListMember_locked"><span class="hs-identifier">backupVaultListMember_locked</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupVaultListMember.html#backupVaultListMember_creatorRequestId"><span class="hs-identifier">backupVaultListMember_creatorRequestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupVaultListMember.html#backupVaultListMember_numberOfRecoveryPoints"><span class="hs-identifier">backupVaultListMember_numberOfRecoveryPoints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupVaultListMember.html#backupVaultListMember_backupVaultArn"><span class="hs-identifier">backupVaultListMember_backupVaultArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupVaultListMember.html#backupVaultListMember_encryptionKeyArn"><span class="hs-identifier">backupVaultListMember_encryptionKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupVaultListMember.html#backupVaultListMember_creationDate"><span class="hs-identifier">backupVaultListMember_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupVaultListMember.html#backupVaultListMember_backupVaultName"><span class="hs-identifier">backupVaultListMember_backupVaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupVaultListMember.html#backupVaultListMember_minRetentionDays"><span class="hs-identifier">backupVaultListMember_minRetentionDays</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CalculatedLifecycle</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CalculatedLifecycle.html#CalculatedLifecycle"><span class="hs-identifier">CalculatedLifecycle</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CalculatedLifecycle.html#newCalculatedLifecycle"><span class="hs-identifier">newCalculatedLifecycle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CalculatedLifecycle.html#calculatedLifecycle_deleteAt"><span class="hs-identifier">calculatedLifecycle_deleteAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CalculatedLifecycle.html#calculatedLifecycle_moveToColdStorageAt"><span class="hs-identifier">calculatedLifecycle_moveToColdStorageAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Condition</span></span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.Condition.html#Condition"><span class="hs-identifier">Condition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.Condition.html#newCondition"><span class="hs-identifier">newCondition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.Condition.html#condition_conditionType"><span class="hs-identifier">condition_conditionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.Condition.html#condition_conditionKey"><span class="hs-identifier">condition_conditionKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.Condition.html#condition_conditionValue"><span class="hs-identifier">condition_conditionValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ControlInputParameter</span></span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ControlInputParameter.html#ControlInputParameter"><span class="hs-identifier">ControlInputParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ControlInputParameter.html#newControlInputParameter"><span class="hs-identifier">newControlInputParameter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ControlInputParameter.html#controlInputParameter_parameterValue"><span class="hs-identifier">controlInputParameter_parameterValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ControlInputParameter.html#controlInputParameter_parameterName"><span class="hs-identifier">controlInputParameter_parameterName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ControlScope</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ControlScope.html#ControlScope"><span class="hs-identifier">ControlScope</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ControlScope.html#newControlScope"><span class="hs-identifier">newControlScope</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ControlScope.html#controlScope_complianceResourceTypes"><span class="hs-identifier">controlScope_complianceResourceTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ControlScope.html#controlScope_tags"><span class="hs-identifier">controlScope_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ControlScope.html#controlScope_complianceResourceIds"><span class="hs-identifier">controlScope_complianceResourceIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CopyAction</span></span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyAction.html#CopyAction"><span class="hs-identifier">CopyAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyAction.html#newCopyAction"><span class="hs-identifier">newCopyAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyAction.html#copyAction_lifecycle"><span class="hs-identifier">copyAction_lifecycle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyAction.html#copyAction_destinationBackupVaultArn"><span class="hs-identifier">copyAction_destinationBackupVaultArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CopyJob</span></span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html#CopyJob"><span class="hs-identifier">CopyJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html#newCopyJob"><span class="hs-identifier">newCopyJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html#copyJob_iamRoleArn"><span class="hs-identifier">copyJob_iamRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html#copyJob_state"><span class="hs-identifier">copyJob_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html#copyJob_sourceRecoveryPointArn"><span class="hs-identifier">copyJob_sourceRecoveryPointArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html#copyJob_resourceType"><span class="hs-identifier">copyJob_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html#copyJob_destinationBackupVaultArn"><span class="hs-identifier">copyJob_destinationBackupVaultArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html#copyJob_createdBy"><span class="hs-identifier">copyJob_createdBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html#copyJob_destinationRecoveryPointArn"><span class="hs-identifier">copyJob_destinationRecoveryPointArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html#copyJob_accountId"><span class="hs-identifier">copyJob_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html#copyJob_sourceBackupVaultArn"><span class="hs-identifier">copyJob_sourceBackupVaultArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html#copyJob_copyJobId"><span class="hs-identifier">copyJob_copyJobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html#copyJob_resourceArn"><span class="hs-identifier">copyJob_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html#copyJob_statusMessage"><span class="hs-identifier">copyJob_statusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html#copyJob_backupSizeInBytes"><span class="hs-identifier">copyJob_backupSizeInBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html#copyJob_creationDate"><span class="hs-identifier">copyJob_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html#copyJob_completionDate"><span class="hs-identifier">copyJob_completionDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Framework</span></span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.Framework.html#Framework"><span class="hs-identifier">Framework</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.Framework.html#newFramework"><span class="hs-identifier">newFramework</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.Framework.html#framework_creationTime"><span class="hs-identifier">framework_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.Framework.html#framework_frameworkDescription"><span class="hs-identifier">framework_frameworkDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.Framework.html#framework_numberOfControls"><span class="hs-identifier">framework_numberOfControls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.Framework.html#framework_frameworkArn"><span class="hs-identifier">framework_frameworkArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.Framework.html#framework_deploymentStatus"><span class="hs-identifier">framework_deploymentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.Framework.html#framework_frameworkName"><span class="hs-identifier">framework_frameworkName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FrameworkControl</span></span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.FrameworkControl.html#FrameworkControl"><span class="hs-identifier">FrameworkControl</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.FrameworkControl.html#newFrameworkControl"><span class="hs-identifier">newFrameworkControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.FrameworkControl.html#frameworkControl_controlScope"><span class="hs-identifier">frameworkControl_controlScope</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.FrameworkControl.html#frameworkControl_controlInputParameters"><span class="hs-identifier">frameworkControl_controlInputParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.FrameworkControl.html#frameworkControl_controlName"><span class="hs-identifier">frameworkControl_controlName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Lifecycle</span></span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.Lifecycle.html#Lifecycle"><span class="hs-identifier">Lifecycle</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.Lifecycle.html#newLifecycle"><span class="hs-identifier">newLifecycle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.Lifecycle.html#lifecycle_moveToColdStorageAfterDays"><span class="hs-identifier">lifecycle_moveToColdStorageAfterDays</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.Lifecycle.html#lifecycle_deleteAfterDays"><span class="hs-identifier">lifecycle_deleteAfterDays</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ProtectedResource</span></span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ProtectedResource.html#ProtectedResource"><span class="hs-identifier">ProtectedResource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ProtectedResource.html#newProtectedResource"><span class="hs-identifier">newProtectedResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ProtectedResource.html#protectedResource_resourceType"><span class="hs-identifier">protectedResource_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ProtectedResource.html#protectedResource_lastBackupTime"><span class="hs-identifier">protectedResource_lastBackupTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ProtectedResource.html#protectedResource_resourceArn"><span class="hs-identifier">protectedResource_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RecoveryPointByBackupVault</span></span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#RecoveryPointByBackupVault"><span class="hs-identifier">RecoveryPointByBackupVault</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#newRecoveryPointByBackupVault"><span class="hs-identifier">newRecoveryPointByBackupVault</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_isEncrypted"><span class="hs-identifier">recoveryPointByBackupVault_isEncrypted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_status"><span class="hs-identifier">recoveryPointByBackupVault_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_iamRoleArn"><span class="hs-identifier">recoveryPointByBackupVault_iamRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_resourceType"><span class="hs-identifier">recoveryPointByBackupVault_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_createdBy"><span class="hs-identifier">recoveryPointByBackupVault_createdBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_calculatedLifecycle"><span class="hs-identifier">recoveryPointByBackupVault_calculatedLifecycle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_lifecycle"><span class="hs-identifier">recoveryPointByBackupVault_lifecycle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_backupVaultArn"><span class="hs-identifier">recoveryPointByBackupVault_backupVaultArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_sourceBackupVaultArn"><span class="hs-identifier">recoveryPointByBackupVault_sourceBackupVaultArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_lastRestoreTime"><span class="hs-identifier">recoveryPointByBackupVault_lastRestoreTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_resourceArn"><span class="hs-identifier">recoveryPointByBackupVault_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_statusMessage"><span class="hs-identifier">recoveryPointByBackupVault_statusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_recoveryPointArn"><span class="hs-identifier">recoveryPointByBackupVault_recoveryPointArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_encryptionKeyArn"><span class="hs-identifier">recoveryPointByBackupVault_encryptionKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_backupSizeInBytes"><span class="hs-identifier">recoveryPointByBackupVault_backupSizeInBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_creationDate"><span class="hs-identifier">recoveryPointByBackupVault_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_completionDate"><span class="hs-identifier">recoveryPointByBackupVault_completionDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html#recoveryPointByBackupVault_backupVaultName"><span class="hs-identifier">recoveryPointByBackupVault_backupVaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RecoveryPointByResource</span></span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByResource.html#RecoveryPointByResource"><span class="hs-identifier">RecoveryPointByResource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByResource.html#newRecoveryPointByResource"><span class="hs-identifier">newRecoveryPointByResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByResource.html#recoveryPointByResource_status"><span class="hs-identifier">recoveryPointByResource_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByResource.html#recoveryPointByResource_statusMessage"><span class="hs-identifier">recoveryPointByResource_statusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByResource.html#recoveryPointByResource_recoveryPointArn"><span class="hs-identifier">recoveryPointByResource_recoveryPointArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByResource.html#recoveryPointByResource_backupSizeBytes"><span class="hs-identifier">recoveryPointByResource_backupSizeBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByResource.html#recoveryPointByResource_encryptionKeyArn"><span class="hs-identifier">recoveryPointByResource_encryptionKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByResource.html#recoveryPointByResource_creationDate"><span class="hs-identifier">recoveryPointByResource_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByResource.html#recoveryPointByResource_backupVaultName"><span class="hs-identifier">recoveryPointByResource_backupVaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RecoveryPointCreator</span></span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointCreator.html#RecoveryPointCreator"><span class="hs-identifier">RecoveryPointCreator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointCreator.html#newRecoveryPointCreator"><span class="hs-identifier">newRecoveryPointCreator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointCreator.html#recoveryPointCreator_backupPlanId"><span class="hs-identifier">recoveryPointCreator_backupPlanId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointCreator.html#recoveryPointCreator_backupPlanArn"><span class="hs-identifier">recoveryPointCreator_backupPlanArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointCreator.html#recoveryPointCreator_backupPlanVersion"><span class="hs-identifier">recoveryPointCreator_backupPlanVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointCreator.html#recoveryPointCreator_backupRuleId"><span class="hs-identifier">recoveryPointCreator_backupRuleId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ReportDeliveryChannel</span></span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportDeliveryChannel.html#ReportDeliveryChannel"><span class="hs-identifier">ReportDeliveryChannel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportDeliveryChannel.html#newReportDeliveryChannel"><span class="hs-identifier">newReportDeliveryChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportDeliveryChannel.html#reportDeliveryChannel_s3KeyPrefix"><span class="hs-identifier">reportDeliveryChannel_s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportDeliveryChannel.html#reportDeliveryChannel_formats"><span class="hs-identifier">reportDeliveryChannel_formats</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportDeliveryChannel.html#reportDeliveryChannel_s3BucketName"><span class="hs-identifier">reportDeliveryChannel_s3BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ReportDestination</span></span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportDestination.html#ReportDestination"><span class="hs-identifier">ReportDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportDestination.html#newReportDestination"><span class="hs-identifier">newReportDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportDestination.html#reportDestination_s3Keys"><span class="hs-identifier">reportDestination_s3Keys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportDestination.html#reportDestination_s3BucketName"><span class="hs-identifier">reportDestination_s3BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ReportJob</span></span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportJob.html#ReportJob"><span class="hs-identifier">ReportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportJob.html#newReportJob"><span class="hs-identifier">newReportJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportJob.html#reportJob_creationTime"><span class="hs-identifier">reportJob_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportJob.html#reportJob_status"><span class="hs-identifier">reportJob_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportJob.html#reportJob_reportPlanArn"><span class="hs-identifier">reportJob_reportPlanArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportJob.html#reportJob_completionTime"><span class="hs-identifier">reportJob_completionTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportJob.html#reportJob_reportJobId"><span class="hs-identifier">reportJob_reportJobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportJob.html#reportJob_statusMessage"><span class="hs-identifier">reportJob_statusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportJob.html#reportJob_reportDestination"><span class="hs-identifier">reportJob_reportDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportJob.html#reportJob_reportTemplate"><span class="hs-identifier">reportJob_reportTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>
+</span><span id="line-321"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ReportPlan</span></span><span>
+</span><span id="line-322"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportPlan.html#ReportPlan"><span class="hs-identifier">ReportPlan</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportPlan.html#newReportPlan"><span class="hs-identifier">newReportPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportPlan.html#reportPlan_creationTime"><span class="hs-identifier">reportPlan_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportPlan.html#reportPlan_reportPlanName"><span class="hs-identifier">reportPlan_reportPlanName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportPlan.html#reportPlan_reportPlanArn"><span class="hs-identifier">reportPlan_reportPlanArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportPlan.html#reportPlan_reportSetting"><span class="hs-identifier">reportPlan_reportSetting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportPlan.html#reportPlan_reportPlanDescription"><span class="hs-identifier">reportPlan_reportPlanDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportPlan.html#reportPlan_lastAttemptedExecutionTime"><span class="hs-identifier">reportPlan_lastAttemptedExecutionTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportPlan.html#reportPlan_deploymentStatus"><span class="hs-identifier">reportPlan_deploymentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportPlan.html#reportPlan_lastSuccessfulExecutionTime"><span class="hs-identifier">reportPlan_lastSuccessfulExecutionTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportPlan.html#reportPlan_reportDeliveryChannel"><span class="hs-identifier">reportPlan_reportDeliveryChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>
+</span><span id="line-334"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ReportSetting</span></span><span>
+</span><span id="line-335"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportSetting.html#ReportSetting"><span class="hs-identifier">ReportSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportSetting.html#newReportSetting"><span class="hs-identifier">newReportSetting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportSetting.html#reportSetting_frameworkArns"><span class="hs-identifier">reportSetting_frameworkArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportSetting.html#reportSetting_numberOfFrameworks"><span class="hs-identifier">reportSetting_numberOfFrameworks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportSetting.html#reportSetting_reportTemplate"><span class="hs-identifier">reportSetting_reportTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-340"></span><span>
+</span><span id="line-341"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RestoreJobsListMember</span></span><span>
+</span><span id="line-342"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#RestoreJobsListMember"><span class="hs-identifier">RestoreJobsListMember</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-343"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#newRestoreJobsListMember"><span class="hs-identifier">newRestoreJobsListMember</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_status"><span class="hs-identifier">restoreJobsListMember_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_iamRoleArn"><span class="hs-identifier">restoreJobsListMember_iamRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-346"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_expectedCompletionTimeMinutes"><span class="hs-identifier">restoreJobsListMember_expectedCompletionTimeMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-347"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_restoreJobId"><span class="hs-identifier">restoreJobsListMember_restoreJobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-348"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_resourceType"><span class="hs-identifier">restoreJobsListMember_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-349"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_percentDone"><span class="hs-identifier">restoreJobsListMember_percentDone</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-350"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_accountId"><span class="hs-identifier">restoreJobsListMember_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-351"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_createdResourceArn"><span class="hs-identifier">restoreJobsListMember_createdResourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-352"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_statusMessage"><span class="hs-identifier">restoreJobsListMember_statusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-353"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_recoveryPointArn"><span class="hs-identifier">restoreJobsListMember_recoveryPointArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-354"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_backupSizeInBytes"><span class="hs-identifier">restoreJobsListMember_backupSizeInBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-355"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_creationDate"><span class="hs-identifier">restoreJobsListMember_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-356"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html#restoreJobsListMember_completionDate"><span class="hs-identifier">restoreJobsListMember_completionDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-357"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-358"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-359"></span><span>
+</span><span id="line-360"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.AdvancedBackupSetting.html"><span class="hs-identifier">Network.AWS.Backup.Types.AdvancedBackupSetting</span></a></span><span>
+</span><span id="line-361"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html"><span class="hs-identifier">Network.AWS.Backup.Types.BackupJob</span></a></span><span>
+</span><span id="line-362"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJobState.html"><span class="hs-identifier">Network.AWS.Backup.Types.BackupJobState</span></a></span><span>
+</span><span id="line-363"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlan.html"><span class="hs-identifier">Network.AWS.Backup.Types.BackupPlan</span></a></span><span>
+</span><span id="line-364"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlanInput.html"><span class="hs-identifier">Network.AWS.Backup.Types.BackupPlanInput</span></a></span><span>
+</span><span id="line-365"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlanTemplatesListMember.html"><span class="hs-identifier">Network.AWS.Backup.Types.BackupPlanTemplatesListMember</span></a></span><span>
+</span><span id="line-366"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupPlansListMember.html"><span class="hs-identifier">Network.AWS.Backup.Types.BackupPlansListMember</span></a></span><span>
+</span><span id="line-367"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRule.html"><span class="hs-identifier">Network.AWS.Backup.Types.BackupRule</span></a></span><span>
+</span><span id="line-368"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupRuleInput.html"><span class="hs-identifier">Network.AWS.Backup.Types.BackupRuleInput</span></a></span><span>
+</span><span id="line-369"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelection.html"><span class="hs-identifier">Network.AWS.Backup.Types.BackupSelection</span></a></span><span>
+</span><span id="line-370"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupSelectionsListMember.html"><span class="hs-identifier">Network.AWS.Backup.Types.BackupSelectionsListMember</span></a></span><span>
+</span><span id="line-371"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupVaultEvent.html"><span class="hs-identifier">Network.AWS.Backup.Types.BackupVaultEvent</span></a></span><span>
+</span><span id="line-372"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupVaultListMember.html"><span class="hs-identifier">Network.AWS.Backup.Types.BackupVaultListMember</span></a></span><span>
+</span><span id="line-373"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.CalculatedLifecycle.html"><span class="hs-identifier">Network.AWS.Backup.Types.CalculatedLifecycle</span></a></span><span>
+</span><span id="line-374"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.Condition.html"><span class="hs-identifier">Network.AWS.Backup.Types.Condition</span></a></span><span>
+</span><span id="line-375"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.ConditionType.html"><span class="hs-identifier">Network.AWS.Backup.Types.ConditionType</span></a></span><span>
+</span><span id="line-376"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.ControlInputParameter.html"><span class="hs-identifier">Network.AWS.Backup.Types.ControlInputParameter</span></a></span><span>
+</span><span id="line-377"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.ControlScope.html"><span class="hs-identifier">Network.AWS.Backup.Types.ControlScope</span></a></span><span>
+</span><span id="line-378"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyAction.html"><span class="hs-identifier">Network.AWS.Backup.Types.CopyAction</span></a></span><span>
+</span><span id="line-379"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJob.html"><span class="hs-identifier">Network.AWS.Backup.Types.CopyJob</span></a></span><span>
+</span><span id="line-380"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.CopyJobState.html"><span class="hs-identifier">Network.AWS.Backup.Types.CopyJobState</span></a></span><span>
+</span><span id="line-381"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.Framework.html"><span class="hs-identifier">Network.AWS.Backup.Types.Framework</span></a></span><span>
+</span><span id="line-382"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.FrameworkControl.html"><span class="hs-identifier">Network.AWS.Backup.Types.FrameworkControl</span></a></span><span>
+</span><span id="line-383"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.Lifecycle.html"><span class="hs-identifier">Network.AWS.Backup.Types.Lifecycle</span></a></span><span>
+</span><span id="line-384"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.ProtectedResource.html"><span class="hs-identifier">Network.AWS.Backup.Types.ProtectedResource</span></a></span><span>
+</span><span id="line-385"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByBackupVault.html"><span class="hs-identifier">Network.AWS.Backup.Types.RecoveryPointByBackupVault</span></a></span><span>
+</span><span id="line-386"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointByResource.html"><span class="hs-identifier">Network.AWS.Backup.Types.RecoveryPointByResource</span></a></span><span>
+</span><span id="line-387"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointCreator.html"><span class="hs-identifier">Network.AWS.Backup.Types.RecoveryPointCreator</span></a></span><span>
+</span><span id="line-388"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RecoveryPointStatus.html"><span class="hs-identifier">Network.AWS.Backup.Types.RecoveryPointStatus</span></a></span><span>
+</span><span id="line-389"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportDeliveryChannel.html"><span class="hs-identifier">Network.AWS.Backup.Types.ReportDeliveryChannel</span></a></span><span>
+</span><span id="line-390"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportDestination.html"><span class="hs-identifier">Network.AWS.Backup.Types.ReportDestination</span></a></span><span>
+</span><span id="line-391"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportJob.html"><span class="hs-identifier">Network.AWS.Backup.Types.ReportJob</span></a></span><span>
+</span><span id="line-392"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportPlan.html"><span class="hs-identifier">Network.AWS.Backup.Types.ReportPlan</span></a></span><span>
+</span><span id="line-393"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportSetting.html"><span class="hs-identifier">Network.AWS.Backup.Types.ReportSetting</span></a></span><span>
+</span><span id="line-394"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobStatus.html"><span class="hs-identifier">Network.AWS.Backup.Types.RestoreJobStatus</span></a></span><span>
+</span><span id="line-395"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.RestoreJobsListMember.html"><span class="hs-identifier">Network.AWS.Backup.Types.RestoreJobsListMember</span></a></span><span>
+</span><span id="line-396"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.StorageClass.html"><span class="hs-identifier">Network.AWS.Backup.Types.StorageClass</span></a></span><span>
+</span><span id="line-397"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-398"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-399"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-400"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-401"></span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- | API version @2018-11-15@ of the Amazon Backup SDK configuration.</span><span>
+</span><span id="line-403"></span><span class="annot"><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-404"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-405"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-406"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;Backup&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-407"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-408"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;backup&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-409"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;backup&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-410"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2018-11-15&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-411"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-412"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-413"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-414"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-415"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;Backup&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-416"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679311076"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-417"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-418"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-419"></span><span>    </span><span id="local-6989586621679311076"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679311076"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-420"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-421"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-422"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-423"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-424"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679311070"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-425"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-426"></span><span>    </span><span id="local-6989586621679311070"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679311070"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679311069"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679311069"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-427"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-428"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-429"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-430"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-431"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679311069"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-432"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-433"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679311069"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-434"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-435"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-436"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-437"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-438"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-439"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679311069"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-440"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-441"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-442"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-443"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-444"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-445"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679311069"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-446"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-447"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-448"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-449"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-450"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-451"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-452"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679311069"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-453"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-454"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679311069"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-455"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-456"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-457"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-458"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-459"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-460"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679311069"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-461"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-462"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679311069"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-463"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-464"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679311069"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-465"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-466"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679311069"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-467"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-468"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679311069"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-469"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-470"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-471"></span><span>
+</span><span id="line-472"></span><span class="hs-comment">-- | Indicates that something is wrong with the input to the request. For</span><span>
+</span><span id="line-473"></span><span class="hs-comment">-- example, a parameter is of the wrong type.</span><span>
+</span><span id="line-474"></span><span id="local-6989586621679311064"><span class="annot"><a href="Network.AWS.Backup.Types.html#_InvalidRequestException"><span class="hs-identifier hs-type">_InvalidRequestException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679311064"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679311064"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-475"></span><span id="_InvalidRequestException"><span class="annot"><span class="annottext">_InvalidRequestException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Backup.Types.html#_InvalidRequestException"><span class="hs-identifier hs-var hs-var">_InvalidRequestException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-476"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-477"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-478"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidRequestException&quot;</span></span><span>
+</span><span id="line-479"></span><span>
+</span><span id="line-480"></span><span class="hs-comment">-- | A dependent Amazon Web Services service or resource returned an error to</span><span>
+</span><span id="line-481"></span><span class="hs-comment">-- the Backup service, and the action cannot be completed.</span><span>
+</span><span id="line-482"></span><span id="local-6989586621679311062"><span class="annot"><a href="Network.AWS.Backup.Types.html#_DependencyFailureException"><span class="hs-identifier hs-type">_DependencyFailureException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679311062"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679311062"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-483"></span><span id="_DependencyFailureException"><span class="annot"><span class="annottext">_DependencyFailureException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Backup.Types.html#_DependencyFailureException"><span class="hs-identifier hs-var hs-var">_DependencyFailureException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-484"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-485"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-486"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;DependencyFailureException&quot;</span></span><span>
+</span><span id="line-487"></span><span>
+</span><span id="line-488"></span><span class="hs-comment">-- | Backup is already performing an action on this recovery point. It can\'t</span><span>
+</span><span id="line-489"></span><span class="hs-comment">-- perform the action you requested until the first action finishes. Try</span><span>
+</span><span id="line-490"></span><span class="hs-comment">-- again later.</span><span>
+</span><span id="line-491"></span><span id="local-6989586621679311061"><span class="annot"><a href="Network.AWS.Backup.Types.html#_InvalidResourceStateException"><span class="hs-identifier hs-type">_InvalidResourceStateException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679311061"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679311061"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-492"></span><span id="_InvalidResourceStateException"><span class="annot"><span class="annottext">_InvalidResourceStateException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Backup.Types.html#_InvalidResourceStateException"><span class="hs-identifier hs-var hs-var">_InvalidResourceStateException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-493"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-494"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-495"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidResourceStateException&quot;</span></span><span>
+</span><span id="line-496"></span><span>
+</span><span id="line-497"></span><span class="hs-comment">-- | Backup can\'t perform the action that you requested until it finishes</span><span>
+</span><span id="line-498"></span><span class="hs-comment">-- performing a previous action. Try again later.</span><span>
+</span><span id="line-499"></span><span id="local-6989586621679311060"><span class="annot"><a href="Network.AWS.Backup.Types.html#_ConflictException"><span class="hs-identifier hs-type">_ConflictException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679311060"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679311060"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-500"></span><span id="_ConflictException"><span class="annot"><span class="annottext">_ConflictException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Backup.Types.html#_ConflictException"><span class="hs-identifier hs-var hs-var">_ConflictException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-501"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-502"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-503"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ConflictException&quot;</span></span><span>
+</span><span id="line-504"></span><span>
+</span><span id="line-505"></span><span class="hs-comment">-- | Indicates that something is wrong with a parameter\'s value. For</span><span>
+</span><span id="line-506"></span><span class="hs-comment">-- example, the value is out of range.</span><span>
+</span><span id="line-507"></span><span id="local-6989586621679311059"><span class="annot"><a href="Network.AWS.Backup.Types.html#_InvalidParameterValueException"><span class="hs-identifier hs-type">_InvalidParameterValueException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679311059"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679311059"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-508"></span><span id="_InvalidParameterValueException"><span class="annot"><span class="annottext">_InvalidParameterValueException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Backup.Types.html#_InvalidParameterValueException"><span class="hs-identifier hs-var hs-var">_InvalidParameterValueException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-509"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-510"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-511"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidParameterValueException&quot;</span></span><span>
+</span><span id="line-512"></span><span>
+</span><span id="line-513"></span><span class="hs-comment">-- | The request failed due to a temporary failure of the server.</span><span>
+</span><span id="line-514"></span><span id="local-6989586621679311058"><span class="annot"><a href="Network.AWS.Backup.Types.html#_ServiceUnavailableException"><span class="hs-identifier hs-type">_ServiceUnavailableException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679311058"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679311058"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-515"></span><span id="_ServiceUnavailableException"><span class="annot"><span class="annottext">_ServiceUnavailableException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Backup.Types.html#_ServiceUnavailableException"><span class="hs-identifier hs-var hs-var">_ServiceUnavailableException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-516"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-517"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-518"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ServiceUnavailableException&quot;</span></span><span>
+</span><span id="line-519"></span><span>
+</span><span id="line-520"></span><span class="hs-comment">-- | A resource that is required for the action doesn\'t exist.</span><span>
+</span><span id="line-521"></span><span id="local-6989586621679311057"><span class="annot"><a href="Network.AWS.Backup.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679311057"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679311057"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-522"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Backup.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-523"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-524"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-525"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span id="line-526"></span><span>
+</span><span id="line-527"></span><span class="hs-comment">-- | The required resource already exists.</span><span>
+</span><span id="line-528"></span><span id="local-6989586621679311056"><span class="annot"><a href="Network.AWS.Backup.Types.html#_AlreadyExistsException"><span class="hs-identifier hs-type">_AlreadyExistsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679311056"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679311056"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-529"></span><span id="_AlreadyExistsException"><span class="annot"><span class="annottext">_AlreadyExistsException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Backup.Types.html#_AlreadyExistsException"><span class="hs-identifier hs-var hs-var">_AlreadyExistsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-530"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-531"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-532"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;AlreadyExistsException&quot;</span></span><span>
+</span><span id="line-533"></span><span>
+</span><span id="line-534"></span><span class="hs-comment">-- | A limit in the request has been exceeded; for example, a maximum number</span><span>
+</span><span id="line-535"></span><span class="hs-comment">-- of items allowed in a request.</span><span>
+</span><span id="line-536"></span><span id="local-6989586621679311055"><span class="annot"><a href="Network.AWS.Backup.Types.html#_LimitExceededException"><span class="hs-identifier hs-type">_LimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679311055"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679311055"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-537"></span><span id="_LimitExceededException"><span class="annot"><span class="annottext">_LimitExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Backup.Types.html#_LimitExceededException"><span class="hs-identifier hs-var hs-var">_LimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-538"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-539"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-540"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;LimitExceededException&quot;</span></span><span>
+</span><span id="line-541"></span><span>
+</span><span id="line-542"></span><span class="hs-comment">-- | Indicates that a required parameter is missing.</span><span>
+</span><span id="line-543"></span><span id="local-6989586621679311054"><span class="annot"><a href="Network.AWS.Backup.Types.html#_MissingParameterValueException"><span class="hs-identifier hs-type">_MissingParameterValueException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679311054"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679311054"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-544"></span><span id="_MissingParameterValueException"><span class="annot"><span class="annottext">_MissingParameterValueException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Backup.Types.html#_MissingParameterValueException"><span class="hs-identifier hs-var hs-var">_MissingParameterValueException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-545"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-546"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-547"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;MissingParameterValueException&quot;</span></span><span>
+</span><span id="line-548"></span></pre></body></html>

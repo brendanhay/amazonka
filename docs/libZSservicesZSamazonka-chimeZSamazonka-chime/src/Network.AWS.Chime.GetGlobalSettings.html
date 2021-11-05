@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.GetGlobalSettings</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves global settings for the administrator\'s AWS account, such as</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Amazon Chime Business Calling and Amazon Chime Voice Connector settings.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.GetGlobalSettings</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettings"><span class="hs-identifier">GetGlobalSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#newGetGlobalSettings"><span class="hs-identifier">newGetGlobalSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse"><span class="hs-identifier">GetGlobalSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#newGetGlobalSettingsResponse"><span class="hs-identifier">newGetGlobalSettingsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#getGlobalSettingsResponse_businessCalling"><span class="hs-identifier">getGlobalSettingsResponse_businessCalling</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#getGlobalSettingsResponse_voiceConnector"><span class="hs-identifier">getGlobalSettingsResponse_voiceConnector</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#getGlobalSettingsResponse_httpStatus"><span class="hs-identifier">getGlobalSettingsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.html"><span class="hs-identifier">Network.AWS.Chime.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newGetGlobalSettings' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679541903"><span id="local-6989586621679541904"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGlobalSettings"><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettings"><span class="hs-identifier hs-var">GetGlobalSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGlobalSettings%27"><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettings%27"><span class="hs-identifier hs-var">GetGlobalSettings'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679541898"><span id="local-6989586621679541900"><span class="annot"><span class="annottext">GetGlobalSettings -&gt; GetGlobalSettings -&gt; Bool
+(GetGlobalSettings -&gt; GetGlobalSettings -&gt; Bool)
+-&gt; (GetGlobalSettings -&gt; GetGlobalSettings -&gt; Bool)
+-&gt; Eq GetGlobalSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetGlobalSettings -&gt; GetGlobalSettings -&gt; Bool
+$c/= :: GetGlobalSettings -&gt; GetGlobalSettings -&gt; Bool
+== :: GetGlobalSettings -&gt; GetGlobalSettings -&gt; Bool
+$c== :: GetGlobalSettings -&gt; GetGlobalSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679541889"><span id="local-6989586621679541891"><span id="local-6989586621679541893"><span id="local-6989586621679541895"><span class="annot"><span class="annottext">ReadPrec [GetGlobalSettings]
+ReadPrec GetGlobalSettings
+Int -&gt; ReadS GetGlobalSettings
+ReadS [GetGlobalSettings]
+(Int -&gt; ReadS GetGlobalSettings)
+-&gt; ReadS [GetGlobalSettings]
+-&gt; ReadPrec GetGlobalSettings
+-&gt; ReadPrec [GetGlobalSettings]
+-&gt; Read GetGlobalSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetGlobalSettings]
+$creadListPrec :: ReadPrec [GetGlobalSettings]
+readPrec :: ReadPrec GetGlobalSettings
+$creadPrec :: ReadPrec GetGlobalSettings
+readList :: ReadS [GetGlobalSettings]
+$creadList :: ReadS [GetGlobalSettings]
+readsPrec :: Int -&gt; ReadS GetGlobalSettings
+$creadsPrec :: Int -&gt; ReadS GetGlobalSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679541882"><span id="local-6989586621679541884"><span id="local-6989586621679541886"><span class="annot"><span class="annottext">Int -&gt; GetGlobalSettings -&gt; ShowS
+[GetGlobalSettings] -&gt; ShowS
+GetGlobalSettings -&gt; String
+(Int -&gt; GetGlobalSettings -&gt; ShowS)
+-&gt; (GetGlobalSettings -&gt; String)
+-&gt; ([GetGlobalSettings] -&gt; ShowS)
+-&gt; Show GetGlobalSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetGlobalSettings] -&gt; ShowS
+$cshowList :: [GetGlobalSettings] -&gt; ShowS
+show :: GetGlobalSettings -&gt; String
+$cshow :: GetGlobalSettings -&gt; String
+showsPrec :: Int -&gt; GetGlobalSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetGlobalSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetGlobalSettings -&gt; Rep GetGlobalSettings x)
+-&gt; (forall x. Rep GetGlobalSettings x -&gt; GetGlobalSettings)
+-&gt; Generic GetGlobalSettings
+forall x. Rep GetGlobalSettings x -&gt; GetGlobalSettings
+forall x. GetGlobalSettings -&gt; Rep GetGlobalSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetGlobalSettings x -&gt; GetGlobalSettings
+$cfrom :: forall x. GetGlobalSettings -&gt; Rep GetGlobalSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'GetGlobalSettings' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#newGetGlobalSettings"><span class="hs-identifier hs-type">newGetGlobalSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettings"><span class="hs-identifier hs-type">GetGlobalSettings</span></a></span><span>
+</span><span id="line-60"></span><span id="newGetGlobalSettings"><span class="annot"><span class="annottext">newGetGlobalSettings :: GetGlobalSettings
+</span><a href="Network.AWS.Chime.GetGlobalSettings.html#newGetGlobalSettings"><span class="hs-identifier hs-var hs-var">newGetGlobalSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetGlobalSettings
+</span><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettings%27"><span class="hs-identifier hs-var">GetGlobalSettings'</span></a></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettings"><span class="hs-identifier hs-type">GetGlobalSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-64"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettings"><span class="hs-identifier hs-type">GetGlobalSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse"><span class="hs-identifier hs-type">GetGlobalSettingsResponse</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679541874"><span class="annot"><span class="annottext">request :: GetGlobalSettings -&gt; Request GetGlobalSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetGlobalSettings -&gt; Request GetGlobalSettings
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679541870"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetGlobalSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetGlobalSettings)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetGlobalSettings))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetGlobalSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetGlobalSettings)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679541867"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679541867"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679541866"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679541866"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679541865"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679541865"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe BusinessCallingSettings
+-&gt; Maybe VoiceConnectorSettings -&gt; Int -&gt; GetGlobalSettingsResponse
+</span><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse%27"><span class="hs-identifier hs-var">GetGlobalSettingsResponse'</span></a></span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe BusinessCallingSettings
+ -&gt; Maybe VoiceConnectorSettings
+ -&gt; Int
+ -&gt; GetGlobalSettingsResponse)
+-&gt; Either String (Maybe BusinessCallingSettings)
+-&gt; Either
+     String
+     (Maybe VoiceConnectorSettings -&gt; Int -&gt; GetGlobalSettingsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679541865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe BusinessCallingSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BusinessCalling&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe VoiceConnectorSettings -&gt; Int -&gt; GetGlobalSettingsResponse)
+-&gt; Either String (Maybe VoiceConnectorSettings)
+-&gt; Either String (Int -&gt; GetGlobalSettingsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679541865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VoiceConnectorSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VoiceConnector&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetGlobalSettingsResponse)
+-&gt; Either String Int -&gt; Either String GetGlobalSettingsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679541867"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679541857"><span id="local-6989586621679541859"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettings"><span class="hs-identifier hs-type">GetGlobalSettings</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679541854"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettings"><span class="hs-identifier hs-type">GetGlobalSettings</span></a></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettings"><span class="hs-identifier hs-type">GetGlobalSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679541850"><span class="annot"><span class="annottext">toHeaders :: GetGlobalSettings -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetGlobalSettings -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettings"><span class="hs-identifier hs-type">GetGlobalSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679541845"><span class="annot"><span class="annottext">toPath :: GetGlobalSettings -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetGlobalSettings -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/settings&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettings"><span class="hs-identifier hs-type">GetGlobalSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679541841"><span class="annot"><span class="annottext">toQuery :: GetGlobalSettings -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetGlobalSettings -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | /See:/ 'newGetGlobalSettingsResponse' smart constructor.</span><span>
+</span><span id="line-90"></span><span id="local-6989586621679541838"><span id="local-6989586621679541839"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGlobalSettingsResponse"><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse"><span class="hs-identifier hs-var">GetGlobalSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGlobalSettingsResponse%27"><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse%27"><span class="hs-identifier hs-var">GetGlobalSettingsResponse'</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime Business Calling settings.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AbusinessCalling%3AGetGlobalSettingsResponse%27"><span class="annot"><span class="annottext">GetGlobalSettingsResponse -&gt; Maybe BusinessCallingSettings
+</span><a href="Network.AWS.Chime.GetGlobalSettings.html#%24sel%3AbusinessCalling%3AGetGlobalSettingsResponse%27"><span class="hs-identifier hs-var hs-var">businessCalling</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.BusinessCallingSettings.html#BusinessCallingSettings"><span class="hs-identifier hs-type">BusinessCallingSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The Amazon Chime Voice Connector settings.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AvoiceConnector%3AGetGlobalSettingsResponse%27"><span class="annot"><span class="annottext">GetGlobalSettingsResponse -&gt; Maybe VoiceConnectorSettings
+</span><a href="Network.AWS.Chime.GetGlobalSettings.html#%24sel%3AvoiceConnector%3AGetGlobalSettingsResponse%27"><span class="hs-identifier hs-var hs-var">voiceConnector</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.VoiceConnectorSettings.html#VoiceConnectorSettings"><span class="hs-identifier hs-type">VoiceConnectorSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetGlobalSettingsResponse%27"><span class="annot"><span class="annottext">GetGlobalSettingsResponse -&gt; Int
+</span><a href="Network.AWS.Chime.GetGlobalSettings.html#%24sel%3AhttpStatus%3AGetGlobalSettingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679541831"><span id="local-6989586621679541833"><span class="annot"><span class="annottext">GetGlobalSettingsResponse -&gt; GetGlobalSettingsResponse -&gt; Bool
+(GetGlobalSettingsResponse -&gt; GetGlobalSettingsResponse -&gt; Bool)
+-&gt; (GetGlobalSettingsResponse -&gt; GetGlobalSettingsResponse -&gt; Bool)
+-&gt; Eq GetGlobalSettingsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetGlobalSettingsResponse -&gt; GetGlobalSettingsResponse -&gt; Bool
+$c/= :: GetGlobalSettingsResponse -&gt; GetGlobalSettingsResponse -&gt; Bool
+== :: GetGlobalSettingsResponse -&gt; GetGlobalSettingsResponse -&gt; Bool
+$c== :: GetGlobalSettingsResponse -&gt; GetGlobalSettingsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679541823"><span id="local-6989586621679541825"><span id="local-6989586621679541827"><span id="local-6989586621679541829"><span class="annot"><span class="annottext">ReadPrec [GetGlobalSettingsResponse]
+ReadPrec GetGlobalSettingsResponse
+Int -&gt; ReadS GetGlobalSettingsResponse
+ReadS [GetGlobalSettingsResponse]
+(Int -&gt; ReadS GetGlobalSettingsResponse)
+-&gt; ReadS [GetGlobalSettingsResponse]
+-&gt; ReadPrec GetGlobalSettingsResponse
+-&gt; ReadPrec [GetGlobalSettingsResponse]
+-&gt; Read GetGlobalSettingsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetGlobalSettingsResponse]
+$creadListPrec :: ReadPrec [GetGlobalSettingsResponse]
+readPrec :: ReadPrec GetGlobalSettingsResponse
+$creadPrec :: ReadPrec GetGlobalSettingsResponse
+readList :: ReadS [GetGlobalSettingsResponse]
+$creadList :: ReadS [GetGlobalSettingsResponse]
+readsPrec :: Int -&gt; ReadS GetGlobalSettingsResponse
+$creadsPrec :: Int -&gt; ReadS GetGlobalSettingsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679541817"><span id="local-6989586621679541819"><span id="local-6989586621679541821"><span class="annot"><span class="annottext">Int -&gt; GetGlobalSettingsResponse -&gt; ShowS
+[GetGlobalSettingsResponse] -&gt; ShowS
+GetGlobalSettingsResponse -&gt; String
+(Int -&gt; GetGlobalSettingsResponse -&gt; ShowS)
+-&gt; (GetGlobalSettingsResponse -&gt; String)
+-&gt; ([GetGlobalSettingsResponse] -&gt; ShowS)
+-&gt; Show GetGlobalSettingsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetGlobalSettingsResponse] -&gt; ShowS
+$cshowList :: [GetGlobalSettingsResponse] -&gt; ShowS
+show :: GetGlobalSettingsResponse -&gt; String
+$cshow :: GetGlobalSettingsResponse -&gt; String
+showsPrec :: Int -&gt; GetGlobalSettingsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetGlobalSettingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetGlobalSettingsResponse -&gt; Rep GetGlobalSettingsResponse x)
+-&gt; (forall x.
+    Rep GetGlobalSettingsResponse x -&gt; GetGlobalSettingsResponse)
+-&gt; Generic GetGlobalSettingsResponse
+forall x.
+Rep GetGlobalSettingsResponse x -&gt; GetGlobalSettingsResponse
+forall x.
+GetGlobalSettingsResponse -&gt; Rep GetGlobalSettingsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetGlobalSettingsResponse x -&gt; GetGlobalSettingsResponse
+$cfrom :: forall x.
+GetGlobalSettingsResponse -&gt; Rep GetGlobalSettingsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Create a value of 'GetGlobalSettingsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'businessCalling', 'getGlobalSettingsResponse_businessCalling' - The Amazon Chime Business Calling settings.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'voiceConnector', 'getGlobalSettingsResponse_voiceConnector' - The Amazon Chime Voice Connector settings.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'httpStatus', 'getGlobalSettingsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#newGetGlobalSettingsResponse"><span class="hs-identifier hs-type">newGetGlobalSettingsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse"><span class="hs-identifier hs-type">GetGlobalSettingsResponse</span></a></span><span>
+</span><span id="line-117"></span><span id="newGetGlobalSettingsResponse"><span class="annot"><span class="annottext">newGetGlobalSettingsResponse :: Int -&gt; GetGlobalSettingsResponse
+</span><a href="Network.AWS.Chime.GetGlobalSettings.html#newGetGlobalSettingsResponse"><span class="hs-identifier hs-var hs-var">newGetGlobalSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679541814"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679541814"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><span class="annottext">GetGlobalSettingsResponse' :: Maybe BusinessCallingSettings
+-&gt; Maybe VoiceConnectorSettings -&gt; Int -&gt; GetGlobalSettingsResponse
+</span><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse%27"><span class="hs-identifier hs-type">GetGlobalSettingsResponse'</span></a></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:businessCalling:GetGlobalSettingsResponse' :: Maybe BusinessCallingSettings
+</span><a href="Network.AWS.Chime.GetGlobalSettings.html#%24sel%3AbusinessCalling%3AGetGlobalSettingsResponse%27"><span class="hs-identifier hs-var">businessCalling</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Maybe BusinessCallingSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:voiceConnector:GetGlobalSettingsResponse' :: Maybe VoiceConnectorSettings
+</span><a href="Network.AWS.Chime.GetGlobalSettings.html#%24sel%3AvoiceConnector%3AGetGlobalSettingsResponse%27"><span class="hs-identifier hs-var">voiceConnector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VoiceConnectorSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetGlobalSettingsResponse' :: Int
+</span><a href="Network.AWS.Chime.GetGlobalSettings.html#%24sel%3AhttpStatus%3AGetGlobalSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679541814"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The Amazon Chime Business Calling settings.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#getGlobalSettingsResponse_businessCalling"><span class="hs-identifier hs-type">getGlobalSettingsResponse_businessCalling</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse"><span class="hs-identifier hs-type">GetGlobalSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.BusinessCallingSettings.html#BusinessCallingSettings"><span class="hs-identifier hs-type">BusinessCallingSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="getGlobalSettingsResponse_businessCalling"><span class="annot"><span class="annottext">getGlobalSettingsResponse_businessCalling :: (Maybe BusinessCallingSettings
+ -&gt; f (Maybe BusinessCallingSettings))
+-&gt; GetGlobalSettingsResponse -&gt; f GetGlobalSettingsResponse
+</span><a href="Network.AWS.Chime.GetGlobalSettings.html#getGlobalSettingsResponse_businessCalling"><span class="hs-identifier hs-var hs-var">getGlobalSettingsResponse_businessCalling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGlobalSettingsResponse -&gt; Maybe BusinessCallingSettings)
+-&gt; (GetGlobalSettingsResponse
+    -&gt; Maybe BusinessCallingSettings -&gt; GetGlobalSettingsResponse)
+-&gt; Lens
+     GetGlobalSettingsResponse
+     GetGlobalSettingsResponse
+     (Maybe BusinessCallingSettings)
+     (Maybe BusinessCallingSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse%27"><span class="hs-identifier hs-type">GetGlobalSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679541811"><span class="annot"><span class="annottext">Maybe BusinessCallingSettings
+businessCalling :: Maybe BusinessCallingSettings
+$sel:businessCalling:GetGlobalSettingsResponse' :: GetGlobalSettingsResponse -&gt; Maybe BusinessCallingSettings
+</span><a href="#local-6989586621679541811"><span class="hs-identifier hs-var hs-var">businessCalling</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BusinessCallingSettings
+</span><a href="#local-6989586621679541811"><span class="hs-identifier hs-var">businessCalling</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679541810"><span class="annot"><span class="annottext">s :: GetGlobalSettingsResponse
+</span><a href="#local-6989586621679541810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse%27"><span class="hs-identifier hs-type">GetGlobalSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679541809"><span class="annot"><span class="annottext">Maybe BusinessCallingSettings
+</span><a href="#local-6989586621679541809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGlobalSettingsResponse
+</span><a href="#local-6989586621679541810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:businessCalling:GetGlobalSettingsResponse' :: Maybe BusinessCallingSettings
+</span><a href="Network.AWS.Chime.GetGlobalSettings.html#%24sel%3AbusinessCalling%3AGetGlobalSettingsResponse%27"><span class="hs-identifier hs-var">businessCalling</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BusinessCallingSettings
+</span><a href="#local-6989586621679541809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse"><span class="hs-identifier hs-type">GetGlobalSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The Amazon Chime Voice Connector settings.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#getGlobalSettingsResponse_voiceConnector"><span class="hs-identifier hs-type">getGlobalSettingsResponse_voiceConnector</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse"><span class="hs-identifier hs-type">GetGlobalSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.VoiceConnectorSettings.html#VoiceConnectorSettings"><span class="hs-identifier hs-type">VoiceConnectorSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="getGlobalSettingsResponse_voiceConnector"><span class="annot"><span class="annottext">getGlobalSettingsResponse_voiceConnector :: (Maybe VoiceConnectorSettings -&gt; f (Maybe VoiceConnectorSettings))
+-&gt; GetGlobalSettingsResponse -&gt; f GetGlobalSettingsResponse
+</span><a href="Network.AWS.Chime.GetGlobalSettings.html#getGlobalSettingsResponse_voiceConnector"><span class="hs-identifier hs-var hs-var">getGlobalSettingsResponse_voiceConnector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGlobalSettingsResponse -&gt; Maybe VoiceConnectorSettings)
+-&gt; (GetGlobalSettingsResponse
+    -&gt; Maybe VoiceConnectorSettings -&gt; GetGlobalSettingsResponse)
+-&gt; Lens
+     GetGlobalSettingsResponse
+     GetGlobalSettingsResponse
+     (Maybe VoiceConnectorSettings)
+     (Maybe VoiceConnectorSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse%27"><span class="hs-identifier hs-type">GetGlobalSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679541808"><span class="annot"><span class="annottext">Maybe VoiceConnectorSettings
+voiceConnector :: Maybe VoiceConnectorSettings
+$sel:voiceConnector:GetGlobalSettingsResponse' :: GetGlobalSettingsResponse -&gt; Maybe VoiceConnectorSettings
+</span><a href="#local-6989586621679541808"><span class="hs-identifier hs-var hs-var">voiceConnector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VoiceConnectorSettings
+</span><a href="#local-6989586621679541808"><span class="hs-identifier hs-var">voiceConnector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679541807"><span class="annot"><span class="annottext">s :: GetGlobalSettingsResponse
+</span><a href="#local-6989586621679541807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse%27"><span class="hs-identifier hs-type">GetGlobalSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679541806"><span class="annot"><span class="annottext">Maybe VoiceConnectorSettings
+</span><a href="#local-6989586621679541806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGlobalSettingsResponse
+</span><a href="#local-6989586621679541807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:voiceConnector:GetGlobalSettingsResponse' :: Maybe VoiceConnectorSettings
+</span><a href="Network.AWS.Chime.GetGlobalSettings.html#%24sel%3AvoiceConnector%3AGetGlobalSettingsResponse%27"><span class="hs-identifier hs-var">voiceConnector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VoiceConnectorSettings
+</span><a href="#local-6989586621679541806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse"><span class="hs-identifier hs-type">GetGlobalSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#getGlobalSettingsResponse_httpStatus"><span class="hs-identifier hs-type">getGlobalSettingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse"><span class="hs-identifier hs-type">GetGlobalSettingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-135"></span><span id="getGlobalSettingsResponse_httpStatus"><span class="annot"><span class="annottext">getGlobalSettingsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetGlobalSettingsResponse -&gt; f GetGlobalSettingsResponse
+</span><a href="Network.AWS.Chime.GetGlobalSettings.html#getGlobalSettingsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getGlobalSettingsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetGlobalSettingsResponse -&gt; Int)
+-&gt; (GetGlobalSettingsResponse -&gt; Int -&gt; GetGlobalSettingsResponse)
+-&gt; Lens GetGlobalSettingsResponse GetGlobalSettingsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse%27"><span class="hs-identifier hs-type">GetGlobalSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679541805"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetGlobalSettingsResponse' :: GetGlobalSettingsResponse -&gt; Int
+</span><a href="#local-6989586621679541805"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679541805"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679541804"><span class="annot"><span class="annottext">s :: GetGlobalSettingsResponse
+</span><a href="#local-6989586621679541804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse%27"><span class="hs-identifier hs-type">GetGlobalSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679541803"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679541803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGlobalSettingsResponse
+</span><a href="#local-6989586621679541804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGlobalSettingsResponse' :: Int
+</span><a href="Network.AWS.Chime.GetGlobalSettings.html#%24sel%3AhttpStatus%3AGetGlobalSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679541803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse"><span class="hs-identifier hs-type">GetGlobalSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679541801"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetGlobalSettings.html#GetGlobalSettingsResponse"><span class="hs-identifier hs-type">GetGlobalSettingsResponse</span></a></span></span><span>
+</span><span id="line-138"></span></pre></body></html>

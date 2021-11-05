@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Forecast.Types.ScalingType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Forecast.Types.ScalingType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType"><span class="hs-identifier">ScalingType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType_Auto"><span class="hs-identifier">ScalingType_Auto</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType_Linear"><span class="hs-identifier">ScalingType_Linear</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType_Logarithmic"><span class="hs-identifier">ScalingType_Logarithmic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType_ReverseLogarithmic"><span class="hs-identifier">ScalingType_ReverseLogarithmic</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679249019"><span id="local-6989586621679249020"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScalingType"><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType"><span class="hs-identifier hs-var">ScalingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingType%27"><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType%27"><span class="hs-identifier hs-var">ScalingType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScalingType"><span class="annot"><span class="annottext">ScalingType -&gt; Text
+</span><a href="Network.AWS.Forecast.Types.ScalingType.html#fromScalingType"><span class="hs-identifier hs-var hs-var">fromScalingType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249011"><span id="local-6989586621679249013"><span id="local-6989586621679249015"><span class="annot"><span class="annottext">Int -&gt; ScalingType -&gt; ShowS
+[ScalingType] -&gt; ShowS
+ScalingType -&gt; String
+(Int -&gt; ScalingType -&gt; ShowS)
+-&gt; (ScalingType -&gt; String)
+-&gt; ([ScalingType] -&gt; ShowS)
+-&gt; Show ScalingType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScalingType] -&gt; ShowS
+$cshowList :: [ScalingType] -&gt; ShowS
+show :: ScalingType -&gt; String
+$cshow :: ScalingType -&gt; String
+showsPrec :: Int -&gt; ScalingType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScalingType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679249002"><span id="local-6989586621679249004"><span id="local-6989586621679249006"><span id="local-6989586621679249008"><span class="annot"><span class="annottext">ReadPrec [ScalingType]
+ReadPrec ScalingType
+Int -&gt; ReadS ScalingType
+ReadS [ScalingType]
+(Int -&gt; ReadS ScalingType)
+-&gt; ReadS [ScalingType]
+-&gt; ReadPrec ScalingType
+-&gt; ReadPrec [ScalingType]
+-&gt; Read ScalingType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScalingType]
+$creadListPrec :: ReadPrec [ScalingType]
+readPrec :: ReadPrec ScalingType
+$creadPrec :: ReadPrec ScalingType
+readList :: ReadS [ScalingType]
+$creadList :: ReadS [ScalingType]
+readsPrec :: Int -&gt; ReadS ScalingType
+$creadsPrec :: Int -&gt; ReadS ScalingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679248997"><span id="local-6989586621679248999"><span class="annot"><span class="annottext">ScalingType -&gt; ScalingType -&gt; Bool
+(ScalingType -&gt; ScalingType -&gt; Bool)
+-&gt; (ScalingType -&gt; ScalingType -&gt; Bool) -&gt; Eq ScalingType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScalingType -&gt; ScalingType -&gt; Bool
+$c/= :: ScalingType -&gt; ScalingType -&gt; Bool
+== :: ScalingType -&gt; ScalingType -&gt; Bool
+$c== :: ScalingType -&gt; ScalingType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679248981"><span id="local-6989586621679248983"><span id="local-6989586621679248985"><span id="local-6989586621679248987"><span id="local-6989586621679248989"><span id="local-6989586621679248991"><span id="local-6989586621679248993"><span class="annot"><span class="annottext">Eq ScalingType
+Eq ScalingType
+-&gt; (ScalingType -&gt; ScalingType -&gt; Ordering)
+-&gt; (ScalingType -&gt; ScalingType -&gt; Bool)
+-&gt; (ScalingType -&gt; ScalingType -&gt; Bool)
+-&gt; (ScalingType -&gt; ScalingType -&gt; Bool)
+-&gt; (ScalingType -&gt; ScalingType -&gt; Bool)
+-&gt; (ScalingType -&gt; ScalingType -&gt; ScalingType)
+-&gt; (ScalingType -&gt; ScalingType -&gt; ScalingType)
+-&gt; Ord ScalingType
+ScalingType -&gt; ScalingType -&gt; Bool
+ScalingType -&gt; ScalingType -&gt; Ordering
+ScalingType -&gt; ScalingType -&gt; ScalingType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ScalingType -&gt; ScalingType -&gt; ScalingType
+$cmin :: ScalingType -&gt; ScalingType -&gt; ScalingType
+max :: ScalingType -&gt; ScalingType -&gt; ScalingType
+$cmax :: ScalingType -&gt; ScalingType -&gt; ScalingType
+&gt;= :: ScalingType -&gt; ScalingType -&gt; Bool
+$c&gt;= :: ScalingType -&gt; ScalingType -&gt; Bool
+&gt; :: ScalingType -&gt; ScalingType -&gt; Bool
+$c&gt; :: ScalingType -&gt; ScalingType -&gt; Bool
+&lt;= :: ScalingType -&gt; ScalingType -&gt; Bool
+$c&lt;= :: ScalingType -&gt; ScalingType -&gt; Bool
+&lt; :: ScalingType -&gt; ScalingType -&gt; Bool
+$c&lt; :: ScalingType -&gt; ScalingType -&gt; Bool
+compare :: ScalingType -&gt; ScalingType -&gt; Ordering
+$ccompare :: ScalingType -&gt; ScalingType -&gt; Ordering
+$cp1Ord :: Eq ScalingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ScalingType -&gt; Rep ScalingType x)
+-&gt; (forall x. Rep ScalingType x -&gt; ScalingType)
+-&gt; Generic ScalingType
+forall x. Rep ScalingType x -&gt; ScalingType
+forall x. ScalingType -&gt; Rep ScalingType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ScalingType x -&gt; ScalingType
+$cfrom :: forall x. ScalingType -&gt; Rep ScalingType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248973"><span id="local-6989586621679248975"><span class="annot"><span class="annottext">Int -&gt; ScalingType -&gt; Int
+ScalingType -&gt; Int
+(Int -&gt; ScalingType -&gt; Int)
+-&gt; (ScalingType -&gt; Int) -&gt; Hashable ScalingType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ScalingType -&gt; Int
+$chash :: ScalingType -&gt; Int
+hashWithSalt :: Int -&gt; ScalingType -&gt; Int
+$chashWithSalt :: Int -&gt; ScalingType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679248970"><span class="annot"><span class="annottext">ScalingType -&gt; ()
+(ScalingType -&gt; ()) -&gt; NFData ScalingType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ScalingType -&gt; ()
+$crnf :: ScalingType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679248967"><span class="annot"><span class="annottext">Text -&gt; Either String ScalingType
+(Text -&gt; Either String ScalingType) -&gt; FromText ScalingType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ScalingType
+$cfromText :: Text -&gt; Either String ScalingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679248964"><span class="annot"><span class="annottext">ScalingType -&gt; Text
+(ScalingType -&gt; Text) -&gt; ToText ScalingType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ScalingType -&gt; Text
+$ctoText :: ScalingType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679248961"><span class="annot"><span class="annottext">ScalingType -&gt; ByteString
+(ScalingType -&gt; ByteString) -&gt; ToByteString ScalingType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ScalingType -&gt; ByteString
+$ctoBS :: ScalingType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248958"><span class="annot"><span class="annottext">ScalingType -&gt; ByteStringBuilder
+(ScalingType -&gt; ByteStringBuilder) -&gt; ToLog ScalingType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ScalingType -&gt; ByteStringBuilder
+$cbuild :: ScalingType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248955"><span class="annot"><span class="annottext">HeaderName -&gt; ScalingType -&gt; [Header]
+(HeaderName -&gt; ScalingType -&gt; [Header]) -&gt; ToHeader ScalingType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ScalingType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ScalingType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679248952"><span class="annot"><span class="annottext">ScalingType -&gt; QueryString
+(ScalingType -&gt; QueryString) -&gt; ToQuery ScalingType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ScalingType -&gt; QueryString
+$ctoQuery :: ScalingType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679248947"><span id="local-6989586621679248949"><span class="annot"><span class="annottext">Value -&gt; Parser [ScalingType]
+Value -&gt; Parser ScalingType
+(Value -&gt; Parser ScalingType)
+-&gt; (Value -&gt; Parser [ScalingType]) -&gt; FromJSON ScalingType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ScalingType]
+$cparseJSONList :: Value -&gt; Parser [ScalingType]
+parseJSON :: Value -&gt; Parser ScalingType
+$cparseJSON :: Value -&gt; Parser ScalingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679248942"><span id="local-6989586621679248944"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScalingType]
+FromJSONKeyFunction ScalingType
+FromJSONKeyFunction ScalingType
+-&gt; FromJSONKeyFunction [ScalingType] -&gt; FromJSONKey ScalingType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ScalingType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ScalingType]
+fromJSONKey :: FromJSONKeyFunction ScalingType
+$cfromJSONKey :: FromJSONKeyFunction ScalingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679248933"><span id="local-6989586621679248935"><span id="local-6989586621679248937"><span id="local-6989586621679248939"><span class="annot"><span class="annottext">[ScalingType] -&gt; Encoding
+[ScalingType] -&gt; Value
+ScalingType -&gt; Encoding
+ScalingType -&gt; Value
+(ScalingType -&gt; Value)
+-&gt; (ScalingType -&gt; Encoding)
+-&gt; ([ScalingType] -&gt; Value)
+-&gt; ([ScalingType] -&gt; Encoding)
+-&gt; ToJSON ScalingType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ScalingType] -&gt; Encoding
+$ctoEncodingList :: [ScalingType] -&gt; Encoding
+toJSONList :: [ScalingType] -&gt; Value
+$ctoJSONList :: [ScalingType] -&gt; Value
+toEncoding :: ScalingType -&gt; Encoding
+$ctoEncoding :: ScalingType -&gt; Encoding
+toJSON :: ScalingType -&gt; Value
+$ctoJSON :: ScalingType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679248928"><span id="local-6989586621679248930"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScalingType]
+ToJSONKeyFunction ScalingType
+ToJSONKeyFunction ScalingType
+-&gt; ToJSONKeyFunction [ScalingType] -&gt; ToJSONKey ScalingType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ScalingType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ScalingType]
+toJSONKey :: ToJSONKeyFunction ScalingType
+$ctoJSONKey :: ToJSONKeyFunction ScalingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679248925"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScalingType
+([Node] -&gt; Either String ScalingType) -&gt; FromXML ScalingType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ScalingType
+$cparseXML :: [Node] -&gt; Either String ScalingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679248922"><span class="annot"><span class="annottext">ScalingType -&gt; XML
+(ScalingType -&gt; XML) -&gt; ToXML ScalingType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ScalingType -&gt; XML
+$ctoXML :: ScalingType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType_Auto"><span class="hs-identifier hs-type">ScalingType_Auto</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType"><span class="hs-identifier hs-type">ScalingType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalingType_Auto"><span id="%24mScalingType_Auto"><span id="ScalingType_Auto"><span class="annot"><span class="annottext">$bScalingType_Auto :: ScalingType
+$mScalingType_Auto :: forall r. ScalingType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Forecast.Types.ScalingType.html#%24bScalingType_Auto"><span class="hs-identifier hs-var hs-var hs-var">ScalingType_Auto</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType%27"><span class="hs-identifier hs-type">ScalingType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Auto&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType_Linear"><span class="hs-identifier hs-type">ScalingType_Linear</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType"><span class="hs-identifier hs-type">ScalingType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalingType_Linear"><span id="%24mScalingType_Linear"><span id="ScalingType_Linear"><span class="annot"><span class="annottext">$bScalingType_Linear :: ScalingType
+$mScalingType_Linear :: forall r. ScalingType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Forecast.Types.ScalingType.html#%24bScalingType_Linear"><span class="hs-identifier hs-var hs-var hs-var">ScalingType_Linear</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType%27"><span class="hs-identifier hs-type">ScalingType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Linear&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType_Logarithmic"><span class="hs-identifier hs-type">ScalingType_Logarithmic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType"><span class="hs-identifier hs-type">ScalingType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalingType_Logarithmic"><span id="%24mScalingType_Logarithmic"><span id="ScalingType_Logarithmic"><span class="annot"><span class="annottext">$bScalingType_Logarithmic :: ScalingType
+$mScalingType_Logarithmic :: forall r. ScalingType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Forecast.Types.ScalingType.html#%24bScalingType_Logarithmic"><span class="hs-identifier hs-var hs-var hs-var">ScalingType_Logarithmic</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType%27"><span class="hs-identifier hs-type">ScalingType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Logarithmic&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType_ReverseLogarithmic"><span class="hs-identifier hs-type">ScalingType_ReverseLogarithmic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType"><span class="hs-identifier hs-type">ScalingType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScalingType_ReverseLogarithmic"><span id="%24mScalingType_ReverseLogarithmic"><span id="ScalingType_ReverseLogarithmic"><span class="annot"><span class="annottext">$bScalingType_ReverseLogarithmic :: ScalingType
+$mScalingType_ReverseLogarithmic :: forall r. ScalingType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Forecast.Types.ScalingType.html#%24bScalingType_ReverseLogarithmic"><span class="hs-identifier hs-var hs-var hs-var">ScalingType_ReverseLogarithmic</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType%27"><span class="hs-identifier hs-type">ScalingType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ReverseLogarithmic&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType_Auto"><span class="hs-pragma hs-type">ScalingType_Auto</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType_Linear"><span class="hs-pragma hs-type">ScalingType_Linear</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType_Logarithmic"><span class="hs-pragma hs-type">ScalingType_Logarithmic</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType_ReverseLogarithmic"><span class="hs-pragma hs-type">ScalingType_ReverseLogarithmic</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Forecast.Types.ScalingType.html#ScalingType%27"><span class="hs-pragma hs-type">ScalingType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

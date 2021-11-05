@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Amplify.Types.ProductionBranch</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Amplify.Types.ProductionBranch</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Describes the information about a production branch for an Amplify app.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newProductionBranch' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679244563"><span id="local-6989586621679244564"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProductionBranch"><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch"><span class="hs-identifier hs-var">ProductionBranch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProductionBranch%27"><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch%27"><span class="hs-identifier hs-var">ProductionBranch'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The last deploy time of the production branch.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AlastDeployTime%3AProductionBranch%27"><span class="annot"><span class="annottext">ProductionBranch -&gt; Maybe POSIX
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#%24sel%3AlastDeployTime%3AProductionBranch%27"><span class="hs-identifier hs-var hs-var">lastDeployTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The status of the production branch.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3AProductionBranch%27"><span class="annot"><span class="annottext">ProductionBranch -&gt; Maybe Text
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#%24sel%3Astatus%3AProductionBranch%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The thumbnail URL for the production branch.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AthumbnailUrl%3AProductionBranch%27"><span class="annot"><span class="annottext">ProductionBranch -&gt; Maybe Text
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#%24sel%3AthumbnailUrl%3AProductionBranch%27"><span class="hs-identifier hs-var hs-var">thumbnailUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The branch name for the production branch.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AbranchName%3AProductionBranch%27"><span class="annot"><span class="annottext">ProductionBranch -&gt; Maybe Text
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#%24sel%3AbranchName%3AProductionBranch%27"><span class="hs-identifier hs-var hs-var">branchName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244554"><span id="local-6989586621679244556"><span class="annot"><span class="annottext">ProductionBranch -&gt; ProductionBranch -&gt; Bool
+(ProductionBranch -&gt; ProductionBranch -&gt; Bool)
+-&gt; (ProductionBranch -&gt; ProductionBranch -&gt; Bool)
+-&gt; Eq ProductionBranch
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProductionBranch -&gt; ProductionBranch -&gt; Bool
+$c/= :: ProductionBranch -&gt; ProductionBranch -&gt; Bool
+== :: ProductionBranch -&gt; ProductionBranch -&gt; Bool
+$c== :: ProductionBranch -&gt; ProductionBranch -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244545"><span id="local-6989586621679244547"><span id="local-6989586621679244549"><span id="local-6989586621679244551"><span class="annot"><span class="annottext">ReadPrec [ProductionBranch]
+ReadPrec ProductionBranch
+Int -&gt; ReadS ProductionBranch
+ReadS [ProductionBranch]
+(Int -&gt; ReadS ProductionBranch)
+-&gt; ReadS [ProductionBranch]
+-&gt; ReadPrec ProductionBranch
+-&gt; ReadPrec [ProductionBranch]
+-&gt; Read ProductionBranch
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProductionBranch]
+$creadListPrec :: ReadPrec [ProductionBranch]
+readPrec :: ReadPrec ProductionBranch
+$creadPrec :: ReadPrec ProductionBranch
+readList :: ReadS [ProductionBranch]
+$creadList :: ReadS [ProductionBranch]
+readsPrec :: Int -&gt; ReadS ProductionBranch
+$creadsPrec :: Int -&gt; ReadS ProductionBranch
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244538"><span id="local-6989586621679244540"><span id="local-6989586621679244542"><span class="annot"><span class="annottext">Int -&gt; ProductionBranch -&gt; ShowS
+[ProductionBranch] -&gt; ShowS
+ProductionBranch -&gt; String
+(Int -&gt; ProductionBranch -&gt; ShowS)
+-&gt; (ProductionBranch -&gt; String)
+-&gt; ([ProductionBranch] -&gt; ShowS)
+-&gt; Show ProductionBranch
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProductionBranch] -&gt; ShowS
+$cshowList :: [ProductionBranch] -&gt; ShowS
+show :: ProductionBranch -&gt; String
+$cshow :: ProductionBranch -&gt; String
+showsPrec :: Int -&gt; ProductionBranch -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProductionBranch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ProductionBranch -&gt; Rep ProductionBranch x)
+-&gt; (forall x. Rep ProductionBranch x -&gt; ProductionBranch)
+-&gt; Generic ProductionBranch
+forall x. Rep ProductionBranch x -&gt; ProductionBranch
+forall x. ProductionBranch -&gt; Rep ProductionBranch x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProductionBranch x -&gt; ProductionBranch
+$cfrom :: forall x. ProductionBranch -&gt; Rep ProductionBranch x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'ProductionBranch' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'lastDeployTime', 'productionBranch_lastDeployTime' - The last deploy time of the production branch.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'status', 'productionBranch_status' - The status of the production branch.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'thumbnailUrl', 'productionBranch_thumbnailUrl' - The thumbnail URL for the production branch.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'branchName', 'productionBranch_branchName' - The branch name for the production branch.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#newProductionBranch"><span class="hs-identifier hs-type">newProductionBranch</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch"><span class="hs-identifier hs-type">ProductionBranch</span></a></span><span>
+</span><span id="line-58"></span><span id="newProductionBranch"><span class="annot"><span class="annottext">newProductionBranch :: ProductionBranch
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#newProductionBranch"><span class="hs-identifier hs-var hs-var">newProductionBranch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ProductionBranch' :: Maybe POSIX
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ProductionBranch
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch%27"><span class="hs-identifier hs-type">ProductionBranch'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastDeployTime:ProductionBranch' :: Maybe POSIX
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#%24sel%3AlastDeployTime%3AProductionBranch%27"><span class="hs-identifier hs-var">lastDeployTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ProductionBranch' :: Maybe Text
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#%24sel%3Astatus%3AProductionBranch%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:thumbnailUrl:ProductionBranch' :: Maybe Text
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#%24sel%3AthumbnailUrl%3AProductionBranch%27"><span class="hs-identifier hs-var">thumbnailUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:branchName:ProductionBranch' :: Maybe Text
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#%24sel%3AbranchName%3AProductionBranch%27"><span class="hs-identifier hs-var">branchName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The last deploy time of the production branch.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#productionBranch_lastDeployTime"><span class="hs-identifier hs-type">productionBranch_lastDeployTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch"><span class="hs-identifier hs-type">ProductionBranch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="productionBranch_lastDeployTime"><span class="annot"><span class="annottext">productionBranch_lastDeployTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ProductionBranch -&gt; f ProductionBranch
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#productionBranch_lastDeployTime"><span class="hs-identifier hs-var hs-var">productionBranch_lastDeployTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProductionBranch -&gt; Maybe POSIX)
+-&gt; (ProductionBranch -&gt; Maybe POSIX -&gt; ProductionBranch)
+-&gt; Lens
+     ProductionBranch ProductionBranch (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch%27"><span class="hs-identifier hs-type">ProductionBranch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244529"><span class="annot"><span class="annottext">Maybe POSIX
+lastDeployTime :: Maybe POSIX
+$sel:lastDeployTime:ProductionBranch' :: ProductionBranch -&gt; Maybe POSIX
+</span><a href="#local-6989586621679244529"><span class="hs-identifier hs-var hs-var">lastDeployTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679244529"><span class="hs-identifier hs-var">lastDeployTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244528"><span class="annot"><span class="annottext">s :: ProductionBranch
+</span><a href="#local-6989586621679244528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch%27"><span class="hs-identifier hs-type">ProductionBranch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244527"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679244527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionBranch
+</span><a href="#local-6989586621679244528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastDeployTime:ProductionBranch' :: Maybe POSIX
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#%24sel%3AlastDeployTime%3AProductionBranch%27"><span class="hs-identifier hs-var">lastDeployTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679244527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch"><span class="hs-identifier hs-type">ProductionBranch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ProductionBranch -&gt; f ProductionBranch)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ProductionBranch
+-&gt; f ProductionBranch
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The status of the production branch.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#productionBranch_status"><span class="hs-identifier hs-type">productionBranch_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch"><span class="hs-identifier hs-type">ProductionBranch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="productionBranch_status"><span class="annot"><span class="annottext">productionBranch_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProductionBranch -&gt; f ProductionBranch
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#productionBranch_status"><span class="hs-identifier hs-var hs-var">productionBranch_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProductionBranch -&gt; Maybe Text)
+-&gt; (ProductionBranch -&gt; Maybe Text -&gt; ProductionBranch)
+-&gt; Lens ProductionBranch ProductionBranch (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch%27"><span class="hs-identifier hs-type">ProductionBranch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244522"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:ProductionBranch' :: ProductionBranch -&gt; Maybe Text
+</span><a href="#local-6989586621679244522"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244522"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244521"><span class="annot"><span class="annottext">s :: ProductionBranch
+</span><a href="#local-6989586621679244521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch%27"><span class="hs-identifier hs-type">ProductionBranch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244520"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionBranch
+</span><a href="#local-6989586621679244521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ProductionBranch' :: Maybe Text
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#%24sel%3Astatus%3AProductionBranch%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch"><span class="hs-identifier hs-type">ProductionBranch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The thumbnail URL for the production branch.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#productionBranch_thumbnailUrl"><span class="hs-identifier hs-type">productionBranch_thumbnailUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch"><span class="hs-identifier hs-type">ProductionBranch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="productionBranch_thumbnailUrl"><span class="annot"><span class="annottext">productionBranch_thumbnailUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProductionBranch -&gt; f ProductionBranch
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#productionBranch_thumbnailUrl"><span class="hs-identifier hs-var hs-var">productionBranch_thumbnailUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProductionBranch -&gt; Maybe Text)
+-&gt; (ProductionBranch -&gt; Maybe Text -&gt; ProductionBranch)
+-&gt; Lens ProductionBranch ProductionBranch (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch%27"><span class="hs-identifier hs-type">ProductionBranch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244518"><span class="annot"><span class="annottext">Maybe Text
+thumbnailUrl :: Maybe Text
+$sel:thumbnailUrl:ProductionBranch' :: ProductionBranch -&gt; Maybe Text
+</span><a href="#local-6989586621679244518"><span class="hs-identifier hs-var hs-var">thumbnailUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244518"><span class="hs-identifier hs-var">thumbnailUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244517"><span class="annot"><span class="annottext">s :: ProductionBranch
+</span><a href="#local-6989586621679244517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch%27"><span class="hs-identifier hs-type">ProductionBranch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244516"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionBranch
+</span><a href="#local-6989586621679244517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thumbnailUrl:ProductionBranch' :: Maybe Text
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#%24sel%3AthumbnailUrl%3AProductionBranch%27"><span class="hs-identifier hs-var">thumbnailUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch"><span class="hs-identifier hs-type">ProductionBranch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The branch name for the production branch.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#productionBranch_branchName"><span class="hs-identifier hs-type">productionBranch_branchName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch"><span class="hs-identifier hs-type">ProductionBranch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="productionBranch_branchName"><span class="annot"><span class="annottext">productionBranch_branchName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProductionBranch -&gt; f ProductionBranch
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#productionBranch_branchName"><span class="hs-identifier hs-var hs-var">productionBranch_branchName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProductionBranch -&gt; Maybe Text)
+-&gt; (ProductionBranch -&gt; Maybe Text -&gt; ProductionBranch)
+-&gt; Lens ProductionBranch ProductionBranch (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch%27"><span class="hs-identifier hs-type">ProductionBranch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244514"><span class="annot"><span class="annottext">Maybe Text
+branchName :: Maybe Text
+$sel:branchName:ProductionBranch' :: ProductionBranch -&gt; Maybe Text
+</span><a href="#local-6989586621679244514"><span class="hs-identifier hs-var hs-var">branchName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244514"><span class="hs-identifier hs-var">branchName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244513"><span class="annot"><span class="annottext">s :: ProductionBranch
+</span><a href="#local-6989586621679244513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch%27"><span class="hs-identifier hs-type">ProductionBranch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244512"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionBranch
+</span><a href="#local-6989586621679244513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchName:ProductionBranch' :: Maybe Text
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#%24sel%3AbranchName%3AProductionBranch%27"><span class="hs-identifier hs-var">branchName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch"><span class="hs-identifier hs-type">ProductionBranch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244509"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch"><span class="hs-identifier hs-type">ProductionBranch</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679244507"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProductionBranch
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ProductionBranch)
+-&gt; Value
+-&gt; Parser ProductionBranch
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ProductionBranch&quot;</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244504"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244504"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ProductionBranch
+</span><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch%27"><span class="hs-identifier hs-var">ProductionBranch'</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ProductionBranch)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ProductionBranch)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastDeployTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ProductionBranch)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ProductionBranch)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ProductionBranch)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ProductionBranch)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thumbnailUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ProductionBranch)
+-&gt; Parser (Maybe Text) -&gt; Parser ProductionBranch
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;branchName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244498"><span id="local-6989586621679244500"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch"><span class="hs-identifier hs-type">ProductionBranch</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.ProductionBranch.html#ProductionBranch"><span class="hs-identifier hs-type">ProductionBranch</span></a></span></span><span>
+</span><span id="line-97"></span></pre></body></html>

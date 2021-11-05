@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCreatePartitionIndex' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679739726"><span id="local-6989586621679739727"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePartitionIndex"><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-var">CreatePartitionIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePartitionIndex%27"><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-var">CreatePartitionIndex'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679739735"><span id="local-6989586621679739736"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePartitionIndex"><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-var">CreatePartitionIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePartitionIndex%27"><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-var">CreatePartitionIndex'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The catalog ID where the table resides.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AcatalogId%3ACreatePartitionIndex%27"><span class="annot"><span class="annottext">CreatePartitionIndex -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.CreatePartitionIndex.html#%24sel%3AcatalogId%3ACreatePartitionIndex%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3ApartitionIndex%3ACreatePartitionIndex%27"><span class="annot"><span class="annottext">CreatePartitionIndex -&gt; PartitionIndex
 </span><a href="Network.AWS.Glue.CreatePartitionIndex.html#%24sel%3ApartitionIndex%3ACreatePartitionIndex%27"><span class="hs-identifier hs-var hs-var">partitionIndex</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndex.html#PartitionIndex"><span class="hs-identifier hs-type">PartitionIndex</span></a></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679739717"><span id="local-6989586621679739719"><span class="annot"><span class="annottext">CreatePartitionIndex -&gt; CreatePartitionIndex -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679739726"><span id="local-6989586621679739728"><span class="annot"><span class="annottext">CreatePartitionIndex -&gt; CreatePartitionIndex -&gt; Bool
 (CreatePartitionIndex -&gt; CreatePartitionIndex -&gt; Bool)
 -&gt; (CreatePartitionIndex -&gt; CreatePartitionIndex -&gt; Bool)
 -&gt; Eq CreatePartitionIndex
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreatePartitionIndex -&gt; CreatePartitionIndex -&gt; Bool
 == :: CreatePartitionIndex -&gt; CreatePartitionIndex -&gt; Bool
 $c== :: CreatePartitionIndex -&gt; CreatePartitionIndex -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679739708"><span id="local-6989586621679739710"><span id="local-6989586621679739712"><span id="local-6989586621679739714"><span class="annot"><span class="annottext">ReadPrec [CreatePartitionIndex]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679739717"><span id="local-6989586621679739719"><span id="local-6989586621679739721"><span id="local-6989586621679739723"><span class="annot"><span class="annottext">ReadPrec [CreatePartitionIndex]
 ReadPrec CreatePartitionIndex
 Int -&gt; ReadS CreatePartitionIndex
 ReadS [CreatePartitionIndex]
@@ -95,7 +95,7 @@ readList :: ReadS [CreatePartitionIndex]
 $creadList :: ReadS [CreatePartitionIndex]
 readsPrec :: Int -&gt; ReadS CreatePartitionIndex
 $creadsPrec :: Int -&gt; ReadS CreatePartitionIndex
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679739701"><span id="local-6989586621679739703"><span id="local-6989586621679739705"><span class="annot"><span class="annottext">Int -&gt; CreatePartitionIndex -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679739710"><span id="local-6989586621679739712"><span id="local-6989586621679739714"><span class="annot"><span class="annottext">Int -&gt; CreatePartitionIndex -&gt; ShowS
 [CreatePartitionIndex] -&gt; ShowS
 CreatePartitionIndex -&gt; String
 (Int -&gt; CreatePartitionIndex -&gt; ShowS)
@@ -149,12 +149,12 @@ $cfrom :: forall x. CreatePartitionIndex -&gt; Rep CreatePartitionIndex x
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span><span>
 </span><span id="line-93"></span><span id="newCreatePartitionIndex"><span class="annot"><span class="annottext">newCreatePartitionIndex :: Text -&gt; Text -&gt; PartitionIndex -&gt; CreatePartitionIndex
 </span><a href="Network.AWS.Glue.CreatePartitionIndex.html#newCreatePartitionIndex"><span class="hs-identifier hs-var hs-var">newCreatePartitionIndex</span></a></span></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679739696"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679739696"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679739695"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679739695"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679739694"><span class="annot"><span class="annottext">PartitionIndex
-</span><a href="#local-6989586621679739694"><span class="hs-identifier hs-var">pPartitionIndex_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679739705"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679739705"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679739704"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679739704"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679739703"><span class="annot"><span class="annottext">PartitionIndex
+</span><a href="#local-6989586621679739703"><span class="hs-identifier hs-var">pPartitionIndex_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">CreatePartitionIndex' :: Maybe Text
 -&gt; Text -&gt; Text -&gt; PartitionIndex -&gt; CreatePartitionIndex
 </span><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span>
@@ -164,13 +164,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:databaseName:CreatePartitionIndex' :: Text
 </span><a href="Network.AWS.Glue.CreatePartitionIndex.html#%24sel%3AdatabaseName%3ACreatePartitionIndex%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679739696"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679739705"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:tableName:CreatePartitionIndex' :: Text
 </span><a href="Network.AWS.Glue.CreatePartitionIndex.html#%24sel%3AtableName%3ACreatePartitionIndex%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679739695"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679739704"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:partitionIndex:CreatePartitionIndex' :: PartitionIndex
 </span><a href="Network.AWS.Glue.CreatePartitionIndex.html#%24sel%3ApartitionIndex%3ACreatePartitionIndex%27"><span class="hs-identifier hs-var">partitionIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PartitionIndex
-</span><a href="#local-6989586621679739694"><span class="hs-identifier hs-var">pPartitionIndex_</span></a></span><span>
+</span><a href="#local-6989586621679739703"><span class="hs-identifier hs-var">pPartitionIndex_</span></a></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The catalog ID where the table resides.</span><span>
@@ -182,16 +182,16 @@ forall a. Maybe a
 -&gt; Lens
      CreatePartitionIndex CreatePartitionIndex (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679739691"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679739700"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:CreatePartitionIndex' :: CreatePartitionIndex -&gt; Maybe Text
-</span><a href="#local-6989586621679739691"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679739691"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679739690"><span class="annot"><span class="annottext">s :: CreatePartitionIndex
-</span><a href="#local-6989586621679739690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679739689"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679739689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePartitionIndex
-</span><a href="#local-6989586621679739690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:CreatePartitionIndex' :: Maybe Text
+</span><a href="#local-6989586621679739700"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679739700"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679739699"><span class="annot"><span class="annottext">s :: CreatePartitionIndex
+</span><a href="#local-6989586621679739699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679739698"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679739698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePartitionIndex
+</span><a href="#local-6989586621679739699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:CreatePartitionIndex' :: Maybe Text
 </span><a href="Network.AWS.Glue.CreatePartitionIndex.html#%24sel%3AcatalogId%3ACreatePartitionIndex%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679739689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679739698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | Specifies the name of a database in which you want to create a partition</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- index.</span><span>
@@ -201,16 +201,16 @@ $sel:catalogId:CreatePartitionIndex' :: CreatePartitionIndex -&gt; Maybe Text
 -&gt; (CreatePartitionIndex -&gt; Text -&gt; CreatePartitionIndex)
 -&gt; Lens CreatePartitionIndex CreatePartitionIndex Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679739688"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679739697"><span class="annot"><span class="annottext">Text
 databaseName :: Text
 $sel:databaseName:CreatePartitionIndex' :: CreatePartitionIndex -&gt; Text
-</span><a href="#local-6989586621679739688"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679739688"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679739687"><span class="annot"><span class="annottext">s :: CreatePartitionIndex
-</span><a href="#local-6989586621679739687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679739686"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679739686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePartitionIndex
-</span><a href="#local-6989586621679739687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:CreatePartitionIndex' :: Text
+</span><a href="#local-6989586621679739697"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679739697"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679739696"><span class="annot"><span class="annottext">s :: CreatePartitionIndex
+</span><a href="#local-6989586621679739696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679739695"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679739695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePartitionIndex
+</span><a href="#local-6989586621679739696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:CreatePartitionIndex' :: Text
 </span><a href="Network.AWS.Glue.CreatePartitionIndex.html#%24sel%3AdatabaseName%3ACreatePartitionIndex%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679739686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679739695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | Specifies the name of a table in which you want to create a partition</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- index.</span><span>
@@ -220,16 +220,16 @@ $sel:databaseName:CreatePartitionIndex' :: CreatePartitionIndex -&gt; Text
 -&gt; (CreatePartitionIndex -&gt; Text -&gt; CreatePartitionIndex)
 -&gt; Lens CreatePartitionIndex CreatePartitionIndex Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679739685"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679739694"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:CreatePartitionIndex' :: CreatePartitionIndex -&gt; Text
-</span><a href="#local-6989586621679739685"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679739685"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679739684"><span class="annot"><span class="annottext">s :: CreatePartitionIndex
-</span><a href="#local-6989586621679739684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679739683"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679739683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePartitionIndex
-</span><a href="#local-6989586621679739684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:CreatePartitionIndex' :: Text
+</span><a href="#local-6989586621679739694"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679739694"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679739693"><span class="annot"><span class="annottext">s :: CreatePartitionIndex
+</span><a href="#local-6989586621679739693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679739692"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679739692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePartitionIndex
+</span><a href="#local-6989586621679739693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:CreatePartitionIndex' :: Text
 </span><a href="Network.AWS.Glue.CreatePartitionIndex.html#%24sel%3AtableName%3ACreatePartitionIndex%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679739683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679739692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | Specifies a @PartitionIndex@ structure to create a partition index in an</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- existing table.</span><span>
@@ -244,27 +244,27 @@ $sel:tableName:CreatePartitionIndex' :: CreatePartitionIndex -&gt; Text
      PartitionIndex
      PartitionIndex
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679739682"><span class="annot"><span class="annottext">PartitionIndex
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679739691"><span class="annot"><span class="annottext">PartitionIndex
 partitionIndex :: PartitionIndex
 $sel:partitionIndex:CreatePartitionIndex' :: CreatePartitionIndex -&gt; PartitionIndex
-</span><a href="#local-6989586621679739682"><span class="hs-identifier hs-var hs-var">partitionIndex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionIndex
-</span><a href="#local-6989586621679739682"><span class="hs-identifier hs-var">partitionIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679739681"><span class="annot"><span class="annottext">s :: CreatePartitionIndex
-</span><a href="#local-6989586621679739681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679739680"><span class="annot"><span class="annottext">PartitionIndex
-</span><a href="#local-6989586621679739680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePartitionIndex
-</span><a href="#local-6989586621679739681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionIndex:CreatePartitionIndex' :: PartitionIndex
+</span><a href="#local-6989586621679739691"><span class="hs-identifier hs-var hs-var">partitionIndex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionIndex
+</span><a href="#local-6989586621679739691"><span class="hs-identifier hs-var">partitionIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679739690"><span class="annot"><span class="annottext">s :: CreatePartitionIndex
+</span><a href="#local-6989586621679739690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679739689"><span class="annot"><span class="annottext">PartitionIndex
+</span><a href="#local-6989586621679739689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePartitionIndex
+</span><a href="#local-6989586621679739690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionIndex:CreatePartitionIndex' :: PartitionIndex
 </span><a href="Network.AWS.Glue.CreatePartitionIndex.html#%24sel%3ApartitionIndex%3ACreatePartitionIndex%27"><span class="hs-identifier hs-var">partitionIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PartitionIndex
-</span><a href="#local-6989586621679739680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679739689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndexResponse"><span class="hs-identifier hs-type">CreatePartitionIndexResponse</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679739676"><span class="annot"><span class="annottext">request :: CreatePartitionIndex -&gt; Request CreatePartitionIndex
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679739685"><span class="annot"><span class="annottext">request :: CreatePartitionIndex -&gt; Request CreatePartitionIndex
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreatePartitionIndex -&gt; Request CreatePartitionIndex
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679739672"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679739681"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreatePartitionIndex
 -&gt; ClientResponse ClientBody
@@ -290,10 +290,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679739669"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679739669"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679739668"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679739668"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679739667"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679739667"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679739678"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679739678"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679739677"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679739677"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679739676"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679739676"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreatePartitionIndexResponse
 </span><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndexResponse%27"><span class="hs-identifier hs-var">CreatePartitionIndexResponse'</span></a></span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreatePartitionIndexResponse)
@@ -304,15 +304,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679739669"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679739678"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679739660"><span id="local-6989586621679739662"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679739669"><span id="local-6989586621679739671"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679739657"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679739666"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679739653"><span class="annot"><span class="annottext">toHeaders :: CreatePartitionIndex -&gt; ResponseHeaders
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679739662"><span class="annot"><span class="annottext">toHeaders :: CreatePartitionIndex -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreatePartitionIndex -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -339,9 +339,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679739643"><span id="local-6989586621679739645"><span id="local-6989586621679739647"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679739641"><span class="annot"><span class="annottext">toJSON :: CreatePartitionIndex -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679739636"><span id="local-6989586621679739637"><span id="local-6989586621679739638"><span id="local-6989586621679739639"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679739652"><span id="local-6989586621679739654"><span id="local-6989586621679739656"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679739650"><span class="annot"><span class="annottext">toJSON :: CreatePartitionIndex -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex%27"><span class="hs-identifier hs-type">CreatePartitionIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679739645"><span id="local-6989586621679739646"><span id="local-6989586621679739647"><span id="local-6989586621679739648"><span class="annot"><span class="annottext">Maybe Text
 Text
 PartitionIndex
 partitionIndex :: PartitionIndex
@@ -352,7 +352,7 @@ $sel:partitionIndex:CreatePartitionIndex' :: CreatePartitionIndex -&gt; Partitio
 $sel:tableName:CreatePartitionIndex' :: CreatePartitionIndex -&gt; Text
 $sel:databaseName:CreatePartitionIndex' :: CreatePartitionIndex -&gt; Text
 $sel:catalogId:CreatePartitionIndex' :: CreatePartitionIndex -&gt; Maybe Text
-</span><a href="#local-6989586621679739636"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679739645"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -364,21 +364,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679739639"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679739648"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679739638"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679739647"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679739637"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679739646"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -386,19 +386,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;PartitionIndex&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PartitionIndex -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PartitionIndex
-</span><a href="#local-6989586621679739636"><span class="hs-identifier hs-var">partitionIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679739645"><span class="hs-identifier hs-var">partitionIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679739630"><span class="annot"><span class="annottext">toPath :: CreatePartitionIndex -&gt; ByteString
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679739639"><span class="annot"><span class="annottext">toPath :: CreatePartitionIndex -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreatePartitionIndex -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndex"><span class="hs-identifier hs-type">CreatePartitionIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679739626"><span class="annot"><span class="annottext">toQuery :: CreatePartitionIndex -&gt; QueryString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679739635"><span class="annot"><span class="annottext">toQuery :: CreatePartitionIndex -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreatePartitionIndex -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -406,12 +406,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newCreatePartitionIndexResponse' smart constructor.</span><span>
-</span><span id="line-173"></span><span id="local-6989586621679739623"><span id="local-6989586621679739624"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePartitionIndexResponse"><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndexResponse"><span class="hs-identifier hs-var">CreatePartitionIndexResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePartitionIndexResponse%27"><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndexResponse%27"><span class="hs-identifier hs-var">CreatePartitionIndexResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span id="local-6989586621679739632"><span id="local-6989586621679739633"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePartitionIndexResponse"><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndexResponse"><span class="hs-identifier hs-var">CreatePartitionIndexResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePartitionIndexResponse%27"><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndexResponse%27"><span class="hs-identifier hs-var">CreatePartitionIndexResponse'</span></a></span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-175"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreatePartitionIndexResponse%27"><span class="annot"><span class="annottext">CreatePartitionIndexResponse -&gt; Int
 </span><a href="Network.AWS.Glue.CreatePartitionIndex.html#%24sel%3AhttpStatus%3ACreatePartitionIndexResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679739618"><span id="local-6989586621679739620"><span class="annot"><span class="annottext">CreatePartitionIndexResponse
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679739627"><span id="local-6989586621679739629"><span class="annot"><span class="annottext">CreatePartitionIndexResponse
 -&gt; CreatePartitionIndexResponse -&gt; Bool
 (CreatePartitionIndexResponse
  -&gt; CreatePartitionIndexResponse -&gt; Bool)
@@ -427,7 +427,7 @@ $c/= :: CreatePartitionIndexResponse
 -&gt; CreatePartitionIndexResponse -&gt; Bool
 $c== :: CreatePartitionIndexResponse
 -&gt; CreatePartitionIndexResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679739610"><span id="local-6989586621679739612"><span id="local-6989586621679739614"><span id="local-6989586621679739616"><span class="annot"><span class="annottext">ReadPrec [CreatePartitionIndexResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679739619"><span id="local-6989586621679739621"><span id="local-6989586621679739623"><span id="local-6989586621679739625"><span class="annot"><span class="annottext">ReadPrec [CreatePartitionIndexResponse]
 ReadPrec CreatePartitionIndexResponse
 Int -&gt; ReadS CreatePartitionIndexResponse
 ReadS [CreatePartitionIndexResponse]
@@ -447,7 +447,7 @@ readList :: ReadS [CreatePartitionIndexResponse]
 $creadList :: ReadS [CreatePartitionIndexResponse]
 readsPrec :: Int -&gt; ReadS CreatePartitionIndexResponse
 $creadsPrec :: Int -&gt; ReadS CreatePartitionIndexResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679739604"><span id="local-6989586621679739606"><span id="local-6989586621679739608"><span class="annot"><span class="annottext">Int -&gt; CreatePartitionIndexResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679739613"><span id="local-6989586621679739615"><span id="local-6989586621679739617"><span class="annot"><span class="annottext">Int -&gt; CreatePartitionIndexResponse -&gt; ShowS
 [CreatePartitionIndexResponse] -&gt; ShowS
 CreatePartitionIndexResponse -&gt; String
 (Int -&gt; CreatePartitionIndexResponse -&gt; ShowS)
@@ -493,14 +493,14 @@ CreatePartitionIndexResponse -&gt; Rep CreatePartitionIndexResponse x
 </span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndexResponse"><span class="hs-identifier hs-type">CreatePartitionIndexResponse</span></a></span><span>
 </span><span id="line-192"></span><span id="newCreatePartitionIndexResponse"><span class="annot"><span class="annottext">newCreatePartitionIndexResponse :: Int -&gt; CreatePartitionIndexResponse
-</span><a href="Network.AWS.Glue.CreatePartitionIndex.html#newCreatePartitionIndexResponse"><span class="hs-identifier hs-var hs-var">newCreatePartitionIndexResponse</span></a></span></span><span> </span><span id="local-6989586621679739601"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679739601"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.CreatePartitionIndex.html#newCreatePartitionIndexResponse"><span class="hs-identifier hs-var hs-var">newCreatePartitionIndexResponse</span></a></span></span><span> </span><span id="local-6989586621679739610"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679739610"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="annottext">CreatePartitionIndexResponse' :: Int -&gt; CreatePartitionIndexResponse
 </span><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndexResponse%27"><span class="hs-identifier hs-type">CreatePartitionIndexResponse'</span></a></span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePartitionIndexResponse' :: Int
 </span><a href="Network.AWS.Glue.CreatePartitionIndex.html#%24sel%3AhttpStatus%3ACreatePartitionIndexResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679739601"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679739610"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -513,16 +513,16 @@ CreatePartitionIndexResponse -&gt; Rep CreatePartitionIndexResponse x
 -&gt; Lens
      CreatePartitionIndexResponse CreatePartitionIndexResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndexResponse%27"><span class="hs-identifier hs-type">CreatePartitionIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679739600"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndexResponse%27"><span class="hs-identifier hs-type">CreatePartitionIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679739609"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreatePartitionIndexResponse' :: CreatePartitionIndexResponse -&gt; Int
-</span><a href="#local-6989586621679739600"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679739600"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679739599"><span class="annot"><span class="annottext">s :: CreatePartitionIndexResponse
-</span><a href="#local-6989586621679739599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndexResponse%27"><span class="hs-identifier hs-type">CreatePartitionIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679739598"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679739598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePartitionIndexResponse
-</span><a href="#local-6989586621679739599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePartitionIndexResponse' :: Int
+</span><a href="#local-6989586621679739609"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679739609"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679739608"><span class="annot"><span class="annottext">s :: CreatePartitionIndexResponse
+</span><a href="#local-6989586621679739608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndexResponse%27"><span class="hs-identifier hs-type">CreatePartitionIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679739607"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679739607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePartitionIndexResponse
+</span><a href="#local-6989586621679739608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePartitionIndexResponse' :: Int
 </span><a href="Network.AWS.Glue.CreatePartitionIndex.html#%24sel%3AhttpStatus%3ACreatePartitionIndexResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679739598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndexResponse"><span class="hs-identifier hs-type">CreatePartitionIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679739607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndexResponse"><span class="hs-identifier hs-type">CreatePartitionIndexResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679739596"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndexResponse"><span class="hs-identifier hs-type">CreatePartitionIndexResponse</span></a></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679739605"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreatePartitionIndex.html#CreatePartitionIndexResponse"><span class="hs-identifier hs-type">CreatePartitionIndexResponse</span></a></span></span><span>
 </span><span id="line-203"></span></pre></body></html>

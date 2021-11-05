@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679424412"><span id="local-6989586621679424413"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AliasAttributeType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AliasAttributeType.html#AliasAttributeType"><span class="hs-identifier hs-var">AliasAttributeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AliasAttributeType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AliasAttributeType.html#AliasAttributeType%27"><span class="hs-identifier hs-var">AliasAttributeType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679424421"><span id="local-6989586621679424422"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AliasAttributeType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AliasAttributeType.html#AliasAttributeType"><span class="hs-identifier hs-var">AliasAttributeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AliasAttributeType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AliasAttributeType.html#AliasAttributeType%27"><span class="hs-identifier hs-var">AliasAttributeType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAliasAttributeType"><span class="annot"><span class="annottext">AliasAttributeType -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.AliasAttributeType.html#fromAliasAttributeType"><span class="hs-identifier hs-var hs-var">fromAliasAttributeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424404"><span id="local-6989586621679424406"><span id="local-6989586621679424408"><span class="annot"><span class="annottext">Int -&gt; AliasAttributeType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424413"><span id="local-6989586621679424415"><span id="local-6989586621679424417"><span class="annot"><span class="annottext">Int -&gt; AliasAttributeType -&gt; ShowS
 [AliasAttributeType] -&gt; ShowS
 AliasAttributeType -&gt; String
 (Int -&gt; AliasAttributeType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AliasAttributeType -&gt; String
 showsPrec :: Int -&gt; AliasAttributeType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AliasAttributeType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679424395"><span id="local-6989586621679424397"><span id="local-6989586621679424399"><span id="local-6989586621679424401"><span class="annot"><span class="annottext">ReadPrec [AliasAttributeType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679424404"><span id="local-6989586621679424406"><span id="local-6989586621679424408"><span id="local-6989586621679424410"><span class="annot"><span class="annottext">ReadPrec [AliasAttributeType]
 ReadPrec AliasAttributeType
 Int -&gt; ReadS AliasAttributeType
 ReadS [AliasAttributeType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AliasAttributeType]
 readsPrec :: Int -&gt; ReadS AliasAttributeType
 $creadsPrec :: Int -&gt; ReadS AliasAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679424390"><span id="local-6989586621679424392"><span class="annot"><span class="annottext">AliasAttributeType -&gt; AliasAttributeType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679424399"><span id="local-6989586621679424401"><span class="annot"><span class="annottext">AliasAttributeType -&gt; AliasAttributeType -&gt; Bool
 (AliasAttributeType -&gt; AliasAttributeType -&gt; Bool)
 -&gt; (AliasAttributeType -&gt; AliasAttributeType -&gt; Bool)
 -&gt; Eq AliasAttributeType
@@ -83,7 +83,7 @@ $c/= :: AliasAttributeType -&gt; AliasAttributeType -&gt; Bool
 == :: AliasAttributeType -&gt; AliasAttributeType -&gt; Bool
 $c== :: AliasAttributeType -&gt; AliasAttributeType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679424374"><span id="local-6989586621679424376"><span id="local-6989586621679424378"><span id="local-6989586621679424380"><span id="local-6989586621679424382"><span id="local-6989586621679424384"><span id="local-6989586621679424386"><span class="annot"><span class="annottext">Eq AliasAttributeType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679424383"><span id="local-6989586621679424385"><span id="local-6989586621679424387"><span id="local-6989586621679424389"><span id="local-6989586621679424391"><span id="local-6989586621679424393"><span id="local-6989586621679424395"><span class="annot"><span class="annottext">Eq AliasAttributeType
 Eq AliasAttributeType
 -&gt; (AliasAttributeType -&gt; AliasAttributeType -&gt; Ordering)
 -&gt; (AliasAttributeType -&gt; AliasAttributeType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. AliasAttributeType -&gt; Rep AliasAttributeType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424366"><span id="local-6989586621679424368"><span class="annot"><span class="annottext">Int -&gt; AliasAttributeType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424375"><span id="local-6989586621679424377"><span class="annot"><span class="annottext">Int -&gt; AliasAttributeType -&gt; Int
 AliasAttributeType -&gt; Int
 (Int -&gt; AliasAttributeType -&gt; Int)
 -&gt; (AliasAttributeType -&gt; Int) -&gt; Hashable AliasAttributeType
@@ -144,53 +144,53 @@ $chash :: AliasAttributeType -&gt; Int
 hashWithSalt :: Int -&gt; AliasAttributeType -&gt; Int
 $chashWithSalt :: Int -&gt; AliasAttributeType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679424363"><span class="annot"><span class="annottext">AliasAttributeType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679424372"><span class="annot"><span class="annottext">AliasAttributeType -&gt; ()
 (AliasAttributeType -&gt; ()) -&gt; NFData AliasAttributeType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AliasAttributeType -&gt; ()
 $crnf :: AliasAttributeType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679424360"><span class="annot"><span class="annottext">Text -&gt; Either String AliasAttributeType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679424369"><span class="annot"><span class="annottext">Text -&gt; Either String AliasAttributeType
 (Text -&gt; Either String AliasAttributeType)
 -&gt; FromText AliasAttributeType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AliasAttributeType
 $cfromText :: Text -&gt; Either String AliasAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679424357"><span class="annot"><span class="annottext">AliasAttributeType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679424366"><span class="annot"><span class="annottext">AliasAttributeType -&gt; Text
 (AliasAttributeType -&gt; Text) -&gt; ToText AliasAttributeType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AliasAttributeType -&gt; Text
 $ctoText :: AliasAttributeType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679424354"><span class="annot"><span class="annottext">AliasAttributeType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679424363"><span class="annot"><span class="annottext">AliasAttributeType -&gt; ByteString
 (AliasAttributeType -&gt; ByteString)
 -&gt; ToByteString AliasAttributeType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AliasAttributeType -&gt; ByteString
 $ctoBS :: AliasAttributeType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679424351"><span class="annot"><span class="annottext">AliasAttributeType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679424360"><span class="annot"><span class="annottext">AliasAttributeType -&gt; ByteStringBuilder
 (AliasAttributeType -&gt; ByteStringBuilder)
 -&gt; ToLog AliasAttributeType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AliasAttributeType -&gt; ByteStringBuilder
 $cbuild :: AliasAttributeType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679424348"><span class="annot"><span class="annottext">HeaderName -&gt; AliasAttributeType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679424357"><span class="annot"><span class="annottext">HeaderName -&gt; AliasAttributeType -&gt; [Header]
 (HeaderName -&gt; AliasAttributeType -&gt; [Header])
 -&gt; ToHeader AliasAttributeType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AliasAttributeType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AliasAttributeType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679424345"><span class="annot"><span class="annottext">AliasAttributeType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679424354"><span class="annot"><span class="annottext">AliasAttributeType -&gt; QueryString
 (AliasAttributeType -&gt; QueryString) -&gt; ToQuery AliasAttributeType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AliasAttributeType -&gt; QueryString
 $ctoQuery :: AliasAttributeType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679424340"><span id="local-6989586621679424342"><span class="annot"><span class="annottext">Value -&gt; Parser [AliasAttributeType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679424349"><span id="local-6989586621679424351"><span class="annot"><span class="annottext">Value -&gt; Parser [AliasAttributeType]
 Value -&gt; Parser AliasAttributeType
 (Value -&gt; Parser AliasAttributeType)
 -&gt; (Value -&gt; Parser [AliasAttributeType])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [AliasAttributeType]
 parseJSON :: Value -&gt; Parser AliasAttributeType
 $cparseJSON :: Value -&gt; Parser AliasAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679424335"><span id="local-6989586621679424337"><span class="annot"><span class="annottext">FromJSONKeyFunction [AliasAttributeType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679424344"><span id="local-6989586621679424346"><span class="annot"><span class="annottext">FromJSONKeyFunction [AliasAttributeType]
 FromJSONKeyFunction AliasAttributeType
 FromJSONKeyFunction AliasAttributeType
 -&gt; FromJSONKeyFunction [AliasAttributeType]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AliasAttributeType]
 fromJSONKey :: FromJSONKeyFunction AliasAttributeType
 $cfromJSONKey :: FromJSONKeyFunction AliasAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679424326"><span id="local-6989586621679424328"><span id="local-6989586621679424330"><span id="local-6989586621679424332"><span class="annot"><span class="annottext">[AliasAttributeType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679424335"><span id="local-6989586621679424337"><span id="local-6989586621679424339"><span id="local-6989586621679424341"><span class="annot"><span class="annottext">[AliasAttributeType] -&gt; Encoding
 [AliasAttributeType] -&gt; Value
 AliasAttributeType -&gt; Encoding
 AliasAttributeType -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: AliasAttributeType -&gt; Encoding
 toJSON :: AliasAttributeType -&gt; Value
 $ctoJSON :: AliasAttributeType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679424321"><span id="local-6989586621679424323"><span class="annot"><span class="annottext">ToJSONKeyFunction [AliasAttributeType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679424330"><span id="local-6989586621679424332"><span class="annot"><span class="annottext">ToJSONKeyFunction [AliasAttributeType]
 ToJSONKeyFunction AliasAttributeType
 ToJSONKeyFunction AliasAttributeType
 -&gt; ToJSONKeyFunction [AliasAttributeType]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AliasAttributeType]
 toJSONKey :: ToJSONKeyFunction AliasAttributeType
 $ctoJSONKey :: ToJSONKeyFunction AliasAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679424318"><span class="annot"><span class="annottext">[Node] -&gt; Either String AliasAttributeType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679424327"><span class="annot"><span class="annottext">[Node] -&gt; Either String AliasAttributeType
 ([Node] -&gt; Either String AliasAttributeType)
 -&gt; FromXML AliasAttributeType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AliasAttributeType
 $cparseXML :: [Node] -&gt; Either String AliasAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679424315"><span class="annot"><span class="annottext">AliasAttributeType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679424324"><span class="annot"><span class="annottext">AliasAttributeType -&gt; XML
 (AliasAttributeType -&gt; XML) -&gt; ToXML AliasAttributeType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AliasAttributeType -&gt; XML

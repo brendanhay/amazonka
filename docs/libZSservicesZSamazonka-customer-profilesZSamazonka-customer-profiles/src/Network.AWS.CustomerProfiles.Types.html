@@ -1,0 +1,811 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Network.AWS.CustomerProfiles.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CustomerProfiles.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.html#_AccessDeniedException"><span class="hs-identifier">_AccessDeniedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.html#_ThrottlingException"><span class="hs-identifier">_ThrottlingException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.html#_InternalServerException"><span class="hs-identifier">_InternalServerException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.html#_BadRequestException"><span class="hs-identifier">_BadRequestException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DataPullMode</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.DataPullMode.html#DataPullMode"><span class="hs-identifier">DataPullMode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FieldContentType</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldContentType.html#FieldContentType"><span class="hs-identifier">FieldContentType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Gender</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Gender.html#Gender"><span class="hs-identifier">Gender</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MarketoConnectorOperator</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MarketoConnectorOperator.html#MarketoConnectorOperator"><span class="hs-identifier">MarketoConnectorOperator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * OperatorPropertiesKeys</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.OperatorPropertiesKeys.html#OperatorPropertiesKeys"><span class="hs-identifier">OperatorPropertiesKeys</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PartyType</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.PartyType.html#PartyType"><span class="hs-identifier">PartyType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * S3ConnectorOperator</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.S3ConnectorOperator.html#S3ConnectorOperator"><span class="hs-identifier">S3ConnectorOperator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SalesforceConnectorOperator</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SalesforceConnectorOperator.html#SalesforceConnectorOperator"><span class="hs-identifier">SalesforceConnectorOperator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ServiceNowConnectorOperator</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ServiceNowConnectorOperator.html#ServiceNowConnectorOperator"><span class="hs-identifier">ServiceNowConnectorOperator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SourceConnectorType</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorType.html#SourceConnectorType"><span class="hs-identifier">SourceConnectorType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StandardIdentifier</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.StandardIdentifier.html#StandardIdentifier"><span class="hs-identifier">StandardIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TaskType</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.TaskType.html#TaskType"><span class="hs-identifier">TaskType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TriggerType</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.TriggerType.html#TriggerType"><span class="hs-identifier">TriggerType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ZendeskConnectorOperator</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ZendeskConnectorOperator.html#ZendeskConnectorOperator"><span class="hs-identifier">ZendeskConnectorOperator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Address</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#Address"><span class="hs-identifier">Address</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#newAddress"><span class="hs-identifier">newAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#address_address2"><span class="hs-identifier">address_address2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#address_state"><span class="hs-identifier">address_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#address_address4"><span class="hs-identifier">address_address4</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#address_county"><span class="hs-identifier">address_county</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#address_address3"><span class="hs-identifier">address_address3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#address_postalCode"><span class="hs-identifier">address_postalCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#address_country"><span class="hs-identifier">address_country</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#address_city"><span class="hs-identifier">address_city</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#address_address1"><span class="hs-identifier">address_address1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#address_province"><span class="hs-identifier">address_province</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ConnectorOperator</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ConnectorOperator.html#ConnectorOperator"><span class="hs-identifier">ConnectorOperator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ConnectorOperator.html#newConnectorOperator"><span class="hs-identifier">newConnectorOperator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ConnectorOperator.html#connectorOperator_serviceNow"><span class="hs-identifier">connectorOperator_serviceNow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ConnectorOperator.html#connectorOperator_marketo"><span class="hs-identifier">connectorOperator_marketo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ConnectorOperator.html#connectorOperator_salesforce"><span class="hs-identifier">connectorOperator_salesforce</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ConnectorOperator.html#connectorOperator_zendesk"><span class="hs-identifier">connectorOperator_zendesk</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ConnectorOperator.html#connectorOperator_s3"><span class="hs-identifier">connectorOperator_s3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DomainStats</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.DomainStats.html#DomainStats"><span class="hs-identifier">DomainStats</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.DomainStats.html#newDomainStats"><span class="hs-identifier">newDomainStats</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.DomainStats.html#domainStats_meteringProfileCount"><span class="hs-identifier">domainStats_meteringProfileCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.DomainStats.html#domainStats_totalSize"><span class="hs-identifier">domainStats_totalSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.DomainStats.html#domainStats_profileCount"><span class="hs-identifier">domainStats_profileCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.DomainStats.html#domainStats_objectCount"><span class="hs-identifier">domainStats_objectCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FieldSourceProfileIds</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#FieldSourceProfileIds"><span class="hs-identifier">FieldSourceProfileIds</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#newFieldSourceProfileIds"><span class="hs-identifier">newFieldSourceProfileIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_shippingAddress"><span class="hs-identifier">fieldSourceProfileIds_shippingAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_mobilePhoneNumber"><span class="hs-identifier">fieldSourceProfileIds_mobilePhoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_mailingAddress"><span class="hs-identifier">fieldSourceProfileIds_mailingAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_middleName"><span class="hs-identifier">fieldSourceProfileIds_middleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_personalEmailAddress"><span class="hs-identifier">fieldSourceProfileIds_personalEmailAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_lastName"><span class="hs-identifier">fieldSourceProfileIds_lastName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_additionalInformation"><span class="hs-identifier">fieldSourceProfileIds_additionalInformation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_homePhoneNumber"><span class="hs-identifier">fieldSourceProfileIds_homePhoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_address"><span class="hs-identifier">fieldSourceProfileIds_address</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_partyType"><span class="hs-identifier">fieldSourceProfileIds_partyType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_businessEmailAddress"><span class="hs-identifier">fieldSourceProfileIds_businessEmailAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_attributes"><span class="hs-identifier">fieldSourceProfileIds_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_gender"><span class="hs-identifier">fieldSourceProfileIds_gender</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_phoneNumber"><span class="hs-identifier">fieldSourceProfileIds_phoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_accountNumber"><span class="hs-identifier">fieldSourceProfileIds_accountNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_emailAddress"><span class="hs-identifier">fieldSourceProfileIds_emailAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_firstName"><span class="hs-identifier">fieldSourceProfileIds_firstName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_billingAddress"><span class="hs-identifier">fieldSourceProfileIds_billingAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_businessPhoneNumber"><span class="hs-identifier">fieldSourceProfileIds_businessPhoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_birthDate"><span class="hs-identifier">fieldSourceProfileIds_birthDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html#fieldSourceProfileIds_businessName"><span class="hs-identifier">fieldSourceProfileIds_businessName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FlowDefinition</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FlowDefinition.html#FlowDefinition"><span class="hs-identifier">FlowDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FlowDefinition.html#newFlowDefinition"><span class="hs-identifier">newFlowDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FlowDefinition.html#flowDefinition_description"><span class="hs-identifier">flowDefinition_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FlowDefinition.html#flowDefinition_flowName"><span class="hs-identifier">flowDefinition_flowName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FlowDefinition.html#flowDefinition_kmsArn"><span class="hs-identifier">flowDefinition_kmsArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FlowDefinition.html#flowDefinition_sourceFlowConfig"><span class="hs-identifier">flowDefinition_sourceFlowConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FlowDefinition.html#flowDefinition_tasks"><span class="hs-identifier">flowDefinition_tasks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FlowDefinition.html#flowDefinition_triggerConfig"><span class="hs-identifier">flowDefinition_triggerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="hs-comment">-- * IncrementalPullConfig</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.IncrementalPullConfig.html#IncrementalPullConfig"><span class="hs-identifier">IncrementalPullConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.IncrementalPullConfig.html#newIncrementalPullConfig"><span class="hs-identifier">newIncrementalPullConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.IncrementalPullConfig.html#incrementalPullConfig_datetimeTypeFieldName"><span class="hs-identifier">incrementalPullConfig_datetimeTypeFieldName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ListDomainItem</span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListDomainItem.html#ListDomainItem"><span class="hs-identifier">ListDomainItem</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListDomainItem.html#newListDomainItem"><span class="hs-identifier">newListDomainItem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListDomainItem.html#listDomainItem_tags"><span class="hs-identifier">listDomainItem_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListDomainItem.html#listDomainItem_domainName"><span class="hs-identifier">listDomainItem_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListDomainItem.html#listDomainItem_createdAt"><span class="hs-identifier">listDomainItem_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListDomainItem.html#listDomainItem_lastUpdatedAt"><span class="hs-identifier">listDomainItem_lastUpdatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ListIntegrationItem</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListIntegrationItem.html#ListIntegrationItem"><span class="hs-identifier">ListIntegrationItem</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListIntegrationItem.html#newListIntegrationItem"><span class="hs-identifier">newListIntegrationItem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListIntegrationItem.html#listIntegrationItem_tags"><span class="hs-identifier">listIntegrationItem_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListIntegrationItem.html#listIntegrationItem_domainName"><span class="hs-identifier">listIntegrationItem_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListIntegrationItem.html#listIntegrationItem_uri"><span class="hs-identifier">listIntegrationItem_uri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListIntegrationItem.html#listIntegrationItem_objectTypeName"><span class="hs-identifier">listIntegrationItem_objectTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListIntegrationItem.html#listIntegrationItem_createdAt"><span class="hs-identifier">listIntegrationItem_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListIntegrationItem.html#listIntegrationItem_lastUpdatedAt"><span class="hs-identifier">listIntegrationItem_lastUpdatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ListProfileObjectTypeItem</span></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeItem.html#ListProfileObjectTypeItem"><span class="hs-identifier">ListProfileObjectTypeItem</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeItem.html#newListProfileObjectTypeItem"><span class="hs-identifier">newListProfileObjectTypeItem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeItem.html#listProfileObjectTypeItem_lastUpdatedAt"><span class="hs-identifier">listProfileObjectTypeItem_lastUpdatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeItem.html#listProfileObjectTypeItem_createdAt"><span class="hs-identifier">listProfileObjectTypeItem_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeItem.html#listProfileObjectTypeItem_tags"><span class="hs-identifier">listProfileObjectTypeItem_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeItem.html#listProfileObjectTypeItem_objectTypeName"><span class="hs-identifier">listProfileObjectTypeItem_objectTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeItem.html#listProfileObjectTypeItem_description"><span class="hs-identifier">listProfileObjectTypeItem_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ListProfileObjectTypeTemplateItem</span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem.html#ListProfileObjectTypeTemplateItem"><span class="hs-identifier">ListProfileObjectTypeTemplateItem</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem.html#newListProfileObjectTypeTemplateItem"><span class="hs-identifier">newListProfileObjectTypeTemplateItem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem.html#listProfileObjectTypeTemplateItem_sourceName"><span class="hs-identifier">listProfileObjectTypeTemplateItem_sourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem.html#listProfileObjectTypeTemplateItem_templateId"><span class="hs-identifier">listProfileObjectTypeTemplateItem_templateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem.html#listProfileObjectTypeTemplateItem_sourceObject"><span class="hs-identifier">listProfileObjectTypeTemplateItem_sourceObject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ListProfileObjectsItem</span></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectsItem.html#ListProfileObjectsItem"><span class="hs-identifier">ListProfileObjectsItem</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectsItem.html#newListProfileObjectsItem"><span class="hs-identifier">newListProfileObjectsItem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectsItem.html#listProfileObjectsItem_profileObjectUniqueKey"><span class="hs-identifier">listProfileObjectsItem_profileObjectUniqueKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectsItem.html#listProfileObjectsItem_objectTypeName"><span class="hs-identifier">listProfileObjectsItem_objectTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectsItem.html#listProfileObjectsItem_object"><span class="hs-identifier">listProfileObjectsItem_object</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MarketoSourceProperties</span></span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MarketoSourceProperties.html#MarketoSourceProperties"><span class="hs-identifier">MarketoSourceProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MarketoSourceProperties.html#newMarketoSourceProperties"><span class="hs-identifier">newMarketoSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MarketoSourceProperties.html#marketoSourceProperties_object"><span class="hs-identifier">marketoSourceProperties_object</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MatchItem</span></span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MatchItem.html#MatchItem"><span class="hs-identifier">MatchItem</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MatchItem.html#newMatchItem"><span class="hs-identifier">newMatchItem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MatchItem.html#matchItem_profileIds"><span class="hs-identifier">matchItem_profileIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MatchItem.html#matchItem_matchId"><span class="hs-identifier">matchItem_matchId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MatchingRequest</span></span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MatchingRequest.html#MatchingRequest"><span class="hs-identifier">MatchingRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MatchingRequest.html#newMatchingRequest"><span class="hs-identifier">newMatchingRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MatchingRequest.html#matchingRequest_enabled"><span class="hs-identifier">matchingRequest_enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MatchingResponse</span></span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MatchingResponse.html#MatchingResponse"><span class="hs-identifier">MatchingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MatchingResponse.html#newMatchingResponse"><span class="hs-identifier">newMatchingResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MatchingResponse.html#matchingResponse_enabled"><span class="hs-identifier">matchingResponse_enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ObjectFilter</span></span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ObjectFilter.html#ObjectFilter"><span class="hs-identifier">ObjectFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ObjectFilter.html#newObjectFilter"><span class="hs-identifier">newObjectFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ObjectFilter.html#objectFilter_keyName"><span class="hs-identifier">objectFilter_keyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ObjectFilter.html#objectFilter_values"><span class="hs-identifier">objectFilter_values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ObjectTypeField</span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ObjectTypeField.html#ObjectTypeField"><span class="hs-identifier">ObjectTypeField</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ObjectTypeField.html#newObjectTypeField"><span class="hs-identifier">newObjectTypeField</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ObjectTypeField.html#objectTypeField_source"><span class="hs-identifier">objectTypeField_source</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ObjectTypeField.html#objectTypeField_contentType"><span class="hs-identifier">objectTypeField_contentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ObjectTypeField.html#objectTypeField_target"><span class="hs-identifier">objectTypeField_target</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ObjectTypeKey</span></span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ObjectTypeKey.html#ObjectTypeKey"><span class="hs-identifier">ObjectTypeKey</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ObjectTypeKey.html#newObjectTypeKey"><span class="hs-identifier">newObjectTypeKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ObjectTypeKey.html#objectTypeKey_fieldNames"><span class="hs-identifier">objectTypeKey_fieldNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ObjectTypeKey.html#objectTypeKey_standardIdentifiers"><span class="hs-identifier">objectTypeKey_standardIdentifiers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Profile</span></span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#newProfile"><span class="hs-identifier">newProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_shippingAddress"><span class="hs-identifier">profile_shippingAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_mobilePhoneNumber"><span class="hs-identifier">profile_mobilePhoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_mailingAddress"><span class="hs-identifier">profile_mailingAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_middleName"><span class="hs-identifier">profile_middleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_personalEmailAddress"><span class="hs-identifier">profile_personalEmailAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_lastName"><span class="hs-identifier">profile_lastName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_additionalInformation"><span class="hs-identifier">profile_additionalInformation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_homePhoneNumber"><span class="hs-identifier">profile_homePhoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_address"><span class="hs-identifier">profile_address</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_partyType"><span class="hs-identifier">profile_partyType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_profileId"><span class="hs-identifier">profile_profileId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_businessEmailAddress"><span class="hs-identifier">profile_businessEmailAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_attributes"><span class="hs-identifier">profile_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_gender"><span class="hs-identifier">profile_gender</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_phoneNumber"><span class="hs-identifier">profile_phoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_accountNumber"><span class="hs-identifier">profile_accountNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_emailAddress"><span class="hs-identifier">profile_emailAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_firstName"><span class="hs-identifier">profile_firstName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_billingAddress"><span class="hs-identifier">profile_billingAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_businessPhoneNumber"><span class="hs-identifier">profile_businessPhoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_birthDate"><span class="hs-identifier">profile_birthDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_businessName"><span class="hs-identifier">profile_businessName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><span class="hs-comment">-- * S3SourceProperties</span></span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.S3SourceProperties.html#S3SourceProperties"><span class="hs-identifier">S3SourceProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.S3SourceProperties.html#newS3SourceProperties"><span class="hs-identifier">newS3SourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.S3SourceProperties.html#s3SourceProperties_bucketPrefix"><span class="hs-identifier">s3SourceProperties_bucketPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.S3SourceProperties.html#s3SourceProperties_bucketName"><span class="hs-identifier">s3SourceProperties_bucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SalesforceSourceProperties</span></span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SalesforceSourceProperties.html#SalesforceSourceProperties"><span class="hs-identifier">SalesforceSourceProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SalesforceSourceProperties.html#newSalesforceSourceProperties"><span class="hs-identifier">newSalesforceSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SalesforceSourceProperties.html#salesforceSourceProperties_enableDynamicFieldUpdate"><span class="hs-identifier">salesforceSourceProperties_enableDynamicFieldUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SalesforceSourceProperties.html#salesforceSourceProperties_includeDeletedRecords"><span class="hs-identifier">salesforceSourceProperties_includeDeletedRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SalesforceSourceProperties.html#salesforceSourceProperties_object"><span class="hs-identifier">salesforceSourceProperties_object</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ScheduledTriggerProperties</span></span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ScheduledTriggerProperties.html#ScheduledTriggerProperties"><span class="hs-identifier">ScheduledTriggerProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ScheduledTriggerProperties.html#newScheduledTriggerProperties"><span class="hs-identifier">newScheduledTriggerProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ScheduledTriggerProperties.html#scheduledTriggerProperties_scheduleEndTime"><span class="hs-identifier">scheduledTriggerProperties_scheduleEndTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ScheduledTriggerProperties.html#scheduledTriggerProperties_scheduleOffset"><span class="hs-identifier">scheduledTriggerProperties_scheduleOffset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ScheduledTriggerProperties.html#scheduledTriggerProperties_dataPullMode"><span class="hs-identifier">scheduledTriggerProperties_dataPullMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ScheduledTriggerProperties.html#scheduledTriggerProperties_scheduleStartTime"><span class="hs-identifier">scheduledTriggerProperties_scheduleStartTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ScheduledTriggerProperties.html#scheduledTriggerProperties_timezone"><span class="hs-identifier">scheduledTriggerProperties_timezone</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ScheduledTriggerProperties.html#scheduledTriggerProperties_firstExecutionFrom"><span class="hs-identifier">scheduledTriggerProperties_firstExecutionFrom</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ScheduledTriggerProperties.html#scheduledTriggerProperties_scheduleExpression"><span class="hs-identifier">scheduledTriggerProperties_scheduleExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ServiceNowSourceProperties</span></span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ServiceNowSourceProperties.html#ServiceNowSourceProperties"><span class="hs-identifier">ServiceNowSourceProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ServiceNowSourceProperties.html#newServiceNowSourceProperties"><span class="hs-identifier">newServiceNowSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ServiceNowSourceProperties.html#serviceNowSourceProperties_object"><span class="hs-identifier">serviceNowSourceProperties_object</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SourceConnectorProperties</span></span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#newSourceConnectorProperties"><span class="hs-identifier">newSourceConnectorProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#sourceConnectorProperties_serviceNow"><span class="hs-identifier">sourceConnectorProperties_serviceNow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#sourceConnectorProperties_marketo"><span class="hs-identifier">sourceConnectorProperties_marketo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#sourceConnectorProperties_salesforce"><span class="hs-identifier">sourceConnectorProperties_salesforce</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#sourceConnectorProperties_zendesk"><span class="hs-identifier">sourceConnectorProperties_zendesk</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#sourceConnectorProperties_s3"><span class="hs-identifier">sourceConnectorProperties_s3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SourceFlowConfig</span></span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceFlowConfig.html#SourceFlowConfig"><span class="hs-identifier">SourceFlowConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceFlowConfig.html#newSourceFlowConfig"><span class="hs-identifier">newSourceFlowConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceFlowConfig.html#sourceFlowConfig_connectorProfileName"><span class="hs-identifier">sourceFlowConfig_connectorProfileName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceFlowConfig.html#sourceFlowConfig_incrementalPullConfig"><span class="hs-identifier">sourceFlowConfig_incrementalPullConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceFlowConfig.html#sourceFlowConfig_connectorType"><span class="hs-identifier">sourceFlowConfig_connectorType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceFlowConfig.html#sourceFlowConfig_sourceConnectorProperties"><span class="hs-identifier">sourceFlowConfig_sourceConnectorProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Task</span></span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Task.html#Task"><span class="hs-identifier">Task</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Task.html#newTask"><span class="hs-identifier">newTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Task.html#task_taskProperties"><span class="hs-identifier">task_taskProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Task.html#task_connectorOperator"><span class="hs-identifier">task_connectorOperator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Task.html#task_destinationField"><span class="hs-identifier">task_destinationField</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Task.html#task_sourceFields"><span class="hs-identifier">task_sourceFields</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Task.html#task_taskType"><span class="hs-identifier">task_taskType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TriggerConfig</span></span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier">TriggerConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.TriggerConfig.html#newTriggerConfig"><span class="hs-identifier">newTriggerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.TriggerConfig.html#triggerConfig_triggerProperties"><span class="hs-identifier">triggerConfig_triggerProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.TriggerConfig.html#triggerConfig_triggerType"><span class="hs-identifier">triggerConfig_triggerType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TriggerProperties</span></span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.TriggerProperties.html#TriggerProperties"><span class="hs-identifier">TriggerProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.TriggerProperties.html#newTriggerProperties"><span class="hs-identifier">newTriggerProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.TriggerProperties.html#triggerProperties_scheduled"><span class="hs-identifier">triggerProperties_scheduled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span>    </span><span class="annot"><span class="hs-comment">-- * UpdateAddress</span></span><span>
+</span><span id="line-313"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#UpdateAddress"><span class="hs-identifier">UpdateAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#newUpdateAddress"><span class="hs-identifier">newUpdateAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_address2"><span class="hs-identifier">updateAddress_address2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_state"><span class="hs-identifier">updateAddress_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_address4"><span class="hs-identifier">updateAddress_address4</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_county"><span class="hs-identifier">updateAddress_county</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_address3"><span class="hs-identifier">updateAddress_address3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_postalCode"><span class="hs-identifier">updateAddress_postalCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_country"><span class="hs-identifier">updateAddress_country</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_city"><span class="hs-identifier">updateAddress_city</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_address1"><span class="hs-identifier">updateAddress_address1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html#updateAddress_province"><span class="hs-identifier">updateAddress_province</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ZendeskSourceProperties</span></span><span>
+</span><span id="line-327"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ZendeskSourceProperties.html#ZendeskSourceProperties"><span class="hs-identifier">ZendeskSourceProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ZendeskSourceProperties.html#newZendeskSourceProperties"><span class="hs-identifier">newZendeskSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ZendeskSourceProperties.html#zendeskSourceProperties_object"><span class="hs-identifier">zendeskSourceProperties_object</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-332"></span><span>
+</span><span id="line-333"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-334"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.Address</span></a></span><span>
+</span><span id="line-335"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ConnectorOperator.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.ConnectorOperator</span></a></span><span>
+</span><span id="line-336"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.DataPullMode.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.DataPullMode</span></a></span><span>
+</span><span id="line-337"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.DomainStats.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.DomainStats</span></a></span><span>
+</span><span id="line-338"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldContentType.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.FieldContentType</span></a></span><span>
+</span><span id="line-339"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds</span></a></span><span>
+</span><span id="line-340"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.FlowDefinition.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.FlowDefinition</span></a></span><span>
+</span><span id="line-341"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Gender.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.Gender</span></a></span><span>
+</span><span id="line-342"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.IncrementalPullConfig.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.IncrementalPullConfig</span></a></span><span>
+</span><span id="line-343"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListDomainItem.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.ListDomainItem</span></a></span><span>
+</span><span id="line-344"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListIntegrationItem.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.ListIntegrationItem</span></a></span><span>
+</span><span id="line-345"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeItem.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeItem</span></a></span><span>
+</span><span id="line-346"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem</span></a></span><span>
+</span><span id="line-347"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ListProfileObjectsItem.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.ListProfileObjectsItem</span></a></span><span>
+</span><span id="line-348"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MarketoConnectorOperator.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.MarketoConnectorOperator</span></a></span><span>
+</span><span id="line-349"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MarketoSourceProperties.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.MarketoSourceProperties</span></a></span><span>
+</span><span id="line-350"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MatchItem.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.MatchItem</span></a></span><span>
+</span><span id="line-351"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MatchingRequest.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.MatchingRequest</span></a></span><span>
+</span><span id="line-352"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MatchingResponse.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.MatchingResponse</span></a></span><span>
+</span><span id="line-353"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ObjectFilter.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.ObjectFilter</span></a></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ObjectTypeField.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.ObjectTypeField</span></a></span><span>
+</span><span id="line-355"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ObjectTypeKey.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.ObjectTypeKey</span></a></span><span>
+</span><span id="line-356"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.OperatorPropertiesKeys.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.OperatorPropertiesKeys</span></a></span><span>
+</span><span id="line-357"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.PartyType.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.PartyType</span></a></span><span>
+</span><span id="line-358"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.Profile</span></a></span><span>
+</span><span id="line-359"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.S3ConnectorOperator.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.S3ConnectorOperator</span></a></span><span>
+</span><span id="line-360"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.S3SourceProperties.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.S3SourceProperties</span></a></span><span>
+</span><span id="line-361"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SalesforceConnectorOperator.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.SalesforceConnectorOperator</span></a></span><span>
+</span><span id="line-362"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SalesforceSourceProperties.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.SalesforceSourceProperties</span></a></span><span>
+</span><span id="line-363"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ScheduledTriggerProperties.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.ScheduledTriggerProperties</span></a></span><span>
+</span><span id="line-364"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ServiceNowConnectorOperator.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.ServiceNowConnectorOperator</span></a></span><span>
+</span><span id="line-365"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ServiceNowSourceProperties.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.ServiceNowSourceProperties</span></a></span><span>
+</span><span id="line-366"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.SourceConnectorProperties</span></a></span><span>
+</span><span id="line-367"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorType.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.SourceConnectorType</span></a></span><span>
+</span><span id="line-368"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceFlowConfig.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.SourceFlowConfig</span></a></span><span>
+</span><span id="line-369"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.StandardIdentifier.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.StandardIdentifier</span></a></span><span>
+</span><span id="line-370"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Task.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.Task</span></a></span><span>
+</span><span id="line-371"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.TaskType.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.TaskType</span></a></span><span>
+</span><span id="line-372"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.TriggerConfig.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.TriggerConfig</span></a></span><span>
+</span><span id="line-373"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.TriggerProperties.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.TriggerProperties</span></a></span><span>
+</span><span id="line-374"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.TriggerType.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.TriggerType</span></a></span><span>
+</span><span id="line-375"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.UpdateAddress.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.UpdateAddress</span></a></span><span>
+</span><span id="line-376"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ZendeskConnectorOperator.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.ZendeskConnectorOperator</span></a></span><span>
+</span><span id="line-377"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ZendeskSourceProperties.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.ZendeskSourceProperties</span></a></span><span>
+</span><span id="line-378"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-379"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-380"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-381"></span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- | API version @2020-08-15@ of the Amazon Connect Customer Profiles SDK configuration.</span><span>
+</span><span id="line-383"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-384"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Network.AWS.CustomerProfiles.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-385"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-386"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-387"></span><span>        </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;CustomerProfiles&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-388"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-389"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;profile&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-390"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;profile&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-391"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2020-08-15&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-392"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-393"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CustomerProfiles.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-394"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-395"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-396"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-397"></span><span>        </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;CustomerProfiles&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-398"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679272432"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-399"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-400"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-401"></span><span>    </span><span id="local-6989586621679272432"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679272432"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-402"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-403"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-404"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-405"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-406"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679272426"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-407"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-408"></span><span>    </span><span id="local-6989586621679272426"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679272426"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679272425"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679272425"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-409"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-410"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-411"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-412"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-413"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679272425"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-414"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-415"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679272425"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-416"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-417"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-418"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-419"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-420"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-421"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679272425"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-422"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-423"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-424"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-425"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-426"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-427"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679272425"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-428"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-429"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-430"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-431"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-432"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-433"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-434"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679272425"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-435"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-436"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679272425"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-437"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-438"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-439"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-440"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-441"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-442"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679272425"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-443"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-444"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679272425"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-445"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-446"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679272425"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-447"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-448"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679272425"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-449"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-450"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679272425"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-451"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-452"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-453"></span><span>
+</span><span id="line-454"></span><span class="hs-comment">-- | You do not have sufficient access to perform this action.</span><span>
+</span><span id="line-455"></span><span id="local-6989586621679272420"><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.html#_AccessDeniedException"><span class="hs-identifier hs-type">_AccessDeniedException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679272420"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679272420"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-456"></span><span id="_AccessDeniedException"><span class="annot"><span class="annottext">_AccessDeniedException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.CustomerProfiles.Types.html#_AccessDeniedException"><span class="hs-identifier hs-var hs-var">_AccessDeniedException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-457"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-458"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CustomerProfiles.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-459"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;AccessDeniedException&quot;</span></span><span>
+</span><span id="line-460"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">403</span></span><span>
+</span><span id="line-461"></span><span>
+</span><span id="line-462"></span><span class="hs-comment">-- | You exceeded the maximum number of requests.</span><span>
+</span><span id="line-463"></span><span id="local-6989586621679272418"><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.html#_ThrottlingException"><span class="hs-identifier hs-type">_ThrottlingException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679272418"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679272418"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-464"></span><span id="_ThrottlingException"><span class="annot"><span class="annottext">_ThrottlingException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.CustomerProfiles.Types.html#_ThrottlingException"><span class="hs-identifier hs-var hs-var">_ThrottlingException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-465"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-466"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CustomerProfiles.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-467"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-468"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span>
+</span><span id="line-469"></span><span>
+</span><span id="line-470"></span><span class="hs-comment">-- | An internal service error occurred.</span><span>
+</span><span id="line-471"></span><span id="local-6989586621679272417"><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.html#_InternalServerException"><span class="hs-identifier hs-type">_InternalServerException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679272417"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679272417"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-472"></span><span id="_InternalServerException"><span class="annot"><span class="annottext">_InternalServerException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.CustomerProfiles.Types.html#_InternalServerException"><span class="hs-identifier hs-var hs-var">_InternalServerException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-473"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-474"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CustomerProfiles.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-475"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InternalServerException&quot;</span></span><span>
+</span><span id="line-476"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span>
+</span><span id="line-477"></span><span>
+</span><span id="line-478"></span><span class="hs-comment">-- | The requested resource does not exist, or access was denied.</span><span>
+</span><span id="line-479"></span><span id="local-6989586621679272416"><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679272416"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679272416"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-480"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.CustomerProfiles.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-481"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-482"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CustomerProfiles.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-483"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span id="line-484"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">404</span></span><span>
+</span><span id="line-485"></span><span>
+</span><span id="line-486"></span><span class="hs-comment">-- | The input you provided is invalid.</span><span>
+</span><span id="line-487"></span><span id="local-6989586621679272415"><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.html#_BadRequestException"><span class="hs-identifier hs-type">_BadRequestException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679272415"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679272415"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-488"></span><span id="_BadRequestException"><span class="annot"><span class="annottext">_BadRequestException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.CustomerProfiles.Types.html#_BadRequestException"><span class="hs-identifier hs-var hs-var">_BadRequestException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-489"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-490"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CustomerProfiles.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-491"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;BadRequestException&quot;</span></span><span>
+</span><span id="line-492"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-493"></span></pre></body></html>

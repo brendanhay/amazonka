@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConnect.Types.VpcInterfaceRequest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConnect.Types.VpcInterfaceRequest</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.NetworkInterfaceType.html"><span class="hs-identifier">Network.AWS.MediaConnect.Types.NetworkInterfaceType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Desired VPC Interface for a Flow</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newVpcInterfaceRequest' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679273476"><span id="local-6989586621679273477"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcInterfaceRequest"><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest"><span class="hs-identifier hs-var">VpcInterfaceRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcInterfaceRequest%27"><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest%27"><span class="hs-identifier hs-var">VpcInterfaceRequest'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of network interface. If this value is not included in the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- request, MediaConnect uses ENA as the networkInterfaceType.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AnetworkInterfaceType%3AVpcInterfaceRequest%27"><span class="annot"><span class="annottext">VpcInterfaceRequest -&gt; Maybe NetworkInterfaceType
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#%24sel%3AnetworkInterfaceType%3AVpcInterfaceRequest%27"><span class="hs-identifier hs-var hs-var">networkInterfaceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.NetworkInterfaceType.html#NetworkInterfaceType"><span class="hs-identifier hs-type">NetworkInterfaceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Subnet must be in the AZ of the Flow</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsubnetId%3AVpcInterfaceRequest%27"><span class="annot"><span class="annottext">VpcInterfaceRequest -&gt; Text
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#%24sel%3AsubnetId%3AVpcInterfaceRequest%27"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Security Group IDs to be used on ENI.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsecurityGroupIds%3AVpcInterfaceRequest%27"><span class="annot"><span class="annottext">VpcInterfaceRequest -&gt; [Text]
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#%24sel%3AsecurityGroupIds%3AVpcInterfaceRequest%27"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Role Arn MediaConnect can assumes to create ENIs in customer\'s account</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AroleArn%3AVpcInterfaceRequest%27"><span class="annot"><span class="annottext">VpcInterfaceRequest -&gt; Text
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#%24sel%3AroleArn%3AVpcInterfaceRequest%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the VPC Interface. This value must be unique within the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- current flow.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aname%3AVpcInterfaceRequest%27"><span class="annot"><span class="annottext">VpcInterfaceRequest -&gt; Text
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#%24sel%3Aname%3AVpcInterfaceRequest%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273466"><span id="local-6989586621679273468"><span class="annot"><span class="annottext">VpcInterfaceRequest -&gt; VpcInterfaceRequest -&gt; Bool
+(VpcInterfaceRequest -&gt; VpcInterfaceRequest -&gt; Bool)
+-&gt; (VpcInterfaceRequest -&gt; VpcInterfaceRequest -&gt; Bool)
+-&gt; Eq VpcInterfaceRequest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VpcInterfaceRequest -&gt; VpcInterfaceRequest -&gt; Bool
+$c/= :: VpcInterfaceRequest -&gt; VpcInterfaceRequest -&gt; Bool
+== :: VpcInterfaceRequest -&gt; VpcInterfaceRequest -&gt; Bool
+$c== :: VpcInterfaceRequest -&gt; VpcInterfaceRequest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273457"><span id="local-6989586621679273459"><span id="local-6989586621679273461"><span id="local-6989586621679273463"><span class="annot"><span class="annottext">ReadPrec [VpcInterfaceRequest]
+ReadPrec VpcInterfaceRequest
+Int -&gt; ReadS VpcInterfaceRequest
+ReadS [VpcInterfaceRequest]
+(Int -&gt; ReadS VpcInterfaceRequest)
+-&gt; ReadS [VpcInterfaceRequest]
+-&gt; ReadPrec VpcInterfaceRequest
+-&gt; ReadPrec [VpcInterfaceRequest]
+-&gt; Read VpcInterfaceRequest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VpcInterfaceRequest]
+$creadListPrec :: ReadPrec [VpcInterfaceRequest]
+readPrec :: ReadPrec VpcInterfaceRequest
+$creadPrec :: ReadPrec VpcInterfaceRequest
+readList :: ReadS [VpcInterfaceRequest]
+$creadList :: ReadS [VpcInterfaceRequest]
+readsPrec :: Int -&gt; ReadS VpcInterfaceRequest
+$creadsPrec :: Int -&gt; ReadS VpcInterfaceRequest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273450"><span id="local-6989586621679273452"><span id="local-6989586621679273454"><span class="annot"><span class="annottext">Int -&gt; VpcInterfaceRequest -&gt; ShowS
+[VpcInterfaceRequest] -&gt; ShowS
+VpcInterfaceRequest -&gt; String
+(Int -&gt; VpcInterfaceRequest -&gt; ShowS)
+-&gt; (VpcInterfaceRequest -&gt; String)
+-&gt; ([VpcInterfaceRequest] -&gt; ShowS)
+-&gt; Show VpcInterfaceRequest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VpcInterfaceRequest] -&gt; ShowS
+$cshowList :: [VpcInterfaceRequest] -&gt; ShowS
+show :: VpcInterfaceRequest -&gt; String
+$cshow :: VpcInterfaceRequest -&gt; String
+showsPrec :: Int -&gt; VpcInterfaceRequest -&gt; ShowS
+$cshowsPrec :: Int -&gt; VpcInterfaceRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. VpcInterfaceRequest -&gt; Rep VpcInterfaceRequest x)
+-&gt; (forall x. Rep VpcInterfaceRequest x -&gt; VpcInterfaceRequest)
+-&gt; Generic VpcInterfaceRequest
+forall x. Rep VpcInterfaceRequest x -&gt; VpcInterfaceRequest
+forall x. VpcInterfaceRequest -&gt; Rep VpcInterfaceRequest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VpcInterfaceRequest x -&gt; VpcInterfaceRequest
+$cfrom :: forall x. VpcInterfaceRequest -&gt; Rep VpcInterfaceRequest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'VpcInterfaceRequest' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'networkInterfaceType', 'vpcInterfaceRequest_networkInterfaceType' - The type of network interface. If this value is not included in the</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- request, MediaConnect uses ENA as the networkInterfaceType.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'subnetId', 'vpcInterfaceRequest_subnetId' - Subnet must be in the AZ of the Flow</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'securityGroupIds', 'vpcInterfaceRequest_securityGroupIds' - Security Group IDs to be used on ENI.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'roleArn', 'vpcInterfaceRequest_roleArn' - Role Arn MediaConnect can assumes to create ENIs in customer\'s account</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'name', 'vpcInterfaceRequest_name' - The name of the VPC Interface. This value must be unique within the</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- current flow.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#newVpcInterfaceRequest"><span class="hs-identifier hs-type">newVpcInterfaceRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'subnetId'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest"><span class="hs-identifier hs-type">VpcInterfaceRequest</span></a></span><span>
+</span><span id="line-73"></span><span id="newVpcInterfaceRequest"><span class="annot"><span class="annottext">newVpcInterfaceRequest :: Text -&gt; Text -&gt; Text -&gt; VpcInterfaceRequest
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#newVpcInterfaceRequest"><span class="hs-identifier hs-var hs-var">newVpcInterfaceRequest</span></a></span></span><span> </span><span id="local-6989586621679273444"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273444"><span class="hs-identifier hs-var">pSubnetId_</span></a></span></span><span> </span><span id="local-6989586621679273443"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273443"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span id="local-6989586621679273442"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273442"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">VpcInterfaceRequest' :: Maybe NetworkInterfaceType
+-&gt; Text -&gt; [Text] -&gt; Text -&gt; Text -&gt; VpcInterfaceRequest
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest%27"><span class="hs-identifier hs-type">VpcInterfaceRequest'</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:networkInterfaceType:VpcInterfaceRequest' :: Maybe NetworkInterfaceType
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#%24sel%3AnetworkInterfaceType%3AVpcInterfaceRequest%27"><span class="hs-identifier hs-var">networkInterfaceType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe NetworkInterfaceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetId:VpcInterfaceRequest' :: Text
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#%24sel%3AsubnetId%3AVpcInterfaceRequest%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273444"><span class="hs-identifier hs-var">pSubnetId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityGroupIds:VpcInterfaceRequest' :: [Text]
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#%24sel%3AsecurityGroupIds%3AVpcInterfaceRequest%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:VpcInterfaceRequest' :: Text
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#%24sel%3AroleArn%3AVpcInterfaceRequest%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273443"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:VpcInterfaceRequest' :: Text
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#%24sel%3Aname%3AVpcInterfaceRequest%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273442"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The type of network interface. If this value is not included in the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- request, MediaConnect uses ENA as the networkInterfaceType.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#vpcInterfaceRequest_networkInterfaceType"><span class="hs-identifier hs-type">vpcInterfaceRequest_networkInterfaceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest"><span class="hs-identifier hs-type">VpcInterfaceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.NetworkInterfaceType.html#NetworkInterfaceType"><span class="hs-identifier hs-type">NetworkInterfaceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="vpcInterfaceRequest_networkInterfaceType"><span class="annot"><span class="annottext">vpcInterfaceRequest_networkInterfaceType :: (Maybe NetworkInterfaceType -&gt; f (Maybe NetworkInterfaceType))
+-&gt; VpcInterfaceRequest -&gt; f VpcInterfaceRequest
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#vpcInterfaceRequest_networkInterfaceType"><span class="hs-identifier hs-var hs-var">vpcInterfaceRequest_networkInterfaceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcInterfaceRequest -&gt; Maybe NetworkInterfaceType)
+-&gt; (VpcInterfaceRequest
+    -&gt; Maybe NetworkInterfaceType -&gt; VpcInterfaceRequest)
+-&gt; Lens
+     VpcInterfaceRequest
+     VpcInterfaceRequest
+     (Maybe NetworkInterfaceType)
+     (Maybe NetworkInterfaceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest%27"><span class="hs-identifier hs-type">VpcInterfaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273438"><span class="annot"><span class="annottext">Maybe NetworkInterfaceType
+networkInterfaceType :: Maybe NetworkInterfaceType
+$sel:networkInterfaceType:VpcInterfaceRequest' :: VpcInterfaceRequest -&gt; Maybe NetworkInterfaceType
+</span><a href="#local-6989586621679273438"><span class="hs-identifier hs-var hs-var">networkInterfaceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfaceType
+</span><a href="#local-6989586621679273438"><span class="hs-identifier hs-var">networkInterfaceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273437"><span class="annot"><span class="annottext">s :: VpcInterfaceRequest
+</span><a href="#local-6989586621679273437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest%27"><span class="hs-identifier hs-type">VpcInterfaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273436"><span class="annot"><span class="annottext">Maybe NetworkInterfaceType
+</span><a href="#local-6989586621679273436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcInterfaceRequest
+</span><a href="#local-6989586621679273437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaceType:VpcInterfaceRequest' :: Maybe NetworkInterfaceType
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#%24sel%3AnetworkInterfaceType%3AVpcInterfaceRequest%27"><span class="hs-identifier hs-var">networkInterfaceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfaceType
+</span><a href="#local-6989586621679273436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest"><span class="hs-identifier hs-type">VpcInterfaceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Subnet must be in the AZ of the Flow</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#vpcInterfaceRequest_subnetId"><span class="hs-identifier hs-type">vpcInterfaceRequest_subnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest"><span class="hs-identifier hs-type">VpcInterfaceRequest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="vpcInterfaceRequest_subnetId"><span class="annot"><span class="annottext">vpcInterfaceRequest_subnetId :: (Text -&gt; f Text) -&gt; VpcInterfaceRequest -&gt; f VpcInterfaceRequest
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#vpcInterfaceRequest_subnetId"><span class="hs-identifier hs-var hs-var">vpcInterfaceRequest_subnetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcInterfaceRequest -&gt; Text)
+-&gt; (VpcInterfaceRequest -&gt; Text -&gt; VpcInterfaceRequest)
+-&gt; Lens VpcInterfaceRequest VpcInterfaceRequest Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest%27"><span class="hs-identifier hs-type">VpcInterfaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273434"><span class="annot"><span class="annottext">Text
+subnetId :: Text
+$sel:subnetId:VpcInterfaceRequest' :: VpcInterfaceRequest -&gt; Text
+</span><a href="#local-6989586621679273434"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273434"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273433"><span class="annot"><span class="annottext">s :: VpcInterfaceRequest
+</span><a href="#local-6989586621679273433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest%27"><span class="hs-identifier hs-type">VpcInterfaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273432"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcInterfaceRequest
+</span><a href="#local-6989586621679273433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:VpcInterfaceRequest' :: Text
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#%24sel%3AsubnetId%3AVpcInterfaceRequest%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest"><span class="hs-identifier hs-type">VpcInterfaceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | Security Group IDs to be used on ENI.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#vpcInterfaceRequest_securityGroupIds"><span class="hs-identifier hs-type">vpcInterfaceRequest_securityGroupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest"><span class="hs-identifier hs-type">VpcInterfaceRequest</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-94"></span><span id="vpcInterfaceRequest_securityGroupIds"><span class="annot"><span class="annottext">vpcInterfaceRequest_securityGroupIds :: ([Text] -&gt; f [Text])
+-&gt; VpcInterfaceRequest -&gt; f VpcInterfaceRequest
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#vpcInterfaceRequest_securityGroupIds"><span class="hs-identifier hs-var hs-var">vpcInterfaceRequest_securityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcInterfaceRequest -&gt; [Text])
+-&gt; (VpcInterfaceRequest -&gt; [Text] -&gt; VpcInterfaceRequest)
+-&gt; Lens VpcInterfaceRequest VpcInterfaceRequest [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest%27"><span class="hs-identifier hs-type">VpcInterfaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273430"><span class="annot"><span class="annottext">[Text]
+securityGroupIds :: [Text]
+$sel:securityGroupIds:VpcInterfaceRequest' :: VpcInterfaceRequest -&gt; [Text]
+</span><a href="#local-6989586621679273430"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679273430"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273429"><span class="annot"><span class="annottext">s :: VpcInterfaceRequest
+</span><a href="#local-6989586621679273429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest%27"><span class="hs-identifier hs-type">VpcInterfaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273428"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679273428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcInterfaceRequest
+</span><a href="#local-6989586621679273429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:VpcInterfaceRequest' :: [Text]
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#%24sel%3AsecurityGroupIds%3AVpcInterfaceRequest%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679273428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest"><span class="hs-identifier hs-type">VpcInterfaceRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; VpcInterfaceRequest -&gt; f VpcInterfaceRequest)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; VpcInterfaceRequest
+-&gt; f VpcInterfaceRequest
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | Role Arn MediaConnect can assumes to create ENIs in customer\'s account</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#vpcInterfaceRequest_roleArn"><span class="hs-identifier hs-type">vpcInterfaceRequest_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest"><span class="hs-identifier hs-type">VpcInterfaceRequest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span id="vpcInterfaceRequest_roleArn"><span class="annot"><span class="annottext">vpcInterfaceRequest_roleArn :: (Text -&gt; f Text) -&gt; VpcInterfaceRequest -&gt; f VpcInterfaceRequest
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#vpcInterfaceRequest_roleArn"><span class="hs-identifier hs-var hs-var">vpcInterfaceRequest_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcInterfaceRequest -&gt; Text)
+-&gt; (VpcInterfaceRequest -&gt; Text -&gt; VpcInterfaceRequest)
+-&gt; Lens VpcInterfaceRequest VpcInterfaceRequest Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest%27"><span class="hs-identifier hs-type">VpcInterfaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273424"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:VpcInterfaceRequest' :: VpcInterfaceRequest -&gt; Text
+</span><a href="#local-6989586621679273424"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273424"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273423"><span class="annot"><span class="annottext">s :: VpcInterfaceRequest
+</span><a href="#local-6989586621679273423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest%27"><span class="hs-identifier hs-type">VpcInterfaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273422"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcInterfaceRequest
+</span><a href="#local-6989586621679273423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:VpcInterfaceRequest' :: Text
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#%24sel%3AroleArn%3AVpcInterfaceRequest%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest"><span class="hs-identifier hs-type">VpcInterfaceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The name of the VPC Interface. This value must be unique within the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- current flow.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#vpcInterfaceRequest_name"><span class="hs-identifier hs-type">vpcInterfaceRequest_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest"><span class="hs-identifier hs-type">VpcInterfaceRequest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="vpcInterfaceRequest_name"><span class="annot"><span class="annottext">vpcInterfaceRequest_name :: (Text -&gt; f Text) -&gt; VpcInterfaceRequest -&gt; f VpcInterfaceRequest
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#vpcInterfaceRequest_name"><span class="hs-identifier hs-var hs-var">vpcInterfaceRequest_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcInterfaceRequest -&gt; Text)
+-&gt; (VpcInterfaceRequest -&gt; Text -&gt; VpcInterfaceRequest)
+-&gt; Lens VpcInterfaceRequest VpcInterfaceRequest Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest%27"><span class="hs-identifier hs-type">VpcInterfaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273420"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:VpcInterfaceRequest' :: VpcInterfaceRequest -&gt; Text
+</span><a href="#local-6989586621679273420"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273420"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273419"><span class="annot"><span class="annottext">s :: VpcInterfaceRequest
+</span><a href="#local-6989586621679273419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest%27"><span class="hs-identifier hs-type">VpcInterfaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273418"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcInterfaceRequest
+</span><a href="#local-6989586621679273419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:VpcInterfaceRequest' :: Text
+</span><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#%24sel%3Aname%3AVpcInterfaceRequest%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest"><span class="hs-identifier hs-type">VpcInterfaceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273414"><span id="local-6989586621679273416"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest"><span class="hs-identifier hs-type">VpcInterfaceRequest</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273411"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest"><span class="hs-identifier hs-type">VpcInterfaceRequest</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273403"><span id="local-6989586621679273405"><span id="local-6989586621679273407"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest"><span class="hs-identifier hs-type">VpcInterfaceRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679273401"><span class="annot"><span class="annottext">toJSON :: VpcInterfaceRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.VpcInterfaceRequest.html#VpcInterfaceRequest%27"><span class="hs-identifier hs-type">VpcInterfaceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273395"><span id="local-6989586621679273396"><span id="local-6989586621679273397"><span id="local-6989586621679273398"><span id="local-6989586621679273399"><span class="annot"><span class="annottext">[Text]
+Maybe NetworkInterfaceType
+Text
+name :: Text
+roleArn :: Text
+securityGroupIds :: [Text]
+subnetId :: Text
+networkInterfaceType :: Maybe NetworkInterfaceType
+$sel:name:VpcInterfaceRequest' :: VpcInterfaceRequest -&gt; Text
+$sel:roleArn:VpcInterfaceRequest' :: VpcInterfaceRequest -&gt; Text
+$sel:securityGroupIds:VpcInterfaceRequest' :: VpcInterfaceRequest -&gt; [Text]
+$sel:subnetId:VpcInterfaceRequest' :: VpcInterfaceRequest -&gt; Text
+$sel:networkInterfaceType:VpcInterfaceRequest' :: VpcInterfaceRequest -&gt; Maybe NetworkInterfaceType
+</span><a href="#local-6989586621679273395"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkInterfaceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NetworkInterfaceType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">(NetworkInterfaceType -&gt; Pair)
+-&gt; Maybe NetworkInterfaceType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfaceType
+</span><a href="#local-6989586621679273399"><span class="hs-identifier hs-var">networkInterfaceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;subnetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273398"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;securityGroupIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679273397"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273396"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273395"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span></pre></body></html>

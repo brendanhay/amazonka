@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.NetworkFirewall.Types.RuleDefinition</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.NetworkFirewall.Types.RuleDefinition</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.MatchAttributes.html"><span class="hs-identifier">Network.AWS.NetworkFirewall.Types.MatchAttributes</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The inspection criteria and action for a single stateless rule. AWS</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Network Firewall inspects each packet for the specified matching</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- criteria. When a packet matches the criteria, Network Firewall performs</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- the rule\'s actions on the packet.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newRuleDefinition' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679242150"><span id="local-6989586621679242151"></span></span><span class="hs-keyword">data</span><span> </span><span id="RuleDefinition"><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition"><span class="hs-identifier hs-var">RuleDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleDefinition%27"><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition%27"><span class="hs-identifier hs-var">RuleDefinition'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Criteria for Network Firewall to use to inspect an individual packet in</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- stateless rule inspection. Each match attributes set can include one or</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- more items such as IP address, CIDR range, port number, protocol, and</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- TCP flags.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmatchAttributes%3ARuleDefinition%27"><span class="annot"><span class="annottext">RuleDefinition -&gt; MatchAttributes
+</span><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#%24sel%3AmatchAttributes%3ARuleDefinition%27"><span class="hs-identifier hs-var hs-var">matchAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.MatchAttributes.html#MatchAttributes"><span class="hs-identifier hs-type">MatchAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The actions to take on a packet that matches one of the stateless rule</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- definition\'s match attributes. You must specify a standard action and</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- you can add custom actions.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Network Firewall only forwards a packet for stateful rule inspection if</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- you specify @aws:forward_to_sfe@ for a rule that the packet matches, or</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- if the packet doesn\'t match any stateless rule and you specify</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- @aws:forward_to_sfe@ for the @StatelessDefaultActions@ setting for the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- FirewallPolicy.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- For every rule, you must specify exactly one of the following standard</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- actions.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   __aws:pass__ - Discontinues all inspection of the packet and permits</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     it to go to its intended destination.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   __aws:drop__ - Discontinues all inspection of the packet and blocks</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     it from going to its intended destination.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   __aws:forward_to_sfe__ - Discontinues stateless inspection of the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     packet and forwards it to the stateful rule engine for inspection.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Additionally, you can specify a custom action. To do this, you define a</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- custom action by name and type, then provide the name you\'ve assigned</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- to the action in this @Actions@ setting. For information about the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- options, see CustomAction.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- To provide more than one action in this setting, separate the settings</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- with a comma. For example, if you have a custom @PublishMetrics@ action</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- that you\'ve named @MyMetricsAction@, then you could specify the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- standard action @aws:pass@ and the custom action with</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @[&#8220;aws:pass&#8221;, &#8220;MyMetricsAction&#8221;]@.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Aactions%3ARuleDefinition%27"><span class="annot"><span class="annottext">RuleDefinition -&gt; [Text]
+</span><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#%24sel%3Aactions%3ARuleDefinition%27"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679242143"><span id="local-6989586621679242145"><span class="annot"><span class="annottext">RuleDefinition -&gt; RuleDefinition -&gt; Bool
+(RuleDefinition -&gt; RuleDefinition -&gt; Bool)
+-&gt; (RuleDefinition -&gt; RuleDefinition -&gt; Bool) -&gt; Eq RuleDefinition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RuleDefinition -&gt; RuleDefinition -&gt; Bool
+$c/= :: RuleDefinition -&gt; RuleDefinition -&gt; Bool
+== :: RuleDefinition -&gt; RuleDefinition -&gt; Bool
+$c== :: RuleDefinition -&gt; RuleDefinition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242134"><span id="local-6989586621679242136"><span id="local-6989586621679242138"><span id="local-6989586621679242140"><span class="annot"><span class="annottext">ReadPrec [RuleDefinition]
+ReadPrec RuleDefinition
+Int -&gt; ReadS RuleDefinition
+ReadS [RuleDefinition]
+(Int -&gt; ReadS RuleDefinition)
+-&gt; ReadS [RuleDefinition]
+-&gt; ReadPrec RuleDefinition
+-&gt; ReadPrec [RuleDefinition]
+-&gt; Read RuleDefinition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RuleDefinition]
+$creadListPrec :: ReadPrec [RuleDefinition]
+readPrec :: ReadPrec RuleDefinition
+$creadPrec :: ReadPrec RuleDefinition
+readList :: ReadS [RuleDefinition]
+$creadList :: ReadS [RuleDefinition]
+readsPrec :: Int -&gt; ReadS RuleDefinition
+$creadsPrec :: Int -&gt; ReadS RuleDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242127"><span id="local-6989586621679242129"><span id="local-6989586621679242131"><span class="annot"><span class="annottext">Int -&gt; RuleDefinition -&gt; ShowS
+[RuleDefinition] -&gt; ShowS
+RuleDefinition -&gt; String
+(Int -&gt; RuleDefinition -&gt; ShowS)
+-&gt; (RuleDefinition -&gt; String)
+-&gt; ([RuleDefinition] -&gt; ShowS)
+-&gt; Show RuleDefinition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RuleDefinition] -&gt; ShowS
+$cshowList :: [RuleDefinition] -&gt; ShowS
+show :: RuleDefinition -&gt; String
+$cshow :: RuleDefinition -&gt; String
+showsPrec :: Int -&gt; RuleDefinition -&gt; ShowS
+$cshowsPrec :: Int -&gt; RuleDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RuleDefinition -&gt; Rep RuleDefinition x)
+-&gt; (forall x. Rep RuleDefinition x -&gt; RuleDefinition)
+-&gt; Generic RuleDefinition
+forall x. Rep RuleDefinition x -&gt; RuleDefinition
+forall x. RuleDefinition -&gt; Rep RuleDefinition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RuleDefinition x -&gt; RuleDefinition
+$cfrom :: forall x. RuleDefinition -&gt; Rep RuleDefinition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'RuleDefinition' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'matchAttributes', 'ruleDefinition_matchAttributes' - Criteria for Network Firewall to use to inspect an individual packet in</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- stateless rule inspection. Each match attributes set can include one or</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- more items such as IP address, CIDR range, port number, protocol, and</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- TCP flags.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'actions', 'ruleDefinition_actions' - The actions to take on a packet that matches one of the stateless rule</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- definition\'s match attributes. You must specify a standard action and</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- you can add custom actions.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Network Firewall only forwards a packet for stateful rule inspection if</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- you specify @aws:forward_to_sfe@ for a rule that the packet matches, or</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- if the packet doesn\'t match any stateless rule and you specify</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- @aws:forward_to_sfe@ for the @StatelessDefaultActions@ setting for the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- FirewallPolicy.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- For every rule, you must specify exactly one of the following standard</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- actions.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- -   __aws:pass__ - Discontinues all inspection of the packet and permits</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--     it to go to its intended destination.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- -   __aws:drop__ - Discontinues all inspection of the packet and blocks</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--     it from going to its intended destination.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- -   __aws:forward_to_sfe__ - Discontinues stateless inspection of the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--     packet and forwards it to the stateful rule engine for inspection.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Additionally, you can specify a custom action. To do this, you define a</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- custom action by name and type, then provide the name you\'ve assigned</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- to the action in this @Actions@ setting. For information about the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- options, see CustomAction.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- To provide more than one action in this setting, separate the settings</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- with a comma. For example, if you have a custom @PublishMetrics@ action</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- that you\'ve named @MyMetricsAction@, then you could specify the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- standard action @aws:pass@ and the custom action with</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- @[&#8220;aws:pass&#8221;, &#8220;MyMetricsAction&#8221;]@.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#newRuleDefinition"><span class="hs-identifier hs-type">newRuleDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-comment">-- | 'matchAttributes'</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.MatchAttributes.html#MatchAttributes"><span class="hs-identifier hs-type">MatchAttributes</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition"><span class="hs-identifier hs-type">RuleDefinition</span></a></span><span>
+</span><span id="line-124"></span><span id="newRuleDefinition"><span class="annot"><span class="annottext">newRuleDefinition :: MatchAttributes -&gt; RuleDefinition
+</span><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#newRuleDefinition"><span class="hs-identifier hs-var hs-var">newRuleDefinition</span></a></span></span><span> </span><span id="local-6989586621679242121"><span class="annot"><span class="annottext">MatchAttributes
+</span><a href="#local-6989586621679242121"><span class="hs-identifier hs-var">pMatchAttributes_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="annottext">RuleDefinition' :: MatchAttributes -&gt; [Text] -&gt; RuleDefinition
+</span><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition%27"><span class="hs-identifier hs-type">RuleDefinition'</span></a></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:matchAttributes:RuleDefinition' :: MatchAttributes
+</span><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#%24sel%3AmatchAttributes%3ARuleDefinition%27"><span class="hs-identifier hs-var">matchAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">MatchAttributes
+</span><a href="#local-6989586621679242121"><span class="hs-identifier hs-var">pMatchAttributes_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:actions:RuleDefinition' :: [Text]
+</span><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#%24sel%3Aactions%3ARuleDefinition%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Criteria for Network Firewall to use to inspect an individual packet in</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- stateless rule inspection. Each match attributes set can include one or</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- more items such as IP address, CIDR range, port number, protocol, and</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- TCP flags.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#ruleDefinition_matchAttributes"><span class="hs-identifier hs-type">ruleDefinition_matchAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition"><span class="hs-identifier hs-type">RuleDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.MatchAttributes.html#MatchAttributes"><span class="hs-identifier hs-type">MatchAttributes</span></a></span><span>
+</span><span id="line-136"></span><span id="ruleDefinition_matchAttributes"><span class="annot"><span class="annottext">ruleDefinition_matchAttributes :: (MatchAttributes -&gt; f MatchAttributes)
+-&gt; RuleDefinition -&gt; f RuleDefinition
+</span><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#ruleDefinition_matchAttributes"><span class="hs-identifier hs-var hs-var">ruleDefinition_matchAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleDefinition -&gt; MatchAttributes)
+-&gt; (RuleDefinition -&gt; MatchAttributes -&gt; RuleDefinition)
+-&gt; Lens
+     RuleDefinition RuleDefinition MatchAttributes MatchAttributes
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition%27"><span class="hs-identifier hs-type">RuleDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242117"><span class="annot"><span class="annottext">MatchAttributes
+matchAttributes :: MatchAttributes
+$sel:matchAttributes:RuleDefinition' :: RuleDefinition -&gt; MatchAttributes
+</span><a href="#local-6989586621679242117"><span class="hs-identifier hs-var hs-var">matchAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MatchAttributes
+</span><a href="#local-6989586621679242117"><span class="hs-identifier hs-var">matchAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242116"><span class="annot"><span class="annottext">s :: RuleDefinition
+</span><a href="#local-6989586621679242116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition%27"><span class="hs-identifier hs-type">RuleDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242115"><span class="annot"><span class="annottext">MatchAttributes
+</span><a href="#local-6989586621679242115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleDefinition
+</span><a href="#local-6989586621679242116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchAttributes:RuleDefinition' :: MatchAttributes
+</span><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#%24sel%3AmatchAttributes%3ARuleDefinition%27"><span class="hs-identifier hs-var">matchAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MatchAttributes
+</span><a href="#local-6989586621679242115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition"><span class="hs-identifier hs-type">RuleDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The actions to take on a packet that matches one of the stateless rule</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- definition\'s match attributes. You must specify a standard action and</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- you can add custom actions.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Network Firewall only forwards a packet for stateful rule inspection if</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- you specify @aws:forward_to_sfe@ for a rule that the packet matches, or</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- if the packet doesn\'t match any stateless rule and you specify</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- @aws:forward_to_sfe@ for the @StatelessDefaultActions@ setting for the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- FirewallPolicy.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- For every rule, you must specify exactly one of the following standard</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- actions.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   __aws:pass__ - Discontinues all inspection of the packet and permits</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--     it to go to its intended destination.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- -   __aws:drop__ - Discontinues all inspection of the packet and blocks</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--     it from going to its intended destination.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- -   __aws:forward_to_sfe__ - Discontinues stateless inspection of the</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     packet and forwards it to the stateful rule engine for inspection.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Additionally, you can specify a custom action. To do this, you define a</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- custom action by name and type, then provide the name you\'ve assigned</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- to the action in this @Actions@ setting. For information about the</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- options, see CustomAction.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- To provide more than one action in this setting, separate the settings</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- with a comma. For example, if you have a custom @PublishMetrics@ action</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- that you\'ve named @MyMetricsAction@, then you could specify the</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- standard action @aws:pass@ and the custom action with</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- @[&#8220;aws:pass&#8221;, &#8220;MyMetricsAction&#8221;]@.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#ruleDefinition_actions"><span class="hs-identifier hs-type">ruleDefinition_actions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition"><span class="hs-identifier hs-type">RuleDefinition</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-171"></span><span id="ruleDefinition_actions"><span class="annot"><span class="annottext">ruleDefinition_actions :: ([Text] -&gt; f [Text]) -&gt; RuleDefinition -&gt; f RuleDefinition
+</span><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#ruleDefinition_actions"><span class="hs-identifier hs-var hs-var">ruleDefinition_actions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleDefinition -&gt; [Text])
+-&gt; (RuleDefinition -&gt; [Text] -&gt; RuleDefinition)
+-&gt; Lens RuleDefinition RuleDefinition [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition%27"><span class="hs-identifier hs-type">RuleDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242113"><span class="annot"><span class="annottext">[Text]
+actions :: [Text]
+$sel:actions:RuleDefinition' :: RuleDefinition -&gt; [Text]
+</span><a href="#local-6989586621679242113"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679242113"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242112"><span class="annot"><span class="annottext">s :: RuleDefinition
+</span><a href="#local-6989586621679242112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition%27"><span class="hs-identifier hs-type">RuleDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242111"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679242111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleDefinition
+</span><a href="#local-6989586621679242112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:RuleDefinition' :: [Text]
+</span><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#%24sel%3Aactions%3ARuleDefinition%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679242111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition"><span class="hs-identifier hs-type">RuleDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; RuleDefinition -&gt; f RuleDefinition)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; RuleDefinition
+-&gt; f RuleDefinition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242106"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition"><span class="hs-identifier hs-type">RuleDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679242104"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RuleDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RuleDefinition)
+-&gt; Value
+-&gt; Parser RuleDefinition
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RuleDefinition&quot;</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679242101"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242101"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">MatchAttributes -&gt; [Text] -&gt; RuleDefinition
+</span><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition%27"><span class="hs-identifier hs-var">RuleDefinition'</span></a></span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">(MatchAttributes -&gt; [Text] -&gt; RuleDefinition)
+-&gt; Parser MatchAttributes -&gt; Parser ([Text] -&gt; RuleDefinition)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242101"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser MatchAttributes
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MatchAttributes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser ([Text] -&gt; RuleDefinition)
+-&gt; Parser [Text] -&gt; Parser RuleDefinition
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242101"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242093"><span id="local-6989586621679242095"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition"><span class="hs-identifier hs-type">RuleDefinition</span></a></span></span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242090"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition"><span class="hs-identifier hs-type">RuleDefinition</span></a></span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242082"><span id="local-6989586621679242084"><span id="local-6989586621679242086"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition"><span class="hs-identifier hs-type">RuleDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679242080"><span class="annot"><span class="annottext">toJSON :: RuleDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleDefinition.html#RuleDefinition%27"><span class="hs-identifier hs-type">RuleDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242077"><span id="local-6989586621679242078"><span class="annot"><span class="annottext">[Text]
+MatchAttributes
+actions :: [Text]
+matchAttributes :: MatchAttributes
+$sel:actions:RuleDefinition' :: RuleDefinition -&gt; [Text]
+$sel:matchAttributes:RuleDefinition' :: RuleDefinition -&gt; MatchAttributes
+</span><a href="#local-6989586621679242077"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-192"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MatchAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MatchAttributes -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MatchAttributes
+</span><a href="#local-6989586621679242078"><span class="hs-identifier hs-var">matchAttributes</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679242077"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span></pre></body></html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoTWireless.GetServiceEndpoint</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the account-specific endpoint for Configuration and Update Server</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- (CUPS) protocol or LoRaWAN Network Server (LNS) connections.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTWireless.GetServiceEndpoint</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpoint"><span class="hs-identifier">GetServiceEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#newGetServiceEndpoint"><span class="hs-identifier">newGetServiceEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#getServiceEndpoint_serviceType"><span class="hs-identifier">getServiceEndpoint_serviceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse"><span class="hs-identifier">GetServiceEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#newGetServiceEndpointResponse"><span class="hs-identifier">newGetServiceEndpointResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#getServiceEndpointResponse_serviceEndpoint"><span class="hs-identifier">getServiceEndpointResponse_serviceEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#getServiceEndpointResponse_serverTrust"><span class="hs-identifier">getServiceEndpointResponse_serverTrust</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#getServiceEndpointResponse_serviceType"><span class="hs-identifier">getServiceEndpointResponse_serviceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#getServiceEndpointResponse_httpStatus"><span class="hs-identifier">getServiceEndpointResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetServiceEndpoint' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679286854"><span id="local-6989586621679286855"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetServiceEndpoint"><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpoint"><span class="hs-identifier hs-var">GetServiceEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetServiceEndpoint%27"><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpoint%27"><span class="hs-identifier hs-var">GetServiceEndpoint'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The service type for which to get endpoint information about. Can be</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- @CUPS@ for the Configuration and Update Server endpoint, or @LNS@ for</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- the LoRaWAN Network Server endpoint.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AserviceType%3AGetServiceEndpoint%27"><span class="annot"><span class="annottext">GetServiceEndpoint -&gt; Maybe WirelessGatewayServiceType
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#%24sel%3AserviceType%3AGetServiceEndpoint%27"><span class="hs-identifier hs-var hs-var">serviceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType"><span class="hs-identifier hs-type">WirelessGatewayServiceType</span></a></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286848"><span id="local-6989586621679286850"><span class="annot"><span class="annottext">GetServiceEndpoint -&gt; GetServiceEndpoint -&gt; Bool
+(GetServiceEndpoint -&gt; GetServiceEndpoint -&gt; Bool)
+-&gt; (GetServiceEndpoint -&gt; GetServiceEndpoint -&gt; Bool)
+-&gt; Eq GetServiceEndpoint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetServiceEndpoint -&gt; GetServiceEndpoint -&gt; Bool
+$c/= :: GetServiceEndpoint -&gt; GetServiceEndpoint -&gt; Bool
+== :: GetServiceEndpoint -&gt; GetServiceEndpoint -&gt; Bool
+$c== :: GetServiceEndpoint -&gt; GetServiceEndpoint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286839"><span id="local-6989586621679286841"><span id="local-6989586621679286843"><span id="local-6989586621679286845"><span class="annot"><span class="annottext">ReadPrec [GetServiceEndpoint]
+ReadPrec GetServiceEndpoint
+Int -&gt; ReadS GetServiceEndpoint
+ReadS [GetServiceEndpoint]
+(Int -&gt; ReadS GetServiceEndpoint)
+-&gt; ReadS [GetServiceEndpoint]
+-&gt; ReadPrec GetServiceEndpoint
+-&gt; ReadPrec [GetServiceEndpoint]
+-&gt; Read GetServiceEndpoint
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetServiceEndpoint]
+$creadListPrec :: ReadPrec [GetServiceEndpoint]
+readPrec :: ReadPrec GetServiceEndpoint
+$creadPrec :: ReadPrec GetServiceEndpoint
+readList :: ReadS [GetServiceEndpoint]
+$creadList :: ReadS [GetServiceEndpoint]
+readsPrec :: Int -&gt; ReadS GetServiceEndpoint
+$creadsPrec :: Int -&gt; ReadS GetServiceEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286832"><span id="local-6989586621679286834"><span id="local-6989586621679286836"><span class="annot"><span class="annottext">Int -&gt; GetServiceEndpoint -&gt; ShowS
+[GetServiceEndpoint] -&gt; ShowS
+GetServiceEndpoint -&gt; String
+(Int -&gt; GetServiceEndpoint -&gt; ShowS)
+-&gt; (GetServiceEndpoint -&gt; String)
+-&gt; ([GetServiceEndpoint] -&gt; ShowS)
+-&gt; Show GetServiceEndpoint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetServiceEndpoint] -&gt; ShowS
+$cshowList :: [GetServiceEndpoint] -&gt; ShowS
+show :: GetServiceEndpoint -&gt; String
+$cshow :: GetServiceEndpoint -&gt; String
+showsPrec :: Int -&gt; GetServiceEndpoint -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetServiceEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetServiceEndpoint -&gt; Rep GetServiceEndpoint x)
+-&gt; (forall x. Rep GetServiceEndpoint x -&gt; GetServiceEndpoint)
+-&gt; Generic GetServiceEndpoint
+forall x. Rep GetServiceEndpoint x -&gt; GetServiceEndpoint
+forall x. GetServiceEndpoint -&gt; Rep GetServiceEndpoint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetServiceEndpoint x -&gt; GetServiceEndpoint
+$cfrom :: forall x. GetServiceEndpoint -&gt; Rep GetServiceEndpoint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'GetServiceEndpoint' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'serviceType', 'getServiceEndpoint_serviceType' - The service type for which to get endpoint information about. Can be</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- @CUPS@ for the Configuration and Update Server endpoint, or @LNS@ for</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- the LoRaWAN Network Server endpoint.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#newGetServiceEndpoint"><span class="hs-identifier hs-type">newGetServiceEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpoint"><span class="hs-identifier hs-type">GetServiceEndpoint</span></a></span><span>
+</span><span id="line-74"></span><span id="newGetServiceEndpoint"><span class="annot"><span class="annottext">newGetServiceEndpoint :: GetServiceEndpoint
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#newGetServiceEndpoint"><span class="hs-identifier hs-var hs-var">newGetServiceEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">GetServiceEndpoint' :: Maybe WirelessGatewayServiceType -&gt; GetServiceEndpoint
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpoint%27"><span class="hs-identifier hs-type">GetServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceType:GetServiceEndpoint' :: Maybe WirelessGatewayServiceType
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#%24sel%3AserviceType%3AGetServiceEndpoint%27"><span class="hs-identifier hs-var">serviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WirelessGatewayServiceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The service type for which to get endpoint information about. Can be</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- @CUPS@ for the Configuration and Update Server endpoint, or @LNS@ for</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- the LoRaWAN Network Server endpoint.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#getServiceEndpoint_serviceType"><span class="hs-identifier hs-type">getServiceEndpoint_serviceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpoint"><span class="hs-identifier hs-type">GetServiceEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType"><span class="hs-identifier hs-type">WirelessGatewayServiceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="getServiceEndpoint_serviceType"><span class="annot"><span class="annottext">getServiceEndpoint_serviceType :: (Maybe WirelessGatewayServiceType
+ -&gt; f (Maybe WirelessGatewayServiceType))
+-&gt; GetServiceEndpoint -&gt; f GetServiceEndpoint
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#getServiceEndpoint_serviceType"><span class="hs-identifier hs-var hs-var">getServiceEndpoint_serviceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetServiceEndpoint -&gt; Maybe WirelessGatewayServiceType)
+-&gt; (GetServiceEndpoint
+    -&gt; Maybe WirelessGatewayServiceType -&gt; GetServiceEndpoint)
+-&gt; Lens
+     GetServiceEndpoint
+     GetServiceEndpoint
+     (Maybe WirelessGatewayServiceType)
+     (Maybe WirelessGatewayServiceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpoint%27"><span class="hs-identifier hs-type">GetServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286825"><span class="annot"><span class="annottext">Maybe WirelessGatewayServiceType
+serviceType :: Maybe WirelessGatewayServiceType
+$sel:serviceType:GetServiceEndpoint' :: GetServiceEndpoint -&gt; Maybe WirelessGatewayServiceType
+</span><a href="#local-6989586621679286825"><span class="hs-identifier hs-var hs-var">serviceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WirelessGatewayServiceType
+</span><a href="#local-6989586621679286825"><span class="hs-identifier hs-var">serviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286824"><span class="annot"><span class="annottext">s :: GetServiceEndpoint
+</span><a href="#local-6989586621679286824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpoint%27"><span class="hs-identifier hs-type">GetServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286823"><span class="annot"><span class="annottext">Maybe WirelessGatewayServiceType
+</span><a href="#local-6989586621679286823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceEndpoint
+</span><a href="#local-6989586621679286824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceType:GetServiceEndpoint' :: Maybe WirelessGatewayServiceType
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#%24sel%3AserviceType%3AGetServiceEndpoint%27"><span class="hs-identifier hs-var">serviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WirelessGatewayServiceType
+</span><a href="#local-6989586621679286823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpoint"><span class="hs-identifier hs-type">GetServiceEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpoint"><span class="hs-identifier hs-type">GetServiceEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpoint"><span class="hs-identifier hs-type">GetServiceEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse"><span class="hs-identifier hs-type">GetServiceEndpointResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679286819"><span class="annot"><span class="annottext">request :: GetServiceEndpoint -&gt; Request GetServiceEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetServiceEndpoint -&gt; Request GetServiceEndpoint
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679286815"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetServiceEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetServiceEndpoint)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetServiceEndpoint))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetServiceEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetServiceEndpoint)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679286812"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286812"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679286811"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679286811"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679286810"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286810"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe WirelessGatewayServiceType
+-&gt; Int
+-&gt; GetServiceEndpointResponse
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse%27"><span class="hs-identifier hs-var">GetServiceEndpointResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe WirelessGatewayServiceType
+ -&gt; Int
+ -&gt; GetServiceEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe WirelessGatewayServiceType
+      -&gt; Int
+      -&gt; GetServiceEndpointResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe WirelessGatewayServiceType
+   -&gt; Int
+   -&gt; GetServiceEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe WirelessGatewayServiceType
+      -&gt; Int -&gt; GetServiceEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerTrust&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe WirelessGatewayServiceType
+   -&gt; Int -&gt; GetServiceEndpointResponse)
+-&gt; Either String (Maybe WirelessGatewayServiceType)
+-&gt; Either String (Int -&gt; GetServiceEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe WirelessGatewayServiceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetServiceEndpointResponse)
+-&gt; Either String Int -&gt; Either String GetServiceEndpointResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286812"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286802"><span id="local-6989586621679286804"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpoint"><span class="hs-identifier hs-type">GetServiceEndpoint</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286799"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpoint"><span class="hs-identifier hs-type">GetServiceEndpoint</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpoint"><span class="hs-identifier hs-type">GetServiceEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679286795"><span class="annot"><span class="annottext">toHeaders :: GetServiceEndpoint -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetServiceEndpoint -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpoint"><span class="hs-identifier hs-type">GetServiceEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679286790"><span class="annot"><span class="annottext">toPath :: GetServiceEndpoint -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetServiceEndpoint -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/service-endpoint&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpoint"><span class="hs-identifier hs-type">GetServiceEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679286786"><span class="annot"><span class="annottext">toQuery :: GetServiceEndpoint -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpoint%27"><span class="hs-identifier hs-type">GetServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286784"><span class="annot"><span class="annottext">Maybe WirelessGatewayServiceType
+serviceType :: Maybe WirelessGatewayServiceType
+$sel:serviceType:GetServiceEndpoint' :: GetServiceEndpoint -&gt; Maybe WirelessGatewayServiceType
+</span><a href="#local-6989586621679286784"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;serviceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe WirelessGatewayServiceType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe WirelessGatewayServiceType
+</span><a href="#local-6989586621679286784"><span class="hs-identifier hs-var">serviceType</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | /See:/ 'newGetServiceEndpointResponse' smart constructor.</span><span>
+</span><span id="line-113"></span><span id="local-6989586621679286781"><span id="local-6989586621679286782"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetServiceEndpointResponse"><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse"><span class="hs-identifier hs-var">GetServiceEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetServiceEndpointResponse%27"><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse%27"><span class="hs-identifier hs-var">GetServiceEndpointResponse'</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The service endpoint value.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AserviceEndpoint%3AGetServiceEndpointResponse%27"><span class="annot"><span class="annottext">GetServiceEndpointResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#%24sel%3AserviceEndpoint%3AGetServiceEndpointResponse%27"><span class="hs-identifier hs-var hs-var">serviceEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | The Root CA of the server trust certificate.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3AserverTrust%3AGetServiceEndpointResponse%27"><span class="annot"><span class="annottext">GetServiceEndpointResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#%24sel%3AserverTrust%3AGetServiceEndpointResponse%27"><span class="hs-identifier hs-var hs-var">serverTrust</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | The endpoint\'s service type.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AserviceType%3AGetServiceEndpointResponse%27"><span class="annot"><span class="annottext">GetServiceEndpointResponse -&gt; Maybe WirelessGatewayServiceType
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#%24sel%3AserviceType%3AGetServiceEndpointResponse%27"><span class="hs-identifier hs-var hs-var">serviceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType"><span class="hs-identifier hs-type">WirelessGatewayServiceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-121"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetServiceEndpointResponse%27"><span class="annot"><span class="annottext">GetServiceEndpointResponse -&gt; Int
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#%24sel%3AhttpStatus%3AGetServiceEndpointResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286773"><span id="local-6989586621679286775"><span class="annot"><span class="annottext">GetServiceEndpointResponse -&gt; GetServiceEndpointResponse -&gt; Bool
+(GetServiceEndpointResponse -&gt; GetServiceEndpointResponse -&gt; Bool)
+-&gt; (GetServiceEndpointResponse
+    -&gt; GetServiceEndpointResponse -&gt; Bool)
+-&gt; Eq GetServiceEndpointResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetServiceEndpointResponse -&gt; GetServiceEndpointResponse -&gt; Bool
+$c/= :: GetServiceEndpointResponse -&gt; GetServiceEndpointResponse -&gt; Bool
+== :: GetServiceEndpointResponse -&gt; GetServiceEndpointResponse -&gt; Bool
+$c== :: GetServiceEndpointResponse -&gt; GetServiceEndpointResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286765"><span id="local-6989586621679286767"><span id="local-6989586621679286769"><span id="local-6989586621679286771"><span class="annot"><span class="annottext">ReadPrec [GetServiceEndpointResponse]
+ReadPrec GetServiceEndpointResponse
+Int -&gt; ReadS GetServiceEndpointResponse
+ReadS [GetServiceEndpointResponse]
+(Int -&gt; ReadS GetServiceEndpointResponse)
+-&gt; ReadS [GetServiceEndpointResponse]
+-&gt; ReadPrec GetServiceEndpointResponse
+-&gt; ReadPrec [GetServiceEndpointResponse]
+-&gt; Read GetServiceEndpointResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetServiceEndpointResponse]
+$creadListPrec :: ReadPrec [GetServiceEndpointResponse]
+readPrec :: ReadPrec GetServiceEndpointResponse
+$creadPrec :: ReadPrec GetServiceEndpointResponse
+readList :: ReadS [GetServiceEndpointResponse]
+$creadList :: ReadS [GetServiceEndpointResponse]
+readsPrec :: Int -&gt; ReadS GetServiceEndpointResponse
+$creadsPrec :: Int -&gt; ReadS GetServiceEndpointResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286759"><span id="local-6989586621679286761"><span id="local-6989586621679286763"><span class="annot"><span class="annottext">Int -&gt; GetServiceEndpointResponse -&gt; ShowS
+[GetServiceEndpointResponse] -&gt; ShowS
+GetServiceEndpointResponse -&gt; String
+(Int -&gt; GetServiceEndpointResponse -&gt; ShowS)
+-&gt; (GetServiceEndpointResponse -&gt; String)
+-&gt; ([GetServiceEndpointResponse] -&gt; ShowS)
+-&gt; Show GetServiceEndpointResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetServiceEndpointResponse] -&gt; ShowS
+$cshowList :: [GetServiceEndpointResponse] -&gt; ShowS
+show :: GetServiceEndpointResponse -&gt; String
+$cshow :: GetServiceEndpointResponse -&gt; String
+showsPrec :: Int -&gt; GetServiceEndpointResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetServiceEndpointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetServiceEndpointResponse -&gt; Rep GetServiceEndpointResponse x)
+-&gt; (forall x.
+    Rep GetServiceEndpointResponse x -&gt; GetServiceEndpointResponse)
+-&gt; Generic GetServiceEndpointResponse
+forall x.
+Rep GetServiceEndpointResponse x -&gt; GetServiceEndpointResponse
+forall x.
+GetServiceEndpointResponse -&gt; Rep GetServiceEndpointResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetServiceEndpointResponse x -&gt; GetServiceEndpointResponse
+$cfrom :: forall x.
+GetServiceEndpointResponse -&gt; Rep GetServiceEndpointResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Create a value of 'GetServiceEndpointResponse' with all optional fields omitted.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'serviceEndpoint', 'getServiceEndpointResponse_serviceEndpoint' - The service endpoint value.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'serverTrust', 'getServiceEndpointResponse_serverTrust' - The Root CA of the server trust certificate.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'serviceType', 'getServiceEndpointResponse_serviceType' - The endpoint\'s service type.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'httpStatus', 'getServiceEndpointResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#newGetServiceEndpointResponse"><span class="hs-identifier hs-type">newGetServiceEndpointResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse"><span class="hs-identifier hs-type">GetServiceEndpointResponse</span></a></span><span>
+</span><span id="line-144"></span><span id="newGetServiceEndpointResponse"><span class="annot"><span class="annottext">newGetServiceEndpointResponse :: Int -&gt; GetServiceEndpointResponse
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#newGetServiceEndpointResponse"><span class="hs-identifier hs-var hs-var">newGetServiceEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679286756"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286756"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">GetServiceEndpointResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe WirelessGatewayServiceType
+-&gt; Int
+-&gt; GetServiceEndpointResponse
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse%27"><span class="hs-identifier hs-type">GetServiceEndpointResponse'</span></a></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceEndpoint:GetServiceEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#%24sel%3AserviceEndpoint%3AGetServiceEndpointResponse%27"><span class="hs-identifier hs-var">serviceEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverTrust:GetServiceEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#%24sel%3AserverTrust%3AGetServiceEndpointResponse%27"><span class="hs-identifier hs-var">serverTrust</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceType:GetServiceEndpointResponse' :: Maybe WirelessGatewayServiceType
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#%24sel%3AserviceType%3AGetServiceEndpointResponse%27"><span class="hs-identifier hs-var">serviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WirelessGatewayServiceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetServiceEndpointResponse' :: Int
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#%24sel%3AhttpStatus%3AGetServiceEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286756"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The service endpoint value.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#getServiceEndpointResponse_serviceEndpoint"><span class="hs-identifier hs-type">getServiceEndpointResponse_serviceEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse"><span class="hs-identifier hs-type">GetServiceEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="getServiceEndpointResponse_serviceEndpoint"><span class="annot"><span class="annottext">getServiceEndpointResponse_serviceEndpoint :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetServiceEndpointResponse -&gt; f GetServiceEndpointResponse
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#getServiceEndpointResponse_serviceEndpoint"><span class="hs-identifier hs-var hs-var">getServiceEndpointResponse_serviceEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetServiceEndpointResponse -&gt; Maybe Text)
+-&gt; (GetServiceEndpointResponse
+    -&gt; Maybe Text -&gt; GetServiceEndpointResponse)
+-&gt; Lens
+     GetServiceEndpointResponse
+     GetServiceEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse%27"><span class="hs-identifier hs-type">GetServiceEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286755"><span class="annot"><span class="annottext">Maybe Text
+serviceEndpoint :: Maybe Text
+$sel:serviceEndpoint:GetServiceEndpointResponse' :: GetServiceEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679286755"><span class="hs-identifier hs-var hs-var">serviceEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286755"><span class="hs-identifier hs-var">serviceEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286754"><span class="annot"><span class="annottext">s :: GetServiceEndpointResponse
+</span><a href="#local-6989586621679286754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse%27"><span class="hs-identifier hs-type">GetServiceEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286753"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceEndpointResponse
+</span><a href="#local-6989586621679286754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceEndpoint:GetServiceEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#%24sel%3AserviceEndpoint%3AGetServiceEndpointResponse%27"><span class="hs-identifier hs-var">serviceEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse"><span class="hs-identifier hs-type">GetServiceEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The Root CA of the server trust certificate.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#getServiceEndpointResponse_serverTrust"><span class="hs-identifier hs-type">getServiceEndpointResponse_serverTrust</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse"><span class="hs-identifier hs-type">GetServiceEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="getServiceEndpointResponse_serverTrust"><span class="annot"><span class="annottext">getServiceEndpointResponse_serverTrust :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetServiceEndpointResponse -&gt; f GetServiceEndpointResponse
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#getServiceEndpointResponse_serverTrust"><span class="hs-identifier hs-var hs-var">getServiceEndpointResponse_serverTrust</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetServiceEndpointResponse -&gt; Maybe Text)
+-&gt; (GetServiceEndpointResponse
+    -&gt; Maybe Text -&gt; GetServiceEndpointResponse)
+-&gt; Lens
+     GetServiceEndpointResponse
+     GetServiceEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse%27"><span class="hs-identifier hs-type">GetServiceEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286752"><span class="annot"><span class="annottext">Maybe Text
+serverTrust :: Maybe Text
+$sel:serverTrust:GetServiceEndpointResponse' :: GetServiceEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679286752"><span class="hs-identifier hs-var hs-var">serverTrust</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286752"><span class="hs-identifier hs-var">serverTrust</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286751"><span class="annot"><span class="annottext">s :: GetServiceEndpointResponse
+</span><a href="#local-6989586621679286751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse%27"><span class="hs-identifier hs-type">GetServiceEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286750"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceEndpointResponse
+</span><a href="#local-6989586621679286751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverTrust:GetServiceEndpointResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#%24sel%3AserverTrust%3AGetServiceEndpointResponse%27"><span class="hs-identifier hs-var">serverTrust</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse"><span class="hs-identifier hs-type">GetServiceEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The endpoint\'s service type.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#getServiceEndpointResponse_serviceType"><span class="hs-identifier hs-type">getServiceEndpointResponse_serviceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse"><span class="hs-identifier hs-type">GetServiceEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessGatewayServiceType.html#WirelessGatewayServiceType"><span class="hs-identifier hs-type">WirelessGatewayServiceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="getServiceEndpointResponse_serviceType"><span class="annot"><span class="annottext">getServiceEndpointResponse_serviceType :: (Maybe WirelessGatewayServiceType
+ -&gt; f (Maybe WirelessGatewayServiceType))
+-&gt; GetServiceEndpointResponse -&gt; f GetServiceEndpointResponse
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#getServiceEndpointResponse_serviceType"><span class="hs-identifier hs-var hs-var">getServiceEndpointResponse_serviceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetServiceEndpointResponse -&gt; Maybe WirelessGatewayServiceType)
+-&gt; (GetServiceEndpointResponse
+    -&gt; Maybe WirelessGatewayServiceType -&gt; GetServiceEndpointResponse)
+-&gt; Lens
+     GetServiceEndpointResponse
+     GetServiceEndpointResponse
+     (Maybe WirelessGatewayServiceType)
+     (Maybe WirelessGatewayServiceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse%27"><span class="hs-identifier hs-type">GetServiceEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286749"><span class="annot"><span class="annottext">Maybe WirelessGatewayServiceType
+serviceType :: Maybe WirelessGatewayServiceType
+$sel:serviceType:GetServiceEndpointResponse' :: GetServiceEndpointResponse -&gt; Maybe WirelessGatewayServiceType
+</span><a href="#local-6989586621679286749"><span class="hs-identifier hs-var hs-var">serviceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WirelessGatewayServiceType
+</span><a href="#local-6989586621679286749"><span class="hs-identifier hs-var">serviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286748"><span class="annot"><span class="annottext">s :: GetServiceEndpointResponse
+</span><a href="#local-6989586621679286748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse%27"><span class="hs-identifier hs-type">GetServiceEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286747"><span class="annot"><span class="annottext">Maybe WirelessGatewayServiceType
+</span><a href="#local-6989586621679286747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceEndpointResponse
+</span><a href="#local-6989586621679286748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceType:GetServiceEndpointResponse' :: Maybe WirelessGatewayServiceType
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#%24sel%3AserviceType%3AGetServiceEndpointResponse%27"><span class="hs-identifier hs-var">serviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WirelessGatewayServiceType
+</span><a href="#local-6989586621679286747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse"><span class="hs-identifier hs-type">GetServiceEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#getServiceEndpointResponse_httpStatus"><span class="hs-identifier hs-type">getServiceEndpointResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse"><span class="hs-identifier hs-type">GetServiceEndpointResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span id="getServiceEndpointResponse_httpStatus"><span class="annot"><span class="annottext">getServiceEndpointResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetServiceEndpointResponse -&gt; f GetServiceEndpointResponse
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#getServiceEndpointResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getServiceEndpointResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetServiceEndpointResponse -&gt; Int)
+-&gt; (GetServiceEndpointResponse
+    -&gt; Int -&gt; GetServiceEndpointResponse)
+-&gt; Lens
+     GetServiceEndpointResponse GetServiceEndpointResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse%27"><span class="hs-identifier hs-type">GetServiceEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286746"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetServiceEndpointResponse' :: GetServiceEndpointResponse -&gt; Int
+</span><a href="#local-6989586621679286746"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286746"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286745"><span class="annot"><span class="annottext">s :: GetServiceEndpointResponse
+</span><a href="#local-6989586621679286745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse%27"><span class="hs-identifier hs-type">GetServiceEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286744"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceEndpointResponse
+</span><a href="#local-6989586621679286745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetServiceEndpointResponse' :: Int
+</span><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#%24sel%3AhttpStatus%3AGetServiceEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse"><span class="hs-identifier hs-type">GetServiceEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286742"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.GetServiceEndpoint.html#GetServiceEndpointResponse"><span class="hs-identifier hs-type">GetServiceEndpointResponse</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

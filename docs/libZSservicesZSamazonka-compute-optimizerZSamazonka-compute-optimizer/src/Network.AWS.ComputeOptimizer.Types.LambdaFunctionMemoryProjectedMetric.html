@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryMetricName.html"><span class="hs-identifier">Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryMetricName</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryMetricStatistic.html"><span class="hs-identifier">Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryMetricStatistic</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes a projected utilization metric of an Lambda function</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- recommendation option.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLambdaFunctionMemoryProjectedMetric' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679239469"><span id="local-6989586621679239470"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaFunctionMemoryProjectedMetric"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric"><span class="hs-identifier hs-var">LambdaFunctionMemoryProjectedMetric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaFunctionMemoryProjectedMetric%27"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-var">LambdaFunctionMemoryProjectedMetric'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The values of the projected utilization metrics.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3ALambdaFunctionMemoryProjectedMetric%27"><span class="annot"><span class="annottext">LambdaFunctionMemoryProjectedMetric -&gt; Maybe Double
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#%24sel%3Avalue%3ALambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the projected utilization metric.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aname%3ALambdaFunctionMemoryProjectedMetric%27"><span class="annot"><span class="annottext">LambdaFunctionMemoryProjectedMetric
+-&gt; Maybe LambdaFunctionMemoryMetricName
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#%24sel%3Aname%3ALambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryMetricName.html#LambdaFunctionMemoryMetricName"><span class="hs-identifier hs-type">LambdaFunctionMemoryMetricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The statistic of the projected utilization metric.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astatistic%3ALambdaFunctionMemoryProjectedMetric%27"><span class="annot"><span class="annottext">LambdaFunctionMemoryProjectedMetric
+-&gt; Maybe LambdaFunctionMemoryMetricStatistic
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#%24sel%3Astatistic%3ALambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-var hs-var">statistic</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryMetricStatistic.html#LambdaFunctionMemoryMetricStatistic"><span class="hs-identifier hs-type">LambdaFunctionMemoryMetricStatistic</span></a></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239461"><span id="local-6989586621679239463"><span class="annot"><span class="annottext">LambdaFunctionMemoryProjectedMetric
+-&gt; LambdaFunctionMemoryProjectedMetric -&gt; Bool
+(LambdaFunctionMemoryProjectedMetric
+ -&gt; LambdaFunctionMemoryProjectedMetric -&gt; Bool)
+-&gt; (LambdaFunctionMemoryProjectedMetric
+    -&gt; LambdaFunctionMemoryProjectedMetric -&gt; Bool)
+-&gt; Eq LambdaFunctionMemoryProjectedMetric
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LambdaFunctionMemoryProjectedMetric
+-&gt; LambdaFunctionMemoryProjectedMetric -&gt; Bool
+$c/= :: LambdaFunctionMemoryProjectedMetric
+-&gt; LambdaFunctionMemoryProjectedMetric -&gt; Bool
+== :: LambdaFunctionMemoryProjectedMetric
+-&gt; LambdaFunctionMemoryProjectedMetric -&gt; Bool
+$c== :: LambdaFunctionMemoryProjectedMetric
+-&gt; LambdaFunctionMemoryProjectedMetric -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239452"><span id="local-6989586621679239454"><span id="local-6989586621679239456"><span id="local-6989586621679239458"><span class="annot"><span class="annottext">ReadPrec [LambdaFunctionMemoryProjectedMetric]
+ReadPrec LambdaFunctionMemoryProjectedMetric
+Int -&gt; ReadS LambdaFunctionMemoryProjectedMetric
+ReadS [LambdaFunctionMemoryProjectedMetric]
+(Int -&gt; ReadS LambdaFunctionMemoryProjectedMetric)
+-&gt; ReadS [LambdaFunctionMemoryProjectedMetric]
+-&gt; ReadPrec LambdaFunctionMemoryProjectedMetric
+-&gt; ReadPrec [LambdaFunctionMemoryProjectedMetric]
+-&gt; Read LambdaFunctionMemoryProjectedMetric
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LambdaFunctionMemoryProjectedMetric]
+$creadListPrec :: ReadPrec [LambdaFunctionMemoryProjectedMetric]
+readPrec :: ReadPrec LambdaFunctionMemoryProjectedMetric
+$creadPrec :: ReadPrec LambdaFunctionMemoryProjectedMetric
+readList :: ReadS [LambdaFunctionMemoryProjectedMetric]
+$creadList :: ReadS [LambdaFunctionMemoryProjectedMetric]
+readsPrec :: Int -&gt; ReadS LambdaFunctionMemoryProjectedMetric
+$creadsPrec :: Int -&gt; ReadS LambdaFunctionMemoryProjectedMetric
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239445"><span id="local-6989586621679239447"><span id="local-6989586621679239449"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionMemoryProjectedMetric -&gt; ShowS
+[LambdaFunctionMemoryProjectedMetric] -&gt; ShowS
+LambdaFunctionMemoryProjectedMetric -&gt; String
+(Int -&gt; LambdaFunctionMemoryProjectedMetric -&gt; ShowS)
+-&gt; (LambdaFunctionMemoryProjectedMetric -&gt; String)
+-&gt; ([LambdaFunctionMemoryProjectedMetric] -&gt; ShowS)
+-&gt; Show LambdaFunctionMemoryProjectedMetric
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LambdaFunctionMemoryProjectedMetric] -&gt; ShowS
+$cshowList :: [LambdaFunctionMemoryProjectedMetric] -&gt; ShowS
+show :: LambdaFunctionMemoryProjectedMetric -&gt; String
+$cshow :: LambdaFunctionMemoryProjectedMetric -&gt; String
+showsPrec :: Int -&gt; LambdaFunctionMemoryProjectedMetric -&gt; ShowS
+$cshowsPrec :: Int -&gt; LambdaFunctionMemoryProjectedMetric -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ LambdaFunctionMemoryProjectedMetric
+ -&gt; Rep LambdaFunctionMemoryProjectedMetric x)
+-&gt; (forall x.
+    Rep LambdaFunctionMemoryProjectedMetric x
+    -&gt; LambdaFunctionMemoryProjectedMetric)
+-&gt; Generic LambdaFunctionMemoryProjectedMetric
+forall x.
+Rep LambdaFunctionMemoryProjectedMetric x
+-&gt; LambdaFunctionMemoryProjectedMetric
+forall x.
+LambdaFunctionMemoryProjectedMetric
+-&gt; Rep LambdaFunctionMemoryProjectedMetric x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep LambdaFunctionMemoryProjectedMetric x
+-&gt; LambdaFunctionMemoryProjectedMetric
+$cfrom :: forall x.
+LambdaFunctionMemoryProjectedMetric
+-&gt; Rep LambdaFunctionMemoryProjectedMetric x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'LambdaFunctionMemoryProjectedMetric' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'value', 'lambdaFunctionMemoryProjectedMetric_value' - The values of the projected utilization metrics.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'name', 'lambdaFunctionMemoryProjectedMetric_name' - The name of the projected utilization metric.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'statistic', 'lambdaFunctionMemoryProjectedMetric_statistic' - The statistic of the projected utilization metric.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#newLambdaFunctionMemoryProjectedMetric"><span class="hs-identifier hs-type">newLambdaFunctionMemoryProjectedMetric</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric"><span class="hs-identifier hs-type">LambdaFunctionMemoryProjectedMetric</span></a></span><span>
+</span><span id="line-57"></span><span id="newLambdaFunctionMemoryProjectedMetric"><span class="annot"><span class="annottext">newLambdaFunctionMemoryProjectedMetric :: LambdaFunctionMemoryProjectedMetric
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#newLambdaFunctionMemoryProjectedMetric"><span class="hs-identifier hs-var hs-var">newLambdaFunctionMemoryProjectedMetric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">LambdaFunctionMemoryProjectedMetric' :: Maybe Double
+-&gt; Maybe LambdaFunctionMemoryMetricName
+-&gt; Maybe LambdaFunctionMemoryMetricStatistic
+-&gt; LambdaFunctionMemoryProjectedMetric
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-type">LambdaFunctionMemoryProjectedMetric'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:LambdaFunctionMemoryProjectedMetric' :: Maybe Double
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#%24sel%3Avalue%3ALambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:LambdaFunctionMemoryProjectedMetric' :: Maybe LambdaFunctionMemoryMetricName
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#%24sel%3Aname%3ALambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFunctionMemoryMetricName
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:statistic:LambdaFunctionMemoryProjectedMetric' :: Maybe LambdaFunctionMemoryMetricStatistic
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#%24sel%3Astatistic%3ALambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-var">statistic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFunctionMemoryMetricStatistic
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The values of the projected utilization metrics.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#lambdaFunctionMemoryProjectedMetric_value"><span class="hs-identifier hs-type">lambdaFunctionMemoryProjectedMetric_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric"><span class="hs-identifier hs-type">LambdaFunctionMemoryProjectedMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="lambdaFunctionMemoryProjectedMetric_value"><span class="annot"><span class="annottext">lambdaFunctionMemoryProjectedMetric_value :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; LambdaFunctionMemoryProjectedMetric
+-&gt; f LambdaFunctionMemoryProjectedMetric
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#lambdaFunctionMemoryProjectedMetric_value"><span class="hs-identifier hs-var hs-var">lambdaFunctionMemoryProjectedMetric_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaFunctionMemoryProjectedMetric -&gt; Maybe Double)
+-&gt; (LambdaFunctionMemoryProjectedMetric
+    -&gt; Maybe Double -&gt; LambdaFunctionMemoryProjectedMetric)
+-&gt; Lens
+     LambdaFunctionMemoryProjectedMetric
+     LambdaFunctionMemoryProjectedMetric
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-type">LambdaFunctionMemoryProjectedMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239436"><span class="annot"><span class="annottext">Maybe Double
+value :: Maybe Double
+$sel:value:LambdaFunctionMemoryProjectedMetric' :: LambdaFunctionMemoryProjectedMetric -&gt; Maybe Double
+</span><a href="#local-6989586621679239436"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679239436"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239435"><span class="annot"><span class="annottext">s :: LambdaFunctionMemoryProjectedMetric
+</span><a href="#local-6989586621679239435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-type">LambdaFunctionMemoryProjectedMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239434"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679239434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionMemoryProjectedMetric
+</span><a href="#local-6989586621679239435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:LambdaFunctionMemoryProjectedMetric' :: Maybe Double
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#%24sel%3Avalue%3ALambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679239434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric"><span class="hs-identifier hs-type">LambdaFunctionMemoryProjectedMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The name of the projected utilization metric.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#lambdaFunctionMemoryProjectedMetric_name"><span class="hs-identifier hs-type">lambdaFunctionMemoryProjectedMetric_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric"><span class="hs-identifier hs-type">LambdaFunctionMemoryProjectedMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryMetricName.html#LambdaFunctionMemoryMetricName"><span class="hs-identifier hs-type">LambdaFunctionMemoryMetricName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="lambdaFunctionMemoryProjectedMetric_name"><span class="annot"><span class="annottext">lambdaFunctionMemoryProjectedMetric_name :: (Maybe LambdaFunctionMemoryMetricName
+ -&gt; f (Maybe LambdaFunctionMemoryMetricName))
+-&gt; LambdaFunctionMemoryProjectedMetric
+-&gt; f LambdaFunctionMemoryProjectedMetric
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#lambdaFunctionMemoryProjectedMetric_name"><span class="hs-identifier hs-var hs-var">lambdaFunctionMemoryProjectedMetric_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaFunctionMemoryProjectedMetric
+ -&gt; Maybe LambdaFunctionMemoryMetricName)
+-&gt; (LambdaFunctionMemoryProjectedMetric
+    -&gt; Maybe LambdaFunctionMemoryMetricName
+    -&gt; LambdaFunctionMemoryProjectedMetric)
+-&gt; Lens
+     LambdaFunctionMemoryProjectedMetric
+     LambdaFunctionMemoryProjectedMetric
+     (Maybe LambdaFunctionMemoryMetricName)
+     (Maybe LambdaFunctionMemoryMetricName)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-type">LambdaFunctionMemoryProjectedMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239432"><span class="annot"><span class="annottext">Maybe LambdaFunctionMemoryMetricName
+name :: Maybe LambdaFunctionMemoryMetricName
+$sel:name:LambdaFunctionMemoryProjectedMetric' :: LambdaFunctionMemoryProjectedMetric
+-&gt; Maybe LambdaFunctionMemoryMetricName
+</span><a href="#local-6989586621679239432"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFunctionMemoryMetricName
+</span><a href="#local-6989586621679239432"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239431"><span class="annot"><span class="annottext">s :: LambdaFunctionMemoryProjectedMetric
+</span><a href="#local-6989586621679239431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-type">LambdaFunctionMemoryProjectedMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239430"><span class="annot"><span class="annottext">Maybe LambdaFunctionMemoryMetricName
+</span><a href="#local-6989586621679239430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionMemoryProjectedMetric
+</span><a href="#local-6989586621679239431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LambdaFunctionMemoryProjectedMetric' :: Maybe LambdaFunctionMemoryMetricName
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#%24sel%3Aname%3ALambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFunctionMemoryMetricName
+</span><a href="#local-6989586621679239430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric"><span class="hs-identifier hs-type">LambdaFunctionMemoryProjectedMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The statistic of the projected utilization metric.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#lambdaFunctionMemoryProjectedMetric_statistic"><span class="hs-identifier hs-type">lambdaFunctionMemoryProjectedMetric_statistic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric"><span class="hs-identifier hs-type">LambdaFunctionMemoryProjectedMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryMetricStatistic.html#LambdaFunctionMemoryMetricStatistic"><span class="hs-identifier hs-type">LambdaFunctionMemoryMetricStatistic</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="lambdaFunctionMemoryProjectedMetric_statistic"><span class="annot"><span class="annottext">lambdaFunctionMemoryProjectedMetric_statistic :: (Maybe LambdaFunctionMemoryMetricStatistic
+ -&gt; f (Maybe LambdaFunctionMemoryMetricStatistic))
+-&gt; LambdaFunctionMemoryProjectedMetric
+-&gt; f LambdaFunctionMemoryProjectedMetric
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#lambdaFunctionMemoryProjectedMetric_statistic"><span class="hs-identifier hs-var hs-var">lambdaFunctionMemoryProjectedMetric_statistic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaFunctionMemoryProjectedMetric
+ -&gt; Maybe LambdaFunctionMemoryMetricStatistic)
+-&gt; (LambdaFunctionMemoryProjectedMetric
+    -&gt; Maybe LambdaFunctionMemoryMetricStatistic
+    -&gt; LambdaFunctionMemoryProjectedMetric)
+-&gt; Lens
+     LambdaFunctionMemoryProjectedMetric
+     LambdaFunctionMemoryProjectedMetric
+     (Maybe LambdaFunctionMemoryMetricStatistic)
+     (Maybe LambdaFunctionMemoryMetricStatistic)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-type">LambdaFunctionMemoryProjectedMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239428"><span class="annot"><span class="annottext">Maybe LambdaFunctionMemoryMetricStatistic
+statistic :: Maybe LambdaFunctionMemoryMetricStatistic
+$sel:statistic:LambdaFunctionMemoryProjectedMetric' :: LambdaFunctionMemoryProjectedMetric
+-&gt; Maybe LambdaFunctionMemoryMetricStatistic
+</span><a href="#local-6989586621679239428"><span class="hs-identifier hs-var hs-var">statistic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFunctionMemoryMetricStatistic
+</span><a href="#local-6989586621679239428"><span class="hs-identifier hs-var">statistic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239427"><span class="annot"><span class="annottext">s :: LambdaFunctionMemoryProjectedMetric
+</span><a href="#local-6989586621679239427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-type">LambdaFunctionMemoryProjectedMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239426"><span class="annot"><span class="annottext">Maybe LambdaFunctionMemoryMetricStatistic
+</span><a href="#local-6989586621679239426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionMemoryProjectedMetric
+</span><a href="#local-6989586621679239427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statistic:LambdaFunctionMemoryProjectedMetric' :: Maybe LambdaFunctionMemoryMetricStatistic
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#%24sel%3Astatistic%3ALambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-var">statistic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaFunctionMemoryMetricStatistic
+</span><a href="#local-6989586621679239426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric"><span class="hs-identifier hs-type">LambdaFunctionMemoryProjectedMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679239423"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric"><span class="hs-identifier hs-type">LambdaFunctionMemoryProjectedMetric</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679239421"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LambdaFunctionMemoryProjectedMetric
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser LambdaFunctionMemoryProjectedMetric)
+-&gt; Value
+-&gt; Parser LambdaFunctionMemoryProjectedMetric
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LambdaFunctionMemoryProjectedMetric&quot;</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679239418"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239418"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double
+-&gt; Maybe LambdaFunctionMemoryMetricName
+-&gt; Maybe LambdaFunctionMemoryMetricStatistic
+-&gt; LambdaFunctionMemoryProjectedMetric
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric%27"><span class="hs-identifier hs-var">LambdaFunctionMemoryProjectedMetric'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double
+ -&gt; Maybe LambdaFunctionMemoryMetricName
+ -&gt; Maybe LambdaFunctionMemoryMetricStatistic
+ -&gt; LambdaFunctionMemoryProjectedMetric)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe LambdaFunctionMemoryMetricName
+      -&gt; Maybe LambdaFunctionMemoryMetricStatistic
+      -&gt; LambdaFunctionMemoryProjectedMetric)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239418"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LambdaFunctionMemoryMetricName
+   -&gt; Maybe LambdaFunctionMemoryMetricStatistic
+   -&gt; LambdaFunctionMemoryProjectedMetric)
+-&gt; Parser (Maybe LambdaFunctionMemoryMetricName)
+-&gt; Parser
+     (Maybe LambdaFunctionMemoryMetricStatistic
+      -&gt; LambdaFunctionMemoryProjectedMetric)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239418"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LambdaFunctionMemoryMetricName)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LambdaFunctionMemoryMetricStatistic
+   -&gt; LambdaFunctionMemoryProjectedMetric)
+-&gt; Parser (Maybe LambdaFunctionMemoryMetricStatistic)
+-&gt; Parser LambdaFunctionMemoryProjectedMetric
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239418"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe LambdaFunctionMemoryMetricStatistic)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statistic&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679239412"><span id="local-6989586621679239414"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric"><span class="hs-identifier hs-type">LambdaFunctionMemoryProjectedMetric</span></a></span></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679239409"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric.html#LambdaFunctionMemoryProjectedMetric"><span class="hs-identifier hs-type">LambdaFunctionMemoryProjectedMetric</span></a></span></span><span>
+</span><span id="line-98"></span></pre></body></html>

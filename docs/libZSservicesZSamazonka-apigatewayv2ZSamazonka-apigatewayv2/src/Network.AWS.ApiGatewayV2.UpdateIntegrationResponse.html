@@ -1,0 +1,1372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ApiGatewayV2.UpdateIntegrationResponse</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates an IntegrationResponses.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ApiGatewayV2.UpdateIntegrationResponse</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier">UpdateIntegrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#newUpdateIntegrationResponse"><span class="hs-identifier">newUpdateIntegrationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_integrationResponseKey"><span class="hs-identifier">updateIntegrationResponse_integrationResponseKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_templateSelectionExpression"><span class="hs-identifier">updateIntegrationResponse_templateSelectionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_contentHandlingStrategy"><span class="hs-identifier">updateIntegrationResponse_contentHandlingStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_responseTemplates"><span class="hs-identifier">updateIntegrationResponse_responseTemplates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_responseParameters"><span class="hs-identifier">updateIntegrationResponse_responseParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_apiId"><span class="hs-identifier">updateIntegrationResponse_apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_integrationResponseId"><span class="hs-identifier">updateIntegrationResponse_integrationResponseId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_integrationId"><span class="hs-identifier">updateIntegrationResponse_integrationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier">UpdateIntegrationResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#newUpdateIntegrationResponseResponse"><span class="hs-identifier">newUpdateIntegrationResponseResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_integrationResponseId"><span class="hs-identifier">updateIntegrationResponseResponse_integrationResponseId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_integrationResponseKey"><span class="hs-identifier">updateIntegrationResponseResponse_integrationResponseKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_templateSelectionExpression"><span class="hs-identifier">updateIntegrationResponseResponse_templateSelectionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_contentHandlingStrategy"><span class="hs-identifier">updateIntegrationResponseResponse_contentHandlingStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_responseTemplates"><span class="hs-identifier">updateIntegrationResponseResponse_responseTemplates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_responseParameters"><span class="hs-identifier">updateIntegrationResponseResponse_responseParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_httpStatus"><span class="hs-identifier">updateIntegrationResponseResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.html"><span class="hs-identifier">Network.AWS.ApiGatewayV2.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Updates an IntegrationResponses.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- /See:/ 'newUpdateIntegrationResponse' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621679428943"><span id="local-6989586621679428944"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateIntegrationResponse"><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-var">UpdateIntegrationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateIntegrationResponse%27"><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-var">UpdateIntegrationResponse'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The integration response key.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AintegrationResponseKey%3AUpdateIntegrationResponse%27"><span class="annot"><span class="annottext">UpdateIntegrationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AintegrationResponseKey%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">integrationResponseKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The template selection expression for the integration response.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Supported only for WebSocket APIs.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AtemplateSelectionExpression%3AUpdateIntegrationResponse%27"><span class="annot"><span class="annottext">UpdateIntegrationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AtemplateSelectionExpression%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">templateSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Supported only for WebSocket APIs. Specifies how to handle response</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- payload content type conversions. Supported values are CONVERT_TO_BINARY</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- and CONVERT_TO_TEXT, with the following behaviors:</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- string to the corresponding binary blob.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- Base64-encoded string.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- If this property is not defined, the response payload will be passed</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- through from the integration response to the route response or method</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- response without modification.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AcontentHandlingStrategy%3AUpdateIntegrationResponse%27"><span class="annot"><span class="annottext">UpdateIntegrationResponse -&gt; Maybe ContentHandlingStrategy
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AcontentHandlingStrategy%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">contentHandlingStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.ContentHandlingStrategy.html#ContentHandlingStrategy"><span class="hs-identifier hs-type">ContentHandlingStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The collection of response templates for the integration response as a</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- string-to-string map of key-value pairs. Response templates are</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- represented as a key\/value map, with a content-type as the key and a</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- template as the value.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AresponseTemplates%3AUpdateIntegrationResponse%27"><span class="annot"><span class="annottext">UpdateIntegrationResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AresponseTemplates%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">responseTemplates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | A key-value map specifying response parameters that are passed to the</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- method response from the backend. The key is a method response header</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- parameter name and the mapped value is an integration response header</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- value, a static value enclosed within a pair of single quotes, or a JSON</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- expression from the integration response body. The mapping key must</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- match the pattern of method.response.header.{name} , where name is a</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- valid and unique header name. The mapped non-static value must match the</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- pattern of integration.response.header.{name} or</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- integration.response.body.{JSON-expression} , where {name} is a valid</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- and unique response header name and {JSON-expression} is a valid JSON</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- expression without the $ prefix.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AresponseParameters%3AUpdateIntegrationResponse%27"><span class="annot"><span class="annottext">UpdateIntegrationResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AresponseParameters%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The API identifier.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AapiId%3AUpdateIntegrationResponse%27"><span class="annot"><span class="annottext">UpdateIntegrationResponse -&gt; Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AapiId%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The integration response ID.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AintegrationResponseId%3AUpdateIntegrationResponse%27"><span class="annot"><span class="annottext">UpdateIntegrationResponse -&gt; Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AintegrationResponseId%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">integrationResponseId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | The integration ID.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AintegrationId%3AUpdateIntegrationResponse%27"><span class="annot"><span class="annottext">UpdateIntegrationResponse -&gt; Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AintegrationId%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">integrationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679428930"><span id="local-6989586621679428932"><span class="annot"><span class="annottext">UpdateIntegrationResponse -&gt; UpdateIntegrationResponse -&gt; Bool
+(UpdateIntegrationResponse -&gt; UpdateIntegrationResponse -&gt; Bool)
+-&gt; (UpdateIntegrationResponse -&gt; UpdateIntegrationResponse -&gt; Bool)
+-&gt; Eq UpdateIntegrationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateIntegrationResponse -&gt; UpdateIntegrationResponse -&gt; Bool
+$c/= :: UpdateIntegrationResponse -&gt; UpdateIntegrationResponse -&gt; Bool
+== :: UpdateIntegrationResponse -&gt; UpdateIntegrationResponse -&gt; Bool
+$c== :: UpdateIntegrationResponse -&gt; UpdateIntegrationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428921"><span id="local-6989586621679428923"><span id="local-6989586621679428925"><span id="local-6989586621679428927"><span class="annot"><span class="annottext">ReadPrec [UpdateIntegrationResponse]
+ReadPrec UpdateIntegrationResponse
+Int -&gt; ReadS UpdateIntegrationResponse
+ReadS [UpdateIntegrationResponse]
+(Int -&gt; ReadS UpdateIntegrationResponse)
+-&gt; ReadS [UpdateIntegrationResponse]
+-&gt; ReadPrec UpdateIntegrationResponse
+-&gt; ReadPrec [UpdateIntegrationResponse]
+-&gt; Read UpdateIntegrationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateIntegrationResponse]
+$creadListPrec :: ReadPrec [UpdateIntegrationResponse]
+readPrec :: ReadPrec UpdateIntegrationResponse
+$creadPrec :: ReadPrec UpdateIntegrationResponse
+readList :: ReadS [UpdateIntegrationResponse]
+$creadList :: ReadS [UpdateIntegrationResponse]
+readsPrec :: Int -&gt; ReadS UpdateIntegrationResponse
+$creadsPrec :: Int -&gt; ReadS UpdateIntegrationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428914"><span id="local-6989586621679428916"><span id="local-6989586621679428918"><span class="annot"><span class="annottext">Int -&gt; UpdateIntegrationResponse -&gt; ShowS
+[UpdateIntegrationResponse] -&gt; ShowS
+UpdateIntegrationResponse -&gt; String
+(Int -&gt; UpdateIntegrationResponse -&gt; ShowS)
+-&gt; (UpdateIntegrationResponse -&gt; String)
+-&gt; ([UpdateIntegrationResponse] -&gt; ShowS)
+-&gt; Show UpdateIntegrationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateIntegrationResponse] -&gt; ShowS
+$cshowList :: [UpdateIntegrationResponse] -&gt; ShowS
+show :: UpdateIntegrationResponse -&gt; String
+$cshow :: UpdateIntegrationResponse -&gt; String
+showsPrec :: Int -&gt; UpdateIntegrationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateIntegrationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateIntegrationResponse -&gt; Rep UpdateIntegrationResponse x)
+-&gt; (forall x.
+    Rep UpdateIntegrationResponse x -&gt; UpdateIntegrationResponse)
+-&gt; Generic UpdateIntegrationResponse
+forall x.
+Rep UpdateIntegrationResponse x -&gt; UpdateIntegrationResponse
+forall x.
+UpdateIntegrationResponse -&gt; Rep UpdateIntegrationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateIntegrationResponse x -&gt; UpdateIntegrationResponse
+$cfrom :: forall x.
+UpdateIntegrationResponse -&gt; Rep UpdateIntegrationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Create a value of 'UpdateIntegrationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'integrationResponseKey', 'updateIntegrationResponse_integrationResponseKey' - The integration response key.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'templateSelectionExpression', 'updateIntegrationResponse_templateSelectionExpression' - The template selection expression for the integration response.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Supported only for WebSocket APIs.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'contentHandlingStrategy', 'updateIntegrationResponse_contentHandlingStrategy' - Supported only for WebSocket APIs. Specifies how to handle response</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- payload content type conversions. Supported values are CONVERT_TO_BINARY</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- and CONVERT_TO_TEXT, with the following behaviors:</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- string to the corresponding binary blob.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Base64-encoded string.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- If this property is not defined, the response payload will be passed</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- through from the integration response to the route response or method</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- response without modification.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'responseTemplates', 'updateIntegrationResponse_responseTemplates' - The collection of response templates for the integration response as a</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- string-to-string map of key-value pairs. Response templates are</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- represented as a key\/value map, with a content-type as the key and a</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- template as the value.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'responseParameters', 'updateIntegrationResponse_responseParameters' - A key-value map specifying response parameters that are passed to the</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- method response from the backend. The key is a method response header</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- parameter name and the mapped value is an integration response header</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- value, a static value enclosed within a pair of single quotes, or a JSON</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- expression from the integration response body. The mapping key must</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- match the pattern of method.response.header.{name} , where name is a</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- valid and unique header name. The mapped non-static value must match the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- pattern of integration.response.header.{name} or</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- integration.response.body.{JSON-expression} , where {name} is a valid</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- and unique response header name and {JSON-expression} is a valid JSON</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- expression without the $ prefix.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'apiId', 'updateIntegrationResponse_apiId' - The API identifier.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'integrationResponseId', 'updateIntegrationResponse_integrationResponseId' - The integration response ID.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'integrationId', 'updateIntegrationResponse_integrationId' - The integration ID.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#newUpdateIntegrationResponse"><span class="hs-identifier hs-type">newUpdateIntegrationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'apiId'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-comment">-- | 'integrationResponseId'</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-comment">-- | 'integrationId'</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span>
+</span><span id="line-167"></span><span id="newUpdateIntegrationResponse"><span class="annot"><span class="annottext">newUpdateIntegrationResponse :: Text -&gt; Text -&gt; Text -&gt; UpdateIntegrationResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#newUpdateIntegrationResponse"><span class="hs-identifier hs-var hs-var">newUpdateIntegrationResponse</span></a></span></span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679428909"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428909"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679428908"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428908"><span class="hs-identifier hs-var">pIntegrationResponseId_</span></a></span></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679428907"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428907"><span class="hs-identifier hs-var">pIntegrationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">UpdateIntegrationResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ContentHandlingStrategy
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; UpdateIntegrationResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:integrationResponseKey:UpdateIntegrationResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AintegrationResponseKey%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">integrationResponseKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateSelectionExpression:UpdateIntegrationResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AtemplateSelectionExpression%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">templateSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">$sel:contentHandlingStrategy:UpdateIntegrationResponse' :: Maybe ContentHandlingStrategy
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AcontentHandlingStrategy%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">contentHandlingStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">$sel:responseTemplates:UpdateIntegrationResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AresponseTemplates%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">responseTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">$sel:responseParameters:UpdateIntegrationResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AresponseParameters%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">responseParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">$sel:apiId:UpdateIntegrationResponse' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AapiId%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428909"><span class="hs-identifier hs-var">pApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">$sel:integrationResponseId:UpdateIntegrationResponse' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AintegrationResponseId%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">integrationResponseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428908"><span class="hs-identifier hs-var">pIntegrationResponseId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">$sel:integrationId:UpdateIntegrationResponse' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AintegrationId%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">integrationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428907"><span class="hs-identifier hs-var">pIntegrationId_</span></a></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The integration response key.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_integrationResponseKey"><span class="hs-identifier hs-type">updateIntegrationResponse_integrationResponseKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="updateIntegrationResponse_integrationResponseKey"><span class="annot"><span class="annottext">updateIntegrationResponse_integrationResponseKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateIntegrationResponse -&gt; f UpdateIntegrationResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_integrationResponseKey"><span class="hs-identifier hs-var hs-var">updateIntegrationResponse_integrationResponseKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIntegrationResponse -&gt; Maybe Text)
+-&gt; (UpdateIntegrationResponse
+    -&gt; Maybe Text -&gt; UpdateIntegrationResponse)
+-&gt; Lens
+     UpdateIntegrationResponse
+     UpdateIntegrationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428904"><span class="annot"><span class="annottext">Maybe Text
+integrationResponseKey :: Maybe Text
+$sel:integrationResponseKey:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679428904"><span class="hs-identifier hs-var hs-var">integrationResponseKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428904"><span class="hs-identifier hs-var">integrationResponseKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428903"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
+</span><a href="#local-6989586621679428903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428902"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
+</span><a href="#local-6989586621679428903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integrationResponseKey:UpdateIntegrationResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AintegrationResponseKey%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">integrationResponseKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The template selection expression for the integration response.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Supported only for WebSocket APIs.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_templateSelectionExpression"><span class="hs-identifier hs-type">updateIntegrationResponse_templateSelectionExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="updateIntegrationResponse_templateSelectionExpression"><span class="annot"><span class="annottext">updateIntegrationResponse_templateSelectionExpression :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateIntegrationResponse -&gt; f UpdateIntegrationResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_templateSelectionExpression"><span class="hs-identifier hs-var hs-var">updateIntegrationResponse_templateSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIntegrationResponse -&gt; Maybe Text)
+-&gt; (UpdateIntegrationResponse
+    -&gt; Maybe Text -&gt; UpdateIntegrationResponse)
+-&gt; Lens
+     UpdateIntegrationResponse
+     UpdateIntegrationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428901"><span class="annot"><span class="annottext">Maybe Text
+templateSelectionExpression :: Maybe Text
+$sel:templateSelectionExpression:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679428901"><span class="hs-identifier hs-var hs-var">templateSelectionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428901"><span class="hs-identifier hs-var">templateSelectionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428900"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
+</span><a href="#local-6989586621679428900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428899"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
+</span><a href="#local-6989586621679428900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateSelectionExpression:UpdateIntegrationResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AtemplateSelectionExpression%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">templateSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | Supported only for WebSocket APIs. Specifies how to handle response</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- payload content type conversions. Supported values are CONVERT_TO_BINARY</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- and CONVERT_TO_TEXT, with the following behaviors:</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- string to the corresponding binary blob.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Base64-encoded string.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- If this property is not defined, the response payload will be passed</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- through from the integration response to the route response or method</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- response without modification.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_contentHandlingStrategy"><span class="hs-identifier hs-type">updateIntegrationResponse_contentHandlingStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.ContentHandlingStrategy.html#ContentHandlingStrategy"><span class="hs-identifier hs-type">ContentHandlingStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="updateIntegrationResponse_contentHandlingStrategy"><span class="annot"><span class="annottext">updateIntegrationResponse_contentHandlingStrategy :: (Maybe ContentHandlingStrategy
+ -&gt; f (Maybe ContentHandlingStrategy))
+-&gt; UpdateIntegrationResponse -&gt; f UpdateIntegrationResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_contentHandlingStrategy"><span class="hs-identifier hs-var hs-var">updateIntegrationResponse_contentHandlingStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIntegrationResponse -&gt; Maybe ContentHandlingStrategy)
+-&gt; (UpdateIntegrationResponse
+    -&gt; Maybe ContentHandlingStrategy -&gt; UpdateIntegrationResponse)
+-&gt; Lens
+     UpdateIntegrationResponse
+     UpdateIntegrationResponse
+     (Maybe ContentHandlingStrategy)
+     (Maybe ContentHandlingStrategy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428898"><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+contentHandlingStrategy :: Maybe ContentHandlingStrategy
+$sel:contentHandlingStrategy:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679428898"><span class="hs-identifier hs-var hs-var">contentHandlingStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679428898"><span class="hs-identifier hs-var">contentHandlingStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428897"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
+</span><a href="#local-6989586621679428897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428896"><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679428896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
+</span><a href="#local-6989586621679428897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentHandlingStrategy:UpdateIntegrationResponse' :: Maybe ContentHandlingStrategy
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AcontentHandlingStrategy%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">contentHandlingStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679428896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The collection of response templates for the integration response as a</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- string-to-string map of key-value pairs. Response templates are</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- represented as a key\/value map, with a content-type as the key and a</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- template as the value.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_responseTemplates"><span class="hs-identifier hs-type">updateIntegrationResponse_responseTemplates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="updateIntegrationResponse_responseTemplates"><span class="annot"><span class="annottext">updateIntegrationResponse_responseTemplates :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateIntegrationResponse -&gt; f UpdateIntegrationResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_responseTemplates"><span class="hs-identifier hs-var hs-var">updateIntegrationResponse_responseTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIntegrationResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (UpdateIntegrationResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; UpdateIntegrationResponse)
+-&gt; Lens
+     UpdateIntegrationResponse
+     UpdateIntegrationResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428895"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+responseTemplates :: Maybe (HashMap Text Text)
+$sel:responseTemplates:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428895"><span class="hs-identifier hs-var hs-var">responseTemplates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428895"><span class="hs-identifier hs-var">responseTemplates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428894"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
+</span><a href="#local-6989586621679428894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428893"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
+</span><a href="#local-6989586621679428894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseTemplates:UpdateIntegrationResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AresponseTemplates%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">responseTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; UpdateIntegrationResponse -&gt; f UpdateIntegrationResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateIntegrationResponse
+-&gt; f UpdateIntegrationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | A key-value map specifying response parameters that are passed to the</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- method response from the backend. The key is a method response header</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- parameter name and the mapped value is an integration response header</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- value, a static value enclosed within a pair of single quotes, or a JSON</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- expression from the integration response body. The mapping key must</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- match the pattern of method.response.header.{name} , where name is a</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- valid and unique header name. The mapped non-static value must match the</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- pattern of integration.response.header.{name} or</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- integration.response.body.{JSON-expression} , where {name} is a valid</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- and unique response header name and {JSON-expression} is a valid JSON</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- expression without the $ prefix.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_responseParameters"><span class="hs-identifier hs-type">updateIntegrationResponse_responseParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="updateIntegrationResponse_responseParameters"><span class="annot"><span class="annottext">updateIntegrationResponse_responseParameters :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateIntegrationResponse -&gt; f UpdateIntegrationResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_responseParameters"><span class="hs-identifier hs-var hs-var">updateIntegrationResponse_responseParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIntegrationResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (UpdateIntegrationResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; UpdateIntegrationResponse)
+-&gt; Lens
+     UpdateIntegrationResponse
+     UpdateIntegrationResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428889"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+responseParameters :: Maybe (HashMap Text Text)
+$sel:responseParameters:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428889"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428889"><span class="hs-identifier hs-var">responseParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428888"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
+</span><a href="#local-6989586621679428888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428887"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
+</span><a href="#local-6989586621679428888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseParameters:UpdateIntegrationResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AresponseParameters%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">responseParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; UpdateIntegrationResponse -&gt; f UpdateIntegrationResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateIntegrationResponse
+-&gt; f UpdateIntegrationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The API identifier.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_apiId"><span class="hs-identifier hs-type">updateIntegrationResponse_apiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-231"></span><span id="updateIntegrationResponse_apiId"><span class="annot"><span class="annottext">updateIntegrationResponse_apiId :: (Text -&gt; f Text)
+-&gt; UpdateIntegrationResponse -&gt; f UpdateIntegrationResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_apiId"><span class="hs-identifier hs-var hs-var">updateIntegrationResponse_apiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIntegrationResponse -&gt; Text)
+-&gt; (UpdateIntegrationResponse -&gt; Text -&gt; UpdateIntegrationResponse)
+-&gt; Lens
+     UpdateIntegrationResponse UpdateIntegrationResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428886"><span class="annot"><span class="annottext">Text
+apiId :: Text
+$sel:apiId:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Text
+</span><a href="#local-6989586621679428886"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428886"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428885"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
+</span><a href="#local-6989586621679428885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428884"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
+</span><a href="#local-6989586621679428885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:UpdateIntegrationResponse' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AapiId%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The integration response ID.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_integrationResponseId"><span class="hs-identifier hs-type">updateIntegrationResponse_integrationResponseId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-235"></span><span id="updateIntegrationResponse_integrationResponseId"><span class="annot"><span class="annottext">updateIntegrationResponse_integrationResponseId :: (Text -&gt; f Text)
+-&gt; UpdateIntegrationResponse -&gt; f UpdateIntegrationResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_integrationResponseId"><span class="hs-identifier hs-var hs-var">updateIntegrationResponse_integrationResponseId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIntegrationResponse -&gt; Text)
+-&gt; (UpdateIntegrationResponse -&gt; Text -&gt; UpdateIntegrationResponse)
+-&gt; Lens
+     UpdateIntegrationResponse UpdateIntegrationResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428883"><span class="annot"><span class="annottext">Text
+integrationResponseId :: Text
+$sel:integrationResponseId:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Text
+</span><a href="#local-6989586621679428883"><span class="hs-identifier hs-var hs-var">integrationResponseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428883"><span class="hs-identifier hs-var">integrationResponseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428882"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
+</span><a href="#local-6989586621679428882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428881"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
+</span><a href="#local-6989586621679428882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integrationResponseId:UpdateIntegrationResponse' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AintegrationResponseId%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">integrationResponseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The integration ID.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_integrationId"><span class="hs-identifier hs-type">updateIntegrationResponse_integrationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-239"></span><span id="updateIntegrationResponse_integrationId"><span class="annot"><span class="annottext">updateIntegrationResponse_integrationId :: (Text -&gt; f Text)
+-&gt; UpdateIntegrationResponse -&gt; f UpdateIntegrationResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponse_integrationId"><span class="hs-identifier hs-var hs-var">updateIntegrationResponse_integrationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIntegrationResponse -&gt; Text)
+-&gt; (UpdateIntegrationResponse -&gt; Text -&gt; UpdateIntegrationResponse)
+-&gt; Lens
+     UpdateIntegrationResponse UpdateIntegrationResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428880"><span class="annot"><span class="annottext">Text
+integrationId :: Text
+$sel:integrationId:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Text
+</span><a href="#local-6989586621679428880"><span class="hs-identifier hs-var hs-var">integrationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428880"><span class="hs-identifier hs-var">integrationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428879"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
+</span><a href="#local-6989586621679428879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428878"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
+</span><a href="#local-6989586621679428879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integrationId:UpdateIntegrationResponse' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AintegrationId%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">integrationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-243"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse</span></a></span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679428874"><span class="annot"><span class="annottext">request :: UpdateIntegrationResponse -&gt; Request UpdateIntegrationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateIntegrationResponse -&gt; Request UpdateIntegrationResponse
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ApiGatewayV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679428870"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateIntegrationResponse
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateIntegrationResponse)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateIntegrationResponse))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateIntegrationResponse
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateIntegrationResponse)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-248"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679428867"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679428867"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679428866"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679428866"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679428865"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679428865"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-249"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ContentHandlingStrategy
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; UpdateIntegrationResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">UpdateIntegrationResponseResponse'</span></a></span><span>
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ContentHandlingStrategy
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; UpdateIntegrationResponseResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ContentHandlingStrategy
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; UpdateIntegrationResponseResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679428865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;integrationResponseId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ContentHandlingStrategy
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; UpdateIntegrationResponseResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ContentHandlingStrategy
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; UpdateIntegrationResponseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679428865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;integrationResponseKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ContentHandlingStrategy
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; UpdateIntegrationResponseResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ContentHandlingStrategy
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; UpdateIntegrationResponseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679428865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateSelectionExpression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ContentHandlingStrategy
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; UpdateIntegrationResponseResponse)
+-&gt; Either String (Maybe ContentHandlingStrategy)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; UpdateIntegrationResponseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679428865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ContentHandlingStrategy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;contentHandlingStrategy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; UpdateIntegrationResponseResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Int -&gt; UpdateIntegrationResponseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679428865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;responseTemplates&quot;</span></span><span>
+</span><span id="line-255"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-256"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Int -&gt; UpdateIntegrationResponseResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; UpdateIntegrationResponseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679428865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;responseParameters&quot;</span></span><span>
+</span><span id="line-258"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-259"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateIntegrationResponseResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateIntegrationResponseResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679428867"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428856"><span id="local-6989586621679428858"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span></span></span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428853"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span></span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679428849"><span class="annot"><span class="annottext">toHeaders :: UpdateIntegrationResponse -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateIntegrationResponse -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-270"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-271"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-272"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-273"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-274"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428839"><span id="local-6989586621679428841"><span id="local-6989586621679428843"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-279"></span><span>  </span><span id="local-6989586621679428837"><span class="annot"><span class="annottext">toJSON :: UpdateIntegrationResponse -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428828"><span id="local-6989586621679428829"><span id="local-6989586621679428830"><span id="local-6989586621679428831"><span id="local-6989586621679428832"><span id="local-6989586621679428833"><span id="local-6989586621679428834"><span id="local-6989586621679428835"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Maybe ContentHandlingStrategy
+Text
+integrationId :: Text
+integrationResponseId :: Text
+apiId :: Text
+responseParameters :: Maybe (HashMap Text Text)
+responseTemplates :: Maybe (HashMap Text Text)
+contentHandlingStrategy :: Maybe ContentHandlingStrategy
+templateSelectionExpression :: Maybe Text
+integrationResponseKey :: Maybe Text
+$sel:integrationId:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Text
+$sel:integrationResponseId:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Text
+$sel:apiId:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Text
+$sel:responseParameters:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe (HashMap Text Text)
+$sel:responseTemplates:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe (HashMap Text Text)
+$sel:contentHandlingStrategy:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe ContentHandlingStrategy
+$sel:templateSelectionExpression:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe Text
+$sel:integrationResponseKey:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679428828"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-280"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-281"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-282"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;integrationResponseKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428835"><span class="hs-identifier hs-var">integrationResponseKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateSelectionExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428834"><span class="hs-identifier hs-var">templateSelectionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;contentHandlingStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContentHandlingStrategy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>              </span><span class="annot"><span class="annottext">(ContentHandlingStrategy -&gt; Pair)
+-&gt; Maybe ContentHandlingStrategy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679428833"><span class="hs-identifier hs-var">contentHandlingStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;responseTemplates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428832"><span class="hs-identifier hs-var">responseTemplates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;responseParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428831"><span class="hs-identifier hs-var">responseParameters</span></a></span><span>
+</span><span id="line-292"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-293"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-296"></span><span>  </span><span id="local-6989586621679428822"><span class="annot"><span class="annottext">toPath :: UpdateIntegrationResponse -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428813"><span id="local-6989586621679428814"><span id="local-6989586621679428815"><span id="local-6989586621679428816"><span id="local-6989586621679428817"><span id="local-6989586621679428818"><span id="local-6989586621679428819"><span id="local-6989586621679428820"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Maybe ContentHandlingStrategy
+Text
+integrationId :: Text
+integrationResponseId :: Text
+apiId :: Text
+responseParameters :: Maybe (HashMap Text Text)
+responseTemplates :: Maybe (HashMap Text Text)
+contentHandlingStrategy :: Maybe ContentHandlingStrategy
+templateSelectionExpression :: Maybe Text
+integrationResponseKey :: Maybe Text
+$sel:integrationId:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Text
+$sel:integrationResponseId:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Text
+$sel:apiId:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Text
+$sel:responseParameters:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe (HashMap Text Text)
+$sel:responseTemplates:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe (HashMap Text Text)
+$sel:contentHandlingStrategy:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe ContentHandlingStrategy
+$sel:templateSelectionExpression:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe Text
+$sel:integrationResponseKey:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679428813"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-298"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v2/apis/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428815"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/integrations/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428813"><span class="hs-identifier hs-var">integrationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/integrationresponses/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679428814"><span class="hs-identifier hs-var">integrationResponseId</span></a></span><span>
+</span><span id="line-304"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-307"></span><span>  </span><span id="local-6989586621679428809"><span class="annot"><span class="annottext">toQuery :: UpdateIntegrationResponse -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateIntegrationResponse -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | /See:/ 'newUpdateIntegrationResponseResponse' smart constructor.</span><span>
+</span><span id="line-310"></span><span id="local-6989586621679428806"><span id="local-6989586621679428807"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateIntegrationResponseResponse"><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-var">UpdateIntegrationResponseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateIntegrationResponseResponse%27"><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">UpdateIntegrationResponseResponse'</span></a></span></span><span>
+</span><span id="line-311"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The integration response ID.</span><span>
+</span><span id="line-312"></span><span>    </span><span id="%24sel%3AintegrationResponseId%3AUpdateIntegrationResponseResponse%27"><span class="annot"><span class="annottext">UpdateIntegrationResponseResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AintegrationResponseId%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var hs-var">integrationResponseId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>    </span><span class="hs-comment">-- | The integration response key.</span><span>
+</span><span id="line-314"></span><span>    </span><span id="%24sel%3AintegrationResponseKey%3AUpdateIntegrationResponseResponse%27"><span class="annot"><span class="annottext">UpdateIntegrationResponseResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AintegrationResponseKey%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var hs-var">integrationResponseKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>    </span><span class="hs-comment">-- | The template selection expressions for the integration response.</span><span>
+</span><span id="line-316"></span><span>    </span><span id="%24sel%3AtemplateSelectionExpression%3AUpdateIntegrationResponseResponse%27"><span class="annot"><span class="annottext">UpdateIntegrationResponseResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AtemplateSelectionExpression%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var hs-var">templateSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>    </span><span class="hs-comment">-- | Supported only for WebSocket APIs. Specifies how to handle response</span><span>
+</span><span id="line-318"></span><span>    </span><span class="hs-comment">-- payload content type conversions. Supported values are CONVERT_TO_BINARY</span><span>
+</span><span id="line-319"></span><span>    </span><span class="hs-comment">-- and CONVERT_TO_TEXT, with the following behaviors:</span><span>
+</span><span id="line-320"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-321"></span><span>    </span><span class="hs-comment">-- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded</span><span>
+</span><span id="line-322"></span><span>    </span><span class="hs-comment">-- string to the corresponding binary blob.</span><span>
+</span><span id="line-323"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-324"></span><span>    </span><span class="hs-comment">-- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a</span><span>
+</span><span id="line-325"></span><span>    </span><span class="hs-comment">-- Base64-encoded string.</span><span>
+</span><span id="line-326"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-327"></span><span>    </span><span class="hs-comment">-- If this property is not defined, the response payload will be passed</span><span>
+</span><span id="line-328"></span><span>    </span><span class="hs-comment">-- through from the integration response to the route response or method</span><span>
+</span><span id="line-329"></span><span>    </span><span class="hs-comment">-- response without modification.</span><span>
+</span><span id="line-330"></span><span>    </span><span id="%24sel%3AcontentHandlingStrategy%3AUpdateIntegrationResponseResponse%27"><span class="annot"><span class="annottext">UpdateIntegrationResponseResponse -&gt; Maybe ContentHandlingStrategy
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AcontentHandlingStrategy%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var hs-var">contentHandlingStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.ContentHandlingStrategy.html#ContentHandlingStrategy"><span class="hs-identifier hs-type">ContentHandlingStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>    </span><span class="hs-comment">-- | The collection of response templates for the integration response as a</span><span>
+</span><span id="line-332"></span><span>    </span><span class="hs-comment">-- string-to-string map of key-value pairs. Response templates are</span><span>
+</span><span id="line-333"></span><span>    </span><span class="hs-comment">-- represented as a key\/value map, with a content-type as the key and a</span><span>
+</span><span id="line-334"></span><span>    </span><span class="hs-comment">-- template as the value.</span><span>
+</span><span id="line-335"></span><span>    </span><span id="%24sel%3AresponseTemplates%3AUpdateIntegrationResponseResponse%27"><span class="annot"><span class="annottext">UpdateIntegrationResponseResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AresponseTemplates%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var hs-var">responseTemplates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>    </span><span class="hs-comment">-- | A key-value map specifying response parameters that are passed to the</span><span>
+</span><span id="line-337"></span><span>    </span><span class="hs-comment">-- method response from the backend. The key is a method response header</span><span>
+</span><span id="line-338"></span><span>    </span><span class="hs-comment">-- parameter name and the mapped value is an integration response header</span><span>
+</span><span id="line-339"></span><span>    </span><span class="hs-comment">-- value, a static value enclosed within a pair of single quotes, or a JSON</span><span>
+</span><span id="line-340"></span><span>    </span><span class="hs-comment">-- expression from the integration response body. The mapping key must</span><span>
+</span><span id="line-341"></span><span>    </span><span class="hs-comment">-- match the pattern of method.response.header.{name}, where name is a</span><span>
+</span><span id="line-342"></span><span>    </span><span class="hs-comment">-- valid and unique header name. The mapped non-static value must match the</span><span>
+</span><span id="line-343"></span><span>    </span><span class="hs-comment">-- pattern of integration.response.header.{name} or</span><span>
+</span><span id="line-344"></span><span>    </span><span class="hs-comment">-- integration.response.body.{JSON-expression}, where name is a valid and</span><span>
+</span><span id="line-345"></span><span>    </span><span class="hs-comment">-- unique response header name and JSON-expression is a valid JSON</span><span>
+</span><span id="line-346"></span><span>    </span><span class="hs-comment">-- expression without the $ prefix.</span><span>
+</span><span id="line-347"></span><span>    </span><span id="%24sel%3AresponseParameters%3AUpdateIntegrationResponseResponse%27"><span class="annot"><span class="annottext">UpdateIntegrationResponseResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AresponseParameters%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-348"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-349"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateIntegrationResponseResponse%27"><span class="annot"><span class="annottext">UpdateIntegrationResponseResponse -&gt; Int
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AhttpStatus%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-350"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-351"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679428795"><span id="local-6989586621679428797"><span class="annot"><span class="annottext">UpdateIntegrationResponseResponse
+-&gt; UpdateIntegrationResponseResponse -&gt; Bool
+(UpdateIntegrationResponseResponse
+ -&gt; UpdateIntegrationResponseResponse -&gt; Bool)
+-&gt; (UpdateIntegrationResponseResponse
+    -&gt; UpdateIntegrationResponseResponse -&gt; Bool)
+-&gt; Eq UpdateIntegrationResponseResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateIntegrationResponseResponse
+-&gt; UpdateIntegrationResponseResponse -&gt; Bool
+$c/= :: UpdateIntegrationResponseResponse
+-&gt; UpdateIntegrationResponseResponse -&gt; Bool
+== :: UpdateIntegrationResponseResponse
+-&gt; UpdateIntegrationResponseResponse -&gt; Bool
+$c== :: UpdateIntegrationResponseResponse
+-&gt; UpdateIntegrationResponseResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428787"><span id="local-6989586621679428789"><span id="local-6989586621679428791"><span id="local-6989586621679428793"><span class="annot"><span class="annottext">ReadPrec [UpdateIntegrationResponseResponse]
+ReadPrec UpdateIntegrationResponseResponse
+Int -&gt; ReadS UpdateIntegrationResponseResponse
+ReadS [UpdateIntegrationResponseResponse]
+(Int -&gt; ReadS UpdateIntegrationResponseResponse)
+-&gt; ReadS [UpdateIntegrationResponseResponse]
+-&gt; ReadPrec UpdateIntegrationResponseResponse
+-&gt; ReadPrec [UpdateIntegrationResponseResponse]
+-&gt; Read UpdateIntegrationResponseResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateIntegrationResponseResponse]
+$creadListPrec :: ReadPrec [UpdateIntegrationResponseResponse]
+readPrec :: ReadPrec UpdateIntegrationResponseResponse
+$creadPrec :: ReadPrec UpdateIntegrationResponseResponse
+readList :: ReadS [UpdateIntegrationResponseResponse]
+$creadList :: ReadS [UpdateIntegrationResponseResponse]
+readsPrec :: Int -&gt; ReadS UpdateIntegrationResponseResponse
+$creadsPrec :: Int -&gt; ReadS UpdateIntegrationResponseResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428781"><span id="local-6989586621679428783"><span id="local-6989586621679428785"><span class="annot"><span class="annottext">Int -&gt; UpdateIntegrationResponseResponse -&gt; ShowS
+[UpdateIntegrationResponseResponse] -&gt; ShowS
+UpdateIntegrationResponseResponse -&gt; String
+(Int -&gt; UpdateIntegrationResponseResponse -&gt; ShowS)
+-&gt; (UpdateIntegrationResponseResponse -&gt; String)
+-&gt; ([UpdateIntegrationResponseResponse] -&gt; ShowS)
+-&gt; Show UpdateIntegrationResponseResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateIntegrationResponseResponse] -&gt; ShowS
+$cshowList :: [UpdateIntegrationResponseResponse] -&gt; ShowS
+show :: UpdateIntegrationResponseResponse -&gt; String
+$cshow :: UpdateIntegrationResponseResponse -&gt; String
+showsPrec :: Int -&gt; UpdateIntegrationResponseResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateIntegrationResponseResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateIntegrationResponseResponse
+ -&gt; Rep UpdateIntegrationResponseResponse x)
+-&gt; (forall x.
+    Rep UpdateIntegrationResponseResponse x
+    -&gt; UpdateIntegrationResponseResponse)
+-&gt; Generic UpdateIntegrationResponseResponse
+forall x.
+Rep UpdateIntegrationResponseResponse x
+-&gt; UpdateIntegrationResponseResponse
+forall x.
+UpdateIntegrationResponseResponse
+-&gt; Rep UpdateIntegrationResponseResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateIntegrationResponseResponse x
+-&gt; UpdateIntegrationResponseResponse
+$cfrom :: forall x.
+UpdateIntegrationResponseResponse
+-&gt; Rep UpdateIntegrationResponseResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- Create a value of 'UpdateIntegrationResponseResponse' with all optional fields omitted.</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-357"></span><span class="hs-comment">--</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-360"></span><span class="hs-comment">--</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- 'integrationResponseId', 'updateIntegrationResponseResponse_integrationResponseId' - The integration response ID.</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- 'integrationResponseKey', 'updateIntegrationResponseResponse_integrationResponseKey' - The integration response key.</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- 'templateSelectionExpression', 'updateIntegrationResponseResponse_templateSelectionExpression' - The template selection expressions for the integration response.</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- 'contentHandlingStrategy', 'updateIntegrationResponseResponse_contentHandlingStrategy' - Supported only for WebSocket APIs. Specifies how to handle response</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- payload content type conversions. Supported values are CONVERT_TO_BINARY</span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- and CONVERT_TO_TEXT, with the following behaviors:</span><span>
+</span><span id="line-370"></span><span class="hs-comment">--</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- string to the corresponding binary blob.</span><span>
+</span><span id="line-373"></span><span class="hs-comment">--</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- Base64-encoded string.</span><span>
+</span><span id="line-376"></span><span class="hs-comment">--</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- If this property is not defined, the response payload will be passed</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- through from the integration response to the route response or method</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- response without modification.</span><span>
+</span><span id="line-380"></span><span class="hs-comment">--</span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- 'responseTemplates', 'updateIntegrationResponseResponse_responseTemplates' - The collection of response templates for the integration response as a</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- string-to-string map of key-value pairs. Response templates are</span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- represented as a key\/value map, with a content-type as the key and a</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- template as the value.</span><span>
+</span><span id="line-385"></span><span class="hs-comment">--</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- 'responseParameters', 'updateIntegrationResponseResponse_responseParameters' - A key-value map specifying response parameters that are passed to the</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- method response from the backend. The key is a method response header</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- parameter name and the mapped value is an integration response header</span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- value, a static value enclosed within a pair of single quotes, or a JSON</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- expression from the integration response body. The mapping key must</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- match the pattern of method.response.header.{name}, where name is a</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- valid and unique header name. The mapped non-static value must match the</span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- pattern of integration.response.header.{name} or</span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- integration.response.body.{JSON-expression}, where name is a valid and</span><span>
+</span><span id="line-395"></span><span class="hs-comment">-- unique response header name and JSON-expression is a valid JSON</span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- expression without the $ prefix.</span><span>
+</span><span id="line-397"></span><span class="hs-comment">--</span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- 'httpStatus', 'updateIntegrationResponseResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-399"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#newUpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">newUpdateIntegrationResponseResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-400"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-401"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-402"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse</span></a></span><span>
+</span><span id="line-403"></span><span id="newUpdateIntegrationResponseResponse"><span class="annot"><span class="annottext">newUpdateIntegrationResponseResponse :: Int -&gt; UpdateIntegrationResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#newUpdateIntegrationResponseResponse"><span class="hs-identifier hs-var hs-var">newUpdateIntegrationResponseResponse</span></a></span></span><span> </span><span id="local-6989586621679428778"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679428778"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-404"></span><span>  </span><span class="annot"><span class="annottext">UpdateIntegrationResponseResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ContentHandlingStrategy
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; UpdateIntegrationResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse'</span></a></span><span>
+</span><span id="line-405"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:integrationResponseId:UpdateIntegrationResponseResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AintegrationResponseId%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">integrationResponseId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-406"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-407"></span><span>      </span><span class="annot"><span class="annottext">$sel:integrationResponseKey:UpdateIntegrationResponseResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AintegrationResponseKey%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">integrationResponseKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-408"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateSelectionExpression:UpdateIntegrationResponseResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AtemplateSelectionExpression%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">templateSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-409"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-410"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentHandlingStrategy:UpdateIntegrationResponseResponse' :: Maybe ContentHandlingStrategy
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AcontentHandlingStrategy%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">contentHandlingStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-411"></span><span>        </span><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-412"></span><span>      </span><span class="annot"><span class="annottext">$sel:responseTemplates:UpdateIntegrationResponseResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AresponseTemplates%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">responseTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-413"></span><span>      </span><span class="annot"><span class="annottext">$sel:responseParameters:UpdateIntegrationResponseResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AresponseParameters%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">responseParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-414"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateIntegrationResponseResponse' :: Int
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AhttpStatus%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679428778"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-415"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-416"></span><span>
+</span><span id="line-417"></span><span class="hs-comment">-- | The integration response ID.</span><span>
+</span><span id="line-418"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_integrationResponseId"><span class="hs-identifier hs-type">updateIntegrationResponseResponse_integrationResponseId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-419"></span><span id="updateIntegrationResponseResponse_integrationResponseId"><span class="annot"><span class="annottext">updateIntegrationResponseResponse_integrationResponseId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateIntegrationResponseResponse
+-&gt; f UpdateIntegrationResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_integrationResponseId"><span class="hs-identifier hs-var hs-var">updateIntegrationResponseResponse_integrationResponseId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIntegrationResponseResponse -&gt; Maybe Text)
+-&gt; (UpdateIntegrationResponseResponse
+    -&gt; Maybe Text -&gt; UpdateIntegrationResponseResponse)
+-&gt; Lens
+     UpdateIntegrationResponseResponse
+     UpdateIntegrationResponseResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428777"><span class="annot"><span class="annottext">Maybe Text
+integrationResponseId :: Maybe Text
+$sel:integrationResponseId:UpdateIntegrationResponseResponse' :: UpdateIntegrationResponseResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679428777"><span class="hs-identifier hs-var hs-var">integrationResponseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428777"><span class="hs-identifier hs-var">integrationResponseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428776"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponseResponse
+</span><a href="#local-6989586621679428776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428775"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponseResponse
+</span><a href="#local-6989586621679428776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integrationResponseId:UpdateIntegrationResponseResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AintegrationResponseId%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">integrationResponseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-420"></span><span>
+</span><span id="line-421"></span><span class="hs-comment">-- | The integration response key.</span><span>
+</span><span id="line-422"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_integrationResponseKey"><span class="hs-identifier hs-type">updateIntegrationResponseResponse_integrationResponseKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-423"></span><span id="updateIntegrationResponseResponse_integrationResponseKey"><span class="annot"><span class="annottext">updateIntegrationResponseResponse_integrationResponseKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateIntegrationResponseResponse
+-&gt; f UpdateIntegrationResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_integrationResponseKey"><span class="hs-identifier hs-var hs-var">updateIntegrationResponseResponse_integrationResponseKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIntegrationResponseResponse -&gt; Maybe Text)
+-&gt; (UpdateIntegrationResponseResponse
+    -&gt; Maybe Text -&gt; UpdateIntegrationResponseResponse)
+-&gt; Lens
+     UpdateIntegrationResponseResponse
+     UpdateIntegrationResponseResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428774"><span class="annot"><span class="annottext">Maybe Text
+integrationResponseKey :: Maybe Text
+$sel:integrationResponseKey:UpdateIntegrationResponseResponse' :: UpdateIntegrationResponseResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679428774"><span class="hs-identifier hs-var hs-var">integrationResponseKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428774"><span class="hs-identifier hs-var">integrationResponseKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428773"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponseResponse
+</span><a href="#local-6989586621679428773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428772"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponseResponse
+</span><a href="#local-6989586621679428773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integrationResponseKey:UpdateIntegrationResponseResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AintegrationResponseKey%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">integrationResponseKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-424"></span><span>
+</span><span id="line-425"></span><span class="hs-comment">-- | The template selection expressions for the integration response.</span><span>
+</span><span id="line-426"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_templateSelectionExpression"><span class="hs-identifier hs-type">updateIntegrationResponseResponse_templateSelectionExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-427"></span><span id="updateIntegrationResponseResponse_templateSelectionExpression"><span class="annot"><span class="annottext">updateIntegrationResponseResponse_templateSelectionExpression :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateIntegrationResponseResponse
+-&gt; f UpdateIntegrationResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_templateSelectionExpression"><span class="hs-identifier hs-var hs-var">updateIntegrationResponseResponse_templateSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIntegrationResponseResponse -&gt; Maybe Text)
+-&gt; (UpdateIntegrationResponseResponse
+    -&gt; Maybe Text -&gt; UpdateIntegrationResponseResponse)
+-&gt; Lens
+     UpdateIntegrationResponseResponse
+     UpdateIntegrationResponseResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428771"><span class="annot"><span class="annottext">Maybe Text
+templateSelectionExpression :: Maybe Text
+$sel:templateSelectionExpression:UpdateIntegrationResponseResponse' :: UpdateIntegrationResponseResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679428771"><span class="hs-identifier hs-var hs-var">templateSelectionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428771"><span class="hs-identifier hs-var">templateSelectionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428770"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponseResponse
+</span><a href="#local-6989586621679428770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428769"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponseResponse
+</span><a href="#local-6989586621679428770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateSelectionExpression:UpdateIntegrationResponseResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AtemplateSelectionExpression%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">templateSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-428"></span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- | Supported only for WebSocket APIs. Specifies how to handle response</span><span>
+</span><span id="line-430"></span><span class="hs-comment">-- payload content type conversions. Supported values are CONVERT_TO_BINARY</span><span>
+</span><span id="line-431"></span><span class="hs-comment">-- and CONVERT_TO_TEXT, with the following behaviors:</span><span>
+</span><span id="line-432"></span><span class="hs-comment">--</span><span>
+</span><span id="line-433"></span><span class="hs-comment">-- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded</span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- string to the corresponding binary blob.</span><span>
+</span><span id="line-435"></span><span class="hs-comment">--</span><span>
+</span><span id="line-436"></span><span class="hs-comment">-- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a</span><span>
+</span><span id="line-437"></span><span class="hs-comment">-- Base64-encoded string.</span><span>
+</span><span id="line-438"></span><span class="hs-comment">--</span><span>
+</span><span id="line-439"></span><span class="hs-comment">-- If this property is not defined, the response payload will be passed</span><span>
+</span><span id="line-440"></span><span class="hs-comment">-- through from the integration response to the route response or method</span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- response without modification.</span><span>
+</span><span id="line-442"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_contentHandlingStrategy"><span class="hs-identifier hs-type">updateIntegrationResponseResponse_contentHandlingStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.ContentHandlingStrategy.html#ContentHandlingStrategy"><span class="hs-identifier hs-type">ContentHandlingStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-443"></span><span id="updateIntegrationResponseResponse_contentHandlingStrategy"><span class="annot"><span class="annottext">updateIntegrationResponseResponse_contentHandlingStrategy :: (Maybe ContentHandlingStrategy
+ -&gt; f (Maybe ContentHandlingStrategy))
+-&gt; UpdateIntegrationResponseResponse
+-&gt; f UpdateIntegrationResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_contentHandlingStrategy"><span class="hs-identifier hs-var hs-var">updateIntegrationResponseResponse_contentHandlingStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIntegrationResponseResponse
+ -&gt; Maybe ContentHandlingStrategy)
+-&gt; (UpdateIntegrationResponseResponse
+    -&gt; Maybe ContentHandlingStrategy
+    -&gt; UpdateIntegrationResponseResponse)
+-&gt; Lens
+     UpdateIntegrationResponseResponse
+     UpdateIntegrationResponseResponse
+     (Maybe ContentHandlingStrategy)
+     (Maybe ContentHandlingStrategy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428768"><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+contentHandlingStrategy :: Maybe ContentHandlingStrategy
+$sel:contentHandlingStrategy:UpdateIntegrationResponseResponse' :: UpdateIntegrationResponseResponse -&gt; Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679428768"><span class="hs-identifier hs-var hs-var">contentHandlingStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679428768"><span class="hs-identifier hs-var">contentHandlingStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428767"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponseResponse
+</span><a href="#local-6989586621679428767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428766"><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679428766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponseResponse
+</span><a href="#local-6989586621679428767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentHandlingStrategy:UpdateIntegrationResponseResponse' :: Maybe ContentHandlingStrategy
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AcontentHandlingStrategy%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">contentHandlingStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContentHandlingStrategy
+</span><a href="#local-6989586621679428766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-444"></span><span>
+</span><span id="line-445"></span><span class="hs-comment">-- | The collection of response templates for the integration response as a</span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- string-to-string map of key-value pairs. Response templates are</span><span>
+</span><span id="line-447"></span><span class="hs-comment">-- represented as a key\/value map, with a content-type as the key and a</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- template as the value.</span><span>
+</span><span id="line-449"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_responseTemplates"><span class="hs-identifier hs-type">updateIntegrationResponseResponse_responseTemplates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-450"></span><span id="updateIntegrationResponseResponse_responseTemplates"><span class="annot"><span class="annottext">updateIntegrationResponseResponse_responseTemplates :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateIntegrationResponseResponse
+-&gt; f UpdateIntegrationResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_responseTemplates"><span class="hs-identifier hs-var hs-var">updateIntegrationResponseResponse_responseTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIntegrationResponseResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (UpdateIntegrationResponseResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; UpdateIntegrationResponseResponse)
+-&gt; Lens
+     UpdateIntegrationResponseResponse
+     UpdateIntegrationResponseResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428765"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+responseTemplates :: Maybe (HashMap Text Text)
+$sel:responseTemplates:UpdateIntegrationResponseResponse' :: UpdateIntegrationResponseResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428765"><span class="hs-identifier hs-var hs-var">responseTemplates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428765"><span class="hs-identifier hs-var">responseTemplates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428764"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponseResponse
+</span><a href="#local-6989586621679428764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428763"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponseResponse
+</span><a href="#local-6989586621679428764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseTemplates:UpdateIntegrationResponseResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AresponseTemplates%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">responseTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; UpdateIntegrationResponseResponse
+ -&gt; f UpdateIntegrationResponseResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateIntegrationResponseResponse
+-&gt; f UpdateIntegrationResponseResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-451"></span><span>
+</span><span id="line-452"></span><span class="hs-comment">-- | A key-value map specifying response parameters that are passed to the</span><span>
+</span><span id="line-453"></span><span class="hs-comment">-- method response from the backend. The key is a method response header</span><span>
+</span><span id="line-454"></span><span class="hs-comment">-- parameter name and the mapped value is an integration response header</span><span>
+</span><span id="line-455"></span><span class="hs-comment">-- value, a static value enclosed within a pair of single quotes, or a JSON</span><span>
+</span><span id="line-456"></span><span class="hs-comment">-- expression from the integration response body. The mapping key must</span><span>
+</span><span id="line-457"></span><span class="hs-comment">-- match the pattern of method.response.header.{name}, where name is a</span><span>
+</span><span id="line-458"></span><span class="hs-comment">-- valid and unique header name. The mapped non-static value must match the</span><span>
+</span><span id="line-459"></span><span class="hs-comment">-- pattern of integration.response.header.{name} or</span><span>
+</span><span id="line-460"></span><span class="hs-comment">-- integration.response.body.{JSON-expression}, where name is a valid and</span><span>
+</span><span id="line-461"></span><span class="hs-comment">-- unique response header name and JSON-expression is a valid JSON</span><span>
+</span><span id="line-462"></span><span class="hs-comment">-- expression without the $ prefix.</span><span>
+</span><span id="line-463"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_responseParameters"><span class="hs-identifier hs-type">updateIntegrationResponseResponse_responseParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-464"></span><span id="updateIntegrationResponseResponse_responseParameters"><span class="annot"><span class="annottext">updateIntegrationResponseResponse_responseParameters :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateIntegrationResponseResponse
+-&gt; f UpdateIntegrationResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_responseParameters"><span class="hs-identifier hs-var hs-var">updateIntegrationResponseResponse_responseParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIntegrationResponseResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (UpdateIntegrationResponseResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; UpdateIntegrationResponseResponse)
+-&gt; Lens
+     UpdateIntegrationResponseResponse
+     UpdateIntegrationResponseResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428762"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+responseParameters :: Maybe (HashMap Text Text)
+$sel:responseParameters:UpdateIntegrationResponseResponse' :: UpdateIntegrationResponseResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428762"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428762"><span class="hs-identifier hs-var">responseParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428761"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponseResponse
+</span><a href="#local-6989586621679428761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428760"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponseResponse
+</span><a href="#local-6989586621679428761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseParameters:UpdateIntegrationResponseResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AresponseParameters%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">responseParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679428760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; UpdateIntegrationResponseResponse
+ -&gt; f UpdateIntegrationResponseResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateIntegrationResponseResponse
+-&gt; f UpdateIntegrationResponseResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-465"></span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-467"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_httpStatus"><span class="hs-identifier hs-type">updateIntegrationResponseResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-468"></span><span id="updateIntegrationResponseResponse_httpStatus"><span class="annot"><span class="annottext">updateIntegrationResponseResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateIntegrationResponseResponse
+-&gt; f UpdateIntegrationResponseResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#updateIntegrationResponseResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateIntegrationResponseResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateIntegrationResponseResponse -&gt; Int)
+-&gt; (UpdateIntegrationResponseResponse
+    -&gt; Int -&gt; UpdateIntegrationResponseResponse)
+-&gt; Lens
+     UpdateIntegrationResponseResponse
+     UpdateIntegrationResponseResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428759"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateIntegrationResponseResponse' :: UpdateIntegrationResponseResponse -&gt; Int
+</span><a href="#local-6989586621679428759"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679428759"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428758"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponseResponse
+</span><a href="#local-6989586621679428758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428757"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679428757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponseResponse
+</span><a href="#local-6989586621679428758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateIntegrationResponseResponse' :: Int
+</span><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#%24sel%3AhttpStatus%3AUpdateIntegrationResponseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679428757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-469"></span><span>
+</span><span id="line-470"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-471"></span><span>  </span><span id="local-6989586621679428755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-472"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateIntegrationResponse.html#UpdateIntegrationResponseResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponseResponse</span></a></span></span><span>
+</span><span id="line-473"></span></pre></body></html>

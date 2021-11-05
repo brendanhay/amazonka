@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The controls that Config uses for executing remediations.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newExecutionControls' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679409511"><span id="local-6989586621679409512"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecutionControls"><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls"><span class="hs-identifier hs-var">ExecutionControls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionControls%27"><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls%27"><span class="hs-identifier hs-var">ExecutionControls'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679409520"><span id="local-6989586621679409521"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecutionControls"><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls"><span class="hs-identifier hs-var">ExecutionControls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionControls%27"><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls%27"><span class="hs-identifier hs-var">ExecutionControls'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A SsmControls object.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AssmControls%3AExecutionControls%27"><span class="annot"><span class="annottext">ExecutionControls -&gt; Maybe SsmControls
 </span><a href="Network.AWS.Config.Types.ExecutionControls.html#%24sel%3AssmControls%3AExecutionControls%27"><span class="hs-identifier hs-var hs-var">ssmControls</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.SsmControls.html#SsmControls"><span class="hs-identifier hs-type">SsmControls</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409505"><span id="local-6989586621679409507"><span class="annot"><span class="annottext">ExecutionControls -&gt; ExecutionControls -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409514"><span id="local-6989586621679409516"><span class="annot"><span class="annottext">ExecutionControls -&gt; ExecutionControls -&gt; Bool
 (ExecutionControls -&gt; ExecutionControls -&gt; Bool)
 -&gt; (ExecutionControls -&gt; ExecutionControls -&gt; Bool)
 -&gt; Eq ExecutionControls
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExecutionControls -&gt; ExecutionControls -&gt; Bool
 == :: ExecutionControls -&gt; ExecutionControls -&gt; Bool
 $c== :: ExecutionControls -&gt; ExecutionControls -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409496"><span id="local-6989586621679409498"><span id="local-6989586621679409500"><span id="local-6989586621679409502"><span class="annot"><span class="annottext">ReadPrec [ExecutionControls]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409505"><span id="local-6989586621679409507"><span id="local-6989586621679409509"><span id="local-6989586621679409511"><span class="annot"><span class="annottext">ReadPrec [ExecutionControls]
 ReadPrec ExecutionControls
 Int -&gt; ReadS ExecutionControls
 ReadS [ExecutionControls]
@@ -61,7 +61,7 @@ readList :: ReadS [ExecutionControls]
 $creadList :: ReadS [ExecutionControls]
 readsPrec :: Int -&gt; ReadS ExecutionControls
 $creadsPrec :: Int -&gt; ReadS ExecutionControls
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409489"><span id="local-6989586621679409491"><span id="local-6989586621679409493"><span class="annot"><span class="annottext">Int -&gt; ExecutionControls -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409498"><span id="local-6989586621679409500"><span id="local-6989586621679409502"><span class="annot"><span class="annottext">Int -&gt; ExecutionControls -&gt; ShowS
 [ExecutionControls] -&gt; ShowS
 ExecutionControls -&gt; String
 (Int -&gt; ExecutionControls -&gt; ShowS)
@@ -118,19 +118,19 @@ forall a. Maybe a
      (Maybe SsmControls)
      (Maybe SsmControls)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls%27"><span class="hs-identifier hs-type">ExecutionControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409480"><span class="annot"><span class="annottext">Maybe SsmControls
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls%27"><span class="hs-identifier hs-type">ExecutionControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409489"><span class="annot"><span class="annottext">Maybe SsmControls
 ssmControls :: Maybe SsmControls
 $sel:ssmControls:ExecutionControls' :: ExecutionControls -&gt; Maybe SsmControls
-</span><a href="#local-6989586621679409480"><span class="hs-identifier hs-var hs-var">ssmControls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SsmControls
-</span><a href="#local-6989586621679409480"><span class="hs-identifier hs-var">ssmControls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409479"><span class="annot"><span class="annottext">s :: ExecutionControls
-</span><a href="#local-6989586621679409479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls%27"><span class="hs-identifier hs-type">ExecutionControls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409478"><span class="annot"><span class="annottext">Maybe SsmControls
-</span><a href="#local-6989586621679409478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionControls
-</span><a href="#local-6989586621679409479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ssmControls:ExecutionControls' :: Maybe SsmControls
+</span><a href="#local-6989586621679409489"><span class="hs-identifier hs-var hs-var">ssmControls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SsmControls
+</span><a href="#local-6989586621679409489"><span class="hs-identifier hs-var">ssmControls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409488"><span class="annot"><span class="annottext">s :: ExecutionControls
+</span><a href="#local-6989586621679409488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls%27"><span class="hs-identifier hs-type">ExecutionControls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409487"><span class="annot"><span class="annottext">Maybe SsmControls
+</span><a href="#local-6989586621679409487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionControls
+</span><a href="#local-6989586621679409488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ssmControls:ExecutionControls' :: Maybe SsmControls
 </span><a href="Network.AWS.Config.Types.ExecutionControls.html#%24sel%3AssmControls%3AExecutionControls%27"><span class="hs-identifier hs-var">ssmControls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SsmControls
-</span><a href="#local-6989586621679409478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls"><span class="hs-identifier hs-type">ExecutionControls</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679409487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls"><span class="hs-identifier hs-type">ExecutionControls</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409475"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls"><span class="hs-identifier hs-type">ExecutionControls</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679409473"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExecutionControls
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409484"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls"><span class="hs-identifier hs-type">ExecutionControls</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679409482"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExecutionControls
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ExecutionControls)
@@ -140,30 +140,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ExecutionControls&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679409470"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679409470"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679409479"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679409479"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe SsmControls -&gt; ExecutionControls
 </span><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls%27"><span class="hs-identifier hs-var">ExecutionControls'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SsmControls -&gt; ExecutionControls)
 -&gt; Parser (Maybe SsmControls) -&gt; Parser ExecutionControls
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679409470"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SsmControls)
+</span><a href="#local-6989586621679409479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SsmControls)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SsmControls&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409464"><span id="local-6989586621679409466"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls"><span class="hs-identifier hs-type">ExecutionControls</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409473"><span id="local-6989586621679409475"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls"><span class="hs-identifier hs-type">ExecutionControls</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409461"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls"><span class="hs-identifier hs-type">ExecutionControls</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409470"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls"><span class="hs-identifier hs-type">ExecutionControls</span></a></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409453"><span id="local-6989586621679409455"><span id="local-6989586621679409457"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls"><span class="hs-identifier hs-type">ExecutionControls</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679409451"><span class="annot"><span class="annottext">toJSON :: ExecutionControls -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls%27"><span class="hs-identifier hs-type">ExecutionControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409449"><span class="annot"><span class="annottext">Maybe SsmControls
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409462"><span id="local-6989586621679409464"><span id="local-6989586621679409466"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls"><span class="hs-identifier hs-type">ExecutionControls</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679409460"><span class="annot"><span class="annottext">toJSON :: ExecutionControls -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExecutionControls.html#ExecutionControls%27"><span class="hs-identifier hs-type">ExecutionControls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409458"><span class="annot"><span class="annottext">Maybe SsmControls
 ssmControls :: Maybe SsmControls
 $sel:ssmControls:ExecutionControls' :: ExecutionControls -&gt; Maybe SsmControls
-</span><a href="#local-6989586621679409449"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679409458"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -175,6 +175,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SsmControls -&gt; Pair) -&gt; Maybe SsmControls -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SsmControls
-</span><a href="#local-6989586621679409449"><span class="hs-identifier hs-var">ssmControls</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679409458"><span class="hs-identifier hs-var">ssmControls</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span></pre></body></html>

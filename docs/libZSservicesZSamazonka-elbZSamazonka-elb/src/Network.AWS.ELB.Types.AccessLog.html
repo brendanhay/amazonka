@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about the @AccessLog@ attribute.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAccessLog' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679195276"><span id="local-6989586621679195277"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessLog"><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-var">AccessLog</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessLog%27"><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-var">AccessLog'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679195285"><span id="local-6989586621679195286"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessLog"><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-var">AccessLog</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessLog%27"><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-var">AccessLog'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The interval for publishing the access logs. You can specify an interval</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- of either 5 minutes or 60 minutes.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Aenabled%3AAccessLog%27"><span class="annot"><span class="annottext">AccessLog -&gt; Bool
 </span><a href="Network.AWS.ELB.Types.AccessLog.html#%24sel%3Aenabled%3AAccessLog%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195267"><span id="local-6989586621679195269"><span class="annot"><span class="annottext">AccessLog -&gt; AccessLog -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195276"><span id="local-6989586621679195278"><span class="annot"><span class="annottext">AccessLog -&gt; AccessLog -&gt; Bool
 (AccessLog -&gt; AccessLog -&gt; Bool)
 -&gt; (AccessLog -&gt; AccessLog -&gt; Bool) -&gt; Eq AccessLog
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccessLog -&gt; AccessLog -&gt; Bool
 == :: AccessLog -&gt; AccessLog -&gt; Bool
 $c== :: AccessLog -&gt; AccessLog -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195258"><span id="local-6989586621679195260"><span id="local-6989586621679195262"><span id="local-6989586621679195264"><span class="annot"><span class="annottext">ReadPrec [AccessLog]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195267"><span id="local-6989586621679195269"><span id="local-6989586621679195271"><span id="local-6989586621679195273"><span class="annot"><span class="annottext">ReadPrec [AccessLog]
 ReadPrec AccessLog
 Int -&gt; ReadS AccessLog
 ReadS [AccessLog]
@@ -74,7 +74,7 @@ readList :: ReadS [AccessLog]
 $creadList :: ReadS [AccessLog]
 readsPrec :: Int -&gt; ReadS AccessLog
 $creadsPrec :: Int -&gt; ReadS AccessLog
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195251"><span id="local-6989586621679195253"><span id="local-6989586621679195255"><span class="annot"><span class="annottext">Int -&gt; AccessLog -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195260"><span id="local-6989586621679195262"><span id="local-6989586621679195264"><span class="annot"><span class="annottext">Int -&gt; AccessLog -&gt; ShowS
 [AccessLog] -&gt; ShowS
 AccessLog -&gt; String
 (Int -&gt; AccessLog -&gt; ShowS)
@@ -124,8 +124,8 @@ $cfrom :: forall x. AccessLog -&gt; Rep AccessLog x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-type">AccessLog</span></a></span><span>
 </span><span id="line-71"></span><span id="newAccessLog"><span class="annot"><span class="annottext">newAccessLog :: Bool -&gt; AccessLog
-</span><a href="Network.AWS.ELB.Types.AccessLog.html#newAccessLog"><span class="hs-identifier hs-var hs-var">newAccessLog</span></a></span></span><span> </span><span id="local-6989586621679195245"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679195245"><span class="hs-identifier hs-var">pEnabled_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ELB.Types.AccessLog.html#newAccessLog"><span class="hs-identifier hs-var hs-var">newAccessLog</span></a></span></span><span> </span><span id="local-6989586621679195254"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679195254"><span class="hs-identifier hs-var">pEnabled_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">AccessLog' :: Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; Bool -&gt; AccessLog
 </span><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:emitInterval:AccessLog' :: Maybe Int
@@ -142,7 +142,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:AccessLog' :: Bool
 </span><a href="Network.AWS.ELB.Types.AccessLog.html#%24sel%3Aenabled%3AAccessLog%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679195245"><span class="hs-identifier hs-var">pEnabled_</span></a></span><span>
+</span><a href="#local-6989586621679195254"><span class="hs-identifier hs-var">pEnabled_</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The interval for publishing the access logs. You can specify an interval</span><span>
@@ -155,16 +155,16 @@ forall a. Maybe a
 -&gt; (AccessLog -&gt; Maybe Int -&gt; AccessLog)
 -&gt; Lens AccessLog AccessLog (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195241"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195250"><span class="annot"><span class="annottext">Maybe Int
 emitInterval :: Maybe Int
 $sel:emitInterval:AccessLog' :: AccessLog -&gt; Maybe Int
-</span><a href="#local-6989586621679195241"><span class="hs-identifier hs-var hs-var">emitInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679195241"><span class="hs-identifier hs-var">emitInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195240"><span class="annot"><span class="annottext">s :: AccessLog
-</span><a href="#local-6989586621679195240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195239"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679195239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessLog
-</span><a href="#local-6989586621679195240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emitInterval:AccessLog' :: Maybe Int
+</span><a href="#local-6989586621679195250"><span class="hs-identifier hs-var hs-var">emitInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679195250"><span class="hs-identifier hs-var">emitInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195249"><span class="annot"><span class="annottext">s :: AccessLog
+</span><a href="#local-6989586621679195249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195248"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679195248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessLog
+</span><a href="#local-6989586621679195249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emitInterval:AccessLog' :: Maybe Int
 </span><a href="Network.AWS.ELB.Types.AccessLog.html#%24sel%3AemitInterval%3AAccessLog%27"><span class="hs-identifier hs-var">emitInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679195239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-type">AccessLog</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679195248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-type">AccessLog</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The logical hierarchy you created for your Amazon S3 bucket, for example</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- @my-bucket-prefix\/prod@. If the prefix is not provided, the log is</span><span>
@@ -175,16 +175,16 @@ $sel:emitInterval:AccessLog' :: AccessLog -&gt; Maybe Int
 -&gt; (AccessLog -&gt; Maybe Text -&gt; AccessLog)
 -&gt; Lens AccessLog AccessLog (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195237"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195246"><span class="annot"><span class="annottext">Maybe Text
 s3BucketPrefix :: Maybe Text
 $sel:s3BucketPrefix:AccessLog' :: AccessLog -&gt; Maybe Text
-</span><a href="#local-6989586621679195237"><span class="hs-identifier hs-var hs-var">s3BucketPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195237"><span class="hs-identifier hs-var">s3BucketPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195236"><span class="annot"><span class="annottext">s :: AccessLog
-</span><a href="#local-6989586621679195236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195235"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessLog
-</span><a href="#local-6989586621679195236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketPrefix:AccessLog' :: Maybe Text
+</span><a href="#local-6989586621679195246"><span class="hs-identifier hs-var hs-var">s3BucketPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195246"><span class="hs-identifier hs-var">s3BucketPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195245"><span class="annot"><span class="annottext">s :: AccessLog
+</span><a href="#local-6989586621679195245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195244"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessLog
+</span><a href="#local-6989586621679195245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketPrefix:AccessLog' :: Maybe Text
 </span><a href="Network.AWS.ELB.Types.AccessLog.html#%24sel%3As3BucketPrefix%3AAccessLog%27"><span class="hs-identifier hs-var">s3BucketPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-type">AccessLog</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679195244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-type">AccessLog</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket where the access logs are stored.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#accessLog_s3BucketName"><span class="hs-identifier hs-type">accessLog_s3BucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-type">AccessLog</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -193,16 +193,16 @@ $sel:s3BucketPrefix:AccessLog' :: AccessLog -&gt; Maybe Text
 -&gt; (AccessLog -&gt; Maybe Text -&gt; AccessLog)
 -&gt; Lens AccessLog AccessLog (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195233"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195242"><span class="annot"><span class="annottext">Maybe Text
 s3BucketName :: Maybe Text
 $sel:s3BucketName:AccessLog' :: AccessLog -&gt; Maybe Text
-</span><a href="#local-6989586621679195233"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195233"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195232"><span class="annot"><span class="annottext">s :: AccessLog
-</span><a href="#local-6989586621679195232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195231"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessLog
-</span><a href="#local-6989586621679195232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:AccessLog' :: Maybe Text
+</span><a href="#local-6989586621679195242"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195242"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195241"><span class="annot"><span class="annottext">s :: AccessLog
+</span><a href="#local-6989586621679195241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195240"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessLog
+</span><a href="#local-6989586621679195241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:AccessLog' :: Maybe Text
 </span><a href="Network.AWS.ELB.Types.AccessLog.html#%24sel%3As3BucketName%3AAccessLog%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-type">AccessLog</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679195240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-type">AccessLog</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | Specifies whether access logs are enabled for the load balancer.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#accessLog_enabled"><span class="hs-identifier hs-type">accessLog_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-type">AccessLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
@@ -211,21 +211,21 @@ $sel:s3BucketName:AccessLog' :: AccessLog -&gt; Maybe Text
 -&gt; (AccessLog -&gt; Bool -&gt; AccessLog)
 -&gt; Lens AccessLog AccessLog Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195229"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195238"><span class="annot"><span class="annottext">Bool
 enabled :: Bool
 $sel:enabled:AccessLog' :: AccessLog -&gt; Bool
-</span><a href="#local-6989586621679195229"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679195229"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195228"><span class="annot"><span class="annottext">s :: AccessLog
-</span><a href="#local-6989586621679195228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195227"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679195227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessLog
-</span><a href="#local-6989586621679195228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:AccessLog' :: Bool
+</span><a href="#local-6989586621679195238"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679195238"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195237"><span class="annot"><span class="annottext">s :: AccessLog
+</span><a href="#local-6989586621679195237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195236"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679195236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessLog
+</span><a href="#local-6989586621679195237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:AccessLog' :: Bool
 </span><a href="Network.AWS.ELB.Types.AccessLog.html#%24sel%3Aenabled%3AAccessLog%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679195227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-type">AccessLog</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679195236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-type">AccessLog</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-type">AccessLog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679195224"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AccessLog
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679195222"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679195222"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679195233"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AccessLog
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679195231"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679195231"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; Bool -&gt; AccessLog
 </span><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-var">AccessLog'</span></a></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; Bool -&gt; AccessLog)
@@ -233,7 +233,7 @@ $sel:enabled:AccessLog' :: AccessLog -&gt; Bool
 -&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; Bool -&gt; AccessLog)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679195222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679195231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EmitInterval&quot;</span></span><span class="hs-special">)</span><span>
@@ -242,7 +242,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Bool -&gt; AccessLog)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679195222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679195231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3BucketPrefix&quot;</span></span><span class="hs-special">)</span><span>
@@ -250,7 +250,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String (Bool -&gt; AccessLog)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679195222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679195231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3BucketName&quot;</span></span><span class="hs-special">)</span><span>
@@ -258,18 +258,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Bool -&gt; Either String AccessLog
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679195222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+</span><a href="#local-6989586621679195231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195215"><span id="local-6989586621679195217"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-type">AccessLog</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195224"><span id="local-6989586621679195226"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-type">AccessLog</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-type">AccessLog</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195221"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-type">AccessLog</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog"><span class="hs-identifier hs-type">AccessLog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679195208"><span class="annot"><span class="annottext">toQuery :: AccessLog -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195203"><span id="local-6989586621679195204"><span id="local-6989586621679195205"><span id="local-6989586621679195206"><span class="annot"><span class="annottext">Bool
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679195217"><span class="annot"><span class="annottext">toQuery :: AccessLog -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.AccessLog.html#AccessLog%27"><span class="hs-identifier hs-type">AccessLog'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195212"><span id="local-6989586621679195213"><span id="local-6989586621679195214"><span id="local-6989586621679195215"><span class="annot"><span class="annottext">Bool
 Maybe Int
 Maybe Text
 enabled :: Bool
@@ -280,7 +280,7 @@ $sel:enabled:AccessLog' :: AccessLog -&gt; Bool
 $sel:s3BucketName:AccessLog' :: AccessLog -&gt; Maybe Text
 $sel:s3BucketPrefix:AccessLog' :: AccessLog -&gt; Maybe Text
 $sel:emitInterval:AccessLog' :: AccessLog -&gt; Maybe Int
-</span><a href="#local-6989586621679195203"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679195212"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -288,21 +288,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;EmitInterval&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679195206"><span class="hs-identifier hs-var">emitInterval</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679195215"><span class="hs-identifier hs-var">emitInterval</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;S3BucketPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195205"><span class="hs-identifier hs-var">s3BucketPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679195214"><span class="hs-identifier hs-var">s3BucketPrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;S3BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195204"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679195213"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679195203"><span class="hs-identifier hs-var">enabled</span></a></span><span>
+</span><a href="#local-6989586621679195212"><span class="hs-identifier hs-var">enabled</span></a></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span></pre></body></html>

@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | How long, in days, message data is kept.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRetentionPeriod' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679258553"><span id="local-6989586621679258554"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetentionPeriod"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier hs-var">RetentionPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetentionPeriod%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod%27"><span class="hs-identifier hs-var">RetentionPeriod'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679258562"><span id="local-6989586621679258563"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetentionPeriod"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier hs-var">RetentionPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetentionPeriod%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod%27"><span class="hs-identifier hs-var">RetentionPeriod'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If true, message data is kept indefinitely.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aunlimited%3ARetentionPeriod%27"><span class="annot"><span class="annottext">RetentionPeriod -&gt; Maybe Bool
 </span><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#%24sel%3Aunlimited%3ARetentionPeriod%27"><span class="hs-identifier hs-var hs-var">unlimited</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AnumberOfDays%3ARetentionPeriod%27"><span class="annot"><span class="annottext">RetentionPeriod -&gt; Maybe Natural
 </span><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#%24sel%3AnumberOfDays%3ARetentionPeriod%27"><span class="hs-identifier hs-var hs-var">numberOfDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258546"><span id="local-6989586621679258548"><span class="annot"><span class="annottext">RetentionPeriod -&gt; RetentionPeriod -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258555"><span id="local-6989586621679258557"><span class="annot"><span class="annottext">RetentionPeriod -&gt; RetentionPeriod -&gt; Bool
 (RetentionPeriod -&gt; RetentionPeriod -&gt; Bool)
 -&gt; (RetentionPeriod -&gt; RetentionPeriod -&gt; Bool)
 -&gt; Eq RetentionPeriod
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RetentionPeriod -&gt; RetentionPeriod -&gt; Bool
 == :: RetentionPeriod -&gt; RetentionPeriod -&gt; Bool
 $c== :: RetentionPeriod -&gt; RetentionPeriod -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258537"><span id="local-6989586621679258539"><span id="local-6989586621679258541"><span id="local-6989586621679258543"><span class="annot"><span class="annottext">ReadPrec [RetentionPeriod]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258546"><span id="local-6989586621679258548"><span id="local-6989586621679258550"><span id="local-6989586621679258552"><span class="annot"><span class="annottext">ReadPrec [RetentionPeriod]
 ReadPrec RetentionPeriod
 Int -&gt; ReadS RetentionPeriod
 ReadS [RetentionPeriod]
@@ -64,7 +64,7 @@ readList :: ReadS [RetentionPeriod]
 $creadList :: ReadS [RetentionPeriod]
 readsPrec :: Int -&gt; ReadS RetentionPeriod
 $creadsPrec :: Int -&gt; ReadS RetentionPeriod
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258530"><span id="local-6989586621679258532"><span id="local-6989586621679258534"><span class="annot"><span class="annottext">Int -&gt; RetentionPeriod -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258539"><span id="local-6989586621679258541"><span id="local-6989586621679258543"><span class="annot"><span class="annottext">Int -&gt; RetentionPeriod -&gt; ShowS
 [RetentionPeriod] -&gt; ShowS
 RetentionPeriod -&gt; String
 (Int -&gt; RetentionPeriod -&gt; ShowS)
@@ -126,16 +126,16 @@ forall a. Maybe a
 -&gt; (RetentionPeriod -&gt; Maybe Bool -&gt; RetentionPeriod)
 -&gt; Lens RetentionPeriod RetentionPeriod (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod%27"><span class="hs-identifier hs-type">RetentionPeriod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258521"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod%27"><span class="hs-identifier hs-type">RetentionPeriod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258530"><span class="annot"><span class="annottext">Maybe Bool
 unlimited :: Maybe Bool
 $sel:unlimited:RetentionPeriod' :: RetentionPeriod -&gt; Maybe Bool
-</span><a href="#local-6989586621679258521"><span class="hs-identifier hs-var hs-var">unlimited</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679258521"><span class="hs-identifier hs-var">unlimited</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258520"><span class="annot"><span class="annottext">s :: RetentionPeriod
-</span><a href="#local-6989586621679258520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod%27"><span class="hs-identifier hs-type">RetentionPeriod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258519"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679258519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetentionPeriod
-</span><a href="#local-6989586621679258520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unlimited:RetentionPeriod' :: Maybe Bool
+</span><a href="#local-6989586621679258530"><span class="hs-identifier hs-var hs-var">unlimited</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679258530"><span class="hs-identifier hs-var">unlimited</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258529"><span class="annot"><span class="annottext">s :: RetentionPeriod
+</span><a href="#local-6989586621679258529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod%27"><span class="hs-identifier hs-type">RetentionPeriod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258528"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679258528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetentionPeriod
+</span><a href="#local-6989586621679258529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unlimited:RetentionPeriod' :: Maybe Bool
 </span><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#%24sel%3Aunlimited%3ARetentionPeriod%27"><span class="hs-identifier hs-var">unlimited</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679258519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier hs-type">RetentionPeriod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier hs-type">RetentionPeriod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The number of days that message data is kept. The @unlimited@ parameter</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- must be false.</span><span>
@@ -147,19 +147,19 @@ $sel:unlimited:RetentionPeriod' :: RetentionPeriod -&gt; Maybe Bool
 -&gt; Lens
      RetentionPeriod RetentionPeriod (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod%27"><span class="hs-identifier hs-type">RetentionPeriod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258517"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod%27"><span class="hs-identifier hs-type">RetentionPeriod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258526"><span class="annot"><span class="annottext">Maybe Natural
 numberOfDays :: Maybe Natural
 $sel:numberOfDays:RetentionPeriod' :: RetentionPeriod -&gt; Maybe Natural
-</span><a href="#local-6989586621679258517"><span class="hs-identifier hs-var hs-var">numberOfDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679258517"><span class="hs-identifier hs-var">numberOfDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258516"><span class="annot"><span class="annottext">s :: RetentionPeriod
-</span><a href="#local-6989586621679258516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod%27"><span class="hs-identifier hs-type">RetentionPeriod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258515"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679258515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetentionPeriod
-</span><a href="#local-6989586621679258516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfDays:RetentionPeriod' :: Maybe Natural
+</span><a href="#local-6989586621679258526"><span class="hs-identifier hs-var hs-var">numberOfDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679258526"><span class="hs-identifier hs-var">numberOfDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258525"><span class="annot"><span class="annottext">s :: RetentionPeriod
+</span><a href="#local-6989586621679258525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod%27"><span class="hs-identifier hs-type">RetentionPeriod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258524"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679258524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetentionPeriod
+</span><a href="#local-6989586621679258525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfDays:RetentionPeriod' :: Maybe Natural
 </span><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#%24sel%3AnumberOfDays%3ARetentionPeriod%27"><span class="hs-identifier hs-var">numberOfDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679258515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier hs-type">RetentionPeriod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier hs-type">RetentionPeriod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258512"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier hs-type">RetentionPeriod</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679258510"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RetentionPeriod
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258521"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier hs-type">RetentionPeriod</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679258519"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RetentionPeriod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RetentionPeriod)
@@ -169,15 +169,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RetentionPeriod&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258507"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258507"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258516"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258516"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Natural -&gt; RetentionPeriod
 </span><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod%27"><span class="hs-identifier hs-var">RetentionPeriod'</span></a></span><span>
 </span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Natural -&gt; RetentionPeriod)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Natural -&gt; RetentionPeriod)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679258516"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;unlimited&quot;</span></span><span class="hs-special">)</span><span>
@@ -185,25 +185,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser RetentionPeriod
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679258516"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;numberOfDays&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258501"><span id="local-6989586621679258503"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier hs-type">RetentionPeriod</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258510"><span id="local-6989586621679258512"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier hs-type">RetentionPeriod</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier hs-type">RetentionPeriod</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258507"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier hs-type">RetentionPeriod</span></a></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258490"><span id="local-6989586621679258492"><span id="local-6989586621679258494"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier hs-type">RetentionPeriod</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679258488"><span class="annot"><span class="annottext">toJSON :: RetentionPeriod -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod%27"><span class="hs-identifier hs-type">RetentionPeriod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258485"><span id="local-6989586621679258486"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258499"><span id="local-6989586621679258501"><span id="local-6989586621679258503"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier hs-type">RetentionPeriod</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679258497"><span class="annot"><span class="annottext">toJSON :: RetentionPeriod -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod%27"><span class="hs-identifier hs-type">RetentionPeriod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258494"><span id="local-6989586621679258495"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 numberOfDays :: Maybe Natural
 unlimited :: Maybe Bool
 $sel:numberOfDays:RetentionPeriod' :: RetentionPeriod -&gt; Maybe Natural
 $sel:unlimited:RetentionPeriod' :: RetentionPeriod -&gt; Maybe Bool
-</span><a href="#local-6989586621679258485"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679258494"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -215,14 +215,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679258486"><span class="hs-identifier hs-var">unlimited</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679258495"><span class="hs-identifier hs-var">unlimited</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;numberOfDays&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679258485"><span class="hs-identifier hs-var">numberOfDays</span></a></span><span>
+</span><a href="#local-6989586621679258494"><span class="hs-identifier hs-var">numberOfDays</span></a></span><span>
 </span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span></pre></body></html>

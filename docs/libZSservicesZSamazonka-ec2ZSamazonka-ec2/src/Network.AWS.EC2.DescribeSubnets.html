@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDescribeSubnets' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621681246945"><span id="local-6989586621681246946"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSubnets"><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-var">DescribeSubnets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSubnets%27"><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-var">DescribeSubnets'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621681246954"><span id="local-6989586621681246955"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSubnets"><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-var">DescribeSubnets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSubnets%27"><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-var">DescribeSubnets'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more subnet IDs.</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Default: Describes all your subnets.</span><span>
@@ -132,7 +132,7 @@
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeSubnets%27"><span class="annot"><span class="annottext">DescribeSubnets -&gt; Maybe Natural
 </span><a href="Network.AWS.EC2.DescribeSubnets.html#%24sel%3AmaxResults%3ADescribeSubnets%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681246935"><span id="local-6989586621681246937"><span class="annot"><span class="annottext">DescribeSubnets -&gt; DescribeSubnets -&gt; Bool
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681246944"><span id="local-6989586621681246946"><span class="annot"><span class="annottext">DescribeSubnets -&gt; DescribeSubnets -&gt; Bool
 (DescribeSubnets -&gt; DescribeSubnets -&gt; Bool)
 -&gt; (DescribeSubnets -&gt; DescribeSubnets -&gt; Bool)
 -&gt; Eq DescribeSubnets
@@ -141,7 +141,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeSubnets -&gt; DescribeSubnets -&gt; Bool
 == :: DescribeSubnets -&gt; DescribeSubnets -&gt; Bool
 $c== :: DescribeSubnets -&gt; DescribeSubnets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681246926"><span id="local-6989586621681246928"><span id="local-6989586621681246930"><span id="local-6989586621681246932"><span class="annot"><span class="annottext">ReadPrec [DescribeSubnets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681246935"><span id="local-6989586621681246937"><span id="local-6989586621681246939"><span id="local-6989586621681246941"><span class="annot"><span class="annottext">ReadPrec [DescribeSubnets]
 ReadPrec DescribeSubnets
 Int -&gt; ReadS DescribeSubnets
 ReadS [DescribeSubnets]
@@ -161,7 +161,7 @@ readList :: ReadS [DescribeSubnets]
 $creadList :: ReadS [DescribeSubnets]
 readsPrec :: Int -&gt; ReadS DescribeSubnets
 $creadsPrec :: Int -&gt; ReadS DescribeSubnets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681246919"><span id="local-6989586621681246921"><span id="local-6989586621681246923"><span class="annot"><span class="annottext">Int -&gt; DescribeSubnets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681246928"><span id="local-6989586621681246930"><span id="local-6989586621681246932"><span class="annot"><span class="annottext">Int -&gt; DescribeSubnets -&gt; ShowS
 [DescribeSubnets] -&gt; ShowS
 DescribeSubnets -&gt; String
 (Int -&gt; DescribeSubnets -&gt; ShowS)
@@ -305,16 +305,16 @@ forall a. Maybe a
 -&gt; Lens
      DescribeSubnets DescribeSubnets (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246913"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246922"><span class="annot"><span class="annottext">Maybe [Text]
 subnetIds :: Maybe [Text]
 $sel:subnetIds:DescribeSubnets' :: DescribeSubnets -&gt; Maybe [Text]
-</span><a href="#local-6989586621681246913"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681246913"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246912"><span class="annot"><span class="annottext">s :: DescribeSubnets
-</span><a href="#local-6989586621681246912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246911"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681246911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubnets
-</span><a href="#local-6989586621681246912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:DescribeSubnets' :: Maybe [Text]
+</span><a href="#local-6989586621681246922"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681246922"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246921"><span class="annot"><span class="annottext">s :: DescribeSubnets
+</span><a href="#local-6989586621681246921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246920"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681246920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubnets
+</span><a href="#local-6989586621681246921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:DescribeSubnets' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeSubnets.html#%24sel%3AsubnetIds%3ADescribeSubnets%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681246911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681246920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeSubnets -&gt; f DescribeSubnets)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -390,16 +390,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DescribeSubnets DescribeSubnets (Maybe [Filter]) (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246907"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246916"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeSubnets' :: DescribeSubnets -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681246907"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681246907"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246906"><span class="annot"><span class="annottext">s :: DescribeSubnets
-</span><a href="#local-6989586621681246906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246905"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681246905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubnets
-</span><a href="#local-6989586621681246906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeSubnets' :: Maybe [Filter]
+</span><a href="#local-6989586621681246916"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681246916"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246915"><span class="annot"><span class="annottext">s :: DescribeSubnets
+</span><a href="#local-6989586621681246915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246914"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681246914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubnets
+</span><a href="#local-6989586621681246915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeSubnets' :: Maybe [Filter]
 </span><a href="Network.AWS.EC2.DescribeSubnets.html#%24sel%3Afilters%3ADescribeSubnets%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681246905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621681246914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeSubnets -&gt; f DescribeSubnets)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -425,16 +425,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeSubnets -&gt; Maybe Text -&gt; DescribeSubnets)
 -&gt; Lens DescribeSubnets DescribeSubnets (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246904"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246913"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeSubnets' :: DescribeSubnets -&gt; Maybe Text
-</span><a href="#local-6989586621681246904"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681246904"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246903"><span class="annot"><span class="annottext">s :: DescribeSubnets
-</span><a href="#local-6989586621681246903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246902"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681246902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubnets
-</span><a href="#local-6989586621681246903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSubnets' :: Maybe Text
+</span><a href="#local-6989586621681246913"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681246913"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246912"><span class="annot"><span class="annottext">s :: DescribeSubnets
+</span><a href="#local-6989586621681246912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246911"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681246911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubnets
+</span><a href="#local-6989586621681246912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSubnets' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeSubnets.html#%24sel%3AnextToken%3ADescribeSubnets%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681246902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681246911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>
 </span><span id="line-281"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-282"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
@@ -447,16 +447,16 @@ $sel:nextToken:DescribeSubnets' :: DescribeSubnets -&gt; Maybe Text
 -&gt; (DescribeSubnets -&gt; Maybe Bool -&gt; DescribeSubnets)
 -&gt; Lens DescribeSubnets DescribeSubnets (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246901"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246910"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:DescribeSubnets' :: DescribeSubnets -&gt; Maybe Bool
-</span><a href="#local-6989586621681246901"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681246901"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246900"><span class="annot"><span class="annottext">s :: DescribeSubnets
-</span><a href="#local-6989586621681246900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246899"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681246899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubnets
-</span><a href="#local-6989586621681246900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeSubnets' :: Maybe Bool
+</span><a href="#local-6989586621681246910"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681246910"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246909"><span class="annot"><span class="annottext">s :: DescribeSubnets
+</span><a href="#local-6989586621681246909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246908"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681246908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubnets
+</span><a href="#local-6989586621681246909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeSubnets' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeSubnets.html#%24sel%3AdryRun%3ADescribeSubnets%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681246899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681246908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-287"></span><span>
 </span><span id="line-288"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
 </span><span id="line-289"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
@@ -469,29 +469,29 @@ $sel:dryRun:DescribeSubnets' :: DescribeSubnets -&gt; Maybe Bool
 -&gt; Lens
      DescribeSubnets DescribeSubnets (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246898"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246907"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:DescribeSubnets' :: DescribeSubnets -&gt; Maybe Natural
-</span><a href="#local-6989586621681246898"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681246898"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246897"><span class="annot"><span class="annottext">s :: DescribeSubnets
-</span><a href="#local-6989586621681246897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246896"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681246896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubnets
-</span><a href="#local-6989586621681246897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeSubnets' :: Maybe Natural
+</span><a href="#local-6989586621681246907"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681246907"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246906"><span class="annot"><span class="annottext">s :: DescribeSubnets
+</span><a href="#local-6989586621681246906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246905"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681246905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubnets
+</span><a href="#local-6989586621681246906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeSubnets' :: Maybe Natural
 </span><a href="Network.AWS.EC2.DescribeSubnets.html#%24sel%3AmaxResults%3ADescribeSubnets%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681246896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681246905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-293"></span><span>
 </span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-295"></span><span>  </span><span id="local-6989586621681246892"><span class="annot"><span class="annottext">page :: DescribeSubnets
+</span><span id="line-295"></span><span>  </span><span id="local-6989586621681246901"><span class="annot"><span class="annottext">page :: DescribeSubnets
 -&gt; AWSResponse DescribeSubnets -&gt; Maybe DescribeSubnets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681246890"><span class="annot"><span class="annottext">DescribeSubnets
-</span><a href="#local-6989586621681246890"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681246889"><span class="annot"><span class="annottext">AWSResponse DescribeSubnets
-</span><a href="#local-6989586621681246889"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681246899"><span class="annot"><span class="annottext">DescribeSubnets
+</span><a href="#local-6989586621681246899"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681246898"><span class="annot"><span class="annottext">AWSResponse DescribeSubnets
+</span><a href="#local-6989586621681246898"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-296"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-297"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSubnets
 DescribeSubnetsResponse
-</span><a href="#local-6989586621681246889"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681246898"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-298"></span><span>            </span><span class="annot"><span class="annottext">DescribeSubnetsResponse
 -&gt; Getting (First Text) DescribeSubnetsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -520,7 +520,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-303"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSubnets
 DescribeSubnetsResponse
-</span><a href="#local-6989586621681246889"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681246898"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-304"></span><span>            </span><span class="annot"><span class="annottext">DescribeSubnetsResponse
 -&gt; Getting (First [Subnet]) DescribeSubnetsResponse [Subnet]
 -&gt; Maybe [Subnet]
@@ -553,7 +553,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-309"></span><span>        </span><span class="annot"><span class="annottext">DescribeSubnets
-</span><a href="#local-6989586621681246890"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621681246899"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-310"></span><span>          </span><span class="annot"><span class="annottext">DescribeSubnets
 -&gt; (DescribeSubnets -&gt; DescribeSubnets) -&gt; DescribeSubnets
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -567,7 +567,7 @@ Lens DescribeSubnets DescribeSubnets (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSubnets
 DescribeSubnetsResponse
-</span><a href="#local-6989586621681246889"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681246898"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-312"></span><span>          </span><span class="annot"><span class="annottext">DescribeSubnetsResponse
 -&gt; Getting (First Text) DescribeSubnetsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -592,12 +592,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-316"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-317"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-318"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse"><span class="hs-identifier hs-type">DescribeSubnetsResponse</span></a></span><span>
-</span><span id="line-319"></span><span>  </span><span id="local-6989586621681246880"><span class="annot"><span class="annottext">request :: DescribeSubnets -&gt; Request DescribeSubnets
+</span><span id="line-319"></span><span>  </span><span id="local-6989586621681246889"><span class="annot"><span class="annottext">request :: DescribeSubnets -&gt; Request DescribeSubnets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeSubnets -&gt; Request DescribeSubnets
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-320"></span><span>  </span><span id="local-6989586621681246876"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-320"></span><span>  </span><span id="local-6989586621681246885"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeSubnets
 -&gt; ClientResponse ClientBody
@@ -621,10 +621,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-322"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681246873"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681246873"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681246872"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681246872"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681246871"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681246871"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-322"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681246882"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681246882"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681246881"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681246881"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681246880"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681246880"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-323"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Subnet] -&gt; Maybe Text -&gt; Int -&gt; DescribeSubnetsResponse
 </span><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse%27"><span class="hs-identifier hs-var">DescribeSubnetsResponse'</span></a></span><span>
 </span><span id="line-324"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Subnet] -&gt; Maybe Text -&gt; Int -&gt; DescribeSubnetsResponse)
@@ -632,7 +632,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeSubnetsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681246871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681246880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;subnetSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -659,7 +659,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; DescribeSubnetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681246871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681246880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -671,15 +671,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681246873"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681246882"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-329"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-330"></span><span>
-</span><span id="line-331"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681246860"><span id="local-6989586621681246862"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span></span></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681246869"><span id="local-6989586621681246871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span></span></span><span>
 </span><span id="line-332"></span><span>
-</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681246857"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span></span><span>
+</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681246866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span></span><span>
 </span><span id="line-334"></span><span>
 </span><span id="line-335"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-336"></span><span>  </span><span id="local-6989586621681246853"><span class="annot"><span class="annottext">toHeaders :: DescribeSubnets -&gt; ResponseHeaders
+</span><span id="line-336"></span><span>  </span><span id="local-6989586621681246862"><span class="annot"><span class="annottext">toHeaders :: DescribeSubnets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeSubnets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -687,15 +687,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-337"></span><span>
 </span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-339"></span><span>  </span><span id="local-6989586621681246848"><span class="annot"><span class="annottext">toPath :: DescribeSubnets -&gt; ByteString
+</span><span id="line-339"></span><span>  </span><span id="local-6989586621681246857"><span class="annot"><span class="annottext">toPath :: DescribeSubnets -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeSubnets -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-340"></span><span>
 </span><span id="line-341"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets"><span class="hs-identifier hs-type">DescribeSubnets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-342"></span><span>  </span><span id="local-6989586621681246844"><span class="annot"><span class="annottext">toQuery :: DescribeSubnets -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246838"><span id="local-6989586621681246839"><span id="local-6989586621681246840"><span id="local-6989586621681246841"><span id="local-6989586621681246842"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-342"></span><span>  </span><span id="local-6989586621681246853"><span class="annot"><span class="annottext">toQuery :: DescribeSubnets -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnets%27"><span class="hs-identifier hs-type">DescribeSubnets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246847"><span id="local-6989586621681246848"><span id="local-6989586621681246849"><span id="local-6989586621681246850"><span id="local-6989586621681246851"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe [Text]
 Maybe [Filter]
@@ -710,7 +710,7 @@ $sel:dryRun:DescribeSubnets' :: DescribeSubnets -&gt; Maybe Bool
 $sel:nextToken:DescribeSubnets' :: DescribeSubnets -&gt; Maybe Text
 $sel:filters:DescribeSubnets' :: DescribeSubnets -&gt; Maybe [Filter]
 $sel:subnetIds:DescribeSubnets' :: DescribeSubnets -&gt; Maybe [Text]
-</span><a href="#local-6989586621681246838"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681246847"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-343"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -737,7 +737,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;SubnetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681246842"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681246851"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-350"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -749,26 +749,26 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681246841"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681246850"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-352"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681246840"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681246849"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-353"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681246839"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681246848"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-354"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681246838"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621681246847"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-355"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-356"></span><span>
 </span><span id="line-357"></span><span class="hs-comment">-- | /See:/ 'newDescribeSubnetsResponse' smart constructor.</span><span>
-</span><span id="line-358"></span><span id="local-6989586621681246834"><span id="local-6989586621681246835"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSubnetsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse"><span class="hs-identifier hs-var">DescribeSubnetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSubnetsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse%27"><span class="hs-identifier hs-var">DescribeSubnetsResponse'</span></a></span></span><span>
+</span><span id="line-358"></span><span id="local-6989586621681246843"><span id="local-6989586621681246844"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSubnetsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse"><span class="hs-identifier hs-var">DescribeSubnetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSubnetsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse%27"><span class="hs-identifier hs-var">DescribeSubnetsResponse'</span></a></span></span><span>
 </span><span id="line-359"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about one or more subnets.</span><span>
 </span><span id="line-360"></span><span>    </span><span id="%24sel%3Asubnets%3ADescribeSubnetsResponse%27"><span class="annot"><span class="annottext">DescribeSubnetsResponse -&gt; Maybe [Subnet]
 </span><a href="Network.AWS.EC2.DescribeSubnets.html#%24sel%3Asubnets%3ADescribeSubnetsResponse%27"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -780,7 +780,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-365"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeSubnetsResponse%27"><span class="annot"><span class="annottext">DescribeSubnetsResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DescribeSubnets.html#%24sel%3AhttpStatus%3ADescribeSubnetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-366"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-367"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681246827"><span id="local-6989586621681246829"><span class="annot"><span class="annottext">DescribeSubnetsResponse -&gt; DescribeSubnetsResponse -&gt; Bool
+</span><span id="line-367"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681246836"><span id="local-6989586621681246838"><span class="annot"><span class="annottext">DescribeSubnetsResponse -&gt; DescribeSubnetsResponse -&gt; Bool
 (DescribeSubnetsResponse -&gt; DescribeSubnetsResponse -&gt; Bool)
 -&gt; (DescribeSubnetsResponse -&gt; DescribeSubnetsResponse -&gt; Bool)
 -&gt; Eq DescribeSubnetsResponse
@@ -789,7 +789,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeSubnetsResponse -&gt; DescribeSubnetsResponse -&gt; Bool
 == :: DescribeSubnetsResponse -&gt; DescribeSubnetsResponse -&gt; Bool
 $c== :: DescribeSubnetsResponse -&gt; DescribeSubnetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681246819"><span id="local-6989586621681246821"><span id="local-6989586621681246823"><span id="local-6989586621681246825"><span class="annot"><span class="annottext">ReadPrec [DescribeSubnetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681246828"><span id="local-6989586621681246830"><span id="local-6989586621681246832"><span id="local-6989586621681246834"><span class="annot"><span class="annottext">ReadPrec [DescribeSubnetsResponse]
 ReadPrec DescribeSubnetsResponse
 Int -&gt; ReadS DescribeSubnetsResponse
 ReadS [DescribeSubnetsResponse]
@@ -809,7 +809,7 @@ readList :: ReadS [DescribeSubnetsResponse]
 $creadList :: ReadS [DescribeSubnetsResponse]
 readsPrec :: Int -&gt; ReadS DescribeSubnetsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeSubnetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681246813"><span id="local-6989586621681246815"><span id="local-6989586621681246817"><span class="annot"><span class="annottext">Int -&gt; DescribeSubnetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681246822"><span id="local-6989586621681246824"><span id="local-6989586621681246826"><span class="annot"><span class="annottext">Int -&gt; DescribeSubnetsResponse -&gt; ShowS
 [DescribeSubnetsResponse] -&gt; ShowS
 DescribeSubnetsResponse -&gt; String
 (Int -&gt; DescribeSubnetsResponse -&gt; ShowS)
@@ -856,8 +856,8 @@ $cfrom :: forall x. DescribeSubnetsResponse -&gt; Rep DescribeSubnetsResponse x
 </span><span id="line-385"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-386"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse"><span class="hs-identifier hs-type">DescribeSubnetsResponse</span></a></span><span>
 </span><span id="line-387"></span><span id="newDescribeSubnetsResponse"><span class="annot"><span class="annottext">newDescribeSubnetsResponse :: Int -&gt; DescribeSubnetsResponse
-</span><a href="Network.AWS.EC2.DescribeSubnets.html#newDescribeSubnetsResponse"><span class="hs-identifier hs-var hs-var">newDescribeSubnetsResponse</span></a></span></span><span> </span><span id="local-6989586621681246810"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681246810"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DescribeSubnets.html#newDescribeSubnetsResponse"><span class="hs-identifier hs-var hs-var">newDescribeSubnetsResponse</span></a></span></span><span> </span><span id="local-6989586621681246819"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681246819"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-388"></span><span>  </span><span class="annot"><span class="annottext">DescribeSubnetsResponse' :: Maybe [Subnet] -&gt; Maybe Text -&gt; Int -&gt; DescribeSubnetsResponse
 </span><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse%27"><span class="hs-identifier hs-type">DescribeSubnetsResponse'</span></a></span><span>
 </span><span id="line-389"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subnets:DescribeSubnetsResponse' :: Maybe [Subnet]
@@ -870,7 +870,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-391"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSubnetsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeSubnets.html#%24sel%3AhttpStatus%3ADescribeSubnetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681246810"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681246819"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-392"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-393"></span><span>
 </span><span id="line-394"></span><span class="hs-comment">-- | Information about one or more subnets.</span><span>
@@ -882,16 +882,16 @@ forall a. Maybe a
     -&gt; Maybe [Subnet] -&gt; DescribeSubnetsResponse)
 -&gt; Lens' DescribeSubnetsResponse (Maybe [Subnet])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse%27"><span class="hs-identifier hs-type">DescribeSubnetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246809"><span class="annot"><span class="annottext">Maybe [Subnet]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse%27"><span class="hs-identifier hs-type">DescribeSubnetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246818"><span class="annot"><span class="annottext">Maybe [Subnet]
 subnets :: Maybe [Subnet]
 $sel:subnets:DescribeSubnetsResponse' :: DescribeSubnetsResponse -&gt; Maybe [Subnet]
-</span><a href="#local-6989586621681246809"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Subnet]
-</span><a href="#local-6989586621681246809"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246808"><span class="annot"><span class="annottext">s :: DescribeSubnetsResponse
-</span><a href="#local-6989586621681246808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse%27"><span class="hs-identifier hs-type">DescribeSubnetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246807"><span class="annot"><span class="annottext">Maybe [Subnet]
-</span><a href="#local-6989586621681246807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubnetsResponse
-</span><a href="#local-6989586621681246808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnets:DescribeSubnetsResponse' :: Maybe [Subnet]
+</span><a href="#local-6989586621681246818"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Subnet]
+</span><a href="#local-6989586621681246818"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246817"><span class="annot"><span class="annottext">s :: DescribeSubnetsResponse
+</span><a href="#local-6989586621681246817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse%27"><span class="hs-identifier hs-type">DescribeSubnetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246816"><span class="annot"><span class="annottext">Maybe [Subnet]
+</span><a href="#local-6989586621681246816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubnetsResponse
+</span><a href="#local-6989586621681246817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnets:DescribeSubnetsResponse' :: Maybe [Subnet]
 </span><a href="Network.AWS.EC2.DescribeSubnets.html#%24sel%3Asubnets%3ADescribeSubnetsResponse%27"><span class="hs-identifier hs-var">subnets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Subnet]
-</span><a href="#local-6989586621681246807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse"><span class="hs-identifier hs-type">DescribeSubnetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Subnet] -&gt; f (Maybe [Subnet]))
+</span><a href="#local-6989586621681246816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse"><span class="hs-identifier hs-type">DescribeSubnetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Subnet] -&gt; f (Maybe [Subnet]))
  -&gt; DescribeSubnetsResponse -&gt; f DescribeSubnetsResponse)
 -&gt; ((Maybe [Subnet] -&gt; f (Maybe [Subnet]))
     -&gt; Maybe [Subnet] -&gt; f (Maybe [Subnet]))
@@ -919,16 +919,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; DescribeSubnetsResponse)
 -&gt; Lens' DescribeSubnetsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse%27"><span class="hs-identifier hs-type">DescribeSubnetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246806"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse%27"><span class="hs-identifier hs-type">DescribeSubnetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246815"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeSubnetsResponse' :: DescribeSubnetsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681246806"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681246806"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246805"><span class="annot"><span class="annottext">s :: DescribeSubnetsResponse
-</span><a href="#local-6989586621681246805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse%27"><span class="hs-identifier hs-type">DescribeSubnetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246804"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681246804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubnetsResponse
-</span><a href="#local-6989586621681246805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSubnetsResponse' :: Maybe Text
+</span><a href="#local-6989586621681246815"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681246815"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246814"><span class="annot"><span class="annottext">s :: DescribeSubnetsResponse
+</span><a href="#local-6989586621681246814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse%27"><span class="hs-identifier hs-type">DescribeSubnetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246813"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681246813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubnetsResponse
+</span><a href="#local-6989586621681246814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSubnetsResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeSubnets.html#%24sel%3AnextToken%3ADescribeSubnetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681246804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse"><span class="hs-identifier hs-type">DescribeSubnetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681246813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse"><span class="hs-identifier hs-type">DescribeSubnetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-402"></span><span>
 </span><span id="line-403"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-404"></span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#describeSubnetsResponse_httpStatus"><span class="hs-identifier hs-type">describeSubnetsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse"><span class="hs-identifier hs-type">DescribeSubnetsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -938,16 +938,16 @@ $sel:nextToken:DescribeSubnetsResponse' :: DescribeSubnetsResponse -&gt; Maybe T
 -&gt; (DescribeSubnetsResponse -&gt; Int -&gt; DescribeSubnetsResponse)
 -&gt; Lens DescribeSubnetsResponse DescribeSubnetsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse%27"><span class="hs-identifier hs-type">DescribeSubnetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246803"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse%27"><span class="hs-identifier hs-type">DescribeSubnetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246812"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeSubnetsResponse' :: DescribeSubnetsResponse -&gt; Int
-</span><a href="#local-6989586621681246803"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681246803"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246802"><span class="annot"><span class="annottext">s :: DescribeSubnetsResponse
-</span><a href="#local-6989586621681246802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse%27"><span class="hs-identifier hs-type">DescribeSubnetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246801"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681246801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubnetsResponse
-</span><a href="#local-6989586621681246802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSubnetsResponse' :: Int
+</span><a href="#local-6989586621681246812"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681246812"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246811"><span class="annot"><span class="annottext">s :: DescribeSubnetsResponse
+</span><a href="#local-6989586621681246811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse%27"><span class="hs-identifier hs-type">DescribeSubnetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246810"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681246810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubnetsResponse
+</span><a href="#local-6989586621681246811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSubnetsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeSubnets.html#%24sel%3AhttpStatus%3ADescribeSubnetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681246801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse"><span class="hs-identifier hs-type">DescribeSubnetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681246810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse"><span class="hs-identifier hs-type">DescribeSubnetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-406"></span><span>
-</span><span id="line-407"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681246799"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse"><span class="hs-identifier hs-type">DescribeSubnetsResponse</span></a></span></span><span>
+</span><span id="line-407"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681246808"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeSubnets.html#DescribeSubnetsResponse"><span class="hs-identifier hs-type">DescribeSubnetsResponse</span></a></span></span><span>
 </span><span id="line-408"></span></pre></body></html>

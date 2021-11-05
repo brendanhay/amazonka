@@ -52,13 +52,13 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span id="local-6989586621679375488"><span id="local-6989586621679375489"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LayerAttributesKeys"><span class="annot"><a href="Network.AWS.OpsWorks.Types.LayerAttributesKeys.html#LayerAttributesKeys"><span class="hs-identifier hs-var">LayerAttributesKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LayerAttributesKeys%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.LayerAttributesKeys.html#LayerAttributesKeys%27"><span class="hs-identifier hs-var">LayerAttributesKeys'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679375497"><span id="local-6989586621679375498"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LayerAttributesKeys"><span class="annot"><a href="Network.AWS.OpsWorks.Types.LayerAttributesKeys.html#LayerAttributesKeys"><span class="hs-identifier hs-var">LayerAttributesKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LayerAttributesKeys%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.LayerAttributesKeys.html#LayerAttributesKeys%27"><span class="hs-identifier hs-var">LayerAttributesKeys'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLayerAttributesKeys"><span class="annot"><span class="annottext">LayerAttributesKeys -&gt; Text
 </span><a href="Network.AWS.OpsWorks.Types.LayerAttributesKeys.html#fromLayerAttributesKeys"><span class="hs-identifier hs-var hs-var">fromLayerAttributesKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679375480"><span id="local-6989586621679375482"><span id="local-6989586621679375484"><span class="annot"><span class="annottext">Int -&gt; LayerAttributesKeys -&gt; ShowS
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679375489"><span id="local-6989586621679375491"><span id="local-6989586621679375493"><span class="annot"><span class="annottext">Int -&gt; LayerAttributesKeys -&gt; ShowS
 [LayerAttributesKeys] -&gt; ShowS
 LayerAttributesKeys -&gt; String
 (Int -&gt; LayerAttributesKeys -&gt; ShowS)
@@ -74,7 +74,7 @@ $cshow :: LayerAttributesKeys -&gt; String
 showsPrec :: Int -&gt; LayerAttributesKeys -&gt; ShowS
 $cshowsPrec :: Int -&gt; LayerAttributesKeys -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679375471"><span id="local-6989586621679375473"><span id="local-6989586621679375475"><span id="local-6989586621679375477"><span class="annot"><span class="annottext">ReadPrec [LayerAttributesKeys]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679375480"><span id="local-6989586621679375482"><span id="local-6989586621679375484"><span id="local-6989586621679375486"><span class="annot"><span class="annottext">ReadPrec [LayerAttributesKeys]
 ReadPrec LayerAttributesKeys
 Int -&gt; ReadS LayerAttributesKeys
 ReadS [LayerAttributesKeys]
@@ -95,7 +95,7 @@ $creadList :: ReadS [LayerAttributesKeys]
 readsPrec :: Int -&gt; ReadS LayerAttributesKeys
 $creadsPrec :: Int -&gt; ReadS LayerAttributesKeys
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679375466"><span id="local-6989586621679375468"><span class="annot"><span class="annottext">LayerAttributesKeys -&gt; LayerAttributesKeys -&gt; Bool
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679375475"><span id="local-6989586621679375477"><span class="annot"><span class="annottext">LayerAttributesKeys -&gt; LayerAttributesKeys -&gt; Bool
 (LayerAttributesKeys -&gt; LayerAttributesKeys -&gt; Bool)
 -&gt; (LayerAttributesKeys -&gt; LayerAttributesKeys -&gt; Bool)
 -&gt; Eq LayerAttributesKeys
@@ -105,7 +105,7 @@ $c/= :: LayerAttributesKeys -&gt; LayerAttributesKeys -&gt; Bool
 == :: LayerAttributesKeys -&gt; LayerAttributesKeys -&gt; Bool
 $c== :: LayerAttributesKeys -&gt; LayerAttributesKeys -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679375450"><span id="local-6989586621679375452"><span id="local-6989586621679375454"><span id="local-6989586621679375456"><span id="local-6989586621679375458"><span id="local-6989586621679375460"><span id="local-6989586621679375462"><span class="annot"><span class="annottext">Eq LayerAttributesKeys
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679375459"><span id="local-6989586621679375461"><span id="local-6989586621679375463"><span id="local-6989586621679375465"><span id="local-6989586621679375467"><span id="local-6989586621679375469"><span id="local-6989586621679375471"><span class="annot"><span class="annottext">Eq LayerAttributesKeys
 Eq LayerAttributesKeys
 -&gt; (LayerAttributesKeys -&gt; LayerAttributesKeys -&gt; Ordering)
 -&gt; (LayerAttributesKeys -&gt; LayerAttributesKeys -&gt; Bool)
@@ -158,7 +158,7 @@ $cfrom :: forall x. LayerAttributesKeys -&gt; Rep LayerAttributesKeys x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679375442"><span id="local-6989586621679375444"><span class="annot"><span class="annottext">Int -&gt; LayerAttributesKeys -&gt; Int
+</span><span id="line-67"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679375451"><span id="local-6989586621679375453"><span class="annot"><span class="annottext">Int -&gt; LayerAttributesKeys -&gt; Int
 LayerAttributesKeys -&gt; Int
 (Int -&gt; LayerAttributesKeys -&gt; Int)
 -&gt; (LayerAttributesKeys -&gt; Int) -&gt; Hashable LayerAttributesKeys
@@ -168,53 +168,53 @@ $chash :: LayerAttributesKeys -&gt; Int
 hashWithSalt :: Int -&gt; LayerAttributesKeys -&gt; Int
 $chashWithSalt :: Int -&gt; LayerAttributesKeys -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679375439"><span class="annot"><span class="annottext">LayerAttributesKeys -&gt; ()
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679375448"><span class="annot"><span class="annottext">LayerAttributesKeys -&gt; ()
 (LayerAttributesKeys -&gt; ()) -&gt; NFData LayerAttributesKeys
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LayerAttributesKeys -&gt; ()
 $crnf :: LayerAttributesKeys -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679375436"><span class="annot"><span class="annottext">Text -&gt; Either String LayerAttributesKeys
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679375445"><span class="annot"><span class="annottext">Text -&gt; Either String LayerAttributesKeys
 (Text -&gt; Either String LayerAttributesKeys)
 -&gt; FromText LayerAttributesKeys
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LayerAttributesKeys
 $cfromText :: Text -&gt; Either String LayerAttributesKeys
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679375433"><span class="annot"><span class="annottext">LayerAttributesKeys -&gt; Text
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679375442"><span class="annot"><span class="annottext">LayerAttributesKeys -&gt; Text
 (LayerAttributesKeys -&gt; Text) -&gt; ToText LayerAttributesKeys
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LayerAttributesKeys -&gt; Text
 $ctoText :: LayerAttributesKeys -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679375430"><span class="annot"><span class="annottext">LayerAttributesKeys -&gt; ByteString
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679375439"><span class="annot"><span class="annottext">LayerAttributesKeys -&gt; ByteString
 (LayerAttributesKeys -&gt; ByteString)
 -&gt; ToByteString LayerAttributesKeys
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LayerAttributesKeys -&gt; ByteString
 $ctoBS :: LayerAttributesKeys -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679375427"><span class="annot"><span class="annottext">LayerAttributesKeys -&gt; ByteStringBuilder
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679375436"><span class="annot"><span class="annottext">LayerAttributesKeys -&gt; ByteStringBuilder
 (LayerAttributesKeys -&gt; ByteStringBuilder)
 -&gt; ToLog LayerAttributesKeys
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LayerAttributesKeys -&gt; ByteStringBuilder
 $cbuild :: LayerAttributesKeys -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679375424"><span class="annot"><span class="annottext">HeaderName -&gt; LayerAttributesKeys -&gt; [Header]
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679375433"><span class="annot"><span class="annottext">HeaderName -&gt; LayerAttributesKeys -&gt; [Header]
 (HeaderName -&gt; LayerAttributesKeys -&gt; [Header])
 -&gt; ToHeader LayerAttributesKeys
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LayerAttributesKeys -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LayerAttributesKeys -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679375421"><span class="annot"><span class="annottext">LayerAttributesKeys -&gt; QueryString
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679375430"><span class="annot"><span class="annottext">LayerAttributesKeys -&gt; QueryString
 (LayerAttributesKeys -&gt; QueryString) -&gt; ToQuery LayerAttributesKeys
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LayerAttributesKeys -&gt; QueryString
 $ctoQuery :: LayerAttributesKeys -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679375416"><span id="local-6989586621679375418"><span class="annot"><span class="annottext">Value -&gt; Parser [LayerAttributesKeys]
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679375425"><span id="local-6989586621679375427"><span class="annot"><span class="annottext">Value -&gt; Parser [LayerAttributesKeys]
 Value -&gt; Parser LayerAttributesKeys
 (Value -&gt; Parser LayerAttributesKeys)
 -&gt; (Value -&gt; Parser [LayerAttributesKeys])
@@ -226,7 +226,7 @@ $cparseJSONList :: Value -&gt; Parser [LayerAttributesKeys]
 parseJSON :: Value -&gt; Parser LayerAttributesKeys
 $cparseJSON :: Value -&gt; Parser LayerAttributesKeys
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679375411"><span id="local-6989586621679375413"><span class="annot"><span class="annottext">FromJSONKeyFunction [LayerAttributesKeys]
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679375420"><span id="local-6989586621679375422"><span class="annot"><span class="annottext">FromJSONKeyFunction [LayerAttributesKeys]
 FromJSONKeyFunction LayerAttributesKeys
 FromJSONKeyFunction LayerAttributesKeys
 -&gt; FromJSONKeyFunction [LayerAttributesKeys]
@@ -238,7 +238,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LayerAttributesKeys]
 fromJSONKey :: FromJSONKeyFunction LayerAttributesKeys
 $cfromJSONKey :: FromJSONKeyFunction LayerAttributesKeys
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679375402"><span id="local-6989586621679375404"><span id="local-6989586621679375406"><span id="local-6989586621679375408"><span class="annot"><span class="annottext">[LayerAttributesKeys] -&gt; Encoding
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679375411"><span id="local-6989586621679375413"><span id="local-6989586621679375415"><span id="local-6989586621679375417"><span class="annot"><span class="annottext">[LayerAttributesKeys] -&gt; Encoding
 [LayerAttributesKeys] -&gt; Value
 LayerAttributesKeys -&gt; Encoding
 LayerAttributesKeys -&gt; Value
@@ -262,7 +262,7 @@ $ctoEncoding :: LayerAttributesKeys -&gt; Encoding
 toJSON :: LayerAttributesKeys -&gt; Value
 $ctoJSON :: LayerAttributesKeys -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621679375397"><span id="local-6989586621679375399"><span class="annot"><span class="annottext">ToJSONKeyFunction [LayerAttributesKeys]
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679375406"><span id="local-6989586621679375408"><span class="annot"><span class="annottext">ToJSONKeyFunction [LayerAttributesKeys]
 ToJSONKeyFunction LayerAttributesKeys
 ToJSONKeyFunction LayerAttributesKeys
 -&gt; ToJSONKeyFunction [LayerAttributesKeys]
@@ -274,14 +274,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LayerAttributesKeys]
 toJSONKey :: ToJSONKeyFunction LayerAttributesKeys
 $ctoJSONKey :: ToJSONKeyFunction LayerAttributesKeys
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span id="local-6989586621679375394"><span class="annot"><span class="annottext">[Node] -&gt; Either String LayerAttributesKeys
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679375403"><span class="annot"><span class="annottext">[Node] -&gt; Either String LayerAttributesKeys
 ([Node] -&gt; Either String LayerAttributesKeys)
 -&gt; FromXML LayerAttributesKeys
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LayerAttributesKeys
 $cparseXML :: [Node] -&gt; Either String LayerAttributesKeys
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621679375391"><span class="annot"><span class="annottext">LayerAttributesKeys -&gt; XML
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679375400"><span class="annot"><span class="annottext">LayerAttributesKeys -&gt; XML
 (LayerAttributesKeys -&gt; XML) -&gt; ToXML LayerAttributesKeys
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LayerAttributesKeys -&gt; XML

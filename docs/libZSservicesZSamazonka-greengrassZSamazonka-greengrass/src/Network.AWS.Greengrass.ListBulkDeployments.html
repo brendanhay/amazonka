@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListBulkDeployments' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679354984"><span id="local-6989586621679354985"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBulkDeployments"><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments"><span class="hs-identifier hs-var">ListBulkDeployments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBulkDeployments%27"><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments%27"><span class="hs-identifier hs-var">ListBulkDeployments'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679354993"><span id="local-6989586621679354994"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBulkDeployments"><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments"><span class="hs-identifier hs-var">ListBulkDeployments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBulkDeployments%27"><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments%27"><span class="hs-identifier hs-var">ListBulkDeployments'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3AListBulkDeployments%27"><span class="annot"><span class="annottext">ListBulkDeployments -&gt; Maybe Text
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AmaxResults%3AListBulkDeployments%27"><span class="annot"><span class="annottext">ListBulkDeployments -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.ListBulkDeployments.html#%24sel%3AmaxResults%3AListBulkDeployments%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354977"><span id="local-6989586621679354979"><span class="annot"><span class="annottext">ListBulkDeployments -&gt; ListBulkDeployments -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354986"><span id="local-6989586621679354988"><span class="annot"><span class="annottext">ListBulkDeployments -&gt; ListBulkDeployments -&gt; Bool
 (ListBulkDeployments -&gt; ListBulkDeployments -&gt; Bool)
 -&gt; (ListBulkDeployments -&gt; ListBulkDeployments -&gt; Bool)
 -&gt; Eq ListBulkDeployments
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListBulkDeployments -&gt; ListBulkDeployments -&gt; Bool
 == :: ListBulkDeployments -&gt; ListBulkDeployments -&gt; Bool
 $c== :: ListBulkDeployments -&gt; ListBulkDeployments -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354968"><span id="local-6989586621679354970"><span id="local-6989586621679354972"><span id="local-6989586621679354974"><span class="annot"><span class="annottext">ReadPrec [ListBulkDeployments]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354977"><span id="local-6989586621679354979"><span id="local-6989586621679354981"><span id="local-6989586621679354983"><span class="annot"><span class="annottext">ReadPrec [ListBulkDeployments]
 ReadPrec ListBulkDeployments
 Int -&gt; ReadS ListBulkDeployments
 ReadS [ListBulkDeployments]
@@ -89,7 +89,7 @@ readList :: ReadS [ListBulkDeployments]
 $creadList :: ReadS [ListBulkDeployments]
 readsPrec :: Int -&gt; ReadS ListBulkDeployments
 $creadsPrec :: Int -&gt; ReadS ListBulkDeployments
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354961"><span id="local-6989586621679354963"><span id="local-6989586621679354965"><span class="annot"><span class="annottext">Int -&gt; ListBulkDeployments -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354970"><span id="local-6989586621679354972"><span id="local-6989586621679354974"><span class="annot"><span class="annottext">Int -&gt; ListBulkDeployments -&gt; ShowS
 [ListBulkDeployments] -&gt; ShowS
 ListBulkDeployments -&gt; String
 (Int -&gt; ListBulkDeployments -&gt; ShowS)
@@ -153,16 +153,16 @@ forall a. Maybe a
 -&gt; Lens
      ListBulkDeployments ListBulkDeployments (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments%27"><span class="hs-identifier hs-type">ListBulkDeployments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354955"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments%27"><span class="hs-identifier hs-type">ListBulkDeployments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354964"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListBulkDeployments' :: ListBulkDeployments -&gt; Maybe Text
-</span><a href="#local-6989586621679354955"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354955"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354954"><span class="annot"><span class="annottext">s :: ListBulkDeployments
-</span><a href="#local-6989586621679354954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments%27"><span class="hs-identifier hs-type">ListBulkDeployments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354953"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBulkDeployments
-</span><a href="#local-6989586621679354954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBulkDeployments' :: Maybe Text
+</span><a href="#local-6989586621679354964"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354964"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354963"><span class="annot"><span class="annottext">s :: ListBulkDeployments
+</span><a href="#local-6989586621679354963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments%27"><span class="hs-identifier hs-type">ListBulkDeployments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354962"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBulkDeployments
+</span><a href="#local-6989586621679354963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBulkDeployments' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.ListBulkDeployments.html#%24sel%3AnextToken%3AListBulkDeployments%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments"><span class="hs-identifier hs-type">ListBulkDeployments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments"><span class="hs-identifier hs-type">ListBulkDeployments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The maximum number of results to be returned per request.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#listBulkDeployments_maxResults"><span class="hs-identifier hs-type">listBulkDeployments_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments"><span class="hs-identifier hs-type">ListBulkDeployments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -173,29 +173,29 @@ $sel:nextToken:ListBulkDeployments' :: ListBulkDeployments -&gt; Maybe Text
 -&gt; Lens
      ListBulkDeployments ListBulkDeployments (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments%27"><span class="hs-identifier hs-type">ListBulkDeployments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354952"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments%27"><span class="hs-identifier hs-type">ListBulkDeployments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354961"><span class="annot"><span class="annottext">Maybe Text
 maxResults :: Maybe Text
 $sel:maxResults:ListBulkDeployments' :: ListBulkDeployments -&gt; Maybe Text
-</span><a href="#local-6989586621679354952"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354952"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354951"><span class="annot"><span class="annottext">s :: ListBulkDeployments
-</span><a href="#local-6989586621679354951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments%27"><span class="hs-identifier hs-type">ListBulkDeployments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354950"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBulkDeployments
-</span><a href="#local-6989586621679354951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListBulkDeployments' :: Maybe Text
+</span><a href="#local-6989586621679354961"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354961"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354960"><span class="annot"><span class="annottext">s :: ListBulkDeployments
+</span><a href="#local-6989586621679354960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments%27"><span class="hs-identifier hs-type">ListBulkDeployments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354959"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBulkDeployments
+</span><a href="#local-6989586621679354960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListBulkDeployments' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.ListBulkDeployments.html#%24sel%3AmaxResults%3AListBulkDeployments%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments"><span class="hs-identifier hs-type">ListBulkDeployments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments"><span class="hs-identifier hs-type">ListBulkDeployments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments"><span class="hs-identifier hs-type">ListBulkDeployments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679354946"><span class="annot"><span class="annottext">page :: ListBulkDeployments
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679354955"><span class="annot"><span class="annottext">page :: ListBulkDeployments
 -&gt; AWSResponse ListBulkDeployments -&gt; Maybe ListBulkDeployments
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679354944"><span class="annot"><span class="annottext">ListBulkDeployments
-</span><a href="#local-6989586621679354944"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679354943"><span class="annot"><span class="annottext">AWSResponse ListBulkDeployments
-</span><a href="#local-6989586621679354943"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679354953"><span class="annot"><span class="annottext">ListBulkDeployments
+</span><a href="#local-6989586621679354953"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679354952"><span class="annot"><span class="annottext">AWSResponse ListBulkDeployments
+</span><a href="#local-6989586621679354952"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-95"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBulkDeployments
 ListBulkDeploymentsResponse
-</span><a href="#local-6989586621679354943"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679354952"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">ListBulkDeploymentsResponse
 -&gt; Getting (First Text) ListBulkDeploymentsResponse Text
 -&gt; Maybe Text
@@ -225,7 +225,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-101"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBulkDeployments
 ListBulkDeploymentsResponse
-</span><a href="#local-6989586621679354943"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679354952"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">ListBulkDeploymentsResponse
 -&gt; Getting
      (First [BulkDeployment])
@@ -271,7 +271,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">ListBulkDeployments
-</span><a href="#local-6989586621679354944"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679354953"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">ListBulkDeployments
 -&gt; (ListBulkDeployments -&gt; ListBulkDeployments)
 -&gt; ListBulkDeployments
@@ -287,7 +287,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBulkDeployments
 ListBulkDeploymentsResponse
-</span><a href="#local-6989586621679354943"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679354952"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">ListBulkDeploymentsResponse
 -&gt; Getting (First Text) ListBulkDeploymentsResponse Text
 -&gt; Maybe Text
@@ -313,12 +313,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-116"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments"><span class="hs-identifier hs-type">ListBulkDeployments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679354933"><span class="annot"><span class="annottext">request :: ListBulkDeployments -&gt; Request ListBulkDeployments
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679354942"><span class="annot"><span class="annottext">request :: ListBulkDeployments -&gt; Request ListBulkDeployments
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListBulkDeployments -&gt; Request ListBulkDeployments
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679354929"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679354938"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListBulkDeployments
 -&gt; ClientResponse ClientBody
@@ -344,10 +344,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679354926"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679354926"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679354925"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679354925"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679354924"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354924"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679354935"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354935"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679354934"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679354934"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679354933"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354933"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [BulkDeployment] -&gt; Int -&gt; ListBulkDeploymentsResponse
 </span><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse%27"><span class="hs-identifier hs-var">ListBulkDeploymentsResponse'</span></a></span><span>
@@ -359,7 +359,7 @@ MonadResource m =&gt;
      (Maybe [BulkDeployment] -&gt; Int -&gt; ListBulkDeploymentsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354924"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679354933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -370,7 +370,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListBulkDeploymentsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354924"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BulkDeployment]))
+</span><a href="#local-6989586621679354933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BulkDeployment]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BulkDeployments&quot;</span></span><span>
@@ -389,15 +389,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679354926"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354935"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354915"><span id="local-6989586621679354917"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments"><span class="hs-identifier hs-type">ListBulkDeployments</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354924"><span id="local-6989586621679354926"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments"><span class="hs-identifier hs-type">ListBulkDeployments</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354912"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments"><span class="hs-identifier hs-type">ListBulkDeployments</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354921"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments"><span class="hs-identifier hs-type">ListBulkDeployments</span></a></span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments"><span class="hs-identifier hs-type">ListBulkDeployments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679354908"><span class="annot"><span class="annottext">toHeaders :: ListBulkDeployments -&gt; ResponseHeaders
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679354917"><span class="annot"><span class="annottext">toHeaders :: ListBulkDeployments -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListBulkDeployments -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -417,20 +417,20 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments"><span class="hs-identifier hs-type">ListBulkDeployments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679354902"><span class="annot"><span class="annottext">toPath :: ListBulkDeployments -&gt; ByteString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679354911"><span class="annot"><span class="annottext">toPath :: ListBulkDeployments -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListBulkDeployments -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/greengrass/bulk/deployments&quot;</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments"><span class="hs-identifier hs-type">ListBulkDeployments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679354898"><span class="annot"><span class="annottext">toQuery :: ListBulkDeployments -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments%27"><span class="hs-identifier hs-type">ListBulkDeployments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354895"><span id="local-6989586621679354896"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679354907"><span class="annot"><span class="annottext">toQuery :: ListBulkDeployments -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeployments%27"><span class="hs-identifier hs-type">ListBulkDeployments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354904"><span id="local-6989586621679354905"><span class="annot"><span class="annottext">Maybe Text
 maxResults :: Maybe Text
 nextToken :: Maybe Text
 $sel:maxResults:ListBulkDeployments' :: ListBulkDeployments -&gt; Maybe Text
 $sel:nextToken:ListBulkDeployments' :: ListBulkDeployments -&gt; Maybe Text
-</span><a href="#local-6989586621679354895"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679354904"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -438,16 +438,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354896"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679354905"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354895"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679354904"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | /See:/ 'newListBulkDeploymentsResponse' smart constructor.</span><span>
-</span><span id="line-156"></span><span id="local-6989586621679354892"><span id="local-6989586621679354893"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBulkDeploymentsResponse"><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse"><span class="hs-identifier hs-var">ListBulkDeploymentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBulkDeploymentsResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse%27"><span class="hs-identifier hs-var">ListBulkDeploymentsResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span id="local-6989586621679354901"><span id="local-6989586621679354902"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBulkDeploymentsResponse"><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse"><span class="hs-identifier hs-var">ListBulkDeploymentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBulkDeploymentsResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse%27"><span class="hs-identifier hs-var">ListBulkDeploymentsResponse'</span></a></span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
 </span><span id="line-159"></span><span>    </span><span id="%24sel%3AnextToken%3AListBulkDeploymentsResponse%27"><span class="annot"><span class="annottext">ListBulkDeploymentsResponse -&gt; Maybe Text
@@ -459,7 +459,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListBulkDeploymentsResponse%27"><span class="annot"><span class="annottext">ListBulkDeploymentsResponse -&gt; Int
 </span><a href="Network.AWS.Greengrass.ListBulkDeployments.html#%24sel%3AhttpStatus%3AListBulkDeploymentsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354885"><span id="local-6989586621679354887"><span class="annot"><span class="annottext">ListBulkDeploymentsResponse -&gt; ListBulkDeploymentsResponse -&gt; Bool
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354894"><span id="local-6989586621679354896"><span class="annot"><span class="annottext">ListBulkDeploymentsResponse -&gt; ListBulkDeploymentsResponse -&gt; Bool
 (ListBulkDeploymentsResponse
  -&gt; ListBulkDeploymentsResponse -&gt; Bool)
 -&gt; (ListBulkDeploymentsResponse
@@ -470,7 +470,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListBulkDeploymentsResponse -&gt; ListBulkDeploymentsResponse -&gt; Bool
 == :: ListBulkDeploymentsResponse -&gt; ListBulkDeploymentsResponse -&gt; Bool
 $c== :: ListBulkDeploymentsResponse -&gt; ListBulkDeploymentsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354877"><span id="local-6989586621679354879"><span id="local-6989586621679354881"><span id="local-6989586621679354883"><span class="annot"><span class="annottext">ReadPrec [ListBulkDeploymentsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354886"><span id="local-6989586621679354888"><span id="local-6989586621679354890"><span id="local-6989586621679354892"><span class="annot"><span class="annottext">ReadPrec [ListBulkDeploymentsResponse]
 ReadPrec ListBulkDeploymentsResponse
 Int -&gt; ReadS ListBulkDeploymentsResponse
 ReadS [ListBulkDeploymentsResponse]
@@ -490,7 +490,7 @@ readList :: ReadS [ListBulkDeploymentsResponse]
 $creadList :: ReadS [ListBulkDeploymentsResponse]
 readsPrec :: Int -&gt; ReadS ListBulkDeploymentsResponse
 $creadsPrec :: Int -&gt; ReadS ListBulkDeploymentsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354871"><span id="local-6989586621679354873"><span id="local-6989586621679354875"><span class="annot"><span class="annottext">Int -&gt; ListBulkDeploymentsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354880"><span id="local-6989586621679354882"><span id="local-6989586621679354884"><span class="annot"><span class="annottext">Int -&gt; ListBulkDeploymentsResponse -&gt; ShowS
 [ListBulkDeploymentsResponse] -&gt; ShowS
 ListBulkDeploymentsResponse -&gt; String
 (Int -&gt; ListBulkDeploymentsResponse -&gt; ShowS)
@@ -541,8 +541,8 @@ ListBulkDeploymentsResponse -&gt; Rep ListBulkDeploymentsResponse x
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse</span></a></span><span>
 </span><span id="line-185"></span><span id="newListBulkDeploymentsResponse"><span class="annot"><span class="annottext">newListBulkDeploymentsResponse :: Int -&gt; ListBulkDeploymentsResponse
-</span><a href="Network.AWS.Greengrass.ListBulkDeployments.html#newListBulkDeploymentsResponse"><span class="hs-identifier hs-var hs-var">newListBulkDeploymentsResponse</span></a></span></span><span> </span><span id="local-6989586621679354868"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679354868"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.ListBulkDeployments.html#newListBulkDeploymentsResponse"><span class="hs-identifier hs-var hs-var">newListBulkDeploymentsResponse</span></a></span></span><span> </span><span id="local-6989586621679354877"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354877"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><span class="annottext">ListBulkDeploymentsResponse' :: Maybe Text
 -&gt; Maybe [BulkDeployment] -&gt; Int -&gt; ListBulkDeploymentsResponse
 </span><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse%27"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse'</span></a></span><span>
@@ -557,7 +557,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListBulkDeploymentsResponse' :: Int
 </span><a href="Network.AWS.Greengrass.ListBulkDeployments.html#%24sel%3AhttpStatus%3AListBulkDeploymentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679354868"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679354877"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
@@ -570,16 +570,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListBulkDeploymentsResponse)
 -&gt; Lens' ListBulkDeploymentsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse%27"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354867"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse%27"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354876"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListBulkDeploymentsResponse' :: ListBulkDeploymentsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679354867"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354867"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354866"><span class="annot"><span class="annottext">s :: ListBulkDeploymentsResponse
-</span><a href="#local-6989586621679354866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse%27"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354865"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBulkDeploymentsResponse
-</span><a href="#local-6989586621679354866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBulkDeploymentsResponse' :: Maybe Text
+</span><a href="#local-6989586621679354876"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354876"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354875"><span class="annot"><span class="annottext">s :: ListBulkDeploymentsResponse
+</span><a href="#local-6989586621679354875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse%27"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354874"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBulkDeploymentsResponse
+</span><a href="#local-6989586621679354875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBulkDeploymentsResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.ListBulkDeployments.html#%24sel%3AnextToken%3AListBulkDeploymentsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | A list of bulk deployments.</span><span>
 </span><span id="line-199"></span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#listBulkDeploymentsResponse_bulkDeployments"><span class="hs-identifier hs-type">listBulkDeploymentsResponse_bulkDeployments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Greengrass.Types.BulkDeployment.html#BulkDeployment"><span class="hs-identifier hs-type">BulkDeployment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -590,16 +590,16 @@ $sel:nextToken:ListBulkDeploymentsResponse' :: ListBulkDeploymentsResponse -&gt;
     -&gt; Maybe [BulkDeployment] -&gt; ListBulkDeploymentsResponse)
 -&gt; Lens' ListBulkDeploymentsResponse (Maybe [BulkDeployment])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse%27"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354864"><span class="annot"><span class="annottext">Maybe [BulkDeployment]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse%27"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354873"><span class="annot"><span class="annottext">Maybe [BulkDeployment]
 bulkDeployments :: Maybe [BulkDeployment]
 $sel:bulkDeployments:ListBulkDeploymentsResponse' :: ListBulkDeploymentsResponse -&gt; Maybe [BulkDeployment]
-</span><a href="#local-6989586621679354864"><span class="hs-identifier hs-var hs-var">bulkDeployments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BulkDeployment]
-</span><a href="#local-6989586621679354864"><span class="hs-identifier hs-var">bulkDeployments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354863"><span class="annot"><span class="annottext">s :: ListBulkDeploymentsResponse
-</span><a href="#local-6989586621679354863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse%27"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354862"><span class="annot"><span class="annottext">Maybe [BulkDeployment]
-</span><a href="#local-6989586621679354862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBulkDeploymentsResponse
-</span><a href="#local-6989586621679354863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bulkDeployments:ListBulkDeploymentsResponse' :: Maybe [BulkDeployment]
+</span><a href="#local-6989586621679354873"><span class="hs-identifier hs-var hs-var">bulkDeployments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BulkDeployment]
+</span><a href="#local-6989586621679354873"><span class="hs-identifier hs-var">bulkDeployments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354872"><span class="annot"><span class="annottext">s :: ListBulkDeploymentsResponse
+</span><a href="#local-6989586621679354872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse%27"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354871"><span class="annot"><span class="annottext">Maybe [BulkDeployment]
+</span><a href="#local-6989586621679354871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBulkDeploymentsResponse
+</span><a href="#local-6989586621679354872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bulkDeployments:ListBulkDeploymentsResponse' :: Maybe [BulkDeployment]
 </span><a href="Network.AWS.Greengrass.ListBulkDeployments.html#%24sel%3AbulkDeployments%3AListBulkDeploymentsResponse%27"><span class="hs-identifier hs-var">bulkDeployments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BulkDeployment]
-</span><a href="#local-6989586621679354862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BulkDeployment] -&gt; f (Maybe [BulkDeployment]))
+</span><a href="#local-6989586621679354871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BulkDeployment] -&gt; f (Maybe [BulkDeployment]))
  -&gt; ListBulkDeploymentsResponse -&gt; f ListBulkDeploymentsResponse)
 -&gt; ((Maybe [BulkDeployment] -&gt; f (Maybe [BulkDeployment]))
     -&gt; Maybe [BulkDeployment] -&gt; f (Maybe [BulkDeployment]))
@@ -632,16 +632,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ListBulkDeploymentsResponse ListBulkDeploymentsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse%27"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354859"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse%27"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354868"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListBulkDeploymentsResponse' :: ListBulkDeploymentsResponse -&gt; Int
-</span><a href="#local-6989586621679354859"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679354859"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354858"><span class="annot"><span class="annottext">s :: ListBulkDeploymentsResponse
-</span><a href="#local-6989586621679354858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse%27"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354857"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679354857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBulkDeploymentsResponse
-</span><a href="#local-6989586621679354858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBulkDeploymentsResponse' :: Int
+</span><a href="#local-6989586621679354868"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354868"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354867"><span class="annot"><span class="annottext">s :: ListBulkDeploymentsResponse
+</span><a href="#local-6989586621679354867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse%27"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354866"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBulkDeploymentsResponse
+</span><a href="#local-6989586621679354867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBulkDeploymentsResponse' :: Int
 </span><a href="Network.AWS.Greengrass.ListBulkDeployments.html#%24sel%3AhttpStatus%3AListBulkDeploymentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679354857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354855"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse</span></a></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354864"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListBulkDeployments.html#ListBulkDeploymentsResponse"><span class="hs-identifier hs-type">ListBulkDeploymentsResponse</span></a></span></span><span>
 </span><span id="line-207"></span></pre></body></html>

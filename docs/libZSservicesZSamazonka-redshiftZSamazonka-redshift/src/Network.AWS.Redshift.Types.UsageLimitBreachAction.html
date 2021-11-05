@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Internal.html"><span class="hs-identifier">Network.AWS.Redshift.Internal</span></a></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679501760"><span id="local-6989586621679501761"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UsageLimitBreachAction"><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitBreachAction.html#UsageLimitBreachAction"><span class="hs-identifier hs-var">UsageLimitBreachAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageLimitBreachAction%27"><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitBreachAction.html#UsageLimitBreachAction%27"><span class="hs-identifier hs-var">UsageLimitBreachAction'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679501769"><span id="local-6989586621679501770"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UsageLimitBreachAction"><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitBreachAction.html#UsageLimitBreachAction"><span class="hs-identifier hs-var">UsageLimitBreachAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageLimitBreachAction%27"><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitBreachAction.html#UsageLimitBreachAction%27"><span class="hs-identifier hs-var">UsageLimitBreachAction'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUsageLimitBreachAction"><span class="annot"><span class="annottext">UsageLimitBreachAction -&gt; Text
 </span><a href="Network.AWS.Redshift.Types.UsageLimitBreachAction.html#fromUsageLimitBreachAction"><span class="hs-identifier hs-var hs-var">fromUsageLimitBreachAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679501752"><span id="local-6989586621679501754"><span id="local-6989586621679501756"><span class="annot"><span class="annottext">Int -&gt; UsageLimitBreachAction -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679501761"><span id="local-6989586621679501763"><span id="local-6989586621679501765"><span class="annot"><span class="annottext">Int -&gt; UsageLimitBreachAction -&gt; ShowS
 [UsageLimitBreachAction] -&gt; ShowS
 UsageLimitBreachAction -&gt; String
 (Int -&gt; UsageLimitBreachAction -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: UsageLimitBreachAction -&gt; String
 showsPrec :: Int -&gt; UsageLimitBreachAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; UsageLimitBreachAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679501743"><span id="local-6989586621679501745"><span id="local-6989586621679501747"><span id="local-6989586621679501749"><span class="annot"><span class="annottext">ReadPrec [UsageLimitBreachAction]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679501752"><span id="local-6989586621679501754"><span id="local-6989586621679501756"><span id="local-6989586621679501758"><span class="annot"><span class="annottext">ReadPrec [UsageLimitBreachAction]
 ReadPrec UsageLimitBreachAction
 Int -&gt; ReadS UsageLimitBreachAction
 ReadS [UsageLimitBreachAction]
@@ -74,7 +74,7 @@ $creadList :: ReadS [UsageLimitBreachAction]
 readsPrec :: Int -&gt; ReadS UsageLimitBreachAction
 $creadsPrec :: Int -&gt; ReadS UsageLimitBreachAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679501738"><span id="local-6989586621679501740"><span class="annot"><span class="annottext">UsageLimitBreachAction -&gt; UsageLimitBreachAction -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679501747"><span id="local-6989586621679501749"><span class="annot"><span class="annottext">UsageLimitBreachAction -&gt; UsageLimitBreachAction -&gt; Bool
 (UsageLimitBreachAction -&gt; UsageLimitBreachAction -&gt; Bool)
 -&gt; (UsageLimitBreachAction -&gt; UsageLimitBreachAction -&gt; Bool)
 -&gt; Eq UsageLimitBreachAction
@@ -84,7 +84,7 @@ $c/= :: UsageLimitBreachAction -&gt; UsageLimitBreachAction -&gt; Bool
 == :: UsageLimitBreachAction -&gt; UsageLimitBreachAction -&gt; Bool
 $c== :: UsageLimitBreachAction -&gt; UsageLimitBreachAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679501722"><span id="local-6989586621679501724"><span id="local-6989586621679501726"><span id="local-6989586621679501728"><span id="local-6989586621679501730"><span id="local-6989586621679501732"><span id="local-6989586621679501734"><span class="annot"><span class="annottext">Eq UsageLimitBreachAction
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679501731"><span id="local-6989586621679501733"><span id="local-6989586621679501735"><span id="local-6989586621679501737"><span id="local-6989586621679501739"><span id="local-6989586621679501741"><span id="local-6989586621679501743"><span class="annot"><span class="annottext">Eq UsageLimitBreachAction
 Eq UsageLimitBreachAction
 -&gt; (UsageLimitBreachAction -&gt; UsageLimitBreachAction -&gt; Ordering)
 -&gt; (UsageLimitBreachAction -&gt; UsageLimitBreachAction -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. UsageLimitBreachAction -&gt; Rep UsageLimitBreachAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679501714"><span id="local-6989586621679501716"><span class="annot"><span class="annottext">Int -&gt; UsageLimitBreachAction -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679501723"><span id="local-6989586621679501725"><span class="annot"><span class="annottext">Int -&gt; UsageLimitBreachAction -&gt; Int
 UsageLimitBreachAction -&gt; Int
 (Int -&gt; UsageLimitBreachAction -&gt; Int)
 -&gt; (UsageLimitBreachAction -&gt; Int)
@@ -154,54 +154,54 @@ $chash :: UsageLimitBreachAction -&gt; Int
 hashWithSalt :: Int -&gt; UsageLimitBreachAction -&gt; Int
 $chashWithSalt :: Int -&gt; UsageLimitBreachAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679501711"><span class="annot"><span class="annottext">UsageLimitBreachAction -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679501720"><span class="annot"><span class="annottext">UsageLimitBreachAction -&gt; ()
 (UsageLimitBreachAction -&gt; ()) -&gt; NFData UsageLimitBreachAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UsageLimitBreachAction -&gt; ()
 $crnf :: UsageLimitBreachAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679501708"><span class="annot"><span class="annottext">Text -&gt; Either String UsageLimitBreachAction
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679501717"><span class="annot"><span class="annottext">Text -&gt; Either String UsageLimitBreachAction
 (Text -&gt; Either String UsageLimitBreachAction)
 -&gt; FromText UsageLimitBreachAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UsageLimitBreachAction
 $cfromText :: Text -&gt; Either String UsageLimitBreachAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679501705"><span class="annot"><span class="annottext">UsageLimitBreachAction -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679501714"><span class="annot"><span class="annottext">UsageLimitBreachAction -&gt; Text
 (UsageLimitBreachAction -&gt; Text) -&gt; ToText UsageLimitBreachAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UsageLimitBreachAction -&gt; Text
 $ctoText :: UsageLimitBreachAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679501702"><span class="annot"><span class="annottext">UsageLimitBreachAction -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679501711"><span class="annot"><span class="annottext">UsageLimitBreachAction -&gt; ByteString
 (UsageLimitBreachAction -&gt; ByteString)
 -&gt; ToByteString UsageLimitBreachAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UsageLimitBreachAction -&gt; ByteString
 $ctoBS :: UsageLimitBreachAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679501699"><span class="annot"><span class="annottext">UsageLimitBreachAction -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679501708"><span class="annot"><span class="annottext">UsageLimitBreachAction -&gt; ByteStringBuilder
 (UsageLimitBreachAction -&gt; ByteStringBuilder)
 -&gt; ToLog UsageLimitBreachAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UsageLimitBreachAction -&gt; ByteStringBuilder
 $cbuild :: UsageLimitBreachAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679501696"><span class="annot"><span class="annottext">HeaderName -&gt; UsageLimitBreachAction -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679501705"><span class="annot"><span class="annottext">HeaderName -&gt; UsageLimitBreachAction -&gt; [Header]
 (HeaderName -&gt; UsageLimitBreachAction -&gt; [Header])
 -&gt; ToHeader UsageLimitBreachAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UsageLimitBreachAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UsageLimitBreachAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679501693"><span class="annot"><span class="annottext">UsageLimitBreachAction -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679501702"><span class="annot"><span class="annottext">UsageLimitBreachAction -&gt; QueryString
 (UsageLimitBreachAction -&gt; QueryString)
 -&gt; ToQuery UsageLimitBreachAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UsageLimitBreachAction -&gt; QueryString
 $ctoQuery :: UsageLimitBreachAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679501688"><span id="local-6989586621679501690"><span class="annot"><span class="annottext">Value -&gt; Parser [UsageLimitBreachAction]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679501697"><span id="local-6989586621679501699"><span class="annot"><span class="annottext">Value -&gt; Parser [UsageLimitBreachAction]
 Value -&gt; Parser UsageLimitBreachAction
 (Value -&gt; Parser UsageLimitBreachAction)
 -&gt; (Value -&gt; Parser [UsageLimitBreachAction])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [UsageLimitBreachAction]
 parseJSON :: Value -&gt; Parser UsageLimitBreachAction
 $cparseJSON :: Value -&gt; Parser UsageLimitBreachAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679501683"><span id="local-6989586621679501685"><span class="annot"><span class="annottext">FromJSONKeyFunction [UsageLimitBreachAction]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679501692"><span id="local-6989586621679501694"><span class="annot"><span class="annottext">FromJSONKeyFunction [UsageLimitBreachAction]
 FromJSONKeyFunction UsageLimitBreachAction
 FromJSONKeyFunction UsageLimitBreachAction
 -&gt; FromJSONKeyFunction [UsageLimitBreachAction]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UsageLimitBreachAction]
 fromJSONKey :: FromJSONKeyFunction UsageLimitBreachAction
 $cfromJSONKey :: FromJSONKeyFunction UsageLimitBreachAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679501674"><span id="local-6989586621679501676"><span id="local-6989586621679501678"><span id="local-6989586621679501680"><span class="annot"><span class="annottext">[UsageLimitBreachAction] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679501683"><span id="local-6989586621679501685"><span id="local-6989586621679501687"><span id="local-6989586621679501689"><span class="annot"><span class="annottext">[UsageLimitBreachAction] -&gt; Encoding
 [UsageLimitBreachAction] -&gt; Value
 UsageLimitBreachAction -&gt; Encoding
 UsageLimitBreachAction -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: UsageLimitBreachAction -&gt; Encoding
 toJSON :: UsageLimitBreachAction -&gt; Value
 $ctoJSON :: UsageLimitBreachAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679501669"><span id="local-6989586621679501671"><span class="annot"><span class="annottext">ToJSONKeyFunction [UsageLimitBreachAction]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679501678"><span id="local-6989586621679501680"><span class="annot"><span class="annottext">ToJSONKeyFunction [UsageLimitBreachAction]
 ToJSONKeyFunction UsageLimitBreachAction
 ToJSONKeyFunction UsageLimitBreachAction
 -&gt; ToJSONKeyFunction [UsageLimitBreachAction]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UsageLimitBreachAction]
 toJSONKey :: ToJSONKeyFunction UsageLimitBreachAction
 $ctoJSONKey :: ToJSONKeyFunction UsageLimitBreachAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679501666"><span class="annot"><span class="annottext">[Node] -&gt; Either String UsageLimitBreachAction
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679501675"><span class="annot"><span class="annottext">[Node] -&gt; Either String UsageLimitBreachAction
 ([Node] -&gt; Either String UsageLimitBreachAction)
 -&gt; FromXML UsageLimitBreachAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UsageLimitBreachAction
 $cparseXML :: [Node] -&gt; Either String UsageLimitBreachAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679501663"><span class="annot"><span class="annottext">UsageLimitBreachAction -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679501672"><span class="annot"><span class="annottext">UsageLimitBreachAction -&gt; XML
 (UsageLimitBreachAction -&gt; XML) -&gt; ToXML UsageLimitBreachAction
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UsageLimitBreachAction -&gt; XML

@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newUpdateLoginProfile' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679463949"><span id="local-6989586621679463950"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateLoginProfile"><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-var">UpdateLoginProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateLoginProfile%27"><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile%27"><span class="hs-identifier hs-var">UpdateLoginProfile'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679463958"><span id="local-6989586621679463959"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateLoginProfile"><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-var">UpdateLoginProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateLoginProfile%27"><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile%27"><span class="hs-identifier hs-var">UpdateLoginProfile'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new password for the specified IAM user.</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; used to validate</span><span>
@@ -86,7 +86,7 @@
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3AuserName%3AUpdateLoginProfile%27"><span class="annot"><span class="annottext">UpdateLoginProfile -&gt; Text
 </span><a href="Network.AWS.IAM.UpdateLoginProfile.html#%24sel%3AuserName%3AUpdateLoginProfile%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463941"><span id="local-6989586621679463943"><span class="annot"><span class="annottext">UpdateLoginProfile -&gt; UpdateLoginProfile -&gt; Bool
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463950"><span id="local-6989586621679463952"><span class="annot"><span class="annottext">UpdateLoginProfile -&gt; UpdateLoginProfile -&gt; Bool
 (UpdateLoginProfile -&gt; UpdateLoginProfile -&gt; Bool)
 -&gt; (UpdateLoginProfile -&gt; UpdateLoginProfile -&gt; Bool)
 -&gt; Eq UpdateLoginProfile
@@ -95,7 +95,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateLoginProfile -&gt; UpdateLoginProfile -&gt; Bool
 == :: UpdateLoginProfile -&gt; UpdateLoginProfile -&gt; Bool
 $c== :: UpdateLoginProfile -&gt; UpdateLoginProfile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463934"><span id="local-6989586621679463936"><span id="local-6989586621679463938"><span class="annot"><span class="annottext">Int -&gt; UpdateLoginProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463943"><span id="local-6989586621679463945"><span id="local-6989586621679463947"><span class="annot"><span class="annottext">Int -&gt; UpdateLoginProfile -&gt; ShowS
 [UpdateLoginProfile] -&gt; ShowS
 UpdateLoginProfile -&gt; String
 (Int -&gt; UpdateLoginProfile -&gt; ShowS)
@@ -161,8 +161,8 @@ $cfrom :: forall x. UpdateLoginProfile -&gt; Rep UpdateLoginProfile x
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-type">UpdateLoginProfile</span></a></span><span>
 </span><span id="line-127"></span><span id="newUpdateLoginProfile"><span class="annot"><span class="annottext">newUpdateLoginProfile :: Text -&gt; UpdateLoginProfile
-</span><a href="Network.AWS.IAM.UpdateLoginProfile.html#newUpdateLoginProfile"><span class="hs-identifier hs-var hs-var">newUpdateLoginProfile</span></a></span></span><span> </span><span id="local-6989586621679463929"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463929"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.UpdateLoginProfile.html#newUpdateLoginProfile"><span class="hs-identifier hs-var hs-var">newUpdateLoginProfile</span></a></span></span><span> </span><span id="local-6989586621679463938"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463938"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">UpdateLoginProfile' :: Maybe (Sensitive Text) -&gt; Maybe Bool -&gt; Text -&gt; UpdateLoginProfile
 </span><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile%27"><span class="hs-identifier hs-type">UpdateLoginProfile'</span></a></span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:password:UpdateLoginProfile' :: Maybe (Sensitive Text)
@@ -175,7 +175,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:userName:UpdateLoginProfile' :: Text
 </span><a href="Network.AWS.IAM.UpdateLoginProfile.html#%24sel%3AuserName%3AUpdateLoginProfile%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463929"><span class="hs-identifier hs-var">pUserName_</span></a></span><span>
+</span><a href="#local-6989586621679463938"><span class="hs-identifier hs-var">pUserName_</span></a></span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The new password for the specified IAM user.</span><span>
@@ -207,16 +207,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile%27"><span class="hs-identifier hs-type">UpdateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463926"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile%27"><span class="hs-identifier hs-type">UpdateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463935"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 password :: Maybe (Sensitive Text)
 $sel:password:UpdateLoginProfile' :: UpdateLoginProfile -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679463926"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679463926"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463925"><span class="annot"><span class="annottext">s :: UpdateLoginProfile
-</span><a href="#local-6989586621679463925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile%27"><span class="hs-identifier hs-type">UpdateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463924"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679463924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLoginProfile
-</span><a href="#local-6989586621679463925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:UpdateLoginProfile' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679463935"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679463935"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463934"><span class="annot"><span class="annottext">s :: UpdateLoginProfile
+</span><a href="#local-6989586621679463934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile%27"><span class="hs-identifier hs-type">UpdateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463933"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679463933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLoginProfile
+</span><a href="#local-6989586621679463934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:UpdateLoginProfile' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.IAM.UpdateLoginProfile.html#%24sel%3Apassword%3AUpdateLoginProfile%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679463924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-type">UpdateLoginProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679463933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-type">UpdateLoginProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; UpdateLoginProfile -&gt; f UpdateLoginProfile)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -247,16 +247,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; Lens
      UpdateLoginProfile UpdateLoginProfile (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile%27"><span class="hs-identifier hs-type">UpdateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463920"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile%27"><span class="hs-identifier hs-type">UpdateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463929"><span class="annot"><span class="annottext">Maybe Bool
 passwordResetRequired :: Maybe Bool
 $sel:passwordResetRequired:UpdateLoginProfile' :: UpdateLoginProfile -&gt; Maybe Bool
-</span><a href="#local-6989586621679463920"><span class="hs-identifier hs-var hs-var">passwordResetRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679463920"><span class="hs-identifier hs-var">passwordResetRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463919"><span class="annot"><span class="annottext">s :: UpdateLoginProfile
-</span><a href="#local-6989586621679463919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile%27"><span class="hs-identifier hs-type">UpdateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463918"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679463918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLoginProfile
-</span><a href="#local-6989586621679463919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passwordResetRequired:UpdateLoginProfile' :: Maybe Bool
+</span><a href="#local-6989586621679463929"><span class="hs-identifier hs-var hs-var">passwordResetRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679463929"><span class="hs-identifier hs-var">passwordResetRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463928"><span class="annot"><span class="annottext">s :: UpdateLoginProfile
+</span><a href="#local-6989586621679463928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile%27"><span class="hs-identifier hs-type">UpdateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463927"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679463927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLoginProfile
+</span><a href="#local-6989586621679463928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passwordResetRequired:UpdateLoginProfile' :: Maybe Bool
 </span><a href="Network.AWS.IAM.UpdateLoginProfile.html#%24sel%3ApasswordResetRequired%3AUpdateLoginProfile%27"><span class="hs-identifier hs-var">passwordResetRequired</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679463918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-type">UpdateLoginProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-type">UpdateLoginProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | The name of the user whose password you want to update.</span><span>
 </span><span id="line-160"></span><span class="hs-comment">--</span><span>
@@ -270,27 +270,27 @@ $sel:passwordResetRequired:UpdateLoginProfile' :: UpdateLoginProfile -&gt; Maybe
 -&gt; (UpdateLoginProfile -&gt; Text -&gt; UpdateLoginProfile)
 -&gt; Lens UpdateLoginProfile UpdateLoginProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile%27"><span class="hs-identifier hs-type">UpdateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463917"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile%27"><span class="hs-identifier hs-type">UpdateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463926"><span class="annot"><span class="annottext">Text
 userName :: Text
 $sel:userName:UpdateLoginProfile' :: UpdateLoginProfile -&gt; Text
-</span><a href="#local-6989586621679463917"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463917"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463916"><span class="annot"><span class="annottext">s :: UpdateLoginProfile
-</span><a href="#local-6989586621679463916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile%27"><span class="hs-identifier hs-type">UpdateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463915"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLoginProfile
-</span><a href="#local-6989586621679463916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:UpdateLoginProfile' :: Text
+</span><a href="#local-6989586621679463926"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463926"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463925"><span class="annot"><span class="annottext">s :: UpdateLoginProfile
+</span><a href="#local-6989586621679463925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile%27"><span class="hs-identifier hs-type">UpdateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463924"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLoginProfile
+</span><a href="#local-6989586621679463925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:UpdateLoginProfile' :: Text
 </span><a href="Network.AWS.IAM.UpdateLoginProfile.html#%24sel%3AuserName%3AUpdateLoginProfile%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-type">UpdateLoginProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-type">UpdateLoginProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-type">UpdateLoginProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-170"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-type">UpdateLoginProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfileResponse"><span class="hs-identifier hs-type">UpdateLoginProfileResponse</span></a></span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679463911"><span class="annot"><span class="annottext">request :: UpdateLoginProfile -&gt; Request UpdateLoginProfile
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679463920"><span class="annot"><span class="annottext">request :: UpdateLoginProfile -&gt; Request UpdateLoginProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateLoginProfile -&gt; Request UpdateLoginProfile
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679463907"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679463916"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateLoginProfile
 -&gt; ClientResponse ClientBody
@@ -316,12 +316,12 @@ AWSResponse a
 UpdateLoginProfileResponse
 </span><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfileResponse%27"><span class="hs-identifier hs-var">UpdateLoginProfileResponse'</span></a></span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463900"><span id="local-6989586621679463902"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-type">UpdateLoginProfile</span></a></span></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463909"><span id="local-6989586621679463911"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-type">UpdateLoginProfile</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463897"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-type">UpdateLoginProfile</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463906"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-type">UpdateLoginProfile</span></a></span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-type">UpdateLoginProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679463893"><span class="annot"><span class="annottext">toHeaders :: UpdateLoginProfile -&gt; [Header]
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679463902"><span class="annot"><span class="annottext">toHeaders :: UpdateLoginProfile -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateLoginProfile -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -329,15 +329,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-type">UpdateLoginProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679463888"><span class="annot"><span class="annottext">toPath :: UpdateLoginProfile -&gt; ByteString
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679463897"><span class="annot"><span class="annottext">toPath :: UpdateLoginProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateLoginProfile -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile"><span class="hs-identifier hs-type">UpdateLoginProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679463884"><span class="annot"><span class="annottext">toQuery :: UpdateLoginProfile -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile%27"><span class="hs-identifier hs-type">UpdateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463880"><span id="local-6989586621679463881"><span id="local-6989586621679463882"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679463893"><span class="annot"><span class="annottext">toQuery :: UpdateLoginProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfile%27"><span class="hs-identifier hs-type">UpdateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463889"><span id="local-6989586621679463890"><span id="local-6989586621679463891"><span class="annot"><span class="annottext">Maybe Bool
 Maybe (Sensitive Text)
 Text
 userName :: Text
@@ -346,7 +346,7 @@ password :: Maybe (Sensitive Text)
 $sel:userName:UpdateLoginProfile' :: UpdateLoginProfile -&gt; Text
 $sel:passwordResetRequired:UpdateLoginProfile' :: UpdateLoginProfile -&gt; Maybe Bool
 $sel:password:UpdateLoginProfile' :: UpdateLoginProfile -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679463880"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679463889"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -366,25 +366,25 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Password&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe (Sensitive Text) -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679463882"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679463891"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PasswordResetRequired&quot;</span></span><span>
 </span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679463881"><span class="hs-identifier hs-var">passwordResetRequired</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679463890"><span class="hs-identifier hs-var">passwordResetRequired</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463880"><span class="hs-identifier hs-var">userName</span></a></span><span>
+</span><a href="#local-6989586621679463889"><span class="hs-identifier hs-var">userName</span></a></span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | /See:/ 'newUpdateLoginProfileResponse' smart constructor.</span><span>
-</span><span id="line-200"></span><span id="local-6989586621679463877"><span id="local-6989586621679463878"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateLoginProfileResponse"><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfileResponse"><span class="hs-identifier hs-var">UpdateLoginProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateLoginProfileResponse%27"><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfileResponse%27"><span class="hs-identifier hs-var">UpdateLoginProfileResponse'</span></a></span></span><span>
+</span><span id="line-200"></span><span id="local-6989586621679463886"><span id="local-6989586621679463887"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateLoginProfileResponse"><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfileResponse"><span class="hs-identifier hs-var">UpdateLoginProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateLoginProfileResponse%27"><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfileResponse%27"><span class="hs-identifier hs-var">UpdateLoginProfileResponse'</span></a></span></span><span>
 </span><span id="line-201"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-202"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463873"><span id="local-6989586621679463875"><span class="annot"><span class="annottext">UpdateLoginProfileResponse -&gt; UpdateLoginProfileResponse -&gt; Bool
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463882"><span id="local-6989586621679463884"><span class="annot"><span class="annottext">UpdateLoginProfileResponse -&gt; UpdateLoginProfileResponse -&gt; Bool
 (UpdateLoginProfileResponse -&gt; UpdateLoginProfileResponse -&gt; Bool)
 -&gt; (UpdateLoginProfileResponse
     -&gt; UpdateLoginProfileResponse -&gt; Bool)
@@ -394,7 +394,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateLoginProfileResponse -&gt; UpdateLoginProfileResponse -&gt; Bool
 == :: UpdateLoginProfileResponse -&gt; UpdateLoginProfileResponse -&gt; Bool
 $c== :: UpdateLoginProfileResponse -&gt; UpdateLoginProfileResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463865"><span id="local-6989586621679463867"><span id="local-6989586621679463869"><span id="local-6989586621679463871"><span class="annot"><span class="annottext">ReadPrec [UpdateLoginProfileResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463874"><span id="local-6989586621679463876"><span id="local-6989586621679463878"><span id="local-6989586621679463880"><span class="annot"><span class="annottext">ReadPrec [UpdateLoginProfileResponse]
 ReadPrec UpdateLoginProfileResponse
 Int -&gt; ReadS UpdateLoginProfileResponse
 ReadS [UpdateLoginProfileResponse]
@@ -414,7 +414,7 @@ readList :: ReadS [UpdateLoginProfileResponse]
 $creadList :: ReadS [UpdateLoginProfileResponse]
 readsPrec :: Int -&gt; ReadS UpdateLoginProfileResponse
 $creadsPrec :: Int -&gt; ReadS UpdateLoginProfileResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463858"><span id="local-6989586621679463860"><span id="local-6989586621679463862"><span class="annot"><span class="annottext">Int -&gt; UpdateLoginProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463867"><span id="local-6989586621679463869"><span id="local-6989586621679463871"><span class="annot"><span class="annottext">Int -&gt; UpdateLoginProfileResponse -&gt; ShowS
 [UpdateLoginProfileResponse] -&gt; ShowS
 UpdateLoginProfileResponse -&gt; String
 (Int -&gt; UpdateLoginProfileResponse -&gt; ShowS)
@@ -457,5 +457,5 @@ UpdateLoginProfileResponse -&gt; Rep UpdateLoginProfileResponse x
 </span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">UpdateLoginProfileResponse
 </span><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfileResponse%27"><span class="hs-identifier hs-var">UpdateLoginProfileResponse'</span></a></span><span>
 </span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463854"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfileResponse"><span class="hs-identifier hs-type">UpdateLoginProfileResponse</span></a></span></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463863"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UpdateLoginProfile.html#UpdateLoginProfileResponse"><span class="hs-identifier hs-type">UpdateLoginProfileResponse</span></a></span></span><span>
 </span><span id="line-215"></span></pre></body></html>

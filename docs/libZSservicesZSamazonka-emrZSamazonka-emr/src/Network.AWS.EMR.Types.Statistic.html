@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679376842"><span id="local-6989586621679376843"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Statistic"><span class="annot"><a href="Network.AWS.EMR.Types.Statistic.html#Statistic"><span class="hs-identifier hs-var">Statistic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Statistic%27"><span class="annot"><a href="Network.AWS.EMR.Types.Statistic.html#Statistic%27"><span class="hs-identifier hs-var">Statistic'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679376851"><span id="local-6989586621679376852"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Statistic"><span class="annot"><a href="Network.AWS.EMR.Types.Statistic.html#Statistic"><span class="hs-identifier hs-var">Statistic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Statistic%27"><span class="annot"><a href="Network.AWS.EMR.Types.Statistic.html#Statistic%27"><span class="hs-identifier hs-var">Statistic'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStatistic"><span class="annot"><span class="annottext">Statistic -&gt; Text
 </span><a href="Network.AWS.EMR.Types.Statistic.html#fromStatistic"><span class="hs-identifier hs-var hs-var">fromStatistic</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679376834"><span id="local-6989586621679376836"><span id="local-6989586621679376838"><span class="annot"><span class="annottext">Int -&gt; Statistic -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679376843"><span id="local-6989586621679376845"><span id="local-6989586621679376847"><span class="annot"><span class="annottext">Int -&gt; Statistic -&gt; ShowS
 [Statistic] -&gt; ShowS
 Statistic -&gt; String
 (Int -&gt; Statistic -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: Statistic -&gt; String
 showsPrec :: Int -&gt; Statistic -&gt; ShowS
 $cshowsPrec :: Int -&gt; Statistic -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679376825"><span id="local-6989586621679376827"><span id="local-6989586621679376829"><span id="local-6989586621679376831"><span class="annot"><span class="annottext">ReadPrec [Statistic]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679376834"><span id="local-6989586621679376836"><span id="local-6989586621679376838"><span id="local-6989586621679376840"><span class="annot"><span class="annottext">ReadPrec [Statistic]
 ReadPrec Statistic
 Int -&gt; ReadS Statistic
 ReadS [Statistic]
@@ -75,7 +75,7 @@ $creadList :: ReadS [Statistic]
 readsPrec :: Int -&gt; ReadS Statistic
 $creadsPrec :: Int -&gt; ReadS Statistic
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679376820"><span id="local-6989586621679376822"><span class="annot"><span class="annottext">Statistic -&gt; Statistic -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679376829"><span id="local-6989586621679376831"><span class="annot"><span class="annottext">Statistic -&gt; Statistic -&gt; Bool
 (Statistic -&gt; Statistic -&gt; Bool)
 -&gt; (Statistic -&gt; Statistic -&gt; Bool) -&gt; Eq Statistic
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: Statistic -&gt; Statistic -&gt; Bool
 == :: Statistic -&gt; Statistic -&gt; Bool
 $c== :: Statistic -&gt; Statistic -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679376804"><span id="local-6989586621679376806"><span id="local-6989586621679376808"><span id="local-6989586621679376810"><span id="local-6989586621679376812"><span id="local-6989586621679376814"><span id="local-6989586621679376816"><span class="annot"><span class="annottext">Eq Statistic
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679376813"><span id="local-6989586621679376815"><span id="local-6989586621679376817"><span id="local-6989586621679376819"><span id="local-6989586621679376821"><span id="local-6989586621679376823"><span id="local-6989586621679376825"><span class="annot"><span class="annottext">Eq Statistic
 Eq Statistic
 -&gt; (Statistic -&gt; Statistic -&gt; Ordering)
 -&gt; (Statistic -&gt; Statistic -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. Statistic -&gt; Rep Statistic x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679376796"><span id="local-6989586621679376798"><span class="annot"><span class="annottext">Int -&gt; Statistic -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679376805"><span id="local-6989586621679376807"><span class="annot"><span class="annottext">Int -&gt; Statistic -&gt; Int
 Statistic -&gt; Int
 (Int -&gt; Statistic -&gt; Int)
 -&gt; (Statistic -&gt; Int) -&gt; Hashable Statistic
@@ -144,49 +144,49 @@ $chash :: Statistic -&gt; Int
 hashWithSalt :: Int -&gt; Statistic -&gt; Int
 $chashWithSalt :: Int -&gt; Statistic -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679376793"><span class="annot"><span class="annottext">Statistic -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679376802"><span class="annot"><span class="annottext">Statistic -&gt; ()
 (Statistic -&gt; ()) -&gt; NFData Statistic
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Statistic -&gt; ()
 $crnf :: Statistic -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679376790"><span class="annot"><span class="annottext">Text -&gt; Either String Statistic
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679376799"><span class="annot"><span class="annottext">Text -&gt; Either String Statistic
 (Text -&gt; Either String Statistic) -&gt; FromText Statistic
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Statistic
 $cfromText :: Text -&gt; Either String Statistic
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679376787"><span class="annot"><span class="annottext">Statistic -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679376796"><span class="annot"><span class="annottext">Statistic -&gt; Text
 (Statistic -&gt; Text) -&gt; ToText Statistic
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Statistic -&gt; Text
 $ctoText :: Statistic -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679376784"><span class="annot"><span class="annottext">Statistic -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679376793"><span class="annot"><span class="annottext">Statistic -&gt; ByteString
 (Statistic -&gt; ByteString) -&gt; ToByteString Statistic
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Statistic -&gt; ByteString
 $ctoBS :: Statistic -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679376781"><span class="annot"><span class="annottext">Statistic -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679376790"><span class="annot"><span class="annottext">Statistic -&gt; ByteStringBuilder
 (Statistic -&gt; ByteStringBuilder) -&gt; ToLog Statistic
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Statistic -&gt; ByteStringBuilder
 $cbuild :: Statistic -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679376778"><span class="annot"><span class="annottext">HeaderName -&gt; Statistic -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679376787"><span class="annot"><span class="annottext">HeaderName -&gt; Statistic -&gt; [Header]
 (HeaderName -&gt; Statistic -&gt; [Header]) -&gt; ToHeader Statistic
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Statistic -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Statistic -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679376775"><span class="annot"><span class="annottext">Statistic -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679376784"><span class="annot"><span class="annottext">Statistic -&gt; QueryString
 (Statistic -&gt; QueryString) -&gt; ToQuery Statistic
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Statistic -&gt; QueryString
 $ctoQuery :: Statistic -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679376770"><span id="local-6989586621679376772"><span class="annot"><span class="annottext">Value -&gt; Parser [Statistic]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679376779"><span id="local-6989586621679376781"><span class="annot"><span class="annottext">Value -&gt; Parser [Statistic]
 Value -&gt; Parser Statistic
 (Value -&gt; Parser Statistic)
 -&gt; (Value -&gt; Parser [Statistic]) -&gt; FromJSON Statistic
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [Statistic]
 parseJSON :: Value -&gt; Parser Statistic
 $cparseJSON :: Value -&gt; Parser Statistic
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679376765"><span id="local-6989586621679376767"><span class="annot"><span class="annottext">FromJSONKeyFunction [Statistic]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679376774"><span id="local-6989586621679376776"><span class="annot"><span class="annottext">FromJSONKeyFunction [Statistic]
 FromJSONKeyFunction Statistic
 FromJSONKeyFunction Statistic
 -&gt; FromJSONKeyFunction [Statistic] -&gt; FromJSONKey Statistic
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Statistic]
 fromJSONKey :: FromJSONKeyFunction Statistic
 $cfromJSONKey :: FromJSONKeyFunction Statistic
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679376756"><span id="local-6989586621679376758"><span id="local-6989586621679376760"><span id="local-6989586621679376762"><span class="annot"><span class="annottext">[Statistic] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679376765"><span id="local-6989586621679376767"><span id="local-6989586621679376769"><span id="local-6989586621679376771"><span class="annot"><span class="annottext">[Statistic] -&gt; Encoding
 [Statistic] -&gt; Value
 Statistic -&gt; Encoding
 Statistic -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: Statistic -&gt; Encoding
 toJSON :: Statistic -&gt; Value
 $ctoJSON :: Statistic -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679376751"><span id="local-6989586621679376753"><span class="annot"><span class="annottext">ToJSONKeyFunction [Statistic]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679376760"><span id="local-6989586621679376762"><span class="annot"><span class="annottext">ToJSONKeyFunction [Statistic]
 ToJSONKeyFunction Statistic
 ToJSONKeyFunction Statistic
 -&gt; ToJSONKeyFunction [Statistic] -&gt; ToJSONKey Statistic
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Statistic]
 toJSONKey :: ToJSONKeyFunction Statistic
 $ctoJSONKey :: ToJSONKeyFunction Statistic
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679376748"><span class="annot"><span class="annottext">[Node] -&gt; Either String Statistic
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679376757"><span class="annot"><span class="annottext">[Node] -&gt; Either String Statistic
 ([Node] -&gt; Either String Statistic) -&gt; FromXML Statistic
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Statistic
 $cparseXML :: [Node] -&gt; Either String Statistic
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679376745"><span class="annot"><span class="annottext">Statistic -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679376754"><span class="annot"><span class="annottext">Statistic -&gt; XML
 (Statistic -&gt; XML) -&gt; ToXML Statistic
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Statistic -&gt; XML

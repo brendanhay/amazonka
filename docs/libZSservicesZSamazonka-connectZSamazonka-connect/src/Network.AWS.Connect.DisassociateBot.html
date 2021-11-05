@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDisassociateBot' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679420013"><span id="local-6989586621679420014"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateBot"><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-var">DisassociateBot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateBot%27"><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-var">DisassociateBot'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679420022"><span id="local-6989586621679420023"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateBot"><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-var">DisassociateBot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateBot%27"><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-var">DisassociateBot'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AlexBot%3ADisassociateBot%27"><span class="annot"><span class="annottext">DisassociateBot -&gt; Maybe LexBot
 </span><a href="Network.AWS.Connect.DisassociateBot.html#%24sel%3AlexBot%3ADisassociateBot%27"><span class="hs-identifier hs-var hs-var">lexBot</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The Amazon Lex V2 bot to disassociate from the instance.</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AinstanceId%3ADisassociateBot%27"><span class="annot"><span class="annottext">DisassociateBot -&gt; Text
 </span><a href="Network.AWS.Connect.DisassociateBot.html#%24sel%3AinstanceId%3ADisassociateBot%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420005"><span id="local-6989586621679420007"><span class="annot"><span class="annottext">DisassociateBot -&gt; DisassociateBot -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420014"><span id="local-6989586621679420016"><span class="annot"><span class="annottext">DisassociateBot -&gt; DisassociateBot -&gt; Bool
 (DisassociateBot -&gt; DisassociateBot -&gt; Bool)
 -&gt; (DisassociateBot -&gt; DisassociateBot -&gt; Bool)
 -&gt; Eq DisassociateBot
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DisassociateBot -&gt; DisassociateBot -&gt; Bool
 == :: DisassociateBot -&gt; DisassociateBot -&gt; Bool
 $c== :: DisassociateBot -&gt; DisassociateBot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419996"><span id="local-6989586621679419998"><span id="local-6989586621679420000"><span id="local-6989586621679420002"><span class="annot"><span class="annottext">ReadPrec [DisassociateBot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420005"><span id="local-6989586621679420007"><span id="local-6989586621679420009"><span id="local-6989586621679420011"><span class="annot"><span class="annottext">ReadPrec [DisassociateBot]
 ReadPrec DisassociateBot
 Int -&gt; ReadS DisassociateBot
 ReadS [DisassociateBot]
@@ -89,7 +89,7 @@ readList :: ReadS [DisassociateBot]
 $creadList :: ReadS [DisassociateBot]
 readsPrec :: Int -&gt; ReadS DisassociateBot
 $creadsPrec :: Int -&gt; ReadS DisassociateBot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419989"><span id="local-6989586621679419991"><span id="local-6989586621679419993"><span class="annot"><span class="annottext">Int -&gt; DisassociateBot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419998"><span id="local-6989586621679420000"><span id="local-6989586621679420002"><span class="annot"><span class="annottext">Int -&gt; DisassociateBot -&gt; ShowS
 [DisassociateBot] -&gt; ShowS
 DisassociateBot -&gt; String
 (Int -&gt; DisassociateBot -&gt; ShowS)
@@ -134,8 +134,8 @@ $cfrom :: forall x. DisassociateBot -&gt; Rep DisassociateBot x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span><span>
 </span><span id="line-80"></span><span id="newDisassociateBot"><span class="annot"><span class="annottext">newDisassociateBot :: Text -&gt; DisassociateBot
-</span><a href="Network.AWS.Connect.DisassociateBot.html#newDisassociateBot"><span class="hs-identifier hs-var hs-var">newDisassociateBot</span></a></span></span><span> </span><span id="local-6989586621679419984"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679419984"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.DisassociateBot.html#newDisassociateBot"><span class="hs-identifier hs-var hs-var">newDisassociateBot</span></a></span></span><span> </span><span id="local-6989586621679419993"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419993"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">DisassociateBot' :: Maybe LexBot -&gt; Maybe LexV2Bot -&gt; Text -&gt; DisassociateBot
 </span><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-type">DisassociateBot'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lexBot:DisassociateBot' :: Maybe LexBot
@@ -148,7 +148,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:DisassociateBot' :: Text
 </span><a href="Network.AWS.Connect.DisassociateBot.html#%24sel%3AinstanceId%3ADisassociateBot%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679419984"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><a href="#local-6989586621679419993"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -160,16 +160,16 @@ forall a. Maybe a
 -&gt; Lens
      DisassociateBot DisassociateBot (Maybe LexBot) (Maybe LexBot)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-type">DisassociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419981"><span class="annot"><span class="annottext">Maybe LexBot
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-type">DisassociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419990"><span class="annot"><span class="annottext">Maybe LexBot
 lexBot :: Maybe LexBot
 $sel:lexBot:DisassociateBot' :: DisassociateBot -&gt; Maybe LexBot
-</span><a href="#local-6989586621679419981"><span class="hs-identifier hs-var hs-var">lexBot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LexBot
-</span><a href="#local-6989586621679419981"><span class="hs-identifier hs-var">lexBot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419980"><span class="annot"><span class="annottext">s :: DisassociateBot
-</span><a href="#local-6989586621679419980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-type">DisassociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419979"><span class="annot"><span class="annottext">Maybe LexBot
-</span><a href="#local-6989586621679419979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateBot
-</span><a href="#local-6989586621679419980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lexBot:DisassociateBot' :: Maybe LexBot
+</span><a href="#local-6989586621679419990"><span class="hs-identifier hs-var hs-var">lexBot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LexBot
+</span><a href="#local-6989586621679419990"><span class="hs-identifier hs-var">lexBot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419989"><span class="annot"><span class="annottext">s :: DisassociateBot
+</span><a href="#local-6989586621679419989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-type">DisassociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419988"><span class="annot"><span class="annottext">Maybe LexBot
+</span><a href="#local-6989586621679419988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateBot
+</span><a href="#local-6989586621679419989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lexBot:DisassociateBot' :: Maybe LexBot
 </span><a href="Network.AWS.Connect.DisassociateBot.html#%24sel%3AlexBot%3ADisassociateBot%27"><span class="hs-identifier hs-var">lexBot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LexBot
-</span><a href="#local-6989586621679419979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679419988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The Amazon Lex V2 bot to disassociate from the instance.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#disassociateBot_lexV2Bot"><span class="hs-identifier hs-type">disassociateBot_lexV2Bot</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexV2Bot.html#LexV2Bot"><span class="hs-identifier hs-type">LexV2Bot</span></a></span><span class="hs-special">)</span><span>
@@ -180,16 +180,16 @@ $sel:lexBot:DisassociateBot' :: DisassociateBot -&gt; Maybe LexBot
 -&gt; Lens
      DisassociateBot DisassociateBot (Maybe LexV2Bot) (Maybe LexV2Bot)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-type">DisassociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419978"><span class="annot"><span class="annottext">Maybe LexV2Bot
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-type">DisassociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419987"><span class="annot"><span class="annottext">Maybe LexV2Bot
 lexV2Bot :: Maybe LexV2Bot
 $sel:lexV2Bot:DisassociateBot' :: DisassociateBot -&gt; Maybe LexV2Bot
-</span><a href="#local-6989586621679419978"><span class="hs-identifier hs-var hs-var">lexV2Bot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LexV2Bot
-</span><a href="#local-6989586621679419978"><span class="hs-identifier hs-var">lexV2Bot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419977"><span class="annot"><span class="annottext">s :: DisassociateBot
-</span><a href="#local-6989586621679419977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-type">DisassociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419976"><span class="annot"><span class="annottext">Maybe LexV2Bot
-</span><a href="#local-6989586621679419976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateBot
-</span><a href="#local-6989586621679419977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lexV2Bot:DisassociateBot' :: Maybe LexV2Bot
+</span><a href="#local-6989586621679419987"><span class="hs-identifier hs-var hs-var">lexV2Bot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LexV2Bot
+</span><a href="#local-6989586621679419987"><span class="hs-identifier hs-var">lexV2Bot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419986"><span class="annot"><span class="annottext">s :: DisassociateBot
+</span><a href="#local-6989586621679419986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-type">DisassociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419985"><span class="annot"><span class="annottext">Maybe LexV2Bot
+</span><a href="#local-6989586621679419985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateBot
+</span><a href="#local-6989586621679419986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lexV2Bot:DisassociateBot' :: Maybe LexV2Bot
 </span><a href="Network.AWS.Connect.DisassociateBot.html#%24sel%3AlexV2Bot%3ADisassociateBot%27"><span class="hs-identifier hs-var">lexV2Bot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LexV2Bot
-</span><a href="#local-6989586621679419976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679419985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
@@ -199,27 +199,27 @@ $sel:lexV2Bot:DisassociateBot' :: DisassociateBot -&gt; Maybe LexV2Bot
 -&gt; (DisassociateBot -&gt; Text -&gt; DisassociateBot)
 -&gt; Lens DisassociateBot DisassociateBot Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-type">DisassociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419975"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-type">DisassociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419984"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:DisassociateBot' :: DisassociateBot -&gt; Text
-</span><a href="#local-6989586621679419975"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679419975"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419974"><span class="annot"><span class="annottext">s :: DisassociateBot
-</span><a href="#local-6989586621679419974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-type">DisassociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419973"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679419973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateBot
-</span><a href="#local-6989586621679419974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DisassociateBot' :: Text
+</span><a href="#local-6989586621679419984"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419984"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419983"><span class="annot"><span class="annottext">s :: DisassociateBot
+</span><a href="#local-6989586621679419983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-type">DisassociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419982"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679419982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateBot
+</span><a href="#local-6989586621679419983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DisassociateBot' :: Text
 </span><a href="Network.AWS.Connect.DisassociateBot.html#%24sel%3AinstanceId%3ADisassociateBot%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679419973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679419982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBotResponse"><span class="hs-identifier hs-type">DisassociateBotResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679419969"><span class="annot"><span class="annottext">request :: DisassociateBot -&gt; Request DisassociateBot
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679419978"><span class="annot"><span class="annottext">request :: DisassociateBot -&gt; Request DisassociateBot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DisassociateBot -&gt; Request DisassociateBot
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679419965"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679419974"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DisassociateBot
 -&gt; ClientResponse ClientBody
@@ -243,12 +243,12 @@ AWSResponse a
 DisassociateBotResponse
 </span><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBotResponse%27"><span class="hs-identifier hs-var">DisassociateBotResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419958"><span id="local-6989586621679419960"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419967"><span id="local-6989586621679419969"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419955"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419964"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679419951"><span class="annot"><span class="annottext">toHeaders :: DisassociateBot -&gt; [Header]
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679419960"><span class="annot"><span class="annottext">toHeaders :: DisassociateBot -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DisassociateBot -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -267,9 +267,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419941"><span id="local-6989586621679419943"><span id="local-6989586621679419945"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679419939"><span class="annot"><span class="annottext">toJSON :: DisassociateBot -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-type">DisassociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419935"><span id="local-6989586621679419936"><span id="local-6989586621679419937"><span class="annot"><span class="annottext">Maybe LexBot
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419950"><span id="local-6989586621679419952"><span id="local-6989586621679419954"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679419948"><span class="annot"><span class="annottext">toJSON :: DisassociateBot -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-type">DisassociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419944"><span id="local-6989586621679419945"><span id="local-6989586621679419946"><span class="annot"><span class="annottext">Maybe LexBot
 Maybe LexV2Bot
 Text
 instanceId :: Text
@@ -278,7 +278,7 @@ lexBot :: Maybe LexBot
 $sel:instanceId:DisassociateBot' :: DisassociateBot -&gt; Text
 $sel:lexV2Bot:DisassociateBot' :: DisassociateBot -&gt; Maybe LexV2Bot
 $sel:lexBot:DisassociateBot' :: DisassociateBot -&gt; Maybe LexBot
-</span><a href="#local-6989586621679419935"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679419944"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -290,20 +290,20 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LexBot -&gt; Pair) -&gt; Maybe LexBot -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LexBot
-</span><a href="#local-6989586621679419937"><span class="hs-identifier hs-var">lexBot</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679419946"><span class="hs-identifier hs-var">lexBot</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LexV2Bot&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LexV2Bot -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LexV2Bot -&gt; Pair) -&gt; Maybe LexV2Bot -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LexV2Bot
-</span><a href="#local-6989586621679419936"><span class="hs-identifier hs-var">lexV2Bot</span></a></span><span>
+</span><a href="#local-6989586621679419945"><span class="hs-identifier hs-var">lexV2Bot</span></a></span><span>
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679419928"><span class="annot"><span class="annottext">toPath :: DisassociateBot -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-type">DisassociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419924"><span id="local-6989586621679419925"><span id="local-6989586621679419926"><span class="annot"><span class="annottext">Maybe LexBot
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679419937"><span class="annot"><span class="annottext">toPath :: DisassociateBot -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot%27"><span class="hs-identifier hs-type">DisassociateBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419933"><span id="local-6989586621679419934"><span id="local-6989586621679419935"><span class="annot"><span class="annottext">Maybe LexBot
 Maybe LexV2Bot
 Text
 instanceId :: Text
@@ -312,7 +312,7 @@ lexBot :: Maybe LexBot
 $sel:instanceId:DisassociateBot' :: DisassociateBot -&gt; Text
 $sel:lexV2Bot:DisassociateBot' :: DisassociateBot -&gt; Maybe LexV2Bot
 $sel:lexBot:DisassociateBot' :: DisassociateBot -&gt; Maybe LexBot
-</span><a href="#local-6989586621679419924"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679419933"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -320,11 +320,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/instance/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679419924"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679419933"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/bot&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBot"><span class="hs-identifier hs-type">DisassociateBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679419920"><span class="annot"><span class="annottext">toQuery :: DisassociateBot -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679419929"><span class="annot"><span class="annottext">toQuery :: DisassociateBot -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisassociateBot -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -332,10 +332,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newDisassociateBotResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679419917"><span id="local-6989586621679419918"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateBotResponse"><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBotResponse"><span class="hs-identifier hs-var">DisassociateBotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateBotResponse%27"><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBotResponse%27"><span class="hs-identifier hs-var">DisassociateBotResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679419926"><span id="local-6989586621679419927"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateBotResponse"><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBotResponse"><span class="hs-identifier hs-var">DisassociateBotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateBotResponse%27"><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBotResponse%27"><span class="hs-identifier hs-var">DisassociateBotResponse'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679419913"><span id="local-6989586621679419915"><span class="annot"><span class="annottext">DisassociateBotResponse -&gt; DisassociateBotResponse -&gt; Bool
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679419922"><span id="local-6989586621679419924"><span class="annot"><span class="annottext">DisassociateBotResponse -&gt; DisassociateBotResponse -&gt; Bool
 (DisassociateBotResponse -&gt; DisassociateBotResponse -&gt; Bool)
 -&gt; (DisassociateBotResponse -&gt; DisassociateBotResponse -&gt; Bool)
 -&gt; Eq DisassociateBotResponse
@@ -344,7 +344,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DisassociateBotResponse -&gt; DisassociateBotResponse -&gt; Bool
 == :: DisassociateBotResponse -&gt; DisassociateBotResponse -&gt; Bool
 $c== :: DisassociateBotResponse -&gt; DisassociateBotResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419905"><span id="local-6989586621679419907"><span id="local-6989586621679419909"><span id="local-6989586621679419911"><span class="annot"><span class="annottext">ReadPrec [DisassociateBotResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419914"><span id="local-6989586621679419916"><span id="local-6989586621679419918"><span id="local-6989586621679419920"><span class="annot"><span class="annottext">ReadPrec [DisassociateBotResponse]
 ReadPrec DisassociateBotResponse
 Int -&gt; ReadS DisassociateBotResponse
 ReadS [DisassociateBotResponse]
@@ -364,7 +364,7 @@ readList :: ReadS [DisassociateBotResponse]
 $creadList :: ReadS [DisassociateBotResponse]
 readsPrec :: Int -&gt; ReadS DisassociateBotResponse
 $creadsPrec :: Int -&gt; ReadS DisassociateBotResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419899"><span id="local-6989586621679419901"><span id="local-6989586621679419903"><span class="annot"><span class="annottext">Int -&gt; DisassociateBotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419908"><span id="local-6989586621679419910"><span id="local-6989586621679419912"><span class="annot"><span class="annottext">Int -&gt; DisassociateBotResponse -&gt; ShowS
 [DisassociateBotResponse] -&gt; ShowS
 DisassociateBotResponse -&gt; String
 (Int -&gt; DisassociateBotResponse -&gt; ShowS)
@@ -402,5 +402,5 @@ $cfrom :: forall x. DisassociateBotResponse -&gt; Rep DisassociateBotResponse x
 </span><a href="Network.AWS.Connect.DisassociateBot.html#newDisassociateBotResponse"><span class="hs-identifier hs-var hs-var">newDisassociateBotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DisassociateBotResponse
 </span><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBotResponse%27"><span class="hs-identifier hs-var">DisassociateBotResponse'</span></a></span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419895"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBotResponse"><span class="hs-identifier hs-type">DisassociateBotResponse</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419904"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.DisassociateBot.html#DisassociateBotResponse"><span class="hs-identifier hs-type">DisassociateBotResponse</span></a></span></span><span>
 </span><span id="line-155"></span></pre></body></html>

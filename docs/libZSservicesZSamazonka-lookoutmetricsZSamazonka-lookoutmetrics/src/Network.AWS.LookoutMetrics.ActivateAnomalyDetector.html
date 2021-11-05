@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.LookoutMetrics.ActivateAnomalyDetector</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Activates an anomaly detector.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LookoutMetrics.ActivateAnomalyDetector</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector"><span class="hs-identifier">ActivateAnomalyDetector</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#newActivateAnomalyDetector"><span class="hs-identifier">newActivateAnomalyDetector</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#activateAnomalyDetector_anomalyDetectorArn"><span class="hs-identifier">activateAnomalyDetector_anomalyDetectorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetectorResponse"><span class="hs-identifier">ActivateAnomalyDetectorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#newActivateAnomalyDetectorResponse"><span class="hs-identifier">newActivateAnomalyDetectorResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#activateAnomalyDetectorResponse_httpStatus"><span class="hs-identifier">activateAnomalyDetectorResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newActivateAnomalyDetector' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679231944"><span id="local-6989586621679231945"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivateAnomalyDetector"><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector"><span class="hs-identifier hs-var">ActivateAnomalyDetector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivateAnomalyDetector%27"><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector%27"><span class="hs-identifier hs-var">ActivateAnomalyDetector'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the anomaly detector.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AanomalyDetectorArn%3AActivateAnomalyDetector%27"><span class="annot"><span class="annottext">ActivateAnomalyDetector -&gt; Text
+</span><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#%24sel%3AanomalyDetectorArn%3AActivateAnomalyDetector%27"><span class="hs-identifier hs-var hs-var">anomalyDetectorArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231938"><span id="local-6989586621679231940"><span class="annot"><span class="annottext">ActivateAnomalyDetector -&gt; ActivateAnomalyDetector -&gt; Bool
+(ActivateAnomalyDetector -&gt; ActivateAnomalyDetector -&gt; Bool)
+-&gt; (ActivateAnomalyDetector -&gt; ActivateAnomalyDetector -&gt; Bool)
+-&gt; Eq ActivateAnomalyDetector
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ActivateAnomalyDetector -&gt; ActivateAnomalyDetector -&gt; Bool
+$c/= :: ActivateAnomalyDetector -&gt; ActivateAnomalyDetector -&gt; Bool
+== :: ActivateAnomalyDetector -&gt; ActivateAnomalyDetector -&gt; Bool
+$c== :: ActivateAnomalyDetector -&gt; ActivateAnomalyDetector -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231929"><span id="local-6989586621679231931"><span id="local-6989586621679231933"><span id="local-6989586621679231935"><span class="annot"><span class="annottext">ReadPrec [ActivateAnomalyDetector]
+ReadPrec ActivateAnomalyDetector
+Int -&gt; ReadS ActivateAnomalyDetector
+ReadS [ActivateAnomalyDetector]
+(Int -&gt; ReadS ActivateAnomalyDetector)
+-&gt; ReadS [ActivateAnomalyDetector]
+-&gt; ReadPrec ActivateAnomalyDetector
+-&gt; ReadPrec [ActivateAnomalyDetector]
+-&gt; Read ActivateAnomalyDetector
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ActivateAnomalyDetector]
+$creadListPrec :: ReadPrec [ActivateAnomalyDetector]
+readPrec :: ReadPrec ActivateAnomalyDetector
+$creadPrec :: ReadPrec ActivateAnomalyDetector
+readList :: ReadS [ActivateAnomalyDetector]
+$creadList :: ReadS [ActivateAnomalyDetector]
+readsPrec :: Int -&gt; ReadS ActivateAnomalyDetector
+$creadsPrec :: Int -&gt; ReadS ActivateAnomalyDetector
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231922"><span id="local-6989586621679231924"><span id="local-6989586621679231926"><span class="annot"><span class="annottext">Int -&gt; ActivateAnomalyDetector -&gt; ShowS
+[ActivateAnomalyDetector] -&gt; ShowS
+ActivateAnomalyDetector -&gt; String
+(Int -&gt; ActivateAnomalyDetector -&gt; ShowS)
+-&gt; (ActivateAnomalyDetector -&gt; String)
+-&gt; ([ActivateAnomalyDetector] -&gt; ShowS)
+-&gt; Show ActivateAnomalyDetector
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ActivateAnomalyDetector] -&gt; ShowS
+$cshowList :: [ActivateAnomalyDetector] -&gt; ShowS
+show :: ActivateAnomalyDetector -&gt; String
+$cshow :: ActivateAnomalyDetector -&gt; String
+showsPrec :: Int -&gt; ActivateAnomalyDetector -&gt; ShowS
+$cshowsPrec :: Int -&gt; ActivateAnomalyDetector -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ActivateAnomalyDetector -&gt; Rep ActivateAnomalyDetector x)
+-&gt; (forall x.
+    Rep ActivateAnomalyDetector x -&gt; ActivateAnomalyDetector)
+-&gt; Generic ActivateAnomalyDetector
+forall x. Rep ActivateAnomalyDetector x -&gt; ActivateAnomalyDetector
+forall x. ActivateAnomalyDetector -&gt; Rep ActivateAnomalyDetector x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ActivateAnomalyDetector x -&gt; ActivateAnomalyDetector
+$cfrom :: forall x. ActivateAnomalyDetector -&gt; Rep ActivateAnomalyDetector x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'ActivateAnomalyDetector' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'anomalyDetectorArn', 'activateAnomalyDetector_anomalyDetectorArn' - The ARN of the anomaly detector.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#newActivateAnomalyDetector"><span class="hs-identifier hs-type">newActivateAnomalyDetector</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'anomalyDetectorArn'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector"><span class="hs-identifier hs-type">ActivateAnomalyDetector</span></a></span><span>
+</span><span id="line-68"></span><span id="newActivateAnomalyDetector"><span class="annot"><span class="annottext">newActivateAnomalyDetector :: Text -&gt; ActivateAnomalyDetector
+</span><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#newActivateAnomalyDetector"><span class="hs-identifier hs-var hs-var">newActivateAnomalyDetector</span></a></span></span><span> </span><span id="local-6989586621679231917"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231917"><span class="hs-identifier hs-var">pAnomalyDetectorArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">ActivateAnomalyDetector' :: Text -&gt; ActivateAnomalyDetector
+</span><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector%27"><span class="hs-identifier hs-type">ActivateAnomalyDetector'</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:anomalyDetectorArn:ActivateAnomalyDetector' :: Text
+</span><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#%24sel%3AanomalyDetectorArn%3AActivateAnomalyDetector%27"><span class="hs-identifier hs-var">anomalyDetectorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231917"><span class="hs-identifier hs-var">pAnomalyDetectorArn_</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The ARN of the anomaly detector.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#activateAnomalyDetector_anomalyDetectorArn"><span class="hs-identifier hs-type">activateAnomalyDetector_anomalyDetectorArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector"><span class="hs-identifier hs-type">ActivateAnomalyDetector</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span id="activateAnomalyDetector_anomalyDetectorArn"><span class="annot"><span class="annottext">activateAnomalyDetector_anomalyDetectorArn :: (Text -&gt; f Text)
+-&gt; ActivateAnomalyDetector -&gt; f ActivateAnomalyDetector
+</span><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#activateAnomalyDetector_anomalyDetectorArn"><span class="hs-identifier hs-var hs-var">activateAnomalyDetector_anomalyDetectorArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivateAnomalyDetector -&gt; Text)
+-&gt; (ActivateAnomalyDetector -&gt; Text -&gt; ActivateAnomalyDetector)
+-&gt; Lens ActivateAnomalyDetector ActivateAnomalyDetector Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector%27"><span class="hs-identifier hs-type">ActivateAnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231914"><span class="annot"><span class="annottext">Text
+anomalyDetectorArn :: Text
+$sel:anomalyDetectorArn:ActivateAnomalyDetector' :: ActivateAnomalyDetector -&gt; Text
+</span><a href="#local-6989586621679231914"><span class="hs-identifier hs-var hs-var">anomalyDetectorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231914"><span class="hs-identifier hs-var">anomalyDetectorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231913"><span class="annot"><span class="annottext">s :: ActivateAnomalyDetector
+</span><a href="#local-6989586621679231913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector%27"><span class="hs-identifier hs-type">ActivateAnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231912"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateAnomalyDetector
+</span><a href="#local-6989586621679231913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:anomalyDetectorArn:ActivateAnomalyDetector' :: Text
+</span><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#%24sel%3AanomalyDetectorArn%3AActivateAnomalyDetector%27"><span class="hs-identifier hs-var">anomalyDetectorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector"><span class="hs-identifier hs-type">ActivateAnomalyDetector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector"><span class="hs-identifier hs-type">ActivateAnomalyDetector</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector"><span class="hs-identifier hs-type">ActivateAnomalyDetector</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetectorResponse"><span class="hs-identifier hs-type">ActivateAnomalyDetectorResponse</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679231908"><span class="annot"><span class="annottext">request :: ActivateAnomalyDetector -&gt; Request ActivateAnomalyDetector
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ActivateAnomalyDetector -&gt; Request ActivateAnomalyDetector
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutMetrics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679231904"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ActivateAnomalyDetector
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ActivateAnomalyDetector)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse ActivateAnomalyDetector))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ActivateAnomalyDetector
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ActivateAnomalyDetector)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679231901"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231901"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679231900"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679231900"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679231899"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679231899"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ActivateAnomalyDetectorResponse
+</span><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetectorResponse%27"><span class="hs-identifier hs-var">ActivateAnomalyDetectorResponse'</span></a></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ActivateAnomalyDetectorResponse)
+-&gt; Either String Int
+-&gt; Either String ActivateAnomalyDetectorResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231901"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231892"><span id="local-6989586621679231894"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector"><span class="hs-identifier hs-type">ActivateAnomalyDetector</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231889"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector"><span class="hs-identifier hs-type">ActivateAnomalyDetector</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector"><span class="hs-identifier hs-type">ActivateAnomalyDetector</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679231885"><span class="annot"><span class="annottext">toHeaders :: ActivateAnomalyDetector -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ActivateAnomalyDetector -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-101"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231875"><span id="local-6989586621679231877"><span id="local-6989586621679231879"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector"><span class="hs-identifier hs-type">ActivateAnomalyDetector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679231873"><span class="annot"><span class="annottext">toJSON :: ActivateAnomalyDetector -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector%27"><span class="hs-identifier hs-type">ActivateAnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231871"><span class="annot"><span class="annottext">Text
+anomalyDetectorArn :: Text
+$sel:anomalyDetectorArn:ActivateAnomalyDetector' :: ActivateAnomalyDetector -&gt; Text
+</span><a href="#local-6989586621679231871"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-110"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnomalyDetectorArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231871"><span class="hs-identifier hs-var">anomalyDetectorArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector"><span class="hs-identifier hs-type">ActivateAnomalyDetector</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679231865"><span class="annot"><span class="annottext">toPath :: ActivateAnomalyDetector -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ActivateAnomalyDetector -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/ActivateAnomalyDetector&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetector"><span class="hs-identifier hs-type">ActivateAnomalyDetector</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679231861"><span class="annot"><span class="annottext">toQuery :: ActivateAnomalyDetector -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ActivateAnomalyDetector -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newActivateAnomalyDetectorResponse' smart constructor.</span><span>
+</span><span id="line-121"></span><span id="local-6989586621679231858"><span id="local-6989586621679231859"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivateAnomalyDetectorResponse"><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetectorResponse"><span class="hs-identifier hs-var">ActivateAnomalyDetectorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivateAnomalyDetectorResponse%27"><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetectorResponse%27"><span class="hs-identifier hs-var">ActivateAnomalyDetectorResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3AActivateAnomalyDetectorResponse%27"><span class="annot"><span class="annottext">ActivateAnomalyDetectorResponse -&gt; Int
+</span><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#%24sel%3AhttpStatus%3AActivateAnomalyDetectorResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231853"><span id="local-6989586621679231855"><span class="annot"><span class="annottext">ActivateAnomalyDetectorResponse
+-&gt; ActivateAnomalyDetectorResponse -&gt; Bool
+(ActivateAnomalyDetectorResponse
+ -&gt; ActivateAnomalyDetectorResponse -&gt; Bool)
+-&gt; (ActivateAnomalyDetectorResponse
+    -&gt; ActivateAnomalyDetectorResponse -&gt; Bool)
+-&gt; Eq ActivateAnomalyDetectorResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ActivateAnomalyDetectorResponse
+-&gt; ActivateAnomalyDetectorResponse -&gt; Bool
+$c/= :: ActivateAnomalyDetectorResponse
+-&gt; ActivateAnomalyDetectorResponse -&gt; Bool
+== :: ActivateAnomalyDetectorResponse
+-&gt; ActivateAnomalyDetectorResponse -&gt; Bool
+$c== :: ActivateAnomalyDetectorResponse
+-&gt; ActivateAnomalyDetectorResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231845"><span id="local-6989586621679231847"><span id="local-6989586621679231849"><span id="local-6989586621679231851"><span class="annot"><span class="annottext">ReadPrec [ActivateAnomalyDetectorResponse]
+ReadPrec ActivateAnomalyDetectorResponse
+Int -&gt; ReadS ActivateAnomalyDetectorResponse
+ReadS [ActivateAnomalyDetectorResponse]
+(Int -&gt; ReadS ActivateAnomalyDetectorResponse)
+-&gt; ReadS [ActivateAnomalyDetectorResponse]
+-&gt; ReadPrec ActivateAnomalyDetectorResponse
+-&gt; ReadPrec [ActivateAnomalyDetectorResponse]
+-&gt; Read ActivateAnomalyDetectorResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ActivateAnomalyDetectorResponse]
+$creadListPrec :: ReadPrec [ActivateAnomalyDetectorResponse]
+readPrec :: ReadPrec ActivateAnomalyDetectorResponse
+$creadPrec :: ReadPrec ActivateAnomalyDetectorResponse
+readList :: ReadS [ActivateAnomalyDetectorResponse]
+$creadList :: ReadS [ActivateAnomalyDetectorResponse]
+readsPrec :: Int -&gt; ReadS ActivateAnomalyDetectorResponse
+$creadsPrec :: Int -&gt; ReadS ActivateAnomalyDetectorResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231839"><span id="local-6989586621679231841"><span id="local-6989586621679231843"><span class="annot"><span class="annottext">Int -&gt; ActivateAnomalyDetectorResponse -&gt; ShowS
+[ActivateAnomalyDetectorResponse] -&gt; ShowS
+ActivateAnomalyDetectorResponse -&gt; String
+(Int -&gt; ActivateAnomalyDetectorResponse -&gt; ShowS)
+-&gt; (ActivateAnomalyDetectorResponse -&gt; String)
+-&gt; ([ActivateAnomalyDetectorResponse] -&gt; ShowS)
+-&gt; Show ActivateAnomalyDetectorResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ActivateAnomalyDetectorResponse] -&gt; ShowS
+$cshowList :: [ActivateAnomalyDetectorResponse] -&gt; ShowS
+show :: ActivateAnomalyDetectorResponse -&gt; String
+$cshow :: ActivateAnomalyDetectorResponse -&gt; String
+showsPrec :: Int -&gt; ActivateAnomalyDetectorResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ActivateAnomalyDetectorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ActivateAnomalyDetectorResponse
+ -&gt; Rep ActivateAnomalyDetectorResponse x)
+-&gt; (forall x.
+    Rep ActivateAnomalyDetectorResponse x
+    -&gt; ActivateAnomalyDetectorResponse)
+-&gt; Generic ActivateAnomalyDetectorResponse
+forall x.
+Rep ActivateAnomalyDetectorResponse x
+-&gt; ActivateAnomalyDetectorResponse
+forall x.
+ActivateAnomalyDetectorResponse
+-&gt; Rep ActivateAnomalyDetectorResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ActivateAnomalyDetectorResponse x
+-&gt; ActivateAnomalyDetectorResponse
+$cfrom :: forall x.
+ActivateAnomalyDetectorResponse
+-&gt; Rep ActivateAnomalyDetectorResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Create a value of 'ActivateAnomalyDetectorResponse' with all optional fields omitted.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'httpStatus', 'activateAnomalyDetectorResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#newActivateAnomalyDetectorResponse"><span class="hs-identifier hs-type">newActivateAnomalyDetectorResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetectorResponse"><span class="hs-identifier hs-type">ActivateAnomalyDetectorResponse</span></a></span><span>
+</span><span id="line-140"></span><span id="newActivateAnomalyDetectorResponse"><span class="annot"><span class="annottext">newActivateAnomalyDetectorResponse :: Int -&gt; ActivateAnomalyDetectorResponse
+</span><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#newActivateAnomalyDetectorResponse"><span class="hs-identifier hs-var hs-var">newActivateAnomalyDetectorResponse</span></a></span></span><span> </span><span id="local-6989586621679231836"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231836"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="annottext">ActivateAnomalyDetectorResponse' :: Int -&gt; ActivateAnomalyDetectorResponse
+</span><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetectorResponse%27"><span class="hs-identifier hs-type">ActivateAnomalyDetectorResponse'</span></a></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ActivateAnomalyDetectorResponse' :: Int
+</span><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#%24sel%3AhttpStatus%3AActivateAnomalyDetectorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231836"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#activateAnomalyDetectorResponse_httpStatus"><span class="hs-identifier hs-type">activateAnomalyDetectorResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetectorResponse"><span class="hs-identifier hs-type">ActivateAnomalyDetectorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-148"></span><span id="activateAnomalyDetectorResponse_httpStatus"><span class="annot"><span class="annottext">activateAnomalyDetectorResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ActivateAnomalyDetectorResponse
+-&gt; f ActivateAnomalyDetectorResponse
+</span><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#activateAnomalyDetectorResponse_httpStatus"><span class="hs-identifier hs-var hs-var">activateAnomalyDetectorResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivateAnomalyDetectorResponse -&gt; Int)
+-&gt; (ActivateAnomalyDetectorResponse
+    -&gt; Int -&gt; ActivateAnomalyDetectorResponse)
+-&gt; Lens
+     ActivateAnomalyDetectorResponse
+     ActivateAnomalyDetectorResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetectorResponse%27"><span class="hs-identifier hs-type">ActivateAnomalyDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231835"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ActivateAnomalyDetectorResponse' :: ActivateAnomalyDetectorResponse -&gt; Int
+</span><a href="#local-6989586621679231835"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231835"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231834"><span class="annot"><span class="annottext">s :: ActivateAnomalyDetectorResponse
+</span><a href="#local-6989586621679231834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetectorResponse%27"><span class="hs-identifier hs-type">ActivateAnomalyDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231833"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateAnomalyDetectorResponse
+</span><a href="#local-6989586621679231834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ActivateAnomalyDetectorResponse' :: Int
+</span><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#%24sel%3AhttpStatus%3AActivateAnomalyDetectorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetectorResponse"><span class="hs-identifier hs-type">ActivateAnomalyDetectorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679231831"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.ActivateAnomalyDetector.html#ActivateAnomalyDetectorResponse"><span class="hs-identifier hs-type">ActivateAnomalyDetectorResponse</span></a></span></span><span>
+</span><span id="line-153"></span></pre></body></html>

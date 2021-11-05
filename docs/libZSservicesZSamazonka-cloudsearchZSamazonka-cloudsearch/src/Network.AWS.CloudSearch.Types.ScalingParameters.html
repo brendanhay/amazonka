@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- partition.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newScalingParameters' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679209349"><span id="local-6989586621679209350"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScalingParameters"><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters"><span class="hs-identifier hs-var">ScalingParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingParameters%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters%27"><span class="hs-identifier hs-var">ScalingParameters'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679209358"><span id="local-6989586621679209359"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScalingParameters"><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters"><span class="hs-identifier hs-var">ScalingParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingParameters%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters%27"><span class="hs-identifier hs-var">ScalingParameters'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The instance type that you want to preconfigure for your domain. For</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- example, @search.m1.small@.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AdesiredInstanceType%3AScalingParameters%27"><span class="annot"><span class="annottext">ScalingParameters -&gt; Maybe PartitionInstanceType
@@ -42,7 +42,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AdesiredPartitionCount%3AScalingParameters%27"><span class="annot"><span class="annottext">ScalingParameters -&gt; Maybe Natural
 </span><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#%24sel%3AdesiredPartitionCount%3AScalingParameters%27"><span class="hs-identifier hs-var hs-var">desiredPartitionCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209341"><span id="local-6989586621679209343"><span class="annot"><span class="annottext">ScalingParameters -&gt; ScalingParameters -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209350"><span id="local-6989586621679209352"><span class="annot"><span class="annottext">ScalingParameters -&gt; ScalingParameters -&gt; Bool
 (ScalingParameters -&gt; ScalingParameters -&gt; Bool)
 -&gt; (ScalingParameters -&gt; ScalingParameters -&gt; Bool)
 -&gt; Eq ScalingParameters
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ScalingParameters -&gt; ScalingParameters -&gt; Bool
 == :: ScalingParameters -&gt; ScalingParameters -&gt; Bool
 $c== :: ScalingParameters -&gt; ScalingParameters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209332"><span id="local-6989586621679209334"><span id="local-6989586621679209336"><span id="local-6989586621679209338"><span class="annot"><span class="annottext">ReadPrec [ScalingParameters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209341"><span id="local-6989586621679209343"><span id="local-6989586621679209345"><span id="local-6989586621679209347"><span class="annot"><span class="annottext">ReadPrec [ScalingParameters]
 ReadPrec ScalingParameters
 Int -&gt; ReadS ScalingParameters
 ReadS [ScalingParameters]
@@ -71,7 +71,7 @@ readList :: ReadS [ScalingParameters]
 $creadList :: ReadS [ScalingParameters]
 readsPrec :: Int -&gt; ReadS ScalingParameters
 $creadsPrec :: Int -&gt; ReadS ScalingParameters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209325"><span id="local-6989586621679209327"><span id="local-6989586621679209329"><span class="annot"><span class="annottext">Int -&gt; ScalingParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209334"><span id="local-6989586621679209336"><span id="local-6989586621679209338"><span class="annot"><span class="annottext">Int -&gt; ScalingParameters -&gt; ShowS
 [ScalingParameters] -&gt; ShowS
 ScalingParameters -&gt; String
 (Int -&gt; ScalingParameters -&gt; ShowS)
@@ -149,16 +149,16 @@ forall a. Maybe a
      (Maybe PartitionInstanceType)
      (Maybe PartitionInstanceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters%27"><span class="hs-identifier hs-type">ScalingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209316"><span class="annot"><span class="annottext">Maybe PartitionInstanceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters%27"><span class="hs-identifier hs-type">ScalingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209325"><span class="annot"><span class="annottext">Maybe PartitionInstanceType
 desiredInstanceType :: Maybe PartitionInstanceType
 $sel:desiredInstanceType:ScalingParameters' :: ScalingParameters -&gt; Maybe PartitionInstanceType
-</span><a href="#local-6989586621679209316"><span class="hs-identifier hs-var hs-var">desiredInstanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PartitionInstanceType
-</span><a href="#local-6989586621679209316"><span class="hs-identifier hs-var">desiredInstanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209315"><span class="annot"><span class="annottext">s :: ScalingParameters
-</span><a href="#local-6989586621679209315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters%27"><span class="hs-identifier hs-type">ScalingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209314"><span class="annot"><span class="annottext">Maybe PartitionInstanceType
-</span><a href="#local-6989586621679209314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingParameters
-</span><a href="#local-6989586621679209315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredInstanceType:ScalingParameters' :: Maybe PartitionInstanceType
+</span><a href="#local-6989586621679209325"><span class="hs-identifier hs-var hs-var">desiredInstanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PartitionInstanceType
+</span><a href="#local-6989586621679209325"><span class="hs-identifier hs-var">desiredInstanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209324"><span class="annot"><span class="annottext">s :: ScalingParameters
+</span><a href="#local-6989586621679209324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters%27"><span class="hs-identifier hs-type">ScalingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209323"><span class="annot"><span class="annottext">Maybe PartitionInstanceType
+</span><a href="#local-6989586621679209323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingParameters
+</span><a href="#local-6989586621679209324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredInstanceType:ScalingParameters' :: Maybe PartitionInstanceType
 </span><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#%24sel%3AdesiredInstanceType%3AScalingParameters%27"><span class="hs-identifier hs-var">desiredInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PartitionInstanceType
-</span><a href="#local-6989586621679209314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters"><span class="hs-identifier hs-type">ScalingParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters"><span class="hs-identifier hs-type">ScalingParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The number of replicas you want to preconfigure for each index</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- partition.</span><span>
@@ -170,16 +170,16 @@ $sel:desiredInstanceType:ScalingParameters' :: ScalingParameters -&gt; Maybe Par
 -&gt; Lens
      ScalingParameters ScalingParameters (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters%27"><span class="hs-identifier hs-type">ScalingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209312"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters%27"><span class="hs-identifier hs-type">ScalingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209321"><span class="annot"><span class="annottext">Maybe Natural
 desiredReplicationCount :: Maybe Natural
 $sel:desiredReplicationCount:ScalingParameters' :: ScalingParameters -&gt; Maybe Natural
-</span><a href="#local-6989586621679209312"><span class="hs-identifier hs-var hs-var">desiredReplicationCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679209312"><span class="hs-identifier hs-var">desiredReplicationCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209311"><span class="annot"><span class="annottext">s :: ScalingParameters
-</span><a href="#local-6989586621679209311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters%27"><span class="hs-identifier hs-type">ScalingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209310"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679209310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingParameters
-</span><a href="#local-6989586621679209311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredReplicationCount:ScalingParameters' :: Maybe Natural
+</span><a href="#local-6989586621679209321"><span class="hs-identifier hs-var hs-var">desiredReplicationCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679209321"><span class="hs-identifier hs-var">desiredReplicationCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209320"><span class="annot"><span class="annottext">s :: ScalingParameters
+</span><a href="#local-6989586621679209320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters%27"><span class="hs-identifier hs-type">ScalingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209319"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679209319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingParameters
+</span><a href="#local-6989586621679209320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredReplicationCount:ScalingParameters' :: Maybe Natural
 </span><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#%24sel%3AdesiredReplicationCount%3AScalingParameters%27"><span class="hs-identifier hs-var">desiredReplicationCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679209310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters"><span class="hs-identifier hs-type">ScalingParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters"><span class="hs-identifier hs-type">ScalingParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The number of partitions you want to preconfigure for your domain. Only</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- valid when you select @m2.2xlarge@ as the desired instance type.</span><span>
@@ -191,21 +191,21 @@ $sel:desiredReplicationCount:ScalingParameters' :: ScalingParameters -&gt; Maybe
 -&gt; Lens
      ScalingParameters ScalingParameters (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters%27"><span class="hs-identifier hs-type">ScalingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209308"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters%27"><span class="hs-identifier hs-type">ScalingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209317"><span class="annot"><span class="annottext">Maybe Natural
 desiredPartitionCount :: Maybe Natural
 $sel:desiredPartitionCount:ScalingParameters' :: ScalingParameters -&gt; Maybe Natural
-</span><a href="#local-6989586621679209308"><span class="hs-identifier hs-var hs-var">desiredPartitionCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679209308"><span class="hs-identifier hs-var">desiredPartitionCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209307"><span class="annot"><span class="annottext">s :: ScalingParameters
-</span><a href="#local-6989586621679209307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters%27"><span class="hs-identifier hs-type">ScalingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209306"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679209306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingParameters
-</span><a href="#local-6989586621679209307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredPartitionCount:ScalingParameters' :: Maybe Natural
+</span><a href="#local-6989586621679209317"><span class="hs-identifier hs-var hs-var">desiredPartitionCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679209317"><span class="hs-identifier hs-var">desiredPartitionCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209316"><span class="annot"><span class="annottext">s :: ScalingParameters
+</span><a href="#local-6989586621679209316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters%27"><span class="hs-identifier hs-type">ScalingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209315"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679209315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingParameters
+</span><a href="#local-6989586621679209316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredPartitionCount:ScalingParameters' :: Maybe Natural
 </span><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#%24sel%3AdesiredPartitionCount%3AScalingParameters%27"><span class="hs-identifier hs-var">desiredPartitionCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679209306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters"><span class="hs-identifier hs-type">ScalingParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters"><span class="hs-identifier hs-type">ScalingParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters"><span class="hs-identifier hs-type">ScalingParameters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679209303"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ScalingParameters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679209301"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679209301"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679209312"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ScalingParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679209310"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209310"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">Maybe PartitionInstanceType
 -&gt; Maybe Natural -&gt; Maybe Natural -&gt; ScalingParameters
 </span><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters%27"><span class="hs-identifier hs-var">ScalingParameters'</span></a></span><span>
@@ -216,7 +216,7 @@ $sel:desiredPartitionCount:ScalingParameters' :: ScalingParameters -&gt; Maybe N
      String (Maybe Natural -&gt; Maybe Natural -&gt; ScalingParameters)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679209301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PartitionInstanceType)
+</span><a href="#local-6989586621679209310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PartitionInstanceType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DesiredInstanceType&quot;</span></span><span class="hs-special">)</span><span>
@@ -225,7 +225,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Natural -&gt; ScalingParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679209301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679209310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DesiredReplicationCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -233,18 +233,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Natural) -&gt; Either String ScalingParameters
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679209301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679209310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DesiredPartitionCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209295"><span id="local-6989586621679209297"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters"><span class="hs-identifier hs-type">ScalingParameters</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209304"><span id="local-6989586621679209306"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters"><span class="hs-identifier hs-type">ScalingParameters</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209292"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters"><span class="hs-identifier hs-type">ScalingParameters</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209301"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters"><span class="hs-identifier hs-type">ScalingParameters</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters"><span class="hs-identifier hs-type">ScalingParameters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679209288"><span class="annot"><span class="annottext">toQuery :: ScalingParameters -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters%27"><span class="hs-identifier hs-type">ScalingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209284"><span id="local-6989586621679209285"><span id="local-6989586621679209286"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679209297"><span class="annot"><span class="annottext">toQuery :: ScalingParameters -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ScalingParameters.html#ScalingParameters%27"><span class="hs-identifier hs-type">ScalingParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209293"><span id="local-6989586621679209294"><span id="local-6989586621679209295"><span class="annot"><span class="annottext">Maybe Natural
 Maybe PartitionInstanceType
 desiredPartitionCount :: Maybe Natural
 desiredReplicationCount :: Maybe Natural
@@ -252,7 +252,7 @@ desiredInstanceType :: Maybe PartitionInstanceType
 $sel:desiredPartitionCount:ScalingParameters' :: ScalingParameters -&gt; Maybe Natural
 $sel:desiredReplicationCount:ScalingParameters' :: ScalingParameters -&gt; Maybe Natural
 $sel:desiredInstanceType:ScalingParameters' :: ScalingParameters -&gt; Maybe PartitionInstanceType
-</span><a href="#local-6989586621679209284"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679209293"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -260,18 +260,18 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;DesiredInstanceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe PartitionInstanceType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PartitionInstanceType
-</span><a href="#local-6989586621679209286"><span class="hs-identifier hs-var">desiredInstanceType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209295"><span class="hs-identifier hs-var">desiredInstanceType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DesiredReplicationCount&quot;</span></span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679209285"><span class="hs-identifier hs-var">desiredReplicationCount</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209294"><span class="hs-identifier hs-var">desiredReplicationCount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DesiredPartitionCount&quot;</span></span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679209284"><span class="hs-identifier hs-var">desiredPartitionCount</span></a></span><span>
+</span><a href="#local-6989586621679209293"><span class="hs-identifier hs-var">desiredPartitionCount</span></a></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span></pre></body></html>

@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- in the /Batch User Guide/.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newComputeResource' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679262190"><span id="local-6989586621679262191"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComputeResource"><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-var">ComputeResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComputeResource%27"><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-var">ComputeResource'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679262199"><span id="local-6989586621679262200"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComputeResource"><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-var">ComputeResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComputeResource%27"><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-var">ComputeResource'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon EC2 security groups associated with instances launched in the</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- compute environment. One or more security groups must be specified,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- either in @securityGroupIds@ or using a launch template referenced in</span><span>
@@ -271,7 +271,7 @@
 </span><span id="line-255"></span><span>    </span><span id="%24sel%3Asubnets%3AComputeResource%27"><span class="annot"><span class="annottext">ComputeResource -&gt; [Text]
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3Asubnets%3AComputeResource%27"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-256"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-257"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262168"><span id="local-6989586621679262170"><span class="annot"><span class="annottext">ComputeResource -&gt; ComputeResource -&gt; Bool
+</span><span id="line-257"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262177"><span id="local-6989586621679262179"><span class="annot"><span class="annottext">ComputeResource -&gt; ComputeResource -&gt; Bool
 (ComputeResource -&gt; ComputeResource -&gt; Bool)
 -&gt; (ComputeResource -&gt; ComputeResource -&gt; Bool)
 -&gt; Eq ComputeResource
@@ -280,7 +280,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ComputeResource -&gt; ComputeResource -&gt; Bool
 == :: ComputeResource -&gt; ComputeResource -&gt; Bool
 $c== :: ComputeResource -&gt; ComputeResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262159"><span id="local-6989586621679262161"><span id="local-6989586621679262163"><span id="local-6989586621679262165"><span class="annot"><span class="annottext">ReadPrec [ComputeResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262168"><span id="local-6989586621679262170"><span id="local-6989586621679262172"><span id="local-6989586621679262174"><span class="annot"><span class="annottext">ReadPrec [ComputeResource]
 ReadPrec ComputeResource
 Int -&gt; ReadS ComputeResource
 ReadS [ComputeResource]
@@ -300,7 +300,7 @@ readList :: ReadS [ComputeResource]
 $creadList :: ReadS [ComputeResource]
 readsPrec :: Int -&gt; ReadS ComputeResource
 $creadsPrec :: Int -&gt; ReadS ComputeResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262152"><span id="local-6989586621679262154"><span id="local-6989586621679262156"><span class="annot"><span class="annottext">Int -&gt; ComputeResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262161"><span id="local-6989586621679262163"><span id="local-6989586621679262165"><span class="annot"><span class="annottext">Int -&gt; ComputeResource -&gt; ShowS
 [ComputeResource] -&gt; ShowS
 ComputeResource -&gt; String
 (Int -&gt; ComputeResource -&gt; ShowS)
@@ -559,9 +559,9 @@ $cfrom :: forall x. ComputeResource -&gt; Rep ComputeResource x
 </span><span id="line-489"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-490"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span>
 </span><span id="line-491"></span><span id="newComputeResource"><span class="annot"><span class="annottext">newComputeResource :: CRType -&gt; Int -&gt; ComputeResource
-</span><a href="Network.AWS.Batch.Types.ComputeResource.html#newComputeResource"><span class="hs-identifier hs-var hs-var">newComputeResource</span></a></span></span><span> </span><span id="local-6989586621679262146"><span class="annot"><span class="annottext">CRType
-</span><a href="#local-6989586621679262146"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679262145"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262145"><span class="hs-identifier hs-var">pMaxvCpus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Batch.Types.ComputeResource.html#newComputeResource"><span class="hs-identifier hs-var hs-var">newComputeResource</span></a></span></span><span> </span><span id="local-6989586621679262155"><span class="annot"><span class="annottext">CRType
+</span><a href="#local-6989586621679262155"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679262154"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262154"><span class="hs-identifier hs-var">pMaxvCpus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-492"></span><span>  </span><span class="annot"><span class="annottext">ComputeResource' :: Maybe [Text]
 -&gt; Maybe [Text]
 -&gt; Maybe Text
@@ -640,10 +640,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-508"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ComputeResource' :: CRType
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3Atype%27%3AComputeResource%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CRType
-</span><a href="#local-6989586621679262146"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262155"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-509"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxvCpus:ComputeResource' :: Int
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3AmaxvCpus%3AComputeResource%27"><span class="hs-identifier hs-var">maxvCpus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262145"><span class="hs-identifier hs-var">pMaxvCpus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262154"><span class="hs-identifier hs-var">pMaxvCpus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-510"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnets:ComputeResource' :: [Text]
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3Asubnets%3AComputeResource%27"><span class="hs-identifier hs-var">subnets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -666,16 +666,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      ComputeResource ComputeResource (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262141"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262150"><span class="annot"><span class="annottext">Maybe [Text]
 securityGroupIds :: Maybe [Text]
 $sel:securityGroupIds:ComputeResource' :: ComputeResource -&gt; Maybe [Text]
-</span><a href="#local-6989586621679262141"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679262141"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262140"><span class="annot"><span class="annottext">s :: ComputeResource
-</span><a href="#local-6989586621679262140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262139"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679262139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
-</span><a href="#local-6989586621679262140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:ComputeResource' :: Maybe [Text]
+</span><a href="#local-6989586621679262150"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679262150"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262149"><span class="annot"><span class="annottext">s :: ComputeResource
+</span><a href="#local-6989586621679262149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262148"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679262148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
+</span><a href="#local-6989586621679262149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:ComputeResource' :: Maybe [Text]
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3AsecurityGroupIds%3AComputeResource%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679262139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679262148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ComputeResource -&gt; f ComputeResource)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -719,16 +719,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ComputeResource ComputeResource (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262134"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262143"><span class="annot"><span class="annottext">Maybe [Text]
 instanceTypes :: Maybe [Text]
 $sel:instanceTypes:ComputeResource' :: ComputeResource -&gt; Maybe [Text]
-</span><a href="#local-6989586621679262134"><span class="hs-identifier hs-var hs-var">instanceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679262134"><span class="hs-identifier hs-var">instanceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262133"><span class="annot"><span class="annottext">s :: ComputeResource
-</span><a href="#local-6989586621679262133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262132"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679262132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
-</span><a href="#local-6989586621679262133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceTypes:ComputeResource' :: Maybe [Text]
+</span><a href="#local-6989586621679262143"><span class="hs-identifier hs-var hs-var">instanceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679262143"><span class="hs-identifier hs-var">instanceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262142"><span class="annot"><span class="annottext">s :: ComputeResource
+</span><a href="#local-6989586621679262142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262141"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679262141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
+</span><a href="#local-6989586621679262142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceTypes:ComputeResource' :: Maybe [Text]
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3AinstanceTypes%3AComputeResource%27"><span class="hs-identifier hs-var">instanceTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679262132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679262141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ComputeResource -&gt; f ComputeResource)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -763,16 +763,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ComputeResource -&gt; Maybe Text -&gt; ComputeResource)
 -&gt; Lens ComputeResource ComputeResource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262130"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262139"><span class="annot"><span class="annottext">Maybe Text
 instanceRole :: Maybe Text
 $sel:instanceRole:ComputeResource' :: ComputeResource -&gt; Maybe Text
-</span><a href="#local-6989586621679262130"><span class="hs-identifier hs-var hs-var">instanceRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262130"><span class="hs-identifier hs-var">instanceRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262129"><span class="annot"><span class="annottext">s :: ComputeResource
-</span><a href="#local-6989586621679262129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262128"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
-</span><a href="#local-6989586621679262129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceRole:ComputeResource' :: Maybe Text
+</span><a href="#local-6989586621679262139"><span class="hs-identifier hs-var hs-var">instanceRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262139"><span class="hs-identifier hs-var">instanceRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262138"><span class="annot"><span class="annottext">s :: ComputeResource
+</span><a href="#local-6989586621679262138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262137"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
+</span><a href="#local-6989586621679262138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceRole:ComputeResource' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3AinstanceRole%3AComputeResource%27"><span class="hs-identifier hs-var">instanceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-559"></span><span>
 </span><span id="line-560"></span><span class="hs-comment">-- | The Amazon EC2 key pair that\'s used for instances launched in the</span><span>
 </span><span id="line-561"></span><span class="hs-comment">-- compute environment. You can use this key pair to log in to your</span><span>
@@ -787,16 +787,16 @@ $sel:instanceRole:ComputeResource' :: ComputeResource -&gt; Maybe Text
 -&gt; (ComputeResource -&gt; Maybe Text -&gt; ComputeResource)
 -&gt; Lens ComputeResource ComputeResource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262126"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262135"><span class="annot"><span class="annottext">Maybe Text
 ec2KeyPair :: Maybe Text
 $sel:ec2KeyPair:ComputeResource' :: ComputeResource -&gt; Maybe Text
-</span><a href="#local-6989586621679262126"><span class="hs-identifier hs-var hs-var">ec2KeyPair</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262126"><span class="hs-identifier hs-var">ec2KeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262125"><span class="annot"><span class="annottext">s :: ComputeResource
-</span><a href="#local-6989586621679262125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262124"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
-</span><a href="#local-6989586621679262125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ec2KeyPair:ComputeResource' :: Maybe Text
+</span><a href="#local-6989586621679262135"><span class="hs-identifier hs-var hs-var">ec2KeyPair</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262135"><span class="hs-identifier hs-var">ec2KeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262134"><span class="annot"><span class="annottext">s :: ComputeResource
+</span><a href="#local-6989586621679262134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262133"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
+</span><a href="#local-6989586621679262134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ec2KeyPair:ComputeResource' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3Aec2KeyPair%3AComputeResource%27"><span class="hs-identifier hs-var">ec2KeyPair</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-568"></span><span>
 </span><span id="line-569"></span><span class="hs-comment">-- | The minimum number of Amazon EC2 vCPUs that an environment should</span><span>
 </span><span id="line-570"></span><span class="hs-comment">-- maintain (even if the compute environment is @DISABLED@).</span><span>
@@ -810,16 +810,16 @@ $sel:ec2KeyPair:ComputeResource' :: ComputeResource -&gt; Maybe Text
 -&gt; (ComputeResource -&gt; Maybe Int -&gt; ComputeResource)
 -&gt; Lens ComputeResource ComputeResource (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262122"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262131"><span class="annot"><span class="annottext">Maybe Int
 minvCpus :: Maybe Int
 $sel:minvCpus:ComputeResource' :: ComputeResource -&gt; Maybe Int
-</span><a href="#local-6989586621679262122"><span class="hs-identifier hs-var hs-var">minvCpus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679262122"><span class="hs-identifier hs-var">minvCpus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262121"><span class="annot"><span class="annottext">s :: ComputeResource
-</span><a href="#local-6989586621679262121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262120"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679262120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
-</span><a href="#local-6989586621679262121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minvCpus:ComputeResource' :: Maybe Int
+</span><a href="#local-6989586621679262131"><span class="hs-identifier hs-var hs-var">minvCpus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679262131"><span class="hs-identifier hs-var">minvCpus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262130"><span class="annot"><span class="annottext">s :: ComputeResource
+</span><a href="#local-6989586621679262130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262129"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679262129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
+</span><a href="#local-6989586621679262130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minvCpus:ComputeResource' :: Maybe Int
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3AminvCpus%3AComputeResource%27"><span class="hs-identifier hs-var">minvCpus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679262120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-576"></span><span>
 </span><span id="line-577"></span><span class="hs-comment">-- | Provides information used to select Amazon Machine Images (AMIs) for EC2</span><span>
 </span><span id="line-578"></span><span class="hs-comment">-- instances in the compute environment. If @Ec2Configuration@ isn\'t</span><span>
@@ -838,16 +838,16 @@ $sel:minvCpus:ComputeResource' :: ComputeResource -&gt; Maybe Int
      (Maybe [Ec2Configuration])
      (Maybe [Ec2Configuration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262118"><span class="annot"><span class="annottext">Maybe [Ec2Configuration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262127"><span class="annot"><span class="annottext">Maybe [Ec2Configuration]
 ec2Configuration :: Maybe [Ec2Configuration]
 $sel:ec2Configuration:ComputeResource' :: ComputeResource -&gt; Maybe [Ec2Configuration]
-</span><a href="#local-6989586621679262118"><span class="hs-identifier hs-var hs-var">ec2Configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Ec2Configuration]
-</span><a href="#local-6989586621679262118"><span class="hs-identifier hs-var">ec2Configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262117"><span class="annot"><span class="annottext">s :: ComputeResource
-</span><a href="#local-6989586621679262117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262116"><span class="annot"><span class="annottext">Maybe [Ec2Configuration]
-</span><a href="#local-6989586621679262116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
-</span><a href="#local-6989586621679262117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ec2Configuration:ComputeResource' :: Maybe [Ec2Configuration]
+</span><a href="#local-6989586621679262127"><span class="hs-identifier hs-var hs-var">ec2Configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Ec2Configuration]
+</span><a href="#local-6989586621679262127"><span class="hs-identifier hs-var">ec2Configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262126"><span class="annot"><span class="annottext">s :: ComputeResource
+</span><a href="#local-6989586621679262126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262125"><span class="annot"><span class="annottext">Maybe [Ec2Configuration]
+</span><a href="#local-6989586621679262125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
+</span><a href="#local-6989586621679262126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ec2Configuration:ComputeResource' :: Maybe [Ec2Configuration]
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3Aec2Configuration%3AComputeResource%27"><span class="hs-identifier hs-var">ec2Configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Ec2Configuration]
-</span><a href="#local-6989586621679262116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Ec2Configuration] -&gt; f (Maybe [Ec2Configuration]))
+</span><a href="#local-6989586621679262125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Ec2Configuration] -&gt; f (Maybe [Ec2Configuration]))
  -&gt; ComputeResource -&gt; f ComputeResource)
 -&gt; ((Maybe [Ec2Configuration] -&gt; f (Maybe [Ec2Configuration]))
     -&gt; Maybe [Ec2Configuration] -&gt; f (Maybe [Ec2Configuration]))
@@ -893,16 +893,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ComputeResource -&gt; Maybe Int -&gt; ComputeResource)
 -&gt; Lens ComputeResource ComputeResource (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262114"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262123"><span class="annot"><span class="annottext">Maybe Int
 bidPercentage :: Maybe Int
 $sel:bidPercentage:ComputeResource' :: ComputeResource -&gt; Maybe Int
-</span><a href="#local-6989586621679262114"><span class="hs-identifier hs-var hs-var">bidPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679262114"><span class="hs-identifier hs-var">bidPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262113"><span class="annot"><span class="annottext">s :: ComputeResource
-</span><a href="#local-6989586621679262113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262112"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679262112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
-</span><a href="#local-6989586621679262113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bidPercentage:ComputeResource' :: Maybe Int
+</span><a href="#local-6989586621679262123"><span class="hs-identifier hs-var hs-var">bidPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679262123"><span class="hs-identifier hs-var">bidPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262122"><span class="annot"><span class="annottext">s :: ComputeResource
+</span><a href="#local-6989586621679262122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262121"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679262121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
+</span><a href="#local-6989586621679262122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bidPercentage:ComputeResource' :: Maybe Int
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3AbidPercentage%3AComputeResource%27"><span class="hs-identifier hs-var">bidPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679262112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-598"></span><span>
 </span><span id="line-599"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role</span><span>
 </span><span id="line-600"></span><span class="hs-comment">-- applied to a @SPOT@ compute environment. This role is required if the</span><span>
@@ -928,16 +928,16 @@ $sel:bidPercentage:ComputeResource' :: ComputeResource -&gt; Maybe Int
 -&gt; (ComputeResource -&gt; Maybe Text -&gt; ComputeResource)
 -&gt; Lens ComputeResource ComputeResource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262110"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262119"><span class="annot"><span class="annottext">Maybe Text
 spotIamFleetRole :: Maybe Text
 $sel:spotIamFleetRole:ComputeResource' :: ComputeResource -&gt; Maybe Text
-</span><a href="#local-6989586621679262110"><span class="hs-identifier hs-var hs-var">spotIamFleetRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262110"><span class="hs-identifier hs-var">spotIamFleetRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262109"><span class="annot"><span class="annottext">s :: ComputeResource
-</span><a href="#local-6989586621679262109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262108"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
-</span><a href="#local-6989586621679262109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spotIamFleetRole:ComputeResource' :: Maybe Text
+</span><a href="#local-6989586621679262119"><span class="hs-identifier hs-var hs-var">spotIamFleetRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262119"><span class="hs-identifier hs-var">spotIamFleetRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262118"><span class="annot"><span class="annottext">s :: ComputeResource
+</span><a href="#local-6989586621679262118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262117"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
+</span><a href="#local-6989586621679262118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spotIamFleetRole:ComputeResource' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3AspotIamFleetRole%3AComputeResource%27"><span class="hs-identifier hs-var">spotIamFleetRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-618"></span><span>
 </span><span id="line-619"></span><span class="hs-comment">-- | The Amazon Machine Image (AMI) ID used for instances launched in the</span><span>
 </span><span id="line-620"></span><span class="hs-comment">-- compute environment. This parameter is overridden by the</span><span>
@@ -961,16 +961,16 @@ $sel:spotIamFleetRole:ComputeResource' :: ComputeResource -&gt; Maybe Text
 -&gt; (ComputeResource -&gt; Maybe Text -&gt; ComputeResource)
 -&gt; Lens ComputeResource ComputeResource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262106"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262115"><span class="annot"><span class="annottext">Maybe Text
 imageId :: Maybe Text
 $sel:imageId:ComputeResource' :: ComputeResource -&gt; Maybe Text
-</span><a href="#local-6989586621679262106"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262106"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262105"><span class="annot"><span class="annottext">s :: ComputeResource
-</span><a href="#local-6989586621679262105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262104"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
-</span><a href="#local-6989586621679262105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageId:ComputeResource' :: Maybe Text
+</span><a href="#local-6989586621679262115"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262115"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262114"><span class="annot"><span class="annottext">s :: ComputeResource
+</span><a href="#local-6989586621679262114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262113"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
+</span><a href="#local-6989586621679262114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageId:ComputeResource' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3AimageId%3AComputeResource%27"><span class="hs-identifier hs-var">imageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-636"></span><span>
 </span><span id="line-637"></span><span class="hs-comment">-- | The launch template to use for your compute resources. Any other compute</span><span>
 </span><span id="line-638"></span><span class="hs-comment">-- resource parameters that you specify in a CreateComputeEnvironment API</span><span>
@@ -995,16 +995,16 @@ $sel:imageId:ComputeResource' :: ComputeResource -&gt; Maybe Text
      (Maybe LaunchTemplateSpecification)
      (Maybe LaunchTemplateSpecification)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262102"><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262111"><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
 launchTemplate :: Maybe LaunchTemplateSpecification
 $sel:launchTemplate:ComputeResource' :: ComputeResource -&gt; Maybe LaunchTemplateSpecification
-</span><a href="#local-6989586621679262102"><span class="hs-identifier hs-var hs-var">launchTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
-</span><a href="#local-6989586621679262102"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262101"><span class="annot"><span class="annottext">s :: ComputeResource
-</span><a href="#local-6989586621679262101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262100"><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
-</span><a href="#local-6989586621679262100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
-</span><a href="#local-6989586621679262101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplate:ComputeResource' :: Maybe LaunchTemplateSpecification
+</span><a href="#local-6989586621679262111"><span class="hs-identifier hs-var hs-var">launchTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
+</span><a href="#local-6989586621679262111"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262110"><span class="annot"><span class="annottext">s :: ComputeResource
+</span><a href="#local-6989586621679262110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262109"><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
+</span><a href="#local-6989586621679262109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
+</span><a href="#local-6989586621679262110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplate:ComputeResource' :: Maybe LaunchTemplateSpecification
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3AlaunchTemplate%3AComputeResource%27"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
-</span><a href="#local-6989586621679262100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-649"></span><span>
 </span><span id="line-650"></span><span class="hs-comment">-- | The desired number of Amazon EC2 vCPUS in the compute environment. Batch</span><span>
 </span><span id="line-651"></span><span class="hs-comment">-- modifies this value between the minimum and maximum values, based on job</span><span>
@@ -1019,16 +1019,16 @@ $sel:launchTemplate:ComputeResource' :: ComputeResource -&gt; Maybe LaunchTempla
 -&gt; (ComputeResource -&gt; Maybe Int -&gt; ComputeResource)
 -&gt; Lens ComputeResource ComputeResource (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262098"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262107"><span class="annot"><span class="annottext">Maybe Int
 desiredvCpus :: Maybe Int
 $sel:desiredvCpus:ComputeResource' :: ComputeResource -&gt; Maybe Int
-</span><a href="#local-6989586621679262098"><span class="hs-identifier hs-var hs-var">desiredvCpus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679262098"><span class="hs-identifier hs-var">desiredvCpus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262097"><span class="annot"><span class="annottext">s :: ComputeResource
-</span><a href="#local-6989586621679262097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262096"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679262096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
-</span><a href="#local-6989586621679262097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredvCpus:ComputeResource' :: Maybe Int
+</span><a href="#local-6989586621679262107"><span class="hs-identifier hs-var hs-var">desiredvCpus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679262107"><span class="hs-identifier hs-var">desiredvCpus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262106"><span class="annot"><span class="annottext">s :: ComputeResource
+</span><a href="#local-6989586621679262106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262105"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679262105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
+</span><a href="#local-6989586621679262106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredvCpus:ComputeResource' :: Maybe Int
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3AdesiredvCpus%3AComputeResource%27"><span class="hs-identifier hs-var">desiredvCpus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679262096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-658"></span><span>
 </span><span id="line-659"></span><span class="hs-comment">-- | The allocation strategy to use for the compute resource if not enough</span><span>
 </span><span id="line-660"></span><span class="hs-comment">-- instances of the best fitting instance type can be allocated. This might</span><span>
@@ -1083,16 +1083,16 @@ $sel:desiredvCpus:ComputeResource' :: ComputeResource -&gt; Maybe Int
      (Maybe CRAllocationStrategy)
      (Maybe CRAllocationStrategy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262094"><span class="annot"><span class="annottext">Maybe CRAllocationStrategy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262103"><span class="annot"><span class="annottext">Maybe CRAllocationStrategy
 allocationStrategy :: Maybe CRAllocationStrategy
 $sel:allocationStrategy:ComputeResource' :: ComputeResource -&gt; Maybe CRAllocationStrategy
-</span><a href="#local-6989586621679262094"><span class="hs-identifier hs-var hs-var">allocationStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CRAllocationStrategy
-</span><a href="#local-6989586621679262094"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262093"><span class="annot"><span class="annottext">s :: ComputeResource
-</span><a href="#local-6989586621679262093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262092"><span class="annot"><span class="annottext">Maybe CRAllocationStrategy
-</span><a href="#local-6989586621679262092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
-</span><a href="#local-6989586621679262093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allocationStrategy:ComputeResource' :: Maybe CRAllocationStrategy
+</span><a href="#local-6989586621679262103"><span class="hs-identifier hs-var hs-var">allocationStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CRAllocationStrategy
+</span><a href="#local-6989586621679262103"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262102"><span class="annot"><span class="annottext">s :: ComputeResource
+</span><a href="#local-6989586621679262102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262101"><span class="annot"><span class="annottext">Maybe CRAllocationStrategy
+</span><a href="#local-6989586621679262101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
+</span><a href="#local-6989586621679262102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allocationStrategy:ComputeResource' :: Maybe CRAllocationStrategy
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3AallocationStrategy%3AComputeResource%27"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CRAllocationStrategy
-</span><a href="#local-6989586621679262092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-702"></span><span>
 </span><span id="line-703"></span><span class="hs-comment">-- | The Amazon EC2 placement group to associate with your compute resources.</span><span>
 </span><span id="line-704"></span><span class="hs-comment">-- If you intend to submit multi-node parallel jobs to your compute</span><span>
@@ -1113,16 +1113,16 @@ $sel:allocationStrategy:ComputeResource' :: ComputeResource -&gt; Maybe CRAlloca
 -&gt; (ComputeResource -&gt; Maybe Text -&gt; ComputeResource)
 -&gt; Lens ComputeResource ComputeResource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262090"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262099"><span class="annot"><span class="annottext">Maybe Text
 placementGroup :: Maybe Text
 $sel:placementGroup:ComputeResource' :: ComputeResource -&gt; Maybe Text
-</span><a href="#local-6989586621679262090"><span class="hs-identifier hs-var hs-var">placementGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262090"><span class="hs-identifier hs-var">placementGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262089"><span class="annot"><span class="annottext">s :: ComputeResource
-</span><a href="#local-6989586621679262089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262088"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
-</span><a href="#local-6989586621679262089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementGroup:ComputeResource' :: Maybe Text
+</span><a href="#local-6989586621679262099"><span class="hs-identifier hs-var hs-var">placementGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262099"><span class="hs-identifier hs-var">placementGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262098"><span class="annot"><span class="annottext">s :: ComputeResource
+</span><a href="#local-6989586621679262098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262097"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
+</span><a href="#local-6989586621679262098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementGroup:ComputeResource' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3AplacementGroup%3AComputeResource%27"><span class="hs-identifier hs-var">placementGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-717"></span><span>
 </span><span id="line-718"></span><span class="hs-comment">-- | Key-value pair tags to be applied to EC2 resources that are launched in</span><span>
 </span><span id="line-719"></span><span class="hs-comment">-- the compute environment. For Batch, these take the form of \&quot;String1\&quot;:</span><span>
@@ -1149,16 +1149,16 @@ $sel:placementGroup:ComputeResource' :: ComputeResource -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262086"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262095"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:ComputeResource' :: ComputeResource -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679262086"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679262086"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262085"><span class="annot"><span class="annottext">s :: ComputeResource
-</span><a href="#local-6989586621679262085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262084"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679262084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
-</span><a href="#local-6989586621679262085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ComputeResource' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679262095"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679262095"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262094"><span class="annot"><span class="annottext">s :: ComputeResource
+</span><a href="#local-6989586621679262094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262093"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679262093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
+</span><a href="#local-6989586621679262094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ComputeResource' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3Atags%3AComputeResource%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679262084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679262093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ComputeResource -&gt; f ComputeResource)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -1202,16 +1202,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ComputeResource -&gt; CRType -&gt; ComputeResource)
 -&gt; Lens ComputeResource ComputeResource CRType CRType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262082"><span class="annot"><span class="annottext">CRType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262091"><span class="annot"><span class="annottext">CRType
 type' :: CRType
 $sel:type':ComputeResource' :: ComputeResource -&gt; CRType
-</span><a href="#local-6989586621679262082"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CRType
-</span><a href="#local-6989586621679262082"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262081"><span class="annot"><span class="annottext">s :: ComputeResource
-</span><a href="#local-6989586621679262081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262080"><span class="annot"><span class="annottext">CRType
-</span><a href="#local-6989586621679262080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
-</span><a href="#local-6989586621679262081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ComputeResource' :: CRType
+</span><a href="#local-6989586621679262091"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CRType
+</span><a href="#local-6989586621679262091"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262090"><span class="annot"><span class="annottext">s :: ComputeResource
+</span><a href="#local-6989586621679262090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262089"><span class="annot"><span class="annottext">CRType
+</span><a href="#local-6989586621679262089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
+</span><a href="#local-6989586621679262090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ComputeResource' :: CRType
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3Atype%27%3AComputeResource%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CRType
-</span><a href="#local-6989586621679262080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-745"></span><span>
 </span><span id="line-746"></span><span class="hs-comment">-- | The maximum number of Amazon EC2 vCPUs that a compute environment can</span><span>
 </span><span id="line-747"></span><span class="hs-comment">-- reach.</span><span>
@@ -1228,16 +1228,16 @@ $sel:type':ComputeResource' :: ComputeResource -&gt; CRType
 -&gt; (ComputeResource -&gt; Int -&gt; ComputeResource)
 -&gt; Lens ComputeResource ComputeResource Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262078"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262087"><span class="annot"><span class="annottext">Int
 maxvCpus :: Int
 $sel:maxvCpus:ComputeResource' :: ComputeResource -&gt; Int
-</span><a href="#local-6989586621679262078"><span class="hs-identifier hs-var hs-var">maxvCpus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262078"><span class="hs-identifier hs-var">maxvCpus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262077"><span class="annot"><span class="annottext">s :: ComputeResource
-</span><a href="#local-6989586621679262077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262076"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
-</span><a href="#local-6989586621679262077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxvCpus:ComputeResource' :: Int
+</span><a href="#local-6989586621679262087"><span class="hs-identifier hs-var hs-var">maxvCpus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262087"><span class="hs-identifier hs-var">maxvCpus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262086"><span class="annot"><span class="annottext">s :: ComputeResource
+</span><a href="#local-6989586621679262086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262085"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
+</span><a href="#local-6989586621679262086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxvCpus:ComputeResource' :: Int
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3AmaxvCpus%3AComputeResource%27"><span class="hs-identifier hs-var">maxvCpus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-757"></span><span>
 </span><span id="line-758"></span><span class="hs-comment">-- | The VPC subnets where the compute resources are launched. These subnets</span><span>
 </span><span id="line-759"></span><span class="hs-comment">-- must be within the same VPC. Fargate compute resources can contain up to</span><span>
@@ -1250,16 +1250,16 @@ $sel:maxvCpus:ComputeResource' :: ComputeResource -&gt; Int
 -&gt; (ComputeResource -&gt; [Text] -&gt; ComputeResource)
 -&gt; Lens ComputeResource ComputeResource [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262074"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262083"><span class="annot"><span class="annottext">[Text]
 subnets :: [Text]
 $sel:subnets:ComputeResource' :: ComputeResource -&gt; [Text]
-</span><a href="#local-6989586621679262074"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679262074"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262073"><span class="annot"><span class="annottext">s :: ComputeResource
-</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262072"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679262072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
-</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnets:ComputeResource' :: [Text]
+</span><a href="#local-6989586621679262083"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679262083"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262082"><span class="annot"><span class="annottext">s :: ComputeResource
+</span><a href="#local-6989586621679262082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262081"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679262081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeResource
+</span><a href="#local-6989586621679262082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnets:ComputeResource' :: [Text]
 </span><a href="Network.AWS.Batch.Types.ComputeResource.html#%24sel%3Asubnets%3AComputeResource%27"><span class="hs-identifier hs-var">subnets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679262072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; ComputeResource -&gt; f ComputeResource)
+</span><a href="#local-6989586621679262081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; ComputeResource -&gt; f ComputeResource)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; ComputeResource
@@ -1269,8 +1269,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-765"></span><span>
-</span><span id="line-766"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262069"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-767"></span><span>  </span><span id="local-6989586621679262067"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ComputeResource
+</span><span id="line-766"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262078"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-767"></span><span>  </span><span id="local-6989586621679262076"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ComputeResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-768"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ComputeResource)
@@ -1280,8 +1280,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-769"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ComputeResource&quot;</span></span><span>
-</span><span id="line-770"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262064"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-770"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262073"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-771"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe [Text]
 -&gt; Maybe Text
@@ -1340,7 +1340,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ComputeResource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;securityGroupIds&quot;</span></span><span>
@@ -1389,7 +1389,7 @@ forall a. Monoid a =&gt; a
       -&gt; ComputeResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -1434,7 +1434,7 @@ forall a. Monoid a =&gt; a
       -&gt; ComputeResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceRole&quot;</span></span><span class="hs-special">)</span><span>
@@ -1472,7 +1472,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ComputeResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ec2KeyPair&quot;</span></span><span class="hs-special">)</span><span>
@@ -1508,7 +1508,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ComputeResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;minvCpus&quot;</span></span><span class="hs-special">)</span><span>
@@ -1542,7 +1542,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ComputeResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Ec2Configuration]))
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Ec2Configuration]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ec2Configuration&quot;</span></span><span>
@@ -1581,7 +1581,7 @@ forall a. Monoid a =&gt; a
       -&gt; ComputeResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bidPercentage&quot;</span></span><span class="hs-special">)</span><span>
@@ -1611,7 +1611,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ComputeResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;spotIamFleetRole&quot;</span></span><span class="hs-special">)</span><span>
@@ -1639,7 +1639,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ComputeResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageId&quot;</span></span><span class="hs-special">)</span><span>
@@ -1665,7 +1665,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ComputeResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LaunchTemplateSpecification)
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LaunchTemplateSpecification)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;launchTemplate&quot;</span></span><span class="hs-special">)</span><span>
@@ -1689,7 +1689,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ComputeResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;desiredvCpus&quot;</span></span><span class="hs-special">)</span><span>
@@ -1711,7 +1711,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ComputeResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CRAllocationStrategy)
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CRAllocationStrategy)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;allocationStrategy&quot;</span></span><span class="hs-special">)</span><span>
@@ -1728,7 +1728,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CRType -&gt; Int -&gt; [Text] -&gt; ComputeResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;placementGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -1739,7 +1739,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (CRType -&gt; Int -&gt; [Text] -&gt; ComputeResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -1752,7 +1752,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser CRType -&gt; Parser (Int -&gt; [Text] -&gt; ComputeResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser CRType
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser CRType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
@@ -1760,7 +1760,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Int -&gt; Parser ([Text] -&gt; ComputeResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxvCpus&quot;</span></span><span class="hs-special">)</span><span>
@@ -1768,7 +1768,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser [Text] -&gt; Parser ComputeResource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;subnets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
@@ -1778,13 +1778,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-793"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-794"></span><span>
-</span><span id="line-795"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262056"><span id="local-6989586621679262058"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span></span></span><span>
+</span><span id="line-795"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262065"><span id="local-6989586621679262067"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span></span></span><span>
 </span><span id="line-796"></span><span>
-</span><span id="line-797"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262053"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span></span><span>
+</span><span id="line-797"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262062"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span></span><span>
 </span><span id="line-798"></span><span>
-</span><span id="line-799"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262045"><span id="local-6989586621679262047"><span id="local-6989586621679262049"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-800"></span><span>  </span><span id="local-6989586621679262043"><span class="annot"><span class="annottext">toJSON :: ComputeResource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262025"><span id="local-6989586621679262026"><span id="local-6989586621679262027"><span id="local-6989586621679262028"><span id="local-6989586621679262029"><span id="local-6989586621679262030"><span id="local-6989586621679262031"><span id="local-6989586621679262032"><span id="local-6989586621679262033"><span id="local-6989586621679262034"><span id="local-6989586621679262035"><span id="local-6989586621679262036"><span id="local-6989586621679262037"><span id="local-6989586621679262038"><span id="local-6989586621679262039"><span id="local-6989586621679262040"><span id="local-6989586621679262041"><span class="annot"><span class="annottext">Int
+</span><span id="line-799"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262054"><span id="local-6989586621679262056"><span id="local-6989586621679262058"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource"><span class="hs-identifier hs-type">ComputeResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-800"></span><span>  </span><span id="local-6989586621679262052"><span class="annot"><span class="annottext">toJSON :: ComputeResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeResource.html#ComputeResource%27"><span class="hs-identifier hs-type">ComputeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262034"><span id="local-6989586621679262035"><span id="local-6989586621679262036"><span id="local-6989586621679262037"><span id="local-6989586621679262038"><span id="local-6989586621679262039"><span id="local-6989586621679262040"><span id="local-6989586621679262041"><span id="local-6989586621679262042"><span id="local-6989586621679262043"><span id="local-6989586621679262044"><span id="local-6989586621679262045"><span id="local-6989586621679262046"><span id="local-6989586621679262047"><span id="local-6989586621679262048"><span id="local-6989586621679262049"><span id="local-6989586621679262050"><span class="annot"><span class="annottext">Int
 [Text]
 Maybe Int
 Maybe [Text]
@@ -1828,7 +1828,7 @@ $sel:ec2KeyPair:ComputeResource' :: ComputeResource -&gt; Maybe Text
 $sel:instanceRole:ComputeResource' :: ComputeResource -&gt; Maybe Text
 $sel:instanceTypes:ComputeResource' :: ComputeResource -&gt; Maybe [Text]
 $sel:securityGroupIds:ComputeResource' :: ComputeResource -&gt; Maybe [Text]
-</span><a href="#local-6989586621679262025"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679262034"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-801"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-802"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1841,35 +1841,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-804"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679262041"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262050"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-805"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679262040"><span class="hs-identifier hs-var">instanceTypes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262049"><span class="hs-identifier hs-var">instanceTypes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-806"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262039"><span class="hs-identifier hs-var">instanceRole</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262048"><span class="hs-identifier hs-var">instanceRole</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-807"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ec2KeyPair&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262038"><span class="hs-identifier hs-var">ec2KeyPair</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262047"><span class="hs-identifier hs-var">ec2KeyPair</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-808"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;minvCpus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679262037"><span class="hs-identifier hs-var">minvCpus</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262046"><span class="hs-identifier hs-var">minvCpus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-809"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ec2Configuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Ec2Configuration] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1878,14 +1878,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [Ec2Configuration] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Ec2Configuration]
-</span><a href="#local-6989586621679262036"><span class="hs-identifier hs-var">ec2Configuration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262045"><span class="hs-identifier hs-var">ec2Configuration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-811"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bidPercentage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679262035"><span class="hs-identifier hs-var">bidPercentage</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262044"><span class="hs-identifier hs-var">bidPercentage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-812"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;spotIamFleetRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1893,14 +1893,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-813"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262034"><span class="hs-identifier hs-var">spotIamFleetRole</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262043"><span class="hs-identifier hs-var">spotIamFleetRole</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-814"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262033"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262042"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-815"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;launchTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LaunchTemplateSpecification -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1909,14 +1909,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe LaunchTemplateSpecification -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
-</span><a href="#local-6989586621679262032"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262041"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-817"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;desiredvCpus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679262031"><span class="hs-identifier hs-var">desiredvCpus</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262040"><span class="hs-identifier hs-var">desiredvCpus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-818"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;allocationStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CRAllocationStrategy -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1925,7 +1925,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CRAllocationStrategy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CRAllocationStrategy
-</span><a href="#local-6989586621679262030"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262039"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-820"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;placementGroup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1933,7 +1933,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-821"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262029"><span class="hs-identifier hs-var">placementGroup</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262038"><span class="hs-identifier hs-var">placementGroup</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-822"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1941,28 +1941,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679262028"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262037"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-823"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CRType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">CRType
-</span><a href="#local-6989586621679262027"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262036"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-824"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxvCpus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262026"><span class="hs-identifier hs-var">maxvCpus</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262035"><span class="hs-identifier hs-var">maxvCpus</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-825"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;subnets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679262025"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262034"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-826"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-827"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-828"></span></pre></body></html>

@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteLedger' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679187397"><span id="local-6989586621679187398"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLedger"><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger"><span class="hs-identifier hs-var">DeleteLedger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLedger%27"><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger%27"><span class="hs-identifier hs-var">DeleteLedger'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679187406"><span id="local-6989586621679187407"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLedger"><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger"><span class="hs-identifier hs-var">DeleteLedger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLedger%27"><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger%27"><span class="hs-identifier hs-var">DeleteLedger'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the ledger that you want to delete.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3ADeleteLedger%27"><span class="annot"><span class="annottext">DeleteLedger -&gt; Text
 </span><a href="Network.AWS.QLDB.DeleteLedger.html#%24sel%3Aname%3ADeleteLedger%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187391"><span id="local-6989586621679187393"><span class="annot"><span class="annottext">DeleteLedger -&gt; DeleteLedger -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187400"><span id="local-6989586621679187402"><span class="annot"><span class="annottext">DeleteLedger -&gt; DeleteLedger -&gt; Bool
 (DeleteLedger -&gt; DeleteLedger -&gt; Bool)
 -&gt; (DeleteLedger -&gt; DeleteLedger -&gt; Bool) -&gt; Eq DeleteLedger
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteLedger -&gt; DeleteLedger -&gt; Bool
 == :: DeleteLedger -&gt; DeleteLedger -&gt; Bool
 $c== :: DeleteLedger -&gt; DeleteLedger -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187382"><span id="local-6989586621679187384"><span id="local-6989586621679187386"><span id="local-6989586621679187388"><span class="annot"><span class="annottext">ReadPrec [DeleteLedger]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187391"><span id="local-6989586621679187393"><span id="local-6989586621679187395"><span id="local-6989586621679187397"><span class="annot"><span class="annottext">ReadPrec [DeleteLedger]
 ReadPrec DeleteLedger
 Int -&gt; ReadS DeleteLedger
 ReadS [DeleteLedger]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteLedger]
 $creadList :: ReadS [DeleteLedger]
 readsPrec :: Int -&gt; ReadS DeleteLedger
 $creadsPrec :: Int -&gt; ReadS DeleteLedger
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187375"><span id="local-6989586621679187377"><span id="local-6989586621679187379"><span class="annot"><span class="annottext">Int -&gt; DeleteLedger -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187384"><span id="local-6989586621679187386"><span id="local-6989586621679187388"><span class="annot"><span class="annottext">Int -&gt; DeleteLedger -&gt; ShowS
 [DeleteLedger] -&gt; ShowS
 DeleteLedger -&gt; String
 (Int -&gt; DeleteLedger -&gt; ShowS)
@@ -120,11 +120,11 @@ $cfrom :: forall x. DeleteLedger -&gt; Rep DeleteLedger x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger"><span class="hs-identifier hs-type">DeleteLedger</span></a></span><span>
 </span><span id="line-69"></span><span id="newDeleteLedger"><span class="annot"><span class="annottext">newDeleteLedger :: Text -&gt; DeleteLedger
-</span><a href="Network.AWS.QLDB.DeleteLedger.html#newDeleteLedger"><span class="hs-identifier hs-var hs-var">newDeleteLedger</span></a></span></span><span> </span><span id="local-6989586621679187370"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679187370"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteLedger' :: Text -&gt; DeleteLedger
+</span><a href="Network.AWS.QLDB.DeleteLedger.html#newDeleteLedger"><span class="hs-identifier hs-var hs-var">newDeleteLedger</span></a></span></span><span> </span><span id="local-6989586621679187379"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187379"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteLedger' :: Text -&gt; DeleteLedger
 </span><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger%27"><span class="hs-identifier hs-type">DeleteLedger'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteLedger' :: Text
 </span><a href="Network.AWS.QLDB.DeleteLedger.html#%24sel%3Aname%3ADeleteLedger%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679187370"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679187379"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The name of the ledger that you want to delete.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#deleteLedger_name"><span class="hs-identifier hs-type">deleteLedger_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger"><span class="hs-identifier hs-type">DeleteLedger</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -133,25 +133,25 @@ $cfrom :: forall x. DeleteLedger -&gt; Rep DeleteLedger x
 -&gt; (DeleteLedger -&gt; Text -&gt; DeleteLedger)
 -&gt; Lens DeleteLedger DeleteLedger Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger%27"><span class="hs-identifier hs-type">DeleteLedger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187367"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger%27"><span class="hs-identifier hs-type">DeleteLedger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187376"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteLedger' :: DeleteLedger -&gt; Text
-</span><a href="#local-6989586621679187367"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679187367"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187366"><span class="annot"><span class="annottext">s :: DeleteLedger
-</span><a href="#local-6989586621679187366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger%27"><span class="hs-identifier hs-type">DeleteLedger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187365"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679187365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLedger
-</span><a href="#local-6989586621679187366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteLedger' :: Text
+</span><a href="#local-6989586621679187376"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187376"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187375"><span class="annot"><span class="annottext">s :: DeleteLedger
+</span><a href="#local-6989586621679187375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger%27"><span class="hs-identifier hs-type">DeleteLedger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187374"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679187374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLedger
+</span><a href="#local-6989586621679187375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteLedger' :: Text
 </span><a href="Network.AWS.QLDB.DeleteLedger.html#%24sel%3Aname%3ADeleteLedger%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679187365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger"><span class="hs-identifier hs-type">DeleteLedger</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679187374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger"><span class="hs-identifier hs-type">DeleteLedger</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger"><span class="hs-identifier hs-type">DeleteLedger</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger"><span class="hs-identifier hs-type">DeleteLedger</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedgerResponse"><span class="hs-identifier hs-type">DeleteLedgerResponse</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679187361"><span class="annot"><span class="annottext">request :: DeleteLedger -&gt; Request DeleteLedger
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679187370"><span class="annot"><span class="annottext">request :: DeleteLedger -&gt; Request DeleteLedger
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteLedger -&gt; Request DeleteLedger
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.QLDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679187357"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679187366"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteLedger
 -&gt; ClientResponse ClientBody
@@ -174,12 +174,12 @@ AWSResponse a
 DeleteLedgerResponse
 </span><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedgerResponse%27"><span class="hs-identifier hs-var">DeleteLedgerResponse'</span></a></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187350"><span id="local-6989586621679187352"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger"><span class="hs-identifier hs-type">DeleteLedger</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187359"><span id="local-6989586621679187361"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger"><span class="hs-identifier hs-type">DeleteLedger</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187347"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger"><span class="hs-identifier hs-type">DeleteLedger</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger"><span class="hs-identifier hs-type">DeleteLedger</span></a></span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger"><span class="hs-identifier hs-type">DeleteLedger</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679187343"><span class="annot"><span class="annottext">toHeaders :: DeleteLedger -&gt; [Header]
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679187352"><span class="annot"><span class="annottext">toHeaders :: DeleteLedger -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteLedger -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -199,21 +199,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger"><span class="hs-identifier hs-type">DeleteLedger</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679187337"><span class="annot"><span class="annottext">toPath :: DeleteLedger -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger%27"><span class="hs-identifier hs-type">DeleteLedger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187335"><span class="annot"><span class="annottext">Text
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679187346"><span class="annot"><span class="annottext">toPath :: DeleteLedger -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger%27"><span class="hs-identifier hs-type">DeleteLedger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187344"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteLedger' :: DeleteLedger -&gt; Text
-</span><a href="#local-6989586621679187335"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679187344"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/ledgers/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679187335"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679187344"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedger"><span class="hs-identifier hs-type">DeleteLedger</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679187331"><span class="annot"><span class="annottext">toQuery :: DeleteLedger -&gt; QueryString
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679187340"><span class="annot"><span class="annottext">toQuery :: DeleteLedger -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteLedger -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -221,10 +221,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | /See:/ 'newDeleteLedgerResponse' smart constructor.</span><span>
-</span><span id="line-103"></span><span id="local-6989586621679187328"><span id="local-6989586621679187329"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLedgerResponse"><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedgerResponse"><span class="hs-identifier hs-var">DeleteLedgerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLedgerResponse%27"><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedgerResponse%27"><span class="hs-identifier hs-var">DeleteLedgerResponse'</span></a></span></span><span>
+</span><span id="line-103"></span><span id="local-6989586621679187337"><span id="local-6989586621679187338"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLedgerResponse"><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedgerResponse"><span class="hs-identifier hs-var">DeleteLedgerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLedgerResponse%27"><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedgerResponse%27"><span class="hs-identifier hs-var">DeleteLedgerResponse'</span></a></span></span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187324"><span id="local-6989586621679187326"><span class="annot"><span class="annottext">DeleteLedgerResponse -&gt; DeleteLedgerResponse -&gt; Bool
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187333"><span id="local-6989586621679187335"><span class="annot"><span class="annottext">DeleteLedgerResponse -&gt; DeleteLedgerResponse -&gt; Bool
 (DeleteLedgerResponse -&gt; DeleteLedgerResponse -&gt; Bool)
 -&gt; (DeleteLedgerResponse -&gt; DeleteLedgerResponse -&gt; Bool)
 -&gt; Eq DeleteLedgerResponse
@@ -233,7 +233,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteLedgerResponse -&gt; DeleteLedgerResponse -&gt; Bool
 == :: DeleteLedgerResponse -&gt; DeleteLedgerResponse -&gt; Bool
 $c== :: DeleteLedgerResponse -&gt; DeleteLedgerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187316"><span id="local-6989586621679187318"><span id="local-6989586621679187320"><span id="local-6989586621679187322"><span class="annot"><span class="annottext">ReadPrec [DeleteLedgerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187325"><span id="local-6989586621679187327"><span id="local-6989586621679187329"><span id="local-6989586621679187331"><span class="annot"><span class="annottext">ReadPrec [DeleteLedgerResponse]
 ReadPrec DeleteLedgerResponse
 Int -&gt; ReadS DeleteLedgerResponse
 ReadS [DeleteLedgerResponse]
@@ -253,7 +253,7 @@ readList :: ReadS [DeleteLedgerResponse]
 $creadList :: ReadS [DeleteLedgerResponse]
 readsPrec :: Int -&gt; ReadS DeleteLedgerResponse
 $creadsPrec :: Int -&gt; ReadS DeleteLedgerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187310"><span id="local-6989586621679187312"><span id="local-6989586621679187314"><span class="annot"><span class="annottext">Int -&gt; DeleteLedgerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187319"><span id="local-6989586621679187321"><span id="local-6989586621679187323"><span class="annot"><span class="annottext">Int -&gt; DeleteLedgerResponse -&gt; ShowS
 [DeleteLedgerResponse] -&gt; ShowS
 DeleteLedgerResponse -&gt; String
 (Int -&gt; DeleteLedgerResponse -&gt; ShowS)
@@ -289,5 +289,5 @@ $cfrom :: forall x. DeleteLedgerResponse -&gt; Rep DeleteLedgerResponse x
 </span><a href="Network.AWS.QLDB.DeleteLedger.html#newDeleteLedgerResponse"><span class="hs-identifier hs-var hs-var">newDeleteLedgerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteLedgerResponse
 </span><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedgerResponse%27"><span class="hs-identifier hs-var">DeleteLedgerResponse'</span></a></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedgerResponse"><span class="hs-identifier hs-type">DeleteLedgerResponse</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187315"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.DeleteLedger.html#DeleteLedgerResponse"><span class="hs-identifier hs-type">DeleteLedgerResponse</span></a></span></span><span>
 </span><span id="line-117"></span></pre></body></html>

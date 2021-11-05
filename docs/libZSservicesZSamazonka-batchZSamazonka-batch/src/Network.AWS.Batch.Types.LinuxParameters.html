@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- details for device mappings.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLinuxParameters' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679265387"><span id="local-6989586621679265388"></span></span><span class="hs-keyword">data</span><span> </span><span id="LinuxParameters"><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-var">LinuxParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LinuxParameters%27"><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-var">LinuxParameters'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679265396"><span id="local-6989586621679265397"></span></span><span class="hs-keyword">data</span><span> </span><span id="LinuxParameters"><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-var">LinuxParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LinuxParameters%27"><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-var">LinuxParameters'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value for the size (in MiB) of the @\/dev\/shm@ volume. This</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- parameter maps to the @--shm-size@ option to</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.docker.com/engine/reference/run/ docker run&gt;.</span><span>
@@ -120,7 +120,7 @@
 </span><span id="line-115"></span><span>    </span><span id="%24sel%3AmaxSwap%3ALinuxParameters%27"><span class="annot"><span class="annottext">LinuxParameters -&gt; Maybe Int
 </span><a href="Network.AWS.Batch.Types.LinuxParameters.html#%24sel%3AmaxSwap%3ALinuxParameters%27"><span class="hs-identifier hs-var hs-var">maxSwap</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265376"><span id="local-6989586621679265378"><span class="annot"><span class="annottext">LinuxParameters -&gt; LinuxParameters -&gt; Bool
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265385"><span id="local-6989586621679265387"><span class="annot"><span class="annottext">LinuxParameters -&gt; LinuxParameters -&gt; Bool
 (LinuxParameters -&gt; LinuxParameters -&gt; Bool)
 -&gt; (LinuxParameters -&gt; LinuxParameters -&gt; Bool)
 -&gt; Eq LinuxParameters
@@ -129,7 +129,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LinuxParameters -&gt; LinuxParameters -&gt; Bool
 == :: LinuxParameters -&gt; LinuxParameters -&gt; Bool
 $c== :: LinuxParameters -&gt; LinuxParameters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265367"><span id="local-6989586621679265369"><span id="local-6989586621679265371"><span id="local-6989586621679265373"><span class="annot"><span class="annottext">ReadPrec [LinuxParameters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265376"><span id="local-6989586621679265378"><span id="local-6989586621679265380"><span id="local-6989586621679265382"><span class="annot"><span class="annottext">ReadPrec [LinuxParameters]
 ReadPrec LinuxParameters
 Int -&gt; ReadS LinuxParameters
 ReadS [LinuxParameters]
@@ -149,7 +149,7 @@ readList :: ReadS [LinuxParameters]
 $creadList :: ReadS [LinuxParameters]
 readsPrec :: Int -&gt; ReadS LinuxParameters
 $creadsPrec :: Int -&gt; ReadS LinuxParameters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265360"><span id="local-6989586621679265362"><span id="local-6989586621679265364"><span class="annot"><span class="annottext">Int -&gt; LinuxParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265369"><span id="local-6989586621679265371"><span id="local-6989586621679265373"><span class="annot"><span class="annottext">Int -&gt; LinuxParameters -&gt; ShowS
 [LinuxParameters] -&gt; ShowS
 LinuxParameters -&gt; String
 (Int -&gt; LinuxParameters -&gt; ShowS)
@@ -317,16 +317,16 @@ forall a. Maybe a
 -&gt; (LinuxParameters -&gt; Maybe Int -&gt; LinuxParameters)
 -&gt; Lens LinuxParameters LinuxParameters (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265351"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265360"><span class="annot"><span class="annottext">Maybe Int
 sharedMemorySize :: Maybe Int
 $sel:sharedMemorySize:LinuxParameters' :: LinuxParameters -&gt; Maybe Int
-</span><a href="#local-6989586621679265351"><span class="hs-identifier hs-var hs-var">sharedMemorySize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265351"><span class="hs-identifier hs-var">sharedMemorySize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265350"><span class="annot"><span class="annottext">s :: LinuxParameters
-</span><a href="#local-6989586621679265350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265349"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
-</span><a href="#local-6989586621679265350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedMemorySize:LinuxParameters' :: Maybe Int
+</span><a href="#local-6989586621679265360"><span class="hs-identifier hs-var hs-var">sharedMemorySize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679265360"><span class="hs-identifier hs-var">sharedMemorySize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265359"><span class="annot"><span class="annottext">s :: LinuxParameters
+</span><a href="#local-6989586621679265359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265358"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679265358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
+</span><a href="#local-6989586621679265359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedMemorySize:LinuxParameters' :: Maybe Int
 </span><a href="Network.AWS.Batch.Types.LinuxParameters.html#%24sel%3AsharedMemorySize%3ALinuxParameters%27"><span class="hs-identifier hs-var">sharedMemorySize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | If true, run an @init@ process inside the container that forwards</span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- signals and reaps processes. This parameter maps to the @--init@ option</span><span>
@@ -342,16 +342,16 @@ $sel:sharedMemorySize:LinuxParameters' :: LinuxParameters -&gt; Maybe Int
 -&gt; (LinuxParameters -&gt; Maybe Bool -&gt; LinuxParameters)
 -&gt; Lens LinuxParameters LinuxParameters (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265347"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265356"><span class="annot"><span class="annottext">Maybe Bool
 initProcessEnabled :: Maybe Bool
 $sel:initProcessEnabled:LinuxParameters' :: LinuxParameters -&gt; Maybe Bool
-</span><a href="#local-6989586621679265347"><span class="hs-identifier hs-var hs-var">initProcessEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679265347"><span class="hs-identifier hs-var">initProcessEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265346"><span class="annot"><span class="annottext">s :: LinuxParameters
-</span><a href="#local-6989586621679265346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265345"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679265345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
-</span><a href="#local-6989586621679265346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initProcessEnabled:LinuxParameters' :: Maybe Bool
+</span><a href="#local-6989586621679265356"><span class="hs-identifier hs-var hs-var">initProcessEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679265356"><span class="hs-identifier hs-var">initProcessEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265355"><span class="annot"><span class="annottext">s :: LinuxParameters
+</span><a href="#local-6989586621679265355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265354"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679265354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
+</span><a href="#local-6989586621679265355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initProcessEnabled:LinuxParameters' :: Maybe Bool
 </span><a href="Network.AWS.Batch.Types.LinuxParameters.html#%24sel%3AinitProcessEnabled%3ALinuxParameters%27"><span class="hs-identifier hs-var">initProcessEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679265345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- | The container path, mount options, and size (in MiB) of the tmpfs mount.</span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- This parameter maps to the @--tmpfs@ option to</span><span>
@@ -367,16 +367,16 @@ $sel:initProcessEnabled:LinuxParameters' :: LinuxParameters -&gt; Maybe Bool
 -&gt; Lens
      LinuxParameters LinuxParameters (Maybe [Tmpfs]) (Maybe [Tmpfs])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265343"><span class="annot"><span class="annottext">Maybe [Tmpfs]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265352"><span class="annot"><span class="annottext">Maybe [Tmpfs]
 tmpfs :: Maybe [Tmpfs]
 $sel:tmpfs:LinuxParameters' :: LinuxParameters -&gt; Maybe [Tmpfs]
-</span><a href="#local-6989586621679265343"><span class="hs-identifier hs-var hs-var">tmpfs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tmpfs]
-</span><a href="#local-6989586621679265343"><span class="hs-identifier hs-var">tmpfs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265342"><span class="annot"><span class="annottext">s :: LinuxParameters
-</span><a href="#local-6989586621679265342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265341"><span class="annot"><span class="annottext">Maybe [Tmpfs]
-</span><a href="#local-6989586621679265341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
-</span><a href="#local-6989586621679265342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tmpfs:LinuxParameters' :: Maybe [Tmpfs]
+</span><a href="#local-6989586621679265352"><span class="hs-identifier hs-var hs-var">tmpfs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tmpfs]
+</span><a href="#local-6989586621679265352"><span class="hs-identifier hs-var">tmpfs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265351"><span class="annot"><span class="annottext">s :: LinuxParameters
+</span><a href="#local-6989586621679265351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265350"><span class="annot"><span class="annottext">Maybe [Tmpfs]
+</span><a href="#local-6989586621679265350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
+</span><a href="#local-6989586621679265351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tmpfs:LinuxParameters' :: Maybe [Tmpfs]
 </span><a href="Network.AWS.Batch.Types.LinuxParameters.html#%24sel%3Atmpfs%3ALinuxParameters%27"><span class="hs-identifier hs-var">tmpfs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tmpfs]
-</span><a href="#local-6989586621679265341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tmpfs] -&gt; f (Maybe [Tmpfs]))
+</span><a href="#local-6989586621679265350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tmpfs] -&gt; f (Maybe [Tmpfs]))
  -&gt; LinuxParameters -&gt; f LinuxParameters)
 -&gt; ((Maybe [Tmpfs] -&gt; f (Maybe [Tmpfs]))
     -&gt; Maybe [Tmpfs] -&gt; f (Maybe [Tmpfs]))
@@ -433,16 +433,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (LinuxParameters -&gt; Maybe Int -&gt; LinuxParameters)
 -&gt; Lens LinuxParameters LinuxParameters (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265336"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265345"><span class="annot"><span class="annottext">Maybe Int
 swappiness :: Maybe Int
 $sel:swappiness:LinuxParameters' :: LinuxParameters -&gt; Maybe Int
-</span><a href="#local-6989586621679265336"><span class="hs-identifier hs-var hs-var">swappiness</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265336"><span class="hs-identifier hs-var">swappiness</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265335"><span class="annot"><span class="annottext">s :: LinuxParameters
-</span><a href="#local-6989586621679265335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265334"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
-</span><a href="#local-6989586621679265335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:swappiness:LinuxParameters' :: Maybe Int
+</span><a href="#local-6989586621679265345"><span class="hs-identifier hs-var hs-var">swappiness</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679265345"><span class="hs-identifier hs-var">swappiness</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265344"><span class="annot"><span class="annottext">s :: LinuxParameters
+</span><a href="#local-6989586621679265344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265343"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679265343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
+</span><a href="#local-6989586621679265344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:swappiness:LinuxParameters' :: Maybe Int
 </span><a href="Network.AWS.Batch.Types.LinuxParameters.html#%24sel%3Aswappiness%3ALinuxParameters%27"><span class="hs-identifier hs-var">swappiness</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- | Any host devices to expose to the container. This parameter maps to</span><span>
 </span><span id="line-286"></span><span class="hs-comment">-- @Devices@ in the</span><span>
@@ -462,16 +462,16 @@ $sel:swappiness:LinuxParameters' :: LinuxParameters -&gt; Maybe Int
 -&gt; Lens
      LinuxParameters LinuxParameters (Maybe [Device]) (Maybe [Device])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265332"><span class="annot"><span class="annottext">Maybe [Device]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265341"><span class="annot"><span class="annottext">Maybe [Device]
 devices :: Maybe [Device]
 $sel:devices:LinuxParameters' :: LinuxParameters -&gt; Maybe [Device]
-</span><a href="#local-6989586621679265332"><span class="hs-identifier hs-var hs-var">devices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Device]
-</span><a href="#local-6989586621679265332"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265331"><span class="annot"><span class="annottext">s :: LinuxParameters
-</span><a href="#local-6989586621679265331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265330"><span class="annot"><span class="annottext">Maybe [Device]
-</span><a href="#local-6989586621679265330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
-</span><a href="#local-6989586621679265331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devices:LinuxParameters' :: Maybe [Device]
+</span><a href="#local-6989586621679265341"><span class="hs-identifier hs-var hs-var">devices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Device]
+</span><a href="#local-6989586621679265341"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265340"><span class="annot"><span class="annottext">s :: LinuxParameters
+</span><a href="#local-6989586621679265340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265339"><span class="annot"><span class="annottext">Maybe [Device]
+</span><a href="#local-6989586621679265339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
+</span><a href="#local-6989586621679265340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devices:LinuxParameters' :: Maybe [Device]
 </span><a href="Network.AWS.Batch.Types.LinuxParameters.html#%24sel%3Adevices%3ALinuxParameters%27"><span class="hs-identifier hs-var">devices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Device]
-</span><a href="#local-6989586621679265330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Device] -&gt; f (Maybe [Device]))
+</span><a href="#local-6989586621679265339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Device] -&gt; f (Maybe [Device]))
  -&gt; LinuxParameters -&gt; f LinuxParameters)
 -&gt; ((Maybe [Device] -&gt; f (Maybe [Device]))
     -&gt; Maybe [Device] -&gt; f (Maybe [Device]))
@@ -512,19 +512,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (LinuxParameters -&gt; Maybe Int -&gt; LinuxParameters)
 -&gt; Lens LinuxParameters LinuxParameters (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265328"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265337"><span class="annot"><span class="annottext">Maybe Int
 maxSwap :: Maybe Int
 $sel:maxSwap:LinuxParameters' :: LinuxParameters -&gt; Maybe Int
-</span><a href="#local-6989586621679265328"><span class="hs-identifier hs-var hs-var">maxSwap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265328"><span class="hs-identifier hs-var">maxSwap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265327"><span class="annot"><span class="annottext">s :: LinuxParameters
-</span><a href="#local-6989586621679265327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265326"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
-</span><a href="#local-6989586621679265327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSwap:LinuxParameters' :: Maybe Int
+</span><a href="#local-6989586621679265337"><span class="hs-identifier hs-var hs-var">maxSwap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679265337"><span class="hs-identifier hs-var">maxSwap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265336"><span class="annot"><span class="annottext">s :: LinuxParameters
+</span><a href="#local-6989586621679265336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265335"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679265335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinuxParameters
+</span><a href="#local-6989586621679265336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSwap:LinuxParameters' :: Maybe Int
 </span><a href="Network.AWS.Batch.Types.LinuxParameters.html#%24sel%3AmaxSwap%3ALinuxParameters%27"><span class="hs-identifier hs-var">maxSwap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-316"></span><span>
-</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265323"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-318"></span><span>  </span><span id="local-6989586621679265321"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LinuxParameters
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265332"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-318"></span><span>  </span><span id="local-6989586621679265330"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LinuxParameters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-319"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LinuxParameters)
@@ -534,8 +534,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-320"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LinuxParameters&quot;</span></span><span>
-</span><span id="line-321"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265318"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265318"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-321"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265327"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265327"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-322"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe Bool
 -&gt; Maybe [Tmpfs]
@@ -561,7 +561,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; LinuxParameters)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265318"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679265327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sharedMemorySize&quot;</span></span><span class="hs-special">)</span><span>
@@ -578,7 +578,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Int -&gt; Maybe [Device] -&gt; Maybe Int -&gt; LinuxParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265318"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679265327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;initProcessEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -590,7 +590,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Int -&gt; Maybe [Device] -&gt; Maybe Int -&gt; LinuxParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265318"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tmpfs]))
+</span><a href="#local-6989586621679265327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tmpfs]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tmpfs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tmpfs]))
@@ -605,7 +605,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [Device] -&gt; Maybe Int -&gt; LinuxParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265318"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679265327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;swappiness&quot;</span></span><span class="hs-special">)</span><span>
@@ -613,7 +613,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Device]) -&gt; Parser (Maybe Int -&gt; LinuxParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265318"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Device]))
+</span><a href="#local-6989586621679265327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Device]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;devices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Device]))
@@ -626,19 +626,19 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Int) -&gt; Parser LinuxParameters
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265318"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679265327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxSwap&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-329"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-330"></span><span>
-</span><span id="line-331"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265311"><span id="local-6989586621679265313"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span></span></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265320"><span id="local-6989586621679265322"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span></span></span><span>
 </span><span id="line-332"></span><span>
-</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265308"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span></span><span>
+</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span></span><span>
 </span><span id="line-334"></span><span>
-</span><span id="line-335"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265300"><span id="local-6989586621679265302"><span id="local-6989586621679265304"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-336"></span><span>  </span><span id="local-6989586621679265298"><span class="annot"><span class="annottext">toJSON :: LinuxParameters -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265291"><span id="local-6989586621679265292"><span id="local-6989586621679265293"><span id="local-6989586621679265294"><span id="local-6989586621679265295"><span id="local-6989586621679265296"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-335"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265309"><span id="local-6989586621679265311"><span id="local-6989586621679265313"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters"><span class="hs-identifier hs-type">LinuxParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-336"></span><span>  </span><span id="local-6989586621679265307"><span class="annot"><span class="annottext">toJSON :: LinuxParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LinuxParameters.html#LinuxParameters%27"><span class="hs-identifier hs-type">LinuxParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265300"><span id="local-6989586621679265301"><span id="local-6989586621679265302"><span id="local-6989586621679265303"><span id="local-6989586621679265304"><span id="local-6989586621679265305"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe [Device]
 Maybe [Tmpfs]
@@ -654,7 +654,7 @@ $sel:swappiness:LinuxParameters' :: LinuxParameters -&gt; Maybe Int
 $sel:tmpfs:LinuxParameters' :: LinuxParameters -&gt; Maybe [Tmpfs]
 $sel:initProcessEnabled:LinuxParameters' :: LinuxParameters -&gt; Maybe Bool
 $sel:sharedMemorySize:LinuxParameters' :: LinuxParameters -&gt; Maybe Int
-</span><a href="#local-6989586621679265291"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679265300"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-337"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-338"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -667,7 +667,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-340"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265296"><span class="hs-identifier hs-var">sharedMemorySize</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265305"><span class="hs-identifier hs-var">sharedMemorySize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-341"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;initProcessEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -675,35 +675,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-342"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679265295"><span class="hs-identifier hs-var">initProcessEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265304"><span class="hs-identifier hs-var">initProcessEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-343"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tmpfs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tmpfs] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tmpfs] -&gt; Pair) -&gt; Maybe [Tmpfs] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tmpfs]
-</span><a href="#local-6989586621679265294"><span class="hs-identifier hs-var">tmpfs</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265303"><span class="hs-identifier hs-var">tmpfs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-344"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;swappiness&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265293"><span class="hs-identifier hs-var">swappiness</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265302"><span class="hs-identifier hs-var">swappiness</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-345"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;devices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Device] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Device] -&gt; Pair) -&gt; Maybe [Device] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Device]
-</span><a href="#local-6989586621679265292"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265301"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-346"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxSwap&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679265291"><span class="hs-identifier hs-var">maxSwap</span></a></span><span>
+</span><a href="#local-6989586621679265300"><span class="hs-identifier hs-var">maxSwap</span></a></span><span>
 </span><span id="line-347"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-348"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-349"></span></pre></body></html>

@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newUpdateTaskSet' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679482535"><span id="local-6989586621679482536"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTaskSet"><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-var">UpdateTaskSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTaskSet%27"><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-var">UpdateTaskSet'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679482544"><span id="local-6989586621679482545"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTaskSet"><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-var">UpdateTaskSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTaskSet%27"><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-var">UpdateTaskSet'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the cluster that</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- hosts the service that the task set exists in.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3Acluster%3AUpdateTaskSet%27"><span class="annot"><span class="annottext">UpdateTaskSet -&gt; Text
@@ -71,7 +71,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3Ascale%3AUpdateTaskSet%27"><span class="annot"><span class="annottext">UpdateTaskSet -&gt; Scale
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#%24sel%3Ascale%3AUpdateTaskSet%27"><span class="hs-identifier hs-var hs-var">scale</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679482526"><span id="local-6989586621679482528"><span class="annot"><span class="annottext">UpdateTaskSet -&gt; UpdateTaskSet -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679482535"><span id="local-6989586621679482537"><span class="annot"><span class="annottext">UpdateTaskSet -&gt; UpdateTaskSet -&gt; Bool
 (UpdateTaskSet -&gt; UpdateTaskSet -&gt; Bool)
 -&gt; (UpdateTaskSet -&gt; UpdateTaskSet -&gt; Bool) -&gt; Eq UpdateTaskSet
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateTaskSet -&gt; UpdateTaskSet -&gt; Bool
 == :: UpdateTaskSet -&gt; UpdateTaskSet -&gt; Bool
 $c== :: UpdateTaskSet -&gt; UpdateTaskSet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679482517"><span id="local-6989586621679482519"><span id="local-6989586621679482521"><span id="local-6989586621679482523"><span class="annot"><span class="annottext">ReadPrec [UpdateTaskSet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679482526"><span id="local-6989586621679482528"><span id="local-6989586621679482530"><span id="local-6989586621679482532"><span class="annot"><span class="annottext">ReadPrec [UpdateTaskSet]
 ReadPrec UpdateTaskSet
 Int -&gt; ReadS UpdateTaskSet
 ReadS [UpdateTaskSet]
@@ -99,7 +99,7 @@ readList :: ReadS [UpdateTaskSet]
 $creadList :: ReadS [UpdateTaskSet]
 readsPrec :: Int -&gt; ReadS UpdateTaskSet
 $creadsPrec :: Int -&gt; ReadS UpdateTaskSet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679482510"><span id="local-6989586621679482512"><span id="local-6989586621679482514"><span class="annot"><span class="annottext">Int -&gt; UpdateTaskSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679482519"><span id="local-6989586621679482521"><span id="local-6989586621679482523"><span class="annot"><span class="annottext">Int -&gt; UpdateTaskSet -&gt; ShowS
 [UpdateTaskSet] -&gt; ShowS
 UpdateTaskSet -&gt; String
 (Int -&gt; UpdateTaskSet -&gt; ShowS)
@@ -156,28 +156,28 @@ $cfrom :: forall x. UpdateTaskSet -&gt; Rep UpdateTaskSet x
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span><span>
 </span><span id="line-101"></span><span id="newUpdateTaskSet"><span class="annot"><span class="annottext">newUpdateTaskSet :: Text -&gt; Text -&gt; Text -&gt; Scale -&gt; UpdateTaskSet
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#newUpdateTaskSet"><span class="hs-identifier hs-var hs-var">newUpdateTaskSet</span></a></span></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679482505"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482505"><span class="hs-identifier hs-var">pCluster_</span></a></span></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679482504"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482504"><span class="hs-identifier hs-var">pService_</span></a></span></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679482503"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482503"><span class="hs-identifier hs-var">pTaskSet_</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679482502"><span class="annot"><span class="annottext">Scale
-</span><a href="#local-6989586621679482502"><span class="hs-identifier hs-var">pScale_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679482514"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679482514"><span class="hs-identifier hs-var">pCluster_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679482513"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679482513"><span class="hs-identifier hs-var">pService_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679482512"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679482512"><span class="hs-identifier hs-var">pTaskSet_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679482511"><span class="annot"><span class="annottext">Scale
+</span><a href="#local-6989586621679482511"><span class="hs-identifier hs-var">pScale_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">UpdateTaskSet' :: Text -&gt; Text -&gt; Text -&gt; Scale -&gt; UpdateTaskSet
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:UpdateTaskSet' :: Text
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#%24sel%3Acluster%3AUpdateTaskSet%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482505"><span class="hs-identifier hs-var">pCluster_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679482514"><span class="hs-identifier hs-var">pCluster_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:service:UpdateTaskSet' :: Text
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#%24sel%3Aservice%3AUpdateTaskSet%27"><span class="hs-identifier hs-var">service</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482504"><span class="hs-identifier hs-var">pService_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679482513"><span class="hs-identifier hs-var">pService_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:taskSet:UpdateTaskSet' :: Text
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#%24sel%3AtaskSet%3AUpdateTaskSet%27"><span class="hs-identifier hs-var">taskSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482503"><span class="hs-identifier hs-var">pTaskSet_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679482512"><span class="hs-identifier hs-var">pTaskSet_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:scale:UpdateTaskSet' :: Scale
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#%24sel%3Ascale%3AUpdateTaskSet%27"><span class="hs-identifier hs-var">scale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Scale
-</span><a href="#local-6989586621679482502"><span class="hs-identifier hs-var">pScale_</span></a></span><span>
+</span><a href="#local-6989586621679482511"><span class="hs-identifier hs-var">pScale_</span></a></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the cluster that</span><span>
@@ -188,16 +188,16 @@ $cfrom :: forall x. UpdateTaskSet -&gt; Rep UpdateTaskSet x
 -&gt; (UpdateTaskSet -&gt; Text -&gt; UpdateTaskSet)
 -&gt; Lens UpdateTaskSet UpdateTaskSet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679482499"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679482508"><span class="annot"><span class="annottext">Text
 cluster :: Text
 $sel:cluster:UpdateTaskSet' :: UpdateTaskSet -&gt; Text
-</span><a href="#local-6989586621679482499"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482499"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679482498"><span class="annot"><span class="annottext">s :: UpdateTaskSet
-</span><a href="#local-6989586621679482498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679482497"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTaskSet
-</span><a href="#local-6989586621679482498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:UpdateTaskSet' :: Text
+</span><a href="#local-6989586621679482508"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679482508"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679482507"><span class="annot"><span class="annottext">s :: UpdateTaskSet
+</span><a href="#local-6989586621679482507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679482506"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679482506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTaskSet
+</span><a href="#local-6989586621679482507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:UpdateTaskSet' :: Text
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#%24sel%3Acluster%3AUpdateTaskSet%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679482506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the service that</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- the task set exists in.</span><span>
@@ -207,16 +207,16 @@ $sel:cluster:UpdateTaskSet' :: UpdateTaskSet -&gt; Text
 -&gt; (UpdateTaskSet -&gt; Text -&gt; UpdateTaskSet)
 -&gt; Lens UpdateTaskSet UpdateTaskSet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679482496"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679482505"><span class="annot"><span class="annottext">Text
 service :: Text
 $sel:service:UpdateTaskSet' :: UpdateTaskSet -&gt; Text
-</span><a href="#local-6989586621679482496"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482496"><span class="hs-identifier hs-var">service</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679482495"><span class="annot"><span class="annottext">s :: UpdateTaskSet
-</span><a href="#local-6989586621679482495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679482494"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTaskSet
-</span><a href="#local-6989586621679482495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:service:UpdateTaskSet' :: Text
+</span><a href="#local-6989586621679482505"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679482505"><span class="hs-identifier hs-var">service</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679482504"><span class="annot"><span class="annottext">s :: UpdateTaskSet
+</span><a href="#local-6989586621679482504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679482503"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679482503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTaskSet
+</span><a href="#local-6989586621679482504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:service:UpdateTaskSet' :: Text
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#%24sel%3Aservice%3AUpdateTaskSet%27"><span class="hs-identifier hs-var">service</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679482503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the task set to</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- update.</span><span>
@@ -226,16 +226,16 @@ $sel:service:UpdateTaskSet' :: UpdateTaskSet -&gt; Text
 -&gt; (UpdateTaskSet -&gt; Text -&gt; UpdateTaskSet)
 -&gt; Lens UpdateTaskSet UpdateTaskSet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679482493"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679482502"><span class="annot"><span class="annottext">Text
 taskSet :: Text
 $sel:taskSet:UpdateTaskSet' :: UpdateTaskSet -&gt; Text
-</span><a href="#local-6989586621679482493"><span class="hs-identifier hs-var hs-var">taskSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482493"><span class="hs-identifier hs-var">taskSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679482492"><span class="annot"><span class="annottext">s :: UpdateTaskSet
-</span><a href="#local-6989586621679482492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679482491"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTaskSet
-</span><a href="#local-6989586621679482492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskSet:UpdateTaskSet' :: Text
+</span><a href="#local-6989586621679482502"><span class="hs-identifier hs-var hs-var">taskSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679482502"><span class="hs-identifier hs-var">taskSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679482501"><span class="annot"><span class="annottext">s :: UpdateTaskSet
+</span><a href="#local-6989586621679482501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679482500"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679482500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTaskSet
+</span><a href="#local-6989586621679482501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskSet:UpdateTaskSet' :: Text
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#%24sel%3AtaskSet%3AUpdateTaskSet%27"><span class="hs-identifier hs-var">taskSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679482500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | A floating-point percentage of the desired number of tasks to place and</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- keep running in the task set.</span><span>
@@ -245,27 +245,27 @@ $sel:taskSet:UpdateTaskSet' :: UpdateTaskSet -&gt; Text
 -&gt; (UpdateTaskSet -&gt; Scale -&gt; UpdateTaskSet)
 -&gt; Lens UpdateTaskSet UpdateTaskSet Scale Scale
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679482490"><span class="annot"><span class="annottext">Scale
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679482499"><span class="annot"><span class="annottext">Scale
 scale :: Scale
 $sel:scale:UpdateTaskSet' :: UpdateTaskSet -&gt; Scale
-</span><a href="#local-6989586621679482490"><span class="hs-identifier hs-var hs-var">scale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scale
-</span><a href="#local-6989586621679482490"><span class="hs-identifier hs-var">scale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679482489"><span class="annot"><span class="annottext">s :: UpdateTaskSet
-</span><a href="#local-6989586621679482489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679482488"><span class="annot"><span class="annottext">Scale
-</span><a href="#local-6989586621679482488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTaskSet
-</span><a href="#local-6989586621679482489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scale:UpdateTaskSet' :: Scale
+</span><a href="#local-6989586621679482499"><span class="hs-identifier hs-var hs-var">scale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scale
+</span><a href="#local-6989586621679482499"><span class="hs-identifier hs-var">scale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679482498"><span class="annot"><span class="annottext">s :: UpdateTaskSet
+</span><a href="#local-6989586621679482498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679482497"><span class="annot"><span class="annottext">Scale
+</span><a href="#local-6989586621679482497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTaskSet
+</span><a href="#local-6989586621679482498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scale:UpdateTaskSet' :: Scale
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#%24sel%3Ascale%3AUpdateTaskSet%27"><span class="hs-identifier hs-var">scale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Scale
-</span><a href="#local-6989586621679482488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679482497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse"><span class="hs-identifier hs-type">UpdateTaskSetResponse</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679482484"><span class="annot"><span class="annottext">request :: UpdateTaskSet -&gt; Request UpdateTaskSet
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679482493"><span class="annot"><span class="annottext">request :: UpdateTaskSet -&gt; Request UpdateTaskSet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateTaskSet -&gt; Request UpdateTaskSet
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679482480"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679482489"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateTaskSet
 -&gt; ClientResponse ClientBody
@@ -289,10 +289,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679482477"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679482477"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679482476"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679482476"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679482475"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679482475"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679482486"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679482486"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679482485"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679482485"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679482484"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679482484"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe TaskSet -&gt; Int -&gt; UpdateTaskSetResponse
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse%27"><span class="hs-identifier hs-var">UpdateTaskSetResponse'</span></a></span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TaskSet -&gt; Int -&gt; UpdateTaskSetResponse)
@@ -300,7 +300,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateTaskSetResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679482475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TaskSet)
+</span><a href="#local-6989586621679482484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TaskSet)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;taskSet&quot;</span></span><span class="hs-special">)</span><span>
@@ -312,15 +312,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679482477"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679482486"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679482467"><span id="local-6989586621679482469"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679482476"><span id="local-6989586621679482478"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679482464"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679482473"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679482460"><span class="annot"><span class="annottext">toHeaders :: UpdateTaskSet -&gt; ResponseHeaders
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679482469"><span class="annot"><span class="annottext">toHeaders :: UpdateTaskSet -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateTaskSet -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -347,9 +347,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679482450"><span id="local-6989586621679482452"><span id="local-6989586621679482454"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679482448"><span class="annot"><span class="annottext">toJSON :: UpdateTaskSet -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679482443"><span id="local-6989586621679482444"><span id="local-6989586621679482445"><span id="local-6989586621679482446"><span class="annot"><span class="annottext">Text
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679482459"><span id="local-6989586621679482461"><span id="local-6989586621679482463"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679482457"><span class="annot"><span class="annottext">toJSON :: UpdateTaskSet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet%27"><span class="hs-identifier hs-type">UpdateTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679482452"><span id="local-6989586621679482453"><span id="local-6989586621679482454"><span id="local-6989586621679482455"><span class="annot"><span class="annottext">Text
 Scale
 scale :: Scale
 taskSet :: Text
@@ -359,7 +359,7 @@ $sel:scale:UpdateTaskSet' :: UpdateTaskSet -&gt; Scale
 $sel:taskSet:UpdateTaskSet' :: UpdateTaskSet -&gt; Text
 $sel:service:UpdateTaskSet' :: UpdateTaskSet -&gt; Text
 $sel:cluster:UpdateTaskSet' :: UpdateTaskSet -&gt; Text
-</span><a href="#local-6989586621679482443"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679482452"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -371,40 +371,40 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;cluster&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482446"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679482455"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;service&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482445"><span class="hs-identifier hs-var">service</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679482454"><span class="hs-identifier hs-var">service</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;taskSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679482444"><span class="hs-identifier hs-var">taskSet</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679482453"><span class="hs-identifier hs-var">taskSet</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scale&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Scale -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Scale
-</span><a href="#local-6989586621679482443"><span class="hs-identifier hs-var">scale</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679482452"><span class="hs-identifier hs-var">scale</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679482437"><span class="annot"><span class="annottext">toPath :: UpdateTaskSet -&gt; ByteString
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679482446"><span class="annot"><span class="annottext">toPath :: UpdateTaskSet -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateTaskSet -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSet"><span class="hs-identifier hs-type">UpdateTaskSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679482433"><span class="annot"><span class="annottext">toQuery :: UpdateTaskSet -&gt; QueryString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679482442"><span class="annot"><span class="annottext">toQuery :: UpdateTaskSet -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateTaskSet -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -412,7 +412,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newUpdateTaskSetResponse' smart constructor.</span><span>
-</span><span id="line-183"></span><span id="local-6989586621679482430"><span id="local-6989586621679482431"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTaskSetResponse"><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse"><span class="hs-identifier hs-var">UpdateTaskSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTaskSetResponse%27"><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse%27"><span class="hs-identifier hs-var">UpdateTaskSetResponse'</span></a></span></span><span>
+</span><span id="line-183"></span><span id="local-6989586621679482439"><span id="local-6989586621679482440"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTaskSetResponse"><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse"><span class="hs-identifier hs-var">UpdateTaskSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTaskSetResponse%27"><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse%27"><span class="hs-identifier hs-var">UpdateTaskSetResponse'</span></a></span></span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the task set.</span><span>
 </span><span id="line-185"></span><span>    </span><span id="%24sel%3AtaskSet%3AUpdateTaskSetResponse%27"><span class="annot"><span class="annottext">UpdateTaskSetResponse -&gt; Maybe TaskSet
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#%24sel%3AtaskSet%3AUpdateTaskSetResponse%27"><span class="hs-identifier hs-var hs-var">taskSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskSet.html#TaskSet"><span class="hs-identifier hs-type">TaskSet</span></a></span><span class="hs-special">,</span><span>
@@ -420,7 +420,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-187"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateTaskSetResponse%27"><span class="annot"><span class="annottext">UpdateTaskSetResponse -&gt; Int
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#%24sel%3AhttpStatus%3AUpdateTaskSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679482424"><span id="local-6989586621679482426"><span class="annot"><span class="annottext">UpdateTaskSetResponse -&gt; UpdateTaskSetResponse -&gt; Bool
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679482433"><span id="local-6989586621679482435"><span class="annot"><span class="annottext">UpdateTaskSetResponse -&gt; UpdateTaskSetResponse -&gt; Bool
 (UpdateTaskSetResponse -&gt; UpdateTaskSetResponse -&gt; Bool)
 -&gt; (UpdateTaskSetResponse -&gt; UpdateTaskSetResponse -&gt; Bool)
 -&gt; Eq UpdateTaskSetResponse
@@ -429,7 +429,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateTaskSetResponse -&gt; UpdateTaskSetResponse -&gt; Bool
 == :: UpdateTaskSetResponse -&gt; UpdateTaskSetResponse -&gt; Bool
 $c== :: UpdateTaskSetResponse -&gt; UpdateTaskSetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679482416"><span id="local-6989586621679482418"><span id="local-6989586621679482420"><span id="local-6989586621679482422"><span class="annot"><span class="annottext">ReadPrec [UpdateTaskSetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679482425"><span id="local-6989586621679482427"><span id="local-6989586621679482429"><span id="local-6989586621679482431"><span class="annot"><span class="annottext">ReadPrec [UpdateTaskSetResponse]
 ReadPrec UpdateTaskSetResponse
 Int -&gt; ReadS UpdateTaskSetResponse
 ReadS [UpdateTaskSetResponse]
@@ -449,7 +449,7 @@ readList :: ReadS [UpdateTaskSetResponse]
 $creadList :: ReadS [UpdateTaskSetResponse]
 readsPrec :: Int -&gt; ReadS UpdateTaskSetResponse
 $creadsPrec :: Int -&gt; ReadS UpdateTaskSetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679482410"><span id="local-6989586621679482412"><span id="local-6989586621679482414"><span class="annot"><span class="annottext">Int -&gt; UpdateTaskSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679482419"><span id="local-6989586621679482421"><span id="local-6989586621679482423"><span class="annot"><span class="annottext">Int -&gt; UpdateTaskSetResponse -&gt; ShowS
 [UpdateTaskSetResponse] -&gt; ShowS
 UpdateTaskSetResponse -&gt; String
 (Int -&gt; UpdateTaskSetResponse -&gt; ShowS)
@@ -491,8 +491,8 @@ $cfrom :: forall x. UpdateTaskSetResponse -&gt; Rep UpdateTaskSetResponse x
 </span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-205"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse"><span class="hs-identifier hs-type">UpdateTaskSetResponse</span></a></span><span>
 </span><span id="line-206"></span><span id="newUpdateTaskSetResponse"><span class="annot"><span class="annottext">newUpdateTaskSetResponse :: Int -&gt; UpdateTaskSetResponse
-</span><a href="Network.AWS.ECS.UpdateTaskSet.html#newUpdateTaskSetResponse"><span class="hs-identifier hs-var hs-var">newUpdateTaskSetResponse</span></a></span></span><span> </span><span id="local-6989586621679482407"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679482407"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.UpdateTaskSet.html#newUpdateTaskSetResponse"><span class="hs-identifier hs-var hs-var">newUpdateTaskSetResponse</span></a></span></span><span> </span><span id="local-6989586621679482416"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679482416"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-207"></span><span>  </span><span class="annot"><span class="annottext">UpdateTaskSetResponse' :: Maybe TaskSet -&gt; Int -&gt; UpdateTaskSetResponse
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse%27"><span class="hs-identifier hs-type">UpdateTaskSetResponse'</span></a></span><span>
 </span><span id="line-208"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:taskSet:UpdateTaskSetResponse' :: Maybe TaskSet
@@ -501,7 +501,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTaskSetResponse' :: Int
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#%24sel%3AhttpStatus%3AUpdateTaskSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679482407"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679482416"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | Details about the task set.</span><span>
@@ -517,16 +517,16 @@ forall a. Maybe a
      (Maybe TaskSet)
      (Maybe TaskSet)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse%27"><span class="hs-identifier hs-type">UpdateTaskSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679482406"><span class="annot"><span class="annottext">Maybe TaskSet
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse%27"><span class="hs-identifier hs-type">UpdateTaskSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679482415"><span class="annot"><span class="annottext">Maybe TaskSet
 taskSet :: Maybe TaskSet
 $sel:taskSet:UpdateTaskSetResponse' :: UpdateTaskSetResponse -&gt; Maybe TaskSet
-</span><a href="#local-6989586621679482406"><span class="hs-identifier hs-var hs-var">taskSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskSet
-</span><a href="#local-6989586621679482406"><span class="hs-identifier hs-var">taskSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679482405"><span class="annot"><span class="annottext">s :: UpdateTaskSetResponse
-</span><a href="#local-6989586621679482405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse%27"><span class="hs-identifier hs-type">UpdateTaskSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679482404"><span class="annot"><span class="annottext">Maybe TaskSet
-</span><a href="#local-6989586621679482404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTaskSetResponse
-</span><a href="#local-6989586621679482405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskSet:UpdateTaskSetResponse' :: Maybe TaskSet
+</span><a href="#local-6989586621679482415"><span class="hs-identifier hs-var hs-var">taskSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskSet
+</span><a href="#local-6989586621679482415"><span class="hs-identifier hs-var">taskSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679482414"><span class="annot"><span class="annottext">s :: UpdateTaskSetResponse
+</span><a href="#local-6989586621679482414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse%27"><span class="hs-identifier hs-type">UpdateTaskSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679482413"><span class="annot"><span class="annottext">Maybe TaskSet
+</span><a href="#local-6989586621679482413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTaskSetResponse
+</span><a href="#local-6989586621679482414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskSet:UpdateTaskSetResponse' :: Maybe TaskSet
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#%24sel%3AtaskSet%3AUpdateTaskSetResponse%27"><span class="hs-identifier hs-var">taskSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskSet
-</span><a href="#local-6989586621679482404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse"><span class="hs-identifier hs-type">UpdateTaskSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679482413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse"><span class="hs-identifier hs-type">UpdateTaskSetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-217"></span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#updateTaskSetResponse_httpStatus"><span class="hs-identifier hs-type">updateTaskSetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse"><span class="hs-identifier hs-type">UpdateTaskSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -535,16 +535,16 @@ $sel:taskSet:UpdateTaskSetResponse' :: UpdateTaskSetResponse -&gt; Maybe TaskSet
 -&gt; (UpdateTaskSetResponse -&gt; Int -&gt; UpdateTaskSetResponse)
 -&gt; Lens UpdateTaskSetResponse UpdateTaskSetResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse%27"><span class="hs-identifier hs-type">UpdateTaskSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679482403"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse%27"><span class="hs-identifier hs-type">UpdateTaskSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679482412"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateTaskSetResponse' :: UpdateTaskSetResponse -&gt; Int
-</span><a href="#local-6989586621679482403"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679482403"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679482402"><span class="annot"><span class="annottext">s :: UpdateTaskSetResponse
-</span><a href="#local-6989586621679482402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse%27"><span class="hs-identifier hs-type">UpdateTaskSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679482401"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679482401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTaskSetResponse
-</span><a href="#local-6989586621679482402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTaskSetResponse' :: Int
+</span><a href="#local-6989586621679482412"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679482412"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679482411"><span class="annot"><span class="annottext">s :: UpdateTaskSetResponse
+</span><a href="#local-6989586621679482411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse%27"><span class="hs-identifier hs-type">UpdateTaskSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679482410"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679482410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTaskSetResponse
+</span><a href="#local-6989586621679482411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTaskSetResponse' :: Int
 </span><a href="Network.AWS.ECS.UpdateTaskSet.html#%24sel%3AhttpStatus%3AUpdateTaskSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679482401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse"><span class="hs-identifier hs-type">UpdateTaskSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679482410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse"><span class="hs-identifier hs-type">UpdateTaskSetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679482399"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse"><span class="hs-identifier hs-type">UpdateTaskSetResponse</span></a></span></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679482408"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateTaskSet.html#UpdateTaskSetResponse"><span class="hs-identifier hs-type">UpdateTaskSetResponse</span></a></span></span><span>
 </span><span id="line-221"></span></pre></body></html>

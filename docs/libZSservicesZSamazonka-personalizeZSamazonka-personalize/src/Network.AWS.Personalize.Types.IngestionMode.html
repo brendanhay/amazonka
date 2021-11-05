@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Personalize.Types.IngestionMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Personalize.Types.IngestionMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode"><span class="hs-identifier">IngestionMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode_ALL"><span class="hs-identifier">IngestionMode_ALL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode_BULK"><span class="hs-identifier">IngestionMode_BULK</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode_PUT"><span class="hs-identifier">IngestionMode_PUT</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679271544"><span id="local-6989586621679271545"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IngestionMode"><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode"><span class="hs-identifier hs-var">IngestionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IngestionMode%27"><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode%27"><span class="hs-identifier hs-var">IngestionMode'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromIngestionMode"><span class="annot"><span class="annottext">IngestionMode -&gt; Text
+</span><a href="Network.AWS.Personalize.Types.IngestionMode.html#fromIngestionMode"><span class="hs-identifier hs-var hs-var">fromIngestionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271536"><span id="local-6989586621679271538"><span id="local-6989586621679271540"><span class="annot"><span class="annottext">Int -&gt; IngestionMode -&gt; ShowS
+[IngestionMode] -&gt; ShowS
+IngestionMode -&gt; String
+(Int -&gt; IngestionMode -&gt; ShowS)
+-&gt; (IngestionMode -&gt; String)
+-&gt; ([IngestionMode] -&gt; ShowS)
+-&gt; Show IngestionMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [IngestionMode] -&gt; ShowS
+$cshowList :: [IngestionMode] -&gt; ShowS
+show :: IngestionMode -&gt; String
+$cshow :: IngestionMode -&gt; String
+showsPrec :: Int -&gt; IngestionMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; IngestionMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679271527"><span id="local-6989586621679271529"><span id="local-6989586621679271531"><span id="local-6989586621679271533"><span class="annot"><span class="annottext">ReadPrec [IngestionMode]
+ReadPrec IngestionMode
+Int -&gt; ReadS IngestionMode
+ReadS [IngestionMode]
+(Int -&gt; ReadS IngestionMode)
+-&gt; ReadS [IngestionMode]
+-&gt; ReadPrec IngestionMode
+-&gt; ReadPrec [IngestionMode]
+-&gt; Read IngestionMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [IngestionMode]
+$creadListPrec :: ReadPrec [IngestionMode]
+readPrec :: ReadPrec IngestionMode
+$creadPrec :: ReadPrec IngestionMode
+readList :: ReadS [IngestionMode]
+$creadList :: ReadS [IngestionMode]
+readsPrec :: Int -&gt; ReadS IngestionMode
+$creadsPrec :: Int -&gt; ReadS IngestionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679271522"><span id="local-6989586621679271524"><span class="annot"><span class="annottext">IngestionMode -&gt; IngestionMode -&gt; Bool
+(IngestionMode -&gt; IngestionMode -&gt; Bool)
+-&gt; (IngestionMode -&gt; IngestionMode -&gt; Bool) -&gt; Eq IngestionMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: IngestionMode -&gt; IngestionMode -&gt; Bool
+$c/= :: IngestionMode -&gt; IngestionMode -&gt; Bool
+== :: IngestionMode -&gt; IngestionMode -&gt; Bool
+$c== :: IngestionMode -&gt; IngestionMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679271506"><span id="local-6989586621679271508"><span id="local-6989586621679271510"><span id="local-6989586621679271512"><span id="local-6989586621679271514"><span id="local-6989586621679271516"><span id="local-6989586621679271518"><span class="annot"><span class="annottext">Eq IngestionMode
+Eq IngestionMode
+-&gt; (IngestionMode -&gt; IngestionMode -&gt; Ordering)
+-&gt; (IngestionMode -&gt; IngestionMode -&gt; Bool)
+-&gt; (IngestionMode -&gt; IngestionMode -&gt; Bool)
+-&gt; (IngestionMode -&gt; IngestionMode -&gt; Bool)
+-&gt; (IngestionMode -&gt; IngestionMode -&gt; Bool)
+-&gt; (IngestionMode -&gt; IngestionMode -&gt; IngestionMode)
+-&gt; (IngestionMode -&gt; IngestionMode -&gt; IngestionMode)
+-&gt; Ord IngestionMode
+IngestionMode -&gt; IngestionMode -&gt; Bool
+IngestionMode -&gt; IngestionMode -&gt; Ordering
+IngestionMode -&gt; IngestionMode -&gt; IngestionMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: IngestionMode -&gt; IngestionMode -&gt; IngestionMode
+$cmin :: IngestionMode -&gt; IngestionMode -&gt; IngestionMode
+max :: IngestionMode -&gt; IngestionMode -&gt; IngestionMode
+$cmax :: IngestionMode -&gt; IngestionMode -&gt; IngestionMode
+&gt;= :: IngestionMode -&gt; IngestionMode -&gt; Bool
+$c&gt;= :: IngestionMode -&gt; IngestionMode -&gt; Bool
+&gt; :: IngestionMode -&gt; IngestionMode -&gt; Bool
+$c&gt; :: IngestionMode -&gt; IngestionMode -&gt; Bool
+&lt;= :: IngestionMode -&gt; IngestionMode -&gt; Bool
+$c&lt;= :: IngestionMode -&gt; IngestionMode -&gt; Bool
+&lt; :: IngestionMode -&gt; IngestionMode -&gt; Bool
+$c&lt; :: IngestionMode -&gt; IngestionMode -&gt; Bool
+compare :: IngestionMode -&gt; IngestionMode -&gt; Ordering
+$ccompare :: IngestionMode -&gt; IngestionMode -&gt; Ordering
+$cp1Ord :: Eq IngestionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. IngestionMode -&gt; Rep IngestionMode x)
+-&gt; (forall x. Rep IngestionMode x -&gt; IngestionMode)
+-&gt; Generic IngestionMode
+forall x. Rep IngestionMode x -&gt; IngestionMode
+forall x. IngestionMode -&gt; Rep IngestionMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep IngestionMode x -&gt; IngestionMode
+$cfrom :: forall x. IngestionMode -&gt; Rep IngestionMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271498"><span id="local-6989586621679271500"><span class="annot"><span class="annottext">Int -&gt; IngestionMode -&gt; Int
+IngestionMode -&gt; Int
+(Int -&gt; IngestionMode -&gt; Int)
+-&gt; (IngestionMode -&gt; Int) -&gt; Hashable IngestionMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: IngestionMode -&gt; Int
+$chash :: IngestionMode -&gt; Int
+hashWithSalt :: Int -&gt; IngestionMode -&gt; Int
+$chashWithSalt :: Int -&gt; IngestionMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679271495"><span class="annot"><span class="annottext">IngestionMode -&gt; ()
+(IngestionMode -&gt; ()) -&gt; NFData IngestionMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: IngestionMode -&gt; ()
+$crnf :: IngestionMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679271492"><span class="annot"><span class="annottext">Text -&gt; Either String IngestionMode
+(Text -&gt; Either String IngestionMode) -&gt; FromText IngestionMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String IngestionMode
+$cfromText :: Text -&gt; Either String IngestionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679271489"><span class="annot"><span class="annottext">IngestionMode -&gt; Text
+(IngestionMode -&gt; Text) -&gt; ToText IngestionMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: IngestionMode -&gt; Text
+$ctoText :: IngestionMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679271486"><span class="annot"><span class="annottext">IngestionMode -&gt; ByteString
+(IngestionMode -&gt; ByteString) -&gt; ToByteString IngestionMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: IngestionMode -&gt; ByteString
+$ctoBS :: IngestionMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679271483"><span class="annot"><span class="annottext">IngestionMode -&gt; ByteStringBuilder
+(IngestionMode -&gt; ByteStringBuilder) -&gt; ToLog IngestionMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: IngestionMode -&gt; ByteStringBuilder
+$cbuild :: IngestionMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679271480"><span class="annot"><span class="annottext">HeaderName -&gt; IngestionMode -&gt; [Header]
+(HeaderName -&gt; IngestionMode -&gt; [Header]) -&gt; ToHeader IngestionMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; IngestionMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; IngestionMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679271477"><span class="annot"><span class="annottext">IngestionMode -&gt; QueryString
+(IngestionMode -&gt; QueryString) -&gt; ToQuery IngestionMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: IngestionMode -&gt; QueryString
+$ctoQuery :: IngestionMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679271472"><span id="local-6989586621679271474"><span class="annot"><span class="annottext">Value -&gt; Parser [IngestionMode]
+Value -&gt; Parser IngestionMode
+(Value -&gt; Parser IngestionMode)
+-&gt; (Value -&gt; Parser [IngestionMode]) -&gt; FromJSON IngestionMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [IngestionMode]
+$cparseJSONList :: Value -&gt; Parser [IngestionMode]
+parseJSON :: Value -&gt; Parser IngestionMode
+$cparseJSON :: Value -&gt; Parser IngestionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679271467"><span id="local-6989586621679271469"><span class="annot"><span class="annottext">FromJSONKeyFunction [IngestionMode]
+FromJSONKeyFunction IngestionMode
+FromJSONKeyFunction IngestionMode
+-&gt; FromJSONKeyFunction [IngestionMode] -&gt; FromJSONKey IngestionMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [IngestionMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [IngestionMode]
+fromJSONKey :: FromJSONKeyFunction IngestionMode
+$cfromJSONKey :: FromJSONKeyFunction IngestionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679271458"><span id="local-6989586621679271460"><span id="local-6989586621679271462"><span id="local-6989586621679271464"><span class="annot"><span class="annottext">[IngestionMode] -&gt; Encoding
+[IngestionMode] -&gt; Value
+IngestionMode -&gt; Encoding
+IngestionMode -&gt; Value
+(IngestionMode -&gt; Value)
+-&gt; (IngestionMode -&gt; Encoding)
+-&gt; ([IngestionMode] -&gt; Value)
+-&gt; ([IngestionMode] -&gt; Encoding)
+-&gt; ToJSON IngestionMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [IngestionMode] -&gt; Encoding
+$ctoEncodingList :: [IngestionMode] -&gt; Encoding
+toJSONList :: [IngestionMode] -&gt; Value
+$ctoJSONList :: [IngestionMode] -&gt; Value
+toEncoding :: IngestionMode -&gt; Encoding
+$ctoEncoding :: IngestionMode -&gt; Encoding
+toJSON :: IngestionMode -&gt; Value
+$ctoJSON :: IngestionMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679271453"><span id="local-6989586621679271455"><span class="annot"><span class="annottext">ToJSONKeyFunction [IngestionMode]
+ToJSONKeyFunction IngestionMode
+ToJSONKeyFunction IngestionMode
+-&gt; ToJSONKeyFunction [IngestionMode] -&gt; ToJSONKey IngestionMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [IngestionMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [IngestionMode]
+toJSONKey :: ToJSONKeyFunction IngestionMode
+$ctoJSONKey :: ToJSONKeyFunction IngestionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679271450"><span class="annot"><span class="annottext">[Node] -&gt; Either String IngestionMode
+([Node] -&gt; Either String IngestionMode) -&gt; FromXML IngestionMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String IngestionMode
+$cparseXML :: [Node] -&gt; Either String IngestionMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679271447"><span class="annot"><span class="annottext">IngestionMode -&gt; XML
+(IngestionMode -&gt; XML) -&gt; ToXML IngestionMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: IngestionMode -&gt; XML
+$ctoXML :: IngestionMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode_ALL"><span class="hs-identifier hs-type">IngestionMode_ALL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode"><span class="hs-identifier hs-type">IngestionMode</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bIngestionMode_ALL"><span id="%24mIngestionMode_ALL"><span id="IngestionMode_ALL"><span class="annot"><span class="annottext">$bIngestionMode_ALL :: IngestionMode
+$mIngestionMode_ALL :: forall r. IngestionMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Personalize.Types.IngestionMode.html#%24bIngestionMode_ALL"><span class="hs-identifier hs-var hs-var hs-var">IngestionMode_ALL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode%27"><span class="hs-identifier hs-type">IngestionMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALL&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode_BULK"><span class="hs-identifier hs-type">IngestionMode_BULK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode"><span class="hs-identifier hs-type">IngestionMode</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bIngestionMode_BULK"><span id="%24mIngestionMode_BULK"><span id="IngestionMode_BULK"><span class="annot"><span class="annottext">$bIngestionMode_BULK :: IngestionMode
+$mIngestionMode_BULK :: forall r. IngestionMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Personalize.Types.IngestionMode.html#%24bIngestionMode_BULK"><span class="hs-identifier hs-var hs-var hs-var">IngestionMode_BULK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode%27"><span class="hs-identifier hs-type">IngestionMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BULK&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode_PUT"><span class="hs-identifier hs-type">IngestionMode_PUT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode"><span class="hs-identifier hs-type">IngestionMode</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bIngestionMode_PUT"><span id="%24mIngestionMode_PUT"><span id="IngestionMode_PUT"><span class="annot"><span class="annottext">$bIngestionMode_PUT :: IngestionMode
+$mIngestionMode_PUT :: forall r. IngestionMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Personalize.Types.IngestionMode.html#%24bIngestionMode_PUT"><span class="hs-identifier hs-var hs-var hs-var">IngestionMode_PUT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode%27"><span class="hs-identifier hs-type">IngestionMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PUT&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode_ALL"><span class="hs-pragma hs-type">IngestionMode_ALL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode_BULK"><span class="hs-pragma hs-type">IngestionMode_BULK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode_PUT"><span class="hs-pragma hs-type">IngestionMode_PUT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.Types.IngestionMode.html#IngestionMode%27"><span class="hs-pragma hs-type">IngestionMode'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

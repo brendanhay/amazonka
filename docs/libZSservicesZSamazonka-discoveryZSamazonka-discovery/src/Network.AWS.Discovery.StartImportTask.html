@@ -78,7 +78,7 @@
 </span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | /See:/ 'newStartImportTask' smart constructor.</span><span>
-</span><span id="line-81"></span><span id="local-6989586621679206099"><span id="local-6989586621679206100"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartImportTask"><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-var">StartImportTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartImportTask%27"><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask%27"><span class="hs-identifier hs-var">StartImportTask'</span></a></span></span><span>
+</span><span id="line-81"></span><span id="local-6989586621679206108"><span id="local-6989586621679206109"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartImportTask"><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-var">StartImportTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartImportTask%27"><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask%27"><span class="hs-identifier hs-var">StartImportTask'</span></a></span></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional. A unique token that you can provide to prevent the same import</span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-comment">-- request from occurring more than once. If you don\'t provide a token, a</span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-comment">-- token is automatically generated.</span><span>
@@ -101,7 +101,7 @@
 </span><span id="line-99"></span><span>    </span><span id="%24sel%3AimportUrl%3AStartImportTask%27"><span class="annot"><span class="annottext">StartImportTask -&gt; Text
 </span><a href="Network.AWS.Discovery.StartImportTask.html#%24sel%3AimportUrl%3AStartImportTask%27"><span class="hs-identifier hs-var hs-var">importUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206091"><span id="local-6989586621679206093"><span class="annot"><span class="annottext">StartImportTask -&gt; StartImportTask -&gt; Bool
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206100"><span id="local-6989586621679206102"><span class="annot"><span class="annottext">StartImportTask -&gt; StartImportTask -&gt; Bool
 (StartImportTask -&gt; StartImportTask -&gt; Bool)
 -&gt; (StartImportTask -&gt; StartImportTask -&gt; Bool)
 -&gt; Eq StartImportTask
@@ -110,7 +110,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartImportTask -&gt; StartImportTask -&gt; Bool
 == :: StartImportTask -&gt; StartImportTask -&gt; Bool
 $c== :: StartImportTask -&gt; StartImportTask -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206082"><span id="local-6989586621679206084"><span id="local-6989586621679206086"><span id="local-6989586621679206088"><span class="annot"><span class="annottext">ReadPrec [StartImportTask]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206091"><span id="local-6989586621679206093"><span id="local-6989586621679206095"><span id="local-6989586621679206097"><span class="annot"><span class="annottext">ReadPrec [StartImportTask]
 ReadPrec StartImportTask
 Int -&gt; ReadS StartImportTask
 ReadS [StartImportTask]
@@ -130,7 +130,7 @@ readList :: ReadS [StartImportTask]
 $creadList :: ReadS [StartImportTask]
 readsPrec :: Int -&gt; ReadS StartImportTask
 $creadsPrec :: Int -&gt; ReadS StartImportTask
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206075"><span id="local-6989586621679206077"><span id="local-6989586621679206079"><span class="annot"><span class="annottext">Int -&gt; StartImportTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206084"><span id="local-6989586621679206086"><span id="local-6989586621679206088"><span class="annot"><span class="annottext">Int -&gt; StartImportTask -&gt; ShowS
 [StartImportTask] -&gt; ShowS
 StartImportTask -&gt; String
 (Int -&gt; StartImportTask -&gt; ShowS)
@@ -188,9 +188,9 @@ $cfrom :: forall x. StartImportTask -&gt; Rep StartImportTask x
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span><span>
 </span><span id="line-134"></span><span id="newStartImportTask"><span class="annot"><span class="annottext">newStartImportTask :: Text -&gt; Text -&gt; StartImportTask
-</span><a href="Network.AWS.Discovery.StartImportTask.html#newStartImportTask"><span class="hs-identifier hs-var hs-var">newStartImportTask</span></a></span></span><span> </span><span id="local-6989586621679206070"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206070"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679206069"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206069"><span class="hs-identifier hs-var">pImportUrl_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Discovery.StartImportTask.html#newStartImportTask"><span class="hs-identifier hs-var hs-var">newStartImportTask</span></a></span></span><span> </span><span id="local-6989586621679206079"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206079"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679206078"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206078"><span class="hs-identifier hs-var">pImportUrl_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="annottext">StartImportTask' :: Maybe Text -&gt; Text -&gt; Text -&gt; StartImportTask
 </span><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask%27"><span class="hs-identifier hs-type">StartImportTask'</span></a></span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientRequestToken:StartImportTask' :: Maybe Text
@@ -200,10 +200,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:StartImportTask' :: Text
 </span><a href="Network.AWS.Discovery.StartImportTask.html#%24sel%3Aname%3AStartImportTask%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206070"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206079"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:importUrl:StartImportTask' :: Text
 </span><a href="Network.AWS.Discovery.StartImportTask.html#%24sel%3AimportUrl%3AStartImportTask%27"><span class="hs-identifier hs-var">importUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206069"><span class="hs-identifier hs-var">pImportUrl_</span></a></span><span>
+</span><a href="#local-6989586621679206078"><span class="hs-identifier hs-var">pImportUrl_</span></a></span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | Optional. A unique token that you can provide to prevent the same import</span><span>
@@ -220,16 +220,16 @@ forall a. Maybe a
 -&gt; (StartImportTask -&gt; Maybe Text -&gt; StartImportTask)
 -&gt; Lens StartImportTask StartImportTask (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask%27"><span class="hs-identifier hs-type">StartImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206066"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask%27"><span class="hs-identifier hs-type">StartImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206075"><span class="annot"><span class="annottext">Maybe Text
 clientRequestToken :: Maybe Text
 $sel:clientRequestToken:StartImportTask' :: StartImportTask -&gt; Maybe Text
-</span><a href="#local-6989586621679206066"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206066"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206065"><span class="annot"><span class="annottext">s :: StartImportTask
-</span><a href="#local-6989586621679206065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask%27"><span class="hs-identifier hs-type">StartImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206064"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportTask
-</span><a href="#local-6989586621679206065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:StartImportTask' :: Maybe Text
+</span><a href="#local-6989586621679206075"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206075"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206074"><span class="annot"><span class="annottext">s :: StartImportTask
+</span><a href="#local-6989586621679206074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask%27"><span class="hs-identifier hs-type">StartImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206073"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportTask
+</span><a href="#local-6989586621679206074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:StartImportTask' :: Maybe Text
 </span><a href="Network.AWS.Discovery.StartImportTask.html#%24sel%3AclientRequestToken%3AStartImportTask%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | A descriptive name for this request. You can use this name to filter</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- future requests related to this import task, such as identifying</span><span>
@@ -241,16 +241,16 @@ $sel:clientRequestToken:StartImportTask' :: StartImportTask -&gt; Maybe Text
 -&gt; (StartImportTask -&gt; Text -&gt; StartImportTask)
 -&gt; Lens StartImportTask StartImportTask Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask%27"><span class="hs-identifier hs-type">StartImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206063"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask%27"><span class="hs-identifier hs-type">StartImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206072"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:StartImportTask' :: StartImportTask -&gt; Text
-</span><a href="#local-6989586621679206063"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206063"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206062"><span class="annot"><span class="annottext">s :: StartImportTask
-</span><a href="#local-6989586621679206062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask%27"><span class="hs-identifier hs-type">StartImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206061"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportTask
-</span><a href="#local-6989586621679206062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StartImportTask' :: Text
+</span><a href="#local-6989586621679206072"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206072"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206071"><span class="annot"><span class="annottext">s :: StartImportTask
+</span><a href="#local-6989586621679206071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask%27"><span class="hs-identifier hs-type">StartImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206070"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportTask
+</span><a href="#local-6989586621679206071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StartImportTask' :: Text
 </span><a href="Network.AWS.Discovery.StartImportTask.html#%24sel%3Aname%3AStartImportTask%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | The URL for your import file that you\'ve uploaded to Amazon S3.</span><span>
 </span><span id="line-160"></span><span class="hs-comment">--</span><span>
@@ -262,27 +262,27 @@ $sel:name:StartImportTask' :: StartImportTask -&gt; Text
 -&gt; (StartImportTask -&gt; Text -&gt; StartImportTask)
 -&gt; Lens StartImportTask StartImportTask Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask%27"><span class="hs-identifier hs-type">StartImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206060"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask%27"><span class="hs-identifier hs-type">StartImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206069"><span class="annot"><span class="annottext">Text
 importUrl :: Text
 $sel:importUrl:StartImportTask' :: StartImportTask -&gt; Text
-</span><a href="#local-6989586621679206060"><span class="hs-identifier hs-var hs-var">importUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206060"><span class="hs-identifier hs-var">importUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206059"><span class="annot"><span class="annottext">s :: StartImportTask
-</span><a href="#local-6989586621679206059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask%27"><span class="hs-identifier hs-type">StartImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206058"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportTask
-</span><a href="#local-6989586621679206059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importUrl:StartImportTask' :: Text
+</span><a href="#local-6989586621679206069"><span class="hs-identifier hs-var hs-var">importUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206069"><span class="hs-identifier hs-var">importUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206068"><span class="annot"><span class="annottext">s :: StartImportTask
+</span><a href="#local-6989586621679206068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask%27"><span class="hs-identifier hs-type">StartImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206067"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportTask
+</span><a href="#local-6989586621679206068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importUrl:StartImportTask' :: Text
 </span><a href="Network.AWS.Discovery.StartImportTask.html#%24sel%3AimportUrl%3AStartImportTask%27"><span class="hs-identifier hs-var">importUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-168"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>      </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse"><span class="hs-identifier hs-type">StartImportTaskResponse</span></a></span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679206054"><span class="annot"><span class="annottext">request :: StartImportTask -&gt; Request StartImportTask
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679206063"><span class="annot"><span class="annottext">request :: StartImportTask -&gt; Request StartImportTask
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartImportTask -&gt; Request StartImportTask
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Discovery.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679206050"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679206059"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartImportTask
 -&gt; ClientResponse ClientBody
@@ -306,10 +306,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679206047"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679206047"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679206046"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679206046"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679206045"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206045"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679206056"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206056"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679206055"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679206055"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679206054"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206054"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">Maybe ImportTask -&gt; Int -&gt; StartImportTaskResponse
 </span><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse%27"><span class="hs-identifier hs-var">StartImportTaskResponse'</span></a></span><span>
 </span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ImportTask -&gt; Int -&gt; StartImportTaskResponse)
@@ -317,7 +317,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; StartImportTaskResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206045"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ImportTask)
+</span><a href="#local-6989586621679206054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ImportTask)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;task&quot;</span></span><span class="hs-special">)</span><span>
@@ -329,15 +329,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679206047"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206056"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206037"><span id="local-6989586621679206039"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206046"><span id="local-6989586621679206048"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span></span></span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206034"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206043"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679206030"><span class="annot"><span class="annottext">toHeaders :: StartImportTask -&gt; ResponseHeaders
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679206039"><span class="annot"><span class="annottext">toHeaders :: StartImportTask -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartImportTask -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -364,9 +364,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-195"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206020"><span id="local-6989586621679206022"><span id="local-6989586621679206024"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679206018"><span class="annot"><span class="annottext">toJSON :: StartImportTask -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask%27"><span class="hs-identifier hs-type">StartImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206014"><span id="local-6989586621679206015"><span id="local-6989586621679206016"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206029"><span id="local-6989586621679206031"><span id="local-6989586621679206033"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679206027"><span class="annot"><span class="annottext">toJSON :: StartImportTask -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask%27"><span class="hs-identifier hs-type">StartImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206023"><span id="local-6989586621679206024"><span id="local-6989586621679206025"><span class="annot"><span class="annottext">Maybe Text
 Text
 importUrl :: Text
 name :: Text
@@ -374,7 +374,7 @@ clientRequestToken :: Maybe Text
 $sel:importUrl:StartImportTask' :: StartImportTask -&gt; Text
 $sel:name:StartImportTask' :: StartImportTask -&gt; Text
 $sel:clientRequestToken:StartImportTask' :: StartImportTask -&gt; Maybe Text
-</span><a href="#local-6989586621679206014"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679206023"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-201"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -387,33 +387,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-203"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206016"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206025"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206015"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206024"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;importUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679206014"><span class="hs-identifier hs-var">importUrl</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206023"><span class="hs-identifier hs-var">importUrl</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679206008"><span class="annot"><span class="annottext">toPath :: StartImportTask -&gt; ByteString
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679206017"><span class="annot"><span class="annottext">toPath :: StartImportTask -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartImportTask -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTask"><span class="hs-identifier hs-type">StartImportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679206004"><span class="annot"><span class="annottext">toQuery :: StartImportTask -&gt; QueryString
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679206013"><span class="annot"><span class="annottext">toQuery :: StartImportTask -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartImportTask -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -421,7 +421,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | /See:/ 'newStartImportTaskResponse' smart constructor.</span><span>
-</span><span id="line-216"></span><span id="local-6989586621679206001"><span id="local-6989586621679206002"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartImportTaskResponse"><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse"><span class="hs-identifier hs-var">StartImportTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartImportTaskResponse%27"><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse%27"><span class="hs-identifier hs-var">StartImportTaskResponse'</span></a></span></span><span>
+</span><span id="line-216"></span><span id="local-6989586621679206010"><span id="local-6989586621679206011"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartImportTaskResponse"><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse"><span class="hs-identifier hs-var">StartImportTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartImportTaskResponse%27"><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse%27"><span class="hs-identifier hs-var">StartImportTaskResponse'</span></a></span></span><span>
 </span><span id="line-217"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of information related to the import task request including</span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-comment">-- status information, times, IDs, the Amazon S3 Object URL for the import</span><span>
 </span><span id="line-219"></span><span>    </span><span class="hs-comment">-- file, and more.</span><span>
@@ -431,7 +431,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-222"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartImportTaskResponse%27"><span class="annot"><span class="annottext">StartImportTaskResponse -&gt; Int
 </span><a href="Network.AWS.Discovery.StartImportTask.html#%24sel%3AhttpStatus%3AStartImportTaskResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-223"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-224"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205995"><span id="local-6989586621679205997"><span class="annot"><span class="annottext">StartImportTaskResponse -&gt; StartImportTaskResponse -&gt; Bool
+</span><span id="line-224"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206004"><span id="local-6989586621679206006"><span class="annot"><span class="annottext">StartImportTaskResponse -&gt; StartImportTaskResponse -&gt; Bool
 (StartImportTaskResponse -&gt; StartImportTaskResponse -&gt; Bool)
 -&gt; (StartImportTaskResponse -&gt; StartImportTaskResponse -&gt; Bool)
 -&gt; Eq StartImportTaskResponse
@@ -440,7 +440,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartImportTaskResponse -&gt; StartImportTaskResponse -&gt; Bool
 == :: StartImportTaskResponse -&gt; StartImportTaskResponse -&gt; Bool
 $c== :: StartImportTaskResponse -&gt; StartImportTaskResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205987"><span id="local-6989586621679205989"><span id="local-6989586621679205991"><span id="local-6989586621679205993"><span class="annot"><span class="annottext">ReadPrec [StartImportTaskResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205996"><span id="local-6989586621679205998"><span id="local-6989586621679206000"><span id="local-6989586621679206002"><span class="annot"><span class="annottext">ReadPrec [StartImportTaskResponse]
 ReadPrec StartImportTaskResponse
 Int -&gt; ReadS StartImportTaskResponse
 ReadS [StartImportTaskResponse]
@@ -460,7 +460,7 @@ readList :: ReadS [StartImportTaskResponse]
 $creadList :: ReadS [StartImportTaskResponse]
 readsPrec :: Int -&gt; ReadS StartImportTaskResponse
 $creadsPrec :: Int -&gt; ReadS StartImportTaskResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205981"><span id="local-6989586621679205983"><span id="local-6989586621679205985"><span class="annot"><span class="annottext">Int -&gt; StartImportTaskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205990"><span id="local-6989586621679205992"><span id="local-6989586621679205994"><span class="annot"><span class="annottext">Int -&gt; StartImportTaskResponse -&gt; ShowS
 [StartImportTaskResponse] -&gt; ShowS
 StartImportTaskResponse -&gt; String
 (Int -&gt; StartImportTaskResponse -&gt; ShowS)
@@ -506,8 +506,8 @@ $cfrom :: forall x. StartImportTaskResponse -&gt; Rep StartImportTaskResponse x
 </span><span id="line-241"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-242"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse"><span class="hs-identifier hs-type">StartImportTaskResponse</span></a></span><span>
 </span><span id="line-243"></span><span id="newStartImportTaskResponse"><span class="annot"><span class="annottext">newStartImportTaskResponse :: Int -&gt; StartImportTaskResponse
-</span><a href="Network.AWS.Discovery.StartImportTask.html#newStartImportTaskResponse"><span class="hs-identifier hs-var hs-var">newStartImportTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679205978"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205978"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Discovery.StartImportTask.html#newStartImportTaskResponse"><span class="hs-identifier hs-var hs-var">newStartImportTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679205987"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205987"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-244"></span><span>  </span><span class="annot"><span class="annottext">StartImportTaskResponse' :: Maybe ImportTask -&gt; Int -&gt; StartImportTaskResponse
 </span><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse%27"><span class="hs-identifier hs-type">StartImportTaskResponse'</span></a></span><span>
 </span><span id="line-245"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:task:StartImportTaskResponse' :: Maybe ImportTask
@@ -516,7 +516,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartImportTaskResponse' :: Int
 </span><a href="Network.AWS.Discovery.StartImportTask.html#%24sel%3AhttpStatus%3AStartImportTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205978"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679205987"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-247"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | An array of information related to the import task request including</span><span>
@@ -534,16 +534,16 @@ forall a. Maybe a
      (Maybe ImportTask)
      (Maybe ImportTask)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse%27"><span class="hs-identifier hs-type">StartImportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205977"><span class="annot"><span class="annottext">Maybe ImportTask
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse%27"><span class="hs-identifier hs-type">StartImportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205986"><span class="annot"><span class="annottext">Maybe ImportTask
 task :: Maybe ImportTask
 $sel:task:StartImportTaskResponse' :: StartImportTaskResponse -&gt; Maybe ImportTask
-</span><a href="#local-6989586621679205977"><span class="hs-identifier hs-var hs-var">task</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImportTask
-</span><a href="#local-6989586621679205977"><span class="hs-identifier hs-var">task</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205976"><span class="annot"><span class="annottext">s :: StartImportTaskResponse
-</span><a href="#local-6989586621679205976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse%27"><span class="hs-identifier hs-type">StartImportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205975"><span class="annot"><span class="annottext">Maybe ImportTask
-</span><a href="#local-6989586621679205975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportTaskResponse
-</span><a href="#local-6989586621679205976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:task:StartImportTaskResponse' :: Maybe ImportTask
+</span><a href="#local-6989586621679205986"><span class="hs-identifier hs-var hs-var">task</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImportTask
+</span><a href="#local-6989586621679205986"><span class="hs-identifier hs-var">task</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205985"><span class="annot"><span class="annottext">s :: StartImportTaskResponse
+</span><a href="#local-6989586621679205985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse%27"><span class="hs-identifier hs-type">StartImportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205984"><span class="annot"><span class="annottext">Maybe ImportTask
+</span><a href="#local-6989586621679205984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportTaskResponse
+</span><a href="#local-6989586621679205985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:task:StartImportTaskResponse' :: Maybe ImportTask
 </span><a href="Network.AWS.Discovery.StartImportTask.html#%24sel%3Atask%3AStartImportTaskResponse%27"><span class="hs-identifier hs-var">task</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImportTask
-</span><a href="#local-6989586621679205975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse"><span class="hs-identifier hs-type">StartImportTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679205984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse"><span class="hs-identifier hs-type">StartImportTaskResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>
 </span><span id="line-255"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-256"></span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#startImportTaskResponse_httpStatus"><span class="hs-identifier hs-type">startImportTaskResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse"><span class="hs-identifier hs-type">StartImportTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -553,16 +553,16 @@ $sel:task:StartImportTaskResponse' :: StartImportTaskResponse -&gt; Maybe Import
 -&gt; (StartImportTaskResponse -&gt; Int -&gt; StartImportTaskResponse)
 -&gt; Lens StartImportTaskResponse StartImportTaskResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse%27"><span class="hs-identifier hs-type">StartImportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205974"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse%27"><span class="hs-identifier hs-type">StartImportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205983"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StartImportTaskResponse' :: StartImportTaskResponse -&gt; Int
-</span><a href="#local-6989586621679205974"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205974"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205973"><span class="annot"><span class="annottext">s :: StartImportTaskResponse
-</span><a href="#local-6989586621679205973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse%27"><span class="hs-identifier hs-type">StartImportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205972"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportTaskResponse
-</span><a href="#local-6989586621679205973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartImportTaskResponse' :: Int
+</span><a href="#local-6989586621679205983"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205983"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205982"><span class="annot"><span class="annottext">s :: StartImportTaskResponse
+</span><a href="#local-6989586621679205982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse%27"><span class="hs-identifier hs-type">StartImportTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205981"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImportTaskResponse
+</span><a href="#local-6989586621679205982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartImportTaskResponse' :: Int
 </span><a href="Network.AWS.Discovery.StartImportTask.html#%24sel%3AhttpStatus%3AStartImportTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679205972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse"><span class="hs-identifier hs-type">StartImportTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679205981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse"><span class="hs-identifier hs-type">StartImportTaskResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>
-</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205970"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse"><span class="hs-identifier hs-type">StartImportTaskResponse</span></a></span></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205979"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartImportTask.html#StartImportTaskResponse"><span class="hs-identifier hs-type">StartImportTaskResponse</span></a></span></span><span>
 </span><span id="line-260"></span></pre></body></html>

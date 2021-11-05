@@ -39,13 +39,13 @@
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-41"></span><span>
-</span><span id="line-42"></span><span id="local-6989586621679365942"><span id="local-6989586621679365943"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentationPartType"><span class="annot"><a href="Network.AWS.APIGateway.Types.DocumentationPartType.html#DocumentationPartType"><span class="hs-identifier hs-var">DocumentationPartType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentationPartType%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.DocumentationPartType.html#DocumentationPartType%27"><span class="hs-identifier hs-var">DocumentationPartType'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679365951"><span id="local-6989586621679365952"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentationPartType"><span class="annot"><a href="Network.AWS.APIGateway.Types.DocumentationPartType.html#DocumentationPartType"><span class="hs-identifier hs-var">DocumentationPartType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentationPartType%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.DocumentationPartType.html#DocumentationPartType%27"><span class="hs-identifier hs-var">DocumentationPartType'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDocumentationPartType"><span class="annot"><span class="annottext">DocumentationPartType -&gt; Text
 </span><a href="Network.AWS.APIGateway.Types.DocumentationPartType.html#fromDocumentationPartType"><span class="hs-identifier hs-var hs-var">fromDocumentationPartType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365934"><span id="local-6989586621679365936"><span id="local-6989586621679365938"><span class="annot"><span class="annottext">Int -&gt; DocumentationPartType -&gt; ShowS
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365943"><span id="local-6989586621679365945"><span id="local-6989586621679365947"><span class="annot"><span class="annottext">Int -&gt; DocumentationPartType -&gt; ShowS
 [DocumentationPartType] -&gt; ShowS
 DocumentationPartType -&gt; String
 (Int -&gt; DocumentationPartType -&gt; ShowS)
@@ -61,7 +61,7 @@ $cshow :: DocumentationPartType -&gt; String
 showsPrec :: Int -&gt; DocumentationPartType -&gt; ShowS
 $cshowsPrec :: Int -&gt; DocumentationPartType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679365925"><span id="local-6989586621679365927"><span id="local-6989586621679365929"><span id="local-6989586621679365931"><span class="annot"><span class="annottext">ReadPrec [DocumentationPartType]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679365934"><span id="local-6989586621679365936"><span id="local-6989586621679365938"><span id="local-6989586621679365940"><span class="annot"><span class="annottext">ReadPrec [DocumentationPartType]
 ReadPrec DocumentationPartType
 Int -&gt; ReadS DocumentationPartType
 ReadS [DocumentationPartType]
@@ -82,7 +82,7 @@ $creadList :: ReadS [DocumentationPartType]
 readsPrec :: Int -&gt; ReadS DocumentationPartType
 $creadsPrec :: Int -&gt; ReadS DocumentationPartType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679365920"><span id="local-6989586621679365922"><span class="annot"><span class="annottext">DocumentationPartType -&gt; DocumentationPartType -&gt; Bool
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679365929"><span id="local-6989586621679365931"><span class="annot"><span class="annottext">DocumentationPartType -&gt; DocumentationPartType -&gt; Bool
 (DocumentationPartType -&gt; DocumentationPartType -&gt; Bool)
 -&gt; (DocumentationPartType -&gt; DocumentationPartType -&gt; Bool)
 -&gt; Eq DocumentationPartType
@@ -92,7 +92,7 @@ $c/= :: DocumentationPartType -&gt; DocumentationPartType -&gt; Bool
 == :: DocumentationPartType -&gt; DocumentationPartType -&gt; Bool
 $c== :: DocumentationPartType -&gt; DocumentationPartType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679365904"><span id="local-6989586621679365906"><span id="local-6989586621679365908"><span id="local-6989586621679365910"><span id="local-6989586621679365912"><span id="local-6989586621679365914"><span id="local-6989586621679365916"><span class="annot"><span class="annottext">Eq DocumentationPartType
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679365913"><span id="local-6989586621679365915"><span id="local-6989586621679365917"><span id="local-6989586621679365919"><span id="local-6989586621679365921"><span id="local-6989586621679365923"><span id="local-6989586621679365925"><span class="annot"><span class="annottext">Eq DocumentationPartType
 Eq DocumentationPartType
 -&gt; (DocumentationPartType -&gt; DocumentationPartType -&gt; Ordering)
 -&gt; (DocumentationPartType -&gt; DocumentationPartType -&gt; Bool)
@@ -150,7 +150,7 @@ $cfrom :: forall x. DocumentationPartType -&gt; Rep DocumentationPartType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365896"><span id="local-6989586621679365898"><span class="annot"><span class="annottext">Int -&gt; DocumentationPartType -&gt; Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365905"><span id="local-6989586621679365907"><span class="annot"><span class="annottext">Int -&gt; DocumentationPartType -&gt; Int
 DocumentationPartType -&gt; Int
 (Int -&gt; DocumentationPartType -&gt; Int)
 -&gt; (DocumentationPartType -&gt; Int) -&gt; Hashable DocumentationPartType
@@ -160,54 +160,54 @@ $chash :: DocumentationPartType -&gt; Int
 hashWithSalt :: Int -&gt; DocumentationPartType -&gt; Int
 $chashWithSalt :: Int -&gt; DocumentationPartType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679365893"><span class="annot"><span class="annottext">DocumentationPartType -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679365902"><span class="annot"><span class="annottext">DocumentationPartType -&gt; ()
 (DocumentationPartType -&gt; ()) -&gt; NFData DocumentationPartType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DocumentationPartType -&gt; ()
 $crnf :: DocumentationPartType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679365890"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentationPartType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679365899"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentationPartType
 (Text -&gt; Either String DocumentationPartType)
 -&gt; FromText DocumentationPartType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DocumentationPartType
 $cfromText :: Text -&gt; Either String DocumentationPartType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679365887"><span class="annot"><span class="annottext">DocumentationPartType -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679365896"><span class="annot"><span class="annottext">DocumentationPartType -&gt; Text
 (DocumentationPartType -&gt; Text) -&gt; ToText DocumentationPartType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DocumentationPartType -&gt; Text
 $ctoText :: DocumentationPartType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679365884"><span class="annot"><span class="annottext">DocumentationPartType -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679365893"><span class="annot"><span class="annottext">DocumentationPartType -&gt; ByteString
 (DocumentationPartType -&gt; ByteString)
 -&gt; ToByteString DocumentationPartType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DocumentationPartType -&gt; ByteString
 $ctoBS :: DocumentationPartType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679365881"><span class="annot"><span class="annottext">DocumentationPartType -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679365890"><span class="annot"><span class="annottext">DocumentationPartType -&gt; ByteStringBuilder
 (DocumentationPartType -&gt; ByteStringBuilder)
 -&gt; ToLog DocumentationPartType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DocumentationPartType -&gt; ByteStringBuilder
 $cbuild :: DocumentationPartType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679365878"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentationPartType -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679365887"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentationPartType -&gt; [Header]
 (HeaderName -&gt; DocumentationPartType -&gt; [Header])
 -&gt; ToHeader DocumentationPartType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DocumentationPartType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DocumentationPartType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679365875"><span class="annot"><span class="annottext">DocumentationPartType -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679365884"><span class="annot"><span class="annottext">DocumentationPartType -&gt; QueryString
 (DocumentationPartType -&gt; QueryString)
 -&gt; ToQuery DocumentationPartType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DocumentationPartType -&gt; QueryString
 $ctoQuery :: DocumentationPartType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679365870"><span id="local-6989586621679365872"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentationPartType]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679365879"><span id="local-6989586621679365881"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentationPartType]
 Value -&gt; Parser DocumentationPartType
 (Value -&gt; Parser DocumentationPartType)
 -&gt; (Value -&gt; Parser [DocumentationPartType])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [DocumentationPartType]
 parseJSON :: Value -&gt; Parser DocumentationPartType
 $cparseJSON :: Value -&gt; Parser DocumentationPartType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679365865"><span id="local-6989586621679365867"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentationPartType]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679365874"><span id="local-6989586621679365876"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentationPartType]
 FromJSONKeyFunction DocumentationPartType
 FromJSONKeyFunction DocumentationPartType
 -&gt; FromJSONKeyFunction [DocumentationPartType]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DocumentationPartType]
 fromJSONKey :: FromJSONKeyFunction DocumentationPartType
 $cfromJSONKey :: FromJSONKeyFunction DocumentationPartType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679365856"><span id="local-6989586621679365858"><span id="local-6989586621679365860"><span id="local-6989586621679365862"><span class="annot"><span class="annottext">[DocumentationPartType] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679365865"><span id="local-6989586621679365867"><span id="local-6989586621679365869"><span id="local-6989586621679365871"><span class="annot"><span class="annottext">[DocumentationPartType] -&gt; Encoding
 [DocumentationPartType] -&gt; Value
 DocumentationPartType -&gt; Encoding
 DocumentationPartType -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: DocumentationPartType -&gt; Encoding
 toJSON :: DocumentationPartType -&gt; Value
 $ctoJSON :: DocumentationPartType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679365851"><span id="local-6989586621679365853"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentationPartType]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679365860"><span id="local-6989586621679365862"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentationPartType]
 ToJSONKeyFunction DocumentationPartType
 ToJSONKeyFunction DocumentationPartType
 -&gt; ToJSONKeyFunction [DocumentationPartType]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DocumentationPartType]
 toJSONKey :: ToJSONKeyFunction DocumentationPartType
 $ctoJSONKey :: ToJSONKeyFunction DocumentationPartType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679365848"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentationPartType
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679365857"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentationPartType
 ([Node] -&gt; Either String DocumentationPartType)
 -&gt; FromXML DocumentationPartType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DocumentationPartType
 $cparseXML :: [Node] -&gt; Either String DocumentationPartType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679365845"><span class="annot"><span class="annottext">DocumentationPartType -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679365854"><span class="annot"><span class="annottext">DocumentationPartType -&gt; XML
 (DocumentationPartType -&gt; XML) -&gt; ToXML DocumentationPartType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DocumentationPartType -&gt; XML

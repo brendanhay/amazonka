@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.FinSpace.Types.EnvironmentStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FinSpace.Types.EnvironmentStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus"><span class="hs-identifier">EnvironmentStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_CREATED"><span class="hs-identifier">EnvironmentStatus_CREATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_CREATE_REQUESTED"><span class="hs-identifier">EnvironmentStatus_CREATE_REQUESTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_CREATING"><span class="hs-identifier">EnvironmentStatus_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_DELETED"><span class="hs-identifier">EnvironmentStatus_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_DELETE_REQUESTED"><span class="hs-identifier">EnvironmentStatus_DELETE_REQUESTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_DELETING"><span class="hs-identifier">EnvironmentStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_FAILED_CREATION"><span class="hs-identifier">EnvironmentStatus_FAILED_CREATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_FAILED_DELETION"><span class="hs-identifier">EnvironmentStatus_FAILED_DELETION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_RETRY_DELETION"><span class="hs-identifier">EnvironmentStatus_RETRY_DELETION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_SUSPENDED"><span class="hs-identifier">EnvironmentStatus_SUSPENDED</span></a></span><span>
+</span><span id="line-33"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679151576"><span id="local-6989586621679151577"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EnvironmentStatus"><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus"><span class="hs-identifier hs-var">EnvironmentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentStatus%27"><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus%27"><span class="hs-identifier hs-var">EnvironmentStatus'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEnvironmentStatus"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; Text
+</span><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#fromEnvironmentStatus"><span class="hs-identifier hs-var hs-var">fromEnvironmentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679151568"><span id="local-6989586621679151570"><span id="local-6989586621679151572"><span class="annot"><span class="annottext">Int -&gt; EnvironmentStatus -&gt; ShowS
+[EnvironmentStatus] -&gt; ShowS
+EnvironmentStatus -&gt; String
+(Int -&gt; EnvironmentStatus -&gt; ShowS)
+-&gt; (EnvironmentStatus -&gt; String)
+-&gt; ([EnvironmentStatus] -&gt; ShowS)
+-&gt; Show EnvironmentStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EnvironmentStatus] -&gt; ShowS
+$cshowList :: [EnvironmentStatus] -&gt; ShowS
+show :: EnvironmentStatus -&gt; String
+$cshow :: EnvironmentStatus -&gt; String
+showsPrec :: Int -&gt; EnvironmentStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; EnvironmentStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679151559"><span id="local-6989586621679151561"><span id="local-6989586621679151563"><span id="local-6989586621679151565"><span class="annot"><span class="annottext">ReadPrec [EnvironmentStatus]
+ReadPrec EnvironmentStatus
+Int -&gt; ReadS EnvironmentStatus
+ReadS [EnvironmentStatus]
+(Int -&gt; ReadS EnvironmentStatus)
+-&gt; ReadS [EnvironmentStatus]
+-&gt; ReadPrec EnvironmentStatus
+-&gt; ReadPrec [EnvironmentStatus]
+-&gt; Read EnvironmentStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EnvironmentStatus]
+$creadListPrec :: ReadPrec [EnvironmentStatus]
+readPrec :: ReadPrec EnvironmentStatus
+$creadPrec :: ReadPrec EnvironmentStatus
+readList :: ReadS [EnvironmentStatus]
+$creadList :: ReadS [EnvironmentStatus]
+readsPrec :: Int -&gt; ReadS EnvironmentStatus
+$creadsPrec :: Int -&gt; ReadS EnvironmentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679151554"><span id="local-6989586621679151556"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
+(EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool)
+-&gt; (EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool)
+-&gt; Eq EnvironmentStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
+$c/= :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
+== :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
+$c== :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679151538"><span id="local-6989586621679151540"><span id="local-6989586621679151542"><span id="local-6989586621679151544"><span id="local-6989586621679151546"><span id="local-6989586621679151548"><span id="local-6989586621679151550"><span class="annot"><span class="annottext">Eq EnvironmentStatus
+Eq EnvironmentStatus
+-&gt; (EnvironmentStatus -&gt; EnvironmentStatus -&gt; Ordering)
+-&gt; (EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool)
+-&gt; (EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool)
+-&gt; (EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool)
+-&gt; (EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool)
+-&gt; (EnvironmentStatus -&gt; EnvironmentStatus -&gt; EnvironmentStatus)
+-&gt; (EnvironmentStatus -&gt; EnvironmentStatus -&gt; EnvironmentStatus)
+-&gt; Ord EnvironmentStatus
+EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
+EnvironmentStatus -&gt; EnvironmentStatus -&gt; Ordering
+EnvironmentStatus -&gt; EnvironmentStatus -&gt; EnvironmentStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; EnvironmentStatus
+$cmin :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; EnvironmentStatus
+max :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; EnvironmentStatus
+$cmax :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; EnvironmentStatus
+&gt;= :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
+$c&gt;= :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
+&gt; :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
+$c&gt; :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
+&lt;= :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
+$c&lt;= :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
+&lt; :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
+$c&lt; :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; Bool
+compare :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; Ordering
+$ccompare :: EnvironmentStatus -&gt; EnvironmentStatus -&gt; Ordering
+$cp1Ord :: Eq EnvironmentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">(forall x. EnvironmentStatus -&gt; Rep EnvironmentStatus x)
+-&gt; (forall x. Rep EnvironmentStatus x -&gt; EnvironmentStatus)
+-&gt; Generic EnvironmentStatus
+forall x. Rep EnvironmentStatus x -&gt; EnvironmentStatus
+forall x. EnvironmentStatus -&gt; Rep EnvironmentStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EnvironmentStatus x -&gt; EnvironmentStatus
+$cfrom :: forall x. EnvironmentStatus -&gt; Rep EnvironmentStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679151530"><span id="local-6989586621679151532"><span class="annot"><span class="annottext">Int -&gt; EnvironmentStatus -&gt; Int
+EnvironmentStatus -&gt; Int
+(Int -&gt; EnvironmentStatus -&gt; Int)
+-&gt; (EnvironmentStatus -&gt; Int) -&gt; Hashable EnvironmentStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: EnvironmentStatus -&gt; Int
+$chash :: EnvironmentStatus -&gt; Int
+hashWithSalt :: Int -&gt; EnvironmentStatus -&gt; Int
+$chashWithSalt :: Int -&gt; EnvironmentStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679151527"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; ()
+(EnvironmentStatus -&gt; ()) -&gt; NFData EnvironmentStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: EnvironmentStatus -&gt; ()
+$crnf :: EnvironmentStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679151524"><span class="annot"><span class="annottext">Text -&gt; Either String EnvironmentStatus
+(Text -&gt; Either String EnvironmentStatus)
+-&gt; FromText EnvironmentStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String EnvironmentStatus
+$cfromText :: Text -&gt; Either String EnvironmentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679151521"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; Text
+(EnvironmentStatus -&gt; Text) -&gt; ToText EnvironmentStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: EnvironmentStatus -&gt; Text
+$ctoText :: EnvironmentStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679151518"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; ByteString
+(EnvironmentStatus -&gt; ByteString) -&gt; ToByteString EnvironmentStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: EnvironmentStatus -&gt; ByteString
+$ctoBS :: EnvironmentStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679151515"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; ByteStringBuilder
+(EnvironmentStatus -&gt; ByteStringBuilder) -&gt; ToLog EnvironmentStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: EnvironmentStatus -&gt; ByteStringBuilder
+$cbuild :: EnvironmentStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679151512"><span class="annot"><span class="annottext">HeaderName -&gt; EnvironmentStatus -&gt; [Header]
+(HeaderName -&gt; EnvironmentStatus -&gt; [Header])
+-&gt; ToHeader EnvironmentStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; EnvironmentStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; EnvironmentStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679151509"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; QueryString
+(EnvironmentStatus -&gt; QueryString) -&gt; ToQuery EnvironmentStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: EnvironmentStatus -&gt; QueryString
+$ctoQuery :: EnvironmentStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679151504"><span id="local-6989586621679151506"><span class="annot"><span class="annottext">Value -&gt; Parser [EnvironmentStatus]
+Value -&gt; Parser EnvironmentStatus
+(Value -&gt; Parser EnvironmentStatus)
+-&gt; (Value -&gt; Parser [EnvironmentStatus])
+-&gt; FromJSON EnvironmentStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [EnvironmentStatus]
+$cparseJSONList :: Value -&gt; Parser [EnvironmentStatus]
+parseJSON :: Value -&gt; Parser EnvironmentStatus
+$cparseJSON :: Value -&gt; Parser EnvironmentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679151499"><span id="local-6989586621679151501"><span class="annot"><span class="annottext">FromJSONKeyFunction [EnvironmentStatus]
+FromJSONKeyFunction EnvironmentStatus
+FromJSONKeyFunction EnvironmentStatus
+-&gt; FromJSONKeyFunction [EnvironmentStatus]
+-&gt; FromJSONKey EnvironmentStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [EnvironmentStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [EnvironmentStatus]
+fromJSONKey :: FromJSONKeyFunction EnvironmentStatus
+$cfromJSONKey :: FromJSONKeyFunction EnvironmentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679151490"><span id="local-6989586621679151492"><span id="local-6989586621679151494"><span id="local-6989586621679151496"><span class="annot"><span class="annottext">[EnvironmentStatus] -&gt; Encoding
+[EnvironmentStatus] -&gt; Value
+EnvironmentStatus -&gt; Encoding
+EnvironmentStatus -&gt; Value
+(EnvironmentStatus -&gt; Value)
+-&gt; (EnvironmentStatus -&gt; Encoding)
+-&gt; ([EnvironmentStatus] -&gt; Value)
+-&gt; ([EnvironmentStatus] -&gt; Encoding)
+-&gt; ToJSON EnvironmentStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [EnvironmentStatus] -&gt; Encoding
+$ctoEncodingList :: [EnvironmentStatus] -&gt; Encoding
+toJSONList :: [EnvironmentStatus] -&gt; Value
+$ctoJSONList :: [EnvironmentStatus] -&gt; Value
+toEncoding :: EnvironmentStatus -&gt; Encoding
+$ctoEncoding :: EnvironmentStatus -&gt; Encoding
+toJSON :: EnvironmentStatus -&gt; Value
+$ctoJSON :: EnvironmentStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679151485"><span id="local-6989586621679151487"><span class="annot"><span class="annottext">ToJSONKeyFunction [EnvironmentStatus]
+ToJSONKeyFunction EnvironmentStatus
+ToJSONKeyFunction EnvironmentStatus
+-&gt; ToJSONKeyFunction [EnvironmentStatus]
+-&gt; ToJSONKey EnvironmentStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [EnvironmentStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [EnvironmentStatus]
+toJSONKey :: ToJSONKeyFunction EnvironmentStatus
+$ctoJSONKey :: ToJSONKeyFunction EnvironmentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679151482"><span class="annot"><span class="annottext">[Node] -&gt; Either String EnvironmentStatus
+([Node] -&gt; Either String EnvironmentStatus)
+-&gt; FromXML EnvironmentStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String EnvironmentStatus
+$cparseXML :: [Node] -&gt; Either String EnvironmentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679151479"><span class="annot"><span class="annottext">EnvironmentStatus -&gt; XML
+(EnvironmentStatus -&gt; XML) -&gt; ToXML EnvironmentStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: EnvironmentStatus -&gt; XML
+$ctoXML :: EnvironmentStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_CREATED"><span class="hs-identifier hs-type">EnvironmentStatus_CREATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus"><span class="hs-identifier hs-type">EnvironmentStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnvironmentStatus_CREATED"><span id="%24mEnvironmentStatus_CREATED"><span id="EnvironmentStatus_CREATED"><span class="annot"><span class="annottext">$bEnvironmentStatus_CREATED :: EnvironmentStatus
+$mEnvironmentStatus_CREATED :: forall r. EnvironmentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#%24bEnvironmentStatus_CREATED"><span class="hs-identifier hs-var hs-var hs-var">EnvironmentStatus_CREATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus%27"><span class="hs-identifier hs-type">EnvironmentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_CREATE_REQUESTED"><span class="hs-identifier hs-type">EnvironmentStatus_CREATE_REQUESTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus"><span class="hs-identifier hs-type">EnvironmentStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnvironmentStatus_CREATE_REQUESTED"><span id="%24mEnvironmentStatus_CREATE_REQUESTED"><span id="EnvironmentStatus_CREATE_REQUESTED"><span class="annot"><span class="annottext">$bEnvironmentStatus_CREATE_REQUESTED :: EnvironmentStatus
+$mEnvironmentStatus_CREATE_REQUESTED :: forall r. EnvironmentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#%24bEnvironmentStatus_CREATE_REQUESTED"><span class="hs-identifier hs-var hs-var hs-var">EnvironmentStatus_CREATE_REQUESTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus%27"><span class="hs-identifier hs-type">EnvironmentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_REQUESTED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_CREATING"><span class="hs-identifier hs-type">EnvironmentStatus_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus"><span class="hs-identifier hs-type">EnvironmentStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnvironmentStatus_CREATING"><span id="%24mEnvironmentStatus_CREATING"><span id="EnvironmentStatus_CREATING"><span class="annot"><span class="annottext">$bEnvironmentStatus_CREATING :: EnvironmentStatus
+$mEnvironmentStatus_CREATING :: forall r. EnvironmentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#%24bEnvironmentStatus_CREATING"><span class="hs-identifier hs-var hs-var hs-var">EnvironmentStatus_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus%27"><span class="hs-identifier hs-type">EnvironmentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_DELETED"><span class="hs-identifier hs-type">EnvironmentStatus_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus"><span class="hs-identifier hs-type">EnvironmentStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnvironmentStatus_DELETED"><span id="%24mEnvironmentStatus_DELETED"><span id="EnvironmentStatus_DELETED"><span class="annot"><span class="annottext">$bEnvironmentStatus_DELETED :: EnvironmentStatus
+$mEnvironmentStatus_DELETED :: forall r. EnvironmentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#%24bEnvironmentStatus_DELETED"><span class="hs-identifier hs-var hs-var hs-var">EnvironmentStatus_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus%27"><span class="hs-identifier hs-type">EnvironmentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_DELETE_REQUESTED"><span class="hs-identifier hs-type">EnvironmentStatus_DELETE_REQUESTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus"><span class="hs-identifier hs-type">EnvironmentStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnvironmentStatus_DELETE_REQUESTED"><span id="%24mEnvironmentStatus_DELETE_REQUESTED"><span id="EnvironmentStatus_DELETE_REQUESTED"><span class="annot"><span class="annottext">$bEnvironmentStatus_DELETE_REQUESTED :: EnvironmentStatus
+$mEnvironmentStatus_DELETE_REQUESTED :: forall r. EnvironmentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#%24bEnvironmentStatus_DELETE_REQUESTED"><span class="hs-identifier hs-var hs-var hs-var">EnvironmentStatus_DELETE_REQUESTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus%27"><span class="hs-identifier hs-type">EnvironmentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_REQUESTED&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_DELETING"><span class="hs-identifier hs-type">EnvironmentStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus"><span class="hs-identifier hs-type">EnvironmentStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnvironmentStatus_DELETING"><span id="%24mEnvironmentStatus_DELETING"><span id="EnvironmentStatus_DELETING"><span class="annot"><span class="annottext">$bEnvironmentStatus_DELETING :: EnvironmentStatus
+$mEnvironmentStatus_DELETING :: forall r. EnvironmentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#%24bEnvironmentStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">EnvironmentStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus%27"><span class="hs-identifier hs-type">EnvironmentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_FAILED_CREATION"><span class="hs-identifier hs-type">EnvironmentStatus_FAILED_CREATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus"><span class="hs-identifier hs-type">EnvironmentStatus</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnvironmentStatus_FAILED_CREATION"><span id="%24mEnvironmentStatus_FAILED_CREATION"><span id="EnvironmentStatus_FAILED_CREATION"><span class="annot"><span class="annottext">$bEnvironmentStatus_FAILED_CREATION :: EnvironmentStatus
+$mEnvironmentStatus_FAILED_CREATION :: forall r. EnvironmentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#%24bEnvironmentStatus_FAILED_CREATION"><span class="hs-identifier hs-var hs-var hs-var">EnvironmentStatus_FAILED_CREATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus%27"><span class="hs-identifier hs-type">EnvironmentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED_CREATION&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_FAILED_DELETION"><span class="hs-identifier hs-type">EnvironmentStatus_FAILED_DELETION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus"><span class="hs-identifier hs-type">EnvironmentStatus</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnvironmentStatus_FAILED_DELETION"><span id="%24mEnvironmentStatus_FAILED_DELETION"><span id="EnvironmentStatus_FAILED_DELETION"><span class="annot"><span class="annottext">$bEnvironmentStatus_FAILED_DELETION :: EnvironmentStatus
+$mEnvironmentStatus_FAILED_DELETION :: forall r. EnvironmentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#%24bEnvironmentStatus_FAILED_DELETION"><span class="hs-identifier hs-var hs-var hs-var">EnvironmentStatus_FAILED_DELETION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus%27"><span class="hs-identifier hs-type">EnvironmentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED_DELETION&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_RETRY_DELETION"><span class="hs-identifier hs-type">EnvironmentStatus_RETRY_DELETION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus"><span class="hs-identifier hs-type">EnvironmentStatus</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnvironmentStatus_RETRY_DELETION"><span id="%24mEnvironmentStatus_RETRY_DELETION"><span id="EnvironmentStatus_RETRY_DELETION"><span class="annot"><span class="annottext">$bEnvironmentStatus_RETRY_DELETION :: EnvironmentStatus
+$mEnvironmentStatus_RETRY_DELETION :: forall r. EnvironmentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#%24bEnvironmentStatus_RETRY_DELETION"><span class="hs-identifier hs-var hs-var hs-var">EnvironmentStatus_RETRY_DELETION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus%27"><span class="hs-identifier hs-type">EnvironmentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RETRY_DELETION&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_SUSPENDED"><span class="hs-identifier hs-type">EnvironmentStatus_SUSPENDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus"><span class="hs-identifier hs-type">EnvironmentStatus</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnvironmentStatus_SUSPENDED"><span id="%24mEnvironmentStatus_SUSPENDED"><span id="EnvironmentStatus_SUSPENDED"><span class="annot"><span class="annottext">$bEnvironmentStatus_SUSPENDED :: EnvironmentStatus
+$mEnvironmentStatus_SUSPENDED :: forall r. EnvironmentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#%24bEnvironmentStatus_SUSPENDED"><span class="hs-identifier hs-var hs-var hs-var">EnvironmentStatus_SUSPENDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus%27"><span class="hs-identifier hs-type">EnvironmentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUSPENDED&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_CREATED"><span class="hs-pragma hs-type">EnvironmentStatus_CREATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_CREATE_REQUESTED"><span class="hs-pragma hs-type">EnvironmentStatus_CREATE_REQUESTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_CREATING"><span class="hs-pragma hs-type">EnvironmentStatus_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_DELETED"><span class="hs-pragma hs-type">EnvironmentStatus_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_DELETE_REQUESTED"><span class="hs-pragma hs-type">EnvironmentStatus_DELETE_REQUESTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_DELETING"><span class="hs-pragma hs-type">EnvironmentStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_FAILED_CREATION"><span class="hs-pragma hs-type">EnvironmentStatus_FAILED_CREATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_FAILED_DELETION"><span class="hs-pragma hs-type">EnvironmentStatus_FAILED_DELETION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_RETRY_DELETION"><span class="hs-pragma hs-type">EnvironmentStatus_RETRY_DELETION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus_SUSPENDED"><span class="hs-pragma hs-type">EnvironmentStatus_SUSPENDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.FinSpace.Types.EnvironmentStatus.html#EnvironmentStatus%27"><span class="hs-pragma hs-type">EnvironmentStatus'</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-111"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679370603"><span id="local-6989586621679370604"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceGroupType"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupType.html#InstanceGroupType"><span class="hs-identifier hs-var">InstanceGroupType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceGroupType%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupType.html#InstanceGroupType%27"><span class="hs-identifier hs-var">InstanceGroupType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679370612"><span id="local-6989586621679370613"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceGroupType"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupType.html#InstanceGroupType"><span class="hs-identifier hs-var">InstanceGroupType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceGroupType%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupType.html#InstanceGroupType%27"><span class="hs-identifier hs-var">InstanceGroupType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceGroupType"><span class="annot"><span class="annottext">InstanceGroupType -&gt; Text
 </span><a href="Network.AWS.EMR.Types.InstanceGroupType.html#fromInstanceGroupType"><span class="hs-identifier hs-var hs-var">fromInstanceGroupType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370595"><span id="local-6989586621679370597"><span id="local-6989586621679370599"><span class="annot"><span class="annottext">Int -&gt; InstanceGroupType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370604"><span id="local-6989586621679370606"><span id="local-6989586621679370608"><span class="annot"><span class="annottext">Int -&gt; InstanceGroupType -&gt; ShowS
 [InstanceGroupType] -&gt; ShowS
 InstanceGroupType -&gt; String
 (Int -&gt; InstanceGroupType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: InstanceGroupType -&gt; String
 showsPrec :: Int -&gt; InstanceGroupType -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstanceGroupType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679370586"><span id="local-6989586621679370588"><span id="local-6989586621679370590"><span id="local-6989586621679370592"><span class="annot"><span class="annottext">ReadPrec [InstanceGroupType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679370595"><span id="local-6989586621679370597"><span id="local-6989586621679370599"><span id="local-6989586621679370601"><span class="annot"><span class="annottext">ReadPrec [InstanceGroupType]
 ReadPrec InstanceGroupType
 Int -&gt; ReadS InstanceGroupType
 ReadS [InstanceGroupType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [InstanceGroupType]
 readsPrec :: Int -&gt; ReadS InstanceGroupType
 $creadsPrec :: Int -&gt; ReadS InstanceGroupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679370581"><span id="local-6989586621679370583"><span class="annot"><span class="annottext">InstanceGroupType -&gt; InstanceGroupType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679370590"><span id="local-6989586621679370592"><span class="annot"><span class="annottext">InstanceGroupType -&gt; InstanceGroupType -&gt; Bool
 (InstanceGroupType -&gt; InstanceGroupType -&gt; Bool)
 -&gt; (InstanceGroupType -&gt; InstanceGroupType -&gt; Bool)
 -&gt; Eq InstanceGroupType
@@ -83,7 +83,7 @@ $c/= :: InstanceGroupType -&gt; InstanceGroupType -&gt; Bool
 == :: InstanceGroupType -&gt; InstanceGroupType -&gt; Bool
 $c== :: InstanceGroupType -&gt; InstanceGroupType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679370565"><span id="local-6989586621679370567"><span id="local-6989586621679370569"><span id="local-6989586621679370571"><span id="local-6989586621679370573"><span id="local-6989586621679370575"><span id="local-6989586621679370577"><span class="annot"><span class="annottext">Eq InstanceGroupType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679370574"><span id="local-6989586621679370576"><span id="local-6989586621679370578"><span id="local-6989586621679370580"><span id="local-6989586621679370582"><span id="local-6989586621679370584"><span id="local-6989586621679370586"><span class="annot"><span class="annottext">Eq InstanceGroupType
 Eq InstanceGroupType
 -&gt; (InstanceGroupType -&gt; InstanceGroupType -&gt; Ordering)
 -&gt; (InstanceGroupType -&gt; InstanceGroupType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. InstanceGroupType -&gt; Rep InstanceGroupType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370557"><span id="local-6989586621679370559"><span class="annot"><span class="annottext">Int -&gt; InstanceGroupType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370566"><span id="local-6989586621679370568"><span class="annot"><span class="annottext">Int -&gt; InstanceGroupType -&gt; Int
 InstanceGroupType -&gt; Int
 (Int -&gt; InstanceGroupType -&gt; Int)
 -&gt; (InstanceGroupType -&gt; Int) -&gt; Hashable InstanceGroupType
@@ -144,51 +144,51 @@ $chash :: InstanceGroupType -&gt; Int
 hashWithSalt :: Int -&gt; InstanceGroupType -&gt; Int
 $chashWithSalt :: Int -&gt; InstanceGroupType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679370554"><span class="annot"><span class="annottext">InstanceGroupType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679370563"><span class="annot"><span class="annottext">InstanceGroupType -&gt; ()
 (InstanceGroupType -&gt; ()) -&gt; NFData InstanceGroupType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstanceGroupType -&gt; ()
 $crnf :: InstanceGroupType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679370551"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceGroupType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679370560"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceGroupType
 (Text -&gt; Either String InstanceGroupType)
 -&gt; FromText InstanceGroupType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstanceGroupType
 $cfromText :: Text -&gt; Either String InstanceGroupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679370548"><span class="annot"><span class="annottext">InstanceGroupType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679370557"><span class="annot"><span class="annottext">InstanceGroupType -&gt; Text
 (InstanceGroupType -&gt; Text) -&gt; ToText InstanceGroupType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstanceGroupType -&gt; Text
 $ctoText :: InstanceGroupType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679370545"><span class="annot"><span class="annottext">InstanceGroupType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679370554"><span class="annot"><span class="annottext">InstanceGroupType -&gt; ByteString
 (InstanceGroupType -&gt; ByteString) -&gt; ToByteString InstanceGroupType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstanceGroupType -&gt; ByteString
 $ctoBS :: InstanceGroupType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679370542"><span class="annot"><span class="annottext">InstanceGroupType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679370551"><span class="annot"><span class="annottext">InstanceGroupType -&gt; ByteStringBuilder
 (InstanceGroupType -&gt; ByteStringBuilder) -&gt; ToLog InstanceGroupType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstanceGroupType -&gt; ByteStringBuilder
 $cbuild :: InstanceGroupType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679370539"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceGroupType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679370548"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceGroupType -&gt; [Header]
 (HeaderName -&gt; InstanceGroupType -&gt; [Header])
 -&gt; ToHeader InstanceGroupType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstanceGroupType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstanceGroupType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679370536"><span class="annot"><span class="annottext">InstanceGroupType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679370545"><span class="annot"><span class="annottext">InstanceGroupType -&gt; QueryString
 (InstanceGroupType -&gt; QueryString) -&gt; ToQuery InstanceGroupType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstanceGroupType -&gt; QueryString
 $ctoQuery :: InstanceGroupType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679370531"><span id="local-6989586621679370533"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceGroupType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679370540"><span id="local-6989586621679370542"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceGroupType]
 Value -&gt; Parser InstanceGroupType
 (Value -&gt; Parser InstanceGroupType)
 -&gt; (Value -&gt; Parser [InstanceGroupType])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [InstanceGroupType]
 parseJSON :: Value -&gt; Parser InstanceGroupType
 $cparseJSON :: Value -&gt; Parser InstanceGroupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679370526"><span id="local-6989586621679370528"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceGroupType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679370535"><span id="local-6989586621679370537"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceGroupType]
 FromJSONKeyFunction InstanceGroupType
 FromJSONKeyFunction InstanceGroupType
 -&gt; FromJSONKeyFunction [InstanceGroupType]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstanceGroupType]
 fromJSONKey :: FromJSONKeyFunction InstanceGroupType
 $cfromJSONKey :: FromJSONKeyFunction InstanceGroupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679370517"><span id="local-6989586621679370519"><span id="local-6989586621679370521"><span id="local-6989586621679370523"><span class="annot"><span class="annottext">[InstanceGroupType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679370526"><span id="local-6989586621679370528"><span id="local-6989586621679370530"><span id="local-6989586621679370532"><span class="annot"><span class="annottext">[InstanceGroupType] -&gt; Encoding
 [InstanceGroupType] -&gt; Value
 InstanceGroupType -&gt; Encoding
 InstanceGroupType -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: InstanceGroupType -&gt; Encoding
 toJSON :: InstanceGroupType -&gt; Value
 $ctoJSON :: InstanceGroupType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679370512"><span id="local-6989586621679370514"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceGroupType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679370521"><span id="local-6989586621679370523"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceGroupType]
 ToJSONKeyFunction InstanceGroupType
 ToJSONKeyFunction InstanceGroupType
 -&gt; ToJSONKeyFunction [InstanceGroupType]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstanceGroupType]
 toJSONKey :: ToJSONKeyFunction InstanceGroupType
 $ctoJSONKey :: ToJSONKeyFunction InstanceGroupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679370509"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceGroupType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679370518"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceGroupType
 ([Node] -&gt; Either String InstanceGroupType)
 -&gt; FromXML InstanceGroupType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstanceGroupType
 $cparseXML :: [Node] -&gt; Either String InstanceGroupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679370506"><span class="annot"><span class="annottext">InstanceGroupType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679370515"><span class="annot"><span class="annottext">InstanceGroupType -&gt; XML
 (InstanceGroupType -&gt; XML) -&gt; ToXML InstanceGroupType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InstanceGroupType -&gt; XML

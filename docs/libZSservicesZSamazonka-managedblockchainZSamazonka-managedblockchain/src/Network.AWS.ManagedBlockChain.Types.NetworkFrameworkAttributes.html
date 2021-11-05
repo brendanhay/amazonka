@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkEthereumAttributes.html"><span class="hs-identifier">Network.AWS.ManagedBlockChain.Types.NetworkEthereumAttributes</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFabricAttributes.html"><span class="hs-identifier">Network.AWS.ManagedBlockChain.Types.NetworkFabricAttributes</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Attributes relevant to the network for the blockchain framework that the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- network uses.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newNetworkFrameworkAttributes' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679217344"><span id="local-6989586621679217345"></span></span><span class="hs-keyword">data</span><span> </span><span id="NetworkFrameworkAttributes"><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#NetworkFrameworkAttributes"><span class="hs-identifier hs-var">NetworkFrameworkAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkFrameworkAttributes%27"><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#NetworkFrameworkAttributes%27"><span class="hs-identifier hs-var">NetworkFrameworkAttributes'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Attributes of Hyperledger Fabric for a Managed Blockchain network that</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- uses Hyperledger Fabric.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Afabric%3ANetworkFrameworkAttributes%27"><span class="annot"><span class="annottext">NetworkFrameworkAttributes -&gt; Maybe NetworkFabricAttributes
+</span><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#%24sel%3Afabric%3ANetworkFrameworkAttributes%27"><span class="hs-identifier hs-var hs-var">fabric</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFabricAttributes.html#NetworkFabricAttributes"><span class="hs-identifier hs-type">NetworkFabricAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Attributes of an Ethereum network for Managed Blockchain resources</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- participating in an Ethereum network.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aethereum%3ANetworkFrameworkAttributes%27"><span class="annot"><span class="annottext">NetworkFrameworkAttributes -&gt; Maybe NetworkEthereumAttributes
+</span><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#%24sel%3Aethereum%3ANetworkFrameworkAttributes%27"><span class="hs-identifier hs-var hs-var">ethereum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkEthereumAttributes.html#NetworkEthereumAttributes"><span class="hs-identifier hs-type">NetworkEthereumAttributes</span></a></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217337"><span id="local-6989586621679217339"><span class="annot"><span class="annottext">NetworkFrameworkAttributes -&gt; NetworkFrameworkAttributes -&gt; Bool
+(NetworkFrameworkAttributes -&gt; NetworkFrameworkAttributes -&gt; Bool)
+-&gt; (NetworkFrameworkAttributes
+    -&gt; NetworkFrameworkAttributes -&gt; Bool)
+-&gt; Eq NetworkFrameworkAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NetworkFrameworkAttributes -&gt; NetworkFrameworkAttributes -&gt; Bool
+$c/= :: NetworkFrameworkAttributes -&gt; NetworkFrameworkAttributes -&gt; Bool
+== :: NetworkFrameworkAttributes -&gt; NetworkFrameworkAttributes -&gt; Bool
+$c== :: NetworkFrameworkAttributes -&gt; NetworkFrameworkAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217328"><span id="local-6989586621679217330"><span id="local-6989586621679217332"><span id="local-6989586621679217334"><span class="annot"><span class="annottext">ReadPrec [NetworkFrameworkAttributes]
+ReadPrec NetworkFrameworkAttributes
+Int -&gt; ReadS NetworkFrameworkAttributes
+ReadS [NetworkFrameworkAttributes]
+(Int -&gt; ReadS NetworkFrameworkAttributes)
+-&gt; ReadS [NetworkFrameworkAttributes]
+-&gt; ReadPrec NetworkFrameworkAttributes
+-&gt; ReadPrec [NetworkFrameworkAttributes]
+-&gt; Read NetworkFrameworkAttributes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NetworkFrameworkAttributes]
+$creadListPrec :: ReadPrec [NetworkFrameworkAttributes]
+readPrec :: ReadPrec NetworkFrameworkAttributes
+$creadPrec :: ReadPrec NetworkFrameworkAttributes
+readList :: ReadS [NetworkFrameworkAttributes]
+$creadList :: ReadS [NetworkFrameworkAttributes]
+readsPrec :: Int -&gt; ReadS NetworkFrameworkAttributes
+$creadsPrec :: Int -&gt; ReadS NetworkFrameworkAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217321"><span id="local-6989586621679217323"><span id="local-6989586621679217325"><span class="annot"><span class="annottext">Int -&gt; NetworkFrameworkAttributes -&gt; ShowS
+[NetworkFrameworkAttributes] -&gt; ShowS
+NetworkFrameworkAttributes -&gt; String
+(Int -&gt; NetworkFrameworkAttributes -&gt; ShowS)
+-&gt; (NetworkFrameworkAttributes -&gt; String)
+-&gt; ([NetworkFrameworkAttributes] -&gt; ShowS)
+-&gt; Show NetworkFrameworkAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NetworkFrameworkAttributes] -&gt; ShowS
+$cshowList :: [NetworkFrameworkAttributes] -&gt; ShowS
+show :: NetworkFrameworkAttributes -&gt; String
+$cshow :: NetworkFrameworkAttributes -&gt; String
+showsPrec :: Int -&gt; NetworkFrameworkAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; NetworkFrameworkAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ NetworkFrameworkAttributes -&gt; Rep NetworkFrameworkAttributes x)
+-&gt; (forall x.
+    Rep NetworkFrameworkAttributes x -&gt; NetworkFrameworkAttributes)
+-&gt; Generic NetworkFrameworkAttributes
+forall x.
+Rep NetworkFrameworkAttributes x -&gt; NetworkFrameworkAttributes
+forall x.
+NetworkFrameworkAttributes -&gt; Rep NetworkFrameworkAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep NetworkFrameworkAttributes x -&gt; NetworkFrameworkAttributes
+$cfrom :: forall x.
+NetworkFrameworkAttributes -&gt; Rep NetworkFrameworkAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'NetworkFrameworkAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'fabric', 'networkFrameworkAttributes_fabric' - Attributes of Hyperledger Fabric for a Managed Blockchain network that</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- uses Hyperledger Fabric.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'ethereum', 'networkFrameworkAttributes_ethereum' - Attributes of an Ethereum network for Managed Blockchain resources</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- participating in an Ethereum network.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#newNetworkFrameworkAttributes"><span class="hs-identifier hs-type">newNetworkFrameworkAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#NetworkFrameworkAttributes"><span class="hs-identifier hs-type">NetworkFrameworkAttributes</span></a></span><span>
+</span><span id="line-57"></span><span id="newNetworkFrameworkAttributes"><span class="annot"><span class="annottext">newNetworkFrameworkAttributes :: NetworkFrameworkAttributes
+</span><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#newNetworkFrameworkAttributes"><span class="hs-identifier hs-var hs-var">newNetworkFrameworkAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">NetworkFrameworkAttributes' :: Maybe NetworkFabricAttributes
+-&gt; Maybe NetworkEthereumAttributes -&gt; NetworkFrameworkAttributes
+</span><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#NetworkFrameworkAttributes%27"><span class="hs-identifier hs-type">NetworkFrameworkAttributes'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fabric:NetworkFrameworkAttributes' :: Maybe NetworkFabricAttributes
+</span><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#%24sel%3Afabric%3ANetworkFrameworkAttributes%27"><span class="hs-identifier hs-var">fabric</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe NetworkFabricAttributes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:ethereum:NetworkFrameworkAttributes' :: Maybe NetworkEthereumAttributes
+</span><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#%24sel%3Aethereum%3ANetworkFrameworkAttributes%27"><span class="hs-identifier hs-var">ethereum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkEthereumAttributes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Attributes of Hyperledger Fabric for a Managed Blockchain network that</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- uses Hyperledger Fabric.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#networkFrameworkAttributes_fabric"><span class="hs-identifier hs-type">networkFrameworkAttributes_fabric</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#NetworkFrameworkAttributes"><span class="hs-identifier hs-type">NetworkFrameworkAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFabricAttributes.html#NetworkFabricAttributes"><span class="hs-identifier hs-type">NetworkFabricAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="networkFrameworkAttributes_fabric"><span class="annot"><span class="annottext">networkFrameworkAttributes_fabric :: (Maybe NetworkFabricAttributes
+ -&gt; f (Maybe NetworkFabricAttributes))
+-&gt; NetworkFrameworkAttributes -&gt; f NetworkFrameworkAttributes
+</span><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#networkFrameworkAttributes_fabric"><span class="hs-identifier hs-var hs-var">networkFrameworkAttributes_fabric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkFrameworkAttributes -&gt; Maybe NetworkFabricAttributes)
+-&gt; (NetworkFrameworkAttributes
+    -&gt; Maybe NetworkFabricAttributes -&gt; NetworkFrameworkAttributes)
+-&gt; Lens
+     NetworkFrameworkAttributes
+     NetworkFrameworkAttributes
+     (Maybe NetworkFabricAttributes)
+     (Maybe NetworkFabricAttributes)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#NetworkFrameworkAttributes%27"><span class="hs-identifier hs-type">NetworkFrameworkAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217312"><span class="annot"><span class="annottext">Maybe NetworkFabricAttributes
+fabric :: Maybe NetworkFabricAttributes
+$sel:fabric:NetworkFrameworkAttributes' :: NetworkFrameworkAttributes -&gt; Maybe NetworkFabricAttributes
+</span><a href="#local-6989586621679217312"><span class="hs-identifier hs-var hs-var">fabric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFabricAttributes
+</span><a href="#local-6989586621679217312"><span class="hs-identifier hs-var">fabric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217311"><span class="annot"><span class="annottext">s :: NetworkFrameworkAttributes
+</span><a href="#local-6989586621679217311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#NetworkFrameworkAttributes%27"><span class="hs-identifier hs-type">NetworkFrameworkAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217310"><span class="annot"><span class="annottext">Maybe NetworkFabricAttributes
+</span><a href="#local-6989586621679217310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkFrameworkAttributes
+</span><a href="#local-6989586621679217311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fabric:NetworkFrameworkAttributes' :: Maybe NetworkFabricAttributes
+</span><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#%24sel%3Afabric%3ANetworkFrameworkAttributes%27"><span class="hs-identifier hs-var">fabric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkFabricAttributes
+</span><a href="#local-6989586621679217310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#NetworkFrameworkAttributes"><span class="hs-identifier hs-type">NetworkFrameworkAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | Attributes of an Ethereum network for Managed Blockchain resources</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- participating in an Ethereum network.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#networkFrameworkAttributes_ethereum"><span class="hs-identifier hs-type">networkFrameworkAttributes_ethereum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#NetworkFrameworkAttributes"><span class="hs-identifier hs-type">NetworkFrameworkAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkEthereumAttributes.html#NetworkEthereumAttributes"><span class="hs-identifier hs-type">NetworkEthereumAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="networkFrameworkAttributes_ethereum"><span class="annot"><span class="annottext">networkFrameworkAttributes_ethereum :: (Maybe NetworkEthereumAttributes
+ -&gt; f (Maybe NetworkEthereumAttributes))
+-&gt; NetworkFrameworkAttributes -&gt; f NetworkFrameworkAttributes
+</span><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#networkFrameworkAttributes_ethereum"><span class="hs-identifier hs-var hs-var">networkFrameworkAttributes_ethereum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkFrameworkAttributes -&gt; Maybe NetworkEthereumAttributes)
+-&gt; (NetworkFrameworkAttributes
+    -&gt; Maybe NetworkEthereumAttributes -&gt; NetworkFrameworkAttributes)
+-&gt; Lens
+     NetworkFrameworkAttributes
+     NetworkFrameworkAttributes
+     (Maybe NetworkEthereumAttributes)
+     (Maybe NetworkEthereumAttributes)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#NetworkFrameworkAttributes%27"><span class="hs-identifier hs-type">NetworkFrameworkAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217308"><span class="annot"><span class="annottext">Maybe NetworkEthereumAttributes
+ethereum :: Maybe NetworkEthereumAttributes
+$sel:ethereum:NetworkFrameworkAttributes' :: NetworkFrameworkAttributes -&gt; Maybe NetworkEthereumAttributes
+</span><a href="#local-6989586621679217308"><span class="hs-identifier hs-var hs-var">ethereum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkEthereumAttributes
+</span><a href="#local-6989586621679217308"><span class="hs-identifier hs-var">ethereum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217307"><span class="annot"><span class="annottext">s :: NetworkFrameworkAttributes
+</span><a href="#local-6989586621679217307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#NetworkFrameworkAttributes%27"><span class="hs-identifier hs-type">NetworkFrameworkAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217306"><span class="annot"><span class="annottext">Maybe NetworkEthereumAttributes
+</span><a href="#local-6989586621679217306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkFrameworkAttributes
+</span><a href="#local-6989586621679217307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ethereum:NetworkFrameworkAttributes' :: Maybe NetworkEthereumAttributes
+</span><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#%24sel%3Aethereum%3ANetworkFrameworkAttributes%27"><span class="hs-identifier hs-var">ethereum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkEthereumAttributes
+</span><a href="#local-6989586621679217306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#NetworkFrameworkAttributes"><span class="hs-identifier hs-type">NetworkFrameworkAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217303"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#NetworkFrameworkAttributes"><span class="hs-identifier hs-type">NetworkFrameworkAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679217301"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NetworkFrameworkAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser NetworkFrameworkAttributes)
+-&gt; Value
+-&gt; Parser NetworkFrameworkAttributes
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;NetworkFrameworkAttributes&quot;</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679217298"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217298"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe NetworkFabricAttributes
+-&gt; Maybe NetworkEthereumAttributes -&gt; NetworkFrameworkAttributes
+</span><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#NetworkFrameworkAttributes%27"><span class="hs-identifier hs-var">NetworkFrameworkAttributes'</span></a></span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe NetworkFabricAttributes
+ -&gt; Maybe NetworkEthereumAttributes -&gt; NetworkFrameworkAttributes)
+-&gt; Parser (Maybe NetworkFabricAttributes)
+-&gt; Parser
+     (Maybe NetworkEthereumAttributes -&gt; NetworkFrameworkAttributes)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217298"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NetworkFabricAttributes)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Fabric&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NetworkEthereumAttributes -&gt; NetworkFrameworkAttributes)
+-&gt; Parser (Maybe NetworkEthereumAttributes)
+-&gt; Parser NetworkFrameworkAttributes
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217298"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NetworkEthereumAttributes)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Ethereum&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217292"><span id="local-6989586621679217294"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#NetworkFrameworkAttributes"><span class="hs-identifier hs-type">NetworkFrameworkAttributes</span></a></span></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217289"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes.html#NetworkFrameworkAttributes"><span class="hs-identifier hs-type">NetworkFrameworkAttributes</span></a></span></span><span>
+</span><span id="line-87"></span></pre></body></html>

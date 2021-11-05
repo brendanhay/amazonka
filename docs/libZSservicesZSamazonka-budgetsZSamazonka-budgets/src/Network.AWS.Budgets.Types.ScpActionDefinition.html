@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The service control policies (SCP) action definition details.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newScpActionDefinition' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679207481"><span id="local-6989586621679207482"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScpActionDefinition"><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition"><span class="hs-identifier hs-var">ScpActionDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScpActionDefinition%27"><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition%27"><span class="hs-identifier hs-var">ScpActionDefinition'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679207490"><span id="local-6989586621679207491"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScpActionDefinition"><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition"><span class="hs-identifier hs-var">ScpActionDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScpActionDefinition%27"><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition%27"><span class="hs-identifier hs-var">ScpActionDefinition'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The policy ID attached.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3ApolicyId%3AScpActionDefinition%27"><span class="annot"><span class="annottext">ScpActionDefinition -&gt; Text
 </span><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#%24sel%3ApolicyId%3AScpActionDefinition%27"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AtargetIds%3AScpActionDefinition%27"><span class="annot"><span class="annottext">ScpActionDefinition -&gt; NonEmpty Text
 </span><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#%24sel%3AtargetIds%3AScpActionDefinition%27"><span class="hs-identifier hs-var hs-var">targetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207474"><span id="local-6989586621679207476"><span class="annot"><span class="annottext">ScpActionDefinition -&gt; ScpActionDefinition -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207483"><span id="local-6989586621679207485"><span class="annot"><span class="annottext">ScpActionDefinition -&gt; ScpActionDefinition -&gt; Bool
 (ScpActionDefinition -&gt; ScpActionDefinition -&gt; Bool)
 -&gt; (ScpActionDefinition -&gt; ScpActionDefinition -&gt; Bool)
 -&gt; Eq ScpActionDefinition
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ScpActionDefinition -&gt; ScpActionDefinition -&gt; Bool
 == :: ScpActionDefinition -&gt; ScpActionDefinition -&gt; Bool
 $c== :: ScpActionDefinition -&gt; ScpActionDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207465"><span id="local-6989586621679207467"><span id="local-6989586621679207469"><span id="local-6989586621679207471"><span class="annot"><span class="annottext">ReadPrec [ScpActionDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207474"><span id="local-6989586621679207476"><span id="local-6989586621679207478"><span id="local-6989586621679207480"><span class="annot"><span class="annottext">ReadPrec [ScpActionDefinition]
 ReadPrec ScpActionDefinition
 Int -&gt; ReadS ScpActionDefinition
 ReadS [ScpActionDefinition]
@@ -63,7 +63,7 @@ readList :: ReadS [ScpActionDefinition]
 $creadList :: ReadS [ScpActionDefinition]
 readsPrec :: Int -&gt; ReadS ScpActionDefinition
 $creadsPrec :: Int -&gt; ReadS ScpActionDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207458"><span id="local-6989586621679207460"><span id="local-6989586621679207462"><span class="annot"><span class="annottext">Int -&gt; ScpActionDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207467"><span id="local-6989586621679207469"><span id="local-6989586621679207471"><span class="annot"><span class="annottext">Int -&gt; ScpActionDefinition -&gt; ShowS
 [ScpActionDefinition] -&gt; ShowS
 ScpActionDefinition -&gt; String
 (Int -&gt; ScpActionDefinition -&gt; ShowS)
@@ -107,14 +107,14 @@ $cfrom :: forall x. ScpActionDefinition -&gt; Rep ScpActionDefinition x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition"><span class="hs-identifier hs-type">ScpActionDefinition</span></a></span><span>
 </span><span id="line-54"></span><span id="newScpActionDefinition"><span class="annot"><span class="annottext">newScpActionDefinition :: Text -&gt; NonEmpty Text -&gt; ScpActionDefinition
-</span><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#newScpActionDefinition"><span class="hs-identifier hs-var hs-var">newScpActionDefinition</span></a></span></span><span> </span><span id="local-6989586621679207452"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679207452"><span class="hs-identifier hs-var">pPolicyId_</span></a></span></span><span> </span><span id="local-6989586621679207451"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679207451"><span class="hs-identifier hs-var">pTargetIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#newScpActionDefinition"><span class="hs-identifier hs-var hs-var">newScpActionDefinition</span></a></span></span><span> </span><span id="local-6989586621679207461"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207461"><span class="hs-identifier hs-var">pPolicyId_</span></a></span></span><span> </span><span id="local-6989586621679207460"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679207460"><span class="hs-identifier hs-var">pTargetIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">ScpActionDefinition' :: Text -&gt; NonEmpty Text -&gt; ScpActionDefinition
 </span><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition%27"><span class="hs-identifier hs-type">ScpActionDefinition'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policyId:ScpActionDefinition' :: Text
 </span><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#%24sel%3ApolicyId%3AScpActionDefinition%27"><span class="hs-identifier hs-var">policyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679207452"><span class="hs-identifier hs-var">pPolicyId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679207461"><span class="hs-identifier hs-var">pPolicyId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetIds:ScpActionDefinition' :: NonEmpty Text
 </span><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#%24sel%3AtargetIds%3AScpActionDefinition%27"><span class="hs-identifier hs-var">targetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
@@ -124,7 +124,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679207451"><span class="hs-identifier hs-var">pTargetIds_</span></a></span><span>
+</span><a href="#local-6989586621679207460"><span class="hs-identifier hs-var">pTargetIds_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The policy ID attached.</span><span>
@@ -134,16 +134,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (ScpActionDefinition -&gt; Text -&gt; ScpActionDefinition)
 -&gt; Lens ScpActionDefinition ScpActionDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition%27"><span class="hs-identifier hs-type">ScpActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207445"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition%27"><span class="hs-identifier hs-type">ScpActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207454"><span class="annot"><span class="annottext">Text
 policyId :: Text
 $sel:policyId:ScpActionDefinition' :: ScpActionDefinition -&gt; Text
-</span><a href="#local-6989586621679207445"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679207445"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207444"><span class="annot"><span class="annottext">s :: ScpActionDefinition
-</span><a href="#local-6989586621679207444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition%27"><span class="hs-identifier hs-type">ScpActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207443"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679207443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScpActionDefinition
-</span><a href="#local-6989586621679207444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyId:ScpActionDefinition' :: Text
+</span><a href="#local-6989586621679207454"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207454"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207453"><span class="annot"><span class="annottext">s :: ScpActionDefinition
+</span><a href="#local-6989586621679207453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition%27"><span class="hs-identifier hs-type">ScpActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207452"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScpActionDefinition
+</span><a href="#local-6989586621679207453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyId:ScpActionDefinition' :: Text
 </span><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#%24sel%3ApolicyId%3AScpActionDefinition%27"><span class="hs-identifier hs-var">policyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679207443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition"><span class="hs-identifier hs-type">ScpActionDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679207452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition"><span class="hs-identifier hs-type">ScpActionDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | A list of target IDs.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#scpActionDefinition_targetIds"><span class="hs-identifier hs-type">scpActionDefinition_targetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition"><span class="hs-identifier hs-type">ScpActionDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -157,16 +157,16 @@ $sel:policyId:ScpActionDefinition' :: ScpActionDefinition -&gt; Text
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition%27"><span class="hs-identifier hs-type">ScpActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207441"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition%27"><span class="hs-identifier hs-type">ScpActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207450"><span class="annot"><span class="annottext">NonEmpty Text
 targetIds :: NonEmpty Text
 $sel:targetIds:ScpActionDefinition' :: ScpActionDefinition -&gt; NonEmpty Text
-</span><a href="#local-6989586621679207441"><span class="hs-identifier hs-var hs-var">targetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679207441"><span class="hs-identifier hs-var">targetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207440"><span class="annot"><span class="annottext">s :: ScpActionDefinition
-</span><a href="#local-6989586621679207440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition%27"><span class="hs-identifier hs-type">ScpActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207439"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679207439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScpActionDefinition
-</span><a href="#local-6989586621679207440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetIds:ScpActionDefinition' :: NonEmpty Text
+</span><a href="#local-6989586621679207450"><span class="hs-identifier hs-var hs-var">targetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679207450"><span class="hs-identifier hs-var">targetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207449"><span class="annot"><span class="annottext">s :: ScpActionDefinition
+</span><a href="#local-6989586621679207449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition%27"><span class="hs-identifier hs-type">ScpActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207448"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679207448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScpActionDefinition
+</span><a href="#local-6989586621679207449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetIds:ScpActionDefinition' :: NonEmpty Text
 </span><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#%24sel%3AtargetIds%3AScpActionDefinition%27"><span class="hs-identifier hs-var">targetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679207439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition"><span class="hs-identifier hs-type">ScpActionDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679207448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition"><span class="hs-identifier hs-type">ScpActionDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; ScpActionDefinition -&gt; f ScpActionDefinition)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -179,8 +179,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207435"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition"><span class="hs-identifier hs-type">ScpActionDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679207433"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ScpActionDefinition
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207444"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition"><span class="hs-identifier hs-type">ScpActionDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679207442"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ScpActionDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ScpActionDefinition)
@@ -190,15 +190,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ScpActionDefinition&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679207430"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679207430"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679207439"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207439"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; ScpActionDefinition
 </span><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition%27"><span class="hs-identifier hs-var">ScpActionDefinition'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; NonEmpty Text -&gt; ScpActionDefinition)
 -&gt; Parser Text -&gt; Parser (NonEmpty Text -&gt; ScpActionDefinition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679207430"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679207439"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -206,25 +206,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (NonEmpty Text) -&gt; Parser ScpActionDefinition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679207430"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
+</span><a href="#local-6989586621679207439"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetIds&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207424"><span id="local-6989586621679207426"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition"><span class="hs-identifier hs-type">ScpActionDefinition</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207433"><span id="local-6989586621679207435"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition"><span class="hs-identifier hs-type">ScpActionDefinition</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207421"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition"><span class="hs-identifier hs-type">ScpActionDefinition</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207430"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition"><span class="hs-identifier hs-type">ScpActionDefinition</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207413"><span id="local-6989586621679207415"><span id="local-6989586621679207417"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition"><span class="hs-identifier hs-type">ScpActionDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679207411"><span class="annot"><span class="annottext">toJSON :: ScpActionDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition%27"><span class="hs-identifier hs-type">ScpActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207408"><span id="local-6989586621679207409"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207422"><span id="local-6989586621679207424"><span id="local-6989586621679207426"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition"><span class="hs-identifier hs-type">ScpActionDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679207420"><span class="annot"><span class="annottext">toJSON :: ScpActionDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ScpActionDefinition.html#ScpActionDefinition%27"><span class="hs-identifier hs-type">ScpActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207417"><span id="local-6989586621679207418"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 targetIds :: NonEmpty Text
 policyId :: Text
 $sel:targetIds:ScpActionDefinition' :: ScpActionDefinition -&gt; NonEmpty Text
 $sel:policyId:ScpActionDefinition' :: ScpActionDefinition -&gt; Text
-</span><a href="#local-6989586621679207408"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679207417"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -236,14 +236,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;PolicyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679207409"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679207418"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679207408"><span class="hs-identifier hs-var">targetIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679207417"><span class="hs-identifier hs-var">targetIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

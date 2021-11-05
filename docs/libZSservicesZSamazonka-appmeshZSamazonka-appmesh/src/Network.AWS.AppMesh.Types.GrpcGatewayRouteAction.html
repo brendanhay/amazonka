@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.Types.GrpcGatewayRouteAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.Types.GrpcGatewayRouteAction</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteTarget.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.GatewayRouteTarget</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteRewrite.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.GrpcGatewayRouteRewrite</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | An object that represents the action to take if a match is determined.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newGrpcGatewayRouteAction' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679325473"><span id="local-6989586621679325474"></span></span><span class="hs-keyword">data</span><span> </span><span id="GrpcGatewayRouteAction"><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction"><span class="hs-identifier hs-var">GrpcGatewayRouteAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GrpcGatewayRouteAction%27"><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction%27"><span class="hs-identifier hs-var">GrpcGatewayRouteAction'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The gateway route action to rewrite.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Arewrite%3AGrpcGatewayRouteAction%27"><span class="annot"><span class="annottext">GrpcGatewayRouteAction -&gt; Maybe GrpcGatewayRouteRewrite
+</span><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#%24sel%3Arewrite%3AGrpcGatewayRouteAction%27"><span class="hs-identifier hs-var hs-var">rewrite</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteRewrite.html#GrpcGatewayRouteRewrite"><span class="hs-identifier hs-type">GrpcGatewayRouteRewrite</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | An object that represents the target that traffic is routed to when a</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- request matches the gateway route.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Atarget%3AGrpcGatewayRouteAction%27"><span class="annot"><span class="annottext">GrpcGatewayRouteAction -&gt; GatewayRouteTarget
+</span><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#%24sel%3Atarget%3AGrpcGatewayRouteAction%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteTarget.html#GatewayRouteTarget"><span class="hs-identifier hs-type">GatewayRouteTarget</span></a></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325466"><span id="local-6989586621679325468"><span class="annot"><span class="annottext">GrpcGatewayRouteAction -&gt; GrpcGatewayRouteAction -&gt; Bool
+(GrpcGatewayRouteAction -&gt; GrpcGatewayRouteAction -&gt; Bool)
+-&gt; (GrpcGatewayRouteAction -&gt; GrpcGatewayRouteAction -&gt; Bool)
+-&gt; Eq GrpcGatewayRouteAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GrpcGatewayRouteAction -&gt; GrpcGatewayRouteAction -&gt; Bool
+$c/= :: GrpcGatewayRouteAction -&gt; GrpcGatewayRouteAction -&gt; Bool
+== :: GrpcGatewayRouteAction -&gt; GrpcGatewayRouteAction -&gt; Bool
+$c== :: GrpcGatewayRouteAction -&gt; GrpcGatewayRouteAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325457"><span id="local-6989586621679325459"><span id="local-6989586621679325461"><span id="local-6989586621679325463"><span class="annot"><span class="annottext">ReadPrec [GrpcGatewayRouteAction]
+ReadPrec GrpcGatewayRouteAction
+Int -&gt; ReadS GrpcGatewayRouteAction
+ReadS [GrpcGatewayRouteAction]
+(Int -&gt; ReadS GrpcGatewayRouteAction)
+-&gt; ReadS [GrpcGatewayRouteAction]
+-&gt; ReadPrec GrpcGatewayRouteAction
+-&gt; ReadPrec [GrpcGatewayRouteAction]
+-&gt; Read GrpcGatewayRouteAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GrpcGatewayRouteAction]
+$creadListPrec :: ReadPrec [GrpcGatewayRouteAction]
+readPrec :: ReadPrec GrpcGatewayRouteAction
+$creadPrec :: ReadPrec GrpcGatewayRouteAction
+readList :: ReadS [GrpcGatewayRouteAction]
+$creadList :: ReadS [GrpcGatewayRouteAction]
+readsPrec :: Int -&gt; ReadS GrpcGatewayRouteAction
+$creadsPrec :: Int -&gt; ReadS GrpcGatewayRouteAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325450"><span id="local-6989586621679325452"><span id="local-6989586621679325454"><span class="annot"><span class="annottext">Int -&gt; GrpcGatewayRouteAction -&gt; ShowS
+[GrpcGatewayRouteAction] -&gt; ShowS
+GrpcGatewayRouteAction -&gt; String
+(Int -&gt; GrpcGatewayRouteAction -&gt; ShowS)
+-&gt; (GrpcGatewayRouteAction -&gt; String)
+-&gt; ([GrpcGatewayRouteAction] -&gt; ShowS)
+-&gt; Show GrpcGatewayRouteAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GrpcGatewayRouteAction] -&gt; ShowS
+$cshowList :: [GrpcGatewayRouteAction] -&gt; ShowS
+show :: GrpcGatewayRouteAction -&gt; String
+$cshow :: GrpcGatewayRouteAction -&gt; String
+showsPrec :: Int -&gt; GrpcGatewayRouteAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; GrpcGatewayRouteAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GrpcGatewayRouteAction -&gt; Rep GrpcGatewayRouteAction x)
+-&gt; (forall x.
+    Rep GrpcGatewayRouteAction x -&gt; GrpcGatewayRouteAction)
+-&gt; Generic GrpcGatewayRouteAction
+forall x. Rep GrpcGatewayRouteAction x -&gt; GrpcGatewayRouteAction
+forall x. GrpcGatewayRouteAction -&gt; Rep GrpcGatewayRouteAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GrpcGatewayRouteAction x -&gt; GrpcGatewayRouteAction
+$cfrom :: forall x. GrpcGatewayRouteAction -&gt; Rep GrpcGatewayRouteAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'GrpcGatewayRouteAction' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'rewrite', 'grpcGatewayRouteAction_rewrite' - The gateway route action to rewrite.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'target', 'grpcGatewayRouteAction_target' - An object that represents the target that traffic is routed to when a</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- request matches the gateway route.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#newGrpcGatewayRouteAction"><span class="hs-identifier hs-type">newGrpcGatewayRouteAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-comment">-- | 'target'</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteTarget.html#GatewayRouteTarget"><span class="hs-identifier hs-type">GatewayRouteTarget</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction"><span class="hs-identifier hs-type">GrpcGatewayRouteAction</span></a></span><span>
+</span><span id="line-56"></span><span id="newGrpcGatewayRouteAction"><span class="annot"><span class="annottext">newGrpcGatewayRouteAction :: GatewayRouteTarget -&gt; GrpcGatewayRouteAction
+</span><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#newGrpcGatewayRouteAction"><span class="hs-identifier hs-var hs-var">newGrpcGatewayRouteAction</span></a></span></span><span> </span><span id="local-6989586621679325444"><span class="annot"><span class="annottext">GatewayRouteTarget
+</span><a href="#local-6989586621679325444"><span class="hs-identifier hs-var">pTarget_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">GrpcGatewayRouteAction' :: Maybe GrpcGatewayRouteRewrite
+-&gt; GatewayRouteTarget -&gt; GrpcGatewayRouteAction
+</span><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction%27"><span class="hs-identifier hs-type">GrpcGatewayRouteAction'</span></a></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rewrite:GrpcGatewayRouteAction' :: Maybe GrpcGatewayRouteRewrite
+</span><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#%24sel%3Arewrite%3AGrpcGatewayRouteAction%27"><span class="hs-identifier hs-var">rewrite</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GrpcGatewayRouteRewrite
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:GrpcGatewayRouteAction' :: GatewayRouteTarget
+</span><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#%24sel%3Atarget%3AGrpcGatewayRouteAction%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GatewayRouteTarget
+</span><a href="#local-6989586621679325444"><span class="hs-identifier hs-var">pTarget_</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The gateway route action to rewrite.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#grpcGatewayRouteAction_rewrite"><span class="hs-identifier hs-type">grpcGatewayRouteAction_rewrite</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction"><span class="hs-identifier hs-type">GrpcGatewayRouteAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteRewrite.html#GrpcGatewayRouteRewrite"><span class="hs-identifier hs-type">GrpcGatewayRouteRewrite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="grpcGatewayRouteAction_rewrite"><span class="annot"><span class="annottext">grpcGatewayRouteAction_rewrite :: (Maybe GrpcGatewayRouteRewrite
+ -&gt; f (Maybe GrpcGatewayRouteRewrite))
+-&gt; GrpcGatewayRouteAction -&gt; f GrpcGatewayRouteAction
+</span><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#grpcGatewayRouteAction_rewrite"><span class="hs-identifier hs-var hs-var">grpcGatewayRouteAction_rewrite</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrpcGatewayRouteAction -&gt; Maybe GrpcGatewayRouteRewrite)
+-&gt; (GrpcGatewayRouteAction
+    -&gt; Maybe GrpcGatewayRouteRewrite -&gt; GrpcGatewayRouteAction)
+-&gt; Lens
+     GrpcGatewayRouteAction
+     GrpcGatewayRouteAction
+     (Maybe GrpcGatewayRouteRewrite)
+     (Maybe GrpcGatewayRouteRewrite)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction%27"><span class="hs-identifier hs-type">GrpcGatewayRouteAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325440"><span class="annot"><span class="annottext">Maybe GrpcGatewayRouteRewrite
+rewrite :: Maybe GrpcGatewayRouteRewrite
+$sel:rewrite:GrpcGatewayRouteAction' :: GrpcGatewayRouteAction -&gt; Maybe GrpcGatewayRouteRewrite
+</span><a href="#local-6989586621679325440"><span class="hs-identifier hs-var hs-var">rewrite</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GrpcGatewayRouteRewrite
+</span><a href="#local-6989586621679325440"><span class="hs-identifier hs-var">rewrite</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325439"><span class="annot"><span class="annottext">s :: GrpcGatewayRouteAction
+</span><a href="#local-6989586621679325439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction%27"><span class="hs-identifier hs-type">GrpcGatewayRouteAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325438"><span class="annot"><span class="annottext">Maybe GrpcGatewayRouteRewrite
+</span><a href="#local-6989586621679325438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrpcGatewayRouteAction
+</span><a href="#local-6989586621679325439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rewrite:GrpcGatewayRouteAction' :: Maybe GrpcGatewayRouteRewrite
+</span><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#%24sel%3Arewrite%3AGrpcGatewayRouteAction%27"><span class="hs-identifier hs-var">rewrite</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GrpcGatewayRouteRewrite
+</span><a href="#local-6989586621679325438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction"><span class="hs-identifier hs-type">GrpcGatewayRouteAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | An object that represents the target that traffic is routed to when a</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- request matches the gateway route.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#grpcGatewayRouteAction_target"><span class="hs-identifier hs-type">grpcGatewayRouteAction_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction"><span class="hs-identifier hs-type">GrpcGatewayRouteAction</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteTarget.html#GatewayRouteTarget"><span class="hs-identifier hs-type">GatewayRouteTarget</span></a></span><span>
+</span><span id="line-69"></span><span id="grpcGatewayRouteAction_target"><span class="annot"><span class="annottext">grpcGatewayRouteAction_target :: (GatewayRouteTarget -&gt; f GatewayRouteTarget)
+-&gt; GrpcGatewayRouteAction -&gt; f GrpcGatewayRouteAction
+</span><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#grpcGatewayRouteAction_target"><span class="hs-identifier hs-var hs-var">grpcGatewayRouteAction_target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GrpcGatewayRouteAction -&gt; GatewayRouteTarget)
+-&gt; (GrpcGatewayRouteAction
+    -&gt; GatewayRouteTarget -&gt; GrpcGatewayRouteAction)
+-&gt; Lens
+     GrpcGatewayRouteAction
+     GrpcGatewayRouteAction
+     GatewayRouteTarget
+     GatewayRouteTarget
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction%27"><span class="hs-identifier hs-type">GrpcGatewayRouteAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325436"><span class="annot"><span class="annottext">GatewayRouteTarget
+target :: GatewayRouteTarget
+$sel:target:GrpcGatewayRouteAction' :: GrpcGatewayRouteAction -&gt; GatewayRouteTarget
+</span><a href="#local-6989586621679325436"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatewayRouteTarget
+</span><a href="#local-6989586621679325436"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325435"><span class="annot"><span class="annottext">s :: GrpcGatewayRouteAction
+</span><a href="#local-6989586621679325435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction%27"><span class="hs-identifier hs-type">GrpcGatewayRouteAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325434"><span class="annot"><span class="annottext">GatewayRouteTarget
+</span><a href="#local-6989586621679325434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrpcGatewayRouteAction
+</span><a href="#local-6989586621679325435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:GrpcGatewayRouteAction' :: GatewayRouteTarget
+</span><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#%24sel%3Atarget%3AGrpcGatewayRouteAction%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GatewayRouteTarget
+</span><a href="#local-6989586621679325434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction"><span class="hs-identifier hs-type">GrpcGatewayRouteAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325431"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction"><span class="hs-identifier hs-type">GrpcGatewayRouteAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679325429"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GrpcGatewayRouteAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser GrpcGatewayRouteAction)
+-&gt; Value
+-&gt; Parser GrpcGatewayRouteAction
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;GrpcGatewayRouteAction&quot;</span></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679325426"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325426"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe GrpcGatewayRouteRewrite
+-&gt; GatewayRouteTarget -&gt; GrpcGatewayRouteAction
+</span><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction%27"><span class="hs-identifier hs-var">GrpcGatewayRouteAction'</span></a></span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GrpcGatewayRouteRewrite
+ -&gt; GatewayRouteTarget -&gt; GrpcGatewayRouteAction)
+-&gt; Parser (Maybe GrpcGatewayRouteRewrite)
+-&gt; Parser (GatewayRouteTarget -&gt; GrpcGatewayRouteAction)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GrpcGatewayRouteRewrite)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rewrite&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Parser (GatewayRouteTarget -&gt; GrpcGatewayRouteAction)
+-&gt; Parser GatewayRouteTarget -&gt; Parser GrpcGatewayRouteAction
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser GatewayRouteTarget
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;target&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325419"><span id="local-6989586621679325421"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction"><span class="hs-identifier hs-type">GrpcGatewayRouteAction</span></a></span></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325416"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction"><span class="hs-identifier hs-type">GrpcGatewayRouteAction</span></a></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325408"><span id="local-6989586621679325410"><span id="local-6989586621679325412"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction"><span class="hs-identifier hs-type">GrpcGatewayRouteAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679325406"><span class="annot"><span class="annottext">toJSON :: GrpcGatewayRouteAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcGatewayRouteAction.html#GrpcGatewayRouteAction%27"><span class="hs-identifier hs-type">GrpcGatewayRouteAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325403"><span id="local-6989586621679325404"><span class="annot"><span class="annottext">Maybe GrpcGatewayRouteRewrite
+GatewayRouteTarget
+target :: GatewayRouteTarget
+rewrite :: Maybe GrpcGatewayRouteRewrite
+$sel:target:GrpcGatewayRouteAction' :: GrpcGatewayRouteAction -&gt; GatewayRouteTarget
+$sel:rewrite:GrpcGatewayRouteAction' :: GrpcGatewayRouteAction -&gt; Maybe GrpcGatewayRouteRewrite
+</span><a href="#local-6989586621679325403"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-89"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rewrite&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GrpcGatewayRouteRewrite -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(GrpcGatewayRouteRewrite -&gt; Pair)
+-&gt; Maybe GrpcGatewayRouteRewrite -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GrpcGatewayRouteRewrite
+</span><a href="#local-6989586621679325404"><span class="hs-identifier hs-var">rewrite</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;target&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GatewayRouteTarget -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">GatewayRouteTarget
+</span><a href="#local-6989586621679325403"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span></pre></body></html>

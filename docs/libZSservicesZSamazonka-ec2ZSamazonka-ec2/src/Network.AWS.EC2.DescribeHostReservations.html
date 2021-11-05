@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeHostReservations' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621681264407"><span id="local-6989586621681264408"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeHostReservations"><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-var">DescribeHostReservations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeHostReservations%27"><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-var">DescribeHostReservations'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621681264416"><span id="local-6989586621681264417"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeHostReservations"><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-var">DescribeHostReservations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeHostReservations%27"><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-var">DescribeHostReservations'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeHostReservations%27"><span class="annot"><span class="annottext">DescribeHostReservations -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.DescribeHostReservations.html#%24sel%3AnextToken%3ADescribeHostReservations%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -89,7 +89,7 @@
 </span><span id="line-86"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeHostReservations%27"><span class="annot"><span class="annottext">DescribeHostReservations -&gt; Maybe Int
 </span><a href="Network.AWS.EC2.DescribeHostReservations.html#%24sel%3AmaxResults%3ADescribeHostReservations%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681264398"><span id="local-6989586621681264400"><span class="annot"><span class="annottext">DescribeHostReservations -&gt; DescribeHostReservations -&gt; Bool
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681264407"><span id="local-6989586621681264409"><span class="annot"><span class="annottext">DescribeHostReservations -&gt; DescribeHostReservations -&gt; Bool
 (DescribeHostReservations -&gt; DescribeHostReservations -&gt; Bool)
 -&gt; (DescribeHostReservations -&gt; DescribeHostReservations -&gt; Bool)
 -&gt; Eq DescribeHostReservations
@@ -98,7 +98,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeHostReservations -&gt; DescribeHostReservations -&gt; Bool
 == :: DescribeHostReservations -&gt; DescribeHostReservations -&gt; Bool
 $c== :: DescribeHostReservations -&gt; DescribeHostReservations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681264389"><span id="local-6989586621681264391"><span id="local-6989586621681264393"><span id="local-6989586621681264395"><span class="annot"><span class="annottext">ReadPrec [DescribeHostReservations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681264398"><span id="local-6989586621681264400"><span id="local-6989586621681264402"><span id="local-6989586621681264404"><span class="annot"><span class="annottext">ReadPrec [DescribeHostReservations]
 ReadPrec DescribeHostReservations
 Int -&gt; ReadS DescribeHostReservations
 ReadS [DescribeHostReservations]
@@ -118,7 +118,7 @@ readList :: ReadS [DescribeHostReservations]
 $creadList :: ReadS [DescribeHostReservations]
 readsPrec :: Int -&gt; ReadS DescribeHostReservations
 $creadsPrec :: Int -&gt; ReadS DescribeHostReservations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681264382"><span id="local-6989586621681264384"><span id="local-6989586621681264386"><span class="annot"><span class="annottext">Int -&gt; DescribeHostReservations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681264391"><span id="local-6989586621681264393"><span id="local-6989586621681264395"><span class="annot"><span class="annottext">Int -&gt; DescribeHostReservations -&gt; ShowS
 [DescribeHostReservations] -&gt; ShowS
 DescribeHostReservations -&gt; String
 (Int -&gt; DescribeHostReservations -&gt; ShowS)
@@ -228,16 +228,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264376"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264385"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeHostReservations' :: DescribeHostReservations -&gt; Maybe Text
-</span><a href="#local-6989586621681264376"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681264376"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264375"><span class="annot"><span class="annottext">s :: DescribeHostReservations
-</span><a href="#local-6989586621681264375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264374"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681264374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHostReservations
-</span><a href="#local-6989586621681264375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeHostReservations' :: Maybe Text
+</span><a href="#local-6989586621681264385"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681264385"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264384"><span class="annot"><span class="annottext">s :: DescribeHostReservations
+</span><a href="#local-6989586621681264384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264383"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681264383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHostReservations
+</span><a href="#local-6989586621681264384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeHostReservations' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeHostReservations.html#%24sel%3AnextToken%3ADescribeHostReservations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681264374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681264383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The host reservation IDs.</span><span>
 </span><span id="line-142"></span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#describeHostReservations_hostReservationIdSet"><span class="hs-identifier hs-type">describeHostReservations_hostReservationIdSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -252,16 +252,16 @@ $sel:nextToken:DescribeHostReservations' :: DescribeHostReservations -&gt; Maybe
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264373"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264382"><span class="annot"><span class="annottext">Maybe [Text]
 hostReservationIdSet :: Maybe [Text]
 $sel:hostReservationIdSet:DescribeHostReservations' :: DescribeHostReservations -&gt; Maybe [Text]
-</span><a href="#local-6989586621681264373"><span class="hs-identifier hs-var hs-var">hostReservationIdSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681264373"><span class="hs-identifier hs-var">hostReservationIdSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264372"><span class="annot"><span class="annottext">s :: DescribeHostReservations
-</span><a href="#local-6989586621681264372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264371"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681264371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHostReservations
-</span><a href="#local-6989586621681264372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostReservationIdSet:DescribeHostReservations' :: Maybe [Text]
+</span><a href="#local-6989586621681264382"><span class="hs-identifier hs-var hs-var">hostReservationIdSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681264382"><span class="hs-identifier hs-var">hostReservationIdSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264381"><span class="annot"><span class="annottext">s :: DescribeHostReservations
+</span><a href="#local-6989586621681264381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264380"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681264380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHostReservations
+</span><a href="#local-6989586621681264381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostReservationIdSet:DescribeHostReservations' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeHostReservations.html#%24sel%3AhostReservationIdSet%3ADescribeHostReservations%27"><span class="hs-identifier hs-var">hostReservationIdSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681264371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681264380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeHostReservations -&gt; f DescribeHostReservations)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -309,16 +309,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Filter])
      (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264367"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264376"><span class="annot"><span class="annottext">Maybe [Filter]
 filter' :: Maybe [Filter]
 $sel:filter':DescribeHostReservations' :: DescribeHostReservations -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681264367"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681264367"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264366"><span class="annot"><span class="annottext">s :: DescribeHostReservations
-</span><a href="#local-6989586621681264366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264365"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681264365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHostReservations
-</span><a href="#local-6989586621681264366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':DescribeHostReservations' :: Maybe [Filter]
+</span><a href="#local-6989586621681264376"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681264376"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264375"><span class="annot"><span class="annottext">s :: DescribeHostReservations
+</span><a href="#local-6989586621681264375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264374"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681264374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHostReservations
+</span><a href="#local-6989586621681264375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':DescribeHostReservations' :: Maybe [Filter]
 </span><a href="Network.AWS.EC2.DescribeHostReservations.html#%24sel%3Afilter%27%3ADescribeHostReservations%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681264365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621681264374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeHostReservations -&gt; f DescribeHostReservations)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -352,30 +352,30 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264364"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264373"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:DescribeHostReservations' :: DescribeHostReservations -&gt; Maybe Int
-</span><a href="#local-6989586621681264364"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681264364"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264363"><span class="annot"><span class="annottext">s :: DescribeHostReservations
-</span><a href="#local-6989586621681264363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264362"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681264362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHostReservations
-</span><a href="#local-6989586621681264363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeHostReservations' :: Maybe Int
+</span><a href="#local-6989586621681264373"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681264373"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264372"><span class="annot"><span class="annottext">s :: DescribeHostReservations
+</span><a href="#local-6989586621681264372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264371"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681264371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHostReservations
+</span><a href="#local-6989586621681264372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeHostReservations' :: Maybe Int
 </span><a href="Network.AWS.EC2.DescribeHostReservations.html#%24sel%3AmaxResults%3ADescribeHostReservations%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681264362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681264371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621681264358"><span class="annot"><span class="annottext">page :: DescribeHostReservations
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621681264367"><span class="annot"><span class="annottext">page :: DescribeHostReservations
 -&gt; AWSResponse DescribeHostReservations
 -&gt; Maybe DescribeHostReservations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681264356"><span class="annot"><span class="annottext">DescribeHostReservations
-</span><a href="#local-6989586621681264356"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681264355"><span class="annot"><span class="annottext">AWSResponse DescribeHostReservations
-</span><a href="#local-6989586621681264355"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681264365"><span class="annot"><span class="annottext">DescribeHostReservations
+</span><a href="#local-6989586621681264365"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681264364"><span class="annot"><span class="annottext">AWSResponse DescribeHostReservations
+</span><a href="#local-6989586621681264364"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-177"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeHostReservations
 DescribeHostReservationsResponse
-</span><a href="#local-6989586621681264355"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681264364"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">DescribeHostReservationsResponse
 -&gt; Getting (First Text) DescribeHostReservationsResponse Text
 -&gt; Maybe Text
@@ -405,7 +405,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-183"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeHostReservations
 DescribeHostReservationsResponse
-</span><a href="#local-6989586621681264355"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681264364"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">DescribeHostReservationsResponse
 -&gt; Getting
      (First [HostReservation])
@@ -452,7 +452,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">DescribeHostReservations
-</span><a href="#local-6989586621681264356"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621681264365"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-191"></span><span>          </span><span class="annot"><span class="annottext">DescribeHostReservations
 -&gt; (DescribeHostReservations -&gt; DescribeHostReservations)
 -&gt; DescribeHostReservations
@@ -473,7 +473,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeHostReservations
 DescribeHostReservationsResponse
-</span><a href="#local-6989586621681264355"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681264364"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-193"></span><span>          </span><span class="annot"><span class="annottext">DescribeHostReservationsResponse
 -&gt; Getting (First Text) DescribeHostReservationsResponse Text
 -&gt; Maybe Text
@@ -499,13 +499,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-197"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-198"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse"><span class="hs-identifier hs-type">DescribeHostReservationsResponse</span></a></span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621681264346"><span class="annot"><span class="annottext">request :: DescribeHostReservations -&gt; Request DescribeHostReservations
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621681264355"><span class="annot"><span class="annottext">request :: DescribeHostReservations -&gt; Request DescribeHostReservations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeHostReservations -&gt; Request DescribeHostReservations
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621681264342"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621681264351"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeHostReservations
 -&gt; ClientResponse ClientBody
@@ -531,10 +531,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681264339"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681264339"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681264338"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681264338"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681264337"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681264337"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681264348"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681264348"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681264347"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681264347"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681264346"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681264346"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-204"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [HostReservation]
 -&gt; Int
@@ -551,7 +551,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; DescribeHostReservationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681264337"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681264346"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -563,7 +563,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeHostReservationsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681264337"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681264346"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hostReservationSet&quot;</span></span><span>
@@ -595,15 +595,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681264339"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681264348"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681264326"><span id="local-6989586621681264328"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span></span></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681264335"><span id="local-6989586621681264337"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span></span></span><span>
 </span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681264323"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681264332"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span></span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621681264319"><span class="annot"><span class="annottext">toHeaders :: DescribeHostReservations -&gt; ResponseHeaders
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621681264328"><span class="annot"><span class="annottext">toHeaders :: DescribeHostReservations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeHostReservations -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -611,15 +611,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-221"></span><span>  </span><span id="local-6989586621681264314"><span class="annot"><span class="annottext">toPath :: DescribeHostReservations -&gt; ByteString
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621681264323"><span class="annot"><span class="annottext">toPath :: DescribeHostReservations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeHostReservations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations"><span class="hs-identifier hs-type">DescribeHostReservations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621681264310"><span class="annot"><span class="annottext">toQuery :: DescribeHostReservations -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264305"><span id="local-6989586621681264306"><span id="local-6989586621681264307"><span id="local-6989586621681264308"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621681264319"><span class="annot"><span class="annottext">toQuery :: DescribeHostReservations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservations%27"><span class="hs-identifier hs-type">DescribeHostReservations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264314"><span id="local-6989586621681264315"><span id="local-6989586621681264316"><span id="local-6989586621681264317"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Text]
 Maybe [Filter]
 Maybe Text
@@ -631,7 +631,7 @@ $sel:maxResults:DescribeHostReservations' :: DescribeHostReservations -&gt; Mayb
 $sel:filter':DescribeHostReservations' :: DescribeHostReservations -&gt; Maybe [Filter]
 $sel:hostReservationIdSet:DescribeHostReservations' :: DescribeHostReservations -&gt; Maybe [Text]
 $sel:nextToken:DescribeHostReservations' :: DescribeHostReservations -&gt; Maybe Text
-</span><a href="#local-6989586621681264305"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681264314"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -651,7 +651,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681264308"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681264317"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -664,7 +664,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-233"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681264307"><span class="hs-identifier hs-var">hostReservationIdSet</span></a></span><span>
+</span><a href="#local-6989586621681264316"><span class="hs-identifier hs-var">hostReservationIdSet</span></a></span><span>
 </span><span id="line-234"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
@@ -677,16 +677,16 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681264306"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681264315"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681264305"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621681264314"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-238"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | /See:/ 'newDescribeHostReservationsResponse' smart constructor.</span><span>
-</span><span id="line-241"></span><span id="local-6989586621681264301"><span id="local-6989586621681264302"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeHostReservationsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse"><span class="hs-identifier hs-var">DescribeHostReservationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeHostReservationsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse%27"><span class="hs-identifier hs-var">DescribeHostReservationsResponse'</span></a></span></span><span>
+</span><span id="line-241"></span><span id="local-6989586621681264310"><span id="local-6989586621681264311"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeHostReservationsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse"><span class="hs-identifier hs-var">DescribeHostReservationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeHostReservationsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse%27"><span class="hs-identifier hs-var">DescribeHostReservationsResponse'</span></a></span></span><span>
 </span><span id="line-242"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
 </span><span id="line-243"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
 </span><span id="line-244"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeHostReservationsResponse%27"><span class="annot"><span class="annottext">DescribeHostReservationsResponse -&gt; Maybe Text
@@ -698,7 +698,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-248"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeHostReservationsResponse%27"><span class="annot"><span class="annottext">DescribeHostReservationsResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DescribeHostReservations.html#%24sel%3AhttpStatus%3ADescribeHostReservationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-249"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-250"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681264294"><span id="local-6989586621681264296"><span class="annot"><span class="annottext">DescribeHostReservationsResponse
+</span><span id="line-250"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681264303"><span id="local-6989586621681264305"><span class="annot"><span class="annottext">DescribeHostReservationsResponse
 -&gt; DescribeHostReservationsResponse -&gt; Bool
 (DescribeHostReservationsResponse
  -&gt; DescribeHostReservationsResponse -&gt; Bool)
@@ -714,7 +714,7 @@ $c/= :: DescribeHostReservationsResponse
 -&gt; DescribeHostReservationsResponse -&gt; Bool
 $c== :: DescribeHostReservationsResponse
 -&gt; DescribeHostReservationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681264286"><span id="local-6989586621681264288"><span id="local-6989586621681264290"><span id="local-6989586621681264292"><span class="annot"><span class="annottext">ReadPrec [DescribeHostReservationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681264295"><span id="local-6989586621681264297"><span id="local-6989586621681264299"><span id="local-6989586621681264301"><span class="annot"><span class="annottext">ReadPrec [DescribeHostReservationsResponse]
 ReadPrec DescribeHostReservationsResponse
 Int -&gt; ReadS DescribeHostReservationsResponse
 ReadS [DescribeHostReservationsResponse]
@@ -734,7 +734,7 @@ readList :: ReadS [DescribeHostReservationsResponse]
 $creadList :: ReadS [DescribeHostReservationsResponse]
 readsPrec :: Int -&gt; ReadS DescribeHostReservationsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeHostReservationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681264280"><span id="local-6989586621681264282"><span id="local-6989586621681264284"><span class="annot"><span class="annottext">Int -&gt; DescribeHostReservationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681264289"><span id="local-6989586621681264291"><span id="local-6989586621681264293"><span class="annot"><span class="annottext">Int -&gt; DescribeHostReservationsResponse -&gt; ShowS
 [DescribeHostReservationsResponse] -&gt; ShowS
 DescribeHostReservationsResponse -&gt; String
 (Int -&gt; DescribeHostReservationsResponse -&gt; ShowS)
@@ -791,8 +791,8 @@ DescribeHostReservationsResponse
 </span><span id="line-268"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-269"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse"><span class="hs-identifier hs-type">DescribeHostReservationsResponse</span></a></span><span>
 </span><span id="line-270"></span><span id="newDescribeHostReservationsResponse"><span class="annot"><span class="annottext">newDescribeHostReservationsResponse :: Int -&gt; DescribeHostReservationsResponse
-</span><a href="Network.AWS.EC2.DescribeHostReservations.html#newDescribeHostReservationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeHostReservationsResponse</span></a></span></span><span> </span><span id="local-6989586621681264277"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681264277"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DescribeHostReservations.html#newDescribeHostReservationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeHostReservationsResponse</span></a></span></span><span> </span><span id="local-6989586621681264286"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681264286"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-271"></span><span>  </span><span class="annot"><span class="annottext">DescribeHostReservationsResponse' :: Maybe Text
 -&gt; Maybe [HostReservation]
 -&gt; Int
@@ -809,7 +809,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeHostReservationsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeHostReservations.html#%24sel%3AhttpStatus%3ADescribeHostReservationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681264277"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681264286"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-276"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-277"></span><span>
 </span><span id="line-278"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
@@ -823,16 +823,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeHostReservationsResponse)
 -&gt; Lens' DescribeHostReservationsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse%27"><span class="hs-identifier hs-type">DescribeHostReservationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264276"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse%27"><span class="hs-identifier hs-type">DescribeHostReservationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264285"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeHostReservationsResponse' :: DescribeHostReservationsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681264276"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681264276"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264275"><span class="annot"><span class="annottext">s :: DescribeHostReservationsResponse
-</span><a href="#local-6989586621681264275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse%27"><span class="hs-identifier hs-type">DescribeHostReservationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264274"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681264274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHostReservationsResponse
-</span><a href="#local-6989586621681264275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeHostReservationsResponse' :: Maybe Text
+</span><a href="#local-6989586621681264285"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681264285"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264284"><span class="annot"><span class="annottext">s :: DescribeHostReservationsResponse
+</span><a href="#local-6989586621681264284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse%27"><span class="hs-identifier hs-type">DescribeHostReservationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264283"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681264283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHostReservationsResponse
+</span><a href="#local-6989586621681264284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeHostReservationsResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeHostReservations.html#%24sel%3AnextToken%3ADescribeHostReservationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681264274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse"><span class="hs-identifier hs-type">DescribeHostReservationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681264283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse"><span class="hs-identifier hs-type">DescribeHostReservationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-282"></span><span>
 </span><span id="line-283"></span><span class="hs-comment">-- | Details about the reservation\'s configuration.</span><span>
 </span><span id="line-284"></span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#describeHostReservationsResponse_hostReservationSet"><span class="hs-identifier hs-type">describeHostReservationsResponse_hostReservationSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse"><span class="hs-identifier hs-type">DescribeHostReservationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.HostReservation.html#HostReservation"><span class="hs-identifier hs-type">HostReservation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -844,16 +844,16 @@ $sel:nextToken:DescribeHostReservationsResponse' :: DescribeHostReservationsResp
     -&gt; Maybe [HostReservation] -&gt; DescribeHostReservationsResponse)
 -&gt; Lens' DescribeHostReservationsResponse (Maybe [HostReservation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse%27"><span class="hs-identifier hs-type">DescribeHostReservationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264273"><span class="annot"><span class="annottext">Maybe [HostReservation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse%27"><span class="hs-identifier hs-type">DescribeHostReservationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264282"><span class="annot"><span class="annottext">Maybe [HostReservation]
 hostReservationSet :: Maybe [HostReservation]
 $sel:hostReservationSet:DescribeHostReservationsResponse' :: DescribeHostReservationsResponse -&gt; Maybe [HostReservation]
-</span><a href="#local-6989586621681264273"><span class="hs-identifier hs-var hs-var">hostReservationSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HostReservation]
-</span><a href="#local-6989586621681264273"><span class="hs-identifier hs-var">hostReservationSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264272"><span class="annot"><span class="annottext">s :: DescribeHostReservationsResponse
-</span><a href="#local-6989586621681264272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse%27"><span class="hs-identifier hs-type">DescribeHostReservationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264271"><span class="annot"><span class="annottext">Maybe [HostReservation]
-</span><a href="#local-6989586621681264271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHostReservationsResponse
-</span><a href="#local-6989586621681264272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostReservationSet:DescribeHostReservationsResponse' :: Maybe [HostReservation]
+</span><a href="#local-6989586621681264282"><span class="hs-identifier hs-var hs-var">hostReservationSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HostReservation]
+</span><a href="#local-6989586621681264282"><span class="hs-identifier hs-var">hostReservationSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264281"><span class="annot"><span class="annottext">s :: DescribeHostReservationsResponse
+</span><a href="#local-6989586621681264281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse%27"><span class="hs-identifier hs-type">DescribeHostReservationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264280"><span class="annot"><span class="annottext">Maybe [HostReservation]
+</span><a href="#local-6989586621681264280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHostReservationsResponse
+</span><a href="#local-6989586621681264281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostReservationSet:DescribeHostReservationsResponse' :: Maybe [HostReservation]
 </span><a href="Network.AWS.EC2.DescribeHostReservations.html#%24sel%3AhostReservationSet%3ADescribeHostReservationsResponse%27"><span class="hs-identifier hs-var">hostReservationSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HostReservation]
-</span><a href="#local-6989586621681264271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse"><span class="hs-identifier hs-type">DescribeHostReservationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HostReservation] -&gt; f (Maybe [HostReservation]))
+</span><a href="#local-6989586621681264280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse"><span class="hs-identifier hs-type">DescribeHostReservationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HostReservation] -&gt; f (Maybe [HostReservation]))
  -&gt; DescribeHostReservationsResponse
  -&gt; f DescribeHostReservationsResponse)
 -&gt; ((Maybe [HostReservation] -&gt; f (Maybe [HostReservation]))
@@ -897,18 +897,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse%27"><span class="hs-identifier hs-type">DescribeHostReservationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264270"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse%27"><span class="hs-identifier hs-type">DescribeHostReservationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264279"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeHostReservationsResponse' :: DescribeHostReservationsResponse -&gt; Int
-</span><a href="#local-6989586621681264270"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681264270"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264269"><span class="annot"><span class="annottext">s :: DescribeHostReservationsResponse
-</span><a href="#local-6989586621681264269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse%27"><span class="hs-identifier hs-type">DescribeHostReservationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264268"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681264268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHostReservationsResponse
-</span><a href="#local-6989586621681264269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeHostReservationsResponse' :: Int
+</span><a href="#local-6989586621681264279"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681264279"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264278"><span class="annot"><span class="annottext">s :: DescribeHostReservationsResponse
+</span><a href="#local-6989586621681264278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse%27"><span class="hs-identifier hs-type">DescribeHostReservationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264277"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681264277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHostReservationsResponse
+</span><a href="#local-6989586621681264278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeHostReservationsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeHostReservations.html#%24sel%3AhttpStatus%3ADescribeHostReservationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681264268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse"><span class="hs-identifier hs-type">DescribeHostReservationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681264277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse"><span class="hs-identifier hs-type">DescribeHostReservationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-290"></span><span>
 </span><span id="line-291"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-292"></span><span>  </span><span id="local-6989586621681264266"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-292"></span><span>  </span><span id="local-6989586621681264275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-293"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeHostReservations.html#DescribeHostReservationsResponse"><span class="hs-identifier hs-type">DescribeHostReservationsResponse</span></a></span></span><span>
 </span><span id="line-294"></span></pre></body></html>

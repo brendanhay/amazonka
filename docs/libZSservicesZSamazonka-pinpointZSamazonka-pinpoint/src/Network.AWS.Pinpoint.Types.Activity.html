@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span class="hs-comment">-- journey.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newActivity' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679619023"><span id="local-6989586621679619024"></span></span><span class="hs-keyword">data</span><span> </span><span id="Activity"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-var">Activity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Activity%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-var">Activity'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679619032"><span id="local-6989586621679619033"></span></span><span class="hs-keyword">data</span><span> </span><span id="Activity"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-var">Activity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Activity%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-var">Activity'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The settings for a yes\/no split activity. This type of activity sends</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- participants down one of two paths in a journey, based on conditions</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- that you specify.</span><span>
@@ -86,7 +86,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3Adescription%3AActivity%27"><span class="annot"><span class="annottext">Activity -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.Activity.html#%24sel%3Adescription%3AActivity%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679619007"><span id="local-6989586621679619009"><span class="annot"><span class="annottext">Activity -&gt; Activity -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679619016"><span id="local-6989586621679619018"><span class="annot"><span class="annottext">Activity -&gt; Activity -&gt; Bool
 (Activity -&gt; Activity -&gt; Bool)
 -&gt; (Activity -&gt; Activity -&gt; Bool) -&gt; Eq Activity
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -94,7 +94,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Activity -&gt; Activity -&gt; Bool
 == :: Activity -&gt; Activity -&gt; Bool
 $c== :: Activity -&gt; Activity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679618998"><span id="local-6989586621679619000"><span id="local-6989586621679619002"><span id="local-6989586621679619004"><span class="annot"><span class="annottext">ReadPrec [Activity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679619007"><span id="local-6989586621679619009"><span id="local-6989586621679619011"><span id="local-6989586621679619013"><span class="annot"><span class="annottext">ReadPrec [Activity]
 ReadPrec Activity
 Int -&gt; ReadS Activity
 ReadS [Activity]
@@ -114,7 +114,7 @@ readList :: ReadS [Activity]
 $creadList :: ReadS [Activity]
 readsPrec :: Int -&gt; ReadS Activity
 $creadsPrec :: Int -&gt; ReadS Activity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679618991"><span id="local-6989586621679618993"><span id="local-6989586621679618995"><span class="annot"><span class="annottext">Int -&gt; Activity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679619000"><span id="local-6989586621679619002"><span id="local-6989586621679619004"><span class="annot"><span class="annottext">Int -&gt; Activity -&gt; ShowS
 [Activity] -&gt; ShowS
 Activity -&gt; String
 (Int -&gt; Activity -&gt; ShowS)
@@ -258,16 +258,16 @@ forall a. Maybe a
      (Maybe ConditionalSplitActivity)
      (Maybe ConditionalSplitActivity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618982"><span class="annot"><span class="annottext">Maybe ConditionalSplitActivity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618991"><span class="annot"><span class="annottext">Maybe ConditionalSplitActivity
 conditionalSplit :: Maybe ConditionalSplitActivity
 $sel:conditionalSplit:Activity' :: Activity -&gt; Maybe ConditionalSplitActivity
-</span><a href="#local-6989586621679618982"><span class="hs-identifier hs-var hs-var">conditionalSplit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalSplitActivity
-</span><a href="#local-6989586621679618982"><span class="hs-identifier hs-var">conditionalSplit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618981"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679618981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618980"><span class="annot"><span class="annottext">Maybe ConditionalSplitActivity
-</span><a href="#local-6989586621679618980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679618981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionalSplit:Activity' :: Maybe ConditionalSplitActivity
+</span><a href="#local-6989586621679618991"><span class="hs-identifier hs-var hs-var">conditionalSplit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalSplitActivity
+</span><a href="#local-6989586621679618991"><span class="hs-identifier hs-var">conditionalSplit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618990"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679618990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618989"><span class="annot"><span class="annottext">Maybe ConditionalSplitActivity
+</span><a href="#local-6989586621679618989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679618990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionalSplit:Activity' :: Maybe ConditionalSplitActivity
 </span><a href="Network.AWS.Pinpoint.Types.Activity.html#%24sel%3AconditionalSplit%3AActivity%27"><span class="hs-identifier hs-var">conditionalSplit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalSplitActivity
-</span><a href="#local-6989586621679618980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The settings for an email activity. This type of activity sends an email</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- message to participants.</span><span>
@@ -282,16 +282,16 @@ $sel:conditionalSplit:Activity' :: Activity -&gt; Maybe ConditionalSplitActivity
      (Maybe EmailMessageActivity)
      (Maybe EmailMessageActivity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618978"><span class="annot"><span class="annottext">Maybe EmailMessageActivity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618987"><span class="annot"><span class="annottext">Maybe EmailMessageActivity
 email :: Maybe EmailMessageActivity
 $sel:email:Activity' :: Activity -&gt; Maybe EmailMessageActivity
-</span><a href="#local-6989586621679618978"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EmailMessageActivity
-</span><a href="#local-6989586621679618978"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618977"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679618977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618976"><span class="annot"><span class="annottext">Maybe EmailMessageActivity
-</span><a href="#local-6989586621679618976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679618977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:Activity' :: Maybe EmailMessageActivity
+</span><a href="#local-6989586621679618987"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EmailMessageActivity
+</span><a href="#local-6989586621679618987"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618986"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679618986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618985"><span class="annot"><span class="annottext">Maybe EmailMessageActivity
+</span><a href="#local-6989586621679618985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679618986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:Activity' :: Maybe EmailMessageActivity
 </span><a href="Network.AWS.Pinpoint.Types.Activity.html#%24sel%3Aemail%3AActivity%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EmailMessageActivity
-</span><a href="#local-6989586621679618976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The settings for a multivariate split activity. This type of activity</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- sends participants down one of as many as five paths (including a</span><span>
@@ -308,16 +308,16 @@ $sel:email:Activity' :: Activity -&gt; Maybe EmailMessageActivity
      (Maybe MultiConditionalSplitActivity)
      (Maybe MultiConditionalSplitActivity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618974"><span class="annot"><span class="annottext">Maybe MultiConditionalSplitActivity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618983"><span class="annot"><span class="annottext">Maybe MultiConditionalSplitActivity
 multiCondition :: Maybe MultiConditionalSplitActivity
 $sel:multiCondition:Activity' :: Activity -&gt; Maybe MultiConditionalSplitActivity
-</span><a href="#local-6989586621679618974"><span class="hs-identifier hs-var hs-var">multiCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MultiConditionalSplitActivity
-</span><a href="#local-6989586621679618974"><span class="hs-identifier hs-var">multiCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618973"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679618973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618972"><span class="annot"><span class="annottext">Maybe MultiConditionalSplitActivity
-</span><a href="#local-6989586621679618972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679618973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiCondition:Activity' :: Maybe MultiConditionalSplitActivity
+</span><a href="#local-6989586621679618983"><span class="hs-identifier hs-var hs-var">multiCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MultiConditionalSplitActivity
+</span><a href="#local-6989586621679618983"><span class="hs-identifier hs-var">multiCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618982"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679618982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618981"><span class="annot"><span class="annottext">Maybe MultiConditionalSplitActivity
+</span><a href="#local-6989586621679618981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679618982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiCondition:Activity' :: Maybe MultiConditionalSplitActivity
 </span><a href="Network.AWS.Pinpoint.Types.Activity.html#%24sel%3AmultiCondition%3AActivity%27"><span class="hs-identifier hs-var">multiCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MultiConditionalSplitActivity
-</span><a href="#local-6989586621679618972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The settings for a connect activity. This type of activity initiates a</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- contact center call to participants.</span><span>
@@ -332,16 +332,16 @@ $sel:multiCondition:Activity' :: Activity -&gt; Maybe MultiConditionalSplitActiv
      (Maybe ContactCenterActivity)
      (Maybe ContactCenterActivity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618970"><span class="annot"><span class="annottext">Maybe ContactCenterActivity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618979"><span class="annot"><span class="annottext">Maybe ContactCenterActivity
 contactCenter :: Maybe ContactCenterActivity
 $sel:contactCenter:Activity' :: Activity -&gt; Maybe ContactCenterActivity
-</span><a href="#local-6989586621679618970"><span class="hs-identifier hs-var hs-var">contactCenter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContactCenterActivity
-</span><a href="#local-6989586621679618970"><span class="hs-identifier hs-var">contactCenter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618969"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679618969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618968"><span class="annot"><span class="annottext">Maybe ContactCenterActivity
-</span><a href="#local-6989586621679618968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679618969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactCenter:Activity' :: Maybe ContactCenterActivity
+</span><a href="#local-6989586621679618979"><span class="hs-identifier hs-var hs-var">contactCenter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContactCenterActivity
+</span><a href="#local-6989586621679618979"><span class="hs-identifier hs-var">contactCenter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618978"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679618978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618977"><span class="annot"><span class="annottext">Maybe ContactCenterActivity
+</span><a href="#local-6989586621679618977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679618978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactCenter:Activity' :: Maybe ContactCenterActivity
 </span><a href="Network.AWS.Pinpoint.Types.Activity.html#%24sel%3AcontactCenter%3AActivity%27"><span class="hs-identifier hs-var">contactCenter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContactCenterActivity
-</span><a href="#local-6989586621679618968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | The settings for a custom message activity. This type of activity calls</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- an AWS Lambda function or web hook that sends messages to participants.</span><span>
@@ -356,16 +356,16 @@ $sel:contactCenter:Activity' :: Activity -&gt; Maybe ContactCenterActivity
      (Maybe CustomMessageActivity)
      (Maybe CustomMessageActivity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618966"><span class="annot"><span class="annottext">Maybe CustomMessageActivity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618975"><span class="annot"><span class="annottext">Maybe CustomMessageActivity
 custom :: Maybe CustomMessageActivity
 $sel:custom:Activity' :: Activity -&gt; Maybe CustomMessageActivity
-</span><a href="#local-6989586621679618966"><span class="hs-identifier hs-var hs-var">custom</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomMessageActivity
-</span><a href="#local-6989586621679618966"><span class="hs-identifier hs-var">custom</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618965"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679618965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618964"><span class="annot"><span class="annottext">Maybe CustomMessageActivity
-</span><a href="#local-6989586621679618964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679618965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:custom:Activity' :: Maybe CustomMessageActivity
+</span><a href="#local-6989586621679618975"><span class="hs-identifier hs-var hs-var">custom</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomMessageActivity
+</span><a href="#local-6989586621679618975"><span class="hs-identifier hs-var">custom</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618974"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679618974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618973"><span class="annot"><span class="annottext">Maybe CustomMessageActivity
+</span><a href="#local-6989586621679618973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679618974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:custom:Activity' :: Maybe CustomMessageActivity
 </span><a href="Network.AWS.Pinpoint.Types.Activity.html#%24sel%3Acustom%3AActivity%27"><span class="hs-identifier hs-var">custom</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomMessageActivity
-</span><a href="#local-6989586621679618964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The settings for a wait activity. This type of activity waits for a</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- certain amount of time or until a specific date and time before moving</span><span>
@@ -377,16 +377,16 @@ $sel:custom:Activity' :: Activity -&gt; Maybe CustomMessageActivity
 -&gt; (Activity -&gt; Maybe WaitActivity -&gt; Activity)
 -&gt; Lens Activity Activity (Maybe WaitActivity) (Maybe WaitActivity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618962"><span class="annot"><span class="annottext">Maybe WaitActivity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618971"><span class="annot"><span class="annottext">Maybe WaitActivity
 wait :: Maybe WaitActivity
 $sel:wait:Activity' :: Activity -&gt; Maybe WaitActivity
-</span><a href="#local-6989586621679618962"><span class="hs-identifier hs-var hs-var">wait</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WaitActivity
-</span><a href="#local-6989586621679618962"><span class="hs-identifier hs-var">wait</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618961"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679618961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618960"><span class="annot"><span class="annottext">Maybe WaitActivity
-</span><a href="#local-6989586621679618960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679618961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:wait:Activity' :: Maybe WaitActivity
+</span><a href="#local-6989586621679618971"><span class="hs-identifier hs-var hs-var">wait</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WaitActivity
+</span><a href="#local-6989586621679618971"><span class="hs-identifier hs-var">wait</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618970"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679618970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618969"><span class="annot"><span class="annottext">Maybe WaitActivity
+</span><a href="#local-6989586621679618969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679618970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:wait:Activity' :: Maybe WaitActivity
 </span><a href="Network.AWS.Pinpoint.Types.Activity.html#%24sel%3Await%3AActivity%27"><span class="hs-identifier hs-var">wait</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WaitActivity
-</span><a href="#local-6989586621679618960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The settings for a random split activity. This type of activity randomly</span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- sends specified percentages of participants down one of as many as five</span><span>
@@ -402,16 +402,16 @@ $sel:wait:Activity' :: Activity -&gt; Maybe WaitActivity
      (Maybe RandomSplitActivity)
      (Maybe RandomSplitActivity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618958"><span class="annot"><span class="annottext">Maybe RandomSplitActivity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618967"><span class="annot"><span class="annottext">Maybe RandomSplitActivity
 randomSplit :: Maybe RandomSplitActivity
 $sel:randomSplit:Activity' :: Activity -&gt; Maybe RandomSplitActivity
-</span><a href="#local-6989586621679618958"><span class="hs-identifier hs-var hs-var">randomSplit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RandomSplitActivity
-</span><a href="#local-6989586621679618958"><span class="hs-identifier hs-var">randomSplit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618957"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679618957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618956"><span class="annot"><span class="annottext">Maybe RandomSplitActivity
-</span><a href="#local-6989586621679618956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679618957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:randomSplit:Activity' :: Maybe RandomSplitActivity
+</span><a href="#local-6989586621679618967"><span class="hs-identifier hs-var hs-var">randomSplit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RandomSplitActivity
+</span><a href="#local-6989586621679618967"><span class="hs-identifier hs-var">randomSplit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618966"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679618966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618965"><span class="annot"><span class="annottext">Maybe RandomSplitActivity
+</span><a href="#local-6989586621679618965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679618966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:randomSplit:Activity' :: Maybe RandomSplitActivity
 </span><a href="Network.AWS.Pinpoint.Types.Activity.html#%24sel%3ArandomSplit%3AActivity%27"><span class="hs-identifier hs-var">randomSplit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RandomSplitActivity
-</span><a href="#local-6989586621679618956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The settings for a holdout activity. This type of activity stops a</span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- journey for a specified percentage of participants.</span><span>
@@ -423,16 +423,16 @@ $sel:randomSplit:Activity' :: Activity -&gt; Maybe RandomSplitActivity
 -&gt; Lens
      Activity Activity (Maybe HoldoutActivity) (Maybe HoldoutActivity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618954"><span class="annot"><span class="annottext">Maybe HoldoutActivity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618963"><span class="annot"><span class="annottext">Maybe HoldoutActivity
 holdout :: Maybe HoldoutActivity
 $sel:holdout:Activity' :: Activity -&gt; Maybe HoldoutActivity
-</span><a href="#local-6989586621679618954"><span class="hs-identifier hs-var hs-var">holdout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HoldoutActivity
-</span><a href="#local-6989586621679618954"><span class="hs-identifier hs-var">holdout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618953"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679618953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618952"><span class="annot"><span class="annottext">Maybe HoldoutActivity
-</span><a href="#local-6989586621679618952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679618953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:holdout:Activity' :: Maybe HoldoutActivity
+</span><a href="#local-6989586621679618963"><span class="hs-identifier hs-var hs-var">holdout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HoldoutActivity
+</span><a href="#local-6989586621679618963"><span class="hs-identifier hs-var">holdout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618962"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679618962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618961"><span class="annot"><span class="annottext">Maybe HoldoutActivity
+</span><a href="#local-6989586621679618961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679618962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:holdout:Activity' :: Maybe HoldoutActivity
 </span><a href="Network.AWS.Pinpoint.Types.Activity.html#%24sel%3Aholdout%3AActivity%27"><span class="hs-identifier hs-var">holdout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HoldoutActivity
-</span><a href="#local-6989586621679618952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | The settings for an SMS activity. This type of activity sends a text</span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- message to participants.</span><span>
@@ -447,16 +447,16 @@ $sel:holdout:Activity' :: Activity -&gt; Maybe HoldoutActivity
      (Maybe SMSMessageActivity)
      (Maybe SMSMessageActivity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618950"><span class="annot"><span class="annottext">Maybe SMSMessageActivity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618959"><span class="annot"><span class="annottext">Maybe SMSMessageActivity
 sms :: Maybe SMSMessageActivity
 $sel:sms:Activity' :: Activity -&gt; Maybe SMSMessageActivity
-</span><a href="#local-6989586621679618950"><span class="hs-identifier hs-var hs-var">sms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SMSMessageActivity
-</span><a href="#local-6989586621679618950"><span class="hs-identifier hs-var">sms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618949"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679618949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618948"><span class="annot"><span class="annottext">Maybe SMSMessageActivity
-</span><a href="#local-6989586621679618948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679618949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sms:Activity' :: Maybe SMSMessageActivity
+</span><a href="#local-6989586621679618959"><span class="hs-identifier hs-var hs-var">sms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SMSMessageActivity
+</span><a href="#local-6989586621679618959"><span class="hs-identifier hs-var">sms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618958"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679618958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618957"><span class="annot"><span class="annottext">Maybe SMSMessageActivity
+</span><a href="#local-6989586621679618957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679618958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sms:Activity' :: Maybe SMSMessageActivity
 </span><a href="Network.AWS.Pinpoint.Types.Activity.html#%24sel%3Asms%3AActivity%27"><span class="hs-identifier hs-var">sms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SMSMessageActivity
-</span><a href="#local-6989586621679618948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | The settings for a push notification activity. This type of activity</span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- sends a push notification to participants.</span><span>
@@ -471,16 +471,16 @@ $sel:sms:Activity' :: Activity -&gt; Maybe SMSMessageActivity
      (Maybe PushMessageActivity)
      (Maybe PushMessageActivity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618946"><span class="annot"><span class="annottext">Maybe PushMessageActivity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618955"><span class="annot"><span class="annottext">Maybe PushMessageActivity
 push :: Maybe PushMessageActivity
 $sel:push:Activity' :: Activity -&gt; Maybe PushMessageActivity
-</span><a href="#local-6989586621679618946"><span class="hs-identifier hs-var hs-var">push</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PushMessageActivity
-</span><a href="#local-6989586621679618946"><span class="hs-identifier hs-var">push</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618945"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679618945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618944"><span class="annot"><span class="annottext">Maybe PushMessageActivity
-</span><a href="#local-6989586621679618944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679618945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:push:Activity' :: Maybe PushMessageActivity
+</span><a href="#local-6989586621679618955"><span class="hs-identifier hs-var hs-var">push</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PushMessageActivity
+</span><a href="#local-6989586621679618955"><span class="hs-identifier hs-var">push</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618954"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679618954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618953"><span class="annot"><span class="annottext">Maybe PushMessageActivity
+</span><a href="#local-6989586621679618953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679618954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:push:Activity' :: Maybe PushMessageActivity
 </span><a href="Network.AWS.Pinpoint.Types.Activity.html#%24sel%3Apush%3AActivity%27"><span class="hs-identifier hs-var">push</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PushMessageActivity
-</span><a href="#local-6989586621679618944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | The custom description of the activity.</span><span>
 </span><span id="line-195"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#activity_description"><span class="hs-identifier hs-type">activity_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -489,27 +489,27 @@ $sel:push:Activity' :: Activity -&gt; Maybe PushMessageActivity
 -&gt; (Activity -&gt; Maybe Text -&gt; Activity)
 -&gt; Lens Activity Activity (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618942"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618951"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:Activity' :: Activity -&gt; Maybe Text
-</span><a href="#local-6989586621679618942"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679618942"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618941"><span class="annot"><span class="annottext">s :: Activity
-</span><a href="#local-6989586621679618941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618940"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679618940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
-</span><a href="#local-6989586621679618941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Activity' :: Maybe Text
+</span><a href="#local-6989586621679618951"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679618951"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618950"><span class="annot"><span class="annottext">s :: Activity
+</span><a href="#local-6989586621679618950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618949"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679618949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Activity
+</span><a href="#local-6989586621679618950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Activity' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.Activity.html#%24sel%3Adescription%3AActivity%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679618940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618937"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679618935"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Activity
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618946"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679618944"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Activity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Activity) -&gt; Value -&gt; Parser Activity
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Activity&quot;</span></span><span>
-</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679618932"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679618932"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679618941"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679618941"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-203"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConditionalSplitActivity
 -&gt; Maybe EmailMessageActivity
 -&gt; Maybe MultiConditionalSplitActivity
@@ -550,7 +550,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Activity)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679618932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConditionalSplitActivity)
+</span><a href="#local-6989586621679618941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConditionalSplitActivity)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConditionalSplit&quot;</span></span><span class="hs-special">)</span><span>
@@ -580,7 +580,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Activity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679618932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EmailMessageActivity)
+</span><a href="#local-6989586621679618941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EmailMessageActivity)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EMAIL&quot;</span></span><span class="hs-special">)</span><span>
@@ -608,7 +608,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Activity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679618932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MultiConditionalSplitActivity)
+</span><a href="#local-6989586621679618941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MultiConditionalSplitActivity)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MultiCondition&quot;</span></span><span class="hs-special">)</span><span>
@@ -634,7 +634,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Activity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679618932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContactCenterActivity)
+</span><a href="#local-6989586621679618941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContactCenterActivity)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContactCenter&quot;</span></span><span class="hs-special">)</span><span>
@@ -658,7 +658,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Activity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679618932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomMessageActivity)
+</span><a href="#local-6989586621679618941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomMessageActivity)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CUSTOM&quot;</span></span><span class="hs-special">)</span><span>
@@ -680,7 +680,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Activity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679618932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WaitActivity)
+</span><a href="#local-6989586621679618941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WaitActivity)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Wait&quot;</span></span><span class="hs-special">)</span><span>
@@ -700,7 +700,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Activity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679618932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RandomSplitActivity)
+</span><a href="#local-6989586621679618941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RandomSplitActivity)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RandomSplit&quot;</span></span><span class="hs-special">)</span><span>
@@ -716,7 +716,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe PushMessageActivity -&gt; Maybe Text -&gt; Activity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679618932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HoldoutActivity)
+</span><a href="#local-6989586621679618941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HoldoutActivity)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Holdout&quot;</span></span><span class="hs-special">)</span><span>
@@ -727,7 +727,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe PushMessageActivity -&gt; Maybe Text -&gt; Activity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679618932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SMSMessageActivity)
+</span><a href="#local-6989586621679618941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SMSMessageActivity)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SMS&quot;</span></span><span class="hs-special">)</span><span>
@@ -736,7 +736,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Activity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679618932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PushMessageActivity)
+</span><a href="#local-6989586621679618941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PushMessageActivity)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PUSH&quot;</span></span><span class="hs-special">)</span><span>
@@ -744,19 +744,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Activity
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679618932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679618941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618926"><span id="local-6989586621679618928"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span></span></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618935"><span id="local-6989586621679618937"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span></span></span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618932"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span></span><span>
 </span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618915"><span id="local-6989586621679618917"><span id="local-6989586621679618919"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-222"></span><span>  </span><span id="local-6989586621679618913"><span class="annot"><span class="annottext">toJSON :: Activity -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618901"><span id="local-6989586621679618902"><span id="local-6989586621679618903"><span id="local-6989586621679618904"><span id="local-6989586621679618905"><span id="local-6989586621679618906"><span id="local-6989586621679618907"><span id="local-6989586621679618908"><span id="local-6989586621679618909"><span id="local-6989586621679618910"><span id="local-6989586621679618911"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618924"><span id="local-6989586621679618926"><span id="local-6989586621679618928"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679618922"><span class="annot"><span class="annottext">toJSON :: Activity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Activity.html#Activity%27"><span class="hs-identifier hs-type">Activity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618910"><span id="local-6989586621679618911"><span id="local-6989586621679618912"><span id="local-6989586621679618913"><span id="local-6989586621679618914"><span id="local-6989586621679618915"><span id="local-6989586621679618916"><span id="local-6989586621679618917"><span id="local-6989586621679618918"><span id="local-6989586621679618919"><span id="local-6989586621679618920"><span class="annot"><span class="annottext">Maybe Text
 Maybe ContactCenterActivity
 Maybe HoldoutActivity
 Maybe CustomMessageActivity
@@ -789,7 +789,7 @@ $sel:contactCenter:Activity' :: Activity -&gt; Maybe ContactCenterActivity
 $sel:multiCondition:Activity' :: Activity -&gt; Maybe MultiConditionalSplitActivity
 $sel:email:Activity' :: Activity -&gt; Maybe EmailMessageActivity
 $sel:conditionalSplit:Activity' :: Activity -&gt; Maybe ConditionalSplitActivity
-</span><a href="#local-6989586621679618901"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679618910"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -803,7 +803,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ConditionalSplitActivity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalSplitActivity
-</span><a href="#local-6989586621679618911"><span class="hs-identifier hs-var">conditionalSplit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618920"><span class="hs-identifier hs-var">conditionalSplit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-227"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EMAIL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EmailMessageActivity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -811,7 +811,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe EmailMessageActivity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EmailMessageActivity
-</span><a href="#local-6989586621679618910"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618919"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MultiCondition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MultiConditionalSplitActivity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -820,7 +820,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MultiConditionalSplitActivity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MultiConditionalSplitActivity
-</span><a href="#local-6989586621679618909"><span class="hs-identifier hs-var">multiCondition</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618918"><span class="hs-identifier hs-var">multiCondition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContactCenter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContactCenterActivity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -828,7 +828,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ContactCenterActivity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContactCenterActivity
-</span><a href="#local-6989586621679618908"><span class="hs-identifier hs-var">contactCenter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618917"><span class="hs-identifier hs-var">contactCenter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CUSTOM&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CustomMessageActivity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -836,14 +836,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CustomMessageActivity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CustomMessageActivity
-</span><a href="#local-6989586621679618907"><span class="hs-identifier hs-var">custom</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618916"><span class="hs-identifier hs-var">custom</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Wait&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WaitActivity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(WaitActivity -&gt; Pair) -&gt; Maybe WaitActivity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WaitActivity
-</span><a href="#local-6989586621679618906"><span class="hs-identifier hs-var">wait</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618915"><span class="hs-identifier hs-var">wait</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RandomSplit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RandomSplitActivity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -851,14 +851,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe RandomSplitActivity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RandomSplitActivity
-</span><a href="#local-6989586621679618905"><span class="hs-identifier hs-var">randomSplit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618914"><span class="hs-identifier hs-var">randomSplit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Holdout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HoldoutActivity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HoldoutActivity -&gt; Pair) -&gt; Maybe HoldoutActivity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HoldoutActivity
-</span><a href="#local-6989586621679618904"><span class="hs-identifier hs-var">holdout</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618913"><span class="hs-identifier hs-var">holdout</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-235"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SMS&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SMSMessageActivity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -866,7 +866,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe SMSMessageActivity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SMSMessageActivity
-</span><a href="#local-6989586621679618903"><span class="hs-identifier hs-var">sms</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618912"><span class="hs-identifier hs-var">sms</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-236"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PUSH&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PushMessageActivity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -874,14 +874,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe PushMessageActivity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PushMessageActivity
-</span><a href="#local-6989586621679618902"><span class="hs-identifier hs-var">push</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618911"><span class="hs-identifier hs-var">push</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-237"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679618901"><span class="hs-identifier hs-var">description</span></a></span><span>
+</span><a href="#local-6989586621679618910"><span class="hs-identifier hs-var">description</span></a></span><span>
 </span><span id="line-238"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-239"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span></pre></body></html>

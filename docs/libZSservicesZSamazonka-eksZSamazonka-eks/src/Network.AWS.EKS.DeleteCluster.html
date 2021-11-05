@@ -59,12 +59,12 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newDeleteCluster' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679276646"><span id="local-6989586621679276647"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCluster"><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-var">DeleteCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCluster%27"><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-var">DeleteCluster'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679276655"><span id="local-6989586621679276656"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCluster"><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-var">DeleteCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCluster%27"><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-var">DeleteCluster'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the cluster to delete.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3Aname%3ADeleteCluster%27"><span class="annot"><span class="annottext">DeleteCluster -&gt; Text
 </span><a href="Network.AWS.EKS.DeleteCluster.html#%24sel%3Aname%3ADeleteCluster%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276640"><span id="local-6989586621679276642"><span class="annot"><span class="annottext">DeleteCluster -&gt; DeleteCluster -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276649"><span id="local-6989586621679276651"><span class="annot"><span class="annottext">DeleteCluster -&gt; DeleteCluster -&gt; Bool
 (DeleteCluster -&gt; DeleteCluster -&gt; Bool)
 -&gt; (DeleteCluster -&gt; DeleteCluster -&gt; Bool) -&gt; Eq DeleteCluster
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteCluster -&gt; DeleteCluster -&gt; Bool
 == :: DeleteCluster -&gt; DeleteCluster -&gt; Bool
 $c== :: DeleteCluster -&gt; DeleteCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276631"><span id="local-6989586621679276633"><span id="local-6989586621679276635"><span id="local-6989586621679276637"><span class="annot"><span class="annottext">ReadPrec [DeleteCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276640"><span id="local-6989586621679276642"><span id="local-6989586621679276644"><span id="local-6989586621679276646"><span class="annot"><span class="annottext">ReadPrec [DeleteCluster]
 ReadPrec DeleteCluster
 Int -&gt; ReadS DeleteCluster
 ReadS [DeleteCluster]
@@ -92,7 +92,7 @@ readList :: ReadS [DeleteCluster]
 $creadList :: ReadS [DeleteCluster]
 readsPrec :: Int -&gt; ReadS DeleteCluster
 $creadsPrec :: Int -&gt; ReadS DeleteCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276624"><span id="local-6989586621679276626"><span id="local-6989586621679276628"><span class="annot"><span class="annottext">Int -&gt; DeleteCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276633"><span id="local-6989586621679276635"><span id="local-6989586621679276637"><span class="annot"><span class="annottext">Int -&gt; DeleteCluster -&gt; ShowS
 [DeleteCluster] -&gt; ShowS
 DeleteCluster -&gt; String
 (Int -&gt; DeleteCluster -&gt; ShowS)
@@ -132,12 +132,12 @@ $cfrom :: forall x. DeleteCluster -&gt; Rep DeleteCluster x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span>
 </span><span id="line-81"></span><span id="newDeleteCluster"><span class="annot"><span class="annottext">newDeleteCluster :: Text -&gt; DeleteCluster
-</span><a href="Network.AWS.EKS.DeleteCluster.html#newDeleteCluster"><span class="hs-identifier hs-var hs-var">newDeleteCluster</span></a></span></span><span> </span><span id="local-6989586621679276619"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276619"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EKS.DeleteCluster.html#newDeleteCluster"><span class="hs-identifier hs-var hs-var">newDeleteCluster</span></a></span></span><span> </span><span id="local-6989586621679276628"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276628"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DeleteCluster' :: Text -&gt; DeleteCluster
 </span><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteCluster' :: Text
 </span><a href="Network.AWS.EKS.DeleteCluster.html#%24sel%3Aname%3ADeleteCluster%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276619"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679276628"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The name of the cluster to delete.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#deleteCluster_name"><span class="hs-identifier hs-type">deleteCluster_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -146,27 +146,27 @@ $cfrom :: forall x. DeleteCluster -&gt; Rep DeleteCluster x
 -&gt; (DeleteCluster -&gt; Text -&gt; DeleteCluster)
 -&gt; Lens DeleteCluster DeleteCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276616"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276625"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteCluster' :: DeleteCluster -&gt; Text
-</span><a href="#local-6989586621679276616"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276616"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276615"><span class="annot"><span class="annottext">s :: DeleteCluster
-</span><a href="#local-6989586621679276615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276614"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCluster
-</span><a href="#local-6989586621679276615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteCluster' :: Text
+</span><a href="#local-6989586621679276625"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276625"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276624"><span class="annot"><span class="annottext">s :: DeleteCluster
+</span><a href="#local-6989586621679276624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276623"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCluster
+</span><a href="#local-6989586621679276624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteCluster' :: Text
 </span><a href="Network.AWS.EKS.DeleteCluster.html#%24sel%3Aname%3ADeleteCluster%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679276610"><span class="annot"><span class="annottext">request :: DeleteCluster -&gt; Request DeleteCluster
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679276619"><span class="annot"><span class="annottext">request :: DeleteCluster -&gt; Request DeleteCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteCluster -&gt; Request DeleteCluster
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EKS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679276606"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679276615"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteCluster
 -&gt; ClientResponse ClientBody
@@ -190,10 +190,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276603"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679276603"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679276602"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679276602"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679276601"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276601"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276612"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276612"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679276611"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679276611"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679276610"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276610"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; DeleteClusterResponse
 </span><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-var">DeleteClusterResponse'</span></a></span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; DeleteClusterResponse)
@@ -201,7 +201,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteClusterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
+</span><a href="#local-6989586621679276610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -213,15 +213,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679276603"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276612"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276593"><span id="local-6989586621679276595"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276602"><span id="local-6989586621679276604"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276590"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679276586"><span class="annot"><span class="annottext">toHeaders :: DeleteCluster -&gt; ResponseHeaders
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679276595"><span class="annot"><span class="annottext">toHeaders :: DeleteCluster -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteCluster -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -241,21 +241,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679276580"><span class="annot"><span class="annottext">toPath :: DeleteCluster -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276578"><span class="annot"><span class="annottext">Text
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679276589"><span class="annot"><span class="annottext">toPath :: DeleteCluster -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276587"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteCluster' :: DeleteCluster -&gt; Text
-</span><a href="#local-6989586621679276578"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679276587"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/clusters/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276578"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679276587"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679276574"><span class="annot"><span class="annottext">toQuery :: DeleteCluster -&gt; QueryString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679276583"><span class="annot"><span class="annottext">toQuery :: DeleteCluster -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteCluster -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -263,7 +263,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | /See:/ 'newDeleteClusterResponse' smart constructor.</span><span>
-</span><span id="line-124"></span><span id="local-6989586621679276571"><span id="local-6989586621679276572"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteClusterResponse"><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-var">DeleteClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteClusterResponse%27"><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-var">DeleteClusterResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span id="local-6989586621679276580"><span id="local-6989586621679276581"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteClusterResponse"><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-var">DeleteClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteClusterResponse%27"><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-var">DeleteClusterResponse'</span></a></span></span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The full description of the cluster to delete.</span><span>
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3Acluster%3ADeleteClusterResponse%27"><span class="annot"><span class="annottext">DeleteClusterResponse -&gt; Maybe Cluster
 </span><a href="Network.AWS.EKS.DeleteCluster.html#%24sel%3Acluster%3ADeleteClusterResponse%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">,</span><span>
@@ -271,7 +271,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteClusterResponse%27"><span class="annot"><span class="annottext">DeleteClusterResponse -&gt; Int
 </span><a href="Network.AWS.EKS.DeleteCluster.html#%24sel%3AhttpStatus%3ADeleteClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276565"><span id="local-6989586621679276567"><span class="annot"><span class="annottext">DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276574"><span id="local-6989586621679276576"><span class="annot"><span class="annottext">DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool
 (DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool)
 -&gt; (DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool)
 -&gt; Eq DeleteClusterResponse
@@ -280,7 +280,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool
 == :: DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool
 $c== :: DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276557"><span id="local-6989586621679276559"><span id="local-6989586621679276561"><span id="local-6989586621679276563"><span class="annot"><span class="annottext">ReadPrec [DeleteClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276566"><span id="local-6989586621679276568"><span id="local-6989586621679276570"><span id="local-6989586621679276572"><span class="annot"><span class="annottext">ReadPrec [DeleteClusterResponse]
 ReadPrec DeleteClusterResponse
 Int -&gt; ReadS DeleteClusterResponse
 ReadS [DeleteClusterResponse]
@@ -300,7 +300,7 @@ readList :: ReadS [DeleteClusterResponse]
 $creadList :: ReadS [DeleteClusterResponse]
 readsPrec :: Int -&gt; ReadS DeleteClusterResponse
 $creadsPrec :: Int -&gt; ReadS DeleteClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276551"><span id="local-6989586621679276553"><span id="local-6989586621679276555"><span class="annot"><span class="annottext">Int -&gt; DeleteClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276560"><span id="local-6989586621679276562"><span id="local-6989586621679276564"><span class="annot"><span class="annottext">Int -&gt; DeleteClusterResponse -&gt; ShowS
 [DeleteClusterResponse] -&gt; ShowS
 DeleteClusterResponse -&gt; String
 (Int -&gt; DeleteClusterResponse -&gt; ShowS)
@@ -342,8 +342,8 @@ $cfrom :: forall x. DeleteClusterResponse -&gt; Rep DeleteClusterResponse x
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span>
 </span><span id="line-147"></span><span id="newDeleteClusterResponse"><span class="annot"><span class="annottext">newDeleteClusterResponse :: Int -&gt; DeleteClusterResponse
-</span><a href="Network.AWS.EKS.DeleteCluster.html#newDeleteClusterResponse"><span class="hs-identifier hs-var hs-var">newDeleteClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679276548"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679276548"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EKS.DeleteCluster.html#newDeleteClusterResponse"><span class="hs-identifier hs-var hs-var">newDeleteClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679276557"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276557"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">DeleteClusterResponse' :: Maybe Cluster -&gt; Int -&gt; DeleteClusterResponse
 </span><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:DeleteClusterResponse' :: Maybe Cluster
@@ -352,7 +352,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteClusterResponse' :: Int
 </span><a href="Network.AWS.EKS.DeleteCluster.html#%24sel%3AhttpStatus%3ADeleteClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679276548"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679276557"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The full description of the cluster to delete.</span><span>
@@ -368,16 +368,16 @@ forall a. Maybe a
      (Maybe Cluster)
      (Maybe Cluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276547"><span class="annot"><span class="annottext">Maybe Cluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276556"><span class="annot"><span class="annottext">Maybe Cluster
 cluster :: Maybe Cluster
 $sel:cluster:DeleteClusterResponse' :: DeleteClusterResponse -&gt; Maybe Cluster
-</span><a href="#local-6989586621679276547"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679276547"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276546"><span class="annot"><span class="annottext">s :: DeleteClusterResponse
-</span><a href="#local-6989586621679276546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276545"><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679276545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClusterResponse
-</span><a href="#local-6989586621679276546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:DeleteClusterResponse' :: Maybe Cluster
+</span><a href="#local-6989586621679276556"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679276556"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276555"><span class="annot"><span class="annottext">s :: DeleteClusterResponse
+</span><a href="#local-6989586621679276555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276554"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679276554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClusterResponse
+</span><a href="#local-6989586621679276555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:DeleteClusterResponse' :: Maybe Cluster
 </span><a href="Network.AWS.EKS.DeleteCluster.html#%24sel%3Acluster%3ADeleteClusterResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679276545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-158"></span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#deleteClusterResponse_httpStatus"><span class="hs-identifier hs-type">deleteClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -386,16 +386,16 @@ $sel:cluster:DeleteClusterResponse' :: DeleteClusterResponse -&gt; Maybe Cluster
 -&gt; (DeleteClusterResponse -&gt; Int -&gt; DeleteClusterResponse)
 -&gt; Lens DeleteClusterResponse DeleteClusterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276544"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276553"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteClusterResponse' :: DeleteClusterResponse -&gt; Int
-</span><a href="#local-6989586621679276544"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679276544"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276543"><span class="annot"><span class="annottext">s :: DeleteClusterResponse
-</span><a href="#local-6989586621679276543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276542"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679276542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClusterResponse
-</span><a href="#local-6989586621679276543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteClusterResponse' :: Int
+</span><a href="#local-6989586621679276553"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276553"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276552"><span class="annot"><span class="annottext">s :: DeleteClusterResponse
+</span><a href="#local-6989586621679276552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276551"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClusterResponse
+</span><a href="#local-6989586621679276552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteClusterResponse' :: Int
 </span><a href="Network.AWS.EKS.DeleteCluster.html#%24sel%3AhttpStatus%3ADeleteClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679276542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276540"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276549"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span></span><span>
 </span><span id="line-162"></span></pre></body></html>

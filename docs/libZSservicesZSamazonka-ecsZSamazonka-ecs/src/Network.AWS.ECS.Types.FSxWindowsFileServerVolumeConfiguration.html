@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- in the /Amazon Elastic Container Service Developer Guide/.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newFSxWindowsFileServerVolumeConfiguration' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679453204"><span id="local-6989586621679453205"></span></span><span class="hs-keyword">data</span><span> </span><span id="FSxWindowsFileServerVolumeConfiguration"><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration"><span class="hs-identifier hs-var">FSxWindowsFileServerVolumeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FSxWindowsFileServerVolumeConfiguration%27"><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-var">FSxWindowsFileServerVolumeConfiguration'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679453213"><span id="local-6989586621679453214"></span></span><span class="hs-keyword">data</span><span> </span><span id="FSxWindowsFileServerVolumeConfiguration"><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration"><span class="hs-identifier hs-var">FSxWindowsFileServerVolumeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FSxWindowsFileServerVolumeConfiguration%27"><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-var">FSxWindowsFileServerVolumeConfiguration'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon FSx for Windows File Server file system ID to use.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AfileSystemId%3AFSxWindowsFileServerVolumeConfiguration%27"><span class="annot"><span class="annottext">FSxWindowsFileServerVolumeConfiguration -&gt; Text
 </span><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#%24sel%3AfileSystemId%3AFSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-var hs-var">fileSystemId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -47,7 +47,7 @@
 -&gt; FSxWindowsFileServerAuthorizationConfig
 </span><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#%24sel%3AauthorizationConfig%3AFSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-var hs-var">authorizationConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerAuthorizationConfig.html#FSxWindowsFileServerAuthorizationConfig"><span class="hs-identifier hs-type">FSxWindowsFileServerAuthorizationConfig</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453196"><span id="local-6989586621679453198"><span class="annot"><span class="annottext">FSxWindowsFileServerVolumeConfiguration
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453205"><span id="local-6989586621679453207"><span class="annot"><span class="annottext">FSxWindowsFileServerVolumeConfiguration
 -&gt; FSxWindowsFileServerVolumeConfiguration -&gt; Bool
 (FSxWindowsFileServerVolumeConfiguration
  -&gt; FSxWindowsFileServerVolumeConfiguration -&gt; Bool)
@@ -63,7 +63,7 @@ $c/= :: FSxWindowsFileServerVolumeConfiguration
 -&gt; FSxWindowsFileServerVolumeConfiguration -&gt; Bool
 $c== :: FSxWindowsFileServerVolumeConfiguration
 -&gt; FSxWindowsFileServerVolumeConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453187"><span id="local-6989586621679453189"><span id="local-6989586621679453191"><span id="local-6989586621679453193"><span class="annot"><span class="annottext">ReadPrec [FSxWindowsFileServerVolumeConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453196"><span id="local-6989586621679453198"><span id="local-6989586621679453200"><span id="local-6989586621679453202"><span class="annot"><span class="annottext">ReadPrec [FSxWindowsFileServerVolumeConfiguration]
 ReadPrec FSxWindowsFileServerVolumeConfiguration
 Int -&gt; ReadS FSxWindowsFileServerVolumeConfiguration
 ReadS [FSxWindowsFileServerVolumeConfiguration]
@@ -83,7 +83,7 @@ readList :: ReadS [FSxWindowsFileServerVolumeConfiguration]
 $creadList :: ReadS [FSxWindowsFileServerVolumeConfiguration]
 readsPrec :: Int -&gt; ReadS FSxWindowsFileServerVolumeConfiguration
 $creadsPrec :: Int -&gt; ReadS FSxWindowsFileServerVolumeConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453180"><span id="local-6989586621679453182"><span id="local-6989586621679453184"><span class="annot"><span class="annottext">Int -&gt; FSxWindowsFileServerVolumeConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453189"><span id="local-6989586621679453191"><span id="local-6989586621679453193"><span class="annot"><span class="annottext">Int -&gt; FSxWindowsFileServerVolumeConfiguration -&gt; ShowS
 [FSxWindowsFileServerVolumeConfiguration] -&gt; ShowS
 FSxWindowsFileServerVolumeConfiguration -&gt; String
 (Int -&gt; FSxWindowsFileServerVolumeConfiguration -&gt; ShowS)
@@ -149,12 +149,12 @@ FSxWindowsFileServerVolumeConfiguration
 -&gt; FSxWindowsFileServerAuthorizationConfig
 -&gt; FSxWindowsFileServerVolumeConfiguration
 </span><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#newFSxWindowsFileServerVolumeConfiguration"><span class="hs-identifier hs-var hs-var">newFSxWindowsFileServerVolumeConfiguration</span></a></span></span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679453174"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453174"><span class="hs-identifier hs-var">pFileSystemId_</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679453173"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453173"><span class="hs-identifier hs-var">pRootDirectory_</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679453172"><span class="annot"><span class="annottext">FSxWindowsFileServerAuthorizationConfig
-</span><a href="#local-6989586621679453172"><span class="hs-identifier hs-var">pAuthorizationConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679453183"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453183"><span class="hs-identifier hs-var">pFileSystemId_</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679453182"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453182"><span class="hs-identifier hs-var">pRootDirectory_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679453181"><span class="annot"><span class="annottext">FSxWindowsFileServerAuthorizationConfig
+</span><a href="#local-6989586621679453181"><span class="hs-identifier hs-var">pAuthorizationConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">FSxWindowsFileServerVolumeConfiguration' :: Text
 -&gt; Text
 -&gt; FSxWindowsFileServerAuthorizationConfig
@@ -163,14 +163,14 @@ FSxWindowsFileServerVolumeConfiguration
 </span><span id="line-76"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fileSystemId:FSxWindowsFileServerVolumeConfiguration' :: Text
 </span><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#%24sel%3AfileSystemId%3AFSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453174"><span class="hs-identifier hs-var">pFileSystemId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679453183"><span class="hs-identifier hs-var">pFileSystemId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">$sel:rootDirectory:FSxWindowsFileServerVolumeConfiguration' :: Text
 </span><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#%24sel%3ArootDirectory%3AFSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-var">rootDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453173"><span class="hs-identifier hs-var">pRootDirectory_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679453182"><span class="hs-identifier hs-var">pRootDirectory_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">$sel:authorizationConfig:FSxWindowsFileServerVolumeConfiguration' :: FSxWindowsFileServerAuthorizationConfig
 </span><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#%24sel%3AauthorizationConfig%3AFSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-var">authorizationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">FSxWindowsFileServerAuthorizationConfig
-</span><a href="#local-6989586621679453172"><span class="hs-identifier hs-var">pAuthorizationConfig_</span></a></span><span>
+</span><a href="#local-6989586621679453181"><span class="hs-identifier hs-var">pAuthorizationConfig_</span></a></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The Amazon FSx for Windows File Server file system ID to use.</span><span>
@@ -187,16 +187,16 @@ FSxWindowsFileServerVolumeConfiguration
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453168"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453177"><span class="annot"><span class="annottext">Text
 fileSystemId :: Text
 $sel:fileSystemId:FSxWindowsFileServerVolumeConfiguration' :: FSxWindowsFileServerVolumeConfiguration -&gt; Text
-</span><a href="#local-6989586621679453168"><span class="hs-identifier hs-var hs-var">fileSystemId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453168"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453167"><span class="annot"><span class="annottext">s :: FSxWindowsFileServerVolumeConfiguration
-</span><a href="#local-6989586621679453167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453166"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FSxWindowsFileServerVolumeConfiguration
-</span><a href="#local-6989586621679453167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemId:FSxWindowsFileServerVolumeConfiguration' :: Text
+</span><a href="#local-6989586621679453177"><span class="hs-identifier hs-var hs-var">fileSystemId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453177"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453176"><span class="annot"><span class="annottext">s :: FSxWindowsFileServerVolumeConfiguration
+</span><a href="#local-6989586621679453176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453175"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FSxWindowsFileServerVolumeConfiguration
+</span><a href="#local-6989586621679453176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemId:FSxWindowsFileServerVolumeConfiguration' :: Text
 </span><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#%24sel%3AfileSystemId%3AFSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The directory within the Amazon FSx for Windows File Server file system</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- to mount as the root directory inside the host.</span><span>
@@ -213,16 +213,16 @@ $sel:fileSystemId:FSxWindowsFileServerVolumeConfiguration' :: FSxWindowsFileServ
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453164"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453173"><span class="annot"><span class="annottext">Text
 rootDirectory :: Text
 $sel:rootDirectory:FSxWindowsFileServerVolumeConfiguration' :: FSxWindowsFileServerVolumeConfiguration -&gt; Text
-</span><a href="#local-6989586621679453164"><span class="hs-identifier hs-var hs-var">rootDirectory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453164"><span class="hs-identifier hs-var">rootDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453163"><span class="annot"><span class="annottext">s :: FSxWindowsFileServerVolumeConfiguration
-</span><a href="#local-6989586621679453163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453162"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FSxWindowsFileServerVolumeConfiguration
-</span><a href="#local-6989586621679453163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rootDirectory:FSxWindowsFileServerVolumeConfiguration' :: Text
+</span><a href="#local-6989586621679453173"><span class="hs-identifier hs-var hs-var">rootDirectory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453173"><span class="hs-identifier hs-var">rootDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453172"><span class="annot"><span class="annottext">s :: FSxWindowsFileServerVolumeConfiguration
+</span><a href="#local-6989586621679453172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453171"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FSxWindowsFileServerVolumeConfiguration
+</span><a href="#local-6989586621679453172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rootDirectory:FSxWindowsFileServerVolumeConfiguration' :: Text
 </span><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#%24sel%3ArootDirectory%3AFSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-var">rootDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The authorization configuration details for the Amazon FSx for Windows</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- File Server file system.</span><span>
@@ -242,23 +242,23 @@ $sel:rootDirectory:FSxWindowsFileServerVolumeConfiguration' :: FSxWindowsFileSer
      FSxWindowsFileServerAuthorizationConfig
      FSxWindowsFileServerAuthorizationConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453160"><span class="annot"><span class="annottext">FSxWindowsFileServerAuthorizationConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453169"><span class="annot"><span class="annottext">FSxWindowsFileServerAuthorizationConfig
 authorizationConfig :: FSxWindowsFileServerAuthorizationConfig
 $sel:authorizationConfig:FSxWindowsFileServerVolumeConfiguration' :: FSxWindowsFileServerVolumeConfiguration
 -&gt; FSxWindowsFileServerAuthorizationConfig
-</span><a href="#local-6989586621679453160"><span class="hs-identifier hs-var hs-var">authorizationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FSxWindowsFileServerAuthorizationConfig
-</span><a href="#local-6989586621679453160"><span class="hs-identifier hs-var">authorizationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453159"><span class="annot"><span class="annottext">s :: FSxWindowsFileServerVolumeConfiguration
-</span><a href="#local-6989586621679453159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453158"><span class="annot"><span class="annottext">FSxWindowsFileServerAuthorizationConfig
-</span><a href="#local-6989586621679453158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FSxWindowsFileServerVolumeConfiguration
-</span><a href="#local-6989586621679453159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationConfig:FSxWindowsFileServerVolumeConfiguration' :: FSxWindowsFileServerAuthorizationConfig
+</span><a href="#local-6989586621679453169"><span class="hs-identifier hs-var hs-var">authorizationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FSxWindowsFileServerAuthorizationConfig
+</span><a href="#local-6989586621679453169"><span class="hs-identifier hs-var">authorizationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453168"><span class="annot"><span class="annottext">s :: FSxWindowsFileServerVolumeConfiguration
+</span><a href="#local-6989586621679453168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453167"><span class="annot"><span class="annottext">FSxWindowsFileServerAuthorizationConfig
+</span><a href="#local-6989586621679453167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FSxWindowsFileServerVolumeConfiguration
+</span><a href="#local-6989586621679453168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationConfig:FSxWindowsFileServerVolumeConfiguration' :: FSxWindowsFileServerAuthorizationConfig
 </span><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#%24sel%3AauthorizationConfig%3AFSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-var">authorizationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FSxWindowsFileServerAuthorizationConfig
-</span><a href="#local-6989586621679453158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679453155"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679453164"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration</span></a></span></span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679453153"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FSxWindowsFileServerVolumeConfiguration
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679453162"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FSxWindowsFileServerVolumeConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FSxWindowsFileServerVolumeConfiguration)
@@ -268,8 +268,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FSxWindowsFileServerVolumeConfiguration&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679453150"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679453150"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679453159"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679453159"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Text
 -&gt; Text
 -&gt; FSxWindowsFileServerAuthorizationConfig
@@ -286,7 +286,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; FSxWindowsFileServerVolumeConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679453150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679453159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fileSystemId&quot;</span></span><span class="hs-special">)</span><span>
@@ -300,7 +300,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; FSxWindowsFileServerVolumeConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679453150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679453159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rootDirectory&quot;</span></span><span class="hs-special">)</span><span>
@@ -311,26 +311,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser FSxWindowsFileServerVolumeConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679453150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FSxWindowsFileServerAuthorizationConfig
+</span><a href="#local-6989586621679453159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FSxWindowsFileServerAuthorizationConfig
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authorizationConfig&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679453144"><span id="local-6989586621679453146"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679453153"><span id="local-6989586621679453155"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679453141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679453150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration</span></a></span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679453133"><span id="local-6989586621679453135"><span id="local-6989586621679453137"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679453142"><span id="local-6989586621679453144"><span id="local-6989586621679453146"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration</span></a></span></span></span></span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679453131"><span class="annot"><span class="annottext">toJSON :: FSxWindowsFileServerVolumeConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453127"><span id="local-6989586621679453128"><span id="local-6989586621679453129"><span class="annot"><span class="annottext">Text
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679453140"><span class="annot"><span class="annottext">toJSON :: FSxWindowsFileServerVolumeConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration.html#FSxWindowsFileServerVolumeConfiguration%27"><span class="hs-identifier hs-type">FSxWindowsFileServerVolumeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453136"><span id="local-6989586621679453137"><span id="local-6989586621679453138"><span class="annot"><span class="annottext">Text
 FSxWindowsFileServerAuthorizationConfig
 authorizationConfig :: FSxWindowsFileServerAuthorizationConfig
 rootDirectory :: Text
@@ -339,7 +339,7 @@ $sel:authorizationConfig:FSxWindowsFileServerVolumeConfiguration' :: FSxWindowsF
 -&gt; FSxWindowsFileServerAuthorizationConfig
 $sel:rootDirectory:FSxWindowsFileServerVolumeConfiguration' :: FSxWindowsFileServerVolumeConfiguration -&gt; Text
 $sel:fileSystemId:FSxWindowsFileServerVolumeConfiguration' :: FSxWindowsFileServerVolumeConfiguration -&gt; Text
-</span><a href="#local-6989586621679453127"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679453136"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -351,14 +351,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;fileSystemId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453129"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679453138"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rootDirectory&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453128"><span class="hs-identifier hs-var">rootDirectory</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679453137"><span class="hs-identifier hs-var">rootDirectory</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -366,7 +366,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;authorizationConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FSxWindowsFileServerAuthorizationConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">FSxWindowsFileServerAuthorizationConfig
-</span><a href="#local-6989586621679453127"><span class="hs-identifier hs-var">authorizationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453136"><span class="hs-identifier hs-var">authorizationConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span></pre></body></html>

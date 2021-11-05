@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetRepositoryPolicy' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679239914"><span id="local-6989586621679239915"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRepositoryPolicy"><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-var">GetRepositoryPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRepositoryPolicy%27"><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy%27"><span class="hs-identifier hs-var">GetRepositoryPolicy'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679239923"><span id="local-6989586621679239924"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRepositoryPolicy"><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-var">GetRepositoryPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRepositoryPolicy%27"><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy%27"><span class="hs-identifier hs-var">GetRepositoryPolicy'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- contains the repository. If you do not specify a registry, the default</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- registry is assumed.</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3ArepositoryName%3AGetRepositoryPolicy%27"><span class="annot"><span class="annottext">GetRepositoryPolicy -&gt; Text
 </span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#%24sel%3ArepositoryName%3AGetRepositoryPolicy%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239907"><span id="local-6989586621679239909"><span class="annot"><span class="annottext">GetRepositoryPolicy -&gt; GetRepositoryPolicy -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239916"><span id="local-6989586621679239918"><span class="annot"><span class="annottext">GetRepositoryPolicy -&gt; GetRepositoryPolicy -&gt; Bool
 (GetRepositoryPolicy -&gt; GetRepositoryPolicy -&gt; Bool)
 -&gt; (GetRepositoryPolicy -&gt; GetRepositoryPolicy -&gt; Bool)
 -&gt; Eq GetRepositoryPolicy
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetRepositoryPolicy -&gt; GetRepositoryPolicy -&gt; Bool
 == :: GetRepositoryPolicy -&gt; GetRepositoryPolicy -&gt; Bool
 $c== :: GetRepositoryPolicy -&gt; GetRepositoryPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239898"><span id="local-6989586621679239900"><span id="local-6989586621679239902"><span id="local-6989586621679239904"><span class="annot"><span class="annottext">ReadPrec [GetRepositoryPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239907"><span id="local-6989586621679239909"><span id="local-6989586621679239911"><span id="local-6989586621679239913"><span class="annot"><span class="annottext">ReadPrec [GetRepositoryPolicy]
 ReadPrec GetRepositoryPolicy
 Int -&gt; ReadS GetRepositoryPolicy
 ReadS [GetRepositoryPolicy]
@@ -89,7 +89,7 @@ readList :: ReadS [GetRepositoryPolicy]
 $creadList :: ReadS [GetRepositoryPolicy]
 readsPrec :: Int -&gt; ReadS GetRepositoryPolicy
 $creadsPrec :: Int -&gt; ReadS GetRepositoryPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239891"><span id="local-6989586621679239893"><span id="local-6989586621679239895"><span class="annot"><span class="annottext">Int -&gt; GetRepositoryPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239900"><span id="local-6989586621679239902"><span id="local-6989586621679239904"><span class="annot"><span class="annottext">Int -&gt; GetRepositoryPolicy -&gt; ShowS
 [GetRepositoryPolicy] -&gt; ShowS
 GetRepositoryPolicy -&gt; String
 (Int -&gt; GetRepositoryPolicy -&gt; ShowS)
@@ -133,8 +133,8 @@ $cfrom :: forall x. GetRepositoryPolicy -&gt; Rep GetRepositoryPolicy x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-type">GetRepositoryPolicy</span></a></span><span>
 </span><span id="line-80"></span><span id="newGetRepositoryPolicy"><span class="annot"><span class="annottext">newGetRepositoryPolicy :: Text -&gt; GetRepositoryPolicy
-</span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#newGetRepositoryPolicy"><span class="hs-identifier hs-var hs-var">newGetRepositoryPolicy</span></a></span></span><span> </span><span id="local-6989586621679239886"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679239886"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#newGetRepositoryPolicy"><span class="hs-identifier hs-var hs-var">newGetRepositoryPolicy</span></a></span></span><span> </span><span id="local-6989586621679239895"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239895"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">GetRepositoryPolicy' :: Maybe Text -&gt; Text -&gt; GetRepositoryPolicy
 </span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy%27"><span class="hs-identifier hs-type">GetRepositoryPolicy'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:registryId:GetRepositoryPolicy' :: Maybe Text
@@ -143,7 +143,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:GetRepositoryPolicy' :: Text
 </span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#%24sel%3ArepositoryName%3AGetRepositoryPolicy%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679239886"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span>
+</span><a href="#local-6989586621679239895"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
@@ -157,16 +157,16 @@ forall a. Maybe a
 -&gt; Lens
      GetRepositoryPolicy GetRepositoryPolicy (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy%27"><span class="hs-identifier hs-type">GetRepositoryPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239883"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy%27"><span class="hs-identifier hs-type">GetRepositoryPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239892"><span class="annot"><span class="annottext">Maybe Text
 registryId :: Maybe Text
 $sel:registryId:GetRepositoryPolicy' :: GetRepositoryPolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679239883"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239883"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239882"><span class="annot"><span class="annottext">s :: GetRepositoryPolicy
-</span><a href="#local-6989586621679239882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy%27"><span class="hs-identifier hs-type">GetRepositoryPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239881"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRepositoryPolicy
-</span><a href="#local-6989586621679239882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:GetRepositoryPolicy' :: Maybe Text
+</span><a href="#local-6989586621679239892"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239892"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239891"><span class="annot"><span class="annottext">s :: GetRepositoryPolicy
+</span><a href="#local-6989586621679239891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy%27"><span class="hs-identifier hs-type">GetRepositoryPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239890"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRepositoryPolicy
+</span><a href="#local-6989586621679239891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:GetRepositoryPolicy' :: Maybe Text
 </span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#%24sel%3AregistryId%3AGetRepositoryPolicy%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-type">GetRepositoryPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-type">GetRepositoryPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The name of the repository with the policy to retrieve.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#getRepositoryPolicy_repositoryName"><span class="hs-identifier hs-type">getRepositoryPolicy_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-type">GetRepositoryPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -175,27 +175,27 @@ $sel:registryId:GetRepositoryPolicy' :: GetRepositoryPolicy -&gt; Maybe Text
 -&gt; (GetRepositoryPolicy -&gt; Text -&gt; GetRepositoryPolicy)
 -&gt; Lens GetRepositoryPolicy GetRepositoryPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy%27"><span class="hs-identifier hs-type">GetRepositoryPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239880"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy%27"><span class="hs-identifier hs-type">GetRepositoryPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239889"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:GetRepositoryPolicy' :: GetRepositoryPolicy -&gt; Text
-</span><a href="#local-6989586621679239880"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679239880"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239879"><span class="annot"><span class="annottext">s :: GetRepositoryPolicy
-</span><a href="#local-6989586621679239879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy%27"><span class="hs-identifier hs-type">GetRepositoryPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239878"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679239878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRepositoryPolicy
-</span><a href="#local-6989586621679239879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetRepositoryPolicy' :: Text
+</span><a href="#local-6989586621679239889"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239889"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239888"><span class="annot"><span class="annottext">s :: GetRepositoryPolicy
+</span><a href="#local-6989586621679239888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy%27"><span class="hs-identifier hs-type">GetRepositoryPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239887"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRepositoryPolicy
+</span><a href="#local-6989586621679239888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetRepositoryPolicy' :: Text
 </span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#%24sel%3ArepositoryName%3AGetRepositoryPolicy%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679239878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-type">GetRepositoryPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-type">GetRepositoryPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-type">GetRepositoryPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-type">GetRepositoryPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679239874"><span class="annot"><span class="annottext">request :: GetRepositoryPolicy -&gt; Request GetRepositoryPolicy
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679239883"><span class="annot"><span class="annottext">request :: GetRepositoryPolicy -&gt; Request GetRepositoryPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetRepositoryPolicy -&gt; Request GetRepositoryPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679239870"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679239879"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetRepositoryPolicy
 -&gt; ClientResponse ClientBody
@@ -221,10 +221,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679239867"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679239867"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679239866"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679239866"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679239865"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239865"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679239876"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239876"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679239875"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679239875"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679239874"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239874"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetRepositoryPolicyResponse
 </span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-var">GetRepositoryPolicyResponse'</span></a></span><span>
@@ -236,7 +236,7 @@ MonadResource m =&gt;
      (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetRepositoryPolicyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679239874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;registryId&quot;</span></span><span class="hs-special">)</span><span>
@@ -247,7 +247,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; GetRepositoryPolicyResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679239874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span class="hs-special">)</span><span>
@@ -256,7 +256,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetRepositoryPolicyResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679239874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;policyText&quot;</span></span><span class="hs-special">)</span><span>
@@ -268,15 +268,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679239867"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239876"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239857"><span id="local-6989586621679239859"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-type">GetRepositoryPolicy</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239866"><span id="local-6989586621679239868"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-type">GetRepositoryPolicy</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239854"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-type">GetRepositoryPolicy</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239863"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-type">GetRepositoryPolicy</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-type">GetRepositoryPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679239850"><span class="annot"><span class="annottext">toHeaders :: GetRepositoryPolicy -&gt; ResponseHeaders
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679239859"><span class="annot"><span class="annottext">toHeaders :: GetRepositoryPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetRepositoryPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -303,15 +303,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239840"><span id="local-6989586621679239842"><span id="local-6989586621679239844"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-type">GetRepositoryPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679239838"><span class="annot"><span class="annottext">toJSON :: GetRepositoryPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy%27"><span class="hs-identifier hs-type">GetRepositoryPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239835"><span id="local-6989586621679239836"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239849"><span id="local-6989586621679239851"><span id="local-6989586621679239853"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-type">GetRepositoryPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679239847"><span class="annot"><span class="annottext">toJSON :: GetRepositoryPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy%27"><span class="hs-identifier hs-type">GetRepositoryPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239844"><span id="local-6989586621679239845"><span class="annot"><span class="annottext">Maybe Text
 Text
 repositoryName :: Text
 registryId :: Maybe Text
 $sel:repositoryName:GetRepositoryPolicy' :: GetRepositoryPolicy -&gt; Text
 $sel:registryId:GetRepositoryPolicy' :: GetRepositoryPolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679239835"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679239844"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -323,7 +323,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239836"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679239845"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -331,19 +331,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679239835"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239844"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-type">GetRepositoryPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679239829"><span class="annot"><span class="annottext">toPath :: GetRepositoryPolicy -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679239838"><span class="annot"><span class="annottext">toPath :: GetRepositoryPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetRepositoryPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicy"><span class="hs-identifier hs-type">GetRepositoryPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679239825"><span class="annot"><span class="annottext">toQuery :: GetRepositoryPolicy -&gt; QueryString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679239834"><span class="annot"><span class="annottext">toQuery :: GetRepositoryPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetRepositoryPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -351,7 +351,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | /See:/ 'newGetRepositoryPolicyResponse' smart constructor.</span><span>
-</span><span id="line-147"></span><span id="local-6989586621679239822"><span id="local-6989586621679239823"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRepositoryPolicyResponse"><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse"><span class="hs-identifier hs-var">GetRepositoryPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRepositoryPolicyResponse%27"><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-var">GetRepositoryPolicyResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span id="local-6989586621679239831"><span id="local-6989586621679239832"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRepositoryPolicyResponse"><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse"><span class="hs-identifier hs-var">GetRepositoryPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRepositoryPolicyResponse%27"><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-var">GetRepositoryPolicyResponse'</span></a></span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The registry ID associated with the request.</span><span>
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AregistryId%3AGetRepositoryPolicyResponse%27"><span class="annot"><span class="annottext">GetRepositoryPolicyResponse -&gt; Maybe Text
 </span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#%24sel%3AregistryId%3AGetRepositoryPolicyResponse%27"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -365,7 +365,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetRepositoryPolicyResponse%27"><span class="annot"><span class="annottext">GetRepositoryPolicyResponse -&gt; Int
 </span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#%24sel%3AhttpStatus%3AGetRepositoryPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239814"><span id="local-6989586621679239816"><span class="annot"><span class="annottext">GetRepositoryPolicyResponse -&gt; GetRepositoryPolicyResponse -&gt; Bool
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239823"><span id="local-6989586621679239825"><span class="annot"><span class="annottext">GetRepositoryPolicyResponse -&gt; GetRepositoryPolicyResponse -&gt; Bool
 (GetRepositoryPolicyResponse
  -&gt; GetRepositoryPolicyResponse -&gt; Bool)
 -&gt; (GetRepositoryPolicyResponse
@@ -376,7 +376,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetRepositoryPolicyResponse -&gt; GetRepositoryPolicyResponse -&gt; Bool
 == :: GetRepositoryPolicyResponse -&gt; GetRepositoryPolicyResponse -&gt; Bool
 $c== :: GetRepositoryPolicyResponse -&gt; GetRepositoryPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239806"><span id="local-6989586621679239808"><span id="local-6989586621679239810"><span id="local-6989586621679239812"><span class="annot"><span class="annottext">ReadPrec [GetRepositoryPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239815"><span id="local-6989586621679239817"><span id="local-6989586621679239819"><span id="local-6989586621679239821"><span class="annot"><span class="annottext">ReadPrec [GetRepositoryPolicyResponse]
 ReadPrec GetRepositoryPolicyResponse
 Int -&gt; ReadS GetRepositoryPolicyResponse
 ReadS [GetRepositoryPolicyResponse]
@@ -396,7 +396,7 @@ readList :: ReadS [GetRepositoryPolicyResponse]
 $creadList :: ReadS [GetRepositoryPolicyResponse]
 readsPrec :: Int -&gt; ReadS GetRepositoryPolicyResponse
 $creadsPrec :: Int -&gt; ReadS GetRepositoryPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239800"><span id="local-6989586621679239802"><span id="local-6989586621679239804"><span class="annot"><span class="annottext">Int -&gt; GetRepositoryPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239809"><span id="local-6989586621679239811"><span id="local-6989586621679239813"><span class="annot"><span class="annottext">Int -&gt; GetRepositoryPolicyResponse -&gt; ShowS
 [GetRepositoryPolicyResponse] -&gt; ShowS
 GetRepositoryPolicyResponse -&gt; String
 (Int -&gt; GetRepositoryPolicyResponse -&gt; ShowS)
@@ -448,8 +448,8 @@ GetRepositoryPolicyResponse -&gt; Rep GetRepositoryPolicyResponse x
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse</span></a></span><span>
 </span><span id="line-178"></span><span id="newGetRepositoryPolicyResponse"><span class="annot"><span class="annottext">newGetRepositoryPolicyResponse :: Int -&gt; GetRepositoryPolicyResponse
-</span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#newGetRepositoryPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetRepositoryPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679239797"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679239797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#newGetRepositoryPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetRepositoryPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679239806"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239806"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><span class="annottext">GetRepositoryPolicyResponse' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetRepositoryPolicyResponse
 </span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse'</span></a></span><span>
@@ -468,7 +468,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetRepositoryPolicyResponse' :: Int
 </span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#%24sel%3AhttpStatus%3AGetRepositoryPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679239797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679239806"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The registry ID associated with the request.</span><span>
@@ -484,16 +484,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239796"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239805"><span class="annot"><span class="annottext">Maybe Text
 registryId :: Maybe Text
 $sel:registryId:GetRepositoryPolicyResponse' :: GetRepositoryPolicyResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679239796"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239796"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239795"><span class="annot"><span class="annottext">s :: GetRepositoryPolicyResponse
-</span><a href="#local-6989586621679239795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239794"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRepositoryPolicyResponse
-</span><a href="#local-6989586621679239795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:GetRepositoryPolicyResponse' :: Maybe Text
+</span><a href="#local-6989586621679239805"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239805"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239804"><span class="annot"><span class="annottext">s :: GetRepositoryPolicyResponse
+</span><a href="#local-6989586621679239804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239803"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRepositoryPolicyResponse
+</span><a href="#local-6989586621679239804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:GetRepositoryPolicyResponse' :: Maybe Text
 </span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#%24sel%3AregistryId%3AGetRepositoryPolicyResponse%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The repository name associated with the request.</span><span>
 </span><span id="line-192"></span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#getRepositoryPolicyResponse_repositoryName"><span class="hs-identifier hs-type">getRepositoryPolicyResponse_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -508,16 +508,16 @@ $sel:registryId:GetRepositoryPolicyResponse' :: GetRepositoryPolicyResponse -&gt
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239793"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239802"><span class="annot"><span class="annottext">Maybe Text
 repositoryName :: Maybe Text
 $sel:repositoryName:GetRepositoryPolicyResponse' :: GetRepositoryPolicyResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679239793"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239793"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239792"><span class="annot"><span class="annottext">s :: GetRepositoryPolicyResponse
-</span><a href="#local-6989586621679239792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239791"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRepositoryPolicyResponse
-</span><a href="#local-6989586621679239792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetRepositoryPolicyResponse' :: Maybe Text
+</span><a href="#local-6989586621679239802"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239802"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239801"><span class="annot"><span class="annottext">s :: GetRepositoryPolicyResponse
+</span><a href="#local-6989586621679239801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239800"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRepositoryPolicyResponse
+</span><a href="#local-6989586621679239801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetRepositoryPolicyResponse' :: Maybe Text
 </span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#%24sel%3ArepositoryName%3AGetRepositoryPolicyResponse%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | The JSON repository policy text associated with the repository.</span><span>
 </span><span id="line-196"></span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#getRepositoryPolicyResponse_policyText"><span class="hs-identifier hs-type">getRepositoryPolicyResponse_policyText</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -532,16 +532,16 @@ $sel:repositoryName:GetRepositoryPolicyResponse' :: GetRepositoryPolicyResponse 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239790"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239799"><span class="annot"><span class="annottext">Maybe Text
 policyText :: Maybe Text
 $sel:policyText:GetRepositoryPolicyResponse' :: GetRepositoryPolicyResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679239790"><span class="hs-identifier hs-var hs-var">policyText</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239790"><span class="hs-identifier hs-var">policyText</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239789"><span class="annot"><span class="annottext">s :: GetRepositoryPolicyResponse
-</span><a href="#local-6989586621679239789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239788"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRepositoryPolicyResponse
-</span><a href="#local-6989586621679239789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyText:GetRepositoryPolicyResponse' :: Maybe Text
+</span><a href="#local-6989586621679239799"><span class="hs-identifier hs-var hs-var">policyText</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239799"><span class="hs-identifier hs-var">policyText</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239798"><span class="annot"><span class="annottext">s :: GetRepositoryPolicyResponse
+</span><a href="#local-6989586621679239798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239797"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRepositoryPolicyResponse
+</span><a href="#local-6989586621679239798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyText:GetRepositoryPolicyResponse' :: Maybe Text
 </span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#%24sel%3ApolicyText%3AGetRepositoryPolicyResponse%27"><span class="hs-identifier hs-var">policyText</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-200"></span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#getRepositoryPolicyResponse_httpStatus"><span class="hs-identifier hs-type">getRepositoryPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -553,16 +553,16 @@ $sel:policyText:GetRepositoryPolicyResponse' :: GetRepositoryPolicyResponse -&gt
 -&gt; Lens
      GetRepositoryPolicyResponse GetRepositoryPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239787"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239796"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetRepositoryPolicyResponse' :: GetRepositoryPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679239787"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679239787"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239786"><span class="annot"><span class="annottext">s :: GetRepositoryPolicyResponse
-</span><a href="#local-6989586621679239786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239785"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679239785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRepositoryPolicyResponse
-</span><a href="#local-6989586621679239786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRepositoryPolicyResponse' :: Int
+</span><a href="#local-6989586621679239796"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239796"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239795"><span class="annot"><span class="annottext">s :: GetRepositoryPolicyResponse
+</span><a href="#local-6989586621679239795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse%27"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239794"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679239794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRepositoryPolicyResponse
+</span><a href="#local-6989586621679239795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRepositoryPolicyResponse' :: Int
 </span><a href="Network.AWS.ECR.GetRepositoryPolicy.html#%24sel%3AhttpStatus%3AGetRepositoryPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679239785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239783"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse</span></a></span></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239792"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.GetRepositoryPolicy.html#GetRepositoryPolicyResponse"><span class="hs-identifier hs-type">GetRepositoryPolicyResponse</span></a></span></span><span>
 </span><span id="line-204"></span></pre></body></html>

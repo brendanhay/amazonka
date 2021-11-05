@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Location.DeleteRouteCalculator</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a route calculator resource from your AWS account.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation deletes the resource permanently.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Location.DeleteRouteCalculator</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculator"><span class="hs-identifier">DeleteRouteCalculator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#newDeleteRouteCalculator"><span class="hs-identifier">newDeleteRouteCalculator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#deleteRouteCalculator_calculatorName"><span class="hs-identifier">deleteRouteCalculator_calculatorName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculatorResponse"><span class="hs-identifier">DeleteRouteCalculatorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#newDeleteRouteCalculatorResponse"><span class="hs-identifier">newDeleteRouteCalculatorResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#deleteRouteCalculatorResponse_httpStatus"><span class="hs-identifier">deleteRouteCalculatorResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.html"><span class="hs-identifier">Network.AWS.Location.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteRouteCalculator' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679270994"><span id="local-6989586621679270995"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRouteCalculator"><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculator"><span class="hs-identifier hs-var">DeleteRouteCalculator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRouteCalculator%27"><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculator%27"><span class="hs-identifier hs-var">DeleteRouteCalculator'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the route calculator resource to be deleted.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AcalculatorName%3ADeleteRouteCalculator%27"><span class="annot"><span class="annottext">DeleteRouteCalculator -&gt; Text
+</span><a href="Network.AWS.Location.DeleteRouteCalculator.html#%24sel%3AcalculatorName%3ADeleteRouteCalculator%27"><span class="hs-identifier hs-var hs-var">calculatorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270988"><span id="local-6989586621679270990"><span class="annot"><span class="annottext">DeleteRouteCalculator -&gt; DeleteRouteCalculator -&gt; Bool
+(DeleteRouteCalculator -&gt; DeleteRouteCalculator -&gt; Bool)
+-&gt; (DeleteRouteCalculator -&gt; DeleteRouteCalculator -&gt; Bool)
+-&gt; Eq DeleteRouteCalculator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteRouteCalculator -&gt; DeleteRouteCalculator -&gt; Bool
+$c/= :: DeleteRouteCalculator -&gt; DeleteRouteCalculator -&gt; Bool
+== :: DeleteRouteCalculator -&gt; DeleteRouteCalculator -&gt; Bool
+$c== :: DeleteRouteCalculator -&gt; DeleteRouteCalculator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270979"><span id="local-6989586621679270981"><span id="local-6989586621679270983"><span id="local-6989586621679270985"><span class="annot"><span class="annottext">ReadPrec [DeleteRouteCalculator]
+ReadPrec DeleteRouteCalculator
+Int -&gt; ReadS DeleteRouteCalculator
+ReadS [DeleteRouteCalculator]
+(Int -&gt; ReadS DeleteRouteCalculator)
+-&gt; ReadS [DeleteRouteCalculator]
+-&gt; ReadPrec DeleteRouteCalculator
+-&gt; ReadPrec [DeleteRouteCalculator]
+-&gt; Read DeleteRouteCalculator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteRouteCalculator]
+$creadListPrec :: ReadPrec [DeleteRouteCalculator]
+readPrec :: ReadPrec DeleteRouteCalculator
+$creadPrec :: ReadPrec DeleteRouteCalculator
+readList :: ReadS [DeleteRouteCalculator]
+$creadList :: ReadS [DeleteRouteCalculator]
+readsPrec :: Int -&gt; ReadS DeleteRouteCalculator
+$creadsPrec :: Int -&gt; ReadS DeleteRouteCalculator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270972"><span id="local-6989586621679270974"><span id="local-6989586621679270976"><span class="annot"><span class="annottext">Int -&gt; DeleteRouteCalculator -&gt; ShowS
+[DeleteRouteCalculator] -&gt; ShowS
+DeleteRouteCalculator -&gt; String
+(Int -&gt; DeleteRouteCalculator -&gt; ShowS)
+-&gt; (DeleteRouteCalculator -&gt; String)
+-&gt; ([DeleteRouteCalculator] -&gt; ShowS)
+-&gt; Show DeleteRouteCalculator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteRouteCalculator] -&gt; ShowS
+$cshowList :: [DeleteRouteCalculator] -&gt; ShowS
+show :: DeleteRouteCalculator -&gt; String
+$cshow :: DeleteRouteCalculator -&gt; String
+showsPrec :: Int -&gt; DeleteRouteCalculator -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteRouteCalculator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteRouteCalculator -&gt; Rep DeleteRouteCalculator x)
+-&gt; (forall x. Rep DeleteRouteCalculator x -&gt; DeleteRouteCalculator)
+-&gt; Generic DeleteRouteCalculator
+forall x. Rep DeleteRouteCalculator x -&gt; DeleteRouteCalculator
+forall x. DeleteRouteCalculator -&gt; Rep DeleteRouteCalculator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteRouteCalculator x -&gt; DeleteRouteCalculator
+$cfrom :: forall x. DeleteRouteCalculator -&gt; Rep DeleteRouteCalculator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'DeleteRouteCalculator' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'calculatorName', 'deleteRouteCalculator_calculatorName' - The name of the route calculator resource to be deleted.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#newDeleteRouteCalculator"><span class="hs-identifier hs-type">newDeleteRouteCalculator</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'calculatorName'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculator"><span class="hs-identifier hs-type">DeleteRouteCalculator</span></a></span><span>
+</span><span id="line-70"></span><span id="newDeleteRouteCalculator"><span class="annot"><span class="annottext">newDeleteRouteCalculator :: Text -&gt; DeleteRouteCalculator
+</span><a href="Network.AWS.Location.DeleteRouteCalculator.html#newDeleteRouteCalculator"><span class="hs-identifier hs-var hs-var">newDeleteRouteCalculator</span></a></span></span><span> </span><span id="local-6989586621679270967"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270967"><span class="hs-identifier hs-var">pCalculatorName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DeleteRouteCalculator' :: Text -&gt; DeleteRouteCalculator
+</span><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculator%27"><span class="hs-identifier hs-type">DeleteRouteCalculator'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:calculatorName:DeleteRouteCalculator' :: Text
+</span><a href="Network.AWS.Location.DeleteRouteCalculator.html#%24sel%3AcalculatorName%3ADeleteRouteCalculator%27"><span class="hs-identifier hs-var">calculatorName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270967"><span class="hs-identifier hs-var">pCalculatorName_</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The name of the route calculator resource to be deleted.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#deleteRouteCalculator_calculatorName"><span class="hs-identifier hs-type">deleteRouteCalculator_calculatorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculator"><span class="hs-identifier hs-type">DeleteRouteCalculator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="deleteRouteCalculator_calculatorName"><span class="annot"><span class="annottext">deleteRouteCalculator_calculatorName :: (Text -&gt; f Text)
+-&gt; DeleteRouteCalculator -&gt; f DeleteRouteCalculator
+</span><a href="Network.AWS.Location.DeleteRouteCalculator.html#deleteRouteCalculator_calculatorName"><span class="hs-identifier hs-var hs-var">deleteRouteCalculator_calculatorName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteRouteCalculator -&gt; Text)
+-&gt; (DeleteRouteCalculator -&gt; Text -&gt; DeleteRouteCalculator)
+-&gt; Lens DeleteRouteCalculator DeleteRouteCalculator Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculator%27"><span class="hs-identifier hs-type">DeleteRouteCalculator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270964"><span class="annot"><span class="annottext">Text
+calculatorName :: Text
+$sel:calculatorName:DeleteRouteCalculator' :: DeleteRouteCalculator -&gt; Text
+</span><a href="#local-6989586621679270964"><span class="hs-identifier hs-var hs-var">calculatorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270964"><span class="hs-identifier hs-var">calculatorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270963"><span class="annot"><span class="annottext">s :: DeleteRouteCalculator
+</span><a href="#local-6989586621679270963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculator%27"><span class="hs-identifier hs-type">DeleteRouteCalculator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270962"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRouteCalculator
+</span><a href="#local-6989586621679270963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:calculatorName:DeleteRouteCalculator' :: Text
+</span><a href="Network.AWS.Location.DeleteRouteCalculator.html#%24sel%3AcalculatorName%3ADeleteRouteCalculator%27"><span class="hs-identifier hs-var">calculatorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculator"><span class="hs-identifier hs-type">DeleteRouteCalculator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculator"><span class="hs-identifier hs-type">DeleteRouteCalculator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculator"><span class="hs-identifier hs-type">DeleteRouteCalculator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculatorResponse"><span class="hs-identifier hs-type">DeleteRouteCalculatorResponse</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679270958"><span class="annot"><span class="annottext">request :: DeleteRouteCalculator -&gt; Request DeleteRouteCalculator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteRouteCalculator -&gt; Request DeleteRouteCalculator
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Location.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679270954"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteRouteCalculator
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteRouteCalculator)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteRouteCalculator))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteRouteCalculator
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteRouteCalculator)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270951"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270951"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679270950"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679270950"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679270949"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679270949"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteRouteCalculatorResponse
+</span><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculatorResponse%27"><span class="hs-identifier hs-var">DeleteRouteCalculatorResponse'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteRouteCalculatorResponse)
+-&gt; Either String Int -&gt; Either String DeleteRouteCalculatorResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270951"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270942"><span id="local-6989586621679270944"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculator"><span class="hs-identifier hs-type">DeleteRouteCalculator</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculator"><span class="hs-identifier hs-type">DeleteRouteCalculator</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculator"><span class="hs-identifier hs-type">DeleteRouteCalculator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679270935"><span class="annot"><span class="annottext">toHeaders :: DeleteRouteCalculator -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteRouteCalculator -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculator"><span class="hs-identifier hs-type">DeleteRouteCalculator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679270929"><span class="annot"><span class="annottext">toPath :: DeleteRouteCalculator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculator%27"><span class="hs-identifier hs-type">DeleteRouteCalculator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270927"><span class="annot"><span class="annottext">Text
+calculatorName :: Text
+$sel:calculatorName:DeleteRouteCalculator' :: DeleteRouteCalculator -&gt; Text
+</span><a href="#local-6989586621679270927"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/routes/v0/calculators/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270927"><span class="hs-identifier hs-var">calculatorName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculator"><span class="hs-identifier hs-type">DeleteRouteCalculator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679270923"><span class="annot"><span class="annottext">toQuery :: DeleteRouteCalculator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteRouteCalculator -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newDeleteRouteCalculatorResponse' smart constructor.</span><span>
+</span><span id="line-116"></span><span id="local-6989586621679270920"><span id="local-6989586621679270921"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRouteCalculatorResponse"><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculatorResponse"><span class="hs-identifier hs-var">DeleteRouteCalculatorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRouteCalculatorResponse%27"><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculatorResponse%27"><span class="hs-identifier hs-var">DeleteRouteCalculatorResponse'</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteRouteCalculatorResponse%27"><span class="annot"><span class="annottext">DeleteRouteCalculatorResponse -&gt; Int
+</span><a href="Network.AWS.Location.DeleteRouteCalculator.html#%24sel%3AhttpStatus%3ADeleteRouteCalculatorResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270915"><span id="local-6989586621679270917"><span class="annot"><span class="annottext">DeleteRouteCalculatorResponse
+-&gt; DeleteRouteCalculatorResponse -&gt; Bool
+(DeleteRouteCalculatorResponse
+ -&gt; DeleteRouteCalculatorResponse -&gt; Bool)
+-&gt; (DeleteRouteCalculatorResponse
+    -&gt; DeleteRouteCalculatorResponse -&gt; Bool)
+-&gt; Eq DeleteRouteCalculatorResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteRouteCalculatorResponse
+-&gt; DeleteRouteCalculatorResponse -&gt; Bool
+$c/= :: DeleteRouteCalculatorResponse
+-&gt; DeleteRouteCalculatorResponse -&gt; Bool
+== :: DeleteRouteCalculatorResponse
+-&gt; DeleteRouteCalculatorResponse -&gt; Bool
+$c== :: DeleteRouteCalculatorResponse
+-&gt; DeleteRouteCalculatorResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270907"><span id="local-6989586621679270909"><span id="local-6989586621679270911"><span id="local-6989586621679270913"><span class="annot"><span class="annottext">ReadPrec [DeleteRouteCalculatorResponse]
+ReadPrec DeleteRouteCalculatorResponse
+Int -&gt; ReadS DeleteRouteCalculatorResponse
+ReadS [DeleteRouteCalculatorResponse]
+(Int -&gt; ReadS DeleteRouteCalculatorResponse)
+-&gt; ReadS [DeleteRouteCalculatorResponse]
+-&gt; ReadPrec DeleteRouteCalculatorResponse
+-&gt; ReadPrec [DeleteRouteCalculatorResponse]
+-&gt; Read DeleteRouteCalculatorResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteRouteCalculatorResponse]
+$creadListPrec :: ReadPrec [DeleteRouteCalculatorResponse]
+readPrec :: ReadPrec DeleteRouteCalculatorResponse
+$creadPrec :: ReadPrec DeleteRouteCalculatorResponse
+readList :: ReadS [DeleteRouteCalculatorResponse]
+$creadList :: ReadS [DeleteRouteCalculatorResponse]
+readsPrec :: Int -&gt; ReadS DeleteRouteCalculatorResponse
+$creadsPrec :: Int -&gt; ReadS DeleteRouteCalculatorResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270901"><span id="local-6989586621679270903"><span id="local-6989586621679270905"><span class="annot"><span class="annottext">Int -&gt; DeleteRouteCalculatorResponse -&gt; ShowS
+[DeleteRouteCalculatorResponse] -&gt; ShowS
+DeleteRouteCalculatorResponse -&gt; String
+(Int -&gt; DeleteRouteCalculatorResponse -&gt; ShowS)
+-&gt; (DeleteRouteCalculatorResponse -&gt; String)
+-&gt; ([DeleteRouteCalculatorResponse] -&gt; ShowS)
+-&gt; Show DeleteRouteCalculatorResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteRouteCalculatorResponse] -&gt; ShowS
+$cshowList :: [DeleteRouteCalculatorResponse] -&gt; ShowS
+show :: DeleteRouteCalculatorResponse -&gt; String
+$cshow :: DeleteRouteCalculatorResponse -&gt; String
+showsPrec :: Int -&gt; DeleteRouteCalculatorResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteRouteCalculatorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteRouteCalculatorResponse
+ -&gt; Rep DeleteRouteCalculatorResponse x)
+-&gt; (forall x.
+    Rep DeleteRouteCalculatorResponse x
+    -&gt; DeleteRouteCalculatorResponse)
+-&gt; Generic DeleteRouteCalculatorResponse
+forall x.
+Rep DeleteRouteCalculatorResponse x
+-&gt; DeleteRouteCalculatorResponse
+forall x.
+DeleteRouteCalculatorResponse
+-&gt; Rep DeleteRouteCalculatorResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteRouteCalculatorResponse x
+-&gt; DeleteRouteCalculatorResponse
+$cfrom :: forall x.
+DeleteRouteCalculatorResponse
+-&gt; Rep DeleteRouteCalculatorResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Create a value of 'DeleteRouteCalculatorResponse' with all optional fields omitted.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'httpStatus', 'deleteRouteCalculatorResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#newDeleteRouteCalculatorResponse"><span class="hs-identifier hs-type">newDeleteRouteCalculatorResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculatorResponse"><span class="hs-identifier hs-type">DeleteRouteCalculatorResponse</span></a></span><span>
+</span><span id="line-135"></span><span id="newDeleteRouteCalculatorResponse"><span class="annot"><span class="annottext">newDeleteRouteCalculatorResponse :: Int -&gt; DeleteRouteCalculatorResponse
+</span><a href="Network.AWS.Location.DeleteRouteCalculator.html#newDeleteRouteCalculatorResponse"><span class="hs-identifier hs-var hs-var">newDeleteRouteCalculatorResponse</span></a></span></span><span> </span><span id="local-6989586621679270898"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270898"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">DeleteRouteCalculatorResponse' :: Int -&gt; DeleteRouteCalculatorResponse
+</span><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DeleteRouteCalculatorResponse'</span></a></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRouteCalculatorResponse' :: Int
+</span><a href="Network.AWS.Location.DeleteRouteCalculator.html#%24sel%3AhttpStatus%3ADeleteRouteCalculatorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270898"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#deleteRouteCalculatorResponse_httpStatus"><span class="hs-identifier hs-type">deleteRouteCalculatorResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculatorResponse"><span class="hs-identifier hs-type">DeleteRouteCalculatorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-143"></span><span id="deleteRouteCalculatorResponse_httpStatus"><span class="annot"><span class="annottext">deleteRouteCalculatorResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteRouteCalculatorResponse -&gt; f DeleteRouteCalculatorResponse
+</span><a href="Network.AWS.Location.DeleteRouteCalculator.html#deleteRouteCalculatorResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteRouteCalculatorResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteRouteCalculatorResponse -&gt; Int)
+-&gt; (DeleteRouteCalculatorResponse
+    -&gt; Int -&gt; DeleteRouteCalculatorResponse)
+-&gt; Lens
+     DeleteRouteCalculatorResponse DeleteRouteCalculatorResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DeleteRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270897"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteRouteCalculatorResponse' :: DeleteRouteCalculatorResponse -&gt; Int
+</span><a href="#local-6989586621679270897"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270897"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270896"><span class="annot"><span class="annottext">s :: DeleteRouteCalculatorResponse
+</span><a href="#local-6989586621679270896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculatorResponse%27"><span class="hs-identifier hs-type">DeleteRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270895"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRouteCalculatorResponse
+</span><a href="#local-6989586621679270896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRouteCalculatorResponse' :: Int
+</span><a href="Network.AWS.Location.DeleteRouteCalculator.html#%24sel%3AhttpStatus%3ADeleteRouteCalculatorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculatorResponse"><span class="hs-identifier hs-type">DeleteRouteCalculatorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270893"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.DeleteRouteCalculator.html#DeleteRouteCalculatorResponse"><span class="hs-identifier hs-type">DeleteRouteCalculatorResponse</span></a></span></span><span>
+</span><span id="line-146"></span></pre></body></html>

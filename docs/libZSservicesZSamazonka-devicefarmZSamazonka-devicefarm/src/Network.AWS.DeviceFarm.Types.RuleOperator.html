@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679367141"><span id="local-6989586621679367142"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RuleOperator"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.RuleOperator.html#RuleOperator"><span class="hs-identifier hs-var">RuleOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleOperator%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.RuleOperator.html#RuleOperator%27"><span class="hs-identifier hs-var">RuleOperator'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679367150"><span id="local-6989586621679367151"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RuleOperator"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.RuleOperator.html#RuleOperator"><span class="hs-identifier hs-var">RuleOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleOperator%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.RuleOperator.html#RuleOperator%27"><span class="hs-identifier hs-var">RuleOperator'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRuleOperator"><span class="annot"><span class="annottext">RuleOperator -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.Types.RuleOperator.html#fromRuleOperator"><span class="hs-identifier hs-var hs-var">fromRuleOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367133"><span id="local-6989586621679367135"><span id="local-6989586621679367137"><span class="annot"><span class="annottext">Int -&gt; RuleOperator -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367142"><span id="local-6989586621679367144"><span id="local-6989586621679367146"><span class="annot"><span class="annottext">Int -&gt; RuleOperator -&gt; ShowS
 [RuleOperator] -&gt; ShowS
 RuleOperator -&gt; String
 (Int -&gt; RuleOperator -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: RuleOperator -&gt; String
 showsPrec :: Int -&gt; RuleOperator -&gt; ShowS
 $cshowsPrec :: Int -&gt; RuleOperator -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679367124"><span id="local-6989586621679367126"><span id="local-6989586621679367128"><span id="local-6989586621679367130"><span class="annot"><span class="annottext">ReadPrec [RuleOperator]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679367133"><span id="local-6989586621679367135"><span id="local-6989586621679367137"><span id="local-6989586621679367139"><span class="annot"><span class="annottext">ReadPrec [RuleOperator]
 ReadPrec RuleOperator
 Int -&gt; ReadS RuleOperator
 ReadS [RuleOperator]
@@ -78,7 +78,7 @@ $creadList :: ReadS [RuleOperator]
 readsPrec :: Int -&gt; ReadS RuleOperator
 $creadsPrec :: Int -&gt; ReadS RuleOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679367119"><span id="local-6989586621679367121"><span class="annot"><span class="annottext">RuleOperator -&gt; RuleOperator -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679367128"><span id="local-6989586621679367130"><span class="annot"><span class="annottext">RuleOperator -&gt; RuleOperator -&gt; Bool
 (RuleOperator -&gt; RuleOperator -&gt; Bool)
 -&gt; (RuleOperator -&gt; RuleOperator -&gt; Bool) -&gt; Eq RuleOperator
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ $c/= :: RuleOperator -&gt; RuleOperator -&gt; Bool
 == :: RuleOperator -&gt; RuleOperator -&gt; Bool
 $c== :: RuleOperator -&gt; RuleOperator -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679367103"><span id="local-6989586621679367105"><span id="local-6989586621679367107"><span id="local-6989586621679367109"><span id="local-6989586621679367111"><span id="local-6989586621679367113"><span id="local-6989586621679367115"><span class="annot"><span class="annottext">Eq RuleOperator
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679367112"><span id="local-6989586621679367114"><span id="local-6989586621679367116"><span id="local-6989586621679367118"><span id="local-6989586621679367120"><span id="local-6989586621679367122"><span id="local-6989586621679367124"><span class="annot"><span class="annottext">Eq RuleOperator
 Eq RuleOperator
 -&gt; (RuleOperator -&gt; RuleOperator -&gt; Ordering)
 -&gt; (RuleOperator -&gt; RuleOperator -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. RuleOperator -&gt; Rep RuleOperator x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367095"><span id="local-6989586621679367097"><span class="annot"><span class="annottext">Int -&gt; RuleOperator -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367104"><span id="local-6989586621679367106"><span class="annot"><span class="annottext">Int -&gt; RuleOperator -&gt; Int
 RuleOperator -&gt; Int
 (Int -&gt; RuleOperator -&gt; Int)
 -&gt; (RuleOperator -&gt; Int) -&gt; Hashable RuleOperator
@@ -148,49 +148,49 @@ $chash :: RuleOperator -&gt; Int
 hashWithSalt :: Int -&gt; RuleOperator -&gt; Int
 $chashWithSalt :: Int -&gt; RuleOperator -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679367092"><span class="annot"><span class="annottext">RuleOperator -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679367101"><span class="annot"><span class="annottext">RuleOperator -&gt; ()
 (RuleOperator -&gt; ()) -&gt; NFData RuleOperator
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RuleOperator -&gt; ()
 $crnf :: RuleOperator -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679367089"><span class="annot"><span class="annottext">Text -&gt; Either String RuleOperator
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679367098"><span class="annot"><span class="annottext">Text -&gt; Either String RuleOperator
 (Text -&gt; Either String RuleOperator) -&gt; FromText RuleOperator
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RuleOperator
 $cfromText :: Text -&gt; Either String RuleOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679367086"><span class="annot"><span class="annottext">RuleOperator -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679367095"><span class="annot"><span class="annottext">RuleOperator -&gt; Text
 (RuleOperator -&gt; Text) -&gt; ToText RuleOperator
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RuleOperator -&gt; Text
 $ctoText :: RuleOperator -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679367083"><span class="annot"><span class="annottext">RuleOperator -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679367092"><span class="annot"><span class="annottext">RuleOperator -&gt; ByteString
 (RuleOperator -&gt; ByteString) -&gt; ToByteString RuleOperator
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RuleOperator -&gt; ByteString
 $ctoBS :: RuleOperator -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679367080"><span class="annot"><span class="annottext">RuleOperator -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679367089"><span class="annot"><span class="annottext">RuleOperator -&gt; ByteStringBuilder
 (RuleOperator -&gt; ByteStringBuilder) -&gt; ToLog RuleOperator
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RuleOperator -&gt; ByteStringBuilder
 $cbuild :: RuleOperator -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679367077"><span class="annot"><span class="annottext">HeaderName -&gt; RuleOperator -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679367086"><span class="annot"><span class="annottext">HeaderName -&gt; RuleOperator -&gt; [Header]
 (HeaderName -&gt; RuleOperator -&gt; [Header]) -&gt; ToHeader RuleOperator
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RuleOperator -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RuleOperator -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679367074"><span class="annot"><span class="annottext">RuleOperator -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679367083"><span class="annot"><span class="annottext">RuleOperator -&gt; QueryString
 (RuleOperator -&gt; QueryString) -&gt; ToQuery RuleOperator
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RuleOperator -&gt; QueryString
 $ctoQuery :: RuleOperator -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679367069"><span id="local-6989586621679367071"><span class="annot"><span class="annottext">Value -&gt; Parser [RuleOperator]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679367078"><span id="local-6989586621679367080"><span class="annot"><span class="annottext">Value -&gt; Parser [RuleOperator]
 Value -&gt; Parser RuleOperator
 (Value -&gt; Parser RuleOperator)
 -&gt; (Value -&gt; Parser [RuleOperator]) -&gt; FromJSON RuleOperator
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [RuleOperator]
 parseJSON :: Value -&gt; Parser RuleOperator
 $cparseJSON :: Value -&gt; Parser RuleOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679367064"><span id="local-6989586621679367066"><span class="annot"><span class="annottext">FromJSONKeyFunction [RuleOperator]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679367073"><span id="local-6989586621679367075"><span class="annot"><span class="annottext">FromJSONKeyFunction [RuleOperator]
 FromJSONKeyFunction RuleOperator
 FromJSONKeyFunction RuleOperator
 -&gt; FromJSONKeyFunction [RuleOperator] -&gt; FromJSONKey RuleOperator
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RuleOperator]
 fromJSONKey :: FromJSONKeyFunction RuleOperator
 $cfromJSONKey :: FromJSONKeyFunction RuleOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679367055"><span id="local-6989586621679367057"><span id="local-6989586621679367059"><span id="local-6989586621679367061"><span class="annot"><span class="annottext">[RuleOperator] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679367064"><span id="local-6989586621679367066"><span id="local-6989586621679367068"><span id="local-6989586621679367070"><span class="annot"><span class="annottext">[RuleOperator] -&gt; Encoding
 [RuleOperator] -&gt; Value
 RuleOperator -&gt; Encoding
 RuleOperator -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: RuleOperator -&gt; Encoding
 toJSON :: RuleOperator -&gt; Value
 $ctoJSON :: RuleOperator -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679367050"><span id="local-6989586621679367052"><span class="annot"><span class="annottext">ToJSONKeyFunction [RuleOperator]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679367059"><span id="local-6989586621679367061"><span class="annot"><span class="annottext">ToJSONKeyFunction [RuleOperator]
 ToJSONKeyFunction RuleOperator
 ToJSONKeyFunction RuleOperator
 -&gt; ToJSONKeyFunction [RuleOperator] -&gt; ToJSONKey RuleOperator
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RuleOperator]
 toJSONKey :: ToJSONKeyFunction RuleOperator
 $ctoJSONKey :: ToJSONKeyFunction RuleOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679367047"><span class="annot"><span class="annottext">[Node] -&gt; Either String RuleOperator
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679367056"><span class="annot"><span class="annottext">[Node] -&gt; Either String RuleOperator
 ([Node] -&gt; Either String RuleOperator) -&gt; FromXML RuleOperator
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RuleOperator
 $cparseXML :: [Node] -&gt; Either String RuleOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679367044"><span class="annot"><span class="annottext">RuleOperator -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679367053"><span class="annot"><span class="annottext">RuleOperator -&gt; XML
 (RuleOperator -&gt; XML) -&gt; ToXML RuleOperator
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RuleOperator -&gt; XML

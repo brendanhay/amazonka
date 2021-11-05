@@ -48,13 +48,13 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteMetricPolicy' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679167617"><span id="local-6989586621679167618"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMetricPolicy"><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy"><span class="hs-identifier hs-var">DeleteMetricPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMetricPolicy%27"><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy%27"><span class="hs-identifier hs-var">DeleteMetricPolicy'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679167626"><span id="local-6989586621679167627"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMetricPolicy"><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy"><span class="hs-identifier hs-var">DeleteMetricPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMetricPolicy%27"><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy%27"><span class="hs-identifier hs-var">DeleteMetricPolicy'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the container that is associated with the metric policy that</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- you want to delete.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AcontainerName%3ADeleteMetricPolicy%27"><span class="annot"><span class="annottext">DeleteMetricPolicy -&gt; Text
 </span><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#%24sel%3AcontainerName%3ADeleteMetricPolicy%27"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679167611"><span id="local-6989586621679167613"><span class="annot"><span class="annottext">DeleteMetricPolicy -&gt; DeleteMetricPolicy -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679167620"><span id="local-6989586621679167622"><span class="annot"><span class="annottext">DeleteMetricPolicy -&gt; DeleteMetricPolicy -&gt; Bool
 (DeleteMetricPolicy -&gt; DeleteMetricPolicy -&gt; Bool)
 -&gt; (DeleteMetricPolicy -&gt; DeleteMetricPolicy -&gt; Bool)
 -&gt; Eq DeleteMetricPolicy
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteMetricPolicy -&gt; DeleteMetricPolicy -&gt; Bool
 == :: DeleteMetricPolicy -&gt; DeleteMetricPolicy -&gt; Bool
 $c== :: DeleteMetricPolicy -&gt; DeleteMetricPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167602"><span id="local-6989586621679167604"><span id="local-6989586621679167606"><span id="local-6989586621679167608"><span class="annot"><span class="annottext">ReadPrec [DeleteMetricPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167611"><span id="local-6989586621679167613"><span id="local-6989586621679167615"><span id="local-6989586621679167617"><span class="annot"><span class="annottext">ReadPrec [DeleteMetricPolicy]
 ReadPrec DeleteMetricPolicy
 Int -&gt; ReadS DeleteMetricPolicy
 ReadS [DeleteMetricPolicy]
@@ -83,7 +83,7 @@ readList :: ReadS [DeleteMetricPolicy]
 $creadList :: ReadS [DeleteMetricPolicy]
 readsPrec :: Int -&gt; ReadS DeleteMetricPolicy
 $creadsPrec :: Int -&gt; ReadS DeleteMetricPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167595"><span id="local-6989586621679167597"><span id="local-6989586621679167599"><span class="annot"><span class="annottext">Int -&gt; DeleteMetricPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167604"><span id="local-6989586621679167606"><span id="local-6989586621679167608"><span class="annot"><span class="annottext">Int -&gt; DeleteMetricPolicy -&gt; ShowS
 [DeleteMetricPolicy] -&gt; ShowS
 DeleteMetricPolicy -&gt; String
 (Int -&gt; DeleteMetricPolicy -&gt; ShowS)
@@ -124,14 +124,14 @@ $cfrom :: forall x. DeleteMetricPolicy -&gt; Rep DeleteMetricPolicy x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy"><span class="hs-identifier hs-type">DeleteMetricPolicy</span></a></span><span>
 </span><span id="line-72"></span><span id="newDeleteMetricPolicy"><span class="annot"><span class="annottext">newDeleteMetricPolicy :: Text -&gt; DeleteMetricPolicy
-</span><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#newDeleteMetricPolicy"><span class="hs-identifier hs-var hs-var">newDeleteMetricPolicy</span></a></span></span><span> </span><span id="local-6989586621679167590"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167590"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#newDeleteMetricPolicy"><span class="hs-identifier hs-var hs-var">newDeleteMetricPolicy</span></a></span></span><span> </span><span id="local-6989586621679167599"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167599"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteMetricPolicy' :: Text -&gt; DeleteMetricPolicy
 </span><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy%27"><span class="hs-identifier hs-type">DeleteMetricPolicy'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:containerName:DeleteMetricPolicy' :: Text
 </span><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#%24sel%3AcontainerName%3ADeleteMetricPolicy%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167590"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span>
+</span><a href="#local-6989586621679167599"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The name of the container that is associated with the metric policy that</span><span>
@@ -142,27 +142,27 @@ $cfrom :: forall x. DeleteMetricPolicy -&gt; Rep DeleteMetricPolicy x
 -&gt; (DeleteMetricPolicy -&gt; Text -&gt; DeleteMetricPolicy)
 -&gt; Lens DeleteMetricPolicy DeleteMetricPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy%27"><span class="hs-identifier hs-type">DeleteMetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167587"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy%27"><span class="hs-identifier hs-type">DeleteMetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167596"><span class="annot"><span class="annottext">Text
 containerName :: Text
 $sel:containerName:DeleteMetricPolicy' :: DeleteMetricPolicy -&gt; Text
-</span><a href="#local-6989586621679167587"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167587"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167586"><span class="annot"><span class="annottext">s :: DeleteMetricPolicy
-</span><a href="#local-6989586621679167586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy%27"><span class="hs-identifier hs-type">DeleteMetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167585"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMetricPolicy
-</span><a href="#local-6989586621679167586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:DeleteMetricPolicy' :: Text
+</span><a href="#local-6989586621679167596"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167596"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167595"><span class="annot"><span class="annottext">s :: DeleteMetricPolicy
+</span><a href="#local-6989586621679167595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy%27"><span class="hs-identifier hs-type">DeleteMetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167594"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMetricPolicy
+</span><a href="#local-6989586621679167595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:DeleteMetricPolicy' :: Text
 </span><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#%24sel%3AcontainerName%3ADeleteMetricPolicy%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy"><span class="hs-identifier hs-type">DeleteMetricPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy"><span class="hs-identifier hs-type">DeleteMetricPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy"><span class="hs-identifier hs-type">DeleteMetricPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy"><span class="hs-identifier hs-type">DeleteMetricPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicyResponse"><span class="hs-identifier hs-type">DeleteMetricPolicyResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679167581"><span class="annot"><span class="annottext">request :: DeleteMetricPolicy -&gt; Request DeleteMetricPolicy
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679167590"><span class="annot"><span class="annottext">request :: DeleteMetricPolicy -&gt; Request DeleteMetricPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteMetricPolicy -&gt; Request DeleteMetricPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaStore.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679167577"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679167586"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteMetricPolicy
 -&gt; ClientResponse ClientBody
@@ -188,10 +188,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679167574"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167574"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679167573"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679167573"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679167572"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679167572"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679167583"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679167583"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679167582"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679167582"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679167581"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679167581"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteMetricPolicyResponse
 </span><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicyResponse%27"><span class="hs-identifier hs-var">DeleteMetricPolicyResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteMetricPolicyResponse)
@@ -202,15 +202,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167574"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167583"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167565"><span id="local-6989586621679167567"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy"><span class="hs-identifier hs-type">DeleteMetricPolicy</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167574"><span id="local-6989586621679167576"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy"><span class="hs-identifier hs-type">DeleteMetricPolicy</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167562"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy"><span class="hs-identifier hs-type">DeleteMetricPolicy</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167571"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy"><span class="hs-identifier hs-type">DeleteMetricPolicy</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy"><span class="hs-identifier hs-type">DeleteMetricPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679167558"><span class="annot"><span class="annottext">toHeaders :: DeleteMetricPolicy -&gt; ResponseHeaders
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679167567"><span class="annot"><span class="annottext">toHeaders :: DeleteMetricPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteMetricPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -237,12 +237,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167548"><span id="local-6989586621679167550"><span id="local-6989586621679167552"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy"><span class="hs-identifier hs-type">DeleteMetricPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679167546"><span class="annot"><span class="annottext">toJSON :: DeleteMetricPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy%27"><span class="hs-identifier hs-type">DeleteMetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167544"><span class="annot"><span class="annottext">Text
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167557"><span id="local-6989586621679167559"><span id="local-6989586621679167561"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy"><span class="hs-identifier hs-type">DeleteMetricPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679167555"><span class="annot"><span class="annottext">toJSON :: DeleteMetricPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy%27"><span class="hs-identifier hs-type">DeleteMetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167553"><span class="annot"><span class="annottext">Text
 containerName :: Text
 $sel:containerName:DeleteMetricPolicy' :: DeleteMetricPolicy -&gt; Text
-</span><a href="#local-6989586621679167544"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679167553"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -255,19 +255,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ContainerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167544"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167553"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy"><span class="hs-identifier hs-type">DeleteMetricPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679167538"><span class="annot"><span class="annottext">toPath :: DeleteMetricPolicy -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679167547"><span class="annot"><span class="annottext">toPath :: DeleteMetricPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteMetricPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicy"><span class="hs-identifier hs-type">DeleteMetricPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679167534"><span class="annot"><span class="annottext">toQuery :: DeleteMetricPolicy -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679167543"><span class="annot"><span class="annottext">toQuery :: DeleteMetricPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteMetricPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -275,12 +275,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newDeleteMetricPolicyResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679167531"><span id="local-6989586621679167532"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMetricPolicyResponse"><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicyResponse"><span class="hs-identifier hs-var">DeleteMetricPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMetricPolicyResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicyResponse%27"><span class="hs-identifier hs-var">DeleteMetricPolicyResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679167540"><span id="local-6989586621679167541"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMetricPolicyResponse"><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicyResponse"><span class="hs-identifier hs-var">DeleteMetricPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMetricPolicyResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicyResponse%27"><span class="hs-identifier hs-var">DeleteMetricPolicyResponse'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteMetricPolicyResponse%27"><span class="annot"><span class="annottext">DeleteMetricPolicyResponse -&gt; Int
 </span><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#%24sel%3AhttpStatus%3ADeleteMetricPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679167526"><span id="local-6989586621679167528"><span class="annot"><span class="annottext">DeleteMetricPolicyResponse -&gt; DeleteMetricPolicyResponse -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679167535"><span id="local-6989586621679167537"><span class="annot"><span class="annottext">DeleteMetricPolicyResponse -&gt; DeleteMetricPolicyResponse -&gt; Bool
 (DeleteMetricPolicyResponse -&gt; DeleteMetricPolicyResponse -&gt; Bool)
 -&gt; (DeleteMetricPolicyResponse
     -&gt; DeleteMetricPolicyResponse -&gt; Bool)
@@ -290,7 +290,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteMetricPolicyResponse -&gt; DeleteMetricPolicyResponse -&gt; Bool
 == :: DeleteMetricPolicyResponse -&gt; DeleteMetricPolicyResponse -&gt; Bool
 $c== :: DeleteMetricPolicyResponse -&gt; DeleteMetricPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167518"><span id="local-6989586621679167520"><span id="local-6989586621679167522"><span id="local-6989586621679167524"><span class="annot"><span class="annottext">ReadPrec [DeleteMetricPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167527"><span id="local-6989586621679167529"><span id="local-6989586621679167531"><span id="local-6989586621679167533"><span class="annot"><span class="annottext">ReadPrec [DeleteMetricPolicyResponse]
 ReadPrec DeleteMetricPolicyResponse
 Int -&gt; ReadS DeleteMetricPolicyResponse
 ReadS [DeleteMetricPolicyResponse]
@@ -310,7 +310,7 @@ readList :: ReadS [DeleteMetricPolicyResponse]
 $creadList :: ReadS [DeleteMetricPolicyResponse]
 readsPrec :: Int -&gt; ReadS DeleteMetricPolicyResponse
 $creadsPrec :: Int -&gt; ReadS DeleteMetricPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167512"><span id="local-6989586621679167514"><span id="local-6989586621679167516"><span class="annot"><span class="annottext">Int -&gt; DeleteMetricPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167521"><span id="local-6989586621679167523"><span id="local-6989586621679167525"><span class="annot"><span class="annottext">Int -&gt; DeleteMetricPolicyResponse -&gt; ShowS
 [DeleteMetricPolicyResponse] -&gt; ShowS
 DeleteMetricPolicyResponse -&gt; String
 (Int -&gt; DeleteMetricPolicyResponse -&gt; ShowS)
@@ -356,14 +356,14 @@ DeleteMetricPolicyResponse -&gt; Rep DeleteMetricPolicyResponse x
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicyResponse"><span class="hs-identifier hs-type">DeleteMetricPolicyResponse</span></a></span><span>
 </span><span id="line-149"></span><span id="newDeleteMetricPolicyResponse"><span class="annot"><span class="annottext">newDeleteMetricPolicyResponse :: Int -&gt; DeleteMetricPolicyResponse
-</span><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#newDeleteMetricPolicyResponse"><span class="hs-identifier hs-var hs-var">newDeleteMetricPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679167509"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167509"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#newDeleteMetricPolicyResponse"><span class="hs-identifier hs-var hs-var">newDeleteMetricPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679167518"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679167518"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">DeleteMetricPolicyResponse' :: Int -&gt; DeleteMetricPolicyResponse
 </span><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicyResponse%27"><span class="hs-identifier hs-type">DeleteMetricPolicyResponse'</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMetricPolicyResponse' :: Int
 </span><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#%24sel%3AhttpStatus%3ADeleteMetricPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167509"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679167518"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -376,16 +376,16 @@ DeleteMetricPolicyResponse -&gt; Rep DeleteMetricPolicyResponse x
 -&gt; Lens
      DeleteMetricPolicyResponse DeleteMetricPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicyResponse%27"><span class="hs-identifier hs-type">DeleteMetricPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167508"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicyResponse%27"><span class="hs-identifier hs-type">DeleteMetricPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167517"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteMetricPolicyResponse' :: DeleteMetricPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679167508"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167508"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167507"><span class="annot"><span class="annottext">s :: DeleteMetricPolicyResponse
-</span><a href="#local-6989586621679167507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicyResponse%27"><span class="hs-identifier hs-type">DeleteMetricPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167506"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMetricPolicyResponse
-</span><a href="#local-6989586621679167507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMetricPolicyResponse' :: Int
+</span><a href="#local-6989586621679167517"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679167517"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167516"><span class="annot"><span class="annottext">s :: DeleteMetricPolicyResponse
+</span><a href="#local-6989586621679167516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicyResponse%27"><span class="hs-identifier hs-type">DeleteMetricPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167515"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679167515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMetricPolicyResponse
+</span><a href="#local-6989586621679167516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMetricPolicyResponse' :: Int
 </span><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#%24sel%3AhttpStatus%3ADeleteMetricPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicyResponse"><span class="hs-identifier hs-type">DeleteMetricPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicyResponse"><span class="hs-identifier hs-type">DeleteMetricPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167504"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicyResponse"><span class="hs-identifier hs-type">DeleteMetricPolicyResponse</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167513"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteMetricPolicy.html#DeleteMetricPolicyResponse"><span class="hs-identifier hs-type">DeleteMetricPolicyResponse</span></a></span></span><span>
 </span><span id="line-160"></span></pre></body></html>

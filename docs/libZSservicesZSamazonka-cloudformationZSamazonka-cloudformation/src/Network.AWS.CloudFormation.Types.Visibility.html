@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679428760"><span id="local-6989586621679428761"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Visibility"><span class="annot"><a href="Network.AWS.CloudFormation.Types.Visibility.html#Visibility"><span class="hs-identifier hs-var">Visibility</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Visibility%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.Visibility.html#Visibility%27"><span class="hs-identifier hs-var">Visibility'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679428769"><span id="local-6989586621679428770"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Visibility"><span class="annot"><a href="Network.AWS.CloudFormation.Types.Visibility.html#Visibility"><span class="hs-identifier hs-var">Visibility</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Visibility%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.Visibility.html#Visibility%27"><span class="hs-identifier hs-var">Visibility'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVisibility"><span class="annot"><span class="annottext">Visibility -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.Visibility.html#fromVisibility"><span class="hs-identifier hs-var hs-var">fromVisibility</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428752"><span id="local-6989586621679428754"><span id="local-6989586621679428756"><span class="annot"><span class="annottext">Int -&gt; Visibility -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428761"><span id="local-6989586621679428763"><span id="local-6989586621679428765"><span class="annot"><span class="annottext">Int -&gt; Visibility -&gt; ShowS
 [Visibility] -&gt; ShowS
 Visibility -&gt; String
 (Int -&gt; Visibility -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: Visibility -&gt; String
 showsPrec :: Int -&gt; Visibility -&gt; ShowS
 $cshowsPrec :: Int -&gt; Visibility -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679428743"><span id="local-6989586621679428745"><span id="local-6989586621679428747"><span id="local-6989586621679428749"><span class="annot"><span class="annottext">ReadPrec [Visibility]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679428752"><span id="local-6989586621679428754"><span id="local-6989586621679428756"><span id="local-6989586621679428758"><span class="annot"><span class="annottext">ReadPrec [Visibility]
 ReadPrec Visibility
 Int -&gt; ReadS Visibility
 ReadS [Visibility]
@@ -72,7 +72,7 @@ $creadList :: ReadS [Visibility]
 readsPrec :: Int -&gt; ReadS Visibility
 $creadsPrec :: Int -&gt; ReadS Visibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679428738"><span id="local-6989586621679428740"><span class="annot"><span class="annottext">Visibility -&gt; Visibility -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679428747"><span id="local-6989586621679428749"><span class="annot"><span class="annottext">Visibility -&gt; Visibility -&gt; Bool
 (Visibility -&gt; Visibility -&gt; Bool)
 -&gt; (Visibility -&gt; Visibility -&gt; Bool) -&gt; Eq Visibility
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: Visibility -&gt; Visibility -&gt; Bool
 == :: Visibility -&gt; Visibility -&gt; Bool
 $c== :: Visibility -&gt; Visibility -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679428722"><span id="local-6989586621679428724"><span id="local-6989586621679428726"><span id="local-6989586621679428728"><span id="local-6989586621679428730"><span id="local-6989586621679428732"><span id="local-6989586621679428734"><span class="annot"><span class="annottext">Eq Visibility
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679428731"><span id="local-6989586621679428733"><span id="local-6989586621679428735"><span id="local-6989586621679428737"><span id="local-6989586621679428739"><span id="local-6989586621679428741"><span id="local-6989586621679428743"><span class="annot"><span class="annottext">Eq Visibility
 Eq Visibility
 -&gt; (Visibility -&gt; Visibility -&gt; Ordering)
 -&gt; (Visibility -&gt; Visibility -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. Visibility -&gt; Rep Visibility x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428714"><span id="local-6989586621679428716"><span class="annot"><span class="annottext">Int -&gt; Visibility -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428723"><span id="local-6989586621679428725"><span class="annot"><span class="annottext">Int -&gt; Visibility -&gt; Int
 Visibility -&gt; Int
 (Int -&gt; Visibility -&gt; Int)
 -&gt; (Visibility -&gt; Int) -&gt; Hashable Visibility
@@ -141,49 +141,49 @@ $chash :: Visibility -&gt; Int
 hashWithSalt :: Int -&gt; Visibility -&gt; Int
 $chashWithSalt :: Int -&gt; Visibility -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679428711"><span class="annot"><span class="annottext">Visibility -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679428720"><span class="annot"><span class="annottext">Visibility -&gt; ()
 (Visibility -&gt; ()) -&gt; NFData Visibility
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Visibility -&gt; ()
 $crnf :: Visibility -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679428708"><span class="annot"><span class="annottext">Text -&gt; Either String Visibility
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679428717"><span class="annot"><span class="annottext">Text -&gt; Either String Visibility
 (Text -&gt; Either String Visibility) -&gt; FromText Visibility
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Visibility
 $cfromText :: Text -&gt; Either String Visibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679428705"><span class="annot"><span class="annottext">Visibility -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679428714"><span class="annot"><span class="annottext">Visibility -&gt; Text
 (Visibility -&gt; Text) -&gt; ToText Visibility
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Visibility -&gt; Text
 $ctoText :: Visibility -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679428702"><span class="annot"><span class="annottext">Visibility -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679428711"><span class="annot"><span class="annottext">Visibility -&gt; ByteString
 (Visibility -&gt; ByteString) -&gt; ToByteString Visibility
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Visibility -&gt; ByteString
 $ctoBS :: Visibility -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679428699"><span class="annot"><span class="annottext">Visibility -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679428708"><span class="annot"><span class="annottext">Visibility -&gt; ByteStringBuilder
 (Visibility -&gt; ByteStringBuilder) -&gt; ToLog Visibility
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Visibility -&gt; ByteStringBuilder
 $cbuild :: Visibility -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679428696"><span class="annot"><span class="annottext">HeaderName -&gt; Visibility -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679428705"><span class="annot"><span class="annottext">HeaderName -&gt; Visibility -&gt; [Header]
 (HeaderName -&gt; Visibility -&gt; [Header]) -&gt; ToHeader Visibility
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Visibility -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Visibility -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679428693"><span class="annot"><span class="annottext">Visibility -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679428702"><span class="annot"><span class="annottext">Visibility -&gt; QueryString
 (Visibility -&gt; QueryString) -&gt; ToQuery Visibility
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Visibility -&gt; QueryString
 $ctoQuery :: Visibility -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679428688"><span id="local-6989586621679428690"><span class="annot"><span class="annottext">Value -&gt; Parser [Visibility]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679428697"><span id="local-6989586621679428699"><span class="annot"><span class="annottext">Value -&gt; Parser [Visibility]
 Value -&gt; Parser Visibility
 (Value -&gt; Parser Visibility)
 -&gt; (Value -&gt; Parser [Visibility]) -&gt; FromJSON Visibility
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [Visibility]
 parseJSON :: Value -&gt; Parser Visibility
 $cparseJSON :: Value -&gt; Parser Visibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679428683"><span id="local-6989586621679428685"><span class="annot"><span class="annottext">FromJSONKeyFunction [Visibility]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679428692"><span id="local-6989586621679428694"><span class="annot"><span class="annottext">FromJSONKeyFunction [Visibility]
 FromJSONKeyFunction Visibility
 FromJSONKeyFunction Visibility
 -&gt; FromJSONKeyFunction [Visibility] -&gt; FromJSONKey Visibility
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Visibility]
 fromJSONKey :: FromJSONKeyFunction Visibility
 $cfromJSONKey :: FromJSONKeyFunction Visibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679428674"><span id="local-6989586621679428676"><span id="local-6989586621679428678"><span id="local-6989586621679428680"><span class="annot"><span class="annottext">[Visibility] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679428683"><span id="local-6989586621679428685"><span id="local-6989586621679428687"><span id="local-6989586621679428689"><span class="annot"><span class="annottext">[Visibility] -&gt; Encoding
 [Visibility] -&gt; Value
 Visibility -&gt; Encoding
 Visibility -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: Visibility -&gt; Encoding
 toJSON :: Visibility -&gt; Value
 $ctoJSON :: Visibility -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679428669"><span id="local-6989586621679428671"><span class="annot"><span class="annottext">ToJSONKeyFunction [Visibility]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679428678"><span id="local-6989586621679428680"><span class="annot"><span class="annottext">ToJSONKeyFunction [Visibility]
 ToJSONKeyFunction Visibility
 ToJSONKeyFunction Visibility
 -&gt; ToJSONKeyFunction [Visibility] -&gt; ToJSONKey Visibility
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Visibility]
 toJSONKey :: ToJSONKeyFunction Visibility
 $ctoJSONKey :: ToJSONKeyFunction Visibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679428666"><span class="annot"><span class="annottext">[Node] -&gt; Either String Visibility
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679428675"><span class="annot"><span class="annottext">[Node] -&gt; Either String Visibility
 ([Node] -&gt; Either String Visibility) -&gt; FromXML Visibility
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Visibility
 $cparseXML :: [Node] -&gt; Either String Visibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679428663"><span class="annot"><span class="annottext">Visibility -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679428672"><span class="annot"><span class="annottext">Visibility -&gt; XML
 (Visibility -&gt; XML) -&gt; ToXML Visibility
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Visibility -&gt; XML

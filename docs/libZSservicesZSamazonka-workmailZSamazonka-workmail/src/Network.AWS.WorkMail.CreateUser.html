@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.html"><span class="hs-identifier">Network.AWS.WorkMail.Types</span></a></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newCreateUser' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679295136"><span id="local-6989586621679295137"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUser"><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-var">CreateUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUser%27"><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-var">CreateUser'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679295145"><span id="local-6989586621679295146"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUser"><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-var">CreateUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUser%27"><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-var">CreateUser'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the organization for which the user is created.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AorganizationId%3ACreateUser%27"><span class="annot"><span class="annottext">CreateUser -&gt; Text
 </span><a href="Network.AWS.WorkMail.CreateUser.html#%24sel%3AorganizationId%3ACreateUser%27"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3Apassword%3ACreateUser%27"><span class="annot"><span class="annottext">CreateUser -&gt; Sensitive Text
 </span><a href="Network.AWS.WorkMail.CreateUser.html#%24sel%3Apassword%3ACreateUser%27"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295127"><span id="local-6989586621679295129"><span class="annot"><span class="annottext">CreateUser -&gt; CreateUser -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295136"><span id="local-6989586621679295138"><span class="annot"><span class="annottext">CreateUser -&gt; CreateUser -&gt; Bool
 (CreateUser -&gt; CreateUser -&gt; Bool)
 -&gt; (CreateUser -&gt; CreateUser -&gt; Bool) -&gt; Eq CreateUser
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateUser -&gt; CreateUser -&gt; Bool
 == :: CreateUser -&gt; CreateUser -&gt; Bool
 $c== :: CreateUser -&gt; CreateUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295120"><span id="local-6989586621679295122"><span id="local-6989586621679295124"><span class="annot"><span class="annottext">Int -&gt; CreateUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295129"><span id="local-6989586621679295131"><span id="local-6989586621679295133"><span class="annot"><span class="annottext">Int -&gt; CreateUser -&gt; ShowS
 [CreateUser] -&gt; ShowS
 CreateUser -&gt; String
 (Int -&gt; CreateUser -&gt; ShowS)
@@ -127,25 +127,25 @@ $cfrom :: forall x. CreateUser -&gt; Rep CreateUser x
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span>
 </span><span id="line-93"></span><span id="newCreateUser"><span class="annot"><span class="annottext">newCreateUser :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateUser
 </span><a href="Network.AWS.WorkMail.CreateUser.html#newCreateUser"><span class="hs-identifier hs-var hs-var">newCreateUser</span></a></span></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679295115"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295115"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679295114"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295114"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679295113"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295113"><span class="hs-identifier hs-var">pDisplayName_</span></a></span></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679295112"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295112"><span class="hs-identifier hs-var">pPassword_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679295124"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295124"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679295123"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295123"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679295122"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295122"><span class="hs-identifier hs-var">pDisplayName_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679295121"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295121"><span class="hs-identifier hs-var">pPassword_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">CreateUser' :: Text -&gt; Text -&gt; Text -&gt; Sensitive Text -&gt; CreateUser
 </span><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:organizationId:CreateUser' :: Text
 </span><a href="Network.AWS.WorkMail.CreateUser.html#%24sel%3AorganizationId%3ACreateUser%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295115"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679295124"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CreateUser' :: Text
 </span><a href="Network.AWS.WorkMail.CreateUser.html#%24sel%3Aname%3ACreateUser%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295114"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679295123"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:displayName:CreateUser' :: Text
 </span><a href="Network.AWS.WorkMail.CreateUser.html#%24sel%3AdisplayName%3ACreateUser%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295113"><span class="hs-identifier hs-var">pDisplayName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679295122"><span class="hs-identifier hs-var">pDisplayName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:password:CreateUser' :: Sensitive Text
 </span><a href="Network.AWS.WorkMail.CreateUser.html#%24sel%3Apassword%3ACreateUser%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -155,7 +155,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295112"><span class="hs-identifier hs-var">pPassword_</span></a></span><span>
+</span><a href="#local-6989586621679295121"><span class="hs-identifier hs-var">pPassword_</span></a></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The identifier of the organization for which the user is created.</span><span>
@@ -165,16 +165,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (CreateUser -&gt; Text -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295107"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295116"><span class="annot"><span class="annottext">Text
 organizationId :: Text
 $sel:organizationId:CreateUser' :: CreateUser -&gt; Text
-</span><a href="#local-6989586621679295107"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295107"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295106"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679295106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295105"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679295106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:CreateUser' :: Text
+</span><a href="#local-6989586621679295116"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295116"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295115"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679295115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295114"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679295115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:CreateUser' :: Text
 </span><a href="Network.AWS.WorkMail.CreateUser.html#%24sel%3AorganizationId%3ACreateUser%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The name for the new user. WorkMail directory user names have a maximum</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- length of 64. All others have a maximum length of 20.</span><span>
@@ -184,16 +184,16 @@ $sel:organizationId:CreateUser' :: CreateUser -&gt; Text
 -&gt; (CreateUser -&gt; Text -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295104"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295113"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreateUser' :: CreateUser -&gt; Text
-</span><a href="#local-6989586621679295104"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295104"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295103"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679295103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295102"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679295103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateUser' :: Text
+</span><a href="#local-6989586621679295113"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295113"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295112"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679295112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295111"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679295112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateUser' :: Text
 </span><a href="Network.AWS.WorkMail.CreateUser.html#%24sel%3Aname%3ACreateUser%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The display name for the new user.</span><span>
 </span><span id="line-115"></span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#createUser_displayName"><span class="hs-identifier hs-type">createUser_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -202,16 +202,16 @@ $sel:name:CreateUser' :: CreateUser -&gt; Text
 -&gt; (CreateUser -&gt; Text -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295101"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295110"><span class="annot"><span class="annottext">Text
 displayName :: Text
 $sel:displayName:CreateUser' :: CreateUser -&gt; Text
-</span><a href="#local-6989586621679295101"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295101"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295100"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679295100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295099"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679295100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:CreateUser' :: Text
+</span><a href="#local-6989586621679295110"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295110"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295109"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679295109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295108"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679295109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:CreateUser' :: Text
 </span><a href="Network.AWS.WorkMail.CreateUser.html#%24sel%3AdisplayName%3ACreateUser%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The password for the new user.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#createUser_password"><span class="hs-identifier hs-type">createUser_password</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -220,16 +220,16 @@ $sel:displayName:CreateUser' :: CreateUser -&gt; Text
 -&gt; (CreateUser -&gt; Sensitive Text -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295098"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295107"><span class="annot"><span class="annottext">Sensitive Text
 password :: Sensitive Text
 $sel:password:CreateUser' :: CreateUser -&gt; Sensitive Text
-</span><a href="#local-6989586621679295098"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679295098"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295097"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679295097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295096"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679295096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679295097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:CreateUser' :: Sensitive Text
+</span><a href="#local-6989586621679295107"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679295107"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295106"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679295106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295105"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679295105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679295106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:CreateUser' :: Sensitive Text
 </span><a href="Network.AWS.WorkMail.CreateUser.html#%24sel%3Apassword%3ACreateUser%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679295096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679295105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; CreateUser -&gt; f CreateUser)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -242,12 +242,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679295091"><span class="annot"><span class="annottext">request :: CreateUser -&gt; Request CreateUser
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679295100"><span class="annot"><span class="annottext">request :: CreateUser -&gt; Request CreateUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateUser -&gt; Request CreateUser
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkMail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679295087"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679295096"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateUser
 -&gt; ClientResponse ClientBody
@@ -271,10 +271,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295084"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295084"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679295083"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679295083"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679295082"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295082"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295093"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295093"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679295092"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679295092"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679295091"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295091"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateUserResponse
 </span><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-var">CreateUserResponse'</span></a></span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateUserResponse)
@@ -282,7 +282,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateUserResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679295091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserId&quot;</span></span><span class="hs-special">)</span><span>
@@ -294,15 +294,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295084"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295093"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295074"><span id="local-6989586621679295076"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295083"><span id="local-6989586621679295085"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295071"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295080"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679295067"><span class="annot"><span class="annottext">toHeaders :: CreateUser -&gt; ResponseHeaders
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679295076"><span class="annot"><span class="annottext">toHeaders :: CreateUser -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateUser -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -327,9 +327,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295057"><span id="local-6989586621679295059"><span id="local-6989586621679295061"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679295055"><span class="annot"><span class="annottext">toJSON :: CreateUser -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295050"><span id="local-6989586621679295051"><span id="local-6989586621679295052"><span id="local-6989586621679295053"><span class="annot"><span class="annottext">Text
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295066"><span id="local-6989586621679295068"><span id="local-6989586621679295070"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679295064"><span class="annot"><span class="annottext">toJSON :: CreateUser -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295059"><span id="local-6989586621679295060"><span id="local-6989586621679295061"><span id="local-6989586621679295062"><span class="annot"><span class="annottext">Text
 Sensitive Text
 password :: Sensitive Text
 displayName :: Text
@@ -339,7 +339,7 @@ $sel:password:CreateUser' :: CreateUser -&gt; Sensitive Text
 $sel:displayName:CreateUser' :: CreateUser -&gt; Text
 $sel:name:CreateUser' :: CreateUser -&gt; Text
 $sel:organizationId:CreateUser' :: CreateUser -&gt; Text
-</span><a href="#local-6989586621679295050"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679295059"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -352,40 +352,40 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;OrganizationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295053"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679295062"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295052"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679295061"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DisplayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295051"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679295060"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Password&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679295050"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295059"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679295044"><span class="annot"><span class="annottext">toPath :: CreateUser -&gt; ByteString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679295053"><span class="annot"><span class="annottext">toPath :: CreateUser -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateUser -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679295040"><span class="annot"><span class="annottext">toQuery :: CreateUser -&gt; QueryString
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679295049"><span class="annot"><span class="annottext">toQuery :: CreateUser -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateUser -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -393,7 +393,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | /See:/ 'newCreateUserResponse' smart constructor.</span><span>
-</span><span id="line-169"></span><span id="local-6989586621679295037"><span id="local-6989586621679295038"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUserResponse"><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-var">CreateUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUserResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-var">CreateUserResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span id="local-6989586621679295046"><span id="local-6989586621679295047"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUserResponse"><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-var">CreateUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUserResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-var">CreateUserResponse'</span></a></span></span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the new user.</span><span>
 </span><span id="line-171"></span><span>    </span><span id="%24sel%3AuserId%3ACreateUserResponse%27"><span class="annot"><span class="annottext">CreateUserResponse -&gt; Maybe Text
 </span><a href="Network.AWS.WorkMail.CreateUser.html#%24sel%3AuserId%3ACreateUserResponse%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -401,7 +401,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-173"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateUserResponse%27"><span class="annot"><span class="annottext">CreateUserResponse -&gt; Int
 </span><a href="Network.AWS.WorkMail.CreateUser.html#%24sel%3AhttpStatus%3ACreateUserResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295031"><span id="local-6989586621679295033"><span class="annot"><span class="annottext">CreateUserResponse -&gt; CreateUserResponse -&gt; Bool
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295040"><span id="local-6989586621679295042"><span class="annot"><span class="annottext">CreateUserResponse -&gt; CreateUserResponse -&gt; Bool
 (CreateUserResponse -&gt; CreateUserResponse -&gt; Bool)
 -&gt; (CreateUserResponse -&gt; CreateUserResponse -&gt; Bool)
 -&gt; Eq CreateUserResponse
@@ -410,7 +410,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateUserResponse -&gt; CreateUserResponse -&gt; Bool
 == :: CreateUserResponse -&gt; CreateUserResponse -&gt; Bool
 $c== :: CreateUserResponse -&gt; CreateUserResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295023"><span id="local-6989586621679295025"><span id="local-6989586621679295027"><span id="local-6989586621679295029"><span class="annot"><span class="annottext">ReadPrec [CreateUserResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295032"><span id="local-6989586621679295034"><span id="local-6989586621679295036"><span id="local-6989586621679295038"><span class="annot"><span class="annottext">ReadPrec [CreateUserResponse]
 ReadPrec CreateUserResponse
 Int -&gt; ReadS CreateUserResponse
 ReadS [CreateUserResponse]
@@ -430,7 +430,7 @@ readList :: ReadS [CreateUserResponse]
 $creadList :: ReadS [CreateUserResponse]
 readsPrec :: Int -&gt; ReadS CreateUserResponse
 $creadsPrec :: Int -&gt; ReadS CreateUserResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295016"><span id="local-6989586621679295018"><span id="local-6989586621679295020"><span class="annot"><span class="annottext">Int -&gt; CreateUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295025"><span id="local-6989586621679295027"><span id="local-6989586621679295029"><span class="annot"><span class="annottext">Int -&gt; CreateUserResponse -&gt; ShowS
 [CreateUserResponse] -&gt; ShowS
 CreateUserResponse -&gt; String
 (Int -&gt; CreateUserResponse -&gt; ShowS)
@@ -472,8 +472,8 @@ $cfrom :: forall x. CreateUserResponse -&gt; Rep CreateUserResponse x
 </span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span>
 </span><span id="line-192"></span><span id="newCreateUserResponse"><span class="annot"><span class="annottext">newCreateUserResponse :: Int -&gt; CreateUserResponse
-</span><a href="Network.AWS.WorkMail.CreateUser.html#newCreateUserResponse"><span class="hs-identifier hs-var hs-var">newCreateUserResponse</span></a></span></span><span> </span><span id="local-6989586621679295013"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295013"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkMail.CreateUser.html#newCreateUserResponse"><span class="hs-identifier hs-var hs-var">newCreateUserResponse</span></a></span></span><span> </span><span id="local-6989586621679295022"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295022"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="annottext">CreateUserResponse' :: Maybe Text -&gt; Int -&gt; CreateUserResponse
 </span><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userId:CreateUserResponse' :: Maybe Text
@@ -482,7 +482,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUserResponse' :: Int
 </span><a href="Network.AWS.WorkMail.CreateUser.html#%24sel%3AhttpStatus%3ACreateUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295013"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679295022"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The identifier for the new user.</span><span>
@@ -494,16 +494,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateUserResponse CreateUserResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295012"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295021"><span class="annot"><span class="annottext">Maybe Text
 userId :: Maybe Text
 $sel:userId:CreateUserResponse' :: CreateUserResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679295012"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295012"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295011"><span class="annot"><span class="annottext">s :: CreateUserResponse
-</span><a href="#local-6989586621679295011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295010"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserResponse
-</span><a href="#local-6989586621679295011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:CreateUserResponse' :: Maybe Text
+</span><a href="#local-6989586621679295021"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295021"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295020"><span class="annot"><span class="annottext">s :: CreateUserResponse
+</span><a href="#local-6989586621679295020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295019"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserResponse
+</span><a href="#local-6989586621679295020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:CreateUserResponse' :: Maybe Text
 </span><a href="Network.AWS.WorkMail.CreateUser.html#%24sel%3AuserId%3ACreateUserResponse%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-203"></span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#createUserResponse_httpStatus"><span class="hs-identifier hs-type">createUserResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -512,16 +512,16 @@ $sel:userId:CreateUserResponse' :: CreateUserResponse -&gt; Maybe Text
 -&gt; (CreateUserResponse -&gt; Int -&gt; CreateUserResponse)
 -&gt; Lens CreateUserResponse CreateUserResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295009"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295018"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateUserResponse' :: CreateUserResponse -&gt; Int
-</span><a href="#local-6989586621679295009"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295009"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295008"><span class="annot"><span class="annottext">s :: CreateUserResponse
-</span><a href="#local-6989586621679295008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295007"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserResponse
-</span><a href="#local-6989586621679295008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUserResponse' :: Int
+</span><a href="#local-6989586621679295018"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295018"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295017"><span class="annot"><span class="annottext">s :: CreateUserResponse
+</span><a href="#local-6989586621679295017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295016"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserResponse
+</span><a href="#local-6989586621679295017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUserResponse' :: Int
 </span><a href="Network.AWS.WorkMail.CreateUser.html#%24sel%3AhttpStatus%3ACreateUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295014"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span></span><span>
 </span><span id="line-207"></span></pre></body></html>

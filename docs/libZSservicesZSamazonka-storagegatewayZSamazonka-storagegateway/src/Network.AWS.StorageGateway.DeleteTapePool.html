@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.html"><span class="hs-identifier">Network.AWS.StorageGateway.Types</span></a></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteTapePool' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679388603"><span id="local-6989586621679388604"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTapePool"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool"><span class="hs-identifier hs-var">DeleteTapePool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTapePool%27"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool%27"><span class="hs-identifier hs-var">DeleteTapePool'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679388612"><span id="local-6989586621679388613"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTapePool"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool"><span class="hs-identifier hs-var">DeleteTapePool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTapePool%27"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool%27"><span class="hs-identifier hs-var">DeleteTapePool'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the custom tape pool to delete.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3ApoolARN%3ADeleteTapePool%27"><span class="annot"><span class="annottext">DeleteTapePool -&gt; Text
 </span><a href="Network.AWS.StorageGateway.DeleteTapePool.html#%24sel%3ApoolARN%3ADeleteTapePool%27"><span class="hs-identifier hs-var hs-var">poolARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388597"><span id="local-6989586621679388599"><span class="annot"><span class="annottext">DeleteTapePool -&gt; DeleteTapePool -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388606"><span id="local-6989586621679388608"><span class="annot"><span class="annottext">DeleteTapePool -&gt; DeleteTapePool -&gt; Bool
 (DeleteTapePool -&gt; DeleteTapePool -&gt; Bool)
 -&gt; (DeleteTapePool -&gt; DeleteTapePool -&gt; Bool) -&gt; Eq DeleteTapePool
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTapePool -&gt; DeleteTapePool -&gt; Bool
 == :: DeleteTapePool -&gt; DeleteTapePool -&gt; Bool
 $c== :: DeleteTapePool -&gt; DeleteTapePool -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388588"><span id="local-6989586621679388590"><span id="local-6989586621679388592"><span id="local-6989586621679388594"><span class="annot"><span class="annottext">ReadPrec [DeleteTapePool]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388597"><span id="local-6989586621679388599"><span id="local-6989586621679388601"><span id="local-6989586621679388603"><span class="annot"><span class="annottext">ReadPrec [DeleteTapePool]
 ReadPrec DeleteTapePool
 Int -&gt; ReadS DeleteTapePool
 ReadS [DeleteTapePool]
@@ -82,7 +82,7 @@ readList :: ReadS [DeleteTapePool]
 $creadList :: ReadS [DeleteTapePool]
 readsPrec :: Int -&gt; ReadS DeleteTapePool
 $creadsPrec :: Int -&gt; ReadS DeleteTapePool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388581"><span id="local-6989586621679388583"><span id="local-6989586621679388585"><span class="annot"><span class="annottext">Int -&gt; DeleteTapePool -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388590"><span id="local-6989586621679388592"><span id="local-6989586621679388594"><span class="annot"><span class="annottext">Int -&gt; DeleteTapePool -&gt; ShowS
 [DeleteTapePool] -&gt; ShowS
 DeleteTapePool -&gt; String
 (Int -&gt; DeleteTapePool -&gt; ShowS)
@@ -122,12 +122,12 @@ $cfrom :: forall x. DeleteTapePool -&gt; Rep DeleteTapePool x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool"><span class="hs-identifier hs-type">DeleteTapePool</span></a></span><span>
 </span><span id="line-71"></span><span id="newDeleteTapePool"><span class="annot"><span class="annottext">newDeleteTapePool :: Text -&gt; DeleteTapePool
-</span><a href="Network.AWS.StorageGateway.DeleteTapePool.html#newDeleteTapePool"><span class="hs-identifier hs-var hs-var">newDeleteTapePool</span></a></span></span><span> </span><span id="local-6989586621679388576"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388576"><span class="hs-identifier hs-var">pPoolARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.DeleteTapePool.html#newDeleteTapePool"><span class="hs-identifier hs-var hs-var">newDeleteTapePool</span></a></span></span><span> </span><span id="local-6989586621679388585"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388585"><span class="hs-identifier hs-var">pPoolARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DeleteTapePool' :: Text -&gt; DeleteTapePool
 </span><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool%27"><span class="hs-identifier hs-type">DeleteTapePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolARN:DeleteTapePool' :: Text
 </span><a href="Network.AWS.StorageGateway.DeleteTapePool.html#%24sel%3ApoolARN%3ADeleteTapePool%27"><span class="hs-identifier hs-var">poolARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388576"><span class="hs-identifier hs-var">pPoolARN_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679388585"><span class="hs-identifier hs-var">pPoolARN_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the custom tape pool to delete.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#deleteTapePool_poolARN"><span class="hs-identifier hs-type">deleteTapePool_poolARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool"><span class="hs-identifier hs-type">DeleteTapePool</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -136,27 +136,27 @@ $cfrom :: forall x. DeleteTapePool -&gt; Rep DeleteTapePool x
 -&gt; (DeleteTapePool -&gt; Text -&gt; DeleteTapePool)
 -&gt; Lens DeleteTapePool DeleteTapePool Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool%27"><span class="hs-identifier hs-type">DeleteTapePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388573"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool%27"><span class="hs-identifier hs-type">DeleteTapePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388582"><span class="annot"><span class="annottext">Text
 poolARN :: Text
 $sel:poolARN:DeleteTapePool' :: DeleteTapePool -&gt; Text
-</span><a href="#local-6989586621679388573"><span class="hs-identifier hs-var hs-var">poolARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388573"><span class="hs-identifier hs-var">poolARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388572"><span class="annot"><span class="annottext">s :: DeleteTapePool
-</span><a href="#local-6989586621679388572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool%27"><span class="hs-identifier hs-type">DeleteTapePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388571"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTapePool
-</span><a href="#local-6989586621679388572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolARN:DeleteTapePool' :: Text
+</span><a href="#local-6989586621679388582"><span class="hs-identifier hs-var hs-var">poolARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388582"><span class="hs-identifier hs-var">poolARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388581"><span class="annot"><span class="annottext">s :: DeleteTapePool
+</span><a href="#local-6989586621679388581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool%27"><span class="hs-identifier hs-type">DeleteTapePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388580"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTapePool
+</span><a href="#local-6989586621679388581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolARN:DeleteTapePool' :: Text
 </span><a href="Network.AWS.StorageGateway.DeleteTapePool.html#%24sel%3ApoolARN%3ADeleteTapePool%27"><span class="hs-identifier hs-var">poolARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool"><span class="hs-identifier hs-type">DeleteTapePool</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool"><span class="hs-identifier hs-type">DeleteTapePool</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool"><span class="hs-identifier hs-type">DeleteTapePool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool"><span class="hs-identifier hs-type">DeleteTapePool</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse"><span class="hs-identifier hs-type">DeleteTapePoolResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679388567"><span class="annot"><span class="annottext">request :: DeleteTapePool -&gt; Request DeleteTapePool
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679388576"><span class="annot"><span class="annottext">request :: DeleteTapePool -&gt; Request DeleteTapePool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteTapePool -&gt; Request DeleteTapePool
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679388563"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679388572"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteTapePool
 -&gt; ClientResponse ClientBody
@@ -180,10 +180,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388560"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388560"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388559"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679388559"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388558"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388558"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388569"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388569"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388568"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679388568"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388567"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388567"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DeleteTapePoolResponse
 </span><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse%27"><span class="hs-identifier hs-var">DeleteTapePoolResponse'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DeleteTapePoolResponse)
@@ -191,7 +191,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteTapePoolResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679388567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PoolARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -203,15 +203,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388560"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388569"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388550"><span id="local-6989586621679388552"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool"><span class="hs-identifier hs-type">DeleteTapePool</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388559"><span id="local-6989586621679388561"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool"><span class="hs-identifier hs-type">DeleteTapePool</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388547"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool"><span class="hs-identifier hs-type">DeleteTapePool</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388556"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool"><span class="hs-identifier hs-type">DeleteTapePool</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool"><span class="hs-identifier hs-type">DeleteTapePool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679388543"><span class="annot"><span class="annottext">toHeaders :: DeleteTapePool -&gt; ResponseHeaders
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679388552"><span class="annot"><span class="annottext">toHeaders :: DeleteTapePool -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteTapePool -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -238,12 +238,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388533"><span id="local-6989586621679388535"><span id="local-6989586621679388537"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool"><span class="hs-identifier hs-type">DeleteTapePool</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679388531"><span class="annot"><span class="annottext">toJSON :: DeleteTapePool -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool%27"><span class="hs-identifier hs-type">DeleteTapePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388529"><span class="annot"><span class="annottext">Text
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388542"><span id="local-6989586621679388544"><span id="local-6989586621679388546"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool"><span class="hs-identifier hs-type">DeleteTapePool</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679388540"><span class="annot"><span class="annottext">toJSON :: DeleteTapePool -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool%27"><span class="hs-identifier hs-type">DeleteTapePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388538"><span class="annot"><span class="annottext">Text
 poolARN :: Text
 $sel:poolARN:DeleteTapePool' :: DeleteTapePool -&gt; Text
-</span><a href="#local-6989586621679388529"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679388538"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -255,18 +255,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;PoolARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388529"><span class="hs-identifier hs-var">poolARN</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679388538"><span class="hs-identifier hs-var">poolARN</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool"><span class="hs-identifier hs-type">DeleteTapePool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679388523"><span class="annot"><span class="annottext">toPath :: DeleteTapePool -&gt; ByteString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679388532"><span class="annot"><span class="annottext">toPath :: DeleteTapePool -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteTapePool -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePool"><span class="hs-identifier hs-type">DeleteTapePool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679388519"><span class="annot"><span class="annottext">toQuery :: DeleteTapePool -&gt; QueryString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679388528"><span class="annot"><span class="annottext">toQuery :: DeleteTapePool -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteTapePool -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -274,7 +274,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | /See:/ 'newDeleteTapePoolResponse' smart constructor.</span><span>
-</span><span id="line-124"></span><span id="local-6989586621679388516"><span id="local-6989586621679388517"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTapePoolResponse"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse"><span class="hs-identifier hs-var">DeleteTapePoolResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTapePoolResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse%27"><span class="hs-identifier hs-var">DeleteTapePoolResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span id="local-6989586621679388525"><span id="local-6989586621679388526"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTapePoolResponse"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse"><span class="hs-identifier hs-var">DeleteTapePoolResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTapePoolResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse%27"><span class="hs-identifier hs-var">DeleteTapePoolResponse'</span></a></span></span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the custom tape pool being deleted.</span><span>
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3ApoolARN%3ADeleteTapePoolResponse%27"><span class="annot"><span class="annottext">DeleteTapePoolResponse -&gt; Maybe Text
 </span><a href="Network.AWS.StorageGateway.DeleteTapePool.html#%24sel%3ApoolARN%3ADeleteTapePoolResponse%27"><span class="hs-identifier hs-var hs-var">poolARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -282,7 +282,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteTapePoolResponse%27"><span class="annot"><span class="annottext">DeleteTapePoolResponse -&gt; Int
 </span><a href="Network.AWS.StorageGateway.DeleteTapePool.html#%24sel%3AhttpStatus%3ADeleteTapePoolResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388510"><span id="local-6989586621679388512"><span class="annot"><span class="annottext">DeleteTapePoolResponse -&gt; DeleteTapePoolResponse -&gt; Bool
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388519"><span id="local-6989586621679388521"><span class="annot"><span class="annottext">DeleteTapePoolResponse -&gt; DeleteTapePoolResponse -&gt; Bool
 (DeleteTapePoolResponse -&gt; DeleteTapePoolResponse -&gt; Bool)
 -&gt; (DeleteTapePoolResponse -&gt; DeleteTapePoolResponse -&gt; Bool)
 -&gt; Eq DeleteTapePoolResponse
@@ -291,7 +291,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTapePoolResponse -&gt; DeleteTapePoolResponse -&gt; Bool
 == :: DeleteTapePoolResponse -&gt; DeleteTapePoolResponse -&gt; Bool
 $c== :: DeleteTapePoolResponse -&gt; DeleteTapePoolResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388502"><span id="local-6989586621679388504"><span id="local-6989586621679388506"><span id="local-6989586621679388508"><span class="annot"><span class="annottext">ReadPrec [DeleteTapePoolResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388511"><span id="local-6989586621679388513"><span id="local-6989586621679388515"><span id="local-6989586621679388517"><span class="annot"><span class="annottext">ReadPrec [DeleteTapePoolResponse]
 ReadPrec DeleteTapePoolResponse
 Int -&gt; ReadS DeleteTapePoolResponse
 ReadS [DeleteTapePoolResponse]
@@ -311,7 +311,7 @@ readList :: ReadS [DeleteTapePoolResponse]
 $creadList :: ReadS [DeleteTapePoolResponse]
 readsPrec :: Int -&gt; ReadS DeleteTapePoolResponse
 $creadsPrec :: Int -&gt; ReadS DeleteTapePoolResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388496"><span id="local-6989586621679388498"><span id="local-6989586621679388500"><span class="annot"><span class="annottext">Int -&gt; DeleteTapePoolResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388505"><span id="local-6989586621679388507"><span id="local-6989586621679388509"><span class="annot"><span class="annottext">Int -&gt; DeleteTapePoolResponse -&gt; ShowS
 [DeleteTapePoolResponse] -&gt; ShowS
 DeleteTapePoolResponse -&gt; String
 (Int -&gt; DeleteTapePoolResponse -&gt; ShowS)
@@ -354,8 +354,8 @@ $cfrom :: forall x. DeleteTapePoolResponse -&gt; Rep DeleteTapePoolResponse x
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse"><span class="hs-identifier hs-type">DeleteTapePoolResponse</span></a></span><span>
 </span><span id="line-147"></span><span id="newDeleteTapePoolResponse"><span class="annot"><span class="annottext">newDeleteTapePoolResponse :: Int -&gt; DeleteTapePoolResponse
-</span><a href="Network.AWS.StorageGateway.DeleteTapePool.html#newDeleteTapePoolResponse"><span class="hs-identifier hs-var hs-var">newDeleteTapePoolResponse</span></a></span></span><span> </span><span id="local-6989586621679388493"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388493"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.DeleteTapePool.html#newDeleteTapePoolResponse"><span class="hs-identifier hs-var hs-var">newDeleteTapePoolResponse</span></a></span></span><span> </span><span id="local-6989586621679388502"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388502"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">DeleteTapePoolResponse' :: Maybe Text -&gt; Int -&gt; DeleteTapePoolResponse
 </span><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse%27"><span class="hs-identifier hs-type">DeleteTapePoolResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:poolARN:DeleteTapePoolResponse' :: Maybe Text
@@ -364,7 +364,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTapePoolResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.DeleteTapePool.html#%24sel%3AhttpStatus%3ADeleteTapePoolResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388493"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679388502"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the custom tape pool being deleted.</span><span>
@@ -379,16 +379,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse%27"><span class="hs-identifier hs-type">DeleteTapePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388492"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse%27"><span class="hs-identifier hs-type">DeleteTapePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388501"><span class="annot"><span class="annottext">Maybe Text
 poolARN :: Maybe Text
 $sel:poolARN:DeleteTapePoolResponse' :: DeleteTapePoolResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679388492"><span class="hs-identifier hs-var hs-var">poolARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388492"><span class="hs-identifier hs-var">poolARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388491"><span class="annot"><span class="annottext">s :: DeleteTapePoolResponse
-</span><a href="#local-6989586621679388491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse%27"><span class="hs-identifier hs-type">DeleteTapePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388490"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTapePoolResponse
-</span><a href="#local-6989586621679388491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolARN:DeleteTapePoolResponse' :: Maybe Text
+</span><a href="#local-6989586621679388501"><span class="hs-identifier hs-var hs-var">poolARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388501"><span class="hs-identifier hs-var">poolARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388500"><span class="annot"><span class="annottext">s :: DeleteTapePoolResponse
+</span><a href="#local-6989586621679388500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse%27"><span class="hs-identifier hs-type">DeleteTapePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388499"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTapePoolResponse
+</span><a href="#local-6989586621679388500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolARN:DeleteTapePoolResponse' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.DeleteTapePool.html#%24sel%3ApoolARN%3ADeleteTapePoolResponse%27"><span class="hs-identifier hs-var">poolARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse"><span class="hs-identifier hs-type">DeleteTapePoolResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse"><span class="hs-identifier hs-type">DeleteTapePoolResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-158"></span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#deleteTapePoolResponse_httpStatus"><span class="hs-identifier hs-type">deleteTapePoolResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse"><span class="hs-identifier hs-type">DeleteTapePoolResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -398,16 +398,16 @@ $sel:poolARN:DeleteTapePoolResponse' :: DeleteTapePoolResponse -&gt; Maybe Text
 -&gt; (DeleteTapePoolResponse -&gt; Int -&gt; DeleteTapePoolResponse)
 -&gt; Lens DeleteTapePoolResponse DeleteTapePoolResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse%27"><span class="hs-identifier hs-type">DeleteTapePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388489"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse%27"><span class="hs-identifier hs-type">DeleteTapePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388498"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteTapePoolResponse' :: DeleteTapePoolResponse -&gt; Int
-</span><a href="#local-6989586621679388489"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388489"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388488"><span class="annot"><span class="annottext">s :: DeleteTapePoolResponse
-</span><a href="#local-6989586621679388488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse%27"><span class="hs-identifier hs-type">DeleteTapePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388487"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTapePoolResponse
-</span><a href="#local-6989586621679388488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTapePoolResponse' :: Int
+</span><a href="#local-6989586621679388498"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388498"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388497"><span class="annot"><span class="annottext">s :: DeleteTapePoolResponse
+</span><a href="#local-6989586621679388497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse%27"><span class="hs-identifier hs-type">DeleteTapePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388496"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTapePoolResponse
+</span><a href="#local-6989586621679388497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTapePoolResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.DeleteTapePool.html#%24sel%3AhttpStatus%3ADeleteTapePoolResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse"><span class="hs-identifier hs-type">DeleteTapePoolResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse"><span class="hs-identifier hs-type">DeleteTapePoolResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388485"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse"><span class="hs-identifier hs-type">DeleteTapePoolResponse</span></a></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388494"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteTapePool.html#DeleteTapePoolResponse"><span class="hs-identifier hs-type">DeleteTapePoolResponse</span></a></span></span><span>
 </span><span id="line-162"></span></pre></body></html>

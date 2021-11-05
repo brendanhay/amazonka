@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- machine learning transform.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newTaskRunSortCriteria' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679701536"><span id="local-6989586621679701537"></span></span><span class="hs-keyword">data</span><span> </span><span id="TaskRunSortCriteria"><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria"><span class="hs-identifier hs-var">TaskRunSortCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskRunSortCriteria%27"><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria%27"><span class="hs-identifier hs-var">TaskRunSortCriteria'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679701545"><span id="local-6989586621679701546"></span></span><span class="hs-keyword">data</span><span> </span><span id="TaskRunSortCriteria"><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria"><span class="hs-identifier hs-var">TaskRunSortCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskRunSortCriteria%27"><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria%27"><span class="hs-identifier hs-var">TaskRunSortCriteria'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The column to be used to sort the list of task runs for the machine</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- learning transform.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Acolumn%3ATaskRunSortCriteria%27"><span class="annot"><span class="annottext">TaskRunSortCriteria -&gt; TaskRunSortColumnType
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AsortDirection%3ATaskRunSortCriteria%27"><span class="annot"><span class="annottext">TaskRunSortCriteria -&gt; SortDirectionType
 </span><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#%24sel%3AsortDirection%3ATaskRunSortCriteria%27"><span class="hs-identifier hs-var hs-var">sortDirection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SortDirectionType.html#SortDirectionType"><span class="hs-identifier hs-type">SortDirectionType</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679701529"><span id="local-6989586621679701531"><span class="annot"><span class="annottext">TaskRunSortCriteria -&gt; TaskRunSortCriteria -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679701538"><span id="local-6989586621679701540"><span class="annot"><span class="annottext">TaskRunSortCriteria -&gt; TaskRunSortCriteria -&gt; Bool
 (TaskRunSortCriteria -&gt; TaskRunSortCriteria -&gt; Bool)
 -&gt; (TaskRunSortCriteria -&gt; TaskRunSortCriteria -&gt; Bool)
 -&gt; Eq TaskRunSortCriteria
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TaskRunSortCriteria -&gt; TaskRunSortCriteria -&gt; Bool
 == :: TaskRunSortCriteria -&gt; TaskRunSortCriteria -&gt; Bool
 $c== :: TaskRunSortCriteria -&gt; TaskRunSortCriteria -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679701520"><span id="local-6989586621679701522"><span id="local-6989586621679701524"><span id="local-6989586621679701526"><span class="annot"><span class="annottext">ReadPrec [TaskRunSortCriteria]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679701529"><span id="local-6989586621679701531"><span id="local-6989586621679701533"><span id="local-6989586621679701535"><span class="annot"><span class="annottext">ReadPrec [TaskRunSortCriteria]
 ReadPrec TaskRunSortCriteria
 Int -&gt; ReadS TaskRunSortCriteria
 ReadS [TaskRunSortCriteria]
@@ -68,7 +68,7 @@ readList :: ReadS [TaskRunSortCriteria]
 $creadList :: ReadS [TaskRunSortCriteria]
 readsPrec :: Int -&gt; ReadS TaskRunSortCriteria
 $creadsPrec :: Int -&gt; ReadS TaskRunSortCriteria
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679701513"><span id="local-6989586621679701515"><span id="local-6989586621679701517"><span class="annot"><span class="annottext">Int -&gt; TaskRunSortCriteria -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679701522"><span id="local-6989586621679701524"><span id="local-6989586621679701526"><span class="annot"><span class="annottext">Int -&gt; TaskRunSortCriteria -&gt; ShowS
 [TaskRunSortCriteria] -&gt; ShowS
 TaskRunSortCriteria -&gt; String
 (Int -&gt; TaskRunSortCriteria -&gt; ShowS)
@@ -114,17 +114,17 @@ $cfrom :: forall x. TaskRunSortCriteria -&gt; Rep TaskRunSortCriteria x
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.SortDirectionType.html#SortDirectionType"><span class="hs-identifier hs-type">SortDirectionType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria"><span class="hs-identifier hs-type">TaskRunSortCriteria</span></a></span><span>
 </span><span id="line-61"></span><span id="newTaskRunSortCriteria"><span class="annot"><span class="annottext">newTaskRunSortCriteria :: TaskRunSortColumnType -&gt; SortDirectionType -&gt; TaskRunSortCriteria
-</span><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#newTaskRunSortCriteria"><span class="hs-identifier hs-var hs-var">newTaskRunSortCriteria</span></a></span></span><span> </span><span id="local-6989586621679701507"><span class="annot"><span class="annottext">TaskRunSortColumnType
-</span><a href="#local-6989586621679701507"><span class="hs-identifier hs-var">pColumn_</span></a></span></span><span> </span><span id="local-6989586621679701506"><span class="annot"><span class="annottext">SortDirectionType
-</span><a href="#local-6989586621679701506"><span class="hs-identifier hs-var">pSortDirection_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#newTaskRunSortCriteria"><span class="hs-identifier hs-var hs-var">newTaskRunSortCriteria</span></a></span></span><span> </span><span id="local-6989586621679701516"><span class="annot"><span class="annottext">TaskRunSortColumnType
+</span><a href="#local-6989586621679701516"><span class="hs-identifier hs-var">pColumn_</span></a></span></span><span> </span><span id="local-6989586621679701515"><span class="annot"><span class="annottext">SortDirectionType
+</span><a href="#local-6989586621679701515"><span class="hs-identifier hs-var">pSortDirection_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">TaskRunSortCriteria' :: TaskRunSortColumnType -&gt; SortDirectionType -&gt; TaskRunSortCriteria
 </span><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria%27"><span class="hs-identifier hs-type">TaskRunSortCriteria'</span></a></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:column:TaskRunSortCriteria' :: TaskRunSortColumnType
 </span><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#%24sel%3Acolumn%3ATaskRunSortCriteria%27"><span class="hs-identifier hs-var">column</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TaskRunSortColumnType
-</span><a href="#local-6989586621679701507"><span class="hs-identifier hs-var">pColumn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679701516"><span class="hs-identifier hs-var">pColumn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortDirection:TaskRunSortCriteria' :: SortDirectionType
 </span><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#%24sel%3AsortDirection%3ATaskRunSortCriteria%27"><span class="hs-identifier hs-var">sortDirection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SortDirectionType
-</span><a href="#local-6989586621679701506"><span class="hs-identifier hs-var">pSortDirection_</span></a></span><span>
+</span><a href="#local-6989586621679701515"><span class="hs-identifier hs-var">pSortDirection_</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The column to be used to sort the list of task runs for the machine</span><span>
@@ -141,16 +141,16 @@ $cfrom :: forall x. TaskRunSortCriteria -&gt; Rep TaskRunSortCriteria x
      TaskRunSortColumnType
      TaskRunSortColumnType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria%27"><span class="hs-identifier hs-type">TaskRunSortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701502"><span class="annot"><span class="annottext">TaskRunSortColumnType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria%27"><span class="hs-identifier hs-type">TaskRunSortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701511"><span class="annot"><span class="annottext">TaskRunSortColumnType
 column :: TaskRunSortColumnType
 $sel:column:TaskRunSortCriteria' :: TaskRunSortCriteria -&gt; TaskRunSortColumnType
-</span><a href="#local-6989586621679701502"><span class="hs-identifier hs-var hs-var">column</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskRunSortColumnType
-</span><a href="#local-6989586621679701502"><span class="hs-identifier hs-var">column</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701501"><span class="annot"><span class="annottext">s :: TaskRunSortCriteria
-</span><a href="#local-6989586621679701501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria%27"><span class="hs-identifier hs-type">TaskRunSortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701500"><span class="annot"><span class="annottext">TaskRunSortColumnType
-</span><a href="#local-6989586621679701500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskRunSortCriteria
-</span><a href="#local-6989586621679701501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:column:TaskRunSortCriteria' :: TaskRunSortColumnType
+</span><a href="#local-6989586621679701511"><span class="hs-identifier hs-var hs-var">column</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskRunSortColumnType
+</span><a href="#local-6989586621679701511"><span class="hs-identifier hs-var">column</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701510"><span class="annot"><span class="annottext">s :: TaskRunSortCriteria
+</span><a href="#local-6989586621679701510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria%27"><span class="hs-identifier hs-type">TaskRunSortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701509"><span class="annot"><span class="annottext">TaskRunSortColumnType
+</span><a href="#local-6989586621679701509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskRunSortCriteria
+</span><a href="#local-6989586621679701510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:column:TaskRunSortCriteria' :: TaskRunSortColumnType
 </span><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#%24sel%3Acolumn%3ATaskRunSortCriteria%27"><span class="hs-identifier hs-var">column</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TaskRunSortColumnType
-</span><a href="#local-6989586621679701500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria"><span class="hs-identifier hs-type">TaskRunSortCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679701509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria"><span class="hs-identifier hs-type">TaskRunSortCriteria</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The sort direction to be used to sort the list of task runs for the</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- machine learning transform.</span><span>
@@ -166,30 +166,30 @@ $sel:column:TaskRunSortCriteria' :: TaskRunSortCriteria -&gt; TaskRunSortColumnT
      SortDirectionType
      SortDirectionType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria%27"><span class="hs-identifier hs-type">TaskRunSortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701498"><span class="annot"><span class="annottext">SortDirectionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria%27"><span class="hs-identifier hs-type">TaskRunSortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701507"><span class="annot"><span class="annottext">SortDirectionType
 sortDirection :: SortDirectionType
 $sel:sortDirection:TaskRunSortCriteria' :: TaskRunSortCriteria -&gt; SortDirectionType
-</span><a href="#local-6989586621679701498"><span class="hs-identifier hs-var hs-var">sortDirection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SortDirectionType
-</span><a href="#local-6989586621679701498"><span class="hs-identifier hs-var">sortDirection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701497"><span class="annot"><span class="annottext">s :: TaskRunSortCriteria
-</span><a href="#local-6989586621679701497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria%27"><span class="hs-identifier hs-type">TaskRunSortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701496"><span class="annot"><span class="annottext">SortDirectionType
-</span><a href="#local-6989586621679701496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskRunSortCriteria
-</span><a href="#local-6989586621679701497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortDirection:TaskRunSortCriteria' :: SortDirectionType
+</span><a href="#local-6989586621679701507"><span class="hs-identifier hs-var hs-var">sortDirection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SortDirectionType
+</span><a href="#local-6989586621679701507"><span class="hs-identifier hs-var">sortDirection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701506"><span class="annot"><span class="annottext">s :: TaskRunSortCriteria
+</span><a href="#local-6989586621679701506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria%27"><span class="hs-identifier hs-type">TaskRunSortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701505"><span class="annot"><span class="annottext">SortDirectionType
+</span><a href="#local-6989586621679701505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskRunSortCriteria
+</span><a href="#local-6989586621679701506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortDirection:TaskRunSortCriteria' :: SortDirectionType
 </span><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#%24sel%3AsortDirection%3ATaskRunSortCriteria%27"><span class="hs-identifier hs-var">sortDirection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SortDirectionType
-</span><a href="#local-6989586621679701496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria"><span class="hs-identifier hs-type">TaskRunSortCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679701505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria"><span class="hs-identifier hs-type">TaskRunSortCriteria</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701492"><span id="local-6989586621679701494"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria"><span class="hs-identifier hs-type">TaskRunSortCriteria</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701501"><span id="local-6989586621679701503"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria"><span class="hs-identifier hs-type">TaskRunSortCriteria</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701489"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria"><span class="hs-identifier hs-type">TaskRunSortCriteria</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria"><span class="hs-identifier hs-type">TaskRunSortCriteria</span></a></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701481"><span id="local-6989586621679701483"><span id="local-6989586621679701485"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria"><span class="hs-identifier hs-type">TaskRunSortCriteria</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679701479"><span class="annot"><span class="annottext">toJSON :: TaskRunSortCriteria -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria%27"><span class="hs-identifier hs-type">TaskRunSortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701476"><span id="local-6989586621679701477"><span class="annot"><span class="annottext">SortDirectionType
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701490"><span id="local-6989586621679701492"><span id="local-6989586621679701494"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria"><span class="hs-identifier hs-type">TaskRunSortCriteria</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679701488"><span class="annot"><span class="annottext">toJSON :: TaskRunSortCriteria -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria%27"><span class="hs-identifier hs-type">TaskRunSortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701485"><span id="local-6989586621679701486"><span class="annot"><span class="annottext">SortDirectionType
 TaskRunSortColumnType
 sortDirection :: SortDirectionType
 column :: TaskRunSortColumnType
 $sel:sortDirection:TaskRunSortCriteria' :: TaskRunSortCriteria -&gt; SortDirectionType
 $sel:column:TaskRunSortCriteria' :: TaskRunSortCriteria -&gt; TaskRunSortColumnType
-</span><a href="#local-6989586621679701476"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679701485"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -201,7 +201,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Column&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TaskRunSortColumnType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TaskRunSortColumnType
-</span><a href="#local-6989586621679701477"><span class="hs-identifier hs-var">column</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679701486"><span class="hs-identifier hs-var">column</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -209,7 +209,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SortDirection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortDirectionType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SortDirectionType
-</span><a href="#local-6989586621679701476"><span class="hs-identifier hs-var">sortDirection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679701485"><span class="hs-identifier hs-var">sortDirection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

@@ -50,12 +50,12 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteRoleAlias' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679843343"><span id="local-6989586621679843344"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRoleAlias"><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias"><span class="hs-identifier hs-var">DeleteRoleAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRoleAlias%27"><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias%27"><span class="hs-identifier hs-var">DeleteRoleAlias'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679843352"><span id="local-6989586621679843353"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRoleAlias"><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias"><span class="hs-identifier hs-var">DeleteRoleAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRoleAlias%27"><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias%27"><span class="hs-identifier hs-var">DeleteRoleAlias'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The role alias to delete.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AroleAlias%3ADeleteRoleAlias%27"><span class="annot"><span class="annottext">DeleteRoleAlias -&gt; Text
 </span><a href="Network.AWS.IoT.DeleteRoleAlias.html#%24sel%3AroleAlias%3ADeleteRoleAlias%27"><span class="hs-identifier hs-var hs-var">roleAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679843337"><span id="local-6989586621679843339"><span class="annot"><span class="annottext">DeleteRoleAlias -&gt; DeleteRoleAlias -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679843346"><span id="local-6989586621679843348"><span class="annot"><span class="annottext">DeleteRoleAlias -&gt; DeleteRoleAlias -&gt; Bool
 (DeleteRoleAlias -&gt; DeleteRoleAlias -&gt; Bool)
 -&gt; (DeleteRoleAlias -&gt; DeleteRoleAlias -&gt; Bool)
 -&gt; Eq DeleteRoleAlias
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteRoleAlias -&gt; DeleteRoleAlias -&gt; Bool
 == :: DeleteRoleAlias -&gt; DeleteRoleAlias -&gt; Bool
 $c== :: DeleteRoleAlias -&gt; DeleteRoleAlias -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679843328"><span id="local-6989586621679843330"><span id="local-6989586621679843332"><span id="local-6989586621679843334"><span class="annot"><span class="annottext">ReadPrec [DeleteRoleAlias]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679843337"><span id="local-6989586621679843339"><span id="local-6989586621679843341"><span id="local-6989586621679843343"><span class="annot"><span class="annottext">ReadPrec [DeleteRoleAlias]
 ReadPrec DeleteRoleAlias
 Int -&gt; ReadS DeleteRoleAlias
 ReadS [DeleteRoleAlias]
@@ -84,7 +84,7 @@ readList :: ReadS [DeleteRoleAlias]
 $creadList :: ReadS [DeleteRoleAlias]
 readsPrec :: Int -&gt; ReadS DeleteRoleAlias
 $creadsPrec :: Int -&gt; ReadS DeleteRoleAlias
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679843321"><span id="local-6989586621679843323"><span id="local-6989586621679843325"><span class="annot"><span class="annottext">Int -&gt; DeleteRoleAlias -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679843330"><span id="local-6989586621679843332"><span id="local-6989586621679843334"><span class="annot"><span class="annottext">Int -&gt; DeleteRoleAlias -&gt; ShowS
 [DeleteRoleAlias] -&gt; ShowS
 DeleteRoleAlias -&gt; String
 (Int -&gt; DeleteRoleAlias -&gt; ShowS)
@@ -124,12 +124,12 @@ $cfrom :: forall x. DeleteRoleAlias -&gt; Rep DeleteRoleAlias x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias"><span class="hs-identifier hs-type">DeleteRoleAlias</span></a></span><span>
 </span><span id="line-72"></span><span id="newDeleteRoleAlias"><span class="annot"><span class="annottext">newDeleteRoleAlias :: Text -&gt; DeleteRoleAlias
-</span><a href="Network.AWS.IoT.DeleteRoleAlias.html#newDeleteRoleAlias"><span class="hs-identifier hs-var hs-var">newDeleteRoleAlias</span></a></span></span><span> </span><span id="local-6989586621679843316"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679843316"><span class="hs-identifier hs-var">pRoleAlias_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DeleteRoleAlias.html#newDeleteRoleAlias"><span class="hs-identifier hs-var hs-var">newDeleteRoleAlias</span></a></span></span><span> </span><span id="local-6989586621679843325"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679843325"><span class="hs-identifier hs-var">pRoleAlias_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteRoleAlias' :: Text -&gt; DeleteRoleAlias
 </span><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias%27"><span class="hs-identifier hs-type">DeleteRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleAlias:DeleteRoleAlias' :: Text
 </span><a href="Network.AWS.IoT.DeleteRoleAlias.html#%24sel%3AroleAlias%3ADeleteRoleAlias%27"><span class="hs-identifier hs-var">roleAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679843316"><span class="hs-identifier hs-var">pRoleAlias_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679843325"><span class="hs-identifier hs-var">pRoleAlias_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The role alias to delete.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#deleteRoleAlias_roleAlias"><span class="hs-identifier hs-type">deleteRoleAlias_roleAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias"><span class="hs-identifier hs-type">DeleteRoleAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -138,27 +138,27 @@ $cfrom :: forall x. DeleteRoleAlias -&gt; Rep DeleteRoleAlias x
 -&gt; (DeleteRoleAlias -&gt; Text -&gt; DeleteRoleAlias)
 -&gt; Lens DeleteRoleAlias DeleteRoleAlias Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias%27"><span class="hs-identifier hs-type">DeleteRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679843313"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias%27"><span class="hs-identifier hs-type">DeleteRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679843322"><span class="annot"><span class="annottext">Text
 roleAlias :: Text
 $sel:roleAlias:DeleteRoleAlias' :: DeleteRoleAlias -&gt; Text
-</span><a href="#local-6989586621679843313"><span class="hs-identifier hs-var hs-var">roleAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679843313"><span class="hs-identifier hs-var">roleAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679843312"><span class="annot"><span class="annottext">s :: DeleteRoleAlias
-</span><a href="#local-6989586621679843312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias%27"><span class="hs-identifier hs-type">DeleteRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679843311"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679843311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRoleAlias
-</span><a href="#local-6989586621679843312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleAlias:DeleteRoleAlias' :: Text
+</span><a href="#local-6989586621679843322"><span class="hs-identifier hs-var hs-var">roleAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679843322"><span class="hs-identifier hs-var">roleAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679843321"><span class="annot"><span class="annottext">s :: DeleteRoleAlias
+</span><a href="#local-6989586621679843321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias%27"><span class="hs-identifier hs-type">DeleteRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679843320"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679843320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRoleAlias
+</span><a href="#local-6989586621679843321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleAlias:DeleteRoleAlias' :: Text
 </span><a href="Network.AWS.IoT.DeleteRoleAlias.html#%24sel%3AroleAlias%3ADeleteRoleAlias%27"><span class="hs-identifier hs-var">roleAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679843311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias"><span class="hs-identifier hs-type">DeleteRoleAlias</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679843320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias"><span class="hs-identifier hs-type">DeleteRoleAlias</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias"><span class="hs-identifier hs-type">DeleteRoleAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias"><span class="hs-identifier hs-type">DeleteRoleAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAliasResponse"><span class="hs-identifier hs-type">DeleteRoleAliasResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679843307"><span class="annot"><span class="annottext">request :: DeleteRoleAlias -&gt; Request DeleteRoleAlias
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679843316"><span class="annot"><span class="annottext">request :: DeleteRoleAlias -&gt; Request DeleteRoleAlias
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteRoleAlias -&gt; Request DeleteRoleAlias
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679843303"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679843312"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteRoleAlias
 -&gt; ClientResponse ClientBody
@@ -182,10 +182,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679843300"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679843300"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679843299"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679843299"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679843298"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679843298"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679843309"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679843309"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679843308"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679843308"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679843307"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679843307"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteRoleAliasResponse
 </span><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAliasResponse%27"><span class="hs-identifier hs-var">DeleteRoleAliasResponse'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteRoleAliasResponse)
@@ -196,15 +196,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679843300"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679843309"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679843291"><span id="local-6989586621679843293"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias"><span class="hs-identifier hs-type">DeleteRoleAlias</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679843300"><span id="local-6989586621679843302"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias"><span class="hs-identifier hs-type">DeleteRoleAlias</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679843288"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias"><span class="hs-identifier hs-type">DeleteRoleAlias</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679843297"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias"><span class="hs-identifier hs-type">DeleteRoleAlias</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias"><span class="hs-identifier hs-type">DeleteRoleAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679843284"><span class="annot"><span class="annottext">toHeaders :: DeleteRoleAlias -&gt; ResponseHeaders
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679843293"><span class="annot"><span class="annottext">toHeaders :: DeleteRoleAlias -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteRoleAlias -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -212,11 +212,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias"><span class="hs-identifier hs-type">DeleteRoleAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679843279"><span class="annot"><span class="annottext">toPath :: DeleteRoleAlias -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias%27"><span class="hs-identifier hs-type">DeleteRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679843277"><span class="annot"><span class="annottext">Text
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679843288"><span class="annot"><span class="annottext">toPath :: DeleteRoleAlias -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias%27"><span class="hs-identifier hs-type">DeleteRoleAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679843286"><span class="annot"><span class="annottext">Text
 roleAlias :: Text
 $sel:roleAlias:DeleteRoleAlias' :: DeleteRoleAlias -&gt; Text
-</span><a href="#local-6989586621679843277"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679843286"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -224,10 +224,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/role-aliases/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679843277"><span class="hs-identifier hs-var">roleAlias</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679843286"><span class="hs-identifier hs-var">roleAlias</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAlias"><span class="hs-identifier hs-type">DeleteRoleAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679843273"><span class="annot"><span class="annottext">toQuery :: DeleteRoleAlias -&gt; QueryString
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679843282"><span class="annot"><span class="annottext">toQuery :: DeleteRoleAlias -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteRoleAlias -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -235,12 +235,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | /See:/ 'newDeleteRoleAliasResponse' smart constructor.</span><span>
-</span><span id="line-107"></span><span id="local-6989586621679843270"><span id="local-6989586621679843271"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRoleAliasResponse"><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAliasResponse"><span class="hs-identifier hs-var">DeleteRoleAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRoleAliasResponse%27"><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAliasResponse%27"><span class="hs-identifier hs-var">DeleteRoleAliasResponse'</span></a></span></span><span>
+</span><span id="line-107"></span><span id="local-6989586621679843279"><span id="local-6989586621679843280"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRoleAliasResponse"><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAliasResponse"><span class="hs-identifier hs-var">DeleteRoleAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRoleAliasResponse%27"><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAliasResponse%27"><span class="hs-identifier hs-var">DeleteRoleAliasResponse'</span></a></span></span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-109"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteRoleAliasResponse%27"><span class="annot"><span class="annottext">DeleteRoleAliasResponse -&gt; Int
 </span><a href="Network.AWS.IoT.DeleteRoleAlias.html#%24sel%3AhttpStatus%3ADeleteRoleAliasResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679843265"><span id="local-6989586621679843267"><span class="annot"><span class="annottext">DeleteRoleAliasResponse -&gt; DeleteRoleAliasResponse -&gt; Bool
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679843274"><span id="local-6989586621679843276"><span class="annot"><span class="annottext">DeleteRoleAliasResponse -&gt; DeleteRoleAliasResponse -&gt; Bool
 (DeleteRoleAliasResponse -&gt; DeleteRoleAliasResponse -&gt; Bool)
 -&gt; (DeleteRoleAliasResponse -&gt; DeleteRoleAliasResponse -&gt; Bool)
 -&gt; Eq DeleteRoleAliasResponse
@@ -249,7 +249,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteRoleAliasResponse -&gt; DeleteRoleAliasResponse -&gt; Bool
 == :: DeleteRoleAliasResponse -&gt; DeleteRoleAliasResponse -&gt; Bool
 $c== :: DeleteRoleAliasResponse -&gt; DeleteRoleAliasResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679843257"><span id="local-6989586621679843259"><span id="local-6989586621679843261"><span id="local-6989586621679843263"><span class="annot"><span class="annottext">ReadPrec [DeleteRoleAliasResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679843266"><span id="local-6989586621679843268"><span id="local-6989586621679843270"><span id="local-6989586621679843272"><span class="annot"><span class="annottext">ReadPrec [DeleteRoleAliasResponse]
 ReadPrec DeleteRoleAliasResponse
 Int -&gt; ReadS DeleteRoleAliasResponse
 ReadS [DeleteRoleAliasResponse]
@@ -269,7 +269,7 @@ readList :: ReadS [DeleteRoleAliasResponse]
 $creadList :: ReadS [DeleteRoleAliasResponse]
 readsPrec :: Int -&gt; ReadS DeleteRoleAliasResponse
 $creadsPrec :: Int -&gt; ReadS DeleteRoleAliasResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679843251"><span id="local-6989586621679843253"><span id="local-6989586621679843255"><span class="annot"><span class="annottext">Int -&gt; DeleteRoleAliasResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679843260"><span id="local-6989586621679843262"><span id="local-6989586621679843264"><span class="annot"><span class="annottext">Int -&gt; DeleteRoleAliasResponse -&gt; ShowS
 [DeleteRoleAliasResponse] -&gt; ShowS
 DeleteRoleAliasResponse -&gt; String
 (Int -&gt; DeleteRoleAliasResponse -&gt; ShowS)
@@ -311,12 +311,12 @@ $cfrom :: forall x. DeleteRoleAliasResponse -&gt; Rep DeleteRoleAliasResponse x
 </span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAliasResponse"><span class="hs-identifier hs-type">DeleteRoleAliasResponse</span></a></span><span>
 </span><span id="line-126"></span><span id="newDeleteRoleAliasResponse"><span class="annot"><span class="annottext">newDeleteRoleAliasResponse :: Int -&gt; DeleteRoleAliasResponse
-</span><a href="Network.AWS.IoT.DeleteRoleAlias.html#newDeleteRoleAliasResponse"><span class="hs-identifier hs-var hs-var">newDeleteRoleAliasResponse</span></a></span></span><span> </span><span id="local-6989586621679843248"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679843248"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DeleteRoleAlias.html#newDeleteRoleAliasResponse"><span class="hs-identifier hs-var hs-var">newDeleteRoleAliasResponse</span></a></span></span><span> </span><span id="local-6989586621679843257"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679843257"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>  </span><span class="annot"><span class="annottext">DeleteRoleAliasResponse' :: Int -&gt; DeleteRoleAliasResponse
 </span><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAliasResponse%27"><span class="hs-identifier hs-type">DeleteRoleAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRoleAliasResponse' :: Int
 </span><a href="Network.AWS.IoT.DeleteRoleAlias.html#%24sel%3AhttpStatus%3ADeleteRoleAliasResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679843248"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679843257"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#deleteRoleAliasResponse_httpStatus"><span class="hs-identifier hs-type">deleteRoleAliasResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAliasResponse"><span class="hs-identifier hs-type">DeleteRoleAliasResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -326,16 +326,16 @@ $cfrom :: forall x. DeleteRoleAliasResponse -&gt; Rep DeleteRoleAliasResponse x
 -&gt; (DeleteRoleAliasResponse -&gt; Int -&gt; DeleteRoleAliasResponse)
 -&gt; Lens DeleteRoleAliasResponse DeleteRoleAliasResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAliasResponse%27"><span class="hs-identifier hs-type">DeleteRoleAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679843247"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAliasResponse%27"><span class="hs-identifier hs-type">DeleteRoleAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679843256"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteRoleAliasResponse' :: DeleteRoleAliasResponse -&gt; Int
-</span><a href="#local-6989586621679843247"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679843247"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679843246"><span class="annot"><span class="annottext">s :: DeleteRoleAliasResponse
-</span><a href="#local-6989586621679843246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAliasResponse%27"><span class="hs-identifier hs-type">DeleteRoleAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679843245"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679843245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRoleAliasResponse
-</span><a href="#local-6989586621679843246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRoleAliasResponse' :: Int
+</span><a href="#local-6989586621679843256"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679843256"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679843255"><span class="annot"><span class="annottext">s :: DeleteRoleAliasResponse
+</span><a href="#local-6989586621679843255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAliasResponse%27"><span class="hs-identifier hs-type">DeleteRoleAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679843254"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679843254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRoleAliasResponse
+</span><a href="#local-6989586621679843255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRoleAliasResponse' :: Int
 </span><a href="Network.AWS.IoT.DeleteRoleAlias.html#%24sel%3AhttpStatus%3ADeleteRoleAliasResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679843245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAliasResponse"><span class="hs-identifier hs-type">DeleteRoleAliasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679843254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAliasResponse"><span class="hs-identifier hs-type">DeleteRoleAliasResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679843243"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAliasResponse"><span class="hs-identifier hs-type">DeleteRoleAliasResponse</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679843252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteRoleAlias.html#DeleteRoleAliasResponse"><span class="hs-identifier hs-type">DeleteRoleAliasResponse</span></a></span></span><span>
 </span><span id="line-134"></span></pre></body></html>

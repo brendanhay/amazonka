@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- for more information.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newFacet' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679326878"><span id="local-6989586621679326879"></span></span><span class="hs-keyword">data</span><span> </span><span id="Facet"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet"><span class="hs-identifier hs-var">Facet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Facet%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet%27"><span class="hs-identifier hs-var">Facet'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679326887"><span id="local-6989586621679326888"></span></span><span class="hs-keyword">data</span><span> </span><span id="Facet"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet"><span class="hs-identifier hs-var">Facet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Facet%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet%27"><span class="hs-identifier hs-var">Facet'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | There are two different styles that you can define on any given facet,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @Static@ and @Dynamic@. For static facets, all attributes must be</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- defined in the schema. For dynamic facets, attributes can be defined</span><span>
@@ -46,14 +46,14 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Aname%3AFacet%27"><span class="annot"><span class="annottext">Facet -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.Facet.html#%24sel%3Aname%3AFacet%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326870"><span id="local-6989586621679326872"><span class="annot"><span class="annottext">Facet -&gt; Facet -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326879"><span id="local-6989586621679326881"><span class="annot"><span class="annottext">Facet -&gt; Facet -&gt; Bool
 (Facet -&gt; Facet -&gt; Bool) -&gt; (Facet -&gt; Facet -&gt; Bool) -&gt; Eq Facet
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Facet -&gt; Facet -&gt; Bool
 $c/= :: Facet -&gt; Facet -&gt; Bool
 == :: Facet -&gt; Facet -&gt; Bool
 $c== :: Facet -&gt; Facet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326861"><span id="local-6989586621679326863"><span id="local-6989586621679326865"><span id="local-6989586621679326867"><span class="annot"><span class="annottext">ReadPrec [Facet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326870"><span id="local-6989586621679326872"><span id="local-6989586621679326874"><span id="local-6989586621679326876"><span class="annot"><span class="annottext">ReadPrec [Facet]
 ReadPrec Facet
 Int -&gt; ReadS Facet
 ReadS [Facet]
@@ -73,7 +73,7 @@ readList :: ReadS [Facet]
 $creadList :: ReadS [Facet]
 readsPrec :: Int -&gt; ReadS Facet
 $creadsPrec :: Int -&gt; ReadS Facet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326854"><span id="local-6989586621679326856"><span id="local-6989586621679326858"><span class="annot"><span class="annottext">Int -&gt; Facet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326863"><span id="local-6989586621679326865"><span id="local-6989586621679326867"><span class="annot"><span class="annottext">Int -&gt; Facet -&gt; ShowS
 [Facet] -&gt; ShowS
 Facet -&gt; String
 (Int -&gt; Facet -&gt; ShowS)
@@ -143,16 +143,16 @@ forall a. Maybe a
 -&gt; (Facet -&gt; Maybe FacetStyle -&gt; Facet)
 -&gt; Lens Facet Facet (Maybe FacetStyle) (Maybe FacetStyle)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet%27"><span class="hs-identifier hs-type">Facet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326845"><span class="annot"><span class="annottext">Maybe FacetStyle
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet%27"><span class="hs-identifier hs-type">Facet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326854"><span class="annot"><span class="annottext">Maybe FacetStyle
 facetStyle :: Maybe FacetStyle
 $sel:facetStyle:Facet' :: Facet -&gt; Maybe FacetStyle
-</span><a href="#local-6989586621679326845"><span class="hs-identifier hs-var hs-var">facetStyle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FacetStyle
-</span><a href="#local-6989586621679326845"><span class="hs-identifier hs-var">facetStyle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326844"><span class="annot"><span class="annottext">s :: Facet
-</span><a href="#local-6989586621679326844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet%27"><span class="hs-identifier hs-type">Facet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326843"><span class="annot"><span class="annottext">Maybe FacetStyle
-</span><a href="#local-6989586621679326843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Facet
-</span><a href="#local-6989586621679326844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:facetStyle:Facet' :: Maybe FacetStyle
+</span><a href="#local-6989586621679326854"><span class="hs-identifier hs-var hs-var">facetStyle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FacetStyle
+</span><a href="#local-6989586621679326854"><span class="hs-identifier hs-var">facetStyle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326853"><span class="annot"><span class="annottext">s :: Facet
+</span><a href="#local-6989586621679326853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet%27"><span class="hs-identifier hs-type">Facet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326852"><span class="annot"><span class="annottext">Maybe FacetStyle
+</span><a href="#local-6989586621679326852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Facet
+</span><a href="#local-6989586621679326853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:facetStyle:Facet' :: Maybe FacetStyle
 </span><a href="Network.AWS.CloudDirectory.Types.Facet.html#%24sel%3AfacetStyle%3AFacet%27"><span class="hs-identifier hs-var">facetStyle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FacetStyle
-</span><a href="#local-6989586621679326843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet"><span class="hs-identifier hs-type">Facet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet"><span class="hs-identifier hs-type">Facet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The object type that is associated with the facet. See</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- CreateFacetRequest$ObjectType for more details.</span><span>
@@ -162,16 +162,16 @@ $sel:facetStyle:Facet' :: Facet -&gt; Maybe FacetStyle
 -&gt; (Facet -&gt; Maybe ObjectType -&gt; Facet)
 -&gt; Lens Facet Facet (Maybe ObjectType) (Maybe ObjectType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet%27"><span class="hs-identifier hs-type">Facet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326841"><span class="annot"><span class="annottext">Maybe ObjectType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet%27"><span class="hs-identifier hs-type">Facet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326850"><span class="annot"><span class="annottext">Maybe ObjectType
 objectType :: Maybe ObjectType
 $sel:objectType:Facet' :: Facet -&gt; Maybe ObjectType
-</span><a href="#local-6989586621679326841"><span class="hs-identifier hs-var hs-var">objectType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectType
-</span><a href="#local-6989586621679326841"><span class="hs-identifier hs-var">objectType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326840"><span class="annot"><span class="annottext">s :: Facet
-</span><a href="#local-6989586621679326840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet%27"><span class="hs-identifier hs-type">Facet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326839"><span class="annot"><span class="annottext">Maybe ObjectType
-</span><a href="#local-6989586621679326839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Facet
-</span><a href="#local-6989586621679326840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectType:Facet' :: Maybe ObjectType
+</span><a href="#local-6989586621679326850"><span class="hs-identifier hs-var hs-var">objectType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectType
+</span><a href="#local-6989586621679326850"><span class="hs-identifier hs-var">objectType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326849"><span class="annot"><span class="annottext">s :: Facet
+</span><a href="#local-6989586621679326849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet%27"><span class="hs-identifier hs-type">Facet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326848"><span class="annot"><span class="annottext">Maybe ObjectType
+</span><a href="#local-6989586621679326848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Facet
+</span><a href="#local-6989586621679326849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectType:Facet' :: Maybe ObjectType
 </span><a href="Network.AWS.CloudDirectory.Types.Facet.html#%24sel%3AobjectType%3AFacet%27"><span class="hs-identifier hs-var">objectType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectType
-</span><a href="#local-6989586621679326839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet"><span class="hs-identifier hs-type">Facet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet"><span class="hs-identifier hs-type">Facet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The name of the Facet.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#facet_name"><span class="hs-identifier hs-type">facet_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet"><span class="hs-identifier hs-type">Facet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -180,27 +180,27 @@ $sel:objectType:Facet' :: Facet -&gt; Maybe ObjectType
 -&gt; (Facet -&gt; Maybe Text -&gt; Facet)
 -&gt; Lens Facet Facet (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet%27"><span class="hs-identifier hs-type">Facet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326837"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet%27"><span class="hs-identifier hs-type">Facet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326846"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Facet' :: Facet -&gt; Maybe Text
-</span><a href="#local-6989586621679326837"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326837"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326836"><span class="annot"><span class="annottext">s :: Facet
-</span><a href="#local-6989586621679326836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet%27"><span class="hs-identifier hs-type">Facet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326835"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Facet
-</span><a href="#local-6989586621679326836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Facet' :: Maybe Text
+</span><a href="#local-6989586621679326846"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326846"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326845"><span class="annot"><span class="annottext">s :: Facet
+</span><a href="#local-6989586621679326845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet%27"><span class="hs-identifier hs-type">Facet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326844"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Facet
+</span><a href="#local-6989586621679326845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Facet' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.Facet.html#%24sel%3Aname%3AFacet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet"><span class="hs-identifier hs-type">Facet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet"><span class="hs-identifier hs-type">Facet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326832"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet"><span class="hs-identifier hs-type">Facet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679326830"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Facet
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326841"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet"><span class="hs-identifier hs-type">Facet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679326839"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Facet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Facet) -&gt; Value -&gt; Parser Facet
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Facet&quot;</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326827"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326827"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326836"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326836"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe FacetStyle -&gt; Maybe ObjectType -&gt; Maybe Text -&gt; Facet
 </span><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet%27"><span class="hs-identifier hs-var">Facet'</span></a></span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FacetStyle -&gt; Maybe ObjectType -&gt; Maybe Text -&gt; Facet)
@@ -208,7 +208,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe ObjectType -&gt; Maybe Text -&gt; Facet)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FacetStyle)
+</span><a href="#local-6989586621679326836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FacetStyle)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FacetStyle&quot;</span></span><span class="hs-special">)</span><span>
@@ -216,20 +216,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe ObjectType) -&gt; Parser (Maybe Text -&gt; Facet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ObjectType)
+</span><a href="#local-6989586621679326836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ObjectType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ObjectType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Facet) -&gt; Parser (Maybe Text) -&gt; Parser Facet
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679326836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326821"><span id="local-6989586621679326823"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet"><span class="hs-identifier hs-type">Facet</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326830"><span id="local-6989586621679326832"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet"><span class="hs-identifier hs-type">Facet</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326818"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet"><span class="hs-identifier hs-type">Facet</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326827"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Facet.html#Facet"><span class="hs-identifier hs-type">Facet</span></a></span></span><span>
 </span><span id="line-104"></span></pre></body></html>

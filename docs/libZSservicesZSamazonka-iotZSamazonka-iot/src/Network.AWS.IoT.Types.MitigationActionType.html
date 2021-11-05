@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679790775"><span id="local-6989586621679790776"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MitigationActionType"><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionType.html#MitigationActionType"><span class="hs-identifier hs-var">MitigationActionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MitigationActionType%27"><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionType.html#MitigationActionType%27"><span class="hs-identifier hs-var">MitigationActionType'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679790784"><span id="local-6989586621679790785"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MitigationActionType"><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionType.html#MitigationActionType"><span class="hs-identifier hs-var">MitigationActionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MitigationActionType%27"><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionType.html#MitigationActionType%27"><span class="hs-identifier hs-var">MitigationActionType'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMitigationActionType"><span class="annot"><span class="annottext">MitigationActionType -&gt; Text
 </span><a href="Network.AWS.IoT.Types.MitigationActionType.html#fromMitigationActionType"><span class="hs-identifier hs-var hs-var">fromMitigationActionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790767"><span id="local-6989586621679790769"><span id="local-6989586621679790771"><span class="annot"><span class="annottext">Int -&gt; MitigationActionType -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790776"><span id="local-6989586621679790778"><span id="local-6989586621679790780"><span class="annot"><span class="annottext">Int -&gt; MitigationActionType -&gt; ShowS
 [MitigationActionType] -&gt; ShowS
 MitigationActionType -&gt; String
 (Int -&gt; MitigationActionType -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: MitigationActionType -&gt; String
 showsPrec :: Int -&gt; MitigationActionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; MitigationActionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679790758"><span id="local-6989586621679790760"><span id="local-6989586621679790762"><span id="local-6989586621679790764"><span class="annot"><span class="annottext">ReadPrec [MitigationActionType]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679790767"><span id="local-6989586621679790769"><span id="local-6989586621679790771"><span id="local-6989586621679790773"><span class="annot"><span class="annottext">ReadPrec [MitigationActionType]
 ReadPrec MitigationActionType
 Int -&gt; ReadS MitigationActionType
 ReadS [MitigationActionType]
@@ -76,7 +76,7 @@ $creadList :: ReadS [MitigationActionType]
 readsPrec :: Int -&gt; ReadS MitigationActionType
 $creadsPrec :: Int -&gt; ReadS MitigationActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679790753"><span id="local-6989586621679790755"><span class="annot"><span class="annottext">MitigationActionType -&gt; MitigationActionType -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679790762"><span id="local-6989586621679790764"><span class="annot"><span class="annottext">MitigationActionType -&gt; MitigationActionType -&gt; Bool
 (MitigationActionType -&gt; MitigationActionType -&gt; Bool)
 -&gt; (MitigationActionType -&gt; MitigationActionType -&gt; Bool)
 -&gt; Eq MitigationActionType
@@ -86,7 +86,7 @@ $c/= :: MitigationActionType -&gt; MitigationActionType -&gt; Bool
 == :: MitigationActionType -&gt; MitigationActionType -&gt; Bool
 $c== :: MitigationActionType -&gt; MitigationActionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679790737"><span id="local-6989586621679790739"><span id="local-6989586621679790741"><span id="local-6989586621679790743"><span id="local-6989586621679790745"><span id="local-6989586621679790747"><span id="local-6989586621679790749"><span class="annot"><span class="annottext">Eq MitigationActionType
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679790746"><span id="local-6989586621679790748"><span id="local-6989586621679790750"><span id="local-6989586621679790752"><span id="local-6989586621679790754"><span id="local-6989586621679790756"><span id="local-6989586621679790758"><span class="annot"><span class="annottext">Eq MitigationActionType
 Eq MitigationActionType
 -&gt; (MitigationActionType -&gt; MitigationActionType -&gt; Ordering)
 -&gt; (MitigationActionType -&gt; MitigationActionType -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. MitigationActionType -&gt; Rep MitigationActionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790729"><span id="local-6989586621679790731"><span class="annot"><span class="annottext">Int -&gt; MitigationActionType -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790738"><span id="local-6989586621679790740"><span class="annot"><span class="annottext">Int -&gt; MitigationActionType -&gt; Int
 MitigationActionType -&gt; Int
 (Int -&gt; MitigationActionType -&gt; Int)
 -&gt; (MitigationActionType -&gt; Int) -&gt; Hashable MitigationActionType
@@ -154,54 +154,54 @@ $chash :: MitigationActionType -&gt; Int
 hashWithSalt :: Int -&gt; MitigationActionType -&gt; Int
 $chashWithSalt :: Int -&gt; MitigationActionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679790726"><span class="annot"><span class="annottext">MitigationActionType -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679790735"><span class="annot"><span class="annottext">MitigationActionType -&gt; ()
 (MitigationActionType -&gt; ()) -&gt; NFData MitigationActionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MitigationActionType -&gt; ()
 $crnf :: MitigationActionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679790723"><span class="annot"><span class="annottext">Text -&gt; Either String MitigationActionType
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679790732"><span class="annot"><span class="annottext">Text -&gt; Either String MitigationActionType
 (Text -&gt; Either String MitigationActionType)
 -&gt; FromText MitigationActionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MitigationActionType
 $cfromText :: Text -&gt; Either String MitigationActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679790720"><span class="annot"><span class="annottext">MitigationActionType -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679790729"><span class="annot"><span class="annottext">MitigationActionType -&gt; Text
 (MitigationActionType -&gt; Text) -&gt; ToText MitigationActionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MitigationActionType -&gt; Text
 $ctoText :: MitigationActionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679790717"><span class="annot"><span class="annottext">MitigationActionType -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679790726"><span class="annot"><span class="annottext">MitigationActionType -&gt; ByteString
 (MitigationActionType -&gt; ByteString)
 -&gt; ToByteString MitigationActionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MitigationActionType -&gt; ByteString
 $ctoBS :: MitigationActionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679790714"><span class="annot"><span class="annottext">MitigationActionType -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679790723"><span class="annot"><span class="annottext">MitigationActionType -&gt; ByteStringBuilder
 (MitigationActionType -&gt; ByteStringBuilder)
 -&gt; ToLog MitigationActionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MitigationActionType -&gt; ByteStringBuilder
 $cbuild :: MitigationActionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679790711"><span class="annot"><span class="annottext">HeaderName -&gt; MitigationActionType -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679790720"><span class="annot"><span class="annottext">HeaderName -&gt; MitigationActionType -&gt; [Header]
 (HeaderName -&gt; MitigationActionType -&gt; [Header])
 -&gt; ToHeader MitigationActionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MitigationActionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MitigationActionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679790708"><span class="annot"><span class="annottext">MitigationActionType -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679790717"><span class="annot"><span class="annottext">MitigationActionType -&gt; QueryString
 (MitigationActionType -&gt; QueryString)
 -&gt; ToQuery MitigationActionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MitigationActionType -&gt; QueryString
 $ctoQuery :: MitigationActionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679790703"><span id="local-6989586621679790705"><span class="annot"><span class="annottext">Value -&gt; Parser [MitigationActionType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679790712"><span id="local-6989586621679790714"><span class="annot"><span class="annottext">Value -&gt; Parser [MitigationActionType]
 Value -&gt; Parser MitigationActionType
 (Value -&gt; Parser MitigationActionType)
 -&gt; (Value -&gt; Parser [MitigationActionType])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [MitigationActionType]
 parseJSON :: Value -&gt; Parser MitigationActionType
 $cparseJSON :: Value -&gt; Parser MitigationActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679790698"><span id="local-6989586621679790700"><span class="annot"><span class="annottext">FromJSONKeyFunction [MitigationActionType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679790707"><span id="local-6989586621679790709"><span class="annot"><span class="annottext">FromJSONKeyFunction [MitigationActionType]
 FromJSONKeyFunction MitigationActionType
 FromJSONKeyFunction MitigationActionType
 -&gt; FromJSONKeyFunction [MitigationActionType]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MitigationActionType]
 fromJSONKey :: FromJSONKeyFunction MitigationActionType
 $cfromJSONKey :: FromJSONKeyFunction MitigationActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679790689"><span id="local-6989586621679790691"><span id="local-6989586621679790693"><span id="local-6989586621679790695"><span class="annot"><span class="annottext">[MitigationActionType] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679790698"><span id="local-6989586621679790700"><span id="local-6989586621679790702"><span id="local-6989586621679790704"><span class="annot"><span class="annottext">[MitigationActionType] -&gt; Encoding
 [MitigationActionType] -&gt; Value
 MitigationActionType -&gt; Encoding
 MitigationActionType -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: MitigationActionType -&gt; Encoding
 toJSON :: MitigationActionType -&gt; Value
 $ctoJSON :: MitigationActionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679790684"><span id="local-6989586621679790686"><span class="annot"><span class="annottext">ToJSONKeyFunction [MitigationActionType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679790693"><span id="local-6989586621679790695"><span class="annot"><span class="annottext">ToJSONKeyFunction [MitigationActionType]
 ToJSONKeyFunction MitigationActionType
 ToJSONKeyFunction MitigationActionType
 -&gt; ToJSONKeyFunction [MitigationActionType]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MitigationActionType]
 toJSONKey :: ToJSONKeyFunction MitigationActionType
 $ctoJSONKey :: ToJSONKeyFunction MitigationActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679790681"><span class="annot"><span class="annottext">[Node] -&gt; Either String MitigationActionType
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679790690"><span class="annot"><span class="annottext">[Node] -&gt; Either String MitigationActionType
 ([Node] -&gt; Either String MitigationActionType)
 -&gt; FromXML MitigationActionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MitigationActionType
 $cparseXML :: [Node] -&gt; Either String MitigationActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679790678"><span class="annot"><span class="annottext">MitigationActionType -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679790687"><span class="annot"><span class="annottext">MitigationActionType -&gt; XML
 (MitigationActionType -&gt; XML) -&gt; ToXML MitigationActionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MitigationActionType -&gt; XML

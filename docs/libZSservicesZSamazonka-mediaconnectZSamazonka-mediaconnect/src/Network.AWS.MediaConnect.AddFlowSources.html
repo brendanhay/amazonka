@@ -1,0 +1,527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConnect.AddFlowSources</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds Sources to flow</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConnect.AddFlowSources</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources"><span class="hs-identifier">AddFlowSources</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#newAddFlowSources"><span class="hs-identifier">newAddFlowSources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#addFlowSources_flowArn"><span class="hs-identifier">addFlowSources_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#addFlowSources_sources"><span class="hs-identifier">addFlowSources_sources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse"><span class="hs-identifier">AddFlowSourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#newAddFlowSourcesResponse"><span class="hs-identifier">newAddFlowSourcesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#addFlowSourcesResponse_flowArn"><span class="hs-identifier">addFlowSourcesResponse_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#addFlowSourcesResponse_sources"><span class="hs-identifier">addFlowSourcesResponse_sources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#addFlowSourcesResponse_httpStatus"><span class="hs-identifier">addFlowSourcesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.html"><span class="hs-identifier">Network.AWS.MediaConnect.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | A request to add sources to the flow.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newAddFlowSources' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679279126"><span id="local-6989586621679279127"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddFlowSources"><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources"><span class="hs-identifier hs-var">AddFlowSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddFlowSources%27"><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources%27"><span class="hs-identifier hs-var">AddFlowSources'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The flow that you want to mutate.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AflowArn%3AAddFlowSources%27"><span class="annot"><span class="annottext">AddFlowSources -&gt; Text
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#%24sel%3AflowArn%3AAddFlowSources%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | A list of sources that you want to add.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Asources%3AAddFlowSources%27"><span class="annot"><span class="annottext">AddFlowSources -&gt; [SetSourceRequest]
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#%24sel%3Asources%3AAddFlowSources%27"><span class="hs-identifier hs-var hs-var">sources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279119"><span id="local-6989586621679279121"><span class="annot"><span class="annottext">AddFlowSources -&gt; AddFlowSources -&gt; Bool
+(AddFlowSources -&gt; AddFlowSources -&gt; Bool)
+-&gt; (AddFlowSources -&gt; AddFlowSources -&gt; Bool) -&gt; Eq AddFlowSources
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddFlowSources -&gt; AddFlowSources -&gt; Bool
+$c/= :: AddFlowSources -&gt; AddFlowSources -&gt; Bool
+== :: AddFlowSources -&gt; AddFlowSources -&gt; Bool
+$c== :: AddFlowSources -&gt; AddFlowSources -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279110"><span id="local-6989586621679279112"><span id="local-6989586621679279114"><span id="local-6989586621679279116"><span class="annot"><span class="annottext">ReadPrec [AddFlowSources]
+ReadPrec AddFlowSources
+Int -&gt; ReadS AddFlowSources
+ReadS [AddFlowSources]
+(Int -&gt; ReadS AddFlowSources)
+-&gt; ReadS [AddFlowSources]
+-&gt; ReadPrec AddFlowSources
+-&gt; ReadPrec [AddFlowSources]
+-&gt; Read AddFlowSources
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddFlowSources]
+$creadListPrec :: ReadPrec [AddFlowSources]
+readPrec :: ReadPrec AddFlowSources
+$creadPrec :: ReadPrec AddFlowSources
+readList :: ReadS [AddFlowSources]
+$creadList :: ReadS [AddFlowSources]
+readsPrec :: Int -&gt; ReadS AddFlowSources
+$creadsPrec :: Int -&gt; ReadS AddFlowSources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279103"><span id="local-6989586621679279105"><span id="local-6989586621679279107"><span class="annot"><span class="annottext">Int -&gt; AddFlowSources -&gt; ShowS
+[AddFlowSources] -&gt; ShowS
+AddFlowSources -&gt; String
+(Int -&gt; AddFlowSources -&gt; ShowS)
+-&gt; (AddFlowSources -&gt; String)
+-&gt; ([AddFlowSources] -&gt; ShowS)
+-&gt; Show AddFlowSources
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddFlowSources] -&gt; ShowS
+$cshowList :: [AddFlowSources] -&gt; ShowS
+show :: AddFlowSources -&gt; String
+$cshow :: AddFlowSources -&gt; String
+showsPrec :: Int -&gt; AddFlowSources -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddFlowSources -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AddFlowSources -&gt; Rep AddFlowSources x)
+-&gt; (forall x. Rep AddFlowSources x -&gt; AddFlowSources)
+-&gt; Generic AddFlowSources
+forall x. Rep AddFlowSources x -&gt; AddFlowSources
+forall x. AddFlowSources -&gt; Rep AddFlowSources x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddFlowSources x -&gt; AddFlowSources
+$cfrom :: forall x. AddFlowSources -&gt; Rep AddFlowSources x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'AddFlowSources' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'flowArn', 'addFlowSources_flowArn' - The flow that you want to mutate.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'sources', 'addFlowSources_sources' - A list of sources that you want to add.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#newAddFlowSources"><span class="hs-identifier hs-type">newAddFlowSources</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'flowArn'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources"><span class="hs-identifier hs-type">AddFlowSources</span></a></span><span>
+</span><span id="line-77"></span><span id="newAddFlowSources"><span class="annot"><span class="annottext">newAddFlowSources :: Text -&gt; AddFlowSources
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#newAddFlowSources"><span class="hs-identifier hs-var hs-var">newAddFlowSources</span></a></span></span><span> </span><span id="local-6989586621679279098"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279098"><span class="hs-identifier hs-var">pFlowArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">AddFlowSources' :: Text -&gt; [SetSourceRequest] -&gt; AddFlowSources
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources%27"><span class="hs-identifier hs-type">AddFlowSources'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:flowArn:AddFlowSources' :: Text
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#%24sel%3AflowArn%3AAddFlowSources%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279098"><span class="hs-identifier hs-var">pFlowArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:sources:AddFlowSources' :: [SetSourceRequest]
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#%24sel%3Asources%3AAddFlowSources%27"><span class="hs-identifier hs-var">sources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SetSourceRequest]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The flow that you want to mutate.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#addFlowSources_flowArn"><span class="hs-identifier hs-type">addFlowSources_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources"><span class="hs-identifier hs-type">AddFlowSources</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span id="addFlowSources_flowArn"><span class="annot"><span class="annottext">addFlowSources_flowArn :: (Text -&gt; f Text) -&gt; AddFlowSources -&gt; f AddFlowSources
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#addFlowSources_flowArn"><span class="hs-identifier hs-var hs-var">addFlowSources_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddFlowSources -&gt; Text)
+-&gt; (AddFlowSources -&gt; Text -&gt; AddFlowSources)
+-&gt; Lens AddFlowSources AddFlowSources Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources%27"><span class="hs-identifier hs-type">AddFlowSources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279095"><span class="annot"><span class="annottext">Text
+flowArn :: Text
+$sel:flowArn:AddFlowSources' :: AddFlowSources -&gt; Text
+</span><a href="#local-6989586621679279095"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279095"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279094"><span class="annot"><span class="annottext">s :: AddFlowSources
+</span><a href="#local-6989586621679279094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources%27"><span class="hs-identifier hs-type">AddFlowSources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279093"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFlowSources
+</span><a href="#local-6989586621679279094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:AddFlowSources' :: Text
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#%24sel%3AflowArn%3AAddFlowSources%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources"><span class="hs-identifier hs-type">AddFlowSources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | A list of sources that you want to add.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#addFlowSources_sources"><span class="hs-identifier hs-type">addFlowSources_sources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources"><span class="hs-identifier hs-type">AddFlowSources</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-89"></span><span id="addFlowSources_sources"><span class="annot"><span class="annottext">addFlowSources_sources :: ([SetSourceRequest] -&gt; f [SetSourceRequest])
+-&gt; AddFlowSources -&gt; f AddFlowSources
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#addFlowSources_sources"><span class="hs-identifier hs-var hs-var">addFlowSources_sources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddFlowSources -&gt; [SetSourceRequest])
+-&gt; (AddFlowSources -&gt; [SetSourceRequest] -&gt; AddFlowSources)
+-&gt; Lens
+     AddFlowSources AddFlowSources [SetSourceRequest] [SetSourceRequest]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources%27"><span class="hs-identifier hs-type">AddFlowSources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279092"><span class="annot"><span class="annottext">[SetSourceRequest]
+sources :: [SetSourceRequest]
+$sel:sources:AddFlowSources' :: AddFlowSources -&gt; [SetSourceRequest]
+</span><a href="#local-6989586621679279092"><span class="hs-identifier hs-var hs-var">sources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SetSourceRequest]
+</span><a href="#local-6989586621679279092"><span class="hs-identifier hs-var">sources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279091"><span class="annot"><span class="annottext">s :: AddFlowSources
+</span><a href="#local-6989586621679279091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources%27"><span class="hs-identifier hs-type">AddFlowSources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279090"><span class="annot"><span class="annottext">[SetSourceRequest]
+</span><a href="#local-6989586621679279090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFlowSources
+</span><a href="#local-6989586621679279091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sources:AddFlowSources' :: [SetSourceRequest]
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#%24sel%3Asources%3AAddFlowSources%27"><span class="hs-identifier hs-var">sources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SetSourceRequest]
+</span><a href="#local-6989586621679279090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources"><span class="hs-identifier hs-type">AddFlowSources</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SetSourceRequest] -&gt; f [SetSourceRequest])
+ -&gt; AddFlowSources -&gt; f AddFlowSources)
+-&gt; (([SetSourceRequest] -&gt; f [SetSourceRequest])
+    -&gt; [SetSourceRequest] -&gt; f [SetSourceRequest])
+-&gt; ([SetSourceRequest] -&gt; f [SetSourceRequest])
+-&gt; AddFlowSources
+-&gt; f AddFlowSources
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([SetSourceRequest] -&gt; f [SetSourceRequest])
+-&gt; [SetSourceRequest] -&gt; f [SetSourceRequest]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources"><span class="hs-identifier hs-type">AddFlowSources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources"><span class="hs-identifier hs-type">AddFlowSources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse"><span class="hs-identifier hs-type">AddFlowSourcesResponse</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679279084"><span class="annot"><span class="annottext">request :: AddFlowSources -&gt; Request AddFlowSources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AddFlowSources -&gt; Request AddFlowSources
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MediaConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679279080"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AddFlowSources
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AddFlowSources)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse AddFlowSources))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AddFlowSources
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AddFlowSources)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279077"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279077"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679279076"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679279076"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679279075"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279075"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Source] -&gt; Int -&gt; AddFlowSourcesResponse
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse%27"><span class="hs-identifier hs-var">AddFlowSourcesResponse'</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Source] -&gt; Int -&gt; AddFlowSourcesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Source] -&gt; Int -&gt; AddFlowSourcesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;flowArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Source] -&gt; Int -&gt; AddFlowSourcesResponse)
+-&gt; Either String (Maybe [Source])
+-&gt; Either String (Int -&gt; AddFlowSourcesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Source]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Source]))
+-&gt; Maybe [Source] -&gt; Either String (Maybe [Source])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Source]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; AddFlowSourcesResponse)
+-&gt; Either String Int -&gt; Either String AddFlowSourcesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279077"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279066"><span id="local-6989586621679279068"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources"><span class="hs-identifier hs-type">AddFlowSources</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279063"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources"><span class="hs-identifier hs-type">AddFlowSources</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources"><span class="hs-identifier hs-type">AddFlowSources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679279059"><span class="annot"><span class="annottext">toHeaders :: AddFlowSources -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AddFlowSources -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279049"><span id="local-6989586621679279051"><span id="local-6989586621679279053"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources"><span class="hs-identifier hs-type">AddFlowSources</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679279047"><span class="annot"><span class="annottext">toJSON :: AddFlowSources -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources%27"><span class="hs-identifier hs-type">AddFlowSources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279044"><span id="local-6989586621679279045"><span class="annot"><span class="annottext">[SetSourceRequest]
+Text
+sources :: [SetSourceRequest]
+flowArn :: Text
+$sel:sources:AddFlowSources' :: AddFlowSources -&gt; [SetSourceRequest]
+$sel:flowArn:AddFlowSources' :: AddFlowSources -&gt; Text
+</span><a href="#local-6989586621679279044"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [SetSourceRequest] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[SetSourceRequest]
+</span><a href="#local-6989586621679279044"><span class="hs-identifier hs-var">sources</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources"><span class="hs-identifier hs-type">AddFlowSources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679279038"><span class="annot"><span class="annottext">toPath :: AddFlowSources -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources%27"><span class="hs-identifier hs-type">AddFlowSources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279035"><span id="local-6989586621679279036"><span class="annot"><span class="annottext">[SetSourceRequest]
+Text
+sources :: [SetSourceRequest]
+flowArn :: Text
+$sel:sources:AddFlowSources' :: AddFlowSources -&gt; [SetSourceRequest]
+$sel:flowArn:AddFlowSources' :: AddFlowSources -&gt; Text
+</span><a href="#local-6989586621679279035"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/flows/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279036"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/source&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSources"><span class="hs-identifier hs-type">AddFlowSources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679279031"><span class="annot"><span class="annottext">toQuery :: AddFlowSources -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AddFlowSources -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newAddFlowSourcesResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679279028"><span id="local-6989586621679279029"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddFlowSourcesResponse"><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse"><span class="hs-identifier hs-var">AddFlowSourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddFlowSourcesResponse%27"><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse%27"><span class="hs-identifier hs-var">AddFlowSourcesResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the flow that these sources were added to.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AflowArn%3AAddFlowSourcesResponse%27"><span class="annot"><span class="annottext">AddFlowSourcesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#%24sel%3AflowArn%3AAddFlowSourcesResponse%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The details of the newly added sources.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3Asources%3AAddFlowSourcesResponse%27"><span class="annot"><span class="annottext">AddFlowSourcesResponse -&gt; Maybe [Source]
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#%24sel%3Asources%3AAddFlowSourcesResponse%27"><span class="hs-identifier hs-var hs-var">sources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddFlowSourcesResponse%27"><span class="annot"><span class="annottext">AddFlowSourcesResponse -&gt; Int
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#%24sel%3AhttpStatus%3AAddFlowSourcesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279021"><span id="local-6989586621679279023"><span class="annot"><span class="annottext">AddFlowSourcesResponse -&gt; AddFlowSourcesResponse -&gt; Bool
+(AddFlowSourcesResponse -&gt; AddFlowSourcesResponse -&gt; Bool)
+-&gt; (AddFlowSourcesResponse -&gt; AddFlowSourcesResponse -&gt; Bool)
+-&gt; Eq AddFlowSourcesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddFlowSourcesResponse -&gt; AddFlowSourcesResponse -&gt; Bool
+$c/= :: AddFlowSourcesResponse -&gt; AddFlowSourcesResponse -&gt; Bool
+== :: AddFlowSourcesResponse -&gt; AddFlowSourcesResponse -&gt; Bool
+$c== :: AddFlowSourcesResponse -&gt; AddFlowSourcesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279013"><span id="local-6989586621679279015"><span id="local-6989586621679279017"><span id="local-6989586621679279019"><span class="annot"><span class="annottext">ReadPrec [AddFlowSourcesResponse]
+ReadPrec AddFlowSourcesResponse
+Int -&gt; ReadS AddFlowSourcesResponse
+ReadS [AddFlowSourcesResponse]
+(Int -&gt; ReadS AddFlowSourcesResponse)
+-&gt; ReadS [AddFlowSourcesResponse]
+-&gt; ReadPrec AddFlowSourcesResponse
+-&gt; ReadPrec [AddFlowSourcesResponse]
+-&gt; Read AddFlowSourcesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddFlowSourcesResponse]
+$creadListPrec :: ReadPrec [AddFlowSourcesResponse]
+readPrec :: ReadPrec AddFlowSourcesResponse
+$creadPrec :: ReadPrec AddFlowSourcesResponse
+readList :: ReadS [AddFlowSourcesResponse]
+$creadList :: ReadS [AddFlowSourcesResponse]
+readsPrec :: Int -&gt; ReadS AddFlowSourcesResponse
+$creadsPrec :: Int -&gt; ReadS AddFlowSourcesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279007"><span id="local-6989586621679279009"><span id="local-6989586621679279011"><span class="annot"><span class="annottext">Int -&gt; AddFlowSourcesResponse -&gt; ShowS
+[AddFlowSourcesResponse] -&gt; ShowS
+AddFlowSourcesResponse -&gt; String
+(Int -&gt; AddFlowSourcesResponse -&gt; ShowS)
+-&gt; (AddFlowSourcesResponse -&gt; String)
+-&gt; ([AddFlowSourcesResponse] -&gt; ShowS)
+-&gt; Show AddFlowSourcesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddFlowSourcesResponse] -&gt; ShowS
+$cshowList :: [AddFlowSourcesResponse] -&gt; ShowS
+show :: AddFlowSourcesResponse -&gt; String
+$cshow :: AddFlowSourcesResponse -&gt; String
+showsPrec :: Int -&gt; AddFlowSourcesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddFlowSourcesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AddFlowSourcesResponse -&gt; Rep AddFlowSourcesResponse x)
+-&gt; (forall x.
+    Rep AddFlowSourcesResponse x -&gt; AddFlowSourcesResponse)
+-&gt; Generic AddFlowSourcesResponse
+forall x. Rep AddFlowSourcesResponse x -&gt; AddFlowSourcesResponse
+forall x. AddFlowSourcesResponse -&gt; Rep AddFlowSourcesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddFlowSourcesResponse x -&gt; AddFlowSourcesResponse
+$cfrom :: forall x. AddFlowSourcesResponse -&gt; Rep AddFlowSourcesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'AddFlowSourcesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'flowArn', 'addFlowSourcesResponse_flowArn' - The ARN of the flow that these sources were added to.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'sources', 'addFlowSourcesResponse_sources' - The details of the newly added sources.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'httpStatus', 'addFlowSourcesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#newAddFlowSourcesResponse"><span class="hs-identifier hs-type">newAddFlowSourcesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse"><span class="hs-identifier hs-type">AddFlowSourcesResponse</span></a></span><span>
+</span><span id="line-163"></span><span id="newAddFlowSourcesResponse"><span class="annot"><span class="annottext">newAddFlowSourcesResponse :: Int -&gt; AddFlowSourcesResponse
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#newAddFlowSourcesResponse"><span class="hs-identifier hs-var hs-var">newAddFlowSourcesResponse</span></a></span></span><span> </span><span id="local-6989586621679279004"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279004"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">AddFlowSourcesResponse' :: Maybe Text -&gt; Maybe [Source] -&gt; Int -&gt; AddFlowSourcesResponse
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse%27"><span class="hs-identifier hs-type">AddFlowSourcesResponse'</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:flowArn:AddFlowSourcesResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#%24sel%3AflowArn%3AAddFlowSourcesResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:sources:AddFlowSourcesResponse' :: Maybe [Source]
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#%24sel%3Asources%3AAddFlowSourcesResponse%27"><span class="hs-identifier hs-var">sources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Source]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AddFlowSourcesResponse' :: Int
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#%24sel%3AhttpStatus%3AAddFlowSourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279004"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The ARN of the flow that these sources were added to.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#addFlowSourcesResponse_flowArn"><span class="hs-identifier hs-type">addFlowSourcesResponse_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse"><span class="hs-identifier hs-type">AddFlowSourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="addFlowSourcesResponse_flowArn"><span class="annot"><span class="annottext">addFlowSourcesResponse_flowArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AddFlowSourcesResponse -&gt; f AddFlowSourcesResponse
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#addFlowSourcesResponse_flowArn"><span class="hs-identifier hs-var hs-var">addFlowSourcesResponse_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddFlowSourcesResponse -&gt; Maybe Text)
+-&gt; (AddFlowSourcesResponse -&gt; Maybe Text -&gt; AddFlowSourcesResponse)
+-&gt; Lens
+     AddFlowSourcesResponse
+     AddFlowSourcesResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse%27"><span class="hs-identifier hs-type">AddFlowSourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279003"><span class="annot"><span class="annottext">Maybe Text
+flowArn :: Maybe Text
+$sel:flowArn:AddFlowSourcesResponse' :: AddFlowSourcesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679279003"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279003"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279002"><span class="annot"><span class="annottext">s :: AddFlowSourcesResponse
+</span><a href="#local-6989586621679279002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse%27"><span class="hs-identifier hs-type">AddFlowSourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279001"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFlowSourcesResponse
+</span><a href="#local-6989586621679279002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:AddFlowSourcesResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#%24sel%3AflowArn%3AAddFlowSourcesResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse"><span class="hs-identifier hs-type">AddFlowSourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The details of the newly added sources.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#addFlowSourcesResponse_sources"><span class="hs-identifier hs-type">addFlowSourcesResponse_sources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse"><span class="hs-identifier hs-type">AddFlowSourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="addFlowSourcesResponse_sources"><span class="annot"><span class="annottext">addFlowSourcesResponse_sources :: (Maybe [Source] -&gt; f (Maybe [Source]))
+-&gt; AddFlowSourcesResponse -&gt; f AddFlowSourcesResponse
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#addFlowSourcesResponse_sources"><span class="hs-identifier hs-var hs-var">addFlowSourcesResponse_sources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddFlowSourcesResponse -&gt; Maybe [Source])
+-&gt; (AddFlowSourcesResponse
+    -&gt; Maybe [Source] -&gt; AddFlowSourcesResponse)
+-&gt; Lens
+     AddFlowSourcesResponse
+     AddFlowSourcesResponse
+     (Maybe [Source])
+     (Maybe [Source])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse%27"><span class="hs-identifier hs-type">AddFlowSourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279000"><span class="annot"><span class="annottext">Maybe [Source]
+sources :: Maybe [Source]
+$sel:sources:AddFlowSourcesResponse' :: AddFlowSourcesResponse -&gt; Maybe [Source]
+</span><a href="#local-6989586621679279000"><span class="hs-identifier hs-var hs-var">sources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Source]
+</span><a href="#local-6989586621679279000"><span class="hs-identifier hs-var">sources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278999"><span class="annot"><span class="annottext">s :: AddFlowSourcesResponse
+</span><a href="#local-6989586621679278999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse%27"><span class="hs-identifier hs-type">AddFlowSourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278998"><span class="annot"><span class="annottext">Maybe [Source]
+</span><a href="#local-6989586621679278998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFlowSourcesResponse
+</span><a href="#local-6989586621679278999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sources:AddFlowSourcesResponse' :: Maybe [Source]
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#%24sel%3Asources%3AAddFlowSourcesResponse%27"><span class="hs-identifier hs-var">sources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Source]
+</span><a href="#local-6989586621679278998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse"><span class="hs-identifier hs-type">AddFlowSourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Source] -&gt; f (Maybe [Source]))
+ -&gt; AddFlowSourcesResponse -&gt; f AddFlowSourcesResponse)
+-&gt; ((Maybe [Source] -&gt; f (Maybe [Source]))
+    -&gt; Maybe [Source] -&gt; f (Maybe [Source]))
+-&gt; (Maybe [Source] -&gt; f (Maybe [Source]))
+-&gt; AddFlowSourcesResponse
+-&gt; f AddFlowSourcesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Source] [Source] [Source] [Source]
+-&gt; Iso
+     (Maybe [Source]) (Maybe [Source]) (Maybe [Source]) (Maybe [Source])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Source] [Source] [Source] [Source]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#addFlowSourcesResponse_httpStatus"><span class="hs-identifier hs-type">addFlowSourcesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse"><span class="hs-identifier hs-type">AddFlowSourcesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-180"></span><span id="addFlowSourcesResponse_httpStatus"><span class="annot"><span class="annottext">addFlowSourcesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AddFlowSourcesResponse -&gt; f AddFlowSourcesResponse
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#addFlowSourcesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">addFlowSourcesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddFlowSourcesResponse -&gt; Int)
+-&gt; (AddFlowSourcesResponse -&gt; Int -&gt; AddFlowSourcesResponse)
+-&gt; Lens AddFlowSourcesResponse AddFlowSourcesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse%27"><span class="hs-identifier hs-type">AddFlowSourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278996"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AddFlowSourcesResponse' :: AddFlowSourcesResponse -&gt; Int
+</span><a href="#local-6989586621679278996"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278996"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278995"><span class="annot"><span class="annottext">s :: AddFlowSourcesResponse
+</span><a href="#local-6989586621679278995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse%27"><span class="hs-identifier hs-type">AddFlowSourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278994"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFlowSourcesResponse
+</span><a href="#local-6989586621679278995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddFlowSourcesResponse' :: Int
+</span><a href="Network.AWS.MediaConnect.AddFlowSources.html#%24sel%3AhttpStatus%3AAddFlowSourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse"><span class="hs-identifier hs-type">AddFlowSourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278992"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowSources.html#AddFlowSourcesResponse"><span class="hs-identifier hs-type">AddFlowSourcesResponse</span></a></span></span><span>
+</span><span id="line-183"></span></pre></body></html>

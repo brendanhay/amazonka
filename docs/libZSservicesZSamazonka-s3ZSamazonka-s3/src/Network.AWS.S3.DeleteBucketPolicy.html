@@ -68,7 +68,7 @@
 </span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | /See:/ 'newDeleteBucketPolicy' smart constructor.</span><span>
-</span><span id="line-71"></span><span id="local-6989586621679579909"><span id="local-6989586621679579910"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketPolicy"><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-var">DeleteBucketPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketPolicy%27"><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-var">DeleteBucketPolicy'</span></a></span></span><span>
+</span><span id="line-71"></span><span id="local-6989586621679579918"><span id="local-6989586621679579919"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketPolicy"><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-var">DeleteBucketPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketPolicy%27"><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-var">DeleteBucketPolicy'</span></a></span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3Abucket%3ADeleteBucketPolicy%27"><span class="annot"><span class="annottext">DeleteBucketPolicy -&gt; BucketName
 </span><a href="Network.AWS.S3.DeleteBucketPolicy.html#%24sel%3Abucket%3ADeleteBucketPolicy%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679579902"><span id="local-6989586621679579904"><span class="annot"><span class="annottext">DeleteBucketPolicy -&gt; DeleteBucketPolicy -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679579911"><span id="local-6989586621679579913"><span class="annot"><span class="annottext">DeleteBucketPolicy -&gt; DeleteBucketPolicy -&gt; Bool
 (DeleteBucketPolicy -&gt; DeleteBucketPolicy -&gt; Bool)
 -&gt; (DeleteBucketPolicy -&gt; DeleteBucketPolicy -&gt; Bool)
 -&gt; Eq DeleteBucketPolicy
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBucketPolicy -&gt; DeleteBucketPolicy -&gt; Bool
 == :: DeleteBucketPolicy -&gt; DeleteBucketPolicy -&gt; Bool
 $c== :: DeleteBucketPolicy -&gt; DeleteBucketPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679579893"><span id="local-6989586621679579895"><span id="local-6989586621679579897"><span id="local-6989586621679579899"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679579902"><span id="local-6989586621679579904"><span id="local-6989586621679579906"><span id="local-6989586621679579908"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketPolicy]
 ReadPrec DeleteBucketPolicy
 Int -&gt; ReadS DeleteBucketPolicy
 ReadS [DeleteBucketPolicy]
@@ -107,7 +107,7 @@ readList :: ReadS [DeleteBucketPolicy]
 $creadList :: ReadS [DeleteBucketPolicy]
 readsPrec :: Int -&gt; ReadS DeleteBucketPolicy
 $creadsPrec :: Int -&gt; ReadS DeleteBucketPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679579886"><span id="local-6989586621679579888"><span id="local-6989586621679579890"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679579895"><span id="local-6989586621679579897"><span id="local-6989586621679579899"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketPolicy -&gt; ShowS
 [DeleteBucketPolicy] -&gt; ShowS
 DeleteBucketPolicy -&gt; String
 (Int -&gt; DeleteBucketPolicy -&gt; ShowS)
@@ -151,8 +151,8 @@ $cfrom :: forall x. DeleteBucketPolicy -&gt; Rep DeleteBucketPolicy x
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span>
 </span><span id="line-98"></span><span id="newDeleteBucketPolicy"><span class="annot"><span class="annottext">newDeleteBucketPolicy :: BucketName -&gt; DeleteBucketPolicy
-</span><a href="Network.AWS.S3.DeleteBucketPolicy.html#newDeleteBucketPolicy"><span class="hs-identifier hs-var hs-var">newDeleteBucketPolicy</span></a></span></span><span> </span><span id="local-6989586621679579881"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679579881"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.DeleteBucketPolicy.html#newDeleteBucketPolicy"><span class="hs-identifier hs-var hs-var">newDeleteBucketPolicy</span></a></span></span><span> </span><span id="local-6989586621679579890"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679579890"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">DeleteBucketPolicy' :: Maybe Text -&gt; BucketName -&gt; DeleteBucketPolicy
 </span><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteBucketPolicy' :: Maybe Text
@@ -162,7 +162,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:DeleteBucketPolicy' :: BucketName
 </span><a href="Network.AWS.S3.DeleteBucketPolicy.html#%24sel%3Abucket%3ADeleteBucketPolicy%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679579881"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
+</span><a href="#local-6989586621679579890"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
@@ -176,16 +176,16 @@ forall a. Maybe a
 -&gt; Lens
      DeleteBucketPolicy DeleteBucketPolicy (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579878"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579887"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:DeleteBucketPolicy' :: DeleteBucketPolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679579878"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679579878"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679579877"><span class="annot"><span class="annottext">s :: DeleteBucketPolicy
-</span><a href="#local-6989586621679579877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679579876"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679579876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketPolicy
-</span><a href="#local-6989586621679579877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteBucketPolicy' :: Maybe Text
+</span><a href="#local-6989586621679579887"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679579887"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679579886"><span class="annot"><span class="annottext">s :: DeleteBucketPolicy
+</span><a href="#local-6989586621679579886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679579885"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679579885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketPolicy
+</span><a href="#local-6989586621679579886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteBucketPolicy' :: Maybe Text
 </span><a href="Network.AWS.S3.DeleteBucketPolicy.html#%24sel%3AexpectedBucketOwner%3ADeleteBucketPolicy%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679579876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679579885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The bucket name.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#deleteBucketPolicy_bucket"><span class="hs-identifier hs-type">deleteBucketPolicy_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
@@ -195,22 +195,22 @@ $sel:expectedBucketOwner:DeleteBucketPolicy' :: DeleteBucketPolicy -&gt; Maybe T
 -&gt; (DeleteBucketPolicy -&gt; BucketName -&gt; DeleteBucketPolicy)
 -&gt; Lens DeleteBucketPolicy DeleteBucketPolicy BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579875"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579884"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:DeleteBucketPolicy' :: DeleteBucketPolicy -&gt; BucketName
-</span><a href="#local-6989586621679579875"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679579875"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679579874"><span class="annot"><span class="annottext">s :: DeleteBucketPolicy
-</span><a href="#local-6989586621679579874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679579873"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679579873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketPolicy
-</span><a href="#local-6989586621679579874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:DeleteBucketPolicy' :: BucketName
+</span><a href="#local-6989586621679579884"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679579884"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679579883"><span class="annot"><span class="annottext">s :: DeleteBucketPolicy
+</span><a href="#local-6989586621679579883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679579882"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679579882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketPolicy
+</span><a href="#local-6989586621679579883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:DeleteBucketPolicy' :: BucketName
 </span><a href="Network.AWS.S3.DeleteBucketPolicy.html#%24sel%3Abucket%3ADeleteBucketPolicy%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679579873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679579882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicyResponse"><span class="hs-identifier hs-type">DeleteBucketPolicyResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679579869"><span class="annot"><span class="annottext">request :: DeleteBucketPolicy -&gt; Request DeleteBucketPolicy
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679579878"><span class="annot"><span class="annottext">request :: DeleteBucketPolicy -&gt; Request DeleteBucketPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">Request DeleteBucketPolicy -&gt; Request DeleteBucketPolicy
 forall a. Request a -&gt; Request a
@@ -224,7 +224,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679579863"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679579872"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteBucketPolicy
 -&gt; ClientResponse ClientBody
@@ -250,19 +250,19 @@ AWSResponse a
 DeleteBucketPolicyResponse
 </span><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicyResponse%27"><span class="hs-identifier hs-var">DeleteBucketPolicyResponse'</span></a></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679579856"><span id="local-6989586621679579858"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679579865"><span id="local-6989586621679579867"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679579853"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679579862"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679579849"><span class="annot"><span class="annottext">toHeaders :: DeleteBucketPolicy -&gt; [Header]
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579846"><span id="local-6989586621679579847"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679579858"><span class="annot"><span class="annottext">toHeaders :: DeleteBucketPolicy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579855"><span id="local-6989586621679579856"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:DeleteBucketPolicy' :: DeleteBucketPolicy -&gt; BucketName
 $sel:expectedBucketOwner:DeleteBucketPolicy' :: DeleteBucketPolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679579846"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679579855"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -271,28 +271,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679579847"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679579856"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679579842"><span class="annot"><span class="annottext">toPath :: DeleteBucketPolicy -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579839"><span id="local-6989586621679579840"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679579851"><span class="annot"><span class="annottext">toPath :: DeleteBucketPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579848"><span id="local-6989586621679579849"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:DeleteBucketPolicy' :: DeleteBucketPolicy -&gt; BucketName
 $sel:expectedBucketOwner:DeleteBucketPolicy' :: DeleteBucketPolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679579839"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679579848"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679579839"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679579848"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679579835"><span class="annot"><span class="annottext">toQuery :: DeleteBucketPolicy -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679579844"><span class="annot"><span class="annottext">toQuery :: DeleteBucketPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteBucketPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
@@ -301,10 +301,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;policy&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newDeleteBucketPolicyResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679579831"><span id="local-6989586621679579832"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketPolicyResponse"><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicyResponse"><span class="hs-identifier hs-var">DeleteBucketPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketPolicyResponse%27"><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicyResponse%27"><span class="hs-identifier hs-var">DeleteBucketPolicyResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679579840"><span id="local-6989586621679579841"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketPolicyResponse"><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicyResponse"><span class="hs-identifier hs-var">DeleteBucketPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketPolicyResponse%27"><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicyResponse%27"><span class="hs-identifier hs-var">DeleteBucketPolicyResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679579827"><span id="local-6989586621679579829"><span class="annot"><span class="annottext">DeleteBucketPolicyResponse -&gt; DeleteBucketPolicyResponse -&gt; Bool
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679579836"><span id="local-6989586621679579838"><span class="annot"><span class="annottext">DeleteBucketPolicyResponse -&gt; DeleteBucketPolicyResponse -&gt; Bool
 (DeleteBucketPolicyResponse -&gt; DeleteBucketPolicyResponse -&gt; Bool)
 -&gt; (DeleteBucketPolicyResponse
     -&gt; DeleteBucketPolicyResponse -&gt; Bool)
@@ -314,7 +314,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBucketPolicyResponse -&gt; DeleteBucketPolicyResponse -&gt; Bool
 == :: DeleteBucketPolicyResponse -&gt; DeleteBucketPolicyResponse -&gt; Bool
 $c== :: DeleteBucketPolicyResponse -&gt; DeleteBucketPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679579819"><span id="local-6989586621679579821"><span id="local-6989586621679579823"><span id="local-6989586621679579825"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679579828"><span id="local-6989586621679579830"><span id="local-6989586621679579832"><span id="local-6989586621679579834"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketPolicyResponse]
 ReadPrec DeleteBucketPolicyResponse
 Int -&gt; ReadS DeleteBucketPolicyResponse
 ReadS [DeleteBucketPolicyResponse]
@@ -334,7 +334,7 @@ readList :: ReadS [DeleteBucketPolicyResponse]
 $creadList :: ReadS [DeleteBucketPolicyResponse]
 readsPrec :: Int -&gt; ReadS DeleteBucketPolicyResponse
 $creadsPrec :: Int -&gt; ReadS DeleteBucketPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679579813"><span id="local-6989586621679579815"><span id="local-6989586621679579817"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679579822"><span id="local-6989586621679579824"><span id="local-6989586621679579826"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketPolicyResponse -&gt; ShowS
 [DeleteBucketPolicyResponse] -&gt; ShowS
 DeleteBucketPolicyResponse -&gt; String
 (Int -&gt; DeleteBucketPolicyResponse -&gt; ShowS)
@@ -377,5 +377,5 @@ DeleteBucketPolicyResponse -&gt; Rep DeleteBucketPolicyResponse x
 </span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">DeleteBucketPolicyResponse
 </span><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicyResponse%27"><span class="hs-identifier hs-var">DeleteBucketPolicyResponse'</span></a></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679579809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicyResponse"><span class="hs-identifier hs-type">DeleteBucketPolicyResponse</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679579818"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketPolicy.html#DeleteBucketPolicyResponse"><span class="hs-identifier hs-type">DeleteBucketPolicyResponse</span></a></span></span><span>
 </span><span id="line-159"></span></pre></body></html>

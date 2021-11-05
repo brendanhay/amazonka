@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679326787"><span id="local-6989586621679326788"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CostCategoryRuleType"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryRuleType.html#CostCategoryRuleType"><span class="hs-identifier hs-var">CostCategoryRuleType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CostCategoryRuleType%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryRuleType.html#CostCategoryRuleType%27"><span class="hs-identifier hs-var">CostCategoryRuleType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679326796"><span id="local-6989586621679326797"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CostCategoryRuleType"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryRuleType.html#CostCategoryRuleType"><span class="hs-identifier hs-var">CostCategoryRuleType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CostCategoryRuleType%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryRuleType.html#CostCategoryRuleType%27"><span class="hs-identifier hs-var">CostCategoryRuleType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCostCategoryRuleType"><span class="annot"><span class="annottext">CostCategoryRuleType -&gt; Text
 </span><a href="Network.AWS.CostExplorer.Types.CostCategoryRuleType.html#fromCostCategoryRuleType"><span class="hs-identifier hs-var hs-var">fromCostCategoryRuleType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326779"><span id="local-6989586621679326781"><span id="local-6989586621679326783"><span class="annot"><span class="annottext">Int -&gt; CostCategoryRuleType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326788"><span id="local-6989586621679326790"><span id="local-6989586621679326792"><span class="annot"><span class="annottext">Int -&gt; CostCategoryRuleType -&gt; ShowS
 [CostCategoryRuleType] -&gt; ShowS
 CostCategoryRuleType -&gt; String
 (Int -&gt; CostCategoryRuleType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CostCategoryRuleType -&gt; String
 showsPrec :: Int -&gt; CostCategoryRuleType -&gt; ShowS
 $cshowsPrec :: Int -&gt; CostCategoryRuleType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679326770"><span id="local-6989586621679326772"><span id="local-6989586621679326774"><span id="local-6989586621679326776"><span class="annot"><span class="annottext">ReadPrec [CostCategoryRuleType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679326779"><span id="local-6989586621679326781"><span id="local-6989586621679326783"><span id="local-6989586621679326785"><span class="annot"><span class="annottext">ReadPrec [CostCategoryRuleType]
 ReadPrec CostCategoryRuleType
 Int -&gt; ReadS CostCategoryRuleType
 ReadS [CostCategoryRuleType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CostCategoryRuleType]
 readsPrec :: Int -&gt; ReadS CostCategoryRuleType
 $creadsPrec :: Int -&gt; ReadS CostCategoryRuleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679326765"><span id="local-6989586621679326767"><span class="annot"><span class="annottext">CostCategoryRuleType -&gt; CostCategoryRuleType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679326774"><span id="local-6989586621679326776"><span class="annot"><span class="annottext">CostCategoryRuleType -&gt; CostCategoryRuleType -&gt; Bool
 (CostCategoryRuleType -&gt; CostCategoryRuleType -&gt; Bool)
 -&gt; (CostCategoryRuleType -&gt; CostCategoryRuleType -&gt; Bool)
 -&gt; Eq CostCategoryRuleType
@@ -82,7 +82,7 @@ $c/= :: CostCategoryRuleType -&gt; CostCategoryRuleType -&gt; Bool
 == :: CostCategoryRuleType -&gt; CostCategoryRuleType -&gt; Bool
 $c== :: CostCategoryRuleType -&gt; CostCategoryRuleType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679326749"><span id="local-6989586621679326751"><span id="local-6989586621679326753"><span id="local-6989586621679326755"><span id="local-6989586621679326757"><span id="local-6989586621679326759"><span id="local-6989586621679326761"><span class="annot"><span class="annottext">Eq CostCategoryRuleType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679326758"><span id="local-6989586621679326760"><span id="local-6989586621679326762"><span id="local-6989586621679326764"><span id="local-6989586621679326766"><span id="local-6989586621679326768"><span id="local-6989586621679326770"><span class="annot"><span class="annottext">Eq CostCategoryRuleType
 Eq CostCategoryRuleType
 -&gt; (CostCategoryRuleType -&gt; CostCategoryRuleType -&gt; Ordering)
 -&gt; (CostCategoryRuleType -&gt; CostCategoryRuleType -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. CostCategoryRuleType -&gt; Rep CostCategoryRuleType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326741"><span id="local-6989586621679326743"><span class="annot"><span class="annottext">Int -&gt; CostCategoryRuleType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326750"><span id="local-6989586621679326752"><span class="annot"><span class="annottext">Int -&gt; CostCategoryRuleType -&gt; Int
 CostCategoryRuleType -&gt; Int
 (Int -&gt; CostCategoryRuleType -&gt; Int)
 -&gt; (CostCategoryRuleType -&gt; Int) -&gt; Hashable CostCategoryRuleType
@@ -150,54 +150,54 @@ $chash :: CostCategoryRuleType -&gt; Int
 hashWithSalt :: Int -&gt; CostCategoryRuleType -&gt; Int
 $chashWithSalt :: Int -&gt; CostCategoryRuleType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679326738"><span class="annot"><span class="annottext">CostCategoryRuleType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679326747"><span class="annot"><span class="annottext">CostCategoryRuleType -&gt; ()
 (CostCategoryRuleType -&gt; ()) -&gt; NFData CostCategoryRuleType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CostCategoryRuleType -&gt; ()
 $crnf :: CostCategoryRuleType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679326735"><span class="annot"><span class="annottext">Text -&gt; Either String CostCategoryRuleType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679326744"><span class="annot"><span class="annottext">Text -&gt; Either String CostCategoryRuleType
 (Text -&gt; Either String CostCategoryRuleType)
 -&gt; FromText CostCategoryRuleType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CostCategoryRuleType
 $cfromText :: Text -&gt; Either String CostCategoryRuleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679326732"><span class="annot"><span class="annottext">CostCategoryRuleType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679326741"><span class="annot"><span class="annottext">CostCategoryRuleType -&gt; Text
 (CostCategoryRuleType -&gt; Text) -&gt; ToText CostCategoryRuleType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CostCategoryRuleType -&gt; Text
 $ctoText :: CostCategoryRuleType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679326729"><span class="annot"><span class="annottext">CostCategoryRuleType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679326738"><span class="annot"><span class="annottext">CostCategoryRuleType -&gt; ByteString
 (CostCategoryRuleType -&gt; ByteString)
 -&gt; ToByteString CostCategoryRuleType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CostCategoryRuleType -&gt; ByteString
 $ctoBS :: CostCategoryRuleType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679326726"><span class="annot"><span class="annottext">CostCategoryRuleType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679326735"><span class="annot"><span class="annottext">CostCategoryRuleType -&gt; ByteStringBuilder
 (CostCategoryRuleType -&gt; ByteStringBuilder)
 -&gt; ToLog CostCategoryRuleType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CostCategoryRuleType -&gt; ByteStringBuilder
 $cbuild :: CostCategoryRuleType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679326723"><span class="annot"><span class="annottext">HeaderName -&gt; CostCategoryRuleType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679326732"><span class="annot"><span class="annottext">HeaderName -&gt; CostCategoryRuleType -&gt; [Header]
 (HeaderName -&gt; CostCategoryRuleType -&gt; [Header])
 -&gt; ToHeader CostCategoryRuleType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CostCategoryRuleType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CostCategoryRuleType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679326720"><span class="annot"><span class="annottext">CostCategoryRuleType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679326729"><span class="annot"><span class="annottext">CostCategoryRuleType -&gt; QueryString
 (CostCategoryRuleType -&gt; QueryString)
 -&gt; ToQuery CostCategoryRuleType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CostCategoryRuleType -&gt; QueryString
 $ctoQuery :: CostCategoryRuleType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679326715"><span id="local-6989586621679326717"><span class="annot"><span class="annottext">Value -&gt; Parser [CostCategoryRuleType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679326724"><span id="local-6989586621679326726"><span class="annot"><span class="annottext">Value -&gt; Parser [CostCategoryRuleType]
 Value -&gt; Parser CostCategoryRuleType
 (Value -&gt; Parser CostCategoryRuleType)
 -&gt; (Value -&gt; Parser [CostCategoryRuleType])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [CostCategoryRuleType]
 parseJSON :: Value -&gt; Parser CostCategoryRuleType
 $cparseJSON :: Value -&gt; Parser CostCategoryRuleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679326710"><span id="local-6989586621679326712"><span class="annot"><span class="annottext">FromJSONKeyFunction [CostCategoryRuleType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679326719"><span id="local-6989586621679326721"><span class="annot"><span class="annottext">FromJSONKeyFunction [CostCategoryRuleType]
 FromJSONKeyFunction CostCategoryRuleType
 FromJSONKeyFunction CostCategoryRuleType
 -&gt; FromJSONKeyFunction [CostCategoryRuleType]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CostCategoryRuleType]
 fromJSONKey :: FromJSONKeyFunction CostCategoryRuleType
 $cfromJSONKey :: FromJSONKeyFunction CostCategoryRuleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679326701"><span id="local-6989586621679326703"><span id="local-6989586621679326705"><span id="local-6989586621679326707"><span class="annot"><span class="annottext">[CostCategoryRuleType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679326710"><span id="local-6989586621679326712"><span id="local-6989586621679326714"><span id="local-6989586621679326716"><span class="annot"><span class="annottext">[CostCategoryRuleType] -&gt; Encoding
 [CostCategoryRuleType] -&gt; Value
 CostCategoryRuleType -&gt; Encoding
 CostCategoryRuleType -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: CostCategoryRuleType -&gt; Encoding
 toJSON :: CostCategoryRuleType -&gt; Value
 $ctoJSON :: CostCategoryRuleType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679326696"><span id="local-6989586621679326698"><span class="annot"><span class="annottext">ToJSONKeyFunction [CostCategoryRuleType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679326705"><span id="local-6989586621679326707"><span class="annot"><span class="annottext">ToJSONKeyFunction [CostCategoryRuleType]
 ToJSONKeyFunction CostCategoryRuleType
 ToJSONKeyFunction CostCategoryRuleType
 -&gt; ToJSONKeyFunction [CostCategoryRuleType]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CostCategoryRuleType]
 toJSONKey :: ToJSONKeyFunction CostCategoryRuleType
 $ctoJSONKey :: ToJSONKeyFunction CostCategoryRuleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679326693"><span class="annot"><span class="annottext">[Node] -&gt; Either String CostCategoryRuleType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679326702"><span class="annot"><span class="annottext">[Node] -&gt; Either String CostCategoryRuleType
 ([Node] -&gt; Either String CostCategoryRuleType)
 -&gt; FromXML CostCategoryRuleType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CostCategoryRuleType
 $cparseXML :: [Node] -&gt; Either String CostCategoryRuleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679326690"><span class="annot"><span class="annottext">CostCategoryRuleType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679326699"><span class="annot"><span class="annottext">CostCategoryRuleType -&gt; XML
 (CostCategoryRuleType -&gt; XML) -&gt; ToXML CostCategoryRuleType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CostCategoryRuleType -&gt; XML

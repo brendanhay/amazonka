@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- complies with the Config rule that it was evaluated against.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newExternalEvaluation' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679400750"><span id="local-6989586621679400751"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExternalEvaluation"><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-var">ExternalEvaluation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExternalEvaluation%27"><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-var">ExternalEvaluation'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679400759"><span id="local-6989586621679400760"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExternalEvaluation"><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-var">ExternalEvaluation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExternalEvaluation%27"><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-var">ExternalEvaluation'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Supplementary information about the reason of compliance. For example,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- this task was completed on a specific date.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aannotation%3AExternalEvaluation%27"><span class="annot"><span class="annottext">ExternalEvaluation -&gt; Maybe Text
@@ -49,7 +49,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AorderingTimestamp%3AExternalEvaluation%27"><span class="annot"><span class="annottext">ExternalEvaluation -&gt; POSIX
 </span><a href="Network.AWS.Config.Types.ExternalEvaluation.html#%24sel%3AorderingTimestamp%3AExternalEvaluation%27"><span class="hs-identifier hs-var hs-var">orderingTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679400740"><span id="local-6989586621679400742"><span class="annot"><span class="annottext">ExternalEvaluation -&gt; ExternalEvaluation -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679400749"><span id="local-6989586621679400751"><span class="annot"><span class="annottext">ExternalEvaluation -&gt; ExternalEvaluation -&gt; Bool
 (ExternalEvaluation -&gt; ExternalEvaluation -&gt; Bool)
 -&gt; (ExternalEvaluation -&gt; ExternalEvaluation -&gt; Bool)
 -&gt; Eq ExternalEvaluation
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExternalEvaluation -&gt; ExternalEvaluation -&gt; Bool
 == :: ExternalEvaluation -&gt; ExternalEvaluation -&gt; Bool
 $c== :: ExternalEvaluation -&gt; ExternalEvaluation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400731"><span id="local-6989586621679400733"><span id="local-6989586621679400735"><span id="local-6989586621679400737"><span class="annot"><span class="annottext">ReadPrec [ExternalEvaluation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400740"><span id="local-6989586621679400742"><span id="local-6989586621679400744"><span id="local-6989586621679400746"><span class="annot"><span class="annottext">ReadPrec [ExternalEvaluation]
 ReadPrec ExternalEvaluation
 Int -&gt; ReadS ExternalEvaluation
 ReadS [ExternalEvaluation]
@@ -78,7 +78,7 @@ readList :: ReadS [ExternalEvaluation]
 $creadList :: ReadS [ExternalEvaluation]
 readsPrec :: Int -&gt; ReadS ExternalEvaluation
 $creadsPrec :: Int -&gt; ReadS ExternalEvaluation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400724"><span id="local-6989586621679400726"><span id="local-6989586621679400728"><span class="annot"><span class="annottext">Int -&gt; ExternalEvaluation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400733"><span id="local-6989586621679400735"><span id="local-6989586621679400737"><span class="annot"><span class="annottext">Int -&gt; ExternalEvaluation -&gt; ShowS
 [ExternalEvaluation] -&gt; ShowS
 ExternalEvaluation -&gt; String
 (Int -&gt; ExternalEvaluation -&gt; ShowS)
@@ -137,14 +137,14 @@ $cfrom :: forall x. ExternalEvaluation -&gt; Rep ExternalEvaluation x
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span><span>
 </span><span id="line-80"></span><span id="newExternalEvaluation"><span class="annot"><span class="annottext">newExternalEvaluation :: Text -&gt; Text -&gt; ComplianceType -&gt; UTCTime -&gt; ExternalEvaluation
 </span><a href="Network.AWS.Config.Types.ExternalEvaluation.html#newExternalEvaluation"><span class="hs-identifier hs-var hs-var">newExternalEvaluation</span></a></span></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679400718"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400718"><span class="hs-identifier hs-var">pComplianceResourceType_</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679400717"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400717"><span class="hs-identifier hs-var">pComplianceResourceId_</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679400716"><span class="annot"><span class="annottext">ComplianceType
-</span><a href="#local-6989586621679400716"><span class="hs-identifier hs-var">pComplianceType_</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679400715"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679400715"><span class="hs-identifier hs-var">pOrderingTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679400727"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679400727"><span class="hs-identifier hs-var">pComplianceResourceType_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679400726"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679400726"><span class="hs-identifier hs-var">pComplianceResourceId_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679400725"><span class="annot"><span class="annottext">ComplianceType
+</span><a href="#local-6989586621679400725"><span class="hs-identifier hs-var">pComplianceType_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679400724"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679400724"><span class="hs-identifier hs-var">pOrderingTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">ExternalEvaluation' :: Maybe Text
 -&gt; Text -&gt; Text -&gt; ComplianceType -&gt; POSIX -&gt; ExternalEvaluation
 </span><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span>
@@ -154,13 +154,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:complianceResourceType:ExternalEvaluation' :: Text
 </span><a href="Network.AWS.Config.Types.ExternalEvaluation.html#%24sel%3AcomplianceResourceType%3AExternalEvaluation%27"><span class="hs-identifier hs-var">complianceResourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400718"><span class="hs-identifier hs-var">pComplianceResourceType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679400727"><span class="hs-identifier hs-var">pComplianceResourceType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:complianceResourceId:ExternalEvaluation' :: Text
 </span><a href="Network.AWS.Config.Types.ExternalEvaluation.html#%24sel%3AcomplianceResourceId%3AExternalEvaluation%27"><span class="hs-identifier hs-var">complianceResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400717"><span class="hs-identifier hs-var">pComplianceResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679400726"><span class="hs-identifier hs-var">pComplianceResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:complianceType:ExternalEvaluation' :: ComplianceType
 </span><a href="Network.AWS.Config.Types.ExternalEvaluation.html#%24sel%3AcomplianceType%3AExternalEvaluation%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComplianceType
-</span><a href="#local-6989586621679400716"><span class="hs-identifier hs-var">pComplianceType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679400725"><span class="hs-identifier hs-var">pComplianceType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:orderingTimestamp:ExternalEvaluation' :: POSIX
 </span><a href="Network.AWS.Config.Types.ExternalEvaluation.html#%24sel%3AorderingTimestamp%3AExternalEvaluation%27"><span class="hs-identifier hs-var">orderingTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
@@ -170,7 +170,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679400715"><span class="hs-identifier hs-var">pOrderingTimestamp_</span></a></span><span>
+</span><a href="#local-6989586621679400724"><span class="hs-identifier hs-var">pOrderingTimestamp_</span></a></span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | Supplementary information about the reason of compliance. For example,</span><span>
@@ -183,16 +183,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      ExternalEvaluation ExternalEvaluation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400709"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400718"><span class="annot"><span class="annottext">Maybe Text
 annotation :: Maybe Text
 $sel:annotation:ExternalEvaluation' :: ExternalEvaluation -&gt; Maybe Text
-</span><a href="#local-6989586621679400709"><span class="hs-identifier hs-var hs-var">annotation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679400709"><span class="hs-identifier hs-var">annotation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400708"><span class="annot"><span class="annottext">s :: ExternalEvaluation
-</span><a href="#local-6989586621679400708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400707"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679400707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExternalEvaluation
-</span><a href="#local-6989586621679400708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:annotation:ExternalEvaluation' :: Maybe Text
+</span><a href="#local-6989586621679400718"><span class="hs-identifier hs-var hs-var">annotation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400718"><span class="hs-identifier hs-var">annotation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400717"><span class="annot"><span class="annottext">s :: ExternalEvaluation
+</span><a href="#local-6989586621679400717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400716"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExternalEvaluation
+</span><a href="#local-6989586621679400717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:annotation:ExternalEvaluation' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.ExternalEvaluation.html#%24sel%3Aannotation%3AExternalEvaluation%27"><span class="hs-identifier hs-var">annotation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679400707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The evaluated compliance resource type. Config accepts @AWS::::Account@</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- resource type.</span><span>
@@ -202,16 +202,16 @@ $sel:annotation:ExternalEvaluation' :: ExternalEvaluation -&gt; Maybe Text
 -&gt; (ExternalEvaluation -&gt; Text -&gt; ExternalEvaluation)
 -&gt; Lens ExternalEvaluation ExternalEvaluation Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400705"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400714"><span class="annot"><span class="annottext">Text
 complianceResourceType :: Text
 $sel:complianceResourceType:ExternalEvaluation' :: ExternalEvaluation -&gt; Text
-</span><a href="#local-6989586621679400705"><span class="hs-identifier hs-var hs-var">complianceResourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400705"><span class="hs-identifier hs-var">complianceResourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400704"><span class="annot"><span class="annottext">s :: ExternalEvaluation
-</span><a href="#local-6989586621679400704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400703"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExternalEvaluation
-</span><a href="#local-6989586621679400704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceResourceType:ExternalEvaluation' :: Text
+</span><a href="#local-6989586621679400714"><span class="hs-identifier hs-var hs-var">complianceResourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679400714"><span class="hs-identifier hs-var">complianceResourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400713"><span class="annot"><span class="annottext">s :: ExternalEvaluation
+</span><a href="#local-6989586621679400713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400712"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679400712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExternalEvaluation
+</span><a href="#local-6989586621679400713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceResourceType:ExternalEvaluation' :: Text
 </span><a href="Network.AWS.Config.Types.ExternalEvaluation.html#%24sel%3AcomplianceResourceType%3AExternalEvaluation%27"><span class="hs-identifier hs-var">complianceResourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The evaluated compliance resource ID. Config accepts only Amazon Web</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- Services account ID.</span><span>
@@ -221,16 +221,16 @@ $sel:complianceResourceType:ExternalEvaluation' :: ExternalEvaluation -&gt; Text
 -&gt; (ExternalEvaluation -&gt; Text -&gt; ExternalEvaluation)
 -&gt; Lens ExternalEvaluation ExternalEvaluation Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400701"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400710"><span class="annot"><span class="annottext">Text
 complianceResourceId :: Text
 $sel:complianceResourceId:ExternalEvaluation' :: ExternalEvaluation -&gt; Text
-</span><a href="#local-6989586621679400701"><span class="hs-identifier hs-var hs-var">complianceResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400701"><span class="hs-identifier hs-var">complianceResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400700"><span class="annot"><span class="annottext">s :: ExternalEvaluation
-</span><a href="#local-6989586621679400700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400699"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExternalEvaluation
-</span><a href="#local-6989586621679400700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceResourceId:ExternalEvaluation' :: Text
+</span><a href="#local-6989586621679400710"><span class="hs-identifier hs-var hs-var">complianceResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679400710"><span class="hs-identifier hs-var">complianceResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400709"><span class="annot"><span class="annottext">s :: ExternalEvaluation
+</span><a href="#local-6989586621679400709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400708"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679400708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExternalEvaluation
+</span><a href="#local-6989586621679400709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceResourceId:ExternalEvaluation' :: Text
 </span><a href="Network.AWS.Config.Types.ExternalEvaluation.html#%24sel%3AcomplianceResourceId%3AExternalEvaluation%27"><span class="hs-identifier hs-var">complianceResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The compliance of the Amazon Web Services resource. The valid values are</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- @COMPLIANT, NON_COMPLIANT, @ and @NOT_APPLICABLE@.</span><span>
@@ -242,16 +242,16 @@ $sel:complianceResourceId:ExternalEvaluation' :: ExternalEvaluation -&gt; Text
 -&gt; Lens
      ExternalEvaluation ExternalEvaluation ComplianceType ComplianceType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400697"><span class="annot"><span class="annottext">ComplianceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400706"><span class="annot"><span class="annottext">ComplianceType
 complianceType :: ComplianceType
 $sel:complianceType:ExternalEvaluation' :: ExternalEvaluation -&gt; ComplianceType
-</span><a href="#local-6989586621679400697"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceType
-</span><a href="#local-6989586621679400697"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400696"><span class="annot"><span class="annottext">s :: ExternalEvaluation
-</span><a href="#local-6989586621679400696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400695"><span class="annot"><span class="annottext">ComplianceType
-</span><a href="#local-6989586621679400695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExternalEvaluation
-</span><a href="#local-6989586621679400696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:ExternalEvaluation' :: ComplianceType
+</span><a href="#local-6989586621679400706"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceType
+</span><a href="#local-6989586621679400706"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400705"><span class="annot"><span class="annottext">s :: ExternalEvaluation
+</span><a href="#local-6989586621679400705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400704"><span class="annot"><span class="annottext">ComplianceType
+</span><a href="#local-6989586621679400704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExternalEvaluation
+</span><a href="#local-6989586621679400705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:ExternalEvaluation' :: ComplianceType
 </span><a href="Network.AWS.Config.Types.ExternalEvaluation.html#%24sel%3AcomplianceType%3AExternalEvaluation%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComplianceType
-</span><a href="#local-6989586621679400695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The time when the compliance was recorded.</span><span>
 </span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#externalEvaluation_orderingTimestamp"><span class="hs-identifier hs-type">externalEvaluation_orderingTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -261,16 +261,16 @@ $sel:complianceType:ExternalEvaluation' :: ExternalEvaluation -&gt; ComplianceTy
 -&gt; (ExternalEvaluation -&gt; POSIX -&gt; ExternalEvaluation)
 -&gt; Lens ExternalEvaluation ExternalEvaluation POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400693"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400702"><span class="annot"><span class="annottext">POSIX
 orderingTimestamp :: POSIX
 $sel:orderingTimestamp:ExternalEvaluation' :: ExternalEvaluation -&gt; POSIX
-</span><a href="#local-6989586621679400693"><span class="hs-identifier hs-var hs-var">orderingTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679400693"><span class="hs-identifier hs-var">orderingTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400692"><span class="annot"><span class="annottext">s :: ExternalEvaluation
-</span><a href="#local-6989586621679400692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400691"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679400691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExternalEvaluation
-</span><a href="#local-6989586621679400692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orderingTimestamp:ExternalEvaluation' :: POSIX
+</span><a href="#local-6989586621679400702"><span class="hs-identifier hs-var hs-var">orderingTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679400702"><span class="hs-identifier hs-var">orderingTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400701"><span class="annot"><span class="annottext">s :: ExternalEvaluation
+</span><a href="#local-6989586621679400701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400700"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679400700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExternalEvaluation
+</span><a href="#local-6989586621679400701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orderingTimestamp:ExternalEvaluation' :: POSIX
 </span><a href="Network.AWS.Config.Types.ExternalEvaluation.html#%24sel%3AorderingTimestamp%3AExternalEvaluation%27"><span class="hs-identifier hs-var">orderingTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679400691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ExternalEvaluation -&gt; f ExternalEvaluation)
+</span><a href="#local-6989586621679400700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ExternalEvaluation -&gt; f ExternalEvaluation)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; ExternalEvaluation
@@ -280,13 +280,13 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400686"><span id="local-6989586621679400688"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400695"><span id="local-6989586621679400697"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400683"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400692"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400675"><span id="local-6989586621679400677"><span id="local-6989586621679400679"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679400673"><span class="annot"><span class="annottext">toJSON :: ExternalEvaluation -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400667"><span id="local-6989586621679400668"><span id="local-6989586621679400669"><span id="local-6989586621679400670"><span id="local-6989586621679400671"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400684"><span id="local-6989586621679400686"><span id="local-6989586621679400688"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation"><span class="hs-identifier hs-type">ExternalEvaluation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679400682"><span class="annot"><span class="annottext">toJSON :: ExternalEvaluation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ExternalEvaluation.html#ExternalEvaluation%27"><span class="hs-identifier hs-type">ExternalEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400676"><span id="local-6989586621679400677"><span id="local-6989586621679400678"><span id="local-6989586621679400679"><span id="local-6989586621679400680"><span class="annot"><span class="annottext">Maybe Text
 Text
 POSIX
 ComplianceType
@@ -300,7 +300,7 @@ $sel:complianceType:ExternalEvaluation' :: ExternalEvaluation -&gt; ComplianceTy
 $sel:complianceResourceId:ExternalEvaluation' :: ExternalEvaluation -&gt; Text
 $sel:complianceResourceType:ExternalEvaluation' :: ExternalEvaluation -&gt; Text
 $sel:annotation:ExternalEvaluation' :: ExternalEvaluation -&gt; Maybe Text
-</span><a href="#local-6989586621679400667"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679400676"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -312,7 +312,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679400671"><span class="hs-identifier hs-var">annotation</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679400680"><span class="hs-identifier hs-var">annotation</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -321,7 +321,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-129"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400670"><span class="hs-identifier hs-var">complianceResourceType</span></a></span><span>
+</span><a href="#local-6989586621679400679"><span class="hs-identifier hs-var">complianceResourceType</span></a></span><span>
 </span><span id="line-130"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -331,7 +331,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-133"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400669"><span class="hs-identifier hs-var">complianceResourceId</span></a></span><span>
+</span><a href="#local-6989586621679400678"><span class="hs-identifier hs-var">complianceResourceId</span></a></span><span>
 </span><span id="line-134"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -340,7 +340,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ComplianceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComplianceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ComplianceType
-</span><a href="#local-6989586621679400668"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679400677"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -348,7 +348,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;OrderingTimestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679400667"><span class="hs-identifier hs-var">orderingTimestamp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400676"><span class="hs-identifier hs-var">orderingTimestamp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span></pre></body></html>

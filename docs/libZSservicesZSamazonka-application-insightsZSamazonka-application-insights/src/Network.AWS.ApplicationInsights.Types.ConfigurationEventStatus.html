@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus"><span class="hs-identifier">ConfigurationEventStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus_ERROR"><span class="hs-identifier">ConfigurationEventStatus_ERROR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus_INFO"><span class="hs-identifier">ConfigurationEventStatus_INFO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus_WARN"><span class="hs-identifier">ConfigurationEventStatus_WARN</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679215368"><span id="local-6989586621679215369"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConfigurationEventStatus"><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus"><span class="hs-identifier hs-var">ConfigurationEventStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigurationEventStatus%27"><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus%27"><span class="hs-identifier hs-var">ConfigurationEventStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConfigurationEventStatus"><span class="annot"><span class="annottext">ConfigurationEventStatus -&gt; Text
+</span><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#fromConfigurationEventStatus"><span class="hs-identifier hs-var hs-var">fromConfigurationEventStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679215360"><span id="local-6989586621679215362"><span id="local-6989586621679215364"><span class="annot"><span class="annottext">Int -&gt; ConfigurationEventStatus -&gt; ShowS
+[ConfigurationEventStatus] -&gt; ShowS
+ConfigurationEventStatus -&gt; String
+(Int -&gt; ConfigurationEventStatus -&gt; ShowS)
+-&gt; (ConfigurationEventStatus -&gt; String)
+-&gt; ([ConfigurationEventStatus] -&gt; ShowS)
+-&gt; Show ConfigurationEventStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConfigurationEventStatus] -&gt; ShowS
+$cshowList :: [ConfigurationEventStatus] -&gt; ShowS
+show :: ConfigurationEventStatus -&gt; String
+$cshow :: ConfigurationEventStatus -&gt; String
+showsPrec :: Int -&gt; ConfigurationEventStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConfigurationEventStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679215351"><span id="local-6989586621679215353"><span id="local-6989586621679215355"><span id="local-6989586621679215357"><span class="annot"><span class="annottext">ReadPrec [ConfigurationEventStatus]
+ReadPrec ConfigurationEventStatus
+Int -&gt; ReadS ConfigurationEventStatus
+ReadS [ConfigurationEventStatus]
+(Int -&gt; ReadS ConfigurationEventStatus)
+-&gt; ReadS [ConfigurationEventStatus]
+-&gt; ReadPrec ConfigurationEventStatus
+-&gt; ReadPrec [ConfigurationEventStatus]
+-&gt; Read ConfigurationEventStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConfigurationEventStatus]
+$creadListPrec :: ReadPrec [ConfigurationEventStatus]
+readPrec :: ReadPrec ConfigurationEventStatus
+$creadPrec :: ReadPrec ConfigurationEventStatus
+readList :: ReadS [ConfigurationEventStatus]
+$creadList :: ReadS [ConfigurationEventStatus]
+readsPrec :: Int -&gt; ReadS ConfigurationEventStatus
+$creadsPrec :: Int -&gt; ReadS ConfigurationEventStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679215346"><span id="local-6989586621679215348"><span class="annot"><span class="annottext">ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool
+(ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool)
+-&gt; (ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool)
+-&gt; Eq ConfigurationEventStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool
+$c/= :: ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool
+== :: ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool
+$c== :: ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679215330"><span id="local-6989586621679215332"><span id="local-6989586621679215334"><span id="local-6989586621679215336"><span id="local-6989586621679215338"><span id="local-6989586621679215340"><span id="local-6989586621679215342"><span class="annot"><span class="annottext">Eq ConfigurationEventStatus
+Eq ConfigurationEventStatus
+-&gt; (ConfigurationEventStatus
+    -&gt; ConfigurationEventStatus -&gt; Ordering)
+-&gt; (ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool)
+-&gt; (ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool)
+-&gt; (ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool)
+-&gt; (ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool)
+-&gt; (ConfigurationEventStatus
+    -&gt; ConfigurationEventStatus -&gt; ConfigurationEventStatus)
+-&gt; (ConfigurationEventStatus
+    -&gt; ConfigurationEventStatus -&gt; ConfigurationEventStatus)
+-&gt; Ord ConfigurationEventStatus
+ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool
+ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Ordering
+ConfigurationEventStatus
+-&gt; ConfigurationEventStatus -&gt; ConfigurationEventStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ConfigurationEventStatus
+-&gt; ConfigurationEventStatus -&gt; ConfigurationEventStatus
+$cmin :: ConfigurationEventStatus
+-&gt; ConfigurationEventStatus -&gt; ConfigurationEventStatus
+max :: ConfigurationEventStatus
+-&gt; ConfigurationEventStatus -&gt; ConfigurationEventStatus
+$cmax :: ConfigurationEventStatus
+-&gt; ConfigurationEventStatus -&gt; ConfigurationEventStatus
+&gt;= :: ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool
+$c&gt;= :: ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool
+&gt; :: ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool
+$c&gt; :: ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool
+&lt;= :: ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool
+$c&lt;= :: ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool
+&lt; :: ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool
+$c&lt; :: ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Bool
+compare :: ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Ordering
+$ccompare :: ConfigurationEventStatus -&gt; ConfigurationEventStatus -&gt; Ordering
+$cp1Ord :: Eq ConfigurationEventStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ConfigurationEventStatus -&gt; Rep ConfigurationEventStatus x)
+-&gt; (forall x.
+    Rep ConfigurationEventStatus x -&gt; ConfigurationEventStatus)
+-&gt; Generic ConfigurationEventStatus
+forall x.
+Rep ConfigurationEventStatus x -&gt; ConfigurationEventStatus
+forall x.
+ConfigurationEventStatus -&gt; Rep ConfigurationEventStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ConfigurationEventStatus x -&gt; ConfigurationEventStatus
+$cfrom :: forall x.
+ConfigurationEventStatus -&gt; Rep ConfigurationEventStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679215322"><span id="local-6989586621679215324"><span class="annot"><span class="annottext">Int -&gt; ConfigurationEventStatus -&gt; Int
+ConfigurationEventStatus -&gt; Int
+(Int -&gt; ConfigurationEventStatus -&gt; Int)
+-&gt; (ConfigurationEventStatus -&gt; Int)
+-&gt; Hashable ConfigurationEventStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ConfigurationEventStatus -&gt; Int
+$chash :: ConfigurationEventStatus -&gt; Int
+hashWithSalt :: Int -&gt; ConfigurationEventStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ConfigurationEventStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679215319"><span class="annot"><span class="annottext">ConfigurationEventStatus -&gt; ()
+(ConfigurationEventStatus -&gt; ()) -&gt; NFData ConfigurationEventStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ConfigurationEventStatus -&gt; ()
+$crnf :: ConfigurationEventStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679215316"><span class="annot"><span class="annottext">Text -&gt; Either String ConfigurationEventStatus
+(Text -&gt; Either String ConfigurationEventStatus)
+-&gt; FromText ConfigurationEventStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ConfigurationEventStatus
+$cfromText :: Text -&gt; Either String ConfigurationEventStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679215313"><span class="annot"><span class="annottext">ConfigurationEventStatus -&gt; Text
+(ConfigurationEventStatus -&gt; Text)
+-&gt; ToText ConfigurationEventStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ConfigurationEventStatus -&gt; Text
+$ctoText :: ConfigurationEventStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679215310"><span class="annot"><span class="annottext">ConfigurationEventStatus -&gt; ByteString
+(ConfigurationEventStatus -&gt; ByteString)
+-&gt; ToByteString ConfigurationEventStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ConfigurationEventStatus -&gt; ByteString
+$ctoBS :: ConfigurationEventStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679215307"><span class="annot"><span class="annottext">ConfigurationEventStatus -&gt; ByteStringBuilder
+(ConfigurationEventStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ConfigurationEventStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ConfigurationEventStatus -&gt; ByteStringBuilder
+$cbuild :: ConfigurationEventStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679215304"><span class="annot"><span class="annottext">HeaderName -&gt; ConfigurationEventStatus -&gt; [Header]
+(HeaderName -&gt; ConfigurationEventStatus -&gt; [Header])
+-&gt; ToHeader ConfigurationEventStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ConfigurationEventStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ConfigurationEventStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679215301"><span class="annot"><span class="annottext">ConfigurationEventStatus -&gt; QueryString
+(ConfigurationEventStatus -&gt; QueryString)
+-&gt; ToQuery ConfigurationEventStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ConfigurationEventStatus -&gt; QueryString
+$ctoQuery :: ConfigurationEventStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679215296"><span id="local-6989586621679215298"><span class="annot"><span class="annottext">Value -&gt; Parser [ConfigurationEventStatus]
+Value -&gt; Parser ConfigurationEventStatus
+(Value -&gt; Parser ConfigurationEventStatus)
+-&gt; (Value -&gt; Parser [ConfigurationEventStatus])
+-&gt; FromJSON ConfigurationEventStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ConfigurationEventStatus]
+$cparseJSONList :: Value -&gt; Parser [ConfigurationEventStatus]
+parseJSON :: Value -&gt; Parser ConfigurationEventStatus
+$cparseJSON :: Value -&gt; Parser ConfigurationEventStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679215291"><span id="local-6989586621679215293"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConfigurationEventStatus]
+FromJSONKeyFunction ConfigurationEventStatus
+FromJSONKeyFunction ConfigurationEventStatus
+-&gt; FromJSONKeyFunction [ConfigurationEventStatus]
+-&gt; FromJSONKey ConfigurationEventStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ConfigurationEventStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ConfigurationEventStatus]
+fromJSONKey :: FromJSONKeyFunction ConfigurationEventStatus
+$cfromJSONKey :: FromJSONKeyFunction ConfigurationEventStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679215282"><span id="local-6989586621679215284"><span id="local-6989586621679215286"><span id="local-6989586621679215288"><span class="annot"><span class="annottext">[ConfigurationEventStatus] -&gt; Encoding
+[ConfigurationEventStatus] -&gt; Value
+ConfigurationEventStatus -&gt; Encoding
+ConfigurationEventStatus -&gt; Value
+(ConfigurationEventStatus -&gt; Value)
+-&gt; (ConfigurationEventStatus -&gt; Encoding)
+-&gt; ([ConfigurationEventStatus] -&gt; Value)
+-&gt; ([ConfigurationEventStatus] -&gt; Encoding)
+-&gt; ToJSON ConfigurationEventStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ConfigurationEventStatus] -&gt; Encoding
+$ctoEncodingList :: [ConfigurationEventStatus] -&gt; Encoding
+toJSONList :: [ConfigurationEventStatus] -&gt; Value
+$ctoJSONList :: [ConfigurationEventStatus] -&gt; Value
+toEncoding :: ConfigurationEventStatus -&gt; Encoding
+$ctoEncoding :: ConfigurationEventStatus -&gt; Encoding
+toJSON :: ConfigurationEventStatus -&gt; Value
+$ctoJSON :: ConfigurationEventStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679215277"><span id="local-6989586621679215279"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConfigurationEventStatus]
+ToJSONKeyFunction ConfigurationEventStatus
+ToJSONKeyFunction ConfigurationEventStatus
+-&gt; ToJSONKeyFunction [ConfigurationEventStatus]
+-&gt; ToJSONKey ConfigurationEventStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ConfigurationEventStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ConfigurationEventStatus]
+toJSONKey :: ToJSONKeyFunction ConfigurationEventStatus
+$ctoJSONKey :: ToJSONKeyFunction ConfigurationEventStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679215274"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConfigurationEventStatus
+([Node] -&gt; Either String ConfigurationEventStatus)
+-&gt; FromXML ConfigurationEventStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ConfigurationEventStatus
+$cparseXML :: [Node] -&gt; Either String ConfigurationEventStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679215271"><span class="annot"><span class="annottext">ConfigurationEventStatus -&gt; XML
+(ConfigurationEventStatus -&gt; XML) -&gt; ToXML ConfigurationEventStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ConfigurationEventStatus -&gt; XML
+$ctoXML :: ConfigurationEventStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus_ERROR"><span class="hs-identifier hs-type">ConfigurationEventStatus_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus"><span class="hs-identifier hs-type">ConfigurationEventStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConfigurationEventStatus_ERROR"><span id="%24mConfigurationEventStatus_ERROR"><span id="ConfigurationEventStatus_ERROR"><span class="annot"><span class="annottext">$bConfigurationEventStatus_ERROR :: ConfigurationEventStatus
+$mConfigurationEventStatus_ERROR :: forall r.
+ConfigurationEventStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#%24bConfigurationEventStatus_ERROR"><span class="hs-identifier hs-var hs-var hs-var">ConfigurationEventStatus_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus%27"><span class="hs-identifier hs-type">ConfigurationEventStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ERROR&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus_INFO"><span class="hs-identifier hs-type">ConfigurationEventStatus_INFO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus"><span class="hs-identifier hs-type">ConfigurationEventStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConfigurationEventStatus_INFO"><span id="%24mConfigurationEventStatus_INFO"><span id="ConfigurationEventStatus_INFO"><span class="annot"><span class="annottext">$bConfigurationEventStatus_INFO :: ConfigurationEventStatus
+$mConfigurationEventStatus_INFO :: forall r.
+ConfigurationEventStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#%24bConfigurationEventStatus_INFO"><span class="hs-identifier hs-var hs-var hs-var">ConfigurationEventStatus_INFO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus%27"><span class="hs-identifier hs-type">ConfigurationEventStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INFO&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus_WARN"><span class="hs-identifier hs-type">ConfigurationEventStatus_WARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus"><span class="hs-identifier hs-type">ConfigurationEventStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConfigurationEventStatus_WARN"><span id="%24mConfigurationEventStatus_WARN"><span id="ConfigurationEventStatus_WARN"><span class="annot"><span class="annottext">$bConfigurationEventStatus_WARN :: ConfigurationEventStatus
+$mConfigurationEventStatus_WARN :: forall r.
+ConfigurationEventStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#%24bConfigurationEventStatus_WARN"><span class="hs-identifier hs-var hs-var hs-var">ConfigurationEventStatus_WARN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus%27"><span class="hs-identifier hs-type">ConfigurationEventStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WARN&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus_ERROR"><span class="hs-pragma hs-type">ConfigurationEventStatus_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus_INFO"><span class="hs-pragma hs-type">ConfigurationEventStatus_INFO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus_WARN"><span class="hs-pragma hs-type">ConfigurationEventStatus_WARN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus%27"><span class="hs-pragma hs-type">ConfigurationEventStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- journey.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRandomSplitEntry' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679606818"><span id="local-6989586621679606819"></span></span><span class="hs-keyword">data</span><span> </span><span id="RandomSplitEntry"><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry"><span class="hs-identifier hs-var">RandomSplitEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RandomSplitEntry%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry%27"><span class="hs-identifier hs-var">RandomSplitEntry'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679606827"><span id="local-6989586621679606828"></span></span><span class="hs-keyword">data</span><span> </span><span id="RandomSplitEntry"><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry"><span class="hs-identifier hs-var">RandomSplitEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RandomSplitEntry%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry%27"><span class="hs-identifier hs-var">RandomSplitEntry'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the next activity to perform, after completing</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the activity for the path.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AnextActivity%3ARandomSplitEntry%27"><span class="annot"><span class="annottext">RandomSplitEntry -&gt; Maybe Text
@@ -42,7 +42,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Apercentage%3ARandomSplitEntry%27"><span class="annot"><span class="annottext">RandomSplitEntry -&gt; Maybe Int
 </span><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#%24sel%3Apercentage%3ARandomSplitEntry%27"><span class="hs-identifier hs-var hs-var">percentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679606811"><span id="local-6989586621679606813"><span class="annot"><span class="annottext">RandomSplitEntry -&gt; RandomSplitEntry -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679606820"><span id="local-6989586621679606822"><span class="annot"><span class="annottext">RandomSplitEntry -&gt; RandomSplitEntry -&gt; Bool
 (RandomSplitEntry -&gt; RandomSplitEntry -&gt; Bool)
 -&gt; (RandomSplitEntry -&gt; RandomSplitEntry -&gt; Bool)
 -&gt; Eq RandomSplitEntry
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RandomSplitEntry -&gt; RandomSplitEntry -&gt; Bool
 == :: RandomSplitEntry -&gt; RandomSplitEntry -&gt; Bool
 $c== :: RandomSplitEntry -&gt; RandomSplitEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679606802"><span id="local-6989586621679606804"><span id="local-6989586621679606806"><span id="local-6989586621679606808"><span class="annot"><span class="annottext">ReadPrec [RandomSplitEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679606811"><span id="local-6989586621679606813"><span id="local-6989586621679606815"><span id="local-6989586621679606817"><span class="annot"><span class="annottext">ReadPrec [RandomSplitEntry]
 ReadPrec RandomSplitEntry
 Int -&gt; ReadS RandomSplitEntry
 ReadS [RandomSplitEntry]
@@ -71,7 +71,7 @@ readList :: ReadS [RandomSplitEntry]
 $creadList :: ReadS [RandomSplitEntry]
 readsPrec :: Int -&gt; ReadS RandomSplitEntry
 $creadsPrec :: Int -&gt; ReadS RandomSplitEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679606795"><span id="local-6989586621679606797"><span id="local-6989586621679606799"><span class="annot"><span class="annottext">Int -&gt; RandomSplitEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679606804"><span id="local-6989586621679606806"><span id="local-6989586621679606808"><span class="annot"><span class="annottext">Int -&gt; RandomSplitEntry -&gt; ShowS
 [RandomSplitEntry] -&gt; ShowS
 RandomSplitEntry -&gt; String
 (Int -&gt; RandomSplitEntry -&gt; ShowS)
@@ -140,16 +140,16 @@ forall a. Maybe a
 -&gt; (RandomSplitEntry -&gt; Maybe Text -&gt; RandomSplitEntry)
 -&gt; Lens RandomSplitEntry RandomSplitEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry%27"><span class="hs-identifier hs-type">RandomSplitEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606786"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry%27"><span class="hs-identifier hs-type">RandomSplitEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606795"><span class="annot"><span class="annottext">Maybe Text
 nextActivity :: Maybe Text
 $sel:nextActivity:RandomSplitEntry' :: RandomSplitEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679606786"><span class="hs-identifier hs-var hs-var">nextActivity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679606786"><span class="hs-identifier hs-var">nextActivity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679606785"><span class="annot"><span class="annottext">s :: RandomSplitEntry
-</span><a href="#local-6989586621679606785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry%27"><span class="hs-identifier hs-type">RandomSplitEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679606784"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679606784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RandomSplitEntry
-</span><a href="#local-6989586621679606785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextActivity:RandomSplitEntry' :: Maybe Text
+</span><a href="#local-6989586621679606795"><span class="hs-identifier hs-var hs-var">nextActivity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679606795"><span class="hs-identifier hs-var">nextActivity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679606794"><span class="annot"><span class="annottext">s :: RandomSplitEntry
+</span><a href="#local-6989586621679606794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry%27"><span class="hs-identifier hs-type">RandomSplitEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679606793"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679606793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RandomSplitEntry
+</span><a href="#local-6989586621679606794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextActivity:RandomSplitEntry' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#%24sel%3AnextActivity%3ARandomSplitEntry%27"><span class="hs-identifier hs-var">nextActivity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679606784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry"><span class="hs-identifier hs-type">RandomSplitEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679606793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry"><span class="hs-identifier hs-type">RandomSplitEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The percentage of participants to send down the activity path.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
@@ -165,19 +165,19 @@ $sel:nextActivity:RandomSplitEntry' :: RandomSplitEntry -&gt; Maybe Text
 -&gt; (RandomSplitEntry -&gt; Maybe Int -&gt; RandomSplitEntry)
 -&gt; Lens RandomSplitEntry RandomSplitEntry (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry%27"><span class="hs-identifier hs-type">RandomSplitEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606782"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry%27"><span class="hs-identifier hs-type">RandomSplitEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606791"><span class="annot"><span class="annottext">Maybe Int
 percentage :: Maybe Int
 $sel:percentage:RandomSplitEntry' :: RandomSplitEntry -&gt; Maybe Int
-</span><a href="#local-6989586621679606782"><span class="hs-identifier hs-var hs-var">percentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679606782"><span class="hs-identifier hs-var">percentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679606781"><span class="annot"><span class="annottext">s :: RandomSplitEntry
-</span><a href="#local-6989586621679606781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry%27"><span class="hs-identifier hs-type">RandomSplitEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679606780"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679606780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RandomSplitEntry
-</span><a href="#local-6989586621679606781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percentage:RandomSplitEntry' :: Maybe Int
+</span><a href="#local-6989586621679606791"><span class="hs-identifier hs-var hs-var">percentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679606791"><span class="hs-identifier hs-var">percentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679606790"><span class="annot"><span class="annottext">s :: RandomSplitEntry
+</span><a href="#local-6989586621679606790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry%27"><span class="hs-identifier hs-type">RandomSplitEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679606789"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679606789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RandomSplitEntry
+</span><a href="#local-6989586621679606790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percentage:RandomSplitEntry' :: Maybe Int
 </span><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#%24sel%3Apercentage%3ARandomSplitEntry%27"><span class="hs-identifier hs-var">percentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679606780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry"><span class="hs-identifier hs-type">RandomSplitEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679606789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry"><span class="hs-identifier hs-type">RandomSplitEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606777"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry"><span class="hs-identifier hs-type">RandomSplitEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679606775"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RandomSplitEntry
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606786"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry"><span class="hs-identifier hs-type">RandomSplitEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679606784"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RandomSplitEntry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RandomSplitEntry)
@@ -187,15 +187,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RandomSplitEntry&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679606772"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606772"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679606781"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679606781"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Int -&gt; RandomSplitEntry
 </span><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry%27"><span class="hs-identifier hs-var">RandomSplitEntry'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Int -&gt; RandomSplitEntry)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Int -&gt; RandomSplitEntry)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606772"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679606781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextActivity&quot;</span></span><span class="hs-special">)</span><span>
@@ -203,25 +203,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser RandomSplitEntry
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606772"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679606781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Percentage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606766"><span id="local-6989586621679606768"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry"><span class="hs-identifier hs-type">RandomSplitEntry</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606775"><span id="local-6989586621679606777"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry"><span class="hs-identifier hs-type">RandomSplitEntry</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606763"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry"><span class="hs-identifier hs-type">RandomSplitEntry</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606772"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry"><span class="hs-identifier hs-type">RandomSplitEntry</span></a></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606755"><span id="local-6989586621679606757"><span id="local-6989586621679606759"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry"><span class="hs-identifier hs-type">RandomSplitEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679606753"><span class="annot"><span class="annottext">toJSON :: RandomSplitEntry -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry%27"><span class="hs-identifier hs-type">RandomSplitEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606750"><span id="local-6989586621679606751"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606764"><span id="local-6989586621679606766"><span id="local-6989586621679606768"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry"><span class="hs-identifier hs-type">RandomSplitEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679606762"><span class="annot"><span class="annottext">toJSON :: RandomSplitEntry -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RandomSplitEntry.html#RandomSplitEntry%27"><span class="hs-identifier hs-type">RandomSplitEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606759"><span id="local-6989586621679606760"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 percentage :: Maybe Int
 nextActivity :: Maybe Text
 $sel:percentage:RandomSplitEntry' :: RandomSplitEntry -&gt; Maybe Int
 $sel:nextActivity:RandomSplitEntry' :: RandomSplitEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679606750"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679606759"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -233,14 +233,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679606751"><span class="hs-identifier hs-var">nextActivity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679606760"><span class="hs-identifier hs-var">nextActivity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Percentage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679606750"><span class="hs-identifier hs-var">percentage</span></a></span><span>
+</span><a href="#local-6989586621679606759"><span class="hs-identifier hs-var">percentage</span></a></span><span>
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span></pre></body></html>

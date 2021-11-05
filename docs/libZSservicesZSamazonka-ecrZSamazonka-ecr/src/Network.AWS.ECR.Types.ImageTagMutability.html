@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679233056"><span id="local-6989586621679233057"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImageTagMutability"><span class="annot"><a href="Network.AWS.ECR.Types.ImageTagMutability.html#ImageTagMutability"><span class="hs-identifier hs-var">ImageTagMutability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageTagMutability%27"><span class="annot"><a href="Network.AWS.ECR.Types.ImageTagMutability.html#ImageTagMutability%27"><span class="hs-identifier hs-var">ImageTagMutability'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679233065"><span id="local-6989586621679233066"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImageTagMutability"><span class="annot"><a href="Network.AWS.ECR.Types.ImageTagMutability.html#ImageTagMutability"><span class="hs-identifier hs-var">ImageTagMutability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageTagMutability%27"><span class="annot"><a href="Network.AWS.ECR.Types.ImageTagMutability.html#ImageTagMutability%27"><span class="hs-identifier hs-var">ImageTagMutability'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromImageTagMutability"><span class="annot"><span class="annottext">ImageTagMutability -&gt; Text
 </span><a href="Network.AWS.ECR.Types.ImageTagMutability.html#fromImageTagMutability"><span class="hs-identifier hs-var hs-var">fromImageTagMutability</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679233048"><span id="local-6989586621679233050"><span id="local-6989586621679233052"><span class="annot"><span class="annottext">Int -&gt; ImageTagMutability -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679233057"><span id="local-6989586621679233059"><span id="local-6989586621679233061"><span class="annot"><span class="annottext">Int -&gt; ImageTagMutability -&gt; ShowS
 [ImageTagMutability] -&gt; ShowS
 ImageTagMutability -&gt; String
 (Int -&gt; ImageTagMutability -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ImageTagMutability -&gt; String
 showsPrec :: Int -&gt; ImageTagMutability -&gt; ShowS
 $cshowsPrec :: Int -&gt; ImageTagMutability -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679233039"><span id="local-6989586621679233041"><span id="local-6989586621679233043"><span id="local-6989586621679233045"><span class="annot"><span class="annottext">ReadPrec [ImageTagMutability]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679233048"><span id="local-6989586621679233050"><span id="local-6989586621679233052"><span id="local-6989586621679233054"><span class="annot"><span class="annottext">ReadPrec [ImageTagMutability]
 ReadPrec ImageTagMutability
 Int -&gt; ReadS ImageTagMutability
 ReadS [ImageTagMutability]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ImageTagMutability]
 readsPrec :: Int -&gt; ReadS ImageTagMutability
 $creadsPrec :: Int -&gt; ReadS ImageTagMutability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679233034"><span id="local-6989586621679233036"><span class="annot"><span class="annottext">ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679233043"><span id="local-6989586621679233045"><span class="annot"><span class="annottext">ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
 (ImageTagMutability -&gt; ImageTagMutability -&gt; Bool)
 -&gt; (ImageTagMutability -&gt; ImageTagMutability -&gt; Bool)
 -&gt; Eq ImageTagMutability
@@ -82,7 +82,7 @@ $c/= :: ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
 == :: ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
 $c== :: ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679233018"><span id="local-6989586621679233020"><span id="local-6989586621679233022"><span id="local-6989586621679233024"><span id="local-6989586621679233026"><span id="local-6989586621679233028"><span id="local-6989586621679233030"><span class="annot"><span class="annottext">Eq ImageTagMutability
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679233027"><span id="local-6989586621679233029"><span id="local-6989586621679233031"><span id="local-6989586621679233033"><span id="local-6989586621679233035"><span id="local-6989586621679233037"><span id="local-6989586621679233039"><span class="annot"><span class="annottext">Eq ImageTagMutability
 Eq ImageTagMutability
 -&gt; (ImageTagMutability -&gt; ImageTagMutability -&gt; Ordering)
 -&gt; (ImageTagMutability -&gt; ImageTagMutability -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ImageTagMutability -&gt; Rep ImageTagMutability x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679233010"><span id="local-6989586621679233012"><span class="annot"><span class="annottext">Int -&gt; ImageTagMutability -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679233019"><span id="local-6989586621679233021"><span class="annot"><span class="annottext">Int -&gt; ImageTagMutability -&gt; Int
 ImageTagMutability -&gt; Int
 (Int -&gt; ImageTagMutability -&gt; Int)
 -&gt; (ImageTagMutability -&gt; Int) -&gt; Hashable ImageTagMutability
@@ -143,53 +143,53 @@ $chash :: ImageTagMutability -&gt; Int
 hashWithSalt :: Int -&gt; ImageTagMutability -&gt; Int
 $chashWithSalt :: Int -&gt; ImageTagMutability -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679233007"><span class="annot"><span class="annottext">ImageTagMutability -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679233016"><span class="annot"><span class="annottext">ImageTagMutability -&gt; ()
 (ImageTagMutability -&gt; ()) -&gt; NFData ImageTagMutability
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ImageTagMutability -&gt; ()
 $crnf :: ImageTagMutability -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679233004"><span class="annot"><span class="annottext">Text -&gt; Either String ImageTagMutability
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679233013"><span class="annot"><span class="annottext">Text -&gt; Either String ImageTagMutability
 (Text -&gt; Either String ImageTagMutability)
 -&gt; FromText ImageTagMutability
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ImageTagMutability
 $cfromText :: Text -&gt; Either String ImageTagMutability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679233001"><span class="annot"><span class="annottext">ImageTagMutability -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679233010"><span class="annot"><span class="annottext">ImageTagMutability -&gt; Text
 (ImageTagMutability -&gt; Text) -&gt; ToText ImageTagMutability
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ImageTagMutability -&gt; Text
 $ctoText :: ImageTagMutability -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679232998"><span class="annot"><span class="annottext">ImageTagMutability -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679233007"><span class="annot"><span class="annottext">ImageTagMutability -&gt; ByteString
 (ImageTagMutability -&gt; ByteString)
 -&gt; ToByteString ImageTagMutability
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ImageTagMutability -&gt; ByteString
 $ctoBS :: ImageTagMutability -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679232995"><span class="annot"><span class="annottext">ImageTagMutability -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679233004"><span class="annot"><span class="annottext">ImageTagMutability -&gt; ByteStringBuilder
 (ImageTagMutability -&gt; ByteStringBuilder)
 -&gt; ToLog ImageTagMutability
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ImageTagMutability -&gt; ByteStringBuilder
 $cbuild :: ImageTagMutability -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679232992"><span class="annot"><span class="annottext">HeaderName -&gt; ImageTagMutability -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679233001"><span class="annot"><span class="annottext">HeaderName -&gt; ImageTagMutability -&gt; [Header]
 (HeaderName -&gt; ImageTagMutability -&gt; [Header])
 -&gt; ToHeader ImageTagMutability
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ImageTagMutability -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ImageTagMutability -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679232989"><span class="annot"><span class="annottext">ImageTagMutability -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679232998"><span class="annot"><span class="annottext">ImageTagMutability -&gt; QueryString
 (ImageTagMutability -&gt; QueryString) -&gt; ToQuery ImageTagMutability
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ImageTagMutability -&gt; QueryString
 $ctoQuery :: ImageTagMutability -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679232984"><span id="local-6989586621679232986"><span class="annot"><span class="annottext">Value -&gt; Parser [ImageTagMutability]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679232993"><span id="local-6989586621679232995"><span class="annot"><span class="annottext">Value -&gt; Parser [ImageTagMutability]
 Value -&gt; Parser ImageTagMutability
 (Value -&gt; Parser ImageTagMutability)
 -&gt; (Value -&gt; Parser [ImageTagMutability])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [ImageTagMutability]
 parseJSON :: Value -&gt; Parser ImageTagMutability
 $cparseJSON :: Value -&gt; Parser ImageTagMutability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679232979"><span id="local-6989586621679232981"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImageTagMutability]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679232988"><span id="local-6989586621679232990"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImageTagMutability]
 FromJSONKeyFunction ImageTagMutability
 FromJSONKeyFunction ImageTagMutability
 -&gt; FromJSONKeyFunction [ImageTagMutability]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ImageTagMutability]
 fromJSONKey :: FromJSONKeyFunction ImageTagMutability
 $cfromJSONKey :: FromJSONKeyFunction ImageTagMutability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679232970"><span id="local-6989586621679232972"><span id="local-6989586621679232974"><span id="local-6989586621679232976"><span class="annot"><span class="annottext">[ImageTagMutability] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679232979"><span id="local-6989586621679232981"><span id="local-6989586621679232983"><span id="local-6989586621679232985"><span class="annot"><span class="annottext">[ImageTagMutability] -&gt; Encoding
 [ImageTagMutability] -&gt; Value
 ImageTagMutability -&gt; Encoding
 ImageTagMutability -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: ImageTagMutability -&gt; Encoding
 toJSON :: ImageTagMutability -&gt; Value
 $ctoJSON :: ImageTagMutability -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679232965"><span id="local-6989586621679232967"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImageTagMutability]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679232974"><span id="local-6989586621679232976"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImageTagMutability]
 ToJSONKeyFunction ImageTagMutability
 ToJSONKeyFunction ImageTagMutability
 -&gt; ToJSONKeyFunction [ImageTagMutability]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ImageTagMutability]
 toJSONKey :: ToJSONKeyFunction ImageTagMutability
 $ctoJSONKey :: ToJSONKeyFunction ImageTagMutability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679232962"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImageTagMutability
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679232971"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImageTagMutability
 ([Node] -&gt; Either String ImageTagMutability)
 -&gt; FromXML ImageTagMutability
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ImageTagMutability
 $cparseXML :: [Node] -&gt; Either String ImageTagMutability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679232959"><span class="annot"><span class="annottext">ImageTagMutability -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679232968"><span class="annot"><span class="annottext">ImageTagMutability -&gt; XML
 (ImageTagMutability -&gt; XML) -&gt; ToXML ImageTagMutability
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ImageTagMutability -&gt; XML

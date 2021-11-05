@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- broker.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPendingLogs' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679224435"><span id="local-6989586621679224436"></span></span><span class="hs-keyword">data</span><span> </span><span id="PendingLogs"><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs"><span class="hs-identifier hs-var">PendingLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PendingLogs%27"><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs%27"><span class="hs-identifier hs-var">PendingLogs'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679224444"><span id="local-6989586621679224445"></span></span><span class="hs-keyword">data</span><span> </span><span id="PendingLogs"><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs"><span class="hs-identifier hs-var">PendingLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PendingLogs%27"><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs%27"><span class="hs-identifier hs-var">PendingLogs'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Enables audit logging. Every user management action made using JMX or</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the ActiveMQ Web Console is logged.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aaudit%3APendingLogs%27"><span class="annot"><span class="annottext">PendingLogs -&gt; Maybe Bool
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Ageneral%3APendingLogs%27"><span class="annot"><span class="annottext">PendingLogs -&gt; Maybe Bool
 </span><a href="Network.AWS.MQ.Types.PendingLogs.html#%24sel%3Ageneral%3APendingLogs%27"><span class="hs-identifier hs-var hs-var">general</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224428"><span id="local-6989586621679224430"><span class="annot"><span class="annottext">PendingLogs -&gt; PendingLogs -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224437"><span id="local-6989586621679224439"><span class="annot"><span class="annottext">PendingLogs -&gt; PendingLogs -&gt; Bool
 (PendingLogs -&gt; PendingLogs -&gt; Bool)
 -&gt; (PendingLogs -&gt; PendingLogs -&gt; Bool) -&gt; Eq PendingLogs
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PendingLogs -&gt; PendingLogs -&gt; Bool
 == :: PendingLogs -&gt; PendingLogs -&gt; Bool
 $c== :: PendingLogs -&gt; PendingLogs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224419"><span id="local-6989586621679224421"><span id="local-6989586621679224423"><span id="local-6989586621679224425"><span class="annot"><span class="annottext">ReadPrec [PendingLogs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224428"><span id="local-6989586621679224430"><span id="local-6989586621679224432"><span id="local-6989586621679224434"><span class="annot"><span class="annottext">ReadPrec [PendingLogs]
 ReadPrec PendingLogs
 Int -&gt; ReadS PendingLogs
 ReadS [PendingLogs]
@@ -64,7 +64,7 @@ readList :: ReadS [PendingLogs]
 $creadList :: ReadS [PendingLogs]
 readsPrec :: Int -&gt; ReadS PendingLogs
 $creadsPrec :: Int -&gt; ReadS PendingLogs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224412"><span id="local-6989586621679224414"><span id="local-6989586621679224416"><span class="annot"><span class="annottext">Int -&gt; PendingLogs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224421"><span id="local-6989586621679224423"><span id="local-6989586621679224425"><span class="annot"><span class="annottext">Int -&gt; PendingLogs -&gt; ShowS
 [PendingLogs] -&gt; ShowS
 PendingLogs -&gt; String
 (Int -&gt; PendingLogs -&gt; ShowS)
@@ -126,16 +126,16 @@ forall a. Maybe a
 -&gt; (PendingLogs -&gt; Maybe Bool -&gt; PendingLogs)
 -&gt; Lens PendingLogs PendingLogs (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs%27"><span class="hs-identifier hs-type">PendingLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224403"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs%27"><span class="hs-identifier hs-type">PendingLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224412"><span class="annot"><span class="annottext">Maybe Bool
 audit :: Maybe Bool
 $sel:audit:PendingLogs' :: PendingLogs -&gt; Maybe Bool
-</span><a href="#local-6989586621679224403"><span class="hs-identifier hs-var hs-var">audit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679224403"><span class="hs-identifier hs-var">audit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224402"><span class="annot"><span class="annottext">s :: PendingLogs
-</span><a href="#local-6989586621679224402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs%27"><span class="hs-identifier hs-type">PendingLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224401"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679224401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingLogs
-</span><a href="#local-6989586621679224402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audit:PendingLogs' :: Maybe Bool
+</span><a href="#local-6989586621679224412"><span class="hs-identifier hs-var hs-var">audit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679224412"><span class="hs-identifier hs-var">audit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224411"><span class="annot"><span class="annottext">s :: PendingLogs
+</span><a href="#local-6989586621679224411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs%27"><span class="hs-identifier hs-type">PendingLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224410"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679224410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingLogs
+</span><a href="#local-6989586621679224411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audit:PendingLogs' :: Maybe Bool
 </span><a href="Network.AWS.MQ.Types.PendingLogs.html#%24sel%3Aaudit%3APendingLogs%27"><span class="hs-identifier hs-var">audit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679224401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs"><span class="hs-identifier hs-type">PendingLogs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs"><span class="hs-identifier hs-type">PendingLogs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | Enables general logging.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#pendingLogs_general"><span class="hs-identifier hs-type">pendingLogs_general</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs"><span class="hs-identifier hs-type">PendingLogs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -144,19 +144,19 @@ $sel:audit:PendingLogs' :: PendingLogs -&gt; Maybe Bool
 -&gt; (PendingLogs -&gt; Maybe Bool -&gt; PendingLogs)
 -&gt; Lens PendingLogs PendingLogs (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs%27"><span class="hs-identifier hs-type">PendingLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224399"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs%27"><span class="hs-identifier hs-type">PendingLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224408"><span class="annot"><span class="annottext">Maybe Bool
 general :: Maybe Bool
 $sel:general:PendingLogs' :: PendingLogs -&gt; Maybe Bool
-</span><a href="#local-6989586621679224399"><span class="hs-identifier hs-var hs-var">general</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679224399"><span class="hs-identifier hs-var">general</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224398"><span class="annot"><span class="annottext">s :: PendingLogs
-</span><a href="#local-6989586621679224398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs%27"><span class="hs-identifier hs-type">PendingLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224397"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679224397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingLogs
-</span><a href="#local-6989586621679224398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:general:PendingLogs' :: Maybe Bool
+</span><a href="#local-6989586621679224408"><span class="hs-identifier hs-var hs-var">general</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679224408"><span class="hs-identifier hs-var">general</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224407"><span class="annot"><span class="annottext">s :: PendingLogs
+</span><a href="#local-6989586621679224407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs%27"><span class="hs-identifier hs-type">PendingLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224406"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679224406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingLogs
+</span><a href="#local-6989586621679224407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:general:PendingLogs' :: Maybe Bool
 </span><a href="Network.AWS.MQ.Types.PendingLogs.html#%24sel%3Ageneral%3APendingLogs%27"><span class="hs-identifier hs-var">general</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679224397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs"><span class="hs-identifier hs-type">PendingLogs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs"><span class="hs-identifier hs-type">PendingLogs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224394"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs"><span class="hs-identifier hs-type">PendingLogs</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679224392"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PendingLogs
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224403"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs"><span class="hs-identifier hs-type">PendingLogs</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679224401"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PendingLogs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PendingLogs) -&gt; Value -&gt; Parser PendingLogs
@@ -164,15 +164,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PendingLogs&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224389"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224389"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224398"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224398"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Bool -&gt; PendingLogs
 </span><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs%27"><span class="hs-identifier hs-var">PendingLogs'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Bool -&gt; PendingLogs)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Bool -&gt; PendingLogs)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224389"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679224398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audit&quot;</span></span><span class="hs-special">)</span><span>
@@ -180,13 +180,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser PendingLogs
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224389"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679224398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;general&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224383"><span id="local-6989586621679224385"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs"><span class="hs-identifier hs-type">PendingLogs</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224392"><span id="local-6989586621679224394"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs"><span class="hs-identifier hs-type">PendingLogs</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224380"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs"><span class="hs-identifier hs-type">PendingLogs</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224389"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.PendingLogs.html#PendingLogs"><span class="hs-identifier hs-type">PendingLogs</span></a></span></span><span>
 </span><span id="line-81"></span></pre></body></html>

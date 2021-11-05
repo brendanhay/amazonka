@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies restrictions for the batch build.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newBatchRestrictions' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679368997"><span id="local-6989586621679368998"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchRestrictions"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions"><span class="hs-identifier hs-var">BatchRestrictions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchRestrictions%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions%27"><span class="hs-identifier hs-var">BatchRestrictions'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679369006"><span id="local-6989586621679369007"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchRestrictions"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions"><span class="hs-identifier hs-var">BatchRestrictions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchRestrictions%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions%27"><span class="hs-identifier hs-var">BatchRestrictions'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the maximum number of builds allowed.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AmaximumBuildsAllowed%3ABatchRestrictions%27"><span class="annot"><span class="annottext">BatchRestrictions -&gt; Maybe Int
 </span><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#%24sel%3AmaximumBuildsAllowed%3ABatchRestrictions%27"><span class="hs-identifier hs-var hs-var">maximumBuildsAllowed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AcomputeTypesAllowed%3ABatchRestrictions%27"><span class="annot"><span class="annottext">BatchRestrictions -&gt; Maybe [Text]
 </span><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#%24sel%3AcomputeTypesAllowed%3ABatchRestrictions%27"><span class="hs-identifier hs-var hs-var">computeTypesAllowed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368990"><span id="local-6989586621679368992"><span class="annot"><span class="annottext">BatchRestrictions -&gt; BatchRestrictions -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368999"><span id="local-6989586621679369001"><span class="annot"><span class="annottext">BatchRestrictions -&gt; BatchRestrictions -&gt; Bool
 (BatchRestrictions -&gt; BatchRestrictions -&gt; Bool)
 -&gt; (BatchRestrictions -&gt; BatchRestrictions -&gt; Bool)
 -&gt; Eq BatchRestrictions
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchRestrictions -&gt; BatchRestrictions -&gt; Bool
 == :: BatchRestrictions -&gt; BatchRestrictions -&gt; Bool
 $c== :: BatchRestrictions -&gt; BatchRestrictions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368981"><span id="local-6989586621679368983"><span id="local-6989586621679368985"><span id="local-6989586621679368987"><span class="annot"><span class="annottext">ReadPrec [BatchRestrictions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368990"><span id="local-6989586621679368992"><span id="local-6989586621679368994"><span id="local-6989586621679368996"><span class="annot"><span class="annottext">ReadPrec [BatchRestrictions]
 ReadPrec BatchRestrictions
 Int -&gt; ReadS BatchRestrictions
 ReadS [BatchRestrictions]
@@ -66,7 +66,7 @@ readList :: ReadS [BatchRestrictions]
 $creadList :: ReadS [BatchRestrictions]
 readsPrec :: Int -&gt; ReadS BatchRestrictions
 $creadsPrec :: Int -&gt; ReadS BatchRestrictions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368974"><span id="local-6989586621679368976"><span id="local-6989586621679368978"><span class="annot"><span class="annottext">Int -&gt; BatchRestrictions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368983"><span id="local-6989586621679368985"><span id="local-6989586621679368987"><span class="annot"><span class="annottext">Int -&gt; BatchRestrictions -&gt; ShowS
 [BatchRestrictions] -&gt; ShowS
 BatchRestrictions -&gt; String
 (Int -&gt; BatchRestrictions -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
 -&gt; (BatchRestrictions -&gt; Maybe Int -&gt; BatchRestrictions)
 -&gt; Lens BatchRestrictions BatchRestrictions (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions%27"><span class="hs-identifier hs-type">BatchRestrictions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368965"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions%27"><span class="hs-identifier hs-type">BatchRestrictions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368974"><span class="annot"><span class="annottext">Maybe Int
 maximumBuildsAllowed :: Maybe Int
 $sel:maximumBuildsAllowed:BatchRestrictions' :: BatchRestrictions -&gt; Maybe Int
-</span><a href="#local-6989586621679368965"><span class="hs-identifier hs-var hs-var">maximumBuildsAllowed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679368965"><span class="hs-identifier hs-var">maximumBuildsAllowed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368964"><span class="annot"><span class="annottext">s :: BatchRestrictions
-</span><a href="#local-6989586621679368964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions%27"><span class="hs-identifier hs-type">BatchRestrictions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368963"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679368963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchRestrictions
-</span><a href="#local-6989586621679368964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumBuildsAllowed:BatchRestrictions' :: Maybe Int
+</span><a href="#local-6989586621679368974"><span class="hs-identifier hs-var hs-var">maximumBuildsAllowed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679368974"><span class="hs-identifier hs-var">maximumBuildsAllowed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368973"><span class="annot"><span class="annottext">s :: BatchRestrictions
+</span><a href="#local-6989586621679368973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions%27"><span class="hs-identifier hs-type">BatchRestrictions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368972"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679368972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchRestrictions
+</span><a href="#local-6989586621679368973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumBuildsAllowed:BatchRestrictions' :: Maybe Int
 </span><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#%24sel%3AmaximumBuildsAllowed%3ABatchRestrictions%27"><span class="hs-identifier hs-var">maximumBuildsAllowed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679368963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions"><span class="hs-identifier hs-type">BatchRestrictions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions"><span class="hs-identifier hs-type">BatchRestrictions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | An array of strings that specify the compute types that are allowed for</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- the batch build. See</span><span>
@@ -154,16 +154,16 @@ $sel:maximumBuildsAllowed:BatchRestrictions' :: BatchRestrictions -&gt; Maybe In
 -&gt; Lens
      BatchRestrictions BatchRestrictions (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions%27"><span class="hs-identifier hs-type">BatchRestrictions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368961"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions%27"><span class="hs-identifier hs-type">BatchRestrictions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368970"><span class="annot"><span class="annottext">Maybe [Text]
 computeTypesAllowed :: Maybe [Text]
 $sel:computeTypesAllowed:BatchRestrictions' :: BatchRestrictions -&gt; Maybe [Text]
-</span><a href="#local-6989586621679368961"><span class="hs-identifier hs-var hs-var">computeTypesAllowed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679368961"><span class="hs-identifier hs-var">computeTypesAllowed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368960"><span class="annot"><span class="annottext">s :: BatchRestrictions
-</span><a href="#local-6989586621679368960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions%27"><span class="hs-identifier hs-type">BatchRestrictions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368959"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679368959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchRestrictions
-</span><a href="#local-6989586621679368960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeTypesAllowed:BatchRestrictions' :: Maybe [Text]
+</span><a href="#local-6989586621679368970"><span class="hs-identifier hs-var hs-var">computeTypesAllowed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679368970"><span class="hs-identifier hs-var">computeTypesAllowed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368969"><span class="annot"><span class="annottext">s :: BatchRestrictions
+</span><a href="#local-6989586621679368969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions%27"><span class="hs-identifier hs-type">BatchRestrictions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368968"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679368968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchRestrictions
+</span><a href="#local-6989586621679368969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeTypesAllowed:BatchRestrictions' :: Maybe [Text]
 </span><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#%24sel%3AcomputeTypesAllowed%3ABatchRestrictions%27"><span class="hs-identifier hs-var">computeTypesAllowed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679368959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions"><span class="hs-identifier hs-type">BatchRestrictions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679368968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions"><span class="hs-identifier hs-type">BatchRestrictions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; BatchRestrictions -&gt; f BatchRestrictions)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -180,8 +180,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368953"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions"><span class="hs-identifier hs-type">BatchRestrictions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679368951"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchRestrictions
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368962"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions"><span class="hs-identifier hs-type">BatchRestrictions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679368960"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchRestrictions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BatchRestrictions)
@@ -191,15 +191,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BatchRestrictions&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368948"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368948"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368957"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368957"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe [Text] -&gt; BatchRestrictions
 </span><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions%27"><span class="hs-identifier hs-var">BatchRestrictions'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe [Text] -&gt; BatchRestrictions)
 -&gt; Parser (Maybe Int) -&gt; Parser (Maybe [Text] -&gt; BatchRestrictions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679368957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maximumBuildsAllowed&quot;</span></span><span class="hs-special">)</span><span>
@@ -207,7 +207,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Text]) -&gt; Parser BatchRestrictions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679368957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;computeTypesAllowed&quot;</span></span><span>
@@ -220,19 +220,19 @@ forall a. Monoid a =&gt; a
 </span><span id="line-83"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368941"><span id="local-6989586621679368943"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions"><span class="hs-identifier hs-type">BatchRestrictions</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368950"><span id="local-6989586621679368952"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions"><span class="hs-identifier hs-type">BatchRestrictions</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368938"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions"><span class="hs-identifier hs-type">BatchRestrictions</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368947"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions"><span class="hs-identifier hs-type">BatchRestrictions</span></a></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368930"><span id="local-6989586621679368932"><span id="local-6989586621679368934"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions"><span class="hs-identifier hs-type">BatchRestrictions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679368928"><span class="annot"><span class="annottext">toJSON :: BatchRestrictions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions%27"><span class="hs-identifier hs-type">BatchRestrictions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368925"><span id="local-6989586621679368926"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368939"><span id="local-6989586621679368941"><span id="local-6989586621679368943"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions"><span class="hs-identifier hs-type">BatchRestrictions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679368937"><span class="annot"><span class="annottext">toJSON :: BatchRestrictions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BatchRestrictions.html#BatchRestrictions%27"><span class="hs-identifier hs-type">BatchRestrictions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368934"><span id="local-6989586621679368935"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Text]
 computeTypesAllowed :: Maybe [Text]
 maximumBuildsAllowed :: Maybe Int
 $sel:computeTypesAllowed:BatchRestrictions' :: BatchRestrictions -&gt; Maybe [Text]
 $sel:maximumBuildsAllowed:BatchRestrictions' :: BatchRestrictions -&gt; Maybe Int
-</span><a href="#local-6989586621679368925"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679368934"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -245,7 +245,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679368926"><span class="hs-identifier hs-var">maximumBuildsAllowed</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679368935"><span class="hs-identifier hs-var">maximumBuildsAllowed</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;computeTypesAllowed&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -253,7 +253,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679368925"><span class="hs-identifier hs-var">computeTypesAllowed</span></a></span><span>
+</span><a href="#local-6989586621679368934"><span class="hs-identifier hs-var">computeTypesAllowed</span></a></span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span></pre></body></html>

@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | The input values for @AddTagsToVault@.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newAddTagsToVault' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679226049"><span id="local-6989586621679226050"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsToVault"><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-var">AddTagsToVault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsToVault%27"><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-var">AddTagsToVault'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679226058"><span id="local-6989586621679226059"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsToVault"><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-var">AddTagsToVault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsToVault%27"><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-var">AddTagsToVault'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags to add to the vault. Each tag is composed of a key and a value.</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- The value can be an empty string.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3Atags%3AAddTagsToVault%27"><span class="annot"><span class="annottext">AddTagsToVault -&gt; Maybe (HashMap Text Text)
@@ -69,7 +69,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AvaultName%3AAddTagsToVault%27"><span class="annot"><span class="annottext">AddTagsToVault -&gt; Text
 </span><a href="Network.AWS.Glacier.AddTagsToVault.html#%24sel%3AvaultName%3AAddTagsToVault%27"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226041"><span id="local-6989586621679226043"><span class="annot"><span class="annottext">AddTagsToVault -&gt; AddTagsToVault -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226050"><span id="local-6989586621679226052"><span class="annot"><span class="annottext">AddTagsToVault -&gt; AddTagsToVault -&gt; Bool
 (AddTagsToVault -&gt; AddTagsToVault -&gt; Bool)
 -&gt; (AddTagsToVault -&gt; AddTagsToVault -&gt; Bool) -&gt; Eq AddTagsToVault
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddTagsToVault -&gt; AddTagsToVault -&gt; Bool
 == :: AddTagsToVault -&gt; AddTagsToVault -&gt; Bool
 $c== :: AddTagsToVault -&gt; AddTagsToVault -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226032"><span id="local-6989586621679226034"><span id="local-6989586621679226036"><span id="local-6989586621679226038"><span class="annot"><span class="annottext">ReadPrec [AddTagsToVault]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226041"><span id="local-6989586621679226043"><span id="local-6989586621679226045"><span id="local-6989586621679226047"><span class="annot"><span class="annottext">ReadPrec [AddTagsToVault]
 ReadPrec AddTagsToVault
 Int -&gt; ReadS AddTagsToVault
 ReadS [AddTagsToVault]
@@ -97,7 +97,7 @@ readList :: ReadS [AddTagsToVault]
 $creadList :: ReadS [AddTagsToVault]
 readsPrec :: Int -&gt; ReadS AddTagsToVault
 $creadsPrec :: Int -&gt; ReadS AddTagsToVault
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226025"><span id="local-6989586621679226027"><span id="local-6989586621679226029"><span class="annot"><span class="annottext">Int -&gt; AddTagsToVault -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226034"><span id="local-6989586621679226036"><span id="local-6989586621679226038"><span class="annot"><span class="annottext">Int -&gt; AddTagsToVault -&gt; ShowS
 [AddTagsToVault] -&gt; ShowS
 AddTagsToVault -&gt; String
 (Int -&gt; AddTagsToVault -&gt; ShowS)
@@ -148,9 +148,9 @@ $cfrom :: forall x. AddTagsToVault -&gt; Rep AddTagsToVault x
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span><span>
 </span><span id="line-95"></span><span id="newAddTagsToVault"><span class="annot"><span class="annottext">newAddTagsToVault :: Text -&gt; Text -&gt; AddTagsToVault
-</span><a href="Network.AWS.Glacier.AddTagsToVault.html#newAddTagsToVault"><span class="hs-identifier hs-var hs-var">newAddTagsToVault</span></a></span></span><span> </span><span id="local-6989586621679226020"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226020"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679226019"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226019"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.AddTagsToVault.html#newAddTagsToVault"><span class="hs-identifier hs-var hs-var">newAddTagsToVault</span></a></span></span><span> </span><span id="local-6989586621679226029"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226029"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679226028"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226028"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">AddTagsToVault' :: Maybe (HashMap Text Text) -&gt; Text -&gt; Text -&gt; AddTagsToVault
 </span><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-type">AddTagsToVault'</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:AddTagsToVault' :: Maybe (HashMap Text Text)
@@ -159,10 +159,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:AddTagsToVault' :: Text
 </span><a href="Network.AWS.Glacier.AddTagsToVault.html#%24sel%3AaccountId%3AAddTagsToVault%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226020"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226029"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:AddTagsToVault' :: Text
 </span><a href="Network.AWS.Glacier.AddTagsToVault.html#%24sel%3AvaultName%3AAddTagsToVault%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226019"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
+</span><a href="#local-6989586621679226028"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The tags to add to the vault. Each tag is composed of a key and a value.</span><span>
@@ -178,16 +178,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-type">AddTagsToVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226016"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-type">AddTagsToVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226025"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:AddTagsToVault' :: AddTagsToVault -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679226016"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679226016"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226015"><span class="annot"><span class="annottext">s :: AddTagsToVault
-</span><a href="#local-6989586621679226015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-type">AddTagsToVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226014"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679226014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToVault
-</span><a href="#local-6989586621679226015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AddTagsToVault' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679226025"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679226025"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226024"><span class="annot"><span class="annottext">s :: AddTagsToVault
+</span><a href="#local-6989586621679226024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-type">AddTagsToVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226023"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679226023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToVault
+</span><a href="#local-6989586621679226024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AddTagsToVault' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Glacier.AddTagsToVault.html#%24sel%3Atags%3AAddTagsToVault%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679226014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679226023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; AddTagsToVault -&gt; f AddTagsToVault)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -227,16 +227,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (AddTagsToVault -&gt; Text -&gt; AddTagsToVault)
 -&gt; Lens AddTagsToVault AddTagsToVault Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-type">AddTagsToVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226010"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-type">AddTagsToVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226019"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:AddTagsToVault' :: AddTagsToVault -&gt; Text
-</span><a href="#local-6989586621679226010"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226010"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226009"><span class="annot"><span class="annottext">s :: AddTagsToVault
-</span><a href="#local-6989586621679226009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-type">AddTagsToVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226008"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToVault
-</span><a href="#local-6989586621679226009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:AddTagsToVault' :: Text
+</span><a href="#local-6989586621679226019"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226019"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226018"><span class="annot"><span class="annottext">s :: AddTagsToVault
+</span><a href="#local-6989586621679226018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-type">AddTagsToVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226017"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToVault
+</span><a href="#local-6989586621679226018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:AddTagsToVault' :: Text
 </span><a href="Network.AWS.Glacier.AddTagsToVault.html#%24sel%3AaccountId%3AAddTagsToVault%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The name of the vault.</span><span>
 </span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#addTagsToVault_vaultName"><span class="hs-identifier hs-type">addTagsToVault_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -245,22 +245,22 @@ $sel:accountId:AddTagsToVault' :: AddTagsToVault -&gt; Text
 -&gt; (AddTagsToVault -&gt; Text -&gt; AddTagsToVault)
 -&gt; Lens AddTagsToVault AddTagsToVault Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-type">AddTagsToVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226007"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-type">AddTagsToVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226016"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 $sel:vaultName:AddTagsToVault' :: AddTagsToVault -&gt; Text
-</span><a href="#local-6989586621679226007"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226007"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226006"><span class="annot"><span class="annottext">s :: AddTagsToVault
-</span><a href="#local-6989586621679226006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-type">AddTagsToVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226005"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToVault
-</span><a href="#local-6989586621679226006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:AddTagsToVault' :: Text
+</span><a href="#local-6989586621679226016"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226016"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226015"><span class="annot"><span class="annottext">s :: AddTagsToVault
+</span><a href="#local-6989586621679226015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-type">AddTagsToVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226014"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToVault
+</span><a href="#local-6989586621679226015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:AddTagsToVault' :: Text
 </span><a href="Network.AWS.Glacier.AddTagsToVault.html#%24sel%3AvaultName%3AAddTagsToVault%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVaultResponse"><span class="hs-identifier hs-type">AddTagsToVaultResponse</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679226001"><span class="annot"><span class="annottext">request :: AddTagsToVault -&gt; Request AddTagsToVault
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679226010"><span class="annot"><span class="annottext">request :: AddTagsToVault -&gt; Request AddTagsToVault
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; Request AddTagsToVault -&gt; Request AddTagsToVault
 forall a. ByteString -&gt; Request a -&gt; Request a
@@ -276,7 +276,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679225995"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679226004"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AddTagsToVault
 -&gt; ClientResponse ClientBody
@@ -300,21 +300,21 @@ AWSResponse a
 AddTagsToVaultResponse
 </span><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVaultResponse%27"><span class="hs-identifier hs-var">AddTagsToVaultResponse'</span></a></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225988"><span id="local-6989586621679225990"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225997"><span id="local-6989586621679225999"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225985"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225994"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679225981"><span class="annot"><span class="annottext">toHeaders :: AddTagsToVault -&gt; [Header]
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679225990"><span class="annot"><span class="annottext">toHeaders :: AddTagsToVault -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; AddTagsToVault -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225972"><span id="local-6989586621679225974"><span id="local-6989586621679225976"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679225970"><span class="annot"><span class="annottext">toJSON :: AddTagsToVault -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-type">AddTagsToVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225966"><span id="local-6989586621679225967"><span id="local-6989586621679225968"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225981"><span id="local-6989586621679225983"><span id="local-6989586621679225985"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679225979"><span class="annot"><span class="annottext">toJSON :: AddTagsToVault -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-type">AddTagsToVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225975"><span id="local-6989586621679225976"><span id="local-6989586621679225977"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 Text
 vaultName :: Text
 accountId :: Text
@@ -322,7 +322,7 @@ tags :: Maybe (HashMap Text Text)
 $sel:vaultName:AddTagsToVault' :: AddTagsToVault -&gt; Text
 $sel:accountId:AddTagsToVault' :: AddTagsToVault -&gt; Text
 $sel:tags:AddTagsToVault' :: AddTagsToVault -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679225966"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679225975"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -335,12 +335,12 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679225968"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679225977"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679225959"><span class="annot"><span class="annottext">toPath :: AddTagsToVault -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-type">AddTagsToVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225955"><span id="local-6989586621679225956"><span id="local-6989586621679225957"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679225968"><span class="annot"><span class="annottext">toPath :: AddTagsToVault -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault%27"><span class="hs-identifier hs-type">AddTagsToVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225964"><span id="local-6989586621679225965"><span id="local-6989586621679225966"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 Text
 vaultName :: Text
 accountId :: Text
@@ -348,7 +348,7 @@ tags :: Maybe (HashMap Text Text)
 $sel:vaultName:AddTagsToVault' :: AddTagsToVault -&gt; Text
 $sel:accountId:AddTagsToVault' :: AddTagsToVault -&gt; Text
 $sel:tags:AddTagsToVault' :: AddTagsToVault -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679225955"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679225964"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -357,19 +357,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225956"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225965"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225955"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225964"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/tags&quot;</span></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVault"><span class="hs-identifier hs-type">AddTagsToVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679225951"><span class="annot"><span class="annottext">toQuery :: AddTagsToVault -&gt; QueryString
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679225960"><span class="annot"><span class="annottext">toQuery :: AddTagsToVault -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; AddTagsToVault -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -379,10 +379,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;operation=add&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newAddTagsToVaultResponse' smart constructor.</span><span>
-</span><span id="line-158"></span><span id="local-6989586621679225948"><span id="local-6989586621679225949"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsToVaultResponse"><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVaultResponse"><span class="hs-identifier hs-var">AddTagsToVaultResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsToVaultResponse%27"><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVaultResponse%27"><span class="hs-identifier hs-var">AddTagsToVaultResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span id="local-6989586621679225957"><span id="local-6989586621679225958"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsToVaultResponse"><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVaultResponse"><span class="hs-identifier hs-var">AddTagsToVaultResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsToVaultResponse%27"><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVaultResponse%27"><span class="hs-identifier hs-var">AddTagsToVaultResponse'</span></a></span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225944"><span id="local-6989586621679225946"><span class="annot"><span class="annottext">AddTagsToVaultResponse -&gt; AddTagsToVaultResponse -&gt; Bool
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225953"><span id="local-6989586621679225955"><span class="annot"><span class="annottext">AddTagsToVaultResponse -&gt; AddTagsToVaultResponse -&gt; Bool
 (AddTagsToVaultResponse -&gt; AddTagsToVaultResponse -&gt; Bool)
 -&gt; (AddTagsToVaultResponse -&gt; AddTagsToVaultResponse -&gt; Bool)
 -&gt; Eq AddTagsToVaultResponse
@@ -391,7 +391,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddTagsToVaultResponse -&gt; AddTagsToVaultResponse -&gt; Bool
 == :: AddTagsToVaultResponse -&gt; AddTagsToVaultResponse -&gt; Bool
 $c== :: AddTagsToVaultResponse -&gt; AddTagsToVaultResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225936"><span id="local-6989586621679225938"><span id="local-6989586621679225940"><span id="local-6989586621679225942"><span class="annot"><span class="annottext">ReadPrec [AddTagsToVaultResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225945"><span id="local-6989586621679225947"><span id="local-6989586621679225949"><span id="local-6989586621679225951"><span class="annot"><span class="annottext">ReadPrec [AddTagsToVaultResponse]
 ReadPrec AddTagsToVaultResponse
 Int -&gt; ReadS AddTagsToVaultResponse
 ReadS [AddTagsToVaultResponse]
@@ -411,7 +411,7 @@ readList :: ReadS [AddTagsToVaultResponse]
 $creadList :: ReadS [AddTagsToVaultResponse]
 readsPrec :: Int -&gt; ReadS AddTagsToVaultResponse
 $creadsPrec :: Int -&gt; ReadS AddTagsToVaultResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225930"><span id="local-6989586621679225932"><span id="local-6989586621679225934"><span class="annot"><span class="annottext">Int -&gt; AddTagsToVaultResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225939"><span id="local-6989586621679225941"><span id="local-6989586621679225943"><span class="annot"><span class="annottext">Int -&gt; AddTagsToVaultResponse -&gt; ShowS
 [AddTagsToVaultResponse] -&gt; ShowS
 AddTagsToVaultResponse -&gt; String
 (Int -&gt; AddTagsToVaultResponse -&gt; ShowS)
@@ -448,5 +448,5 @@ $cfrom :: forall x. AddTagsToVaultResponse -&gt; Rep AddTagsToVaultResponse x
 </span><a href="Network.AWS.Glacier.AddTagsToVault.html#newAddTagsToVaultResponse"><span class="hs-identifier hs-var hs-var">newAddTagsToVaultResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AddTagsToVaultResponse
 </span><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVaultResponse%27"><span class="hs-identifier hs-var">AddTagsToVaultResponse'</span></a></span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225926"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVaultResponse"><span class="hs-identifier hs-type">AddTagsToVaultResponse</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225935"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.AddTagsToVault.html#AddTagsToVaultResponse"><span class="hs-identifier hs-type">AddTagsToVaultResponse</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

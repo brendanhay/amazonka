@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.HoneyCode.Types.TableDataImportJobMetadata</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.HoneyCode.Types.TableDataImportJobMetadata</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.ImportDataSource.html"><span class="hs-identifier">Network.AWS.HoneyCode.Types.ImportDataSource</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.ImportJobSubmitter.html"><span class="hs-identifier">Network.AWS.HoneyCode.Types.ImportJobSubmitter</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.ImportOptions.html"><span class="hs-identifier">Network.AWS.HoneyCode.Types.ImportOptions</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | The metadata associated with the table data import job that was</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- submitted.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newTableDataImportJobMetadata' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679180556"><span id="local-6989586621679180557"></span></span><span class="hs-keyword">data</span><span> </span><span id="TableDataImportJobMetadata"><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata"><span class="hs-identifier hs-var">TableDataImportJobMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TableDataImportJobMetadata%27"><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata%27"><span class="hs-identifier hs-var">TableDataImportJobMetadata'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the submitter of the import request.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Asubmitter%3ATableDataImportJobMetadata%27"><span class="annot"><span class="annottext">TableDataImportJobMetadata -&gt; ImportJobSubmitter
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#%24sel%3Asubmitter%3ATableDataImportJobMetadata%27"><span class="hs-identifier hs-var hs-var">submitter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.ImportJobSubmitter.html#ImportJobSubmitter"><span class="hs-identifier hs-type">ImportJobSubmitter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The timestamp when the job was submitted for import.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsubmitTime%3ATableDataImportJobMetadata%27"><span class="annot"><span class="annottext">TableDataImportJobMetadata -&gt; POSIX
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#%24sel%3AsubmitTime%3ATableDataImportJobMetadata%27"><span class="hs-identifier hs-var hs-var">submitTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The options that was specified at the time of submitting the import</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AimportOptions%3ATableDataImportJobMetadata%27"><span class="annot"><span class="annottext">TableDataImportJobMetadata -&gt; ImportOptions
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#%24sel%3AimportOptions%3ATableDataImportJobMetadata%27"><span class="hs-identifier hs-var hs-var">importOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.ImportOptions.html#ImportOptions"><span class="hs-identifier hs-type">ImportOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The source of the data that was submitted for import.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AdataSource%3ATableDataImportJobMetadata%27"><span class="annot"><span class="annottext">TableDataImportJobMetadata -&gt; ImportDataSource
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#%24sel%3AdataSource%3ATableDataImportJobMetadata%27"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180547"><span id="local-6989586621679180549"><span class="annot"><span class="annottext">TableDataImportJobMetadata -&gt; TableDataImportJobMetadata -&gt; Bool
+(TableDataImportJobMetadata -&gt; TableDataImportJobMetadata -&gt; Bool)
+-&gt; (TableDataImportJobMetadata
+    -&gt; TableDataImportJobMetadata -&gt; Bool)
+-&gt; Eq TableDataImportJobMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TableDataImportJobMetadata -&gt; TableDataImportJobMetadata -&gt; Bool
+$c/= :: TableDataImportJobMetadata -&gt; TableDataImportJobMetadata -&gt; Bool
+== :: TableDataImportJobMetadata -&gt; TableDataImportJobMetadata -&gt; Bool
+$c== :: TableDataImportJobMetadata -&gt; TableDataImportJobMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180540"><span id="local-6989586621679180542"><span id="local-6989586621679180544"><span class="annot"><span class="annottext">Int -&gt; TableDataImportJobMetadata -&gt; ShowS
+[TableDataImportJobMetadata] -&gt; ShowS
+TableDataImportJobMetadata -&gt; String
+(Int -&gt; TableDataImportJobMetadata -&gt; ShowS)
+-&gt; (TableDataImportJobMetadata -&gt; String)
+-&gt; ([TableDataImportJobMetadata] -&gt; ShowS)
+-&gt; Show TableDataImportJobMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TableDataImportJobMetadata] -&gt; ShowS
+$cshowList :: [TableDataImportJobMetadata] -&gt; ShowS
+show :: TableDataImportJobMetadata -&gt; String
+$cshow :: TableDataImportJobMetadata -&gt; String
+showsPrec :: Int -&gt; TableDataImportJobMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; TableDataImportJobMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ TableDataImportJobMetadata -&gt; Rep TableDataImportJobMetadata x)
+-&gt; (forall x.
+    Rep TableDataImportJobMetadata x -&gt; TableDataImportJobMetadata)
+-&gt; Generic TableDataImportJobMetadata
+forall x.
+Rep TableDataImportJobMetadata x -&gt; TableDataImportJobMetadata
+forall x.
+TableDataImportJobMetadata -&gt; Rep TableDataImportJobMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TableDataImportJobMetadata x -&gt; TableDataImportJobMetadata
+$cfrom :: forall x.
+TableDataImportJobMetadata -&gt; Rep TableDataImportJobMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'TableDataImportJobMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'submitter', 'tableDataImportJobMetadata_submitter' - Details about the submitter of the import request.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'submitTime', 'tableDataImportJobMetadata_submitTime' - The timestamp when the job was submitted for import.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'importOptions', 'tableDataImportJobMetadata_importOptions' - The options that was specified at the time of submitting the import</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'dataSource', 'tableDataImportJobMetadata_dataSource' - The source of the data that was submitted for import.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#newTableDataImportJobMetadata"><span class="hs-identifier hs-type">newTableDataImportJobMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-comment">-- | 'submitter'</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.ImportJobSubmitter.html#ImportJobSubmitter"><span class="hs-identifier hs-type">ImportJobSubmitter</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'submitTime'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'importOptions'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.ImportOptions.html#ImportOptions"><span class="hs-identifier hs-type">ImportOptions</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'dataSource'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata"><span class="hs-identifier hs-type">TableDataImportJobMetadata</span></a></span><span>
+</span><span id="line-72"></span><span id="newTableDataImportJobMetadata"><span class="annot"><span class="annottext">newTableDataImportJobMetadata :: ImportJobSubmitter
+-&gt; UTCTime
+-&gt; ImportOptions
+-&gt; ImportDataSource
+-&gt; TableDataImportJobMetadata
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#newTableDataImportJobMetadata"><span class="hs-identifier hs-var hs-var">newTableDataImportJobMetadata</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679180534"><span class="annot"><span class="annottext">ImportJobSubmitter
+</span><a href="#local-6989586621679180534"><span class="hs-identifier hs-var">pSubmitter_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679180533"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679180533"><span class="hs-identifier hs-var">pSubmitTime_</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679180532"><span class="annot"><span class="annottext">ImportOptions
+</span><a href="#local-6989586621679180532"><span class="hs-identifier hs-var">pImportOptions_</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679180531"><span class="annot"><span class="annottext">ImportDataSource
+</span><a href="#local-6989586621679180531"><span class="hs-identifier hs-var">pDataSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">TableDataImportJobMetadata' :: ImportJobSubmitter
+-&gt; POSIX
+-&gt; ImportOptions
+-&gt; ImportDataSource
+-&gt; TableDataImportJobMetadata
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata%27"><span class="hs-identifier hs-type">TableDataImportJobMetadata'</span></a></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:submitter:TableDataImportJobMetadata' :: ImportJobSubmitter
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#%24sel%3Asubmitter%3ATableDataImportJobMetadata%27"><span class="hs-identifier hs-var">submitter</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">ImportJobSubmitter
+</span><a href="#local-6989586621679180534"><span class="hs-identifier hs-var">pSubmitter_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:submitTime:TableDataImportJobMetadata' :: POSIX
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#%24sel%3AsubmitTime%3ATableDataImportJobMetadata%27"><span class="hs-identifier hs-var">submitTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679180533"><span class="hs-identifier hs-var">pSubmitTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:importOptions:TableDataImportJobMetadata' :: ImportOptions
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#%24sel%3AimportOptions%3ATableDataImportJobMetadata%27"><span class="hs-identifier hs-var">importOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImportOptions
+</span><a href="#local-6989586621679180532"><span class="hs-identifier hs-var">pImportOptions_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSource:TableDataImportJobMetadata' :: ImportDataSource
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#%24sel%3AdataSource%3ATableDataImportJobMetadata%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImportDataSource
+</span><a href="#local-6989586621679180531"><span class="hs-identifier hs-var">pDataSource_</span></a></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Details about the submitter of the import request.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#tableDataImportJobMetadata_submitter"><span class="hs-identifier hs-type">tableDataImportJobMetadata_submitter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata"><span class="hs-identifier hs-type">TableDataImportJobMetadata</span></a></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.ImportJobSubmitter.html#ImportJobSubmitter"><span class="hs-identifier hs-type">ImportJobSubmitter</span></a></span><span>
+</span><span id="line-87"></span><span id="tableDataImportJobMetadata_submitter"><span class="annot"><span class="annottext">tableDataImportJobMetadata_submitter :: (ImportJobSubmitter -&gt; f ImportJobSubmitter)
+-&gt; TableDataImportJobMetadata -&gt; f TableDataImportJobMetadata
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#tableDataImportJobMetadata_submitter"><span class="hs-identifier hs-var hs-var">tableDataImportJobMetadata_submitter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableDataImportJobMetadata -&gt; ImportJobSubmitter)
+-&gt; (TableDataImportJobMetadata
+    -&gt; ImportJobSubmitter -&gt; TableDataImportJobMetadata)
+-&gt; Lens
+     TableDataImportJobMetadata
+     TableDataImportJobMetadata
+     ImportJobSubmitter
+     ImportJobSubmitter
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata%27"><span class="hs-identifier hs-type">TableDataImportJobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180525"><span class="annot"><span class="annottext">ImportJobSubmitter
+submitter :: ImportJobSubmitter
+$sel:submitter:TableDataImportJobMetadata' :: TableDataImportJobMetadata -&gt; ImportJobSubmitter
+</span><a href="#local-6989586621679180525"><span class="hs-identifier hs-var hs-var">submitter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobSubmitter
+</span><a href="#local-6989586621679180525"><span class="hs-identifier hs-var">submitter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180524"><span class="annot"><span class="annottext">s :: TableDataImportJobMetadata
+</span><a href="#local-6989586621679180524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata%27"><span class="hs-identifier hs-type">TableDataImportJobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180523"><span class="annot"><span class="annottext">ImportJobSubmitter
+</span><a href="#local-6989586621679180523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableDataImportJobMetadata
+</span><a href="#local-6989586621679180524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:submitter:TableDataImportJobMetadata' :: ImportJobSubmitter
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#%24sel%3Asubmitter%3ATableDataImportJobMetadata%27"><span class="hs-identifier hs-var">submitter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImportJobSubmitter
+</span><a href="#local-6989586621679180523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata"><span class="hs-identifier hs-type">TableDataImportJobMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The timestamp when the job was submitted for import.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#tableDataImportJobMetadata_submitTime"><span class="hs-identifier hs-type">tableDataImportJobMetadata_submitTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata"><span class="hs-identifier hs-type">TableDataImportJobMetadata</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-91"></span><span id="tableDataImportJobMetadata_submitTime"><span class="annot"><span class="annottext">tableDataImportJobMetadata_submitTime :: (UTCTime -&gt; f UTCTime)
+-&gt; TableDataImportJobMetadata -&gt; f TableDataImportJobMetadata
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#tableDataImportJobMetadata_submitTime"><span class="hs-identifier hs-var hs-var">tableDataImportJobMetadata_submitTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableDataImportJobMetadata -&gt; POSIX)
+-&gt; (TableDataImportJobMetadata
+    -&gt; POSIX -&gt; TableDataImportJobMetadata)
+-&gt; Lens
+     TableDataImportJobMetadata TableDataImportJobMetadata POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata%27"><span class="hs-identifier hs-type">TableDataImportJobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180521"><span class="annot"><span class="annottext">POSIX
+submitTime :: POSIX
+$sel:submitTime:TableDataImportJobMetadata' :: TableDataImportJobMetadata -&gt; POSIX
+</span><a href="#local-6989586621679180521"><span class="hs-identifier hs-var hs-var">submitTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679180521"><span class="hs-identifier hs-var">submitTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180520"><span class="annot"><span class="annottext">s :: TableDataImportJobMetadata
+</span><a href="#local-6989586621679180520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata%27"><span class="hs-identifier hs-type">TableDataImportJobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180519"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679180519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableDataImportJobMetadata
+</span><a href="#local-6989586621679180520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:submitTime:TableDataImportJobMetadata' :: POSIX
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#%24sel%3AsubmitTime%3ATableDataImportJobMetadata%27"><span class="hs-identifier hs-var">submitTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679180519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata"><span class="hs-identifier hs-type">TableDataImportJobMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; TableDataImportJobMetadata -&gt; f TableDataImportJobMetadata)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; TableDataImportJobMetadata
+-&gt; f TableDataImportJobMetadata
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The options that was specified at the time of submitting the import</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#tableDataImportJobMetadata_importOptions"><span class="hs-identifier hs-type">tableDataImportJobMetadata_importOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata"><span class="hs-identifier hs-type">TableDataImportJobMetadata</span></a></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.ImportOptions.html#ImportOptions"><span class="hs-identifier hs-type">ImportOptions</span></a></span><span>
+</span><span id="line-96"></span><span id="tableDataImportJobMetadata_importOptions"><span class="annot"><span class="annottext">tableDataImportJobMetadata_importOptions :: (ImportOptions -&gt; f ImportOptions)
+-&gt; TableDataImportJobMetadata -&gt; f TableDataImportJobMetadata
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#tableDataImportJobMetadata_importOptions"><span class="hs-identifier hs-var hs-var">tableDataImportJobMetadata_importOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableDataImportJobMetadata -&gt; ImportOptions)
+-&gt; (TableDataImportJobMetadata
+    -&gt; ImportOptions -&gt; TableDataImportJobMetadata)
+-&gt; Lens
+     TableDataImportJobMetadata
+     TableDataImportJobMetadata
+     ImportOptions
+     ImportOptions
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata%27"><span class="hs-identifier hs-type">TableDataImportJobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180516"><span class="annot"><span class="annottext">ImportOptions
+importOptions :: ImportOptions
+$sel:importOptions:TableDataImportJobMetadata' :: TableDataImportJobMetadata -&gt; ImportOptions
+</span><a href="#local-6989586621679180516"><span class="hs-identifier hs-var hs-var">importOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportOptions
+</span><a href="#local-6989586621679180516"><span class="hs-identifier hs-var">importOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180515"><span class="annot"><span class="annottext">s :: TableDataImportJobMetadata
+</span><a href="#local-6989586621679180515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata%27"><span class="hs-identifier hs-type">TableDataImportJobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180514"><span class="annot"><span class="annottext">ImportOptions
+</span><a href="#local-6989586621679180514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableDataImportJobMetadata
+</span><a href="#local-6989586621679180515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importOptions:TableDataImportJobMetadata' :: ImportOptions
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#%24sel%3AimportOptions%3ATableDataImportJobMetadata%27"><span class="hs-identifier hs-var">importOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImportOptions
+</span><a href="#local-6989586621679180514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata"><span class="hs-identifier hs-type">TableDataImportJobMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The source of the data that was submitted for import.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#tableDataImportJobMetadata_dataSource"><span class="hs-identifier hs-type">tableDataImportJobMetadata_dataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata"><span class="hs-identifier hs-type">TableDataImportJobMetadata</span></a></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.ImportDataSource.html#ImportDataSource"><span class="hs-identifier hs-type">ImportDataSource</span></a></span><span>
+</span><span id="line-100"></span><span id="tableDataImportJobMetadata_dataSource"><span class="annot"><span class="annottext">tableDataImportJobMetadata_dataSource :: (ImportDataSource -&gt; f ImportDataSource)
+-&gt; TableDataImportJobMetadata -&gt; f TableDataImportJobMetadata
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#tableDataImportJobMetadata_dataSource"><span class="hs-identifier hs-var hs-var">tableDataImportJobMetadata_dataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableDataImportJobMetadata -&gt; ImportDataSource)
+-&gt; (TableDataImportJobMetadata
+    -&gt; ImportDataSource -&gt; TableDataImportJobMetadata)
+-&gt; Lens
+     TableDataImportJobMetadata
+     TableDataImportJobMetadata
+     ImportDataSource
+     ImportDataSource
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata%27"><span class="hs-identifier hs-type">TableDataImportJobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180512"><span class="annot"><span class="annottext">ImportDataSource
+dataSource :: ImportDataSource
+$sel:dataSource:TableDataImportJobMetadata' :: TableDataImportJobMetadata -&gt; ImportDataSource
+</span><a href="#local-6989586621679180512"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportDataSource
+</span><a href="#local-6989586621679180512"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180511"><span class="annot"><span class="annottext">s :: TableDataImportJobMetadata
+</span><a href="#local-6989586621679180511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata%27"><span class="hs-identifier hs-type">TableDataImportJobMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180510"><span class="annot"><span class="annottext">ImportDataSource
+</span><a href="#local-6989586621679180510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableDataImportJobMetadata
+</span><a href="#local-6989586621679180511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSource:TableDataImportJobMetadata' :: ImportDataSource
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#%24sel%3AdataSource%3ATableDataImportJobMetadata%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImportDataSource
+</span><a href="#local-6989586621679180510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata"><span class="hs-identifier hs-type">TableDataImportJobMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180507"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata"><span class="hs-identifier hs-type">TableDataImportJobMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679180505"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TableDataImportJobMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TableDataImportJobMetadata)
+-&gt; Value
+-&gt; Parser TableDataImportJobMetadata
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TableDataImportJobMetadata&quot;</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679180502"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180502"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">ImportJobSubmitter
+-&gt; POSIX
+-&gt; ImportOptions
+-&gt; ImportDataSource
+-&gt; TableDataImportJobMetadata
+</span><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata%27"><span class="hs-identifier hs-var">TableDataImportJobMetadata'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(ImportJobSubmitter
+ -&gt; POSIX
+ -&gt; ImportOptions
+ -&gt; ImportDataSource
+ -&gt; TableDataImportJobMetadata)
+-&gt; Parser ImportJobSubmitter
+-&gt; Parser
+     (POSIX
+      -&gt; ImportOptions -&gt; ImportDataSource -&gt; TableDataImportJobMetadata)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ImportJobSubmitter
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;submitter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX
+   -&gt; ImportOptions -&gt; ImportDataSource -&gt; TableDataImportJobMetadata)
+-&gt; Parser POSIX
+-&gt; Parser
+     (ImportOptions -&gt; ImportDataSource -&gt; TableDataImportJobMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;submitTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (ImportOptions -&gt; ImportDataSource -&gt; TableDataImportJobMetadata)
+-&gt; Parser ImportOptions
+-&gt; Parser (ImportDataSource -&gt; TableDataImportJobMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ImportOptions
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;importOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (ImportDataSource -&gt; TableDataImportJobMetadata)
+-&gt; Parser ImportDataSource -&gt; Parser TableDataImportJobMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ImportDataSource
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180496"><span id="local-6989586621679180498"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata"><span class="hs-identifier hs-type">TableDataImportJobMetadata</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180493"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.html#TableDataImportJobMetadata"><span class="hs-identifier hs-type">TableDataImportJobMetadata</span></a></span></span><span>
+</span><span id="line-117"></span></pre></body></html>

@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task&gt;</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newBuild' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679436945"><span id="local-6989586621679436946"></span></span><span class="hs-keyword">data</span><span> </span><span id="Build"><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-var">Build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Build%27"><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-var">Build'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679436954"><span id="local-6989586621679436955"></span></span><span class="hs-keyword">data</span><span> </span><span id="Build"><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-var">Build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Build%27"><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-var">Build'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A time stamp indicating when this data object was created. Format is a</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- number expressed in Unix time as milliseconds (for example</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @\&quot;1469498468.057\&quot;@).</span><span>
@@ -85,14 +85,14 @@
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3AsizeOnDisk%3ABuild%27"><span class="annot"><span class="annottext">Build -&gt; Maybe Natural
 </span><a href="Network.AWS.GameLift.Types.Build.html#%24sel%3AsizeOnDisk%3ABuild%27"><span class="hs-identifier hs-var hs-var">sizeOnDisk</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436932"><span id="local-6989586621679436934"><span class="annot"><span class="annottext">Build -&gt; Build -&gt; Bool
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436941"><span id="local-6989586621679436943"><span class="annot"><span class="annottext">Build -&gt; Build -&gt; Bool
 (Build -&gt; Build -&gt; Bool) -&gt; (Build -&gt; Build -&gt; Bool) -&gt; Eq Build
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Build -&gt; Build -&gt; Bool
 $c/= :: Build -&gt; Build -&gt; Bool
 == :: Build -&gt; Build -&gt; Bool
 $c== :: Build -&gt; Build -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436923"><span id="local-6989586621679436925"><span id="local-6989586621679436927"><span id="local-6989586621679436929"><span class="annot"><span class="annottext">ReadPrec [Build]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436932"><span id="local-6989586621679436934"><span id="local-6989586621679436936"><span id="local-6989586621679436938"><span class="annot"><span class="annottext">ReadPrec [Build]
 ReadPrec Build
 Int -&gt; ReadS Build
 ReadS [Build]
@@ -112,7 +112,7 @@ readList :: ReadS [Build]
 $creadList :: ReadS [Build]
 readsPrec :: Int -&gt; ReadS Build
 $creadsPrec :: Int -&gt; ReadS Build
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436916"><span id="local-6989586621679436918"><span id="local-6989586621679436920"><span class="annot"><span class="annottext">Int -&gt; Build -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436925"><span id="local-6989586621679436927"><span id="local-6989586621679436929"><span class="annot"><span class="annottext">Int -&gt; Build -&gt; ShowS
 [Build] -&gt; ShowS
 Build -&gt; String
 (Int -&gt; Build -&gt; ShowS)
@@ -241,16 +241,16 @@ forall a. Maybe a
 -&gt; (Build -&gt; Maybe POSIX -&gt; Build)
 -&gt; Lens Build Build (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436907"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436916"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:Build' :: Build -&gt; Maybe POSIX
-</span><a href="#local-6989586621679436907"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679436907"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436906"><span class="annot"><span class="annottext">s :: Build
-</span><a href="#local-6989586621679436906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436905"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679436905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
-</span><a href="#local-6989586621679436906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Build' :: Maybe POSIX
+</span><a href="#local-6989586621679436916"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679436916"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436915"><span class="annot"><span class="annottext">s :: Build
+</span><a href="#local-6989586621679436915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436914"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679436914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
+</span><a href="#local-6989586621679436915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Build' :: Maybe POSIX
 </span><a href="Network.AWS.GameLift.Types.Build.html#%24sel%3AcreationTime%3ABuild%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679436905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Build -&gt; f Build)
+</span><a href="#local-6989586621679436914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Build -&gt; f Build)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -286,16 +286,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (Build -&gt; Maybe BuildStatus -&gt; Build)
 -&gt; Lens Build Build (Maybe BuildStatus) (Maybe BuildStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436900"><span class="annot"><span class="annottext">Maybe BuildStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436909"><span class="annot"><span class="annottext">Maybe BuildStatus
 status :: Maybe BuildStatus
 $sel:status:Build' :: Build -&gt; Maybe BuildStatus
-</span><a href="#local-6989586621679436900"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BuildStatus
-</span><a href="#local-6989586621679436900"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436899"><span class="annot"><span class="annottext">s :: Build
-</span><a href="#local-6989586621679436899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436898"><span class="annot"><span class="annottext">Maybe BuildStatus
-</span><a href="#local-6989586621679436898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
-</span><a href="#local-6989586621679436899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Build' :: Maybe BuildStatus
+</span><a href="#local-6989586621679436909"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BuildStatus
+</span><a href="#local-6989586621679436909"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436908"><span class="annot"><span class="annottext">s :: Build
+</span><a href="#local-6989586621679436908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436907"><span class="annot"><span class="annottext">Maybe BuildStatus
+</span><a href="#local-6989586621679436907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
+</span><a href="#local-6989586621679436908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Build' :: Maybe BuildStatus
 </span><a href="Network.AWS.GameLift.Types.Build.html#%24sel%3Astatus%3ABuild%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BuildStatus
-</span><a href="#local-6989586621679436898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | Operating system that the game server binaries are built to run on. This</span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- value determines the type of fleet resources that you can use for this</span><span>
@@ -307,16 +307,16 @@ $sel:status:Build' :: Build -&gt; Maybe BuildStatus
 -&gt; (Build -&gt; Maybe OperatingSystem -&gt; Build)
 -&gt; Lens Build Build (Maybe OperatingSystem) (Maybe OperatingSystem)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436896"><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436905"><span class="annot"><span class="annottext">Maybe OperatingSystem
 operatingSystem :: Maybe OperatingSystem
 $sel:operatingSystem:Build' :: Build -&gt; Maybe OperatingSystem
-</span><a href="#local-6989586621679436896"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
-</span><a href="#local-6989586621679436896"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436895"><span class="annot"><span class="annottext">s :: Build
-</span><a href="#local-6989586621679436895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436894"><span class="annot"><span class="annottext">Maybe OperatingSystem
-</span><a href="#local-6989586621679436894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
-</span><a href="#local-6989586621679436895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operatingSystem:Build' :: Maybe OperatingSystem
+</span><a href="#local-6989586621679436905"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679436905"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436904"><span class="annot"><span class="annottext">s :: Build
+</span><a href="#local-6989586621679436904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436903"><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679436903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
+</span><a href="#local-6989586621679436904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operatingSystem:Build' :: Maybe OperatingSystem
 </span><a href="Network.AWS.GameLift.Types.Build.html#%24sel%3AoperatingSystem%3ABuild%27"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
-</span><a href="#local-6989586621679436894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | A unique identifier for the build.</span><span>
 </span><span id="line-175"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#build_buildId"><span class="hs-identifier hs-type">build_buildId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -325,16 +325,16 @@ $sel:operatingSystem:Build' :: Build -&gt; Maybe OperatingSystem
 -&gt; (Build -&gt; Maybe Text -&gt; Build)
 -&gt; Lens Build Build (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436892"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436901"><span class="annot"><span class="annottext">Maybe Text
 buildId :: Maybe Text
 $sel:buildId:Build' :: Build -&gt; Maybe Text
-</span><a href="#local-6989586621679436892"><span class="hs-identifier hs-var hs-var">buildId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436892"><span class="hs-identifier hs-var">buildId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436891"><span class="annot"><span class="annottext">s :: Build
-</span><a href="#local-6989586621679436891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436890"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
-</span><a href="#local-6989586621679436891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildId:Build' :: Maybe Text
+</span><a href="#local-6989586621679436901"><span class="hs-identifier hs-var hs-var">buildId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436901"><span class="hs-identifier hs-var">buildId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436900"><span class="annot"><span class="annottext">s :: Build
+</span><a href="#local-6989586621679436900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436899"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
+</span><a href="#local-6989586621679436900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildId:Build' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Build.html#%24sel%3AbuildId%3ABuild%27"><span class="hs-identifier hs-var">buildId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | A descriptive label that is associated with a build. Build names do not</span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- need to be unique. It can be set using CreateBuild or UpdateBuild.</span><span>
@@ -344,16 +344,16 @@ $sel:buildId:Build' :: Build -&gt; Maybe Text
 -&gt; (Build -&gt; Maybe Text -&gt; Build)
 -&gt; Lens Build Build (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436888"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436897"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Build' :: Build -&gt; Maybe Text
-</span><a href="#local-6989586621679436888"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436888"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436887"><span class="annot"><span class="annottext">s :: Build
-</span><a href="#local-6989586621679436887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436886"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
-</span><a href="#local-6989586621679436887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Build' :: Maybe Text
+</span><a href="#local-6989586621679436897"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436897"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436896"><span class="annot"><span class="annottext">s :: Build
+</span><a href="#local-6989586621679436896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436895"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
+</span><a href="#local-6989586621679436896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Build' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Build.html#%24sel%3Aname%3ABuild%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | Version information that is associated with a build or script. Version</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- strings do not need to be unique. This value can be set using</span><span>
@@ -364,16 +364,16 @@ $sel:name:Build' :: Build -&gt; Maybe Text
 -&gt; (Build -&gt; Maybe Text -&gt; Build)
 -&gt; Lens Build Build (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436884"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436893"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 $sel:version:Build' :: Build -&gt; Maybe Text
-</span><a href="#local-6989586621679436884"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436884"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436883"><span class="annot"><span class="annottext">s :: Build
-</span><a href="#local-6989586621679436883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436882"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
-</span><a href="#local-6989586621679436883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:Build' :: Maybe Text
+</span><a href="#local-6989586621679436893"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436893"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436892"><span class="annot"><span class="annottext">s :: Build
+</span><a href="#local-6989586621679436892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436891"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
+</span><a href="#local-6989586621679436892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:Build' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Build.html#%24sel%3Aversion%3ABuild%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
@@ -387,16 +387,16 @@ $sel:version:Build' :: Build -&gt; Maybe Text
 -&gt; (Build -&gt; Maybe Text -&gt; Build)
 -&gt; Lens Build Build (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436880"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436889"><span class="annot"><span class="annottext">Maybe Text
 buildArn :: Maybe Text
 $sel:buildArn:Build' :: Build -&gt; Maybe Text
-</span><a href="#local-6989586621679436880"><span class="hs-identifier hs-var hs-var">buildArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436880"><span class="hs-identifier hs-var">buildArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436879"><span class="annot"><span class="annottext">s :: Build
-</span><a href="#local-6989586621679436879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436878"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
-</span><a href="#local-6989586621679436879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildArn:Build' :: Maybe Text
+</span><a href="#local-6989586621679436889"><span class="hs-identifier hs-var hs-var">buildArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436889"><span class="hs-identifier hs-var">buildArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436888"><span class="annot"><span class="annottext">s :: Build
+</span><a href="#local-6989586621679436888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436887"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
+</span><a href="#local-6989586621679436888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildArn:Build' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Build.html#%24sel%3AbuildArn%3ABuild%27"><span class="hs-identifier hs-var">buildArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | File size of the uploaded game build, expressed in bytes. When the build</span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- status is @INITIALIZED@, this value is 0.</span><span>
@@ -406,27 +406,27 @@ $sel:buildArn:Build' :: Build -&gt; Maybe Text
 -&gt; (Build -&gt; Maybe Natural -&gt; Build)
 -&gt; Lens Build Build (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436876"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436885"><span class="annot"><span class="annottext">Maybe Natural
 sizeOnDisk :: Maybe Natural
 $sel:sizeOnDisk:Build' :: Build -&gt; Maybe Natural
-</span><a href="#local-6989586621679436876"><span class="hs-identifier hs-var hs-var">sizeOnDisk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679436876"><span class="hs-identifier hs-var">sizeOnDisk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436875"><span class="annot"><span class="annottext">s :: Build
-</span><a href="#local-6989586621679436875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436874"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679436874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
-</span><a href="#local-6989586621679436875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeOnDisk:Build' :: Maybe Natural
+</span><a href="#local-6989586621679436885"><span class="hs-identifier hs-var hs-var">sizeOnDisk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679436885"><span class="hs-identifier hs-var">sizeOnDisk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436884"><span class="annot"><span class="annottext">s :: Build
+</span><a href="#local-6989586621679436884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build%27"><span class="hs-identifier hs-type">Build'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436883"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679436883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Build
+</span><a href="#local-6989586621679436884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeOnDisk:Build' :: Maybe Natural
 </span><a href="Network.AWS.GameLift.Types.Build.html#%24sel%3AsizeOnDisk%3ABuild%27"><span class="hs-identifier hs-var">sizeOnDisk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679436874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436871"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-204"></span><span>  </span><span id="local-6989586621679436869"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Build
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436880"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679436878"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Build
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Build) -&gt; Value -&gt; Parser Build
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Build&quot;</span></span><span>
-</span><span id="line-207"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679436866"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436866"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679436875"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679436875"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-208"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe BuildStatus
 -&gt; Maybe OperatingSystem
@@ -458,7 +458,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Build)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679436875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -482,7 +482,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Build)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BuildStatus)
+</span><a href="#local-6989586621679436875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BuildStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -504,7 +504,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Build)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OperatingSystem)
+</span><a href="#local-6989586621679436875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OperatingSystem)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OperatingSystem&quot;</span></span><span class="hs-special">)</span><span>
@@ -520,7 +520,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; Build)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679436875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BuildId&quot;</span></span><span class="hs-special">)</span><span>
@@ -530,7 +530,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; Build)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679436875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -539,7 +539,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Natural -&gt; Build)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679436875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
@@ -547,7 +547,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Natural -&gt; Build)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679436875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BuildArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -555,13 +555,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser Build
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679436875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SizeOnDisk&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436860"><span id="local-6989586621679436862"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span></span></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436869"><span id="local-6989586621679436871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span></span></span><span>
 </span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436857"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Build.html#Build"><span class="hs-identifier hs-type">Build</span></a></span></span><span>
 </span><span id="line-222"></span></pre></body></html>

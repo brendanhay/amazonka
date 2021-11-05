@@ -1,0 +1,597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.GlobalAccelerator.CreateCustomRoutingListener</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Create a listener to process inbound connections from clients to a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- custom routing accelerator. Connections arrive to assigned static IP</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- addresses on the port range that you specify.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GlobalAccelerator.CreateCustomRoutingListener</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener"><span class="hs-identifier">CreateCustomRoutingListener</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#newCreateCustomRoutingListener"><span class="hs-identifier">newCreateCustomRoutingListener</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#createCustomRoutingListener_acceleratorArn"><span class="hs-identifier">createCustomRoutingListener_acceleratorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#createCustomRoutingListener_portRanges"><span class="hs-identifier">createCustomRoutingListener_portRanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#createCustomRoutingListener_idempotencyToken"><span class="hs-identifier">createCustomRoutingListener_idempotencyToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListenerResponse"><span class="hs-identifier">CreateCustomRoutingListenerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#newCreateCustomRoutingListenerResponse"><span class="hs-identifier">newCreateCustomRoutingListenerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#createCustomRoutingListenerResponse_listener"><span class="hs-identifier">createCustomRoutingListenerResponse_listener</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#createCustomRoutingListenerResponse_httpStatus"><span class="hs-identifier">createCustomRoutingListenerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newCreateCustomRoutingListener' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679247252"><span id="local-6989586621679247253"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCustomRoutingListener"><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener"><span class="hs-identifier hs-var">CreateCustomRoutingListener</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCustomRoutingListener%27"><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener%27"><span class="hs-identifier hs-var">CreateCustomRoutingListener'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the accelerator for a custom routing</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- listener.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AacceleratorArn%3ACreateCustomRoutingListener%27"><span class="annot"><span class="annottext">CreateCustomRoutingListener -&gt; Text
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#%24sel%3AacceleratorArn%3ACreateCustomRoutingListener%27"><span class="hs-identifier hs-var hs-var">acceleratorArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The port range to support for connections from clients to your</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- accelerator.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Separately, you set port ranges for endpoints. For more information, see</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html About endpoints for custom routing accelerators&gt;.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AportRanges%3ACreateCustomRoutingListener%27"><span class="annot"><span class="annottext">CreateCustomRoutingListener -&gt; NonEmpty PortRange
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#%24sel%3AportRanges%3ACreateCustomRoutingListener%27"><span class="hs-identifier hs-var hs-var">portRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- idempotency&#8212;that is, the uniqueness&#8212;of the request.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AidempotencyToken%3ACreateCustomRoutingListener%27"><span class="annot"><span class="annottext">CreateCustomRoutingListener -&gt; Text
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#%24sel%3AidempotencyToken%3ACreateCustomRoutingListener%27"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247244"><span id="local-6989586621679247246"><span class="annot"><span class="annottext">CreateCustomRoutingListener -&gt; CreateCustomRoutingListener -&gt; Bool
+(CreateCustomRoutingListener
+ -&gt; CreateCustomRoutingListener -&gt; Bool)
+-&gt; (CreateCustomRoutingListener
+    -&gt; CreateCustomRoutingListener -&gt; Bool)
+-&gt; Eq CreateCustomRoutingListener
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCustomRoutingListener -&gt; CreateCustomRoutingListener -&gt; Bool
+$c/= :: CreateCustomRoutingListener -&gt; CreateCustomRoutingListener -&gt; Bool
+== :: CreateCustomRoutingListener -&gt; CreateCustomRoutingListener -&gt; Bool
+$c== :: CreateCustomRoutingListener -&gt; CreateCustomRoutingListener -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247235"><span id="local-6989586621679247237"><span id="local-6989586621679247239"><span id="local-6989586621679247241"><span class="annot"><span class="annottext">ReadPrec [CreateCustomRoutingListener]
+ReadPrec CreateCustomRoutingListener
+Int -&gt; ReadS CreateCustomRoutingListener
+ReadS [CreateCustomRoutingListener]
+(Int -&gt; ReadS CreateCustomRoutingListener)
+-&gt; ReadS [CreateCustomRoutingListener]
+-&gt; ReadPrec CreateCustomRoutingListener
+-&gt; ReadPrec [CreateCustomRoutingListener]
+-&gt; Read CreateCustomRoutingListener
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCustomRoutingListener]
+$creadListPrec :: ReadPrec [CreateCustomRoutingListener]
+readPrec :: ReadPrec CreateCustomRoutingListener
+$creadPrec :: ReadPrec CreateCustomRoutingListener
+readList :: ReadS [CreateCustomRoutingListener]
+$creadList :: ReadS [CreateCustomRoutingListener]
+readsPrec :: Int -&gt; ReadS CreateCustomRoutingListener
+$creadsPrec :: Int -&gt; ReadS CreateCustomRoutingListener
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247228"><span id="local-6989586621679247230"><span id="local-6989586621679247232"><span class="annot"><span class="annottext">Int -&gt; CreateCustomRoutingListener -&gt; ShowS
+[CreateCustomRoutingListener] -&gt; ShowS
+CreateCustomRoutingListener -&gt; String
+(Int -&gt; CreateCustomRoutingListener -&gt; ShowS)
+-&gt; (CreateCustomRoutingListener -&gt; String)
+-&gt; ([CreateCustomRoutingListener] -&gt; ShowS)
+-&gt; Show CreateCustomRoutingListener
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCustomRoutingListener] -&gt; ShowS
+$cshowList :: [CreateCustomRoutingListener] -&gt; ShowS
+show :: CreateCustomRoutingListener -&gt; String
+$cshow :: CreateCustomRoutingListener -&gt; String
+showsPrec :: Int -&gt; CreateCustomRoutingListener -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCustomRoutingListener -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateCustomRoutingListener -&gt; Rep CreateCustomRoutingListener x)
+-&gt; (forall x.
+    Rep CreateCustomRoutingListener x -&gt; CreateCustomRoutingListener)
+-&gt; Generic CreateCustomRoutingListener
+forall x.
+Rep CreateCustomRoutingListener x -&gt; CreateCustomRoutingListener
+forall x.
+CreateCustomRoutingListener -&gt; Rep CreateCustomRoutingListener x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateCustomRoutingListener x -&gt; CreateCustomRoutingListener
+$cfrom :: forall x.
+CreateCustomRoutingListener -&gt; Rep CreateCustomRoutingListener x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'CreateCustomRoutingListener' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'acceleratorArn', 'createCustomRoutingListener_acceleratorArn' - The Amazon Resource Name (ARN) of the accelerator for a custom routing</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- listener.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'portRanges', 'createCustomRoutingListener_portRanges' - The port range to support for connections from clients to your</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- accelerator.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Separately, you set port ranges for endpoints. For more information, see</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html About endpoints for custom routing accelerators&gt;.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'idempotencyToken', 'createCustomRoutingListener_idempotencyToken' - A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- idempotency&#8212;that is, the uniqueness&#8212;of the request.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#newCreateCustomRoutingListener"><span class="hs-identifier hs-type">newCreateCustomRoutingListener</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'acceleratorArn'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'portRanges'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'idempotencyToken'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener"><span class="hs-identifier hs-type">CreateCustomRoutingListener</span></a></span><span>
+</span><span id="line-97"></span><span id="newCreateCustomRoutingListener"><span class="annot"><span class="annottext">newCreateCustomRoutingListener :: Text -&gt; NonEmpty PortRange -&gt; Text -&gt; CreateCustomRoutingListener
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#newCreateCustomRoutingListener"><span class="hs-identifier hs-var hs-var">newCreateCustomRoutingListener</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679247223"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247223"><span class="hs-identifier hs-var">pAcceleratorArn_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679247222"><span class="annot"><span class="annottext">NonEmpty PortRange
+</span><a href="#local-6989586621679247222"><span class="hs-identifier hs-var">pPortRanges_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679247221"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247221"><span class="hs-identifier hs-var">pIdempotencyToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">CreateCustomRoutingListener' :: Text -&gt; NonEmpty PortRange -&gt; Text -&gt; CreateCustomRoutingListener
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener%27"><span class="hs-identifier hs-type">CreateCustomRoutingListener'</span></a></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:acceleratorArn:CreateCustomRoutingListener' :: Text
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#%24sel%3AacceleratorArn%3ACreateCustomRoutingListener%27"><span class="hs-identifier hs-var">acceleratorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247223"><span class="hs-identifier hs-var">pAcceleratorArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:portRanges:CreateCustomRoutingListener' :: NonEmpty PortRange
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#%24sel%3AportRanges%3ACreateCustomRoutingListener%27"><span class="hs-identifier hs-var">portRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty PortRange) (Identity (NonEmpty PortRange))
+-&gt; Tagged (NonEmpty PortRange) (Identity (NonEmpty PortRange))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty PortRange) (Identity (NonEmpty PortRange))
+ -&gt; Tagged (NonEmpty PortRange) (Identity (NonEmpty PortRange)))
+-&gt; NonEmpty PortRange -&gt; NonEmpty PortRange
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty PortRange
+</span><a href="#local-6989586621679247222"><span class="hs-identifier hs-var">pPortRanges_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:idempotencyToken:CreateCustomRoutingListener' :: Text
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#%24sel%3AidempotencyToken%3ACreateCustomRoutingListener%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247221"><span class="hs-identifier hs-var">pIdempotencyToken_</span></a></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the accelerator for a custom routing</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- listener.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#createCustomRoutingListener_acceleratorArn"><span class="hs-identifier hs-type">createCustomRoutingListener_acceleratorArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener"><span class="hs-identifier hs-type">CreateCustomRoutingListener</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span id="createCustomRoutingListener_acceleratorArn"><span class="annot"><span class="annottext">createCustomRoutingListener_acceleratorArn :: (Text -&gt; f Text)
+-&gt; CreateCustomRoutingListener -&gt; f CreateCustomRoutingListener
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#createCustomRoutingListener_acceleratorArn"><span class="hs-identifier hs-var hs-var">createCustomRoutingListener_acceleratorArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomRoutingListener -&gt; Text)
+-&gt; (CreateCustomRoutingListener
+    -&gt; Text -&gt; CreateCustomRoutingListener)
+-&gt; Lens
+     CreateCustomRoutingListener CreateCustomRoutingListener Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener%27"><span class="hs-identifier hs-type">CreateCustomRoutingListener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247216"><span class="annot"><span class="annottext">Text
+acceleratorArn :: Text
+$sel:acceleratorArn:CreateCustomRoutingListener' :: CreateCustomRoutingListener -&gt; Text
+</span><a href="#local-6989586621679247216"><span class="hs-identifier hs-var hs-var">acceleratorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247216"><span class="hs-identifier hs-var">acceleratorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247215"><span class="annot"><span class="annottext">s :: CreateCustomRoutingListener
+</span><a href="#local-6989586621679247215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener%27"><span class="hs-identifier hs-type">CreateCustomRoutingListener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247214"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomRoutingListener
+</span><a href="#local-6989586621679247215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceleratorArn:CreateCustomRoutingListener' :: Text
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#%24sel%3AacceleratorArn%3ACreateCustomRoutingListener%27"><span class="hs-identifier hs-var">acceleratorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener"><span class="hs-identifier hs-type">CreateCustomRoutingListener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The port range to support for connections from clients to your</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- accelerator.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Separately, you set port ranges for endpoints. For more information, see</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html About endpoints for custom routing accelerators&gt;.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#createCustomRoutingListener_portRanges"><span class="hs-identifier hs-type">createCustomRoutingListener_portRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener"><span class="hs-identifier hs-type">CreateCustomRoutingListener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="createCustomRoutingListener_portRanges"><span class="annot"><span class="annottext">createCustomRoutingListener_portRanges :: (NonEmpty PortRange -&gt; f (NonEmpty PortRange))
+-&gt; CreateCustomRoutingListener -&gt; f CreateCustomRoutingListener
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#createCustomRoutingListener_portRanges"><span class="hs-identifier hs-var hs-var">createCustomRoutingListener_portRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomRoutingListener -&gt; NonEmpty PortRange)
+-&gt; (CreateCustomRoutingListener
+    -&gt; NonEmpty PortRange -&gt; CreateCustomRoutingListener)
+-&gt; Lens
+     CreateCustomRoutingListener
+     CreateCustomRoutingListener
+     (NonEmpty PortRange)
+     (NonEmpty PortRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener%27"><span class="hs-identifier hs-type">CreateCustomRoutingListener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247213"><span class="annot"><span class="annottext">NonEmpty PortRange
+portRanges :: NonEmpty PortRange
+$sel:portRanges:CreateCustomRoutingListener' :: CreateCustomRoutingListener -&gt; NonEmpty PortRange
+</span><a href="#local-6989586621679247213"><span class="hs-identifier hs-var hs-var">portRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty PortRange
+</span><a href="#local-6989586621679247213"><span class="hs-identifier hs-var">portRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247212"><span class="annot"><span class="annottext">s :: CreateCustomRoutingListener
+</span><a href="#local-6989586621679247212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener%27"><span class="hs-identifier hs-type">CreateCustomRoutingListener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247211"><span class="annot"><span class="annottext">NonEmpty PortRange
+</span><a href="#local-6989586621679247211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomRoutingListener
+</span><a href="#local-6989586621679247212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portRanges:CreateCustomRoutingListener' :: NonEmpty PortRange
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#%24sel%3AportRanges%3ACreateCustomRoutingListener%27"><span class="hs-identifier hs-var">portRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty PortRange
+</span><a href="#local-6989586621679247211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener"><span class="hs-identifier hs-type">CreateCustomRoutingListener</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty PortRange -&gt; f (NonEmpty PortRange))
+ -&gt; CreateCustomRoutingListener -&gt; f CreateCustomRoutingListener)
+-&gt; ((NonEmpty PortRange -&gt; f (NonEmpty PortRange))
+    -&gt; NonEmpty PortRange -&gt; f (NonEmpty PortRange))
+-&gt; (NonEmpty PortRange -&gt; f (NonEmpty PortRange))
+-&gt; CreateCustomRoutingListener
+-&gt; f CreateCustomRoutingListener
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty PortRange -&gt; f (NonEmpty PortRange))
+-&gt; NonEmpty PortRange -&gt; f (NonEmpty PortRange)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- idempotency&#8212;that is, the uniqueness&#8212;of the request.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#createCustomRoutingListener_idempotencyToken"><span class="hs-identifier hs-type">createCustomRoutingListener_idempotencyToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener"><span class="hs-identifier hs-type">CreateCustomRoutingListener</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-124"></span><span id="createCustomRoutingListener_idempotencyToken"><span class="annot"><span class="annottext">createCustomRoutingListener_idempotencyToken :: (Text -&gt; f Text)
+-&gt; CreateCustomRoutingListener -&gt; f CreateCustomRoutingListener
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#createCustomRoutingListener_idempotencyToken"><span class="hs-identifier hs-var hs-var">createCustomRoutingListener_idempotencyToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomRoutingListener -&gt; Text)
+-&gt; (CreateCustomRoutingListener
+    -&gt; Text -&gt; CreateCustomRoutingListener)
+-&gt; Lens
+     CreateCustomRoutingListener CreateCustomRoutingListener Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener%27"><span class="hs-identifier hs-type">CreateCustomRoutingListener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247209"><span class="annot"><span class="annottext">Text
+idempotencyToken :: Text
+$sel:idempotencyToken:CreateCustomRoutingListener' :: CreateCustomRoutingListener -&gt; Text
+</span><a href="#local-6989586621679247209"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247209"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247208"><span class="annot"><span class="annottext">s :: CreateCustomRoutingListener
+</span><a href="#local-6989586621679247208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener%27"><span class="hs-identifier hs-type">CreateCustomRoutingListener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247207"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomRoutingListener
+</span><a href="#local-6989586621679247208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idempotencyToken:CreateCustomRoutingListener' :: Text
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#%24sel%3AidempotencyToken%3ACreateCustomRoutingListener%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener"><span class="hs-identifier hs-type">CreateCustomRoutingListener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener"><span class="hs-identifier hs-type">CreateCustomRoutingListener</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener"><span class="hs-identifier hs-type">CreateCustomRoutingListener</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListenerResponse"><span class="hs-identifier hs-type">CreateCustomRoutingListenerResponse</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679247203"><span class="annot"><span class="annottext">request :: CreateCustomRoutingListener -&gt; Request CreateCustomRoutingListener
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateCustomRoutingListener
+-&gt; Request CreateCustomRoutingListener
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679247199"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateCustomRoutingListener
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateCustomRoutingListener)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateCustomRoutingListener))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateCustomRoutingListener
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateCustomRoutingListener)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247196"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247196"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679247195"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679247195"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679247194"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247194"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe CustomRoutingListener
+-&gt; Int -&gt; CreateCustomRoutingListenerResponse
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListenerResponse%27"><span class="hs-identifier hs-var">CreateCustomRoutingListenerResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CustomRoutingListener
+ -&gt; Int -&gt; CreateCustomRoutingListenerResponse)
+-&gt; Either String (Maybe CustomRoutingListener)
+-&gt; Either String (Int -&gt; CreateCustomRoutingListenerResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247194"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CustomRoutingListener)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Listener&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateCustomRoutingListenerResponse)
+-&gt; Either String Int
+-&gt; Either String CreateCustomRoutingListenerResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247196"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247186"><span id="local-6989586621679247188"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener"><span class="hs-identifier hs-type">CreateCustomRoutingListener</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247183"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener"><span class="hs-identifier hs-type">CreateCustomRoutingListener</span></a></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener"><span class="hs-identifier hs-type">CreateCustomRoutingListener</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679247179"><span class="annot"><span class="annottext">toHeaders :: CreateCustomRoutingListener -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateCustomRoutingListener -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GlobalAccelerator_V20180706.CreateCustomRoutingListener&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-150"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-154"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247169"><span id="local-6989586621679247171"><span id="local-6989586621679247173"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener"><span class="hs-identifier hs-type">CreateCustomRoutingListener</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679247167"><span class="annot"><span class="annottext">toJSON :: CreateCustomRoutingListener -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener%27"><span class="hs-identifier hs-type">CreateCustomRoutingListener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247163"><span id="local-6989586621679247164"><span id="local-6989586621679247165"><span class="annot"><span class="annottext">NonEmpty PortRange
+Text
+idempotencyToken :: Text
+portRanges :: NonEmpty PortRange
+acceleratorArn :: Text
+$sel:idempotencyToken:CreateCustomRoutingListener' :: CreateCustomRoutingListener -&gt; Text
+$sel:portRanges:CreateCustomRoutingListener' :: CreateCustomRoutingListener -&gt; NonEmpty PortRange
+$sel:acceleratorArn:CreateCustomRoutingListener' :: CreateCustomRoutingListener -&gt; Text
+</span><a href="#local-6989586621679247163"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-163"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AcceleratorArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247165"><span class="hs-identifier hs-var">acceleratorArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PortRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty PortRange -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty PortRange
+</span><a href="#local-6989586621679247164"><span class="hs-identifier hs-var">portRanges</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-166"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdempotencyToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247163"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener"><span class="hs-identifier hs-type">CreateCustomRoutingListener</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679247157"><span class="annot"><span class="annottext">toPath :: CreateCustomRoutingListener -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateCustomRoutingListener -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListener"><span class="hs-identifier hs-type">CreateCustomRoutingListener</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679247153"><span class="annot"><span class="annottext">toQuery :: CreateCustomRoutingListener -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateCustomRoutingListener -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | /See:/ 'newCreateCustomRoutingListenerResponse' smart constructor.</span><span>
+</span><span id="line-177"></span><span id="local-6989586621679247150"><span id="local-6989586621679247151"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCustomRoutingListenerResponse"><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListenerResponse"><span class="hs-identifier hs-var">CreateCustomRoutingListenerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCustomRoutingListenerResponse%27"><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListenerResponse%27"><span class="hs-identifier hs-var">CreateCustomRoutingListenerResponse'</span></a></span></span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The listener that you\'ve created for a custom routing accelerator.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3Alistener%3ACreateCustomRoutingListenerResponse%27"><span class="annot"><span class="annottext">CreateCustomRoutingListenerResponse -&gt; Maybe CustomRoutingListener
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#%24sel%3Alistener%3ACreateCustomRoutingListenerResponse%27"><span class="hs-identifier hs-var hs-var">listener</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingListener.html#CustomRoutingListener"><span class="hs-identifier hs-type">CustomRoutingListener</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateCustomRoutingListenerResponse%27"><span class="annot"><span class="annottext">CreateCustomRoutingListenerResponse -&gt; Int
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#%24sel%3AhttpStatus%3ACreateCustomRoutingListenerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247144"><span id="local-6989586621679247146"><span class="annot"><span class="annottext">CreateCustomRoutingListenerResponse
+-&gt; CreateCustomRoutingListenerResponse -&gt; Bool
+(CreateCustomRoutingListenerResponse
+ -&gt; CreateCustomRoutingListenerResponse -&gt; Bool)
+-&gt; (CreateCustomRoutingListenerResponse
+    -&gt; CreateCustomRoutingListenerResponse -&gt; Bool)
+-&gt; Eq CreateCustomRoutingListenerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCustomRoutingListenerResponse
+-&gt; CreateCustomRoutingListenerResponse -&gt; Bool
+$c/= :: CreateCustomRoutingListenerResponse
+-&gt; CreateCustomRoutingListenerResponse -&gt; Bool
+== :: CreateCustomRoutingListenerResponse
+-&gt; CreateCustomRoutingListenerResponse -&gt; Bool
+$c== :: CreateCustomRoutingListenerResponse
+-&gt; CreateCustomRoutingListenerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247136"><span id="local-6989586621679247138"><span id="local-6989586621679247140"><span id="local-6989586621679247142"><span class="annot"><span class="annottext">ReadPrec [CreateCustomRoutingListenerResponse]
+ReadPrec CreateCustomRoutingListenerResponse
+Int -&gt; ReadS CreateCustomRoutingListenerResponse
+ReadS [CreateCustomRoutingListenerResponse]
+(Int -&gt; ReadS CreateCustomRoutingListenerResponse)
+-&gt; ReadS [CreateCustomRoutingListenerResponse]
+-&gt; ReadPrec CreateCustomRoutingListenerResponse
+-&gt; ReadPrec [CreateCustomRoutingListenerResponse]
+-&gt; Read CreateCustomRoutingListenerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCustomRoutingListenerResponse]
+$creadListPrec :: ReadPrec [CreateCustomRoutingListenerResponse]
+readPrec :: ReadPrec CreateCustomRoutingListenerResponse
+$creadPrec :: ReadPrec CreateCustomRoutingListenerResponse
+readList :: ReadS [CreateCustomRoutingListenerResponse]
+$creadList :: ReadS [CreateCustomRoutingListenerResponse]
+readsPrec :: Int -&gt; ReadS CreateCustomRoutingListenerResponse
+$creadsPrec :: Int -&gt; ReadS CreateCustomRoutingListenerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247130"><span id="local-6989586621679247132"><span id="local-6989586621679247134"><span class="annot"><span class="annottext">Int -&gt; CreateCustomRoutingListenerResponse -&gt; ShowS
+[CreateCustomRoutingListenerResponse] -&gt; ShowS
+CreateCustomRoutingListenerResponse -&gt; String
+(Int -&gt; CreateCustomRoutingListenerResponse -&gt; ShowS)
+-&gt; (CreateCustomRoutingListenerResponse -&gt; String)
+-&gt; ([CreateCustomRoutingListenerResponse] -&gt; ShowS)
+-&gt; Show CreateCustomRoutingListenerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCustomRoutingListenerResponse] -&gt; ShowS
+$cshowList :: [CreateCustomRoutingListenerResponse] -&gt; ShowS
+show :: CreateCustomRoutingListenerResponse -&gt; String
+$cshow :: CreateCustomRoutingListenerResponse -&gt; String
+showsPrec :: Int -&gt; CreateCustomRoutingListenerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCustomRoutingListenerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateCustomRoutingListenerResponse
+ -&gt; Rep CreateCustomRoutingListenerResponse x)
+-&gt; (forall x.
+    Rep CreateCustomRoutingListenerResponse x
+    -&gt; CreateCustomRoutingListenerResponse)
+-&gt; Generic CreateCustomRoutingListenerResponse
+forall x.
+Rep CreateCustomRoutingListenerResponse x
+-&gt; CreateCustomRoutingListenerResponse
+forall x.
+CreateCustomRoutingListenerResponse
+-&gt; Rep CreateCustomRoutingListenerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateCustomRoutingListenerResponse x
+-&gt; CreateCustomRoutingListenerResponse
+$cfrom :: forall x.
+CreateCustomRoutingListenerResponse
+-&gt; Rep CreateCustomRoutingListenerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Create a value of 'CreateCustomRoutingListenerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'listener', 'createCustomRoutingListenerResponse_listener' - The listener that you\'ve created for a custom routing accelerator.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'httpStatus', 'createCustomRoutingListenerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#newCreateCustomRoutingListenerResponse"><span class="hs-identifier hs-type">newCreateCustomRoutingListenerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListenerResponse"><span class="hs-identifier hs-type">CreateCustomRoutingListenerResponse</span></a></span><span>
+</span><span id="line-200"></span><span id="newCreateCustomRoutingListenerResponse"><span class="annot"><span class="annottext">newCreateCustomRoutingListenerResponse :: Int -&gt; CreateCustomRoutingListenerResponse
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#newCreateCustomRoutingListenerResponse"><span class="hs-identifier hs-var hs-var">newCreateCustomRoutingListenerResponse</span></a></span></span><span> </span><span id="local-6989586621679247127"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247127"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">CreateCustomRoutingListenerResponse' :: Maybe CustomRoutingListener
+-&gt; Int -&gt; CreateCustomRoutingListenerResponse
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListenerResponse%27"><span class="hs-identifier hs-type">CreateCustomRoutingListenerResponse'</span></a></span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:listener:CreateCustomRoutingListenerResponse' :: Maybe CustomRoutingListener
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#%24sel%3Alistener%3ACreateCustomRoutingListenerResponse%27"><span class="hs-identifier hs-var">listener</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">Maybe CustomRoutingListener
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCustomRoutingListenerResponse' :: Int
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#%24sel%3AhttpStatus%3ACreateCustomRoutingListenerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247127"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The listener that you\'ve created for a custom routing accelerator.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#createCustomRoutingListenerResponse_listener"><span class="hs-identifier hs-type">createCustomRoutingListenerResponse_listener</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListenerResponse"><span class="hs-identifier hs-type">CreateCustomRoutingListenerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingListener.html#CustomRoutingListener"><span class="hs-identifier hs-type">CustomRoutingListener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="createCustomRoutingListenerResponse_listener"><span class="annot"><span class="annottext">createCustomRoutingListenerResponse_listener :: (Maybe CustomRoutingListener -&gt; f (Maybe CustomRoutingListener))
+-&gt; CreateCustomRoutingListenerResponse
+-&gt; f CreateCustomRoutingListenerResponse
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#createCustomRoutingListenerResponse_listener"><span class="hs-identifier hs-var hs-var">createCustomRoutingListenerResponse_listener</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomRoutingListenerResponse
+ -&gt; Maybe CustomRoutingListener)
+-&gt; (CreateCustomRoutingListenerResponse
+    -&gt; Maybe CustomRoutingListener
+    -&gt; CreateCustomRoutingListenerResponse)
+-&gt; Lens
+     CreateCustomRoutingListenerResponse
+     CreateCustomRoutingListenerResponse
+     (Maybe CustomRoutingListener)
+     (Maybe CustomRoutingListener)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListenerResponse%27"><span class="hs-identifier hs-type">CreateCustomRoutingListenerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247126"><span class="annot"><span class="annottext">Maybe CustomRoutingListener
+listener :: Maybe CustomRoutingListener
+$sel:listener:CreateCustomRoutingListenerResponse' :: CreateCustomRoutingListenerResponse -&gt; Maybe CustomRoutingListener
+</span><a href="#local-6989586621679247126"><span class="hs-identifier hs-var hs-var">listener</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomRoutingListener
+</span><a href="#local-6989586621679247126"><span class="hs-identifier hs-var">listener</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247125"><span class="annot"><span class="annottext">s :: CreateCustomRoutingListenerResponse
+</span><a href="#local-6989586621679247125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListenerResponse%27"><span class="hs-identifier hs-type">CreateCustomRoutingListenerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247124"><span class="annot"><span class="annottext">Maybe CustomRoutingListener
+</span><a href="#local-6989586621679247124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomRoutingListenerResponse
+</span><a href="#local-6989586621679247125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listener:CreateCustomRoutingListenerResponse' :: Maybe CustomRoutingListener
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#%24sel%3Alistener%3ACreateCustomRoutingListenerResponse%27"><span class="hs-identifier hs-var">listener</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomRoutingListener
+</span><a href="#local-6989586621679247124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListenerResponse"><span class="hs-identifier hs-type">CreateCustomRoutingListenerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#createCustomRoutingListenerResponse_httpStatus"><span class="hs-identifier hs-type">createCustomRoutingListenerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListenerResponse"><span class="hs-identifier hs-type">CreateCustomRoutingListenerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-213"></span><span id="createCustomRoutingListenerResponse_httpStatus"><span class="annot"><span class="annottext">createCustomRoutingListenerResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateCustomRoutingListenerResponse
+-&gt; f CreateCustomRoutingListenerResponse
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#createCustomRoutingListenerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createCustomRoutingListenerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCustomRoutingListenerResponse -&gt; Int)
+-&gt; (CreateCustomRoutingListenerResponse
+    -&gt; Int -&gt; CreateCustomRoutingListenerResponse)
+-&gt; Lens
+     CreateCustomRoutingListenerResponse
+     CreateCustomRoutingListenerResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListenerResponse%27"><span class="hs-identifier hs-type">CreateCustomRoutingListenerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247123"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateCustomRoutingListenerResponse' :: CreateCustomRoutingListenerResponse -&gt; Int
+</span><a href="#local-6989586621679247123"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247123"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247122"><span class="annot"><span class="annottext">s :: CreateCustomRoutingListenerResponse
+</span><a href="#local-6989586621679247122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListenerResponse%27"><span class="hs-identifier hs-type">CreateCustomRoutingListenerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247121"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCustomRoutingListenerResponse
+</span><a href="#local-6989586621679247122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCustomRoutingListenerResponse' :: Int
+</span><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#%24sel%3AhttpStatus%3ACreateCustomRoutingListenerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListenerResponse"><span class="hs-identifier hs-type">CreateCustomRoutingListenerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679247119"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.CreateCustomRoutingListener.html#CreateCustomRoutingListenerResponse"><span class="hs-identifier hs-type">CreateCustomRoutingListenerResponse</span></a></span></span><span>
+</span><span id="line-218"></span></pre></body></html>

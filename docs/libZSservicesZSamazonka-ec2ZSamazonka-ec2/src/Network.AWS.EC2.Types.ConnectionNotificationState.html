@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681096049"><span id="local-6989586621681096050"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectionNotificationState"><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotificationState.html#ConnectionNotificationState"><span class="hs-identifier hs-var">ConnectionNotificationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionNotificationState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotificationState.html#ConnectionNotificationState%27"><span class="hs-identifier hs-var">ConnectionNotificationState'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681096058"><span id="local-6989586621681096059"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectionNotificationState"><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotificationState.html#ConnectionNotificationState"><span class="hs-identifier hs-var">ConnectionNotificationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionNotificationState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotificationState.html#ConnectionNotificationState%27"><span class="hs-identifier hs-var">ConnectionNotificationState'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConnectionNotificationState"><span class="annot"><span class="annottext">ConnectionNotificationState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ConnectionNotificationState.html#fromConnectionNotificationState"><span class="hs-identifier hs-var hs-var">fromConnectionNotificationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681096041"><span id="local-6989586621681096043"><span id="local-6989586621681096045"><span class="annot"><span class="annottext">Int -&gt; ConnectionNotificationState -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681096050"><span id="local-6989586621681096052"><span id="local-6989586621681096054"><span class="annot"><span class="annottext">Int -&gt; ConnectionNotificationState -&gt; ShowS
 [ConnectionNotificationState] -&gt; ShowS
 ConnectionNotificationState -&gt; String
 (Int -&gt; ConnectionNotificationState -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ConnectionNotificationState -&gt; String
 showsPrec :: Int -&gt; ConnectionNotificationState -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConnectionNotificationState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681096032"><span id="local-6989586621681096034"><span id="local-6989586621681096036"><span id="local-6989586621681096038"><span class="annot"><span class="annottext">ReadPrec [ConnectionNotificationState]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681096041"><span id="local-6989586621681096043"><span id="local-6989586621681096045"><span id="local-6989586621681096047"><span class="annot"><span class="annottext">ReadPrec [ConnectionNotificationState]
 ReadPrec ConnectionNotificationState
 Int -&gt; ReadS ConnectionNotificationState
 ReadS [ConnectionNotificationState]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ConnectionNotificationState]
 readsPrec :: Int -&gt; ReadS ConnectionNotificationState
 $creadsPrec :: Int -&gt; ReadS ConnectionNotificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681096027"><span id="local-6989586621681096029"><span class="annot"><span class="annottext">ConnectionNotificationState -&gt; ConnectionNotificationState -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681096036"><span id="local-6989586621681096038"><span class="annot"><span class="annottext">ConnectionNotificationState -&gt; ConnectionNotificationState -&gt; Bool
 (ConnectionNotificationState
  -&gt; ConnectionNotificationState -&gt; Bool)
 -&gt; (ConnectionNotificationState
@@ -85,7 +85,7 @@ $c/= :: ConnectionNotificationState -&gt; ConnectionNotificationState -&gt; Bool
 == :: ConnectionNotificationState -&gt; ConnectionNotificationState -&gt; Bool
 $c== :: ConnectionNotificationState -&gt; ConnectionNotificationState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681096011"><span id="local-6989586621681096013"><span id="local-6989586621681096015"><span id="local-6989586621681096017"><span id="local-6989586621681096019"><span id="local-6989586621681096021"><span id="local-6989586621681096023"><span class="annot"><span class="annottext">Eq ConnectionNotificationState
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681096020"><span id="local-6989586621681096022"><span id="local-6989586621681096024"><span id="local-6989586621681096026"><span id="local-6989586621681096028"><span id="local-6989586621681096030"><span id="local-6989586621681096032"><span class="annot"><span class="annottext">Eq ConnectionNotificationState
 Eq ConnectionNotificationState
 -&gt; (ConnectionNotificationState
     -&gt; ConnectionNotificationState -&gt; Ordering)
@@ -157,7 +157,7 @@ ConnectionNotificationState -&gt; Rep ConnectionNotificationState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681096003"><span id="local-6989586621681096005"><span class="annot"><span class="annottext">Int -&gt; ConnectionNotificationState -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681096012"><span id="local-6989586621681096014"><span class="annot"><span class="annottext">Int -&gt; ConnectionNotificationState -&gt; Int
 ConnectionNotificationState -&gt; Int
 (Int -&gt; ConnectionNotificationState -&gt; Int)
 -&gt; (ConnectionNotificationState -&gt; Int)
@@ -168,56 +168,56 @@ $chash :: ConnectionNotificationState -&gt; Int
 hashWithSalt :: Int -&gt; ConnectionNotificationState -&gt; Int
 $chashWithSalt :: Int -&gt; ConnectionNotificationState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681096000"><span class="annot"><span class="annottext">ConnectionNotificationState -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681096009"><span class="annot"><span class="annottext">ConnectionNotificationState -&gt; ()
 (ConnectionNotificationState -&gt; ())
 -&gt; NFData ConnectionNotificationState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConnectionNotificationState -&gt; ()
 $crnf :: ConnectionNotificationState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681095997"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectionNotificationState
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681096006"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectionNotificationState
 (Text -&gt; Either String ConnectionNotificationState)
 -&gt; FromText ConnectionNotificationState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConnectionNotificationState
 $cfromText :: Text -&gt; Either String ConnectionNotificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681095994"><span class="annot"><span class="annottext">ConnectionNotificationState -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681096003"><span class="annot"><span class="annottext">ConnectionNotificationState -&gt; Text
 (ConnectionNotificationState -&gt; Text)
 -&gt; ToText ConnectionNotificationState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConnectionNotificationState -&gt; Text
 $ctoText :: ConnectionNotificationState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681095991"><span class="annot"><span class="annottext">ConnectionNotificationState -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681096000"><span class="annot"><span class="annottext">ConnectionNotificationState -&gt; ByteString
 (ConnectionNotificationState -&gt; ByteString)
 -&gt; ToByteString ConnectionNotificationState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConnectionNotificationState -&gt; ByteString
 $ctoBS :: ConnectionNotificationState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681095988"><span class="annot"><span class="annottext">ConnectionNotificationState -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681095997"><span class="annot"><span class="annottext">ConnectionNotificationState -&gt; ByteStringBuilder
 (ConnectionNotificationState -&gt; ByteStringBuilder)
 -&gt; ToLog ConnectionNotificationState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConnectionNotificationState -&gt; ByteStringBuilder
 $cbuild :: ConnectionNotificationState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681095985"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectionNotificationState -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681095994"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectionNotificationState -&gt; [Header]
 (HeaderName -&gt; ConnectionNotificationState -&gt; [Header])
 -&gt; ToHeader ConnectionNotificationState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConnectionNotificationState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConnectionNotificationState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681095982"><span class="annot"><span class="annottext">ConnectionNotificationState -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681095991"><span class="annot"><span class="annottext">ConnectionNotificationState -&gt; QueryString
 (ConnectionNotificationState -&gt; QueryString)
 -&gt; ToQuery ConnectionNotificationState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConnectionNotificationState -&gt; QueryString
 $ctoQuery :: ConnectionNotificationState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681095977"><span id="local-6989586621681095979"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectionNotificationState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681095986"><span id="local-6989586621681095988"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectionNotificationState]
 Value -&gt; Parser ConnectionNotificationState
 (Value -&gt; Parser ConnectionNotificationState)
 -&gt; (Value -&gt; Parser [ConnectionNotificationState])
@@ -229,7 +229,7 @@ $cparseJSONList :: Value -&gt; Parser [ConnectionNotificationState]
 parseJSON :: Value -&gt; Parser ConnectionNotificationState
 $cparseJSON :: Value -&gt; Parser ConnectionNotificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681095972"><span id="local-6989586621681095974"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectionNotificationState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681095981"><span id="local-6989586621681095983"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectionNotificationState]
 FromJSONKeyFunction ConnectionNotificationState
 FromJSONKeyFunction ConnectionNotificationState
 -&gt; FromJSONKeyFunction [ConnectionNotificationState]
@@ -241,7 +241,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConnectionNotificationState]
 fromJSONKey :: FromJSONKeyFunction ConnectionNotificationState
 $cfromJSONKey :: FromJSONKeyFunction ConnectionNotificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681095963"><span id="local-6989586621681095965"><span id="local-6989586621681095967"><span id="local-6989586621681095969"><span class="annot"><span class="annottext">[ConnectionNotificationState] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681095972"><span id="local-6989586621681095974"><span id="local-6989586621681095976"><span id="local-6989586621681095978"><span class="annot"><span class="annottext">[ConnectionNotificationState] -&gt; Encoding
 [ConnectionNotificationState] -&gt; Value
 ConnectionNotificationState -&gt; Encoding
 ConnectionNotificationState -&gt; Value
@@ -265,7 +265,7 @@ $ctoEncoding :: ConnectionNotificationState -&gt; Encoding
 toJSON :: ConnectionNotificationState -&gt; Value
 $ctoJSON :: ConnectionNotificationState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681095958"><span id="local-6989586621681095960"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectionNotificationState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681095967"><span id="local-6989586621681095969"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectionNotificationState]
 ToJSONKeyFunction ConnectionNotificationState
 ToJSONKeyFunction ConnectionNotificationState
 -&gt; ToJSONKeyFunction [ConnectionNotificationState]
@@ -277,14 +277,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConnectionNotificationState]
 toJSONKey :: ToJSONKeyFunction ConnectionNotificationState
 $ctoJSONKey :: ToJSONKeyFunction ConnectionNotificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681095955"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectionNotificationState
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681095964"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectionNotificationState
 ([Node] -&gt; Either String ConnectionNotificationState)
 -&gt; FromXML ConnectionNotificationState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConnectionNotificationState
 $cparseXML :: [Node] -&gt; Either String ConnectionNotificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681095952"><span class="annot"><span class="annottext">ConnectionNotificationState -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681095961"><span class="annot"><span class="annottext">ConnectionNotificationState -&gt; XML
 (ConnectionNotificationState -&gt; XML)
 -&gt; ToXML ConnectionNotificationState
 forall a. (a -&gt; XML) -&gt; ToXML a

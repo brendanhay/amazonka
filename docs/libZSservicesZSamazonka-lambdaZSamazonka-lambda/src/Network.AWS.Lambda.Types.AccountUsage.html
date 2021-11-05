@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The number of functions and amount of storage in use.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAccountUsage' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679293347"><span id="local-6989586621679293348"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountUsage"><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage"><span class="hs-identifier hs-var">AccountUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountUsage%27"><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage%27"><span class="hs-identifier hs-var">AccountUsage'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679293356"><span id="local-6989586621679293357"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountUsage"><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage"><span class="hs-identifier hs-var">AccountUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountUsage%27"><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage%27"><span class="hs-identifier hs-var">AccountUsage'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of storage space, in bytes, that\'s being used by deployment</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- packages and layer archives.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AtotalCodeSize%3AAccountUsage%27"><span class="annot"><span class="annottext">AccountUsage -&gt; Maybe Integer
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AfunctionCount%3AAccountUsage%27"><span class="annot"><span class="annottext">AccountUsage -&gt; Maybe Integer
 </span><a href="Network.AWS.Lambda.Types.AccountUsage.html#%24sel%3AfunctionCount%3AAccountUsage%27"><span class="hs-identifier hs-var hs-var">functionCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293340"><span id="local-6989586621679293342"><span class="annot"><span class="annottext">AccountUsage -&gt; AccountUsage -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293349"><span id="local-6989586621679293351"><span class="annot"><span class="annottext">AccountUsage -&gt; AccountUsage -&gt; Bool
 (AccountUsage -&gt; AccountUsage -&gt; Bool)
 -&gt; (AccountUsage -&gt; AccountUsage -&gt; Bool) -&gt; Eq AccountUsage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccountUsage -&gt; AccountUsage -&gt; Bool
 == :: AccountUsage -&gt; AccountUsage -&gt; Bool
 $c== :: AccountUsage -&gt; AccountUsage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293331"><span id="local-6989586621679293333"><span id="local-6989586621679293335"><span id="local-6989586621679293337"><span class="annot"><span class="annottext">ReadPrec [AccountUsage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293340"><span id="local-6989586621679293342"><span id="local-6989586621679293344"><span id="local-6989586621679293346"><span class="annot"><span class="annottext">ReadPrec [AccountUsage]
 ReadPrec AccountUsage
 Int -&gt; ReadS AccountUsage
 ReadS [AccountUsage]
@@ -63,7 +63,7 @@ readList :: ReadS [AccountUsage]
 $creadList :: ReadS [AccountUsage]
 readsPrec :: Int -&gt; ReadS AccountUsage
 $creadsPrec :: Int -&gt; ReadS AccountUsage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293324"><span id="local-6989586621679293326"><span id="local-6989586621679293328"><span class="annot"><span class="annottext">Int -&gt; AccountUsage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293333"><span id="local-6989586621679293335"><span id="local-6989586621679293337"><span class="annot"><span class="annottext">Int -&gt; AccountUsage -&gt; ShowS
 [AccountUsage] -&gt; ShowS
 AccountUsage -&gt; String
 (Int -&gt; AccountUsage -&gt; ShowS)
@@ -126,16 +126,16 @@ forall a. Maybe a
 -&gt; (AccountUsage -&gt; Maybe Integer -&gt; AccountUsage)
 -&gt; Lens AccountUsage AccountUsage (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage%27"><span class="hs-identifier hs-type">AccountUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293315"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage%27"><span class="hs-identifier hs-type">AccountUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293324"><span class="annot"><span class="annottext">Maybe Integer
 totalCodeSize :: Maybe Integer
 $sel:totalCodeSize:AccountUsage' :: AccountUsage -&gt; Maybe Integer
-</span><a href="#local-6989586621679293315"><span class="hs-identifier hs-var hs-var">totalCodeSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679293315"><span class="hs-identifier hs-var">totalCodeSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293314"><span class="annot"><span class="annottext">s :: AccountUsage
-</span><a href="#local-6989586621679293314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage%27"><span class="hs-identifier hs-type">AccountUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293313"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679293313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountUsage
-</span><a href="#local-6989586621679293314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalCodeSize:AccountUsage' :: Maybe Integer
+</span><a href="#local-6989586621679293324"><span class="hs-identifier hs-var hs-var">totalCodeSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679293324"><span class="hs-identifier hs-var">totalCodeSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293323"><span class="annot"><span class="annottext">s :: AccountUsage
+</span><a href="#local-6989586621679293323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage%27"><span class="hs-identifier hs-type">AccountUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293322"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679293322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountUsage
+</span><a href="#local-6989586621679293323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalCodeSize:AccountUsage' :: Maybe Integer
 </span><a href="Network.AWS.Lambda.Types.AccountUsage.html#%24sel%3AtotalCodeSize%3AAccountUsage%27"><span class="hs-identifier hs-var">totalCodeSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679293313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage"><span class="hs-identifier hs-type">AccountUsage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage"><span class="hs-identifier hs-type">AccountUsage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The number of Lambda functions.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#accountUsage_functionCount"><span class="hs-identifier hs-type">accountUsage_functionCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage"><span class="hs-identifier hs-type">AccountUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
@@ -145,19 +145,19 @@ $sel:totalCodeSize:AccountUsage' :: AccountUsage -&gt; Maybe Integer
 -&gt; (AccountUsage -&gt; Maybe Integer -&gt; AccountUsage)
 -&gt; Lens AccountUsage AccountUsage (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage%27"><span class="hs-identifier hs-type">AccountUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293311"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage%27"><span class="hs-identifier hs-type">AccountUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293320"><span class="annot"><span class="annottext">Maybe Integer
 functionCount :: Maybe Integer
 $sel:functionCount:AccountUsage' :: AccountUsage -&gt; Maybe Integer
-</span><a href="#local-6989586621679293311"><span class="hs-identifier hs-var hs-var">functionCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679293311"><span class="hs-identifier hs-var">functionCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293310"><span class="annot"><span class="annottext">s :: AccountUsage
-</span><a href="#local-6989586621679293310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage%27"><span class="hs-identifier hs-type">AccountUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293309"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679293309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountUsage
-</span><a href="#local-6989586621679293310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionCount:AccountUsage' :: Maybe Integer
+</span><a href="#local-6989586621679293320"><span class="hs-identifier hs-var hs-var">functionCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679293320"><span class="hs-identifier hs-var">functionCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293319"><span class="annot"><span class="annottext">s :: AccountUsage
+</span><a href="#local-6989586621679293319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage%27"><span class="hs-identifier hs-type">AccountUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293318"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679293318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountUsage
+</span><a href="#local-6989586621679293319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionCount:AccountUsage' :: Maybe Integer
 </span><a href="Network.AWS.Lambda.Types.AccountUsage.html#%24sel%3AfunctionCount%3AAccountUsage%27"><span class="hs-identifier hs-var">functionCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679293309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage"><span class="hs-identifier hs-type">AccountUsage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage"><span class="hs-identifier hs-type">AccountUsage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293306"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage"><span class="hs-identifier hs-type">AccountUsage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679293304"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccountUsage
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293315"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage"><span class="hs-identifier hs-type">AccountUsage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679293313"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccountUsage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AccountUsage) -&gt; Value -&gt; Parser AccountUsage
@@ -165,15 +165,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AccountUsage&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293301"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293301"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293310"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293310"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer -&gt; Maybe Integer -&gt; AccountUsage
 </span><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage%27"><span class="hs-identifier hs-var">AccountUsage'</span></a></span><span>
 </span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer -&gt; Maybe Integer -&gt; AccountUsage)
 -&gt; Parser (Maybe Integer) -&gt; Parser (Maybe Integer -&gt; AccountUsage)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679293310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TotalCodeSize&quot;</span></span><span class="hs-special">)</span><span>
@@ -181,13 +181,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Integer) -&gt; Parser AccountUsage
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679293310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FunctionCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293295"><span id="local-6989586621679293297"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage"><span class="hs-identifier hs-type">AccountUsage</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293304"><span id="local-6989586621679293306"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage"><span class="hs-identifier hs-type">AccountUsage</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293292"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage"><span class="hs-identifier hs-type">AccountUsage</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293301"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AccountUsage.html#AccountUsage"><span class="hs-identifier hs-type">AccountUsage</span></a></span></span><span>
 </span><span id="line-80"></span></pre></body></html>

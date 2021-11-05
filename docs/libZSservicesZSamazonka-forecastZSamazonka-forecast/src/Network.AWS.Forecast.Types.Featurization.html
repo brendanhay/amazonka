@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Forecast.Types.Featurization</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Forecast.Types.Featurization</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.FeaturizationMethod.html"><span class="hs-identifier">Network.AWS.Forecast.Types.FeaturizationMethod</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Provides featurization (transformation) information for a dataset field.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This object is part of the FeaturizationConfig object.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- For example:</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- @{@</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- @\&quot;AttributeName\&quot;: \&quot;demand\&quot;,@</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @FeaturizationPipeline [ {@</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- @\&quot;FeaturizationMethodName\&quot;: \&quot;filling\&quot;,@</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- @\&quot;FeaturizationMethodParameters\&quot;: {\&quot;aggregation\&quot;: \&quot;avg\&quot;, \&quot;backfill\&quot;: \&quot;nan\&quot;}@</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- @} ]@</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- @}@</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- /See:/ 'newFeaturization' smart constructor.</span><span>
+</span><span id="line-47"></span><span id="local-6989586621679247153"><span id="local-6989586621679247154"></span></span><span class="hs-keyword">data</span><span> </span><span id="Featurization"><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization"><span class="hs-identifier hs-var">Featurization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Featurization%27"><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization%27"><span class="hs-identifier hs-var">Featurization'</span></a></span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of one @FeaturizationMethod@ object that specifies the feature</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- transformation method.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AfeaturizationPipeline%3AFeaturization%27"><span class="annot"><span class="annottext">Featurization -&gt; Maybe (NonEmpty FeaturizationMethod)
+</span><a href="Network.AWS.Forecast.Types.Featurization.html#%24sel%3AfeaturizationPipeline%3AFeaturization%27"><span class="hs-identifier hs-var hs-var">featurizationPipeline</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.FeaturizationMethod.html#FeaturizationMethod"><span class="hs-identifier hs-type">FeaturizationMethod</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The name of the schema attribute that specifies the data field to be</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- featurized. Amazon Forecast supports the target field of the</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @TARGET_TIME_SERIES@ and the @RELATED_TIME_SERIES@ datasets. For</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- example, for the @RETAIL@ domain, the target is @demand@, and for the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- @CUSTOM@ domain, the target is @target_value@. For more information, see</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- howitworks-missing-values.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AattributeName%3AFeaturization%27"><span class="annot"><span class="annottext">Featurization -&gt; Text
+</span><a href="Network.AWS.Forecast.Types.Featurization.html#%24sel%3AattributeName%3AFeaturization%27"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247146"><span id="local-6989586621679247148"><span class="annot"><span class="annottext">Featurization -&gt; Featurization -&gt; Bool
+(Featurization -&gt; Featurization -&gt; Bool)
+-&gt; (Featurization -&gt; Featurization -&gt; Bool) -&gt; Eq Featurization
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Featurization -&gt; Featurization -&gt; Bool
+$c/= :: Featurization -&gt; Featurization -&gt; Bool
+== :: Featurization -&gt; Featurization -&gt; Bool
+$c== :: Featurization -&gt; Featurization -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247137"><span id="local-6989586621679247139"><span id="local-6989586621679247141"><span id="local-6989586621679247143"><span class="annot"><span class="annottext">ReadPrec [Featurization]
+ReadPrec Featurization
+Int -&gt; ReadS Featurization
+ReadS [Featurization]
+(Int -&gt; ReadS Featurization)
+-&gt; ReadS [Featurization]
+-&gt; ReadPrec Featurization
+-&gt; ReadPrec [Featurization]
+-&gt; Read Featurization
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Featurization]
+$creadListPrec :: ReadPrec [Featurization]
+readPrec :: ReadPrec Featurization
+$creadPrec :: ReadPrec Featurization
+readList :: ReadS [Featurization]
+$creadList :: ReadS [Featurization]
+readsPrec :: Int -&gt; ReadS Featurization
+$creadsPrec :: Int -&gt; ReadS Featurization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247130"><span id="local-6989586621679247132"><span id="local-6989586621679247134"><span class="annot"><span class="annottext">Int -&gt; Featurization -&gt; ShowS
+[Featurization] -&gt; ShowS
+Featurization -&gt; String
+(Int -&gt; Featurization -&gt; ShowS)
+-&gt; (Featurization -&gt; String)
+-&gt; ([Featurization] -&gt; ShowS)
+-&gt; Show Featurization
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Featurization] -&gt; ShowS
+$cshowList :: [Featurization] -&gt; ShowS
+show :: Featurization -&gt; String
+$cshow :: Featurization -&gt; String
+showsPrec :: Int -&gt; Featurization -&gt; ShowS
+$cshowsPrec :: Int -&gt; Featurization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Featurization -&gt; Rep Featurization x)
+-&gt; (forall x. Rep Featurization x -&gt; Featurization)
+-&gt; Generic Featurization
+forall x. Rep Featurization x -&gt; Featurization
+forall x. Featurization -&gt; Rep Featurization x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Featurization x -&gt; Featurization
+$cfrom :: forall x. Featurization -&gt; Rep Featurization x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'Featurization' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'featurizationPipeline', 'featurization_featurizationPipeline' - An array of one @FeaturizationMethod@ object that specifies the feature</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- transformation method.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'attributeName', 'featurization_attributeName' - The name of the schema attribute that specifies the data field to be</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- featurized. Amazon Forecast supports the target field of the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- @TARGET_TIME_SERIES@ and the @RELATED_TIME_SERIES@ datasets. For</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- example, for the @RETAIL@ domain, the target is @demand@, and for the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- @CUSTOM@ domain, the target is @target_value@. For more information, see</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- howitworks-missing-values.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#newFeaturization"><span class="hs-identifier hs-type">newFeaturization</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'attributeName'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization"><span class="hs-identifier hs-type">Featurization</span></a></span><span>
+</span><span id="line-82"></span><span id="newFeaturization"><span class="annot"><span class="annottext">newFeaturization :: Text -&gt; Featurization
+</span><a href="Network.AWS.Forecast.Types.Featurization.html#newFeaturization"><span class="hs-identifier hs-var hs-var">newFeaturization</span></a></span></span><span> </span><span id="local-6989586621679247124"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247124"><span class="hs-identifier hs-var">pAttributeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">Featurization' :: Maybe (NonEmpty FeaturizationMethod) -&gt; Text -&gt; Featurization
+</span><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization%27"><span class="hs-identifier hs-type">Featurization'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:featurizationPipeline:Featurization' :: Maybe (NonEmpty FeaturizationMethod)
+</span><a href="Network.AWS.Forecast.Types.Featurization.html#%24sel%3AfeaturizationPipeline%3AFeaturization%27"><span class="hs-identifier hs-var">featurizationPipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty FeaturizationMethod)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeName:Featurization' :: Text
+</span><a href="Network.AWS.Forecast.Types.Featurization.html#%24sel%3AattributeName%3AFeaturization%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247124"><span class="hs-identifier hs-var">pAttributeName_</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | An array of one @FeaturizationMethod@ object that specifies the feature</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- transformation method.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#featurization_featurizationPipeline"><span class="hs-identifier hs-type">featurization_featurizationPipeline</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization"><span class="hs-identifier hs-type">Featurization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.FeaturizationMethod.html#FeaturizationMethod"><span class="hs-identifier hs-type">FeaturizationMethod</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="featurization_featurizationPipeline"><span class="annot"><span class="annottext">featurization_featurizationPipeline :: (Maybe (NonEmpty FeaturizationMethod)
+ -&gt; f (Maybe (NonEmpty FeaturizationMethod)))
+-&gt; Featurization -&gt; f Featurization
+</span><a href="Network.AWS.Forecast.Types.Featurization.html#featurization_featurizationPipeline"><span class="hs-identifier hs-var hs-var">featurization_featurizationPipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Featurization -&gt; Maybe (NonEmpty FeaturizationMethod))
+-&gt; (Featurization
+    -&gt; Maybe (NonEmpty FeaturizationMethod) -&gt; Featurization)
+-&gt; Lens
+     Featurization
+     Featurization
+     (Maybe (NonEmpty FeaturizationMethod))
+     (Maybe (NonEmpty FeaturizationMethod))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization%27"><span class="hs-identifier hs-type">Featurization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247120"><span class="annot"><span class="annottext">Maybe (NonEmpty FeaturizationMethod)
+featurizationPipeline :: Maybe (NonEmpty FeaturizationMethod)
+$sel:featurizationPipeline:Featurization' :: Featurization -&gt; Maybe (NonEmpty FeaturizationMethod)
+</span><a href="#local-6989586621679247120"><span class="hs-identifier hs-var hs-var">featurizationPipeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty FeaturizationMethod)
+</span><a href="#local-6989586621679247120"><span class="hs-identifier hs-var">featurizationPipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247119"><span class="annot"><span class="annottext">s :: Featurization
+</span><a href="#local-6989586621679247119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization%27"><span class="hs-identifier hs-type">Featurization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247118"><span class="annot"><span class="annottext">Maybe (NonEmpty FeaturizationMethod)
+</span><a href="#local-6989586621679247118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Featurization
+</span><a href="#local-6989586621679247119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featurizationPipeline:Featurization' :: Maybe (NonEmpty FeaturizationMethod)
+</span><a href="Network.AWS.Forecast.Types.Featurization.html#%24sel%3AfeaturizationPipeline%3AFeaturization%27"><span class="hs-identifier hs-var">featurizationPipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty FeaturizationMethod)
+</span><a href="#local-6989586621679247118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization"><span class="hs-identifier hs-type">Featurization</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty FeaturizationMethod)
+  -&gt; f (Maybe (NonEmpty FeaturizationMethod)))
+ -&gt; Featurization -&gt; f Featurization)
+-&gt; ((Maybe (NonEmpty FeaturizationMethod)
+     -&gt; f (Maybe (NonEmpty FeaturizationMethod)))
+    -&gt; Maybe (NonEmpty FeaturizationMethod)
+    -&gt; f (Maybe (NonEmpty FeaturizationMethod)))
+-&gt; (Maybe (NonEmpty FeaturizationMethod)
+    -&gt; f (Maybe (NonEmpty FeaturizationMethod)))
+-&gt; Featurization
+-&gt; f Featurization
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty FeaturizationMethod)
+  (NonEmpty FeaturizationMethod)
+  (NonEmpty FeaturizationMethod)
+  (NonEmpty FeaturizationMethod)
+-&gt; Iso
+     (Maybe (NonEmpty FeaturizationMethod))
+     (Maybe (NonEmpty FeaturizationMethod))
+     (Maybe (NonEmpty FeaturizationMethod))
+     (Maybe (NonEmpty FeaturizationMethod))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty FeaturizationMethod)
+  (NonEmpty FeaturizationMethod)
+  (NonEmpty FeaturizationMethod)
+  (NonEmpty FeaturizationMethod)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The name of the schema attribute that specifies the data field to be</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- featurized. Amazon Forecast supports the target field of the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- @TARGET_TIME_SERIES@ and the @RELATED_TIME_SERIES@ datasets. For</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- example, for the @RETAIL@ domain, the target is @demand@, and for the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- @CUSTOM@ domain, the target is @target_value@. For more information, see</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- howitworks-missing-values.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#featurization_attributeName"><span class="hs-identifier hs-type">featurization_attributeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization"><span class="hs-identifier hs-type">Featurization</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="featurization_attributeName"><span class="annot"><span class="annottext">featurization_attributeName :: (Text -&gt; f Text) -&gt; Featurization -&gt; f Featurization
+</span><a href="Network.AWS.Forecast.Types.Featurization.html#featurization_attributeName"><span class="hs-identifier hs-var hs-var">featurization_attributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Featurization -&gt; Text)
+-&gt; (Featurization -&gt; Text -&gt; Featurization)
+-&gt; Lens Featurization Featurization Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization%27"><span class="hs-identifier hs-type">Featurization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247113"><span class="annot"><span class="annottext">Text
+attributeName :: Text
+$sel:attributeName:Featurization' :: Featurization -&gt; Text
+</span><a href="#local-6989586621679247113"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247113"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247112"><span class="annot"><span class="annottext">s :: Featurization
+</span><a href="#local-6989586621679247112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization%27"><span class="hs-identifier hs-type">Featurization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247111"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Featurization
+</span><a href="#local-6989586621679247112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeName:Featurization' :: Text
+</span><a href="Network.AWS.Forecast.Types.Featurization.html#%24sel%3AattributeName%3AFeaturization%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization"><span class="hs-identifier hs-type">Featurization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247108"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization"><span class="hs-identifier hs-type">Featurization</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679247106"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Featurization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Featurization)
+-&gt; Value
+-&gt; Parser Featurization
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Featurization&quot;</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247103"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247103"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty FeaturizationMethod) -&gt; Text -&gt; Featurization
+</span><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization%27"><span class="hs-identifier hs-var">Featurization'</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty FeaturizationMethod) -&gt; Text -&gt; Featurization)
+-&gt; Parser (Maybe (NonEmpty FeaturizationMethod))
+-&gt; Parser (Text -&gt; Featurization)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty FeaturizationMethod))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeaturizationPipeline&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Featurization)
+-&gt; Parser Text -&gt; Parser Featurization
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttributeName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247096"><span id="local-6989586621679247098"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization"><span class="hs-identifier hs-type">Featurization</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization"><span class="hs-identifier hs-type">Featurization</span></a></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247085"><span id="local-6989586621679247087"><span id="local-6989586621679247089"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization"><span class="hs-identifier hs-type">Featurization</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679247083"><span class="annot"><span class="annottext">toJSON :: Featurization -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.Featurization.html#Featurization%27"><span class="hs-identifier hs-type">Featurization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247080"><span id="local-6989586621679247081"><span class="annot"><span class="annottext">Maybe (NonEmpty FeaturizationMethod)
+Text
+attributeName :: Text
+featurizationPipeline :: Maybe (NonEmpty FeaturizationMethod)
+$sel:attributeName:Featurization' :: Featurization -&gt; Text
+$sel:featurizationPipeline:Featurization' :: Featurization -&gt; Maybe (NonEmpty FeaturizationMethod)
+</span><a href="#local-6989586621679247080"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeaturizationPipeline&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty FeaturizationMethod -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty FeaturizationMethod -&gt; Pair)
+-&gt; Maybe (NonEmpty FeaturizationMethod) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty FeaturizationMethod)
+</span><a href="#local-6989586621679247081"><span class="hs-identifier hs-var">featurizationPipeline</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-124"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttributeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247080"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span></pre></body></html>

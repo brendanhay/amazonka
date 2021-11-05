@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679433575"><span id="local-6989586621679433576"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MigrationTypeValue"><span class="annot"><a href="Network.AWS.DMS.Types.MigrationTypeValue.html#MigrationTypeValue"><span class="hs-identifier hs-var">MigrationTypeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MigrationTypeValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.MigrationTypeValue.html#MigrationTypeValue%27"><span class="hs-identifier hs-var">MigrationTypeValue'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679433584"><span id="local-6989586621679433585"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MigrationTypeValue"><span class="annot"><a href="Network.AWS.DMS.Types.MigrationTypeValue.html#MigrationTypeValue"><span class="hs-identifier hs-var">MigrationTypeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MigrationTypeValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.MigrationTypeValue.html#MigrationTypeValue%27"><span class="hs-identifier hs-var">MigrationTypeValue'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMigrationTypeValue"><span class="annot"><span class="annottext">MigrationTypeValue -&gt; Text
 </span><a href="Network.AWS.DMS.Types.MigrationTypeValue.html#fromMigrationTypeValue"><span class="hs-identifier hs-var hs-var">fromMigrationTypeValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679433567"><span id="local-6989586621679433569"><span id="local-6989586621679433571"><span class="annot"><span class="annottext">Int -&gt; MigrationTypeValue -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679433576"><span id="local-6989586621679433578"><span id="local-6989586621679433580"><span class="annot"><span class="annottext">Int -&gt; MigrationTypeValue -&gt; ShowS
 [MigrationTypeValue] -&gt; ShowS
 MigrationTypeValue -&gt; String
 (Int -&gt; MigrationTypeValue -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: MigrationTypeValue -&gt; String
 showsPrec :: Int -&gt; MigrationTypeValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; MigrationTypeValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679433558"><span id="local-6989586621679433560"><span id="local-6989586621679433562"><span id="local-6989586621679433564"><span class="annot"><span class="annottext">ReadPrec [MigrationTypeValue]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679433567"><span id="local-6989586621679433569"><span id="local-6989586621679433571"><span id="local-6989586621679433573"><span class="annot"><span class="annottext">ReadPrec [MigrationTypeValue]
 ReadPrec MigrationTypeValue
 Int -&gt; ReadS MigrationTypeValue
 ReadS [MigrationTypeValue]
@@ -73,7 +73,7 @@ $creadList :: ReadS [MigrationTypeValue]
 readsPrec :: Int -&gt; ReadS MigrationTypeValue
 $creadsPrec :: Int -&gt; ReadS MigrationTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679433553"><span id="local-6989586621679433555"><span class="annot"><span class="annottext">MigrationTypeValue -&gt; MigrationTypeValue -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679433562"><span id="local-6989586621679433564"><span class="annot"><span class="annottext">MigrationTypeValue -&gt; MigrationTypeValue -&gt; Bool
 (MigrationTypeValue -&gt; MigrationTypeValue -&gt; Bool)
 -&gt; (MigrationTypeValue -&gt; MigrationTypeValue -&gt; Bool)
 -&gt; Eq MigrationTypeValue
@@ -83,7 +83,7 @@ $c/= :: MigrationTypeValue -&gt; MigrationTypeValue -&gt; Bool
 == :: MigrationTypeValue -&gt; MigrationTypeValue -&gt; Bool
 $c== :: MigrationTypeValue -&gt; MigrationTypeValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679433537"><span id="local-6989586621679433539"><span id="local-6989586621679433541"><span id="local-6989586621679433543"><span id="local-6989586621679433545"><span id="local-6989586621679433547"><span id="local-6989586621679433549"><span class="annot"><span class="annottext">Eq MigrationTypeValue
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679433546"><span id="local-6989586621679433548"><span id="local-6989586621679433550"><span id="local-6989586621679433552"><span id="local-6989586621679433554"><span id="local-6989586621679433556"><span id="local-6989586621679433558"><span class="annot"><span class="annottext">Eq MigrationTypeValue
 Eq MigrationTypeValue
 -&gt; (MigrationTypeValue -&gt; MigrationTypeValue -&gt; Ordering)
 -&gt; (MigrationTypeValue -&gt; MigrationTypeValue -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. MigrationTypeValue -&gt; Rep MigrationTypeValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679433529"><span id="local-6989586621679433531"><span class="annot"><span class="annottext">Int -&gt; MigrationTypeValue -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679433538"><span id="local-6989586621679433540"><span class="annot"><span class="annottext">Int -&gt; MigrationTypeValue -&gt; Int
 MigrationTypeValue -&gt; Int
 (Int -&gt; MigrationTypeValue -&gt; Int)
 -&gt; (MigrationTypeValue -&gt; Int) -&gt; Hashable MigrationTypeValue
@@ -144,53 +144,53 @@ $chash :: MigrationTypeValue -&gt; Int
 hashWithSalt :: Int -&gt; MigrationTypeValue -&gt; Int
 $chashWithSalt :: Int -&gt; MigrationTypeValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679433526"><span class="annot"><span class="annottext">MigrationTypeValue -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679433535"><span class="annot"><span class="annottext">MigrationTypeValue -&gt; ()
 (MigrationTypeValue -&gt; ()) -&gt; NFData MigrationTypeValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MigrationTypeValue -&gt; ()
 $crnf :: MigrationTypeValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679433523"><span class="annot"><span class="annottext">Text -&gt; Either String MigrationTypeValue
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679433532"><span class="annot"><span class="annottext">Text -&gt; Either String MigrationTypeValue
 (Text -&gt; Either String MigrationTypeValue)
 -&gt; FromText MigrationTypeValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MigrationTypeValue
 $cfromText :: Text -&gt; Either String MigrationTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679433520"><span class="annot"><span class="annottext">MigrationTypeValue -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679433529"><span class="annot"><span class="annottext">MigrationTypeValue -&gt; Text
 (MigrationTypeValue -&gt; Text) -&gt; ToText MigrationTypeValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MigrationTypeValue -&gt; Text
 $ctoText :: MigrationTypeValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679433517"><span class="annot"><span class="annottext">MigrationTypeValue -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679433526"><span class="annot"><span class="annottext">MigrationTypeValue -&gt; ByteString
 (MigrationTypeValue -&gt; ByteString)
 -&gt; ToByteString MigrationTypeValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MigrationTypeValue -&gt; ByteString
 $ctoBS :: MigrationTypeValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679433514"><span class="annot"><span class="annottext">MigrationTypeValue -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679433523"><span class="annot"><span class="annottext">MigrationTypeValue -&gt; ByteStringBuilder
 (MigrationTypeValue -&gt; ByteStringBuilder)
 -&gt; ToLog MigrationTypeValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MigrationTypeValue -&gt; ByteStringBuilder
 $cbuild :: MigrationTypeValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679433511"><span class="annot"><span class="annottext">HeaderName -&gt; MigrationTypeValue -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679433520"><span class="annot"><span class="annottext">HeaderName -&gt; MigrationTypeValue -&gt; [Header]
 (HeaderName -&gt; MigrationTypeValue -&gt; [Header])
 -&gt; ToHeader MigrationTypeValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MigrationTypeValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MigrationTypeValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679433508"><span class="annot"><span class="annottext">MigrationTypeValue -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679433517"><span class="annot"><span class="annottext">MigrationTypeValue -&gt; QueryString
 (MigrationTypeValue -&gt; QueryString) -&gt; ToQuery MigrationTypeValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MigrationTypeValue -&gt; QueryString
 $ctoQuery :: MigrationTypeValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679433503"><span id="local-6989586621679433505"><span class="annot"><span class="annottext">Value -&gt; Parser [MigrationTypeValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679433512"><span id="local-6989586621679433514"><span class="annot"><span class="annottext">Value -&gt; Parser [MigrationTypeValue]
 Value -&gt; Parser MigrationTypeValue
 (Value -&gt; Parser MigrationTypeValue)
 -&gt; (Value -&gt; Parser [MigrationTypeValue])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [MigrationTypeValue]
 parseJSON :: Value -&gt; Parser MigrationTypeValue
 $cparseJSON :: Value -&gt; Parser MigrationTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679433498"><span id="local-6989586621679433500"><span class="annot"><span class="annottext">FromJSONKeyFunction [MigrationTypeValue]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679433507"><span id="local-6989586621679433509"><span class="annot"><span class="annottext">FromJSONKeyFunction [MigrationTypeValue]
 FromJSONKeyFunction MigrationTypeValue
 FromJSONKeyFunction MigrationTypeValue
 -&gt; FromJSONKeyFunction [MigrationTypeValue]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MigrationTypeValue]
 fromJSONKey :: FromJSONKeyFunction MigrationTypeValue
 $cfromJSONKey :: FromJSONKeyFunction MigrationTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679433489"><span id="local-6989586621679433491"><span id="local-6989586621679433493"><span id="local-6989586621679433495"><span class="annot"><span class="annottext">[MigrationTypeValue] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679433498"><span id="local-6989586621679433500"><span id="local-6989586621679433502"><span id="local-6989586621679433504"><span class="annot"><span class="annottext">[MigrationTypeValue] -&gt; Encoding
 [MigrationTypeValue] -&gt; Value
 MigrationTypeValue -&gt; Encoding
 MigrationTypeValue -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: MigrationTypeValue -&gt; Encoding
 toJSON :: MigrationTypeValue -&gt; Value
 $ctoJSON :: MigrationTypeValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679433484"><span id="local-6989586621679433486"><span class="annot"><span class="annottext">ToJSONKeyFunction [MigrationTypeValue]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679433493"><span id="local-6989586621679433495"><span class="annot"><span class="annottext">ToJSONKeyFunction [MigrationTypeValue]
 ToJSONKeyFunction MigrationTypeValue
 ToJSONKeyFunction MigrationTypeValue
 -&gt; ToJSONKeyFunction [MigrationTypeValue]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MigrationTypeValue]
 toJSONKey :: ToJSONKeyFunction MigrationTypeValue
 $ctoJSONKey :: ToJSONKeyFunction MigrationTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679433481"><span class="annot"><span class="annottext">[Node] -&gt; Either String MigrationTypeValue
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679433490"><span class="annot"><span class="annottext">[Node] -&gt; Either String MigrationTypeValue
 ([Node] -&gt; Either String MigrationTypeValue)
 -&gt; FromXML MigrationTypeValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MigrationTypeValue
 $cparseXML :: [Node] -&gt; Either String MigrationTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679433478"><span class="annot"><span class="annottext">MigrationTypeValue -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679433487"><span class="annot"><span class="annottext">MigrationTypeValue -&gt; XML
 (MigrationTypeValue -&gt; XML) -&gt; ToXML MigrationTypeValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MigrationTypeValue -&gt; XML

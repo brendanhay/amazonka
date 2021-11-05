@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- | Describes an export instance task.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newExportTask' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621681162220"><span id="local-6989586621681162221"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportTask"><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-var">ExportTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportTask%27"><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-var">ExportTask'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681162229"><span id="local-6989586621681162230"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportTask"><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-var">ExportTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportTask%27"><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-var">ExportTask'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags for the export task.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Atags%3AExportTask%27"><span class="annot"><span class="annottext">ExportTask -&gt; Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.ExportTask.html#%24sel%3Atags%3AExportTask%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AstatusMessage%3AExportTask%27"><span class="annot"><span class="annottext">ExportTask -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ExportTask.html#%24sel%3AstatusMessage%3AExportTask%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681162208"><span id="local-6989586621681162210"><span class="annot"><span class="annottext">ExportTask -&gt; ExportTask -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681162217"><span id="local-6989586621681162219"><span class="annot"><span class="annottext">ExportTask -&gt; ExportTask -&gt; Bool
 (ExportTask -&gt; ExportTask -&gt; Bool)
 -&gt; (ExportTask -&gt; ExportTask -&gt; Bool) -&gt; Eq ExportTask
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExportTask -&gt; ExportTask -&gt; Bool
 == :: ExportTask -&gt; ExportTask -&gt; Bool
 $c== :: ExportTask -&gt; ExportTask -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681162199"><span id="local-6989586621681162201"><span id="local-6989586621681162203"><span id="local-6989586621681162205"><span class="annot"><span class="annottext">ReadPrec [ExportTask]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681162208"><span id="local-6989586621681162210"><span id="local-6989586621681162212"><span id="local-6989586621681162214"><span class="annot"><span class="annottext">ReadPrec [ExportTask]
 ReadPrec ExportTask
 Int -&gt; ReadS ExportTask
 ReadS [ExportTask]
@@ -82,7 +82,7 @@ readList :: ReadS [ExportTask]
 $creadList :: ReadS [ExportTask]
 readsPrec :: Int -&gt; ReadS ExportTask
 $creadsPrec :: Int -&gt; ReadS ExportTask
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681162192"><span id="local-6989586621681162194"><span id="local-6989586621681162196"><span class="annot"><span class="annottext">Int -&gt; ExportTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681162201"><span id="local-6989586621681162203"><span id="local-6989586621681162205"><span class="annot"><span class="annottext">Int -&gt; ExportTask -&gt; ShowS
 [ExportTask] -&gt; ShowS
 ExportTask -&gt; String
 (Int -&gt; ExportTask -&gt; ShowS)
@@ -150,18 +150,18 @@ $cfrom :: forall x. ExportTask -&gt; Rep ExportTask x
 -&gt; Text
 -&gt; ExportTask
 </span><a href="Network.AWS.EC2.Types.ExportTask.html#newExportTask"><span class="hs-identifier hs-var hs-var">newExportTask</span></a></span></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621681162186"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162186"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621681162185"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162185"><span class="hs-identifier hs-var">pExportTaskId_</span></a></span></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621681162184"><span class="annot"><span class="annottext">ExportToS3Task
-</span><a href="#local-6989586621681162184"><span class="hs-identifier hs-var">pExportToS3Task_</span></a></span></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621681162183"><span class="annot"><span class="annottext">InstanceExportDetails
-</span><a href="#local-6989586621681162183"><span class="hs-identifier hs-var">pInstanceExportDetails_</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621681162182"><span class="annot"><span class="annottext">ExportTaskState
-</span><a href="#local-6989586621681162182"><span class="hs-identifier hs-var">pState_</span></a></span></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621681162181"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162181"><span class="hs-identifier hs-var">pStatusMessage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621681162195"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162195"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621681162194"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162194"><span class="hs-identifier hs-var">pExportTaskId_</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621681162193"><span class="annot"><span class="annottext">ExportToS3Task
+</span><a href="#local-6989586621681162193"><span class="hs-identifier hs-var">pExportToS3Task_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621681162192"><span class="annot"><span class="annottext">InstanceExportDetails
+</span><a href="#local-6989586621681162192"><span class="hs-identifier hs-var">pInstanceExportDetails_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621681162191"><span class="annot"><span class="annottext">ExportTaskState
+</span><a href="#local-6989586621681162191"><span class="hs-identifier hs-var">pState_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621681162190"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162190"><span class="hs-identifier hs-var">pStatusMessage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ExportTask' :: Maybe [Tag]
 -&gt; Text
 -&gt; Text
@@ -177,22 +177,22 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:ExportTask' :: Text
 </span><a href="Network.AWS.EC2.Types.ExportTask.html#%24sel%3Adescription%3AExportTask%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162186"><span class="hs-identifier hs-var">pDescription_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681162195"><span class="hs-identifier hs-var">pDescription_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:exportTaskId:ExportTask' :: Text
 </span><a href="Network.AWS.EC2.Types.ExportTask.html#%24sel%3AexportTaskId%3AExportTask%27"><span class="hs-identifier hs-var">exportTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162185"><span class="hs-identifier hs-var">pExportTaskId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681162194"><span class="hs-identifier hs-var">pExportTaskId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:exportToS3Task:ExportTask' :: ExportToS3Task
 </span><a href="Network.AWS.EC2.Types.ExportTask.html#%24sel%3AexportToS3Task%3AExportTask%27"><span class="hs-identifier hs-var">exportToS3Task</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExportToS3Task
-</span><a href="#local-6989586621681162184"><span class="hs-identifier hs-var">pExportToS3Task_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681162193"><span class="hs-identifier hs-var">pExportToS3Task_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceExportDetails:ExportTask' :: InstanceExportDetails
 </span><a href="Network.AWS.EC2.Types.ExportTask.html#%24sel%3AinstanceExportDetails%3AExportTask%27"><span class="hs-identifier hs-var">instanceExportDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InstanceExportDetails
-</span><a href="#local-6989586621681162183"><span class="hs-identifier hs-var">pInstanceExportDetails_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681162192"><span class="hs-identifier hs-var">pInstanceExportDetails_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:state:ExportTask' :: ExportTaskState
 </span><a href="Network.AWS.EC2.Types.ExportTask.html#%24sel%3Astate%3AExportTask%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExportTaskState
-</span><a href="#local-6989586621681162182"><span class="hs-identifier hs-var">pState_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681162191"><span class="hs-identifier hs-var">pState_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:statusMessage:ExportTask' :: Text
 </span><a href="Network.AWS.EC2.Types.ExportTask.html#%24sel%3AstatusMessage%3AExportTask%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162181"><span class="hs-identifier hs-var">pStatusMessage_</span></a></span><span>
+</span><a href="#local-6989586621681162190"><span class="hs-identifier hs-var">pStatusMessage_</span></a></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The tags for the export task.</span><span>
@@ -202,16 +202,16 @@ forall a. Maybe a
 -&gt; (ExportTask -&gt; Maybe [Tag] -&gt; ExportTask)
 -&gt; Lens ExportTask ExportTask (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162177"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162186"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:ExportTask' :: ExportTask -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681162177"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681162177"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162176"><span class="annot"><span class="annottext">s :: ExportTask
-</span><a href="#local-6989586621681162176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162175"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681162175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTask
-</span><a href="#local-6989586621681162176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ExportTask' :: Maybe [Tag]
+</span><a href="#local-6989586621681162186"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681162186"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162185"><span class="annot"><span class="annottext">s :: ExportTask
+</span><a href="#local-6989586621681162185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162184"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681162184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTask
+</span><a href="#local-6989586621681162185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ExportTask' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.ExportTask.html#%24sel%3Atags%3AExportTask%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681162175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; ExportTask -&gt; f ExportTask)
+</span><a href="#local-6989586621681162184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; ExportTask -&gt; f ExportTask)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -234,16 +234,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ExportTask -&gt; Text -&gt; ExportTask)
 -&gt; Lens ExportTask ExportTask Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162170"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162179"><span class="annot"><span class="annottext">Text
 description :: Text
 $sel:description:ExportTask' :: ExportTask -&gt; Text
-</span><a href="#local-6989586621681162170"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162170"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162169"><span class="annot"><span class="annottext">s :: ExportTask
-</span><a href="#local-6989586621681162169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162168"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTask
-</span><a href="#local-6989586621681162169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ExportTask' :: Text
+</span><a href="#local-6989586621681162179"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162179"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162178"><span class="annot"><span class="annottext">s :: ExportTask
+</span><a href="#local-6989586621681162178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162177"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTask
+</span><a href="#local-6989586621681162178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ExportTask' :: Text
 </span><a href="Network.AWS.EC2.Types.ExportTask.html#%24sel%3Adescription%3AExportTask%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681162177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The ID of the export task.</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#exportTask_exportTaskId"><span class="hs-identifier hs-type">exportTask_exportTaskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -252,16 +252,16 @@ $sel:description:ExportTask' :: ExportTask -&gt; Text
 -&gt; (ExportTask -&gt; Text -&gt; ExportTask)
 -&gt; Lens ExportTask ExportTask Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162166"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162175"><span class="annot"><span class="annottext">Text
 exportTaskId :: Text
 $sel:exportTaskId:ExportTask' :: ExportTask -&gt; Text
-</span><a href="#local-6989586621681162166"><span class="hs-identifier hs-var hs-var">exportTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162166"><span class="hs-identifier hs-var">exportTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162165"><span class="annot"><span class="annottext">s :: ExportTask
-</span><a href="#local-6989586621681162165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162164"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTask
-</span><a href="#local-6989586621681162165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportTaskId:ExportTask' :: Text
+</span><a href="#local-6989586621681162175"><span class="hs-identifier hs-var hs-var">exportTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162175"><span class="hs-identifier hs-var">exportTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162174"><span class="annot"><span class="annottext">s :: ExportTask
+</span><a href="#local-6989586621681162174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162173"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTask
+</span><a href="#local-6989586621681162174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportTaskId:ExportTask' :: Text
 </span><a href="Network.AWS.EC2.Types.ExportTask.html#%24sel%3AexportTaskId%3AExportTask%27"><span class="hs-identifier hs-var">exportTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681162173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | Information about the export task.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#exportTask_exportToS3Task"><span class="hs-identifier hs-type">exportTask_exportToS3Task</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span>
@@ -270,16 +270,16 @@ $sel:exportTaskId:ExportTask' :: ExportTask -&gt; Text
 -&gt; (ExportTask -&gt; ExportToS3Task -&gt; ExportTask)
 -&gt; Lens ExportTask ExportTask ExportToS3Task ExportToS3Task
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162162"><span class="annot"><span class="annottext">ExportToS3Task
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162171"><span class="annot"><span class="annottext">ExportToS3Task
 exportToS3Task :: ExportToS3Task
 $sel:exportToS3Task:ExportTask' :: ExportTask -&gt; ExportToS3Task
-</span><a href="#local-6989586621681162162"><span class="hs-identifier hs-var hs-var">exportToS3Task</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportToS3Task
-</span><a href="#local-6989586621681162162"><span class="hs-identifier hs-var">exportToS3Task</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162161"><span class="annot"><span class="annottext">s :: ExportTask
-</span><a href="#local-6989586621681162161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162160"><span class="annot"><span class="annottext">ExportToS3Task
-</span><a href="#local-6989586621681162160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTask
-</span><a href="#local-6989586621681162161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportToS3Task:ExportTask' :: ExportToS3Task
+</span><a href="#local-6989586621681162171"><span class="hs-identifier hs-var hs-var">exportToS3Task</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportToS3Task
+</span><a href="#local-6989586621681162171"><span class="hs-identifier hs-var">exportToS3Task</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162170"><span class="annot"><span class="annottext">s :: ExportTask
+</span><a href="#local-6989586621681162170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162169"><span class="annot"><span class="annottext">ExportToS3Task
+</span><a href="#local-6989586621681162169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTask
+</span><a href="#local-6989586621681162170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportToS3Task:ExportTask' :: ExportToS3Task
 </span><a href="Network.AWS.EC2.Types.ExportTask.html#%24sel%3AexportToS3Task%3AExportTask%27"><span class="hs-identifier hs-var">exportToS3Task</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExportToS3Task
-</span><a href="#local-6989586621681162160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681162169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | Information about the instance to export.</span><span>
 </span><span id="line-121"></span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#exportTask_instanceExportDetails"><span class="hs-identifier hs-type">exportTask_instanceExportDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceExportDetails.html#InstanceExportDetails"><span class="hs-identifier hs-type">InstanceExportDetails</span></a></span><span>
@@ -290,16 +290,16 @@ $sel:exportToS3Task:ExportTask' :: ExportTask -&gt; ExportToS3Task
 -&gt; Lens
      ExportTask ExportTask InstanceExportDetails InstanceExportDetails
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162158"><span class="annot"><span class="annottext">InstanceExportDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162167"><span class="annot"><span class="annottext">InstanceExportDetails
 instanceExportDetails :: InstanceExportDetails
 $sel:instanceExportDetails:ExportTask' :: ExportTask -&gt; InstanceExportDetails
-</span><a href="#local-6989586621681162158"><span class="hs-identifier hs-var hs-var">instanceExportDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceExportDetails
-</span><a href="#local-6989586621681162158"><span class="hs-identifier hs-var">instanceExportDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162157"><span class="annot"><span class="annottext">s :: ExportTask
-</span><a href="#local-6989586621681162157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162156"><span class="annot"><span class="annottext">InstanceExportDetails
-</span><a href="#local-6989586621681162156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTask
-</span><a href="#local-6989586621681162157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceExportDetails:ExportTask' :: InstanceExportDetails
+</span><a href="#local-6989586621681162167"><span class="hs-identifier hs-var hs-var">instanceExportDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceExportDetails
+</span><a href="#local-6989586621681162167"><span class="hs-identifier hs-var">instanceExportDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162166"><span class="annot"><span class="annottext">s :: ExportTask
+</span><a href="#local-6989586621681162166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162165"><span class="annot"><span class="annottext">InstanceExportDetails
+</span><a href="#local-6989586621681162165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTask
+</span><a href="#local-6989586621681162166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceExportDetails:ExportTask' :: InstanceExportDetails
 </span><a href="Network.AWS.EC2.Types.ExportTask.html#%24sel%3AinstanceExportDetails%3AExportTask%27"><span class="hs-identifier hs-var">instanceExportDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InstanceExportDetails
-</span><a href="#local-6989586621681162156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681162165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The state of the export task.</span><span>
 </span><span id="line-125"></span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#exportTask_state"><span class="hs-identifier hs-type">exportTask_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTaskState.html#ExportTaskState"><span class="hs-identifier hs-type">ExportTaskState</span></a></span><span>
@@ -309,16 +309,16 @@ $sel:instanceExportDetails:ExportTask' :: ExportTask -&gt; InstanceExportDetails
 -&gt; (ExportTask -&gt; ExportTaskState -&gt; ExportTask)
 -&gt; Lens ExportTask ExportTask ExportTaskState ExportTaskState
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162154"><span class="annot"><span class="annottext">ExportTaskState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162163"><span class="annot"><span class="annottext">ExportTaskState
 state :: ExportTaskState
 $sel:state:ExportTask' :: ExportTask -&gt; ExportTaskState
-</span><a href="#local-6989586621681162154"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTaskState
-</span><a href="#local-6989586621681162154"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162153"><span class="annot"><span class="annottext">s :: ExportTask
-</span><a href="#local-6989586621681162153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162152"><span class="annot"><span class="annottext">ExportTaskState
-</span><a href="#local-6989586621681162152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTask
-</span><a href="#local-6989586621681162153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:ExportTask' :: ExportTaskState
+</span><a href="#local-6989586621681162163"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTaskState
+</span><a href="#local-6989586621681162163"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162162"><span class="annot"><span class="annottext">s :: ExportTask
+</span><a href="#local-6989586621681162162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162161"><span class="annot"><span class="annottext">ExportTaskState
+</span><a href="#local-6989586621681162161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTask
+</span><a href="#local-6989586621681162162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:ExportTask' :: ExportTaskState
 </span><a href="Network.AWS.EC2.Types.ExportTask.html#%24sel%3Astate%3AExportTask%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExportTaskState
-</span><a href="#local-6989586621681162152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681162161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The status message related to the export task.</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#exportTask_statusMessage"><span class="hs-identifier hs-type">exportTask_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -327,21 +327,21 @@ $sel:state:ExportTask' :: ExportTask -&gt; ExportTaskState
 -&gt; (ExportTask -&gt; Text -&gt; ExportTask)
 -&gt; Lens ExportTask ExportTask Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162150"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162159"><span class="annot"><span class="annottext">Text
 statusMessage :: Text
 $sel:statusMessage:ExportTask' :: ExportTask -&gt; Text
-</span><a href="#local-6989586621681162150"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162150"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162149"><span class="annot"><span class="annottext">s :: ExportTask
-</span><a href="#local-6989586621681162149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162148"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTask
-</span><a href="#local-6989586621681162149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:ExportTask' :: Text
+</span><a href="#local-6989586621681162159"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162159"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162158"><span class="annot"><span class="annottext">s :: ExportTask
+</span><a href="#local-6989586621681162158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask%27"><span class="hs-identifier hs-type">ExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162157"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportTask
+</span><a href="#local-6989586621681162158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:ExportTask' :: Text
 </span><a href="Network.AWS.EC2.Types.ExportTask.html#%24sel%3AstatusMessage%3AExportTask%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681162157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621681162145"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ExportTask
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681162143"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681162143"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621681162154"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ExportTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681162152"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681162152"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Tag]
 -&gt; Text
 -&gt; Text
@@ -371,7 +371,7 @@ $sel:statusMessage:ExportTask' :: ExportTask -&gt; Text
       -&gt; ExportTask)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681162143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681162152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -413,7 +413,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
       -&gt; ExportTask)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681162143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681162152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
@@ -432,7 +432,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
       -&gt; InstanceExportDetails -&gt; ExportTaskState -&gt; Text -&gt; ExportTask)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681162143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681162152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;exportTaskId&quot;</span></span><span class="hs-special">)</span><span>
@@ -446,7 +446,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
      (InstanceExportDetails -&gt; ExportTaskState -&gt; Text -&gt; ExportTask)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681162143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ExportToS3Task
+</span><a href="#local-6989586621681162152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ExportToS3Task
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;exportToS3&quot;</span></span><span class="hs-special">)</span><span>
@@ -457,7 +457,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (ExportTaskState -&gt; Text -&gt; ExportTask)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681162143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String InstanceExportDetails
+</span><a href="#local-6989586621681162152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String InstanceExportDetails
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceExport&quot;</span></span><span class="hs-special">)</span><span>
@@ -466,7 +466,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; ExportTask)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681162143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ExportTaskState
+</span><a href="#local-6989586621681162152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ExportTaskState
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
@@ -474,12 +474,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String ExportTask
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681162143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681162152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statusMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681162133"><span id="local-6989586621681162135"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681162142"><span id="local-6989586621681162144"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681162130"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681162139"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span></span><span>
 </span><span id="line-148"></span></pre></body></html>

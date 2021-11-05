@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newAssignInstance' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679395611"><span id="local-6989586621679395612"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssignInstance"><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance"><span class="hs-identifier hs-var">AssignInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssignInstance%27"><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance%27"><span class="hs-identifier hs-var">AssignInstance'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679395620"><span id="local-6989586621679395621"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssignInstance"><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance"><span class="hs-identifier hs-var">AssignInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssignInstance%27"><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance%27"><span class="hs-identifier hs-var">AssignInstance'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The instance ID.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AinstanceId%3AAssignInstance%27"><span class="annot"><span class="annottext">AssignInstance -&gt; Text
 </span><a href="Network.AWS.OpsWorks.AssignInstance.html#%24sel%3AinstanceId%3AAssignInstance%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AlayerIds%3AAssignInstance%27"><span class="annot"><span class="annottext">AssignInstance -&gt; [Text]
 </span><a href="Network.AWS.OpsWorks.AssignInstance.html#%24sel%3AlayerIds%3AAssignInstance%27"><span class="hs-identifier hs-var hs-var">layerIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395604"><span id="local-6989586621679395606"><span class="annot"><span class="annottext">AssignInstance -&gt; AssignInstance -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395613"><span id="local-6989586621679395615"><span class="annot"><span class="annottext">AssignInstance -&gt; AssignInstance -&gt; Bool
 (AssignInstance -&gt; AssignInstance -&gt; Bool)
 -&gt; (AssignInstance -&gt; AssignInstance -&gt; Bool) -&gt; Eq AssignInstance
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssignInstance -&gt; AssignInstance -&gt; Bool
 == :: AssignInstance -&gt; AssignInstance -&gt; Bool
 $c== :: AssignInstance -&gt; AssignInstance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395595"><span id="local-6989586621679395597"><span id="local-6989586621679395599"><span id="local-6989586621679395601"><span class="annot"><span class="annottext">ReadPrec [AssignInstance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395604"><span id="local-6989586621679395606"><span id="local-6989586621679395608"><span id="local-6989586621679395610"><span class="annot"><span class="annottext">ReadPrec [AssignInstance]
 ReadPrec AssignInstance
 Int -&gt; ReadS AssignInstance
 ReadS [AssignInstance]
@@ -95,7 +95,7 @@ readList :: ReadS [AssignInstance]
 $creadList :: ReadS [AssignInstance]
 readsPrec :: Int -&gt; ReadS AssignInstance
 $creadsPrec :: Int -&gt; ReadS AssignInstance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395588"><span id="local-6989586621679395590"><span id="local-6989586621679395592"><span class="annot"><span class="annottext">Int -&gt; AssignInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395597"><span id="local-6989586621679395599"><span id="local-6989586621679395601"><span class="annot"><span class="annottext">Int -&gt; AssignInstance -&gt; ShowS
 [AssignInstance] -&gt; ShowS
 AssignInstance -&gt; String
 (Int -&gt; AssignInstance -&gt; ShowS)
@@ -138,13 +138,13 @@ $cfrom :: forall x. AssignInstance -&gt; Rep AssignInstance x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance"><span class="hs-identifier hs-type">AssignInstance</span></a></span><span>
 </span><span id="line-86"></span><span id="newAssignInstance"><span class="annot"><span class="annottext">newAssignInstance :: Text -&gt; AssignInstance
-</span><a href="Network.AWS.OpsWorks.AssignInstance.html#newAssignInstance"><span class="hs-identifier hs-var hs-var">newAssignInstance</span></a></span></span><span> </span><span id="local-6989586621679395583"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395583"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.AssignInstance.html#newAssignInstance"><span class="hs-identifier hs-var hs-var">newAssignInstance</span></a></span></span><span> </span><span id="local-6989586621679395592"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395592"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">AssignInstance' :: Text -&gt; [Text] -&gt; AssignInstance
 </span><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance%27"><span class="hs-identifier hs-type">AssignInstance'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:AssignInstance' :: Text
 </span><a href="Network.AWS.OpsWorks.AssignInstance.html#%24sel%3AinstanceId%3AAssignInstance%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395583"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679395592"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:layerIds:AssignInstance' :: [Text]
 </span><a href="Network.AWS.OpsWorks.AssignInstance.html#%24sel%3AlayerIds%3AAssignInstance%27"><span class="hs-identifier hs-var">layerIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -158,16 +158,16 @@ forall a. Monoid a =&gt; a
 -&gt; (AssignInstance -&gt; Text -&gt; AssignInstance)
 -&gt; Lens AssignInstance AssignInstance Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance%27"><span class="hs-identifier hs-type">AssignInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395580"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance%27"><span class="hs-identifier hs-type">AssignInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395589"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:AssignInstance' :: AssignInstance -&gt; Text
-</span><a href="#local-6989586621679395580"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395580"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395579"><span class="annot"><span class="annottext">s :: AssignInstance
-</span><a href="#local-6989586621679395579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance%27"><span class="hs-identifier hs-type">AssignInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395578"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignInstance
-</span><a href="#local-6989586621679395579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:AssignInstance' :: Text
+</span><a href="#local-6989586621679395589"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395589"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395588"><span class="annot"><span class="annottext">s :: AssignInstance
+</span><a href="#local-6989586621679395588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance%27"><span class="hs-identifier hs-type">AssignInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395587"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignInstance
+</span><a href="#local-6989586621679395588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:AssignInstance' :: Text
 </span><a href="Network.AWS.OpsWorks.AssignInstance.html#%24sel%3AinstanceId%3AAssignInstance%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance"><span class="hs-identifier hs-type">AssignInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance"><span class="hs-identifier hs-type">AssignInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The layer ID, which must correspond to a custom layer. You cannot assign</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- a registered instance to a built-in layer.</span><span>
@@ -177,16 +177,16 @@ $sel:instanceId:AssignInstance' :: AssignInstance -&gt; Text
 -&gt; (AssignInstance -&gt; [Text] -&gt; AssignInstance)
 -&gt; Lens AssignInstance AssignInstance [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance%27"><span class="hs-identifier hs-type">AssignInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395577"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance%27"><span class="hs-identifier hs-type">AssignInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395586"><span class="annot"><span class="annottext">[Text]
 layerIds :: [Text]
 $sel:layerIds:AssignInstance' :: AssignInstance -&gt; [Text]
-</span><a href="#local-6989586621679395577"><span class="hs-identifier hs-var hs-var">layerIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679395577"><span class="hs-identifier hs-var">layerIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395576"><span class="annot"><span class="annottext">s :: AssignInstance
-</span><a href="#local-6989586621679395576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance%27"><span class="hs-identifier hs-type">AssignInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395575"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679395575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignInstance
-</span><a href="#local-6989586621679395576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerIds:AssignInstance' :: [Text]
+</span><a href="#local-6989586621679395586"><span class="hs-identifier hs-var hs-var">layerIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679395586"><span class="hs-identifier hs-var">layerIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395585"><span class="annot"><span class="annottext">s :: AssignInstance
+</span><a href="#local-6989586621679395585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance%27"><span class="hs-identifier hs-type">AssignInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395584"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679395584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignInstance
+</span><a href="#local-6989586621679395585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerIds:AssignInstance' :: [Text]
 </span><a href="Network.AWS.OpsWorks.AssignInstance.html#%24sel%3AlayerIds%3AAssignInstance%27"><span class="hs-identifier hs-var">layerIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679395575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance"><span class="hs-identifier hs-type">AssignInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; AssignInstance -&gt; f AssignInstance)
+</span><a href="#local-6989586621679395584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance"><span class="hs-identifier hs-type">AssignInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; AssignInstance -&gt; f AssignInstance)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; AssignInstance
@@ -200,12 +200,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance"><span class="hs-identifier hs-type">AssignInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstanceResponse"><span class="hs-identifier hs-type">AssignInstanceResponse</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679395569"><span class="annot"><span class="annottext">request :: AssignInstance -&gt; Request AssignInstance
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679395578"><span class="annot"><span class="annottext">request :: AssignInstance -&gt; Request AssignInstance
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssignInstance -&gt; Request AssignInstance
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679395565"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679395574"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssignInstance
 -&gt; ClientResponse ClientBody
@@ -229,12 +229,12 @@ AWSResponse a
 AssignInstanceResponse
 </span><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstanceResponse%27"><span class="hs-identifier hs-var">AssignInstanceResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395558"><span id="local-6989586621679395560"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance"><span class="hs-identifier hs-type">AssignInstance</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395567"><span id="local-6989586621679395569"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance"><span class="hs-identifier hs-type">AssignInstance</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395555"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance"><span class="hs-identifier hs-type">AssignInstance</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395564"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance"><span class="hs-identifier hs-type">AssignInstance</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance"><span class="hs-identifier hs-type">AssignInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679395551"><span class="annot"><span class="annottext">toHeaders :: AssignInstance -&gt; [Header]
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679395560"><span class="annot"><span class="annottext">toHeaders :: AssignInstance -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; AssignInstance -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -261,15 +261,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395541"><span id="local-6989586621679395543"><span id="local-6989586621679395545"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance"><span class="hs-identifier hs-type">AssignInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679395539"><span class="annot"><span class="annottext">toJSON :: AssignInstance -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance%27"><span class="hs-identifier hs-type">AssignInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395536"><span id="local-6989586621679395537"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395550"><span id="local-6989586621679395552"><span id="local-6989586621679395554"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance"><span class="hs-identifier hs-type">AssignInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679395548"><span class="annot"><span class="annottext">toJSON :: AssignInstance -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance%27"><span class="hs-identifier hs-type">AssignInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395545"><span id="local-6989586621679395546"><span class="annot"><span class="annottext">[Text]
 Text
 layerIds :: [Text]
 instanceId :: Text
 $sel:layerIds:AssignInstance' :: AssignInstance -&gt; [Text]
 $sel:instanceId:AssignInstance' :: AssignInstance -&gt; Text
-</span><a href="#local-6989586621679395536"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679395545"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -281,26 +281,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395537"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679395546"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LayerIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679395536"><span class="hs-identifier hs-var">layerIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395545"><span class="hs-identifier hs-var">layerIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance"><span class="hs-identifier hs-type">AssignInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679395530"><span class="annot"><span class="annottext">toPath :: AssignInstance -&gt; ByteString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679395539"><span class="annot"><span class="annottext">toPath :: AssignInstance -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssignInstance -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstance"><span class="hs-identifier hs-type">AssignInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679395526"><span class="annot"><span class="annottext">toQuery :: AssignInstance -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679395535"><span class="annot"><span class="annottext">toQuery :: AssignInstance -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssignInstance -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -308,10 +308,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newAssignInstanceResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679395523"><span id="local-6989586621679395524"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssignInstanceResponse"><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstanceResponse"><span class="hs-identifier hs-var">AssignInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssignInstanceResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstanceResponse%27"><span class="hs-identifier hs-var">AssignInstanceResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679395532"><span id="local-6989586621679395533"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssignInstanceResponse"><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstanceResponse"><span class="hs-identifier hs-var">AssignInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssignInstanceResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstanceResponse%27"><span class="hs-identifier hs-var">AssignInstanceResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395519"><span id="local-6989586621679395521"><span class="annot"><span class="annottext">AssignInstanceResponse -&gt; AssignInstanceResponse -&gt; Bool
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395528"><span id="local-6989586621679395530"><span class="annot"><span class="annottext">AssignInstanceResponse -&gt; AssignInstanceResponse -&gt; Bool
 (AssignInstanceResponse -&gt; AssignInstanceResponse -&gt; Bool)
 -&gt; (AssignInstanceResponse -&gt; AssignInstanceResponse -&gt; Bool)
 -&gt; Eq AssignInstanceResponse
@@ -320,7 +320,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssignInstanceResponse -&gt; AssignInstanceResponse -&gt; Bool
 == :: AssignInstanceResponse -&gt; AssignInstanceResponse -&gt; Bool
 $c== :: AssignInstanceResponse -&gt; AssignInstanceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395511"><span id="local-6989586621679395513"><span id="local-6989586621679395515"><span id="local-6989586621679395517"><span class="annot"><span class="annottext">ReadPrec [AssignInstanceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395520"><span id="local-6989586621679395522"><span id="local-6989586621679395524"><span id="local-6989586621679395526"><span class="annot"><span class="annottext">ReadPrec [AssignInstanceResponse]
 ReadPrec AssignInstanceResponse
 Int -&gt; ReadS AssignInstanceResponse
 ReadS [AssignInstanceResponse]
@@ -340,7 +340,7 @@ readList :: ReadS [AssignInstanceResponse]
 $creadList :: ReadS [AssignInstanceResponse]
 readsPrec :: Int -&gt; ReadS AssignInstanceResponse
 $creadsPrec :: Int -&gt; ReadS AssignInstanceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395505"><span id="local-6989586621679395507"><span id="local-6989586621679395509"><span class="annot"><span class="annottext">Int -&gt; AssignInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395514"><span id="local-6989586621679395516"><span id="local-6989586621679395518"><span class="annot"><span class="annottext">Int -&gt; AssignInstanceResponse -&gt; ShowS
 [AssignInstanceResponse] -&gt; ShowS
 AssignInstanceResponse -&gt; String
 (Int -&gt; AssignInstanceResponse -&gt; ShowS)
@@ -377,5 +377,5 @@ $cfrom :: forall x. AssignInstanceResponse -&gt; Rep AssignInstanceResponse x
 </span><a href="Network.AWS.OpsWorks.AssignInstance.html#newAssignInstanceResponse"><span class="hs-identifier hs-var hs-var">newAssignInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssignInstanceResponse
 </span><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstanceResponse%27"><span class="hs-identifier hs-var">AssignInstanceResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstanceResponse"><span class="hs-identifier hs-type">AssignInstanceResponse</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignInstance.html#AssignInstanceResponse"><span class="hs-identifier hs-type">AssignInstanceResponse</span></a></span></span><span>
 </span><span id="line-158"></span></pre></body></html>

@@ -95,7 +95,7 @@
 </span><span id="line-95"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | /See:/ 'newRunTask' smart constructor.</span><span>
-</span><span id="line-98"></span><span id="local-6989586621679470978"><span id="local-6989586621679470979"></span></span><span class="hs-keyword">data</span><span> </span><span id="RunTask"><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-var">RunTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RunTask%27"><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-var">RunTask'</span></a></span></span><span>
+</span><span id="line-98"></span><span id="local-6989586621679470987"><span id="local-6989586621679470988"></span></span><span class="hs-keyword">data</span><span> </span><span id="RunTask"><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-var">RunTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RunTask%27"><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-var">RunTask'</span></a></span></span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of container overrides in JSON format that specify the name of a</span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-comment">-- container in the specified task definition and the overrides it should</span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-comment">-- receive. You can override the default command for a container (that is</span><span>
@@ -266,7 +266,7 @@
 </span><span id="line-250"></span><span>    </span><span id="%24sel%3AtaskDefinition%3ARunTask%27"><span class="annot"><span class="annottext">RunTask -&gt; Text
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3AtaskDefinition%3ARunTask%27"><span class="hs-identifier hs-var hs-var">taskDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-251"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-252"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679470956"><span id="local-6989586621679470958"><span class="annot"><span class="annottext">RunTask -&gt; RunTask -&gt; Bool
+</span><span id="line-252"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679470965"><span id="local-6989586621679470967"><span class="annot"><span class="annottext">RunTask -&gt; RunTask -&gt; Bool
 (RunTask -&gt; RunTask -&gt; Bool)
 -&gt; (RunTask -&gt; RunTask -&gt; Bool) -&gt; Eq RunTask
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -274,7 +274,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RunTask -&gt; RunTask -&gt; Bool
 == :: RunTask -&gt; RunTask -&gt; Bool
 $c== :: RunTask -&gt; RunTask -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470947"><span id="local-6989586621679470949"><span id="local-6989586621679470951"><span id="local-6989586621679470953"><span class="annot"><span class="annottext">ReadPrec [RunTask]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470956"><span id="local-6989586621679470958"><span id="local-6989586621679470960"><span id="local-6989586621679470962"><span class="annot"><span class="annottext">ReadPrec [RunTask]
 ReadPrec RunTask
 Int -&gt; ReadS RunTask
 ReadS [RunTask]
@@ -294,7 +294,7 @@ readList :: ReadS [RunTask]
 $creadList :: ReadS [RunTask]
 readsPrec :: Int -&gt; ReadS RunTask
 $creadsPrec :: Int -&gt; ReadS RunTask
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470940"><span id="local-6989586621679470942"><span id="local-6989586621679470944"><span class="annot"><span class="annottext">Int -&gt; RunTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470949"><span id="local-6989586621679470951"><span id="local-6989586621679470953"><span class="annot"><span class="annottext">Int -&gt; RunTask -&gt; ShowS
 [RunTask] -&gt; ShowS
 RunTask -&gt; String
 (Int -&gt; RunTask -&gt; ShowS)
@@ -481,8 +481,8 @@ $cfrom :: forall x. RunTask -&gt; Rep RunTask x
 </span><span id="line-415"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-416"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span>
 </span><span id="line-417"></span><span id="newRunTask"><span class="annot"><span class="annottext">newRunTask :: Text -&gt; RunTask
-</span><a href="Network.AWS.ECS.RunTask.html#newRunTask"><span class="hs-identifier hs-var hs-var">newRunTask</span></a></span></span><span> </span><span id="local-6989586621679470935"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470935"><span class="hs-identifier hs-var">pTaskDefinition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.RunTask.html#newRunTask"><span class="hs-identifier hs-var hs-var">newRunTask</span></a></span></span><span> </span><span id="local-6989586621679470944"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679470944"><span class="hs-identifier hs-var">pTaskDefinition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-418"></span><span>  </span><span class="annot"><span class="annottext">RunTask' :: Maybe TaskOverride
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -568,7 +568,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-435"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskDefinition:RunTask' :: Text
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3AtaskDefinition%3ARunTask%27"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470935"><span class="hs-identifier hs-var">pTaskDefinition_</span></a></span><span>
+</span><a href="#local-6989586621679470944"><span class="hs-identifier hs-var">pTaskDefinition_</span></a></span><span>
 </span><span id="line-436"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-437"></span><span>
 </span><span id="line-438"></span><span class="hs-comment">-- | A list of container overrides in JSON format that specify the name of a</span><span>
@@ -588,16 +588,16 @@ forall a. Maybe a
 -&gt; (RunTask -&gt; Maybe TaskOverride -&gt; RunTask)
 -&gt; Lens RunTask RunTask (Maybe TaskOverride) (Maybe TaskOverride)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470932"><span class="annot"><span class="annottext">Maybe TaskOverride
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470941"><span class="annot"><span class="annottext">Maybe TaskOverride
 overrides :: Maybe TaskOverride
 $sel:overrides:RunTask' :: RunTask -&gt; Maybe TaskOverride
-</span><a href="#local-6989586621679470932"><span class="hs-identifier hs-var hs-var">overrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskOverride
-</span><a href="#local-6989586621679470932"><span class="hs-identifier hs-var">overrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470931"><span class="annot"><span class="annottext">s :: RunTask
-</span><a href="#local-6989586621679470931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470930"><span class="annot"><span class="annottext">Maybe TaskOverride
-</span><a href="#local-6989586621679470930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
-</span><a href="#local-6989586621679470931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overrides:RunTask' :: Maybe TaskOverride
+</span><a href="#local-6989586621679470941"><span class="hs-identifier hs-var hs-var">overrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskOverride
+</span><a href="#local-6989586621679470941"><span class="hs-identifier hs-var">overrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470940"><span class="annot"><span class="annottext">s :: RunTask
+</span><a href="#local-6989586621679470940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470939"><span class="annot"><span class="annottext">Maybe TaskOverride
+</span><a href="#local-6989586621679470939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
+</span><a href="#local-6989586621679470940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overrides:RunTask' :: Maybe TaskOverride
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3Aoverrides%3ARunTask%27"><span class="hs-identifier hs-var">overrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskOverride
-</span><a href="#local-6989586621679470930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-450"></span><span>
 </span><span id="line-451"></span><span class="hs-comment">-- | The name of the task group to associate with the task. The default value</span><span>
 </span><span id="line-452"></span><span class="hs-comment">-- is the family name of the task definition (for example,</span><span>
@@ -608,16 +608,16 @@ $sel:overrides:RunTask' :: RunTask -&gt; Maybe TaskOverride
 -&gt; (RunTask -&gt; Maybe Text -&gt; RunTask)
 -&gt; Lens RunTask RunTask (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470929"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470938"><span class="annot"><span class="annottext">Maybe Text
 group' :: Maybe Text
 $sel:group':RunTask' :: RunTask -&gt; Maybe Text
-</span><a href="#local-6989586621679470929"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470929"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470928"><span class="annot"><span class="annottext">s :: RunTask
-</span><a href="#local-6989586621679470928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470927"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
-</span><a href="#local-6989586621679470928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':RunTask' :: Maybe Text
+</span><a href="#local-6989586621679470938"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470938"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470937"><span class="annot"><span class="annottext">s :: RunTask
+</span><a href="#local-6989586621679470937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470936"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
+</span><a href="#local-6989586621679470937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':RunTask' :: Maybe Text
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3Agroup%27%3ARunTask%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-456"></span><span>
 </span><span id="line-457"></span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the cluster on</span><span>
 </span><span id="line-458"></span><span class="hs-comment">-- which to run your task. If you do not specify a cluster, the default</span><span>
@@ -628,16 +628,16 @@ $sel:group':RunTask' :: RunTask -&gt; Maybe Text
 -&gt; (RunTask -&gt; Maybe Text -&gt; RunTask)
 -&gt; Lens RunTask RunTask (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470926"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470935"><span class="annot"><span class="annottext">Maybe Text
 cluster :: Maybe Text
 $sel:cluster:RunTask' :: RunTask -&gt; Maybe Text
-</span><a href="#local-6989586621679470926"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470926"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470925"><span class="annot"><span class="annottext">s :: RunTask
-</span><a href="#local-6989586621679470925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470924"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
-</span><a href="#local-6989586621679470925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:RunTask' :: Maybe Text
+</span><a href="#local-6989586621679470935"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470935"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470934"><span class="annot"><span class="annottext">s :: RunTask
+</span><a href="#local-6989586621679470934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470933"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
+</span><a href="#local-6989586621679470934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:RunTask' :: Maybe Text
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3Acluster%3ARunTask%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-462"></span><span>
 </span><span id="line-463"></span><span class="hs-comment">-- | Specifies whether to propagate the tags from the task definition to the</span><span>
 </span><span id="line-464"></span><span class="hs-comment">-- task. If no value is specified, the tags are not propagated. Tags can</span><span>
@@ -653,16 +653,16 @@ $sel:cluster:RunTask' :: RunTask -&gt; Maybe Text
 -&gt; (RunTask -&gt; Maybe PropagateTags -&gt; RunTask)
 -&gt; Lens RunTask RunTask (Maybe PropagateTags) (Maybe PropagateTags)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470923"><span class="annot"><span class="annottext">Maybe PropagateTags
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470932"><span class="annot"><span class="annottext">Maybe PropagateTags
 propagateTags :: Maybe PropagateTags
 $sel:propagateTags:RunTask' :: RunTask -&gt; Maybe PropagateTags
-</span><a href="#local-6989586621679470923"><span class="hs-identifier hs-var hs-var">propagateTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PropagateTags
-</span><a href="#local-6989586621679470923"><span class="hs-identifier hs-var">propagateTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470922"><span class="annot"><span class="annottext">s :: RunTask
-</span><a href="#local-6989586621679470922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470921"><span class="annot"><span class="annottext">Maybe PropagateTags
-</span><a href="#local-6989586621679470921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
-</span><a href="#local-6989586621679470922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propagateTags:RunTask' :: Maybe PropagateTags
+</span><a href="#local-6989586621679470932"><span class="hs-identifier hs-var hs-var">propagateTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PropagateTags
+</span><a href="#local-6989586621679470932"><span class="hs-identifier hs-var">propagateTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470931"><span class="annot"><span class="annottext">s :: RunTask
+</span><a href="#local-6989586621679470931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470930"><span class="annot"><span class="annottext">Maybe PropagateTags
+</span><a href="#local-6989586621679470930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
+</span><a href="#local-6989586621679470931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propagateTags:RunTask' :: Maybe PropagateTags
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3ApropagateTags%3ARunTask%27"><span class="hs-identifier hs-var">propagateTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PropagateTags
-</span><a href="#local-6989586621679470921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-472"></span><span>
 </span><span id="line-473"></span><span class="hs-comment">-- | The platform version the task should use. A platform version is only</span><span>
 </span><span id="line-474"></span><span class="hs-comment">-- specified for tasks hosted on Fargate. If one is not specified, the</span><span>
@@ -675,16 +675,16 @@ $sel:propagateTags:RunTask' :: RunTask -&gt; Maybe PropagateTags
 -&gt; (RunTask -&gt; Maybe Text -&gt; RunTask)
 -&gt; Lens RunTask RunTask (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470920"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470929"><span class="annot"><span class="annottext">Maybe Text
 platformVersion :: Maybe Text
 $sel:platformVersion:RunTask' :: RunTask -&gt; Maybe Text
-</span><a href="#local-6989586621679470920"><span class="hs-identifier hs-var hs-var">platformVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470920"><span class="hs-identifier hs-var">platformVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470919"><span class="annot"><span class="annottext">s :: RunTask
-</span><a href="#local-6989586621679470919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470918"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
-</span><a href="#local-6989586621679470919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platformVersion:RunTask' :: Maybe Text
+</span><a href="#local-6989586621679470929"><span class="hs-identifier hs-var hs-var">platformVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470929"><span class="hs-identifier hs-var">platformVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470928"><span class="annot"><span class="annottext">s :: RunTask
+</span><a href="#local-6989586621679470928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470927"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
+</span><a href="#local-6989586621679470928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platformVersion:RunTask' :: Maybe Text
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3AplatformVersion%3ARunTask%27"><span class="hs-identifier hs-var">platformVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-480"></span><span>
 </span><span id="line-481"></span><span class="hs-comment">-- | Specifies whether to enable Amazon ECS managed tags for the task. For</span><span>
 </span><span id="line-482"></span><span class="hs-comment">-- more information, see</span><span>
@@ -696,16 +696,16 @@ $sel:platformVersion:RunTask' :: RunTask -&gt; Maybe Text
 -&gt; (RunTask -&gt; Maybe Bool -&gt; RunTask)
 -&gt; Lens RunTask RunTask (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470917"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470926"><span class="annot"><span class="annottext">Maybe Bool
 enableECSManagedTags :: Maybe Bool
 $sel:enableECSManagedTags:RunTask' :: RunTask -&gt; Maybe Bool
-</span><a href="#local-6989586621679470917"><span class="hs-identifier hs-var hs-var">enableECSManagedTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679470917"><span class="hs-identifier hs-var">enableECSManagedTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470916"><span class="annot"><span class="annottext">s :: RunTask
-</span><a href="#local-6989586621679470916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470915"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679470915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
-</span><a href="#local-6989586621679470916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableECSManagedTags:RunTask' :: Maybe Bool
+</span><a href="#local-6989586621679470926"><span class="hs-identifier hs-var hs-var">enableECSManagedTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679470926"><span class="hs-identifier hs-var">enableECSManagedTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470925"><span class="annot"><span class="annottext">s :: RunTask
+</span><a href="#local-6989586621679470925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470924"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679470924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
+</span><a href="#local-6989586621679470925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableECSManagedTags:RunTask' :: Maybe Bool
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3AenableECSManagedTags%3ARunTask%27"><span class="hs-identifier hs-var">enableECSManagedTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679470915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-487"></span><span>
 </span><span id="line-488"></span><span class="hs-comment">-- | The number of instantiations of the specified task to place on your</span><span>
 </span><span id="line-489"></span><span class="hs-comment">-- cluster. You can specify up to 10 tasks per call.</span><span>
@@ -715,16 +715,16 @@ $sel:enableECSManagedTags:RunTask' :: RunTask -&gt; Maybe Bool
 -&gt; (RunTask -&gt; Maybe Int -&gt; RunTask)
 -&gt; Lens RunTask RunTask (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470914"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470923"><span class="annot"><span class="annottext">Maybe Int
 count :: Maybe Int
 $sel:count:RunTask' :: RunTask -&gt; Maybe Int
-</span><a href="#local-6989586621679470914"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679470914"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470913"><span class="annot"><span class="annottext">s :: RunTask
-</span><a href="#local-6989586621679470913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470912"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679470912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
-</span><a href="#local-6989586621679470913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:RunTask' :: Maybe Int
+</span><a href="#local-6989586621679470923"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679470923"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470922"><span class="annot"><span class="annottext">s :: RunTask
+</span><a href="#local-6989586621679470922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470921"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679470921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
+</span><a href="#local-6989586621679470922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:RunTask' :: Maybe Int
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3Acount%3ARunTask%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679470912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-492"></span><span>
 </span><span id="line-493"></span><span class="hs-comment">-- | The reference ID to use for the task. The reference ID can have a</span><span>
 </span><span id="line-494"></span><span class="hs-comment">-- maximum length of 1024 characters.</span><span>
@@ -734,16 +734,16 @@ $sel:count:RunTask' :: RunTask -&gt; Maybe Int
 -&gt; (RunTask -&gt; Maybe Text -&gt; RunTask)
 -&gt; Lens RunTask RunTask (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470911"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470920"><span class="annot"><span class="annottext">Maybe Text
 referenceId :: Maybe Text
 $sel:referenceId:RunTask' :: RunTask -&gt; Maybe Text
-</span><a href="#local-6989586621679470911"><span class="hs-identifier hs-var hs-var">referenceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470911"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470910"><span class="annot"><span class="annottext">s :: RunTask
-</span><a href="#local-6989586621679470910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470909"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
-</span><a href="#local-6989586621679470910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceId:RunTask' :: Maybe Text
+</span><a href="#local-6989586621679470920"><span class="hs-identifier hs-var hs-var">referenceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470920"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470919"><span class="annot"><span class="annottext">s :: RunTask
+</span><a href="#local-6989586621679470919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470918"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
+</span><a href="#local-6989586621679470919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceId:RunTask' :: Maybe Text
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3AreferenceId%3ARunTask%27"><span class="hs-identifier hs-var">referenceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-497"></span><span>
 </span><span id="line-498"></span><span class="hs-comment">-- | An array of placement constraint objects to use for the task. You can</span><span>
 </span><span id="line-499"></span><span class="hs-comment">-- specify up to 10 constraints per task (including constraints in the task</span><span>
@@ -759,16 +759,16 @@ $sel:referenceId:RunTask' :: RunTask -&gt; Maybe Text
      (Maybe [PlacementConstraint])
      (Maybe [PlacementConstraint])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470908"><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470917"><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
 placementConstraints :: Maybe [PlacementConstraint]
 $sel:placementConstraints:RunTask' :: RunTask -&gt; Maybe [PlacementConstraint]
-</span><a href="#local-6989586621679470908"><span class="hs-identifier hs-var hs-var">placementConstraints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
-</span><a href="#local-6989586621679470908"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470907"><span class="annot"><span class="annottext">s :: RunTask
-</span><a href="#local-6989586621679470907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470906"><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
-</span><a href="#local-6989586621679470906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
-</span><a href="#local-6989586621679470907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementConstraints:RunTask' :: Maybe [PlacementConstraint]
+</span><a href="#local-6989586621679470917"><span class="hs-identifier hs-var hs-var">placementConstraints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
+</span><a href="#local-6989586621679470917"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470916"><span class="annot"><span class="annottext">s :: RunTask
+</span><a href="#local-6989586621679470916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470915"><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
+</span><a href="#local-6989586621679470915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
+</span><a href="#local-6989586621679470916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementConstraints:RunTask' :: Maybe [PlacementConstraint]
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3AplacementConstraints%3ARunTask%27"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
-</span><a href="#local-6989586621679470906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlacementConstraint] -&gt; f (Maybe [PlacementConstraint]))
+</span><a href="#local-6989586621679470915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlacementConstraint] -&gt; f (Maybe [PlacementConstraint]))
  -&gt; RunTask -&gt; f RunTask)
 -&gt; ((Maybe [PlacementConstraint]
      -&gt; f (Maybe [PlacementConstraint]))
@@ -811,16 +811,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [PlacementStrategy])
      (Maybe [PlacementStrategy])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470902"><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470911"><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
 placementStrategy :: Maybe [PlacementStrategy]
 $sel:placementStrategy:RunTask' :: RunTask -&gt; Maybe [PlacementStrategy]
-</span><a href="#local-6989586621679470902"><span class="hs-identifier hs-var hs-var">placementStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
-</span><a href="#local-6989586621679470902"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470901"><span class="annot"><span class="annottext">s :: RunTask
-</span><a href="#local-6989586621679470901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470900"><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
-</span><a href="#local-6989586621679470900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
-</span><a href="#local-6989586621679470901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementStrategy:RunTask' :: Maybe [PlacementStrategy]
+</span><a href="#local-6989586621679470911"><span class="hs-identifier hs-var hs-var">placementStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
+</span><a href="#local-6989586621679470911"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470910"><span class="annot"><span class="annottext">s :: RunTask
+</span><a href="#local-6989586621679470910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470909"><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
+</span><a href="#local-6989586621679470909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
+</span><a href="#local-6989586621679470910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementStrategy:RunTask' :: Maybe [PlacementStrategy]
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3AplacementStrategy%3ARunTask%27"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
-</span><a href="#local-6989586621679470900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlacementStrategy] -&gt; f (Maybe [PlacementStrategy]))
+</span><a href="#local-6989586621679470909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlacementStrategy] -&gt; f (Maybe [PlacementStrategy]))
  -&gt; RunTask -&gt; f RunTask)
 -&gt; ((Maybe [PlacementStrategy] -&gt; f (Maybe [PlacementStrategy]))
     -&gt; Maybe [PlacementStrategy] -&gt; f (Maybe [PlacementStrategy]))
@@ -865,16 +865,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (RunTask -&gt; Maybe Text -&gt; RunTask)
 -&gt; Lens RunTask RunTask (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470899"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470908"><span class="annot"><span class="annottext">Maybe Text
 startedBy :: Maybe Text
 $sel:startedBy:RunTask' :: RunTask -&gt; Maybe Text
-</span><a href="#local-6989586621679470899"><span class="hs-identifier hs-var hs-var">startedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470899"><span class="hs-identifier hs-var">startedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470898"><span class="annot"><span class="annottext">s :: RunTask
-</span><a href="#local-6989586621679470898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470897"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
-</span><a href="#local-6989586621679470898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedBy:RunTask' :: Maybe Text
+</span><a href="#local-6989586621679470908"><span class="hs-identifier hs-var hs-var">startedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470908"><span class="hs-identifier hs-var">startedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470907"><span class="annot"><span class="annottext">s :: RunTask
+</span><a href="#local-6989586621679470907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470906"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
+</span><a href="#local-6989586621679470907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedBy:RunTask' :: Maybe Text
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3AstartedBy%3ARunTask%27"><span class="hs-identifier hs-var">startedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-521"></span><span>
 </span><span id="line-522"></span><span class="hs-comment">-- | The infrastructure on which to run your standalone task. For more</span><span>
 </span><span id="line-523"></span><span class="hs-comment">-- information, see</span><span>
@@ -907,16 +907,16 @@ $sel:startedBy:RunTask' :: RunTask -&gt; Maybe Text
 -&gt; (RunTask -&gt; Maybe LaunchType -&gt; RunTask)
 -&gt; Lens RunTask RunTask (Maybe LaunchType) (Maybe LaunchType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470896"><span class="annot"><span class="annottext">Maybe LaunchType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470905"><span class="annot"><span class="annottext">Maybe LaunchType
 launchType :: Maybe LaunchType
 $sel:launchType:RunTask' :: RunTask -&gt; Maybe LaunchType
-</span><a href="#local-6989586621679470896"><span class="hs-identifier hs-var hs-var">launchType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchType
-</span><a href="#local-6989586621679470896"><span class="hs-identifier hs-var">launchType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470895"><span class="annot"><span class="annottext">s :: RunTask
-</span><a href="#local-6989586621679470895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470894"><span class="annot"><span class="annottext">Maybe LaunchType
-</span><a href="#local-6989586621679470894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
-</span><a href="#local-6989586621679470895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchType:RunTask' :: Maybe LaunchType
+</span><a href="#local-6989586621679470905"><span class="hs-identifier hs-var hs-var">launchType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchType
+</span><a href="#local-6989586621679470905"><span class="hs-identifier hs-var">launchType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470904"><span class="annot"><span class="annottext">s :: RunTask
+</span><a href="#local-6989586621679470904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470903"><span class="annot"><span class="annottext">Maybe LaunchType
+</span><a href="#local-6989586621679470903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
+</span><a href="#local-6989586621679470904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchType:RunTask' :: Maybe LaunchType
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3AlaunchType%3ARunTask%27"><span class="hs-identifier hs-var">launchType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchType
-</span><a href="#local-6989586621679470894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-549"></span><span>
 </span><span id="line-550"></span><span class="hs-comment">-- | The network configuration for the task. This parameter is required for</span><span>
 </span><span id="line-551"></span><span class="hs-comment">-- task definitions that use the @awsvpc@ network mode to receive their own</span><span>
@@ -935,16 +935,16 @@ $sel:launchType:RunTask' :: RunTask -&gt; Maybe LaunchType
      (Maybe NetworkConfiguration)
      (Maybe NetworkConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470893"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470902"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
 networkConfiguration :: Maybe NetworkConfiguration
 $sel:networkConfiguration:RunTask' :: RunTask -&gt; Maybe NetworkConfiguration
-</span><a href="#local-6989586621679470893"><span class="hs-identifier hs-var hs-var">networkConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
-</span><a href="#local-6989586621679470893"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470892"><span class="annot"><span class="annottext">s :: RunTask
-</span><a href="#local-6989586621679470892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470891"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
-</span><a href="#local-6989586621679470891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
-</span><a href="#local-6989586621679470892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkConfiguration:RunTask' :: Maybe NetworkConfiguration
+</span><a href="#local-6989586621679470902"><span class="hs-identifier hs-var hs-var">networkConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+</span><a href="#local-6989586621679470902"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470901"><span class="annot"><span class="annottext">s :: RunTask
+</span><a href="#local-6989586621679470901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470900"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+</span><a href="#local-6989586621679470900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
+</span><a href="#local-6989586621679470901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkConfiguration:RunTask' :: Maybe NetworkConfiguration
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3AnetworkConfiguration%3ARunTask%27"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
-</span><a href="#local-6989586621679470891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-558"></span><span>
 </span><span id="line-559"></span><span class="hs-comment">-- | The capacity provider strategy to use for the task.</span><span>
 </span><span id="line-560"></span><span class="hs-comment">--</span><span>
@@ -970,16 +970,16 @@ $sel:networkConfiguration:RunTask' :: RunTask -&gt; Maybe NetworkConfiguration
      (Maybe [CapacityProviderStrategyItem])
      (Maybe [CapacityProviderStrategyItem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470890"><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470899"><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
 capacityProviderStrategy :: Maybe [CapacityProviderStrategyItem]
 $sel:capacityProviderStrategy:RunTask' :: RunTask -&gt; Maybe [CapacityProviderStrategyItem]
-</span><a href="#local-6989586621679470890"><span class="hs-identifier hs-var hs-var">capacityProviderStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
-</span><a href="#local-6989586621679470890"><span class="hs-identifier hs-var">capacityProviderStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470889"><span class="annot"><span class="annottext">s :: RunTask
-</span><a href="#local-6989586621679470889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470888"><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
-</span><a href="#local-6989586621679470888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
-</span><a href="#local-6989586621679470889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityProviderStrategy:RunTask' :: Maybe [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679470899"><span class="hs-identifier hs-var hs-var">capacityProviderStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679470899"><span class="hs-identifier hs-var">capacityProviderStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470898"><span class="annot"><span class="annottext">s :: RunTask
+</span><a href="#local-6989586621679470898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470897"><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679470897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
+</span><a href="#local-6989586621679470898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityProviderStrategy:RunTask' :: Maybe [CapacityProviderStrategyItem]
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3AcapacityProviderStrategy%3ARunTask%27"><span class="hs-identifier hs-var">capacityProviderStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
-</span><a href="#local-6989586621679470888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679470897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CapacityProviderStrategyItem]
   -&gt; f (Maybe [CapacityProviderStrategyItem]))
  -&gt; RunTask -&gt; f RunTask)
 -&gt; ((Maybe [CapacityProviderStrategyItem]
@@ -1021,16 +1021,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (RunTask -&gt; Maybe Bool -&gt; RunTask)
 -&gt; Lens RunTask RunTask (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470887"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470896"><span class="annot"><span class="annottext">Maybe Bool
 enableExecuteCommand :: Maybe Bool
 $sel:enableExecuteCommand:RunTask' :: RunTask -&gt; Maybe Bool
-</span><a href="#local-6989586621679470887"><span class="hs-identifier hs-var hs-var">enableExecuteCommand</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679470887"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470886"><span class="annot"><span class="annottext">s :: RunTask
-</span><a href="#local-6989586621679470886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470885"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679470885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
-</span><a href="#local-6989586621679470886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableExecuteCommand:RunTask' :: Maybe Bool
+</span><a href="#local-6989586621679470896"><span class="hs-identifier hs-var hs-var">enableExecuteCommand</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679470896"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470895"><span class="annot"><span class="annottext">s :: RunTask
+</span><a href="#local-6989586621679470895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470894"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679470894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
+</span><a href="#local-6989586621679470895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableExecuteCommand:RunTask' :: Maybe Bool
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3AenableExecuteCommand%3ARunTask%27"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679470885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-579"></span><span>
 </span><span id="line-580"></span><span class="hs-comment">-- | The metadata that you apply to the task to help you categorize and</span><span>
 </span><span id="line-581"></span><span class="hs-comment">-- organize them. Each tag consists of a key and an optional value, both of</span><span>
@@ -1066,16 +1066,16 @@ $sel:enableExecuteCommand:RunTask' :: RunTask -&gt; Maybe Bool
 -&gt; (RunTask -&gt; Maybe [Tag] -&gt; RunTask)
 -&gt; Lens RunTask RunTask (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470884"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470893"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:RunTask' :: RunTask -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679470884"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679470884"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470883"><span class="annot"><span class="annottext">s :: RunTask
-</span><a href="#local-6989586621679470883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470882"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679470882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
-</span><a href="#local-6989586621679470883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:RunTask' :: Maybe [Tag]
+</span><a href="#local-6989586621679470893"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679470893"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470892"><span class="annot"><span class="annottext">s :: RunTask
+</span><a href="#local-6989586621679470892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470891"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679470891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
+</span><a href="#local-6989586621679470892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:RunTask' :: Maybe [Tag]
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3Atags%3ARunTask%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679470882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; RunTask -&gt; f RunTask)
+</span><a href="#local-6989586621679470891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; RunTask -&gt; f RunTask)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -1106,25 +1106,25 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><a href="Network.AWS.ECS.RunTask.html#runTask_taskDefinition"><span class="hs-identifier hs-var hs-var">runTask_taskDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RunTask -&gt; Text)
 -&gt; (RunTask -&gt; Text -&gt; RunTask) -&gt; Lens RunTask RunTask Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470881"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470890"><span class="annot"><span class="annottext">Text
 taskDefinition :: Text
 $sel:taskDefinition:RunTask' :: RunTask -&gt; Text
-</span><a href="#local-6989586621679470881"><span class="hs-identifier hs-var hs-var">taskDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470881"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470880"><span class="annot"><span class="annottext">s :: RunTask
-</span><a href="#local-6989586621679470880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470879"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
-</span><a href="#local-6989586621679470880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskDefinition:RunTask' :: Text
+</span><a href="#local-6989586621679470890"><span class="hs-identifier hs-var hs-var">taskDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679470890"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470889"><span class="annot"><span class="annottext">s :: RunTask
+</span><a href="#local-6989586621679470889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470888"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679470888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTask
+</span><a href="#local-6989586621679470889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskDefinition:RunTask' :: Text
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3AtaskDefinition%3ARunTask%27"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-623"></span><span>
 </span><span id="line-624"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-625"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse"><span class="hs-identifier hs-type">RunTaskResponse</span></a></span><span>
-</span><span id="line-626"></span><span>  </span><span id="local-6989586621679470875"><span class="annot"><span class="annottext">request :: RunTask -&gt; Request RunTask
+</span><span id="line-626"></span><span>  </span><span id="local-6989586621679470884"><span class="annot"><span class="annottext">request :: RunTask -&gt; Request RunTask
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RunTask -&gt; Request RunTask
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-627"></span><span>  </span><span id="local-6989586621679470871"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-627"></span><span>  </span><span id="local-6989586621679470880"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RunTask
 -&gt; ClientResponse ClientBody
@@ -1148,10 +1148,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-629"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679470868"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470868"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679470867"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679470867"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679470866"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679470866"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-629"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679470877"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679470877"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679470876"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679470876"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679470875"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679470875"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-630"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Failure] -&gt; Maybe [Task] -&gt; Int -&gt; RunTaskResponse
 </span><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse%27"><span class="hs-identifier hs-var">RunTaskResponse'</span></a></span><span>
 </span><span id="line-631"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Failure] -&gt; Maybe [Task] -&gt; Int -&gt; RunTaskResponse)
@@ -1159,7 +1159,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Task] -&gt; Int -&gt; RunTaskResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679470866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Failure]))
+</span><a href="#local-6989586621679470875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Failure]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;failures&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Failure]))
@@ -1173,7 +1173,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; RunTaskResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679470866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Task]))
+</span><a href="#local-6989586621679470875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Task]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tasks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Task]))
@@ -1190,15 +1190,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470868"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470877"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-634"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-635"></span><span>
-</span><span id="line-636"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470857"><span id="local-6989586621679470859"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span></span></span><span>
+</span><span id="line-636"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470866"><span id="local-6989586621679470868"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span></span></span><span>
 </span><span id="line-637"></span><span>
-</span><span id="line-638"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470854"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span></span><span>
+</span><span id="line-638"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470863"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span></span><span>
 </span><span id="line-639"></span><span>
 </span><span id="line-640"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-641"></span><span>  </span><span id="local-6989586621679470850"><span class="annot"><span class="annottext">toHeaders :: RunTask -&gt; ResponseHeaders
+</span><span id="line-641"></span><span>  </span><span id="local-6989586621679470859"><span class="annot"><span class="annottext">toHeaders :: RunTask -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-642"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RunTask -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -1225,9 +1225,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-652"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-653"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-654"></span><span>
-</span><span id="line-655"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470840"><span id="local-6989586621679470842"><span id="local-6989586621679470844"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-656"></span><span>  </span><span id="local-6989586621679470838"><span class="annot"><span class="annottext">toJSON :: RunTask -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470820"><span id="local-6989586621679470821"><span id="local-6989586621679470822"><span id="local-6989586621679470823"><span id="local-6989586621679470824"><span id="local-6989586621679470825"><span id="local-6989586621679470826"><span id="local-6989586621679470827"><span id="local-6989586621679470828"><span id="local-6989586621679470829"><span id="local-6989586621679470830"><span id="local-6989586621679470831"><span id="local-6989586621679470832"><span id="local-6989586621679470833"><span id="local-6989586621679470834"><span id="local-6989586621679470835"><span id="local-6989586621679470836"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-655"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470849"><span id="local-6989586621679470851"><span id="local-6989586621679470853"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-656"></span><span>  </span><span id="local-6989586621679470847"><span class="annot"><span class="annottext">toJSON :: RunTask -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask%27"><span class="hs-identifier hs-type">RunTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470829"><span id="local-6989586621679470830"><span id="local-6989586621679470831"><span id="local-6989586621679470832"><span id="local-6989586621679470833"><span id="local-6989586621679470834"><span id="local-6989586621679470835"><span id="local-6989586621679470836"><span id="local-6989586621679470837"><span id="local-6989586621679470838"><span id="local-6989586621679470839"><span id="local-6989586621679470840"><span id="local-6989586621679470841"><span id="local-6989586621679470842"><span id="local-6989586621679470843"><span id="local-6989586621679470844"><span id="local-6989586621679470845"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe [CapacityProviderStrategyItem]
 Maybe [PlacementConstraint]
@@ -1273,7 +1273,7 @@ $sel:propagateTags:RunTask' :: RunTask -&gt; Maybe PropagateTags
 $sel:cluster:RunTask' :: RunTask -&gt; Maybe Text
 $sel:group':RunTask' :: RunTask -&gt; Maybe Text
 $sel:overrides:RunTask' :: RunTask -&gt; Maybe TaskOverride
-</span><a href="#local-6989586621679470820"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679470829"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-657"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-658"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1285,28 +1285,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TaskOverride -&gt; Pair) -&gt; Maybe TaskOverride -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TaskOverride
-</span><a href="#local-6989586621679470836"><span class="hs-identifier hs-var">overrides</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470845"><span class="hs-identifier hs-var">overrides</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-660"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;group&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470835"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470844"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-661"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cluster&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470834"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470843"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-662"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;propagateTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PropagateTags -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(PropagateTags -&gt; Pair) -&gt; Maybe PropagateTags -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PropagateTags
-</span><a href="#local-6989586621679470833"><span class="hs-identifier hs-var">propagateTags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470842"><span class="hs-identifier hs-var">propagateTags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-663"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;platformVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1314,7 +1314,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-664"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470832"><span class="hs-identifier hs-var">platformVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470841"><span class="hs-identifier hs-var">platformVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-665"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;enableECSManagedTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1322,21 +1322,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-666"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679470831"><span class="hs-identifier hs-var">enableECSManagedTags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470840"><span class="hs-identifier hs-var">enableECSManagedTags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-667"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;count&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679470830"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470839"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-668"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;referenceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470829"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470838"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-669"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;placementConstraints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PlacementConstraint] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1345,7 +1345,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [PlacementConstraint] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
-</span><a href="#local-6989586621679470828"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470837"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-671"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;placementStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PlacementStrategy] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1354,21 +1354,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [PlacementStrategy] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
-</span><a href="#local-6989586621679470827"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470836"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-673"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startedBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470826"><span class="hs-identifier hs-var">startedBy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470835"><span class="hs-identifier hs-var">startedBy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-674"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;launchType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LaunchType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LaunchType -&gt; Pair) -&gt; Maybe LaunchType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LaunchType
-</span><a href="#local-6989586621679470825"><span class="hs-identifier hs-var">launchType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470834"><span class="hs-identifier hs-var">launchType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-675"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;networkConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NetworkConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1377,7 +1377,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe NetworkConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
-</span><a href="#local-6989586621679470824"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470833"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-677"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;capacityProviderStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CapacityProviderStrategyItem] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1386,7 +1386,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [CapacityProviderStrategyItem] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
-</span><a href="#local-6989586621679470823"><span class="hs-identifier hs-var">capacityProviderStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470832"><span class="hs-identifier hs-var">capacityProviderStrategy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-679"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;enableExecuteCommand&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1394,14 +1394,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-680"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679470822"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470831"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-681"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679470821"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470830"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-682"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -1409,19 +1409,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;taskDefinition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470820"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470829"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-684"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-685"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-686"></span><span>
 </span><span id="line-687"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-688"></span><span>  </span><span id="local-6989586621679470814"><span class="annot"><span class="annottext">toPath :: RunTask -&gt; ByteString
+</span><span id="line-688"></span><span>  </span><span id="local-6989586621679470823"><span class="annot"><span class="annottext">toPath :: RunTask -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RunTask -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-689"></span><span>
 </span><span id="line-690"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTask"><span class="hs-identifier hs-type">RunTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-691"></span><span>  </span><span id="local-6989586621679470810"><span class="annot"><span class="annottext">toQuery :: RunTask -&gt; QueryString
+</span><span id="line-691"></span><span>  </span><span id="local-6989586621679470819"><span class="annot"><span class="annottext">toQuery :: RunTask -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RunTask -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -1429,7 +1429,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-692"></span><span>
 </span><span id="line-693"></span><span class="hs-comment">-- | /See:/ 'newRunTaskResponse' smart constructor.</span><span>
-</span><span id="line-694"></span><span id="local-6989586621679470807"><span id="local-6989586621679470808"></span></span><span class="hs-keyword">data</span><span> </span><span id="RunTaskResponse"><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse"><span class="hs-identifier hs-var">RunTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RunTaskResponse%27"><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse%27"><span class="hs-identifier hs-var">RunTaskResponse'</span></a></span></span><span>
+</span><span id="line-694"></span><span id="local-6989586621679470816"><span id="local-6989586621679470817"></span></span><span class="hs-keyword">data</span><span> </span><span id="RunTaskResponse"><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse"><span class="hs-identifier hs-var">RunTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RunTaskResponse%27"><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse%27"><span class="hs-identifier hs-var">RunTaskResponse'</span></a></span></span><span>
 </span><span id="line-695"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
 </span><span id="line-696"></span><span>    </span><span id="%24sel%3Afailures%3ARunTaskResponse%27"><span class="annot"><span class="annottext">RunTaskResponse -&gt; Maybe [Failure]
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3Afailures%3ARunTaskResponse%27"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.Failure.html#Failure"><span class="hs-identifier hs-type">Failure</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -1441,7 +1441,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-701"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARunTaskResponse%27"><span class="annot"><span class="annottext">RunTaskResponse -&gt; Int
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3AhttpStatus%3ARunTaskResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-702"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-703"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679470800"><span id="local-6989586621679470802"><span class="annot"><span class="annottext">RunTaskResponse -&gt; RunTaskResponse -&gt; Bool
+</span><span id="line-703"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679470809"><span id="local-6989586621679470811"><span class="annot"><span class="annottext">RunTaskResponse -&gt; RunTaskResponse -&gt; Bool
 (RunTaskResponse -&gt; RunTaskResponse -&gt; Bool)
 -&gt; (RunTaskResponse -&gt; RunTaskResponse -&gt; Bool)
 -&gt; Eq RunTaskResponse
@@ -1450,7 +1450,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RunTaskResponse -&gt; RunTaskResponse -&gt; Bool
 == :: RunTaskResponse -&gt; RunTaskResponse -&gt; Bool
 $c== :: RunTaskResponse -&gt; RunTaskResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470792"><span id="local-6989586621679470794"><span id="local-6989586621679470796"><span id="local-6989586621679470798"><span class="annot"><span class="annottext">ReadPrec [RunTaskResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470801"><span id="local-6989586621679470803"><span id="local-6989586621679470805"><span id="local-6989586621679470807"><span class="annot"><span class="annottext">ReadPrec [RunTaskResponse]
 ReadPrec RunTaskResponse
 Int -&gt; ReadS RunTaskResponse
 ReadS [RunTaskResponse]
@@ -1470,7 +1470,7 @@ readList :: ReadS [RunTaskResponse]
 $creadList :: ReadS [RunTaskResponse]
 readsPrec :: Int -&gt; ReadS RunTaskResponse
 $creadsPrec :: Int -&gt; ReadS RunTaskResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470786"><span id="local-6989586621679470788"><span id="local-6989586621679470790"><span class="annot"><span class="annottext">Int -&gt; RunTaskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470795"><span id="local-6989586621679470797"><span id="local-6989586621679470799"><span class="annot"><span class="annottext">Int -&gt; RunTaskResponse -&gt; ShowS
 [RunTaskResponse] -&gt; ShowS
 RunTaskResponse -&gt; String
 (Int -&gt; RunTaskResponse -&gt; ShowS)
@@ -1515,8 +1515,8 @@ $cfrom :: forall x. RunTaskResponse -&gt; Rep RunTaskResponse x
 </span><span id="line-721"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-722"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse"><span class="hs-identifier hs-type">RunTaskResponse</span></a></span><span>
 </span><span id="line-723"></span><span id="newRunTaskResponse"><span class="annot"><span class="annottext">newRunTaskResponse :: Int -&gt; RunTaskResponse
-</span><a href="Network.AWS.ECS.RunTask.html#newRunTaskResponse"><span class="hs-identifier hs-var hs-var">newRunTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679470783"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470783"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.RunTask.html#newRunTaskResponse"><span class="hs-identifier hs-var hs-var">newRunTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679470792"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679470792"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-724"></span><span>  </span><span class="annot"><span class="annottext">RunTaskResponse' :: Maybe [Failure] -&gt; Maybe [Task] -&gt; Int -&gt; RunTaskResponse
 </span><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse%27"><span class="hs-identifier hs-type">RunTaskResponse'</span></a></span><span>
 </span><span id="line-725"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failures:RunTaskResponse' :: Maybe [Failure]
@@ -1529,7 +1529,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-727"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RunTaskResponse' :: Int
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3AhttpStatus%3ARunTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470783"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679470792"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-728"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-729"></span><span>
 </span><span id="line-730"></span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
@@ -1541,16 +1541,16 @@ forall a. Maybe a
 -&gt; Lens
      RunTaskResponse RunTaskResponse (Maybe [Failure]) (Maybe [Failure])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse%27"><span class="hs-identifier hs-type">RunTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470782"><span class="annot"><span class="annottext">Maybe [Failure]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse%27"><span class="hs-identifier hs-type">RunTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470791"><span class="annot"><span class="annottext">Maybe [Failure]
 failures :: Maybe [Failure]
 $sel:failures:RunTaskResponse' :: RunTaskResponse -&gt; Maybe [Failure]
-</span><a href="#local-6989586621679470782"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Failure]
-</span><a href="#local-6989586621679470782"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470781"><span class="annot"><span class="annottext">s :: RunTaskResponse
-</span><a href="#local-6989586621679470781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse%27"><span class="hs-identifier hs-type">RunTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470780"><span class="annot"><span class="annottext">Maybe [Failure]
-</span><a href="#local-6989586621679470780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTaskResponse
-</span><a href="#local-6989586621679470781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:RunTaskResponse' :: Maybe [Failure]
+</span><a href="#local-6989586621679470791"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Failure]
+</span><a href="#local-6989586621679470791"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470790"><span class="annot"><span class="annottext">s :: RunTaskResponse
+</span><a href="#local-6989586621679470790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse%27"><span class="hs-identifier hs-type">RunTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470789"><span class="annot"><span class="annottext">Maybe [Failure]
+</span><a href="#local-6989586621679470789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTaskResponse
+</span><a href="#local-6989586621679470790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:RunTaskResponse' :: Maybe [Failure]
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3Afailures%3ARunTaskResponse%27"><span class="hs-identifier hs-var">failures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Failure]
-</span><a href="#local-6989586621679470780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse"><span class="hs-identifier hs-type">RunTaskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Failure] -&gt; f (Maybe [Failure]))
+</span><a href="#local-6989586621679470789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse"><span class="hs-identifier hs-type">RunTaskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Failure] -&gt; f (Maybe [Failure]))
  -&gt; RunTaskResponse -&gt; f RunTaskResponse)
 -&gt; ((Maybe [Failure] -&gt; f (Maybe [Failure]))
     -&gt; Maybe [Failure] -&gt; f (Maybe [Failure]))
@@ -1581,16 +1581,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      RunTaskResponse RunTaskResponse (Maybe [Task]) (Maybe [Task])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse%27"><span class="hs-identifier hs-type">RunTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470779"><span class="annot"><span class="annottext">Maybe [Task]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse%27"><span class="hs-identifier hs-type">RunTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470788"><span class="annot"><span class="annottext">Maybe [Task]
 tasks :: Maybe [Task]
 $sel:tasks:RunTaskResponse' :: RunTaskResponse -&gt; Maybe [Task]
-</span><a href="#local-6989586621679470779"><span class="hs-identifier hs-var hs-var">tasks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Task]
-</span><a href="#local-6989586621679470779"><span class="hs-identifier hs-var">tasks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470778"><span class="annot"><span class="annottext">s :: RunTaskResponse
-</span><a href="#local-6989586621679470778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse%27"><span class="hs-identifier hs-type">RunTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470777"><span class="annot"><span class="annottext">Maybe [Task]
-</span><a href="#local-6989586621679470777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTaskResponse
-</span><a href="#local-6989586621679470778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tasks:RunTaskResponse' :: Maybe [Task]
+</span><a href="#local-6989586621679470788"><span class="hs-identifier hs-var hs-var">tasks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Task]
+</span><a href="#local-6989586621679470788"><span class="hs-identifier hs-var">tasks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470787"><span class="annot"><span class="annottext">s :: RunTaskResponse
+</span><a href="#local-6989586621679470787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse%27"><span class="hs-identifier hs-type">RunTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470786"><span class="annot"><span class="annottext">Maybe [Task]
+</span><a href="#local-6989586621679470786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTaskResponse
+</span><a href="#local-6989586621679470787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tasks:RunTaskResponse' :: Maybe [Task]
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3Atasks%3ARunTaskResponse%27"><span class="hs-identifier hs-var">tasks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Task]
-</span><a href="#local-6989586621679470777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse"><span class="hs-identifier hs-type">RunTaskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Task] -&gt; f (Maybe [Task]))
+</span><a href="#local-6989586621679470786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse"><span class="hs-identifier hs-type">RunTaskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Task] -&gt; f (Maybe [Task]))
  -&gt; RunTaskResponse -&gt; f RunTaskResponse)
 -&gt; ((Maybe [Task] -&gt; f (Maybe [Task]))
     -&gt; Maybe [Task] -&gt; f (Maybe [Task]))
@@ -1614,16 +1614,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (RunTaskResponse -&gt; Int -&gt; RunTaskResponse)
 -&gt; Lens RunTaskResponse RunTaskResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse%27"><span class="hs-identifier hs-type">RunTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470776"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse%27"><span class="hs-identifier hs-type">RunTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470785"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RunTaskResponse' :: RunTaskResponse -&gt; Int
-</span><a href="#local-6989586621679470776"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470776"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470775"><span class="annot"><span class="annottext">s :: RunTaskResponse
-</span><a href="#local-6989586621679470775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse%27"><span class="hs-identifier hs-type">RunTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470774"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTaskResponse
-</span><a href="#local-6989586621679470775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RunTaskResponse' :: Int
+</span><a href="#local-6989586621679470785"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679470785"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470784"><span class="annot"><span class="annottext">s :: RunTaskResponse
+</span><a href="#local-6989586621679470784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse%27"><span class="hs-identifier hs-type">RunTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470783"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679470783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunTaskResponse
+</span><a href="#local-6989586621679470784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RunTaskResponse' :: Int
 </span><a href="Network.AWS.ECS.RunTask.html#%24sel%3AhttpStatus%3ARunTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse"><span class="hs-identifier hs-type">RunTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse"><span class="hs-identifier hs-type">RunTaskResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-742"></span><span>
-</span><span id="line-743"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470772"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse"><span class="hs-identifier hs-type">RunTaskResponse</span></a></span></span><span>
+</span><span id="line-743"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470781"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.RunTask.html#RunTaskResponse"><span class="hs-identifier hs-type">RunTaskResponse</span></a></span></span><span>
 </span><span id="line-744"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- results from a list of resources.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newResourceFilter' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679176997"><span id="local-6989586621679176998"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceFilter"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter"><span class="hs-identifier hs-var">ResourceFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceFilter%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter%27"><span class="hs-identifier hs-var">ResourceFilter'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679177006"><span id="local-6989586621679177007"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceFilter"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter"><span class="hs-identifier hs-var">ResourceFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceFilter%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter%27"><span class="hs-identifier hs-var">ResourceFilter'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the filter. Filter names are case-sensitive.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3AResourceFilter%27"><span class="annot"><span class="annottext">ResourceFilter -&gt; ResourceFilterName
 </span><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#%24sel%3Aname%3AResourceFilter%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilterName.html#ResourceFilterName"><span class="hs-identifier hs-type">ResourceFilterName</span></a></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Avalues%3AResourceFilter%27"><span class="annot"><span class="annottext">ResourceFilter -&gt; NonEmpty Text
 </span><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#%24sel%3Avalues%3AResourceFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176990"><span id="local-6989586621679176992"><span class="annot"><span class="annottext">ResourceFilter -&gt; ResourceFilter -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176999"><span id="local-6989586621679177001"><span class="annot"><span class="annottext">ResourceFilter -&gt; ResourceFilter -&gt; Bool
 (ResourceFilter -&gt; ResourceFilter -&gt; Bool)
 -&gt; (ResourceFilter -&gt; ResourceFilter -&gt; Bool) -&gt; Eq ResourceFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceFilter -&gt; ResourceFilter -&gt; Bool
 == :: ResourceFilter -&gt; ResourceFilter -&gt; Bool
 $c== :: ResourceFilter -&gt; ResourceFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176981"><span id="local-6989586621679176983"><span id="local-6989586621679176985"><span id="local-6989586621679176987"><span class="annot"><span class="annottext">ReadPrec [ResourceFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176990"><span id="local-6989586621679176992"><span id="local-6989586621679176994"><span id="local-6989586621679176996"><span class="annot"><span class="annottext">ReadPrec [ResourceFilter]
 ReadPrec ResourceFilter
 Int -&gt; ReadS ResourceFilter
 ReadS [ResourceFilter]
@@ -65,7 +65,7 @@ readList :: ReadS [ResourceFilter]
 $creadList :: ReadS [ResourceFilter]
 readsPrec :: Int -&gt; ReadS ResourceFilter
 $creadsPrec :: Int -&gt; ReadS ResourceFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176974"><span id="local-6989586621679176976"><span id="local-6989586621679176978"><span class="annot"><span class="annottext">Int -&gt; ResourceFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176983"><span id="local-6989586621679176985"><span id="local-6989586621679176987"><span class="annot"><span class="annottext">Int -&gt; ResourceFilter -&gt; ShowS
 [ResourceFilter] -&gt; ShowS
 ResourceFilter -&gt; String
 (Int -&gt; ResourceFilter -&gt; ShowS)
@@ -110,14 +110,14 @@ $cfrom :: forall x. ResourceFilter -&gt; Rep ResourceFilter x
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter"><span class="hs-identifier hs-type">ResourceFilter</span></a></span><span>
 </span><span id="line-58"></span><span id="newResourceFilter"><span class="annot"><span class="annottext">newResourceFilter :: ResourceFilterName -&gt; NonEmpty Text -&gt; ResourceFilter
-</span><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#newResourceFilter"><span class="hs-identifier hs-var hs-var">newResourceFilter</span></a></span></span><span> </span><span id="local-6989586621679176968"><span class="annot"><span class="annottext">ResourceFilterName
-</span><a href="#local-6989586621679176968"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679176967"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679176967"><span class="hs-identifier hs-var">pValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#newResourceFilter"><span class="hs-identifier hs-var hs-var">newResourceFilter</span></a></span></span><span> </span><span id="local-6989586621679176977"><span class="annot"><span class="annottext">ResourceFilterName
+</span><a href="#local-6989586621679176977"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679176976"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679176976"><span class="hs-identifier hs-var">pValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ResourceFilter' :: ResourceFilterName -&gt; NonEmpty Text -&gt; ResourceFilter
 </span><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter%27"><span class="hs-identifier hs-type">ResourceFilter'</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:ResourceFilter' :: ResourceFilterName
 </span><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#%24sel%3Aname%3AResourceFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceFilterName
-</span><a href="#local-6989586621679176968"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679176977"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:ResourceFilter' :: NonEmpty Text
 </span><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#%24sel%3Avalues%3AResourceFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
@@ -127,7 +127,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679176967"><span class="hs-identifier hs-var">pValues_</span></a></span><span>
+</span><a href="#local-6989586621679176976"><span class="hs-identifier hs-var">pValues_</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The name of the filter. Filter names are case-sensitive.</span><span>
@@ -139,16 +139,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      ResourceFilter ResourceFilter ResourceFilterName ResourceFilterName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter%27"><span class="hs-identifier hs-type">ResourceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176961"><span class="annot"><span class="annottext">ResourceFilterName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter%27"><span class="hs-identifier hs-type">ResourceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176970"><span class="annot"><span class="annottext">ResourceFilterName
 name :: ResourceFilterName
 $sel:name:ResourceFilter' :: ResourceFilter -&gt; ResourceFilterName
-</span><a href="#local-6989586621679176961"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceFilterName
-</span><a href="#local-6989586621679176961"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176960"><span class="annot"><span class="annottext">s :: ResourceFilter
-</span><a href="#local-6989586621679176960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter%27"><span class="hs-identifier hs-type">ResourceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176959"><span class="annot"><span class="annottext">ResourceFilterName
-</span><a href="#local-6989586621679176959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceFilter
-</span><a href="#local-6989586621679176960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ResourceFilter' :: ResourceFilterName
+</span><a href="#local-6989586621679176970"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceFilterName
+</span><a href="#local-6989586621679176970"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176969"><span class="annot"><span class="annottext">s :: ResourceFilter
+</span><a href="#local-6989586621679176969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter%27"><span class="hs-identifier hs-type">ResourceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176968"><span class="annot"><span class="annottext">ResourceFilterName
+</span><a href="#local-6989586621679176968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceFilter
+</span><a href="#local-6989586621679176969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ResourceFilter' :: ResourceFilterName
 </span><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#%24sel%3Aname%3AResourceFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceFilterName
-</span><a href="#local-6989586621679176959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter"><span class="hs-identifier hs-type">ResourceFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter"><span class="hs-identifier hs-type">ResourceFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | One or more filter values. Allowed filter values vary by resource filter</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- name, and are case-sensitive.</span><span>
@@ -160,16 +160,16 @@ $sel:name:ResourceFilter' :: ResourceFilter -&gt; ResourceFilterName
 -&gt; Lens
      ResourceFilter ResourceFilter (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter%27"><span class="hs-identifier hs-type">ResourceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176957"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter%27"><span class="hs-identifier hs-type">ResourceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176966"><span class="annot"><span class="annottext">NonEmpty Text
 values :: NonEmpty Text
 $sel:values:ResourceFilter' :: ResourceFilter -&gt; NonEmpty Text
-</span><a href="#local-6989586621679176957"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679176957"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176956"><span class="annot"><span class="annottext">s :: ResourceFilter
-</span><a href="#local-6989586621679176956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter%27"><span class="hs-identifier hs-type">ResourceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176955"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679176955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceFilter
-</span><a href="#local-6989586621679176956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:ResourceFilter' :: NonEmpty Text
+</span><a href="#local-6989586621679176966"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679176966"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176965"><span class="annot"><span class="annottext">s :: ResourceFilter
+</span><a href="#local-6989586621679176965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter%27"><span class="hs-identifier hs-type">ResourceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176964"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679176964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceFilter
+</span><a href="#local-6989586621679176965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:ResourceFilter' :: NonEmpty Text
 </span><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#%24sel%3Avalues%3AResourceFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679176955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter"><span class="hs-identifier hs-type">ResourceFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679176964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter"><span class="hs-identifier hs-type">ResourceFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; ResourceFilter -&gt; f ResourceFilter)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -182,19 +182,19 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176950"><span id="local-6989586621679176952"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter"><span class="hs-identifier hs-type">ResourceFilter</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176959"><span id="local-6989586621679176961"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter"><span class="hs-identifier hs-type">ResourceFilter</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176947"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter"><span class="hs-identifier hs-type">ResourceFilter</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176956"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter"><span class="hs-identifier hs-type">ResourceFilter</span></a></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176939"><span id="local-6989586621679176941"><span id="local-6989586621679176943"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter"><span class="hs-identifier hs-type">ResourceFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679176937"><span class="annot"><span class="annottext">toJSON :: ResourceFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter%27"><span class="hs-identifier hs-type">ResourceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176934"><span id="local-6989586621679176935"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176948"><span id="local-6989586621679176950"><span id="local-6989586621679176952"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter"><span class="hs-identifier hs-type">ResourceFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679176946"><span class="annot"><span class="annottext">toJSON :: ResourceFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.ResourceFilter.html#ResourceFilter%27"><span class="hs-identifier hs-type">ResourceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176943"><span id="local-6989586621679176944"><span class="annot"><span class="annottext">NonEmpty Text
 ResourceFilterName
 values :: NonEmpty Text
 name :: ResourceFilterName
 $sel:values:ResourceFilter' :: ResourceFilter -&gt; NonEmpty Text
 $sel:name:ResourceFilter' :: ResourceFilter -&gt; ResourceFilterName
-</span><a href="#local-6989586621679176934"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679176943"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -206,14 +206,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceFilterName -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceFilterName
-</span><a href="#local-6989586621679176935"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679176944"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679176934"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176943"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span></pre></body></html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.Types.StandardsStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.Types.StandardsStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus"><span class="hs-identifier">StandardsStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus_DELETING"><span class="hs-identifier">StandardsStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus_FAILED"><span class="hs-identifier">StandardsStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus_INCOMPLETE"><span class="hs-identifier">StandardsStatus_INCOMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus_PENDING"><span class="hs-identifier">StandardsStatus_PENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus_READY"><span class="hs-identifier">StandardsStatus_READY</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679987630"><span id="local-6989586621679987631"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StandardsStatus"><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus"><span class="hs-identifier hs-var">StandardsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StandardsStatus%27"><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus%27"><span class="hs-identifier hs-var">StandardsStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStandardsStatus"><span class="annot"><span class="annottext">StandardsStatus -&gt; Text
+</span><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#fromStandardsStatus"><span class="hs-identifier hs-var hs-var">fromStandardsStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679987622"><span id="local-6989586621679987624"><span id="local-6989586621679987626"><span class="annot"><span class="annottext">Int -&gt; StandardsStatus -&gt; ShowS
+[StandardsStatus] -&gt; ShowS
+StandardsStatus -&gt; String
+(Int -&gt; StandardsStatus -&gt; ShowS)
+-&gt; (StandardsStatus -&gt; String)
+-&gt; ([StandardsStatus] -&gt; ShowS)
+-&gt; Show StandardsStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StandardsStatus] -&gt; ShowS
+$cshowList :: [StandardsStatus] -&gt; ShowS
+show :: StandardsStatus -&gt; String
+$cshow :: StandardsStatus -&gt; String
+showsPrec :: Int -&gt; StandardsStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; StandardsStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679987613"><span id="local-6989586621679987615"><span id="local-6989586621679987617"><span id="local-6989586621679987619"><span class="annot"><span class="annottext">ReadPrec [StandardsStatus]
+ReadPrec StandardsStatus
+Int -&gt; ReadS StandardsStatus
+ReadS [StandardsStatus]
+(Int -&gt; ReadS StandardsStatus)
+-&gt; ReadS [StandardsStatus]
+-&gt; ReadPrec StandardsStatus
+-&gt; ReadPrec [StandardsStatus]
+-&gt; Read StandardsStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StandardsStatus]
+$creadListPrec :: ReadPrec [StandardsStatus]
+readPrec :: ReadPrec StandardsStatus
+$creadPrec :: ReadPrec StandardsStatus
+readList :: ReadS [StandardsStatus]
+$creadList :: ReadS [StandardsStatus]
+readsPrec :: Int -&gt; ReadS StandardsStatus
+$creadsPrec :: Int -&gt; ReadS StandardsStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679987608"><span id="local-6989586621679987610"><span class="annot"><span class="annottext">StandardsStatus -&gt; StandardsStatus -&gt; Bool
+(StandardsStatus -&gt; StandardsStatus -&gt; Bool)
+-&gt; (StandardsStatus -&gt; StandardsStatus -&gt; Bool)
+-&gt; Eq StandardsStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StandardsStatus -&gt; StandardsStatus -&gt; Bool
+$c/= :: StandardsStatus -&gt; StandardsStatus -&gt; Bool
+== :: StandardsStatus -&gt; StandardsStatus -&gt; Bool
+$c== :: StandardsStatus -&gt; StandardsStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679987592"><span id="local-6989586621679987594"><span id="local-6989586621679987596"><span id="local-6989586621679987598"><span id="local-6989586621679987600"><span id="local-6989586621679987602"><span id="local-6989586621679987604"><span class="annot"><span class="annottext">Eq StandardsStatus
+Eq StandardsStatus
+-&gt; (StandardsStatus -&gt; StandardsStatus -&gt; Ordering)
+-&gt; (StandardsStatus -&gt; StandardsStatus -&gt; Bool)
+-&gt; (StandardsStatus -&gt; StandardsStatus -&gt; Bool)
+-&gt; (StandardsStatus -&gt; StandardsStatus -&gt; Bool)
+-&gt; (StandardsStatus -&gt; StandardsStatus -&gt; Bool)
+-&gt; (StandardsStatus -&gt; StandardsStatus -&gt; StandardsStatus)
+-&gt; (StandardsStatus -&gt; StandardsStatus -&gt; StandardsStatus)
+-&gt; Ord StandardsStatus
+StandardsStatus -&gt; StandardsStatus -&gt; Bool
+StandardsStatus -&gt; StandardsStatus -&gt; Ordering
+StandardsStatus -&gt; StandardsStatus -&gt; StandardsStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StandardsStatus -&gt; StandardsStatus -&gt; StandardsStatus
+$cmin :: StandardsStatus -&gt; StandardsStatus -&gt; StandardsStatus
+max :: StandardsStatus -&gt; StandardsStatus -&gt; StandardsStatus
+$cmax :: StandardsStatus -&gt; StandardsStatus -&gt; StandardsStatus
+&gt;= :: StandardsStatus -&gt; StandardsStatus -&gt; Bool
+$c&gt;= :: StandardsStatus -&gt; StandardsStatus -&gt; Bool
+&gt; :: StandardsStatus -&gt; StandardsStatus -&gt; Bool
+$c&gt; :: StandardsStatus -&gt; StandardsStatus -&gt; Bool
+&lt;= :: StandardsStatus -&gt; StandardsStatus -&gt; Bool
+$c&lt;= :: StandardsStatus -&gt; StandardsStatus -&gt; Bool
+&lt; :: StandardsStatus -&gt; StandardsStatus -&gt; Bool
+$c&lt; :: StandardsStatus -&gt; StandardsStatus -&gt; Bool
+compare :: StandardsStatus -&gt; StandardsStatus -&gt; Ordering
+$ccompare :: StandardsStatus -&gt; StandardsStatus -&gt; Ordering
+$cp1Ord :: Eq StandardsStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. StandardsStatus -&gt; Rep StandardsStatus x)
+-&gt; (forall x. Rep StandardsStatus x -&gt; StandardsStatus)
+-&gt; Generic StandardsStatus
+forall x. Rep StandardsStatus x -&gt; StandardsStatus
+forall x. StandardsStatus -&gt; Rep StandardsStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StandardsStatus x -&gt; StandardsStatus
+$cfrom :: forall x. StandardsStatus -&gt; Rep StandardsStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679987584"><span id="local-6989586621679987586"><span class="annot"><span class="annottext">Int -&gt; StandardsStatus -&gt; Int
+StandardsStatus -&gt; Int
+(Int -&gt; StandardsStatus -&gt; Int)
+-&gt; (StandardsStatus -&gt; Int) -&gt; Hashable StandardsStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StandardsStatus -&gt; Int
+$chash :: StandardsStatus -&gt; Int
+hashWithSalt :: Int -&gt; StandardsStatus -&gt; Int
+$chashWithSalt :: Int -&gt; StandardsStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679987581"><span class="annot"><span class="annottext">StandardsStatus -&gt; ()
+(StandardsStatus -&gt; ()) -&gt; NFData StandardsStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StandardsStatus -&gt; ()
+$crnf :: StandardsStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679987578"><span class="annot"><span class="annottext">Text -&gt; Either String StandardsStatus
+(Text -&gt; Either String StandardsStatus) -&gt; FromText StandardsStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StandardsStatus
+$cfromText :: Text -&gt; Either String StandardsStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679987575"><span class="annot"><span class="annottext">StandardsStatus -&gt; Text
+(StandardsStatus -&gt; Text) -&gt; ToText StandardsStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StandardsStatus -&gt; Text
+$ctoText :: StandardsStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679987572"><span class="annot"><span class="annottext">StandardsStatus -&gt; ByteString
+(StandardsStatus -&gt; ByteString) -&gt; ToByteString StandardsStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StandardsStatus -&gt; ByteString
+$ctoBS :: StandardsStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679987569"><span class="annot"><span class="annottext">StandardsStatus -&gt; ByteStringBuilder
+(StandardsStatus -&gt; ByteStringBuilder) -&gt; ToLog StandardsStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StandardsStatus -&gt; ByteStringBuilder
+$cbuild :: StandardsStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679987566"><span class="annot"><span class="annottext">HeaderName -&gt; StandardsStatus -&gt; [Header]
+(HeaderName -&gt; StandardsStatus -&gt; [Header])
+-&gt; ToHeader StandardsStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StandardsStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StandardsStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679987563"><span class="annot"><span class="annottext">StandardsStatus -&gt; QueryString
+(StandardsStatus -&gt; QueryString) -&gt; ToQuery StandardsStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StandardsStatus -&gt; QueryString
+$ctoQuery :: StandardsStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679987558"><span id="local-6989586621679987560"><span class="annot"><span class="annottext">Value -&gt; Parser [StandardsStatus]
+Value -&gt; Parser StandardsStatus
+(Value -&gt; Parser StandardsStatus)
+-&gt; (Value -&gt; Parser [StandardsStatus]) -&gt; FromJSON StandardsStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StandardsStatus]
+$cparseJSONList :: Value -&gt; Parser [StandardsStatus]
+parseJSON :: Value -&gt; Parser StandardsStatus
+$cparseJSON :: Value -&gt; Parser StandardsStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679987553"><span id="local-6989586621679987555"><span class="annot"><span class="annottext">FromJSONKeyFunction [StandardsStatus]
+FromJSONKeyFunction StandardsStatus
+FromJSONKeyFunction StandardsStatus
+-&gt; FromJSONKeyFunction [StandardsStatus]
+-&gt; FromJSONKey StandardsStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StandardsStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [StandardsStatus]
+fromJSONKey :: FromJSONKeyFunction StandardsStatus
+$cfromJSONKey :: FromJSONKeyFunction StandardsStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679987544"><span id="local-6989586621679987546"><span id="local-6989586621679987548"><span id="local-6989586621679987550"><span class="annot"><span class="annottext">[StandardsStatus] -&gt; Encoding
+[StandardsStatus] -&gt; Value
+StandardsStatus -&gt; Encoding
+StandardsStatus -&gt; Value
+(StandardsStatus -&gt; Value)
+-&gt; (StandardsStatus -&gt; Encoding)
+-&gt; ([StandardsStatus] -&gt; Value)
+-&gt; ([StandardsStatus] -&gt; Encoding)
+-&gt; ToJSON StandardsStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StandardsStatus] -&gt; Encoding
+$ctoEncodingList :: [StandardsStatus] -&gt; Encoding
+toJSONList :: [StandardsStatus] -&gt; Value
+$ctoJSONList :: [StandardsStatus] -&gt; Value
+toEncoding :: StandardsStatus -&gt; Encoding
+$ctoEncoding :: StandardsStatus -&gt; Encoding
+toJSON :: StandardsStatus -&gt; Value
+$ctoJSON :: StandardsStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679987539"><span id="local-6989586621679987541"><span class="annot"><span class="annottext">ToJSONKeyFunction [StandardsStatus]
+ToJSONKeyFunction StandardsStatus
+ToJSONKeyFunction StandardsStatus
+-&gt; ToJSONKeyFunction [StandardsStatus] -&gt; ToJSONKey StandardsStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StandardsStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [StandardsStatus]
+toJSONKey :: ToJSONKeyFunction StandardsStatus
+$ctoJSONKey :: ToJSONKeyFunction StandardsStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679987536"><span class="annot"><span class="annottext">[Node] -&gt; Either String StandardsStatus
+([Node] -&gt; Either String StandardsStatus)
+-&gt; FromXML StandardsStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StandardsStatus
+$cparseXML :: [Node] -&gt; Either String StandardsStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679987533"><span class="annot"><span class="annottext">StandardsStatus -&gt; XML
+(StandardsStatus -&gt; XML) -&gt; ToXML StandardsStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StandardsStatus -&gt; XML
+$ctoXML :: StandardsStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus_DELETING"><span class="hs-identifier hs-type">StandardsStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus"><span class="hs-identifier hs-type">StandardsStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStandardsStatus_DELETING"><span id="%24mStandardsStatus_DELETING"><span id="StandardsStatus_DELETING"><span class="annot"><span class="annottext">$bStandardsStatus_DELETING :: StandardsStatus
+$mStandardsStatus_DELETING :: forall r. StandardsStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#%24bStandardsStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">StandardsStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus%27"><span class="hs-identifier hs-type">StandardsStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus_FAILED"><span class="hs-identifier hs-type">StandardsStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus"><span class="hs-identifier hs-type">StandardsStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStandardsStatus_FAILED"><span id="%24mStandardsStatus_FAILED"><span id="StandardsStatus_FAILED"><span class="annot"><span class="annottext">$bStandardsStatus_FAILED :: StandardsStatus
+$mStandardsStatus_FAILED :: forall r. StandardsStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#%24bStandardsStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">StandardsStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus%27"><span class="hs-identifier hs-type">StandardsStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus_INCOMPLETE"><span class="hs-identifier hs-type">StandardsStatus_INCOMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus"><span class="hs-identifier hs-type">StandardsStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStandardsStatus_INCOMPLETE"><span id="%24mStandardsStatus_INCOMPLETE"><span id="StandardsStatus_INCOMPLETE"><span class="annot"><span class="annottext">$bStandardsStatus_INCOMPLETE :: StandardsStatus
+$mStandardsStatus_INCOMPLETE :: forall r. StandardsStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#%24bStandardsStatus_INCOMPLETE"><span class="hs-identifier hs-var hs-var hs-var">StandardsStatus_INCOMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus%27"><span class="hs-identifier hs-type">StandardsStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INCOMPLETE&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus_PENDING"><span class="hs-identifier hs-type">StandardsStatus_PENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus"><span class="hs-identifier hs-type">StandardsStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStandardsStatus_PENDING"><span id="%24mStandardsStatus_PENDING"><span id="StandardsStatus_PENDING"><span class="annot"><span class="annottext">$bStandardsStatus_PENDING :: StandardsStatus
+$mStandardsStatus_PENDING :: forall r. StandardsStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#%24bStandardsStatus_PENDING"><span class="hs-identifier hs-var hs-var hs-var">StandardsStatus_PENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus%27"><span class="hs-identifier hs-type">StandardsStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus_READY"><span class="hs-identifier hs-type">StandardsStatus_READY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus"><span class="hs-identifier hs-type">StandardsStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStandardsStatus_READY"><span id="%24mStandardsStatus_READY"><span id="StandardsStatus_READY"><span class="annot"><span class="annottext">$bStandardsStatus_READY :: StandardsStatus
+$mStandardsStatus_READY :: forall r. StandardsStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#%24bStandardsStatus_READY"><span class="hs-identifier hs-var hs-var hs-var">StandardsStatus_READY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus%27"><span class="hs-identifier hs-type">StandardsStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;READY&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus_DELETING"><span class="hs-pragma hs-type">StandardsStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus_FAILED"><span class="hs-pragma hs-type">StandardsStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus_INCOMPLETE"><span class="hs-pragma hs-type">StandardsStatus_INCOMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus_PENDING"><span class="hs-pragma hs-type">StandardsStatus_PENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus_READY"><span class="hs-pragma hs-type">StandardsStatus_READY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.StandardsStatus.html#StandardsStatus%27"><span class="hs-pragma hs-type">StandardsStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

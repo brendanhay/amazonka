@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DevOpsGuru.Types.AnomalySeverity</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.AnomalySeverity</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity"><span class="hs-identifier">AnomalySeverity</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity_HIGH"><span class="hs-identifier">AnomalySeverity_HIGH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity_LOW"><span class="hs-identifier">AnomalySeverity_LOW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity_MEDIUM"><span class="hs-identifier">AnomalySeverity_MEDIUM</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679230143"><span id="local-6989586621679230144"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AnomalySeverity"><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity"><span class="hs-identifier hs-var">AnomalySeverity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnomalySeverity%27"><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity%27"><span class="hs-identifier hs-var">AnomalySeverity'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAnomalySeverity"><span class="annot"><span class="annottext">AnomalySeverity -&gt; Text
+</span><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#fromAnomalySeverity"><span class="hs-identifier hs-var hs-var">fromAnomalySeverity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679230135"><span id="local-6989586621679230137"><span id="local-6989586621679230139"><span class="annot"><span class="annottext">Int -&gt; AnomalySeverity -&gt; ShowS
+[AnomalySeverity] -&gt; ShowS
+AnomalySeverity -&gt; String
+(Int -&gt; AnomalySeverity -&gt; ShowS)
+-&gt; (AnomalySeverity -&gt; String)
+-&gt; ([AnomalySeverity] -&gt; ShowS)
+-&gt; Show AnomalySeverity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AnomalySeverity] -&gt; ShowS
+$cshowList :: [AnomalySeverity] -&gt; ShowS
+show :: AnomalySeverity -&gt; String
+$cshow :: AnomalySeverity -&gt; String
+showsPrec :: Int -&gt; AnomalySeverity -&gt; ShowS
+$cshowsPrec :: Int -&gt; AnomalySeverity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679230126"><span id="local-6989586621679230128"><span id="local-6989586621679230130"><span id="local-6989586621679230132"><span class="annot"><span class="annottext">ReadPrec [AnomalySeverity]
+ReadPrec AnomalySeverity
+Int -&gt; ReadS AnomalySeverity
+ReadS [AnomalySeverity]
+(Int -&gt; ReadS AnomalySeverity)
+-&gt; ReadS [AnomalySeverity]
+-&gt; ReadPrec AnomalySeverity
+-&gt; ReadPrec [AnomalySeverity]
+-&gt; Read AnomalySeverity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AnomalySeverity]
+$creadListPrec :: ReadPrec [AnomalySeverity]
+readPrec :: ReadPrec AnomalySeverity
+$creadPrec :: ReadPrec AnomalySeverity
+readList :: ReadS [AnomalySeverity]
+$creadList :: ReadS [AnomalySeverity]
+readsPrec :: Int -&gt; ReadS AnomalySeverity
+$creadsPrec :: Int -&gt; ReadS AnomalySeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679230121"><span id="local-6989586621679230123"><span class="annot"><span class="annottext">AnomalySeverity -&gt; AnomalySeverity -&gt; Bool
+(AnomalySeverity -&gt; AnomalySeverity -&gt; Bool)
+-&gt; (AnomalySeverity -&gt; AnomalySeverity -&gt; Bool)
+-&gt; Eq AnomalySeverity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AnomalySeverity -&gt; AnomalySeverity -&gt; Bool
+$c/= :: AnomalySeverity -&gt; AnomalySeverity -&gt; Bool
+== :: AnomalySeverity -&gt; AnomalySeverity -&gt; Bool
+$c== :: AnomalySeverity -&gt; AnomalySeverity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679230105"><span id="local-6989586621679230107"><span id="local-6989586621679230109"><span id="local-6989586621679230111"><span id="local-6989586621679230113"><span id="local-6989586621679230115"><span id="local-6989586621679230117"><span class="annot"><span class="annottext">Eq AnomalySeverity
+Eq AnomalySeverity
+-&gt; (AnomalySeverity -&gt; AnomalySeverity -&gt; Ordering)
+-&gt; (AnomalySeverity -&gt; AnomalySeverity -&gt; Bool)
+-&gt; (AnomalySeverity -&gt; AnomalySeverity -&gt; Bool)
+-&gt; (AnomalySeverity -&gt; AnomalySeverity -&gt; Bool)
+-&gt; (AnomalySeverity -&gt; AnomalySeverity -&gt; Bool)
+-&gt; (AnomalySeverity -&gt; AnomalySeverity -&gt; AnomalySeverity)
+-&gt; (AnomalySeverity -&gt; AnomalySeverity -&gt; AnomalySeverity)
+-&gt; Ord AnomalySeverity
+AnomalySeverity -&gt; AnomalySeverity -&gt; Bool
+AnomalySeverity -&gt; AnomalySeverity -&gt; Ordering
+AnomalySeverity -&gt; AnomalySeverity -&gt; AnomalySeverity
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AnomalySeverity -&gt; AnomalySeverity -&gt; AnomalySeverity
+$cmin :: AnomalySeverity -&gt; AnomalySeverity -&gt; AnomalySeverity
+max :: AnomalySeverity -&gt; AnomalySeverity -&gt; AnomalySeverity
+$cmax :: AnomalySeverity -&gt; AnomalySeverity -&gt; AnomalySeverity
+&gt;= :: AnomalySeverity -&gt; AnomalySeverity -&gt; Bool
+$c&gt;= :: AnomalySeverity -&gt; AnomalySeverity -&gt; Bool
+&gt; :: AnomalySeverity -&gt; AnomalySeverity -&gt; Bool
+$c&gt; :: AnomalySeverity -&gt; AnomalySeverity -&gt; Bool
+&lt;= :: AnomalySeverity -&gt; AnomalySeverity -&gt; Bool
+$c&lt;= :: AnomalySeverity -&gt; AnomalySeverity -&gt; Bool
+&lt; :: AnomalySeverity -&gt; AnomalySeverity -&gt; Bool
+$c&lt; :: AnomalySeverity -&gt; AnomalySeverity -&gt; Bool
+compare :: AnomalySeverity -&gt; AnomalySeverity -&gt; Ordering
+$ccompare :: AnomalySeverity -&gt; AnomalySeverity -&gt; Ordering
+$cp1Ord :: Eq AnomalySeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AnomalySeverity -&gt; Rep AnomalySeverity x)
+-&gt; (forall x. Rep AnomalySeverity x -&gt; AnomalySeverity)
+-&gt; Generic AnomalySeverity
+forall x. Rep AnomalySeverity x -&gt; AnomalySeverity
+forall x. AnomalySeverity -&gt; Rep AnomalySeverity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AnomalySeverity x -&gt; AnomalySeverity
+$cfrom :: forall x. AnomalySeverity -&gt; Rep AnomalySeverity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679230097"><span id="local-6989586621679230099"><span class="annot"><span class="annottext">Int -&gt; AnomalySeverity -&gt; Int
+AnomalySeverity -&gt; Int
+(Int -&gt; AnomalySeverity -&gt; Int)
+-&gt; (AnomalySeverity -&gt; Int) -&gt; Hashable AnomalySeverity
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AnomalySeverity -&gt; Int
+$chash :: AnomalySeverity -&gt; Int
+hashWithSalt :: Int -&gt; AnomalySeverity -&gt; Int
+$chashWithSalt :: Int -&gt; AnomalySeverity -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679230094"><span class="annot"><span class="annottext">AnomalySeverity -&gt; ()
+(AnomalySeverity -&gt; ()) -&gt; NFData AnomalySeverity
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AnomalySeverity -&gt; ()
+$crnf :: AnomalySeverity -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679230091"><span class="annot"><span class="annottext">Text -&gt; Either String AnomalySeverity
+(Text -&gt; Either String AnomalySeverity) -&gt; FromText AnomalySeverity
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AnomalySeverity
+$cfromText :: Text -&gt; Either String AnomalySeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679230088"><span class="annot"><span class="annottext">AnomalySeverity -&gt; Text
+(AnomalySeverity -&gt; Text) -&gt; ToText AnomalySeverity
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AnomalySeverity -&gt; Text
+$ctoText :: AnomalySeverity -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679230085"><span class="annot"><span class="annottext">AnomalySeverity -&gt; ByteString
+(AnomalySeverity -&gt; ByteString) -&gt; ToByteString AnomalySeverity
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AnomalySeverity -&gt; ByteString
+$ctoBS :: AnomalySeverity -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679230082"><span class="annot"><span class="annottext">AnomalySeverity -&gt; ByteStringBuilder
+(AnomalySeverity -&gt; ByteStringBuilder) -&gt; ToLog AnomalySeverity
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AnomalySeverity -&gt; ByteStringBuilder
+$cbuild :: AnomalySeverity -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679230079"><span class="annot"><span class="annottext">HeaderName -&gt; AnomalySeverity -&gt; [Header]
+(HeaderName -&gt; AnomalySeverity -&gt; [Header])
+-&gt; ToHeader AnomalySeverity
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AnomalySeverity -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AnomalySeverity -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679230076"><span class="annot"><span class="annottext">AnomalySeverity -&gt; QueryString
+(AnomalySeverity -&gt; QueryString) -&gt; ToQuery AnomalySeverity
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AnomalySeverity -&gt; QueryString
+$ctoQuery :: AnomalySeverity -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679230071"><span id="local-6989586621679230073"><span class="annot"><span class="annottext">Value -&gt; Parser [AnomalySeverity]
+Value -&gt; Parser AnomalySeverity
+(Value -&gt; Parser AnomalySeverity)
+-&gt; (Value -&gt; Parser [AnomalySeverity]) -&gt; FromJSON AnomalySeverity
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AnomalySeverity]
+$cparseJSONList :: Value -&gt; Parser [AnomalySeverity]
+parseJSON :: Value -&gt; Parser AnomalySeverity
+$cparseJSON :: Value -&gt; Parser AnomalySeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679230066"><span id="local-6989586621679230068"><span class="annot"><span class="annottext">FromJSONKeyFunction [AnomalySeverity]
+FromJSONKeyFunction AnomalySeverity
+FromJSONKeyFunction AnomalySeverity
+-&gt; FromJSONKeyFunction [AnomalySeverity]
+-&gt; FromJSONKey AnomalySeverity
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AnomalySeverity]
+$cfromJSONKeyList :: FromJSONKeyFunction [AnomalySeverity]
+fromJSONKey :: FromJSONKeyFunction AnomalySeverity
+$cfromJSONKey :: FromJSONKeyFunction AnomalySeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679230057"><span id="local-6989586621679230059"><span id="local-6989586621679230061"><span id="local-6989586621679230063"><span class="annot"><span class="annottext">[AnomalySeverity] -&gt; Encoding
+[AnomalySeverity] -&gt; Value
+AnomalySeverity -&gt; Encoding
+AnomalySeverity -&gt; Value
+(AnomalySeverity -&gt; Value)
+-&gt; (AnomalySeverity -&gt; Encoding)
+-&gt; ([AnomalySeverity] -&gt; Value)
+-&gt; ([AnomalySeverity] -&gt; Encoding)
+-&gt; ToJSON AnomalySeverity
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AnomalySeverity] -&gt; Encoding
+$ctoEncodingList :: [AnomalySeverity] -&gt; Encoding
+toJSONList :: [AnomalySeverity] -&gt; Value
+$ctoJSONList :: [AnomalySeverity] -&gt; Value
+toEncoding :: AnomalySeverity -&gt; Encoding
+$ctoEncoding :: AnomalySeverity -&gt; Encoding
+toJSON :: AnomalySeverity -&gt; Value
+$ctoJSON :: AnomalySeverity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679230052"><span id="local-6989586621679230054"><span class="annot"><span class="annottext">ToJSONKeyFunction [AnomalySeverity]
+ToJSONKeyFunction AnomalySeverity
+ToJSONKeyFunction AnomalySeverity
+-&gt; ToJSONKeyFunction [AnomalySeverity] -&gt; ToJSONKey AnomalySeverity
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AnomalySeverity]
+$ctoJSONKeyList :: ToJSONKeyFunction [AnomalySeverity]
+toJSONKey :: ToJSONKeyFunction AnomalySeverity
+$ctoJSONKey :: ToJSONKeyFunction AnomalySeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679230049"><span class="annot"><span class="annottext">[Node] -&gt; Either String AnomalySeverity
+([Node] -&gt; Either String AnomalySeverity)
+-&gt; FromXML AnomalySeverity
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AnomalySeverity
+$cparseXML :: [Node] -&gt; Either String AnomalySeverity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679230046"><span class="annot"><span class="annottext">AnomalySeverity -&gt; XML
+(AnomalySeverity -&gt; XML) -&gt; ToXML AnomalySeverity
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AnomalySeverity -&gt; XML
+$ctoXML :: AnomalySeverity -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity_HIGH"><span class="hs-identifier hs-type">AnomalySeverity_HIGH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity"><span class="hs-identifier hs-type">AnomalySeverity</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnomalySeverity_HIGH"><span id="%24mAnomalySeverity_HIGH"><span id="AnomalySeverity_HIGH"><span class="annot"><span class="annottext">$bAnomalySeverity_HIGH :: AnomalySeverity
+$mAnomalySeverity_HIGH :: forall r. AnomalySeverity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#%24bAnomalySeverity_HIGH"><span class="hs-identifier hs-var hs-var hs-var">AnomalySeverity_HIGH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity%27"><span class="hs-identifier hs-type">AnomalySeverity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HIGH&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity_LOW"><span class="hs-identifier hs-type">AnomalySeverity_LOW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity"><span class="hs-identifier hs-type">AnomalySeverity</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnomalySeverity_LOW"><span id="%24mAnomalySeverity_LOW"><span id="AnomalySeverity_LOW"><span class="annot"><span class="annottext">$bAnomalySeverity_LOW :: AnomalySeverity
+$mAnomalySeverity_LOW :: forall r. AnomalySeverity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#%24bAnomalySeverity_LOW"><span class="hs-identifier hs-var hs-var hs-var">AnomalySeverity_LOW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity%27"><span class="hs-identifier hs-type">AnomalySeverity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LOW&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity_MEDIUM"><span class="hs-identifier hs-type">AnomalySeverity_MEDIUM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity"><span class="hs-identifier hs-type">AnomalySeverity</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnomalySeverity_MEDIUM"><span id="%24mAnomalySeverity_MEDIUM"><span id="AnomalySeverity_MEDIUM"><span class="annot"><span class="annottext">$bAnomalySeverity_MEDIUM :: AnomalySeverity
+$mAnomalySeverity_MEDIUM :: forall r. AnomalySeverity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#%24bAnomalySeverity_MEDIUM"><span class="hs-identifier hs-var hs-var hs-var">AnomalySeverity_MEDIUM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity%27"><span class="hs-identifier hs-type">AnomalySeverity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MEDIUM&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity_HIGH"><span class="hs-pragma hs-type">AnomalySeverity_HIGH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity_LOW"><span class="hs-pragma hs-type">AnomalySeverity_LOW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity_MEDIUM"><span class="hs-pragma hs-type">AnomalySeverity_MEDIUM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.AnomalySeverity.html#AnomalySeverity%27"><span class="hs-pragma hs-type">AnomalySeverity'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

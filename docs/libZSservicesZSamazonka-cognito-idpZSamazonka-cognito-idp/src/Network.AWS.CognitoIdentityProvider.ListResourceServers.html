@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListResourceServers' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679443979"><span id="local-6989586621679443980"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResourceServers"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-var">ListResourceServers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResourceServers%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers%27"><span class="hs-identifier hs-var">ListResourceServers'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679443988"><span id="local-6989586621679443989"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResourceServers"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-var">ListResourceServers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResourceServers%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers%27"><span class="hs-identifier hs-var">ListResourceServers'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3AListResourceServers%27"><span class="annot"><span class="annottext">ListResourceServers -&gt; Maybe Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#%24sel%3AnextToken%3AListResourceServers%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AuserPoolId%3AListResourceServers%27"><span class="annot"><span class="annottext">ListResourceServers -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#%24sel%3AuserPoolId%3AListResourceServers%27"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443971"><span id="local-6989586621679443973"><span class="annot"><span class="annottext">ListResourceServers -&gt; ListResourceServers -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443980"><span id="local-6989586621679443982"><span class="annot"><span class="annottext">ListResourceServers -&gt; ListResourceServers -&gt; Bool
 (ListResourceServers -&gt; ListResourceServers -&gt; Bool)
 -&gt; (ListResourceServers -&gt; ListResourceServers -&gt; Bool)
 -&gt; Eq ListResourceServers
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListResourceServers -&gt; ListResourceServers -&gt; Bool
 == :: ListResourceServers -&gt; ListResourceServers -&gt; Bool
 $c== :: ListResourceServers -&gt; ListResourceServers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443962"><span id="local-6989586621679443964"><span id="local-6989586621679443966"><span id="local-6989586621679443968"><span class="annot"><span class="annottext">ReadPrec [ListResourceServers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443971"><span id="local-6989586621679443973"><span id="local-6989586621679443975"><span id="local-6989586621679443977"><span class="annot"><span class="annottext">ReadPrec [ListResourceServers]
 ReadPrec ListResourceServers
 Int -&gt; ReadS ListResourceServers
 ReadS [ListResourceServers]
@@ -92,7 +92,7 @@ readList :: ReadS [ListResourceServers]
 $creadList :: ReadS [ListResourceServers]
 readsPrec :: Int -&gt; ReadS ListResourceServers
 $creadsPrec :: Int -&gt; ReadS ListResourceServers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443955"><span id="local-6989586621679443957"><span id="local-6989586621679443959"><span class="annot"><span class="annottext">Int -&gt; ListResourceServers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443964"><span id="local-6989586621679443966"><span id="local-6989586621679443968"><span class="annot"><span class="annottext">Int -&gt; ListResourceServers -&gt; ShowS
 [ListResourceServers] -&gt; ShowS
 ListResourceServers -&gt; String
 (Int -&gt; ListResourceServers -&gt; ShowS)
@@ -136,8 +136,8 @@ $cfrom :: forall x. ListResourceServers -&gt; Rep ListResourceServers x
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span><span>
 </span><span id="line-82"></span><span id="newListResourceServers"><span class="annot"><span class="annottext">newListResourceServers :: Text -&gt; ListResourceServers
-</span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#newListResourceServers"><span class="hs-identifier hs-var hs-var">newListResourceServers</span></a></span></span><span> </span><span id="local-6989586621679443950"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443950"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#newListResourceServers"><span class="hs-identifier hs-var hs-var">newListResourceServers</span></a></span></span><span> </span><span id="local-6989586621679443959"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443959"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">ListResourceServers' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListResourceServers
 </span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers%27"><span class="hs-identifier hs-type">ListResourceServers'</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListResourceServers' :: Maybe Text
@@ -150,7 +150,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPoolId:ListResourceServers' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#%24sel%3AuserPoolId%3AListResourceServers%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443950"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span>
+</span><a href="#local-6989586621679443959"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | A pagination token.</span><span>
@@ -162,16 +162,16 @@ forall a. Maybe a
 -&gt; Lens
      ListResourceServers ListResourceServers (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers%27"><span class="hs-identifier hs-type">ListResourceServers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443948"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers%27"><span class="hs-identifier hs-type">ListResourceServers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443957"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListResourceServers' :: ListResourceServers -&gt; Maybe Text
-</span><a href="#local-6989586621679443948"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679443948"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443947"><span class="annot"><span class="annottext">s :: ListResourceServers
-</span><a href="#local-6989586621679443947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers%27"><span class="hs-identifier hs-type">ListResourceServers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443946"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679443946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceServers
-</span><a href="#local-6989586621679443947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListResourceServers' :: Maybe Text
+</span><a href="#local-6989586621679443957"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443957"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443956"><span class="annot"><span class="annottext">s :: ListResourceServers
+</span><a href="#local-6989586621679443956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers%27"><span class="hs-identifier hs-type">ListResourceServers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443955"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceServers
+</span><a href="#local-6989586621679443956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListResourceServers' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#%24sel%3AnextToken%3AListResourceServers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679443946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The maximum number of resource servers to return.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#listResourceServers_maxResults"><span class="hs-identifier hs-type">listResourceServers_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -185,16 +185,16 @@ $sel:nextToken:ListResourceServers' :: ListResourceServers -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers%27"><span class="hs-identifier hs-type">ListResourceServers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443945"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers%27"><span class="hs-identifier hs-type">ListResourceServers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443954"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListResourceServers' :: ListResourceServers -&gt; Maybe Natural
-</span><a href="#local-6989586621679443945"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679443945"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443944"><span class="annot"><span class="annottext">s :: ListResourceServers
-</span><a href="#local-6989586621679443944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers%27"><span class="hs-identifier hs-type">ListResourceServers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443943"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679443943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceServers
-</span><a href="#local-6989586621679443944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListResourceServers' :: Maybe Natural
+</span><a href="#local-6989586621679443954"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679443954"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443953"><span class="annot"><span class="annottext">s :: ListResourceServers
+</span><a href="#local-6989586621679443953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers%27"><span class="hs-identifier hs-type">ListResourceServers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443952"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679443952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceServers
+</span><a href="#local-6989586621679443953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListResourceServers' :: Maybe Natural
 </span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#%24sel%3AmaxResults%3AListResourceServers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679443943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The user pool ID for the user pool.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#listResourceServers_userPoolId"><span class="hs-identifier hs-type">listResourceServers_userPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -203,29 +203,29 @@ $sel:maxResults:ListResourceServers' :: ListResourceServers -&gt; Maybe Natural
 -&gt; (ListResourceServers -&gt; Text -&gt; ListResourceServers)
 -&gt; Lens ListResourceServers ListResourceServers Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers%27"><span class="hs-identifier hs-type">ListResourceServers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443942"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers%27"><span class="hs-identifier hs-type">ListResourceServers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443951"><span class="annot"><span class="annottext">Text
 userPoolId :: Text
 $sel:userPoolId:ListResourceServers' :: ListResourceServers -&gt; Text
-</span><a href="#local-6989586621679443942"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443942"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443941"><span class="annot"><span class="annottext">s :: ListResourceServers
-</span><a href="#local-6989586621679443941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers%27"><span class="hs-identifier hs-type">ListResourceServers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443940"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceServers
-</span><a href="#local-6989586621679443941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:ListResourceServers' :: Text
+</span><a href="#local-6989586621679443951"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443951"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443950"><span class="annot"><span class="annottext">s :: ListResourceServers
+</span><a href="#local-6989586621679443950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers%27"><span class="hs-identifier hs-type">ListResourceServers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443949"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceServers
+</span><a href="#local-6989586621679443950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:ListResourceServers' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#%24sel%3AuserPoolId%3AListResourceServers%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679443936"><span class="annot"><span class="annottext">page :: ListResourceServers
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679443945"><span class="annot"><span class="annottext">page :: ListResourceServers
 -&gt; AWSResponse ListResourceServers -&gt; Maybe ListResourceServers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679443934"><span class="annot"><span class="annottext">ListResourceServers
-</span><a href="#local-6989586621679443934"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679443933"><span class="annot"><span class="annottext">AWSResponse ListResourceServers
-</span><a href="#local-6989586621679443933"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679443943"><span class="annot"><span class="annottext">ListResourceServers
+</span><a href="#local-6989586621679443943"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679443942"><span class="annot"><span class="annottext">AWSResponse ListResourceServers
+</span><a href="#local-6989586621679443942"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-104"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResourceServers
 ListResourceServersResponse
-</span><a href="#local-6989586621679443933"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679443942"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">ListResourceServersResponse
 -&gt; Getting (First Text) ListResourceServersResponse Text
 -&gt; Maybe Text
@@ -255,7 +255,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-110"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResourceServers
 ListResourceServersResponse
-</span><a href="#local-6989586621679443933"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679443942"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">ListResourceServersResponse
 -&gt; Getting
      [ResourceServerType]
@@ -282,7 +282,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">ListResourceServers
-</span><a href="#local-6989586621679443934"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679443943"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">ListResourceServers
 -&gt; (ListResourceServers -&gt; ListResourceServers)
 -&gt; ListResourceServers
@@ -298,7 +298,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResourceServers
 ListResourceServersResponse
-</span><a href="#local-6989586621679443933"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679443942"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">ListResourceServersResponse
 -&gt; Getting (First Text) ListResourceServersResponse Text
 -&gt; Maybe Text
@@ -324,12 +324,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse"><span class="hs-identifier hs-type">ListResourceServersResponse</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679443922"><span class="annot"><span class="annottext">request :: ListResourceServers -&gt; Request ListResourceServers
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679443931"><span class="annot"><span class="annottext">request :: ListResourceServers -&gt; Request ListResourceServers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListResourceServers -&gt; Request ListResourceServers
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679443918"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679443927"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListResourceServers
 -&gt; ClientResponse ClientBody
@@ -355,10 +355,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679443915"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443915"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679443914"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679443914"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679443913"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679443913"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679443924"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443924"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679443923"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679443923"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679443922"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679443922"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Int -&gt; [ResourceServerType] -&gt; ListResourceServersResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse%27"><span class="hs-identifier hs-var">ListResourceServersResponse'</span></a></span><span>
@@ -369,7 +369,7 @@ MonadResource m =&gt;
      String (Int -&gt; [ResourceServerType] -&gt; ListResourceServersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679443913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679443922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -384,13 +384,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443915"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443924"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either String ([ResourceServerType] -&gt; ListResourceServersResponse)
 -&gt; Either String [ResourceServerType]
 -&gt; Either String ListResourceServersResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679443913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [ResourceServerType])
+</span><a href="#local-6989586621679443922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [ResourceServerType])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceServers&quot;</span></span><span>
@@ -403,12 +403,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-135"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443904"><span id="local-6989586621679443906"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443913"><span id="local-6989586621679443915"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443901"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443910"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679443897"><span class="annot"><span class="annottext">toHeaders :: ListResourceServers -&gt; ResponseHeaders
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679443906"><span class="annot"><span class="annottext">toHeaders :: ListResourceServers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListResourceServers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -435,9 +435,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443887"><span id="local-6989586621679443889"><span id="local-6989586621679443891"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679443885"><span class="annot"><span class="annottext">toJSON :: ListResourceServers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers%27"><span class="hs-identifier hs-type">ListResourceServers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443881"><span id="local-6989586621679443882"><span id="local-6989586621679443883"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443896"><span id="local-6989586621679443898"><span id="local-6989586621679443900"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679443894"><span class="annot"><span class="annottext">toJSON :: ListResourceServers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers%27"><span class="hs-identifier hs-type">ListResourceServers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443890"><span id="local-6989586621679443891"><span id="local-6989586621679443892"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 userPoolId :: Text
@@ -446,7 +446,7 @@ nextToken :: Maybe Text
 $sel:userPoolId:ListResourceServers' :: ListResourceServers -&gt; Text
 $sel:maxResults:ListResourceServers' :: ListResourceServers -&gt; Maybe Natural
 $sel:nextToken:ListResourceServers' :: ListResourceServers -&gt; Maybe Text
-</span><a href="#local-6989586621679443881"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679443890"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -458,33 +458,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679443883"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679443892"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679443882"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679443891"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443881"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443890"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679443875"><span class="annot"><span class="annottext">toPath :: ListResourceServers -&gt; ByteString
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679443884"><span class="annot"><span class="annottext">toPath :: ListResourceServers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListResourceServers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServers"><span class="hs-identifier hs-type">ListResourceServers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679443871"><span class="annot"><span class="annottext">toQuery :: ListResourceServers -&gt; QueryString
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679443880"><span class="annot"><span class="annottext">toQuery :: ListResourceServers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListResourceServers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -492,7 +492,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | /See:/ 'newListResourceServersResponse' smart constructor.</span><span>
-</span><span id="line-174"></span><span id="local-6989586621679443868"><span id="local-6989586621679443869"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResourceServersResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse"><span class="hs-identifier hs-var">ListResourceServersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResourceServersResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse%27"><span class="hs-identifier hs-var">ListResourceServersResponse'</span></a></span></span><span>
+</span><span id="line-174"></span><span id="local-6989586621679443877"><span id="local-6989586621679443878"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResourceServersResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse"><span class="hs-identifier hs-var">ListResourceServersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResourceServersResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse%27"><span class="hs-identifier hs-var">ListResourceServersResponse'</span></a></span></span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token.</span><span>
 </span><span id="line-176"></span><span>    </span><span id="%24sel%3AnextToken%3AListResourceServersResponse%27"><span class="annot"><span class="annottext">ListResourceServersResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#%24sel%3AnextToken%3AListResourceServersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -503,7 +503,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-180"></span><span>    </span><span id="%24sel%3AresourceServers%3AListResourceServersResponse%27"><span class="annot"><span class="annottext">ListResourceServersResponse -&gt; [ResourceServerType]
 </span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#%24sel%3AresourceServers%3AListResourceServersResponse%27"><span class="hs-identifier hs-var hs-var">resourceServers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerType.html#ResourceServerType"><span class="hs-identifier hs-type">ResourceServerType</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443861"><span id="local-6989586621679443863"><span class="annot"><span class="annottext">ListResourceServersResponse -&gt; ListResourceServersResponse -&gt; Bool
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443870"><span id="local-6989586621679443872"><span class="annot"><span class="annottext">ListResourceServersResponse -&gt; ListResourceServersResponse -&gt; Bool
 (ListResourceServersResponse
  -&gt; ListResourceServersResponse -&gt; Bool)
 -&gt; (ListResourceServersResponse
@@ -514,7 +514,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListResourceServersResponse -&gt; ListResourceServersResponse -&gt; Bool
 == :: ListResourceServersResponse -&gt; ListResourceServersResponse -&gt; Bool
 $c== :: ListResourceServersResponse -&gt; ListResourceServersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443853"><span id="local-6989586621679443855"><span id="local-6989586621679443857"><span id="local-6989586621679443859"><span class="annot"><span class="annottext">ReadPrec [ListResourceServersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443862"><span id="local-6989586621679443864"><span id="local-6989586621679443866"><span id="local-6989586621679443868"><span class="annot"><span class="annottext">ReadPrec [ListResourceServersResponse]
 ReadPrec ListResourceServersResponse
 Int -&gt; ReadS ListResourceServersResponse
 ReadS [ListResourceServersResponse]
@@ -534,7 +534,7 @@ readList :: ReadS [ListResourceServersResponse]
 $creadList :: ReadS [ListResourceServersResponse]
 readsPrec :: Int -&gt; ReadS ListResourceServersResponse
 $creadsPrec :: Int -&gt; ReadS ListResourceServersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443847"><span id="local-6989586621679443849"><span id="local-6989586621679443851"><span class="annot"><span class="annottext">Int -&gt; ListResourceServersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443856"><span id="local-6989586621679443858"><span id="local-6989586621679443860"><span class="annot"><span class="annottext">Int -&gt; ListResourceServersResponse -&gt; ShowS
 [ListResourceServersResponse] -&gt; ShowS
 ListResourceServersResponse -&gt; String
 (Int -&gt; ListResourceServersResponse -&gt; ShowS)
@@ -584,8 +584,8 @@ ListResourceServersResponse -&gt; Rep ListResourceServersResponse x
 </span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-200"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse"><span class="hs-identifier hs-type">ListResourceServersResponse</span></a></span><span>
 </span><span id="line-201"></span><span id="newListResourceServersResponse"><span class="annot"><span class="annottext">newListResourceServersResponse :: Int -&gt; ListResourceServersResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#newListResourceServersResponse"><span class="hs-identifier hs-var hs-var">newListResourceServersResponse</span></a></span></span><span> </span><span id="local-6989586621679443844"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443844"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#newListResourceServersResponse"><span class="hs-identifier hs-var hs-var">newListResourceServersResponse</span></a></span></span><span> </span><span id="local-6989586621679443853"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443853"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-202"></span><span>  </span><span class="annot"><span class="annottext">ListResourceServersResponse' :: Maybe Text
 -&gt; Int -&gt; [ResourceServerType] -&gt; ListResourceServersResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse%27"><span class="hs-identifier hs-type">ListResourceServersResponse'</span></a></span><span>
@@ -596,7 +596,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListResourceServersResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#%24sel%3AhttpStatus%3AListResourceServersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443844"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679443853"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceServers:ListResourceServersResponse' :: [ResourceServerType]
 </span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#%24sel%3AresourceServers%3AListResourceServersResponse%27"><span class="hs-identifier hs-var">resourceServers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ResourceServerType]
 forall a. Monoid a =&gt; a
@@ -612,16 +612,16 @@ forall a. Monoid a =&gt; a
     -&gt; Maybe Text -&gt; ListResourceServersResponse)
 -&gt; Lens' ListResourceServersResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse%27"><span class="hs-identifier hs-type">ListResourceServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443843"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse%27"><span class="hs-identifier hs-type">ListResourceServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443852"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListResourceServersResponse' :: ListResourceServersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679443843"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679443843"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443842"><span class="annot"><span class="annottext">s :: ListResourceServersResponse
-</span><a href="#local-6989586621679443842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse%27"><span class="hs-identifier hs-type">ListResourceServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443841"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679443841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceServersResponse
-</span><a href="#local-6989586621679443842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListResourceServersResponse' :: Maybe Text
+</span><a href="#local-6989586621679443852"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443852"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443851"><span class="annot"><span class="annottext">s :: ListResourceServersResponse
+</span><a href="#local-6989586621679443851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse%27"><span class="hs-identifier hs-type">ListResourceServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443850"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceServersResponse
+</span><a href="#local-6989586621679443851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListResourceServersResponse' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#%24sel%3AnextToken%3AListResourceServersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679443841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse"><span class="hs-identifier hs-type">ListResourceServersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse"><span class="hs-identifier hs-type">ListResourceServersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-214"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#listResourceServersResponse_httpStatus"><span class="hs-identifier hs-type">listResourceServersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse"><span class="hs-identifier hs-type">ListResourceServersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -633,16 +633,16 @@ $sel:nextToken:ListResourceServersResponse' :: ListResourceServersResponse -&gt;
 -&gt; Lens
      ListResourceServersResponse ListResourceServersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse%27"><span class="hs-identifier hs-type">ListResourceServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443840"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse%27"><span class="hs-identifier hs-type">ListResourceServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443849"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListResourceServersResponse' :: ListResourceServersResponse -&gt; Int
-</span><a href="#local-6989586621679443840"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443840"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443839"><span class="annot"><span class="annottext">s :: ListResourceServersResponse
-</span><a href="#local-6989586621679443839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse%27"><span class="hs-identifier hs-type">ListResourceServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443838"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceServersResponse
-</span><a href="#local-6989586621679443839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListResourceServersResponse' :: Int
+</span><a href="#local-6989586621679443849"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443849"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443848"><span class="annot"><span class="annottext">s :: ListResourceServersResponse
+</span><a href="#local-6989586621679443848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse%27"><span class="hs-identifier hs-type">ListResourceServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443847"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceServersResponse
+</span><a href="#local-6989586621679443848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListResourceServersResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#%24sel%3AhttpStatus%3AListResourceServersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse"><span class="hs-identifier hs-type">ListResourceServersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse"><span class="hs-identifier hs-type">ListResourceServersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | The resource servers.</span><span>
 </span><span id="line-218"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#listResourceServersResponse_resourceServers"><span class="hs-identifier hs-type">listResourceServersResponse_resourceServers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse"><span class="hs-identifier hs-type">ListResourceServersResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.ResourceServerType.html#ResourceServerType"><span class="hs-identifier hs-type">ResourceServerType</span></a></span><span class="hs-special">]</span><span>
@@ -653,16 +653,16 @@ $sel:httpStatus:ListResourceServersResponse' :: ListResourceServersResponse -&gt
     -&gt; [ResourceServerType] -&gt; ListResourceServersResponse)
 -&gt; Lens' ListResourceServersResponse [ResourceServerType]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse%27"><span class="hs-identifier hs-type">ListResourceServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443837"><span class="annot"><span class="annottext">[ResourceServerType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse%27"><span class="hs-identifier hs-type">ListResourceServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443846"><span class="annot"><span class="annottext">[ResourceServerType]
 resourceServers :: [ResourceServerType]
 $sel:resourceServers:ListResourceServersResponse' :: ListResourceServersResponse -&gt; [ResourceServerType]
-</span><a href="#local-6989586621679443837"><span class="hs-identifier hs-var hs-var">resourceServers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ResourceServerType]
-</span><a href="#local-6989586621679443837"><span class="hs-identifier hs-var">resourceServers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443836"><span class="annot"><span class="annottext">s :: ListResourceServersResponse
-</span><a href="#local-6989586621679443836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse%27"><span class="hs-identifier hs-type">ListResourceServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443835"><span class="annot"><span class="annottext">[ResourceServerType]
-</span><a href="#local-6989586621679443835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceServersResponse
-</span><a href="#local-6989586621679443836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceServers:ListResourceServersResponse' :: [ResourceServerType]
+</span><a href="#local-6989586621679443846"><span class="hs-identifier hs-var hs-var">resourceServers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ResourceServerType]
+</span><a href="#local-6989586621679443846"><span class="hs-identifier hs-var">resourceServers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443845"><span class="annot"><span class="annottext">s :: ListResourceServersResponse
+</span><a href="#local-6989586621679443845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse%27"><span class="hs-identifier hs-type">ListResourceServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443844"><span class="annot"><span class="annottext">[ResourceServerType]
+</span><a href="#local-6989586621679443844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceServersResponse
+</span><a href="#local-6989586621679443845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceServers:ListResourceServersResponse' :: [ResourceServerType]
 </span><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#%24sel%3AresourceServers%3AListResourceServersResponse%27"><span class="hs-identifier hs-var">resourceServers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ResourceServerType]
-</span><a href="#local-6989586621679443835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse"><span class="hs-identifier hs-type">ListResourceServersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ResourceServerType] -&gt; f [ResourceServerType])
+</span><a href="#local-6989586621679443844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse"><span class="hs-identifier hs-type">ListResourceServersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ResourceServerType] -&gt; f [ResourceServerType])
  -&gt; ListResourceServersResponse -&gt; f ListResourceServersResponse)
 -&gt; (([ResourceServerType] -&gt; f [ResourceServerType])
     -&gt; [ResourceServerType] -&gt; f [ResourceServerType])
@@ -675,5 +675,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443832"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse"><span class="hs-identifier hs-type">ListResourceServersResponse</span></a></span></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443841"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ListResourceServers.html#ListResourceServersResponse"><span class="hs-identifier hs-type">ListResourceServersResponse</span></a></span></span><span>
 </span><span id="line-222"></span></pre></body></html>

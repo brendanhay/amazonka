@@ -79,7 +79,7 @@
 </span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | /See:/ 'newUpdateNodegroupVersion' smart constructor.</span><span>
-</span><span id="line-82"></span><span id="local-6989586621679280021"><span id="local-6989586621679280022"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateNodegroupVersion"><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-var">UpdateNodegroupVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateNodegroupVersion%27"><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-var">UpdateNodegroupVersion'</span></a></span></span><span>
+</span><span id="line-82"></span><span id="local-6989586621679280030"><span id="local-6989586621679280031"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateNodegroupVersion"><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-var">UpdateNodegroupVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateNodegroupVersion%27"><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-var">UpdateNodegroupVersion'</span></a></span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Force the update if the existing node group\'s pods are unable to be</span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-comment">-- drained due to a pod disruption budget issue. If an update fails because</span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-comment">-- pods could not be drained, you can force the update after it fails to</span><span>
@@ -126,7 +126,7 @@
 </span><span id="line-120"></span><span>    </span><span id="%24sel%3AnodegroupName%3AUpdateNodegroupVersion%27"><span class="annot"><span class="annottext">UpdateNodegroupVersion -&gt; Text
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#%24sel%3AnodegroupName%3AUpdateNodegroupVersion%27"><span class="hs-identifier hs-var hs-var">nodegroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280009"><span id="local-6989586621679280011"><span class="annot"><span class="annottext">UpdateNodegroupVersion -&gt; UpdateNodegroupVersion -&gt; Bool
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280018"><span id="local-6989586621679280020"><span class="annot"><span class="annottext">UpdateNodegroupVersion -&gt; UpdateNodegroupVersion -&gt; Bool
 (UpdateNodegroupVersion -&gt; UpdateNodegroupVersion -&gt; Bool)
 -&gt; (UpdateNodegroupVersion -&gt; UpdateNodegroupVersion -&gt; Bool)
 -&gt; Eq UpdateNodegroupVersion
@@ -135,7 +135,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateNodegroupVersion -&gt; UpdateNodegroupVersion -&gt; Bool
 == :: UpdateNodegroupVersion -&gt; UpdateNodegroupVersion -&gt; Bool
 $c== :: UpdateNodegroupVersion -&gt; UpdateNodegroupVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280000"><span id="local-6989586621679280002"><span id="local-6989586621679280004"><span id="local-6989586621679280006"><span class="annot"><span class="annottext">ReadPrec [UpdateNodegroupVersion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280009"><span id="local-6989586621679280011"><span id="local-6989586621679280013"><span id="local-6989586621679280015"><span class="annot"><span class="annottext">ReadPrec [UpdateNodegroupVersion]
 ReadPrec UpdateNodegroupVersion
 Int -&gt; ReadS UpdateNodegroupVersion
 ReadS [UpdateNodegroupVersion]
@@ -155,7 +155,7 @@ readList :: ReadS [UpdateNodegroupVersion]
 $creadList :: ReadS [UpdateNodegroupVersion]
 readsPrec :: Int -&gt; ReadS UpdateNodegroupVersion
 $creadsPrec :: Int -&gt; ReadS UpdateNodegroupVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279993"><span id="local-6989586621679279995"><span id="local-6989586621679279997"><span class="annot"><span class="annottext">Int -&gt; UpdateNodegroupVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280002"><span id="local-6989586621679280004"><span id="local-6989586621679280006"><span class="annot"><span class="annottext">Int -&gt; UpdateNodegroupVersion -&gt; ShowS
 [UpdateNodegroupVersion] -&gt; ShowS
 UpdateNodegroupVersion -&gt; String
 (Int -&gt; UpdateNodegroupVersion -&gt; ShowS)
@@ -235,10 +235,10 @@ $cfrom :: forall x. UpdateNodegroupVersion -&gt; Rep UpdateNodegroupVersion x
 </span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span>
 </span><span id="line-175"></span><span id="newUpdateNodegroupVersion"><span class="annot"><span class="annottext">newUpdateNodegroupVersion :: Text -&gt; Text -&gt; UpdateNodegroupVersion
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#newUpdateNodegroupVersion"><span class="hs-identifier hs-var hs-var">newUpdateNodegroupVersion</span></a></span></span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679279988"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279988"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679279987"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279987"><span class="hs-identifier hs-var">pNodegroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679279997"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279997"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679279996"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279996"><span class="hs-identifier hs-var">pNodegroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">UpdateNodegroupVersion' :: Maybe Bool
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -270,10 +270,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">$sel:clusterName:UpdateNodegroupVersion' :: Text
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#%24sel%3AclusterName%3AUpdateNodegroupVersion%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279988"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279997"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">$sel:nodegroupName:UpdateNodegroupVersion' :: Text
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#%24sel%3AnodegroupName%3AUpdateNodegroupVersion%27"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279987"><span class="hs-identifier hs-var">pNodegroupName_</span></a></span><span>
+</span><a href="#local-6989586621679279996"><span class="hs-identifier hs-var">pNodegroupName_</span></a></span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | Force the update if the existing node group\'s pods are unable to be</span><span>
@@ -291,16 +291,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279984"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279993"><span class="annot"><span class="annottext">Maybe Bool
 force :: Maybe Bool
 $sel:force:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Maybe Bool
-</span><a href="#local-6989586621679279984"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679279984"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279983"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersion
-</span><a href="#local-6989586621679279983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279982"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679279982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersion
-</span><a href="#local-6989586621679279983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:UpdateNodegroupVersion' :: Maybe Bool
+</span><a href="#local-6989586621679279993"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679279993"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279992"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersion
+</span><a href="#local-6989586621679279992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279991"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679279991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersion
+</span><a href="#local-6989586621679279992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:UpdateNodegroupVersion' :: Maybe Bool
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#%24sel%3Aforce%3AUpdateNodegroupVersion%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679279982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | The AMI version of the Amazon EKS optimized AMI to use for the update.</span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- By default, the latest available AMI version for the node group\'s</span><span>
@@ -323,16 +323,16 @@ $sel:force:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Maybe Bool
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279981"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279990"><span class="annot"><span class="annottext">Maybe Text
 releaseVersion :: Maybe Text
 $sel:releaseVersion:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Maybe Text
-</span><a href="#local-6989586621679279981"><span class="hs-identifier hs-var hs-var">releaseVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279981"><span class="hs-identifier hs-var">releaseVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279980"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersion
-</span><a href="#local-6989586621679279980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279979"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersion
-</span><a href="#local-6989586621679279980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:releaseVersion:UpdateNodegroupVersion' :: Maybe Text
+</span><a href="#local-6989586621679279990"><span class="hs-identifier hs-var hs-var">releaseVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279990"><span class="hs-identifier hs-var">releaseVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279989"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersion
+</span><a href="#local-6989586621679279989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279988"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersion
+</span><a href="#local-6989586621679279989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:releaseVersion:UpdateNodegroupVersion' :: Maybe Text
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#%24sel%3AreleaseVersion%3AUpdateNodegroupVersion%27"><span class="hs-identifier hs-var">releaseVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | The Kubernetes version to update to. If no version is specified, then</span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- the Kubernetes version of the node group does not change. You can</span><span>
@@ -354,16 +354,16 @@ $sel:releaseVersion:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279978"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279987"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 $sel:version:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Maybe Text
-</span><a href="#local-6989586621679279978"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279978"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279977"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersion
-</span><a href="#local-6989586621679279977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279976"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersion
-</span><a href="#local-6989586621679279977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:UpdateNodegroupVersion' :: Maybe Text
+</span><a href="#local-6989586621679279987"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279987"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279986"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersion
+</span><a href="#local-6989586621679279986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279985"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersion
+</span><a href="#local-6989586621679279986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:UpdateNodegroupVersion' :: Maybe Text
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#%24sel%3Aversion%3AUpdateNodegroupVersion%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | An object representing a node group\'s launch template specification.</span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- You can only update a node group using a launch template if the node</span><span>
@@ -381,16 +381,16 @@ $sel:version:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Maybe Text
      (Maybe LaunchTemplateSpecification)
      (Maybe LaunchTemplateSpecification)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279975"><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279984"><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
 launchTemplate :: Maybe LaunchTemplateSpecification
 $sel:launchTemplate:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Maybe LaunchTemplateSpecification
-</span><a href="#local-6989586621679279975"><span class="hs-identifier hs-var hs-var">launchTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
-</span><a href="#local-6989586621679279975"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279974"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersion
-</span><a href="#local-6989586621679279974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279973"><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
-</span><a href="#local-6989586621679279973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersion
-</span><a href="#local-6989586621679279974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplate:UpdateNodegroupVersion' :: Maybe LaunchTemplateSpecification
+</span><a href="#local-6989586621679279984"><span class="hs-identifier hs-var hs-var">launchTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
+</span><a href="#local-6989586621679279984"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279983"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersion
+</span><a href="#local-6989586621679279983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279982"><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
+</span><a href="#local-6989586621679279982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersion
+</span><a href="#local-6989586621679279983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplate:UpdateNodegroupVersion' :: Maybe LaunchTemplateSpecification
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#%24sel%3AlaunchTemplate%3AUpdateNodegroupVersion%27"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
-</span><a href="#local-6989586621679279973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- idempotency of the request.</span><span>
@@ -405,16 +405,16 @@ $sel:launchTemplate:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279972"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279981"><span class="annot"><span class="annottext">Maybe Text
 clientRequestToken :: Maybe Text
 $sel:clientRequestToken:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Maybe Text
-</span><a href="#local-6989586621679279972"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279972"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279971"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersion
-</span><a href="#local-6989586621679279971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279970"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersion
-</span><a href="#local-6989586621679279971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:UpdateNodegroupVersion' :: Maybe Text
+</span><a href="#local-6989586621679279981"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279981"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279980"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersion
+</span><a href="#local-6989586621679279980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279979"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersion
+</span><a href="#local-6989586621679279980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:UpdateNodegroupVersion' :: Maybe Text
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#%24sel%3AclientRequestToken%3AUpdateNodegroupVersion%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | The name of the Amazon EKS cluster that is associated with the managed</span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- node group to update.</span><span>
@@ -425,16 +425,16 @@ $sel:clientRequestToken:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; 
 -&gt; (UpdateNodegroupVersion -&gt; Text -&gt; UpdateNodegroupVersion)
 -&gt; Lens UpdateNodegroupVersion UpdateNodegroupVersion Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279969"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279978"><span class="annot"><span class="annottext">Text
 clusterName :: Text
 $sel:clusterName:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Text
-</span><a href="#local-6989586621679279969"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279969"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279968"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersion
-</span><a href="#local-6989586621679279968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279967"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersion
-</span><a href="#local-6989586621679279968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:UpdateNodegroupVersion' :: Text
+</span><a href="#local-6989586621679279978"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279978"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279977"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersion
+</span><a href="#local-6989586621679279977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279976"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersion
+</span><a href="#local-6989586621679279977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:UpdateNodegroupVersion' :: Text
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#%24sel%3AclusterName%3AUpdateNodegroupVersion%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | The name of the managed node group to update.</span><span>
 </span><span id="line-237"></span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#updateNodegroupVersion_nodegroupName"><span class="hs-identifier hs-type">updateNodegroupVersion_nodegroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -444,27 +444,27 @@ $sel:clusterName:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Text
 -&gt; (UpdateNodegroupVersion -&gt; Text -&gt; UpdateNodegroupVersion)
 -&gt; Lens UpdateNodegroupVersion UpdateNodegroupVersion Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279966"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279975"><span class="annot"><span class="annottext">Text
 nodegroupName :: Text
 $sel:nodegroupName:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Text
-</span><a href="#local-6989586621679279966"><span class="hs-identifier hs-var hs-var">nodegroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279966"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279965"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersion
-</span><a href="#local-6989586621679279965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279964"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersion
-</span><a href="#local-6989586621679279965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodegroupName:UpdateNodegroupVersion' :: Text
+</span><a href="#local-6989586621679279975"><span class="hs-identifier hs-var hs-var">nodegroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279975"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279974"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersion
+</span><a href="#local-6989586621679279974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279973"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersion
+</span><a href="#local-6989586621679279974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodegroupName:UpdateNodegroupVersion' :: Text
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#%24sel%3AnodegroupName%3AUpdateNodegroupVersion%27"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-241"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-242"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-243"></span><span>      </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse"><span class="hs-identifier hs-type">UpdateNodegroupVersionResponse</span></a></span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621679279960"><span class="annot"><span class="annottext">request :: UpdateNodegroupVersion -&gt; Request UpdateNodegroupVersion
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679279969"><span class="annot"><span class="annottext">request :: UpdateNodegroupVersion -&gt; Request UpdateNodegroupVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateNodegroupVersion -&gt; Request UpdateNodegroupVersion
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EKS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-245"></span><span>  </span><span id="local-6989586621679279956"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679279965"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateNodegroupVersion
 -&gt; ClientResponse ClientBody
@@ -490,10 +490,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-247"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279953"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279953"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679279952"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679279952"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679279951"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279951"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-247"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279962"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279962"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679279961"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679279961"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679279960"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279960"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-248"></span><span>          </span><span class="annot"><span class="annottext">Maybe Update -&gt; Int -&gt; UpdateNodegroupVersionResponse
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse%27"><span class="hs-identifier hs-var">UpdateNodegroupVersionResponse'</span></a></span><span>
 </span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Update -&gt; Int -&gt; UpdateNodegroupVersionResponse)
@@ -501,7 +501,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateNodegroupVersionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Update)
+</span><a href="#local-6989586621679279960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Update)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;update&quot;</span></span><span class="hs-special">)</span><span>
@@ -514,15 +514,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279953"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279962"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279943"><span id="local-6989586621679279945"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span></span></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279952"><span id="local-6989586621679279954"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span></span></span><span>
 </span><span id="line-254"></span><span>
-</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279940"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279949"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span></span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-258"></span><span>  </span><span id="local-6989586621679279936"><span class="annot"><span class="annottext">toHeaders :: UpdateNodegroupVersion -&gt; ResponseHeaders
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679279945"><span class="annot"><span class="annottext">toHeaders :: UpdateNodegroupVersion -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-259"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateNodegroupVersion -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -541,9 +541,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-265"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-266"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-267"></span><span>
-</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279926"><span id="local-6989586621679279928"><span id="local-6989586621679279930"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-269"></span><span>  </span><span id="local-6989586621679279924"><span class="annot"><span class="annottext">toJSON :: UpdateNodegroupVersion -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279916"><span id="local-6989586621679279917"><span id="local-6989586621679279918"><span id="local-6989586621679279919"><span id="local-6989586621679279920"><span id="local-6989586621679279921"><span id="local-6989586621679279922"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279935"><span id="local-6989586621679279937"><span id="local-6989586621679279939"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-269"></span><span>  </span><span id="local-6989586621679279933"><span class="annot"><span class="annottext">toJSON :: UpdateNodegroupVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279925"><span id="local-6989586621679279926"><span id="local-6989586621679279927"><span id="local-6989586621679279928"><span id="local-6989586621679279929"><span id="local-6989586621679279930"><span id="local-6989586621679279931"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe LaunchTemplateSpecification
 Text
@@ -561,7 +561,7 @@ $sel:launchTemplate:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Mayb
 $sel:version:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Maybe Text
 $sel:releaseVersion:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Maybe Text
 $sel:force:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Maybe Bool
-</span><a href="#local-6989586621679279916"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679279925"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-270"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-271"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -573,7 +573,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679279922"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279931"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-273"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;releaseVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -581,14 +581,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-274"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279921"><span class="hs-identifier hs-var">releaseVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279930"><span class="hs-identifier hs-var">releaseVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;version&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279920"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279929"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-276"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;launchTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LaunchTemplateSpecification -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -597,7 +597,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe LaunchTemplateSpecification -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
-</span><a href="#local-6989586621679279919"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279928"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-278"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;clientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -605,13 +605,13 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-279"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279918"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span>
+</span><a href="#local-6989586621679279927"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span>
 </span><span id="line-280"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-281"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-282"></span><span>
 </span><span id="line-283"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-284"></span><span>  </span><span id="local-6989586621679279910"><span class="annot"><span class="annottext">toPath :: UpdateNodegroupVersion -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279902"><span id="local-6989586621679279903"><span id="local-6989586621679279904"><span id="local-6989586621679279905"><span id="local-6989586621679279906"><span id="local-6989586621679279907"><span id="local-6989586621679279908"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621679279919"><span class="annot"><span class="annottext">toPath :: UpdateNodegroupVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion%27"><span class="hs-identifier hs-type">UpdateNodegroupVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279911"><span id="local-6989586621679279912"><span id="local-6989586621679279913"><span id="local-6989586621679279914"><span id="local-6989586621679279915"><span id="local-6989586621679279916"><span id="local-6989586621679279917"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe LaunchTemplateSpecification
 Text
@@ -629,7 +629,7 @@ $sel:launchTemplate:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Mayb
 $sel:version:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Maybe Text
 $sel:releaseVersion:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Maybe Text
 $sel:force:UpdateNodegroupVersion' :: UpdateNodegroupVersion -&gt; Maybe Bool
-</span><a href="#local-6989586621679279902"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679279911"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-285"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -638,19 +638,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-287"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279903"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279912"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-288"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/node-groups/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-289"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279902"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279911"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-290"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/update-version&quot;</span></span><span>
 </span><span id="line-291"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-292"></span><span>
 </span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersion"><span class="hs-identifier hs-type">UpdateNodegroupVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-294"></span><span>  </span><span id="local-6989586621679279898"><span class="annot"><span class="annottext">toQuery :: UpdateNodegroupVersion -&gt; QueryString
+</span><span id="line-294"></span><span>  </span><span id="local-6989586621679279907"><span class="annot"><span class="annottext">toQuery :: UpdateNodegroupVersion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateNodegroupVersion -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -658,14 +658,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-295"></span><span>
 </span><span id="line-296"></span><span class="hs-comment">-- | /See:/ 'newUpdateNodegroupVersionResponse' smart constructor.</span><span>
-</span><span id="line-297"></span><span id="local-6989586621679279895"><span id="local-6989586621679279896"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateNodegroupVersionResponse"><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse"><span class="hs-identifier hs-var">UpdateNodegroupVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateNodegroupVersionResponse%27"><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse%27"><span class="hs-identifier hs-var">UpdateNodegroupVersionResponse'</span></a></span></span><span>
+</span><span id="line-297"></span><span id="local-6989586621679279904"><span id="local-6989586621679279905"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateNodegroupVersionResponse"><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse"><span class="hs-identifier hs-var">UpdateNodegroupVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateNodegroupVersionResponse%27"><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse%27"><span class="hs-identifier hs-var">UpdateNodegroupVersionResponse'</span></a></span></span><span>
 </span><span id="line-298"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Aupdate%3AUpdateNodegroupVersionResponse%27"><span class="annot"><span class="annottext">UpdateNodegroupVersionResponse -&gt; Maybe Update
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#%24sel%3Aupdate%3AUpdateNodegroupVersionResponse%27"><span class="hs-identifier hs-var hs-var">update</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-299"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-300"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateNodegroupVersionResponse%27"><span class="annot"><span class="annottext">UpdateNodegroupVersionResponse -&gt; Int
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#%24sel%3AhttpStatus%3AUpdateNodegroupVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-301"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-302"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279889"><span id="local-6989586621679279891"><span class="annot"><span class="annottext">UpdateNodegroupVersionResponse
+</span><span id="line-302"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279898"><span id="local-6989586621679279900"><span class="annot"><span class="annottext">UpdateNodegroupVersionResponse
 -&gt; UpdateNodegroupVersionResponse -&gt; Bool
 (UpdateNodegroupVersionResponse
  -&gt; UpdateNodegroupVersionResponse -&gt; Bool)
@@ -681,7 +681,7 @@ $c/= :: UpdateNodegroupVersionResponse
 -&gt; UpdateNodegroupVersionResponse -&gt; Bool
 $c== :: UpdateNodegroupVersionResponse
 -&gt; UpdateNodegroupVersionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279881"><span id="local-6989586621679279883"><span id="local-6989586621679279885"><span id="local-6989586621679279887"><span class="annot"><span class="annottext">ReadPrec [UpdateNodegroupVersionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279890"><span id="local-6989586621679279892"><span id="local-6989586621679279894"><span id="local-6989586621679279896"><span class="annot"><span class="annottext">ReadPrec [UpdateNodegroupVersionResponse]
 ReadPrec UpdateNodegroupVersionResponse
 Int -&gt; ReadS UpdateNodegroupVersionResponse
 ReadS [UpdateNodegroupVersionResponse]
@@ -701,7 +701,7 @@ readList :: ReadS [UpdateNodegroupVersionResponse]
 $creadList :: ReadS [UpdateNodegroupVersionResponse]
 readsPrec :: Int -&gt; ReadS UpdateNodegroupVersionResponse
 $creadsPrec :: Int -&gt; ReadS UpdateNodegroupVersionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279875"><span id="local-6989586621679279877"><span id="local-6989586621679279879"><span class="annot"><span class="annottext">Int -&gt; UpdateNodegroupVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279884"><span id="local-6989586621679279886"><span id="local-6989586621679279888"><span class="annot"><span class="annottext">Int -&gt; UpdateNodegroupVersionResponse -&gt; ShowS
 [UpdateNodegroupVersionResponse] -&gt; ShowS
 UpdateNodegroupVersionResponse -&gt; String
 (Int -&gt; UpdateNodegroupVersionResponse -&gt; ShowS)
@@ -755,8 +755,8 @@ UpdateNodegroupVersionResponse
 </span><span id="line-317"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-318"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse"><span class="hs-identifier hs-type">UpdateNodegroupVersionResponse</span></a></span><span>
 </span><span id="line-319"></span><span id="newUpdateNodegroupVersionResponse"><span class="annot"><span class="annottext">newUpdateNodegroupVersionResponse :: Int -&gt; UpdateNodegroupVersionResponse
-</span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#newUpdateNodegroupVersionResponse"><span class="hs-identifier hs-var hs-var">newUpdateNodegroupVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679279872"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279872"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#newUpdateNodegroupVersionResponse"><span class="hs-identifier hs-var hs-var">newUpdateNodegroupVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679279881"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279881"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-320"></span><span>  </span><span class="annot"><span class="annottext">UpdateNodegroupVersionResponse' :: Maybe Update -&gt; Int -&gt; UpdateNodegroupVersionResponse
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse%27"><span class="hs-identifier hs-type">UpdateNodegroupVersionResponse'</span></a></span><span>
 </span><span id="line-321"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:update:UpdateNodegroupVersionResponse' :: Maybe Update
@@ -766,7 +766,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-323"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateNodegroupVersionResponse' :: Int
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#%24sel%3AhttpStatus%3AUpdateNodegroupVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279872"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679279881"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-324"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-325"></span><span>
 </span><span id="line-326"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -783,16 +783,16 @@ forall a. Maybe a
      (Maybe Update)
      (Maybe Update)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse%27"><span class="hs-identifier hs-type">UpdateNodegroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279871"><span class="annot"><span class="annottext">Maybe Update
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse%27"><span class="hs-identifier hs-type">UpdateNodegroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279880"><span class="annot"><span class="annottext">Maybe Update
 update :: Maybe Update
 $sel:update:UpdateNodegroupVersionResponse' :: UpdateNodegroupVersionResponse -&gt; Maybe Update
-</span><a href="#local-6989586621679279871"><span class="hs-identifier hs-var hs-var">update</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Update
-</span><a href="#local-6989586621679279871"><span class="hs-identifier hs-var">update</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279870"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersionResponse
-</span><a href="#local-6989586621679279870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse%27"><span class="hs-identifier hs-type">UpdateNodegroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279869"><span class="annot"><span class="annottext">Maybe Update
-</span><a href="#local-6989586621679279869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersionResponse
-</span><a href="#local-6989586621679279870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:update:UpdateNodegroupVersionResponse' :: Maybe Update
+</span><a href="#local-6989586621679279880"><span class="hs-identifier hs-var hs-var">update</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Update
+</span><a href="#local-6989586621679279880"><span class="hs-identifier hs-var">update</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279879"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersionResponse
+</span><a href="#local-6989586621679279879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse%27"><span class="hs-identifier hs-type">UpdateNodegroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279878"><span class="annot"><span class="annottext">Maybe Update
+</span><a href="#local-6989586621679279878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersionResponse
+</span><a href="#local-6989586621679279879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:update:UpdateNodegroupVersionResponse' :: Maybe Update
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#%24sel%3Aupdate%3AUpdateNodegroupVersionResponse%27"><span class="hs-identifier hs-var">update</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Update
-</span><a href="#local-6989586621679279869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse"><span class="hs-identifier hs-type">UpdateNodegroupVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse"><span class="hs-identifier hs-type">UpdateNodegroupVersionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-329"></span><span>
 </span><span id="line-330"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-331"></span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#updateNodegroupVersionResponse_httpStatus"><span class="hs-identifier hs-type">updateNodegroupVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse"><span class="hs-identifier hs-type">UpdateNodegroupVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -808,18 +808,18 @@ $sel:update:UpdateNodegroupVersionResponse' :: UpdateNodegroupVersionResponse -&
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse%27"><span class="hs-identifier hs-type">UpdateNodegroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279868"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse%27"><span class="hs-identifier hs-type">UpdateNodegroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279877"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateNodegroupVersionResponse' :: UpdateNodegroupVersionResponse -&gt; Int
-</span><a href="#local-6989586621679279868"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279868"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279867"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersionResponse
-</span><a href="#local-6989586621679279867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse%27"><span class="hs-identifier hs-type">UpdateNodegroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279866"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersionResponse
-</span><a href="#local-6989586621679279867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateNodegroupVersionResponse' :: Int
+</span><a href="#local-6989586621679279877"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279877"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279876"><span class="annot"><span class="annottext">s :: UpdateNodegroupVersionResponse
+</span><a href="#local-6989586621679279876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse%27"><span class="hs-identifier hs-type">UpdateNodegroupVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279875"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNodegroupVersionResponse
+</span><a href="#local-6989586621679279876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateNodegroupVersionResponse' :: Int
 </span><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#%24sel%3AhttpStatus%3AUpdateNodegroupVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse"><span class="hs-identifier hs-type">UpdateNodegroupVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse"><span class="hs-identifier hs-type">UpdateNodegroupVersionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-333"></span><span>
 </span><span id="line-334"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-335"></span><span>  </span><span id="local-6989586621679279864"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-335"></span><span>  </span><span id="local-6989586621679279873"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-336"></span><span>    </span><span class="annot"><a href="Network.AWS.EKS.UpdateNodegroupVersion.html#UpdateNodegroupVersionResponse"><span class="hs-identifier hs-type">UpdateNodegroupVersionResponse</span></a></span></span><span>
 </span><span id="line-337"></span></pre></body></html>

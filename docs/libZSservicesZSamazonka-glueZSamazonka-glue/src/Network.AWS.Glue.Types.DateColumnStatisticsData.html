@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Defines column statistics supported for timestamp data columns.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDateColumnStatisticsData' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679684610"><span id="local-6989586621679684611"></span></span><span class="hs-keyword">data</span><span> </span><span id="DateColumnStatisticsData"><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-var">DateColumnStatisticsData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DateColumnStatisticsData%27"><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-var">DateColumnStatisticsData'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679684619"><span id="local-6989586621679684620"></span></span><span class="hs-keyword">data</span><span> </span><span id="DateColumnStatisticsData"><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-var">DateColumnStatisticsData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DateColumnStatisticsData%27"><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-var">DateColumnStatisticsData'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The highest value in the column.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AmaximumValue%3ADateColumnStatisticsData%27"><span class="annot"><span class="annottext">DateColumnStatisticsData -&gt; Maybe POSIX
 </span><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#%24sel%3AmaximumValue%3ADateColumnStatisticsData%27"><span class="hs-identifier hs-var hs-var">maximumValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AnumberOfDistinctValues%3ADateColumnStatisticsData%27"><span class="annot"><span class="annottext">DateColumnStatisticsData -&gt; Natural
 </span><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#%24sel%3AnumberOfDistinctValues%3ADateColumnStatisticsData%27"><span class="hs-identifier hs-var hs-var">numberOfDistinctValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679684601"><span id="local-6989586621679684603"><span class="annot"><span class="annottext">DateColumnStatisticsData -&gt; DateColumnStatisticsData -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679684610"><span id="local-6989586621679684612"><span class="annot"><span class="annottext">DateColumnStatisticsData -&gt; DateColumnStatisticsData -&gt; Bool
 (DateColumnStatisticsData -&gt; DateColumnStatisticsData -&gt; Bool)
 -&gt; (DateColumnStatisticsData -&gt; DateColumnStatisticsData -&gt; Bool)
 -&gt; Eq DateColumnStatisticsData
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DateColumnStatisticsData -&gt; DateColumnStatisticsData -&gt; Bool
 == :: DateColumnStatisticsData -&gt; DateColumnStatisticsData -&gt; Bool
 $c== :: DateColumnStatisticsData -&gt; DateColumnStatisticsData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684592"><span id="local-6989586621679684594"><span id="local-6989586621679684596"><span id="local-6989586621679684598"><span class="annot"><span class="annottext">ReadPrec [DateColumnStatisticsData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684601"><span id="local-6989586621679684603"><span id="local-6989586621679684605"><span id="local-6989586621679684607"><span class="annot"><span class="annottext">ReadPrec [DateColumnStatisticsData]
 ReadPrec DateColumnStatisticsData
 Int -&gt; ReadS DateColumnStatisticsData
 ReadS [DateColumnStatisticsData]
@@ -69,7 +69,7 @@ readList :: ReadS [DateColumnStatisticsData]
 $creadList :: ReadS [DateColumnStatisticsData]
 readsPrec :: Int -&gt; ReadS DateColumnStatisticsData
 $creadsPrec :: Int -&gt; ReadS DateColumnStatisticsData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684585"><span id="local-6989586621679684587"><span id="local-6989586621679684589"><span class="annot"><span class="annottext">Int -&gt; DateColumnStatisticsData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684594"><span id="local-6989586621679684596"><span id="local-6989586621679684598"><span class="annot"><span class="annottext">Int -&gt; DateColumnStatisticsData -&gt; ShowS
 [DateColumnStatisticsData] -&gt; ShowS
 DateColumnStatisticsData -&gt; String
 (Int -&gt; DateColumnStatisticsData -&gt; ShowS)
@@ -124,10 +124,10 @@ DateColumnStatisticsData -&gt; Rep DateColumnStatisticsData x
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span><span>
 </span><span id="line-62"></span><span id="newDateColumnStatisticsData"><span class="annot"><span class="annottext">newDateColumnStatisticsData :: Natural -&gt; Natural -&gt; DateColumnStatisticsData
 </span><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#newDateColumnStatisticsData"><span class="hs-identifier hs-var hs-var">newDateColumnStatisticsData</span></a></span></span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679684579"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684579"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span></span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679684578"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684578"><span class="hs-identifier hs-var">pNumberOfDistinctValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679684588"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679684588"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679684587"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679684587"><span class="hs-identifier hs-var">pNumberOfDistinctValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">DateColumnStatisticsData' :: Maybe POSIX
 -&gt; Maybe POSIX -&gt; Natural -&gt; Natural -&gt; DateColumnStatisticsData
 </span><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span>
@@ -142,10 +142,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">$sel:numberOfNulls:DateColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#%24sel%3AnumberOfNulls%3ADateColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684579"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679684588"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">$sel:numberOfDistinctValues:DateColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#%24sel%3AnumberOfDistinctValues%3ADateColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684578"><span class="hs-identifier hs-var">pNumberOfDistinctValues_</span></a></span><span>
+</span><a href="#local-6989586621679684587"><span class="hs-identifier hs-var">pNumberOfDistinctValues_</span></a></span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The highest value in the column.</span><span>
@@ -161,16 +161,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684574"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684583"><span class="annot"><span class="annottext">Maybe POSIX
 maximumValue :: Maybe POSIX
 $sel:maximumValue:DateColumnStatisticsData' :: DateColumnStatisticsData -&gt; Maybe POSIX
-</span><a href="#local-6989586621679684574"><span class="hs-identifier hs-var hs-var">maximumValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679684574"><span class="hs-identifier hs-var">maximumValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684573"><span class="annot"><span class="annottext">s :: DateColumnStatisticsData
-</span><a href="#local-6989586621679684573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684572"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679684572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DateColumnStatisticsData
-</span><a href="#local-6989586621679684573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumValue:DateColumnStatisticsData' :: Maybe POSIX
+</span><a href="#local-6989586621679684583"><span class="hs-identifier hs-var hs-var">maximumValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679684583"><span class="hs-identifier hs-var">maximumValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684582"><span class="annot"><span class="annottext">s :: DateColumnStatisticsData
+</span><a href="#local-6989586621679684582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684581"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679684581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DateColumnStatisticsData
+</span><a href="#local-6989586621679684582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumValue:DateColumnStatisticsData' :: Maybe POSIX
 </span><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#%24sel%3AmaximumValue%3ADateColumnStatisticsData%27"><span class="hs-identifier hs-var">maximumValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679684572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679684581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DateColumnStatisticsData -&gt; f DateColumnStatisticsData)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -200,16 +200,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684567"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684576"><span class="annot"><span class="annottext">Maybe POSIX
 minimumValue :: Maybe POSIX
 $sel:minimumValue:DateColumnStatisticsData' :: DateColumnStatisticsData -&gt; Maybe POSIX
-</span><a href="#local-6989586621679684567"><span class="hs-identifier hs-var hs-var">minimumValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679684567"><span class="hs-identifier hs-var">minimumValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684566"><span class="annot"><span class="annottext">s :: DateColumnStatisticsData
-</span><a href="#local-6989586621679684566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684565"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679684565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DateColumnStatisticsData
-</span><a href="#local-6989586621679684566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumValue:DateColumnStatisticsData' :: Maybe POSIX
+</span><a href="#local-6989586621679684576"><span class="hs-identifier hs-var hs-var">minimumValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679684576"><span class="hs-identifier hs-var">minimumValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684575"><span class="annot"><span class="annottext">s :: DateColumnStatisticsData
+</span><a href="#local-6989586621679684575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684574"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679684574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DateColumnStatisticsData
+</span><a href="#local-6989586621679684575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumValue:DateColumnStatisticsData' :: Maybe POSIX
 </span><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#%24sel%3AminimumValue%3ADateColumnStatisticsData%27"><span class="hs-identifier hs-var">minimumValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679684565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679684574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DateColumnStatisticsData -&gt; f DateColumnStatisticsData)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -236,16 +236,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      DateColumnStatisticsData DateColumnStatisticsData Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684563"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684572"><span class="annot"><span class="annottext">Natural
 numberOfNulls :: Natural
 $sel:numberOfNulls:DateColumnStatisticsData' :: DateColumnStatisticsData -&gt; Natural
-</span><a href="#local-6989586621679684563"><span class="hs-identifier hs-var hs-var">numberOfNulls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684563"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684562"><span class="annot"><span class="annottext">s :: DateColumnStatisticsData
-</span><a href="#local-6989586621679684562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684561"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DateColumnStatisticsData
-</span><a href="#local-6989586621679684562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfNulls:DateColumnStatisticsData' :: Natural
+</span><a href="#local-6989586621679684572"><span class="hs-identifier hs-var hs-var">numberOfNulls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679684572"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684571"><span class="annot"><span class="annottext">s :: DateColumnStatisticsData
+</span><a href="#local-6989586621679684571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684570"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679684570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DateColumnStatisticsData
+</span><a href="#local-6989586621679684571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfNulls:DateColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#%24sel%3AnumberOfNulls%3ADateColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679684570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The number of distinct values in a column.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#dateColumnStatisticsData_numberOfDistinctValues"><span class="hs-identifier hs-type">dateColumnStatisticsData_numberOfDistinctValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -257,19 +257,19 @@ $sel:numberOfNulls:DateColumnStatisticsData' :: DateColumnStatisticsData -&gt; N
 -&gt; Lens
      DateColumnStatisticsData DateColumnStatisticsData Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684559"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684568"><span class="annot"><span class="annottext">Natural
 numberOfDistinctValues :: Natural
 $sel:numberOfDistinctValues:DateColumnStatisticsData' :: DateColumnStatisticsData -&gt; Natural
-</span><a href="#local-6989586621679684559"><span class="hs-identifier hs-var hs-var">numberOfDistinctValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684559"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684558"><span class="annot"><span class="annottext">s :: DateColumnStatisticsData
-</span><a href="#local-6989586621679684558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684557"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DateColumnStatisticsData
-</span><a href="#local-6989586621679684558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfDistinctValues:DateColumnStatisticsData' :: Natural
+</span><a href="#local-6989586621679684568"><span class="hs-identifier hs-var hs-var">numberOfDistinctValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679684568"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684567"><span class="annot"><span class="annottext">s :: DateColumnStatisticsData
+</span><a href="#local-6989586621679684567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684566"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679684566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DateColumnStatisticsData
+</span><a href="#local-6989586621679684567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfDistinctValues:DateColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#%24sel%3AnumberOfDistinctValues%3ADateColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679684566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684554"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679684552"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DateColumnStatisticsData
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684563"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679684561"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DateColumnStatisticsData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DateColumnStatisticsData)
@@ -279,8 +279,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DateColumnStatisticsData&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679684549"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684549"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679684558"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679684558"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe POSIX -&gt; Natural -&gt; Natural -&gt; DateColumnStatisticsData
 </span><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-var">DateColumnStatisticsData'</span></a></span><span>
@@ -291,7 +291,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe POSIX -&gt; Natural -&gt; Natural -&gt; DateColumnStatisticsData)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679684558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaximumValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -301,7 +301,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Natural -&gt; Natural -&gt; DateColumnStatisticsData)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679684558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinimumValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -309,7 +309,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Natural -&gt; Parser (Natural -&gt; DateColumnStatisticsData)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679684558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfNulls&quot;</span></span><span class="hs-special">)</span><span>
@@ -317,19 +317,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser DateColumnStatisticsData
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679684558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfDistinctValues&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684542"><span id="local-6989586621679684544"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684551"><span id="local-6989586621679684553"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684539"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684548"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684531"><span id="local-6989586621679684533"><span id="local-6989586621679684535"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679684529"><span class="annot"><span class="annottext">toJSON :: DateColumnStatisticsData -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684524"><span id="local-6989586621679684525"><span id="local-6989586621679684526"><span id="local-6989586621679684527"><span class="annot"><span class="annottext">Natural
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684540"><span id="local-6989586621679684542"><span id="local-6989586621679684544"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData"><span class="hs-identifier hs-type">DateColumnStatisticsData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679684538"><span class="annot"><span class="annottext">toJSON :: DateColumnStatisticsData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DateColumnStatisticsData.html#DateColumnStatisticsData%27"><span class="hs-identifier hs-type">DateColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684533"><span id="local-6989586621679684534"><span id="local-6989586621679684535"><span id="local-6989586621679684536"><span class="annot"><span class="annottext">Natural
 Maybe POSIX
 numberOfDistinctValues :: Natural
 numberOfNulls :: Natural
@@ -339,7 +339,7 @@ $sel:numberOfDistinctValues:DateColumnStatisticsData' :: DateColumnStatisticsDat
 $sel:numberOfNulls:DateColumnStatisticsData' :: DateColumnStatisticsData -&gt; Natural
 $sel:minimumValue:DateColumnStatisticsData' :: DateColumnStatisticsData -&gt; Maybe POSIX
 $sel:maximumValue:DateColumnStatisticsData' :: DateColumnStatisticsData -&gt; Maybe POSIX
-</span><a href="#local-6989586621679684524"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679684533"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -351,21 +351,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679684527"><span class="hs-identifier hs-var">maximumValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679684536"><span class="hs-identifier hs-var">maximumValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinimumValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679684526"><span class="hs-identifier hs-var">minimumValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679684535"><span class="hs-identifier hs-var">minimumValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfNulls&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684525"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679684534"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -374,7 +374,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-114"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684524"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span>
+</span><a href="#local-6989586621679684533"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span>
 </span><span id="line-115"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>

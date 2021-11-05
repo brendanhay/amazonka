@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Placeholder documentation for OutputDestination</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newOutputDestination' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679910125"><span id="local-6989586621679910126"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputDestination"><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-var">OutputDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputDestination%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-var">OutputDestination'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679910134"><span id="local-6989586621679910135"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputDestination"><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-var">OutputDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputDestination%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-var">OutputDestination'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Destination settings for a standard output; one destination for each</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- redundant encoder.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Asettings%3AOutputDestination%27"><span class="annot"><span class="annottext">OutputDestination -&gt; Maybe [OutputDestinationSettings]
@@ -47,7 +47,7 @@
 -&gt; Maybe MultiplexProgramChannelDestinationSettings
 </span><a href="Network.AWS.MediaLive.Types.OutputDestination.html#%24sel%3AmultiplexSettings%3AOutputDestination%27"><span class="hs-identifier hs-var hs-var">multiplexSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramChannelDestinationSettings.html#MultiplexProgramChannelDestinationSettings"><span class="hs-identifier hs-type">MultiplexProgramChannelDestinationSettings</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679910116"><span id="local-6989586621679910118"><span class="annot"><span class="annottext">OutputDestination -&gt; OutputDestination -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679910125"><span id="local-6989586621679910127"><span class="annot"><span class="annottext">OutputDestination -&gt; OutputDestination -&gt; Bool
 (OutputDestination -&gt; OutputDestination -&gt; Bool)
 -&gt; (OutputDestination -&gt; OutputDestination -&gt; Bool)
 -&gt; Eq OutputDestination
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OutputDestination -&gt; OutputDestination -&gt; Bool
 == :: OutputDestination -&gt; OutputDestination -&gt; Bool
 $c== :: OutputDestination -&gt; OutputDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910107"><span id="local-6989586621679910109"><span id="local-6989586621679910111"><span id="local-6989586621679910113"><span class="annot"><span class="annottext">ReadPrec [OutputDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910116"><span id="local-6989586621679910118"><span id="local-6989586621679910120"><span id="local-6989586621679910122"><span class="annot"><span class="annottext">ReadPrec [OutputDestination]
 ReadPrec OutputDestination
 Int -&gt; ReadS OutputDestination
 ReadS [OutputDestination]
@@ -76,7 +76,7 @@ readList :: ReadS [OutputDestination]
 $creadList :: ReadS [OutputDestination]
 readsPrec :: Int -&gt; ReadS OutputDestination
 $creadsPrec :: Int -&gt; ReadS OutputDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910100"><span id="local-6989586621679910102"><span id="local-6989586621679910104"><span class="annot"><span class="annottext">Int -&gt; OutputDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910109"><span id="local-6989586621679910111"><span id="local-6989586621679910113"><span class="annot"><span class="annottext">Int -&gt; OutputDestination -&gt; ShowS
 [OutputDestination] -&gt; ShowS
 OutputDestination -&gt; String
 (Int -&gt; OutputDestination -&gt; ShowS)
@@ -163,16 +163,16 @@ forall a. Maybe a
      (Maybe [OutputDestinationSettings])
      (Maybe [OutputDestinationSettings])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910091"><span class="annot"><span class="annottext">Maybe [OutputDestinationSettings]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910100"><span class="annot"><span class="annottext">Maybe [OutputDestinationSettings]
 settings :: Maybe [OutputDestinationSettings]
 $sel:settings:OutputDestination' :: OutputDestination -&gt; Maybe [OutputDestinationSettings]
-</span><a href="#local-6989586621679910091"><span class="hs-identifier hs-var hs-var">settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputDestinationSettings]
-</span><a href="#local-6989586621679910091"><span class="hs-identifier hs-var">settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679910090"><span class="annot"><span class="annottext">s :: OutputDestination
-</span><a href="#local-6989586621679910090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679910089"><span class="annot"><span class="annottext">Maybe [OutputDestinationSettings]
-</span><a href="#local-6989586621679910089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDestination
-</span><a href="#local-6989586621679910090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settings:OutputDestination' :: Maybe [OutputDestinationSettings]
+</span><a href="#local-6989586621679910100"><span class="hs-identifier hs-var hs-var">settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputDestinationSettings]
+</span><a href="#local-6989586621679910100"><span class="hs-identifier hs-var">settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679910099"><span class="annot"><span class="annottext">s :: OutputDestination
+</span><a href="#local-6989586621679910099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679910098"><span class="annot"><span class="annottext">Maybe [OutputDestinationSettings]
+</span><a href="#local-6989586621679910098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDestination
+</span><a href="#local-6989586621679910099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settings:OutputDestination' :: Maybe [OutputDestinationSettings]
 </span><a href="Network.AWS.MediaLive.Types.OutputDestination.html#%24sel%3Asettings%3AOutputDestination%27"><span class="hs-identifier hs-var">settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputDestinationSettings]
-</span><a href="#local-6989586621679910089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OutputDestinationSettings]
+</span><a href="#local-6989586621679910098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OutputDestinationSettings]
   -&gt; f (Maybe [OutputDestinationSettings]))
  -&gt; OutputDestination -&gt; f OutputDestination)
 -&gt; ((Maybe [OutputDestinationSettings]
@@ -222,16 +222,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [MediaPackageOutputDestinationSettings])
      (Maybe [MediaPackageOutputDestinationSettings])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910084"><span class="annot"><span class="annottext">Maybe [MediaPackageOutputDestinationSettings]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910093"><span class="annot"><span class="annottext">Maybe [MediaPackageOutputDestinationSettings]
 mediaPackageSettings :: Maybe [MediaPackageOutputDestinationSettings]
 $sel:mediaPackageSettings:OutputDestination' :: OutputDestination -&gt; Maybe [MediaPackageOutputDestinationSettings]
-</span><a href="#local-6989586621679910084"><span class="hs-identifier hs-var hs-var">mediaPackageSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MediaPackageOutputDestinationSettings]
-</span><a href="#local-6989586621679910084"><span class="hs-identifier hs-var">mediaPackageSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679910083"><span class="annot"><span class="annottext">s :: OutputDestination
-</span><a href="#local-6989586621679910083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679910082"><span class="annot"><span class="annottext">Maybe [MediaPackageOutputDestinationSettings]
-</span><a href="#local-6989586621679910082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDestination
-</span><a href="#local-6989586621679910083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaPackageSettings:OutputDestination' :: Maybe [MediaPackageOutputDestinationSettings]
+</span><a href="#local-6989586621679910093"><span class="hs-identifier hs-var hs-var">mediaPackageSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MediaPackageOutputDestinationSettings]
+</span><a href="#local-6989586621679910093"><span class="hs-identifier hs-var">mediaPackageSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679910092"><span class="annot"><span class="annottext">s :: OutputDestination
+</span><a href="#local-6989586621679910092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679910091"><span class="annot"><span class="annottext">Maybe [MediaPackageOutputDestinationSettings]
+</span><a href="#local-6989586621679910091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDestination
+</span><a href="#local-6989586621679910092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaPackageSettings:OutputDestination' :: Maybe [MediaPackageOutputDestinationSettings]
 </span><a href="Network.AWS.MediaLive.Types.OutputDestination.html#%24sel%3AmediaPackageSettings%3AOutputDestination%27"><span class="hs-identifier hs-var">mediaPackageSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MediaPackageOutputDestinationSettings]
-</span><a href="#local-6989586621679910082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MediaPackageOutputDestinationSettings]
+</span><a href="#local-6989586621679910091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MediaPackageOutputDestinationSettings]
   -&gt; f (Maybe [MediaPackageOutputDestinationSettings]))
  -&gt; OutputDestination -&gt; f OutputDestination)
 -&gt; ((Maybe [MediaPackageOutputDestinationSettings]
@@ -273,16 +273,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      OutputDestination OutputDestination (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910080"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910089"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:OutputDestination' :: OutputDestination -&gt; Maybe Text
-</span><a href="#local-6989586621679910080"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679910080"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679910079"><span class="annot"><span class="annottext">s :: OutputDestination
-</span><a href="#local-6989586621679910079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679910078"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679910078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDestination
-</span><a href="#local-6989586621679910079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:OutputDestination' :: Maybe Text
+</span><a href="#local-6989586621679910089"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679910089"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679910088"><span class="annot"><span class="annottext">s :: OutputDestination
+</span><a href="#local-6989586621679910088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679910087"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679910087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDestination
+</span><a href="#local-6989586621679910088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:OutputDestination' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.OutputDestination.html#%24sel%3Aid%3AOutputDestination%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679910078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679910087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | Destination settings for a Multiplex output; one destination for both</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- encoders.</span><span>
@@ -301,20 +301,20 @@ $sel:id:OutputDestination' :: OutputDestination -&gt; Maybe Text
      (Maybe MultiplexProgramChannelDestinationSettings)
      (Maybe MultiplexProgramChannelDestinationSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910076"><span class="annot"><span class="annottext">Maybe MultiplexProgramChannelDestinationSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910085"><span class="annot"><span class="annottext">Maybe MultiplexProgramChannelDestinationSettings
 multiplexSettings :: Maybe MultiplexProgramChannelDestinationSettings
 $sel:multiplexSettings:OutputDestination' :: OutputDestination
 -&gt; Maybe MultiplexProgramChannelDestinationSettings
-</span><a href="#local-6989586621679910076"><span class="hs-identifier hs-var hs-var">multiplexSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexProgramChannelDestinationSettings
-</span><a href="#local-6989586621679910076"><span class="hs-identifier hs-var">multiplexSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679910075"><span class="annot"><span class="annottext">s :: OutputDestination
-</span><a href="#local-6989586621679910075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679910074"><span class="annot"><span class="annottext">Maybe MultiplexProgramChannelDestinationSettings
-</span><a href="#local-6989586621679910074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDestination
-</span><a href="#local-6989586621679910075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiplexSettings:OutputDestination' :: Maybe MultiplexProgramChannelDestinationSettings
+</span><a href="#local-6989586621679910085"><span class="hs-identifier hs-var hs-var">multiplexSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexProgramChannelDestinationSettings
+</span><a href="#local-6989586621679910085"><span class="hs-identifier hs-var">multiplexSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679910084"><span class="annot"><span class="annottext">s :: OutputDestination
+</span><a href="#local-6989586621679910084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679910083"><span class="annot"><span class="annottext">Maybe MultiplexProgramChannelDestinationSettings
+</span><a href="#local-6989586621679910083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDestination
+</span><a href="#local-6989586621679910084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiplexSettings:OutputDestination' :: Maybe MultiplexProgramChannelDestinationSettings
 </span><a href="Network.AWS.MediaLive.Types.OutputDestination.html#%24sel%3AmultiplexSettings%3AOutputDestination%27"><span class="hs-identifier hs-var">multiplexSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexProgramChannelDestinationSettings
-</span><a href="#local-6989586621679910074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679910083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910071"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679910069"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputDestination
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910080"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679910078"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputDestination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OutputDestination)
@@ -324,8 +324,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OutputDestination&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679910066"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679910066"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679910075"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679910075"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe [OutputDestinationSettings]
 -&gt; Maybe [MediaPackageOutputDestinationSettings]
 -&gt; Maybe Text
@@ -345,7 +345,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; OutputDestination)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679910066"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679910075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [OutputDestinationSettings]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -368,7 +368,7 @@ forall a. Monoid a =&gt; a
       -&gt; OutputDestination)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679910066"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679910075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser (Maybe (Maybe [MediaPackageOutputDestinationSettings]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
@@ -392,7 +392,7 @@ forall a. Monoid a =&gt; a
       -&gt; OutputDestination)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679910066"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679910075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
@@ -403,7 +403,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser OutputDestination
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679910066"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679910075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser (Maybe MultiplexProgramChannelDestinationSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
@@ -411,13 +411,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-string">&quot;multiplexSettings&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910059"><span id="local-6989586621679910061"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910068"><span id="local-6989586621679910070"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910056"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910065"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910048"><span id="local-6989586621679910050"><span id="local-6989586621679910052"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679910046"><span class="annot"><span class="annottext">toJSON :: OutputDestination -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910041"><span id="local-6989586621679910042"><span id="local-6989586621679910043"><span id="local-6989586621679910044"><span class="annot"><span class="annottext">Maybe [MediaPackageOutputDestinationSettings]
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910057"><span id="local-6989586621679910059"><span id="local-6989586621679910061"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination"><span class="hs-identifier hs-type">OutputDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679910055"><span class="annot"><span class="annottext">toJSON :: OutputDestination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputDestination.html#OutputDestination%27"><span class="hs-identifier hs-type">OutputDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910050"><span id="local-6989586621679910051"><span id="local-6989586621679910052"><span id="local-6989586621679910053"><span class="annot"><span class="annottext">Maybe [MediaPackageOutputDestinationSettings]
 Maybe [OutputDestinationSettings]
 Maybe Text
 Maybe MultiplexProgramChannelDestinationSettings
@@ -430,7 +430,7 @@ $sel:multiplexSettings:OutputDestination' :: OutputDestination
 $sel:id:OutputDestination' :: OutputDestination -&gt; Maybe Text
 $sel:mediaPackageSettings:OutputDestination' :: OutputDestination -&gt; Maybe [MediaPackageOutputDestinationSettings]
 $sel:settings:OutputDestination' :: OutputDestination -&gt; Maybe [OutputDestinationSettings]
-</span><a href="#local-6989586621679910041"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679910050"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -443,7 +443,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [OutputDestinationSettings] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OutputDestinationSettings]
-</span><a href="#local-6989586621679910044"><span class="hs-identifier hs-var">settings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679910053"><span class="hs-identifier hs-var">settings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mediaPackageSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MediaPackageOutputDestinationSettings] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -452,14 +452,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [MediaPackageOutputDestinationSettings] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MediaPackageOutputDestinationSettings]
-</span><a href="#local-6989586621679910043"><span class="hs-identifier hs-var">mediaPackageSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679910052"><span class="hs-identifier hs-var">mediaPackageSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679910042"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679910051"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;multiplexSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MultiplexProgramChannelDestinationSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -468,7 +468,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MultiplexProgramChannelDestinationSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexProgramChannelDestinationSettings
-</span><a href="#local-6989586621679910041"><span class="hs-identifier hs-var">multiplexSettings</span></a></span><span>
+</span><a href="#local-6989586621679910050"><span class="hs-identifier hs-var">multiplexSettings</span></a></span><span>
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span></pre></body></html>

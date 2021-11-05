@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A list of schedule actions to delete.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newBatchScheduleActionDeleteRequest' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679867697"><span id="local-6989586621679867698"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchScheduleActionDeleteRequest"><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#BatchScheduleActionDeleteRequest"><span class="hs-identifier hs-var">BatchScheduleActionDeleteRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchScheduleActionDeleteRequest%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#BatchScheduleActionDeleteRequest%27"><span class="hs-identifier hs-var">BatchScheduleActionDeleteRequest'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679867706"><span id="local-6989586621679867707"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchScheduleActionDeleteRequest"><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#BatchScheduleActionDeleteRequest"><span class="hs-identifier hs-var">BatchScheduleActionDeleteRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchScheduleActionDeleteRequest%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#BatchScheduleActionDeleteRequest%27"><span class="hs-identifier hs-var">BatchScheduleActionDeleteRequest'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of schedule actions to delete.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AactionNames%3ABatchScheduleActionDeleteRequest%27"><span class="annot"><span class="annottext">BatchScheduleActionDeleteRequest -&gt; [Text]
 </span><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#%24sel%3AactionNames%3ABatchScheduleActionDeleteRequest%27"><span class="hs-identifier hs-var hs-var">actionNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679867691"><span id="local-6989586621679867693"><span class="annot"><span class="annottext">BatchScheduleActionDeleteRequest
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679867700"><span id="local-6989586621679867702"><span class="annot"><span class="annottext">BatchScheduleActionDeleteRequest
 -&gt; BatchScheduleActionDeleteRequest -&gt; Bool
 (BatchScheduleActionDeleteRequest
  -&gt; BatchScheduleActionDeleteRequest -&gt; Bool)
@@ -47,7 +47,7 @@ $c/= :: BatchScheduleActionDeleteRequest
 -&gt; BatchScheduleActionDeleteRequest -&gt; Bool
 $c== :: BatchScheduleActionDeleteRequest
 -&gt; BatchScheduleActionDeleteRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679867682"><span id="local-6989586621679867684"><span id="local-6989586621679867686"><span id="local-6989586621679867688"><span class="annot"><span class="annottext">ReadPrec [BatchScheduleActionDeleteRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679867691"><span id="local-6989586621679867693"><span id="local-6989586621679867695"><span id="local-6989586621679867697"><span class="annot"><span class="annottext">ReadPrec [BatchScheduleActionDeleteRequest]
 ReadPrec BatchScheduleActionDeleteRequest
 Int -&gt; ReadS BatchScheduleActionDeleteRequest
 ReadS [BatchScheduleActionDeleteRequest]
@@ -67,7 +67,7 @@ readList :: ReadS [BatchScheduleActionDeleteRequest]
 $creadList :: ReadS [BatchScheduleActionDeleteRequest]
 readsPrec :: Int -&gt; ReadS BatchScheduleActionDeleteRequest
 $creadsPrec :: Int -&gt; ReadS BatchScheduleActionDeleteRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679867675"><span id="local-6989586621679867677"><span id="local-6989586621679867679"><span class="annot"><span class="annottext">Int -&gt; BatchScheduleActionDeleteRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679867684"><span id="local-6989586621679867686"><span id="local-6989586621679867688"><span class="annot"><span class="annottext">Int -&gt; BatchScheduleActionDeleteRequest -&gt; ShowS
 [BatchScheduleActionDeleteRequest] -&gt; ShowS
 BatchScheduleActionDeleteRequest -&gt; String
 (Int -&gt; BatchScheduleActionDeleteRequest -&gt; ShowS)
@@ -141,16 +141,16 @@ forall a. Monoid a =&gt; a
      [Text]
      [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#BatchScheduleActionDeleteRequest%27"><span class="hs-identifier hs-type">BatchScheduleActionDeleteRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679867666"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#BatchScheduleActionDeleteRequest%27"><span class="hs-identifier hs-type">BatchScheduleActionDeleteRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679867675"><span class="annot"><span class="annottext">[Text]
 actionNames :: [Text]
 $sel:actionNames:BatchScheduleActionDeleteRequest' :: BatchScheduleActionDeleteRequest -&gt; [Text]
-</span><a href="#local-6989586621679867666"><span class="hs-identifier hs-var hs-var">actionNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679867666"><span class="hs-identifier hs-var">actionNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679867665"><span class="annot"><span class="annottext">s :: BatchScheduleActionDeleteRequest
-</span><a href="#local-6989586621679867665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#BatchScheduleActionDeleteRequest%27"><span class="hs-identifier hs-type">BatchScheduleActionDeleteRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679867664"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679867664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchScheduleActionDeleteRequest
-</span><a href="#local-6989586621679867665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionNames:BatchScheduleActionDeleteRequest' :: [Text]
+</span><a href="#local-6989586621679867675"><span class="hs-identifier hs-var hs-var">actionNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679867675"><span class="hs-identifier hs-var">actionNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679867674"><span class="annot"><span class="annottext">s :: BatchScheduleActionDeleteRequest
+</span><a href="#local-6989586621679867674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#BatchScheduleActionDeleteRequest%27"><span class="hs-identifier hs-type">BatchScheduleActionDeleteRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679867673"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679867673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchScheduleActionDeleteRequest
+</span><a href="#local-6989586621679867674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionNames:BatchScheduleActionDeleteRequest' :: [Text]
 </span><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#%24sel%3AactionNames%3ABatchScheduleActionDeleteRequest%27"><span class="hs-identifier hs-var">actionNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679867664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#BatchScheduleActionDeleteRequest"><span class="hs-identifier hs-type">BatchScheduleActionDeleteRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679867673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#BatchScheduleActionDeleteRequest"><span class="hs-identifier hs-type">BatchScheduleActionDeleteRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; BatchScheduleActionDeleteRequest
  -&gt; f BatchScheduleActionDeleteRequest)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
@@ -163,19 +163,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679867658"><span id="local-6989586621679867660"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679867667"><span id="local-6989586621679867669"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#BatchScheduleActionDeleteRequest"><span class="hs-identifier hs-type">BatchScheduleActionDeleteRequest</span></a></span></span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679867655"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679867664"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#BatchScheduleActionDeleteRequest"><span class="hs-identifier hs-type">BatchScheduleActionDeleteRequest</span></a></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679867647"><span id="local-6989586621679867649"><span id="local-6989586621679867651"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#BatchScheduleActionDeleteRequest"><span class="hs-identifier hs-type">BatchScheduleActionDeleteRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679867645"><span class="annot"><span class="annottext">toJSON :: BatchScheduleActionDeleteRequest -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#BatchScheduleActionDeleteRequest%27"><span class="hs-identifier hs-type">BatchScheduleActionDeleteRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679867643"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679867656"><span id="local-6989586621679867658"><span id="local-6989586621679867660"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#BatchScheduleActionDeleteRequest"><span class="hs-identifier hs-type">BatchScheduleActionDeleteRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679867654"><span class="annot"><span class="annottext">toJSON :: BatchScheduleActionDeleteRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest.html#BatchScheduleActionDeleteRequest%27"><span class="hs-identifier hs-type">BatchScheduleActionDeleteRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679867652"><span class="annot"><span class="annottext">[Text]
 actionNames :: [Text]
 $sel:actionNames:BatchScheduleActionDeleteRequest' :: BatchScheduleActionDeleteRequest -&gt; [Text]
-</span><a href="#local-6989586621679867643"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679867652"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -187,6 +187,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;actionNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679867643"><span class="hs-identifier hs-var">actionNames</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679867652"><span class="hs-identifier hs-var">actionNames</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span></pre></body></html>

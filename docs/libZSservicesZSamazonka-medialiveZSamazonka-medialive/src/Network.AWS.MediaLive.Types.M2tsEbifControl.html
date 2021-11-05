@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | M2ts Ebif Control</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679900180"><span id="local-6989586621679900181"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsEbifControl"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsEbifControl.html#M2tsEbifControl"><span class="hs-identifier hs-var">M2tsEbifControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsEbifControl%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsEbifControl.html#M2tsEbifControl%27"><span class="hs-identifier hs-var">M2tsEbifControl'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679900189"><span id="local-6989586621679900190"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsEbifControl"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsEbifControl.html#M2tsEbifControl"><span class="hs-identifier hs-var">M2tsEbifControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsEbifControl%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsEbifControl.html#M2tsEbifControl%27"><span class="hs-identifier hs-var">M2tsEbifControl'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM2tsEbifControl"><span class="annot"><span class="annottext">M2tsEbifControl -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.M2tsEbifControl.html#fromM2tsEbifControl"><span class="hs-identifier hs-var hs-var">fromM2tsEbifControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679900172"><span id="local-6989586621679900174"><span id="local-6989586621679900176"><span class="annot"><span class="annottext">Int -&gt; M2tsEbifControl -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679900181"><span id="local-6989586621679900183"><span id="local-6989586621679900185"><span class="annot"><span class="annottext">Int -&gt; M2tsEbifControl -&gt; ShowS
 [M2tsEbifControl] -&gt; ShowS
 M2tsEbifControl -&gt; String
 (Int -&gt; M2tsEbifControl -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: M2tsEbifControl -&gt; String
 showsPrec :: Int -&gt; M2tsEbifControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; M2tsEbifControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679900163"><span id="local-6989586621679900165"><span id="local-6989586621679900167"><span id="local-6989586621679900169"><span class="annot"><span class="annottext">ReadPrec [M2tsEbifControl]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679900172"><span id="local-6989586621679900174"><span id="local-6989586621679900176"><span id="local-6989586621679900178"><span class="annot"><span class="annottext">ReadPrec [M2tsEbifControl]
 ReadPrec M2tsEbifControl
 Int -&gt; ReadS M2tsEbifControl
 ReadS [M2tsEbifControl]
@@ -73,7 +73,7 @@ $creadList :: ReadS [M2tsEbifControl]
 readsPrec :: Int -&gt; ReadS M2tsEbifControl
 $creadsPrec :: Int -&gt; ReadS M2tsEbifControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679900158"><span id="local-6989586621679900160"><span class="annot"><span class="annottext">M2tsEbifControl -&gt; M2tsEbifControl -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679900167"><span id="local-6989586621679900169"><span class="annot"><span class="annottext">M2tsEbifControl -&gt; M2tsEbifControl -&gt; Bool
 (M2tsEbifControl -&gt; M2tsEbifControl -&gt; Bool)
 -&gt; (M2tsEbifControl -&gt; M2tsEbifControl -&gt; Bool)
 -&gt; Eq M2tsEbifControl
@@ -83,7 +83,7 @@ $c/= :: M2tsEbifControl -&gt; M2tsEbifControl -&gt; Bool
 == :: M2tsEbifControl -&gt; M2tsEbifControl -&gt; Bool
 $c== :: M2tsEbifControl -&gt; M2tsEbifControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679900142"><span id="local-6989586621679900144"><span id="local-6989586621679900146"><span id="local-6989586621679900148"><span id="local-6989586621679900150"><span id="local-6989586621679900152"><span id="local-6989586621679900154"><span class="annot"><span class="annottext">Eq M2tsEbifControl
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679900151"><span id="local-6989586621679900153"><span id="local-6989586621679900155"><span id="local-6989586621679900157"><span id="local-6989586621679900159"><span id="local-6989586621679900161"><span id="local-6989586621679900163"><span class="annot"><span class="annottext">Eq M2tsEbifControl
 Eq M2tsEbifControl
 -&gt; (M2tsEbifControl -&gt; M2tsEbifControl -&gt; Ordering)
 -&gt; (M2tsEbifControl -&gt; M2tsEbifControl -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. M2tsEbifControl -&gt; Rep M2tsEbifControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679900134"><span id="local-6989586621679900136"><span class="annot"><span class="annottext">Int -&gt; M2tsEbifControl -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679900143"><span id="local-6989586621679900145"><span class="annot"><span class="annottext">Int -&gt; M2tsEbifControl -&gt; Int
 M2tsEbifControl -&gt; Int
 (Int -&gt; M2tsEbifControl -&gt; Int)
 -&gt; (M2tsEbifControl -&gt; Int) -&gt; Hashable M2tsEbifControl
@@ -144,50 +144,50 @@ $chash :: M2tsEbifControl -&gt; Int
 hashWithSalt :: Int -&gt; M2tsEbifControl -&gt; Int
 $chashWithSalt :: Int -&gt; M2tsEbifControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679900131"><span class="annot"><span class="annottext">M2tsEbifControl -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679900140"><span class="annot"><span class="annottext">M2tsEbifControl -&gt; ()
 (M2tsEbifControl -&gt; ()) -&gt; NFData M2tsEbifControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: M2tsEbifControl -&gt; ()
 $crnf :: M2tsEbifControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679900128"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsEbifControl
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679900137"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsEbifControl
 (Text -&gt; Either String M2tsEbifControl) -&gt; FromText M2tsEbifControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String M2tsEbifControl
 $cfromText :: Text -&gt; Either String M2tsEbifControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679900125"><span class="annot"><span class="annottext">M2tsEbifControl -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679900134"><span class="annot"><span class="annottext">M2tsEbifControl -&gt; Text
 (M2tsEbifControl -&gt; Text) -&gt; ToText M2tsEbifControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: M2tsEbifControl -&gt; Text
 $ctoText :: M2tsEbifControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679900122"><span class="annot"><span class="annottext">M2tsEbifControl -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679900131"><span class="annot"><span class="annottext">M2tsEbifControl -&gt; ByteString
 (M2tsEbifControl -&gt; ByteString) -&gt; ToByteString M2tsEbifControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: M2tsEbifControl -&gt; ByteString
 $ctoBS :: M2tsEbifControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679900119"><span class="annot"><span class="annottext">M2tsEbifControl -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679900128"><span class="annot"><span class="annottext">M2tsEbifControl -&gt; ByteStringBuilder
 (M2tsEbifControl -&gt; ByteStringBuilder) -&gt; ToLog M2tsEbifControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: M2tsEbifControl -&gt; ByteStringBuilder
 $cbuild :: M2tsEbifControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679900116"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsEbifControl -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679900125"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsEbifControl -&gt; [Header]
 (HeaderName -&gt; M2tsEbifControl -&gt; [Header])
 -&gt; ToHeader M2tsEbifControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; M2tsEbifControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; M2tsEbifControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679900113"><span class="annot"><span class="annottext">M2tsEbifControl -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679900122"><span class="annot"><span class="annottext">M2tsEbifControl -&gt; QueryString
 (M2tsEbifControl -&gt; QueryString) -&gt; ToQuery M2tsEbifControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: M2tsEbifControl -&gt; QueryString
 $ctoQuery :: M2tsEbifControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679900108"><span id="local-6989586621679900110"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsEbifControl]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679900117"><span id="local-6989586621679900119"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsEbifControl]
 Value -&gt; Parser M2tsEbifControl
 (Value -&gt; Parser M2tsEbifControl)
 -&gt; (Value -&gt; Parser [M2tsEbifControl]) -&gt; FromJSON M2tsEbifControl
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [M2tsEbifControl]
 parseJSON :: Value -&gt; Parser M2tsEbifControl
 $cparseJSON :: Value -&gt; Parser M2tsEbifControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679900103"><span id="local-6989586621679900105"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsEbifControl]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679900112"><span id="local-6989586621679900114"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsEbifControl]
 FromJSONKeyFunction M2tsEbifControl
 FromJSONKeyFunction M2tsEbifControl
 -&gt; FromJSONKeyFunction [M2tsEbifControl]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [M2tsEbifControl]
 fromJSONKey :: FromJSONKeyFunction M2tsEbifControl
 $cfromJSONKey :: FromJSONKeyFunction M2tsEbifControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679900094"><span id="local-6989586621679900096"><span id="local-6989586621679900098"><span id="local-6989586621679900100"><span class="annot"><span class="annottext">[M2tsEbifControl] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679900103"><span id="local-6989586621679900105"><span id="local-6989586621679900107"><span id="local-6989586621679900109"><span class="annot"><span class="annottext">[M2tsEbifControl] -&gt; Encoding
 [M2tsEbifControl] -&gt; Value
 M2tsEbifControl -&gt; Encoding
 M2tsEbifControl -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: M2tsEbifControl -&gt; Encoding
 toJSON :: M2tsEbifControl -&gt; Value
 $ctoJSON :: M2tsEbifControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679900089"><span id="local-6989586621679900091"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsEbifControl]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679900098"><span id="local-6989586621679900100"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsEbifControl]
 ToJSONKeyFunction M2tsEbifControl
 ToJSONKeyFunction M2tsEbifControl
 -&gt; ToJSONKeyFunction [M2tsEbifControl] -&gt; ToJSONKey M2tsEbifControl
@@ -245,14 +245,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [M2tsEbifControl]
 toJSONKey :: ToJSONKeyFunction M2tsEbifControl
 $ctoJSONKey :: ToJSONKeyFunction M2tsEbifControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679900086"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsEbifControl
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679900095"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsEbifControl
 ([Node] -&gt; Either String M2tsEbifControl)
 -&gt; FromXML M2tsEbifControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String M2tsEbifControl
 $cparseXML :: [Node] -&gt; Either String M2tsEbifControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679900083"><span class="annot"><span class="annottext">M2tsEbifControl -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679900092"><span class="annot"><span class="annottext">M2tsEbifControl -&gt; XML
 (M2tsEbifControl -&gt; XML) -&gt; ToXML M2tsEbifControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: M2tsEbifControl -&gt; XML

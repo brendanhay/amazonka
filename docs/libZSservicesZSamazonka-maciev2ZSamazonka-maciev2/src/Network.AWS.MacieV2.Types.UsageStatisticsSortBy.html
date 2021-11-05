@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.Types.UsageStatisticsSortBy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.Types.UsageStatisticsSortBy</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.OrderBy.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.OrderBy</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortKey.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.UsageStatisticsSortKey</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Specifies criteria for sorting the results of a query for Amazon Macie</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- account quotas and usage data.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newUsageStatisticsSortBy' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679402139"><span id="local-6989586621679402140"></span></span><span class="hs-keyword">data</span><span> </span><span id="UsageStatisticsSortBy"><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#UsageStatisticsSortBy"><span class="hs-identifier hs-var">UsageStatisticsSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageStatisticsSortBy%27"><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#UsageStatisticsSortBy%27"><span class="hs-identifier hs-var">UsageStatisticsSortBy'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The sort order to apply to the results, based on the value for the field</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- specified by the key property. Valid values are: ASC, sort the results</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- in ascending order; and, DESC, sort the results in descending order.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AorderBy%3AUsageStatisticsSortBy%27"><span class="annot"><span class="annottext">UsageStatisticsSortBy -&gt; Maybe OrderBy
+</span><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#%24sel%3AorderBy%3AUsageStatisticsSortBy%27"><span class="hs-identifier hs-var hs-var">orderBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.OrderBy.html#OrderBy"><span class="hs-identifier hs-type">OrderBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The field to sort the results by.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Akey%3AUsageStatisticsSortBy%27"><span class="annot"><span class="annottext">UsageStatisticsSortBy -&gt; Maybe UsageStatisticsSortKey
+</span><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#%24sel%3Akey%3AUsageStatisticsSortBy%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortKey.html#UsageStatisticsSortKey"><span class="hs-identifier hs-type">UsageStatisticsSortKey</span></a></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402132"><span id="local-6989586621679402134"><span class="annot"><span class="annottext">UsageStatisticsSortBy -&gt; UsageStatisticsSortBy -&gt; Bool
+(UsageStatisticsSortBy -&gt; UsageStatisticsSortBy -&gt; Bool)
+-&gt; (UsageStatisticsSortBy -&gt; UsageStatisticsSortBy -&gt; Bool)
+-&gt; Eq UsageStatisticsSortBy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UsageStatisticsSortBy -&gt; UsageStatisticsSortBy -&gt; Bool
+$c/= :: UsageStatisticsSortBy -&gt; UsageStatisticsSortBy -&gt; Bool
+== :: UsageStatisticsSortBy -&gt; UsageStatisticsSortBy -&gt; Bool
+$c== :: UsageStatisticsSortBy -&gt; UsageStatisticsSortBy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402123"><span id="local-6989586621679402125"><span id="local-6989586621679402127"><span id="local-6989586621679402129"><span class="annot"><span class="annottext">ReadPrec [UsageStatisticsSortBy]
+ReadPrec UsageStatisticsSortBy
+Int -&gt; ReadS UsageStatisticsSortBy
+ReadS [UsageStatisticsSortBy]
+(Int -&gt; ReadS UsageStatisticsSortBy)
+-&gt; ReadS [UsageStatisticsSortBy]
+-&gt; ReadPrec UsageStatisticsSortBy
+-&gt; ReadPrec [UsageStatisticsSortBy]
+-&gt; Read UsageStatisticsSortBy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UsageStatisticsSortBy]
+$creadListPrec :: ReadPrec [UsageStatisticsSortBy]
+readPrec :: ReadPrec UsageStatisticsSortBy
+$creadPrec :: ReadPrec UsageStatisticsSortBy
+readList :: ReadS [UsageStatisticsSortBy]
+$creadList :: ReadS [UsageStatisticsSortBy]
+readsPrec :: Int -&gt; ReadS UsageStatisticsSortBy
+$creadsPrec :: Int -&gt; ReadS UsageStatisticsSortBy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402116"><span id="local-6989586621679402118"><span id="local-6989586621679402120"><span class="annot"><span class="annottext">Int -&gt; UsageStatisticsSortBy -&gt; ShowS
+[UsageStatisticsSortBy] -&gt; ShowS
+UsageStatisticsSortBy -&gt; String
+(Int -&gt; UsageStatisticsSortBy -&gt; ShowS)
+-&gt; (UsageStatisticsSortBy -&gt; String)
+-&gt; ([UsageStatisticsSortBy] -&gt; ShowS)
+-&gt; Show UsageStatisticsSortBy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UsageStatisticsSortBy] -&gt; ShowS
+$cshowList :: [UsageStatisticsSortBy] -&gt; ShowS
+show :: UsageStatisticsSortBy -&gt; String
+$cshow :: UsageStatisticsSortBy -&gt; String
+showsPrec :: Int -&gt; UsageStatisticsSortBy -&gt; ShowS
+$cshowsPrec :: Int -&gt; UsageStatisticsSortBy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UsageStatisticsSortBy -&gt; Rep UsageStatisticsSortBy x)
+-&gt; (forall x. Rep UsageStatisticsSortBy x -&gt; UsageStatisticsSortBy)
+-&gt; Generic UsageStatisticsSortBy
+forall x. Rep UsageStatisticsSortBy x -&gt; UsageStatisticsSortBy
+forall x. UsageStatisticsSortBy -&gt; Rep UsageStatisticsSortBy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UsageStatisticsSortBy x -&gt; UsageStatisticsSortBy
+$cfrom :: forall x. UsageStatisticsSortBy -&gt; Rep UsageStatisticsSortBy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'UsageStatisticsSortBy' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'orderBy', 'usageStatisticsSortBy_orderBy' - The sort order to apply to the results, based on the value for the field</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- specified by the key property. Valid values are: ASC, sort the results</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- in ascending order; and, DESC, sort the results in descending order.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'key', 'usageStatisticsSortBy_key' - The field to sort the results by.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#newUsageStatisticsSortBy"><span class="hs-identifier hs-type">newUsageStatisticsSortBy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#UsageStatisticsSortBy"><span class="hs-identifier hs-type">UsageStatisticsSortBy</span></a></span><span>
+</span><span id="line-57"></span><span id="newUsageStatisticsSortBy"><span class="annot"><span class="annottext">newUsageStatisticsSortBy :: UsageStatisticsSortBy
+</span><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#newUsageStatisticsSortBy"><span class="hs-identifier hs-var hs-var">newUsageStatisticsSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">UsageStatisticsSortBy' :: Maybe OrderBy
+-&gt; Maybe UsageStatisticsSortKey -&gt; UsageStatisticsSortBy
+</span><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#UsageStatisticsSortBy%27"><span class="hs-identifier hs-type">UsageStatisticsSortBy'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:orderBy:UsageStatisticsSortBy' :: Maybe OrderBy
+</span><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#%24sel%3AorderBy%3AUsageStatisticsSortBy%27"><span class="hs-identifier hs-var">orderBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrderBy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:UsageStatisticsSortBy' :: Maybe UsageStatisticsSortKey
+</span><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#%24sel%3Akey%3AUsageStatisticsSortBy%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageStatisticsSortKey
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The sort order to apply to the results, based on the value for the field</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- specified by the key property. Valid values are: ASC, sort the results</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- in ascending order; and, DESC, sort the results in descending order.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#usageStatisticsSortBy_orderBy"><span class="hs-identifier hs-type">usageStatisticsSortBy_orderBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#UsageStatisticsSortBy"><span class="hs-identifier hs-type">UsageStatisticsSortBy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.OrderBy.html#OrderBy"><span class="hs-identifier hs-type">OrderBy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="usageStatisticsSortBy_orderBy"><span class="annot"><span class="annottext">usageStatisticsSortBy_orderBy :: (Maybe OrderBy -&gt; f (Maybe OrderBy))
+-&gt; UsageStatisticsSortBy -&gt; f UsageStatisticsSortBy
+</span><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#usageStatisticsSortBy_orderBy"><span class="hs-identifier hs-var hs-var">usageStatisticsSortBy_orderBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageStatisticsSortBy -&gt; Maybe OrderBy)
+-&gt; (UsageStatisticsSortBy
+    -&gt; Maybe OrderBy -&gt; UsageStatisticsSortBy)
+-&gt; Lens
+     UsageStatisticsSortBy
+     UsageStatisticsSortBy
+     (Maybe OrderBy)
+     (Maybe OrderBy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#UsageStatisticsSortBy%27"><span class="hs-identifier hs-type">UsageStatisticsSortBy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402107"><span class="annot"><span class="annottext">Maybe OrderBy
+orderBy :: Maybe OrderBy
+$sel:orderBy:UsageStatisticsSortBy' :: UsageStatisticsSortBy -&gt; Maybe OrderBy
+</span><a href="#local-6989586621679402107"><span class="hs-identifier hs-var hs-var">orderBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrderBy
+</span><a href="#local-6989586621679402107"><span class="hs-identifier hs-var">orderBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402106"><span class="annot"><span class="annottext">s :: UsageStatisticsSortBy
+</span><a href="#local-6989586621679402106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#UsageStatisticsSortBy%27"><span class="hs-identifier hs-type">UsageStatisticsSortBy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402105"><span class="annot"><span class="annottext">Maybe OrderBy
+</span><a href="#local-6989586621679402105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageStatisticsSortBy
+</span><a href="#local-6989586621679402106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orderBy:UsageStatisticsSortBy' :: Maybe OrderBy
+</span><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#%24sel%3AorderBy%3AUsageStatisticsSortBy%27"><span class="hs-identifier hs-var">orderBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrderBy
+</span><a href="#local-6989586621679402105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#UsageStatisticsSortBy"><span class="hs-identifier hs-type">UsageStatisticsSortBy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The field to sort the results by.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#usageStatisticsSortBy_key"><span class="hs-identifier hs-type">usageStatisticsSortBy_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#UsageStatisticsSortBy"><span class="hs-identifier hs-type">UsageStatisticsSortBy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortKey.html#UsageStatisticsSortKey"><span class="hs-identifier hs-type">UsageStatisticsSortKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="usageStatisticsSortBy_key"><span class="annot"><span class="annottext">usageStatisticsSortBy_key :: (Maybe UsageStatisticsSortKey -&gt; f (Maybe UsageStatisticsSortKey))
+-&gt; UsageStatisticsSortBy -&gt; f UsageStatisticsSortBy
+</span><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#usageStatisticsSortBy_key"><span class="hs-identifier hs-var hs-var">usageStatisticsSortBy_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageStatisticsSortBy -&gt; Maybe UsageStatisticsSortKey)
+-&gt; (UsageStatisticsSortBy
+    -&gt; Maybe UsageStatisticsSortKey -&gt; UsageStatisticsSortBy)
+-&gt; Lens
+     UsageStatisticsSortBy
+     UsageStatisticsSortBy
+     (Maybe UsageStatisticsSortKey)
+     (Maybe UsageStatisticsSortKey)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#UsageStatisticsSortBy%27"><span class="hs-identifier hs-type">UsageStatisticsSortBy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402103"><span class="annot"><span class="annottext">Maybe UsageStatisticsSortKey
+key :: Maybe UsageStatisticsSortKey
+$sel:key:UsageStatisticsSortBy' :: UsageStatisticsSortBy -&gt; Maybe UsageStatisticsSortKey
+</span><a href="#local-6989586621679402103"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UsageStatisticsSortKey
+</span><a href="#local-6989586621679402103"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402102"><span class="annot"><span class="annottext">s :: UsageStatisticsSortBy
+</span><a href="#local-6989586621679402102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#UsageStatisticsSortBy%27"><span class="hs-identifier hs-type">UsageStatisticsSortBy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402101"><span class="annot"><span class="annottext">Maybe UsageStatisticsSortKey
+</span><a href="#local-6989586621679402101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageStatisticsSortBy
+</span><a href="#local-6989586621679402102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:UsageStatisticsSortBy' :: Maybe UsageStatisticsSortKey
+</span><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#%24sel%3Akey%3AUsageStatisticsSortBy%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageStatisticsSortKey
+</span><a href="#local-6989586621679402101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#UsageStatisticsSortBy"><span class="hs-identifier hs-type">UsageStatisticsSortBy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402097"><span id="local-6989586621679402099"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#UsageStatisticsSortBy"><span class="hs-identifier hs-type">UsageStatisticsSortBy</span></a></span></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402094"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#UsageStatisticsSortBy"><span class="hs-identifier hs-type">UsageStatisticsSortBy</span></a></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402086"><span id="local-6989586621679402088"><span id="local-6989586621679402090"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#UsageStatisticsSortBy"><span class="hs-identifier hs-type">UsageStatisticsSortBy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679402084"><span class="annot"><span class="annottext">toJSON :: UsageStatisticsSortBy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UsageStatisticsSortBy.html#UsageStatisticsSortBy%27"><span class="hs-identifier hs-type">UsageStatisticsSortBy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402081"><span id="local-6989586621679402082"><span class="annot"><span class="annottext">Maybe OrderBy
+Maybe UsageStatisticsSortKey
+key :: Maybe UsageStatisticsSortKey
+orderBy :: Maybe OrderBy
+$sel:key:UsageStatisticsSortBy' :: UsageStatisticsSortBy -&gt; Maybe UsageStatisticsSortKey
+$sel:orderBy:UsageStatisticsSortBy' :: UsageStatisticsSortBy -&gt; Maybe OrderBy
+</span><a href="#local-6989586621679402081"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-81"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;orderBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OrderBy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OrderBy -&gt; Pair) -&gt; Maybe OrderBy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrderBy
+</span><a href="#local-6989586621679402082"><span class="hs-identifier hs-var">orderBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UsageStatisticsSortKey -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(UsageStatisticsSortKey -&gt; Pair)
+-&gt; Maybe UsageStatisticsSortKey -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UsageStatisticsSortKey
+</span><a href="#local-6989586621679402081"><span class="hs-identifier hs-var">key</span></a></span><span>
+</span><span id="line-83"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span></pre></body></html>

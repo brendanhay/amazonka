@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newAllocateStaticIp' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679664006"><span id="local-6989586621679664007"></span></span><span class="hs-keyword">data</span><span> </span><span id="AllocateStaticIp"><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp"><span class="hs-identifier hs-var">AllocateStaticIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AllocateStaticIp%27"><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp%27"><span class="hs-identifier hs-var">AllocateStaticIp'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679664015"><span id="local-6989586621679664016"></span></span><span class="hs-keyword">data</span><span> </span><span id="AllocateStaticIp"><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp"><span class="hs-identifier hs-var">AllocateStaticIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AllocateStaticIp%27"><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp%27"><span class="hs-identifier hs-var">AllocateStaticIp'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the static IP address.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AstaticIpName%3AAllocateStaticIp%27"><span class="annot"><span class="annottext">AllocateStaticIp -&gt; Text
 </span><a href="Network.AWS.Lightsail.AllocateStaticIp.html#%24sel%3AstaticIpName%3AAllocateStaticIp%27"><span class="hs-identifier hs-var hs-var">staticIpName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679664000"><span id="local-6989586621679664002"><span class="annot"><span class="annottext">AllocateStaticIp -&gt; AllocateStaticIp -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679664009"><span id="local-6989586621679664011"><span class="annot"><span class="annottext">AllocateStaticIp -&gt; AllocateStaticIp -&gt; Bool
 (AllocateStaticIp -&gt; AllocateStaticIp -&gt; Bool)
 -&gt; (AllocateStaticIp -&gt; AllocateStaticIp -&gt; Bool)
 -&gt; Eq AllocateStaticIp
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AllocateStaticIp -&gt; AllocateStaticIp -&gt; Bool
 == :: AllocateStaticIp -&gt; AllocateStaticIp -&gt; Bool
 $c== :: AllocateStaticIp -&gt; AllocateStaticIp -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679663991"><span id="local-6989586621679663993"><span id="local-6989586621679663995"><span id="local-6989586621679663997"><span class="annot"><span class="annottext">ReadPrec [AllocateStaticIp]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679664000"><span id="local-6989586621679664002"><span id="local-6989586621679664004"><span id="local-6989586621679664006"><span class="annot"><span class="annottext">ReadPrec [AllocateStaticIp]
 ReadPrec AllocateStaticIp
 Int -&gt; ReadS AllocateStaticIp
 ReadS [AllocateStaticIp]
@@ -81,7 +81,7 @@ readList :: ReadS [AllocateStaticIp]
 $creadList :: ReadS [AllocateStaticIp]
 readsPrec :: Int -&gt; ReadS AllocateStaticIp
 $creadsPrec :: Int -&gt; ReadS AllocateStaticIp
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679663984"><span id="local-6989586621679663986"><span id="local-6989586621679663988"><span class="annot"><span class="annottext">Int -&gt; AllocateStaticIp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679663993"><span id="local-6989586621679663995"><span id="local-6989586621679663997"><span class="annot"><span class="annottext">Int -&gt; AllocateStaticIp -&gt; ShowS
 [AllocateStaticIp] -&gt; ShowS
 AllocateStaticIp -&gt; String
 (Int -&gt; AllocateStaticIp -&gt; ShowS)
@@ -121,12 +121,12 @@ $cfrom :: forall x. AllocateStaticIp -&gt; Rep AllocateStaticIp x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp"><span class="hs-identifier hs-type">AllocateStaticIp</span></a></span><span>
 </span><span id="line-69"></span><span id="newAllocateStaticIp"><span class="annot"><span class="annottext">newAllocateStaticIp :: Text -&gt; AllocateStaticIp
-</span><a href="Network.AWS.Lightsail.AllocateStaticIp.html#newAllocateStaticIp"><span class="hs-identifier hs-var hs-var">newAllocateStaticIp</span></a></span></span><span> </span><span id="local-6989586621679663979"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679663979"><span class="hs-identifier hs-var">pStaticIpName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.AllocateStaticIp.html#newAllocateStaticIp"><span class="hs-identifier hs-var hs-var">newAllocateStaticIp</span></a></span></span><span> </span><span id="local-6989586621679663988"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663988"><span class="hs-identifier hs-var">pStaticIpName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">AllocateStaticIp' :: Text -&gt; AllocateStaticIp
 </span><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp%27"><span class="hs-identifier hs-type">AllocateStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticIpName:AllocateStaticIp' :: Text
 </span><a href="Network.AWS.Lightsail.AllocateStaticIp.html#%24sel%3AstaticIpName%3AAllocateStaticIp%27"><span class="hs-identifier hs-var">staticIpName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679663979"><span class="hs-identifier hs-var">pStaticIpName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679663988"><span class="hs-identifier hs-var">pStaticIpName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of the static IP address.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#allocateStaticIp_staticIpName"><span class="hs-identifier hs-type">allocateStaticIp_staticIpName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp"><span class="hs-identifier hs-type">AllocateStaticIp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,27 +135,27 @@ $cfrom :: forall x. AllocateStaticIp -&gt; Rep AllocateStaticIp x
 -&gt; (AllocateStaticIp -&gt; Text -&gt; AllocateStaticIp)
 -&gt; Lens AllocateStaticIp AllocateStaticIp Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp%27"><span class="hs-identifier hs-type">AllocateStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663976"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp%27"><span class="hs-identifier hs-type">AllocateStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663985"><span class="annot"><span class="annottext">Text
 staticIpName :: Text
 $sel:staticIpName:AllocateStaticIp' :: AllocateStaticIp -&gt; Text
-</span><a href="#local-6989586621679663976"><span class="hs-identifier hs-var hs-var">staticIpName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679663976"><span class="hs-identifier hs-var">staticIpName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679663975"><span class="annot"><span class="annottext">s :: AllocateStaticIp
-</span><a href="#local-6989586621679663975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp%27"><span class="hs-identifier hs-type">AllocateStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679663974"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679663974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AllocateStaticIp
-</span><a href="#local-6989586621679663975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticIpName:AllocateStaticIp' :: Text
+</span><a href="#local-6989586621679663985"><span class="hs-identifier hs-var hs-var">staticIpName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663985"><span class="hs-identifier hs-var">staticIpName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679663984"><span class="annot"><span class="annottext">s :: AllocateStaticIp
+</span><a href="#local-6989586621679663984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp%27"><span class="hs-identifier hs-type">AllocateStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679663983"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AllocateStaticIp
+</span><a href="#local-6989586621679663984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticIpName:AllocateStaticIp' :: Text
 </span><a href="Network.AWS.Lightsail.AllocateStaticIp.html#%24sel%3AstaticIpName%3AAllocateStaticIp%27"><span class="hs-identifier hs-var">staticIpName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679663974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp"><span class="hs-identifier hs-type">AllocateStaticIp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679663983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp"><span class="hs-identifier hs-type">AllocateStaticIp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp"><span class="hs-identifier hs-type">AllocateStaticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp"><span class="hs-identifier hs-type">AllocateStaticIp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse"><span class="hs-identifier hs-type">AllocateStaticIpResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679663970"><span class="annot"><span class="annottext">request :: AllocateStaticIp -&gt; Request AllocateStaticIp
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679663979"><span class="annot"><span class="annottext">request :: AllocateStaticIp -&gt; Request AllocateStaticIp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AllocateStaticIp -&gt; Request AllocateStaticIp
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679663966"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679663975"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AllocateStaticIp
 -&gt; ClientResponse ClientBody
@@ -179,10 +179,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679663963"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679663963"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679663962"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679663962"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679663961"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679663961"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679663972"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679663972"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679663971"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679663971"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679663970"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679663970"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; AllocateStaticIpResponse
 </span><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse%27"><span class="hs-identifier hs-var">AllocateStaticIpResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; AllocateStaticIpResponse)
@@ -190,7 +190,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; AllocateStaticIpResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679663961"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679663970"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -207,15 +207,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679663963"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679663972"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679663952"><span id="local-6989586621679663954"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp"><span class="hs-identifier hs-type">AllocateStaticIp</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679663961"><span id="local-6989586621679663963"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp"><span class="hs-identifier hs-type">AllocateStaticIp</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679663949"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp"><span class="hs-identifier hs-type">AllocateStaticIp</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679663958"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp"><span class="hs-identifier hs-type">AllocateStaticIp</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp"><span class="hs-identifier hs-type">AllocateStaticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679663945"><span class="annot"><span class="annottext">toHeaders :: AllocateStaticIp -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679663954"><span class="annot"><span class="annottext">toHeaders :: AllocateStaticIp -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AllocateStaticIp -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -242,12 +242,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679663935"><span id="local-6989586621679663937"><span id="local-6989586621679663939"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp"><span class="hs-identifier hs-type">AllocateStaticIp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679663933"><span class="annot"><span class="annottext">toJSON :: AllocateStaticIp -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp%27"><span class="hs-identifier hs-type">AllocateStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663931"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679663944"><span id="local-6989586621679663946"><span id="local-6989586621679663948"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp"><span class="hs-identifier hs-type">AllocateStaticIp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679663942"><span class="annot"><span class="annottext">toJSON :: AllocateStaticIp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp%27"><span class="hs-identifier hs-type">AllocateStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663940"><span class="annot"><span class="annottext">Text
 staticIpName :: Text
 $sel:staticIpName:AllocateStaticIp' :: AllocateStaticIp -&gt; Text
-</span><a href="#local-6989586621679663931"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679663940"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -259,18 +259,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;staticIpName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679663931"><span class="hs-identifier hs-var">staticIpName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679663940"><span class="hs-identifier hs-var">staticIpName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp"><span class="hs-identifier hs-type">AllocateStaticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679663925"><span class="annot"><span class="annottext">toPath :: AllocateStaticIp -&gt; ByteString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679663934"><span class="annot"><span class="annottext">toPath :: AllocateStaticIp -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AllocateStaticIp -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIp"><span class="hs-identifier hs-type">AllocateStaticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679663921"><span class="annot"><span class="annottext">toQuery :: AllocateStaticIp -&gt; QueryString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679663930"><span class="annot"><span class="annottext">toQuery :: AllocateStaticIp -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AllocateStaticIp -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -278,7 +278,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newAllocateStaticIpResponse' smart constructor.</span><span>
-</span><span id="line-122"></span><span id="local-6989586621679663918"><span id="local-6989586621679663919"></span></span><span class="hs-keyword">data</span><span> </span><span id="AllocateStaticIpResponse"><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse"><span class="hs-identifier hs-var">AllocateStaticIpResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AllocateStaticIpResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse%27"><span class="hs-identifier hs-var">AllocateStaticIpResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span id="local-6989586621679663927"><span id="local-6989586621679663928"></span></span><span class="hs-keyword">data</span><span> </span><span id="AllocateStaticIpResponse"><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse"><span class="hs-identifier hs-var">AllocateStaticIpResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AllocateStaticIpResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse%27"><span class="hs-identifier hs-var">AllocateStaticIpResponse'</span></a></span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-125"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -288,7 +288,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAllocateStaticIpResponse%27"><span class="annot"><span class="annottext">AllocateStaticIpResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.AllocateStaticIp.html#%24sel%3AhttpStatus%3AAllocateStaticIpResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679663912"><span id="local-6989586621679663914"><span class="annot"><span class="annottext">AllocateStaticIpResponse -&gt; AllocateStaticIpResponse -&gt; Bool
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679663921"><span id="local-6989586621679663923"><span class="annot"><span class="annottext">AllocateStaticIpResponse -&gt; AllocateStaticIpResponse -&gt; Bool
 (AllocateStaticIpResponse -&gt; AllocateStaticIpResponse -&gt; Bool)
 -&gt; (AllocateStaticIpResponse -&gt; AllocateStaticIpResponse -&gt; Bool)
 -&gt; Eq AllocateStaticIpResponse
@@ -297,7 +297,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AllocateStaticIpResponse -&gt; AllocateStaticIpResponse -&gt; Bool
 == :: AllocateStaticIpResponse -&gt; AllocateStaticIpResponse -&gt; Bool
 $c== :: AllocateStaticIpResponse -&gt; AllocateStaticIpResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679663904"><span id="local-6989586621679663906"><span id="local-6989586621679663908"><span id="local-6989586621679663910"><span class="annot"><span class="annottext">ReadPrec [AllocateStaticIpResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679663913"><span id="local-6989586621679663915"><span id="local-6989586621679663917"><span id="local-6989586621679663919"><span class="annot"><span class="annottext">ReadPrec [AllocateStaticIpResponse]
 ReadPrec AllocateStaticIpResponse
 Int -&gt; ReadS AllocateStaticIpResponse
 ReadS [AllocateStaticIpResponse]
@@ -317,7 +317,7 @@ readList :: ReadS [AllocateStaticIpResponse]
 $creadList :: ReadS [AllocateStaticIpResponse]
 readsPrec :: Int -&gt; ReadS AllocateStaticIpResponse
 $creadsPrec :: Int -&gt; ReadS AllocateStaticIpResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679663898"><span id="local-6989586621679663900"><span id="local-6989586621679663902"><span class="annot"><span class="annottext">Int -&gt; AllocateStaticIpResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679663907"><span id="local-6989586621679663909"><span id="local-6989586621679663911"><span class="annot"><span class="annottext">Int -&gt; AllocateStaticIpResponse -&gt; ShowS
 [AllocateStaticIpResponse] -&gt; ShowS
 AllocateStaticIpResponse -&gt; String
 (Int -&gt; AllocateStaticIpResponse -&gt; ShowS)
@@ -367,8 +367,8 @@ AllocateStaticIpResponse -&gt; Rep AllocateStaticIpResponse x
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse"><span class="hs-identifier hs-type">AllocateStaticIpResponse</span></a></span><span>
 </span><span id="line-149"></span><span id="newAllocateStaticIpResponse"><span class="annot"><span class="annottext">newAllocateStaticIpResponse :: Int -&gt; AllocateStaticIpResponse
-</span><a href="Network.AWS.Lightsail.AllocateStaticIp.html#newAllocateStaticIpResponse"><span class="hs-identifier hs-var hs-var">newAllocateStaticIpResponse</span></a></span></span><span> </span><span id="local-6989586621679663895"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679663895"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.AllocateStaticIp.html#newAllocateStaticIpResponse"><span class="hs-identifier hs-var hs-var">newAllocateStaticIpResponse</span></a></span></span><span> </span><span id="local-6989586621679663904"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679663904"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">AllocateStaticIpResponse' :: Maybe [Operation] -&gt; Int -&gt; AllocateStaticIpResponse
 </span><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse%27"><span class="hs-identifier hs-type">AllocateStaticIpResponse'</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:AllocateStaticIpResponse' :: Maybe [Operation]
@@ -378,7 +378,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AllocateStaticIpResponse' :: Int
 </span><a href="Network.AWS.Lightsail.AllocateStaticIp.html#%24sel%3AhttpStatus%3AAllocateStaticIpResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679663895"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679663904"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -396,16 +396,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse%27"><span class="hs-identifier hs-type">AllocateStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663894"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse%27"><span class="hs-identifier hs-type">AllocateStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663903"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:AllocateStaticIpResponse' :: AllocateStaticIpResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679663894"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679663894"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679663893"><span class="annot"><span class="annottext">s :: AllocateStaticIpResponse
-</span><a href="#local-6989586621679663893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse%27"><span class="hs-identifier hs-type">AllocateStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679663892"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679663892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AllocateStaticIpResponse
-</span><a href="#local-6989586621679663893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:AllocateStaticIpResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679663903"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679663903"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679663902"><span class="annot"><span class="annottext">s :: AllocateStaticIpResponse
+</span><a href="#local-6989586621679663902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse%27"><span class="hs-identifier hs-type">AllocateStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679663901"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679663901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AllocateStaticIpResponse
+</span><a href="#local-6989586621679663902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:AllocateStaticIpResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.AllocateStaticIp.html#%24sel%3Aoperations%3AAllocateStaticIpResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679663892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse"><span class="hs-identifier hs-type">AllocateStaticIpResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679663901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse"><span class="hs-identifier hs-type">AllocateStaticIpResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; AllocateStaticIpResponse -&gt; f AllocateStaticIpResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
     -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -434,16 +434,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (AllocateStaticIpResponse -&gt; Int -&gt; AllocateStaticIpResponse)
 -&gt; Lens AllocateStaticIpResponse AllocateStaticIpResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse%27"><span class="hs-identifier hs-type">AllocateStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663888"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse%27"><span class="hs-identifier hs-type">AllocateStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663897"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AllocateStaticIpResponse' :: AllocateStaticIpResponse -&gt; Int
-</span><a href="#local-6989586621679663888"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679663888"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679663887"><span class="annot"><span class="annottext">s :: AllocateStaticIpResponse
-</span><a href="#local-6989586621679663887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse%27"><span class="hs-identifier hs-type">AllocateStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679663886"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679663886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AllocateStaticIpResponse
-</span><a href="#local-6989586621679663887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AllocateStaticIpResponse' :: Int
+</span><a href="#local-6989586621679663897"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679663897"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679663896"><span class="annot"><span class="annottext">s :: AllocateStaticIpResponse
+</span><a href="#local-6989586621679663896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse%27"><span class="hs-identifier hs-type">AllocateStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679663895"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679663895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AllocateStaticIpResponse
+</span><a href="#local-6989586621679663896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AllocateStaticIpResponse' :: Int
 </span><a href="Network.AWS.Lightsail.AllocateStaticIp.html#%24sel%3AhttpStatus%3AAllocateStaticIpResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679663886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse"><span class="hs-identifier hs-type">AllocateStaticIpResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679663895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse"><span class="hs-identifier hs-type">AllocateStaticIpResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679663884"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse"><span class="hs-identifier hs-type">AllocateStaticIpResponse</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679663893"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AllocateStaticIp.html#AllocateStaticIpResponse"><span class="hs-identifier hs-type">AllocateStaticIpResponse</span></a></span></span><span>
 </span><span id="line-167"></span></pre></body></html>

@@ -93,7 +93,7 @@
 </span><span id="line-93"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | /See:/ 'newCreateGlobalTable' smart constructor.</span><span>
-</span><span id="line-96"></span><span id="local-6989586621679395057"><span id="local-6989586621679395058"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGlobalTable"><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-var">CreateGlobalTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGlobalTable%27"><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable%27"><span class="hs-identifier hs-var">CreateGlobalTable'</span></a></span></span><span>
+</span><span id="line-96"></span><span id="local-6989586621679395066"><span id="local-6989586621679395067"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGlobalTable"><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-var">CreateGlobalTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGlobalTable%27"><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable%27"><span class="hs-identifier hs-var">CreateGlobalTable'</span></a></span></span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The global table name.</span><span>
 </span><span id="line-98"></span><span>    </span><span id="%24sel%3AglobalTableName%3ACreateGlobalTable%27"><span class="annot"><span class="annottext">CreateGlobalTable -&gt; Text
 </span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#%24sel%3AglobalTableName%3ACreateGlobalTable%27"><span class="hs-identifier hs-var hs-var">globalTableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -101,7 +101,7 @@
 </span><span id="line-100"></span><span>    </span><span id="%24sel%3AreplicationGroup%3ACreateGlobalTable%27"><span class="annot"><span class="annottext">CreateGlobalTable -&gt; [Replica]
 </span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#%24sel%3AreplicationGroup%3ACreateGlobalTable%27"><span class="hs-identifier hs-var hs-var">replicationGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica"><span class="hs-identifier hs-type">Replica</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395050"><span id="local-6989586621679395052"><span class="annot"><span class="annottext">CreateGlobalTable -&gt; CreateGlobalTable -&gt; Bool
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395059"><span id="local-6989586621679395061"><span class="annot"><span class="annottext">CreateGlobalTable -&gt; CreateGlobalTable -&gt; Bool
 (CreateGlobalTable -&gt; CreateGlobalTable -&gt; Bool)
 -&gt; (CreateGlobalTable -&gt; CreateGlobalTable -&gt; Bool)
 -&gt; Eq CreateGlobalTable
@@ -110,7 +110,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateGlobalTable -&gt; CreateGlobalTable -&gt; Bool
 == :: CreateGlobalTable -&gt; CreateGlobalTable -&gt; Bool
 $c== :: CreateGlobalTable -&gt; CreateGlobalTable -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395041"><span id="local-6989586621679395043"><span id="local-6989586621679395045"><span id="local-6989586621679395047"><span class="annot"><span class="annottext">ReadPrec [CreateGlobalTable]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395050"><span id="local-6989586621679395052"><span id="local-6989586621679395054"><span id="local-6989586621679395056"><span class="annot"><span class="annottext">ReadPrec [CreateGlobalTable]
 ReadPrec CreateGlobalTable
 Int -&gt; ReadS CreateGlobalTable
 ReadS [CreateGlobalTable]
@@ -130,7 +130,7 @@ readList :: ReadS [CreateGlobalTable]
 $creadList :: ReadS [CreateGlobalTable]
 readsPrec :: Int -&gt; ReadS CreateGlobalTable
 $creadsPrec :: Int -&gt; ReadS CreateGlobalTable
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395034"><span id="local-6989586621679395036"><span id="local-6989586621679395038"><span class="annot"><span class="annottext">Int -&gt; CreateGlobalTable -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395043"><span id="local-6989586621679395045"><span id="local-6989586621679395047"><span class="annot"><span class="annottext">Int -&gt; CreateGlobalTable -&gt; ShowS
 [CreateGlobalTable] -&gt; ShowS
 CreateGlobalTable -&gt; String
 (Int -&gt; CreateGlobalTable -&gt; ShowS)
@@ -172,14 +172,14 @@ $cfrom :: forall x. CreateGlobalTable -&gt; Rep CreateGlobalTable x
 </span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-type">CreateGlobalTable</span></a></span><span>
 </span><span id="line-119"></span><span id="newCreateGlobalTable"><span class="annot"><span class="annottext">newCreateGlobalTable :: Text -&gt; CreateGlobalTable
-</span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#newCreateGlobalTable"><span class="hs-identifier hs-var hs-var">newCreateGlobalTable</span></a></span></span><span> </span><span id="local-6989586621679395029"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395029"><span class="hs-identifier hs-var">pGlobalTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#newCreateGlobalTable"><span class="hs-identifier hs-var hs-var">newCreateGlobalTable</span></a></span></span><span> </span><span id="local-6989586621679395038"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395038"><span class="hs-identifier hs-var">pGlobalTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>  </span><span class="annot"><span class="annottext">CreateGlobalTable' :: Text -&gt; [Replica] -&gt; CreateGlobalTable
 </span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable%27"><span class="hs-identifier hs-type">CreateGlobalTable'</span></a></span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalTableName:CreateGlobalTable' :: Text
 </span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#%24sel%3AglobalTableName%3ACreateGlobalTable%27"><span class="hs-identifier hs-var">globalTableName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395029"><span class="hs-identifier hs-var">pGlobalTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679395038"><span class="hs-identifier hs-var">pGlobalTableName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationGroup:CreateGlobalTable' :: [Replica]
 </span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#%24sel%3AreplicationGroup%3ACreateGlobalTable%27"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Replica]
 forall a. Monoid a =&gt; a
@@ -193,16 +193,16 @@ forall a. Monoid a =&gt; a
 -&gt; (CreateGlobalTable -&gt; Text -&gt; CreateGlobalTable)
 -&gt; Lens CreateGlobalTable CreateGlobalTable Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable%27"><span class="hs-identifier hs-type">CreateGlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395026"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable%27"><span class="hs-identifier hs-type">CreateGlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395035"><span class="annot"><span class="annottext">Text
 globalTableName :: Text
 $sel:globalTableName:CreateGlobalTable' :: CreateGlobalTable -&gt; Text
-</span><a href="#local-6989586621679395026"><span class="hs-identifier hs-var hs-var">globalTableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395026"><span class="hs-identifier hs-var">globalTableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395025"><span class="annot"><span class="annottext">s :: CreateGlobalTable
-</span><a href="#local-6989586621679395025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable%27"><span class="hs-identifier hs-type">CreateGlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395024"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalTable
-</span><a href="#local-6989586621679395025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalTableName:CreateGlobalTable' :: Text
+</span><a href="#local-6989586621679395035"><span class="hs-identifier hs-var hs-var">globalTableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395035"><span class="hs-identifier hs-var">globalTableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395034"><span class="annot"><span class="annottext">s :: CreateGlobalTable
+</span><a href="#local-6989586621679395034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable%27"><span class="hs-identifier hs-type">CreateGlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395033"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalTable
+</span><a href="#local-6989586621679395034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalTableName:CreateGlobalTable' :: Text
 </span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#%24sel%3AglobalTableName%3ACreateGlobalTable%27"><span class="hs-identifier hs-var">globalTableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-type">CreateGlobalTable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-type">CreateGlobalTable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The Regions where the global table needs to be created.</span><span>
 </span><span id="line-131"></span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#createGlobalTable_replicationGroup"><span class="hs-identifier hs-type">createGlobalTable_replicationGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-type">CreateGlobalTable</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Replica.html#Replica"><span class="hs-identifier hs-type">Replica</span></a></span><span class="hs-special">]</span><span>
@@ -212,16 +212,16 @@ $sel:globalTableName:CreateGlobalTable' :: CreateGlobalTable -&gt; Text
 -&gt; (CreateGlobalTable -&gt; [Replica] -&gt; CreateGlobalTable)
 -&gt; Lens CreateGlobalTable CreateGlobalTable [Replica] [Replica]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable%27"><span class="hs-identifier hs-type">CreateGlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395023"><span class="annot"><span class="annottext">[Replica]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable%27"><span class="hs-identifier hs-type">CreateGlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395032"><span class="annot"><span class="annottext">[Replica]
 replicationGroup :: [Replica]
 $sel:replicationGroup:CreateGlobalTable' :: CreateGlobalTable -&gt; [Replica]
-</span><a href="#local-6989586621679395023"><span class="hs-identifier hs-var hs-var">replicationGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Replica]
-</span><a href="#local-6989586621679395023"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395022"><span class="annot"><span class="annottext">s :: CreateGlobalTable
-</span><a href="#local-6989586621679395022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable%27"><span class="hs-identifier hs-type">CreateGlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395021"><span class="annot"><span class="annottext">[Replica]
-</span><a href="#local-6989586621679395021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalTable
-</span><a href="#local-6989586621679395022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroup:CreateGlobalTable' :: [Replica]
+</span><a href="#local-6989586621679395032"><span class="hs-identifier hs-var hs-var">replicationGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Replica]
+</span><a href="#local-6989586621679395032"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395031"><span class="annot"><span class="annottext">s :: CreateGlobalTable
+</span><a href="#local-6989586621679395031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable%27"><span class="hs-identifier hs-type">CreateGlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395030"><span class="annot"><span class="annottext">[Replica]
+</span><a href="#local-6989586621679395030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalTable
+</span><a href="#local-6989586621679395031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroup:CreateGlobalTable' :: [Replica]
 </span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#%24sel%3AreplicationGroup%3ACreateGlobalTable%27"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Replica]
-</span><a href="#local-6989586621679395021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-type">CreateGlobalTable</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Replica] -&gt; f [Replica])
+</span><a href="#local-6989586621679395030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-type">CreateGlobalTable</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Replica] -&gt; f [Replica])
  -&gt; CreateGlobalTable -&gt; f CreateGlobalTable)
 -&gt; (([Replica] -&gt; f [Replica]) -&gt; [Replica] -&gt; f [Replica])
 -&gt; ([Replica] -&gt; f [Replica])
@@ -236,12 +236,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-135"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-136"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-type">CreateGlobalTable</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse"><span class="hs-identifier hs-type">CreateGlobalTableResponse</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679395015"><span class="annot"><span class="annottext">request :: CreateGlobalTable -&gt; Request CreateGlobalTable
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679395024"><span class="annot"><span class="annottext">request :: CreateGlobalTable -&gt; Request CreateGlobalTable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateGlobalTable -&gt; Request CreateGlobalTable
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679395011"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679395020"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateGlobalTable
 -&gt; ClientResponse ClientBody
@@ -267,10 +267,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395008"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395008"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679395007"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679395007"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679395006"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679395006"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395017"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395017"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679395016"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679395016"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679395015"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679395015"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe GlobalTableDescription -&gt; Int -&gt; CreateGlobalTableResponse
 </span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse%27"><span class="hs-identifier hs-var">CreateGlobalTableResponse'</span></a></span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GlobalTableDescription -&gt; Int -&gt; CreateGlobalTableResponse)
@@ -278,7 +278,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateGlobalTableResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679395006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GlobalTableDescription)
+</span><a href="#local-6989586621679395015"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GlobalTableDescription)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GlobalTableDescription&quot;</span></span><span class="hs-special">)</span><span>
@@ -290,15 +290,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395008"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395017"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394998"><span id="local-6989586621679395000"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-type">CreateGlobalTable</span></a></span></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395007"><span id="local-6989586621679395009"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-type">CreateGlobalTable</span></a></span></span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394995"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-type">CreateGlobalTable</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395004"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-type">CreateGlobalTable</span></a></span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-type">CreateGlobalTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679394991"><span class="annot"><span class="annottext">toHeaders :: CreateGlobalTable -&gt; ResponseHeaders
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679395000"><span class="annot"><span class="annottext">toHeaders :: CreateGlobalTable -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateGlobalTable -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -325,15 +325,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394981"><span id="local-6989586621679394983"><span id="local-6989586621679394985"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-type">CreateGlobalTable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679394979"><span class="annot"><span class="annottext">toJSON :: CreateGlobalTable -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable%27"><span class="hs-identifier hs-type">CreateGlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394976"><span id="local-6989586621679394977"><span class="annot"><span class="annottext">[Replica]
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394990"><span id="local-6989586621679394992"><span id="local-6989586621679394994"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-type">CreateGlobalTable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679394988"><span class="annot"><span class="annottext">toJSON :: CreateGlobalTable -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable%27"><span class="hs-identifier hs-type">CreateGlobalTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394985"><span id="local-6989586621679394986"><span class="annot"><span class="annottext">[Replica]
 Text
 replicationGroup :: [Replica]
 globalTableName :: Text
 $sel:replicationGroup:CreateGlobalTable' :: CreateGlobalTable -&gt; [Replica]
 $sel:globalTableName:CreateGlobalTable' :: CreateGlobalTable -&gt; Text
-</span><a href="#local-6989586621679394976"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679394985"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -346,7 +346,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;GlobalTableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394977"><span class="hs-identifier hs-var">globalTableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394986"><span class="hs-identifier hs-var">globalTableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -354,19 +354,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ReplicationGroup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Replica] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Replica]
-</span><a href="#local-6989586621679394976"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394985"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-type">CreateGlobalTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679394970"><span class="annot"><span class="annottext">toPath :: CreateGlobalTable -&gt; ByteString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679394979"><span class="annot"><span class="annottext">toPath :: CreateGlobalTable -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateGlobalTable -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTable"><span class="hs-identifier hs-type">CreateGlobalTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679394966"><span class="annot"><span class="annottext">toQuery :: CreateGlobalTable -&gt; QueryString
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679394975"><span class="annot"><span class="annottext">toQuery :: CreateGlobalTable -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateGlobalTable -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -374,7 +374,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newCreateGlobalTableResponse' smart constructor.</span><span>
-</span><span id="line-184"></span><span id="local-6989586621679394963"><span id="local-6989586621679394964"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGlobalTableResponse"><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse"><span class="hs-identifier hs-var">CreateGlobalTableResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGlobalTableResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse%27"><span class="hs-identifier hs-var">CreateGlobalTableResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span id="local-6989586621679394972"><span id="local-6989586621679394973"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGlobalTableResponse"><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse"><span class="hs-identifier hs-var">CreateGlobalTableResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGlobalTableResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse%27"><span class="hs-identifier hs-var">CreateGlobalTableResponse'</span></a></span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the details of the global table.</span><span>
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3AglobalTableDescription%3ACreateGlobalTableResponse%27"><span class="annot"><span class="annottext">CreateGlobalTableResponse -&gt; Maybe GlobalTableDescription
 </span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#%24sel%3AglobalTableDescription%3ACreateGlobalTableResponse%27"><span class="hs-identifier hs-var hs-var">globalTableDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalTableDescription.html#GlobalTableDescription"><span class="hs-identifier hs-type">GlobalTableDescription</span></a></span><span class="hs-special">,</span><span>
@@ -382,7 +382,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-188"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateGlobalTableResponse%27"><span class="annot"><span class="annottext">CreateGlobalTableResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#%24sel%3AhttpStatus%3ACreateGlobalTableResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394957"><span id="local-6989586621679394959"><span class="annot"><span class="annottext">CreateGlobalTableResponse -&gt; CreateGlobalTableResponse -&gt; Bool
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394966"><span id="local-6989586621679394968"><span class="annot"><span class="annottext">CreateGlobalTableResponse -&gt; CreateGlobalTableResponse -&gt; Bool
 (CreateGlobalTableResponse -&gt; CreateGlobalTableResponse -&gt; Bool)
 -&gt; (CreateGlobalTableResponse -&gt; CreateGlobalTableResponse -&gt; Bool)
 -&gt; Eq CreateGlobalTableResponse
@@ -391,7 +391,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateGlobalTableResponse -&gt; CreateGlobalTableResponse -&gt; Bool
 == :: CreateGlobalTableResponse -&gt; CreateGlobalTableResponse -&gt; Bool
 $c== :: CreateGlobalTableResponse -&gt; CreateGlobalTableResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394949"><span id="local-6989586621679394951"><span id="local-6989586621679394953"><span id="local-6989586621679394955"><span class="annot"><span class="annottext">ReadPrec [CreateGlobalTableResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394958"><span id="local-6989586621679394960"><span id="local-6989586621679394962"><span id="local-6989586621679394964"><span class="annot"><span class="annottext">ReadPrec [CreateGlobalTableResponse]
 ReadPrec CreateGlobalTableResponse
 Int -&gt; ReadS CreateGlobalTableResponse
 ReadS [CreateGlobalTableResponse]
@@ -411,7 +411,7 @@ readList :: ReadS [CreateGlobalTableResponse]
 $creadList :: ReadS [CreateGlobalTableResponse]
 readsPrec :: Int -&gt; ReadS CreateGlobalTableResponse
 $creadsPrec :: Int -&gt; ReadS CreateGlobalTableResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394943"><span id="local-6989586621679394945"><span id="local-6989586621679394947"><span class="annot"><span class="annottext">Int -&gt; CreateGlobalTableResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394952"><span id="local-6989586621679394954"><span id="local-6989586621679394956"><span class="annot"><span class="annottext">Int -&gt; CreateGlobalTableResponse -&gt; ShowS
 [CreateGlobalTableResponse] -&gt; ShowS
 CreateGlobalTableResponse -&gt; String
 (Int -&gt; CreateGlobalTableResponse -&gt; ShowS)
@@ -459,8 +459,8 @@ CreateGlobalTableResponse -&gt; Rep CreateGlobalTableResponse x
 </span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-206"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse"><span class="hs-identifier hs-type">CreateGlobalTableResponse</span></a></span><span>
 </span><span id="line-207"></span><span id="newCreateGlobalTableResponse"><span class="annot"><span class="annottext">newCreateGlobalTableResponse :: Int -&gt; CreateGlobalTableResponse
-</span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#newCreateGlobalTableResponse"><span class="hs-identifier hs-var hs-var">newCreateGlobalTableResponse</span></a></span></span><span> </span><span id="local-6989586621679394940"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394940"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#newCreateGlobalTableResponse"><span class="hs-identifier hs-var hs-var">newCreateGlobalTableResponse</span></a></span></span><span> </span><span id="local-6989586621679394949"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394949"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><span class="annottext">CreateGlobalTableResponse' :: Maybe GlobalTableDescription -&gt; Int -&gt; CreateGlobalTableResponse
 </span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse%27"><span class="hs-identifier hs-type">CreateGlobalTableResponse'</span></a></span><span>
 </span><span id="line-209"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalTableDescription:CreateGlobalTableResponse' :: Maybe GlobalTableDescription
@@ -470,7 +470,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGlobalTableResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#%24sel%3AhttpStatus%3ACreateGlobalTableResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394940"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679394949"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-212"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | Contains the details of the global table.</span><span>
@@ -486,16 +486,16 @@ forall a. Maybe a
      (Maybe GlobalTableDescription)
      (Maybe GlobalTableDescription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse%27"><span class="hs-identifier hs-type">CreateGlobalTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394939"><span class="annot"><span class="annottext">Maybe GlobalTableDescription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse%27"><span class="hs-identifier hs-type">CreateGlobalTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394948"><span class="annot"><span class="annottext">Maybe GlobalTableDescription
 globalTableDescription :: Maybe GlobalTableDescription
 $sel:globalTableDescription:CreateGlobalTableResponse' :: CreateGlobalTableResponse -&gt; Maybe GlobalTableDescription
-</span><a href="#local-6989586621679394939"><span class="hs-identifier hs-var hs-var">globalTableDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalTableDescription
-</span><a href="#local-6989586621679394939"><span class="hs-identifier hs-var">globalTableDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394938"><span class="annot"><span class="annottext">s :: CreateGlobalTableResponse
-</span><a href="#local-6989586621679394938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse%27"><span class="hs-identifier hs-type">CreateGlobalTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394937"><span class="annot"><span class="annottext">Maybe GlobalTableDescription
-</span><a href="#local-6989586621679394937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalTableResponse
-</span><a href="#local-6989586621679394938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalTableDescription:CreateGlobalTableResponse' :: Maybe GlobalTableDescription
+</span><a href="#local-6989586621679394948"><span class="hs-identifier hs-var hs-var">globalTableDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalTableDescription
+</span><a href="#local-6989586621679394948"><span class="hs-identifier hs-var">globalTableDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394947"><span class="annot"><span class="annottext">s :: CreateGlobalTableResponse
+</span><a href="#local-6989586621679394947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse%27"><span class="hs-identifier hs-type">CreateGlobalTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394946"><span class="annot"><span class="annottext">Maybe GlobalTableDescription
+</span><a href="#local-6989586621679394946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalTableResponse
+</span><a href="#local-6989586621679394947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalTableDescription:CreateGlobalTableResponse' :: Maybe GlobalTableDescription
 </span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#%24sel%3AglobalTableDescription%3ACreateGlobalTableResponse%27"><span class="hs-identifier hs-var">globalTableDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalTableDescription
-</span><a href="#local-6989586621679394937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse"><span class="hs-identifier hs-type">CreateGlobalTableResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse"><span class="hs-identifier hs-type">CreateGlobalTableResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-219"></span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#createGlobalTableResponse_httpStatus"><span class="hs-identifier hs-type">createGlobalTableResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse"><span class="hs-identifier hs-type">CreateGlobalTableResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -505,16 +505,16 @@ $sel:globalTableDescription:CreateGlobalTableResponse' :: CreateGlobalTableRespo
 -&gt; (CreateGlobalTableResponse -&gt; Int -&gt; CreateGlobalTableResponse)
 -&gt; Lens CreateGlobalTableResponse CreateGlobalTableResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse%27"><span class="hs-identifier hs-type">CreateGlobalTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394936"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse%27"><span class="hs-identifier hs-type">CreateGlobalTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394945"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateGlobalTableResponse' :: CreateGlobalTableResponse -&gt; Int
-</span><a href="#local-6989586621679394936"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394936"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394935"><span class="annot"><span class="annottext">s :: CreateGlobalTableResponse
-</span><a href="#local-6989586621679394935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse%27"><span class="hs-identifier hs-type">CreateGlobalTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394934"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalTableResponse
-</span><a href="#local-6989586621679394935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGlobalTableResponse' :: Int
+</span><a href="#local-6989586621679394945"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394945"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394944"><span class="annot"><span class="annottext">s :: CreateGlobalTableResponse
+</span><a href="#local-6989586621679394944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse%27"><span class="hs-identifier hs-type">CreateGlobalTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394943"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGlobalTableResponse
+</span><a href="#local-6989586621679394944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGlobalTableResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#%24sel%3AhttpStatus%3ACreateGlobalTableResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse"><span class="hs-identifier hs-type">CreateGlobalTableResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse"><span class="hs-identifier hs-type">CreateGlobalTableResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394932"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse"><span class="hs-identifier hs-type">CreateGlobalTableResponse</span></a></span></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394941"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.CreateGlobalTable.html#CreateGlobalTableResponse"><span class="hs-identifier hs-type">CreateGlobalTableResponse</span></a></span></span><span>
 </span><span id="line-223"></span></pre></body></html>

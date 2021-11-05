@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- Lambda processes it.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDestinationConfig' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679297529"><span id="local-6989586621679297530"></span></span><span class="hs-keyword">data</span><span> </span><span id="DestinationConfig"><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-var">DestinationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DestinationConfig%27"><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig%27"><span class="hs-identifier hs-var">DestinationConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679297538"><span id="local-6989586621679297539"></span></span><span class="hs-keyword">data</span><span> </span><span id="DestinationConfig"><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-var">DestinationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DestinationConfig%27"><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig%27"><span class="hs-identifier hs-var">DestinationConfig'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The destination configuration for successful invocations.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AonSuccess%3ADestinationConfig%27"><span class="annot"><span class="annottext">DestinationConfig -&gt; Maybe OnSuccess
 </span><a href="Network.AWS.Lambda.Types.DestinationConfig.html#%24sel%3AonSuccess%3ADestinationConfig%27"><span class="hs-identifier hs-var hs-var">onSuccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnSuccess.html#OnSuccess"><span class="hs-identifier hs-type">OnSuccess</span></a></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AonFailure%3ADestinationConfig%27"><span class="annot"><span class="annottext">DestinationConfig -&gt; Maybe OnFailure
 </span><a href="Network.AWS.Lambda.Types.DestinationConfig.html#%24sel%3AonFailure%3ADestinationConfig%27"><span class="hs-identifier hs-var hs-var">onFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure"><span class="hs-identifier hs-type">OnFailure</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297522"><span id="local-6989586621679297524"><span class="annot"><span class="annottext">DestinationConfig -&gt; DestinationConfig -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297531"><span id="local-6989586621679297533"><span class="annot"><span class="annottext">DestinationConfig -&gt; DestinationConfig -&gt; Bool
 (DestinationConfig -&gt; DestinationConfig -&gt; Bool)
 -&gt; (DestinationConfig -&gt; DestinationConfig -&gt; Bool)
 -&gt; Eq DestinationConfig
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DestinationConfig -&gt; DestinationConfig -&gt; Bool
 == :: DestinationConfig -&gt; DestinationConfig -&gt; Bool
 $c== :: DestinationConfig -&gt; DestinationConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297513"><span id="local-6989586621679297515"><span id="local-6989586621679297517"><span id="local-6989586621679297519"><span class="annot"><span class="annottext">ReadPrec [DestinationConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297522"><span id="local-6989586621679297524"><span id="local-6989586621679297526"><span id="local-6989586621679297528"><span class="annot"><span class="annottext">ReadPrec [DestinationConfig]
 ReadPrec DestinationConfig
 Int -&gt; ReadS DestinationConfig
 ReadS [DestinationConfig]
@@ -66,7 +66,7 @@ readList :: ReadS [DestinationConfig]
 $creadList :: ReadS [DestinationConfig]
 readsPrec :: Int -&gt; ReadS DestinationConfig
 $creadsPrec :: Int -&gt; ReadS DestinationConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297506"><span id="local-6989586621679297508"><span id="local-6989586621679297510"><span class="annot"><span class="annottext">Int -&gt; DestinationConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297515"><span id="local-6989586621679297517"><span id="local-6989586621679297519"><span class="annot"><span class="annottext">Int -&gt; DestinationConfig -&gt; ShowS
 [DestinationConfig] -&gt; ShowS
 DestinationConfig -&gt; String
 (Int -&gt; DestinationConfig -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
      (Maybe OnSuccess)
      (Maybe OnSuccess)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig%27"><span class="hs-identifier hs-type">DestinationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297497"><span class="annot"><span class="annottext">Maybe OnSuccess
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig%27"><span class="hs-identifier hs-type">DestinationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297506"><span class="annot"><span class="annottext">Maybe OnSuccess
 onSuccess :: Maybe OnSuccess
 $sel:onSuccess:DestinationConfig' :: DestinationConfig -&gt; Maybe OnSuccess
-</span><a href="#local-6989586621679297497"><span class="hs-identifier hs-var hs-var">onSuccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OnSuccess
-</span><a href="#local-6989586621679297497"><span class="hs-identifier hs-var">onSuccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297496"><span class="annot"><span class="annottext">s :: DestinationConfig
-</span><a href="#local-6989586621679297496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig%27"><span class="hs-identifier hs-type">DestinationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297495"><span class="annot"><span class="annottext">Maybe OnSuccess
-</span><a href="#local-6989586621679297495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationConfig
-</span><a href="#local-6989586621679297496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onSuccess:DestinationConfig' :: Maybe OnSuccess
+</span><a href="#local-6989586621679297506"><span class="hs-identifier hs-var hs-var">onSuccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OnSuccess
+</span><a href="#local-6989586621679297506"><span class="hs-identifier hs-var">onSuccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297505"><span class="annot"><span class="annottext">s :: DestinationConfig
+</span><a href="#local-6989586621679297505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig%27"><span class="hs-identifier hs-type">DestinationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297504"><span class="annot"><span class="annottext">Maybe OnSuccess
+</span><a href="#local-6989586621679297504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationConfig
+</span><a href="#local-6989586621679297505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onSuccess:DestinationConfig' :: Maybe OnSuccess
 </span><a href="Network.AWS.Lambda.Types.DestinationConfig.html#%24sel%3AonSuccess%3ADestinationConfig%27"><span class="hs-identifier hs-var">onSuccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OnSuccess
-</span><a href="#local-6989586621679297495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-type">DestinationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-type">DestinationConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The destination configuration for failed invocations.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#destinationConfig_onFailure"><span class="hs-identifier hs-type">destinationConfig_onFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-type">DestinationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure"><span class="hs-identifier hs-type">OnFailure</span></a></span><span class="hs-special">)</span><span>
@@ -154,19 +154,19 @@ $sel:onSuccess:DestinationConfig' :: DestinationConfig -&gt; Maybe OnSuccess
      (Maybe OnFailure)
      (Maybe OnFailure)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig%27"><span class="hs-identifier hs-type">DestinationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297493"><span class="annot"><span class="annottext">Maybe OnFailure
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig%27"><span class="hs-identifier hs-type">DestinationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297502"><span class="annot"><span class="annottext">Maybe OnFailure
 onFailure :: Maybe OnFailure
 $sel:onFailure:DestinationConfig' :: DestinationConfig -&gt; Maybe OnFailure
-</span><a href="#local-6989586621679297493"><span class="hs-identifier hs-var hs-var">onFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OnFailure
-</span><a href="#local-6989586621679297493"><span class="hs-identifier hs-var">onFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297492"><span class="annot"><span class="annottext">s :: DestinationConfig
-</span><a href="#local-6989586621679297492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig%27"><span class="hs-identifier hs-type">DestinationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297491"><span class="annot"><span class="annottext">Maybe OnFailure
-</span><a href="#local-6989586621679297491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationConfig
-</span><a href="#local-6989586621679297492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onFailure:DestinationConfig' :: Maybe OnFailure
+</span><a href="#local-6989586621679297502"><span class="hs-identifier hs-var hs-var">onFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OnFailure
+</span><a href="#local-6989586621679297502"><span class="hs-identifier hs-var">onFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297501"><span class="annot"><span class="annottext">s :: DestinationConfig
+</span><a href="#local-6989586621679297501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig%27"><span class="hs-identifier hs-type">DestinationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297500"><span class="annot"><span class="annottext">Maybe OnFailure
+</span><a href="#local-6989586621679297500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationConfig
+</span><a href="#local-6989586621679297501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onFailure:DestinationConfig' :: Maybe OnFailure
 </span><a href="Network.AWS.Lambda.Types.DestinationConfig.html#%24sel%3AonFailure%3ADestinationConfig%27"><span class="hs-identifier hs-var">onFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OnFailure
-</span><a href="#local-6989586621679297491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-type">DestinationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-type">DestinationConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297488"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-type">DestinationConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679297486"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DestinationConfig
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297497"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-type">DestinationConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679297495"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DestinationConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DestinationConfig)
@@ -176,8 +176,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DestinationConfig&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297483"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297483"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297492"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297492"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe OnSuccess -&gt; Maybe OnFailure -&gt; DestinationConfig
 </span><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig%27"><span class="hs-identifier hs-var">DestinationConfig'</span></a></span><span>
 </span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OnSuccess -&gt; Maybe OnFailure -&gt; DestinationConfig)
@@ -185,7 +185,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe OnFailure -&gt; DestinationConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OnSuccess)
+</span><a href="#local-6989586621679297492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OnSuccess)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OnSuccess&quot;</span></span><span class="hs-special">)</span><span>
@@ -193,25 +193,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe OnFailure) -&gt; Parser DestinationConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OnFailure)
+</span><a href="#local-6989586621679297492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OnFailure)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OnFailure&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297477"><span id="local-6989586621679297479"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-type">DestinationConfig</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297486"><span id="local-6989586621679297488"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-type">DestinationConfig</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297474"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-type">DestinationConfig</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297483"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-type">DestinationConfig</span></a></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297466"><span id="local-6989586621679297468"><span id="local-6989586621679297470"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-type">DestinationConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679297464"><span class="annot"><span class="annottext">toJSON :: DestinationConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig%27"><span class="hs-identifier hs-type">DestinationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297461"><span id="local-6989586621679297462"><span class="annot"><span class="annottext">Maybe OnFailure
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297475"><span id="local-6989586621679297477"><span id="local-6989586621679297479"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-type">DestinationConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679297473"><span class="annot"><span class="annottext">toJSON :: DestinationConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig%27"><span class="hs-identifier hs-type">DestinationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297470"><span id="local-6989586621679297471"><span class="annot"><span class="annottext">Maybe OnFailure
 Maybe OnSuccess
 onFailure :: Maybe OnFailure
 onSuccess :: Maybe OnSuccess
 $sel:onFailure:DestinationConfig' :: DestinationConfig -&gt; Maybe OnFailure
 $sel:onSuccess:DestinationConfig' :: DestinationConfig -&gt; Maybe OnSuccess
-</span><a href="#local-6989586621679297461"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679297470"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -223,14 +223,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OnSuccess -&gt; Pair) -&gt; Maybe OnSuccess -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OnSuccess
-</span><a href="#local-6989586621679297462"><span class="hs-identifier hs-var">onSuccess</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297471"><span class="hs-identifier hs-var">onSuccess</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OnFailure&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OnFailure -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OnFailure -&gt; Pair) -&gt; Maybe OnFailure -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OnFailure
-</span><a href="#local-6989586621679297461"><span class="hs-identifier hs-var">onFailure</span></a></span><span>
+</span><a href="#local-6989586621679297470"><span class="hs-identifier hs-var">onFailure</span></a></span><span>
 </span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span></pre></body></html>

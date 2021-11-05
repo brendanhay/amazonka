@@ -1,0 +1,1203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeArtifact.CopyPackageVersions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Copies package versions from one repository to another repository in the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- same domain.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- You must specify @versions@ or @versionRevisions@. You cannot specify</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- both.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeArtifact.CopyPackageVersions</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier">CopyPackageVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#newCopyPackageVersions"><span class="hs-identifier">newCopyPackageVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_allowOverwrite"><span class="hs-identifier">copyPackageVersions_allowOverwrite</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_versionRevisions"><span class="hs-identifier">copyPackageVersions_versionRevisions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_namespace"><span class="hs-identifier">copyPackageVersions_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_domainOwner"><span class="hs-identifier">copyPackageVersions_domainOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_versions"><span class="hs-identifier">copyPackageVersions_versions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_includeFromUpstream"><span class="hs-identifier">copyPackageVersions_includeFromUpstream</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_domain"><span class="hs-identifier">copyPackageVersions_domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_sourceRepository"><span class="hs-identifier">copyPackageVersions_sourceRepository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_destinationRepository"><span class="hs-identifier">copyPackageVersions_destinationRepository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_format"><span class="hs-identifier">copyPackageVersions_format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_package"><span class="hs-identifier">copyPackageVersions_package</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse"><span class="hs-identifier">CopyPackageVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#newCopyPackageVersionsResponse"><span class="hs-identifier">newCopyPackageVersionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersionsResponse_failedVersions"><span class="hs-identifier">copyPackageVersionsResponse_failedVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersionsResponse_successfulVersions"><span class="hs-identifier">copyPackageVersionsResponse_successfulVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersionsResponse_httpStatus"><span class="hs-identifier">copyPackageVersionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.html"><span class="hs-identifier">Network.AWS.CodeArtifact.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newCopyPackageVersions' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621679240411"><span id="local-6989586621679240412"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyPackageVersions"><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-var">CopyPackageVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyPackageVersions%27"><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-var">CopyPackageVersions'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set to true to overwrite a package version that already exists in the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- destination repository. If set to false and the package version already</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- exists in the destination repository, the package version is returned in</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- the @failedVersions@ field of the response with an @ALREADY_EXISTS@</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- error code.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AallowOverwrite%3ACopyPackageVersions%27"><span class="annot"><span class="annottext">CopyPackageVersions -&gt; Maybe Bool
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AallowOverwrite%3ACopyPackageVersions%27"><span class="hs-identifier hs-var hs-var">allowOverwrite</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | A list of key-value pairs. The keys are package versions and the values</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- are package version revisions. A @CopyPackageVersion@ operation succeeds</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- if the specified versions in the source repository match the specified</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- package version revision.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- You must specify @versions@ or @versionRevisions@. You cannot specify</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- both.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AversionRevisions%3ACopyPackageVersions%27"><span class="annot"><span class="annottext">CopyPackageVersions -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AversionRevisions%3ACopyPackageVersions%27"><span class="hs-identifier hs-var hs-var">versionRevisions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3Anamespace%3ACopyPackageVersions%27"><span class="annot"><span class="annottext">CopyPackageVersions -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3Anamespace%3ACopyPackageVersions%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AdomainOwner%3ACopyPackageVersions%27"><span class="annot"><span class="annottext">CopyPackageVersions -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AdomainOwner%3ACopyPackageVersions%27"><span class="hs-identifier hs-var hs-var">domainOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The versions of the package to copy.</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- You must specify @versions@ or @versionRevisions@. You cannot specify</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- both.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3Aversions%3ACopyPackageVersions%27"><span class="annot"><span class="annottext">CopyPackageVersions -&gt; Maybe [Text]
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3Aversions%3ACopyPackageVersions%27"><span class="hs-identifier hs-var hs-var">versions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | Set to true to copy packages from repositories that are upstream from</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- the source repository to the destination repository. The default setting</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- is false. For more information, see</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html Working with upstream repositories&gt;.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AincludeFromUpstream%3ACopyPackageVersions%27"><span class="annot"><span class="annottext">CopyPackageVersions -&gt; Maybe Bool
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AincludeFromUpstream%3ACopyPackageVersions%27"><span class="hs-identifier hs-var hs-var">includeFromUpstream</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The name of the domain that contains the source and destination</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- repositories.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3Adomain%3ACopyPackageVersions%27"><span class="annot"><span class="annottext">CopyPackageVersions -&gt; Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3Adomain%3ACopyPackageVersions%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | The name of the repository that contains the package versions to copy.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AsourceRepository%3ACopyPackageVersions%27"><span class="annot"><span class="annottext">CopyPackageVersions -&gt; Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AsourceRepository%3ACopyPackageVersions%27"><span class="hs-identifier hs-var hs-var">sourceRepository</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | The name of the repository into which package versions are copied.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AdestinationRepository%3ACopyPackageVersions%27"><span class="annot"><span class="annottext">CopyPackageVersions -&gt; Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AdestinationRepository%3ACopyPackageVersions%27"><span class="hs-identifier hs-var hs-var">destinationRepository</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The format of the package that is copied. The valid package types are:</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- -   @npm@: A Node Package Manager (npm) package.</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- -   @pypi@: A Python Package Index (PyPI) package.</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- -   @maven@: A Maven package that contains compiled code in a</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--     distributable format, such as a JAR file.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3Aformat%3ACopyPackageVersions%27"><span class="annot"><span class="annottext">CopyPackageVersions -&gt; PackageFormat
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3Aformat%3ACopyPackageVersions%27"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageFormat.html#PackageFormat"><span class="hs-identifier hs-type">PackageFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | The name of the package that is copied.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3Apackage%3ACopyPackageVersions%27"><span class="annot"><span class="annottext">CopyPackageVersions -&gt; Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3Apackage%3ACopyPackageVersions%27"><span class="hs-identifier hs-var hs-var">package</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679240395"><span id="local-6989586621679240397"><span class="annot"><span class="annottext">CopyPackageVersions -&gt; CopyPackageVersions -&gt; Bool
+(CopyPackageVersions -&gt; CopyPackageVersions -&gt; Bool)
+-&gt; (CopyPackageVersions -&gt; CopyPackageVersions -&gt; Bool)
+-&gt; Eq CopyPackageVersions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CopyPackageVersions -&gt; CopyPackageVersions -&gt; Bool
+$c/= :: CopyPackageVersions -&gt; CopyPackageVersions -&gt; Bool
+== :: CopyPackageVersions -&gt; CopyPackageVersions -&gt; Bool
+$c== :: CopyPackageVersions -&gt; CopyPackageVersions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240386"><span id="local-6989586621679240388"><span id="local-6989586621679240390"><span id="local-6989586621679240392"><span class="annot"><span class="annottext">ReadPrec [CopyPackageVersions]
+ReadPrec CopyPackageVersions
+Int -&gt; ReadS CopyPackageVersions
+ReadS [CopyPackageVersions]
+(Int -&gt; ReadS CopyPackageVersions)
+-&gt; ReadS [CopyPackageVersions]
+-&gt; ReadPrec CopyPackageVersions
+-&gt; ReadPrec [CopyPackageVersions]
+-&gt; Read CopyPackageVersions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CopyPackageVersions]
+$creadListPrec :: ReadPrec [CopyPackageVersions]
+readPrec :: ReadPrec CopyPackageVersions
+$creadPrec :: ReadPrec CopyPackageVersions
+readList :: ReadS [CopyPackageVersions]
+$creadList :: ReadS [CopyPackageVersions]
+readsPrec :: Int -&gt; ReadS CopyPackageVersions
+$creadsPrec :: Int -&gt; ReadS CopyPackageVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240379"><span id="local-6989586621679240381"><span id="local-6989586621679240383"><span class="annot"><span class="annottext">Int -&gt; CopyPackageVersions -&gt; ShowS
+[CopyPackageVersions] -&gt; ShowS
+CopyPackageVersions -&gt; String
+(Int -&gt; CopyPackageVersions -&gt; ShowS)
+-&gt; (CopyPackageVersions -&gt; String)
+-&gt; ([CopyPackageVersions] -&gt; ShowS)
+-&gt; Show CopyPackageVersions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CopyPackageVersions] -&gt; ShowS
+$cshowList :: [CopyPackageVersions] -&gt; ShowS
+show :: CopyPackageVersions -&gt; String
+$cshow :: CopyPackageVersions -&gt; String
+showsPrec :: Int -&gt; CopyPackageVersions -&gt; ShowS
+$cshowsPrec :: Int -&gt; CopyPackageVersions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CopyPackageVersions -&gt; Rep CopyPackageVersions x)
+-&gt; (forall x. Rep CopyPackageVersions x -&gt; CopyPackageVersions)
+-&gt; Generic CopyPackageVersions
+forall x. Rep CopyPackageVersions x -&gt; CopyPackageVersions
+forall x. CopyPackageVersions -&gt; Rep CopyPackageVersions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CopyPackageVersions x -&gt; CopyPackageVersions
+$cfrom :: forall x. CopyPackageVersions -&gt; Rep CopyPackageVersions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Create a value of 'CopyPackageVersions' with all optional fields omitted.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'allowOverwrite', 'copyPackageVersions_allowOverwrite' - Set to true to overwrite a package version that already exists in the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- destination repository. If set to false and the package version already</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- exists in the destination repository, the package version is returned in</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- the @failedVersions@ field of the response with an @ALREADY_EXISTS@</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- error code.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'versionRevisions', 'copyPackageVersions_versionRevisions' - A list of key-value pairs. The keys are package versions and the values</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- are package version revisions. A @CopyPackageVersion@ operation succeeds</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- if the specified versions in the source repository match the specified</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- package version revision.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- You must specify @versions@ or @versionRevisions@. You cannot specify</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- both.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'namespace', 'copyPackageVersions_namespace' - The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'domainOwner', 'copyPackageVersions_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'versions', 'copyPackageVersions_versions' - The versions of the package to copy.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- You must specify @versions@ or @versionRevisions@. You cannot specify</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- both.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'includeFromUpstream', 'copyPackageVersions_includeFromUpstream' - Set to true to copy packages from repositories that are upstream from</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- the source repository to the destination repository. The default setting</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- is false. For more information, see</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html Working with upstream repositories&gt;.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'domain', 'copyPackageVersions_domain' - The name of the domain that contains the source and destination</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- repositories.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'sourceRepository', 'copyPackageVersions_sourceRepository' - The name of the repository that contains the package versions to copy.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'destinationRepository', 'copyPackageVersions_destinationRepository' - The name of the repository into which package versions are copied.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'format', 'copyPackageVersions_format' - The format of the package that is copied. The valid package types are:</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- -   @npm@: A Node Package Manager (npm) package.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- -   @pypi@: A Python Package Index (PyPI) package.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- -   @maven@: A Maven package that contains compiled code in a</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     distributable format, such as a JAR file.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'package', 'copyPackageVersions_package' - The name of the package that is copied.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#newCopyPackageVersions"><span class="hs-identifier hs-type">newCopyPackageVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-comment">-- | 'domain'</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-comment">-- | 'sourceRepository'</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-comment">-- | 'destinationRepository'</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-comment">-- | 'format'</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageFormat.html#PackageFormat"><span class="hs-identifier hs-type">PackageFormat</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'package'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span>
+</span><span id="line-198"></span><span id="newCopyPackageVersions"><span class="annot"><span class="annottext">newCopyPackageVersions :: Text
+-&gt; Text -&gt; Text -&gt; PackageFormat -&gt; Text -&gt; CopyPackageVersions
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#newCopyPackageVersions"><span class="hs-identifier hs-var hs-var">newCopyPackageVersions</span></a></span></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679240374"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240374"><span class="hs-identifier hs-var">pDomain_</span></a></span></span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679240373"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240373"><span class="hs-identifier hs-var">pSourceRepository_</span></a></span></span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679240372"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240372"><span class="hs-identifier hs-var">pDestinationRepository_</span></a></span></span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679240371"><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679240371"><span class="hs-identifier hs-var">pFormat_</span></a></span></span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679240370"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240370"><span class="hs-identifier hs-var">pPackage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><span class="annottext">CopyPackageVersions' :: Maybe Bool
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; PackageFormat
+-&gt; Text
+-&gt; CopyPackageVersions
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:allowOverwrite:CopyPackageVersions' :: Maybe Bool
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AallowOverwrite%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">allowOverwrite</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">$sel:versionRevisions:CopyPackageVersions' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AversionRevisions%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">versionRevisions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">$sel:namespace:CopyPackageVersions' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3Anamespace%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainOwner:CopyPackageVersions' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AdomainOwner%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">domainOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">$sel:versions:CopyPackageVersions' :: Maybe [Text]
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3Aversions%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">versions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">$sel:includeFromUpstream:CopyPackageVersions' :: Maybe Bool
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AincludeFromUpstream%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">includeFromUpstream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">$sel:domain:CopyPackageVersions' :: Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3Adomain%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240374"><span class="hs-identifier hs-var">pDomain_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceRepository:CopyPackageVersions' :: Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AsourceRepository%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">sourceRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240373"><span class="hs-identifier hs-var">pSourceRepository_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationRepository:CopyPackageVersions' :: Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AdestinationRepository%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">destinationRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240372"><span class="hs-identifier hs-var">pDestinationRepository_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">$sel:format:CopyPackageVersions' :: PackageFormat
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3Aformat%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679240371"><span class="hs-identifier hs-var">pFormat_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">$sel:package:CopyPackageVersions' :: Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3Apackage%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">package</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240370"><span class="hs-identifier hs-var">pPackage_</span></a></span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | Set to true to overwrite a package version that already exists in the</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- destination repository. If set to false and the package version already</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- exists in the destination repository, the package version is returned in</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- the @failedVersions@ field of the response with an @ALREADY_EXISTS@</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- error code.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_allowOverwrite"><span class="hs-identifier hs-type">copyPackageVersions_allowOverwrite</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="copyPackageVersions_allowOverwrite"><span class="annot"><span class="annottext">copyPackageVersions_allowOverwrite :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CopyPackageVersions -&gt; f CopyPackageVersions
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_allowOverwrite"><span class="hs-identifier hs-var hs-var">copyPackageVersions_allowOverwrite</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyPackageVersions -&gt; Maybe Bool)
+-&gt; (CopyPackageVersions -&gt; Maybe Bool -&gt; CopyPackageVersions)
+-&gt; Lens
+     CopyPackageVersions CopyPackageVersions (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240367"><span class="annot"><span class="annottext">Maybe Bool
+allowOverwrite :: Maybe Bool
+$sel:allowOverwrite:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe Bool
+</span><a href="#local-6989586621679240367"><span class="hs-identifier hs-var hs-var">allowOverwrite</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679240367"><span class="hs-identifier hs-var">allowOverwrite</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240366"><span class="annot"><span class="annottext">s :: CopyPackageVersions
+</span><a href="#local-6989586621679240366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240365"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679240365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPackageVersions
+</span><a href="#local-6989586621679240366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowOverwrite:CopyPackageVersions' :: Maybe Bool
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AallowOverwrite%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">allowOverwrite</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679240365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | A list of key-value pairs. The keys are package versions and the values</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- are package version revisions. A @CopyPackageVersion@ operation succeeds</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- if the specified versions in the source repository match the specified</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- package version revision.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- You must specify @versions@ or @versionRevisions@. You cannot specify</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- both.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_versionRevisions"><span class="hs-identifier hs-type">copyPackageVersions_versionRevisions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="copyPackageVersions_versionRevisions"><span class="annot"><span class="annottext">copyPackageVersions_versionRevisions :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CopyPackageVersions -&gt; f CopyPackageVersions
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_versionRevisions"><span class="hs-identifier hs-var hs-var">copyPackageVersions_versionRevisions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyPackageVersions -&gt; Maybe (HashMap Text Text))
+-&gt; (CopyPackageVersions
+    -&gt; Maybe (HashMap Text Text) -&gt; CopyPackageVersions)
+-&gt; Lens
+     CopyPackageVersions
+     CopyPackageVersions
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240364"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+versionRevisions :: Maybe (HashMap Text Text)
+$sel:versionRevisions:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679240364"><span class="hs-identifier hs-var hs-var">versionRevisions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679240364"><span class="hs-identifier hs-var">versionRevisions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240363"><span class="annot"><span class="annottext">s :: CopyPackageVersions
+</span><a href="#local-6989586621679240363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240362"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679240362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPackageVersions
+</span><a href="#local-6989586621679240363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionRevisions:CopyPackageVersions' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AversionRevisions%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">versionRevisions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679240362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CopyPackageVersions -&gt; f CopyPackageVersions)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CopyPackageVersions
+-&gt; f CopyPackageVersions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_namespace"><span class="hs-identifier hs-type">copyPackageVersions_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="copyPackageVersions_namespace"><span class="annot"><span class="annottext">copyPackageVersions_namespace :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CopyPackageVersions -&gt; f CopyPackageVersions
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_namespace"><span class="hs-identifier hs-var hs-var">copyPackageVersions_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyPackageVersions -&gt; Maybe Text)
+-&gt; (CopyPackageVersions -&gt; Maybe Text -&gt; CopyPackageVersions)
+-&gt; Lens
+     CopyPackageVersions CopyPackageVersions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240358"><span class="annot"><span class="annottext">Maybe Text
+namespace :: Maybe Text
+$sel:namespace:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679240358"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240358"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240357"><span class="annot"><span class="annottext">s :: CopyPackageVersions
+</span><a href="#local-6989586621679240357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240356"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPackageVersions
+</span><a href="#local-6989586621679240357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:CopyPackageVersions' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3Anamespace%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_domainOwner"><span class="hs-identifier hs-type">copyPackageVersions_domainOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="copyPackageVersions_domainOwner"><span class="annot"><span class="annottext">copyPackageVersions_domainOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CopyPackageVersions -&gt; f CopyPackageVersions
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_domainOwner"><span class="hs-identifier hs-var hs-var">copyPackageVersions_domainOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyPackageVersions -&gt; Maybe Text)
+-&gt; (CopyPackageVersions -&gt; Maybe Text -&gt; CopyPackageVersions)
+-&gt; Lens
+     CopyPackageVersions CopyPackageVersions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240355"><span class="annot"><span class="annottext">Maybe Text
+domainOwner :: Maybe Text
+$sel:domainOwner:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679240355"><span class="hs-identifier hs-var hs-var">domainOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240355"><span class="hs-identifier hs-var">domainOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240354"><span class="annot"><span class="annottext">s :: CopyPackageVersions
+</span><a href="#local-6989586621679240354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240353"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPackageVersions
+</span><a href="#local-6989586621679240354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainOwner:CopyPackageVersions' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AdomainOwner%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">domainOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The versions of the package to copy.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- You must specify @versions@ or @versionRevisions@. You cannot specify</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- both.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_versions"><span class="hs-identifier hs-type">copyPackageVersions_versions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span id="copyPackageVersions_versions"><span class="annot"><span class="annottext">copyPackageVersions_versions :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CopyPackageVersions -&gt; f CopyPackageVersions
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_versions"><span class="hs-identifier hs-var hs-var">copyPackageVersions_versions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyPackageVersions -&gt; Maybe [Text])
+-&gt; (CopyPackageVersions -&gt; Maybe [Text] -&gt; CopyPackageVersions)
+-&gt; Lens
+     CopyPackageVersions
+     CopyPackageVersions
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240352"><span class="annot"><span class="annottext">Maybe [Text]
+versions :: Maybe [Text]
+$sel:versions:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe [Text]
+</span><a href="#local-6989586621679240352"><span class="hs-identifier hs-var hs-var">versions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679240352"><span class="hs-identifier hs-var">versions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240351"><span class="annot"><span class="annottext">s :: CopyPackageVersions
+</span><a href="#local-6989586621679240351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240350"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679240350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPackageVersions
+</span><a href="#local-6989586621679240351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versions:CopyPackageVersions' :: Maybe [Text]
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3Aversions%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">versions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679240350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CopyPackageVersions -&gt; f CopyPackageVersions)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CopyPackageVersions
+-&gt; f CopyPackageVersions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | Set to true to copy packages from repositories that are upstream from</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- the source repository to the destination repository. The default setting</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- is false. For more information, see</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html Working with upstream repositories&gt;.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_includeFromUpstream"><span class="hs-identifier hs-type">copyPackageVersions_includeFromUpstream</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span id="copyPackageVersions_includeFromUpstream"><span class="annot"><span class="annottext">copyPackageVersions_includeFromUpstream :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CopyPackageVersions -&gt; f CopyPackageVersions
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_includeFromUpstream"><span class="hs-identifier hs-var hs-var">copyPackageVersions_includeFromUpstream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyPackageVersions -&gt; Maybe Bool)
+-&gt; (CopyPackageVersions -&gt; Maybe Bool -&gt; CopyPackageVersions)
+-&gt; Lens
+     CopyPackageVersions CopyPackageVersions (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240349"><span class="annot"><span class="annottext">Maybe Bool
+includeFromUpstream :: Maybe Bool
+$sel:includeFromUpstream:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe Bool
+</span><a href="#local-6989586621679240349"><span class="hs-identifier hs-var hs-var">includeFromUpstream</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679240349"><span class="hs-identifier hs-var">includeFromUpstream</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240348"><span class="annot"><span class="annottext">s :: CopyPackageVersions
+</span><a href="#local-6989586621679240348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240347"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679240347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPackageVersions
+</span><a href="#local-6989586621679240348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeFromUpstream:CopyPackageVersions' :: Maybe Bool
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AincludeFromUpstream%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">includeFromUpstream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679240347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | The name of the domain that contains the source and destination</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- repositories.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_domain"><span class="hs-identifier hs-type">copyPackageVersions_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-271"></span><span id="copyPackageVersions_domain"><span class="annot"><span class="annottext">copyPackageVersions_domain :: (Text -&gt; f Text) -&gt; CopyPackageVersions -&gt; f CopyPackageVersions
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_domain"><span class="hs-identifier hs-var hs-var">copyPackageVersions_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyPackageVersions -&gt; Text)
+-&gt; (CopyPackageVersions -&gt; Text -&gt; CopyPackageVersions)
+-&gt; Lens CopyPackageVersions CopyPackageVersions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240346"><span class="annot"><span class="annottext">Text
+domain :: Text
+$sel:domain:CopyPackageVersions' :: CopyPackageVersions -&gt; Text
+</span><a href="#local-6989586621679240346"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240346"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240345"><span class="annot"><span class="annottext">s :: CopyPackageVersions
+</span><a href="#local-6989586621679240345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240344"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPackageVersions
+</span><a href="#local-6989586621679240345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:CopyPackageVersions' :: Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3Adomain%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | The name of the repository that contains the package versions to copy.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_sourceRepository"><span class="hs-identifier hs-type">copyPackageVersions_sourceRepository</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-275"></span><span id="copyPackageVersions_sourceRepository"><span class="annot"><span class="annottext">copyPackageVersions_sourceRepository :: (Text -&gt; f Text) -&gt; CopyPackageVersions -&gt; f CopyPackageVersions
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_sourceRepository"><span class="hs-identifier hs-var hs-var">copyPackageVersions_sourceRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyPackageVersions -&gt; Text)
+-&gt; (CopyPackageVersions -&gt; Text -&gt; CopyPackageVersions)
+-&gt; Lens CopyPackageVersions CopyPackageVersions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240343"><span class="annot"><span class="annottext">Text
+sourceRepository :: Text
+$sel:sourceRepository:CopyPackageVersions' :: CopyPackageVersions -&gt; Text
+</span><a href="#local-6989586621679240343"><span class="hs-identifier hs-var hs-var">sourceRepository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240343"><span class="hs-identifier hs-var">sourceRepository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240342"><span class="annot"><span class="annottext">s :: CopyPackageVersions
+</span><a href="#local-6989586621679240342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240341"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPackageVersions
+</span><a href="#local-6989586621679240342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceRepository:CopyPackageVersions' :: Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AsourceRepository%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">sourceRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | The name of the repository into which package versions are copied.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_destinationRepository"><span class="hs-identifier hs-type">copyPackageVersions_destinationRepository</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-279"></span><span id="copyPackageVersions_destinationRepository"><span class="annot"><span class="annottext">copyPackageVersions_destinationRepository :: (Text -&gt; f Text) -&gt; CopyPackageVersions -&gt; f CopyPackageVersions
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_destinationRepository"><span class="hs-identifier hs-var hs-var">copyPackageVersions_destinationRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyPackageVersions -&gt; Text)
+-&gt; (CopyPackageVersions -&gt; Text -&gt; CopyPackageVersions)
+-&gt; Lens CopyPackageVersions CopyPackageVersions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240340"><span class="annot"><span class="annottext">Text
+destinationRepository :: Text
+$sel:destinationRepository:CopyPackageVersions' :: CopyPackageVersions -&gt; Text
+</span><a href="#local-6989586621679240340"><span class="hs-identifier hs-var hs-var">destinationRepository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240340"><span class="hs-identifier hs-var">destinationRepository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240339"><span class="annot"><span class="annottext">s :: CopyPackageVersions
+</span><a href="#local-6989586621679240339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240338"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPackageVersions
+</span><a href="#local-6989586621679240339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationRepository:CopyPackageVersions' :: Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AdestinationRepository%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">destinationRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | The format of the package that is copied. The valid package types are:</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- -   @npm@: A Node Package Manager (npm) package.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- -   @pypi@: A Python Package Index (PyPI) package.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- -   @maven@: A Maven package that contains compiled code in a</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--     distributable format, such as a JAR file.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_format"><span class="hs-identifier hs-type">copyPackageVersions_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageFormat.html#PackageFormat"><span class="hs-identifier hs-type">PackageFormat</span></a></span><span>
+</span><span id="line-290"></span><span id="copyPackageVersions_format"><span class="annot"><span class="annottext">copyPackageVersions_format :: (PackageFormat -&gt; f PackageFormat)
+-&gt; CopyPackageVersions -&gt; f CopyPackageVersions
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_format"><span class="hs-identifier hs-var hs-var">copyPackageVersions_format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyPackageVersions -&gt; PackageFormat)
+-&gt; (CopyPackageVersions -&gt; PackageFormat -&gt; CopyPackageVersions)
+-&gt; Lens
+     CopyPackageVersions CopyPackageVersions PackageFormat PackageFormat
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240337"><span class="annot"><span class="annottext">PackageFormat
+format :: PackageFormat
+$sel:format:CopyPackageVersions' :: CopyPackageVersions -&gt; PackageFormat
+</span><a href="#local-6989586621679240337"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679240337"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240336"><span class="annot"><span class="annottext">s :: CopyPackageVersions
+</span><a href="#local-6989586621679240336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240335"><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679240335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPackageVersions
+</span><a href="#local-6989586621679240336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:CopyPackageVersions' :: PackageFormat
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3Aformat%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679240335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- | The name of the package that is copied.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_package"><span class="hs-identifier hs-type">copyPackageVersions_package</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-294"></span><span id="copyPackageVersions_package"><span class="annot"><span class="annottext">copyPackageVersions_package :: (Text -&gt; f Text) -&gt; CopyPackageVersions -&gt; f CopyPackageVersions
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersions_package"><span class="hs-identifier hs-var hs-var">copyPackageVersions_package</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyPackageVersions -&gt; Text)
+-&gt; (CopyPackageVersions -&gt; Text -&gt; CopyPackageVersions)
+-&gt; Lens CopyPackageVersions CopyPackageVersions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240334"><span class="annot"><span class="annottext">Text
+package :: Text
+$sel:package:CopyPackageVersions' :: CopyPackageVersions -&gt; Text
+</span><a href="#local-6989586621679240334"><span class="hs-identifier hs-var hs-var">package</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240334"><span class="hs-identifier hs-var">package</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240333"><span class="annot"><span class="annottext">s :: CopyPackageVersions
+</span><a href="#local-6989586621679240333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240332"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPackageVersions
+</span><a href="#local-6989586621679240333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:package:CopyPackageVersions' :: Text
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3Apackage%3ACopyPackageVersions%27"><span class="hs-identifier hs-var">package</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-297"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-298"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-299"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse"><span class="hs-identifier hs-type">CopyPackageVersionsResponse</span></a></span><span>
+</span><span id="line-300"></span><span>  </span><span id="local-6989586621679240328"><span class="annot"><span class="annottext">request :: CopyPackageVersions -&gt; Request CopyPackageVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CopyPackageVersions -&gt; Request CopyPackageVersions
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeArtifact.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-301"></span><span>  </span><span id="local-6989586621679240324"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CopyPackageVersions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CopyPackageVersions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CopyPackageVersions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CopyPackageVersions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CopyPackageVersions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-303"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679240321"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240321"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679240320"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679240320"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679240319"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240319"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-304"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text PackageVersionError)
+-&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo)
+-&gt; Int
+-&gt; CopyPackageVersionsResponse
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse%27"><span class="hs-identifier hs-var">CopyPackageVersionsResponse'</span></a></span><span>
+</span><span id="line-305"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text PackageVersionError)
+ -&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo)
+ -&gt; Int
+ -&gt; CopyPackageVersionsResponse)
+-&gt; Either String (Maybe (HashMap Text PackageVersionError))
+-&gt; Either
+     String
+     (Maybe (HashMap Text SuccessfulPackageVersionInfo)
+      -&gt; Int -&gt; CopyPackageVersionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe (HashMap Text PackageVersionError)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failedVersions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text PackageVersionError)))
+-&gt; Maybe (HashMap Text PackageVersionError)
+-&gt; Either String (Maybe (HashMap Text PackageVersionError))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text PackageVersionError)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text SuccessfulPackageVersionInfo)
+   -&gt; Int -&gt; CopyPackageVersionsResponse)
+-&gt; Either
+     String (Maybe (HashMap Text SuccessfulPackageVersionInfo))
+-&gt; Either String (Int -&gt; CopyPackageVersionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either
+     String (Maybe (Maybe (HashMap Text SuccessfulPackageVersionInfo)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;successfulVersions&quot;</span></span><span>
+</span><span id="line-307"></span><span>                            </span><span class="annot"><span class="annottext">Either
+  String (Maybe (Maybe (HashMap Text SuccessfulPackageVersionInfo)))
+-&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo)
+-&gt; Either
+     String (Maybe (HashMap Text SuccessfulPackageVersionInfo))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text SuccessfulPackageVersionInfo)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-308"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CopyPackageVersionsResponse)
+-&gt; Either String Int -&gt; Either String CopyPackageVersionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240321"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240310"><span id="local-6989586621679240312"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span></span></span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240307"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span></span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-317"></span><span>  </span><span id="local-6989586621679240303"><span class="annot"><span class="annottext">toHeaders :: CopyPackageVersions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-318"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CopyPackageVersions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-319"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-320"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-321"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-322"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-323"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-325"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span>
+</span><span id="line-327"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240293"><span id="local-6989586621679240295"><span id="local-6989586621679240297"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-328"></span><span>  </span><span id="local-6989586621679240291"><span class="annot"><span class="annottext">toJSON :: CopyPackageVersions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240279"><span id="local-6989586621679240280"><span id="local-6989586621679240281"><span id="local-6989586621679240282"><span id="local-6989586621679240283"><span id="local-6989586621679240284"><span id="local-6989586621679240285"><span id="local-6989586621679240286"><span id="local-6989586621679240287"><span id="local-6989586621679240288"><span id="local-6989586621679240289"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Text]
+Maybe Text
+Maybe (HashMap Text Text)
+Text
+PackageFormat
+package :: Text
+format :: PackageFormat
+destinationRepository :: Text
+sourceRepository :: Text
+domain :: Text
+includeFromUpstream :: Maybe Bool
+versions :: Maybe [Text]
+domainOwner :: Maybe Text
+namespace :: Maybe Text
+versionRevisions :: Maybe (HashMap Text Text)
+allowOverwrite :: Maybe Bool
+$sel:package:CopyPackageVersions' :: CopyPackageVersions -&gt; Text
+$sel:format:CopyPackageVersions' :: CopyPackageVersions -&gt; PackageFormat
+$sel:destinationRepository:CopyPackageVersions' :: CopyPackageVersions -&gt; Text
+$sel:sourceRepository:CopyPackageVersions' :: CopyPackageVersions -&gt; Text
+$sel:domain:CopyPackageVersions' :: CopyPackageVersions -&gt; Text
+$sel:includeFromUpstream:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe Bool
+$sel:versions:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe [Text]
+$sel:domainOwner:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe Text
+$sel:namespace:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe Text
+$sel:versionRevisions:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe (HashMap Text Text)
+$sel:allowOverwrite:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe Bool
+</span><a href="#local-6989586621679240279"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-329"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-330"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-331"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;allowOverwrite&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679240289"><span class="hs-identifier hs-var">allowOverwrite</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;versionRevisions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-334"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679240288"><span class="hs-identifier hs-var">versionRevisions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;versions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679240285"><span class="hs-identifier hs-var">versions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;includeFromUpstream&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679240284"><span class="hs-identifier hs-var">includeFromUpstream</span></a></span><span>
+</span><span id="line-338"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-339"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>
+</span><span id="line-341"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-342"></span><span>  </span><span id="local-6989586621679240273"><span class="annot"><span class="annottext">toPath :: CopyPackageVersions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CopyPackageVersions -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/package/versions/copy&quot;</span></span><span>
+</span><span id="line-343"></span><span>
+</span><span id="line-344"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions"><span class="hs-identifier hs-type">CopyPackageVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-345"></span><span>  </span><span id="local-6989586621679240269"><span class="annot"><span class="annottext">toQuery :: CopyPackageVersions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersions%27"><span class="hs-identifier hs-type">CopyPackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240257"><span id="local-6989586621679240258"><span id="local-6989586621679240259"><span id="local-6989586621679240260"><span id="local-6989586621679240261"><span id="local-6989586621679240262"><span id="local-6989586621679240263"><span id="local-6989586621679240264"><span id="local-6989586621679240265"><span id="local-6989586621679240266"><span id="local-6989586621679240267"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Text]
+Maybe Text
+Maybe (HashMap Text Text)
+Text
+PackageFormat
+package :: Text
+format :: PackageFormat
+destinationRepository :: Text
+sourceRepository :: Text
+domain :: Text
+includeFromUpstream :: Maybe Bool
+versions :: Maybe [Text]
+domainOwner :: Maybe Text
+namespace :: Maybe Text
+versionRevisions :: Maybe (HashMap Text Text)
+allowOverwrite :: Maybe Bool
+$sel:package:CopyPackageVersions' :: CopyPackageVersions -&gt; Text
+$sel:format:CopyPackageVersions' :: CopyPackageVersions -&gt; PackageFormat
+$sel:destinationRepository:CopyPackageVersions' :: CopyPackageVersions -&gt; Text
+$sel:sourceRepository:CopyPackageVersions' :: CopyPackageVersions -&gt; Text
+$sel:domain:CopyPackageVersions' :: CopyPackageVersions -&gt; Text
+$sel:includeFromUpstream:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe Bool
+$sel:versions:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe [Text]
+$sel:domainOwner:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe Text
+$sel:namespace:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe Text
+$sel:versionRevisions:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe (HashMap Text Text)
+$sel:allowOverwrite:CopyPackageVersions' :: CopyPackageVersions -&gt; Maybe Bool
+</span><a href="#local-6989586621679240257"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-346"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-347"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240265"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-348"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;domain-owner&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240264"><span class="hs-identifier hs-var">domainOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-349"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;domain&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240261"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-350"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;source-repository&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240260"><span class="hs-identifier hs-var">sourceRepository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-351"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;destination-repository&quot;</span></span><span>
+</span><span id="line-352"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240259"><span class="hs-identifier hs-var">destinationRepository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-353"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;format&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PackageFormat -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679240258"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-354"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;package&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240257"><span class="hs-identifier hs-var">package</span></a></span><span>
+</span><span id="line-355"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-356"></span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- | /See:/ 'newCopyPackageVersionsResponse' smart constructor.</span><span>
+</span><span id="line-358"></span><span id="local-6989586621679240254"><span id="local-6989586621679240255"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyPackageVersionsResponse"><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse"><span class="hs-identifier hs-var">CopyPackageVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyPackageVersionsResponse%27"><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse%27"><span class="hs-identifier hs-var">CopyPackageVersionsResponse'</span></a></span></span><span>
+</span><span id="line-359"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A map of package versions that failed to copy and their error codes. The</span><span>
+</span><span id="line-360"></span><span>    </span><span class="hs-comment">-- possible error codes are in the @PackageVersionError@ data type. They</span><span>
+</span><span id="line-361"></span><span>    </span><span class="hs-comment">-- are:</span><span>
+</span><span id="line-362"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-363"></span><span>    </span><span class="hs-comment">-- -   @ALREADY_EXISTS@</span><span>
+</span><span id="line-364"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-365"></span><span>    </span><span class="hs-comment">-- -   @MISMATCHED_REVISION@</span><span>
+</span><span id="line-366"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-367"></span><span>    </span><span class="hs-comment">-- -   @MISMATCHED_STATUS@</span><span>
+</span><span id="line-368"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-369"></span><span>    </span><span class="hs-comment">-- -   @NOT_ALLOWED@</span><span>
+</span><span id="line-370"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-371"></span><span>    </span><span class="hs-comment">-- -   @NOT_FOUND@</span><span>
+</span><span id="line-372"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-373"></span><span>    </span><span class="hs-comment">-- -   @SKIPPED@</span><span>
+</span><span id="line-374"></span><span>    </span><span id="%24sel%3AfailedVersions%3ACopyPackageVersionsResponse%27"><span class="annot"><span class="annottext">CopyPackageVersionsResponse
+-&gt; Maybe (HashMap Text PackageVersionError)
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AfailedVersions%3ACopyPackageVersionsResponse%27"><span class="hs-identifier hs-var hs-var">failedVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionError.html#PackageVersionError"><span class="hs-identifier hs-type">PackageVersionError</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-375"></span><span>    </span><span class="hs-comment">-- | A list of the package versions that were successfully copied to your</span><span>
+</span><span id="line-376"></span><span>    </span><span class="hs-comment">-- repository.</span><span>
+</span><span id="line-377"></span><span>    </span><span id="%24sel%3AsuccessfulVersions%3ACopyPackageVersionsResponse%27"><span class="annot"><span class="annottext">CopyPackageVersionsResponse
+-&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo)
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AsuccessfulVersions%3ACopyPackageVersionsResponse%27"><span class="hs-identifier hs-var hs-var">successfulVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.SuccessfulPackageVersionInfo.html#SuccessfulPackageVersionInfo"><span class="hs-identifier hs-type">SuccessfulPackageVersionInfo</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-379"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACopyPackageVersionsResponse%27"><span class="annot"><span class="annottext">CopyPackageVersionsResponse -&gt; Int
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AhttpStatus%3ACopyPackageVersionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-380"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-381"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679240247"><span id="local-6989586621679240249"><span class="annot"><span class="annottext">CopyPackageVersionsResponse -&gt; CopyPackageVersionsResponse -&gt; Bool
+(CopyPackageVersionsResponse
+ -&gt; CopyPackageVersionsResponse -&gt; Bool)
+-&gt; (CopyPackageVersionsResponse
+    -&gt; CopyPackageVersionsResponse -&gt; Bool)
+-&gt; Eq CopyPackageVersionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CopyPackageVersionsResponse -&gt; CopyPackageVersionsResponse -&gt; Bool
+$c/= :: CopyPackageVersionsResponse -&gt; CopyPackageVersionsResponse -&gt; Bool
+== :: CopyPackageVersionsResponse -&gt; CopyPackageVersionsResponse -&gt; Bool
+$c== :: CopyPackageVersionsResponse -&gt; CopyPackageVersionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240239"><span id="local-6989586621679240241"><span id="local-6989586621679240243"><span id="local-6989586621679240245"><span class="annot"><span class="annottext">ReadPrec [CopyPackageVersionsResponse]
+ReadPrec CopyPackageVersionsResponse
+Int -&gt; ReadS CopyPackageVersionsResponse
+ReadS [CopyPackageVersionsResponse]
+(Int -&gt; ReadS CopyPackageVersionsResponse)
+-&gt; ReadS [CopyPackageVersionsResponse]
+-&gt; ReadPrec CopyPackageVersionsResponse
+-&gt; ReadPrec [CopyPackageVersionsResponse]
+-&gt; Read CopyPackageVersionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CopyPackageVersionsResponse]
+$creadListPrec :: ReadPrec [CopyPackageVersionsResponse]
+readPrec :: ReadPrec CopyPackageVersionsResponse
+$creadPrec :: ReadPrec CopyPackageVersionsResponse
+readList :: ReadS [CopyPackageVersionsResponse]
+$creadList :: ReadS [CopyPackageVersionsResponse]
+readsPrec :: Int -&gt; ReadS CopyPackageVersionsResponse
+$creadsPrec :: Int -&gt; ReadS CopyPackageVersionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240233"><span id="local-6989586621679240235"><span id="local-6989586621679240237"><span class="annot"><span class="annottext">Int -&gt; CopyPackageVersionsResponse -&gt; ShowS
+[CopyPackageVersionsResponse] -&gt; ShowS
+CopyPackageVersionsResponse -&gt; String
+(Int -&gt; CopyPackageVersionsResponse -&gt; ShowS)
+-&gt; (CopyPackageVersionsResponse -&gt; String)
+-&gt; ([CopyPackageVersionsResponse] -&gt; ShowS)
+-&gt; Show CopyPackageVersionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CopyPackageVersionsResponse] -&gt; ShowS
+$cshowList :: [CopyPackageVersionsResponse] -&gt; ShowS
+show :: CopyPackageVersionsResponse -&gt; String
+$cshow :: CopyPackageVersionsResponse -&gt; String
+showsPrec :: Int -&gt; CopyPackageVersionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CopyPackageVersionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CopyPackageVersionsResponse -&gt; Rep CopyPackageVersionsResponse x)
+-&gt; (forall x.
+    Rep CopyPackageVersionsResponse x -&gt; CopyPackageVersionsResponse)
+-&gt; Generic CopyPackageVersionsResponse
+forall x.
+Rep CopyPackageVersionsResponse x -&gt; CopyPackageVersionsResponse
+forall x.
+CopyPackageVersionsResponse -&gt; Rep CopyPackageVersionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CopyPackageVersionsResponse x -&gt; CopyPackageVersionsResponse
+$cfrom :: forall x.
+CopyPackageVersionsResponse -&gt; Rep CopyPackageVersionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- Create a value of 'CopyPackageVersionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-385"></span><span class="hs-comment">--</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-387"></span><span class="hs-comment">--</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-390"></span><span class="hs-comment">--</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- 'failedVersions', 'copyPackageVersionsResponse_failedVersions' - A map of package versions that failed to copy and their error codes. The</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- possible error codes are in the @PackageVersionError@ data type. They</span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- are:</span><span>
+</span><span id="line-394"></span><span class="hs-comment">--</span><span>
+</span><span id="line-395"></span><span class="hs-comment">-- -   @ALREADY_EXISTS@</span><span>
+</span><span id="line-396"></span><span class="hs-comment">--</span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- -   @MISMATCHED_REVISION@</span><span>
+</span><span id="line-398"></span><span class="hs-comment">--</span><span>
+</span><span id="line-399"></span><span class="hs-comment">-- -   @MISMATCHED_STATUS@</span><span>
+</span><span id="line-400"></span><span class="hs-comment">--</span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- -   @NOT_ALLOWED@</span><span>
+</span><span id="line-402"></span><span class="hs-comment">--</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- -   @NOT_FOUND@</span><span>
+</span><span id="line-404"></span><span class="hs-comment">--</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- -   @SKIPPED@</span><span>
+</span><span id="line-406"></span><span class="hs-comment">--</span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- 'successfulVersions', 'copyPackageVersionsResponse_successfulVersions' - A list of the package versions that were successfully copied to your</span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- repository.</span><span>
+</span><span id="line-409"></span><span class="hs-comment">--</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- 'httpStatus', 'copyPackageVersionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-411"></span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#newCopyPackageVersionsResponse"><span class="hs-identifier hs-type">newCopyPackageVersionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-412"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-413"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-414"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse"><span class="hs-identifier hs-type">CopyPackageVersionsResponse</span></a></span><span>
+</span><span id="line-415"></span><span id="newCopyPackageVersionsResponse"><span class="annot"><span class="annottext">newCopyPackageVersionsResponse :: Int -&gt; CopyPackageVersionsResponse
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#newCopyPackageVersionsResponse"><span class="hs-identifier hs-var hs-var">newCopyPackageVersionsResponse</span></a></span></span><span> </span><span id="local-6989586621679240230"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240230"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-416"></span><span>  </span><span class="annot"><span class="annottext">CopyPackageVersionsResponse' :: Maybe (HashMap Text PackageVersionError)
+-&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo)
+-&gt; Int
+-&gt; CopyPackageVersionsResponse
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse%27"><span class="hs-identifier hs-type">CopyPackageVersionsResponse'</span></a></span><span>
+</span><span id="line-417"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failedVersions:CopyPackageVersionsResponse' :: Maybe (HashMap Text PackageVersionError)
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AfailedVersions%3ACopyPackageVersionsResponse%27"><span class="hs-identifier hs-var">failedVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-418"></span><span>        </span><span class="annot"><span class="annottext">Maybe (HashMap Text PackageVersionError)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-419"></span><span>      </span><span class="annot"><span class="annottext">$sel:successfulVersions:CopyPackageVersionsResponse' :: Maybe (HashMap Text SuccessfulPackageVersionInfo)
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AsuccessfulVersions%3ACopyPackageVersionsResponse%27"><span class="hs-identifier hs-var">successfulVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text SuccessfulPackageVersionInfo)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-420"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CopyPackageVersionsResponse' :: Int
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AhttpStatus%3ACopyPackageVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240230"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-421"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-422"></span><span>
+</span><span id="line-423"></span><span class="hs-comment">-- | A map of package versions that failed to copy and their error codes. The</span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- possible error codes are in the @PackageVersionError@ data type. They</span><span>
+</span><span id="line-425"></span><span class="hs-comment">-- are:</span><span>
+</span><span id="line-426"></span><span class="hs-comment">--</span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- -   @ALREADY_EXISTS@</span><span>
+</span><span id="line-428"></span><span class="hs-comment">--</span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- -   @MISMATCHED_REVISION@</span><span>
+</span><span id="line-430"></span><span class="hs-comment">--</span><span>
+</span><span id="line-431"></span><span class="hs-comment">-- -   @MISMATCHED_STATUS@</span><span>
+</span><span id="line-432"></span><span class="hs-comment">--</span><span>
+</span><span id="line-433"></span><span class="hs-comment">-- -   @NOT_ALLOWED@</span><span>
+</span><span id="line-434"></span><span class="hs-comment">--</span><span>
+</span><span id="line-435"></span><span class="hs-comment">-- -   @NOT_FOUND@</span><span>
+</span><span id="line-436"></span><span class="hs-comment">--</span><span>
+</span><span id="line-437"></span><span class="hs-comment">-- -   @SKIPPED@</span><span>
+</span><span id="line-438"></span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersionsResponse_failedVersions"><span class="hs-identifier hs-type">copyPackageVersionsResponse_failedVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse"><span class="hs-identifier hs-type">CopyPackageVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionError.html#PackageVersionError"><span class="hs-identifier hs-type">PackageVersionError</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-439"></span><span id="copyPackageVersionsResponse_failedVersions"><span class="annot"><span class="annottext">copyPackageVersionsResponse_failedVersions :: (Maybe (HashMap Text PackageVersionError)
+ -&gt; f (Maybe (HashMap Text PackageVersionError)))
+-&gt; CopyPackageVersionsResponse -&gt; f CopyPackageVersionsResponse
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersionsResponse_failedVersions"><span class="hs-identifier hs-var hs-var">copyPackageVersionsResponse_failedVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyPackageVersionsResponse
+ -&gt; Maybe (HashMap Text PackageVersionError))
+-&gt; (CopyPackageVersionsResponse
+    -&gt; Maybe (HashMap Text PackageVersionError)
+    -&gt; CopyPackageVersionsResponse)
+-&gt; Lens
+     CopyPackageVersionsResponse
+     CopyPackageVersionsResponse
+     (Maybe (HashMap Text PackageVersionError))
+     (Maybe (HashMap Text PackageVersionError))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse%27"><span class="hs-identifier hs-type">CopyPackageVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240229"><span class="annot"><span class="annottext">Maybe (HashMap Text PackageVersionError)
+failedVersions :: Maybe (HashMap Text PackageVersionError)
+$sel:failedVersions:CopyPackageVersionsResponse' :: CopyPackageVersionsResponse
+-&gt; Maybe (HashMap Text PackageVersionError)
+</span><a href="#local-6989586621679240229"><span class="hs-identifier hs-var hs-var">failedVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text PackageVersionError)
+</span><a href="#local-6989586621679240229"><span class="hs-identifier hs-var">failedVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240228"><span class="annot"><span class="annottext">s :: CopyPackageVersionsResponse
+</span><a href="#local-6989586621679240228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse%27"><span class="hs-identifier hs-type">CopyPackageVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240227"><span class="annot"><span class="annottext">Maybe (HashMap Text PackageVersionError)
+</span><a href="#local-6989586621679240227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPackageVersionsResponse
+</span><a href="#local-6989586621679240228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedVersions:CopyPackageVersionsResponse' :: Maybe (HashMap Text PackageVersionError)
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AfailedVersions%3ACopyPackageVersionsResponse%27"><span class="hs-identifier hs-var">failedVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text PackageVersionError)
+</span><a href="#local-6989586621679240227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse"><span class="hs-identifier hs-type">CopyPackageVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text PackageVersionError)
+  -&gt; f (Maybe (HashMap Text PackageVersionError)))
+ -&gt; CopyPackageVersionsResponse -&gt; f CopyPackageVersionsResponse)
+-&gt; ((Maybe (HashMap Text PackageVersionError)
+     -&gt; f (Maybe (HashMap Text PackageVersionError)))
+    -&gt; Maybe (HashMap Text PackageVersionError)
+    -&gt; f (Maybe (HashMap Text PackageVersionError)))
+-&gt; (Maybe (HashMap Text PackageVersionError)
+    -&gt; f (Maybe (HashMap Text PackageVersionError)))
+-&gt; CopyPackageVersionsResponse
+-&gt; f CopyPackageVersionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text PackageVersionError)
+  (HashMap Text PackageVersionError)
+  (HashMap Text PackageVersionError)
+  (HashMap Text PackageVersionError)
+-&gt; Iso
+     (Maybe (HashMap Text PackageVersionError))
+     (Maybe (HashMap Text PackageVersionError))
+     (Maybe (HashMap Text PackageVersionError))
+     (Maybe (HashMap Text PackageVersionError))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text PackageVersionError)
+  (HashMap Text PackageVersionError)
+  (HashMap Text PackageVersionError)
+  (HashMap Text PackageVersionError)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-440"></span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- | A list of the package versions that were successfully copied to your</span><span>
+</span><span id="line-442"></span><span class="hs-comment">-- repository.</span><span>
+</span><span id="line-443"></span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersionsResponse_successfulVersions"><span class="hs-identifier hs-type">copyPackageVersionsResponse_successfulVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse"><span class="hs-identifier hs-type">CopyPackageVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.SuccessfulPackageVersionInfo.html#SuccessfulPackageVersionInfo"><span class="hs-identifier hs-type">SuccessfulPackageVersionInfo</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-444"></span><span id="copyPackageVersionsResponse_successfulVersions"><span class="annot"><span class="annottext">copyPackageVersionsResponse_successfulVersions :: (Maybe (HashMap Text SuccessfulPackageVersionInfo)
+ -&gt; f (Maybe (HashMap Text SuccessfulPackageVersionInfo)))
+-&gt; CopyPackageVersionsResponse -&gt; f CopyPackageVersionsResponse
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersionsResponse_successfulVersions"><span class="hs-identifier hs-var hs-var">copyPackageVersionsResponse_successfulVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyPackageVersionsResponse
+ -&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo))
+-&gt; (CopyPackageVersionsResponse
+    -&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo)
+    -&gt; CopyPackageVersionsResponse)
+-&gt; Lens
+     CopyPackageVersionsResponse
+     CopyPackageVersionsResponse
+     (Maybe (HashMap Text SuccessfulPackageVersionInfo))
+     (Maybe (HashMap Text SuccessfulPackageVersionInfo))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse%27"><span class="hs-identifier hs-type">CopyPackageVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240226"><span class="annot"><span class="annottext">Maybe (HashMap Text SuccessfulPackageVersionInfo)
+successfulVersions :: Maybe (HashMap Text SuccessfulPackageVersionInfo)
+$sel:successfulVersions:CopyPackageVersionsResponse' :: CopyPackageVersionsResponse
+-&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo)
+</span><a href="#local-6989586621679240226"><span class="hs-identifier hs-var hs-var">successfulVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text SuccessfulPackageVersionInfo)
+</span><a href="#local-6989586621679240226"><span class="hs-identifier hs-var">successfulVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240225"><span class="annot"><span class="annottext">s :: CopyPackageVersionsResponse
+</span><a href="#local-6989586621679240225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse%27"><span class="hs-identifier hs-type">CopyPackageVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240224"><span class="annot"><span class="annottext">Maybe (HashMap Text SuccessfulPackageVersionInfo)
+</span><a href="#local-6989586621679240224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPackageVersionsResponse
+</span><a href="#local-6989586621679240225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successfulVersions:CopyPackageVersionsResponse' :: Maybe (HashMap Text SuccessfulPackageVersionInfo)
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AsuccessfulVersions%3ACopyPackageVersionsResponse%27"><span class="hs-identifier hs-var">successfulVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text SuccessfulPackageVersionInfo)
+</span><a href="#local-6989586621679240224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse"><span class="hs-identifier hs-type">CopyPackageVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text SuccessfulPackageVersionInfo)
+  -&gt; f (Maybe (HashMap Text SuccessfulPackageVersionInfo)))
+ -&gt; CopyPackageVersionsResponse -&gt; f CopyPackageVersionsResponse)
+-&gt; ((Maybe (HashMap Text SuccessfulPackageVersionInfo)
+     -&gt; f (Maybe (HashMap Text SuccessfulPackageVersionInfo)))
+    -&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo)
+    -&gt; f (Maybe (HashMap Text SuccessfulPackageVersionInfo)))
+-&gt; (Maybe (HashMap Text SuccessfulPackageVersionInfo)
+    -&gt; f (Maybe (HashMap Text SuccessfulPackageVersionInfo)))
+-&gt; CopyPackageVersionsResponse
+-&gt; f CopyPackageVersionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text SuccessfulPackageVersionInfo)
+  (HashMap Text SuccessfulPackageVersionInfo)
+  (HashMap Text SuccessfulPackageVersionInfo)
+  (HashMap Text SuccessfulPackageVersionInfo)
+-&gt; Iso
+     (Maybe (HashMap Text SuccessfulPackageVersionInfo))
+     (Maybe (HashMap Text SuccessfulPackageVersionInfo))
+     (Maybe (HashMap Text SuccessfulPackageVersionInfo))
+     (Maybe (HashMap Text SuccessfulPackageVersionInfo))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text SuccessfulPackageVersionInfo)
+  (HashMap Text SuccessfulPackageVersionInfo)
+  (HashMap Text SuccessfulPackageVersionInfo)
+  (HashMap Text SuccessfulPackageVersionInfo)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-445"></span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-447"></span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersionsResponse_httpStatus"><span class="hs-identifier hs-type">copyPackageVersionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse"><span class="hs-identifier hs-type">CopyPackageVersionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-448"></span><span id="copyPackageVersionsResponse_httpStatus"><span class="annot"><span class="annottext">copyPackageVersionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CopyPackageVersionsResponse -&gt; f CopyPackageVersionsResponse
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#copyPackageVersionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">copyPackageVersionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyPackageVersionsResponse -&gt; Int)
+-&gt; (CopyPackageVersionsResponse
+    -&gt; Int -&gt; CopyPackageVersionsResponse)
+-&gt; Lens
+     CopyPackageVersionsResponse CopyPackageVersionsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse%27"><span class="hs-identifier hs-type">CopyPackageVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240223"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CopyPackageVersionsResponse' :: CopyPackageVersionsResponse -&gt; Int
+</span><a href="#local-6989586621679240223"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240223"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240222"><span class="annot"><span class="annottext">s :: CopyPackageVersionsResponse
+</span><a href="#local-6989586621679240222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse%27"><span class="hs-identifier hs-type">CopyPackageVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240221"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPackageVersionsResponse
+</span><a href="#local-6989586621679240222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CopyPackageVersionsResponse' :: Int
+</span><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#%24sel%3AhttpStatus%3ACopyPackageVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse"><span class="hs-identifier hs-type">CopyPackageVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-449"></span><span>
+</span><span id="line-450"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240219"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.CopyPackageVersions.html#CopyPackageVersionsResponse"><span class="hs-identifier hs-type">CopyPackageVersionsResponse</span></a></span></span><span>
+</span><span id="line-451"></span></pre></body></html>

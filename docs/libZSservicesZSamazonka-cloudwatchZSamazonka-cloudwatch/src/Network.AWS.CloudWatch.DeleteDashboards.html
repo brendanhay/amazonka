@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteDashboards' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679266756"><span id="local-6989586621679266757"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDashboards"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards"><span class="hs-identifier hs-var">DeleteDashboards</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDashboards%27"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards%27"><span class="hs-identifier hs-var">DeleteDashboards'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679266765"><span id="local-6989586621679266766"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDashboards"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards"><span class="hs-identifier hs-var">DeleteDashboards</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDashboards%27"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards%27"><span class="hs-identifier hs-var">DeleteDashboards'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The dashboards to be deleted. This parameter is required.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AdashboardNames%3ADeleteDashboards%27"><span class="annot"><span class="annottext">DeleteDashboards -&gt; [Text]
 </span><a href="Network.AWS.CloudWatch.DeleteDashboards.html#%24sel%3AdashboardNames%3ADeleteDashboards%27"><span class="hs-identifier hs-var hs-var">dashboardNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266750"><span id="local-6989586621679266752"><span class="annot"><span class="annottext">DeleteDashboards -&gt; DeleteDashboards -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266759"><span id="local-6989586621679266761"><span class="annot"><span class="annottext">DeleteDashboards -&gt; DeleteDashboards -&gt; Bool
 (DeleteDashboards -&gt; DeleteDashboards -&gt; Bool)
 -&gt; (DeleteDashboards -&gt; DeleteDashboards -&gt; Bool)
 -&gt; Eq DeleteDashboards
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDashboards -&gt; DeleteDashboards -&gt; Bool
 == :: DeleteDashboards -&gt; DeleteDashboards -&gt; Bool
 $c== :: DeleteDashboards -&gt; DeleteDashboards -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266741"><span id="local-6989586621679266743"><span id="local-6989586621679266745"><span id="local-6989586621679266747"><span class="annot"><span class="annottext">ReadPrec [DeleteDashboards]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266750"><span id="local-6989586621679266752"><span id="local-6989586621679266754"><span id="local-6989586621679266756"><span class="annot"><span class="annottext">ReadPrec [DeleteDashboards]
 ReadPrec DeleteDashboards
 Int -&gt; ReadS DeleteDashboards
 ReadS [DeleteDashboards]
@@ -82,7 +82,7 @@ readList :: ReadS [DeleteDashboards]
 $creadList :: ReadS [DeleteDashboards]
 readsPrec :: Int -&gt; ReadS DeleteDashboards
 $creadsPrec :: Int -&gt; ReadS DeleteDashboards
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266734"><span id="local-6989586621679266736"><span id="local-6989586621679266738"><span class="annot"><span class="annottext">Int -&gt; DeleteDashboards -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266743"><span id="local-6989586621679266745"><span id="local-6989586621679266747"><span class="annot"><span class="annottext">Int -&gt; DeleteDashboards -&gt; ShowS
 [DeleteDashboards] -&gt; ShowS
 DeleteDashboards -&gt; String
 (Int -&gt; DeleteDashboards -&gt; ShowS)
@@ -134,16 +134,16 @@ forall a. Monoid a =&gt; a
 -&gt; (DeleteDashboards -&gt; [Text] -&gt; DeleteDashboards)
 -&gt; Lens DeleteDashboards DeleteDashboards [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards%27"><span class="hs-identifier hs-type">DeleteDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266727"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards%27"><span class="hs-identifier hs-type">DeleteDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266736"><span class="annot"><span class="annottext">[Text]
 dashboardNames :: [Text]
 $sel:dashboardNames:DeleteDashboards' :: DeleteDashboards -&gt; [Text]
-</span><a href="#local-6989586621679266727"><span class="hs-identifier hs-var hs-var">dashboardNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679266727"><span class="hs-identifier hs-var">dashboardNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266726"><span class="annot"><span class="annottext">s :: DeleteDashboards
-</span><a href="#local-6989586621679266726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards%27"><span class="hs-identifier hs-type">DeleteDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266725"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679266725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDashboards
-</span><a href="#local-6989586621679266726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardNames:DeleteDashboards' :: [Text]
+</span><a href="#local-6989586621679266736"><span class="hs-identifier hs-var hs-var">dashboardNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679266736"><span class="hs-identifier hs-var">dashboardNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266735"><span class="annot"><span class="annottext">s :: DeleteDashboards
+</span><a href="#local-6989586621679266735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards%27"><span class="hs-identifier hs-type">DeleteDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266734"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679266734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDashboards
+</span><a href="#local-6989586621679266735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardNames:DeleteDashboards' :: [Text]
 </span><a href="Network.AWS.CloudWatch.DeleteDashboards.html#%24sel%3AdashboardNames%3ADeleteDashboards%27"><span class="hs-identifier hs-var">dashboardNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679266725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards"><span class="hs-identifier hs-type">DeleteDashboards</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; DeleteDashboards -&gt; f DeleteDashboards)
+</span><a href="#local-6989586621679266734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards"><span class="hs-identifier hs-type">DeleteDashboards</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; DeleteDashboards -&gt; f DeleteDashboards)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; DeleteDashboards
@@ -157,12 +157,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards"><span class="hs-identifier hs-type">DeleteDashboards</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboardsResponse"><span class="hs-identifier hs-type">DeleteDashboardsResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679266719"><span class="annot"><span class="annottext">request :: DeleteDashboards -&gt; Request DeleteDashboards
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679266728"><span class="annot"><span class="annottext">request :: DeleteDashboards -&gt; Request DeleteDashboards
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDashboards -&gt; Request DeleteDashboards
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679266715"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679266724"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDashboards
 -&gt; ClientResponse ClientBody
@@ -191,10 +191,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteDashboardsResult&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266712"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266712"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679266711"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679266711"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679266710"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679266710"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266721"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266721"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679266720"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679266720"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679266719"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679266719"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteDashboardsResponse
 </span><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboardsResponse%27"><span class="hs-identifier hs-var">DeleteDashboardsResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteDashboardsResponse)
@@ -205,15 +205,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266712"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266721"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266703"><span id="local-6989586621679266705"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards"><span class="hs-identifier hs-type">DeleteDashboards</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266712"><span id="local-6989586621679266714"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards"><span class="hs-identifier hs-type">DeleteDashboards</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards"><span class="hs-identifier hs-type">DeleteDashboards</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266709"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards"><span class="hs-identifier hs-type">DeleteDashboards</span></a></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards"><span class="hs-identifier hs-type">DeleteDashboards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679266696"><span class="annot"><span class="annottext">toHeaders :: DeleteDashboards -&gt; ResponseHeaders
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679266705"><span class="annot"><span class="annottext">toHeaders :: DeleteDashboards -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteDashboards -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -221,18 +221,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards"><span class="hs-identifier hs-type">DeleteDashboards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679266691"><span class="annot"><span class="annottext">toPath :: DeleteDashboards -&gt; ByteString
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679266700"><span class="annot"><span class="annottext">toPath :: DeleteDashboards -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDashboards -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards"><span class="hs-identifier hs-type">DeleteDashboards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679266687"><span class="annot"><span class="annottext">toQuery :: DeleteDashboards -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards%27"><span class="hs-identifier hs-type">DeleteDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266685"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679266696"><span class="annot"><span class="annottext">toQuery :: DeleteDashboards -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboards%27"><span class="hs-identifier hs-type">DeleteDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266694"><span class="annot"><span class="annottext">[Text]
 dashboardNames :: [Text]
 $sel:dashboardNames:DeleteDashboards' :: DeleteDashboards -&gt; [Text]
-</span><a href="#local-6989586621679266685"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679266694"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -258,16 +258,16 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679266685"><span class="hs-identifier hs-var">dashboardNames</span></a></span><span>
+</span><a href="#local-6989586621679266694"><span class="hs-identifier hs-var">dashboardNames</span></a></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | /See:/ 'newDeleteDashboardsResponse' smart constructor.</span><span>
-</span><span id="line-110"></span><span id="local-6989586621679266681"><span id="local-6989586621679266682"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDashboardsResponse"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboardsResponse"><span class="hs-identifier hs-var">DeleteDashboardsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDashboardsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboardsResponse%27"><span class="hs-identifier hs-var">DeleteDashboardsResponse'</span></a></span></span><span>
+</span><span id="line-110"></span><span id="local-6989586621679266690"><span id="local-6989586621679266691"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDashboardsResponse"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboardsResponse"><span class="hs-identifier hs-var">DeleteDashboardsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDashboardsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboardsResponse%27"><span class="hs-identifier hs-var">DeleteDashboardsResponse'</span></a></span></span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-112"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteDashboardsResponse%27"><span class="annot"><span class="annottext">DeleteDashboardsResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatch.DeleteDashboards.html#%24sel%3AhttpStatus%3ADeleteDashboardsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266676"><span id="local-6989586621679266678"><span class="annot"><span class="annottext">DeleteDashboardsResponse -&gt; DeleteDashboardsResponse -&gt; Bool
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266685"><span id="local-6989586621679266687"><span class="annot"><span class="annottext">DeleteDashboardsResponse -&gt; DeleteDashboardsResponse -&gt; Bool
 (DeleteDashboardsResponse -&gt; DeleteDashboardsResponse -&gt; Bool)
 -&gt; (DeleteDashboardsResponse -&gt; DeleteDashboardsResponse -&gt; Bool)
 -&gt; Eq DeleteDashboardsResponse
@@ -276,7 +276,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDashboardsResponse -&gt; DeleteDashboardsResponse -&gt; Bool
 == :: DeleteDashboardsResponse -&gt; DeleteDashboardsResponse -&gt; Bool
 $c== :: DeleteDashboardsResponse -&gt; DeleteDashboardsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266668"><span id="local-6989586621679266670"><span id="local-6989586621679266672"><span id="local-6989586621679266674"><span class="annot"><span class="annottext">ReadPrec [DeleteDashboardsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266677"><span id="local-6989586621679266679"><span id="local-6989586621679266681"><span id="local-6989586621679266683"><span class="annot"><span class="annottext">ReadPrec [DeleteDashboardsResponse]
 ReadPrec DeleteDashboardsResponse
 Int -&gt; ReadS DeleteDashboardsResponse
 ReadS [DeleteDashboardsResponse]
@@ -296,7 +296,7 @@ readList :: ReadS [DeleteDashboardsResponse]
 $creadList :: ReadS [DeleteDashboardsResponse]
 readsPrec :: Int -&gt; ReadS DeleteDashboardsResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDashboardsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266662"><span id="local-6989586621679266664"><span id="local-6989586621679266666"><span class="annot"><span class="annottext">Int -&gt; DeleteDashboardsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266671"><span id="local-6989586621679266673"><span id="local-6989586621679266675"><span class="annot"><span class="annottext">Int -&gt; DeleteDashboardsResponse -&gt; ShowS
 [DeleteDashboardsResponse] -&gt; ShowS
 DeleteDashboardsResponse -&gt; String
 (Int -&gt; DeleteDashboardsResponse -&gt; ShowS)
@@ -342,14 +342,14 @@ DeleteDashboardsResponse -&gt; Rep DeleteDashboardsResponse x
 </span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboardsResponse"><span class="hs-identifier hs-type">DeleteDashboardsResponse</span></a></span><span>
 </span><span id="line-129"></span><span id="newDeleteDashboardsResponse"><span class="annot"><span class="annottext">newDeleteDashboardsResponse :: Int -&gt; DeleteDashboardsResponse
-</span><a href="Network.AWS.CloudWatch.DeleteDashboards.html#newDeleteDashboardsResponse"><span class="hs-identifier hs-var hs-var">newDeleteDashboardsResponse</span></a></span></span><span> </span><span id="local-6989586621679266659"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266659"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatch.DeleteDashboards.html#newDeleteDashboardsResponse"><span class="hs-identifier hs-var hs-var">newDeleteDashboardsResponse</span></a></span></span><span> </span><span id="local-6989586621679266668"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266668"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">DeleteDashboardsResponse' :: Int -&gt; DeleteDashboardsResponse
 </span><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboardsResponse%27"><span class="hs-identifier hs-type">DeleteDashboardsResponse'</span></a></span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDashboardsResponse' :: Int
 </span><a href="Network.AWS.CloudWatch.DeleteDashboards.html#%24sel%3AhttpStatus%3ADeleteDashboardsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266659"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679266668"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -360,16 +360,16 @@ DeleteDashboardsResponse -&gt; Rep DeleteDashboardsResponse x
 -&gt; (DeleteDashboardsResponse -&gt; Int -&gt; DeleteDashboardsResponse)
 -&gt; Lens DeleteDashboardsResponse DeleteDashboardsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboardsResponse%27"><span class="hs-identifier hs-type">DeleteDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266658"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboardsResponse%27"><span class="hs-identifier hs-type">DeleteDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266667"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteDashboardsResponse' :: DeleteDashboardsResponse -&gt; Int
-</span><a href="#local-6989586621679266658"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266658"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266657"><span class="annot"><span class="annottext">s :: DeleteDashboardsResponse
-</span><a href="#local-6989586621679266657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboardsResponse%27"><span class="hs-identifier hs-type">DeleteDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266656"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDashboardsResponse
-</span><a href="#local-6989586621679266657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDashboardsResponse' :: Int
+</span><a href="#local-6989586621679266667"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266667"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266666"><span class="annot"><span class="annottext">s :: DeleteDashboardsResponse
+</span><a href="#local-6989586621679266666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboardsResponse%27"><span class="hs-identifier hs-type">DeleteDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266665"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDashboardsResponse
+</span><a href="#local-6989586621679266666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDashboardsResponse' :: Int
 </span><a href="Network.AWS.CloudWatch.DeleteDashboards.html#%24sel%3AhttpStatus%3ADeleteDashboardsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboardsResponse"><span class="hs-identifier hs-type">DeleteDashboardsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboardsResponse"><span class="hs-identifier hs-type">DeleteDashboardsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266654"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboardsResponse"><span class="hs-identifier hs-type">DeleteDashboardsResponse</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266663"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DeleteDashboards.html#DeleteDashboardsResponse"><span class="hs-identifier hs-type">DeleteDashboardsResponse</span></a></span></span><span>
 </span><span id="line-140"></span></pre></body></html>

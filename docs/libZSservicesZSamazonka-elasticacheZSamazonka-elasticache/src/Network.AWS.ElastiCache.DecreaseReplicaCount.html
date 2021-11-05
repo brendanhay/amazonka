@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDecreaseReplicaCount' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679421479"><span id="local-6989586621679421480"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecreaseReplicaCount"><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-var">DecreaseReplicaCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecreaseReplicaCount%27"><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-var">DecreaseReplicaCount'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679421488"><span id="local-6989586621679421489"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecreaseReplicaCount"><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-var">DecreaseReplicaCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecreaseReplicaCount%27"><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-var">DecreaseReplicaCount'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of read replica nodes you want at the completion of this</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- operation. For Redis (cluster mode disabled) replication groups, this is</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- the number of replica nodes in the replication group. For Redis (cluster</span><span>
@@ -92,7 +92,7 @@
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3AapplyImmediately%3ADecreaseReplicaCount%27"><span class="annot"><span class="annottext">DecreaseReplicaCount -&gt; Bool
 </span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#%24sel%3AapplyImmediately%3ADecreaseReplicaCount%27"><span class="hs-identifier hs-var hs-var">applyImmediately</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679421469"><span id="local-6989586621679421471"><span class="annot"><span class="annottext">DecreaseReplicaCount -&gt; DecreaseReplicaCount -&gt; Bool
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679421478"><span id="local-6989586621679421480"><span class="annot"><span class="annottext">DecreaseReplicaCount -&gt; DecreaseReplicaCount -&gt; Bool
 (DecreaseReplicaCount -&gt; DecreaseReplicaCount -&gt; Bool)
 -&gt; (DecreaseReplicaCount -&gt; DecreaseReplicaCount -&gt; Bool)
 -&gt; Eq DecreaseReplicaCount
@@ -101,7 +101,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DecreaseReplicaCount -&gt; DecreaseReplicaCount -&gt; Bool
 == :: DecreaseReplicaCount -&gt; DecreaseReplicaCount -&gt; Bool
 $c== :: DecreaseReplicaCount -&gt; DecreaseReplicaCount -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421460"><span id="local-6989586621679421462"><span id="local-6989586621679421464"><span id="local-6989586621679421466"><span class="annot"><span class="annottext">ReadPrec [DecreaseReplicaCount]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421469"><span id="local-6989586621679421471"><span id="local-6989586621679421473"><span id="local-6989586621679421475"><span class="annot"><span class="annottext">ReadPrec [DecreaseReplicaCount]
 ReadPrec DecreaseReplicaCount
 Int -&gt; ReadS DecreaseReplicaCount
 ReadS [DecreaseReplicaCount]
@@ -121,7 +121,7 @@ readList :: ReadS [DecreaseReplicaCount]
 $creadList :: ReadS [DecreaseReplicaCount]
 readsPrec :: Int -&gt; ReadS DecreaseReplicaCount
 $creadsPrec :: Int -&gt; ReadS DecreaseReplicaCount
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421453"><span id="local-6989586621679421455"><span id="local-6989586621679421457"><span class="annot"><span class="annottext">Int -&gt; DecreaseReplicaCount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421462"><span id="local-6989586621679421464"><span id="local-6989586621679421466"><span class="annot"><span class="annottext">Int -&gt; DecreaseReplicaCount -&gt; ShowS
 [DecreaseReplicaCount] -&gt; ShowS
 DecreaseReplicaCount -&gt; String
 (Int -&gt; DecreaseReplicaCount -&gt; ShowS)
@@ -193,10 +193,10 @@ $cfrom :: forall x. DecreaseReplicaCount -&gt; Rep DecreaseReplicaCount x
 </span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span><span>
 </span><span id="line-136"></span><span id="newDecreaseReplicaCount"><span class="annot"><span class="annottext">newDecreaseReplicaCount :: Text -&gt; Bool -&gt; DecreaseReplicaCount
 </span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#newDecreaseReplicaCount"><span class="hs-identifier hs-var hs-var">newDecreaseReplicaCount</span></a></span></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679421448"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421448"><span class="hs-identifier hs-var">pReplicationGroupId_</span></a></span></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679421447"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679421447"><span class="hs-identifier hs-var">pApplyImmediately_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679421457"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421457"><span class="hs-identifier hs-var">pReplicationGroupId_</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679421456"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679421456"><span class="hs-identifier hs-var">pApplyImmediately_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">DecreaseReplicaCount' :: Maybe Int
 -&gt; Maybe [ConfigureShard]
 -&gt; Maybe [Text]
@@ -219,10 +219,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:replicationGroupId:DecreaseReplicaCount' :: Text
 </span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#%24sel%3AreplicationGroupId%3ADecreaseReplicaCount%27"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421448"><span class="hs-identifier hs-var">pReplicationGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679421457"><span class="hs-identifier hs-var">pReplicationGroupId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:applyImmediately:DecreaseReplicaCount' :: Bool
 </span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#%24sel%3AapplyImmediately%3ADecreaseReplicaCount%27"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679421447"><span class="hs-identifier hs-var">pApplyImmediately_</span></a></span><span>
+</span><a href="#local-6989586621679421456"><span class="hs-identifier hs-var">pApplyImmediately_</span></a></span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The number of read replica nodes you want at the completion of this</span><span>
@@ -249,16 +249,16 @@ forall a. Maybe a
 -&gt; Lens
      DecreaseReplicaCount DecreaseReplicaCount (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421444"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421453"><span class="annot"><span class="annottext">Maybe Int
 newReplicaCount' :: Maybe Int
 $sel:newReplicaCount':DecreaseReplicaCount' :: DecreaseReplicaCount -&gt; Maybe Int
-</span><a href="#local-6989586621679421444"><span class="hs-identifier hs-var hs-var">newReplicaCount'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679421444"><span class="hs-identifier hs-var">newReplicaCount'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421443"><span class="annot"><span class="annottext">s :: DecreaseReplicaCount
-</span><a href="#local-6989586621679421443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421442"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679421442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicaCount
-</span><a href="#local-6989586621679421443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newReplicaCount':DecreaseReplicaCount' :: Maybe Int
+</span><a href="#local-6989586621679421453"><span class="hs-identifier hs-var hs-var">newReplicaCount'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679421453"><span class="hs-identifier hs-var">newReplicaCount'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421452"><span class="annot"><span class="annottext">s :: DecreaseReplicaCount
+</span><a href="#local-6989586621679421452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421451"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679421451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicaCount
+</span><a href="#local-6989586621679421452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newReplicaCount':DecreaseReplicaCount' :: Maybe Int
 </span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#%24sel%3AnewReplicaCount%27%3ADecreaseReplicaCount%27"><span class="hs-identifier hs-var">newReplicaCount'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679421442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679421451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | A list of @ConfigureShard@ objects that can be used to configure each</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- shard in a Redis (cluster mode enabled) replication group. The</span><span>
@@ -276,16 +276,16 @@ $sel:newReplicaCount':DecreaseReplicaCount' :: DecreaseReplicaCount -&gt; Maybe 
      (Maybe [ConfigureShard])
      (Maybe [ConfigureShard])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421441"><span class="annot"><span class="annottext">Maybe [ConfigureShard]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421450"><span class="annot"><span class="annottext">Maybe [ConfigureShard]
 replicaConfiguration :: Maybe [ConfigureShard]
 $sel:replicaConfiguration:DecreaseReplicaCount' :: DecreaseReplicaCount -&gt; Maybe [ConfigureShard]
-</span><a href="#local-6989586621679421441"><span class="hs-identifier hs-var hs-var">replicaConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigureShard]
-</span><a href="#local-6989586621679421441"><span class="hs-identifier hs-var">replicaConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421440"><span class="annot"><span class="annottext">s :: DecreaseReplicaCount
-</span><a href="#local-6989586621679421440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421439"><span class="annot"><span class="annottext">Maybe [ConfigureShard]
-</span><a href="#local-6989586621679421439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicaCount
-</span><a href="#local-6989586621679421440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaConfiguration:DecreaseReplicaCount' :: Maybe [ConfigureShard]
+</span><a href="#local-6989586621679421450"><span class="hs-identifier hs-var hs-var">replicaConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigureShard]
+</span><a href="#local-6989586621679421450"><span class="hs-identifier hs-var">replicaConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421449"><span class="annot"><span class="annottext">s :: DecreaseReplicaCount
+</span><a href="#local-6989586621679421449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421448"><span class="annot"><span class="annottext">Maybe [ConfigureShard]
+</span><a href="#local-6989586621679421448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicaCount
+</span><a href="#local-6989586621679421449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaConfiguration:DecreaseReplicaCount' :: Maybe [ConfigureShard]
 </span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#%24sel%3AreplicaConfiguration%3ADecreaseReplicaCount%27"><span class="hs-identifier hs-var">replicaConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigureShard]
-</span><a href="#local-6989586621679421439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConfigureShard] -&gt; f (Maybe [ConfigureShard]))
+</span><a href="#local-6989586621679421448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConfigureShard] -&gt; f (Maybe [ConfigureShard]))
  -&gt; DecreaseReplicaCount -&gt; f DecreaseReplicaCount)
 -&gt; ((Maybe [ConfigureShard] -&gt; f (Maybe [ConfigureShard]))
     -&gt; Maybe [ConfigureShard] -&gt; f (Maybe [ConfigureShard]))
@@ -321,16 +321,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421435"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421444"><span class="annot"><span class="annottext">Maybe [Text]
 replicasToRemove :: Maybe [Text]
 $sel:replicasToRemove:DecreaseReplicaCount' :: DecreaseReplicaCount -&gt; Maybe [Text]
-</span><a href="#local-6989586621679421435"><span class="hs-identifier hs-var hs-var">replicasToRemove</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679421435"><span class="hs-identifier hs-var">replicasToRemove</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421434"><span class="annot"><span class="annottext">s :: DecreaseReplicaCount
-</span><a href="#local-6989586621679421434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421433"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679421433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicaCount
-</span><a href="#local-6989586621679421434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicasToRemove:DecreaseReplicaCount' :: Maybe [Text]
+</span><a href="#local-6989586621679421444"><span class="hs-identifier hs-var hs-var">replicasToRemove</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679421444"><span class="hs-identifier hs-var">replicasToRemove</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421443"><span class="annot"><span class="annottext">s :: DecreaseReplicaCount
+</span><a href="#local-6989586621679421443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421442"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679421442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicaCount
+</span><a href="#local-6989586621679421443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicasToRemove:DecreaseReplicaCount' :: Maybe [Text]
 </span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#%24sel%3AreplicasToRemove%3ADecreaseReplicaCount%27"><span class="hs-identifier hs-var">replicasToRemove</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679421433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679421442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DecreaseReplicaCount -&gt; f DecreaseReplicaCount)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -355,16 +355,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DecreaseReplicaCount -&gt; Text -&gt; DecreaseReplicaCount)
 -&gt; Lens DecreaseReplicaCount DecreaseReplicaCount Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421432"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421441"><span class="annot"><span class="annottext">Text
 replicationGroupId :: Text
 $sel:replicationGroupId:DecreaseReplicaCount' :: DecreaseReplicaCount -&gt; Text
-</span><a href="#local-6989586621679421432"><span class="hs-identifier hs-var hs-var">replicationGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421432"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421431"><span class="annot"><span class="annottext">s :: DecreaseReplicaCount
-</span><a href="#local-6989586621679421431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421430"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicaCount
-</span><a href="#local-6989586621679421431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroupId:DecreaseReplicaCount' :: Text
+</span><a href="#local-6989586621679421441"><span class="hs-identifier hs-var hs-var">replicationGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421441"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421440"><span class="annot"><span class="annottext">s :: DecreaseReplicaCount
+</span><a href="#local-6989586621679421440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421439"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicaCount
+</span><a href="#local-6989586621679421440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroupId:DecreaseReplicaCount' :: Text
 </span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#%24sel%3AreplicationGroupId%3ADecreaseReplicaCount%27"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679421439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | If @True@, the number of replica nodes is decreased immediately.</span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- @ApplyImmediately=False@ is not currently supported.</span><span>
@@ -374,27 +374,27 @@ $sel:replicationGroupId:DecreaseReplicaCount' :: DecreaseReplicaCount -&gt; Text
 -&gt; (DecreaseReplicaCount -&gt; Bool -&gt; DecreaseReplicaCount)
 -&gt; Lens DecreaseReplicaCount DecreaseReplicaCount Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421429"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421438"><span class="annot"><span class="annottext">Bool
 applyImmediately :: Bool
 $sel:applyImmediately:DecreaseReplicaCount' :: DecreaseReplicaCount -&gt; Bool
-</span><a href="#local-6989586621679421429"><span class="hs-identifier hs-var hs-var">applyImmediately</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679421429"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421428"><span class="annot"><span class="annottext">s :: DecreaseReplicaCount
-</span><a href="#local-6989586621679421428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421427"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679421427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicaCount
-</span><a href="#local-6989586621679421428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyImmediately:DecreaseReplicaCount' :: Bool
+</span><a href="#local-6989586621679421438"><span class="hs-identifier hs-var hs-var">applyImmediately</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679421438"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421437"><span class="annot"><span class="annottext">s :: DecreaseReplicaCount
+</span><a href="#local-6989586621679421437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421436"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679421436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicaCount
+</span><a href="#local-6989586621679421437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyImmediately:DecreaseReplicaCount' :: Bool
 </span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#%24sel%3AapplyImmediately%3ADecreaseReplicaCount%27"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679421427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679421436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-191"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>      </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse</span></a></span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679421423"><span class="annot"><span class="annottext">request :: DecreaseReplicaCount -&gt; Request DecreaseReplicaCount
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679421432"><span class="annot"><span class="annottext">request :: DecreaseReplicaCount -&gt; Request DecreaseReplicaCount
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DecreaseReplicaCount -&gt; Request DecreaseReplicaCount
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679421419"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679421428"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DecreaseReplicaCount
 -&gt; ClientResponse ClientBody
@@ -425,10 +425,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DecreaseReplicaCountResult&quot;</span></span><span>
-</span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679421416"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421416"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679421415"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679421415"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679421414"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679421414"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679421425"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679421425"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679421424"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679421424"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679421423"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679421423"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReplicationGroup -&gt; Int -&gt; DecreaseReplicaCountResponse
 </span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse%27"><span class="hs-identifier hs-var">DecreaseReplicaCountResponse'</span></a></span><span>
 </span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ReplicationGroup -&gt; Int -&gt; DecreaseReplicaCountResponse)
@@ -436,7 +436,7 @@ Text
 -&gt; Either String (Int -&gt; DecreaseReplicaCountResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679421414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReplicationGroup)
+</span><a href="#local-6989586621679421423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReplicationGroup)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReplicationGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -448,15 +448,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421416"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679421425"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679421406"><span id="local-6989586621679421408"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span></span></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679421415"><span id="local-6989586621679421417"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span></span></span><span>
 </span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679421403"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679421412"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span></span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679421399"><span class="annot"><span class="annottext">toHeaders :: DecreaseReplicaCount -&gt; ResponseHeaders
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679421408"><span class="annot"><span class="annottext">toHeaders :: DecreaseReplicaCount -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DecreaseReplicaCount -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -464,15 +464,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679421394"><span class="annot"><span class="annottext">toPath :: DecreaseReplicaCount -&gt; ByteString
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679421403"><span class="annot"><span class="annottext">toPath :: DecreaseReplicaCount -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DecreaseReplicaCount -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount"><span class="hs-identifier hs-type">DecreaseReplicaCount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679421390"><span class="annot"><span class="annottext">toQuery :: DecreaseReplicaCount -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421384"><span id="local-6989586621679421385"><span id="local-6989586621679421386"><span id="local-6989586621679421387"><span id="local-6989586621679421388"><span class="annot"><span class="annottext">Bool
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679421399"><span class="annot"><span class="annottext">toQuery :: DecreaseReplicaCount -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCount%27"><span class="hs-identifier hs-type">DecreaseReplicaCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421393"><span id="local-6989586621679421394"><span id="local-6989586621679421395"><span id="local-6989586621679421396"><span id="local-6989586621679421397"><span class="annot"><span class="annottext">Bool
 Maybe Int
 Maybe [Text]
 Maybe [ConfigureShard]
@@ -487,7 +487,7 @@ $sel:replicationGroupId:DecreaseReplicaCount' :: DecreaseReplicaCount -&gt; Text
 $sel:replicasToRemove:DecreaseReplicaCount' :: DecreaseReplicaCount -&gt; Maybe [Text]
 $sel:replicaConfiguration:DecreaseReplicaCount' :: DecreaseReplicaCount -&gt; Maybe [ConfigureShard]
 $sel:newReplicaCount':DecreaseReplicaCount' :: DecreaseReplicaCount -&gt; Maybe Int
-</span><a href="#local-6989586621679421384"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679421393"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -507,7 +507,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;NewReplicaCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679421388"><span class="hs-identifier hs-var">newReplicaCount'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679421397"><span class="hs-identifier hs-var">newReplicaCount'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReplicaConfiguration&quot;</span></span><span>
 </span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -525,7 +525,7 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [ConfigureShard] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigureShard]
-</span><a href="#local-6989586621679421387"><span class="hs-identifier hs-var">replicaConfiguration</span></a></span><span>
+</span><a href="#local-6989586621679421396"><span class="hs-identifier hs-var">replicaConfiguration</span></a></span><span>
 </span><span id="line-225"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReplicasToRemove&quot;</span></span><span>
@@ -543,29 +543,29 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-229"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679421386"><span class="hs-identifier hs-var">replicasToRemove</span></a></span><span>
+</span><a href="#local-6989586621679421395"><span class="hs-identifier hs-var">replicasToRemove</span></a></span><span>
 </span><span id="line-230"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReplicationGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679421385"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679421394"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ApplyImmediately&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679421384"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span>
+</span><a href="#local-6989586621679421393"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span>
 </span><span id="line-233"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | /See:/ 'newDecreaseReplicaCountResponse' smart constructor.</span><span>
-</span><span id="line-236"></span><span id="local-6989586621679421380"><span id="local-6989586621679421381"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecreaseReplicaCountResponse"><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse"><span class="hs-identifier hs-var">DecreaseReplicaCountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecreaseReplicaCountResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse%27"><span class="hs-identifier hs-var">DecreaseReplicaCountResponse'</span></a></span></span><span>
+</span><span id="line-236"></span><span id="local-6989586621679421389"><span id="local-6989586621679421390"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecreaseReplicaCountResponse"><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse"><span class="hs-identifier hs-var">DecreaseReplicaCountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecreaseReplicaCountResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse%27"><span class="hs-identifier hs-var">DecreaseReplicaCountResponse'</span></a></span></span><span>
 </span><span id="line-237"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AreplicationGroup%3ADecreaseReplicaCountResponse%27"><span class="annot"><span class="annottext">DecreaseReplicaCountResponse -&gt; Maybe ReplicationGroup
 </span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#%24sel%3AreplicationGroup%3ADecreaseReplicaCountResponse%27"><span class="hs-identifier hs-var hs-var">replicationGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.ReplicationGroup.html#ReplicationGroup"><span class="hs-identifier hs-type">ReplicationGroup</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-238"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-239"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADecreaseReplicaCountResponse%27"><span class="annot"><span class="annottext">DecreaseReplicaCountResponse -&gt; Int
 </span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#%24sel%3AhttpStatus%3ADecreaseReplicaCountResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-240"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-241"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679421374"><span id="local-6989586621679421376"><span class="annot"><span class="annottext">DecreaseReplicaCountResponse
+</span><span id="line-241"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679421383"><span id="local-6989586621679421385"><span class="annot"><span class="annottext">DecreaseReplicaCountResponse
 -&gt; DecreaseReplicaCountResponse -&gt; Bool
 (DecreaseReplicaCountResponse
  -&gt; DecreaseReplicaCountResponse -&gt; Bool)
@@ -581,7 +581,7 @@ $c/= :: DecreaseReplicaCountResponse
 -&gt; DecreaseReplicaCountResponse -&gt; Bool
 $c== :: DecreaseReplicaCountResponse
 -&gt; DecreaseReplicaCountResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421366"><span id="local-6989586621679421368"><span id="local-6989586621679421370"><span id="local-6989586621679421372"><span class="annot"><span class="annottext">ReadPrec [DecreaseReplicaCountResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421375"><span id="local-6989586621679421377"><span id="local-6989586621679421379"><span id="local-6989586621679421381"><span class="annot"><span class="annottext">ReadPrec [DecreaseReplicaCountResponse]
 ReadPrec DecreaseReplicaCountResponse
 Int -&gt; ReadS DecreaseReplicaCountResponse
 ReadS [DecreaseReplicaCountResponse]
@@ -601,7 +601,7 @@ readList :: ReadS [DecreaseReplicaCountResponse]
 $creadList :: ReadS [DecreaseReplicaCountResponse]
 readsPrec :: Int -&gt; ReadS DecreaseReplicaCountResponse
 $creadsPrec :: Int -&gt; ReadS DecreaseReplicaCountResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421360"><span id="local-6989586621679421362"><span id="local-6989586621679421364"><span class="annot"><span class="annottext">Int -&gt; DecreaseReplicaCountResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421369"><span id="local-6989586621679421371"><span id="local-6989586621679421373"><span class="annot"><span class="annottext">Int -&gt; DecreaseReplicaCountResponse -&gt; ShowS
 [DecreaseReplicaCountResponse] -&gt; ShowS
 DecreaseReplicaCountResponse -&gt; String
 (Int -&gt; DecreaseReplicaCountResponse -&gt; ShowS)
@@ -649,8 +649,8 @@ DecreaseReplicaCountResponse -&gt; Rep DecreaseReplicaCountResponse x
 </span><span id="line-256"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-257"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse</span></a></span><span>
 </span><span id="line-258"></span><span id="newDecreaseReplicaCountResponse"><span class="annot"><span class="annottext">newDecreaseReplicaCountResponse :: Int -&gt; DecreaseReplicaCountResponse
-</span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#newDecreaseReplicaCountResponse"><span class="hs-identifier hs-var hs-var">newDecreaseReplicaCountResponse</span></a></span></span><span> </span><span id="local-6989586621679421357"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421357"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#newDecreaseReplicaCountResponse"><span class="hs-identifier hs-var hs-var">newDecreaseReplicaCountResponse</span></a></span></span><span> </span><span id="local-6989586621679421366"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679421366"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-259"></span><span>  </span><span class="annot"><span class="annottext">DecreaseReplicaCountResponse' :: Maybe ReplicationGroup -&gt; Int -&gt; DecreaseReplicaCountResponse
 </span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse%27"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse'</span></a></span><span>
 </span><span id="line-260"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicationGroup:DecreaseReplicaCountResponse' :: Maybe ReplicationGroup
@@ -660,7 +660,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-262"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DecreaseReplicaCountResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#%24sel%3AhttpStatus%3ADecreaseReplicaCountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421357"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679421366"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-263"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -676,16 +676,16 @@ forall a. Maybe a
      (Maybe ReplicationGroup)
      (Maybe ReplicationGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse%27"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421356"><span class="annot"><span class="annottext">Maybe ReplicationGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse%27"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421365"><span class="annot"><span class="annottext">Maybe ReplicationGroup
 replicationGroup :: Maybe ReplicationGroup
 $sel:replicationGroup:DecreaseReplicaCountResponse' :: DecreaseReplicaCountResponse -&gt; Maybe ReplicationGroup
-</span><a href="#local-6989586621679421356"><span class="hs-identifier hs-var hs-var">replicationGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationGroup
-</span><a href="#local-6989586621679421356"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421355"><span class="annot"><span class="annottext">s :: DecreaseReplicaCountResponse
-</span><a href="#local-6989586621679421355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse%27"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421354"><span class="annot"><span class="annottext">Maybe ReplicationGroup
-</span><a href="#local-6989586621679421354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicaCountResponse
-</span><a href="#local-6989586621679421355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroup:DecreaseReplicaCountResponse' :: Maybe ReplicationGroup
+</span><a href="#local-6989586621679421365"><span class="hs-identifier hs-var hs-var">replicationGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationGroup
+</span><a href="#local-6989586621679421365"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421364"><span class="annot"><span class="annottext">s :: DecreaseReplicaCountResponse
+</span><a href="#local-6989586621679421364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse%27"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421363"><span class="annot"><span class="annottext">Maybe ReplicationGroup
+</span><a href="#local-6989586621679421363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicaCountResponse
+</span><a href="#local-6989586621679421364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroup:DecreaseReplicaCountResponse' :: Maybe ReplicationGroup
 </span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#%24sel%3AreplicationGroup%3ADecreaseReplicaCountResponse%27"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationGroup
-</span><a href="#local-6989586621679421354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679421363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-268"></span><span>
 </span><span id="line-269"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-270"></span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#decreaseReplicaCountResponse_httpStatus"><span class="hs-identifier hs-type">decreaseReplicaCountResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -697,16 +697,16 @@ $sel:replicationGroup:DecreaseReplicaCountResponse' :: DecreaseReplicaCountRespo
 -&gt; Lens
      DecreaseReplicaCountResponse DecreaseReplicaCountResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse%27"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421353"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse%27"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421362"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DecreaseReplicaCountResponse' :: DecreaseReplicaCountResponse -&gt; Int
-</span><a href="#local-6989586621679421353"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421353"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421352"><span class="annot"><span class="annottext">s :: DecreaseReplicaCountResponse
-</span><a href="#local-6989586621679421352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse%27"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421351"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicaCountResponse
-</span><a href="#local-6989586621679421352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DecreaseReplicaCountResponse' :: Int
+</span><a href="#local-6989586621679421362"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679421362"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421361"><span class="annot"><span class="annottext">s :: DecreaseReplicaCountResponse
+</span><a href="#local-6989586621679421361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse%27"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421360"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679421360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicaCountResponse
+</span><a href="#local-6989586621679421361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DecreaseReplicaCountResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#%24sel%3AhttpStatus%3ADecreaseReplicaCountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679421351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679421360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-272"></span><span>
-</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679421349"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse</span></a></span></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679421358"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DecreaseReplicaCount.html#DecreaseReplicaCountResponse"><span class="hs-identifier hs-type">DecreaseReplicaCountResponse</span></a></span></span><span>
 </span><span id="line-274"></span></pre></body></html>

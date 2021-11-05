@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DataSync.Types.PosixPermissions</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DataSync.Types.PosixPermissions</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.PosixPermissions.html#PosixPermissions"><span class="hs-identifier">PosixPermissions</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DataSync.Types.PosixPermissions.html#PosixPermissions_NONE"><span class="hs-identifier">PosixPermissions_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DataSync.Types.PosixPermissions.html#PosixPermissions_PRESERVE"><span class="hs-identifier">PosixPermissions_PRESERVE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679250104"><span id="local-6989586621679250105"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PosixPermissions"><span class="annot"><a href="Network.AWS.DataSync.Types.PosixPermissions.html#PosixPermissions"><span class="hs-identifier hs-var">PosixPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PosixPermissions%27"><span class="annot"><a href="Network.AWS.DataSync.Types.PosixPermissions.html#PosixPermissions%27"><span class="hs-identifier hs-var">PosixPermissions'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPosixPermissions"><span class="annot"><span class="annottext">PosixPermissions -&gt; Text
+</span><a href="Network.AWS.DataSync.Types.PosixPermissions.html#fromPosixPermissions"><span class="hs-identifier hs-var hs-var">fromPosixPermissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250096"><span id="local-6989586621679250098"><span id="local-6989586621679250100"><span class="annot"><span class="annottext">Int -&gt; PosixPermissions -&gt; ShowS
+[PosixPermissions] -&gt; ShowS
+PosixPermissions -&gt; String
+(Int -&gt; PosixPermissions -&gt; ShowS)
+-&gt; (PosixPermissions -&gt; String)
+-&gt; ([PosixPermissions] -&gt; ShowS)
+-&gt; Show PosixPermissions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PosixPermissions] -&gt; ShowS
+$cshowList :: [PosixPermissions] -&gt; ShowS
+show :: PosixPermissions -&gt; String
+$cshow :: PosixPermissions -&gt; String
+showsPrec :: Int -&gt; PosixPermissions -&gt; ShowS
+$cshowsPrec :: Int -&gt; PosixPermissions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679250087"><span id="local-6989586621679250089"><span id="local-6989586621679250091"><span id="local-6989586621679250093"><span class="annot"><span class="annottext">ReadPrec [PosixPermissions]
+ReadPrec PosixPermissions
+Int -&gt; ReadS PosixPermissions
+ReadS [PosixPermissions]
+(Int -&gt; ReadS PosixPermissions)
+-&gt; ReadS [PosixPermissions]
+-&gt; ReadPrec PosixPermissions
+-&gt; ReadPrec [PosixPermissions]
+-&gt; Read PosixPermissions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PosixPermissions]
+$creadListPrec :: ReadPrec [PosixPermissions]
+readPrec :: ReadPrec PosixPermissions
+$creadPrec :: ReadPrec PosixPermissions
+readList :: ReadS [PosixPermissions]
+$creadList :: ReadS [PosixPermissions]
+readsPrec :: Int -&gt; ReadS PosixPermissions
+$creadsPrec :: Int -&gt; ReadS PosixPermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679250082"><span id="local-6989586621679250084"><span class="annot"><span class="annottext">PosixPermissions -&gt; PosixPermissions -&gt; Bool
+(PosixPermissions -&gt; PosixPermissions -&gt; Bool)
+-&gt; (PosixPermissions -&gt; PosixPermissions -&gt; Bool)
+-&gt; Eq PosixPermissions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PosixPermissions -&gt; PosixPermissions -&gt; Bool
+$c/= :: PosixPermissions -&gt; PosixPermissions -&gt; Bool
+== :: PosixPermissions -&gt; PosixPermissions -&gt; Bool
+$c== :: PosixPermissions -&gt; PosixPermissions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679250066"><span id="local-6989586621679250068"><span id="local-6989586621679250070"><span id="local-6989586621679250072"><span id="local-6989586621679250074"><span id="local-6989586621679250076"><span id="local-6989586621679250078"><span class="annot"><span class="annottext">Eq PosixPermissions
+Eq PosixPermissions
+-&gt; (PosixPermissions -&gt; PosixPermissions -&gt; Ordering)
+-&gt; (PosixPermissions -&gt; PosixPermissions -&gt; Bool)
+-&gt; (PosixPermissions -&gt; PosixPermissions -&gt; Bool)
+-&gt; (PosixPermissions -&gt; PosixPermissions -&gt; Bool)
+-&gt; (PosixPermissions -&gt; PosixPermissions -&gt; Bool)
+-&gt; (PosixPermissions -&gt; PosixPermissions -&gt; PosixPermissions)
+-&gt; (PosixPermissions -&gt; PosixPermissions -&gt; PosixPermissions)
+-&gt; Ord PosixPermissions
+PosixPermissions -&gt; PosixPermissions -&gt; Bool
+PosixPermissions -&gt; PosixPermissions -&gt; Ordering
+PosixPermissions -&gt; PosixPermissions -&gt; PosixPermissions
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PosixPermissions -&gt; PosixPermissions -&gt; PosixPermissions
+$cmin :: PosixPermissions -&gt; PosixPermissions -&gt; PosixPermissions
+max :: PosixPermissions -&gt; PosixPermissions -&gt; PosixPermissions
+$cmax :: PosixPermissions -&gt; PosixPermissions -&gt; PosixPermissions
+&gt;= :: PosixPermissions -&gt; PosixPermissions -&gt; Bool
+$c&gt;= :: PosixPermissions -&gt; PosixPermissions -&gt; Bool
+&gt; :: PosixPermissions -&gt; PosixPermissions -&gt; Bool
+$c&gt; :: PosixPermissions -&gt; PosixPermissions -&gt; Bool
+&lt;= :: PosixPermissions -&gt; PosixPermissions -&gt; Bool
+$c&lt;= :: PosixPermissions -&gt; PosixPermissions -&gt; Bool
+&lt; :: PosixPermissions -&gt; PosixPermissions -&gt; Bool
+$c&lt; :: PosixPermissions -&gt; PosixPermissions -&gt; Bool
+compare :: PosixPermissions -&gt; PosixPermissions -&gt; Ordering
+$ccompare :: PosixPermissions -&gt; PosixPermissions -&gt; Ordering
+$cp1Ord :: Eq PosixPermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PosixPermissions -&gt; Rep PosixPermissions x)
+-&gt; (forall x. Rep PosixPermissions x -&gt; PosixPermissions)
+-&gt; Generic PosixPermissions
+forall x. Rep PosixPermissions x -&gt; PosixPermissions
+forall x. PosixPermissions -&gt; Rep PosixPermissions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PosixPermissions x -&gt; PosixPermissions
+$cfrom :: forall x. PosixPermissions -&gt; Rep PosixPermissions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250058"><span id="local-6989586621679250060"><span class="annot"><span class="annottext">Int -&gt; PosixPermissions -&gt; Int
+PosixPermissions -&gt; Int
+(Int -&gt; PosixPermissions -&gt; Int)
+-&gt; (PosixPermissions -&gt; Int) -&gt; Hashable PosixPermissions
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PosixPermissions -&gt; Int
+$chash :: PosixPermissions -&gt; Int
+hashWithSalt :: Int -&gt; PosixPermissions -&gt; Int
+$chashWithSalt :: Int -&gt; PosixPermissions -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679250055"><span class="annot"><span class="annottext">PosixPermissions -&gt; ()
+(PosixPermissions -&gt; ()) -&gt; NFData PosixPermissions
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PosixPermissions -&gt; ()
+$crnf :: PosixPermissions -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679250052"><span class="annot"><span class="annottext">Text -&gt; Either String PosixPermissions
+(Text -&gt; Either String PosixPermissions)
+-&gt; FromText PosixPermissions
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PosixPermissions
+$cfromText :: Text -&gt; Either String PosixPermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679250049"><span class="annot"><span class="annottext">PosixPermissions -&gt; Text
+(PosixPermissions -&gt; Text) -&gt; ToText PosixPermissions
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PosixPermissions -&gt; Text
+$ctoText :: PosixPermissions -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679250046"><span class="annot"><span class="annottext">PosixPermissions -&gt; ByteString
+(PosixPermissions -&gt; ByteString) -&gt; ToByteString PosixPermissions
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PosixPermissions -&gt; ByteString
+$ctoBS :: PosixPermissions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679250043"><span class="annot"><span class="annottext">PosixPermissions -&gt; ByteStringBuilder
+(PosixPermissions -&gt; ByteStringBuilder) -&gt; ToLog PosixPermissions
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PosixPermissions -&gt; ByteStringBuilder
+$cbuild :: PosixPermissions -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679250040"><span class="annot"><span class="annottext">HeaderName -&gt; PosixPermissions -&gt; [Header]
+(HeaderName -&gt; PosixPermissions -&gt; [Header])
+-&gt; ToHeader PosixPermissions
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PosixPermissions -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PosixPermissions -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679250037"><span class="annot"><span class="annottext">PosixPermissions -&gt; QueryString
+(PosixPermissions -&gt; QueryString) -&gt; ToQuery PosixPermissions
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PosixPermissions -&gt; QueryString
+$ctoQuery :: PosixPermissions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679250032"><span id="local-6989586621679250034"><span class="annot"><span class="annottext">Value -&gt; Parser [PosixPermissions]
+Value -&gt; Parser PosixPermissions
+(Value -&gt; Parser PosixPermissions)
+-&gt; (Value -&gt; Parser [PosixPermissions])
+-&gt; FromJSON PosixPermissions
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PosixPermissions]
+$cparseJSONList :: Value -&gt; Parser [PosixPermissions]
+parseJSON :: Value -&gt; Parser PosixPermissions
+$cparseJSON :: Value -&gt; Parser PosixPermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679250027"><span id="local-6989586621679250029"><span class="annot"><span class="annottext">FromJSONKeyFunction [PosixPermissions]
+FromJSONKeyFunction PosixPermissions
+FromJSONKeyFunction PosixPermissions
+-&gt; FromJSONKeyFunction [PosixPermissions]
+-&gt; FromJSONKey PosixPermissions
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PosixPermissions]
+$cfromJSONKeyList :: FromJSONKeyFunction [PosixPermissions]
+fromJSONKey :: FromJSONKeyFunction PosixPermissions
+$cfromJSONKey :: FromJSONKeyFunction PosixPermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679250018"><span id="local-6989586621679250020"><span id="local-6989586621679250022"><span id="local-6989586621679250024"><span class="annot"><span class="annottext">[PosixPermissions] -&gt; Encoding
+[PosixPermissions] -&gt; Value
+PosixPermissions -&gt; Encoding
+PosixPermissions -&gt; Value
+(PosixPermissions -&gt; Value)
+-&gt; (PosixPermissions -&gt; Encoding)
+-&gt; ([PosixPermissions] -&gt; Value)
+-&gt; ([PosixPermissions] -&gt; Encoding)
+-&gt; ToJSON PosixPermissions
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PosixPermissions] -&gt; Encoding
+$ctoEncodingList :: [PosixPermissions] -&gt; Encoding
+toJSONList :: [PosixPermissions] -&gt; Value
+$ctoJSONList :: [PosixPermissions] -&gt; Value
+toEncoding :: PosixPermissions -&gt; Encoding
+$ctoEncoding :: PosixPermissions -&gt; Encoding
+toJSON :: PosixPermissions -&gt; Value
+$ctoJSON :: PosixPermissions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679250013"><span id="local-6989586621679250015"><span class="annot"><span class="annottext">ToJSONKeyFunction [PosixPermissions]
+ToJSONKeyFunction PosixPermissions
+ToJSONKeyFunction PosixPermissions
+-&gt; ToJSONKeyFunction [PosixPermissions]
+-&gt; ToJSONKey PosixPermissions
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PosixPermissions]
+$ctoJSONKeyList :: ToJSONKeyFunction [PosixPermissions]
+toJSONKey :: ToJSONKeyFunction PosixPermissions
+$ctoJSONKey :: ToJSONKeyFunction PosixPermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679250010"><span class="annot"><span class="annottext">[Node] -&gt; Either String PosixPermissions
+([Node] -&gt; Either String PosixPermissions)
+-&gt; FromXML PosixPermissions
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PosixPermissions
+$cparseXML :: [Node] -&gt; Either String PosixPermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679250007"><span class="annot"><span class="annottext">PosixPermissions -&gt; XML
+(PosixPermissions -&gt; XML) -&gt; ToXML PosixPermissions
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PosixPermissions -&gt; XML
+$ctoXML :: PosixPermissions -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.PosixPermissions.html#PosixPermissions_NONE"><span class="hs-identifier hs-type">PosixPermissions_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.PosixPermissions.html#PosixPermissions"><span class="hs-identifier hs-type">PosixPermissions</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPosixPermissions_NONE"><span id="%24mPosixPermissions_NONE"><span id="PosixPermissions_NONE"><span class="annot"><span class="annottext">$bPosixPermissions_NONE :: PosixPermissions
+$mPosixPermissions_NONE :: forall r. PosixPermissions -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DataSync.Types.PosixPermissions.html#%24bPosixPermissions_NONE"><span class="hs-identifier hs-var hs-var hs-var">PosixPermissions_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.PosixPermissions.html#PosixPermissions%27"><span class="hs-identifier hs-type">PosixPermissions'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.PosixPermissions.html#PosixPermissions_PRESERVE"><span class="hs-identifier hs-type">PosixPermissions_PRESERVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.PosixPermissions.html#PosixPermissions"><span class="hs-identifier hs-type">PosixPermissions</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPosixPermissions_PRESERVE"><span id="%24mPosixPermissions_PRESERVE"><span id="PosixPermissions_PRESERVE"><span class="annot"><span class="annottext">$bPosixPermissions_PRESERVE :: PosixPermissions
+$mPosixPermissions_PRESERVE :: forall r. PosixPermissions -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DataSync.Types.PosixPermissions.html#%24bPosixPermissions_PRESERVE"><span class="hs-identifier hs-var hs-var hs-var">PosixPermissions_PRESERVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.PosixPermissions.html#PosixPermissions%27"><span class="hs-identifier hs-type">PosixPermissions'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PRESERVE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.PosixPermissions.html#PosixPermissions_NONE"><span class="hs-pragma hs-type">PosixPermissions_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.PosixPermissions.html#PosixPermissions_PRESERVE"><span class="hs-pragma hs-type">PosixPermissions_PRESERVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.PosixPermissions.html#PosixPermissions%27"><span class="hs-pragma hs-type">PosixPermissions'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

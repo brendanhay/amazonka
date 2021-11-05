@@ -39,7 +39,7 @@
 </span><span id="line-39"></span><span class="hs-comment">-- header, the name of the header.</span><span>
 </span><span id="line-40"></span><span class="hs-comment">--</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newXssMatchTuple' smart constructor.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679311729"><span id="local-6989586621679311730"></span></span><span class="hs-keyword">data</span><span> </span><span id="XssMatchTuple"><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple"><span class="hs-identifier hs-var">XssMatchTuple</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="XssMatchTuple%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple%27"><span class="hs-identifier hs-var">XssMatchTuple'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679311738"><span id="local-6989586621679311739"></span></span><span class="hs-keyword">data</span><span> </span><span id="XssMatchTuple"><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple"><span class="hs-identifier hs-var">XssMatchTuple</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="XssMatchTuple%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple%27"><span class="hs-identifier hs-var">XssMatchTuple'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies where in a web request to look for cross-site scripting</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- attacks.</span><span>
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AfieldToMatch%3AXssMatchTuple%27"><span class="annot"><span class="annottext">XssMatchTuple -&gt; FieldToMatch
@@ -120,7 +120,7 @@
 </span><span id="line-119"></span><span>    </span><span id="%24sel%3AtextTransformation%3AXssMatchTuple%27"><span class="annot"><span class="annottext">XssMatchTuple -&gt; TextTransformation
 </span><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#%24sel%3AtextTransformation%3AXssMatchTuple%27"><span class="hs-identifier hs-var hs-var">textTransformation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TextTransformation.html#TextTransformation"><span class="hs-identifier hs-type">TextTransformation</span></a></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311722"><span id="local-6989586621679311724"><span class="annot"><span class="annottext">XssMatchTuple -&gt; XssMatchTuple -&gt; Bool
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311731"><span id="local-6989586621679311733"><span class="annot"><span class="annottext">XssMatchTuple -&gt; XssMatchTuple -&gt; Bool
 (XssMatchTuple -&gt; XssMatchTuple -&gt; Bool)
 -&gt; (XssMatchTuple -&gt; XssMatchTuple -&gt; Bool) -&gt; Eq XssMatchTuple
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -128,7 +128,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: XssMatchTuple -&gt; XssMatchTuple -&gt; Bool
 == :: XssMatchTuple -&gt; XssMatchTuple -&gt; Bool
 $c== :: XssMatchTuple -&gt; XssMatchTuple -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311713"><span id="local-6989586621679311715"><span id="local-6989586621679311717"><span id="local-6989586621679311719"><span class="annot"><span class="annottext">ReadPrec [XssMatchTuple]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311722"><span id="local-6989586621679311724"><span id="local-6989586621679311726"><span id="local-6989586621679311728"><span class="annot"><span class="annottext">ReadPrec [XssMatchTuple]
 ReadPrec XssMatchTuple
 Int -&gt; ReadS XssMatchTuple
 ReadS [XssMatchTuple]
@@ -148,7 +148,7 @@ readList :: ReadS [XssMatchTuple]
 $creadList :: ReadS [XssMatchTuple]
 readsPrec :: Int -&gt; ReadS XssMatchTuple
 $creadsPrec :: Int -&gt; ReadS XssMatchTuple
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311706"><span id="local-6989586621679311708"><span id="local-6989586621679311710"><span class="annot"><span class="annottext">Int -&gt; XssMatchTuple -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311715"><span id="local-6989586621679311717"><span id="local-6989586621679311719"><span class="annot"><span class="annottext">Int -&gt; XssMatchTuple -&gt; ShowS
 [XssMatchTuple] -&gt; ShowS
 XssMatchTuple -&gt; String
 (Int -&gt; XssMatchTuple -&gt; ShowS)
@@ -265,17 +265,17 @@ $cfrom :: forall x. XssMatchTuple -&gt; Rep XssMatchTuple x
 </span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TextTransformation.html#TextTransformation"><span class="hs-identifier hs-type">TextTransformation</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-212"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple"><span class="hs-identifier hs-type">XssMatchTuple</span></a></span><span>
 </span><span id="line-213"></span><span id="newXssMatchTuple"><span class="annot"><span class="annottext">newXssMatchTuple :: FieldToMatch -&gt; TextTransformation -&gt; XssMatchTuple
-</span><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#newXssMatchTuple"><span class="hs-identifier hs-var hs-var">newXssMatchTuple</span></a></span></span><span> </span><span id="local-6989586621679311700"><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679311700"><span class="hs-identifier hs-var">pFieldToMatch_</span></a></span></span><span> </span><span id="local-6989586621679311699"><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679311699"><span class="hs-identifier hs-var">pTextTransformation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#newXssMatchTuple"><span class="hs-identifier hs-var hs-var">newXssMatchTuple</span></a></span></span><span> </span><span id="local-6989586621679311709"><span class="annot"><span class="annottext">FieldToMatch
+</span><a href="#local-6989586621679311709"><span class="hs-identifier hs-var">pFieldToMatch_</span></a></span></span><span> </span><span id="local-6989586621679311708"><span class="annot"><span class="annottext">TextTransformation
+</span><a href="#local-6989586621679311708"><span class="hs-identifier hs-var">pTextTransformation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>  </span><span class="annot"><span class="annottext">XssMatchTuple' :: FieldToMatch -&gt; TextTransformation -&gt; XssMatchTuple
 </span><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple%27"><span class="hs-identifier hs-type">XssMatchTuple'</span></a></span><span>
 </span><span id="line-215"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fieldToMatch:XssMatchTuple' :: FieldToMatch
 </span><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#%24sel%3AfieldToMatch%3AXssMatchTuple%27"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679311700"><span class="hs-identifier hs-var">pFieldToMatch_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311709"><span class="hs-identifier hs-var">pFieldToMatch_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:textTransformation:XssMatchTuple' :: TextTransformation
 </span><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#%24sel%3AtextTransformation%3AXssMatchTuple%27"><span class="hs-identifier hs-var">textTransformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679311699"><span class="hs-identifier hs-var">pTextTransformation_</span></a></span><span>
+</span><a href="#local-6989586621679311708"><span class="hs-identifier hs-var">pTextTransformation_</span></a></span><span>
 </span><span id="line-217"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | Specifies where in a web request to look for cross-site scripting</span><span>
@@ -287,16 +287,16 @@ $cfrom :: forall x. XssMatchTuple -&gt; Rep XssMatchTuple x
 -&gt; (XssMatchTuple -&gt; FieldToMatch -&gt; XssMatchTuple)
 -&gt; Lens XssMatchTuple XssMatchTuple FieldToMatch FieldToMatch
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple%27"><span class="hs-identifier hs-type">XssMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311695"><span class="annot"><span class="annottext">FieldToMatch
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple%27"><span class="hs-identifier hs-type">XssMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311704"><span class="annot"><span class="annottext">FieldToMatch
 fieldToMatch :: FieldToMatch
 $sel:fieldToMatch:XssMatchTuple' :: XssMatchTuple -&gt; FieldToMatch
-</span><a href="#local-6989586621679311695"><span class="hs-identifier hs-var hs-var">fieldToMatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679311695"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311694"><span class="annot"><span class="annottext">s :: XssMatchTuple
-</span><a href="#local-6989586621679311694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple%27"><span class="hs-identifier hs-type">XssMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311693"><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679311693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">XssMatchTuple
-</span><a href="#local-6989586621679311694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldToMatch:XssMatchTuple' :: FieldToMatch
+</span><a href="#local-6989586621679311704"><span class="hs-identifier hs-var hs-var">fieldToMatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldToMatch
+</span><a href="#local-6989586621679311704"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311703"><span class="annot"><span class="annottext">s :: XssMatchTuple
+</span><a href="#local-6989586621679311703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple%27"><span class="hs-identifier hs-type">XssMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311702"><span class="annot"><span class="annottext">FieldToMatch
+</span><a href="#local-6989586621679311702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">XssMatchTuple
+</span><a href="#local-6989586621679311703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldToMatch:XssMatchTuple' :: FieldToMatch
 </span><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#%24sel%3AfieldToMatch%3AXssMatchTuple%27"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679311693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple"><span class="hs-identifier hs-type">XssMatchTuple</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple"><span class="hs-identifier hs-type">XssMatchTuple</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | Text transformations eliminate some of the unusual formatting that</span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- attackers use in web requests in an effort to bypass AWS WAF. If you</span><span>
@@ -379,19 +379,19 @@ $sel:fieldToMatch:XssMatchTuple' :: XssMatchTuple -&gt; FieldToMatch
 -&gt; Lens
      XssMatchTuple XssMatchTuple TextTransformation TextTransformation
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple%27"><span class="hs-identifier hs-type">XssMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311691"><span class="annot"><span class="annottext">TextTransformation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple%27"><span class="hs-identifier hs-type">XssMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311700"><span class="annot"><span class="annottext">TextTransformation
 textTransformation :: TextTransformation
 $sel:textTransformation:XssMatchTuple' :: XssMatchTuple -&gt; TextTransformation
-</span><a href="#local-6989586621679311691"><span class="hs-identifier hs-var hs-var">textTransformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679311691"><span class="hs-identifier hs-var">textTransformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311690"><span class="annot"><span class="annottext">s :: XssMatchTuple
-</span><a href="#local-6989586621679311690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple%27"><span class="hs-identifier hs-type">XssMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311689"><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679311689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">XssMatchTuple
-</span><a href="#local-6989586621679311690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textTransformation:XssMatchTuple' :: TextTransformation
+</span><a href="#local-6989586621679311700"><span class="hs-identifier hs-var hs-var">textTransformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TextTransformation
+</span><a href="#local-6989586621679311700"><span class="hs-identifier hs-var">textTransformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311699"><span class="annot"><span class="annottext">s :: XssMatchTuple
+</span><a href="#local-6989586621679311699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple%27"><span class="hs-identifier hs-type">XssMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311698"><span class="annot"><span class="annottext">TextTransformation
+</span><a href="#local-6989586621679311698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">XssMatchTuple
+</span><a href="#local-6989586621679311699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textTransformation:XssMatchTuple' :: TextTransformation
 </span><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#%24sel%3AtextTransformation%3AXssMatchTuple%27"><span class="hs-identifier hs-var">textTransformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679311689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple"><span class="hs-identifier hs-type">XssMatchTuple</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple"><span class="hs-identifier hs-type">XssMatchTuple</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-299"></span><span>
-</span><span id="line-300"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311686"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple"><span class="hs-identifier hs-type">XssMatchTuple</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-301"></span><span>  </span><span id="local-6989586621679311684"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser XssMatchTuple
+</span><span id="line-300"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311695"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple"><span class="hs-identifier hs-type">XssMatchTuple</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-301"></span><span>  </span><span id="local-6989586621679311693"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser XssMatchTuple
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-302"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser XssMatchTuple)
@@ -401,8 +401,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-303"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;XssMatchTuple&quot;</span></span><span>
-</span><span id="line-304"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311681"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311681"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-304"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311690"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311690"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-305"></span><span>          </span><span class="annot"><span class="annottext">FieldToMatch -&gt; TextTransformation -&gt; XssMatchTuple
 </span><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple%27"><span class="hs-identifier hs-var">XssMatchTuple'</span></a></span><span>
 </span><span id="line-306"></span><span>            </span><span class="annot"><span class="annottext">(FieldToMatch -&gt; TextTransformation -&gt; XssMatchTuple)
@@ -410,7 +410,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (TextTransformation -&gt; XssMatchTuple)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FieldToMatch
+</span><a href="#local-6989586621679311690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FieldToMatch
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FieldToMatch&quot;</span></span><span class="hs-special">)</span><span>
@@ -418,25 +418,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser TextTransformation -&gt; Parser XssMatchTuple
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TextTransformation
+</span><a href="#local-6989586621679311690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TextTransformation
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TextTransformation&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-308"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-309"></span><span>
-</span><span id="line-310"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311675"><span id="local-6989586621679311677"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple"><span class="hs-identifier hs-type">XssMatchTuple</span></a></span></span></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311684"><span id="local-6989586621679311686"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple"><span class="hs-identifier hs-type">XssMatchTuple</span></a></span></span></span><span>
 </span><span id="line-311"></span><span>
-</span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311672"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple"><span class="hs-identifier hs-type">XssMatchTuple</span></a></span></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311681"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple"><span class="hs-identifier hs-type">XssMatchTuple</span></a></span></span><span>
 </span><span id="line-313"></span><span>
-</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311664"><span id="local-6989586621679311666"><span id="local-6989586621679311668"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple"><span class="hs-identifier hs-type">XssMatchTuple</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-315"></span><span>  </span><span id="local-6989586621679311662"><span class="annot"><span class="annottext">toJSON :: XssMatchTuple -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple%27"><span class="hs-identifier hs-type">XssMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311659"><span id="local-6989586621679311660"><span class="annot"><span class="annottext">FieldToMatch
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311673"><span id="local-6989586621679311675"><span id="local-6989586621679311677"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple"><span class="hs-identifier hs-type">XssMatchTuple</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-315"></span><span>  </span><span id="local-6989586621679311671"><span class="annot"><span class="annottext">toJSON :: XssMatchTuple -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.XssMatchTuple.html#XssMatchTuple%27"><span class="hs-identifier hs-type">XssMatchTuple'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311668"><span id="local-6989586621679311669"><span class="annot"><span class="annottext">FieldToMatch
 TextTransformation
 textTransformation :: TextTransformation
 fieldToMatch :: FieldToMatch
 $sel:textTransformation:XssMatchTuple' :: XssMatchTuple -&gt; TextTransformation
 $sel:fieldToMatch:XssMatchTuple' :: XssMatchTuple -&gt; FieldToMatch
-</span><a href="#local-6989586621679311659"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679311668"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-316"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-317"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -448,7 +448,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;FieldToMatch&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FieldToMatch -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679311660"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311669"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-319"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -456,7 +456,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TextTransformation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TextTransformation -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679311659"><span class="hs-identifier hs-var">textTransformation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311668"><span class="hs-identifier hs-var">textTransformation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-321"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-322"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-323"></span></pre></body></html>

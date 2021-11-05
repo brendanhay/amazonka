@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- | Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- Streaming, CMAF)</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679999381"><span id="local-6989586621679999382"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OutputGroupType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupType.html#OutputGroupType"><span class="hs-identifier hs-var">OutputGroupType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputGroupType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupType.html#OutputGroupType%27"><span class="hs-identifier hs-var">OutputGroupType'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679999390"><span id="local-6989586621679999391"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OutputGroupType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupType.html#OutputGroupType"><span class="hs-identifier hs-var">OutputGroupType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputGroupType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupType.html#OutputGroupType%27"><span class="hs-identifier hs-var">OutputGroupType'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOutputGroupType"><span class="annot"><span class="annottext">OutputGroupType -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.OutputGroupType.html#fromOutputGroupType"><span class="hs-identifier hs-var hs-var">fromOutputGroupType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679999373"><span id="local-6989586621679999375"><span id="local-6989586621679999377"><span class="annot"><span class="annottext">Int -&gt; OutputGroupType -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679999382"><span id="local-6989586621679999384"><span id="local-6989586621679999386"><span class="annot"><span class="annottext">Int -&gt; OutputGroupType -&gt; ShowS
 [OutputGroupType] -&gt; ShowS
 OutputGroupType -&gt; String
 (Int -&gt; OutputGroupType -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: OutputGroupType -&gt; String
 showsPrec :: Int -&gt; OutputGroupType -&gt; ShowS
 $cshowsPrec :: Int -&gt; OutputGroupType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679999364"><span id="local-6989586621679999366"><span id="local-6989586621679999368"><span id="local-6989586621679999370"><span class="annot"><span class="annottext">ReadPrec [OutputGroupType]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679999373"><span id="local-6989586621679999375"><span id="local-6989586621679999377"><span id="local-6989586621679999379"><span class="annot"><span class="annottext">ReadPrec [OutputGroupType]
 ReadPrec OutputGroupType
 Int -&gt; ReadS OutputGroupType
 ReadS [OutputGroupType]
@@ -77,7 +77,7 @@ $creadList :: ReadS [OutputGroupType]
 readsPrec :: Int -&gt; ReadS OutputGroupType
 $creadsPrec :: Int -&gt; ReadS OutputGroupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679999359"><span id="local-6989586621679999361"><span class="annot"><span class="annottext">OutputGroupType -&gt; OutputGroupType -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679999368"><span id="local-6989586621679999370"><span class="annot"><span class="annottext">OutputGroupType -&gt; OutputGroupType -&gt; Bool
 (OutputGroupType -&gt; OutputGroupType -&gt; Bool)
 -&gt; (OutputGroupType -&gt; OutputGroupType -&gt; Bool)
 -&gt; Eq OutputGroupType
@@ -87,7 +87,7 @@ $c/= :: OutputGroupType -&gt; OutputGroupType -&gt; Bool
 == :: OutputGroupType -&gt; OutputGroupType -&gt; Bool
 $c== :: OutputGroupType -&gt; OutputGroupType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679999343"><span id="local-6989586621679999345"><span id="local-6989586621679999347"><span id="local-6989586621679999349"><span id="local-6989586621679999351"><span id="local-6989586621679999353"><span id="local-6989586621679999355"><span class="annot"><span class="annottext">Eq OutputGroupType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679999352"><span id="local-6989586621679999354"><span id="local-6989586621679999356"><span id="local-6989586621679999358"><span id="local-6989586621679999360"><span id="local-6989586621679999362"><span id="local-6989586621679999364"><span class="annot"><span class="annottext">Eq OutputGroupType
 Eq OutputGroupType
 -&gt; (OutputGroupType -&gt; OutputGroupType -&gt; Ordering)
 -&gt; (OutputGroupType -&gt; OutputGroupType -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. OutputGroupType -&gt; Rep OutputGroupType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679999335"><span id="local-6989586621679999337"><span class="annot"><span class="annottext">Int -&gt; OutputGroupType -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679999344"><span id="local-6989586621679999346"><span class="annot"><span class="annottext">Int -&gt; OutputGroupType -&gt; Int
 OutputGroupType -&gt; Int
 (Int -&gt; OutputGroupType -&gt; Int)
 -&gt; (OutputGroupType -&gt; Int) -&gt; Hashable OutputGroupType
@@ -148,50 +148,50 @@ $chash :: OutputGroupType -&gt; Int
 hashWithSalt :: Int -&gt; OutputGroupType -&gt; Int
 $chashWithSalt :: Int -&gt; OutputGroupType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679999332"><span class="annot"><span class="annottext">OutputGroupType -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679999341"><span class="annot"><span class="annottext">OutputGroupType -&gt; ()
 (OutputGroupType -&gt; ()) -&gt; NFData OutputGroupType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OutputGroupType -&gt; ()
 $crnf :: OutputGroupType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679999329"><span class="annot"><span class="annottext">Text -&gt; Either String OutputGroupType
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679999338"><span class="annot"><span class="annottext">Text -&gt; Either String OutputGroupType
 (Text -&gt; Either String OutputGroupType) -&gt; FromText OutputGroupType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OutputGroupType
 $cfromText :: Text -&gt; Either String OutputGroupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679999326"><span class="annot"><span class="annottext">OutputGroupType -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679999335"><span class="annot"><span class="annottext">OutputGroupType -&gt; Text
 (OutputGroupType -&gt; Text) -&gt; ToText OutputGroupType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OutputGroupType -&gt; Text
 $ctoText :: OutputGroupType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679999323"><span class="annot"><span class="annottext">OutputGroupType -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679999332"><span class="annot"><span class="annottext">OutputGroupType -&gt; ByteString
 (OutputGroupType -&gt; ByteString) -&gt; ToByteString OutputGroupType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OutputGroupType -&gt; ByteString
 $ctoBS :: OutputGroupType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679999320"><span class="annot"><span class="annottext">OutputGroupType -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679999329"><span class="annot"><span class="annottext">OutputGroupType -&gt; ByteStringBuilder
 (OutputGroupType -&gt; ByteStringBuilder) -&gt; ToLog OutputGroupType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OutputGroupType -&gt; ByteStringBuilder
 $cbuild :: OutputGroupType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679999317"><span class="annot"><span class="annottext">HeaderName -&gt; OutputGroupType -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679999326"><span class="annot"><span class="annottext">HeaderName -&gt; OutputGroupType -&gt; [Header]
 (HeaderName -&gt; OutputGroupType -&gt; [Header])
 -&gt; ToHeader OutputGroupType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OutputGroupType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OutputGroupType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679999314"><span class="annot"><span class="annottext">OutputGroupType -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679999323"><span class="annot"><span class="annottext">OutputGroupType -&gt; QueryString
 (OutputGroupType -&gt; QueryString) -&gt; ToQuery OutputGroupType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OutputGroupType -&gt; QueryString
 $ctoQuery :: OutputGroupType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679999309"><span id="local-6989586621679999311"><span class="annot"><span class="annottext">Value -&gt; Parser [OutputGroupType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679999318"><span id="local-6989586621679999320"><span class="annot"><span class="annottext">Value -&gt; Parser [OutputGroupType]
 Value -&gt; Parser OutputGroupType
 (Value -&gt; Parser OutputGroupType)
 -&gt; (Value -&gt; Parser [OutputGroupType]) -&gt; FromJSON OutputGroupType
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [OutputGroupType]
 parseJSON :: Value -&gt; Parser OutputGroupType
 $cparseJSON :: Value -&gt; Parser OutputGroupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679999304"><span id="local-6989586621679999306"><span class="annot"><span class="annottext">FromJSONKeyFunction [OutputGroupType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679999313"><span id="local-6989586621679999315"><span class="annot"><span class="annottext">FromJSONKeyFunction [OutputGroupType]
 FromJSONKeyFunction OutputGroupType
 FromJSONKeyFunction OutputGroupType
 -&gt; FromJSONKeyFunction [OutputGroupType]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OutputGroupType]
 fromJSONKey :: FromJSONKeyFunction OutputGroupType
 $cfromJSONKey :: FromJSONKeyFunction OutputGroupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679999295"><span id="local-6989586621679999297"><span id="local-6989586621679999299"><span id="local-6989586621679999301"><span class="annot"><span class="annottext">[OutputGroupType] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679999304"><span id="local-6989586621679999306"><span id="local-6989586621679999308"><span id="local-6989586621679999310"><span class="annot"><span class="annottext">[OutputGroupType] -&gt; Encoding
 [OutputGroupType] -&gt; Value
 OutputGroupType -&gt; Encoding
 OutputGroupType -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: OutputGroupType -&gt; Encoding
 toJSON :: OutputGroupType -&gt; Value
 $ctoJSON :: OutputGroupType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679999290"><span id="local-6989586621679999292"><span class="annot"><span class="annottext">ToJSONKeyFunction [OutputGroupType]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679999299"><span id="local-6989586621679999301"><span class="annot"><span class="annottext">ToJSONKeyFunction [OutputGroupType]
 ToJSONKeyFunction OutputGroupType
 ToJSONKeyFunction OutputGroupType
 -&gt; ToJSONKeyFunction [OutputGroupType] -&gt; ToJSONKey OutputGroupType
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OutputGroupType]
 toJSONKey :: ToJSONKeyFunction OutputGroupType
 $ctoJSONKey :: ToJSONKeyFunction OutputGroupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679999287"><span class="annot"><span class="annottext">[Node] -&gt; Either String OutputGroupType
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679999296"><span class="annot"><span class="annottext">[Node] -&gt; Either String OutputGroupType
 ([Node] -&gt; Either String OutputGroupType)
 -&gt; FromXML OutputGroupType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OutputGroupType
 $cparseXML :: [Node] -&gt; Either String OutputGroupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679999284"><span class="annot"><span class="annottext">OutputGroupType -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679999293"><span class="annot"><span class="annottext">OutputGroupType -&gt; XML
 (OutputGroupType -&gt; XML) -&gt; ToXML OutputGroupType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: OutputGroupType -&gt; XML

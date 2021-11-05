@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a data processor.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newProcessor' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679275004"><span id="local-6989586621679275005"></span></span><span class="hs-keyword">data</span><span> </span><span id="Processor"><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor"><span class="hs-identifier hs-var">Processor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Processor%27"><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor%27"><span class="hs-identifier hs-var">Processor'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679275013"><span id="local-6989586621679275014"></span></span><span class="hs-keyword">data</span><span> </span><span id="Processor"><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor"><span class="hs-identifier hs-var">Processor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Processor%27"><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor%27"><span class="hs-identifier hs-var">Processor'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The processor parameters.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aparameters%3AProcessor%27"><span class="annot"><span class="annottext">Processor -&gt; Maybe [ProcessorParameter]
 </span><a href="Network.AWS.Firehose.Types.Processor.html#%24sel%3Aparameters%3AProcessor%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessorParameter.html#ProcessorParameter"><span class="hs-identifier hs-type">ProcessorParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Atype%27%3AProcessor%27"><span class="annot"><span class="annottext">Processor -&gt; ProcessorType
 </span><a href="Network.AWS.Firehose.Types.Processor.html#%24sel%3Atype%27%3AProcessor%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessorType.html#ProcessorType"><span class="hs-identifier hs-type">ProcessorType</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274997"><span id="local-6989586621679274999"><span class="annot"><span class="annottext">Processor -&gt; Processor -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275006"><span id="local-6989586621679275008"><span class="annot"><span class="annottext">Processor -&gt; Processor -&gt; Bool
 (Processor -&gt; Processor -&gt; Bool)
 -&gt; (Processor -&gt; Processor -&gt; Bool) -&gt; Eq Processor
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Processor -&gt; Processor -&gt; Bool
 == :: Processor -&gt; Processor -&gt; Bool
 $c== :: Processor -&gt; Processor -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274988"><span id="local-6989586621679274990"><span id="local-6989586621679274992"><span id="local-6989586621679274994"><span class="annot"><span class="annottext">ReadPrec [Processor]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274997"><span id="local-6989586621679274999"><span id="local-6989586621679275001"><span id="local-6989586621679275003"><span class="annot"><span class="annottext">ReadPrec [Processor]
 ReadPrec Processor
 Int -&gt; ReadS Processor
 ReadS [Processor]
@@ -64,7 +64,7 @@ readList :: ReadS [Processor]
 $creadList :: ReadS [Processor]
 readsPrec :: Int -&gt; ReadS Processor
 $creadsPrec :: Int -&gt; ReadS Processor
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274981"><span id="local-6989586621679274983"><span id="local-6989586621679274985"><span class="annot"><span class="annottext">Int -&gt; Processor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274990"><span id="local-6989586621679274992"><span id="local-6989586621679274994"><span class="annot"><span class="annottext">Int -&gt; Processor -&gt; ShowS
 [Processor] -&gt; ShowS
 Processor -&gt; String
 (Int -&gt; Processor -&gt; ShowS)
@@ -105,8 +105,8 @@ $cfrom :: forall x. Processor -&gt; Rep Processor x
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessorType.html#ProcessorType"><span class="hs-identifier hs-type">ProcessorType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor"><span class="hs-identifier hs-type">Processor</span></a></span><span>
 </span><span id="line-54"></span><span id="newProcessor"><span class="annot"><span class="annottext">newProcessor :: ProcessorType -&gt; Processor
-</span><a href="Network.AWS.Firehose.Types.Processor.html#newProcessor"><span class="hs-identifier hs-var hs-var">newProcessor</span></a></span></span><span> </span><span id="local-6989586621679274975"><span class="annot"><span class="annottext">ProcessorType
-</span><a href="#local-6989586621679274975"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Firehose.Types.Processor.html#newProcessor"><span class="hs-identifier hs-var hs-var">newProcessor</span></a></span></span><span> </span><span id="local-6989586621679274984"><span class="annot"><span class="annottext">ProcessorType
+</span><a href="#local-6989586621679274984"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">Processor' :: Maybe [ProcessorParameter] -&gt; ProcessorType -&gt; Processor
 </span><a href="Network.AWS.Firehose.Types.Processor.html#Processor%27"><span class="hs-identifier hs-type">Processor'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameters:Processor' :: Maybe [ProcessorParameter]
@@ -115,7 +115,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Processor' :: ProcessorType
 </span><a href="Network.AWS.Firehose.Types.Processor.html#%24sel%3Atype%27%3AProcessor%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProcessorType
-</span><a href="#local-6989586621679274975"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679274984"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The processor parameters.</span><span>
@@ -130,16 +130,16 @@ forall a. Maybe a
      (Maybe [ProcessorParameter])
      (Maybe [ProcessorParameter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor%27"><span class="hs-identifier hs-type">Processor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274971"><span class="annot"><span class="annottext">Maybe [ProcessorParameter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor%27"><span class="hs-identifier hs-type">Processor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274980"><span class="annot"><span class="annottext">Maybe [ProcessorParameter]
 parameters :: Maybe [ProcessorParameter]
 $sel:parameters:Processor' :: Processor -&gt; Maybe [ProcessorParameter]
-</span><a href="#local-6989586621679274971"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ProcessorParameter]
-</span><a href="#local-6989586621679274971"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274970"><span class="annot"><span class="annottext">s :: Processor
-</span><a href="#local-6989586621679274970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor%27"><span class="hs-identifier hs-type">Processor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274969"><span class="annot"><span class="annottext">Maybe [ProcessorParameter]
-</span><a href="#local-6989586621679274969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Processor
-</span><a href="#local-6989586621679274970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:Processor' :: Maybe [ProcessorParameter]
+</span><a href="#local-6989586621679274980"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ProcessorParameter]
+</span><a href="#local-6989586621679274980"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274979"><span class="annot"><span class="annottext">s :: Processor
+</span><a href="#local-6989586621679274979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor%27"><span class="hs-identifier hs-type">Processor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274978"><span class="annot"><span class="annottext">Maybe [ProcessorParameter]
+</span><a href="#local-6989586621679274978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Processor
+</span><a href="#local-6989586621679274979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:Processor' :: Maybe [ProcessorParameter]
 </span><a href="Network.AWS.Firehose.Types.Processor.html#%24sel%3Aparameters%3AProcessor%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ProcessorParameter]
-</span><a href="#local-6989586621679274969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor"><span class="hs-identifier hs-type">Processor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ProcessorParameter] -&gt; f (Maybe [ProcessorParameter]))
+</span><a href="#local-6989586621679274978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor"><span class="hs-identifier hs-type">Processor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ProcessorParameter] -&gt; f (Maybe [ProcessorParameter]))
  -&gt; Processor -&gt; f Processor)
 -&gt; ((Maybe [ProcessorParameter] -&gt; f (Maybe [ProcessorParameter]))
     -&gt; Maybe [ProcessorParameter] -&gt; f (Maybe [ProcessorParameter]))
@@ -175,27 +175,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Processor -&gt; ProcessorType -&gt; Processor)
 -&gt; Lens Processor Processor ProcessorType ProcessorType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor%27"><span class="hs-identifier hs-type">Processor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274964"><span class="annot"><span class="annottext">ProcessorType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor%27"><span class="hs-identifier hs-type">Processor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274973"><span class="annot"><span class="annottext">ProcessorType
 type' :: ProcessorType
 $sel:type':Processor' :: Processor -&gt; ProcessorType
-</span><a href="#local-6989586621679274964"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessorType
-</span><a href="#local-6989586621679274964"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274963"><span class="annot"><span class="annottext">s :: Processor
-</span><a href="#local-6989586621679274963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor%27"><span class="hs-identifier hs-type">Processor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274962"><span class="annot"><span class="annottext">ProcessorType
-</span><a href="#local-6989586621679274962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Processor
-</span><a href="#local-6989586621679274963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Processor' :: ProcessorType
+</span><a href="#local-6989586621679274973"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessorType
+</span><a href="#local-6989586621679274973"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274972"><span class="annot"><span class="annottext">s :: Processor
+</span><a href="#local-6989586621679274972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor%27"><span class="hs-identifier hs-type">Processor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274971"><span class="annot"><span class="annottext">ProcessorType
+</span><a href="#local-6989586621679274971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Processor
+</span><a href="#local-6989586621679274972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Processor' :: ProcessorType
 </span><a href="Network.AWS.Firehose.Types.Processor.html#%24sel%3Atype%27%3AProcessor%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProcessorType
-</span><a href="#local-6989586621679274962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor"><span class="hs-identifier hs-type">Processor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor"><span class="hs-identifier hs-type">Processor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274959"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor"><span class="hs-identifier hs-type">Processor</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679274957"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Processor
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274968"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor"><span class="hs-identifier hs-type">Processor</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679274966"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Processor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Processor) -&gt; Value -&gt; Parser Processor
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Processor&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274954"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274954"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274963"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274963"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ProcessorParameter] -&gt; ProcessorType -&gt; Processor
 </span><a href="Network.AWS.Firehose.Types.Processor.html#Processor%27"><span class="hs-identifier hs-var">Processor'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ProcessorParameter] -&gt; ProcessorType -&gt; Processor)
@@ -203,7 +203,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (ProcessorType -&gt; Processor)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ProcessorParameter]))
+</span><a href="#local-6989586621679274963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ProcessorParameter]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ProcessorParameter]))
@@ -217,25 +217,25 @@ forall a. Monoid a =&gt; a
 -&gt; Parser ProcessorType -&gt; Parser Processor
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ProcessorType
+</span><a href="#local-6989586621679274963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ProcessorType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274946"><span id="local-6989586621679274948"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor"><span class="hs-identifier hs-type">Processor</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274955"><span id="local-6989586621679274957"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor"><span class="hs-identifier hs-type">Processor</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor"><span class="hs-identifier hs-type">Processor</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274952"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor"><span class="hs-identifier hs-type">Processor</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274935"><span id="local-6989586621679274937"><span id="local-6989586621679274939"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor"><span class="hs-identifier hs-type">Processor</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679274933"><span class="annot"><span class="annottext">toJSON :: Processor -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor%27"><span class="hs-identifier hs-type">Processor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274930"><span id="local-6989586621679274931"><span class="annot"><span class="annottext">Maybe [ProcessorParameter]
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274944"><span id="local-6989586621679274946"><span id="local-6989586621679274948"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor"><span class="hs-identifier hs-type">Processor</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679274942"><span class="annot"><span class="annottext">toJSON :: Processor -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor%27"><span class="hs-identifier hs-type">Processor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274939"><span id="local-6989586621679274940"><span class="annot"><span class="annottext">Maybe [ProcessorParameter]
 ProcessorType
 type' :: ProcessorType
 parameters :: Maybe [ProcessorParameter]
 $sel:type':Processor' :: Processor -&gt; ProcessorType
 $sel:parameters:Processor' :: Processor -&gt; Maybe [ProcessorParameter]
-</span><a href="#local-6989586621679274930"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679274939"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -248,14 +248,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [ProcessorParameter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ProcessorParameter]
-</span><a href="#local-6989586621679274931"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274940"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProcessorType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ProcessorType
-</span><a href="#local-6989586621679274930"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274939"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | M2ts Audio Buffer Model</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679899365"><span id="local-6989586621679899366"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsAudioBufferModel"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsAudioBufferModel.html#M2tsAudioBufferModel"><span class="hs-identifier hs-var">M2tsAudioBufferModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsAudioBufferModel%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsAudioBufferModel.html#M2tsAudioBufferModel%27"><span class="hs-identifier hs-var">M2tsAudioBufferModel'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679899374"><span id="local-6989586621679899375"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsAudioBufferModel"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsAudioBufferModel.html#M2tsAudioBufferModel"><span class="hs-identifier hs-var">M2tsAudioBufferModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsAudioBufferModel%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsAudioBufferModel.html#M2tsAudioBufferModel%27"><span class="hs-identifier hs-var">M2tsAudioBufferModel'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM2tsAudioBufferModel"><span class="annot"><span class="annottext">M2tsAudioBufferModel -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.M2tsAudioBufferModel.html#fromM2tsAudioBufferModel"><span class="hs-identifier hs-var hs-var">fromM2tsAudioBufferModel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679899357"><span id="local-6989586621679899359"><span id="local-6989586621679899361"><span class="annot"><span class="annottext">Int -&gt; M2tsAudioBufferModel -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679899366"><span id="local-6989586621679899368"><span id="local-6989586621679899370"><span class="annot"><span class="annottext">Int -&gt; M2tsAudioBufferModel -&gt; ShowS
 [M2tsAudioBufferModel] -&gt; ShowS
 M2tsAudioBufferModel -&gt; String
 (Int -&gt; M2tsAudioBufferModel -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: M2tsAudioBufferModel -&gt; String
 showsPrec :: Int -&gt; M2tsAudioBufferModel -&gt; ShowS
 $cshowsPrec :: Int -&gt; M2tsAudioBufferModel -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679899348"><span id="local-6989586621679899350"><span id="local-6989586621679899352"><span id="local-6989586621679899354"><span class="annot"><span class="annottext">ReadPrec [M2tsAudioBufferModel]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679899357"><span id="local-6989586621679899359"><span id="local-6989586621679899361"><span id="local-6989586621679899363"><span class="annot"><span class="annottext">ReadPrec [M2tsAudioBufferModel]
 ReadPrec M2tsAudioBufferModel
 Int -&gt; ReadS M2tsAudioBufferModel
 ReadS [M2tsAudioBufferModel]
@@ -73,7 +73,7 @@ $creadList :: ReadS [M2tsAudioBufferModel]
 readsPrec :: Int -&gt; ReadS M2tsAudioBufferModel
 $creadsPrec :: Int -&gt; ReadS M2tsAudioBufferModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679899343"><span id="local-6989586621679899345"><span class="annot"><span class="annottext">M2tsAudioBufferModel -&gt; M2tsAudioBufferModel -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679899352"><span id="local-6989586621679899354"><span class="annot"><span class="annottext">M2tsAudioBufferModel -&gt; M2tsAudioBufferModel -&gt; Bool
 (M2tsAudioBufferModel -&gt; M2tsAudioBufferModel -&gt; Bool)
 -&gt; (M2tsAudioBufferModel -&gt; M2tsAudioBufferModel -&gt; Bool)
 -&gt; Eq M2tsAudioBufferModel
@@ -83,7 +83,7 @@ $c/= :: M2tsAudioBufferModel -&gt; M2tsAudioBufferModel -&gt; Bool
 == :: M2tsAudioBufferModel -&gt; M2tsAudioBufferModel -&gt; Bool
 $c== :: M2tsAudioBufferModel -&gt; M2tsAudioBufferModel -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679899327"><span id="local-6989586621679899329"><span id="local-6989586621679899331"><span id="local-6989586621679899333"><span id="local-6989586621679899335"><span id="local-6989586621679899337"><span id="local-6989586621679899339"><span class="annot"><span class="annottext">Eq M2tsAudioBufferModel
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679899336"><span id="local-6989586621679899338"><span id="local-6989586621679899340"><span id="local-6989586621679899342"><span id="local-6989586621679899344"><span id="local-6989586621679899346"><span id="local-6989586621679899348"><span class="annot"><span class="annottext">Eq M2tsAudioBufferModel
 Eq M2tsAudioBufferModel
 -&gt; (M2tsAudioBufferModel -&gt; M2tsAudioBufferModel -&gt; Ordering)
 -&gt; (M2tsAudioBufferModel -&gt; M2tsAudioBufferModel -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. M2tsAudioBufferModel -&gt; Rep M2tsAudioBufferModel x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679899319"><span id="local-6989586621679899321"><span class="annot"><span class="annottext">Int -&gt; M2tsAudioBufferModel -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679899328"><span id="local-6989586621679899330"><span class="annot"><span class="annottext">Int -&gt; M2tsAudioBufferModel -&gt; Int
 M2tsAudioBufferModel -&gt; Int
 (Int -&gt; M2tsAudioBufferModel -&gt; Int)
 -&gt; (M2tsAudioBufferModel -&gt; Int) -&gt; Hashable M2tsAudioBufferModel
@@ -151,54 +151,54 @@ $chash :: M2tsAudioBufferModel -&gt; Int
 hashWithSalt :: Int -&gt; M2tsAudioBufferModel -&gt; Int
 $chashWithSalt :: Int -&gt; M2tsAudioBufferModel -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679899316"><span class="annot"><span class="annottext">M2tsAudioBufferModel -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679899325"><span class="annot"><span class="annottext">M2tsAudioBufferModel -&gt; ()
 (M2tsAudioBufferModel -&gt; ()) -&gt; NFData M2tsAudioBufferModel
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: M2tsAudioBufferModel -&gt; ()
 $crnf :: M2tsAudioBufferModel -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679899313"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsAudioBufferModel
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679899322"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsAudioBufferModel
 (Text -&gt; Either String M2tsAudioBufferModel)
 -&gt; FromText M2tsAudioBufferModel
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String M2tsAudioBufferModel
 $cfromText :: Text -&gt; Either String M2tsAudioBufferModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679899310"><span class="annot"><span class="annottext">M2tsAudioBufferModel -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679899319"><span class="annot"><span class="annottext">M2tsAudioBufferModel -&gt; Text
 (M2tsAudioBufferModel -&gt; Text) -&gt; ToText M2tsAudioBufferModel
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: M2tsAudioBufferModel -&gt; Text
 $ctoText :: M2tsAudioBufferModel -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679899307"><span class="annot"><span class="annottext">M2tsAudioBufferModel -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679899316"><span class="annot"><span class="annottext">M2tsAudioBufferModel -&gt; ByteString
 (M2tsAudioBufferModel -&gt; ByteString)
 -&gt; ToByteString M2tsAudioBufferModel
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: M2tsAudioBufferModel -&gt; ByteString
 $ctoBS :: M2tsAudioBufferModel -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679899304"><span class="annot"><span class="annottext">M2tsAudioBufferModel -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679899313"><span class="annot"><span class="annottext">M2tsAudioBufferModel -&gt; ByteStringBuilder
 (M2tsAudioBufferModel -&gt; ByteStringBuilder)
 -&gt; ToLog M2tsAudioBufferModel
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: M2tsAudioBufferModel -&gt; ByteStringBuilder
 $cbuild :: M2tsAudioBufferModel -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679899301"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsAudioBufferModel -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679899310"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsAudioBufferModel -&gt; [Header]
 (HeaderName -&gt; M2tsAudioBufferModel -&gt; [Header])
 -&gt; ToHeader M2tsAudioBufferModel
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; M2tsAudioBufferModel -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; M2tsAudioBufferModel -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679899298"><span class="annot"><span class="annottext">M2tsAudioBufferModel -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679899307"><span class="annot"><span class="annottext">M2tsAudioBufferModel -&gt; QueryString
 (M2tsAudioBufferModel -&gt; QueryString)
 -&gt; ToQuery M2tsAudioBufferModel
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: M2tsAudioBufferModel -&gt; QueryString
 $ctoQuery :: M2tsAudioBufferModel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679899293"><span id="local-6989586621679899295"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsAudioBufferModel]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679899302"><span id="local-6989586621679899304"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsAudioBufferModel]
 Value -&gt; Parser M2tsAudioBufferModel
 (Value -&gt; Parser M2tsAudioBufferModel)
 -&gt; (Value -&gt; Parser [M2tsAudioBufferModel])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [M2tsAudioBufferModel]
 parseJSON :: Value -&gt; Parser M2tsAudioBufferModel
 $cparseJSON :: Value -&gt; Parser M2tsAudioBufferModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679899288"><span id="local-6989586621679899290"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsAudioBufferModel]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679899297"><span id="local-6989586621679899299"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsAudioBufferModel]
 FromJSONKeyFunction M2tsAudioBufferModel
 FromJSONKeyFunction M2tsAudioBufferModel
 -&gt; FromJSONKeyFunction [M2tsAudioBufferModel]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [M2tsAudioBufferModel]
 fromJSONKey :: FromJSONKeyFunction M2tsAudioBufferModel
 $cfromJSONKey :: FromJSONKeyFunction M2tsAudioBufferModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679899279"><span id="local-6989586621679899281"><span id="local-6989586621679899283"><span id="local-6989586621679899285"><span class="annot"><span class="annottext">[M2tsAudioBufferModel] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679899288"><span id="local-6989586621679899290"><span id="local-6989586621679899292"><span id="local-6989586621679899294"><span class="annot"><span class="annottext">[M2tsAudioBufferModel] -&gt; Encoding
 [M2tsAudioBufferModel] -&gt; Value
 M2tsAudioBufferModel -&gt; Encoding
 M2tsAudioBufferModel -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: M2tsAudioBufferModel -&gt; Encoding
 toJSON :: M2tsAudioBufferModel -&gt; Value
 $ctoJSON :: M2tsAudioBufferModel -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679899274"><span id="local-6989586621679899276"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsAudioBufferModel]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679899283"><span id="local-6989586621679899285"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsAudioBufferModel]
 ToJSONKeyFunction M2tsAudioBufferModel
 ToJSONKeyFunction M2tsAudioBufferModel
 -&gt; ToJSONKeyFunction [M2tsAudioBufferModel]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [M2tsAudioBufferModel]
 toJSONKey :: ToJSONKeyFunction M2tsAudioBufferModel
 $ctoJSONKey :: ToJSONKeyFunction M2tsAudioBufferModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679899271"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsAudioBufferModel
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679899280"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsAudioBufferModel
 ([Node] -&gt; Either String M2tsAudioBufferModel)
 -&gt; FromXML M2tsAudioBufferModel
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String M2tsAudioBufferModel
 $cparseXML :: [Node] -&gt; Either String M2tsAudioBufferModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679899268"><span class="annot"><span class="annottext">M2tsAudioBufferModel -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679899277"><span class="annot"><span class="annottext">M2tsAudioBufferModel -&gt; XML
 (M2tsAudioBufferModel -&gt; XML) -&gt; ToXML M2tsAudioBufferModel
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: M2tsAudioBufferModel -&gt; XML

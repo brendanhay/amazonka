@@ -1,0 +1,750 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Provides information about the state of the domain relative to the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- latest service software.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679963426"><span id="local-6989586621679963427"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-var">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The epoch time when the deployment window closes for required updates.</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- After this time, OpenSearch Service schedules the software upgrade</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- automatically.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AautomatedUpdateDate%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AautomatedUpdateDate%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var hs-var">automatedUpdateDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The version of the service software that is currently installed on the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcurrentVersion%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AcurrentVersion%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Whether the service software update is optional.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AoptionalDeployment%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Bool
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AoptionalDeployment%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var hs-var">optionalDeployment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The status of the service software update.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AupdateStatus%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AupdateStatus%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var hs-var">updateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Whether a request to update the domain can be canceled.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Acancellable%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Bool
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3Acancellable%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var hs-var">cancellable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Whether a service software update is available for the domain.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AupdateAvailable%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Bool
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AupdateAvailable%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var hs-var">updateAvailable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A more detailed description of the service software status.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Adescription%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3Adescription%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The most recent version of the service software.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AnewVersion%27%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AnewVersion%27%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var hs-var">newVersion'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679963413"><span id="local-6989586621679963415"><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails -&gt; Bool
+(AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+ -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails -&gt; Bool)
+-&gt; (AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+    -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails -&gt; Bool)
+-&gt; Eq AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails -&gt; Bool
+$c/= :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails -&gt; Bool
+== :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails -&gt; Bool
+$c== :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679963404"><span id="local-6989586621679963406"><span id="local-6989586621679963408"><span id="local-6989586621679963410"><span class="annot"><span class="annottext">ReadPrec [AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails]
+ReadPrec AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+Int
+-&gt; ReadS AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+ReadS [AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails]
+(Int
+ -&gt; ReadS AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; ReadS [AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails]
+-&gt; ReadPrec AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; ReadPrec
+     [AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails]
+-&gt; Read AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails]
+$creadListPrec :: ReadPrec [AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails]
+readPrec :: ReadPrec AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+$creadPrec :: ReadPrec AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+readList :: ReadS [AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails]
+$creadList :: ReadS [AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails]
+readsPrec :: Int
+-&gt; ReadS AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+$creadsPrec :: Int
+-&gt; ReadS AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679963397"><span id="local-6989586621679963399"><span id="local-6989586621679963401"><span class="annot"><span class="annottext">Int
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails -&gt; ShowS
+[AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails] -&gt; ShowS
+AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails -&gt; String
+(Int
+ -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+ -&gt; ShowS)
+-&gt; (AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+    -&gt; String)
+-&gt; ([AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails]
+    -&gt; ShowS)
+-&gt; Show AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails] -&gt; ShowS
+$cshowList :: [AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails] -&gt; ShowS
+show :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails -&gt; String
+$cshow :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails -&gt; String
+showsPrec :: Int
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails -&gt; ShowS
+$cshowsPrec :: Int
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+ -&gt; Rep AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails x)
+-&gt; (forall x.
+    Rep AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails x
+    -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Generic AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+forall x.
+Rep AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails x
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+forall x.
+AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Rep AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails x
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+$cfrom :: forall x.
+AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Rep AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'automatedUpdateDate', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_automatedUpdateDate' - The epoch time when the deployment window closes for required updates.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- After this time, OpenSearch Service schedules the software upgrade</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- automatically.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'currentVersion', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_currentVersion' - The version of the service software that is currently installed on the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'optionalDeployment', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_optionalDeployment' - Whether the service software update is optional.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'updateStatus', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateStatus' - The status of the service software update.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'cancellable', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_cancellable' - Whether a request to update the domain can be canceled.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'updateAvailable', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateAvailable' - Whether a service software update is available for the domain.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'description', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_description' - A more detailed description of the service software status.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'newVersion'', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_newVersion' - The most recent version of the service software.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#newAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">newAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span>
+</span><span id="line-81"></span><span id="newAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="annot"><span class="annottext">newAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#newAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-var hs-var">newAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:automatedUpdateDate:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AautomatedUpdateDate%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">automatedUpdateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:currentVersion:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AcurrentVersion%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:optionalDeployment:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: Maybe Bool
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AoptionalDeployment%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">optionalDeployment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:updateStatus:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AupdateStatus%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">updateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:cancellable:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: Maybe Bool
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3Acancellable%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">cancellable</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:updateAvailable:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: Maybe Bool
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AupdateAvailable%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">updateAvailable</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3Adescription%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:newVersion':AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AnewVersion%27%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">newVersion'</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The epoch time when the deployment window closes for required updates.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- After this time, OpenSearch Service schedules the software upgrade</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- automatically.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_automatedUpdateDate"><span class="hs-identifier hs-type">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_automatedUpdateDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_automatedUpdateDate"><span class="annot"><span class="annottext">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_automatedUpdateDate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; f AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_automatedUpdateDate"><span class="hs-identifier hs-var hs-var">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_automatedUpdateDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+ -&gt; Maybe Text)
+-&gt; (AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+    -&gt; Maybe Text
+    -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Lens
+     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963388"><span class="annot"><span class="annottext">Maybe Text
+automatedUpdateDate :: Maybe Text
+$sel:automatedUpdateDate:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Text
+</span><a href="#local-6989586621679963388"><span class="hs-identifier hs-var hs-var">automatedUpdateDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963388"><span class="hs-identifier hs-var">automatedUpdateDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679963387"><span class="annot"><span class="annottext">s :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="#local-6989586621679963387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679963386"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="#local-6989586621679963387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:automatedUpdateDate:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AautomatedUpdateDate%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">automatedUpdateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The version of the service software that is currently installed on the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_currentVersion"><span class="hs-identifier hs-type">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_currentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_currentVersion"><span class="annot"><span class="annottext">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_currentVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; f AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_currentVersion"><span class="hs-identifier hs-var hs-var">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_currentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+ -&gt; Maybe Text)
+-&gt; (AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+    -&gt; Maybe Text
+    -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Lens
+     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963384"><span class="annot"><span class="annottext">Maybe Text
+currentVersion :: Maybe Text
+$sel:currentVersion:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Text
+</span><a href="#local-6989586621679963384"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963384"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679963383"><span class="annot"><span class="annottext">s :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="#local-6989586621679963383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679963382"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="#local-6989586621679963383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentVersion:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AcurrentVersion%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Whether the service software update is optional.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_optionalDeployment"><span class="hs-identifier hs-type">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_optionalDeployment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_optionalDeployment"><span class="annot"><span class="annottext">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_optionalDeployment :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; f AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_optionalDeployment"><span class="hs-identifier hs-var hs-var">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_optionalDeployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+ -&gt; Maybe Bool)
+-&gt; (AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+    -&gt; Maybe Bool
+    -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Lens
+     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963380"><span class="annot"><span class="annottext">Maybe Bool
+optionalDeployment :: Maybe Bool
+$sel:optionalDeployment:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Bool
+</span><a href="#local-6989586621679963380"><span class="hs-identifier hs-var hs-var">optionalDeployment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679963380"><span class="hs-identifier hs-var">optionalDeployment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679963379"><span class="annot"><span class="annottext">s :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="#local-6989586621679963379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679963378"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679963378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="#local-6989586621679963379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionalDeployment:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: Maybe Bool
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AoptionalDeployment%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">optionalDeployment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679963378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The status of the service software update.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateStatus"><span class="hs-identifier hs-type">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateStatus"><span class="annot"><span class="annottext">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateStatus :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; f AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateStatus"><span class="hs-identifier hs-var hs-var">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+ -&gt; Maybe Text)
+-&gt; (AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+    -&gt; Maybe Text
+    -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Lens
+     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963376"><span class="annot"><span class="annottext">Maybe Text
+updateStatus :: Maybe Text
+$sel:updateStatus:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Text
+</span><a href="#local-6989586621679963376"><span class="hs-identifier hs-var hs-var">updateStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963376"><span class="hs-identifier hs-var">updateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679963375"><span class="annot"><span class="annottext">s :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="#local-6989586621679963375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679963374"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="#local-6989586621679963375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateStatus:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AupdateStatus%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">updateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Whether a request to update the domain can be canceled.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_cancellable"><span class="hs-identifier hs-type">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_cancellable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_cancellable"><span class="annot"><span class="annottext">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_cancellable :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; f AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_cancellable"><span class="hs-identifier hs-var hs-var">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_cancellable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+ -&gt; Maybe Bool)
+-&gt; (AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+    -&gt; Maybe Bool
+    -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Lens
+     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963372"><span class="annot"><span class="annottext">Maybe Bool
+cancellable :: Maybe Bool
+$sel:cancellable:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Bool
+</span><a href="#local-6989586621679963372"><span class="hs-identifier hs-var hs-var">cancellable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679963372"><span class="hs-identifier hs-var">cancellable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679963371"><span class="annot"><span class="annottext">s :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="#local-6989586621679963371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679963370"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679963370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="#local-6989586621679963371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cancellable:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: Maybe Bool
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3Acancellable%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">cancellable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679963370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | Whether a service software update is available for the domain.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateAvailable"><span class="hs-identifier hs-type">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateAvailable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateAvailable"><span class="annot"><span class="annottext">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateAvailable :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; f AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateAvailable"><span class="hs-identifier hs-var hs-var">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateAvailable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+ -&gt; Maybe Bool)
+-&gt; (AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+    -&gt; Maybe Bool
+    -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Lens
+     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963368"><span class="annot"><span class="annottext">Maybe Bool
+updateAvailable :: Maybe Bool
+$sel:updateAvailable:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Bool
+</span><a href="#local-6989586621679963368"><span class="hs-identifier hs-var hs-var">updateAvailable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679963368"><span class="hs-identifier hs-var">updateAvailable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679963367"><span class="annot"><span class="annottext">s :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="#local-6989586621679963367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679963366"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679963366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="#local-6989586621679963367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateAvailable:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: Maybe Bool
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AupdateAvailable%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">updateAvailable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679963366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | A more detailed description of the service software status.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_description"><span class="hs-identifier hs-type">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_description"><span class="annot"><span class="annottext">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; f AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_description"><span class="hs-identifier hs-var hs-var">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+ -&gt; Maybe Text)
+-&gt; (AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+    -&gt; Maybe Text
+    -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Lens
+     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963364"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Text
+</span><a href="#local-6989586621679963364"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963364"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679963363"><span class="annot"><span class="annottext">s :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="#local-6989586621679963363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679963362"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="#local-6989586621679963363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3Adescription%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The most recent version of the service software.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_newVersion"><span class="hs-identifier hs-type">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_newVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_newVersion"><span class="annot"><span class="annottext">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_newVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; f AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_newVersion"><span class="hs-identifier hs-var hs-var">awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_newVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+ -&gt; Maybe Text)
+-&gt; (AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+    -&gt; Maybe Text
+    -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Lens
+     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963360"><span class="annot"><span class="annottext">Maybe Text
+newVersion' :: Maybe Text
+$sel:newVersion':AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Text
+</span><a href="#local-6989586621679963360"><span class="hs-identifier hs-var hs-var">newVersion'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963360"><span class="hs-identifier hs-var">newVersion'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679963359"><span class="annot"><span class="annottext">s :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="#local-6989586621679963359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679963358"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="#local-6989586621679963359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newVersion':AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#%24sel%3AnewVersion%27%3AAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">newVersion'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679963355"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679963353"><span class="annot"><span class="annottext">parseJSON :: Value
+-&gt; Parser AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object
+    -&gt; Parser AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Value
+-&gt; Parser AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails&quot;</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679963350"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679963350"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-var">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679963350"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutomatedUpdateDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679963350"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CurrentVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679963350"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OptionalDeployment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679963350"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679963350"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Cancellable&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679963350"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateAvailable&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679963350"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679963350"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NewVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679963344"><span id="local-6989586621679963346"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679963341"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679963333"><span id="local-6989586621679963335"><span id="local-6989586621679963337"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails</span></a></span></span></span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679963331"><span class="annot"><span class="annottext">toJSON :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.html#AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails%27"><span class="hs-identifier hs-type">AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963322"><span id="local-6989586621679963323"><span id="local-6989586621679963324"><span id="local-6989586621679963325"><span id="local-6989586621679963326"><span id="local-6989586621679963327"><span id="local-6989586621679963328"><span id="local-6989586621679963329"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+newVersion' :: Maybe Text
+description :: Maybe Text
+updateAvailable :: Maybe Bool
+cancellable :: Maybe Bool
+updateStatus :: Maybe Text
+optionalDeployment :: Maybe Bool
+currentVersion :: Maybe Text
+automatedUpdateDate :: Maybe Text
+$sel:newVersion':AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Text
+$sel:description:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Text
+$sel:updateAvailable:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Bool
+$sel:cancellable:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Bool
+$sel:updateStatus:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Text
+$sel:optionalDeployment:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Bool
+$sel:currentVersion:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Text
+$sel:automatedUpdateDate:AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+-&gt; Maybe Text
+</span><a href="#local-6989586621679963322"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-170"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutomatedUpdateDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>                </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963329"><span class="hs-identifier hs-var">automatedUpdateDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CurrentVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>                </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963328"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OptionalDeployment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>                </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679963327"><span class="hs-identifier hs-var">optionalDeployment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963326"><span class="hs-identifier hs-var">updateStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Cancellable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679963325"><span class="hs-identifier hs-var">cancellable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateAvailable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>                </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679963324"><span class="hs-identifier hs-var">updateAvailable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963323"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NewVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679963322"><span class="hs-identifier hs-var">newVersion'</span></a></span><span>
+</span><span id="line-183"></span><span>            </span><span class="hs-special">]</span><span>
+</span><span id="line-184"></span><span>        </span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span></pre></body></html>

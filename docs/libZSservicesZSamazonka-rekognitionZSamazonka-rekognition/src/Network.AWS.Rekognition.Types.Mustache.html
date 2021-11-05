@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- level in the determination.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMustache' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679326438"><span id="local-6989586621679326439"></span></span><span class="hs-keyword">data</span><span> </span><span id="Mustache"><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache"><span class="hs-identifier hs-var">Mustache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mustache%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache%27"><span class="hs-identifier hs-var">Mustache'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679326447"><span id="local-6989586621679326448"></span></span><span class="hs-keyword">data</span><span> </span><span id="Mustache"><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache"><span class="hs-identifier hs-var">Mustache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mustache%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache%27"><span class="hs-identifier hs-var">Mustache'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Boolean value that indicates whether the face has mustache or not.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalue%3AMustache%27"><span class="annot"><span class="annottext">Mustache -&gt; Maybe Bool
 </span><a href="Network.AWS.Rekognition.Types.Mustache.html#%24sel%3Avalue%3AMustache%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aconfidence%3AMustache%27"><span class="annot"><span class="annottext">Mustache -&gt; Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.Mustache.html#%24sel%3Aconfidence%3AMustache%27"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326431"><span id="local-6989586621679326433"><span class="annot"><span class="annottext">Mustache -&gt; Mustache -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326440"><span id="local-6989586621679326442"><span class="annot"><span class="annottext">Mustache -&gt; Mustache -&gt; Bool
 (Mustache -&gt; Mustache -&gt; Bool)
 -&gt; (Mustache -&gt; Mustache -&gt; Bool) -&gt; Eq Mustache
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Mustache -&gt; Mustache -&gt; Bool
 == :: Mustache -&gt; Mustache -&gt; Bool
 $c== :: Mustache -&gt; Mustache -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326422"><span id="local-6989586621679326424"><span id="local-6989586621679326426"><span id="local-6989586621679326428"><span class="annot"><span class="annottext">ReadPrec [Mustache]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326431"><span id="local-6989586621679326433"><span id="local-6989586621679326435"><span id="local-6989586621679326437"><span class="annot"><span class="annottext">ReadPrec [Mustache]
 ReadPrec Mustache
 Int -&gt; ReadS Mustache
 ReadS [Mustache]
@@ -63,7 +63,7 @@ readList :: ReadS [Mustache]
 $creadList :: ReadS [Mustache]
 readsPrec :: Int -&gt; ReadS Mustache
 $creadsPrec :: Int -&gt; ReadS Mustache
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326415"><span id="local-6989586621679326417"><span id="local-6989586621679326419"><span class="annot"><span class="annottext">Int -&gt; Mustache -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326424"><span id="local-6989586621679326426"><span id="local-6989586621679326428"><span class="annot"><span class="annottext">Int -&gt; Mustache -&gt; ShowS
 [Mustache] -&gt; ShowS
 Mustache -&gt; String
 (Int -&gt; Mustache -&gt; ShowS)
@@ -120,16 +120,16 @@ forall a. Maybe a
 -&gt; (Mustache -&gt; Maybe Bool -&gt; Mustache)
 -&gt; Lens Mustache Mustache (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache%27"><span class="hs-identifier hs-type">Mustache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326406"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache%27"><span class="hs-identifier hs-type">Mustache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326415"><span class="annot"><span class="annottext">Maybe Bool
 value :: Maybe Bool
 $sel:value:Mustache' :: Mustache -&gt; Maybe Bool
-</span><a href="#local-6989586621679326406"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679326406"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326405"><span class="annot"><span class="annottext">s :: Mustache
-</span><a href="#local-6989586621679326405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache%27"><span class="hs-identifier hs-type">Mustache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326404"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679326404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mustache
-</span><a href="#local-6989586621679326405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Mustache' :: Maybe Bool
+</span><a href="#local-6989586621679326415"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679326415"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326414"><span class="annot"><span class="annottext">s :: Mustache
+</span><a href="#local-6989586621679326414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache%27"><span class="hs-identifier hs-type">Mustache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326413"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679326413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mustache
+</span><a href="#local-6989586621679326414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Mustache' :: Maybe Bool
 </span><a href="Network.AWS.Rekognition.Types.Mustache.html#%24sel%3Avalue%3AMustache%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679326404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache"><span class="hs-identifier hs-type">Mustache</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache"><span class="hs-identifier hs-type">Mustache</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | Level of confidence in the determination.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#mustache_confidence"><span class="hs-identifier hs-type">mustache_confidence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache"><span class="hs-identifier hs-type">Mustache</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
@@ -138,34 +138,34 @@ $sel:value:Mustache' :: Mustache -&gt; Maybe Bool
 -&gt; (Mustache -&gt; Maybe Double -&gt; Mustache)
 -&gt; Lens Mustache Mustache (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache%27"><span class="hs-identifier hs-type">Mustache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326402"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache%27"><span class="hs-identifier hs-type">Mustache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326411"><span class="annot"><span class="annottext">Maybe Double
 confidence :: Maybe Double
 $sel:confidence:Mustache' :: Mustache -&gt; Maybe Double
-</span><a href="#local-6989586621679326402"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679326402"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326401"><span class="annot"><span class="annottext">s :: Mustache
-</span><a href="#local-6989586621679326401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache%27"><span class="hs-identifier hs-type">Mustache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326400"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679326400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mustache
-</span><a href="#local-6989586621679326401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:Mustache' :: Maybe Double
+</span><a href="#local-6989586621679326411"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679326411"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326410"><span class="annot"><span class="annottext">s :: Mustache
+</span><a href="#local-6989586621679326410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache%27"><span class="hs-identifier hs-type">Mustache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326409"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679326409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mustache
+</span><a href="#local-6989586621679326410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:Mustache' :: Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.Mustache.html#%24sel%3Aconfidence%3AMustache%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679326400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache"><span class="hs-identifier hs-type">Mustache</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache"><span class="hs-identifier hs-type">Mustache</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326397"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache"><span class="hs-identifier hs-type">Mustache</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679326395"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Mustache
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326406"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache"><span class="hs-identifier hs-type">Mustache</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679326404"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Mustache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Mustache) -&gt; Value -&gt; Parser Mustache
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Mustache&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326392"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326392"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326401"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326401"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Double -&gt; Mustache
 </span><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache%27"><span class="hs-identifier hs-var">Mustache'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Double -&gt; Mustache)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Double -&gt; Mustache)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679326401"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
@@ -173,13 +173,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double) -&gt; Parser Mustache
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679326401"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Confidence&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326386"><span id="local-6989586621679326388"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache"><span class="hs-identifier hs-type">Mustache</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326395"><span id="local-6989586621679326397"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache"><span class="hs-identifier hs-type">Mustache</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326383"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache"><span class="hs-identifier hs-type">Mustache</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326392"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Mustache.html#Mustache"><span class="hs-identifier hs-type">Mustache</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

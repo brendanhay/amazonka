@@ -64,7 +64,7 @@
 </span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newDetachPolicy' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621679247363"><span id="local-6989586621679247364"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachPolicy"><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-var">DetachPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachPolicy%27"><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy%27"><span class="hs-identifier hs-var">DetachPolicy'</span></a></span></span><span>
+</span><span id="line-67"></span><span id="local-6989586621679247372"><span id="local-6989586621679247373"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachPolicy"><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-var">DetachPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachPolicy%27"><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy%27"><span class="hs-identifier hs-var">DetachPolicy'</span></a></span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier (ID) of the policy you want to detach. You can get</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- the ID from the ListPolicies or ListPoliciesForTarget operations.</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -92,7 +92,7 @@
 </span><span id="line-91"></span><span>    </span><span id="%24sel%3AtargetId%3ADetachPolicy%27"><span class="annot"><span class="annottext">DetachPolicy -&gt; Text
 </span><a href="Network.AWS.Organizations.DetachPolicy.html#%24sel%3AtargetId%3ADetachPolicy%27"><span class="hs-identifier hs-var hs-var">targetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247356"><span id="local-6989586621679247358"><span class="annot"><span class="annottext">DetachPolicy -&gt; DetachPolicy -&gt; Bool
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247365"><span id="local-6989586621679247367"><span class="annot"><span class="annottext">DetachPolicy -&gt; DetachPolicy -&gt; Bool
 (DetachPolicy -&gt; DetachPolicy -&gt; Bool)
 -&gt; (DetachPolicy -&gt; DetachPolicy -&gt; Bool) -&gt; Eq DetachPolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -100,7 +100,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetachPolicy -&gt; DetachPolicy -&gt; Bool
 == :: DetachPolicy -&gt; DetachPolicy -&gt; Bool
 $c== :: DetachPolicy -&gt; DetachPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247347"><span id="local-6989586621679247349"><span id="local-6989586621679247351"><span id="local-6989586621679247353"><span class="annot"><span class="annottext">ReadPrec [DetachPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247356"><span id="local-6989586621679247358"><span id="local-6989586621679247360"><span id="local-6989586621679247362"><span class="annot"><span class="annottext">ReadPrec [DetachPolicy]
 ReadPrec DetachPolicy
 Int -&gt; ReadS DetachPolicy
 ReadS [DetachPolicy]
@@ -120,7 +120,7 @@ readList :: ReadS [DetachPolicy]
 $creadList :: ReadS [DetachPolicy]
 readsPrec :: Int -&gt; ReadS DetachPolicy
 $creadsPrec :: Int -&gt; ReadS DetachPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247340"><span id="local-6989586621679247342"><span id="local-6989586621679247344"><span class="annot"><span class="annottext">Int -&gt; DetachPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247349"><span id="local-6989586621679247351"><span id="local-6989586621679247353"><span class="annot"><span class="annottext">Int -&gt; DetachPolicy -&gt; ShowS
 [DetachPolicy] -&gt; ShowS
 DetachPolicy -&gt; String
 (Int -&gt; DetachPolicy -&gt; ShowS)
@@ -184,17 +184,17 @@ $cfrom :: forall x. DetachPolicy -&gt; Rep DetachPolicy x
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-type">DetachPolicy</span></a></span><span>
 </span><span id="line-132"></span><span id="newDetachPolicy"><span class="annot"><span class="annottext">newDetachPolicy :: Text -&gt; Text -&gt; DetachPolicy
-</span><a href="Network.AWS.Organizations.DetachPolicy.html#newDetachPolicy"><span class="hs-identifier hs-var hs-var">newDetachPolicy</span></a></span></span><span> </span><span id="local-6989586621679247335"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247335"><span class="hs-identifier hs-var">pPolicyId_</span></a></span></span><span> </span><span id="local-6989586621679247334"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247334"><span class="hs-identifier hs-var">pTargetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.DetachPolicy.html#newDetachPolicy"><span class="hs-identifier hs-var hs-var">newDetachPolicy</span></a></span></span><span> </span><span id="local-6989586621679247344"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247344"><span class="hs-identifier hs-var">pPolicyId_</span></a></span></span><span> </span><span id="local-6989586621679247343"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247343"><span class="hs-identifier hs-var">pTargetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">DetachPolicy' :: Text -&gt; Text -&gt; DetachPolicy
 </span><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy%27"><span class="hs-identifier hs-type">DetachPolicy'</span></a></span><span>
 </span><span id="line-134"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policyId:DetachPolicy' :: Text
 </span><a href="Network.AWS.Organizations.DetachPolicy.html#%24sel%3ApolicyId%3ADetachPolicy%27"><span class="hs-identifier hs-var">policyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247335"><span class="hs-identifier hs-var">pPolicyId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679247344"><span class="hs-identifier hs-var">pPolicyId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetId:DetachPolicy' :: Text
 </span><a href="Network.AWS.Organizations.DetachPolicy.html#%24sel%3AtargetId%3ADetachPolicy%27"><span class="hs-identifier hs-var">targetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247334"><span class="hs-identifier hs-var">pTargetId_</span></a></span><span>
+</span><a href="#local-6989586621679247343"><span class="hs-identifier hs-var">pTargetId_</span></a></span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The unique identifier (ID) of the policy you want to detach. You can get</span><span>
@@ -209,16 +209,16 @@ $cfrom :: forall x. DetachPolicy -&gt; Rep DetachPolicy x
 -&gt; (DetachPolicy -&gt; Text -&gt; DetachPolicy)
 -&gt; Lens DetachPolicy DetachPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy%27"><span class="hs-identifier hs-type">DetachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247331"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy%27"><span class="hs-identifier hs-type">DetachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247340"><span class="annot"><span class="annottext">Text
 policyId :: Text
 $sel:policyId:DetachPolicy' :: DetachPolicy -&gt; Text
-</span><a href="#local-6989586621679247331"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247331"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247330"><span class="annot"><span class="annottext">s :: DetachPolicy
-</span><a href="#local-6989586621679247330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy%27"><span class="hs-identifier hs-type">DetachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247329"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachPolicy
-</span><a href="#local-6989586621679247330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyId:DetachPolicy' :: Text
+</span><a href="#local-6989586621679247340"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247340"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247339"><span class="annot"><span class="annottext">s :: DetachPolicy
+</span><a href="#local-6989586621679247339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy%27"><span class="hs-identifier hs-type">DetachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247338"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachPolicy
+</span><a href="#local-6989586621679247339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyId:DetachPolicy' :: Text
 </span><a href="Network.AWS.Organizations.DetachPolicy.html#%24sel%3ApolicyId%3ADetachPolicy%27"><span class="hs-identifier hs-var">policyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-type">DetachPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-type">DetachPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The unique identifier (ID) of the root, OU, or account that you want to</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- detach the policy from. You can get the ID from the ListRoots,</span><span>
@@ -242,25 +242,25 @@ $sel:policyId:DetachPolicy' :: DetachPolicy -&gt; Text
 -&gt; (DetachPolicy -&gt; Text -&gt; DetachPolicy)
 -&gt; Lens DetachPolicy DetachPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy%27"><span class="hs-identifier hs-type">DetachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247328"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy%27"><span class="hs-identifier hs-type">DetachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247337"><span class="annot"><span class="annottext">Text
 targetId :: Text
 $sel:targetId:DetachPolicy' :: DetachPolicy -&gt; Text
-</span><a href="#local-6989586621679247328"><span class="hs-identifier hs-var hs-var">targetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247328"><span class="hs-identifier hs-var">targetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247327"><span class="annot"><span class="annottext">s :: DetachPolicy
-</span><a href="#local-6989586621679247327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy%27"><span class="hs-identifier hs-type">DetachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247326"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachPolicy
-</span><a href="#local-6989586621679247327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetId:DetachPolicy' :: Text
+</span><a href="#local-6989586621679247337"><span class="hs-identifier hs-var hs-var">targetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247337"><span class="hs-identifier hs-var">targetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247336"><span class="annot"><span class="annottext">s :: DetachPolicy
+</span><a href="#local-6989586621679247336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy%27"><span class="hs-identifier hs-type">DetachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247335"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachPolicy
+</span><a href="#local-6989586621679247336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetId:DetachPolicy' :: Text
 </span><a href="Network.AWS.Organizations.DetachPolicy.html#%24sel%3AtargetId%3ADetachPolicy%27"><span class="hs-identifier hs-var">targetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-type">DetachPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-type">DetachPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-type">DetachPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-type">DetachPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicyResponse"><span class="hs-identifier hs-type">DetachPolicyResponse</span></a></span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679247322"><span class="annot"><span class="annottext">request :: DetachPolicy -&gt; Request DetachPolicy
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679247331"><span class="annot"><span class="annottext">request :: DetachPolicy -&gt; Request DetachPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DetachPolicy -&gt; Request DetachPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Organizations.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679247318"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679247327"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DetachPolicy
 -&gt; ClientResponse ClientBody
@@ -283,12 +283,12 @@ AWSResponse a
 DetachPolicyResponse
 </span><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicyResponse%27"><span class="hs-identifier hs-var">DetachPolicyResponse'</span></a></span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247311"><span id="local-6989586621679247313"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-type">DetachPolicy</span></a></span></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247320"><span id="local-6989586621679247322"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-type">DetachPolicy</span></a></span></span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247308"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-type">DetachPolicy</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-type">DetachPolicy</span></a></span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-type">DetachPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679247304"><span class="annot"><span class="annottext">toHeaders :: DetachPolicy -&gt; [Header]
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679247313"><span class="annot"><span class="annottext">toHeaders :: DetachPolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DetachPolicy -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -315,14 +315,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-187"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247294"><span id="local-6989586621679247296"><span id="local-6989586621679247298"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-type">DetachPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679247292"><span class="annot"><span class="annottext">toJSON :: DetachPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy%27"><span class="hs-identifier hs-type">DetachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247289"><span id="local-6989586621679247290"><span class="annot"><span class="annottext">Text
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247303"><span id="local-6989586621679247305"><span id="local-6989586621679247307"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-type">DetachPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679247301"><span class="annot"><span class="annottext">toJSON :: DetachPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy%27"><span class="hs-identifier hs-type">DetachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247298"><span id="local-6989586621679247299"><span class="annot"><span class="annottext">Text
 targetId :: Text
 policyId :: Text
 $sel:targetId:DetachPolicy' :: DetachPolicy -&gt; Text
 $sel:policyId:DetachPolicy' :: DetachPolicy -&gt; Text
-</span><a href="#local-6989586621679247289"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679247298"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -334,26 +334,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;PolicyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247290"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679247299"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247289"><span class="hs-identifier hs-var">targetId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247298"><span class="hs-identifier hs-var">targetId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-type">DetachPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679247283"><span class="annot"><span class="annottext">toPath :: DetachPolicy -&gt; ByteString
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679247292"><span class="annot"><span class="annottext">toPath :: DetachPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DetachPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicy"><span class="hs-identifier hs-type">DetachPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679247279"><span class="annot"><span class="annottext">toQuery :: DetachPolicy -&gt; QueryString
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679247288"><span class="annot"><span class="annottext">toQuery :: DetachPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DetachPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -361,10 +361,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | /See:/ 'newDetachPolicyResponse' smart constructor.</span><span>
-</span><span id="line-206"></span><span id="local-6989586621679247276"><span id="local-6989586621679247277"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachPolicyResponse"><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicyResponse"><span class="hs-identifier hs-var">DetachPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachPolicyResponse%27"><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicyResponse%27"><span class="hs-identifier hs-var">DetachPolicyResponse'</span></a></span></span><span>
+</span><span id="line-206"></span><span id="local-6989586621679247285"><span id="local-6989586621679247286"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachPolicyResponse"><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicyResponse"><span class="hs-identifier hs-var">DetachPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachPolicyResponse%27"><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicyResponse%27"><span class="hs-identifier hs-var">DetachPolicyResponse'</span></a></span></span><span>
 </span><span id="line-207"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-208"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-209"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247272"><span id="local-6989586621679247274"><span class="annot"><span class="annottext">DetachPolicyResponse -&gt; DetachPolicyResponse -&gt; Bool
+</span><span id="line-209"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247281"><span id="local-6989586621679247283"><span class="annot"><span class="annottext">DetachPolicyResponse -&gt; DetachPolicyResponse -&gt; Bool
 (DetachPolicyResponse -&gt; DetachPolicyResponse -&gt; Bool)
 -&gt; (DetachPolicyResponse -&gt; DetachPolicyResponse -&gt; Bool)
 -&gt; Eq DetachPolicyResponse
@@ -373,7 +373,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetachPolicyResponse -&gt; DetachPolicyResponse -&gt; Bool
 == :: DetachPolicyResponse -&gt; DetachPolicyResponse -&gt; Bool
 $c== :: DetachPolicyResponse -&gt; DetachPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247264"><span id="local-6989586621679247266"><span id="local-6989586621679247268"><span id="local-6989586621679247270"><span class="annot"><span class="annottext">ReadPrec [DetachPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247273"><span id="local-6989586621679247275"><span id="local-6989586621679247277"><span id="local-6989586621679247279"><span class="annot"><span class="annottext">ReadPrec [DetachPolicyResponse]
 ReadPrec DetachPolicyResponse
 Int -&gt; ReadS DetachPolicyResponse
 ReadS [DetachPolicyResponse]
@@ -393,7 +393,7 @@ readList :: ReadS [DetachPolicyResponse]
 $creadList :: ReadS [DetachPolicyResponse]
 readsPrec :: Int -&gt; ReadS DetachPolicyResponse
 $creadsPrec :: Int -&gt; ReadS DetachPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247258"><span id="local-6989586621679247260"><span id="local-6989586621679247262"><span class="annot"><span class="annottext">Int -&gt; DetachPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247267"><span id="local-6989586621679247269"><span id="local-6989586621679247271"><span class="annot"><span class="annottext">Int -&gt; DetachPolicyResponse -&gt; ShowS
 [DetachPolicyResponse] -&gt; ShowS
 DetachPolicyResponse -&gt; String
 (Int -&gt; DetachPolicyResponse -&gt; ShowS)
@@ -429,5 +429,5 @@ $cfrom :: forall x. DetachPolicyResponse -&gt; Rep DetachPolicyResponse x
 </span><a href="Network.AWS.Organizations.DetachPolicy.html#newDetachPolicyResponse"><span class="hs-identifier hs-var hs-var">newDetachPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DetachPolicyResponse
 </span><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicyResponse%27"><span class="hs-identifier hs-var">DetachPolicyResponse'</span></a></span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247254"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicyResponse"><span class="hs-identifier hs-type">DetachPolicyResponse</span></a></span></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247263"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DetachPolicy.html#DetachPolicyResponse"><span class="hs-identifier hs-type">DetachPolicyResponse</span></a></span></span><span>
 </span><span id="line-220"></span></pre></body></html>

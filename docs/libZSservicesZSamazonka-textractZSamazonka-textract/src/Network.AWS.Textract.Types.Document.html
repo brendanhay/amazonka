@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-comment">-- permission to access the S3 object.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newDocument' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679177530"><span id="local-6989586621679177531"></span></span><span class="hs-keyword">data</span><span> </span><span id="Document"><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document"><span class="hs-identifier hs-var">Document</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Document%27"><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document%27"><span class="hs-identifier hs-var">Document'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679177539"><span id="local-6989586621679177540"></span></span><span class="hs-keyword">data</span><span> </span><span id="Document"><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document"><span class="hs-identifier hs-var">Document</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Document%27"><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document%27"><span class="hs-identifier hs-var">Document'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies an S3 object as the document source. The maximum size of a</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- document that\'s stored in an S3 bucket is 5 MB.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3As3Object%3ADocument%27"><span class="annot"><span class="annottext">Document -&gt; Maybe S3Object
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3Abytes%3ADocument%27"><span class="annot"><span class="annottext">Document -&gt; Maybe Base64
 </span><a href="Network.AWS.Textract.Types.Document.html#%24sel%3Abytes%3ADocument%27"><span class="hs-identifier hs-var hs-var">bytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177523"><span id="local-6989586621679177525"><span class="annot"><span class="annottext">Document -&gt; Document -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177532"><span id="local-6989586621679177534"><span class="annot"><span class="annottext">Document -&gt; Document -&gt; Bool
 (Document -&gt; Document -&gt; Bool)
 -&gt; (Document -&gt; Document -&gt; Bool) -&gt; Eq Document
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Document -&gt; Document -&gt; Bool
 == :: Document -&gt; Document -&gt; Bool
 $c== :: Document -&gt; Document -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177514"><span id="local-6989586621679177516"><span id="local-6989586621679177518"><span id="local-6989586621679177520"><span class="annot"><span class="annottext">ReadPrec [Document]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177523"><span id="local-6989586621679177525"><span id="local-6989586621679177527"><span id="local-6989586621679177529"><span class="annot"><span class="annottext">ReadPrec [Document]
 ReadPrec Document
 Int -&gt; ReadS Document
 ReadS [Document]
@@ -91,7 +91,7 @@ readList :: ReadS [Document]
 $creadList :: ReadS [Document]
 readsPrec :: Int -&gt; ReadS Document
 $creadsPrec :: Int -&gt; ReadS Document
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177507"><span id="local-6989586621679177509"><span id="local-6989586621679177511"><span class="annot"><span class="annottext">Int -&gt; Document -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177516"><span id="local-6989586621679177518"><span id="local-6989586621679177520"><span class="annot"><span class="annottext">Int -&gt; Document -&gt; ShowS
 [Document] -&gt; ShowS
 Document -&gt; String
 (Int -&gt; Document -&gt; ShowS)
@@ -159,16 +159,16 @@ forall a. Maybe a
 -&gt; (Document -&gt; Maybe S3Object -&gt; Document)
 -&gt; Lens Document Document (Maybe S3Object) (Maybe S3Object)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document%27"><span class="hs-identifier hs-type">Document'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177498"><span class="annot"><span class="annottext">Maybe S3Object
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document%27"><span class="hs-identifier hs-type">Document'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177507"><span class="annot"><span class="annottext">Maybe S3Object
 s3Object :: Maybe S3Object
 $sel:s3Object:Document' :: Document -&gt; Maybe S3Object
-</span><a href="#local-6989586621679177498"><span class="hs-identifier hs-var hs-var">s3Object</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
-</span><a href="#local-6989586621679177498"><span class="hs-identifier hs-var">s3Object</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177497"><span class="annot"><span class="annottext">s :: Document
-</span><a href="#local-6989586621679177497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document%27"><span class="hs-identifier hs-type">Document'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177496"><span class="annot"><span class="annottext">Maybe S3Object
-</span><a href="#local-6989586621679177496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Document
-</span><a href="#local-6989586621679177497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Object:Document' :: Maybe S3Object
+</span><a href="#local-6989586621679177507"><span class="hs-identifier hs-var hs-var">s3Object</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
+</span><a href="#local-6989586621679177507"><span class="hs-identifier hs-var">s3Object</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177506"><span class="annot"><span class="annottext">s :: Document
+</span><a href="#local-6989586621679177506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document%27"><span class="hs-identifier hs-type">Document'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177505"><span class="annot"><span class="annottext">Maybe S3Object
+</span><a href="#local-6989586621679177505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Document
+</span><a href="#local-6989586621679177506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Object:Document' :: Maybe S3Object
 </span><a href="Network.AWS.Textract.Types.Document.html#%24sel%3As3Object%3ADocument%27"><span class="hs-identifier hs-var">s3Object</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
-</span><a href="#local-6989586621679177496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document"><span class="hs-identifier hs-type">Document</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document"><span class="hs-identifier hs-type">Document</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | A blob of base64-encoded document bytes. The maximum size of a document</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- that\'s provided in a blob of bytes is 5 MB. The document bytes must be</span><span>
@@ -187,16 +187,16 @@ $sel:s3Object:Document' :: Document -&gt; Maybe S3Object
 -&gt; (Document -&gt; Maybe Base64 -&gt; Document)
 -&gt; Lens Document Document (Maybe Base64) (Maybe Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document%27"><span class="hs-identifier hs-type">Document'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177494"><span class="annot"><span class="annottext">Maybe Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document%27"><span class="hs-identifier hs-type">Document'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177503"><span class="annot"><span class="annottext">Maybe Base64
 bytes :: Maybe Base64
 $sel:bytes:Document' :: Document -&gt; Maybe Base64
-</span><a href="#local-6989586621679177494"><span class="hs-identifier hs-var hs-var">bytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679177494"><span class="hs-identifier hs-var">bytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177493"><span class="annot"><span class="annottext">s :: Document
-</span><a href="#local-6989586621679177493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document%27"><span class="hs-identifier hs-type">Document'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177492"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679177492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Document
-</span><a href="#local-6989586621679177493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytes:Document' :: Maybe Base64
+</span><a href="#local-6989586621679177503"><span class="hs-identifier hs-var hs-var">bytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679177503"><span class="hs-identifier hs-var">bytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177502"><span class="annot"><span class="annottext">s :: Document
+</span><a href="#local-6989586621679177502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document%27"><span class="hs-identifier hs-type">Document'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177501"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679177501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Document
+</span><a href="#local-6989586621679177502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytes:Document' :: Maybe Base64
 </span><a href="Network.AWS.Textract.Types.Document.html#%24sel%3Abytes%3ADocument%27"><span class="hs-identifier hs-var">bytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679177492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document"><span class="hs-identifier hs-type">Document</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64)) -&gt; Document -&gt; f Document)
+</span><a href="#local-6989586621679177501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document"><span class="hs-identifier hs-type">Document</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64)) -&gt; Document -&gt; f Document)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe Base64 -&gt; f (Maybe Base64))
 -&gt; (Maybe ByteString -&gt; f (Maybe ByteString))
@@ -213,19 +213,19 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 Iso' Base64 ByteString
 </span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177485"><span id="local-6989586621679177487"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document"><span class="hs-identifier hs-type">Document</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177494"><span id="local-6989586621679177496"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document"><span class="hs-identifier hs-type">Document</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177482"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document"><span class="hs-identifier hs-type">Document</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177491"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document"><span class="hs-identifier hs-type">Document</span></a></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177474"><span id="local-6989586621679177476"><span id="local-6989586621679177478"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document"><span class="hs-identifier hs-type">Document</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679177472"><span class="annot"><span class="annottext">toJSON :: Document -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document%27"><span class="hs-identifier hs-type">Document'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177469"><span id="local-6989586621679177470"><span class="annot"><span class="annottext">Maybe Base64
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177483"><span id="local-6989586621679177485"><span id="local-6989586621679177487"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document"><span class="hs-identifier hs-type">Document</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679177481"><span class="annot"><span class="annottext">toJSON :: Document -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Document.html#Document%27"><span class="hs-identifier hs-type">Document'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177478"><span id="local-6989586621679177479"><span class="annot"><span class="annottext">Maybe Base64
 Maybe S3Object
 bytes :: Maybe Base64
 s3Object :: Maybe S3Object
 $sel:bytes:Document' :: Document -&gt; Maybe Base64
 $sel:s3Object:Document' :: Document -&gt; Maybe S3Object
-</span><a href="#local-6989586621679177469"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679177478"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -237,14 +237,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3Object -&gt; Pair) -&gt; Maybe S3Object -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
-</span><a href="#local-6989586621679177470"><span class="hs-identifier hs-var">s3Object</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177479"><span class="hs-identifier hs-var">s3Object</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Bytes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Base64 -&gt; Pair) -&gt; Maybe Base64 -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679177469"><span class="hs-identifier hs-var">bytes</span></a></span><span>
+</span><a href="#local-6989586621679177478"><span class="hs-identifier hs-var">bytes</span></a></span><span>
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span></pre></body></html>

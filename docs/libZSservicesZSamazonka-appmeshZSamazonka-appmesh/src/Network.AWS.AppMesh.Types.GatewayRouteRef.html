@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.Types.GatewayRouteRef</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.Types.GatewayRouteRef</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | An object that represents a gateway route returned by a list operation.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newGatewayRouteRef' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679324750"><span id="local-6989586621679324751"></span></span><span class="hs-keyword">data</span><span> </span><span id="GatewayRouteRef"><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-var">GatewayRouteRef</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GatewayRouteRef%27"><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-var">GatewayRouteRef'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The full Amazon Resource Name (ARN) for the gateway route.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aarn%3AGatewayRouteRef%27"><span class="annot"><span class="annottext">GatewayRouteRef -&gt; Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3Aarn%3AGatewayRouteRef%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the resource was created.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcreatedAt%3AGatewayRouteRef%27"><span class="annot"><span class="annottext">GatewayRouteRef -&gt; POSIX
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AcreatedAt%3AGatewayRouteRef%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the gateway route.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AgatewayRouteName%3AGatewayRouteRef%27"><span class="annot"><span class="annottext">GatewayRouteRef -&gt; Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AgatewayRouteName%3AGatewayRouteRef%27"><span class="hs-identifier hs-var hs-var">gatewayRouteName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the resource was last</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlastUpdatedAt%3AGatewayRouteRef%27"><span class="annot"><span class="annottext">GatewayRouteRef -&gt; POSIX
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AlastUpdatedAt%3AGatewayRouteRef%27"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the service mesh that the resource resides in.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AmeshName%3AGatewayRouteRef%27"><span class="annot"><span class="annottext">GatewayRouteRef -&gt; Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AmeshName%3AGatewayRouteRef%27"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AmeshOwner%3AGatewayRouteRef%27"><span class="annot"><span class="annottext">GatewayRouteRef -&gt; Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AmeshOwner%3AGatewayRouteRef%27"><span class="hs-identifier hs-var hs-var">meshOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The AWS IAM account ID of the resource owner. If the account ID is not</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- your own, then it\'s the ID of the mesh owner or of another account that</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- the mesh is shared with. For more information about mesh sharing, see</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AresourceOwner%3AGatewayRouteRef%27"><span class="annot"><span class="annottext">GatewayRouteRef -&gt; Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AresourceOwner%3AGatewayRouteRef%27"><span class="hs-identifier hs-var hs-var">resourceOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The version of the resource. Resources are created at version 1, and</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- this version is incremented each time that they\'re updated.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aversion%3AGatewayRouteRef%27"><span class="annot"><span class="annottext">GatewayRouteRef -&gt; Integer
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3Aversion%3AGatewayRouteRef%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The virtual gateway that the gateway route is associated with.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AvirtualGatewayName%3AGatewayRouteRef%27"><span class="annot"><span class="annottext">GatewayRouteRef -&gt; Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AvirtualGatewayName%3AGatewayRouteRef%27"><span class="hs-identifier hs-var hs-var">virtualGatewayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324736"><span id="local-6989586621679324738"><span class="annot"><span class="annottext">GatewayRouteRef -&gt; GatewayRouteRef -&gt; Bool
+(GatewayRouteRef -&gt; GatewayRouteRef -&gt; Bool)
+-&gt; (GatewayRouteRef -&gt; GatewayRouteRef -&gt; Bool)
+-&gt; Eq GatewayRouteRef
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GatewayRouteRef -&gt; GatewayRouteRef -&gt; Bool
+$c/= :: GatewayRouteRef -&gt; GatewayRouteRef -&gt; Bool
+== :: GatewayRouteRef -&gt; GatewayRouteRef -&gt; Bool
+$c== :: GatewayRouteRef -&gt; GatewayRouteRef -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324727"><span id="local-6989586621679324729"><span id="local-6989586621679324731"><span id="local-6989586621679324733"><span class="annot"><span class="annottext">ReadPrec [GatewayRouteRef]
+ReadPrec GatewayRouteRef
+Int -&gt; ReadS GatewayRouteRef
+ReadS [GatewayRouteRef]
+(Int -&gt; ReadS GatewayRouteRef)
+-&gt; ReadS [GatewayRouteRef]
+-&gt; ReadPrec GatewayRouteRef
+-&gt; ReadPrec [GatewayRouteRef]
+-&gt; Read GatewayRouteRef
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GatewayRouteRef]
+$creadListPrec :: ReadPrec [GatewayRouteRef]
+readPrec :: ReadPrec GatewayRouteRef
+$creadPrec :: ReadPrec GatewayRouteRef
+readList :: ReadS [GatewayRouteRef]
+$creadList :: ReadS [GatewayRouteRef]
+readsPrec :: Int -&gt; ReadS GatewayRouteRef
+$creadsPrec :: Int -&gt; ReadS GatewayRouteRef
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324720"><span id="local-6989586621679324722"><span id="local-6989586621679324724"><span class="annot"><span class="annottext">Int -&gt; GatewayRouteRef -&gt; ShowS
+[GatewayRouteRef] -&gt; ShowS
+GatewayRouteRef -&gt; String
+(Int -&gt; GatewayRouteRef -&gt; ShowS)
+-&gt; (GatewayRouteRef -&gt; String)
+-&gt; ([GatewayRouteRef] -&gt; ShowS)
+-&gt; Show GatewayRouteRef
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GatewayRouteRef] -&gt; ShowS
+$cshowList :: [GatewayRouteRef] -&gt; ShowS
+show :: GatewayRouteRef -&gt; String
+$cshow :: GatewayRouteRef -&gt; String
+showsPrec :: Int -&gt; GatewayRouteRef -&gt; ShowS
+$cshowsPrec :: Int -&gt; GatewayRouteRef -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GatewayRouteRef -&gt; Rep GatewayRouteRef x)
+-&gt; (forall x. Rep GatewayRouteRef x -&gt; GatewayRouteRef)
+-&gt; Generic GatewayRouteRef
+forall x. Rep GatewayRouteRef x -&gt; GatewayRouteRef
+forall x. GatewayRouteRef -&gt; Rep GatewayRouteRef x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GatewayRouteRef x -&gt; GatewayRouteRef
+$cfrom :: forall x. GatewayRouteRef -&gt; Rep GatewayRouteRef x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'GatewayRouteRef' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'arn', 'gatewayRouteRef_arn' - The full Amazon Resource Name (ARN) for the gateway route.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'createdAt', 'gatewayRouteRef_createdAt' - The Unix epoch timestamp in seconds for when the resource was created.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'gatewayRouteName', 'gatewayRouteRef_gatewayRouteName' - The name of the gateway route.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'lastUpdatedAt', 'gatewayRouteRef_lastUpdatedAt' - The Unix epoch timestamp in seconds for when the resource was last</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'meshName', 'gatewayRouteRef_meshName' - The name of the service mesh that the resource resides in.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'meshOwner', 'gatewayRouteRef_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'resourceOwner', 'gatewayRouteRef_resourceOwner' - The AWS IAM account ID of the resource owner. If the account ID is not</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- your own, then it\'s the ID of the mesh owner or of another account that</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- the mesh is shared with. For more information about mesh sharing, see</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'version', 'gatewayRouteRef_version' - The version of the resource. Resources are created at version 1, and</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- this version is incremented each time that they\'re updated.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'virtualGatewayName', 'gatewayRouteRef_virtualGatewayName' - The virtual gateway that the gateway route is associated with.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#newGatewayRouteRef"><span class="hs-identifier hs-type">newGatewayRouteRef</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'createdAt'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'gatewayRouteName'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'lastUpdatedAt'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'meshName'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'meshOwner'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'resourceOwner'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'version'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-comment">-- | 'virtualGatewayName'</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span>
+</span><span id="line-112"></span><span id="newGatewayRouteRef"><span class="annot"><span class="annottext">newGatewayRouteRef :: Text
+-&gt; UTCTime
+-&gt; Text
+-&gt; UTCTime
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Integer
+-&gt; Text
+-&gt; GatewayRouteRef
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#newGatewayRouteRef"><span class="hs-identifier hs-var hs-var">newGatewayRouteRef</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679324714"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324714"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679324713"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679324713"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679324712"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324712"><span class="hs-identifier hs-var">pGatewayRouteName_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679324711"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679324711"><span class="hs-identifier hs-var">pLastUpdatedAt_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679324710"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324710"><span class="hs-identifier hs-var">pMeshName_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679324709"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324709"><span class="hs-identifier hs-var">pMeshOwner_</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679324708"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324708"><span class="hs-identifier hs-var">pResourceOwner_</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679324707"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679324707"><span class="hs-identifier hs-var">pVersion_</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679324706"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324706"><span class="hs-identifier hs-var">pVirtualGatewayName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">GatewayRouteRef' :: Text
+-&gt; POSIX
+-&gt; Text
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Integer
+-&gt; Text
+-&gt; GatewayRouteRef
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:GatewayRouteRef' :: Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3Aarn%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324714"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:GatewayRouteRef' :: POSIX
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AcreatedAt%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679324713"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayRouteName:GatewayRouteRef' :: Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AgatewayRouteName%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">gatewayRouteName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324712"><span class="hs-identifier hs-var">pGatewayRouteName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:GatewayRouteRef' :: POSIX
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AlastUpdatedAt%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679324711"><span class="hs-identifier hs-var">pLastUpdatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:meshName:GatewayRouteRef' :: Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AmeshName%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324710"><span class="hs-identifier hs-var">pMeshName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:meshOwner:GatewayRouteRef' :: Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AmeshOwner%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">meshOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324709"><span class="hs-identifier hs-var">pMeshOwner_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceOwner:GatewayRouteRef' :: Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AresourceOwner%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324708"><span class="hs-identifier hs-var">pResourceOwner_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:version:GatewayRouteRef' :: Integer
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3Aversion%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679324707"><span class="hs-identifier hs-var">pVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:virtualGatewayName:GatewayRouteRef' :: Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AvirtualGatewayName%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">virtualGatewayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324706"><span class="hs-identifier hs-var">pVirtualGatewayName_</span></a></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The full Amazon Resource Name (ARN) for the gateway route.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_arn"><span class="hs-identifier hs-type">gatewayRouteRef_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-136"></span><span id="gatewayRouteRef_arn"><span class="annot"><span class="annottext">gatewayRouteRef_arn :: (Text -&gt; f Text) -&gt; GatewayRouteRef -&gt; f GatewayRouteRef
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_arn"><span class="hs-identifier hs-var hs-var">gatewayRouteRef_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatewayRouteRef -&gt; Text)
+-&gt; (GatewayRouteRef -&gt; Text -&gt; GatewayRouteRef)
+-&gt; Lens GatewayRouteRef GatewayRouteRef Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324700"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:GatewayRouteRef' :: GatewayRouteRef -&gt; Text
+</span><a href="#local-6989586621679324700"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324700"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324699"><span class="annot"><span class="annottext">s :: GatewayRouteRef
+</span><a href="#local-6989586621679324699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324698"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatewayRouteRef
+</span><a href="#local-6989586621679324699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GatewayRouteRef' :: Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3Aarn%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the resource was created.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_createdAt"><span class="hs-identifier hs-type">gatewayRouteRef_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-140"></span><span id="gatewayRouteRef_createdAt"><span class="annot"><span class="annottext">gatewayRouteRef_createdAt :: (UTCTime -&gt; f UTCTime) -&gt; GatewayRouteRef -&gt; f GatewayRouteRef
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_createdAt"><span class="hs-identifier hs-var hs-var">gatewayRouteRef_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatewayRouteRef -&gt; POSIX)
+-&gt; (GatewayRouteRef -&gt; POSIX -&gt; GatewayRouteRef)
+-&gt; Lens GatewayRouteRef GatewayRouteRef POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324696"><span class="annot"><span class="annottext">POSIX
+createdAt :: POSIX
+$sel:createdAt:GatewayRouteRef' :: GatewayRouteRef -&gt; POSIX
+</span><a href="#local-6989586621679324696"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679324696"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324695"><span class="annot"><span class="annottext">s :: GatewayRouteRef
+</span><a href="#local-6989586621679324695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324694"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679324694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatewayRouteRef
+</span><a href="#local-6989586621679324695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:GatewayRouteRef' :: POSIX
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AcreatedAt%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679324694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; GatewayRouteRef -&gt; f GatewayRouteRef)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; GatewayRouteRef
+-&gt; f GatewayRouteRef
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The name of the gateway route.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_gatewayRouteName"><span class="hs-identifier hs-type">gatewayRouteRef_gatewayRouteName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-144"></span><span id="gatewayRouteRef_gatewayRouteName"><span class="annot"><span class="annottext">gatewayRouteRef_gatewayRouteName :: (Text -&gt; f Text) -&gt; GatewayRouteRef -&gt; f GatewayRouteRef
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_gatewayRouteName"><span class="hs-identifier hs-var hs-var">gatewayRouteRef_gatewayRouteName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatewayRouteRef -&gt; Text)
+-&gt; (GatewayRouteRef -&gt; Text -&gt; GatewayRouteRef)
+-&gt; Lens GatewayRouteRef GatewayRouteRef Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324691"><span class="annot"><span class="annottext">Text
+gatewayRouteName :: Text
+$sel:gatewayRouteName:GatewayRouteRef' :: GatewayRouteRef -&gt; Text
+</span><a href="#local-6989586621679324691"><span class="hs-identifier hs-var hs-var">gatewayRouteName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324691"><span class="hs-identifier hs-var">gatewayRouteName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324690"><span class="annot"><span class="annottext">s :: GatewayRouteRef
+</span><a href="#local-6989586621679324690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324689"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatewayRouteRef
+</span><a href="#local-6989586621679324690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayRouteName:GatewayRouteRef' :: Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AgatewayRouteName%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">gatewayRouteName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The Unix epoch timestamp in seconds for when the resource was last</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_lastUpdatedAt"><span class="hs-identifier hs-type">gatewayRouteRef_lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-149"></span><span id="gatewayRouteRef_lastUpdatedAt"><span class="annot"><span class="annottext">gatewayRouteRef_lastUpdatedAt :: (UTCTime -&gt; f UTCTime) -&gt; GatewayRouteRef -&gt; f GatewayRouteRef
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_lastUpdatedAt"><span class="hs-identifier hs-var hs-var">gatewayRouteRef_lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatewayRouteRef -&gt; POSIX)
+-&gt; (GatewayRouteRef -&gt; POSIX -&gt; GatewayRouteRef)
+-&gt; Lens GatewayRouteRef GatewayRouteRef POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324687"><span class="annot"><span class="annottext">POSIX
+lastUpdatedAt :: POSIX
+$sel:lastUpdatedAt:GatewayRouteRef' :: GatewayRouteRef -&gt; POSIX
+</span><a href="#local-6989586621679324687"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679324687"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324686"><span class="annot"><span class="annottext">s :: GatewayRouteRef
+</span><a href="#local-6989586621679324686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324685"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679324685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatewayRouteRef
+</span><a href="#local-6989586621679324686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:GatewayRouteRef' :: POSIX
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AlastUpdatedAt%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679324685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; GatewayRouteRef -&gt; f GatewayRouteRef)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; GatewayRouteRef
+-&gt; f GatewayRouteRef
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The name of the service mesh that the resource resides in.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_meshName"><span class="hs-identifier hs-type">gatewayRouteRef_meshName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-153"></span><span id="gatewayRouteRef_meshName"><span class="annot"><span class="annottext">gatewayRouteRef_meshName :: (Text -&gt; f Text) -&gt; GatewayRouteRef -&gt; f GatewayRouteRef
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_meshName"><span class="hs-identifier hs-var hs-var">gatewayRouteRef_meshName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatewayRouteRef -&gt; Text)
+-&gt; (GatewayRouteRef -&gt; Text -&gt; GatewayRouteRef)
+-&gt; Lens GatewayRouteRef GatewayRouteRef Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324683"><span class="annot"><span class="annottext">Text
+meshName :: Text
+$sel:meshName:GatewayRouteRef' :: GatewayRouteRef -&gt; Text
+</span><a href="#local-6989586621679324683"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324683"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324682"><span class="annot"><span class="annottext">s :: GatewayRouteRef
+</span><a href="#local-6989586621679324682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324681"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatewayRouteRef
+</span><a href="#local-6989586621679324682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshName:GatewayRouteRef' :: Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AmeshName%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_meshOwner"><span class="hs-identifier hs-type">gatewayRouteRef_meshOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-160"></span><span id="gatewayRouteRef_meshOwner"><span class="annot"><span class="annottext">gatewayRouteRef_meshOwner :: (Text -&gt; f Text) -&gt; GatewayRouteRef -&gt; f GatewayRouteRef
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_meshOwner"><span class="hs-identifier hs-var hs-var">gatewayRouteRef_meshOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatewayRouteRef -&gt; Text)
+-&gt; (GatewayRouteRef -&gt; Text -&gt; GatewayRouteRef)
+-&gt; Lens GatewayRouteRef GatewayRouteRef Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324679"><span class="annot"><span class="annottext">Text
+meshOwner :: Text
+$sel:meshOwner:GatewayRouteRef' :: GatewayRouteRef -&gt; Text
+</span><a href="#local-6989586621679324679"><span class="hs-identifier hs-var hs-var">meshOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324679"><span class="hs-identifier hs-var">meshOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324678"><span class="annot"><span class="annottext">s :: GatewayRouteRef
+</span><a href="#local-6989586621679324678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324677"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatewayRouteRef
+</span><a href="#local-6989586621679324678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshOwner:GatewayRouteRef' :: Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AmeshOwner%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">meshOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The AWS IAM account ID of the resource owner. If the account ID is not</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- your own, then it\'s the ID of the mesh owner or of another account that</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- the mesh is shared with. For more information about mesh sharing, see</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_resourceOwner"><span class="hs-identifier hs-type">gatewayRouteRef_resourceOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-167"></span><span id="gatewayRouteRef_resourceOwner"><span class="annot"><span class="annottext">gatewayRouteRef_resourceOwner :: (Text -&gt; f Text) -&gt; GatewayRouteRef -&gt; f GatewayRouteRef
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_resourceOwner"><span class="hs-identifier hs-var hs-var">gatewayRouteRef_resourceOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatewayRouteRef -&gt; Text)
+-&gt; (GatewayRouteRef -&gt; Text -&gt; GatewayRouteRef)
+-&gt; Lens GatewayRouteRef GatewayRouteRef Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324675"><span class="annot"><span class="annottext">Text
+resourceOwner :: Text
+$sel:resourceOwner:GatewayRouteRef' :: GatewayRouteRef -&gt; Text
+</span><a href="#local-6989586621679324675"><span class="hs-identifier hs-var hs-var">resourceOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324675"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324674"><span class="annot"><span class="annottext">s :: GatewayRouteRef
+</span><a href="#local-6989586621679324674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324673"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatewayRouteRef
+</span><a href="#local-6989586621679324674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceOwner:GatewayRouteRef' :: Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AresourceOwner%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">resourceOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The version of the resource. Resources are created at version 1, and</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- this version is incremented each time that they\'re updated.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_version"><span class="hs-identifier hs-type">gatewayRouteRef_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-172"></span><span id="gatewayRouteRef_version"><span class="annot"><span class="annottext">gatewayRouteRef_version :: (Integer -&gt; f Integer) -&gt; GatewayRouteRef -&gt; f GatewayRouteRef
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_version"><span class="hs-identifier hs-var hs-var">gatewayRouteRef_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatewayRouteRef -&gt; Integer)
+-&gt; (GatewayRouteRef -&gt; Integer -&gt; GatewayRouteRef)
+-&gt; Lens GatewayRouteRef GatewayRouteRef Integer Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324671"><span class="annot"><span class="annottext">Integer
+version :: Integer
+$sel:version:GatewayRouteRef' :: GatewayRouteRef -&gt; Integer
+</span><a href="#local-6989586621679324671"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679324671"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324670"><span class="annot"><span class="annottext">s :: GatewayRouteRef
+</span><a href="#local-6989586621679324670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324669"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679324669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatewayRouteRef
+</span><a href="#local-6989586621679324670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:GatewayRouteRef' :: Integer
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3Aversion%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679324669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The virtual gateway that the gateway route is associated with.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_virtualGatewayName"><span class="hs-identifier hs-type">gatewayRouteRef_virtualGatewayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-176"></span><span id="gatewayRouteRef_virtualGatewayName"><span class="annot"><span class="annottext">gatewayRouteRef_virtualGatewayName :: (Text -&gt; f Text) -&gt; GatewayRouteRef -&gt; f GatewayRouteRef
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#gatewayRouteRef_virtualGatewayName"><span class="hs-identifier hs-var hs-var">gatewayRouteRef_virtualGatewayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GatewayRouteRef -&gt; Text)
+-&gt; (GatewayRouteRef -&gt; Text -&gt; GatewayRouteRef)
+-&gt; Lens GatewayRouteRef GatewayRouteRef Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324667"><span class="annot"><span class="annottext">Text
+virtualGatewayName :: Text
+$sel:virtualGatewayName:GatewayRouteRef' :: GatewayRouteRef -&gt; Text
+</span><a href="#local-6989586621679324667"><span class="hs-identifier hs-var hs-var">virtualGatewayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324667"><span class="hs-identifier hs-var">virtualGatewayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324666"><span class="annot"><span class="annottext">s :: GatewayRouteRef
+</span><a href="#local-6989586621679324666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-type">GatewayRouteRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324665"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatewayRouteRef
+</span><a href="#local-6989586621679324666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualGatewayName:GatewayRouteRef' :: Text
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#%24sel%3AvirtualGatewayName%3AGatewayRouteRef%27"><span class="hs-identifier hs-var">virtualGatewayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324662"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679324660"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GatewayRouteRef
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser GatewayRouteRef)
+-&gt; Value
+-&gt; Parser GatewayRouteRef
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;GatewayRouteRef&quot;</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679324657"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324657"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Text
+-&gt; POSIX
+-&gt; Text
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Integer
+-&gt; Text
+-&gt; GatewayRouteRef
+</span><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef%27"><span class="hs-identifier hs-var">GatewayRouteRef'</span></a></span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">(Text
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Integer
+ -&gt; Text
+ -&gt; GatewayRouteRef)
+-&gt; Parser Text
+-&gt; Parser
+     (POSIX
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Integer
+      -&gt; Text
+      -&gt; GatewayRouteRef)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Integer
+   -&gt; Text
+   -&gt; GatewayRouteRef)
+-&gt; Parser POSIX
+-&gt; Parser
+     (Text
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Integer
+      -&gt; Text
+      -&gt; GatewayRouteRef)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Integer
+   -&gt; Text
+   -&gt; GatewayRouteRef)
+-&gt; Parser Text
+-&gt; Parser
+     (POSIX
+      -&gt; Text -&gt; Text -&gt; Text -&gt; Integer -&gt; Text -&gt; GatewayRouteRef)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gatewayRouteName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX
+   -&gt; Text -&gt; Text -&gt; Text -&gt; Integer -&gt; Text -&gt; GatewayRouteRef)
+-&gt; Parser POSIX
+-&gt; Parser
+     (Text -&gt; Text -&gt; Text -&gt; Integer -&gt; Text -&gt; GatewayRouteRef)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; Integer -&gt; Text -&gt; GatewayRouteRef)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; Text -&gt; Integer -&gt; Text -&gt; GatewayRouteRef)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;meshName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Integer -&gt; Text -&gt; GatewayRouteRef)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; Integer -&gt; Text -&gt; GatewayRouteRef)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;meshOwner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Integer -&gt; Text -&gt; GatewayRouteRef)
+-&gt; Parser Text -&gt; Parser (Integer -&gt; Text -&gt; GatewayRouteRef)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceOwner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser (Integer -&gt; Text -&gt; GatewayRouteRef)
+-&gt; Parser Integer -&gt; Parser (Text -&gt; GatewayRouteRef)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; GatewayRouteRef)
+-&gt; Parser Text -&gt; Parser GatewayRouteRef
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;virtualGatewayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324651"><span id="local-6989586621679324653"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span></span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324648"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteRef.html#GatewayRouteRef"><span class="hs-identifier hs-type">GatewayRouteRef</span></a></span></span><span>
+</span><span id="line-198"></span></pre></body></html>

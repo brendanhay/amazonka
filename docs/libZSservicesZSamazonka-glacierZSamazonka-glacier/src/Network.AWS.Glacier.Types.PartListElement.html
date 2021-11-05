@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A list of the part sizes of the multipart upload.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPartListElement' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679216687"><span id="local-6989586621679216688"></span></span><span class="hs-keyword">data</span><span> </span><span id="PartListElement"><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement"><span class="hs-identifier hs-var">PartListElement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartListElement%27"><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement%27"><span class="hs-identifier hs-var">PartListElement'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679216696"><span id="local-6989586621679216697"></span></span><span class="hs-keyword">data</span><span> </span><span id="PartListElement"><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement"><span class="hs-identifier hs-var">PartListElement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartListElement%27"><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement%27"><span class="hs-identifier hs-var">PartListElement'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The SHA256 tree hash value that Amazon S3 Glacier calculated for the</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- part. This field is never @null@.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AsHA256TreeHash%3APartListElement%27"><span class="annot"><span class="annottext">PartListElement -&gt; Maybe Text
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3ArangeInBytes%3APartListElement%27"><span class="annot"><span class="annottext">PartListElement -&gt; Maybe Text
 </span><a href="Network.AWS.Glacier.Types.PartListElement.html#%24sel%3ArangeInBytes%3APartListElement%27"><span class="hs-identifier hs-var hs-var">rangeInBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216680"><span id="local-6989586621679216682"><span class="annot"><span class="annottext">PartListElement -&gt; PartListElement -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216689"><span id="local-6989586621679216691"><span class="annot"><span class="annottext">PartListElement -&gt; PartListElement -&gt; Bool
 (PartListElement -&gt; PartListElement -&gt; Bool)
 -&gt; (PartListElement -&gt; PartListElement -&gt; Bool)
 -&gt; Eq PartListElement
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PartListElement -&gt; PartListElement -&gt; Bool
 == :: PartListElement -&gt; PartListElement -&gt; Bool
 $c== :: PartListElement -&gt; PartListElement -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216671"><span id="local-6989586621679216673"><span id="local-6989586621679216675"><span id="local-6989586621679216677"><span class="annot"><span class="annottext">ReadPrec [PartListElement]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216680"><span id="local-6989586621679216682"><span id="local-6989586621679216684"><span id="local-6989586621679216686"><span class="annot"><span class="annottext">ReadPrec [PartListElement]
 ReadPrec PartListElement
 Int -&gt; ReadS PartListElement
 ReadS [PartListElement]
@@ -64,7 +64,7 @@ readList :: ReadS [PartListElement]
 $creadList :: ReadS [PartListElement]
 readsPrec :: Int -&gt; ReadS PartListElement
 $creadsPrec :: Int -&gt; ReadS PartListElement
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216664"><span id="local-6989586621679216666"><span id="local-6989586621679216668"><span class="annot"><span class="annottext">Int -&gt; PartListElement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216673"><span id="local-6989586621679216675"><span id="local-6989586621679216677"><span class="annot"><span class="annottext">Int -&gt; PartListElement -&gt; ShowS
 [PartListElement] -&gt; ShowS
 PartListElement -&gt; String
 (Int -&gt; PartListElement -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; (PartListElement -&gt; Maybe Text -&gt; PartListElement)
 -&gt; Lens PartListElement PartListElement (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement%27"><span class="hs-identifier hs-type">PartListElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216655"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement%27"><span class="hs-identifier hs-type">PartListElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216664"><span class="annot"><span class="annottext">Maybe Text
 sHA256TreeHash :: Maybe Text
 $sel:sHA256TreeHash:PartListElement' :: PartListElement -&gt; Maybe Text
-</span><a href="#local-6989586621679216655"><span class="hs-identifier hs-var hs-var">sHA256TreeHash</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216655"><span class="hs-identifier hs-var">sHA256TreeHash</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216654"><span class="annot"><span class="annottext">s :: PartListElement
-</span><a href="#local-6989586621679216654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement%27"><span class="hs-identifier hs-type">PartListElement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216653"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartListElement
-</span><a href="#local-6989586621679216654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sHA256TreeHash:PartListElement' :: Maybe Text
+</span><a href="#local-6989586621679216664"><span class="hs-identifier hs-var hs-var">sHA256TreeHash</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216664"><span class="hs-identifier hs-var">sHA256TreeHash</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216663"><span class="annot"><span class="annottext">s :: PartListElement
+</span><a href="#local-6989586621679216663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement%27"><span class="hs-identifier hs-type">PartListElement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216662"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartListElement
+</span><a href="#local-6989586621679216663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sHA256TreeHash:PartListElement' :: Maybe Text
 </span><a href="Network.AWS.Glacier.Types.PartListElement.html#%24sel%3AsHA256TreeHash%3APartListElement%27"><span class="hs-identifier hs-var">sHA256TreeHash</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement"><span class="hs-identifier hs-type">PartListElement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement"><span class="hs-identifier hs-type">PartListElement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The byte range of a part, inclusive of the upper value of the range.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#partListElement_rangeInBytes"><span class="hs-identifier hs-type">partListElement_rangeInBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement"><span class="hs-identifier hs-type">PartListElement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -146,19 +146,19 @@ $sel:sHA256TreeHash:PartListElement' :: PartListElement -&gt; Maybe Text
 -&gt; (PartListElement -&gt; Maybe Text -&gt; PartListElement)
 -&gt; Lens PartListElement PartListElement (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement%27"><span class="hs-identifier hs-type">PartListElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216651"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement%27"><span class="hs-identifier hs-type">PartListElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216660"><span class="annot"><span class="annottext">Maybe Text
 rangeInBytes :: Maybe Text
 $sel:rangeInBytes:PartListElement' :: PartListElement -&gt; Maybe Text
-</span><a href="#local-6989586621679216651"><span class="hs-identifier hs-var hs-var">rangeInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216651"><span class="hs-identifier hs-var">rangeInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216650"><span class="annot"><span class="annottext">s :: PartListElement
-</span><a href="#local-6989586621679216650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement%27"><span class="hs-identifier hs-type">PartListElement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216649"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartListElement
-</span><a href="#local-6989586621679216650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rangeInBytes:PartListElement' :: Maybe Text
+</span><a href="#local-6989586621679216660"><span class="hs-identifier hs-var hs-var">rangeInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216660"><span class="hs-identifier hs-var">rangeInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216659"><span class="annot"><span class="annottext">s :: PartListElement
+</span><a href="#local-6989586621679216659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement%27"><span class="hs-identifier hs-type">PartListElement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216658"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartListElement
+</span><a href="#local-6989586621679216659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rangeInBytes:PartListElement' :: Maybe Text
 </span><a href="Network.AWS.Glacier.Types.PartListElement.html#%24sel%3ArangeInBytes%3APartListElement%27"><span class="hs-identifier hs-var">rangeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement"><span class="hs-identifier hs-type">PartListElement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement"><span class="hs-identifier hs-type">PartListElement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216646"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement"><span class="hs-identifier hs-type">PartListElement</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679216644"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PartListElement
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216655"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement"><span class="hs-identifier hs-type">PartListElement</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679216653"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PartListElement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PartListElement)
@@ -168,15 +168,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PartListElement&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216641"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216641"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216650"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216650"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; PartListElement
 </span><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement%27"><span class="hs-identifier hs-var">PartListElement'</span></a></span><span>
 </span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; PartListElement)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; PartListElement)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679216650"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SHA256TreeHash&quot;</span></span><span class="hs-special">)</span><span>
@@ -184,13 +184,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser PartListElement
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679216650"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RangeInBytes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216635"><span id="local-6989586621679216637"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement"><span class="hs-identifier hs-type">PartListElement</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216644"><span id="local-6989586621679216646"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement"><span class="hs-identifier hs-type">PartListElement</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216632"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement"><span class="hs-identifier hs-type">PartListElement</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216641"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.PartListElement.html#PartListElement"><span class="hs-identifier hs-type">PartListElement</span></a></span></span><span>
 </span><span id="line-80"></span></pre></body></html>

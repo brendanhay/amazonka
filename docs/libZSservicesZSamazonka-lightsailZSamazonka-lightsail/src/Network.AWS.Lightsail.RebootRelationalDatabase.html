@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newRebootRelationalDatabase' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679632710"><span id="local-6989586621679632711"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootRelationalDatabase"><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase"><span class="hs-identifier hs-var">RebootRelationalDatabase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootRelationalDatabase%27"><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase%27"><span class="hs-identifier hs-var">RebootRelationalDatabase'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679632719"><span id="local-6989586621679632720"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootRelationalDatabase"><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase"><span class="hs-identifier hs-var">RebootRelationalDatabase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootRelationalDatabase%27"><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase%27"><span class="hs-identifier hs-var">RebootRelationalDatabase'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of your database to reboot.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3ArelationalDatabaseName%3ARebootRelationalDatabase%27"><span class="annot"><span class="annottext">RebootRelationalDatabase -&gt; Text
 </span><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#%24sel%3ArelationalDatabaseName%3ARebootRelationalDatabase%27"><span class="hs-identifier hs-var hs-var">relationalDatabaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632704"><span id="local-6989586621679632706"><span class="annot"><span class="annottext">RebootRelationalDatabase -&gt; RebootRelationalDatabase -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632713"><span id="local-6989586621679632715"><span class="annot"><span class="annottext">RebootRelationalDatabase -&gt; RebootRelationalDatabase -&gt; Bool
 (RebootRelationalDatabase -&gt; RebootRelationalDatabase -&gt; Bool)
 -&gt; (RebootRelationalDatabase -&gt; RebootRelationalDatabase -&gt; Bool)
 -&gt; Eq RebootRelationalDatabase
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RebootRelationalDatabase -&gt; RebootRelationalDatabase -&gt; Bool
 == :: RebootRelationalDatabase -&gt; RebootRelationalDatabase -&gt; Bool
 $c== :: RebootRelationalDatabase -&gt; RebootRelationalDatabase -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632695"><span id="local-6989586621679632697"><span id="local-6989586621679632699"><span id="local-6989586621679632701"><span class="annot"><span class="annottext">ReadPrec [RebootRelationalDatabase]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632704"><span id="local-6989586621679632706"><span id="local-6989586621679632708"><span id="local-6989586621679632710"><span class="annot"><span class="annottext">ReadPrec [RebootRelationalDatabase]
 ReadPrec RebootRelationalDatabase
 Int -&gt; ReadS RebootRelationalDatabase
 ReadS [RebootRelationalDatabase]
@@ -86,7 +86,7 @@ readList :: ReadS [RebootRelationalDatabase]
 $creadList :: ReadS [RebootRelationalDatabase]
 readsPrec :: Int -&gt; ReadS RebootRelationalDatabase
 $creadsPrec :: Int -&gt; ReadS RebootRelationalDatabase
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632688"><span id="local-6989586621679632690"><span id="local-6989586621679632692"><span class="annot"><span class="annottext">Int -&gt; RebootRelationalDatabase -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632697"><span id="local-6989586621679632699"><span id="local-6989586621679632701"><span class="annot"><span class="annottext">Int -&gt; RebootRelationalDatabase -&gt; ShowS
 [RebootRelationalDatabase] -&gt; ShowS
 RebootRelationalDatabase -&gt; String
 (Int -&gt; RebootRelationalDatabase -&gt; ShowS)
@@ -132,14 +132,14 @@ RebootRelationalDatabase -&gt; Rep RebootRelationalDatabase x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase"><span class="hs-identifier hs-type">RebootRelationalDatabase</span></a></span><span>
 </span><span id="line-74"></span><span id="newRebootRelationalDatabase"><span class="annot"><span class="annottext">newRebootRelationalDatabase :: Text -&gt; RebootRelationalDatabase
-</span><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#newRebootRelationalDatabase"><span class="hs-identifier hs-var hs-var">newRebootRelationalDatabase</span></a></span></span><span> </span><span id="local-6989586621679632683"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632683"><span class="hs-identifier hs-var">pRelationalDatabaseName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#newRebootRelationalDatabase"><span class="hs-identifier hs-var hs-var">newRebootRelationalDatabase</span></a></span></span><span> </span><span id="local-6989586621679632692"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632692"><span class="hs-identifier hs-var">pRelationalDatabaseName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">RebootRelationalDatabase' :: Text -&gt; RebootRelationalDatabase
 </span><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase%27"><span class="hs-identifier hs-type">RebootRelationalDatabase'</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:relationalDatabaseName:RebootRelationalDatabase' :: Text
 </span><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#%24sel%3ArelationalDatabaseName%3ARebootRelationalDatabase%27"><span class="hs-identifier hs-var">relationalDatabaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632683"><span class="hs-identifier hs-var">pRelationalDatabaseName_</span></a></span><span>
+</span><a href="#local-6989586621679632692"><span class="hs-identifier hs-var">pRelationalDatabaseName_</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The name of your database to reboot.</span><span>
@@ -150,28 +150,28 @@ RebootRelationalDatabase -&gt; Rep RebootRelationalDatabase x
 -&gt; (RebootRelationalDatabase -&gt; Text -&gt; RebootRelationalDatabase)
 -&gt; Lens RebootRelationalDatabase RebootRelationalDatabase Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase%27"><span class="hs-identifier hs-type">RebootRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632680"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase%27"><span class="hs-identifier hs-type">RebootRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632689"><span class="annot"><span class="annottext">Text
 relationalDatabaseName :: Text
 $sel:relationalDatabaseName:RebootRelationalDatabase' :: RebootRelationalDatabase -&gt; Text
-</span><a href="#local-6989586621679632680"><span class="hs-identifier hs-var hs-var">relationalDatabaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632680"><span class="hs-identifier hs-var">relationalDatabaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632679"><span class="annot"><span class="annottext">s :: RebootRelationalDatabase
-</span><a href="#local-6989586621679632679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase%27"><span class="hs-identifier hs-type">RebootRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632678"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootRelationalDatabase
-</span><a href="#local-6989586621679632679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationalDatabaseName:RebootRelationalDatabase' :: Text
+</span><a href="#local-6989586621679632689"><span class="hs-identifier hs-var hs-var">relationalDatabaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632689"><span class="hs-identifier hs-var">relationalDatabaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632688"><span class="annot"><span class="annottext">s :: RebootRelationalDatabase
+</span><a href="#local-6989586621679632688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase%27"><span class="hs-identifier hs-type">RebootRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632687"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootRelationalDatabase
+</span><a href="#local-6989586621679632688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationalDatabaseName:RebootRelationalDatabase' :: Text
 </span><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#%24sel%3ArelationalDatabaseName%3ARebootRelationalDatabase%27"><span class="hs-identifier hs-var">relationalDatabaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase"><span class="hs-identifier hs-type">RebootRelationalDatabase</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679632687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase"><span class="hs-identifier hs-type">RebootRelationalDatabase</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase"><span class="hs-identifier hs-type">RebootRelationalDatabase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase"><span class="hs-identifier hs-type">RebootRelationalDatabase</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse"><span class="hs-identifier hs-type">RebootRelationalDatabaseResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679632674"><span class="annot"><span class="annottext">request :: RebootRelationalDatabase -&gt; Request RebootRelationalDatabase
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679632683"><span class="annot"><span class="annottext">request :: RebootRelationalDatabase -&gt; Request RebootRelationalDatabase
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; RebootRelationalDatabase -&gt; Request RebootRelationalDatabase
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679632670"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679632679"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RebootRelationalDatabase
 -&gt; ClientResponse ClientBody
@@ -197,10 +197,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679632667"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632667"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679632666"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679632666"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679632665"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679632665"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679632676"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632676"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679632675"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679632675"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679632674"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679632674"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; RebootRelationalDatabaseResponse
 </span><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">RebootRelationalDatabaseResponse'</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; RebootRelationalDatabaseResponse)
@@ -208,7 +208,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; RebootRelationalDatabaseResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679632665"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679632674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -226,15 +226,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632667"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679632676"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632656"><span id="local-6989586621679632658"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase"><span class="hs-identifier hs-type">RebootRelationalDatabase</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632665"><span id="local-6989586621679632667"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase"><span class="hs-identifier hs-type">RebootRelationalDatabase</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632653"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase"><span class="hs-identifier hs-type">RebootRelationalDatabase</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632662"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase"><span class="hs-identifier hs-type">RebootRelationalDatabase</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase"><span class="hs-identifier hs-type">RebootRelationalDatabase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679632649"><span class="annot"><span class="annottext">toHeaders :: RebootRelationalDatabase -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679632658"><span class="annot"><span class="annottext">toHeaders :: RebootRelationalDatabase -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RebootRelationalDatabase -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -261,12 +261,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632639"><span id="local-6989586621679632641"><span id="local-6989586621679632643"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase"><span class="hs-identifier hs-type">RebootRelationalDatabase</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679632637"><span class="annot"><span class="annottext">toJSON :: RebootRelationalDatabase -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase%27"><span class="hs-identifier hs-type">RebootRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632635"><span class="annot"><span class="annottext">Text
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632648"><span id="local-6989586621679632650"><span id="local-6989586621679632652"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase"><span class="hs-identifier hs-type">RebootRelationalDatabase</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679632646"><span class="annot"><span class="annottext">toJSON :: RebootRelationalDatabase -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase%27"><span class="hs-identifier hs-type">RebootRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632644"><span class="annot"><span class="annottext">Text
 relationalDatabaseName :: Text
 $sel:relationalDatabaseName:RebootRelationalDatabase' :: RebootRelationalDatabase -&gt; Text
-</span><a href="#local-6989586621679632635"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679632644"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -280,20 +280,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-122"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632635"><span class="hs-identifier hs-var">relationalDatabaseName</span></a></span><span>
+</span><a href="#local-6989586621679632644"><span class="hs-identifier hs-var">relationalDatabaseName</span></a></span><span>
 </span><span id="line-123"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase"><span class="hs-identifier hs-type">RebootRelationalDatabase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679632629"><span class="annot"><span class="annottext">toPath :: RebootRelationalDatabase -&gt; ByteString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679632638"><span class="annot"><span class="annottext">toPath :: RebootRelationalDatabase -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RebootRelationalDatabase -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabase"><span class="hs-identifier hs-type">RebootRelationalDatabase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679632625"><span class="annot"><span class="annottext">toQuery :: RebootRelationalDatabase -&gt; QueryString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679632634"><span class="annot"><span class="annottext">toQuery :: RebootRelationalDatabase -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RebootRelationalDatabase -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -301,7 +301,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newRebootRelationalDatabaseResponse' smart constructor.</span><span>
-</span><span id="line-134"></span><span id="local-6989586621679632622"><span id="local-6989586621679632623"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootRelationalDatabaseResponse"><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse"><span class="hs-identifier hs-var">RebootRelationalDatabaseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootRelationalDatabaseResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">RebootRelationalDatabaseResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span id="local-6989586621679632631"><span id="local-6989586621679632632"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootRelationalDatabaseResponse"><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse"><span class="hs-identifier hs-var">RebootRelationalDatabaseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootRelationalDatabaseResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">RebootRelationalDatabaseResponse'</span></a></span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -311,7 +311,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARebootRelationalDatabaseResponse%27"><span class="annot"><span class="annottext">RebootRelationalDatabaseResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#%24sel%3AhttpStatus%3ARebootRelationalDatabaseResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632616"><span id="local-6989586621679632618"><span class="annot"><span class="annottext">RebootRelationalDatabaseResponse
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632625"><span id="local-6989586621679632627"><span class="annot"><span class="annottext">RebootRelationalDatabaseResponse
 -&gt; RebootRelationalDatabaseResponse -&gt; Bool
 (RebootRelationalDatabaseResponse
  -&gt; RebootRelationalDatabaseResponse -&gt; Bool)
@@ -327,7 +327,7 @@ $c/= :: RebootRelationalDatabaseResponse
 -&gt; RebootRelationalDatabaseResponse -&gt; Bool
 $c== :: RebootRelationalDatabaseResponse
 -&gt; RebootRelationalDatabaseResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632608"><span id="local-6989586621679632610"><span id="local-6989586621679632612"><span id="local-6989586621679632614"><span class="annot"><span class="annottext">ReadPrec [RebootRelationalDatabaseResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632617"><span id="local-6989586621679632619"><span id="local-6989586621679632621"><span id="local-6989586621679632623"><span class="annot"><span class="annottext">ReadPrec [RebootRelationalDatabaseResponse]
 ReadPrec RebootRelationalDatabaseResponse
 Int -&gt; ReadS RebootRelationalDatabaseResponse
 ReadS [RebootRelationalDatabaseResponse]
@@ -347,7 +347,7 @@ readList :: ReadS [RebootRelationalDatabaseResponse]
 $creadList :: ReadS [RebootRelationalDatabaseResponse]
 readsPrec :: Int -&gt; ReadS RebootRelationalDatabaseResponse
 $creadsPrec :: Int -&gt; ReadS RebootRelationalDatabaseResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632602"><span id="local-6989586621679632604"><span id="local-6989586621679632606"><span class="annot"><span class="annottext">Int -&gt; RebootRelationalDatabaseResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632611"><span id="local-6989586621679632613"><span id="local-6989586621679632615"><span class="annot"><span class="annottext">Int -&gt; RebootRelationalDatabaseResponse -&gt; ShowS
 [RebootRelationalDatabaseResponse] -&gt; ShowS
 RebootRelationalDatabaseResponse -&gt; String
 (Int -&gt; RebootRelationalDatabaseResponse -&gt; ShowS)
@@ -403,8 +403,8 @@ RebootRelationalDatabaseResponse
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse"><span class="hs-identifier hs-type">RebootRelationalDatabaseResponse</span></a></span><span>
 </span><span id="line-161"></span><span id="newRebootRelationalDatabaseResponse"><span class="annot"><span class="annottext">newRebootRelationalDatabaseResponse :: Int -&gt; RebootRelationalDatabaseResponse
-</span><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#newRebootRelationalDatabaseResponse"><span class="hs-identifier hs-var hs-var">newRebootRelationalDatabaseResponse</span></a></span></span><span> </span><span id="local-6989586621679632599"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632599"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#newRebootRelationalDatabaseResponse"><span class="hs-identifier hs-var hs-var">newRebootRelationalDatabaseResponse</span></a></span></span><span> </span><span id="local-6989586621679632608"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632608"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">RebootRelationalDatabaseResponse' :: Maybe [Operation] -&gt; Int -&gt; RebootRelationalDatabaseResponse
 </span><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">RebootRelationalDatabaseResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:RebootRelationalDatabaseResponse' :: Maybe [Operation]
@@ -414,7 +414,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RebootRelationalDatabaseResponse' :: Int
 </span><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#%24sel%3AhttpStatus%3ARebootRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632599"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679632608"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -433,16 +433,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">RebootRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632598"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">RebootRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632607"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:RebootRelationalDatabaseResponse' :: RebootRelationalDatabaseResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679632598"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679632598"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632597"><span class="annot"><span class="annottext">s :: RebootRelationalDatabaseResponse
-</span><a href="#local-6989586621679632597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">RebootRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632596"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679632596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootRelationalDatabaseResponse
-</span><a href="#local-6989586621679632597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:RebootRelationalDatabaseResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679632607"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679632607"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632606"><span class="annot"><span class="annottext">s :: RebootRelationalDatabaseResponse
+</span><a href="#local-6989586621679632606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">RebootRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632605"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679632605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootRelationalDatabaseResponse
+</span><a href="#local-6989586621679632606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:RebootRelationalDatabaseResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#%24sel%3Aoperations%3ARebootRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679632596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse"><span class="hs-identifier hs-type">RebootRelationalDatabaseResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679632605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse"><span class="hs-identifier hs-type">RebootRelationalDatabaseResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; RebootRelationalDatabaseResponse
  -&gt; f RebootRelationalDatabaseResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -478,18 +478,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">RebootRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632592"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">RebootRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632601"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RebootRelationalDatabaseResponse' :: RebootRelationalDatabaseResponse -&gt; Int
-</span><a href="#local-6989586621679632592"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632592"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632591"><span class="annot"><span class="annottext">s :: RebootRelationalDatabaseResponse
-</span><a href="#local-6989586621679632591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">RebootRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632590"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootRelationalDatabaseResponse
-</span><a href="#local-6989586621679632591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RebootRelationalDatabaseResponse' :: Int
+</span><a href="#local-6989586621679632601"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632601"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632600"><span class="annot"><span class="annottext">s :: RebootRelationalDatabaseResponse
+</span><a href="#local-6989586621679632600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">RebootRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632599"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootRelationalDatabaseResponse
+</span><a href="#local-6989586621679632600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RebootRelationalDatabaseResponse' :: Int
 </span><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#%24sel%3AhttpStatus%3ARebootRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse"><span class="hs-identifier hs-type">RebootRelationalDatabaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679632599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse"><span class="hs-identifier hs-type">RebootRelationalDatabaseResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679632588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679632597"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.RebootRelationalDatabase.html#RebootRelationalDatabaseResponse"><span class="hs-identifier hs-type">RebootRelationalDatabaseResponse</span></a></span></span><span>
 </span><span id="line-181"></span></pre></body></html>

@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | Represents the request to verify user attributes.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newVerifyUserAttribute' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679463256"><span id="local-6989586621679463257"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyUserAttribute"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-var">VerifyUserAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyUserAttribute%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute%27"><span class="hs-identifier hs-var">VerifyUserAttribute'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679463265"><span id="local-6989586621679463266"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyUserAttribute"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-var">VerifyUserAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyUserAttribute%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute%27"><span class="hs-identifier hs-var">VerifyUserAttribute'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the access token of the request to verify user attributes.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AaccessToken%3AVerifyUserAttribute%27"><span class="annot"><span class="annottext">VerifyUserAttribute -&gt; Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#%24sel%3AaccessToken%3AVerifyUserAttribute%27"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3Acode%3AVerifyUserAttribute%27"><span class="annot"><span class="annottext">VerifyUserAttribute -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#%24sel%3Acode%3AVerifyUserAttribute%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463248"><span id="local-6989586621679463250"><span class="annot"><span class="annottext">VerifyUserAttribute -&gt; VerifyUserAttribute -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463257"><span id="local-6989586621679463259"><span class="annot"><span class="annottext">VerifyUserAttribute -&gt; VerifyUserAttribute -&gt; Bool
 (VerifyUserAttribute -&gt; VerifyUserAttribute -&gt; Bool)
 -&gt; (VerifyUserAttribute -&gt; VerifyUserAttribute -&gt; Bool)
 -&gt; Eq VerifyUserAttribute
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VerifyUserAttribute -&gt; VerifyUserAttribute -&gt; Bool
 == :: VerifyUserAttribute -&gt; VerifyUserAttribute -&gt; Bool
 $c== :: VerifyUserAttribute -&gt; VerifyUserAttribute -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463241"><span id="local-6989586621679463243"><span id="local-6989586621679463245"><span class="annot"><span class="annottext">Int -&gt; VerifyUserAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463250"><span id="local-6989586621679463252"><span id="local-6989586621679463254"><span class="annot"><span class="annottext">Int -&gt; VerifyUserAttribute -&gt; ShowS
 [VerifyUserAttribute] -&gt; ShowS
 VerifyUserAttribute -&gt; String
 (Int -&gt; VerifyUserAttribute -&gt; ShowS)
@@ -119,12 +119,12 @@ $cfrom :: forall x. VerifyUserAttribute -&gt; Rep VerifyUserAttribute x
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span><span>
 </span><span id="line-84"></span><span id="newVerifyUserAttribute"><span class="annot"><span class="annottext">newVerifyUserAttribute :: Text -&gt; Text -&gt; Text -&gt; VerifyUserAttribute
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#newVerifyUserAttribute"><span class="hs-identifier hs-var hs-var">newVerifyUserAttribute</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679463236"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463236"><span class="hs-identifier hs-var">pAccessToken_</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679463235"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463235"><span class="hs-identifier hs-var">pAttributeName_</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679463234"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463234"><span class="hs-identifier hs-var">pCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679463245"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463245"><span class="hs-identifier hs-var">pAccessToken_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679463244"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463244"><span class="hs-identifier hs-var">pAttributeName_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679463243"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463243"><span class="hs-identifier hs-var">pCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">VerifyUserAttribute' :: Sensitive Text -&gt; Text -&gt; Text -&gt; VerifyUserAttribute
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute%27"><span class="hs-identifier hs-type">VerifyUserAttribute'</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accessToken:VerifyUserAttribute' :: Sensitive Text
@@ -137,13 +137,13 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463236"><span class="hs-identifier hs-var">pAccessToken_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679463245"><span class="hs-identifier hs-var">pAccessToken_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:attributeName:VerifyUserAttribute' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#%24sel%3AattributeName%3AVerifyUserAttribute%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463235"><span class="hs-identifier hs-var">pAttributeName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679463244"><span class="hs-identifier hs-var">pAttributeName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:code:VerifyUserAttribute' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#%24sel%3Acode%3AVerifyUserAttribute%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463234"><span class="hs-identifier hs-var">pCode_</span></a></span><span>
+</span><a href="#local-6989586621679463243"><span class="hs-identifier hs-var">pCode_</span></a></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | Represents the access token of the request to verify user attributes.</span><span>
@@ -157,16 +157,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Sensitive Text)
      (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute%27"><span class="hs-identifier hs-type">VerifyUserAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463229"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute%27"><span class="hs-identifier hs-type">VerifyUserAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463238"><span class="annot"><span class="annottext">Sensitive Text
 accessToken :: Sensitive Text
 $sel:accessToken:VerifyUserAttribute' :: VerifyUserAttribute -&gt; Sensitive Text
-</span><a href="#local-6989586621679463229"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679463229"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463228"><span class="annot"><span class="annottext">s :: VerifyUserAttribute
-</span><a href="#local-6989586621679463228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute%27"><span class="hs-identifier hs-type">VerifyUserAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463227"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679463227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyUserAttribute
-</span><a href="#local-6989586621679463228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:VerifyUserAttribute' :: Sensitive Text
+</span><a href="#local-6989586621679463238"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679463238"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463237"><span class="annot"><span class="annottext">s :: VerifyUserAttribute
+</span><a href="#local-6989586621679463237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute%27"><span class="hs-identifier hs-type">VerifyUserAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463236"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679463236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyUserAttribute
+</span><a href="#local-6989586621679463237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:VerifyUserAttribute' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#%24sel%3AaccessToken%3AVerifyUserAttribute%27"><span class="hs-identifier hs-var">accessToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679463227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679463236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; VerifyUserAttribute -&gt; f VerifyUserAttribute)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -184,16 +184,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (VerifyUserAttribute -&gt; Text -&gt; VerifyUserAttribute)
 -&gt; Lens VerifyUserAttribute VerifyUserAttribute Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute%27"><span class="hs-identifier hs-type">VerifyUserAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463225"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute%27"><span class="hs-identifier hs-type">VerifyUserAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463234"><span class="annot"><span class="annottext">Text
 attributeName :: Text
 $sel:attributeName:VerifyUserAttribute' :: VerifyUserAttribute -&gt; Text
-</span><a href="#local-6989586621679463225"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463225"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463224"><span class="annot"><span class="annottext">s :: VerifyUserAttribute
-</span><a href="#local-6989586621679463224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute%27"><span class="hs-identifier hs-type">VerifyUserAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463223"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyUserAttribute
-</span><a href="#local-6989586621679463224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeName:VerifyUserAttribute' :: Text
+</span><a href="#local-6989586621679463234"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463234"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463233"><span class="annot"><span class="annottext">s :: VerifyUserAttribute
+</span><a href="#local-6989586621679463233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute%27"><span class="hs-identifier hs-type">VerifyUserAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463232"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyUserAttribute
+</span><a href="#local-6989586621679463233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeName:VerifyUserAttribute' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#%24sel%3AattributeName%3AVerifyUserAttribute%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The verification code in the request to verify user attributes.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#verifyUserAttribute_code"><span class="hs-identifier hs-type">verifyUserAttribute_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -202,27 +202,27 @@ $sel:attributeName:VerifyUserAttribute' :: VerifyUserAttribute -&gt; Text
 -&gt; (VerifyUserAttribute -&gt; Text -&gt; VerifyUserAttribute)
 -&gt; Lens VerifyUserAttribute VerifyUserAttribute Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute%27"><span class="hs-identifier hs-type">VerifyUserAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463222"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute%27"><span class="hs-identifier hs-type">VerifyUserAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463231"><span class="annot"><span class="annottext">Text
 code :: Text
 $sel:code:VerifyUserAttribute' :: VerifyUserAttribute -&gt; Text
-</span><a href="#local-6989586621679463222"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463222"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463221"><span class="annot"><span class="annottext">s :: VerifyUserAttribute
-</span><a href="#local-6989586621679463221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute%27"><span class="hs-identifier hs-type">VerifyUserAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463220"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyUserAttribute
-</span><a href="#local-6989586621679463221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:VerifyUserAttribute' :: Text
+</span><a href="#local-6989586621679463231"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463231"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463230"><span class="annot"><span class="annottext">s :: VerifyUserAttribute
+</span><a href="#local-6989586621679463230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute%27"><span class="hs-identifier hs-type">VerifyUserAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463229"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyUserAttribute
+</span><a href="#local-6989586621679463230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:VerifyUserAttribute' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#%24sel%3Acode%3AVerifyUserAttribute%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttributeResponse"><span class="hs-identifier hs-type">VerifyUserAttributeResponse</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679463216"><span class="annot"><span class="annottext">request :: VerifyUserAttribute -&gt; Request VerifyUserAttribute
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679463225"><span class="annot"><span class="annottext">request :: VerifyUserAttribute -&gt; Request VerifyUserAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; VerifyUserAttribute -&gt; Request VerifyUserAttribute
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679463212"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679463221"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy VerifyUserAttribute
 -&gt; ClientResponse ClientBody
@@ -248,10 +248,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679463209"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679463209"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679463208"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679463208"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679463207"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679463207"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679463218"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679463218"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679463217"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679463217"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679463216"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679463216"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; VerifyUserAttributeResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttributeResponse%27"><span class="hs-identifier hs-var">VerifyUserAttributeResponse'</span></a></span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; VerifyUserAttributeResponse)
@@ -262,15 +262,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679463209"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463218"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463200"><span id="local-6989586621679463202"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463209"><span id="local-6989586621679463211"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463197"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463206"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679463193"><span class="annot"><span class="annottext">toHeaders :: VerifyUserAttribute -&gt; ResponseHeaders
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679463202"><span class="annot"><span class="annottext">toHeaders :: VerifyUserAttribute -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; VerifyUserAttribute -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -297,9 +297,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463183"><span id="local-6989586621679463185"><span id="local-6989586621679463187"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679463181"><span class="annot"><span class="annottext">toJSON :: VerifyUserAttribute -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute%27"><span class="hs-identifier hs-type">VerifyUserAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463177"><span id="local-6989586621679463178"><span id="local-6989586621679463179"><span class="annot"><span class="annottext">Text
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463192"><span id="local-6989586621679463194"><span id="local-6989586621679463196"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679463190"><span class="annot"><span class="annottext">toJSON :: VerifyUserAttribute -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute%27"><span class="hs-identifier hs-type">VerifyUserAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463186"><span id="local-6989586621679463187"><span id="local-6989586621679463188"><span class="annot"><span class="annottext">Text
 Sensitive Text
 code :: Text
 attributeName :: Text
@@ -307,7 +307,7 @@ accessToken :: Sensitive Text
 $sel:code:VerifyUserAttribute' :: VerifyUserAttribute -&gt; Text
 $sel:attributeName:VerifyUserAttribute' :: VerifyUserAttribute -&gt; Text
 $sel:accessToken:VerifyUserAttribute' :: VerifyUserAttribute -&gt; Sensitive Text
-</span><a href="#local-6989586621679463177"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679463186"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -319,33 +319,33 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AccessToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679463179"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679463188"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttributeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463178"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679463187"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Code&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463177"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463186"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679463171"><span class="annot"><span class="annottext">toPath :: VerifyUserAttribute -&gt; ByteString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679463180"><span class="annot"><span class="annottext">toPath :: VerifyUserAttribute -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; VerifyUserAttribute -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttribute"><span class="hs-identifier hs-type">VerifyUserAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679463167"><span class="annot"><span class="annottext">toQuery :: VerifyUserAttribute -&gt; QueryString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679463176"><span class="annot"><span class="annottext">toQuery :: VerifyUserAttribute -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; VerifyUserAttribute -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -356,12 +356,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-155"></span><span class="hs-comment">-- to verify user attributes.</span><span>
 </span><span id="line-156"></span><span class="hs-comment">--</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- /See:/ 'newVerifyUserAttributeResponse' smart constructor.</span><span>
-</span><span id="line-158"></span><span id="local-6989586621679463164"><span id="local-6989586621679463165"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyUserAttributeResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttributeResponse"><span class="hs-identifier hs-var">VerifyUserAttributeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyUserAttributeResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttributeResponse%27"><span class="hs-identifier hs-var">VerifyUserAttributeResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span id="local-6989586621679463173"><span id="local-6989586621679463174"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyUserAttributeResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttributeResponse"><span class="hs-identifier hs-var">VerifyUserAttributeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyUserAttributeResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttributeResponse%27"><span class="hs-identifier hs-var">VerifyUserAttributeResponse'</span></a></span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3AVerifyUserAttributeResponse%27"><span class="annot"><span class="annottext">VerifyUserAttributeResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#%24sel%3AhttpStatus%3AVerifyUserAttributeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463159"><span id="local-6989586621679463161"><span class="annot"><span class="annottext">VerifyUserAttributeResponse -&gt; VerifyUserAttributeResponse -&gt; Bool
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463168"><span id="local-6989586621679463170"><span class="annot"><span class="annottext">VerifyUserAttributeResponse -&gt; VerifyUserAttributeResponse -&gt; Bool
 (VerifyUserAttributeResponse
  -&gt; VerifyUserAttributeResponse -&gt; Bool)
 -&gt; (VerifyUserAttributeResponse
@@ -372,7 +372,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VerifyUserAttributeResponse -&gt; VerifyUserAttributeResponse -&gt; Bool
 == :: VerifyUserAttributeResponse -&gt; VerifyUserAttributeResponse -&gt; Bool
 $c== :: VerifyUserAttributeResponse -&gt; VerifyUserAttributeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463151"><span id="local-6989586621679463153"><span id="local-6989586621679463155"><span id="local-6989586621679463157"><span class="annot"><span class="annottext">ReadPrec [VerifyUserAttributeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463160"><span id="local-6989586621679463162"><span id="local-6989586621679463164"><span id="local-6989586621679463166"><span class="annot"><span class="annottext">ReadPrec [VerifyUserAttributeResponse]
 ReadPrec VerifyUserAttributeResponse
 Int -&gt; ReadS VerifyUserAttributeResponse
 ReadS [VerifyUserAttributeResponse]
@@ -392,7 +392,7 @@ readList :: ReadS [VerifyUserAttributeResponse]
 $creadList :: ReadS [VerifyUserAttributeResponse]
 readsPrec :: Int -&gt; ReadS VerifyUserAttributeResponse
 $creadsPrec :: Int -&gt; ReadS VerifyUserAttributeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463144"><span id="local-6989586621679463146"><span id="local-6989586621679463148"><span class="annot"><span class="annottext">Int -&gt; VerifyUserAttributeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463153"><span id="local-6989586621679463155"><span id="local-6989586621679463157"><span class="annot"><span class="annottext">Int -&gt; VerifyUserAttributeResponse -&gt; ShowS
 [VerifyUserAttributeResponse] -&gt; ShowS
 VerifyUserAttributeResponse -&gt; String
 (Int -&gt; VerifyUserAttributeResponse -&gt; ShowS)
@@ -438,14 +438,14 @@ VerifyUserAttributeResponse -&gt; Rep VerifyUserAttributeResponse x
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttributeResponse"><span class="hs-identifier hs-type">VerifyUserAttributeResponse</span></a></span><span>
 </span><span id="line-177"></span><span id="newVerifyUserAttributeResponse"><span class="annot"><span class="annottext">newVerifyUserAttributeResponse :: Int -&gt; VerifyUserAttributeResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#newVerifyUserAttributeResponse"><span class="hs-identifier hs-var hs-var">newVerifyUserAttributeResponse</span></a></span></span><span> </span><span id="local-6989586621679463141"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679463141"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#newVerifyUserAttributeResponse"><span class="hs-identifier hs-var hs-var">newVerifyUserAttributeResponse</span></a></span></span><span> </span><span id="local-6989586621679463150"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679463150"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">VerifyUserAttributeResponse' :: Int -&gt; VerifyUserAttributeResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttributeResponse%27"><span class="hs-identifier hs-type">VerifyUserAttributeResponse'</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:VerifyUserAttributeResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#%24sel%3AhttpStatus%3AVerifyUserAttributeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679463141"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679463150"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -458,16 +458,16 @@ VerifyUserAttributeResponse -&gt; Rep VerifyUserAttributeResponse x
 -&gt; Lens
      VerifyUserAttributeResponse VerifyUserAttributeResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttributeResponse%27"><span class="hs-identifier hs-type">VerifyUserAttributeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463140"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttributeResponse%27"><span class="hs-identifier hs-type">VerifyUserAttributeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463149"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:VerifyUserAttributeResponse' :: VerifyUserAttributeResponse -&gt; Int
-</span><a href="#local-6989586621679463140"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679463140"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463139"><span class="annot"><span class="annottext">s :: VerifyUserAttributeResponse
-</span><a href="#local-6989586621679463139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttributeResponse%27"><span class="hs-identifier hs-type">VerifyUserAttributeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463138"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679463138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyUserAttributeResponse
-</span><a href="#local-6989586621679463139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:VerifyUserAttributeResponse' :: Int
+</span><a href="#local-6989586621679463149"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679463149"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463148"><span class="annot"><span class="annottext">s :: VerifyUserAttributeResponse
+</span><a href="#local-6989586621679463148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttributeResponse%27"><span class="hs-identifier hs-type">VerifyUserAttributeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463147"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679463147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyUserAttributeResponse
+</span><a href="#local-6989586621679463148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:VerifyUserAttributeResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#%24sel%3AhttpStatus%3AVerifyUserAttributeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679463138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttributeResponse"><span class="hs-identifier hs-type">VerifyUserAttributeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttributeResponse"><span class="hs-identifier hs-type">VerifyUserAttributeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463136"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttributeResponse"><span class="hs-identifier hs-type">VerifyUserAttributeResponse</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463145"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifyUserAttribute.html#VerifyUserAttributeResponse"><span class="hs-identifier hs-type">VerifyUserAttributeResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

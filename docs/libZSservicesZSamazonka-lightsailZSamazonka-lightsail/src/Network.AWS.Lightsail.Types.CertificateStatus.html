@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679605881"><span id="local-6989586621679605882"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CertificateStatus"><span class="annot"><a href="Network.AWS.Lightsail.Types.CertificateStatus.html#CertificateStatus"><span class="hs-identifier hs-var">CertificateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CertificateStatus%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.CertificateStatus.html#CertificateStatus%27"><span class="hs-identifier hs-var">CertificateStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679605890"><span id="local-6989586621679605891"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CertificateStatus"><span class="annot"><a href="Network.AWS.Lightsail.Types.CertificateStatus.html#CertificateStatus"><span class="hs-identifier hs-var">CertificateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CertificateStatus%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.CertificateStatus.html#CertificateStatus%27"><span class="hs-identifier hs-var">CertificateStatus'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCertificateStatus"><span class="annot"><span class="annottext">CertificateStatus -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.CertificateStatus.html#fromCertificateStatus"><span class="hs-identifier hs-var hs-var">fromCertificateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679605873"><span id="local-6989586621679605875"><span id="local-6989586621679605877"><span class="annot"><span class="annottext">Int -&gt; CertificateStatus -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679605882"><span id="local-6989586621679605884"><span id="local-6989586621679605886"><span class="annot"><span class="annottext">Int -&gt; CertificateStatus -&gt; ShowS
 [CertificateStatus] -&gt; ShowS
 CertificateStatus -&gt; String
 (Int -&gt; CertificateStatus -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: CertificateStatus -&gt; String
 showsPrec :: Int -&gt; CertificateStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; CertificateStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679605864"><span id="local-6989586621679605866"><span id="local-6989586621679605868"><span id="local-6989586621679605870"><span class="annot"><span class="annottext">ReadPrec [CertificateStatus]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679605873"><span id="local-6989586621679605875"><span id="local-6989586621679605877"><span id="local-6989586621679605879"><span class="annot"><span class="annottext">ReadPrec [CertificateStatus]
 ReadPrec CertificateStatus
 Int -&gt; ReadS CertificateStatus
 ReadS [CertificateStatus]
@@ -77,7 +77,7 @@ $creadList :: ReadS [CertificateStatus]
 readsPrec :: Int -&gt; ReadS CertificateStatus
 $creadsPrec :: Int -&gt; ReadS CertificateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679605859"><span id="local-6989586621679605861"><span class="annot"><span class="annottext">CertificateStatus -&gt; CertificateStatus -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679605868"><span id="local-6989586621679605870"><span class="annot"><span class="annottext">CertificateStatus -&gt; CertificateStatus -&gt; Bool
 (CertificateStatus -&gt; CertificateStatus -&gt; Bool)
 -&gt; (CertificateStatus -&gt; CertificateStatus -&gt; Bool)
 -&gt; Eq CertificateStatus
@@ -87,7 +87,7 @@ $c/= :: CertificateStatus -&gt; CertificateStatus -&gt; Bool
 == :: CertificateStatus -&gt; CertificateStatus -&gt; Bool
 $c== :: CertificateStatus -&gt; CertificateStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679605843"><span id="local-6989586621679605845"><span id="local-6989586621679605847"><span id="local-6989586621679605849"><span id="local-6989586621679605851"><span id="local-6989586621679605853"><span id="local-6989586621679605855"><span class="annot"><span class="annottext">Eq CertificateStatus
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679605852"><span id="local-6989586621679605854"><span id="local-6989586621679605856"><span id="local-6989586621679605858"><span id="local-6989586621679605860"><span id="local-6989586621679605862"><span id="local-6989586621679605864"><span class="annot"><span class="annottext">Eq CertificateStatus
 Eq CertificateStatus
 -&gt; (CertificateStatus -&gt; CertificateStatus -&gt; Ordering)
 -&gt; (CertificateStatus -&gt; CertificateStatus -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. CertificateStatus -&gt; Rep CertificateStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679605835"><span id="local-6989586621679605837"><span class="annot"><span class="annottext">Int -&gt; CertificateStatus -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679605844"><span id="local-6989586621679605846"><span class="annot"><span class="annottext">Int -&gt; CertificateStatus -&gt; Int
 CertificateStatus -&gt; Int
 (Int -&gt; CertificateStatus -&gt; Int)
 -&gt; (CertificateStatus -&gt; Int) -&gt; Hashable CertificateStatus
@@ -148,51 +148,51 @@ $chash :: CertificateStatus -&gt; Int
 hashWithSalt :: Int -&gt; CertificateStatus -&gt; Int
 $chashWithSalt :: Int -&gt; CertificateStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679605832"><span class="annot"><span class="annottext">CertificateStatus -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679605841"><span class="annot"><span class="annottext">CertificateStatus -&gt; ()
 (CertificateStatus -&gt; ()) -&gt; NFData CertificateStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CertificateStatus -&gt; ()
 $crnf :: CertificateStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679605829"><span class="annot"><span class="annottext">Text -&gt; Either String CertificateStatus
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679605838"><span class="annot"><span class="annottext">Text -&gt; Either String CertificateStatus
 (Text -&gt; Either String CertificateStatus)
 -&gt; FromText CertificateStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CertificateStatus
 $cfromText :: Text -&gt; Either String CertificateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679605826"><span class="annot"><span class="annottext">CertificateStatus -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679605835"><span class="annot"><span class="annottext">CertificateStatus -&gt; Text
 (CertificateStatus -&gt; Text) -&gt; ToText CertificateStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CertificateStatus -&gt; Text
 $ctoText :: CertificateStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679605823"><span class="annot"><span class="annottext">CertificateStatus -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679605832"><span class="annot"><span class="annottext">CertificateStatus -&gt; ByteString
 (CertificateStatus -&gt; ByteString) -&gt; ToByteString CertificateStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CertificateStatus -&gt; ByteString
 $ctoBS :: CertificateStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679605820"><span class="annot"><span class="annottext">CertificateStatus -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679605829"><span class="annot"><span class="annottext">CertificateStatus -&gt; ByteStringBuilder
 (CertificateStatus -&gt; ByteStringBuilder) -&gt; ToLog CertificateStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CertificateStatus -&gt; ByteStringBuilder
 $cbuild :: CertificateStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679605817"><span class="annot"><span class="annottext">HeaderName -&gt; CertificateStatus -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679605826"><span class="annot"><span class="annottext">HeaderName -&gt; CertificateStatus -&gt; [Header]
 (HeaderName -&gt; CertificateStatus -&gt; [Header])
 -&gt; ToHeader CertificateStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CertificateStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CertificateStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679605814"><span class="annot"><span class="annottext">CertificateStatus -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679605823"><span class="annot"><span class="annottext">CertificateStatus -&gt; QueryString
 (CertificateStatus -&gt; QueryString) -&gt; ToQuery CertificateStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CertificateStatus -&gt; QueryString
 $ctoQuery :: CertificateStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679605809"><span id="local-6989586621679605811"><span class="annot"><span class="annottext">Value -&gt; Parser [CertificateStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679605818"><span id="local-6989586621679605820"><span class="annot"><span class="annottext">Value -&gt; Parser [CertificateStatus]
 Value -&gt; Parser CertificateStatus
 (Value -&gt; Parser CertificateStatus)
 -&gt; (Value -&gt; Parser [CertificateStatus])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [CertificateStatus]
 parseJSON :: Value -&gt; Parser CertificateStatus
 $cparseJSON :: Value -&gt; Parser CertificateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679605804"><span id="local-6989586621679605806"><span class="annot"><span class="annottext">FromJSONKeyFunction [CertificateStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679605813"><span id="local-6989586621679605815"><span class="annot"><span class="annottext">FromJSONKeyFunction [CertificateStatus]
 FromJSONKeyFunction CertificateStatus
 FromJSONKeyFunction CertificateStatus
 -&gt; FromJSONKeyFunction [CertificateStatus]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CertificateStatus]
 fromJSONKey :: FromJSONKeyFunction CertificateStatus
 $cfromJSONKey :: FromJSONKeyFunction CertificateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679605795"><span id="local-6989586621679605797"><span id="local-6989586621679605799"><span id="local-6989586621679605801"><span class="annot"><span class="annottext">[CertificateStatus] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679605804"><span id="local-6989586621679605806"><span id="local-6989586621679605808"><span id="local-6989586621679605810"><span class="annot"><span class="annottext">[CertificateStatus] -&gt; Encoding
 [CertificateStatus] -&gt; Value
 CertificateStatus -&gt; Encoding
 CertificateStatus -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: CertificateStatus -&gt; Encoding
 toJSON :: CertificateStatus -&gt; Value
 $ctoJSON :: CertificateStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679605790"><span id="local-6989586621679605792"><span class="annot"><span class="annottext">ToJSONKeyFunction [CertificateStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679605799"><span id="local-6989586621679605801"><span class="annot"><span class="annottext">ToJSONKeyFunction [CertificateStatus]
 ToJSONKeyFunction CertificateStatus
 ToJSONKeyFunction CertificateStatus
 -&gt; ToJSONKeyFunction [CertificateStatus]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CertificateStatus]
 toJSONKey :: ToJSONKeyFunction CertificateStatus
 $ctoJSONKey :: ToJSONKeyFunction CertificateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679605787"><span class="annot"><span class="annottext">[Node] -&gt; Either String CertificateStatus
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679605796"><span class="annot"><span class="annottext">[Node] -&gt; Either String CertificateStatus
 ([Node] -&gt; Either String CertificateStatus)
 -&gt; FromXML CertificateStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CertificateStatus
 $cparseXML :: [Node] -&gt; Either String CertificateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679605784"><span class="annot"><span class="annottext">CertificateStatus -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679605793"><span class="annot"><span class="annottext">CertificateStatus -&gt; XML
 (CertificateStatus -&gt; XML) -&gt; ToXML CertificateStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CertificateStatus -&gt; XML

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- the value Vorbis.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newVorbisSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680013953"><span id="local-6989586621680013954"></span></span><span class="hs-keyword">data</span><span> </span><span id="VorbisSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings"><span class="hs-identifier hs-var">VorbisSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VorbisSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings%27"><span class="hs-identifier hs-var">VorbisSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680013962"><span id="local-6989586621680013963"></span></span><span class="hs-keyword">data</span><span> </span><span id="VorbisSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings"><span class="hs-identifier hs-var">VorbisSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VorbisSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings%27"><span class="hs-identifier hs-var">VorbisSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional. Specify the number of channels in this output audio track.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- Choosing Mono on the console gives you 1 output channel; choosing Stereo</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- gives you 2. In the API, valid values are 1 and 2. The default value is</span><span>
@@ -45,7 +45,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AvbrQuality%3AVorbisSettings%27"><span class="annot"><span class="annottext">VorbisSettings -&gt; Maybe Int
 </span><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#%24sel%3AvbrQuality%3AVorbisSettings%27"><span class="hs-identifier hs-var hs-var">vbrQuality</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680013945"><span id="local-6989586621680013947"><span class="annot"><span class="annottext">VorbisSettings -&gt; VorbisSettings -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680013954"><span id="local-6989586621680013956"><span class="annot"><span class="annottext">VorbisSettings -&gt; VorbisSettings -&gt; Bool
 (VorbisSettings -&gt; VorbisSettings -&gt; Bool)
 -&gt; (VorbisSettings -&gt; VorbisSettings -&gt; Bool) -&gt; Eq VorbisSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VorbisSettings -&gt; VorbisSettings -&gt; Bool
 == :: VorbisSettings -&gt; VorbisSettings -&gt; Bool
 $c== :: VorbisSettings -&gt; VorbisSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680013936"><span id="local-6989586621680013938"><span id="local-6989586621680013940"><span id="local-6989586621680013942"><span class="annot"><span class="annottext">ReadPrec [VorbisSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680013945"><span id="local-6989586621680013947"><span id="local-6989586621680013949"><span id="local-6989586621680013951"><span class="annot"><span class="annottext">ReadPrec [VorbisSettings]
 ReadPrec VorbisSettings
 Int -&gt; ReadS VorbisSettings
 ReadS [VorbisSettings]
@@ -73,7 +73,7 @@ readList :: ReadS [VorbisSettings]
 $creadList :: ReadS [VorbisSettings]
 readsPrec :: Int -&gt; ReadS VorbisSettings
 $creadsPrec :: Int -&gt; ReadS VorbisSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680013929"><span id="local-6989586621680013931"><span id="local-6989586621680013933"><span class="annot"><span class="annottext">Int -&gt; VorbisSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680013938"><span id="local-6989586621680013940"><span id="local-6989586621680013942"><span class="annot"><span class="annottext">Int -&gt; VorbisSettings -&gt; ShowS
 [VorbisSettings] -&gt; ShowS
 VorbisSettings -&gt; String
 (Int -&gt; VorbisSettings -&gt; ShowS)
@@ -151,16 +151,16 @@ forall a. Maybe a
 -&gt; Lens
      VorbisSettings VorbisSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings%27"><span class="hs-identifier hs-type">VorbisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013920"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings%27"><span class="hs-identifier hs-type">VorbisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013929"><span class="annot"><span class="annottext">Maybe Natural
 channels :: Maybe Natural
 $sel:channels:VorbisSettings' :: VorbisSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621680013920"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680013920"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013919"><span class="annot"><span class="annottext">s :: VorbisSettings
-</span><a href="#local-6989586621680013919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings%27"><span class="hs-identifier hs-type">VorbisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013918"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680013918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VorbisSettings
-</span><a href="#local-6989586621680013919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channels:VorbisSettings' :: Maybe Natural
+</span><a href="#local-6989586621680013929"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680013929"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013928"><span class="annot"><span class="annottext">s :: VorbisSettings
+</span><a href="#local-6989586621680013928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings%27"><span class="hs-identifier hs-type">VorbisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013927"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680013927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VorbisSettings
+</span><a href="#local-6989586621680013928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channels:VorbisSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#%24sel%3Achannels%3AVorbisSettings%27"><span class="hs-identifier hs-var">channels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680013918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings"><span class="hs-identifier hs-type">VorbisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680013927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings"><span class="hs-identifier hs-type">VorbisSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | Optional. Specify the audio sample rate in Hz. Valid values are 22050,</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- 32000, 44100, and 48000. The default value is 48000.</span><span>
@@ -172,16 +172,16 @@ $sel:channels:VorbisSettings' :: VorbisSettings -&gt; Maybe Natural
 -&gt; Lens
      VorbisSettings VorbisSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings%27"><span class="hs-identifier hs-type">VorbisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013916"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings%27"><span class="hs-identifier hs-type">VorbisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013925"><span class="annot"><span class="annottext">Maybe Natural
 sampleRate :: Maybe Natural
 $sel:sampleRate:VorbisSettings' :: VorbisSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621680013916"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680013916"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013915"><span class="annot"><span class="annottext">s :: VorbisSettings
-</span><a href="#local-6989586621680013915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings%27"><span class="hs-identifier hs-type">VorbisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013914"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680013914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VorbisSettings
-</span><a href="#local-6989586621680013915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRate:VorbisSettings' :: Maybe Natural
+</span><a href="#local-6989586621680013925"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680013925"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013924"><span class="annot"><span class="annottext">s :: VorbisSettings
+</span><a href="#local-6989586621680013924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings%27"><span class="hs-identifier hs-type">VorbisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013923"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680013923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VorbisSettings
+</span><a href="#local-6989586621680013924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRate:VorbisSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#%24sel%3AsampleRate%3AVorbisSettings%27"><span class="hs-identifier hs-var">sampleRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680013914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings"><span class="hs-identifier hs-type">VorbisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680013923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings"><span class="hs-identifier hs-type">VorbisSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | Optional. Specify the variable audio quality of this Vorbis output from</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- -1 (lowest quality, ~45 kbit\/s) to 10 (highest quality, ~500 kbit\/s).</span><span>
@@ -193,19 +193,19 @@ $sel:sampleRate:VorbisSettings' :: VorbisSettings -&gt; Maybe Natural
 -&gt; (VorbisSettings -&gt; Maybe Int -&gt; VorbisSettings)
 -&gt; Lens VorbisSettings VorbisSettings (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings%27"><span class="hs-identifier hs-type">VorbisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013912"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings%27"><span class="hs-identifier hs-type">VorbisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013921"><span class="annot"><span class="annottext">Maybe Int
 vbrQuality :: Maybe Int
 $sel:vbrQuality:VorbisSettings' :: VorbisSettings -&gt; Maybe Int
-</span><a href="#local-6989586621680013912"><span class="hs-identifier hs-var hs-var">vbrQuality</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680013912"><span class="hs-identifier hs-var">vbrQuality</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013911"><span class="annot"><span class="annottext">s :: VorbisSettings
-</span><a href="#local-6989586621680013911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings%27"><span class="hs-identifier hs-type">VorbisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013910"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680013910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VorbisSettings
-</span><a href="#local-6989586621680013911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vbrQuality:VorbisSettings' :: Maybe Int
+</span><a href="#local-6989586621680013921"><span class="hs-identifier hs-var hs-var">vbrQuality</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680013921"><span class="hs-identifier hs-var">vbrQuality</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013920"><span class="annot"><span class="annottext">s :: VorbisSettings
+</span><a href="#local-6989586621680013920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings%27"><span class="hs-identifier hs-type">VorbisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013919"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680013919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VorbisSettings
+</span><a href="#local-6989586621680013920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vbrQuality:VorbisSettings' :: Maybe Int
 </span><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#%24sel%3AvbrQuality%3AVorbisSettings%27"><span class="hs-identifier hs-var">vbrQuality</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680013910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings"><span class="hs-identifier hs-type">VorbisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680013919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings"><span class="hs-identifier hs-type">VorbisSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013907"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings"><span class="hs-identifier hs-type">VorbisSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621680013905"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VorbisSettings
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013916"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings"><span class="hs-identifier hs-type">VorbisSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621680013914"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VorbisSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser VorbisSettings)
@@ -215,8 +215,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;VorbisSettings&quot;</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680013902"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680013902"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680013911"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680013911"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Natural -&gt; Maybe Int -&gt; VorbisSettings
 </span><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings%27"><span class="hs-identifier hs-var">VorbisSettings'</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Natural -&gt; Maybe Int -&gt; VorbisSettings)
@@ -224,7 +224,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; Maybe Int -&gt; VorbisSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680013902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680013911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;channels&quot;</span></span><span class="hs-special">)</span><span>
@@ -232,7 +232,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser (Maybe Int -&gt; VorbisSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680013902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680013911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleRate&quot;</span></span><span class="hs-special">)</span><span>
@@ -240,19 +240,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser VorbisSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680013902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621680013911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vbrQuality&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013896"><span id="local-6989586621680013898"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings"><span class="hs-identifier hs-type">VorbisSettings</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013905"><span id="local-6989586621680013907"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings"><span class="hs-identifier hs-type">VorbisSettings</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013893"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings"><span class="hs-identifier hs-type">VorbisSettings</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013902"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings"><span class="hs-identifier hs-type">VorbisSettings</span></a></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013885"><span id="local-6989586621680013887"><span id="local-6989586621680013889"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings"><span class="hs-identifier hs-type">VorbisSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621680013883"><span class="annot"><span class="annottext">toJSON :: VorbisSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings%27"><span class="hs-identifier hs-type">VorbisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013879"><span id="local-6989586621680013880"><span id="local-6989586621680013881"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013894"><span id="local-6989586621680013896"><span id="local-6989586621680013898"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings"><span class="hs-identifier hs-type">VorbisSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621680013892"><span class="annot"><span class="annottext">toJSON :: VorbisSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VorbisSettings.html#VorbisSettings%27"><span class="hs-identifier hs-type">VorbisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013888"><span id="local-6989586621680013889"><span id="local-6989586621680013890"><span class="annot"><span class="annottext">Maybe Int
 Maybe Natural
 vbrQuality :: Maybe Int
 sampleRate :: Maybe Natural
@@ -260,7 +260,7 @@ channels :: Maybe Natural
 $sel:vbrQuality:VorbisSettings' :: VorbisSettings -&gt; Maybe Int
 $sel:sampleRate:VorbisSettings' :: VorbisSettings -&gt; Maybe Natural
 $sel:channels:VorbisSettings' :: VorbisSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621680013879"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680013888"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -272,21 +272,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680013881"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680013890"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680013880"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680013889"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vbrQuality&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680013879"><span class="hs-identifier hs-var">vbrQuality</span></a></span><span>
+</span><a href="#local-6989586621680013888"><span class="hs-identifier hs-var">vbrQuality</span></a></span><span>
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span></pre></body></html>

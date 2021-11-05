@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppFlow.Types.PrefixFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppFlow.Types.PrefixFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat"><span class="hs-identifier">PrefixFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat_DAY"><span class="hs-identifier">PrefixFormat_DAY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat_HOUR"><span class="hs-identifier">PrefixFormat_HOUR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat_MINUTE"><span class="hs-identifier">PrefixFormat_MINUTE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat_MONTH"><span class="hs-identifier">PrefixFormat_MONTH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat_YEAR"><span class="hs-identifier">PrefixFormat_YEAR</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679319424"><span id="local-6989586621679319425"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PrefixFormat"><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat"><span class="hs-identifier hs-var">PrefixFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PrefixFormat%27"><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat%27"><span class="hs-identifier hs-var">PrefixFormat'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPrefixFormat"><span class="annot"><span class="annottext">PrefixFormat -&gt; Text
+</span><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#fromPrefixFormat"><span class="hs-identifier hs-var hs-var">fromPrefixFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679319416"><span id="local-6989586621679319418"><span id="local-6989586621679319420"><span class="annot"><span class="annottext">Int -&gt; PrefixFormat -&gt; ShowS
+[PrefixFormat] -&gt; ShowS
+PrefixFormat -&gt; String
+(Int -&gt; PrefixFormat -&gt; ShowS)
+-&gt; (PrefixFormat -&gt; String)
+-&gt; ([PrefixFormat] -&gt; ShowS)
+-&gt; Show PrefixFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PrefixFormat] -&gt; ShowS
+$cshowList :: [PrefixFormat] -&gt; ShowS
+show :: PrefixFormat -&gt; String
+$cshow :: PrefixFormat -&gt; String
+showsPrec :: Int -&gt; PrefixFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; PrefixFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679319407"><span id="local-6989586621679319409"><span id="local-6989586621679319411"><span id="local-6989586621679319413"><span class="annot"><span class="annottext">ReadPrec [PrefixFormat]
+ReadPrec PrefixFormat
+Int -&gt; ReadS PrefixFormat
+ReadS [PrefixFormat]
+(Int -&gt; ReadS PrefixFormat)
+-&gt; ReadS [PrefixFormat]
+-&gt; ReadPrec PrefixFormat
+-&gt; ReadPrec [PrefixFormat]
+-&gt; Read PrefixFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PrefixFormat]
+$creadListPrec :: ReadPrec [PrefixFormat]
+readPrec :: ReadPrec PrefixFormat
+$creadPrec :: ReadPrec PrefixFormat
+readList :: ReadS [PrefixFormat]
+$creadList :: ReadS [PrefixFormat]
+readsPrec :: Int -&gt; ReadS PrefixFormat
+$creadsPrec :: Int -&gt; ReadS PrefixFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679319402"><span id="local-6989586621679319404"><span class="annot"><span class="annottext">PrefixFormat -&gt; PrefixFormat -&gt; Bool
+(PrefixFormat -&gt; PrefixFormat -&gt; Bool)
+-&gt; (PrefixFormat -&gt; PrefixFormat -&gt; Bool) -&gt; Eq PrefixFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PrefixFormat -&gt; PrefixFormat -&gt; Bool
+$c/= :: PrefixFormat -&gt; PrefixFormat -&gt; Bool
+== :: PrefixFormat -&gt; PrefixFormat -&gt; Bool
+$c== :: PrefixFormat -&gt; PrefixFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679319386"><span id="local-6989586621679319388"><span id="local-6989586621679319390"><span id="local-6989586621679319392"><span id="local-6989586621679319394"><span id="local-6989586621679319396"><span id="local-6989586621679319398"><span class="annot"><span class="annottext">Eq PrefixFormat
+Eq PrefixFormat
+-&gt; (PrefixFormat -&gt; PrefixFormat -&gt; Ordering)
+-&gt; (PrefixFormat -&gt; PrefixFormat -&gt; Bool)
+-&gt; (PrefixFormat -&gt; PrefixFormat -&gt; Bool)
+-&gt; (PrefixFormat -&gt; PrefixFormat -&gt; Bool)
+-&gt; (PrefixFormat -&gt; PrefixFormat -&gt; Bool)
+-&gt; (PrefixFormat -&gt; PrefixFormat -&gt; PrefixFormat)
+-&gt; (PrefixFormat -&gt; PrefixFormat -&gt; PrefixFormat)
+-&gt; Ord PrefixFormat
+PrefixFormat -&gt; PrefixFormat -&gt; Bool
+PrefixFormat -&gt; PrefixFormat -&gt; Ordering
+PrefixFormat -&gt; PrefixFormat -&gt; PrefixFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PrefixFormat -&gt; PrefixFormat -&gt; PrefixFormat
+$cmin :: PrefixFormat -&gt; PrefixFormat -&gt; PrefixFormat
+max :: PrefixFormat -&gt; PrefixFormat -&gt; PrefixFormat
+$cmax :: PrefixFormat -&gt; PrefixFormat -&gt; PrefixFormat
+&gt;= :: PrefixFormat -&gt; PrefixFormat -&gt; Bool
+$c&gt;= :: PrefixFormat -&gt; PrefixFormat -&gt; Bool
+&gt; :: PrefixFormat -&gt; PrefixFormat -&gt; Bool
+$c&gt; :: PrefixFormat -&gt; PrefixFormat -&gt; Bool
+&lt;= :: PrefixFormat -&gt; PrefixFormat -&gt; Bool
+$c&lt;= :: PrefixFormat -&gt; PrefixFormat -&gt; Bool
+&lt; :: PrefixFormat -&gt; PrefixFormat -&gt; Bool
+$c&lt; :: PrefixFormat -&gt; PrefixFormat -&gt; Bool
+compare :: PrefixFormat -&gt; PrefixFormat -&gt; Ordering
+$ccompare :: PrefixFormat -&gt; PrefixFormat -&gt; Ordering
+$cp1Ord :: Eq PrefixFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PrefixFormat -&gt; Rep PrefixFormat x)
+-&gt; (forall x. Rep PrefixFormat x -&gt; PrefixFormat)
+-&gt; Generic PrefixFormat
+forall x. Rep PrefixFormat x -&gt; PrefixFormat
+forall x. PrefixFormat -&gt; Rep PrefixFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PrefixFormat x -&gt; PrefixFormat
+$cfrom :: forall x. PrefixFormat -&gt; Rep PrefixFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679319378"><span id="local-6989586621679319380"><span class="annot"><span class="annottext">Int -&gt; PrefixFormat -&gt; Int
+PrefixFormat -&gt; Int
+(Int -&gt; PrefixFormat -&gt; Int)
+-&gt; (PrefixFormat -&gt; Int) -&gt; Hashable PrefixFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PrefixFormat -&gt; Int
+$chash :: PrefixFormat -&gt; Int
+hashWithSalt :: Int -&gt; PrefixFormat -&gt; Int
+$chashWithSalt :: Int -&gt; PrefixFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679319375"><span class="annot"><span class="annottext">PrefixFormat -&gt; ()
+(PrefixFormat -&gt; ()) -&gt; NFData PrefixFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PrefixFormat -&gt; ()
+$crnf :: PrefixFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679319372"><span class="annot"><span class="annottext">Text -&gt; Either String PrefixFormat
+(Text -&gt; Either String PrefixFormat) -&gt; FromText PrefixFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PrefixFormat
+$cfromText :: Text -&gt; Either String PrefixFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679319369"><span class="annot"><span class="annottext">PrefixFormat -&gt; Text
+(PrefixFormat -&gt; Text) -&gt; ToText PrefixFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PrefixFormat -&gt; Text
+$ctoText :: PrefixFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679319366"><span class="annot"><span class="annottext">PrefixFormat -&gt; ByteString
+(PrefixFormat -&gt; ByteString) -&gt; ToByteString PrefixFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PrefixFormat -&gt; ByteString
+$ctoBS :: PrefixFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679319363"><span class="annot"><span class="annottext">PrefixFormat -&gt; ByteStringBuilder
+(PrefixFormat -&gt; ByteStringBuilder) -&gt; ToLog PrefixFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PrefixFormat -&gt; ByteStringBuilder
+$cbuild :: PrefixFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679319360"><span class="annot"><span class="annottext">HeaderName -&gt; PrefixFormat -&gt; [Header]
+(HeaderName -&gt; PrefixFormat -&gt; [Header]) -&gt; ToHeader PrefixFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PrefixFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PrefixFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679319357"><span class="annot"><span class="annottext">PrefixFormat -&gt; QueryString
+(PrefixFormat -&gt; QueryString) -&gt; ToQuery PrefixFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PrefixFormat -&gt; QueryString
+$ctoQuery :: PrefixFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679319352"><span id="local-6989586621679319354"><span class="annot"><span class="annottext">Value -&gt; Parser [PrefixFormat]
+Value -&gt; Parser PrefixFormat
+(Value -&gt; Parser PrefixFormat)
+-&gt; (Value -&gt; Parser [PrefixFormat]) -&gt; FromJSON PrefixFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PrefixFormat]
+$cparseJSONList :: Value -&gt; Parser [PrefixFormat]
+parseJSON :: Value -&gt; Parser PrefixFormat
+$cparseJSON :: Value -&gt; Parser PrefixFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679319347"><span id="local-6989586621679319349"><span class="annot"><span class="annottext">FromJSONKeyFunction [PrefixFormat]
+FromJSONKeyFunction PrefixFormat
+FromJSONKeyFunction PrefixFormat
+-&gt; FromJSONKeyFunction [PrefixFormat] -&gt; FromJSONKey PrefixFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PrefixFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [PrefixFormat]
+fromJSONKey :: FromJSONKeyFunction PrefixFormat
+$cfromJSONKey :: FromJSONKeyFunction PrefixFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679319338"><span id="local-6989586621679319340"><span id="local-6989586621679319342"><span id="local-6989586621679319344"><span class="annot"><span class="annottext">[PrefixFormat] -&gt; Encoding
+[PrefixFormat] -&gt; Value
+PrefixFormat -&gt; Encoding
+PrefixFormat -&gt; Value
+(PrefixFormat -&gt; Value)
+-&gt; (PrefixFormat -&gt; Encoding)
+-&gt; ([PrefixFormat] -&gt; Value)
+-&gt; ([PrefixFormat] -&gt; Encoding)
+-&gt; ToJSON PrefixFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PrefixFormat] -&gt; Encoding
+$ctoEncodingList :: [PrefixFormat] -&gt; Encoding
+toJSONList :: [PrefixFormat] -&gt; Value
+$ctoJSONList :: [PrefixFormat] -&gt; Value
+toEncoding :: PrefixFormat -&gt; Encoding
+$ctoEncoding :: PrefixFormat -&gt; Encoding
+toJSON :: PrefixFormat -&gt; Value
+$ctoJSON :: PrefixFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679319333"><span id="local-6989586621679319335"><span class="annot"><span class="annottext">ToJSONKeyFunction [PrefixFormat]
+ToJSONKeyFunction PrefixFormat
+ToJSONKeyFunction PrefixFormat
+-&gt; ToJSONKeyFunction [PrefixFormat] -&gt; ToJSONKey PrefixFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PrefixFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [PrefixFormat]
+toJSONKey :: ToJSONKeyFunction PrefixFormat
+$ctoJSONKey :: ToJSONKeyFunction PrefixFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679319330"><span class="annot"><span class="annottext">[Node] -&gt; Either String PrefixFormat
+([Node] -&gt; Either String PrefixFormat) -&gt; FromXML PrefixFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PrefixFormat
+$cparseXML :: [Node] -&gt; Either String PrefixFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679319327"><span class="annot"><span class="annottext">PrefixFormat -&gt; XML
+(PrefixFormat -&gt; XML) -&gt; ToXML PrefixFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PrefixFormat -&gt; XML
+$ctoXML :: PrefixFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat_DAY"><span class="hs-identifier hs-type">PrefixFormat_DAY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat"><span class="hs-identifier hs-type">PrefixFormat</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPrefixFormat_DAY"><span id="%24mPrefixFormat_DAY"><span id="PrefixFormat_DAY"><span class="annot"><span class="annottext">$bPrefixFormat_DAY :: PrefixFormat
+$mPrefixFormat_DAY :: forall r. PrefixFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#%24bPrefixFormat_DAY"><span class="hs-identifier hs-var hs-var hs-var">PrefixFormat_DAY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat%27"><span class="hs-identifier hs-type">PrefixFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DAY&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat_HOUR"><span class="hs-identifier hs-type">PrefixFormat_HOUR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat"><span class="hs-identifier hs-type">PrefixFormat</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPrefixFormat_HOUR"><span id="%24mPrefixFormat_HOUR"><span id="PrefixFormat_HOUR"><span class="annot"><span class="annottext">$bPrefixFormat_HOUR :: PrefixFormat
+$mPrefixFormat_HOUR :: forall r. PrefixFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#%24bPrefixFormat_HOUR"><span class="hs-identifier hs-var hs-var hs-var">PrefixFormat_HOUR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat%27"><span class="hs-identifier hs-type">PrefixFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HOUR&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat_MINUTE"><span class="hs-identifier hs-type">PrefixFormat_MINUTE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat"><span class="hs-identifier hs-type">PrefixFormat</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPrefixFormat_MINUTE"><span id="%24mPrefixFormat_MINUTE"><span id="PrefixFormat_MINUTE"><span class="annot"><span class="annottext">$bPrefixFormat_MINUTE :: PrefixFormat
+$mPrefixFormat_MINUTE :: forall r. PrefixFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#%24bPrefixFormat_MINUTE"><span class="hs-identifier hs-var hs-var hs-var">PrefixFormat_MINUTE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat%27"><span class="hs-identifier hs-type">PrefixFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MINUTE&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat_MONTH"><span class="hs-identifier hs-type">PrefixFormat_MONTH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat"><span class="hs-identifier hs-type">PrefixFormat</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPrefixFormat_MONTH"><span id="%24mPrefixFormat_MONTH"><span id="PrefixFormat_MONTH"><span class="annot"><span class="annottext">$bPrefixFormat_MONTH :: PrefixFormat
+$mPrefixFormat_MONTH :: forall r. PrefixFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#%24bPrefixFormat_MONTH"><span class="hs-identifier hs-var hs-var hs-var">PrefixFormat_MONTH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat%27"><span class="hs-identifier hs-type">PrefixFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MONTH&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat_YEAR"><span class="hs-identifier hs-type">PrefixFormat_YEAR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat"><span class="hs-identifier hs-type">PrefixFormat</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPrefixFormat_YEAR"><span id="%24mPrefixFormat_YEAR"><span id="PrefixFormat_YEAR"><span class="annot"><span class="annottext">$bPrefixFormat_YEAR :: PrefixFormat
+$mPrefixFormat_YEAR :: forall r. PrefixFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#%24bPrefixFormat_YEAR"><span class="hs-identifier hs-var hs-var hs-var">PrefixFormat_YEAR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat%27"><span class="hs-identifier hs-type">PrefixFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;YEAR&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat_DAY"><span class="hs-pragma hs-type">PrefixFormat_DAY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat_HOUR"><span class="hs-pragma hs-type">PrefixFormat_HOUR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat_MINUTE"><span class="hs-pragma hs-type">PrefixFormat_MINUTE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat_MONTH"><span class="hs-pragma hs-type">PrefixFormat_MONTH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat_YEAR"><span class="hs-pragma hs-type">PrefixFormat_YEAR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrefixFormat.html#PrefixFormat%27"><span class="hs-pragma hs-type">PrefixFormat'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

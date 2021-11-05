@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The HTTP action header.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newHttpActionHeader' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679785994"><span id="local-6989586621679785995"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpActionHeader"><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-var">HttpActionHeader</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpActionHeader%27"><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader%27"><span class="hs-identifier hs-var">HttpActionHeader'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679786003"><span id="local-6989586621679786004"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpActionHeader"><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-var">HttpActionHeader</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpActionHeader%27"><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader%27"><span class="hs-identifier hs-var">HttpActionHeader'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The HTTP header key.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Akey%3AHttpActionHeader%27"><span class="annot"><span class="annottext">HttpActionHeader -&gt; Text
 </span><a href="Network.AWS.IoT.Types.HttpActionHeader.html#%24sel%3Akey%3AHttpActionHeader%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Avalue%3AHttpActionHeader%27"><span class="annot"><span class="annottext">HttpActionHeader -&gt; Text
 </span><a href="Network.AWS.IoT.Types.HttpActionHeader.html#%24sel%3Avalue%3AHttpActionHeader%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679785987"><span id="local-6989586621679785989"><span class="annot"><span class="annottext">HttpActionHeader -&gt; HttpActionHeader -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679785996"><span id="local-6989586621679785998"><span class="annot"><span class="annottext">HttpActionHeader -&gt; HttpActionHeader -&gt; Bool
 (HttpActionHeader -&gt; HttpActionHeader -&gt; Bool)
 -&gt; (HttpActionHeader -&gt; HttpActionHeader -&gt; Bool)
 -&gt; Eq HttpActionHeader
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HttpActionHeader -&gt; HttpActionHeader -&gt; Bool
 == :: HttpActionHeader -&gt; HttpActionHeader -&gt; Bool
 $c== :: HttpActionHeader -&gt; HttpActionHeader -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785978"><span id="local-6989586621679785980"><span id="local-6989586621679785982"><span id="local-6989586621679785984"><span class="annot"><span class="annottext">ReadPrec [HttpActionHeader]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785987"><span id="local-6989586621679785989"><span id="local-6989586621679785991"><span id="local-6989586621679785993"><span class="annot"><span class="annottext">ReadPrec [HttpActionHeader]
 ReadPrec HttpActionHeader
 Int -&gt; ReadS HttpActionHeader
 ReadS [HttpActionHeader]
@@ -63,7 +63,7 @@ readList :: ReadS [HttpActionHeader]
 $creadList :: ReadS [HttpActionHeader]
 readsPrec :: Int -&gt; ReadS HttpActionHeader
 $creadsPrec :: Int -&gt; ReadS HttpActionHeader
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785971"><span id="local-6989586621679785973"><span id="local-6989586621679785975"><span class="annot"><span class="annottext">Int -&gt; HttpActionHeader -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785980"><span id="local-6989586621679785982"><span id="local-6989586621679785984"><span class="annot"><span class="annottext">Int -&gt; HttpActionHeader -&gt; ShowS
 [HttpActionHeader] -&gt; ShowS
 HttpActionHeader -&gt; String
 (Int -&gt; HttpActionHeader -&gt; ShowS)
@@ -107,15 +107,15 @@ $cfrom :: forall x. HttpActionHeader -&gt; Rep HttpActionHeader x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span><span>
 </span><span id="line-54"></span><span id="newHttpActionHeader"><span class="annot"><span class="annottext">newHttpActionHeader :: Text -&gt; Text -&gt; HttpActionHeader
-</span><a href="Network.AWS.IoT.Types.HttpActionHeader.html#newHttpActionHeader"><span class="hs-identifier hs-var hs-var">newHttpActionHeader</span></a></span></span><span> </span><span id="local-6989586621679785965"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785965"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679785964"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785964"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.HttpActionHeader.html#newHttpActionHeader"><span class="hs-identifier hs-var hs-var">newHttpActionHeader</span></a></span></span><span> </span><span id="local-6989586621679785974"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785974"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679785973"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785973"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">HttpActionHeader' :: Text -&gt; Text -&gt; HttpActionHeader
 </span><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader%27"><span class="hs-identifier hs-type">HttpActionHeader'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:HttpActionHeader' :: Text
 </span><a href="Network.AWS.IoT.Types.HttpActionHeader.html#%24sel%3Akey%3AHttpActionHeader%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785965"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:HttpActionHeader' :: Text
+</span><a href="#local-6989586621679785974"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:HttpActionHeader' :: Text
 </span><a href="Network.AWS.IoT.Types.HttpActionHeader.html#%24sel%3Avalue%3AHttpActionHeader%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785964"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679785973"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | The HTTP header key.</span><span>
 </span><span id="line-58"></span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#httpActionHeader_key"><span class="hs-identifier hs-type">httpActionHeader_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -124,16 +124,16 @@ $cfrom :: forall x. HttpActionHeader -&gt; Rep HttpActionHeader x
 -&gt; (HttpActionHeader -&gt; Text -&gt; HttpActionHeader)
 -&gt; Lens HttpActionHeader HttpActionHeader Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader%27"><span class="hs-identifier hs-type">HttpActionHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785960"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader%27"><span class="hs-identifier hs-type">HttpActionHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785969"><span class="annot"><span class="annottext">Text
 key :: Text
 $sel:key:HttpActionHeader' :: HttpActionHeader -&gt; Text
-</span><a href="#local-6989586621679785960"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785960"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785959"><span class="annot"><span class="annottext">s :: HttpActionHeader
-</span><a href="#local-6989586621679785959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader%27"><span class="hs-identifier hs-type">HttpActionHeader'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785958"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpActionHeader
-</span><a href="#local-6989586621679785959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:HttpActionHeader' :: Text
+</span><a href="#local-6989586621679785969"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785969"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785968"><span class="annot"><span class="annottext">s :: HttpActionHeader
+</span><a href="#local-6989586621679785968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader%27"><span class="hs-identifier hs-type">HttpActionHeader'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785967"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpActionHeader
+</span><a href="#local-6989586621679785968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:HttpActionHeader' :: Text
 </span><a href="Network.AWS.IoT.Types.HttpActionHeader.html#%24sel%3Akey%3AHttpActionHeader%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The HTTP header value. Substitution templates are supported.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#httpActionHeader_value"><span class="hs-identifier hs-type">httpActionHeader_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -142,19 +142,19 @@ $sel:key:HttpActionHeader' :: HttpActionHeader -&gt; Text
 -&gt; (HttpActionHeader -&gt; Text -&gt; HttpActionHeader)
 -&gt; Lens HttpActionHeader HttpActionHeader Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader%27"><span class="hs-identifier hs-type">HttpActionHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785956"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader%27"><span class="hs-identifier hs-type">HttpActionHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785965"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:HttpActionHeader' :: HttpActionHeader -&gt; Text
-</span><a href="#local-6989586621679785956"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785956"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785955"><span class="annot"><span class="annottext">s :: HttpActionHeader
-</span><a href="#local-6989586621679785955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader%27"><span class="hs-identifier hs-type">HttpActionHeader'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785954"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpActionHeader
-</span><a href="#local-6989586621679785955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:HttpActionHeader' :: Text
+</span><a href="#local-6989586621679785965"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785965"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785964"><span class="annot"><span class="annottext">s :: HttpActionHeader
+</span><a href="#local-6989586621679785964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader%27"><span class="hs-identifier hs-type">HttpActionHeader'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785963"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpActionHeader
+</span><a href="#local-6989586621679785964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:HttpActionHeader' :: Text
 </span><a href="Network.AWS.IoT.Types.HttpActionHeader.html#%24sel%3Avalue%3AHttpActionHeader%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785951"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679785949"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HttpActionHeader
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785960"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679785958"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HttpActionHeader
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HttpActionHeader)
@@ -164,39 +164,39 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HttpActionHeader&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679785946"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679785946"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679785955"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679785955"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; HttpActionHeader
 </span><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader%27"><span class="hs-identifier hs-var">HttpActionHeader'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; HttpActionHeader)
 -&gt; Parser Text -&gt; Parser (Text -&gt; HttpActionHeader)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679785946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679785955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;key&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; HttpActionHeader)
 -&gt; Parser Text -&gt; Parser HttpActionHeader
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679785946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679785955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785940"><span id="local-6989586621679785942"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785949"><span id="local-6989586621679785951"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785937"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785929"><span id="local-6989586621679785931"><span id="local-6989586621679785933"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679785927"><span class="annot"><span class="annottext">toJSON :: HttpActionHeader -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader%27"><span class="hs-identifier hs-type">HttpActionHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785924"><span id="local-6989586621679785925"><span class="annot"><span class="annottext">Text
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785938"><span id="local-6989586621679785940"><span id="local-6989586621679785942"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader"><span class="hs-identifier hs-type">HttpActionHeader</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679785936"><span class="annot"><span class="annottext">toJSON :: HttpActionHeader -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpActionHeader.html#HttpActionHeader%27"><span class="hs-identifier hs-type">HttpActionHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785933"><span id="local-6989586621679785934"><span class="annot"><span class="annottext">Text
 value :: Text
 key :: Text
 $sel:value:HttpActionHeader' :: HttpActionHeader -&gt; Text
 $sel:key:HttpActionHeader' :: HttpActionHeader -&gt; Text
-</span><a href="#local-6989586621679785924"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679785933"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -208,14 +208,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785925"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679785934"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785924"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785933"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679299970"><span id="local-6989586621679299971"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TracingMode"><span class="annot"><a href="Network.AWS.Lambda.Types.TracingMode.html#TracingMode"><span class="hs-identifier hs-var">TracingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TracingMode%27"><span class="annot"><a href="Network.AWS.Lambda.Types.TracingMode.html#TracingMode%27"><span class="hs-identifier hs-var">TracingMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679299979"><span id="local-6989586621679299980"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TracingMode"><span class="annot"><a href="Network.AWS.Lambda.Types.TracingMode.html#TracingMode"><span class="hs-identifier hs-var">TracingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TracingMode%27"><span class="annot"><a href="Network.AWS.Lambda.Types.TracingMode.html#TracingMode%27"><span class="hs-identifier hs-var">TracingMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTracingMode"><span class="annot"><span class="annottext">TracingMode -&gt; Text
 </span><a href="Network.AWS.Lambda.Types.TracingMode.html#fromTracingMode"><span class="hs-identifier hs-var hs-var">fromTracingMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299962"><span id="local-6989586621679299964"><span id="local-6989586621679299966"><span class="annot"><span class="annottext">Int -&gt; TracingMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299971"><span id="local-6989586621679299973"><span id="local-6989586621679299975"><span class="annot"><span class="annottext">Int -&gt; TracingMode -&gt; ShowS
 [TracingMode] -&gt; ShowS
 TracingMode -&gt; String
 (Int -&gt; TracingMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: TracingMode -&gt; String
 showsPrec :: Int -&gt; TracingMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; TracingMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679299953"><span id="local-6989586621679299955"><span id="local-6989586621679299957"><span id="local-6989586621679299959"><span class="annot"><span class="annottext">ReadPrec [TracingMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679299962"><span id="local-6989586621679299964"><span id="local-6989586621679299966"><span id="local-6989586621679299968"><span class="annot"><span class="annottext">ReadPrec [TracingMode]
 ReadPrec TracingMode
 Int -&gt; ReadS TracingMode
 ReadS [TracingMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [TracingMode]
 readsPrec :: Int -&gt; ReadS TracingMode
 $creadsPrec :: Int -&gt; ReadS TracingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679299948"><span id="local-6989586621679299950"><span class="annot"><span class="annottext">TracingMode -&gt; TracingMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679299957"><span id="local-6989586621679299959"><span class="annot"><span class="annottext">TracingMode -&gt; TracingMode -&gt; Bool
 (TracingMode -&gt; TracingMode -&gt; Bool)
 -&gt; (TracingMode -&gt; TracingMode -&gt; Bool) -&gt; Eq TracingMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: TracingMode -&gt; TracingMode -&gt; Bool
 == :: TracingMode -&gt; TracingMode -&gt; Bool
 $c== :: TracingMode -&gt; TracingMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679299932"><span id="local-6989586621679299934"><span id="local-6989586621679299936"><span id="local-6989586621679299938"><span id="local-6989586621679299940"><span id="local-6989586621679299942"><span id="local-6989586621679299944"><span class="annot"><span class="annottext">Eq TracingMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679299941"><span id="local-6989586621679299943"><span id="local-6989586621679299945"><span id="local-6989586621679299947"><span id="local-6989586621679299949"><span id="local-6989586621679299951"><span id="local-6989586621679299953"><span class="annot"><span class="annottext">Eq TracingMode
 Eq TracingMode
 -&gt; (TracingMode -&gt; TracingMode -&gt; Ordering)
 -&gt; (TracingMode -&gt; TracingMode -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. TracingMode -&gt; Rep TracingMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299924"><span id="local-6989586621679299926"><span class="annot"><span class="annottext">Int -&gt; TracingMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299933"><span id="local-6989586621679299935"><span class="annot"><span class="annottext">Int -&gt; TracingMode -&gt; Int
 TracingMode -&gt; Int
 (Int -&gt; TracingMode -&gt; Int)
 -&gt; (TracingMode -&gt; Int) -&gt; Hashable TracingMode
@@ -142,49 +142,49 @@ $chash :: TracingMode -&gt; Int
 hashWithSalt :: Int -&gt; TracingMode -&gt; Int
 $chashWithSalt :: Int -&gt; TracingMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679299921"><span class="annot"><span class="annottext">TracingMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679299930"><span class="annot"><span class="annottext">TracingMode -&gt; ()
 (TracingMode -&gt; ()) -&gt; NFData TracingMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TracingMode -&gt; ()
 $crnf :: TracingMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679299918"><span class="annot"><span class="annottext">Text -&gt; Either String TracingMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679299927"><span class="annot"><span class="annottext">Text -&gt; Either String TracingMode
 (Text -&gt; Either String TracingMode) -&gt; FromText TracingMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TracingMode
 $cfromText :: Text -&gt; Either String TracingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679299915"><span class="annot"><span class="annottext">TracingMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679299924"><span class="annot"><span class="annottext">TracingMode -&gt; Text
 (TracingMode -&gt; Text) -&gt; ToText TracingMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TracingMode -&gt; Text
 $ctoText :: TracingMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679299912"><span class="annot"><span class="annottext">TracingMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679299921"><span class="annot"><span class="annottext">TracingMode -&gt; ByteString
 (TracingMode -&gt; ByteString) -&gt; ToByteString TracingMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TracingMode -&gt; ByteString
 $ctoBS :: TracingMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679299909"><span class="annot"><span class="annottext">TracingMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679299918"><span class="annot"><span class="annottext">TracingMode -&gt; ByteStringBuilder
 (TracingMode -&gt; ByteStringBuilder) -&gt; ToLog TracingMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TracingMode -&gt; ByteStringBuilder
 $cbuild :: TracingMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679299906"><span class="annot"><span class="annottext">HeaderName -&gt; TracingMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679299915"><span class="annot"><span class="annottext">HeaderName -&gt; TracingMode -&gt; [Header]
 (HeaderName -&gt; TracingMode -&gt; [Header]) -&gt; ToHeader TracingMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TracingMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TracingMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679299903"><span class="annot"><span class="annottext">TracingMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679299912"><span class="annot"><span class="annottext">TracingMode -&gt; QueryString
 (TracingMode -&gt; QueryString) -&gt; ToQuery TracingMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TracingMode -&gt; QueryString
 $ctoQuery :: TracingMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679299898"><span id="local-6989586621679299900"><span class="annot"><span class="annottext">Value -&gt; Parser [TracingMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679299907"><span id="local-6989586621679299909"><span class="annot"><span class="annottext">Value -&gt; Parser [TracingMode]
 Value -&gt; Parser TracingMode
 (Value -&gt; Parser TracingMode)
 -&gt; (Value -&gt; Parser [TracingMode]) -&gt; FromJSON TracingMode
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [TracingMode]
 parseJSON :: Value -&gt; Parser TracingMode
 $cparseJSON :: Value -&gt; Parser TracingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679299893"><span id="local-6989586621679299895"><span class="annot"><span class="annottext">FromJSONKeyFunction [TracingMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679299902"><span id="local-6989586621679299904"><span class="annot"><span class="annottext">FromJSONKeyFunction [TracingMode]
 FromJSONKeyFunction TracingMode
 FromJSONKeyFunction TracingMode
 -&gt; FromJSONKeyFunction [TracingMode] -&gt; FromJSONKey TracingMode
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TracingMode]
 fromJSONKey :: FromJSONKeyFunction TracingMode
 $cfromJSONKey :: FromJSONKeyFunction TracingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679299884"><span id="local-6989586621679299886"><span id="local-6989586621679299888"><span id="local-6989586621679299890"><span class="annot"><span class="annottext">[TracingMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679299893"><span id="local-6989586621679299895"><span id="local-6989586621679299897"><span id="local-6989586621679299899"><span class="annot"><span class="annottext">[TracingMode] -&gt; Encoding
 [TracingMode] -&gt; Value
 TracingMode -&gt; Encoding
 TracingMode -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: TracingMode -&gt; Encoding
 toJSON :: TracingMode -&gt; Value
 $ctoJSON :: TracingMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679299879"><span id="local-6989586621679299881"><span class="annot"><span class="annottext">ToJSONKeyFunction [TracingMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679299888"><span id="local-6989586621679299890"><span class="annot"><span class="annottext">ToJSONKeyFunction [TracingMode]
 ToJSONKeyFunction TracingMode
 ToJSONKeyFunction TracingMode
 -&gt; ToJSONKeyFunction [TracingMode] -&gt; ToJSONKey TracingMode
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TracingMode]
 toJSONKey :: ToJSONKeyFunction TracingMode
 $ctoJSONKey :: ToJSONKeyFunction TracingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679299876"><span class="annot"><span class="annottext">[Node] -&gt; Either String TracingMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679299885"><span class="annot"><span class="annottext">[Node] -&gt; Either String TracingMode
 ([Node] -&gt; Either String TracingMode) -&gt; FromXML TracingMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TracingMode
 $cparseXML :: [Node] -&gt; Either String TracingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679299873"><span class="annot"><span class="annottext">TracingMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679299882"><span class="annot"><span class="annottext">TracingMode -&gt; XML
 (TracingMode -&gt; XML) -&gt; ToXML TracingMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TracingMode -&gt; XML

@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUpdateObjectAttributes' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679350720"><span id="local-6989586621679350721"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateObjectAttributes"><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-var">UpdateObjectAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateObjectAttributes%27"><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-var">UpdateObjectAttributes'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679350729"><span id="local-6989586621679350730"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateObjectAttributes"><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-var">UpdateObjectAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateObjectAttributes%27"><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-var">UpdateObjectAttributes'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that is associated with the Directory</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- where the object resides. For more information, see arns.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AdirectoryArn%3AUpdateObjectAttributes%27"><span class="annot"><span class="annottext">UpdateObjectAttributes -&gt; Text
@@ -61,7 +61,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AattributeUpdates%3AUpdateObjectAttributes%27"><span class="annot"><span class="annottext">UpdateObjectAttributes -&gt; [ObjectAttributeUpdate]
 </span><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#%24sel%3AattributeUpdates%3AUpdateObjectAttributes%27"><span class="hs-identifier hs-var hs-var">attributeUpdates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectAttributeUpdate.html#ObjectAttributeUpdate"><span class="hs-identifier hs-type">ObjectAttributeUpdate</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350712"><span id="local-6989586621679350714"><span class="annot"><span class="annottext">UpdateObjectAttributes -&gt; UpdateObjectAttributes -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350721"><span id="local-6989586621679350723"><span class="annot"><span class="annottext">UpdateObjectAttributes -&gt; UpdateObjectAttributes -&gt; Bool
 (UpdateObjectAttributes -&gt; UpdateObjectAttributes -&gt; Bool)
 -&gt; (UpdateObjectAttributes -&gt; UpdateObjectAttributes -&gt; Bool)
 -&gt; Eq UpdateObjectAttributes
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateObjectAttributes -&gt; UpdateObjectAttributes -&gt; Bool
 == :: UpdateObjectAttributes -&gt; UpdateObjectAttributes -&gt; Bool
 $c== :: UpdateObjectAttributes -&gt; UpdateObjectAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350703"><span id="local-6989586621679350705"><span id="local-6989586621679350707"><span id="local-6989586621679350709"><span class="annot"><span class="annottext">ReadPrec [UpdateObjectAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350712"><span id="local-6989586621679350714"><span id="local-6989586621679350716"><span id="local-6989586621679350718"><span class="annot"><span class="annottext">ReadPrec [UpdateObjectAttributes]
 ReadPrec UpdateObjectAttributes
 Int -&gt; ReadS UpdateObjectAttributes
 ReadS [UpdateObjectAttributes]
@@ -90,7 +90,7 @@ readList :: ReadS [UpdateObjectAttributes]
 $creadList :: ReadS [UpdateObjectAttributes]
 readsPrec :: Int -&gt; ReadS UpdateObjectAttributes
 $creadsPrec :: Int -&gt; ReadS UpdateObjectAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350696"><span id="local-6989586621679350698"><span id="local-6989586621679350700"><span class="annot"><span class="annottext">Int -&gt; UpdateObjectAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350705"><span id="local-6989586621679350707"><span id="local-6989586621679350709"><span class="annot"><span class="annottext">Int -&gt; UpdateObjectAttributes -&gt; ShowS
 [UpdateObjectAttributes] -&gt; ShowS
 UpdateObjectAttributes -&gt; String
 (Int -&gt; UpdateObjectAttributes -&gt; ShowS)
@@ -139,10 +139,10 @@ $cfrom :: forall x. UpdateObjectAttributes -&gt; Rep UpdateObjectAttributes x
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span><span>
 </span><span id="line-83"></span><span id="newUpdateObjectAttributes"><span class="annot"><span class="annottext">newUpdateObjectAttributes :: Text -&gt; ObjectReference -&gt; UpdateObjectAttributes
 </span><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#newUpdateObjectAttributes"><span class="hs-identifier hs-var hs-var">newUpdateObjectAttributes</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679350691"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350691"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679350690"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679350690"><span class="hs-identifier hs-var">pObjectReference_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679350700"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350700"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679350699"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679350699"><span class="hs-identifier hs-var">pObjectReference_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">UpdateObjectAttributes' :: Text
 -&gt; ObjectReference
 -&gt; [ObjectAttributeUpdate]
@@ -151,10 +151,10 @@ $cfrom :: forall x. UpdateObjectAttributes -&gt; Rep UpdateObjectAttributes x
 </span><span id="line-87"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryArn:UpdateObjectAttributes' :: Text
 </span><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#%24sel%3AdirectoryArn%3AUpdateObjectAttributes%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350691"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679350700"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:objectReference:UpdateObjectAttributes' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#%24sel%3AobjectReference%3AUpdateObjectAttributes%27"><span class="hs-identifier hs-var">objectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679350690"><span class="hs-identifier hs-var">pObjectReference_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679350699"><span class="hs-identifier hs-var">pObjectReference_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:attributeUpdates:UpdateObjectAttributes' :: [ObjectAttributeUpdate]
 </span><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#%24sel%3AattributeUpdates%3AUpdateObjectAttributes%27"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ObjectAttributeUpdate]
 forall a. Monoid a =&gt; a
@@ -170,16 +170,16 @@ forall a. Monoid a =&gt; a
 -&gt; (UpdateObjectAttributes -&gt; Text -&gt; UpdateObjectAttributes)
 -&gt; Lens UpdateObjectAttributes UpdateObjectAttributes Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-type">UpdateObjectAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350687"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-type">UpdateObjectAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350696"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 $sel:directoryArn:UpdateObjectAttributes' :: UpdateObjectAttributes -&gt; Text
-</span><a href="#local-6989586621679350687"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350687"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350686"><span class="annot"><span class="annottext">s :: UpdateObjectAttributes
-</span><a href="#local-6989586621679350686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-type">UpdateObjectAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350685"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateObjectAttributes
-</span><a href="#local-6989586621679350686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:UpdateObjectAttributes' :: Text
+</span><a href="#local-6989586621679350696"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350696"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350695"><span class="annot"><span class="annottext">s :: UpdateObjectAttributes
+</span><a href="#local-6989586621679350695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-type">UpdateObjectAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350694"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateObjectAttributes
+</span><a href="#local-6989586621679350695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:UpdateObjectAttributes' :: Text
 </span><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#%24sel%3AdirectoryArn%3AUpdateObjectAttributes%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The reference that identifies the object.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#updateObjectAttributes_objectReference"><span class="hs-identifier hs-type">updateObjectAttributes_objectReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span>
@@ -194,16 +194,16 @@ $sel:directoryArn:UpdateObjectAttributes' :: UpdateObjectAttributes -&gt; Text
      ObjectReference
      ObjectReference
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-type">UpdateObjectAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350684"><span class="annot"><span class="annottext">ObjectReference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-type">UpdateObjectAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350693"><span class="annot"><span class="annottext">ObjectReference
 objectReference :: ObjectReference
 $sel:objectReference:UpdateObjectAttributes' :: UpdateObjectAttributes -&gt; ObjectReference
-</span><a href="#local-6989586621679350684"><span class="hs-identifier hs-var hs-var">objectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679350684"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350683"><span class="annot"><span class="annottext">s :: UpdateObjectAttributes
-</span><a href="#local-6989586621679350683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-type">UpdateObjectAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350682"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679350682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateObjectAttributes
-</span><a href="#local-6989586621679350683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectReference:UpdateObjectAttributes' :: ObjectReference
+</span><a href="#local-6989586621679350693"><span class="hs-identifier hs-var hs-var">objectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679350693"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350692"><span class="annot"><span class="annottext">s :: UpdateObjectAttributes
+</span><a href="#local-6989586621679350692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-type">UpdateObjectAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350691"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679350691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateObjectAttributes
+</span><a href="#local-6989586621679350692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectReference:UpdateObjectAttributes' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#%24sel%3AobjectReference%3AUpdateObjectAttributes%27"><span class="hs-identifier hs-var">objectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679350682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The attributes update structure.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#updateObjectAttributes_attributeUpdates"><span class="hs-identifier hs-type">updateObjectAttributes_attributeUpdates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectAttributeUpdate.html#ObjectAttributeUpdate"><span class="hs-identifier hs-type">ObjectAttributeUpdate</span></a></span><span class="hs-special">]</span><span>
@@ -218,16 +218,16 @@ $sel:objectReference:UpdateObjectAttributes' :: UpdateObjectAttributes -&gt; Obj
      [ObjectAttributeUpdate]
      [ObjectAttributeUpdate]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-type">UpdateObjectAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350681"><span class="annot"><span class="annottext">[ObjectAttributeUpdate]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-type">UpdateObjectAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350690"><span class="annot"><span class="annottext">[ObjectAttributeUpdate]
 attributeUpdates :: [ObjectAttributeUpdate]
 $sel:attributeUpdates:UpdateObjectAttributes' :: UpdateObjectAttributes -&gt; [ObjectAttributeUpdate]
-</span><a href="#local-6989586621679350681"><span class="hs-identifier hs-var hs-var">attributeUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ObjectAttributeUpdate]
-</span><a href="#local-6989586621679350681"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350680"><span class="annot"><span class="annottext">s :: UpdateObjectAttributes
-</span><a href="#local-6989586621679350680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-type">UpdateObjectAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350679"><span class="annot"><span class="annottext">[ObjectAttributeUpdate]
-</span><a href="#local-6989586621679350679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateObjectAttributes
-</span><a href="#local-6989586621679350680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeUpdates:UpdateObjectAttributes' :: [ObjectAttributeUpdate]
+</span><a href="#local-6989586621679350690"><span class="hs-identifier hs-var hs-var">attributeUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ObjectAttributeUpdate]
+</span><a href="#local-6989586621679350690"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350689"><span class="annot"><span class="annottext">s :: UpdateObjectAttributes
+</span><a href="#local-6989586621679350689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-type">UpdateObjectAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350688"><span class="annot"><span class="annottext">[ObjectAttributeUpdate]
+</span><a href="#local-6989586621679350688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateObjectAttributes
+</span><a href="#local-6989586621679350689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeUpdates:UpdateObjectAttributes' :: [ObjectAttributeUpdate]
 </span><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#%24sel%3AattributeUpdates%3AUpdateObjectAttributes%27"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ObjectAttributeUpdate]
-</span><a href="#local-6989586621679350679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ObjectAttributeUpdate] -&gt; f [ObjectAttributeUpdate])
+</span><a href="#local-6989586621679350688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ObjectAttributeUpdate] -&gt; f [ObjectAttributeUpdate])
  -&gt; UpdateObjectAttributes -&gt; f UpdateObjectAttributes)
 -&gt; (([ObjectAttributeUpdate] -&gt; f [ObjectAttributeUpdate])
     -&gt; [ObjectAttributeUpdate] -&gt; f [ObjectAttributeUpdate])
@@ -244,12 +244,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse"><span class="hs-identifier hs-type">UpdateObjectAttributesResponse</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679350673"><span class="annot"><span class="annottext">request :: UpdateObjectAttributes -&gt; Request UpdateObjectAttributes
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679350682"><span class="annot"><span class="annottext">request :: UpdateObjectAttributes -&gt; Request UpdateObjectAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateObjectAttributes -&gt; Request UpdateObjectAttributes
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679350669"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679350678"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateObjectAttributes
 -&gt; ClientResponse ClientBody
@@ -275,10 +275,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350666"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679350666"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679350665"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679350665"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679350664"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350664"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350675"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350675"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679350674"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679350674"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679350673"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350673"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; UpdateObjectAttributesResponse
 </span><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse%27"><span class="hs-identifier hs-var">UpdateObjectAttributesResponse'</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; UpdateObjectAttributesResponse)
@@ -286,7 +286,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateObjectAttributesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350664"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679350673"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ObjectIdentifier&quot;</span></span><span class="hs-special">)</span><span>
@@ -299,16 +299,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679350666"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350675"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350656"><span id="local-6989586621679350658"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350665"><span id="local-6989586621679350667"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350653"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350662"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679350649"><span class="annot"><span class="annottext">toHeaders :: UpdateObjectAttributes -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-type">UpdateObjectAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350645"><span id="local-6989586621679350646"><span id="local-6989586621679350647"><span class="annot"><span class="annottext">[ObjectAttributeUpdate]
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679350658"><span class="annot"><span class="annottext">toHeaders :: UpdateObjectAttributes -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-type">UpdateObjectAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350654"><span id="local-6989586621679350655"><span id="local-6989586621679350656"><span class="annot"><span class="annottext">[ObjectAttributeUpdate]
 Text
 ObjectReference
 attributeUpdates :: [ObjectAttributeUpdate]
@@ -317,7 +317,7 @@ directoryArn :: Text
 $sel:attributeUpdates:UpdateObjectAttributes' :: UpdateObjectAttributes -&gt; [ObjectAttributeUpdate]
 $sel:objectReference:UpdateObjectAttributes' :: UpdateObjectAttributes -&gt; ObjectReference
 $sel:directoryArn:UpdateObjectAttributes' :: UpdateObjectAttributes -&gt; Text
-</span><a href="#local-6989586621679350645"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679350654"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -325,11 +325,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350647"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679350656"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350637"><span id="local-6989586621679350639"><span id="local-6989586621679350641"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679350635"><span class="annot"><span class="annottext">toJSON :: UpdateObjectAttributes -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-type">UpdateObjectAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350631"><span id="local-6989586621679350632"><span id="local-6989586621679350633"><span class="annot"><span class="annottext">[ObjectAttributeUpdate]
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350646"><span id="local-6989586621679350648"><span id="local-6989586621679350650"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679350644"><span class="annot"><span class="annottext">toJSON :: UpdateObjectAttributes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes%27"><span class="hs-identifier hs-type">UpdateObjectAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350640"><span id="local-6989586621679350641"><span id="local-6989586621679350642"><span class="annot"><span class="annottext">[ObjectAttributeUpdate]
 Text
 ObjectReference
 attributeUpdates :: [ObjectAttributeUpdate]
@@ -338,7 +338,7 @@ directoryArn :: Text
 $sel:attributeUpdates:UpdateObjectAttributes' :: UpdateObjectAttributes -&gt; [ObjectAttributeUpdate]
 $sel:objectReference:UpdateObjectAttributes' :: UpdateObjectAttributes -&gt; ObjectReference
 $sel:directoryArn:UpdateObjectAttributes' :: UpdateObjectAttributes -&gt; Text
-</span><a href="#local-6989586621679350631"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679350640"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -351,7 +351,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ObjectReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectReference -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679350632"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679350641"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -359,12 +359,12 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AttributeUpdates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ObjectAttributeUpdate] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[ObjectAttributeUpdate]
-</span><a href="#local-6989586621679350631"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350640"><span class="hs-identifier hs-var">attributeUpdates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679350625"><span class="annot"><span class="annottext">toPath :: UpdateObjectAttributes -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679350634"><span class="annot"><span class="annottext">toPath :: UpdateObjectAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateObjectAttributes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -373,7 +373,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/object/update&quot;</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributes"><span class="hs-identifier hs-type">UpdateObjectAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679350620"><span class="annot"><span class="annottext">toQuery :: UpdateObjectAttributes -&gt; QueryString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679350629"><span class="annot"><span class="annottext">toQuery :: UpdateObjectAttributes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateObjectAttributes -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -381,7 +381,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newUpdateObjectAttributesResponse' smart constructor.</span><span>
-</span><span id="line-148"></span><span id="local-6989586621679350617"><span id="local-6989586621679350618"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateObjectAttributesResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse"><span class="hs-identifier hs-var">UpdateObjectAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateObjectAttributesResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse%27"><span class="hs-identifier hs-var">UpdateObjectAttributesResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span id="local-6989586621679350626"><span id="local-6989586621679350627"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateObjectAttributesResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse"><span class="hs-identifier hs-var">UpdateObjectAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateObjectAttributesResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse%27"><span class="hs-identifier hs-var">UpdateObjectAttributesResponse'</span></a></span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @ObjectIdentifier@ of the updated object.</span><span>
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AobjectIdentifier%3AUpdateObjectAttributesResponse%27"><span class="annot"><span class="annottext">UpdateObjectAttributesResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#%24sel%3AobjectIdentifier%3AUpdateObjectAttributesResponse%27"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -389,7 +389,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateObjectAttributesResponse%27"><span class="annot"><span class="annottext">UpdateObjectAttributesResponse -&gt; Int
 </span><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#%24sel%3AhttpStatus%3AUpdateObjectAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350611"><span id="local-6989586621679350613"><span class="annot"><span class="annottext">UpdateObjectAttributesResponse
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350620"><span id="local-6989586621679350622"><span class="annot"><span class="annottext">UpdateObjectAttributesResponse
 -&gt; UpdateObjectAttributesResponse -&gt; Bool
 (UpdateObjectAttributesResponse
  -&gt; UpdateObjectAttributesResponse -&gt; Bool)
@@ -405,7 +405,7 @@ $c/= :: UpdateObjectAttributesResponse
 -&gt; UpdateObjectAttributesResponse -&gt; Bool
 $c== :: UpdateObjectAttributesResponse
 -&gt; UpdateObjectAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350603"><span id="local-6989586621679350605"><span id="local-6989586621679350607"><span id="local-6989586621679350609"><span class="annot"><span class="annottext">ReadPrec [UpdateObjectAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350612"><span id="local-6989586621679350614"><span id="local-6989586621679350616"><span id="local-6989586621679350618"><span class="annot"><span class="annottext">ReadPrec [UpdateObjectAttributesResponse]
 ReadPrec UpdateObjectAttributesResponse
 Int -&gt; ReadS UpdateObjectAttributesResponse
 ReadS [UpdateObjectAttributesResponse]
@@ -425,7 +425,7 @@ readList :: ReadS [UpdateObjectAttributesResponse]
 $creadList :: ReadS [UpdateObjectAttributesResponse]
 readsPrec :: Int -&gt; ReadS UpdateObjectAttributesResponse
 $creadsPrec :: Int -&gt; ReadS UpdateObjectAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350597"><span id="local-6989586621679350599"><span id="local-6989586621679350601"><span class="annot"><span class="annottext">Int -&gt; UpdateObjectAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350606"><span id="local-6989586621679350608"><span id="local-6989586621679350610"><span class="annot"><span class="annottext">Int -&gt; UpdateObjectAttributesResponse -&gt; ShowS
 [UpdateObjectAttributesResponse] -&gt; ShowS
 UpdateObjectAttributesResponse -&gt; String
 (Int -&gt; UpdateObjectAttributesResponse -&gt; ShowS)
@@ -479,8 +479,8 @@ UpdateObjectAttributesResponse
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse"><span class="hs-identifier hs-type">UpdateObjectAttributesResponse</span></a></span><span>
 </span><span id="line-171"></span><span id="newUpdateObjectAttributesResponse"><span class="annot"><span class="annottext">newUpdateObjectAttributesResponse :: Int -&gt; UpdateObjectAttributesResponse
-</span><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#newUpdateObjectAttributesResponse"><span class="hs-identifier hs-var hs-var">newUpdateObjectAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679350594"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679350594"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#newUpdateObjectAttributesResponse"><span class="hs-identifier hs-var hs-var">newUpdateObjectAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679350603"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350603"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">UpdateObjectAttributesResponse' :: Maybe Text -&gt; Int -&gt; UpdateObjectAttributesResponse
 </span><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse%27"><span class="hs-identifier hs-type">UpdateObjectAttributesResponse'</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:objectIdentifier:UpdateObjectAttributesResponse' :: Maybe Text
@@ -490,7 +490,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateObjectAttributesResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#%24sel%3AhttpStatus%3AUpdateObjectAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679350594"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679350603"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The @ObjectIdentifier@ of the updated object.</span><span>
@@ -507,16 +507,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse%27"><span class="hs-identifier hs-type">UpdateObjectAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350593"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse%27"><span class="hs-identifier hs-type">UpdateObjectAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350602"><span class="annot"><span class="annottext">Maybe Text
 objectIdentifier :: Maybe Text
 $sel:objectIdentifier:UpdateObjectAttributesResponse' :: UpdateObjectAttributesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679350593"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350593"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350592"><span class="annot"><span class="annottext">s :: UpdateObjectAttributesResponse
-</span><a href="#local-6989586621679350592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse%27"><span class="hs-identifier hs-type">UpdateObjectAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350591"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateObjectAttributesResponse
-</span><a href="#local-6989586621679350592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectIdentifier:UpdateObjectAttributesResponse' :: Maybe Text
+</span><a href="#local-6989586621679350602"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350602"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350601"><span class="annot"><span class="annottext">s :: UpdateObjectAttributesResponse
+</span><a href="#local-6989586621679350601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse%27"><span class="hs-identifier hs-type">UpdateObjectAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350600"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateObjectAttributesResponse
+</span><a href="#local-6989586621679350601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectIdentifier:UpdateObjectAttributesResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#%24sel%3AobjectIdentifier%3AUpdateObjectAttributesResponse%27"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse"><span class="hs-identifier hs-type">UpdateObjectAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse"><span class="hs-identifier hs-type">UpdateObjectAttributesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-183"></span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#updateObjectAttributesResponse_httpStatus"><span class="hs-identifier hs-type">updateObjectAttributesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse"><span class="hs-identifier hs-type">UpdateObjectAttributesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -532,18 +532,18 @@ $sel:objectIdentifier:UpdateObjectAttributesResponse' :: UpdateObjectAttributesR
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse%27"><span class="hs-identifier hs-type">UpdateObjectAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350590"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse%27"><span class="hs-identifier hs-type">UpdateObjectAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350599"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateObjectAttributesResponse' :: UpdateObjectAttributesResponse -&gt; Int
-</span><a href="#local-6989586621679350590"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679350590"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350589"><span class="annot"><span class="annottext">s :: UpdateObjectAttributesResponse
-</span><a href="#local-6989586621679350589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse%27"><span class="hs-identifier hs-type">UpdateObjectAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350588"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679350588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateObjectAttributesResponse
-</span><a href="#local-6989586621679350589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateObjectAttributesResponse' :: Int
+</span><a href="#local-6989586621679350599"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350599"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350598"><span class="annot"><span class="annottext">s :: UpdateObjectAttributesResponse
+</span><a href="#local-6989586621679350598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse%27"><span class="hs-identifier hs-type">UpdateObjectAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350597"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateObjectAttributesResponse
+</span><a href="#local-6989586621679350598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateObjectAttributesResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#%24sel%3AhttpStatus%3AUpdateObjectAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679350588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse"><span class="hs-identifier hs-type">UpdateObjectAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse"><span class="hs-identifier hs-type">UpdateObjectAttributesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679350586"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679350595"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpdateObjectAttributes.html#UpdateObjectAttributesResponse"><span class="hs-identifier hs-type">UpdateObjectAttributesResponse</span></a></span></span><span>
 </span><span id="line-189"></span></pre></body></html>

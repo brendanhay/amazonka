@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaTailor.Types.OriginManifestType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaTailor.Types.OriginManifestType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.OriginManifestType.html#OriginManifestType"><span class="hs-identifier">OriginManifestType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.OriginManifestType.html#OriginManifestType_MULTI_PERIOD"><span class="hs-identifier">OriginManifestType_MULTI_PERIOD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.OriginManifestType.html#OriginManifestType_SINGLE_PERIOD"><span class="hs-identifier">OriginManifestType_SINGLE_PERIOD</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679265680"><span id="local-6989586621679265681"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OriginManifestType"><span class="annot"><a href="Network.AWS.MediaTailor.Types.OriginManifestType.html#OriginManifestType"><span class="hs-identifier hs-var">OriginManifestType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OriginManifestType%27"><span class="annot"><a href="Network.AWS.MediaTailor.Types.OriginManifestType.html#OriginManifestType%27"><span class="hs-identifier hs-var">OriginManifestType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOriginManifestType"><span class="annot"><span class="annottext">OriginManifestType -&gt; Text
+</span><a href="Network.AWS.MediaTailor.Types.OriginManifestType.html#fromOriginManifestType"><span class="hs-identifier hs-var hs-var">fromOriginManifestType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265672"><span id="local-6989586621679265674"><span id="local-6989586621679265676"><span class="annot"><span class="annottext">Int -&gt; OriginManifestType -&gt; ShowS
+[OriginManifestType] -&gt; ShowS
+OriginManifestType -&gt; String
+(Int -&gt; OriginManifestType -&gt; ShowS)
+-&gt; (OriginManifestType -&gt; String)
+-&gt; ([OriginManifestType] -&gt; ShowS)
+-&gt; Show OriginManifestType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OriginManifestType] -&gt; ShowS
+$cshowList :: [OriginManifestType] -&gt; ShowS
+show :: OriginManifestType -&gt; String
+$cshow :: OriginManifestType -&gt; String
+showsPrec :: Int -&gt; OriginManifestType -&gt; ShowS
+$cshowsPrec :: Int -&gt; OriginManifestType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679265663"><span id="local-6989586621679265665"><span id="local-6989586621679265667"><span id="local-6989586621679265669"><span class="annot"><span class="annottext">ReadPrec [OriginManifestType]
+ReadPrec OriginManifestType
+Int -&gt; ReadS OriginManifestType
+ReadS [OriginManifestType]
+(Int -&gt; ReadS OriginManifestType)
+-&gt; ReadS [OriginManifestType]
+-&gt; ReadPrec OriginManifestType
+-&gt; ReadPrec [OriginManifestType]
+-&gt; Read OriginManifestType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OriginManifestType]
+$creadListPrec :: ReadPrec [OriginManifestType]
+readPrec :: ReadPrec OriginManifestType
+$creadPrec :: ReadPrec OriginManifestType
+readList :: ReadS [OriginManifestType]
+$creadList :: ReadS [OriginManifestType]
+readsPrec :: Int -&gt; ReadS OriginManifestType
+$creadsPrec :: Int -&gt; ReadS OriginManifestType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679265658"><span id="local-6989586621679265660"><span class="annot"><span class="annottext">OriginManifestType -&gt; OriginManifestType -&gt; Bool
+(OriginManifestType -&gt; OriginManifestType -&gt; Bool)
+-&gt; (OriginManifestType -&gt; OriginManifestType -&gt; Bool)
+-&gt; Eq OriginManifestType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OriginManifestType -&gt; OriginManifestType -&gt; Bool
+$c/= :: OriginManifestType -&gt; OriginManifestType -&gt; Bool
+== :: OriginManifestType -&gt; OriginManifestType -&gt; Bool
+$c== :: OriginManifestType -&gt; OriginManifestType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679265642"><span id="local-6989586621679265644"><span id="local-6989586621679265646"><span id="local-6989586621679265648"><span id="local-6989586621679265650"><span id="local-6989586621679265652"><span id="local-6989586621679265654"><span class="annot"><span class="annottext">Eq OriginManifestType
+Eq OriginManifestType
+-&gt; (OriginManifestType -&gt; OriginManifestType -&gt; Ordering)
+-&gt; (OriginManifestType -&gt; OriginManifestType -&gt; Bool)
+-&gt; (OriginManifestType -&gt; OriginManifestType -&gt; Bool)
+-&gt; (OriginManifestType -&gt; OriginManifestType -&gt; Bool)
+-&gt; (OriginManifestType -&gt; OriginManifestType -&gt; Bool)
+-&gt; (OriginManifestType -&gt; OriginManifestType -&gt; OriginManifestType)
+-&gt; (OriginManifestType -&gt; OriginManifestType -&gt; OriginManifestType)
+-&gt; Ord OriginManifestType
+OriginManifestType -&gt; OriginManifestType -&gt; Bool
+OriginManifestType -&gt; OriginManifestType -&gt; Ordering
+OriginManifestType -&gt; OriginManifestType -&gt; OriginManifestType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: OriginManifestType -&gt; OriginManifestType -&gt; OriginManifestType
+$cmin :: OriginManifestType -&gt; OriginManifestType -&gt; OriginManifestType
+max :: OriginManifestType -&gt; OriginManifestType -&gt; OriginManifestType
+$cmax :: OriginManifestType -&gt; OriginManifestType -&gt; OriginManifestType
+&gt;= :: OriginManifestType -&gt; OriginManifestType -&gt; Bool
+$c&gt;= :: OriginManifestType -&gt; OriginManifestType -&gt; Bool
+&gt; :: OriginManifestType -&gt; OriginManifestType -&gt; Bool
+$c&gt; :: OriginManifestType -&gt; OriginManifestType -&gt; Bool
+&lt;= :: OriginManifestType -&gt; OriginManifestType -&gt; Bool
+$c&lt;= :: OriginManifestType -&gt; OriginManifestType -&gt; Bool
+&lt; :: OriginManifestType -&gt; OriginManifestType -&gt; Bool
+$c&lt; :: OriginManifestType -&gt; OriginManifestType -&gt; Bool
+compare :: OriginManifestType -&gt; OriginManifestType -&gt; Ordering
+$ccompare :: OriginManifestType -&gt; OriginManifestType -&gt; Ordering
+$cp1Ord :: Eq OriginManifestType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. OriginManifestType -&gt; Rep OriginManifestType x)
+-&gt; (forall x. Rep OriginManifestType x -&gt; OriginManifestType)
+-&gt; Generic OriginManifestType
+forall x. Rep OriginManifestType x -&gt; OriginManifestType
+forall x. OriginManifestType -&gt; Rep OriginManifestType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OriginManifestType x -&gt; OriginManifestType
+$cfrom :: forall x. OriginManifestType -&gt; Rep OriginManifestType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265634"><span id="local-6989586621679265636"><span class="annot"><span class="annottext">Int -&gt; OriginManifestType -&gt; Int
+OriginManifestType -&gt; Int
+(Int -&gt; OriginManifestType -&gt; Int)
+-&gt; (OriginManifestType -&gt; Int) -&gt; Hashable OriginManifestType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: OriginManifestType -&gt; Int
+$chash :: OriginManifestType -&gt; Int
+hashWithSalt :: Int -&gt; OriginManifestType -&gt; Int
+$chashWithSalt :: Int -&gt; OriginManifestType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679265631"><span class="annot"><span class="annottext">OriginManifestType -&gt; ()
+(OriginManifestType -&gt; ()) -&gt; NFData OriginManifestType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: OriginManifestType -&gt; ()
+$crnf :: OriginManifestType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679265628"><span class="annot"><span class="annottext">Text -&gt; Either String OriginManifestType
+(Text -&gt; Either String OriginManifestType)
+-&gt; FromText OriginManifestType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String OriginManifestType
+$cfromText :: Text -&gt; Either String OriginManifestType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679265625"><span class="annot"><span class="annottext">OriginManifestType -&gt; Text
+(OriginManifestType -&gt; Text) -&gt; ToText OriginManifestType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: OriginManifestType -&gt; Text
+$ctoText :: OriginManifestType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679265622"><span class="annot"><span class="annottext">OriginManifestType -&gt; ByteString
+(OriginManifestType -&gt; ByteString)
+-&gt; ToByteString OriginManifestType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: OriginManifestType -&gt; ByteString
+$ctoBS :: OriginManifestType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679265619"><span class="annot"><span class="annottext">OriginManifestType -&gt; ByteStringBuilder
+(OriginManifestType -&gt; ByteStringBuilder)
+-&gt; ToLog OriginManifestType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: OriginManifestType -&gt; ByteStringBuilder
+$cbuild :: OriginManifestType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679265616"><span class="annot"><span class="annottext">HeaderName -&gt; OriginManifestType -&gt; [Header]
+(HeaderName -&gt; OriginManifestType -&gt; [Header])
+-&gt; ToHeader OriginManifestType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; OriginManifestType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; OriginManifestType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679265613"><span class="annot"><span class="annottext">OriginManifestType -&gt; QueryString
+(OriginManifestType -&gt; QueryString) -&gt; ToQuery OriginManifestType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: OriginManifestType -&gt; QueryString
+$ctoQuery :: OriginManifestType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679265608"><span id="local-6989586621679265610"><span class="annot"><span class="annottext">Value -&gt; Parser [OriginManifestType]
+Value -&gt; Parser OriginManifestType
+(Value -&gt; Parser OriginManifestType)
+-&gt; (Value -&gt; Parser [OriginManifestType])
+-&gt; FromJSON OriginManifestType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [OriginManifestType]
+$cparseJSONList :: Value -&gt; Parser [OriginManifestType]
+parseJSON :: Value -&gt; Parser OriginManifestType
+$cparseJSON :: Value -&gt; Parser OriginManifestType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679265603"><span id="local-6989586621679265605"><span class="annot"><span class="annottext">FromJSONKeyFunction [OriginManifestType]
+FromJSONKeyFunction OriginManifestType
+FromJSONKeyFunction OriginManifestType
+-&gt; FromJSONKeyFunction [OriginManifestType]
+-&gt; FromJSONKey OriginManifestType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [OriginManifestType]
+$cfromJSONKeyList :: FromJSONKeyFunction [OriginManifestType]
+fromJSONKey :: FromJSONKeyFunction OriginManifestType
+$cfromJSONKey :: FromJSONKeyFunction OriginManifestType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679265594"><span id="local-6989586621679265596"><span id="local-6989586621679265598"><span id="local-6989586621679265600"><span class="annot"><span class="annottext">[OriginManifestType] -&gt; Encoding
+[OriginManifestType] -&gt; Value
+OriginManifestType -&gt; Encoding
+OriginManifestType -&gt; Value
+(OriginManifestType -&gt; Value)
+-&gt; (OriginManifestType -&gt; Encoding)
+-&gt; ([OriginManifestType] -&gt; Value)
+-&gt; ([OriginManifestType] -&gt; Encoding)
+-&gt; ToJSON OriginManifestType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [OriginManifestType] -&gt; Encoding
+$ctoEncodingList :: [OriginManifestType] -&gt; Encoding
+toJSONList :: [OriginManifestType] -&gt; Value
+$ctoJSONList :: [OriginManifestType] -&gt; Value
+toEncoding :: OriginManifestType -&gt; Encoding
+$ctoEncoding :: OriginManifestType -&gt; Encoding
+toJSON :: OriginManifestType -&gt; Value
+$ctoJSON :: OriginManifestType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679265589"><span id="local-6989586621679265591"><span class="annot"><span class="annottext">ToJSONKeyFunction [OriginManifestType]
+ToJSONKeyFunction OriginManifestType
+ToJSONKeyFunction OriginManifestType
+-&gt; ToJSONKeyFunction [OriginManifestType]
+-&gt; ToJSONKey OriginManifestType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [OriginManifestType]
+$ctoJSONKeyList :: ToJSONKeyFunction [OriginManifestType]
+toJSONKey :: ToJSONKeyFunction OriginManifestType
+$ctoJSONKey :: ToJSONKeyFunction OriginManifestType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679265586"><span class="annot"><span class="annottext">[Node] -&gt; Either String OriginManifestType
+([Node] -&gt; Either String OriginManifestType)
+-&gt; FromXML OriginManifestType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String OriginManifestType
+$cparseXML :: [Node] -&gt; Either String OriginManifestType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679265583"><span class="annot"><span class="annottext">OriginManifestType -&gt; XML
+(OriginManifestType -&gt; XML) -&gt; ToXML OriginManifestType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: OriginManifestType -&gt; XML
+$ctoXML :: OriginManifestType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.OriginManifestType.html#OriginManifestType_MULTI_PERIOD"><span class="hs-identifier hs-type">OriginManifestType_MULTI_PERIOD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.OriginManifestType.html#OriginManifestType"><span class="hs-identifier hs-type">OriginManifestType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOriginManifestType_MULTI_PERIOD"><span id="%24mOriginManifestType_MULTI_PERIOD"><span id="OriginManifestType_MULTI_PERIOD"><span class="annot"><span class="annottext">$bOriginManifestType_MULTI_PERIOD :: OriginManifestType
+$mOriginManifestType_MULTI_PERIOD :: forall r. OriginManifestType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaTailor.Types.OriginManifestType.html#%24bOriginManifestType_MULTI_PERIOD"><span class="hs-identifier hs-var hs-var hs-var">OriginManifestType_MULTI_PERIOD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.OriginManifestType.html#OriginManifestType%27"><span class="hs-identifier hs-type">OriginManifestType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MULTI_PERIOD&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.OriginManifestType.html#OriginManifestType_SINGLE_PERIOD"><span class="hs-identifier hs-type">OriginManifestType_SINGLE_PERIOD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.OriginManifestType.html#OriginManifestType"><span class="hs-identifier hs-type">OriginManifestType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOriginManifestType_SINGLE_PERIOD"><span id="%24mOriginManifestType_SINGLE_PERIOD"><span id="OriginManifestType_SINGLE_PERIOD"><span class="annot"><span class="annottext">$bOriginManifestType_SINGLE_PERIOD :: OriginManifestType
+$mOriginManifestType_SINGLE_PERIOD :: forall r. OriginManifestType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaTailor.Types.OriginManifestType.html#%24bOriginManifestType_SINGLE_PERIOD"><span class="hs-identifier hs-var hs-var hs-var">OriginManifestType_SINGLE_PERIOD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.OriginManifestType.html#OriginManifestType%27"><span class="hs-identifier hs-type">OriginManifestType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SINGLE_PERIOD&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.OriginManifestType.html#OriginManifestType_MULTI_PERIOD"><span class="hs-pragma hs-type">OriginManifestType_MULTI_PERIOD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.OriginManifestType.html#OriginManifestType_SINGLE_PERIOD"><span class="hs-pragma hs-type">OriginManifestType_SINGLE_PERIOD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.OriginManifestType.html#OriginManifestType%27"><span class="hs-pragma hs-type">OriginManifestType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,737 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudControl.Types.ProgressEvent</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudControl.Types.ProgressEvent</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.HandlerErrorCode.html"><span class="hs-identifier">Network.AWS.CloudControl.Types.HandlerErrorCode</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.Operation.html"><span class="hs-identifier">Network.AWS.CloudControl.Types.Operation</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.OperationStatus.html"><span class="hs-identifier">Network.AWS.CloudControl.Types.OperationStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Represents the current status of a resource operation request. For more</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html Managing resource operation requests&gt;</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newProgressEvent' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679155041"><span id="local-6989586621679155042"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProgressEvent"><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-var">ProgressEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProgressEvent%27"><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-var">ProgressEvent'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When to next request the status of this resource operation request.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AretryAfter%3AProgressEvent%27"><span class="annot"><span class="annottext">ProgressEvent -&gt; Maybe POSIX
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AretryAfter%3AProgressEvent%27"><span class="hs-identifier hs-var hs-var">retryAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the resource type used in the operation.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AtypeName%3AProgressEvent%27"><span class="annot"><span class="annottext">ProgressEvent -&gt; Maybe Text
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AtypeName%3AProgressEvent%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The unique token representing this resource operation request.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Use the @RequestToken@ with</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html GetResourceRequestStatus&gt;</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- to return the current status of a resource operation request.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3ArequestToken%3AProgressEvent%27"><span class="annot"><span class="annottext">ProgressEvent -&gt; Maybe Text
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3ArequestToken%3AProgressEvent%27"><span class="hs-identifier hs-var hs-var">requestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A JSON string containing the resource model, consisting of each resource</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- property and its current value.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AresourceModel%3AProgressEvent%27"><span class="annot"><span class="annottext">ProgressEvent -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AresourceModel%3AProgressEvent%27"><span class="hs-identifier hs-var hs-var">resourceModel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The resource operation type.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aoperation%3AProgressEvent%27"><span class="annot"><span class="annottext">ProgressEvent -&gt; Maybe Operation
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3Aoperation%3AProgressEvent%27"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The primary identifier for the resource.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- In some cases, the resource identifier may be available before the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- resource operation has reached a status of @SUCCESS@.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Aidentifier%3AProgressEvent%27"><span class="annot"><span class="annottext">ProgressEvent -&gt; Maybe Text
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3Aidentifier%3AProgressEvent%27"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The current status of the resource operation request.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   @PENDING@: The resource operation has not yet started.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   @IN_PROGRESS@: The resource operation is currently in progress.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   @SUCCESS@: The resource operation has successfully completed.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   @FAILED@: The resource operation has failed. Refer to the error code</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     and status message for more information.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   @CANCEL_IN_PROGRESS@: The resource operation is in the process of</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     being canceled.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   @CANCEL_COMPLETE@: The resource operation has been canceled.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AoperationStatus%3AProgressEvent%27"><span class="annot"><span class="annottext">ProgressEvent -&gt; Maybe OperationStatus
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AoperationStatus%3AProgressEvent%27"><span class="hs-identifier hs-var hs-var">operationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.OperationStatus.html#OperationStatus"><span class="hs-identifier hs-type">OperationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | When the resource operation request was initiated.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AeventTime%3AProgressEvent%27"><span class="annot"><span class="annottext">ProgressEvent -&gt; Maybe POSIX
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AeventTime%3AProgressEvent%27"><span class="hs-identifier hs-var hs-var">eventTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Any message explaining the current status.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AstatusMessage%3AProgressEvent%27"><span class="annot"><span class="annottext">ProgressEvent -&gt; Maybe Text
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AstatusMessage%3AProgressEvent%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | For requests with a status of @FAILED@, the associated error code.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- For error code definitions, see</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-test-contract-errors.html Handler error codes&gt;</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- in the /CloudFormation Command Line Interface User Guide for Extension</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- Development/.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AerrorCode%3AProgressEvent%27"><span class="annot"><span class="annottext">ProgressEvent -&gt; Maybe HandlerErrorCode
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AerrorCode%3AProgressEvent%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.HandlerErrorCode.html#HandlerErrorCode"><span class="hs-identifier hs-type">HandlerErrorCode</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679155026"><span id="local-6989586621679155028"><span class="annot"><span class="annottext">ProgressEvent -&gt; ProgressEvent -&gt; Bool
+(ProgressEvent -&gt; ProgressEvent -&gt; Bool)
+-&gt; (ProgressEvent -&gt; ProgressEvent -&gt; Bool) -&gt; Eq ProgressEvent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProgressEvent -&gt; ProgressEvent -&gt; Bool
+$c/= :: ProgressEvent -&gt; ProgressEvent -&gt; Bool
+== :: ProgressEvent -&gt; ProgressEvent -&gt; Bool
+$c== :: ProgressEvent -&gt; ProgressEvent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155019"><span id="local-6989586621679155021"><span id="local-6989586621679155023"><span class="annot"><span class="annottext">Int -&gt; ProgressEvent -&gt; ShowS
+[ProgressEvent] -&gt; ShowS
+ProgressEvent -&gt; String
+(Int -&gt; ProgressEvent -&gt; ShowS)
+-&gt; (ProgressEvent -&gt; String)
+-&gt; ([ProgressEvent] -&gt; ShowS)
+-&gt; Show ProgressEvent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProgressEvent] -&gt; ShowS
+$cshowList :: [ProgressEvent] -&gt; ShowS
+show :: ProgressEvent -&gt; String
+$cshow :: ProgressEvent -&gt; String
+showsPrec :: Int -&gt; ProgressEvent -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProgressEvent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ProgressEvent -&gt; Rep ProgressEvent x)
+-&gt; (forall x. Rep ProgressEvent x -&gt; ProgressEvent)
+-&gt; Generic ProgressEvent
+forall x. Rep ProgressEvent x -&gt; ProgressEvent
+forall x. ProgressEvent -&gt; Rep ProgressEvent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProgressEvent x -&gt; ProgressEvent
+$cfrom :: forall x. ProgressEvent -&gt; Rep ProgressEvent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Create a value of 'ProgressEvent' with all optional fields omitted.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'retryAfter', 'progressEvent_retryAfter' - When to next request the status of this resource operation request.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'typeName', 'progressEvent_typeName' - The name of the resource type used in the operation.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'requestToken', 'progressEvent_requestToken' - The unique token representing this resource operation request.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Use the @RequestToken@ with</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html GetResourceRequestStatus&gt;</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- to return the current status of a resource operation request.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'resourceModel', 'progressEvent_resourceModel' - A JSON string containing the resource model, consisting of each resource</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- property and its current value.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'operation', 'progressEvent_operation' - The resource operation type.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'identifier', 'progressEvent_identifier' - The primary identifier for the resource.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- In some cases, the resource identifier may be available before the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- resource operation has reached a status of @SUCCESS@.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'operationStatus', 'progressEvent_operationStatus' - The current status of the resource operation request.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- -   @PENDING@: The resource operation has not yet started.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   @IN_PROGRESS@: The resource operation is currently in progress.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   @SUCCESS@: The resource operation has successfully completed.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   @FAILED@: The resource operation has failed. Refer to the error code</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--     and status message for more information.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   @CANCEL_IN_PROGRESS@: The resource operation is in the process of</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     being canceled.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   @CANCEL_COMPLETE@: The resource operation has been canceled.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'eventTime', 'progressEvent_eventTime' - When the resource operation request was initiated.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'statusMessage', 'progressEvent_statusMessage' - Any message explaining the current status.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'errorCode', 'progressEvent_errorCode' - For requests with a status of @FAILED@, the associated error code.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- For error code definitions, see</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-test-contract-errors.html Handler error codes&gt;</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- in the /CloudFormation Command Line Interface User Guide for Extension</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Development/.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#newProgressEvent"><span class="hs-identifier hs-type">newProgressEvent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span>
+</span><span id="line-142"></span><span id="newProgressEvent"><span class="annot"><span class="annottext">newProgressEvent :: ProgressEvent
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#newProgressEvent"><span class="hs-identifier hs-var hs-var">newProgressEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">ProgressEvent' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Operation
+-&gt; Maybe Text
+-&gt; Maybe OperationStatus
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe HandlerErrorCode
+-&gt; ProgressEvent
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:retryAfter:ProgressEvent' :: Maybe POSIX
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AretryAfter%3AProgressEvent%27"><span class="hs-identifier hs-var">retryAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:typeName:ProgressEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AtypeName%3AProgressEvent%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestToken:ProgressEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3ArequestToken%3AProgressEvent%27"><span class="hs-identifier hs-var">requestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceModel:ProgressEvent' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AresourceModel%3AProgressEvent%27"><span class="hs-identifier hs-var">resourceModel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:operation:ProgressEvent' :: Maybe Operation
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3Aoperation%3AProgressEvent%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:identifier:ProgressEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3Aidentifier%3AProgressEvent%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:operationStatus:ProgressEvent' :: Maybe OperationStatus
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AoperationStatus%3AProgressEvent%27"><span class="hs-identifier hs-var">operationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventTime:ProgressEvent' :: Maybe POSIX
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AeventTime%3AProgressEvent%27"><span class="hs-identifier hs-var">eventTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusMessage:ProgressEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AstatusMessage%3AProgressEvent%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:ProgressEvent' :: Maybe HandlerErrorCode
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AerrorCode%3AProgressEvent%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HandlerErrorCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | When to next request the status of this resource operation request.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_retryAfter"><span class="hs-identifier hs-type">progressEvent_retryAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="progressEvent_retryAfter"><span class="annot"><span class="annottext">progressEvent_retryAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ProgressEvent -&gt; f ProgressEvent
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_retryAfter"><span class="hs-identifier hs-var hs-var">progressEvent_retryAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProgressEvent -&gt; Maybe POSIX)
+-&gt; (ProgressEvent -&gt; Maybe POSIX -&gt; ProgressEvent)
+-&gt; Lens ProgressEvent ProgressEvent (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155010"><span class="annot"><span class="annottext">Maybe POSIX
+retryAfter :: Maybe POSIX
+$sel:retryAfter:ProgressEvent' :: ProgressEvent -&gt; Maybe POSIX
+</span><a href="#local-6989586621679155010"><span class="hs-identifier hs-var hs-var">retryAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679155010"><span class="hs-identifier hs-var">retryAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155009"><span class="annot"><span class="annottext">s :: ProgressEvent
+</span><a href="#local-6989586621679155009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155008"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679155008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressEvent
+</span><a href="#local-6989586621679155009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryAfter:ProgressEvent' :: Maybe POSIX
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AretryAfter%3AProgressEvent%27"><span class="hs-identifier hs-var">retryAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679155008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ProgressEvent -&gt; f ProgressEvent)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ProgressEvent
+-&gt; f ProgressEvent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The name of the resource type used in the operation.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_typeName"><span class="hs-identifier hs-type">progressEvent_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="progressEvent_typeName"><span class="annot"><span class="annottext">progressEvent_typeName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ProgressEvent -&gt; f ProgressEvent
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_typeName"><span class="hs-identifier hs-var hs-var">progressEvent_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProgressEvent -&gt; Maybe Text)
+-&gt; (ProgressEvent -&gt; Maybe Text -&gt; ProgressEvent)
+-&gt; Lens ProgressEvent ProgressEvent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155003"><span class="annot"><span class="annottext">Maybe Text
+typeName :: Maybe Text
+$sel:typeName:ProgressEvent' :: ProgressEvent -&gt; Maybe Text
+</span><a href="#local-6989586621679155003"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155003"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155002"><span class="annot"><span class="annottext">s :: ProgressEvent
+</span><a href="#local-6989586621679155002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155001"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressEvent
+</span><a href="#local-6989586621679155002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:ProgressEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AtypeName%3AProgressEvent%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The unique token representing this resource operation request.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Use the @RequestToken@ with</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html GetResourceRequestStatus&gt;</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- to return the current status of a resource operation request.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_requestToken"><span class="hs-identifier hs-type">progressEvent_requestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="progressEvent_requestToken"><span class="annot"><span class="annottext">progressEvent_requestToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ProgressEvent -&gt; f ProgressEvent
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_requestToken"><span class="hs-identifier hs-var hs-var">progressEvent_requestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProgressEvent -&gt; Maybe Text)
+-&gt; (ProgressEvent -&gt; Maybe Text -&gt; ProgressEvent)
+-&gt; Lens ProgressEvent ProgressEvent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154999"><span class="annot"><span class="annottext">Maybe Text
+requestToken :: Maybe Text
+$sel:requestToken:ProgressEvent' :: ProgressEvent -&gt; Maybe Text
+</span><a href="#local-6989586621679154999"><span class="hs-identifier hs-var hs-var">requestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154999"><span class="hs-identifier hs-var">requestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154998"><span class="annot"><span class="annottext">s :: ProgressEvent
+</span><a href="#local-6989586621679154998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154997"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressEvent
+</span><a href="#local-6989586621679154998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestToken:ProgressEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3ArequestToken%3AProgressEvent%27"><span class="hs-identifier hs-var">requestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | A JSON string containing the resource model, consisting of each resource</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- property and its current value.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_resourceModel"><span class="hs-identifier hs-type">progressEvent_resourceModel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="progressEvent_resourceModel"><span class="annot"><span class="annottext">progressEvent_resourceModel :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ProgressEvent -&gt; f ProgressEvent
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_resourceModel"><span class="hs-identifier hs-var hs-var">progressEvent_resourceModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProgressEvent -&gt; Maybe (Sensitive Text))
+-&gt; (ProgressEvent -&gt; Maybe (Sensitive Text) -&gt; ProgressEvent)
+-&gt; Lens
+     ProgressEvent
+     ProgressEvent
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154995"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+resourceModel :: Maybe (Sensitive Text)
+$sel:resourceModel:ProgressEvent' :: ProgressEvent -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679154995"><span class="hs-identifier hs-var hs-var">resourceModel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679154995"><span class="hs-identifier hs-var">resourceModel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154994"><span class="annot"><span class="annottext">s :: ProgressEvent
+</span><a href="#local-6989586621679154994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154993"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679154993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressEvent
+</span><a href="#local-6989586621679154994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceModel:ProgressEvent' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AresourceModel%3AProgressEvent%27"><span class="hs-identifier hs-var">resourceModel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679154993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; ProgressEvent -&gt; f ProgressEvent)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProgressEvent
+-&gt; f ProgressEvent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The resource operation type.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_operation"><span class="hs-identifier hs-type">progressEvent_operation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="progressEvent_operation"><span class="annot"><span class="annottext">progressEvent_operation :: (Maybe Operation -&gt; f (Maybe Operation))
+-&gt; ProgressEvent -&gt; f ProgressEvent
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_operation"><span class="hs-identifier hs-var hs-var">progressEvent_operation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProgressEvent -&gt; Maybe Operation)
+-&gt; (ProgressEvent -&gt; Maybe Operation -&gt; ProgressEvent)
+-&gt; Lens
+     ProgressEvent ProgressEvent (Maybe Operation) (Maybe Operation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154990"><span class="annot"><span class="annottext">Maybe Operation
+operation :: Maybe Operation
+$sel:operation:ProgressEvent' :: ProgressEvent -&gt; Maybe Operation
+</span><a href="#local-6989586621679154990"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679154990"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154989"><span class="annot"><span class="annottext">s :: ProgressEvent
+</span><a href="#local-6989586621679154989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154988"><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679154988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressEvent
+</span><a href="#local-6989586621679154989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:ProgressEvent' :: Maybe Operation
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3Aoperation%3AProgressEvent%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679154988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The primary identifier for the resource.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- In some cases, the resource identifier may be available before the</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- resource operation has reached a status of @SUCCESS@.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_identifier"><span class="hs-identifier hs-type">progressEvent_identifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="progressEvent_identifier"><span class="annot"><span class="annottext">progressEvent_identifier :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ProgressEvent -&gt; f ProgressEvent
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_identifier"><span class="hs-identifier hs-var hs-var">progressEvent_identifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProgressEvent -&gt; Maybe Text)
+-&gt; (ProgressEvent -&gt; Maybe Text -&gt; ProgressEvent)
+-&gt; Lens ProgressEvent ProgressEvent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154986"><span class="annot"><span class="annottext">Maybe Text
+identifier :: Maybe Text
+$sel:identifier:ProgressEvent' :: ProgressEvent -&gt; Maybe Text
+</span><a href="#local-6989586621679154986"><span class="hs-identifier hs-var hs-var">identifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154986"><span class="hs-identifier hs-var">identifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154985"><span class="annot"><span class="annottext">s :: ProgressEvent
+</span><a href="#local-6989586621679154985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154984"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressEvent
+</span><a href="#local-6989586621679154985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identifier:ProgressEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3Aidentifier%3AProgressEvent%27"><span class="hs-identifier hs-var">identifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The current status of the resource operation request.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- -   @PENDING@: The resource operation has not yet started.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- -   @IN_PROGRESS@: The resource operation is currently in progress.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- -   @SUCCESS@: The resource operation has successfully completed.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- -   @FAILED@: The resource operation has failed. Refer to the error code</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--     and status message for more information.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- -   @CANCEL_IN_PROGRESS@: The resource operation is in the process of</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--     being canceled.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- -   @CANCEL_COMPLETE@: The resource operation has been canceled.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_operationStatus"><span class="hs-identifier hs-type">progressEvent_operationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.OperationStatus.html#OperationStatus"><span class="hs-identifier hs-type">OperationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="progressEvent_operationStatus"><span class="annot"><span class="annottext">progressEvent_operationStatus :: (Maybe OperationStatus -&gt; f (Maybe OperationStatus))
+-&gt; ProgressEvent -&gt; f ProgressEvent
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_operationStatus"><span class="hs-identifier hs-var hs-var">progressEvent_operationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProgressEvent -&gt; Maybe OperationStatus)
+-&gt; (ProgressEvent -&gt; Maybe OperationStatus -&gt; ProgressEvent)
+-&gt; Lens
+     ProgressEvent
+     ProgressEvent
+     (Maybe OperationStatus)
+     (Maybe OperationStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154982"><span class="annot"><span class="annottext">Maybe OperationStatus
+operationStatus :: Maybe OperationStatus
+$sel:operationStatus:ProgressEvent' :: ProgressEvent -&gt; Maybe OperationStatus
+</span><a href="#local-6989586621679154982"><span class="hs-identifier hs-var hs-var">operationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperationStatus
+</span><a href="#local-6989586621679154982"><span class="hs-identifier hs-var">operationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154981"><span class="annot"><span class="annottext">s :: ProgressEvent
+</span><a href="#local-6989586621679154981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154980"><span class="annot"><span class="annottext">Maybe OperationStatus
+</span><a href="#local-6989586621679154980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressEvent
+</span><a href="#local-6989586621679154981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationStatus:ProgressEvent' :: Maybe OperationStatus
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AoperationStatus%3AProgressEvent%27"><span class="hs-identifier hs-var">operationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperationStatus
+</span><a href="#local-6989586621679154980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | When the resource operation request was initiated.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_eventTime"><span class="hs-identifier hs-type">progressEvent_eventTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="progressEvent_eventTime"><span class="annot"><span class="annottext">progressEvent_eventTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ProgressEvent -&gt; f ProgressEvent
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_eventTime"><span class="hs-identifier hs-var hs-var">progressEvent_eventTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProgressEvent -&gt; Maybe POSIX)
+-&gt; (ProgressEvent -&gt; Maybe POSIX -&gt; ProgressEvent)
+-&gt; Lens ProgressEvent ProgressEvent (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154978"><span class="annot"><span class="annottext">Maybe POSIX
+eventTime :: Maybe POSIX
+$sel:eventTime:ProgressEvent' :: ProgressEvent -&gt; Maybe POSIX
+</span><a href="#local-6989586621679154978"><span class="hs-identifier hs-var hs-var">eventTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679154978"><span class="hs-identifier hs-var">eventTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154977"><span class="annot"><span class="annottext">s :: ProgressEvent
+</span><a href="#local-6989586621679154977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154976"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679154976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressEvent
+</span><a href="#local-6989586621679154977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventTime:ProgressEvent' :: Maybe POSIX
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AeventTime%3AProgressEvent%27"><span class="hs-identifier hs-var">eventTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679154976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ProgressEvent -&gt; f ProgressEvent)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ProgressEvent
+-&gt; f ProgressEvent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | Any message explaining the current status.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_statusMessage"><span class="hs-identifier hs-type">progressEvent_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="progressEvent_statusMessage"><span class="annot"><span class="annottext">progressEvent_statusMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ProgressEvent -&gt; f ProgressEvent
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_statusMessage"><span class="hs-identifier hs-var hs-var">progressEvent_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProgressEvent -&gt; Maybe Text)
+-&gt; (ProgressEvent -&gt; Maybe Text -&gt; ProgressEvent)
+-&gt; Lens ProgressEvent ProgressEvent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154974"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:ProgressEvent' :: ProgressEvent -&gt; Maybe Text
+</span><a href="#local-6989586621679154974"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154974"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154973"><span class="annot"><span class="annottext">s :: ProgressEvent
+</span><a href="#local-6989586621679154973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154972"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressEvent
+</span><a href="#local-6989586621679154973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:ProgressEvent' :: Maybe Text
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AstatusMessage%3AProgressEvent%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | For requests with a status of @FAILED@, the associated error code.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- For error code definitions, see</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-test-contract-errors.html Handler error codes&gt;</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- in the /CloudFormation Command Line Interface User Guide for Extension</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Development/.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_errorCode"><span class="hs-identifier hs-type">progressEvent_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.HandlerErrorCode.html#HandlerErrorCode"><span class="hs-identifier hs-type">HandlerErrorCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="progressEvent_errorCode"><span class="annot"><span class="annottext">progressEvent_errorCode :: (Maybe HandlerErrorCode -&gt; f (Maybe HandlerErrorCode))
+-&gt; ProgressEvent -&gt; f ProgressEvent
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#progressEvent_errorCode"><span class="hs-identifier hs-var hs-var">progressEvent_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProgressEvent -&gt; Maybe HandlerErrorCode)
+-&gt; (ProgressEvent -&gt; Maybe HandlerErrorCode -&gt; ProgressEvent)
+-&gt; Lens
+     ProgressEvent
+     ProgressEvent
+     (Maybe HandlerErrorCode)
+     (Maybe HandlerErrorCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154970"><span class="annot"><span class="annottext">Maybe HandlerErrorCode
+errorCode :: Maybe HandlerErrorCode
+$sel:errorCode:ProgressEvent' :: ProgressEvent -&gt; Maybe HandlerErrorCode
+</span><a href="#local-6989586621679154970"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HandlerErrorCode
+</span><a href="#local-6989586621679154970"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154969"><span class="annot"><span class="annottext">s :: ProgressEvent
+</span><a href="#local-6989586621679154969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154968"><span class="annot"><span class="annottext">Maybe HandlerErrorCode
+</span><a href="#local-6989586621679154968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressEvent
+</span><a href="#local-6989586621679154969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:ProgressEvent' :: Maybe HandlerErrorCode
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#%24sel%3AerrorCode%3AProgressEvent%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HandlerErrorCode
+</span><a href="#local-6989586621679154968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154965"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679154963"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProgressEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ProgressEvent)
+-&gt; Value
+-&gt; Parser ProgressEvent
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ProgressEvent&quot;</span></span><span>
+</span><span id="line-227"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679154960"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679154960"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-228"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Operation
+-&gt; Maybe Text
+-&gt; Maybe OperationStatus
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe HandlerErrorCode
+-&gt; ProgressEvent
+</span><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-var">ProgressEvent'</span></a></span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe Operation
+ -&gt; Maybe Text
+ -&gt; Maybe OperationStatus
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe HandlerErrorCode
+ -&gt; ProgressEvent)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Operation
+      -&gt; Maybe Text
+      -&gt; Maybe OperationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe HandlerErrorCode
+      -&gt; ProgressEvent)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679154960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetryAfter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Operation
+   -&gt; Maybe Text
+   -&gt; Maybe OperationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe HandlerErrorCode
+   -&gt; ProgressEvent)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Operation
+      -&gt; Maybe Text
+      -&gt; Maybe OperationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe HandlerErrorCode
+      -&gt; ProgressEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679154960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TypeName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Operation
+   -&gt; Maybe Text
+   -&gt; Maybe OperationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe HandlerErrorCode
+   -&gt; ProgressEvent)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (Sensitive Text)
+      -&gt; Maybe Operation
+      -&gt; Maybe Text
+      -&gt; Maybe OperationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe HandlerErrorCode
+      -&gt; ProgressEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679154960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
+   -&gt; Maybe Operation
+   -&gt; Maybe Text
+   -&gt; Maybe OperationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe HandlerErrorCode
+   -&gt; ProgressEvent)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Maybe Operation
+      -&gt; Maybe Text
+      -&gt; Maybe OperationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe HandlerErrorCode
+      -&gt; ProgressEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679154960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceModel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Operation
+   -&gt; Maybe Text
+   -&gt; Maybe OperationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe HandlerErrorCode
+   -&gt; ProgressEvent)
+-&gt; Parser (Maybe Operation)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe OperationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe HandlerErrorCode
+      -&gt; ProgressEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679154960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Operation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Operation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe OperationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe HandlerErrorCode
+   -&gt; ProgressEvent)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe OperationStatus
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe HandlerErrorCode
+      -&gt; ProgressEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679154960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Identifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OperationStatus
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe HandlerErrorCode
+   -&gt; ProgressEvent)
+-&gt; Parser (Maybe OperationStatus)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text -&gt; Maybe HandlerErrorCode -&gt; ProgressEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679154960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OperationStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OperationStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text -&gt; Maybe HandlerErrorCode -&gt; ProgressEvent)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe HandlerErrorCode -&gt; ProgressEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679154960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe HandlerErrorCode -&gt; ProgressEvent)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe HandlerErrorCode -&gt; ProgressEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679154960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe HandlerErrorCode -&gt; ProgressEvent)
+-&gt; Parser (Maybe HandlerErrorCode) -&gt; Parser ProgressEvent
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679154960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HandlerErrorCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154954"><span id="local-6989586621679154956"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span></span></span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154951"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span></span><span>
+</span><span id="line-244"></span></pre></body></html>

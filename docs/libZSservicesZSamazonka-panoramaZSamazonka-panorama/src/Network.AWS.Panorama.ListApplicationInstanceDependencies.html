@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Panorama.ListApplicationInstanceDependencies</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of application instance dependencies.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Panorama.ListApplicationInstanceDependencies</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies"><span class="hs-identifier">ListApplicationInstanceDependencies</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#newListApplicationInstanceDependencies"><span class="hs-identifier">newListApplicationInstanceDependencies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependencies_nextToken"><span class="hs-identifier">listApplicationInstanceDependencies_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependencies_maxResults"><span class="hs-identifier">listApplicationInstanceDependencies_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependencies_applicationInstanceId"><span class="hs-identifier">listApplicationInstanceDependencies_applicationInstanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse"><span class="hs-identifier">ListApplicationInstanceDependenciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#newListApplicationInstanceDependenciesResponse"><span class="hs-identifier">newListApplicationInstanceDependenciesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependenciesResponse_packageObjects"><span class="hs-identifier">listApplicationInstanceDependenciesResponse_packageObjects</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependenciesResponse_nextToken"><span class="hs-identifier">listApplicationInstanceDependenciesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependenciesResponse_httpStatus"><span class="hs-identifier">listApplicationInstanceDependenciesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.html"><span class="hs-identifier">Network.AWS.Panorama.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newListApplicationInstanceDependencies' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679264097"><span id="local-6989586621679264098"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplicationInstanceDependencies"><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies"><span class="hs-identifier hs-var">ListApplicationInstanceDependencies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplicationInstanceDependencies%27"><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies%27"><span class="hs-identifier hs-var">ListApplicationInstanceDependencies'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the pagination token from a previous request to retrieve the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- next page of results.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AListApplicationInstanceDependencies%27"><span class="annot"><span class="annottext">ListApplicationInstanceDependencies -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3AnextToken%3AListApplicationInstanceDependencies%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The maximum number of application instance dependencies to return in one</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- page of results.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AmaxResults%3AListApplicationInstanceDependencies%27"><span class="annot"><span class="annottext">ListApplicationInstanceDependencies -&gt; Maybe Natural
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3AmaxResults%3AListApplicationInstanceDependencies%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The application instance\'s ID.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AapplicationInstanceId%3AListApplicationInstanceDependencies%27"><span class="annot"><span class="annottext">ListApplicationInstanceDependencies -&gt; Text
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3AapplicationInstanceId%3AListApplicationInstanceDependencies%27"><span class="hs-identifier hs-var hs-var">applicationInstanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264089"><span id="local-6989586621679264091"><span class="annot"><span class="annottext">ListApplicationInstanceDependencies
+-&gt; ListApplicationInstanceDependencies -&gt; Bool
+(ListApplicationInstanceDependencies
+ -&gt; ListApplicationInstanceDependencies -&gt; Bool)
+-&gt; (ListApplicationInstanceDependencies
+    -&gt; ListApplicationInstanceDependencies -&gt; Bool)
+-&gt; Eq ListApplicationInstanceDependencies
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListApplicationInstanceDependencies
+-&gt; ListApplicationInstanceDependencies -&gt; Bool
+$c/= :: ListApplicationInstanceDependencies
+-&gt; ListApplicationInstanceDependencies -&gt; Bool
+== :: ListApplicationInstanceDependencies
+-&gt; ListApplicationInstanceDependencies -&gt; Bool
+$c== :: ListApplicationInstanceDependencies
+-&gt; ListApplicationInstanceDependencies -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264080"><span id="local-6989586621679264082"><span id="local-6989586621679264084"><span id="local-6989586621679264086"><span class="annot"><span class="annottext">ReadPrec [ListApplicationInstanceDependencies]
+ReadPrec ListApplicationInstanceDependencies
+Int -&gt; ReadS ListApplicationInstanceDependencies
+ReadS [ListApplicationInstanceDependencies]
+(Int -&gt; ReadS ListApplicationInstanceDependencies)
+-&gt; ReadS [ListApplicationInstanceDependencies]
+-&gt; ReadPrec ListApplicationInstanceDependencies
+-&gt; ReadPrec [ListApplicationInstanceDependencies]
+-&gt; Read ListApplicationInstanceDependencies
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListApplicationInstanceDependencies]
+$creadListPrec :: ReadPrec [ListApplicationInstanceDependencies]
+readPrec :: ReadPrec ListApplicationInstanceDependencies
+$creadPrec :: ReadPrec ListApplicationInstanceDependencies
+readList :: ReadS [ListApplicationInstanceDependencies]
+$creadList :: ReadS [ListApplicationInstanceDependencies]
+readsPrec :: Int -&gt; ReadS ListApplicationInstanceDependencies
+$creadsPrec :: Int -&gt; ReadS ListApplicationInstanceDependencies
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264073"><span id="local-6989586621679264075"><span id="local-6989586621679264077"><span class="annot"><span class="annottext">Int -&gt; ListApplicationInstanceDependencies -&gt; ShowS
+[ListApplicationInstanceDependencies] -&gt; ShowS
+ListApplicationInstanceDependencies -&gt; String
+(Int -&gt; ListApplicationInstanceDependencies -&gt; ShowS)
+-&gt; (ListApplicationInstanceDependencies -&gt; String)
+-&gt; ([ListApplicationInstanceDependencies] -&gt; ShowS)
+-&gt; Show ListApplicationInstanceDependencies
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListApplicationInstanceDependencies] -&gt; ShowS
+$cshowList :: [ListApplicationInstanceDependencies] -&gt; ShowS
+show :: ListApplicationInstanceDependencies -&gt; String
+$cshow :: ListApplicationInstanceDependencies -&gt; String
+showsPrec :: Int -&gt; ListApplicationInstanceDependencies -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListApplicationInstanceDependencies -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListApplicationInstanceDependencies
+ -&gt; Rep ListApplicationInstanceDependencies x)
+-&gt; (forall x.
+    Rep ListApplicationInstanceDependencies x
+    -&gt; ListApplicationInstanceDependencies)
+-&gt; Generic ListApplicationInstanceDependencies
+forall x.
+Rep ListApplicationInstanceDependencies x
+-&gt; ListApplicationInstanceDependencies
+forall x.
+ListApplicationInstanceDependencies
+-&gt; Rep ListApplicationInstanceDependencies x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListApplicationInstanceDependencies x
+-&gt; ListApplicationInstanceDependencies
+$cfrom :: forall x.
+ListApplicationInstanceDependencies
+-&gt; Rep ListApplicationInstanceDependencies x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'ListApplicationInstanceDependencies' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'nextToken', 'listApplicationInstanceDependencies_nextToken' - Specify the pagination token from a previous request to retrieve the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- next page of results.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'maxResults', 'listApplicationInstanceDependencies_maxResults' - The maximum number of application instance dependencies to return in one</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- page of results.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'applicationInstanceId', 'listApplicationInstanceDependencies_applicationInstanceId' - The application instance\'s ID.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#newListApplicationInstanceDependencies"><span class="hs-identifier hs-type">newListApplicationInstanceDependencies</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'applicationInstanceId'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies</span></a></span><span>
+</span><span id="line-84"></span><span id="newListApplicationInstanceDependencies"><span class="annot"><span class="annottext">newListApplicationInstanceDependencies :: Text -&gt; ListApplicationInstanceDependencies
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#newListApplicationInstanceDependencies"><span class="hs-identifier hs-var hs-var">newListApplicationInstanceDependencies</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679264068"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264068"><span class="hs-identifier hs-var">pApplicationInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">ListApplicationInstanceDependencies' :: Maybe Text
+-&gt; Maybe Natural -&gt; Text -&gt; ListApplicationInstanceDependencies
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies%27"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies'</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationInstanceDependencies' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3AnextToken%3AListApplicationInstanceDependencies%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxResults:ListApplicationInstanceDependencies' :: Maybe Natural
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3AmaxResults%3AListApplicationInstanceDependencies%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationInstanceId:ListApplicationInstanceDependencies' :: Text
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3AapplicationInstanceId%3AListApplicationInstanceDependencies%27"><span class="hs-identifier hs-var">applicationInstanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264068"><span class="hs-identifier hs-var">pApplicationInstanceId_</span></a></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Specify the pagination token from a previous request to retrieve the</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- next page of results.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependencies_nextToken"><span class="hs-identifier hs-type">listApplicationInstanceDependencies_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="listApplicationInstanceDependencies_nextToken"><span class="annot"><span class="annottext">listApplicationInstanceDependencies_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListApplicationInstanceDependencies
+-&gt; f ListApplicationInstanceDependencies
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependencies_nextToken"><span class="hs-identifier hs-var hs-var">listApplicationInstanceDependencies_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationInstanceDependencies -&gt; Maybe Text)
+-&gt; (ListApplicationInstanceDependencies
+    -&gt; Maybe Text -&gt; ListApplicationInstanceDependencies)
+-&gt; Lens
+     ListApplicationInstanceDependencies
+     ListApplicationInstanceDependencies
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies%27"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264065"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListApplicationInstanceDependencies' :: ListApplicationInstanceDependencies -&gt; Maybe Text
+</span><a href="#local-6989586621679264065"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264065"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264064"><span class="annot"><span class="annottext">s :: ListApplicationInstanceDependencies
+</span><a href="#local-6989586621679264064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies%27"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264063"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationInstanceDependencies
+</span><a href="#local-6989586621679264064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationInstanceDependencies' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3AnextToken%3AListApplicationInstanceDependencies%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The maximum number of application instance dependencies to return in one</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- page of results.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependencies_maxResults"><span class="hs-identifier hs-type">listApplicationInstanceDependencies_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="listApplicationInstanceDependencies_maxResults"><span class="annot"><span class="annottext">listApplicationInstanceDependencies_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListApplicationInstanceDependencies
+-&gt; f ListApplicationInstanceDependencies
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependencies_maxResults"><span class="hs-identifier hs-var hs-var">listApplicationInstanceDependencies_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationInstanceDependencies -&gt; Maybe Natural)
+-&gt; (ListApplicationInstanceDependencies
+    -&gt; Maybe Natural -&gt; ListApplicationInstanceDependencies)
+-&gt; Lens
+     ListApplicationInstanceDependencies
+     ListApplicationInstanceDependencies
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies%27"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264062"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListApplicationInstanceDependencies' :: ListApplicationInstanceDependencies -&gt; Maybe Natural
+</span><a href="#local-6989586621679264062"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679264062"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264061"><span class="annot"><span class="annottext">s :: ListApplicationInstanceDependencies
+</span><a href="#local-6989586621679264061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies%27"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264060"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679264060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationInstanceDependencies
+</span><a href="#local-6989586621679264061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListApplicationInstanceDependencies' :: Maybe Natural
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3AmaxResults%3AListApplicationInstanceDependencies%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679264060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The application instance\'s ID.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependencies_applicationInstanceId"><span class="hs-identifier hs-type">listApplicationInstanceDependencies_applicationInstanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-106"></span><span id="listApplicationInstanceDependencies_applicationInstanceId"><span class="annot"><span class="annottext">listApplicationInstanceDependencies_applicationInstanceId :: (Text -&gt; f Text)
+-&gt; ListApplicationInstanceDependencies
+-&gt; f ListApplicationInstanceDependencies
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependencies_applicationInstanceId"><span class="hs-identifier hs-var hs-var">listApplicationInstanceDependencies_applicationInstanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationInstanceDependencies -&gt; Text)
+-&gt; (ListApplicationInstanceDependencies
+    -&gt; Text -&gt; ListApplicationInstanceDependencies)
+-&gt; Lens
+     ListApplicationInstanceDependencies
+     ListApplicationInstanceDependencies
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies%27"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264059"><span class="annot"><span class="annottext">Text
+applicationInstanceId :: Text
+$sel:applicationInstanceId:ListApplicationInstanceDependencies' :: ListApplicationInstanceDependencies -&gt; Text
+</span><a href="#local-6989586621679264059"><span class="hs-identifier hs-var hs-var">applicationInstanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264059"><span class="hs-identifier hs-var">applicationInstanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264058"><span class="annot"><span class="annottext">s :: ListApplicationInstanceDependencies
+</span><a href="#local-6989586621679264058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies%27"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264057"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationInstanceDependencies
+</span><a href="#local-6989586621679264058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationInstanceId:ListApplicationInstanceDependencies' :: Text
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3AapplicationInstanceId%3AListApplicationInstanceDependencies%27"><span class="hs-identifier hs-var">applicationInstanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse"><span class="hs-identifier hs-type">ListApplicationInstanceDependenciesResponse</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679264053"><span class="annot"><span class="annottext">request :: ListApplicationInstanceDependencies
+-&gt; Request ListApplicationInstanceDependencies
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListApplicationInstanceDependencies
+-&gt; Request ListApplicationInstanceDependencies
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Panorama.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679264049"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListApplicationInstanceDependencies
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ListApplicationInstanceDependencies)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListApplicationInstanceDependencies))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListApplicationInstanceDependencies
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ListApplicationInstanceDependencies)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679264046"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264046"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679264045"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679264045"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679264044"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264044"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PackageObject]
+-&gt; Maybe Text -&gt; Int -&gt; ListApplicationInstanceDependenciesResponse
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-var">ListApplicationInstanceDependenciesResponse'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PackageObject]
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; ListApplicationInstanceDependenciesResponse)
+-&gt; Either String (Maybe [PackageObject])
+-&gt; Either
+     String
+     (Maybe Text -&gt; Int -&gt; ListApplicationInstanceDependenciesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264044"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PackageObject]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PackageObjects&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PackageObject]))
+-&gt; Maybe [PackageObject] -&gt; Either String (Maybe [PackageObject])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PackageObject]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; ListApplicationInstanceDependenciesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; ListApplicationInstanceDependenciesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264044"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListApplicationInstanceDependenciesResponse)
+-&gt; Either String Int
+-&gt; Either String ListApplicationInstanceDependenciesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264046"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679264035"><span id="local-6989586621679264037"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies</span></a></span></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679264032"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies</span></a></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679264028"><span class="annot"><span class="annottext">toHeaders :: ListApplicationInstanceDependencies -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; ListApplicationInstanceDependencies -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-143"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies</span></a></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679264022"><span class="annot"><span class="annottext">toPath :: ListApplicationInstanceDependencies -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies%27"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264018"><span id="local-6989586621679264019"><span id="local-6989586621679264020"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+applicationInstanceId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:applicationInstanceId:ListApplicationInstanceDependencies' :: ListApplicationInstanceDependencies -&gt; Text
+$sel:maxResults:ListApplicationInstanceDependencies' :: ListApplicationInstanceDependencies -&gt; Maybe Natural
+$sel:nextToken:ListApplicationInstanceDependencies' :: ListApplicationInstanceDependencies -&gt; Maybe Text
+</span><a href="#local-6989586621679264018"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/application-instances/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264018"><span class="hs-identifier hs-var">applicationInstanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/package-dependencies&quot;</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies</span></a></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679264014"><span class="annot"><span class="annottext">toQuery :: ListApplicationInstanceDependencies -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependencies%27"><span class="hs-identifier hs-type">ListApplicationInstanceDependencies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264010"><span id="local-6989586621679264011"><span id="local-6989586621679264012"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+applicationInstanceId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:applicationInstanceId:ListApplicationInstanceDependencies' :: ListApplicationInstanceDependencies -&gt; Text
+$sel:maxResults:ListApplicationInstanceDependencies' :: ListApplicationInstanceDependencies -&gt; Maybe Natural
+$sel:nextToken:ListApplicationInstanceDependencies' :: ListApplicationInstanceDependencies -&gt; Maybe Text
+</span><a href="#local-6989586621679264010"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264012"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679264011"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | /See:/ 'newListApplicationInstanceDependenciesResponse' smart constructor.</span><span>
+</span><span id="line-169"></span><span id="local-6989586621679264007"><span id="local-6989586621679264008"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplicationInstanceDependenciesResponse"><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse"><span class="hs-identifier hs-var">ListApplicationInstanceDependenciesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplicationInstanceDependenciesResponse%27"><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-var">ListApplicationInstanceDependenciesResponse'</span></a></span></span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of package objects.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3ApackageObjects%3AListApplicationInstanceDependenciesResponse%27"><span class="annot"><span class="annottext">ListApplicationInstanceDependenciesResponse
+-&gt; Maybe [PackageObject]
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3ApackageObjects%3AListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-var hs-var">packageObjects</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Panorama.Types.PackageObject.html#PackageObject"><span class="hs-identifier hs-type">PackageObject</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | A pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AnextToken%3AListApplicationInstanceDependenciesResponse%27"><span class="annot"><span class="annottext">ListApplicationInstanceDependenciesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3AnextToken%3AListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListApplicationInstanceDependenciesResponse%27"><span class="annot"><span class="annottext">ListApplicationInstanceDependenciesResponse -&gt; Int
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3AhttpStatus%3AListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264000"><span id="local-6989586621679264002"><span class="annot"><span class="annottext">ListApplicationInstanceDependenciesResponse
+-&gt; ListApplicationInstanceDependenciesResponse -&gt; Bool
+(ListApplicationInstanceDependenciesResponse
+ -&gt; ListApplicationInstanceDependenciesResponse -&gt; Bool)
+-&gt; (ListApplicationInstanceDependenciesResponse
+    -&gt; ListApplicationInstanceDependenciesResponse -&gt; Bool)
+-&gt; Eq ListApplicationInstanceDependenciesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListApplicationInstanceDependenciesResponse
+-&gt; ListApplicationInstanceDependenciesResponse -&gt; Bool
+$c/= :: ListApplicationInstanceDependenciesResponse
+-&gt; ListApplicationInstanceDependenciesResponse -&gt; Bool
+== :: ListApplicationInstanceDependenciesResponse
+-&gt; ListApplicationInstanceDependenciesResponse -&gt; Bool
+$c== :: ListApplicationInstanceDependenciesResponse
+-&gt; ListApplicationInstanceDependenciesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263992"><span id="local-6989586621679263994"><span id="local-6989586621679263996"><span id="local-6989586621679263998"><span class="annot"><span class="annottext">ReadPrec [ListApplicationInstanceDependenciesResponse]
+ReadPrec ListApplicationInstanceDependenciesResponse
+Int -&gt; ReadS ListApplicationInstanceDependenciesResponse
+ReadS [ListApplicationInstanceDependenciesResponse]
+(Int -&gt; ReadS ListApplicationInstanceDependenciesResponse)
+-&gt; ReadS [ListApplicationInstanceDependenciesResponse]
+-&gt; ReadPrec ListApplicationInstanceDependenciesResponse
+-&gt; ReadPrec [ListApplicationInstanceDependenciesResponse]
+-&gt; Read ListApplicationInstanceDependenciesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListApplicationInstanceDependenciesResponse]
+$creadListPrec :: ReadPrec [ListApplicationInstanceDependenciesResponse]
+readPrec :: ReadPrec ListApplicationInstanceDependenciesResponse
+$creadPrec :: ReadPrec ListApplicationInstanceDependenciesResponse
+readList :: ReadS [ListApplicationInstanceDependenciesResponse]
+$creadList :: ReadS [ListApplicationInstanceDependenciesResponse]
+readsPrec :: Int -&gt; ReadS ListApplicationInstanceDependenciesResponse
+$creadsPrec :: Int -&gt; ReadS ListApplicationInstanceDependenciesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263986"><span id="local-6989586621679263988"><span id="local-6989586621679263990"><span class="annot"><span class="annottext">Int -&gt; ListApplicationInstanceDependenciesResponse -&gt; ShowS
+[ListApplicationInstanceDependenciesResponse] -&gt; ShowS
+ListApplicationInstanceDependenciesResponse -&gt; String
+(Int -&gt; ListApplicationInstanceDependenciesResponse -&gt; ShowS)
+-&gt; (ListApplicationInstanceDependenciesResponse -&gt; String)
+-&gt; ([ListApplicationInstanceDependenciesResponse] -&gt; ShowS)
+-&gt; Show ListApplicationInstanceDependenciesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListApplicationInstanceDependenciesResponse] -&gt; ShowS
+$cshowList :: [ListApplicationInstanceDependenciesResponse] -&gt; ShowS
+show :: ListApplicationInstanceDependenciesResponse -&gt; String
+$cshow :: ListApplicationInstanceDependenciesResponse -&gt; String
+showsPrec :: Int -&gt; ListApplicationInstanceDependenciesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListApplicationInstanceDependenciesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListApplicationInstanceDependenciesResponse
+ -&gt; Rep ListApplicationInstanceDependenciesResponse x)
+-&gt; (forall x.
+    Rep ListApplicationInstanceDependenciesResponse x
+    -&gt; ListApplicationInstanceDependenciesResponse)
+-&gt; Generic ListApplicationInstanceDependenciesResponse
+forall x.
+Rep ListApplicationInstanceDependenciesResponse x
+-&gt; ListApplicationInstanceDependenciesResponse
+forall x.
+ListApplicationInstanceDependenciesResponse
+-&gt; Rep ListApplicationInstanceDependenciesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListApplicationInstanceDependenciesResponse x
+-&gt; ListApplicationInstanceDependenciesResponse
+$cfrom :: forall x.
+ListApplicationInstanceDependenciesResponse
+-&gt; Rep ListApplicationInstanceDependenciesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Create a value of 'ListApplicationInstanceDependenciesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'packageObjects', 'listApplicationInstanceDependenciesResponse_packageObjects' - A list of package objects.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'nextToken', 'listApplicationInstanceDependenciesResponse_nextToken' - A pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'httpStatus', 'listApplicationInstanceDependenciesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#newListApplicationInstanceDependenciesResponse"><span class="hs-identifier hs-type">newListApplicationInstanceDependenciesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse"><span class="hs-identifier hs-type">ListApplicationInstanceDependenciesResponse</span></a></span><span>
+</span><span id="line-196"></span><span id="newListApplicationInstanceDependenciesResponse"><span class="annot"><span class="annottext">newListApplicationInstanceDependenciesResponse :: Int -&gt; ListApplicationInstanceDependenciesResponse
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#newListApplicationInstanceDependenciesResponse"><span class="hs-identifier hs-var hs-var">newListApplicationInstanceDependenciesResponse</span></a></span></span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679263983"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263983"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">ListApplicationInstanceDependenciesResponse' :: Maybe [PackageObject]
+-&gt; Maybe Text -&gt; Int -&gt; ListApplicationInstanceDependenciesResponse
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-type">ListApplicationInstanceDependenciesResponse'</span></a></span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:packageObjects:ListApplicationInstanceDependenciesResponse' :: Maybe [PackageObject]
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3ApackageObjects%3AListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-var">packageObjects</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PackageObject]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationInstanceDependenciesResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3AnextToken%3AListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListApplicationInstanceDependenciesResponse' :: Int
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3AhttpStatus%3AListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263983"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | A list of package objects.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependenciesResponse_packageObjects"><span class="hs-identifier hs-type">listApplicationInstanceDependenciesResponse_packageObjects</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse"><span class="hs-identifier hs-type">ListApplicationInstanceDependenciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Panorama.Types.PackageObject.html#PackageObject"><span class="hs-identifier hs-type">PackageObject</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="listApplicationInstanceDependenciesResponse_packageObjects"><span class="annot"><span class="annottext">listApplicationInstanceDependenciesResponse_packageObjects :: (Maybe [PackageObject] -&gt; f (Maybe [PackageObject]))
+-&gt; ListApplicationInstanceDependenciesResponse
+-&gt; f ListApplicationInstanceDependenciesResponse
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependenciesResponse_packageObjects"><span class="hs-identifier hs-var hs-var">listApplicationInstanceDependenciesResponse_packageObjects</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationInstanceDependenciesResponse
+ -&gt; Maybe [PackageObject])
+-&gt; (ListApplicationInstanceDependenciesResponse
+    -&gt; Maybe [PackageObject]
+    -&gt; ListApplicationInstanceDependenciesResponse)
+-&gt; Lens
+     ListApplicationInstanceDependenciesResponse
+     ListApplicationInstanceDependenciesResponse
+     (Maybe [PackageObject])
+     (Maybe [PackageObject])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-type">ListApplicationInstanceDependenciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263982"><span class="annot"><span class="annottext">Maybe [PackageObject]
+packageObjects :: Maybe [PackageObject]
+$sel:packageObjects:ListApplicationInstanceDependenciesResponse' :: ListApplicationInstanceDependenciesResponse
+-&gt; Maybe [PackageObject]
+</span><a href="#local-6989586621679263982"><span class="hs-identifier hs-var hs-var">packageObjects</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PackageObject]
+</span><a href="#local-6989586621679263982"><span class="hs-identifier hs-var">packageObjects</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263981"><span class="annot"><span class="annottext">s :: ListApplicationInstanceDependenciesResponse
+</span><a href="#local-6989586621679263981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-type">ListApplicationInstanceDependenciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263980"><span class="annot"><span class="annottext">Maybe [PackageObject]
+</span><a href="#local-6989586621679263980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationInstanceDependenciesResponse
+</span><a href="#local-6989586621679263981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageObjects:ListApplicationInstanceDependenciesResponse' :: Maybe [PackageObject]
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3ApackageObjects%3AListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-var">packageObjects</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PackageObject]
+</span><a href="#local-6989586621679263980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse"><span class="hs-identifier hs-type">ListApplicationInstanceDependenciesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PackageObject] -&gt; f (Maybe [PackageObject]))
+ -&gt; ListApplicationInstanceDependenciesResponse
+ -&gt; f ListApplicationInstanceDependenciesResponse)
+-&gt; ((Maybe [PackageObject] -&gt; f (Maybe [PackageObject]))
+    -&gt; Maybe [PackageObject] -&gt; f (Maybe [PackageObject]))
+-&gt; (Maybe [PackageObject] -&gt; f (Maybe [PackageObject]))
+-&gt; ListApplicationInstanceDependenciesResponse
+-&gt; f ListApplicationInstanceDependenciesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PackageObject] [PackageObject] [PackageObject] [PackageObject]
+-&gt; Iso
+     (Maybe [PackageObject])
+     (Maybe [PackageObject])
+     (Maybe [PackageObject])
+     (Maybe [PackageObject])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PackageObject] [PackageObject] [PackageObject] [PackageObject]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | A pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependenciesResponse_nextToken"><span class="hs-identifier hs-type">listApplicationInstanceDependenciesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse"><span class="hs-identifier hs-type">ListApplicationInstanceDependenciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="listApplicationInstanceDependenciesResponse_nextToken"><span class="annot"><span class="annottext">listApplicationInstanceDependenciesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListApplicationInstanceDependenciesResponse
+-&gt; f ListApplicationInstanceDependenciesResponse
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependenciesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listApplicationInstanceDependenciesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationInstanceDependenciesResponse -&gt; Maybe Text)
+-&gt; (ListApplicationInstanceDependenciesResponse
+    -&gt; Maybe Text -&gt; ListApplicationInstanceDependenciesResponse)
+-&gt; Lens
+     ListApplicationInstanceDependenciesResponse
+     ListApplicationInstanceDependenciesResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-type">ListApplicationInstanceDependenciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263976"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListApplicationInstanceDependenciesResponse' :: ListApplicationInstanceDependenciesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679263976"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263976"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263975"><span class="annot"><span class="annottext">s :: ListApplicationInstanceDependenciesResponse
+</span><a href="#local-6989586621679263975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-type">ListApplicationInstanceDependenciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263974"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationInstanceDependenciesResponse
+</span><a href="#local-6989586621679263975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationInstanceDependenciesResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3AnextToken%3AListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse"><span class="hs-identifier hs-type">ListApplicationInstanceDependenciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependenciesResponse_httpStatus"><span class="hs-identifier hs-type">listApplicationInstanceDependenciesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse"><span class="hs-identifier hs-type">ListApplicationInstanceDependenciesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-215"></span><span id="listApplicationInstanceDependenciesResponse_httpStatus"><span class="annot"><span class="annottext">listApplicationInstanceDependenciesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListApplicationInstanceDependenciesResponse
+-&gt; f ListApplicationInstanceDependenciesResponse
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#listApplicationInstanceDependenciesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listApplicationInstanceDependenciesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationInstanceDependenciesResponse -&gt; Int)
+-&gt; (ListApplicationInstanceDependenciesResponse
+    -&gt; Int -&gt; ListApplicationInstanceDependenciesResponse)
+-&gt; Lens
+     ListApplicationInstanceDependenciesResponse
+     ListApplicationInstanceDependenciesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-type">ListApplicationInstanceDependenciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263973"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListApplicationInstanceDependenciesResponse' :: ListApplicationInstanceDependenciesResponse -&gt; Int
+</span><a href="#local-6989586621679263973"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263973"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263972"><span class="annot"><span class="annottext">s :: ListApplicationInstanceDependenciesResponse
+</span><a href="#local-6989586621679263972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-type">ListApplicationInstanceDependenciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263971"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationInstanceDependenciesResponse
+</span><a href="#local-6989586621679263972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListApplicationInstanceDependenciesResponse' :: Int
+</span><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#%24sel%3AhttpStatus%3AListApplicationInstanceDependenciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse"><span class="hs-identifier hs-type">ListApplicationInstanceDependenciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679263969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListApplicationInstanceDependencies.html#ListApplicationInstanceDependenciesResponse"><span class="hs-identifier hs-type">ListApplicationInstanceDependenciesResponse</span></a></span></span><span>
+</span><span id="line-220"></span></pre></body></html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.NetworkFirewall.Types.RulesSource</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.NetworkFirewall.Types.RulesSource</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSourceList.html"><span class="hs-identifier">Network.AWS.NetworkFirewall.Types.RulesSourceList</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.StatefulRule.html"><span class="hs-identifier">Network.AWS.NetworkFirewall.Types.StatefulRule</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.StatelessRulesAndCustomActions.html"><span class="hs-identifier">Network.AWS.NetworkFirewall.Types.StatelessRulesAndCustomActions</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | The stateless or stateful rules definitions for use in a single rule</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- group. Each rule group requires a single @RulesSource@. You can use an</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- instance of this for either stateless rules or stateful rules.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newRulesSource' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679243511"><span id="local-6989586621679243512"></span></span><span class="hs-keyword">data</span><span> </span><span id="RulesSource"><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource"><span class="hs-identifier hs-var">RulesSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RulesSource%27"><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource%27"><span class="hs-identifier hs-var">RulesSource'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Stateful inspection criteria, provided in Suricata compatible intrusion</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- prevention system (IPS) rules. Suricata is an open-source network IPS</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- that includes a standard rule-based language for network traffic</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- inspection.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- These rules contain the inspection criteria and the action to take for</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- traffic that matches the criteria, so this type of rule group doesn\'t</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- have a separate action setting.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3ArulesString%3ARulesSource%27"><span class="annot"><span class="annottext">RulesSource -&gt; Maybe Text
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#%24sel%3ArulesString%3ARulesSource%27"><span class="hs-identifier hs-var hs-var">rulesString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Stateful inspection criteria for a domain list rule group.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3ArulesSourceList%3ARulesSource%27"><span class="annot"><span class="annottext">RulesSource -&gt; Maybe RulesSourceList
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#%24sel%3ArulesSourceList%3ARulesSource%27"><span class="hs-identifier hs-var hs-var">rulesSourceList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSourceList.html#RulesSourceList"><span class="hs-identifier hs-type">RulesSourceList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | An array of individual stateful rules inspection criteria to be used</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- together in a stateful rule group. Use this option to specify simple</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- Suricata rules with protocol, source and destination, ports, direction,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- and rule options. For information about the Suricata @Rules@ format, see</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- &lt;https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html# Rules Format&gt;.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AstatefulRules%3ARulesSource%27"><span class="annot"><span class="annottext">RulesSource -&gt; Maybe [StatefulRule]
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#%24sel%3AstatefulRules%3ARulesSource%27"><span class="hs-identifier hs-var hs-var">statefulRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.StatefulRule.html#StatefulRule"><span class="hs-identifier hs-type">StatefulRule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Stateless inspection criteria to be used in a stateless rule group.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AstatelessRulesAndCustomActions%3ARulesSource%27"><span class="annot"><span class="annottext">RulesSource -&gt; Maybe StatelessRulesAndCustomActions
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#%24sel%3AstatelessRulesAndCustomActions%3ARulesSource%27"><span class="hs-identifier hs-var hs-var">statelessRulesAndCustomActions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.StatelessRulesAndCustomActions.html#StatelessRulesAndCustomActions"><span class="hs-identifier hs-type">StatelessRulesAndCustomActions</span></a></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243502"><span id="local-6989586621679243504"><span class="annot"><span class="annottext">RulesSource -&gt; RulesSource -&gt; Bool
+(RulesSource -&gt; RulesSource -&gt; Bool)
+-&gt; (RulesSource -&gt; RulesSource -&gt; Bool) -&gt; Eq RulesSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RulesSource -&gt; RulesSource -&gt; Bool
+$c/= :: RulesSource -&gt; RulesSource -&gt; Bool
+== :: RulesSource -&gt; RulesSource -&gt; Bool
+$c== :: RulesSource -&gt; RulesSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243493"><span id="local-6989586621679243495"><span id="local-6989586621679243497"><span id="local-6989586621679243499"><span class="annot"><span class="annottext">ReadPrec [RulesSource]
+ReadPrec RulesSource
+Int -&gt; ReadS RulesSource
+ReadS [RulesSource]
+(Int -&gt; ReadS RulesSource)
+-&gt; ReadS [RulesSource]
+-&gt; ReadPrec RulesSource
+-&gt; ReadPrec [RulesSource]
+-&gt; Read RulesSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RulesSource]
+$creadListPrec :: ReadPrec [RulesSource]
+readPrec :: ReadPrec RulesSource
+$creadPrec :: ReadPrec RulesSource
+readList :: ReadS [RulesSource]
+$creadList :: ReadS [RulesSource]
+readsPrec :: Int -&gt; ReadS RulesSource
+$creadsPrec :: Int -&gt; ReadS RulesSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243486"><span id="local-6989586621679243488"><span id="local-6989586621679243490"><span class="annot"><span class="annottext">Int -&gt; RulesSource -&gt; ShowS
+[RulesSource] -&gt; ShowS
+RulesSource -&gt; String
+(Int -&gt; RulesSource -&gt; ShowS)
+-&gt; (RulesSource -&gt; String)
+-&gt; ([RulesSource] -&gt; ShowS)
+-&gt; Show RulesSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RulesSource] -&gt; ShowS
+$cshowList :: [RulesSource] -&gt; ShowS
+show :: RulesSource -&gt; String
+$cshow :: RulesSource -&gt; String
+showsPrec :: Int -&gt; RulesSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; RulesSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RulesSource -&gt; Rep RulesSource x)
+-&gt; (forall x. Rep RulesSource x -&gt; RulesSource)
+-&gt; Generic RulesSource
+forall x. Rep RulesSource x -&gt; RulesSource
+forall x. RulesSource -&gt; Rep RulesSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RulesSource x -&gt; RulesSource
+$cfrom :: forall x. RulesSource -&gt; Rep RulesSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'RulesSource' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'rulesString', 'rulesSource_rulesString' - Stateful inspection criteria, provided in Suricata compatible intrusion</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- prevention system (IPS) rules. Suricata is an open-source network IPS</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- that includes a standard rule-based language for network traffic</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- inspection.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- These rules contain the inspection criteria and the action to take for</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- traffic that matches the criteria, so this type of rule group doesn\'t</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- have a separate action setting.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'rulesSourceList', 'rulesSource_rulesSourceList' - Stateful inspection criteria for a domain list rule group.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'statefulRules', 'rulesSource_statefulRules' - An array of individual stateful rules inspection criteria to be used</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- together in a stateful rule group. Use this option to specify simple</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Suricata rules with protocol, source and destination, ports, direction,</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- and rule options. For information about the Suricata @Rules@ format, see</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- &lt;https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html# Rules Format&gt;.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'statelessRulesAndCustomActions', 'rulesSource_statelessRulesAndCustomActions' - Stateless inspection criteria to be used in a stateless rule group.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#newRulesSource"><span class="hs-identifier hs-type">newRulesSource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource"><span class="hs-identifier hs-type">RulesSource</span></a></span><span>
+</span><span id="line-85"></span><span id="newRulesSource"><span class="annot"><span class="annottext">newRulesSource :: RulesSource
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#newRulesSource"><span class="hs-identifier hs-var hs-var">newRulesSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">RulesSource' :: Maybe Text
+-&gt; Maybe RulesSourceList
+-&gt; Maybe [StatefulRule]
+-&gt; Maybe StatelessRulesAndCustomActions
+-&gt; RulesSource
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource%27"><span class="hs-identifier hs-type">RulesSource'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rulesString:RulesSource' :: Maybe Text
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#%24sel%3ArulesString%3ARulesSource%27"><span class="hs-identifier hs-var">rulesString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:rulesSourceList:RulesSource' :: Maybe RulesSourceList
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#%24sel%3ArulesSourceList%3ARulesSource%27"><span class="hs-identifier hs-var">rulesSourceList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RulesSourceList
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:statefulRules:RulesSource' :: Maybe [StatefulRule]
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#%24sel%3AstatefulRules%3ARulesSource%27"><span class="hs-identifier hs-var">statefulRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StatefulRule]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:statelessRulesAndCustomActions:RulesSource' :: Maybe StatelessRulesAndCustomActions
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#%24sel%3AstatelessRulesAndCustomActions%3ARulesSource%27"><span class="hs-identifier hs-var">statelessRulesAndCustomActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatelessRulesAndCustomActions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Stateful inspection criteria, provided in Suricata compatible intrusion</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- prevention system (IPS) rules. Suricata is an open-source network IPS</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- that includes a standard rule-based language for network traffic</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- inspection.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- These rules contain the inspection criteria and the action to take for</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- traffic that matches the criteria, so this type of rule group doesn\'t</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- have a separate action setting.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#rulesSource_rulesString"><span class="hs-identifier hs-type">rulesSource_rulesString</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource"><span class="hs-identifier hs-type">RulesSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="rulesSource_rulesString"><span class="annot"><span class="annottext">rulesSource_rulesString :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RulesSource -&gt; f RulesSource
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#rulesSource_rulesString"><span class="hs-identifier hs-var hs-var">rulesSource_rulesString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RulesSource -&gt; Maybe Text)
+-&gt; (RulesSource -&gt; Maybe Text -&gt; RulesSource)
+-&gt; Lens RulesSource RulesSource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource%27"><span class="hs-identifier hs-type">RulesSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243477"><span class="annot"><span class="annottext">Maybe Text
+rulesString :: Maybe Text
+$sel:rulesString:RulesSource' :: RulesSource -&gt; Maybe Text
+</span><a href="#local-6989586621679243477"><span class="hs-identifier hs-var hs-var">rulesString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243477"><span class="hs-identifier hs-var">rulesString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243476"><span class="annot"><span class="annottext">s :: RulesSource
+</span><a href="#local-6989586621679243476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource%27"><span class="hs-identifier hs-type">RulesSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243475"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RulesSource
+</span><a href="#local-6989586621679243476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rulesString:RulesSource' :: Maybe Text
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#%24sel%3ArulesString%3ARulesSource%27"><span class="hs-identifier hs-var">rulesString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource"><span class="hs-identifier hs-type">RulesSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | Stateful inspection criteria for a domain list rule group.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#rulesSource_rulesSourceList"><span class="hs-identifier hs-type">rulesSource_rulesSourceList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource"><span class="hs-identifier hs-type">RulesSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSourceList.html#RulesSourceList"><span class="hs-identifier hs-type">RulesSourceList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="rulesSource_rulesSourceList"><span class="annot"><span class="annottext">rulesSource_rulesSourceList :: (Maybe RulesSourceList -&gt; f (Maybe RulesSourceList))
+-&gt; RulesSource -&gt; f RulesSource
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#rulesSource_rulesSourceList"><span class="hs-identifier hs-var hs-var">rulesSource_rulesSourceList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RulesSource -&gt; Maybe RulesSourceList)
+-&gt; (RulesSource -&gt; Maybe RulesSourceList -&gt; RulesSource)
+-&gt; Lens
+     RulesSource
+     RulesSource
+     (Maybe RulesSourceList)
+     (Maybe RulesSourceList)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource%27"><span class="hs-identifier hs-type">RulesSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243473"><span class="annot"><span class="annottext">Maybe RulesSourceList
+rulesSourceList :: Maybe RulesSourceList
+$sel:rulesSourceList:RulesSource' :: RulesSource -&gt; Maybe RulesSourceList
+</span><a href="#local-6989586621679243473"><span class="hs-identifier hs-var hs-var">rulesSourceList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RulesSourceList
+</span><a href="#local-6989586621679243473"><span class="hs-identifier hs-var">rulesSourceList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243472"><span class="annot"><span class="annottext">s :: RulesSource
+</span><a href="#local-6989586621679243472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource%27"><span class="hs-identifier hs-type">RulesSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243471"><span class="annot"><span class="annottext">Maybe RulesSourceList
+</span><a href="#local-6989586621679243471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RulesSource
+</span><a href="#local-6989586621679243472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rulesSourceList:RulesSource' :: Maybe RulesSourceList
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#%24sel%3ArulesSourceList%3ARulesSource%27"><span class="hs-identifier hs-var">rulesSourceList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RulesSourceList
+</span><a href="#local-6989586621679243471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource"><span class="hs-identifier hs-type">RulesSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | An array of individual stateful rules inspection criteria to be used</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- together in a stateful rule group. Use this option to specify simple</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Suricata rules with protocol, source and destination, ports, direction,</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- and rule options. For information about the Suricata @Rules@ format, see</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- &lt;https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html# Rules Format&gt;.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#rulesSource_statefulRules"><span class="hs-identifier hs-type">rulesSource_statefulRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource"><span class="hs-identifier hs-type">RulesSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.StatefulRule.html#StatefulRule"><span class="hs-identifier hs-type">StatefulRule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="rulesSource_statefulRules"><span class="annot"><span class="annottext">rulesSource_statefulRules :: (Maybe [StatefulRule] -&gt; f (Maybe [StatefulRule]))
+-&gt; RulesSource -&gt; f RulesSource
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#rulesSource_statefulRules"><span class="hs-identifier hs-var hs-var">rulesSource_statefulRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RulesSource -&gt; Maybe [StatefulRule])
+-&gt; (RulesSource -&gt; Maybe [StatefulRule] -&gt; RulesSource)
+-&gt; Lens
+     RulesSource
+     RulesSource
+     (Maybe [StatefulRule])
+     (Maybe [StatefulRule])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource%27"><span class="hs-identifier hs-type">RulesSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243469"><span class="annot"><span class="annottext">Maybe [StatefulRule]
+statefulRules :: Maybe [StatefulRule]
+$sel:statefulRules:RulesSource' :: RulesSource -&gt; Maybe [StatefulRule]
+</span><a href="#local-6989586621679243469"><span class="hs-identifier hs-var hs-var">statefulRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [StatefulRule]
+</span><a href="#local-6989586621679243469"><span class="hs-identifier hs-var">statefulRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243468"><span class="annot"><span class="annottext">s :: RulesSource
+</span><a href="#local-6989586621679243468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource%27"><span class="hs-identifier hs-type">RulesSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243467"><span class="annot"><span class="annottext">Maybe [StatefulRule]
+</span><a href="#local-6989586621679243467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RulesSource
+</span><a href="#local-6989586621679243468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statefulRules:RulesSource' :: Maybe [StatefulRule]
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#%24sel%3AstatefulRules%3ARulesSource%27"><span class="hs-identifier hs-var">statefulRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StatefulRule]
+</span><a href="#local-6989586621679243467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource"><span class="hs-identifier hs-type">RulesSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [StatefulRule] -&gt; f (Maybe [StatefulRule]))
+ -&gt; RulesSource -&gt; f RulesSource)
+-&gt; ((Maybe [StatefulRule] -&gt; f (Maybe [StatefulRule]))
+    -&gt; Maybe [StatefulRule] -&gt; f (Maybe [StatefulRule]))
+-&gt; (Maybe [StatefulRule] -&gt; f (Maybe [StatefulRule]))
+-&gt; RulesSource
+-&gt; f RulesSource
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [StatefulRule] [StatefulRule] [StatefulRule] [StatefulRule]
+-&gt; Iso
+     (Maybe [StatefulRule])
+     (Maybe [StatefulRule])
+     (Maybe [StatefulRule])
+     (Maybe [StatefulRule])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [StatefulRule] [StatefulRule] [StatefulRule] [StatefulRule]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Stateless inspection criteria to be used in a stateless rule group.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#rulesSource_statelessRulesAndCustomActions"><span class="hs-identifier hs-type">rulesSource_statelessRulesAndCustomActions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource"><span class="hs-identifier hs-type">RulesSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.StatelessRulesAndCustomActions.html#StatelessRulesAndCustomActions"><span class="hs-identifier hs-type">StatelessRulesAndCustomActions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="rulesSource_statelessRulesAndCustomActions"><span class="annot"><span class="annottext">rulesSource_statelessRulesAndCustomActions :: (Maybe StatelessRulesAndCustomActions
+ -&gt; f (Maybe StatelessRulesAndCustomActions))
+-&gt; RulesSource -&gt; f RulesSource
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#rulesSource_statelessRulesAndCustomActions"><span class="hs-identifier hs-var hs-var">rulesSource_statelessRulesAndCustomActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RulesSource -&gt; Maybe StatelessRulesAndCustomActions)
+-&gt; (RulesSource
+    -&gt; Maybe StatelessRulesAndCustomActions -&gt; RulesSource)
+-&gt; Lens
+     RulesSource
+     RulesSource
+     (Maybe StatelessRulesAndCustomActions)
+     (Maybe StatelessRulesAndCustomActions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource%27"><span class="hs-identifier hs-type">RulesSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243462"><span class="annot"><span class="annottext">Maybe StatelessRulesAndCustomActions
+statelessRulesAndCustomActions :: Maybe StatelessRulesAndCustomActions
+$sel:statelessRulesAndCustomActions:RulesSource' :: RulesSource -&gt; Maybe StatelessRulesAndCustomActions
+</span><a href="#local-6989586621679243462"><span class="hs-identifier hs-var hs-var">statelessRulesAndCustomActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatelessRulesAndCustomActions
+</span><a href="#local-6989586621679243462"><span class="hs-identifier hs-var">statelessRulesAndCustomActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243461"><span class="annot"><span class="annottext">s :: RulesSource
+</span><a href="#local-6989586621679243461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource%27"><span class="hs-identifier hs-type">RulesSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243460"><span class="annot"><span class="annottext">Maybe StatelessRulesAndCustomActions
+</span><a href="#local-6989586621679243460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RulesSource
+</span><a href="#local-6989586621679243461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statelessRulesAndCustomActions:RulesSource' :: Maybe StatelessRulesAndCustomActions
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#%24sel%3AstatelessRulesAndCustomActions%3ARulesSource%27"><span class="hs-identifier hs-var">statelessRulesAndCustomActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatelessRulesAndCustomActions
+</span><a href="#local-6989586621679243460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource"><span class="hs-identifier hs-type">RulesSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243457"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource"><span class="hs-identifier hs-type">RulesSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679243455"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RulesSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RulesSource) -&gt; Value -&gt; Parser RulesSource
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RulesSource&quot;</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243452"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243452"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe RulesSourceList
+-&gt; Maybe [StatefulRule]
+-&gt; Maybe StatelessRulesAndCustomActions
+-&gt; RulesSource
+</span><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource%27"><span class="hs-identifier hs-var">RulesSource'</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe RulesSourceList
+ -&gt; Maybe [StatefulRule]
+ -&gt; Maybe StatelessRulesAndCustomActions
+ -&gt; RulesSource)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe RulesSourceList
+      -&gt; Maybe [StatefulRule]
+      -&gt; Maybe StatelessRulesAndCustomActions
+      -&gt; RulesSource)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243452"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RulesString&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RulesSourceList
+   -&gt; Maybe [StatefulRule]
+   -&gt; Maybe StatelessRulesAndCustomActions
+   -&gt; RulesSource)
+-&gt; Parser (Maybe RulesSourceList)
+-&gt; Parser
+     (Maybe [StatefulRule]
+      -&gt; Maybe StatelessRulesAndCustomActions -&gt; RulesSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243452"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RulesSourceList)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RulesSourceList&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [StatefulRule]
+   -&gt; Maybe StatelessRulesAndCustomActions -&gt; RulesSource)
+-&gt; Parser (Maybe [StatefulRule])
+-&gt; Parser (Maybe StatelessRulesAndCustomActions -&gt; RulesSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243452"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [StatefulRule]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatefulRules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [StatefulRule]))
+-&gt; Maybe [StatefulRule] -&gt; Parser (Maybe [StatefulRule])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [StatefulRule]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe StatelessRulesAndCustomActions -&gt; RulesSource)
+-&gt; Parser (Maybe StatelessRulesAndCustomActions)
+-&gt; Parser RulesSource
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243452"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StatelessRulesAndCustomActions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatelessRulesAndCustomActions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243445"><span id="local-6989586621679243447"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource"><span class="hs-identifier hs-type">RulesSource</span></a></span></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource"><span class="hs-identifier hs-type">RulesSource</span></a></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243434"><span id="local-6989586621679243436"><span id="local-6989586621679243438"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource"><span class="hs-identifier hs-type">RulesSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679243432"><span class="annot"><span class="annottext">toJSON :: RulesSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RulesSource.html#RulesSource%27"><span class="hs-identifier hs-type">RulesSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243427"><span id="local-6989586621679243428"><span id="local-6989586621679243429"><span id="local-6989586621679243430"><span class="annot"><span class="annottext">Maybe [StatefulRule]
+Maybe Text
+Maybe StatelessRulesAndCustomActions
+Maybe RulesSourceList
+statelessRulesAndCustomActions :: Maybe StatelessRulesAndCustomActions
+statefulRules :: Maybe [StatefulRule]
+rulesSourceList :: Maybe RulesSourceList
+rulesString :: Maybe Text
+$sel:statelessRulesAndCustomActions:RulesSource' :: RulesSource -&gt; Maybe StatelessRulesAndCustomActions
+$sel:statefulRules:RulesSource' :: RulesSource -&gt; Maybe [StatefulRule]
+$sel:rulesSourceList:RulesSource' :: RulesSource -&gt; Maybe RulesSourceList
+$sel:rulesString:RulesSource' :: RulesSource -&gt; Maybe Text
+</span><a href="#local-6989586621679243427"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RulesString&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243430"><span class="hs-identifier hs-var">rulesString</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RulesSourceList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RulesSourceList -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">(RulesSourceList -&gt; Pair) -&gt; Maybe RulesSourceList -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RulesSourceList
+</span><a href="#local-6989586621679243429"><span class="hs-identifier hs-var">rulesSourceList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatefulRules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [StatefulRule] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([StatefulRule] -&gt; Pair) -&gt; Maybe [StatefulRule] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [StatefulRule]
+</span><a href="#local-6989586621679243428"><span class="hs-identifier hs-var">statefulRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatelessRulesAndCustomActions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StatelessRulesAndCustomActions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(StatelessRulesAndCustomActions -&gt; Pair)
+-&gt; Maybe StatelessRulesAndCustomActions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StatelessRulesAndCustomActions
+</span><a href="#local-6989586621679243427"><span class="hs-identifier hs-var">statelessRulesAndCustomActions</span></a></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span></pre></body></html>

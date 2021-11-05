@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | Information about the build output artifacts for the build project.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newProjectArtifacts' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679373316"><span id="local-6989586621679373317"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectArtifacts"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-var">ProjectArtifacts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectArtifacts%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-var">ProjectArtifacts'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679373325"><span id="local-6989586621679373326"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectArtifacts"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-var">ProjectArtifacts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectArtifacts%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-var">ProjectArtifacts'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of build output artifact to create:</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value</span><span>
@@ -162,7 +162,7 @@
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3Atype%27%3AProjectArtifacts%27"><span class="annot"><span class="annottext">ProjectArtifacts -&gt; ArtifactsType
 </span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Atype%27%3AProjectArtifacts%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType"><span class="hs-identifier hs-type">ArtifactsType</span></a></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373301"><span id="local-6989586621679373303"><span class="annot"><span class="annottext">ProjectArtifacts -&gt; ProjectArtifacts -&gt; Bool
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373310"><span id="local-6989586621679373312"><span class="annot"><span class="annottext">ProjectArtifacts -&gt; ProjectArtifacts -&gt; Bool
 (ProjectArtifacts -&gt; ProjectArtifacts -&gt; Bool)
 -&gt; (ProjectArtifacts -&gt; ProjectArtifacts -&gt; Bool)
 -&gt; Eq ProjectArtifacts
@@ -171,7 +171,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProjectArtifacts -&gt; ProjectArtifacts -&gt; Bool
 == :: ProjectArtifacts -&gt; ProjectArtifacts -&gt; Bool
 $c== :: ProjectArtifacts -&gt; ProjectArtifacts -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373292"><span id="local-6989586621679373294"><span id="local-6989586621679373296"><span id="local-6989586621679373298"><span class="annot"><span class="annottext">ReadPrec [ProjectArtifacts]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373301"><span id="local-6989586621679373303"><span id="local-6989586621679373305"><span id="local-6989586621679373307"><span class="annot"><span class="annottext">ReadPrec [ProjectArtifacts]
 ReadPrec ProjectArtifacts
 Int -&gt; ReadS ProjectArtifacts
 ReadS [ProjectArtifacts]
@@ -191,7 +191,7 @@ readList :: ReadS [ProjectArtifacts]
 $creadList :: ReadS [ProjectArtifacts]
 readsPrec :: Int -&gt; ReadS ProjectArtifacts
 $creadsPrec :: Int -&gt; ReadS ProjectArtifacts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373285"><span id="local-6989586621679373287"><span id="local-6989586621679373289"><span class="annot"><span class="annottext">Int -&gt; ProjectArtifacts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373294"><span id="local-6989586621679373296"><span id="local-6989586621679373298"><span class="annot"><span class="annottext">Int -&gt; ProjectArtifacts -&gt; ShowS
 [ProjectArtifacts] -&gt; ShowS
 ProjectArtifacts -&gt; String
 (Int -&gt; ProjectArtifacts -&gt; ShowS)
@@ -350,8 +350,8 @@ $cfrom :: forall x. ProjectArtifacts -&gt; Rep ProjectArtifacts x
 </span><span id="line-287"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ArtifactsType.html#ArtifactsType"><span class="hs-identifier hs-type">ArtifactsType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-288"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span>
 </span><span id="line-289"></span><span id="newProjectArtifacts"><span class="annot"><span class="annottext">newProjectArtifacts :: ArtifactsType -&gt; ProjectArtifacts
-</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#newProjectArtifacts"><span class="hs-identifier hs-var hs-var">newProjectArtifacts</span></a></span></span><span> </span><span id="local-6989586621679373279"><span class="annot"><span class="annottext">ArtifactsType
-</span><a href="#local-6989586621679373279"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#newProjectArtifacts"><span class="hs-identifier hs-var hs-var">newProjectArtifacts</span></a></span></span><span> </span><span id="local-6989586621679373288"><span class="annot"><span class="annottext">ArtifactsType
+</span><a href="#local-6989586621679373288"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-290"></span><span>  </span><span class="annot"><span class="annottext">ProjectArtifacts' :: Maybe ArtifactPackaging
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -402,7 +402,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-300"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ProjectArtifacts' :: ArtifactsType
 </span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Atype%27%3AProjectArtifacts%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArtifactsType
-</span><a href="#local-6989586621679373279"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679373288"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-301"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-302"></span><span>
 </span><span id="line-303"></span><span class="hs-comment">-- | The type of build output artifact to create:</span><span>
@@ -434,16 +434,16 @@ forall a. Maybe a
      (Maybe ArtifactPackaging)
      (Maybe ArtifactPackaging)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373275"><span class="annot"><span class="annottext">Maybe ArtifactPackaging
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373284"><span class="annot"><span class="annottext">Maybe ArtifactPackaging
 packaging :: Maybe ArtifactPackaging
 $sel:packaging:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe ArtifactPackaging
-</span><a href="#local-6989586621679373275"><span class="hs-identifier hs-var hs-var">packaging</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactPackaging
-</span><a href="#local-6989586621679373275"><span class="hs-identifier hs-var">packaging</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373274"><span class="annot"><span class="annottext">s :: ProjectArtifacts
-</span><a href="#local-6989586621679373274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373273"><span class="annot"><span class="annottext">Maybe ArtifactPackaging
-</span><a href="#local-6989586621679373273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
-</span><a href="#local-6989586621679373274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packaging:ProjectArtifacts' :: Maybe ArtifactPackaging
+</span><a href="#local-6989586621679373284"><span class="hs-identifier hs-var hs-var">packaging</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactPackaging
+</span><a href="#local-6989586621679373284"><span class="hs-identifier hs-var">packaging</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373283"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679373283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373282"><span class="annot"><span class="annottext">Maybe ArtifactPackaging
+</span><a href="#local-6989586621679373282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679373283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packaging:ProjectArtifacts' :: Maybe ArtifactPackaging
 </span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Apackaging%3AProjectArtifacts%27"><span class="hs-identifier hs-var">packaging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactPackaging
-</span><a href="#local-6989586621679373273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-322"></span><span>
 </span><span id="line-323"></span><span class="hs-comment">-- | Along with @namespaceType@ and @name@, the pattern that CodeBuild uses</span><span>
 </span><span id="line-324"></span><span class="hs-comment">-- to name and store the output artifact:</span><span>
@@ -468,16 +468,16 @@ $sel:packaging:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe ArtifactPackagi
 -&gt; (ProjectArtifacts -&gt; Maybe Text -&gt; ProjectArtifacts)
 -&gt; Lens ProjectArtifacts ProjectArtifacts (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373271"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373280"><span class="annot"><span class="annottext">Maybe Text
 path :: Maybe Text
 $sel:path:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
-</span><a href="#local-6989586621679373271"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373271"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373270"><span class="annot"><span class="annottext">s :: ProjectArtifacts
-</span><a href="#local-6989586621679373270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373269"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
-</span><a href="#local-6989586621679373270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:ProjectArtifacts' :: Maybe Text
+</span><a href="#local-6989586621679373280"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373280"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373279"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679373279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373278"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679373279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:ProjectArtifacts' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Apath%3AProjectArtifacts%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-341"></span><span>
 </span><span id="line-342"></span><span class="hs-comment">-- | Information about the build output artifact location:</span><span>
 </span><span id="line-343"></span><span class="hs-comment">--</span><span>
@@ -496,16 +496,16 @@ $sel:path:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
 -&gt; (ProjectArtifacts -&gt; Maybe Text -&gt; ProjectArtifacts)
 -&gt; Lens ProjectArtifacts ProjectArtifacts (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373267"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373276"><span class="annot"><span class="annottext">Maybe Text
 location :: Maybe Text
 $sel:location:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
-</span><a href="#local-6989586621679373267"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373267"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373266"><span class="annot"><span class="annottext">s :: ProjectArtifacts
-</span><a href="#local-6989586621679373266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373265"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
-</span><a href="#local-6989586621679373266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:ProjectArtifacts' :: Maybe Text
+</span><a href="#local-6989586621679373276"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373276"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373275"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679373275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373274"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679373275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:ProjectArtifacts' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Alocation%3AProjectArtifacts%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-354"></span><span>
 </span><span id="line-355"></span><span class="hs-comment">-- | Along with @path@ and @namespaceType@, the pattern that CodeBuild uses</span><span>
 </span><span id="line-356"></span><span class="hs-comment">-- to name and store the output artifact:</span><span>
@@ -541,16 +541,16 @@ $sel:location:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
 -&gt; (ProjectArtifacts -&gt; Maybe Text -&gt; ProjectArtifacts)
 -&gt; Lens ProjectArtifacts ProjectArtifacts (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373263"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373272"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
-</span><a href="#local-6989586621679373263"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373263"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373262"><span class="annot"><span class="annottext">s :: ProjectArtifacts
-</span><a href="#local-6989586621679373262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373261"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
-</span><a href="#local-6989586621679373262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ProjectArtifacts' :: Maybe Text
+</span><a href="#local-6989586621679373272"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373272"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373271"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679373271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373270"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679373271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ProjectArtifacts' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Aname%3AProjectArtifacts%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-384"></span><span>
 </span><span id="line-385"></span><span class="hs-comment">-- | Set to true if you do not want your output artifacts encrypted. This</span><span>
 </span><span id="line-386"></span><span class="hs-comment">-- option is valid only if your artifacts type is Amazon S3. If this is set</span><span>
@@ -562,16 +562,16 @@ $sel:name:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
 -&gt; (ProjectArtifacts -&gt; Maybe Bool -&gt; ProjectArtifacts)
 -&gt; Lens ProjectArtifacts ProjectArtifacts (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373259"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373268"><span class="annot"><span class="annottext">Maybe Bool
 encryptionDisabled :: Maybe Bool
 $sel:encryptionDisabled:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Bool
-</span><a href="#local-6989586621679373259"><span class="hs-identifier hs-var hs-var">encryptionDisabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679373259"><span class="hs-identifier hs-var">encryptionDisabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373258"><span class="annot"><span class="annottext">s :: ProjectArtifacts
-</span><a href="#local-6989586621679373258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373257"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679373257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
-</span><a href="#local-6989586621679373258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionDisabled:ProjectArtifacts' :: Maybe Bool
+</span><a href="#local-6989586621679373268"><span class="hs-identifier hs-var hs-var">encryptionDisabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679373268"><span class="hs-identifier hs-var">encryptionDisabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373267"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679373267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373266"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679373266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679373267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionDisabled:ProjectArtifacts' :: Maybe Bool
 </span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AencryptionDisabled%3AProjectArtifacts%27"><span class="hs-identifier hs-var">encryptionDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679373257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-390"></span><span>
 </span><span id="line-391"></span><span class="hs-comment">-- | If this flag is set, a name specified in the buildspec file overrides</span><span>
 </span><span id="line-392"></span><span class="hs-comment">-- the artifact name. The name specified in a buildspec file is calculated</span><span>
@@ -585,16 +585,16 @@ $sel:encryptionDisabled:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Bool
 -&gt; (ProjectArtifacts -&gt; Maybe Bool -&gt; ProjectArtifacts)
 -&gt; Lens ProjectArtifacts ProjectArtifacts (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373255"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373264"><span class="annot"><span class="annottext">Maybe Bool
 overrideArtifactName :: Maybe Bool
 $sel:overrideArtifactName:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Bool
-</span><a href="#local-6989586621679373255"><span class="hs-identifier hs-var hs-var">overrideArtifactName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679373255"><span class="hs-identifier hs-var">overrideArtifactName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373254"><span class="annot"><span class="annottext">s :: ProjectArtifacts
-</span><a href="#local-6989586621679373254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373253"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679373253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
-</span><a href="#local-6989586621679373254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overrideArtifactName:ProjectArtifacts' :: Maybe Bool
+</span><a href="#local-6989586621679373264"><span class="hs-identifier hs-var hs-var">overrideArtifactName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679373264"><span class="hs-identifier hs-var">overrideArtifactName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373263"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679373263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373262"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679373262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679373263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overrideArtifactName:ProjectArtifacts' :: Maybe Bool
 </span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AoverrideArtifactName%3AProjectArtifacts%27"><span class="hs-identifier hs-var">overrideArtifactName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679373253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-398"></span><span>
 </span><span id="line-399"></span><span class="hs-comment">-- | An identifier for this artifact definition.</span><span>
 </span><span id="line-400"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_artifactIdentifier"><span class="hs-identifier hs-type">projectArtifacts_artifactIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -604,16 +604,16 @@ $sel:overrideArtifactName:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Bool
 -&gt; (ProjectArtifacts -&gt; Maybe Text -&gt; ProjectArtifacts)
 -&gt; Lens ProjectArtifacts ProjectArtifacts (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373251"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373260"><span class="annot"><span class="annottext">Maybe Text
 artifactIdentifier :: Maybe Text
 $sel:artifactIdentifier:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
-</span><a href="#local-6989586621679373251"><span class="hs-identifier hs-var hs-var">artifactIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373251"><span class="hs-identifier hs-var">artifactIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373250"><span class="annot"><span class="annottext">s :: ProjectArtifacts
-</span><a href="#local-6989586621679373250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373249"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
-</span><a href="#local-6989586621679373250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactIdentifier:ProjectArtifacts' :: Maybe Text
+</span><a href="#local-6989586621679373260"><span class="hs-identifier hs-var hs-var">artifactIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373260"><span class="hs-identifier hs-var">artifactIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373259"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679373259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373258"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679373259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactIdentifier:ProjectArtifacts' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AartifactIdentifier%3AProjectArtifacts%27"><span class="hs-identifier hs-var">artifactIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-402"></span><span>
 </span><span id="line-403"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-404"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#projectArtifacts_bucketOwnerAccess"><span class="hs-identifier hs-type">projectArtifacts_bucketOwnerAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BucketOwnerAccess.html#BucketOwnerAccess"><span class="hs-identifier hs-type">BucketOwnerAccess</span></a></span><span class="hs-special">)</span><span>
@@ -628,16 +628,16 @@ $sel:artifactIdentifier:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
      (Maybe BucketOwnerAccess)
      (Maybe BucketOwnerAccess)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373247"><span class="annot"><span class="annottext">Maybe BucketOwnerAccess
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373256"><span class="annot"><span class="annottext">Maybe BucketOwnerAccess
 bucketOwnerAccess :: Maybe BucketOwnerAccess
 $sel:bucketOwnerAccess:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe BucketOwnerAccess
-</span><a href="#local-6989586621679373247"><span class="hs-identifier hs-var hs-var">bucketOwnerAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BucketOwnerAccess
-</span><a href="#local-6989586621679373247"><span class="hs-identifier hs-var">bucketOwnerAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373246"><span class="annot"><span class="annottext">s :: ProjectArtifacts
-</span><a href="#local-6989586621679373246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373245"><span class="annot"><span class="annottext">Maybe BucketOwnerAccess
-</span><a href="#local-6989586621679373245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
-</span><a href="#local-6989586621679373246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketOwnerAccess:ProjectArtifacts' :: Maybe BucketOwnerAccess
+</span><a href="#local-6989586621679373256"><span class="hs-identifier hs-var hs-var">bucketOwnerAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BucketOwnerAccess
+</span><a href="#local-6989586621679373256"><span class="hs-identifier hs-var">bucketOwnerAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373255"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679373255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373254"><span class="annot"><span class="annottext">Maybe BucketOwnerAccess
+</span><a href="#local-6989586621679373254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679373255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketOwnerAccess:ProjectArtifacts' :: Maybe BucketOwnerAccess
 </span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AbucketOwnerAccess%3AProjectArtifacts%27"><span class="hs-identifier hs-var">bucketOwnerAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BucketOwnerAccess
-</span><a href="#local-6989586621679373245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-406"></span><span>
 </span><span id="line-407"></span><span class="hs-comment">-- | Along with @path@ and @name@, the pattern that CodeBuild uses to</span><span>
 </span><span id="line-408"></span><span class="hs-comment">-- determine the name and location to store the output artifact:</span><span>
@@ -672,16 +672,16 @@ $sel:bucketOwnerAccess:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe BucketO
      (Maybe ArtifactNamespace)
      (Maybe ArtifactNamespace)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373243"><span class="annot"><span class="annottext">Maybe ArtifactNamespace
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373252"><span class="annot"><span class="annottext">Maybe ArtifactNamespace
 namespaceType :: Maybe ArtifactNamespace
 $sel:namespaceType:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe ArtifactNamespace
-</span><a href="#local-6989586621679373243"><span class="hs-identifier hs-var hs-var">namespaceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactNamespace
-</span><a href="#local-6989586621679373243"><span class="hs-identifier hs-var">namespaceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373242"><span class="annot"><span class="annottext">s :: ProjectArtifacts
-</span><a href="#local-6989586621679373242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373241"><span class="annot"><span class="annottext">Maybe ArtifactNamespace
-</span><a href="#local-6989586621679373241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
-</span><a href="#local-6989586621679373242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaceType:ProjectArtifacts' :: Maybe ArtifactNamespace
+</span><a href="#local-6989586621679373252"><span class="hs-identifier hs-var hs-var">namespaceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactNamespace
+</span><a href="#local-6989586621679373252"><span class="hs-identifier hs-var">namespaceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373251"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679373251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373250"><span class="annot"><span class="annottext">Maybe ArtifactNamespace
+</span><a href="#local-6989586621679373250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679373251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaceType:ProjectArtifacts' :: Maybe ArtifactNamespace
 </span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3AnamespaceType%3AProjectArtifacts%27"><span class="hs-identifier hs-var">namespaceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactNamespace
-</span><a href="#local-6989586621679373241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-430"></span><span>
 </span><span id="line-431"></span><span class="hs-comment">-- | The type of build output artifact. Valid values include:</span><span>
 </span><span id="line-432"></span><span class="hs-comment">--</span><span>
@@ -701,19 +701,19 @@ $sel:namespaceType:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe ArtifactNam
 -&gt; Lens
      ProjectArtifacts ProjectArtifacts ArtifactsType ArtifactsType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373239"><span class="annot"><span class="annottext">ArtifactsType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373248"><span class="annot"><span class="annottext">ArtifactsType
 type' :: ArtifactsType
 $sel:type':ProjectArtifacts' :: ProjectArtifacts -&gt; ArtifactsType
-</span><a href="#local-6989586621679373239"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactsType
-</span><a href="#local-6989586621679373239"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373238"><span class="annot"><span class="annottext">s :: ProjectArtifacts
-</span><a href="#local-6989586621679373238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373237"><span class="annot"><span class="annottext">ArtifactsType
-</span><a href="#local-6989586621679373237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
-</span><a href="#local-6989586621679373238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ProjectArtifacts' :: ArtifactsType
+</span><a href="#local-6989586621679373248"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactsType
+</span><a href="#local-6989586621679373248"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373247"><span class="annot"><span class="annottext">s :: ProjectArtifacts
+</span><a href="#local-6989586621679373247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373246"><span class="annot"><span class="annottext">ArtifactsType
+</span><a href="#local-6989586621679373246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectArtifacts
+</span><a href="#local-6989586621679373247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ProjectArtifacts' :: ArtifactsType
 </span><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#%24sel%3Atype%27%3AProjectArtifacts%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArtifactsType
-</span><a href="#local-6989586621679373237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-443"></span><span>
-</span><span id="line-444"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373234"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-445"></span><span>  </span><span id="local-6989586621679373232"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectArtifacts
+</span><span id="line-444"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373243"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-445"></span><span>  </span><span id="local-6989586621679373241"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectArtifacts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-446"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProjectArtifacts)
@@ -723,8 +723,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-447"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProjectArtifacts&quot;</span></span><span>
-</span><span id="line-448"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373229"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373229"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-448"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373238"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373238"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-449"></span><span>          </span><span class="annot"><span class="annottext">Maybe ArtifactPackaging
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -762,7 +762,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ProjectArtifacts)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArtifactPackaging)
+</span><a href="#local-6989586621679373238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArtifactPackaging)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;packaging&quot;</span></span><span class="hs-special">)</span><span>
@@ -790,7 +790,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ProjectArtifacts)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679373238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;path&quot;</span></span><span class="hs-special">)</span><span>
@@ -816,7 +816,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ProjectArtifacts)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679373238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
@@ -840,7 +840,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ProjectArtifacts)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679373238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -862,7 +862,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ProjectArtifacts)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679373238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;encryptionDisabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -882,7 +882,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ProjectArtifacts)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679373238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;overrideArtifactName&quot;</span></span><span class="hs-special">)</span><span>
@@ -898,7 +898,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe ArtifactNamespace -&gt; ArtifactsType -&gt; ProjectArtifacts)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679373238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;artifactIdentifier&quot;</span></span><span class="hs-special">)</span><span>
@@ -910,7 +910,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe ArtifactNamespace -&gt; ArtifactsType -&gt; ProjectArtifacts)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BucketOwnerAccess)
+</span><a href="#local-6989586621679373238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BucketOwnerAccess)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bucketOwnerAccess&quot;</span></span><span class="hs-special">)</span><span>
@@ -920,7 +920,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (ArtifactsType -&gt; ProjectArtifacts)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArtifactNamespace)
+</span><a href="#local-6989586621679373238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArtifactNamespace)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;namespaceType&quot;</span></span><span class="hs-special">)</span><span>
@@ -928,19 +928,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser ArtifactsType -&gt; Parser ProjectArtifacts
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ArtifactsType
+</span><a href="#local-6989586621679373238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ArtifactsType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-460"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-461"></span><span>
-</span><span id="line-462"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373222"><span id="local-6989586621679373224"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span></span></span><span>
+</span><span id="line-462"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373231"><span id="local-6989586621679373233"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span></span></span><span>
 </span><span id="line-463"></span><span>
-</span><span id="line-464"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373219"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span></span><span>
+</span><span id="line-464"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373228"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span></span><span>
 </span><span id="line-465"></span><span>
-</span><span id="line-466"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373211"><span id="local-6989586621679373213"><span id="local-6989586621679373215"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-467"></span><span>  </span><span id="local-6989586621679373209"><span class="annot"><span class="annottext">toJSON :: ProjectArtifacts -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373198"><span id="local-6989586621679373199"><span id="local-6989586621679373200"><span id="local-6989586621679373201"><span id="local-6989586621679373202"><span id="local-6989586621679373203"><span id="local-6989586621679373204"><span id="local-6989586621679373205"><span id="local-6989586621679373206"><span id="local-6989586621679373207"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-466"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373220"><span id="local-6989586621679373222"><span id="local-6989586621679373224"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts"><span class="hs-identifier hs-type">ProjectArtifacts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-467"></span><span>  </span><span id="local-6989586621679373218"><span class="annot"><span class="annottext">toJSON :: ProjectArtifacts -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectArtifacts.html#ProjectArtifacts%27"><span class="hs-identifier hs-type">ProjectArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373207"><span id="local-6989586621679373208"><span id="local-6989586621679373209"><span id="local-6989586621679373210"><span id="local-6989586621679373211"><span id="local-6989586621679373212"><span id="local-6989586621679373213"><span id="local-6989586621679373214"><span id="local-6989586621679373215"><span id="local-6989586621679373216"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe ArtifactNamespace
 Maybe ArtifactPackaging
@@ -966,7 +966,7 @@ $sel:name:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
 $sel:location:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
 $sel:path:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe Text
 $sel:packaging:ProjectArtifacts' :: ProjectArtifacts -&gt; Maybe ArtifactPackaging
-</span><a href="#local-6989586621679373198"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679373207"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-468"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-469"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -979,28 +979,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ArtifactPackaging -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactPackaging
-</span><a href="#local-6989586621679373207"><span class="hs-identifier hs-var">packaging</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373216"><span class="hs-identifier hs-var">packaging</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-471"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;path&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373206"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373215"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-472"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373205"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373214"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-473"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373204"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373213"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-474"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;encryptionDisabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1008,7 +1008,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-475"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679373203"><span class="hs-identifier hs-var">encryptionDisabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373212"><span class="hs-identifier hs-var">encryptionDisabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-476"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;overrideArtifactName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1016,7 +1016,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-477"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679373202"><span class="hs-identifier hs-var">overrideArtifactName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373211"><span class="hs-identifier hs-var">overrideArtifactName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-478"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;artifactIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1024,7 +1024,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-479"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373201"><span class="hs-identifier hs-var">artifactIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373210"><span class="hs-identifier hs-var">artifactIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-480"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bucketOwnerAccess&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BucketOwnerAccess -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1033,7 +1033,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe BucketOwnerAccess -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BucketOwnerAccess
-</span><a href="#local-6989586621679373200"><span class="hs-identifier hs-var">bucketOwnerAccess</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373209"><span class="hs-identifier hs-var">bucketOwnerAccess</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-482"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;namespaceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ArtifactNamespace -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1041,14 +1041,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ArtifactNamespace -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactNamespace
-</span><a href="#local-6989586621679373199"><span class="hs-identifier hs-var">namespaceType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373208"><span class="hs-identifier hs-var">namespaceType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-483"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ArtifactsType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ArtifactsType
-</span><a href="#local-6989586621679373198"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373207"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-484"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-485"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-486"></span></pre></body></html>

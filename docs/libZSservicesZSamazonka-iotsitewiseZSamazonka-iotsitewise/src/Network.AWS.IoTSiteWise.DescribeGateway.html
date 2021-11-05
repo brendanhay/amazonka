@@ -1,0 +1,811 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoTSiteWise.DescribeGateway</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves information about a gateway.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTSiteWise.DescribeGateway</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGateway"><span class="hs-identifier">DescribeGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#newDescribeGateway"><span class="hs-identifier">newDescribeGateway</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGateway_gatewayId"><span class="hs-identifier">describeGateway_gatewayId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier">DescribeGatewayResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#newDescribeGatewayResponse"><span class="hs-identifier">newDescribeGatewayResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_gatewayPlatform"><span class="hs-identifier">describeGatewayResponse_gatewayPlatform</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_httpStatus"><span class="hs-identifier">describeGatewayResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_gatewayId"><span class="hs-identifier">describeGatewayResponse_gatewayId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_gatewayName"><span class="hs-identifier">describeGatewayResponse_gatewayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_gatewayArn"><span class="hs-identifier">describeGatewayResponse_gatewayArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_gatewayCapabilitySummaries"><span class="hs-identifier">describeGatewayResponse_gatewayCapabilitySummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_creationDate"><span class="hs-identifier">describeGatewayResponse_creationDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_lastUpdateDate"><span class="hs-identifier">describeGatewayResponse_lastUpdateDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDescribeGateway' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679354789"><span id="local-6989586621679354790"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGateway"><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGateway"><span class="hs-identifier hs-var">DescribeGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGateway%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGateway%27"><span class="hs-identifier hs-var">DescribeGateway'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the gateway device.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AgatewayId%3ADescribeGateway%27"><span class="annot"><span class="annottext">DescribeGateway -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayId%3ADescribeGateway%27"><span class="hs-identifier hs-var hs-var">gatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354783"><span id="local-6989586621679354785"><span class="annot"><span class="annottext">DescribeGateway -&gt; DescribeGateway -&gt; Bool
+(DescribeGateway -&gt; DescribeGateway -&gt; Bool)
+-&gt; (DescribeGateway -&gt; DescribeGateway -&gt; Bool)
+-&gt; Eq DescribeGateway
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeGateway -&gt; DescribeGateway -&gt; Bool
+$c/= :: DescribeGateway -&gt; DescribeGateway -&gt; Bool
+== :: DescribeGateway -&gt; DescribeGateway -&gt; Bool
+$c== :: DescribeGateway -&gt; DescribeGateway -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354774"><span id="local-6989586621679354776"><span id="local-6989586621679354778"><span id="local-6989586621679354780"><span class="annot"><span class="annottext">ReadPrec [DescribeGateway]
+ReadPrec DescribeGateway
+Int -&gt; ReadS DescribeGateway
+ReadS [DescribeGateway]
+(Int -&gt; ReadS DescribeGateway)
+-&gt; ReadS [DescribeGateway]
+-&gt; ReadPrec DescribeGateway
+-&gt; ReadPrec [DescribeGateway]
+-&gt; Read DescribeGateway
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeGateway]
+$creadListPrec :: ReadPrec [DescribeGateway]
+readPrec :: ReadPrec DescribeGateway
+$creadPrec :: ReadPrec DescribeGateway
+readList :: ReadS [DescribeGateway]
+$creadList :: ReadS [DescribeGateway]
+readsPrec :: Int -&gt; ReadS DescribeGateway
+$creadsPrec :: Int -&gt; ReadS DescribeGateway
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354767"><span id="local-6989586621679354769"><span id="local-6989586621679354771"><span class="annot"><span class="annottext">Int -&gt; DescribeGateway -&gt; ShowS
+[DescribeGateway] -&gt; ShowS
+DescribeGateway -&gt; String
+(Int -&gt; DescribeGateway -&gt; ShowS)
+-&gt; (DescribeGateway -&gt; String)
+-&gt; ([DescribeGateway] -&gt; ShowS)
+-&gt; Show DescribeGateway
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeGateway] -&gt; ShowS
+$cshowList :: [DescribeGateway] -&gt; ShowS
+show :: DescribeGateway -&gt; String
+$cshow :: DescribeGateway -&gt; String
+showsPrec :: Int -&gt; DescribeGateway -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeGateway -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeGateway -&gt; Rep DescribeGateway x)
+-&gt; (forall x. Rep DescribeGateway x -&gt; DescribeGateway)
+-&gt; Generic DescribeGateway
+forall x. Rep DescribeGateway x -&gt; DescribeGateway
+forall x. DescribeGateway -&gt; Rep DescribeGateway x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeGateway x -&gt; DescribeGateway
+$cfrom :: forall x. DescribeGateway -&gt; Rep DescribeGateway x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'DescribeGateway' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'gatewayId', 'describeGateway_gatewayId' - The ID of the gateway device.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#newDescribeGateway"><span class="hs-identifier hs-type">newDescribeGateway</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'gatewayId'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGateway"><span class="hs-identifier hs-type">DescribeGateway</span></a></span><span>
+</span><span id="line-75"></span><span id="newDescribeGateway"><span class="annot"><span class="annottext">newDescribeGateway :: Text -&gt; DescribeGateway
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#newDescribeGateway"><span class="hs-identifier hs-var hs-var">newDescribeGateway</span></a></span></span><span> </span><span id="local-6989586621679354762"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354762"><span class="hs-identifier hs-var">pGatewayId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DescribeGateway' :: Text -&gt; DescribeGateway
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGateway%27"><span class="hs-identifier hs-type">DescribeGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayId:DescribeGateway' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayId%3ADescribeGateway%27"><span class="hs-identifier hs-var">gatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354762"><span class="hs-identifier hs-var">pGatewayId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The ID of the gateway device.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGateway_gatewayId"><span class="hs-identifier hs-type">describeGateway_gatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGateway"><span class="hs-identifier hs-type">DescribeGateway</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span id="describeGateway_gatewayId"><span class="annot"><span class="annottext">describeGateway_gatewayId :: (Text -&gt; f Text) -&gt; DescribeGateway -&gt; f DescribeGateway
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGateway_gatewayId"><span class="hs-identifier hs-var hs-var">describeGateway_gatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGateway -&gt; Text)
+-&gt; (DescribeGateway -&gt; Text -&gt; DescribeGateway)
+-&gt; Lens DescribeGateway DescribeGateway Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGateway%27"><span class="hs-identifier hs-type">DescribeGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354759"><span class="annot"><span class="annottext">Text
+gatewayId :: Text
+$sel:gatewayId:DescribeGateway' :: DescribeGateway -&gt; Text
+</span><a href="#local-6989586621679354759"><span class="hs-identifier hs-var hs-var">gatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354759"><span class="hs-identifier hs-var">gatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354758"><span class="annot"><span class="annottext">s :: DescribeGateway
+</span><a href="#local-6989586621679354758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGateway%27"><span class="hs-identifier hs-type">DescribeGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354757"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGateway
+</span><a href="#local-6989586621679354758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayId:DescribeGateway' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayId%3ADescribeGateway%27"><span class="hs-identifier hs-var">gatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGateway"><span class="hs-identifier hs-type">DescribeGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGateway"><span class="hs-identifier hs-type">DescribeGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGateway"><span class="hs-identifier hs-type">DescribeGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679354753"><span class="annot"><span class="annottext">request :: DescribeGateway -&gt; Request DescribeGateway
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeGateway -&gt; Request DescribeGateway
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTSiteWise.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679354749"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeGateway
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeGateway)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeGateway))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeGateway
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeGateway)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679354746"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354746"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679354745"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679354745"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679354744"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354744"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe GatewayPlatform
+-&gt; Int
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; [GatewayCapabilitySummary]
+-&gt; POSIX
+-&gt; POSIX
+-&gt; DescribeGatewayResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-var">DescribeGatewayResponse'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GatewayPlatform
+ -&gt; Int
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; [GatewayCapabilitySummary]
+ -&gt; POSIX
+ -&gt; POSIX
+ -&gt; DescribeGatewayResponse)
+-&gt; Either String (Maybe GatewayPlatform)
+-&gt; Either
+     String
+     (Int
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; [GatewayCapabilitySummary]
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; DescribeGatewayResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354744"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GatewayPlatform)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gatewayPlatform&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; [GatewayCapabilitySummary]
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; DescribeGatewayResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; [GatewayCapabilitySummary]
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; DescribeGatewayResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354746"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; [GatewayCapabilitySummary]
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; DescribeGatewayResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; [GatewayCapabilitySummary]
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; DescribeGatewayResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354744"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gatewayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; [GatewayCapabilitySummary]
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; DescribeGatewayResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text
+      -&gt; [GatewayCapabilitySummary]
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; DescribeGatewayResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354744"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gatewayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; [GatewayCapabilitySummary]
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; DescribeGatewayResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     ([GatewayCapabilitySummary]
+      -&gt; POSIX -&gt; POSIX -&gt; DescribeGatewayResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354744"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gatewayArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  ([GatewayCapabilitySummary]
+   -&gt; POSIX -&gt; POSIX -&gt; DescribeGatewayResponse)
+-&gt; Either String [GatewayCapabilitySummary]
+-&gt; Either String (POSIX -&gt; POSIX -&gt; DescribeGatewayResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354744"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [GatewayCapabilitySummary])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gatewayCapabilitySummaries&quot;</span></span><span>
+</span><span id="line-97"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [GatewayCapabilitySummary])
+-&gt; [GatewayCapabilitySummary]
+-&gt; Either String [GatewayCapabilitySummary]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[GatewayCapabilitySummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-98"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either String (POSIX -&gt; POSIX -&gt; DescribeGatewayResponse)
+-&gt; Either String POSIX
+-&gt; Either String (POSIX -&gt; DescribeGatewayResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354744"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (POSIX -&gt; DescribeGatewayResponse)
+-&gt; Either String POSIX -&gt; Either String DescribeGatewayResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354744"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdateDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354734"><span id="local-6989586621679354736"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGateway"><span class="hs-identifier hs-type">DescribeGateway</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354731"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGateway"><span class="hs-identifier hs-type">DescribeGateway</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGateway"><span class="hs-identifier hs-type">DescribeGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679354727"><span class="annot"><span class="annottext">toHeaders :: DescribeGateway -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeGateway -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGateway"><span class="hs-identifier hs-type">DescribeGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679354721"><span class="annot"><span class="annottext">toPath :: DescribeGateway -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGateway%27"><span class="hs-identifier hs-type">DescribeGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354719"><span class="annot"><span class="annottext">Text
+gatewayId :: Text
+$sel:gatewayId:DescribeGateway' :: DescribeGateway -&gt; Text
+</span><a href="#local-6989586621679354719"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/20200301/gateways/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354719"><span class="hs-identifier hs-var">gatewayId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGateway"><span class="hs-identifier hs-type">DescribeGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679354715"><span class="annot"><span class="annottext">toQuery :: DescribeGateway -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeGateway -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newDescribeGatewayResponse' smart constructor.</span><span>
+</span><span id="line-127"></span><span id="local-6989586621679354712"><span id="local-6989586621679354713"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGatewayResponse"><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-var">DescribeGatewayResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGatewayResponse%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-var">DescribeGatewayResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The gateway\'s platform.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AgatewayPlatform%3ADescribeGatewayResponse%27"><span class="annot"><span class="annottext">DescribeGatewayResponse -&gt; Maybe GatewayPlatform
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayPlatform%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var hs-var">gatewayPlatform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.GatewayPlatform.html#GatewayPlatform"><span class="hs-identifier hs-type">GatewayPlatform</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeGatewayResponse%27"><span class="annot"><span class="annottext">DescribeGatewayResponse -&gt; Int
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AhttpStatus%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The ID of the gateway device.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AgatewayId%3ADescribeGatewayResponse%27"><span class="annot"><span class="annottext">DescribeGatewayResponse -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayId%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var hs-var">gatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The name of the gateway.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AgatewayName%3ADescribeGatewayResponse%27"><span class="annot"><span class="annottext">DescribeGatewayResponse -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayName%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var hs-var">gatewayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- of the gateway, which has the following format.</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- @arn:${Partition}:iotsitewise:${Region}:${Account}:gateway\/${GatewayId}@</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AgatewayArn%3ADescribeGatewayResponse%27"><span class="annot"><span class="annottext">DescribeGatewayResponse -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayArn%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var hs-var">gatewayArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | A list of gateway capability summaries that each contain a namespace and</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- status. Each gateway capability defines data sources for the gateway. To</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- retrieve a capability configuration\'s definition, use</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html DescribeGatewayCapabilityConfiguration&gt;.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AgatewayCapabilitySummaries%3ADescribeGatewayResponse%27"><span class="annot"><span class="annottext">DescribeGatewayResponse -&gt; [GatewayCapabilitySummary]
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayCapabilitySummaries%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var hs-var">gatewayCapabilitySummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.GatewayCapabilitySummary.html#GatewayCapabilitySummary"><span class="hs-identifier hs-type">GatewayCapabilitySummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The date the gateway was created, in Unix epoch time.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AcreationDate%3ADescribeGatewayResponse%27"><span class="annot"><span class="annottext">DescribeGatewayResponse -&gt; POSIX
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AcreationDate%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The date the gateway was last updated, in Unix epoch time.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AlastUpdateDate%3ADescribeGatewayResponse%27"><span class="annot"><span class="annottext">DescribeGatewayResponse -&gt; POSIX
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AlastUpdateDate%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var hs-var">lastUpdateDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354700"><span id="local-6989586621679354702"><span class="annot"><span class="annottext">DescribeGatewayResponse -&gt; DescribeGatewayResponse -&gt; Bool
+(DescribeGatewayResponse -&gt; DescribeGatewayResponse -&gt; Bool)
+-&gt; (DescribeGatewayResponse -&gt; DescribeGatewayResponse -&gt; Bool)
+-&gt; Eq DescribeGatewayResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeGatewayResponse -&gt; DescribeGatewayResponse -&gt; Bool
+$c/= :: DescribeGatewayResponse -&gt; DescribeGatewayResponse -&gt; Bool
+== :: DescribeGatewayResponse -&gt; DescribeGatewayResponse -&gt; Bool
+$c== :: DescribeGatewayResponse -&gt; DescribeGatewayResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354692"><span id="local-6989586621679354694"><span id="local-6989586621679354696"><span id="local-6989586621679354698"><span class="annot"><span class="annottext">ReadPrec [DescribeGatewayResponse]
+ReadPrec DescribeGatewayResponse
+Int -&gt; ReadS DescribeGatewayResponse
+ReadS [DescribeGatewayResponse]
+(Int -&gt; ReadS DescribeGatewayResponse)
+-&gt; ReadS [DescribeGatewayResponse]
+-&gt; ReadPrec DescribeGatewayResponse
+-&gt; ReadPrec [DescribeGatewayResponse]
+-&gt; Read DescribeGatewayResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeGatewayResponse]
+$creadListPrec :: ReadPrec [DescribeGatewayResponse]
+readPrec :: ReadPrec DescribeGatewayResponse
+$creadPrec :: ReadPrec DescribeGatewayResponse
+readList :: ReadS [DescribeGatewayResponse]
+$creadList :: ReadS [DescribeGatewayResponse]
+readsPrec :: Int -&gt; ReadS DescribeGatewayResponse
+$creadsPrec :: Int -&gt; ReadS DescribeGatewayResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354686"><span id="local-6989586621679354688"><span id="local-6989586621679354690"><span class="annot"><span class="annottext">Int -&gt; DescribeGatewayResponse -&gt; ShowS
+[DescribeGatewayResponse] -&gt; ShowS
+DescribeGatewayResponse -&gt; String
+(Int -&gt; DescribeGatewayResponse -&gt; ShowS)
+-&gt; (DescribeGatewayResponse -&gt; String)
+-&gt; ([DescribeGatewayResponse] -&gt; ShowS)
+-&gt; Show DescribeGatewayResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeGatewayResponse] -&gt; ShowS
+$cshowList :: [DescribeGatewayResponse] -&gt; ShowS
+show :: DescribeGatewayResponse -&gt; String
+$cshow :: DescribeGatewayResponse -&gt; String
+showsPrec :: Int -&gt; DescribeGatewayResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeGatewayResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeGatewayResponse -&gt; Rep DescribeGatewayResponse x)
+-&gt; (forall x.
+    Rep DescribeGatewayResponse x -&gt; DescribeGatewayResponse)
+-&gt; Generic DescribeGatewayResponse
+forall x. Rep DescribeGatewayResponse x -&gt; DescribeGatewayResponse
+forall x. DescribeGatewayResponse -&gt; Rep DescribeGatewayResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeGatewayResponse x -&gt; DescribeGatewayResponse
+$cfrom :: forall x. DescribeGatewayResponse -&gt; Rep DescribeGatewayResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Create a value of 'DescribeGatewayResponse' with all optional fields omitted.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'gatewayPlatform', 'describeGatewayResponse_gatewayPlatform' - The gateway\'s platform.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'httpStatus', 'describeGatewayResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'gatewayId', 'describeGatewayResponse_gatewayId' - The ID of the gateway device.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'gatewayName', 'describeGatewayResponse_gatewayName' - The name of the gateway.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'gatewayArn', 'describeGatewayResponse_gatewayArn' - The</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- of the gateway, which has the following format.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- @arn:${Partition}:iotsitewise:${Region}:${Account}:gateway\/${GatewayId}@</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'gatewayCapabilitySummaries', 'describeGatewayResponse_gatewayCapabilitySummaries' - A list of gateway capability summaries that each contain a namespace and</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- status. Each gateway capability defines data sources for the gateway. To</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- retrieve a capability configuration\'s definition, use</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html DescribeGatewayCapabilityConfiguration&gt;.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'creationDate', 'describeGatewayResponse_creationDate' - The date the gateway was created, in Unix epoch time.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'lastUpdateDate', 'describeGatewayResponse_lastUpdateDate' - The date the gateway was last updated, in Unix epoch time.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#newDescribeGatewayResponse"><span class="hs-identifier hs-type">newDescribeGatewayResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-comment">-- | 'gatewayId'</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-comment">-- | 'gatewayName'</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-comment">-- | 'gatewayArn'</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-comment">-- | 'creationDate'</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'lastUpdateDate'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newDescribeGatewayResponse"><span class="annot"><span class="annottext">newDescribeGatewayResponse :: Int
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; UTCTime
+-&gt; UTCTime
+-&gt; DescribeGatewayResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#newDescribeGatewayResponse"><span class="hs-identifier hs-var hs-var">newDescribeGatewayResponse</span></a></span></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679354683"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354683"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679354682"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354682"><span class="hs-identifier hs-var">pGatewayId_</span></a></span></span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679354681"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354681"><span class="hs-identifier hs-var">pGatewayName_</span></a></span></span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679354680"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354680"><span class="hs-identifier hs-var">pGatewayArn_</span></a></span></span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679354679"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679354679"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679354678"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679354678"><span class="hs-identifier hs-var">pLastUpdateDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">DescribeGatewayResponse' :: Maybe GatewayPlatform
+-&gt; Int
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; [GatewayCapabilitySummary]
+-&gt; POSIX
+-&gt; POSIX
+-&gt; DescribeGatewayResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-type">DescribeGatewayResponse'</span></a></span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gatewayPlatform:DescribeGatewayResponse' :: Maybe GatewayPlatform
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayPlatform%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var">gatewayPlatform</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>          </span><span class="annot"><span class="annottext">Maybe GatewayPlatform
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeGatewayResponse' :: Int
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AhttpStatus%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354683"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayId:DescribeGatewayResponse' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayId%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var">gatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354682"><span class="hs-identifier hs-var">pGatewayId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayName:DescribeGatewayResponse' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayName%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var">gatewayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354681"><span class="hs-identifier hs-var">pGatewayName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayArn:DescribeGatewayResponse' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayArn%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var">gatewayArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354680"><span class="hs-identifier hs-var">pGatewayArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayCapabilitySummaries:DescribeGatewayResponse' :: [GatewayCapabilitySummary]
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayCapabilitySummaries%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var">gatewayCapabilitySummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[GatewayCapabilitySummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationDate:DescribeGatewayResponse' :: POSIX
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AcreationDate%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679354679"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastUpdateDate:DescribeGatewayResponse' :: POSIX
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AlastUpdateDate%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var">lastUpdateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679354678"><span class="hs-identifier hs-var">pLastUpdateDate_</span></a></span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The gateway\'s platform.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_gatewayPlatform"><span class="hs-identifier hs-type">describeGatewayResponse_gatewayPlatform</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.GatewayPlatform.html#GatewayPlatform"><span class="hs-identifier hs-type">GatewayPlatform</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="describeGatewayResponse_gatewayPlatform"><span class="annot"><span class="annottext">describeGatewayResponse_gatewayPlatform :: (Maybe GatewayPlatform -&gt; f (Maybe GatewayPlatform))
+-&gt; DescribeGatewayResponse -&gt; f DescribeGatewayResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_gatewayPlatform"><span class="hs-identifier hs-var hs-var">describeGatewayResponse_gatewayPlatform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGatewayResponse -&gt; Maybe GatewayPlatform)
+-&gt; (DescribeGatewayResponse
+    -&gt; Maybe GatewayPlatform -&gt; DescribeGatewayResponse)
+-&gt; Lens
+     DescribeGatewayResponse
+     DescribeGatewayResponse
+     (Maybe GatewayPlatform)
+     (Maybe GatewayPlatform)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-type">DescribeGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354675"><span class="annot"><span class="annottext">Maybe GatewayPlatform
+gatewayPlatform :: Maybe GatewayPlatform
+$sel:gatewayPlatform:DescribeGatewayResponse' :: DescribeGatewayResponse -&gt; Maybe GatewayPlatform
+</span><a href="#local-6989586621679354675"><span class="hs-identifier hs-var hs-var">gatewayPlatform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GatewayPlatform
+</span><a href="#local-6989586621679354675"><span class="hs-identifier hs-var">gatewayPlatform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354674"><span class="annot"><span class="annottext">s :: DescribeGatewayResponse
+</span><a href="#local-6989586621679354674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-type">DescribeGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354673"><span class="annot"><span class="annottext">Maybe GatewayPlatform
+</span><a href="#local-6989586621679354673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGatewayResponse
+</span><a href="#local-6989586621679354674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayPlatform:DescribeGatewayResponse' :: Maybe GatewayPlatform
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayPlatform%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var">gatewayPlatform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GatewayPlatform
+</span><a href="#local-6989586621679354673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_httpStatus"><span class="hs-identifier hs-type">describeGatewayResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-224"></span><span id="describeGatewayResponse_httpStatus"><span class="annot"><span class="annottext">describeGatewayResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeGatewayResponse -&gt; f DescribeGatewayResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeGatewayResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGatewayResponse -&gt; Int)
+-&gt; (DescribeGatewayResponse -&gt; Int -&gt; DescribeGatewayResponse)
+-&gt; Lens DescribeGatewayResponse DescribeGatewayResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-type">DescribeGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354672"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeGatewayResponse' :: DescribeGatewayResponse -&gt; Int
+</span><a href="#local-6989586621679354672"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354672"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354671"><span class="annot"><span class="annottext">s :: DescribeGatewayResponse
+</span><a href="#local-6989586621679354671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-type">DescribeGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354670"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGatewayResponse
+</span><a href="#local-6989586621679354671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeGatewayResponse' :: Int
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AhttpStatus%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The ID of the gateway device.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_gatewayId"><span class="hs-identifier hs-type">describeGatewayResponse_gatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-228"></span><span id="describeGatewayResponse_gatewayId"><span class="annot"><span class="annottext">describeGatewayResponse_gatewayId :: (Text -&gt; f Text)
+-&gt; DescribeGatewayResponse -&gt; f DescribeGatewayResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_gatewayId"><span class="hs-identifier hs-var hs-var">describeGatewayResponse_gatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGatewayResponse -&gt; Text)
+-&gt; (DescribeGatewayResponse -&gt; Text -&gt; DescribeGatewayResponse)
+-&gt; Lens DescribeGatewayResponse DescribeGatewayResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-type">DescribeGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354669"><span class="annot"><span class="annottext">Text
+gatewayId :: Text
+$sel:gatewayId:DescribeGatewayResponse' :: DescribeGatewayResponse -&gt; Text
+</span><a href="#local-6989586621679354669"><span class="hs-identifier hs-var hs-var">gatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354669"><span class="hs-identifier hs-var">gatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354668"><span class="annot"><span class="annottext">s :: DescribeGatewayResponse
+</span><a href="#local-6989586621679354668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-type">DescribeGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354667"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGatewayResponse
+</span><a href="#local-6989586621679354668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayId:DescribeGatewayResponse' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayId%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var">gatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The name of the gateway.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_gatewayName"><span class="hs-identifier hs-type">describeGatewayResponse_gatewayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-232"></span><span id="describeGatewayResponse_gatewayName"><span class="annot"><span class="annottext">describeGatewayResponse_gatewayName :: (Text -&gt; f Text)
+-&gt; DescribeGatewayResponse -&gt; f DescribeGatewayResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_gatewayName"><span class="hs-identifier hs-var hs-var">describeGatewayResponse_gatewayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGatewayResponse -&gt; Text)
+-&gt; (DescribeGatewayResponse -&gt; Text -&gt; DescribeGatewayResponse)
+-&gt; Lens DescribeGatewayResponse DescribeGatewayResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-type">DescribeGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354666"><span class="annot"><span class="annottext">Text
+gatewayName :: Text
+$sel:gatewayName:DescribeGatewayResponse' :: DescribeGatewayResponse -&gt; Text
+</span><a href="#local-6989586621679354666"><span class="hs-identifier hs-var hs-var">gatewayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354666"><span class="hs-identifier hs-var">gatewayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354665"><span class="annot"><span class="annottext">s :: DescribeGatewayResponse
+</span><a href="#local-6989586621679354665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-type">DescribeGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354664"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGatewayResponse
+</span><a href="#local-6989586621679354665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayName:DescribeGatewayResponse' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayName%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var">gatewayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- of the gateway, which has the following format.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- @arn:${Partition}:iotsitewise:${Region}:${Account}:gateway\/${GatewayId}@</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_gatewayArn"><span class="hs-identifier hs-type">describeGatewayResponse_gatewayArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-240"></span><span id="describeGatewayResponse_gatewayArn"><span class="annot"><span class="annottext">describeGatewayResponse_gatewayArn :: (Text -&gt; f Text)
+-&gt; DescribeGatewayResponse -&gt; f DescribeGatewayResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_gatewayArn"><span class="hs-identifier hs-var hs-var">describeGatewayResponse_gatewayArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGatewayResponse -&gt; Text)
+-&gt; (DescribeGatewayResponse -&gt; Text -&gt; DescribeGatewayResponse)
+-&gt; Lens DescribeGatewayResponse DescribeGatewayResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-type">DescribeGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354663"><span class="annot"><span class="annottext">Text
+gatewayArn :: Text
+$sel:gatewayArn:DescribeGatewayResponse' :: DescribeGatewayResponse -&gt; Text
+</span><a href="#local-6989586621679354663"><span class="hs-identifier hs-var hs-var">gatewayArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354663"><span class="hs-identifier hs-var">gatewayArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354662"><span class="annot"><span class="annottext">s :: DescribeGatewayResponse
+</span><a href="#local-6989586621679354662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-type">DescribeGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354661"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGatewayResponse
+</span><a href="#local-6989586621679354662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayArn:DescribeGatewayResponse' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayArn%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var">gatewayArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | A list of gateway capability summaries that each contain a namespace and</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- status. Each gateway capability defines data sources for the gateway. To</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- retrieve a capability configuration\'s definition, use</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html DescribeGatewayCapabilityConfiguration&gt;.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_gatewayCapabilitySummaries"><span class="hs-identifier hs-type">describeGatewayResponse_gatewayCapabilitySummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.GatewayCapabilitySummary.html#GatewayCapabilitySummary"><span class="hs-identifier hs-type">GatewayCapabilitySummary</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-247"></span><span id="describeGatewayResponse_gatewayCapabilitySummaries"><span class="annot"><span class="annottext">describeGatewayResponse_gatewayCapabilitySummaries :: ([GatewayCapabilitySummary] -&gt; f [GatewayCapabilitySummary])
+-&gt; DescribeGatewayResponse -&gt; f DescribeGatewayResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_gatewayCapabilitySummaries"><span class="hs-identifier hs-var hs-var">describeGatewayResponse_gatewayCapabilitySummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGatewayResponse -&gt; [GatewayCapabilitySummary])
+-&gt; (DescribeGatewayResponse
+    -&gt; [GatewayCapabilitySummary] -&gt; DescribeGatewayResponse)
+-&gt; Lens
+     DescribeGatewayResponse
+     DescribeGatewayResponse
+     [GatewayCapabilitySummary]
+     [GatewayCapabilitySummary]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-type">DescribeGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354660"><span class="annot"><span class="annottext">[GatewayCapabilitySummary]
+gatewayCapabilitySummaries :: [GatewayCapabilitySummary]
+$sel:gatewayCapabilitySummaries:DescribeGatewayResponse' :: DescribeGatewayResponse -&gt; [GatewayCapabilitySummary]
+</span><a href="#local-6989586621679354660"><span class="hs-identifier hs-var hs-var">gatewayCapabilitySummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[GatewayCapabilitySummary]
+</span><a href="#local-6989586621679354660"><span class="hs-identifier hs-var">gatewayCapabilitySummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354659"><span class="annot"><span class="annottext">s :: DescribeGatewayResponse
+</span><a href="#local-6989586621679354659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-type">DescribeGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354658"><span class="annot"><span class="annottext">[GatewayCapabilitySummary]
+</span><a href="#local-6989586621679354658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGatewayResponse
+</span><a href="#local-6989586621679354659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayCapabilitySummaries:DescribeGatewayResponse' :: [GatewayCapabilitySummary]
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AgatewayCapabilitySummaries%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var">gatewayCapabilitySummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[GatewayCapabilitySummary]
+</span><a href="#local-6989586621679354658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([GatewayCapabilitySummary] -&gt; f [GatewayCapabilitySummary])
+ -&gt; DescribeGatewayResponse -&gt; f DescribeGatewayResponse)
+-&gt; (([GatewayCapabilitySummary] -&gt; f [GatewayCapabilitySummary])
+    -&gt; [GatewayCapabilitySummary] -&gt; f [GatewayCapabilitySummary])
+-&gt; ([GatewayCapabilitySummary] -&gt; f [GatewayCapabilitySummary])
+-&gt; DescribeGatewayResponse
+-&gt; f DescribeGatewayResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([GatewayCapabilitySummary] -&gt; f [GatewayCapabilitySummary])
+-&gt; [GatewayCapabilitySummary] -&gt; f [GatewayCapabilitySummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The date the gateway was created, in Unix epoch time.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_creationDate"><span class="hs-identifier hs-type">describeGatewayResponse_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-251"></span><span id="describeGatewayResponse_creationDate"><span class="annot"><span class="annottext">describeGatewayResponse_creationDate :: (UTCTime -&gt; f UTCTime)
+-&gt; DescribeGatewayResponse -&gt; f DescribeGatewayResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_creationDate"><span class="hs-identifier hs-var hs-var">describeGatewayResponse_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGatewayResponse -&gt; POSIX)
+-&gt; (DescribeGatewayResponse -&gt; POSIX -&gt; DescribeGatewayResponse)
+-&gt; Lens DescribeGatewayResponse DescribeGatewayResponse POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-type">DescribeGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354655"><span class="annot"><span class="annottext">POSIX
+creationDate :: POSIX
+$sel:creationDate:DescribeGatewayResponse' :: DescribeGatewayResponse -&gt; POSIX
+</span><a href="#local-6989586621679354655"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679354655"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354654"><span class="annot"><span class="annottext">s :: DescribeGatewayResponse
+</span><a href="#local-6989586621679354654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-type">DescribeGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354653"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679354653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGatewayResponse
+</span><a href="#local-6989586621679354654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:DescribeGatewayResponse' :: POSIX
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AcreationDate%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679354653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; DescribeGatewayResponse -&gt; f DescribeGatewayResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; DescribeGatewayResponse
+-&gt; f DescribeGatewayResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | The date the gateway was last updated, in Unix epoch time.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_lastUpdateDate"><span class="hs-identifier hs-type">describeGatewayResponse_lastUpdateDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-255"></span><span id="describeGatewayResponse_lastUpdateDate"><span class="annot"><span class="annottext">describeGatewayResponse_lastUpdateDate :: (UTCTime -&gt; f UTCTime)
+-&gt; DescribeGatewayResponse -&gt; f DescribeGatewayResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#describeGatewayResponse_lastUpdateDate"><span class="hs-identifier hs-var hs-var">describeGatewayResponse_lastUpdateDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGatewayResponse -&gt; POSIX)
+-&gt; (DescribeGatewayResponse -&gt; POSIX -&gt; DescribeGatewayResponse)
+-&gt; Lens DescribeGatewayResponse DescribeGatewayResponse POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-type">DescribeGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354652"><span class="annot"><span class="annottext">POSIX
+lastUpdateDate :: POSIX
+$sel:lastUpdateDate:DescribeGatewayResponse' :: DescribeGatewayResponse -&gt; POSIX
+</span><a href="#local-6989586621679354652"><span class="hs-identifier hs-var hs-var">lastUpdateDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679354652"><span class="hs-identifier hs-var">lastUpdateDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354651"><span class="annot"><span class="annottext">s :: DescribeGatewayResponse
+</span><a href="#local-6989586621679354651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse%27"><span class="hs-identifier hs-type">DescribeGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354650"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679354650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGatewayResponse
+</span><a href="#local-6989586621679354651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateDate:DescribeGatewayResponse' :: POSIX
+</span><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#%24sel%3AlastUpdateDate%3ADescribeGatewayResponse%27"><span class="hs-identifier hs-var">lastUpdateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679354650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; DescribeGatewayResponse -&gt; f DescribeGatewayResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; DescribeGatewayResponse
+-&gt; f DescribeGatewayResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354648"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGateway.html#DescribeGatewayResponse"><span class="hs-identifier hs-type">DescribeGatewayResponse</span></a></span></span><span>
+</span><span id="line-258"></span></pre></body></html>

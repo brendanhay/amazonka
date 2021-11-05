@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- appears.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAuditMitigationActionsTaskTarget' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679776029"><span id="local-6989586621679776030"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuditMitigationActionsTaskTarget"><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget"><span class="hs-identifier hs-var">AuditMitigationActionsTaskTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuditMitigationActionsTaskTarget%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-var">AuditMitigationActionsTaskTarget'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679776038"><span id="local-6989586621679776039"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuditMitigationActionsTaskTarget"><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget"><span class="hs-identifier hs-var">AuditMitigationActionsTaskTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuditMitigationActionsTaskTarget%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-var">AuditMitigationActionsTaskTarget'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the task will apply a mitigation action to findings from a specific</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- audit, this value uniquely identifies the audit.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AauditTaskId%3AAuditMitigationActionsTaskTarget%27"><span class="annot"><span class="annottext">AuditMitigationActionsTaskTarget -&gt; Maybe Text
@@ -44,7 +44,7 @@
 -&gt; Maybe (HashMap Text (NonEmpty Text))
 </span><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#%24sel%3AauditCheckToReasonCodeFilter%3AAuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-var hs-var">auditCheckToReasonCodeFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679776021"><span id="local-6989586621679776023"><span class="annot"><span class="annottext">AuditMitigationActionsTaskTarget
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679776030"><span id="local-6989586621679776032"><span class="annot"><span class="annottext">AuditMitigationActionsTaskTarget
 -&gt; AuditMitigationActionsTaskTarget -&gt; Bool
 (AuditMitigationActionsTaskTarget
  -&gt; AuditMitigationActionsTaskTarget -&gt; Bool)
@@ -60,7 +60,7 @@ $c/= :: AuditMitigationActionsTaskTarget
 -&gt; AuditMitigationActionsTaskTarget -&gt; Bool
 $c== :: AuditMitigationActionsTaskTarget
 -&gt; AuditMitigationActionsTaskTarget -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679776012"><span id="local-6989586621679776014"><span id="local-6989586621679776016"><span id="local-6989586621679776018"><span class="annot"><span class="annottext">ReadPrec [AuditMitigationActionsTaskTarget]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679776021"><span id="local-6989586621679776023"><span id="local-6989586621679776025"><span id="local-6989586621679776027"><span class="annot"><span class="annottext">ReadPrec [AuditMitigationActionsTaskTarget]
 ReadPrec AuditMitigationActionsTaskTarget
 Int -&gt; ReadS AuditMitigationActionsTaskTarget
 ReadS [AuditMitigationActionsTaskTarget]
@@ -80,7 +80,7 @@ readList :: ReadS [AuditMitigationActionsTaskTarget]
 $creadList :: ReadS [AuditMitigationActionsTaskTarget]
 readsPrec :: Int -&gt; ReadS AuditMitigationActionsTaskTarget
 $creadsPrec :: Int -&gt; ReadS AuditMitigationActionsTaskTarget
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679776005"><span id="local-6989586621679776007"><span id="local-6989586621679776009"><span class="annot"><span class="annottext">Int -&gt; AuditMitigationActionsTaskTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679776014"><span id="local-6989586621679776016"><span id="local-6989586621679776018"><span class="annot"><span class="annottext">Int -&gt; AuditMitigationActionsTaskTarget -&gt; ShowS
 [AuditMitigationActionsTaskTarget] -&gt; ShowS
 AuditMitigationActionsTaskTarget -&gt; String
 (Int -&gt; AuditMitigationActionsTaskTarget -&gt; ShowS)
@@ -175,16 +175,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775996"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776005"><span class="annot"><span class="annottext">Maybe Text
 auditTaskId :: Maybe Text
 $sel:auditTaskId:AuditMitigationActionsTaskTarget' :: AuditMitigationActionsTaskTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679775996"><span class="hs-identifier hs-var hs-var">auditTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679775996"><span class="hs-identifier hs-var">auditTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775995"><span class="annot"><span class="annottext">s :: AuditMitigationActionsTaskTarget
-</span><a href="#local-6989586621679775995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775994"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679775994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditMitigationActionsTaskTarget
-</span><a href="#local-6989586621679775995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auditTaskId:AuditMitigationActionsTaskTarget' :: Maybe Text
+</span><a href="#local-6989586621679776005"><span class="hs-identifier hs-var hs-var">auditTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679776005"><span class="hs-identifier hs-var">auditTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679776004"><span class="annot"><span class="annottext">s :: AuditMitigationActionsTaskTarget
+</span><a href="#local-6989586621679776004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679776003"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679776003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditMitigationActionsTaskTarget
+</span><a href="#local-6989586621679776004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auditTaskId:AuditMitigationActionsTaskTarget' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#%24sel%3AauditTaskId%3AAuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-var">auditTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679775994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679776003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | If the task will apply a mitigation action to one or more listed</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- findings, this value uniquely identifies those findings.</span><span>
@@ -201,16 +201,16 @@ $sel:auditTaskId:AuditMitigationActionsTaskTarget' :: AuditMitigationActionsTask
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775992"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776001"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 findingIds :: Maybe (NonEmpty Text)
 $sel:findingIds:AuditMitigationActionsTaskTarget' :: AuditMitigationActionsTaskTarget -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679775992"><span class="hs-identifier hs-var hs-var">findingIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679775992"><span class="hs-identifier hs-var">findingIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775991"><span class="annot"><span class="annottext">s :: AuditMitigationActionsTaskTarget
-</span><a href="#local-6989586621679775991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775990"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679775990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditMitigationActionsTaskTarget
-</span><a href="#local-6989586621679775991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingIds:AuditMitigationActionsTaskTarget' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679776001"><span class="hs-identifier hs-var hs-var">findingIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679776001"><span class="hs-identifier hs-var">findingIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679776000"><span class="annot"><span class="annottext">s :: AuditMitigationActionsTaskTarget
+</span><a href="#local-6989586621679776000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775999"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679775999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditMitigationActionsTaskTarget
+</span><a href="#local-6989586621679776000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingIds:AuditMitigationActionsTaskTarget' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#%24sel%3AfindingIds%3AAuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-var">findingIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679775990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679775999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; AuditMitigationActionsTaskTarget
  -&gt; f AuditMitigationActionsTaskTarget)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -253,17 +253,17 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (HashMap Text (NonEmpty Text)))
      (Maybe (HashMap Text (NonEmpty Text)))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775985"><span class="annot"><span class="annottext">Maybe (HashMap Text (NonEmpty Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775994"><span class="annot"><span class="annottext">Maybe (HashMap Text (NonEmpty Text))
 auditCheckToReasonCodeFilter :: Maybe (HashMap Text (NonEmpty Text))
 $sel:auditCheckToReasonCodeFilter:AuditMitigationActionsTaskTarget' :: AuditMitigationActionsTaskTarget
 -&gt; Maybe (HashMap Text (NonEmpty Text))
-</span><a href="#local-6989586621679775985"><span class="hs-identifier hs-var hs-var">auditCheckToReasonCodeFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (NonEmpty Text))
-</span><a href="#local-6989586621679775985"><span class="hs-identifier hs-var">auditCheckToReasonCodeFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775984"><span class="annot"><span class="annottext">s :: AuditMitigationActionsTaskTarget
-</span><a href="#local-6989586621679775984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775983"><span class="annot"><span class="annottext">Maybe (HashMap Text (NonEmpty Text))
-</span><a href="#local-6989586621679775983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditMitigationActionsTaskTarget
-</span><a href="#local-6989586621679775984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auditCheckToReasonCodeFilter:AuditMitigationActionsTaskTarget' :: Maybe (HashMap Text (NonEmpty Text))
+</span><a href="#local-6989586621679775994"><span class="hs-identifier hs-var hs-var">auditCheckToReasonCodeFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (NonEmpty Text))
+</span><a href="#local-6989586621679775994"><span class="hs-identifier hs-var">auditCheckToReasonCodeFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775993"><span class="annot"><span class="annottext">s :: AuditMitigationActionsTaskTarget
+</span><a href="#local-6989586621679775993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775992"><span class="annot"><span class="annottext">Maybe (HashMap Text (NonEmpty Text))
+</span><a href="#local-6989586621679775992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditMitigationActionsTaskTarget
+</span><a href="#local-6989586621679775993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auditCheckToReasonCodeFilter:AuditMitigationActionsTaskTarget' :: Maybe (HashMap Text (NonEmpty Text))
 </span><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#%24sel%3AauditCheckToReasonCodeFilter%3AAuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-var">auditCheckToReasonCodeFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (NonEmpty Text))
-</span><a href="#local-6989586621679775983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text (NonEmpty Text))
+</span><a href="#local-6989586621679775992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text (NonEmpty Text))
   -&gt; f (Maybe (HashMap Text (NonEmpty Text))))
  -&gt; AuditMitigationActionsTaskTarget
  -&gt; f AuditMitigationActionsTaskTarget)
@@ -298,10 +298,10 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679775980"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679775989"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget</span></a></span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679775978"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AuditMitigationActionsTaskTarget
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679775987"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AuditMitigationActionsTaskTarget
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AuditMitigationActionsTaskTarget)
@@ -311,8 +311,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AuditMitigationActionsTaskTarget&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679775975"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679775975"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679775984"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679775984"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe (NonEmpty Text)
 -&gt; Maybe (HashMap Text (NonEmpty Text))
@@ -329,7 +329,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; AuditMitigationActionsTaskTarget)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679775975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679775984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;auditTaskId&quot;</span></span><span class="hs-special">)</span><span>
@@ -343,7 +343,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AuditMitigationActionsTaskTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679775975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679775984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;findingIds&quot;</span></span><span class="hs-special">)</span><span>
@@ -354,7 +354,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser AuditMitigationActionsTaskTarget
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679775975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679775984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text (NonEmpty Text))))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -370,16 +370,16 @@ forall a. Monoid a =&gt; a
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679775968"><span id="local-6989586621679775970"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679775977"><span id="local-6989586621679775979"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679775965"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679775974"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget</span></a></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679775957"><span id="local-6989586621679775959"><span id="local-6989586621679775961"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679775955"><span class="annot"><span class="annottext">toJSON :: AuditMitigationActionsTaskTarget -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775951"><span id="local-6989586621679775952"><span id="local-6989586621679775953"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679775966"><span id="local-6989586621679775968"><span id="local-6989586621679775970"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679775964"><span class="annot"><span class="annottext">toJSON :: AuditMitigationActionsTaskTarget -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget.html#AuditMitigationActionsTaskTarget%27"><span class="hs-identifier hs-type">AuditMitigationActionsTaskTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775960"><span id="local-6989586621679775961"><span id="local-6989586621679775962"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 Maybe Text
 Maybe (HashMap Text (NonEmpty Text))
 auditCheckToReasonCodeFilter :: Maybe (HashMap Text (NonEmpty Text))
@@ -389,7 +389,7 @@ $sel:auditCheckToReasonCodeFilter:AuditMitigationActionsTaskTarget' :: AuditMiti
 -&gt; Maybe (HashMap Text (NonEmpty Text))
 $sel:findingIds:AuditMitigationActionsTaskTarget' :: AuditMitigationActionsTaskTarget -&gt; Maybe (NonEmpty Text)
 $sel:auditTaskId:AuditMitigationActionsTaskTarget' :: AuditMitigationActionsTaskTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679775951"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679775960"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -401,14 +401,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679775953"><span class="hs-identifier hs-var">auditTaskId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679775962"><span class="hs-identifier hs-var">auditTaskId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;findingIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679775952"><span class="hs-identifier hs-var">findingIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679775961"><span class="hs-identifier hs-var">findingIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;auditCheckToReasonCodeFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text (NonEmpty Text) -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -417,7 +417,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text (NonEmpty Text)) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (NonEmpty Text))
-</span><a href="#local-6989586621679775951"><span class="hs-identifier hs-var">auditCheckToReasonCodeFilter</span></a></span><span>
+</span><a href="#local-6989586621679775960"><span class="hs-identifier hs-var">auditCheckToReasonCodeFilter</span></a></span><span>
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679219777"><span id="local-6989586621679219778"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkGroupState"><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroupState.html#WorkGroupState"><span class="hs-identifier hs-var">WorkGroupState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkGroupState%27"><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroupState.html#WorkGroupState%27"><span class="hs-identifier hs-var">WorkGroupState'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679219786"><span id="local-6989586621679219787"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkGroupState"><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroupState.html#WorkGroupState"><span class="hs-identifier hs-var">WorkGroupState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkGroupState%27"><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroupState.html#WorkGroupState%27"><span class="hs-identifier hs-var">WorkGroupState'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWorkGroupState"><span class="annot"><span class="annottext">WorkGroupState -&gt; Text
 </span><a href="Network.AWS.Athena.Types.WorkGroupState.html#fromWorkGroupState"><span class="hs-identifier hs-var hs-var">fromWorkGroupState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219769"><span id="local-6989586621679219771"><span id="local-6989586621679219773"><span class="annot"><span class="annottext">Int -&gt; WorkGroupState -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219778"><span id="local-6989586621679219780"><span id="local-6989586621679219782"><span class="annot"><span class="annottext">Int -&gt; WorkGroupState -&gt; ShowS
 [WorkGroupState] -&gt; ShowS
 WorkGroupState -&gt; String
 (Int -&gt; WorkGroupState -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: WorkGroupState -&gt; String
 showsPrec :: Int -&gt; WorkGroupState -&gt; ShowS
 $cshowsPrec :: Int -&gt; WorkGroupState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679219760"><span id="local-6989586621679219762"><span id="local-6989586621679219764"><span id="local-6989586621679219766"><span class="annot"><span class="annottext">ReadPrec [WorkGroupState]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679219769"><span id="local-6989586621679219771"><span id="local-6989586621679219773"><span id="local-6989586621679219775"><span class="annot"><span class="annottext">ReadPrec [WorkGroupState]
 ReadPrec WorkGroupState
 Int -&gt; ReadS WorkGroupState
 ReadS [WorkGroupState]
@@ -72,7 +72,7 @@ $creadList :: ReadS [WorkGroupState]
 readsPrec :: Int -&gt; ReadS WorkGroupState
 $creadsPrec :: Int -&gt; ReadS WorkGroupState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679219755"><span id="local-6989586621679219757"><span class="annot"><span class="annottext">WorkGroupState -&gt; WorkGroupState -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679219764"><span id="local-6989586621679219766"><span class="annot"><span class="annottext">WorkGroupState -&gt; WorkGroupState -&gt; Bool
 (WorkGroupState -&gt; WorkGroupState -&gt; Bool)
 -&gt; (WorkGroupState -&gt; WorkGroupState -&gt; Bool) -&gt; Eq WorkGroupState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: WorkGroupState -&gt; WorkGroupState -&gt; Bool
 == :: WorkGroupState -&gt; WorkGroupState -&gt; Bool
 $c== :: WorkGroupState -&gt; WorkGroupState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679219739"><span id="local-6989586621679219741"><span id="local-6989586621679219743"><span id="local-6989586621679219745"><span id="local-6989586621679219747"><span id="local-6989586621679219749"><span id="local-6989586621679219751"><span class="annot"><span class="annottext">Eq WorkGroupState
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679219748"><span id="local-6989586621679219750"><span id="local-6989586621679219752"><span id="local-6989586621679219754"><span id="local-6989586621679219756"><span id="local-6989586621679219758"><span id="local-6989586621679219760"><span class="annot"><span class="annottext">Eq WorkGroupState
 Eq WorkGroupState
 -&gt; (WorkGroupState -&gt; WorkGroupState -&gt; Ordering)
 -&gt; (WorkGroupState -&gt; WorkGroupState -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. WorkGroupState -&gt; Rep WorkGroupState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219731"><span id="local-6989586621679219733"><span class="annot"><span class="annottext">Int -&gt; WorkGroupState -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219740"><span id="local-6989586621679219742"><span class="annot"><span class="annottext">Int -&gt; WorkGroupState -&gt; Int
 WorkGroupState -&gt; Int
 (Int -&gt; WorkGroupState -&gt; Int)
 -&gt; (WorkGroupState -&gt; Int) -&gt; Hashable WorkGroupState
@@ -142,50 +142,50 @@ $chash :: WorkGroupState -&gt; Int
 hashWithSalt :: Int -&gt; WorkGroupState -&gt; Int
 $chashWithSalt :: Int -&gt; WorkGroupState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679219728"><span class="annot"><span class="annottext">WorkGroupState -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679219737"><span class="annot"><span class="annottext">WorkGroupState -&gt; ()
 (WorkGroupState -&gt; ()) -&gt; NFData WorkGroupState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WorkGroupState -&gt; ()
 $crnf :: WorkGroupState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679219725"><span class="annot"><span class="annottext">Text -&gt; Either String WorkGroupState
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679219734"><span class="annot"><span class="annottext">Text -&gt; Either String WorkGroupState
 (Text -&gt; Either String WorkGroupState) -&gt; FromText WorkGroupState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WorkGroupState
 $cfromText :: Text -&gt; Either String WorkGroupState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679219722"><span class="annot"><span class="annottext">WorkGroupState -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679219731"><span class="annot"><span class="annottext">WorkGroupState -&gt; Text
 (WorkGroupState -&gt; Text) -&gt; ToText WorkGroupState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WorkGroupState -&gt; Text
 $ctoText :: WorkGroupState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679219719"><span class="annot"><span class="annottext">WorkGroupState -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679219728"><span class="annot"><span class="annottext">WorkGroupState -&gt; ByteString
 (WorkGroupState -&gt; ByteString) -&gt; ToByteString WorkGroupState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WorkGroupState -&gt; ByteString
 $ctoBS :: WorkGroupState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679219716"><span class="annot"><span class="annottext">WorkGroupState -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679219725"><span class="annot"><span class="annottext">WorkGroupState -&gt; ByteStringBuilder
 (WorkGroupState -&gt; ByteStringBuilder) -&gt; ToLog WorkGroupState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WorkGroupState -&gt; ByteStringBuilder
 $cbuild :: WorkGroupState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679219713"><span class="annot"><span class="annottext">HeaderName -&gt; WorkGroupState -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679219722"><span class="annot"><span class="annottext">HeaderName -&gt; WorkGroupState -&gt; [Header]
 (HeaderName -&gt; WorkGroupState -&gt; [Header])
 -&gt; ToHeader WorkGroupState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WorkGroupState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WorkGroupState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679219710"><span class="annot"><span class="annottext">WorkGroupState -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679219719"><span class="annot"><span class="annottext">WorkGroupState -&gt; QueryString
 (WorkGroupState -&gt; QueryString) -&gt; ToQuery WorkGroupState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WorkGroupState -&gt; QueryString
 $ctoQuery :: WorkGroupState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679219705"><span id="local-6989586621679219707"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkGroupState]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679219714"><span id="local-6989586621679219716"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkGroupState]
 Value -&gt; Parser WorkGroupState
 (Value -&gt; Parser WorkGroupState)
 -&gt; (Value -&gt; Parser [WorkGroupState]) -&gt; FromJSON WorkGroupState
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [WorkGroupState]
 parseJSON :: Value -&gt; Parser WorkGroupState
 $cparseJSON :: Value -&gt; Parser WorkGroupState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679219700"><span id="local-6989586621679219702"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkGroupState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679219709"><span id="local-6989586621679219711"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkGroupState]
 FromJSONKeyFunction WorkGroupState
 FromJSONKeyFunction WorkGroupState
 -&gt; FromJSONKeyFunction [WorkGroupState]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WorkGroupState]
 fromJSONKey :: FromJSONKeyFunction WorkGroupState
 $cfromJSONKey :: FromJSONKeyFunction WorkGroupState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679219691"><span id="local-6989586621679219693"><span id="local-6989586621679219695"><span id="local-6989586621679219697"><span class="annot"><span class="annottext">[WorkGroupState] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679219700"><span id="local-6989586621679219702"><span id="local-6989586621679219704"><span id="local-6989586621679219706"><span class="annot"><span class="annottext">[WorkGroupState] -&gt; Encoding
 [WorkGroupState] -&gt; Value
 WorkGroupState -&gt; Encoding
 WorkGroupState -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: WorkGroupState -&gt; Encoding
 toJSON :: WorkGroupState -&gt; Value
 $ctoJSON :: WorkGroupState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679219686"><span id="local-6989586621679219688"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkGroupState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679219695"><span id="local-6989586621679219697"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkGroupState]
 ToJSONKeyFunction WorkGroupState
 ToJSONKeyFunction WorkGroupState
 -&gt; ToJSONKeyFunction [WorkGroupState] -&gt; ToJSONKey WorkGroupState
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WorkGroupState]
 toJSONKey :: ToJSONKeyFunction WorkGroupState
 $ctoJSONKey :: ToJSONKeyFunction WorkGroupState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679219683"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkGroupState
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679219692"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkGroupState
 ([Node] -&gt; Either String WorkGroupState) -&gt; FromXML WorkGroupState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WorkGroupState
 $cparseXML :: [Node] -&gt; Either String WorkGroupState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679219680"><span class="annot"><span class="annottext">WorkGroupState -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679219689"><span class="annot"><span class="annottext">WorkGroupState -&gt; XML
 (WorkGroupState -&gt; XML) -&gt; ToXML WorkGroupState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: WorkGroupState -&gt; XML

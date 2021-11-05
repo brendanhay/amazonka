@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Describes the configuration of an Auto Scaling group.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAutoScalingGroupConfiguration' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679235412"><span id="local-6989586621679235413"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoScalingGroupConfiguration"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration"><span class="hs-identifier hs-var">AutoScalingGroupConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingGroupConfiguration%27"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration%27"><span class="hs-identifier hs-var">AutoScalingGroupConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum size, or maximum number of instances, for the Auto Scaling</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AmaxSize%3AAutoScalingGroupConfiguration%27"><span class="annot"><span class="annottext">AutoScalingGroupConfiguration -&gt; Maybe Int
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#%24sel%3AmaxSize%3AAutoScalingGroupConfiguration%27"><span class="hs-identifier hs-var hs-var">maxSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The instance type for the Auto Scaling group.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AinstanceType%3AAutoScalingGroupConfiguration%27"><span class="annot"><span class="annottext">AutoScalingGroupConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#%24sel%3AinstanceType%3AAutoScalingGroupConfiguration%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The desired capacity, or number of instances, for the Auto Scaling</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdesiredCapacity%3AAutoScalingGroupConfiguration%27"><span class="annot"><span class="annottext">AutoScalingGroupConfiguration -&gt; Maybe Int
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#%24sel%3AdesiredCapacity%3AAutoScalingGroupConfiguration%27"><span class="hs-identifier hs-var hs-var">desiredCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The minimum size, or minimum number of instances, for the Auto Scaling</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AminSize%3AAutoScalingGroupConfiguration%27"><span class="annot"><span class="annottext">AutoScalingGroupConfiguration -&gt; Maybe Int
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#%24sel%3AminSize%3AAutoScalingGroupConfiguration%27"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235403"><span id="local-6989586621679235405"><span class="annot"><span class="annottext">AutoScalingGroupConfiguration
+-&gt; AutoScalingGroupConfiguration -&gt; Bool
+(AutoScalingGroupConfiguration
+ -&gt; AutoScalingGroupConfiguration -&gt; Bool)
+-&gt; (AutoScalingGroupConfiguration
+    -&gt; AutoScalingGroupConfiguration -&gt; Bool)
+-&gt; Eq AutoScalingGroupConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AutoScalingGroupConfiguration
+-&gt; AutoScalingGroupConfiguration -&gt; Bool
+$c/= :: AutoScalingGroupConfiguration
+-&gt; AutoScalingGroupConfiguration -&gt; Bool
+== :: AutoScalingGroupConfiguration
+-&gt; AutoScalingGroupConfiguration -&gt; Bool
+$c== :: AutoScalingGroupConfiguration
+-&gt; AutoScalingGroupConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235394"><span id="local-6989586621679235396"><span id="local-6989586621679235398"><span id="local-6989586621679235400"><span class="annot"><span class="annottext">ReadPrec [AutoScalingGroupConfiguration]
+ReadPrec AutoScalingGroupConfiguration
+Int -&gt; ReadS AutoScalingGroupConfiguration
+ReadS [AutoScalingGroupConfiguration]
+(Int -&gt; ReadS AutoScalingGroupConfiguration)
+-&gt; ReadS [AutoScalingGroupConfiguration]
+-&gt; ReadPrec AutoScalingGroupConfiguration
+-&gt; ReadPrec [AutoScalingGroupConfiguration]
+-&gt; Read AutoScalingGroupConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AutoScalingGroupConfiguration]
+$creadListPrec :: ReadPrec [AutoScalingGroupConfiguration]
+readPrec :: ReadPrec AutoScalingGroupConfiguration
+$creadPrec :: ReadPrec AutoScalingGroupConfiguration
+readList :: ReadS [AutoScalingGroupConfiguration]
+$creadList :: ReadS [AutoScalingGroupConfiguration]
+readsPrec :: Int -&gt; ReadS AutoScalingGroupConfiguration
+$creadsPrec :: Int -&gt; ReadS AutoScalingGroupConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235387"><span id="local-6989586621679235389"><span id="local-6989586621679235391"><span class="annot"><span class="annottext">Int -&gt; AutoScalingGroupConfiguration -&gt; ShowS
+[AutoScalingGroupConfiguration] -&gt; ShowS
+AutoScalingGroupConfiguration -&gt; String
+(Int -&gt; AutoScalingGroupConfiguration -&gt; ShowS)
+-&gt; (AutoScalingGroupConfiguration -&gt; String)
+-&gt; ([AutoScalingGroupConfiguration] -&gt; ShowS)
+-&gt; Show AutoScalingGroupConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AutoScalingGroupConfiguration] -&gt; ShowS
+$cshowList :: [AutoScalingGroupConfiguration] -&gt; ShowS
+show :: AutoScalingGroupConfiguration -&gt; String
+$cshow :: AutoScalingGroupConfiguration -&gt; String
+showsPrec :: Int -&gt; AutoScalingGroupConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; AutoScalingGroupConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AutoScalingGroupConfiguration
+ -&gt; Rep AutoScalingGroupConfiguration x)
+-&gt; (forall x.
+    Rep AutoScalingGroupConfiguration x
+    -&gt; AutoScalingGroupConfiguration)
+-&gt; Generic AutoScalingGroupConfiguration
+forall x.
+Rep AutoScalingGroupConfiguration x
+-&gt; AutoScalingGroupConfiguration
+forall x.
+AutoScalingGroupConfiguration
+-&gt; Rep AutoScalingGroupConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AutoScalingGroupConfiguration x
+-&gt; AutoScalingGroupConfiguration
+$cfrom :: forall x.
+AutoScalingGroupConfiguration
+-&gt; Rep AutoScalingGroupConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'AutoScalingGroupConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'maxSize', 'autoScalingGroupConfiguration_maxSize' - The maximum size, or maximum number of instances, for the Auto Scaling</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'instanceType', 'autoScalingGroupConfiguration_instanceType' - The instance type for the Auto Scaling group.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'desiredCapacity', 'autoScalingGroupConfiguration_desiredCapacity' - The desired capacity, or number of instances, for the Auto Scaling</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'minSize', 'autoScalingGroupConfiguration_minSize' - The minimum size, or minimum number of instances, for the Auto Scaling</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#newAutoScalingGroupConfiguration"><span class="hs-identifier hs-type">newAutoScalingGroupConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration</span></a></span><span>
+</span><span id="line-64"></span><span id="newAutoScalingGroupConfiguration"><span class="annot"><span class="annottext">newAutoScalingGroupConfiguration :: AutoScalingGroupConfiguration
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#newAutoScalingGroupConfiguration"><span class="hs-identifier hs-var hs-var">newAutoScalingGroupConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">AutoScalingGroupConfiguration' :: Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; AutoScalingGroupConfiguration
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration%27"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration'</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxSize:AutoScalingGroupConfiguration' :: Maybe Int
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#%24sel%3AmaxSize%3AAutoScalingGroupConfiguration%27"><span class="hs-identifier hs-var">maxSize</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:AutoScalingGroupConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#%24sel%3AinstanceType%3AAutoScalingGroupConfiguration%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:desiredCapacity:AutoScalingGroupConfiguration' :: Maybe Int
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#%24sel%3AdesiredCapacity%3AAutoScalingGroupConfiguration%27"><span class="hs-identifier hs-var">desiredCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:minSize:AutoScalingGroupConfiguration' :: Maybe Int
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#%24sel%3AminSize%3AAutoScalingGroupConfiguration%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The maximum size, or maximum number of instances, for the Auto Scaling</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#autoScalingGroupConfiguration_maxSize"><span class="hs-identifier hs-type">autoScalingGroupConfiguration_maxSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="autoScalingGroupConfiguration_maxSize"><span class="annot"><span class="annottext">autoScalingGroupConfiguration_maxSize :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AutoScalingGroupConfiguration -&gt; f AutoScalingGroupConfiguration
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#autoScalingGroupConfiguration_maxSize"><span class="hs-identifier hs-var hs-var">autoScalingGroupConfiguration_maxSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingGroupConfiguration -&gt; Maybe Int)
+-&gt; (AutoScalingGroupConfiguration
+    -&gt; Maybe Int -&gt; AutoScalingGroupConfiguration)
+-&gt; Lens
+     AutoScalingGroupConfiguration
+     AutoScalingGroupConfiguration
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration%27"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235378"><span class="annot"><span class="annottext">Maybe Int
+maxSize :: Maybe Int
+$sel:maxSize:AutoScalingGroupConfiguration' :: AutoScalingGroupConfiguration -&gt; Maybe Int
+</span><a href="#local-6989586621679235378"><span class="hs-identifier hs-var hs-var">maxSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679235378"><span class="hs-identifier hs-var">maxSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235377"><span class="annot"><span class="annottext">s :: AutoScalingGroupConfiguration
+</span><a href="#local-6989586621679235377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration%27"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235376"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679235376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingGroupConfiguration
+</span><a href="#local-6989586621679235377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSize:AutoScalingGroupConfiguration' :: Maybe Int
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#%24sel%3AmaxSize%3AAutoScalingGroupConfiguration%27"><span class="hs-identifier hs-var">maxSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679235376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The instance type for the Auto Scaling group.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#autoScalingGroupConfiguration_instanceType"><span class="hs-identifier hs-type">autoScalingGroupConfiguration_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="autoScalingGroupConfiguration_instanceType"><span class="annot"><span class="annottext">autoScalingGroupConfiguration_instanceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AutoScalingGroupConfiguration -&gt; f AutoScalingGroupConfiguration
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#autoScalingGroupConfiguration_instanceType"><span class="hs-identifier hs-var hs-var">autoScalingGroupConfiguration_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingGroupConfiguration -&gt; Maybe Text)
+-&gt; (AutoScalingGroupConfiguration
+    -&gt; Maybe Text -&gt; AutoScalingGroupConfiguration)
+-&gt; Lens
+     AutoScalingGroupConfiguration
+     AutoScalingGroupConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration%27"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235374"><span class="annot"><span class="annottext">Maybe Text
+instanceType :: Maybe Text
+$sel:instanceType:AutoScalingGroupConfiguration' :: AutoScalingGroupConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679235374"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235374"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235373"><span class="annot"><span class="annottext">s :: AutoScalingGroupConfiguration
+</span><a href="#local-6989586621679235373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration%27"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235372"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingGroupConfiguration
+</span><a href="#local-6989586621679235373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:AutoScalingGroupConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#%24sel%3AinstanceType%3AAutoScalingGroupConfiguration%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The desired capacity, or number of instances, for the Auto Scaling</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#autoScalingGroupConfiguration_desiredCapacity"><span class="hs-identifier hs-type">autoScalingGroupConfiguration_desiredCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="autoScalingGroupConfiguration_desiredCapacity"><span class="annot"><span class="annottext">autoScalingGroupConfiguration_desiredCapacity :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AutoScalingGroupConfiguration -&gt; f AutoScalingGroupConfiguration
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#autoScalingGroupConfiguration_desiredCapacity"><span class="hs-identifier hs-var hs-var">autoScalingGroupConfiguration_desiredCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingGroupConfiguration -&gt; Maybe Int)
+-&gt; (AutoScalingGroupConfiguration
+    -&gt; Maybe Int -&gt; AutoScalingGroupConfiguration)
+-&gt; Lens
+     AutoScalingGroupConfiguration
+     AutoScalingGroupConfiguration
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration%27"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235370"><span class="annot"><span class="annottext">Maybe Int
+desiredCapacity :: Maybe Int
+$sel:desiredCapacity:AutoScalingGroupConfiguration' :: AutoScalingGroupConfiguration -&gt; Maybe Int
+</span><a href="#local-6989586621679235370"><span class="hs-identifier hs-var hs-var">desiredCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679235370"><span class="hs-identifier hs-var">desiredCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235369"><span class="annot"><span class="annottext">s :: AutoScalingGroupConfiguration
+</span><a href="#local-6989586621679235369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration%27"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235368"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679235368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingGroupConfiguration
+</span><a href="#local-6989586621679235369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredCapacity:AutoScalingGroupConfiguration' :: Maybe Int
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#%24sel%3AdesiredCapacity%3AAutoScalingGroupConfiguration%27"><span class="hs-identifier hs-var">desiredCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679235368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The minimum size, or minimum number of instances, for the Auto Scaling</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#autoScalingGroupConfiguration_minSize"><span class="hs-identifier hs-type">autoScalingGroupConfiguration_minSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="autoScalingGroupConfiguration_minSize"><span class="annot"><span class="annottext">autoScalingGroupConfiguration_minSize :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AutoScalingGroupConfiguration -&gt; f AutoScalingGroupConfiguration
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#autoScalingGroupConfiguration_minSize"><span class="hs-identifier hs-var hs-var">autoScalingGroupConfiguration_minSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingGroupConfiguration -&gt; Maybe Int)
+-&gt; (AutoScalingGroupConfiguration
+    -&gt; Maybe Int -&gt; AutoScalingGroupConfiguration)
+-&gt; Lens
+     AutoScalingGroupConfiguration
+     AutoScalingGroupConfiguration
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration%27"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235366"><span class="annot"><span class="annottext">Maybe Int
+minSize :: Maybe Int
+$sel:minSize:AutoScalingGroupConfiguration' :: AutoScalingGroupConfiguration -&gt; Maybe Int
+</span><a href="#local-6989586621679235366"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679235366"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235365"><span class="annot"><span class="annottext">s :: AutoScalingGroupConfiguration
+</span><a href="#local-6989586621679235365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration%27"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235364"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679235364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingGroupConfiguration
+</span><a href="#local-6989586621679235365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minSize:AutoScalingGroupConfiguration' :: Maybe Int
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#%24sel%3AminSize%3AAutoScalingGroupConfiguration%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679235364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235361"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679235359"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoScalingGroupConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AutoScalingGroupConfiguration)
+-&gt; Value
+-&gt; Parser AutoScalingGroupConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AutoScalingGroupConfiguration&quot;</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235356"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235356"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; AutoScalingGroupConfiguration
+</span><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration%27"><span class="hs-identifier hs-var">AutoScalingGroupConfiguration'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; AutoScalingGroupConfiguration)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int -&gt; Maybe Int -&gt; AutoScalingGroupConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int -&gt; Maybe Int -&gt; AutoScalingGroupConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; AutoScalingGroupConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Int -&gt; AutoScalingGroupConfiguration)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Int -&gt; AutoScalingGroupConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;desiredCapacity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; AutoScalingGroupConfiguration)
+-&gt; Parser (Maybe Int) -&gt; Parser AutoScalingGroupConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;minSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679235350"><span id="local-6989586621679235352"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235347"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.AutoScalingGroupConfiguration.html#AutoScalingGroupConfiguration"><span class="hs-identifier hs-type">AutoScalingGroupConfiguration</span></a></span></span><span>
+</span><span id="line-109"></span></pre></body></html>

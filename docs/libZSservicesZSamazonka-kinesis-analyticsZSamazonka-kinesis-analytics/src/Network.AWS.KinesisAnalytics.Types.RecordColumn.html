@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- Also used to describe the format of the reference data source.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newRecordColumn' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679208288"><span id="local-6989586621679208289"></span></span><span class="hs-keyword">data</span><span> </span><span id="RecordColumn"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-var">RecordColumn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecordColumn%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-var">RecordColumn'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679208297"><span id="local-6989586621679208298"></span></span><span class="hs-keyword">data</span><span> </span><span id="RecordColumn"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-var">RecordColumn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecordColumn%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-var">RecordColumn'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Reference to the data element in the streaming input or the reference</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- data source. This element is required if the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel RecordFormatType&gt;</span><span>
@@ -45,7 +45,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AsqlType%3ARecordColumn%27"><span class="annot"><span class="annottext">RecordColumn -&gt; Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#%24sel%3AsqlType%3ARecordColumn%27"><span class="hs-identifier hs-var hs-var">sqlType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208280"><span id="local-6989586621679208282"><span class="annot"><span class="annottext">RecordColumn -&gt; RecordColumn -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208289"><span id="local-6989586621679208291"><span class="annot"><span class="annottext">RecordColumn -&gt; RecordColumn -&gt; Bool
 (RecordColumn -&gt; RecordColumn -&gt; Bool)
 -&gt; (RecordColumn -&gt; RecordColumn -&gt; Bool) -&gt; Eq RecordColumn
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RecordColumn -&gt; RecordColumn -&gt; Bool
 == :: RecordColumn -&gt; RecordColumn -&gt; Bool
 $c== :: RecordColumn -&gt; RecordColumn -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208271"><span id="local-6989586621679208273"><span id="local-6989586621679208275"><span id="local-6989586621679208277"><span class="annot"><span class="annottext">ReadPrec [RecordColumn]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208280"><span id="local-6989586621679208282"><span id="local-6989586621679208284"><span id="local-6989586621679208286"><span class="annot"><span class="annottext">ReadPrec [RecordColumn]
 ReadPrec RecordColumn
 Int -&gt; ReadS RecordColumn
 ReadS [RecordColumn]
@@ -73,7 +73,7 @@ readList :: ReadS [RecordColumn]
 $creadList :: ReadS [RecordColumn]
 readsPrec :: Int -&gt; ReadS RecordColumn
 $creadsPrec :: Int -&gt; ReadS RecordColumn
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208264"><span id="local-6989586621679208266"><span id="local-6989586621679208268"><span class="annot"><span class="annottext">Int -&gt; RecordColumn -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208273"><span id="local-6989586621679208275"><span id="local-6989586621679208277"><span class="annot"><span class="annottext">Int -&gt; RecordColumn -&gt; ShowS
 [RecordColumn] -&gt; ShowS
 RecordColumn -&gt; String
 (Int -&gt; RecordColumn -&gt; ShowS)
@@ -124,9 +124,9 @@ $cfrom :: forall x. RecordColumn -&gt; Rep RecordColumn x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span><span>
 </span><span id="line-71"></span><span id="newRecordColumn"><span class="annot"><span class="annottext">newRecordColumn :: Text -&gt; Text -&gt; RecordColumn
-</span><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#newRecordColumn"><span class="hs-identifier hs-var hs-var">newRecordColumn</span></a></span></span><span> </span><span id="local-6989586621679208258"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208258"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679208257"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208257"><span class="hs-identifier hs-var">pSqlType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#newRecordColumn"><span class="hs-identifier hs-var hs-var">newRecordColumn</span></a></span></span><span> </span><span id="local-6989586621679208267"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208267"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679208266"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208266"><span class="hs-identifier hs-var">pSqlType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">RecordColumn' :: Maybe Text -&gt; Text -&gt; Text -&gt; RecordColumn
 </span><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mapping:RecordColumn' :: Maybe Text
@@ -135,10 +135,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:RecordColumn' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#%24sel%3Aname%3ARecordColumn%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208258"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679208267"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:sqlType:RecordColumn' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#%24sel%3AsqlType%3ARecordColumn%27"><span class="hs-identifier hs-var">sqlType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208257"><span class="hs-identifier hs-var">pSqlType_</span></a></span><span>
+</span><a href="#local-6989586621679208266"><span class="hs-identifier hs-var">pSqlType_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | Reference to the data element in the streaming input or the reference</span><span>
@@ -151,16 +151,16 @@ forall a. Maybe a
 -&gt; (RecordColumn -&gt; Maybe Text -&gt; RecordColumn)
 -&gt; Lens RecordColumn RecordColumn (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208253"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208262"><span class="annot"><span class="annottext">Maybe Text
 mapping :: Maybe Text
 $sel:mapping:RecordColumn' :: RecordColumn -&gt; Maybe Text
-</span><a href="#local-6989586621679208253"><span class="hs-identifier hs-var hs-var">mapping</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679208253"><span class="hs-identifier hs-var">mapping</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208252"><span class="annot"><span class="annottext">s :: RecordColumn
-</span><a href="#local-6989586621679208252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208251"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679208251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordColumn
-</span><a href="#local-6989586621679208252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mapping:RecordColumn' :: Maybe Text
+</span><a href="#local-6989586621679208262"><span class="hs-identifier hs-var hs-var">mapping</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208262"><span class="hs-identifier hs-var">mapping</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208261"><span class="annot"><span class="annottext">s :: RecordColumn
+</span><a href="#local-6989586621679208261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208260"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordColumn
+</span><a href="#local-6989586621679208261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mapping:RecordColumn' :: Maybe Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#%24sel%3Amapping%3ARecordColumn%27"><span class="hs-identifier hs-var">mapping</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679208251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Name of the column created in the in-application input stream or</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- reference table.</span><span>
@@ -170,16 +170,16 @@ $sel:mapping:RecordColumn' :: RecordColumn -&gt; Maybe Text
 -&gt; (RecordColumn -&gt; Text -&gt; RecordColumn)
 -&gt; Lens RecordColumn RecordColumn Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208249"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208258"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:RecordColumn' :: RecordColumn -&gt; Text
-</span><a href="#local-6989586621679208249"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208249"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208248"><span class="annot"><span class="annottext">s :: RecordColumn
-</span><a href="#local-6989586621679208248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208247"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordColumn
-</span><a href="#local-6989586621679208248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RecordColumn' :: Text
+</span><a href="#local-6989586621679208258"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208258"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208257"><span class="annot"><span class="annottext">s :: RecordColumn
+</span><a href="#local-6989586621679208257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208256"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordColumn
+</span><a href="#local-6989586621679208257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RecordColumn' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#%24sel%3Aname%3ARecordColumn%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | Type of column created in the in-application input stream or reference</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- table.</span><span>
@@ -189,19 +189,19 @@ $sel:name:RecordColumn' :: RecordColumn -&gt; Text
 -&gt; (RecordColumn -&gt; Text -&gt; RecordColumn)
 -&gt; Lens RecordColumn RecordColumn Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208245"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208254"><span class="annot"><span class="annottext">Text
 sqlType :: Text
 $sel:sqlType:RecordColumn' :: RecordColumn -&gt; Text
-</span><a href="#local-6989586621679208245"><span class="hs-identifier hs-var hs-var">sqlType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208245"><span class="hs-identifier hs-var">sqlType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208244"><span class="annot"><span class="annottext">s :: RecordColumn
-</span><a href="#local-6989586621679208244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208243"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordColumn
-</span><a href="#local-6989586621679208244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqlType:RecordColumn' :: Text
+</span><a href="#local-6989586621679208254"><span class="hs-identifier hs-var hs-var">sqlType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208254"><span class="hs-identifier hs-var">sqlType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208253"><span class="annot"><span class="annottext">s :: RecordColumn
+</span><a href="#local-6989586621679208253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208252"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordColumn
+</span><a href="#local-6989586621679208253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqlType:RecordColumn' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#%24sel%3AsqlType%3ARecordColumn%27"><span class="hs-identifier hs-var">sqlType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208240"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679208238"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RecordColumn
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208249"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679208247"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RecordColumn
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RecordColumn) -&gt; Value -&gt; Parser RecordColumn
@@ -209,15 +209,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RecordColumn&quot;</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679208235"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679208235"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679208244"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679208244"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Text -&gt; RecordColumn
 </span><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-var">RecordColumn'</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Text -&gt; RecordColumn)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Text -&gt; RecordColumn)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679208235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679208244"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Mapping&quot;</span></span><span class="hs-special">)</span><span>
@@ -225,26 +225,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; RecordColumn)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679208235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679208244"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; RecordColumn) -&gt; Parser Text -&gt; Parser RecordColumn
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679208235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679208244"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SqlType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208228"><span id="local-6989586621679208230"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208237"><span id="local-6989586621679208239"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208225"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208234"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208217"><span id="local-6989586621679208219"><span id="local-6989586621679208221"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679208215"><span class="annot"><span class="annottext">toJSON :: RecordColumn -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208211"><span id="local-6989586621679208212"><span id="local-6989586621679208213"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208226"><span id="local-6989586621679208228"><span id="local-6989586621679208230"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn"><span class="hs-identifier hs-type">RecordColumn</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679208224"><span class="annot"><span class="annottext">toJSON :: RecordColumn -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordColumn.html#RecordColumn%27"><span class="hs-identifier hs-type">RecordColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208220"><span id="local-6989586621679208221"><span id="local-6989586621679208222"><span class="annot"><span class="annottext">Maybe Text
 Text
 sqlType :: Text
 name :: Text
@@ -252,7 +252,7 @@ mapping :: Maybe Text
 $sel:sqlType:RecordColumn' :: RecordColumn -&gt; Text
 $sel:name:RecordColumn' :: RecordColumn -&gt; Text
 $sel:mapping:RecordColumn' :: RecordColumn -&gt; Maybe Text
-</span><a href="#local-6989586621679208211"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679208220"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -264,21 +264,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679208213"><span class="hs-identifier hs-var">mapping</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679208222"><span class="hs-identifier hs-var">mapping</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208212"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679208221"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SqlType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208211"><span class="hs-identifier hs-var">sqlType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208220"><span class="hs-identifier hs-var">sqlType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span></pre></body></html>

@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621681113609"><span id="local-6989586621681113610"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImageState"><span class="annot"><a href="Network.AWS.EC2.Types.ImageState.html#ImageState"><span class="hs-identifier hs-var">ImageState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ImageState.html#ImageState%27"><span class="hs-identifier hs-var">ImageState'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621681113618"><span id="local-6989586621681113619"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImageState"><span class="annot"><a href="Network.AWS.EC2.Types.ImageState.html#ImageState"><span class="hs-identifier hs-var">ImageState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ImageState.html#ImageState%27"><span class="hs-identifier hs-var">ImageState'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromImageState"><span class="annot"><span class="annottext">ImageState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ImageState.html#fromImageState"><span class="hs-identifier hs-var hs-var">fromImageState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681113601"><span id="local-6989586621681113603"><span id="local-6989586621681113605"><span class="annot"><span class="annottext">Int -&gt; ImageState -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681113610"><span id="local-6989586621681113612"><span id="local-6989586621681113614"><span class="annot"><span class="annottext">Int -&gt; ImageState -&gt; ShowS
 [ImageState] -&gt; ShowS
 ImageState -&gt; String
 (Int -&gt; ImageState -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: ImageState -&gt; String
 showsPrec :: Int -&gt; ImageState -&gt; ShowS
 $cshowsPrec :: Int -&gt; ImageState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621681113592"><span id="local-6989586621681113594"><span id="local-6989586621681113596"><span id="local-6989586621681113598"><span class="annot"><span class="annottext">ReadPrec [ImageState]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681113601"><span id="local-6989586621681113603"><span id="local-6989586621681113605"><span id="local-6989586621681113607"><span class="annot"><span class="annottext">ReadPrec [ImageState]
 ReadPrec ImageState
 Int -&gt; ReadS ImageState
 ReadS [ImageState]
@@ -78,7 +78,7 @@ $creadList :: ReadS [ImageState]
 readsPrec :: Int -&gt; ReadS ImageState
 $creadsPrec :: Int -&gt; ReadS ImageState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681113587"><span id="local-6989586621681113589"><span class="annot"><span class="annottext">ImageState -&gt; ImageState -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681113596"><span id="local-6989586621681113598"><span class="annot"><span class="annottext">ImageState -&gt; ImageState -&gt; Bool
 (ImageState -&gt; ImageState -&gt; Bool)
 -&gt; (ImageState -&gt; ImageState -&gt; Bool) -&gt; Eq ImageState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ $c/= :: ImageState -&gt; ImageState -&gt; Bool
 == :: ImageState -&gt; ImageState -&gt; Bool
 $c== :: ImageState -&gt; ImageState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681113571"><span id="local-6989586621681113573"><span id="local-6989586621681113575"><span id="local-6989586621681113577"><span id="local-6989586621681113579"><span id="local-6989586621681113581"><span id="local-6989586621681113583"><span class="annot"><span class="annottext">Eq ImageState
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681113580"><span id="local-6989586621681113582"><span id="local-6989586621681113584"><span id="local-6989586621681113586"><span id="local-6989586621681113588"><span id="local-6989586621681113590"><span id="local-6989586621681113592"><span class="annot"><span class="annottext">Eq ImageState
 Eq ImageState
 -&gt; (ImageState -&gt; ImageState -&gt; Ordering)
 -&gt; (ImageState -&gt; ImageState -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. ImageState -&gt; Rep ImageState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681113563"><span id="local-6989586621681113565"><span class="annot"><span class="annottext">Int -&gt; ImageState -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681113572"><span id="local-6989586621681113574"><span class="annot"><span class="annottext">Int -&gt; ImageState -&gt; Int
 ImageState -&gt; Int
 (Int -&gt; ImageState -&gt; Int)
 -&gt; (ImageState -&gt; Int) -&gt; Hashable ImageState
@@ -147,49 +147,49 @@ $chash :: ImageState -&gt; Int
 hashWithSalt :: Int -&gt; ImageState -&gt; Int
 $chashWithSalt :: Int -&gt; ImageState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681113560"><span class="annot"><span class="annottext">ImageState -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681113569"><span class="annot"><span class="annottext">ImageState -&gt; ()
 (ImageState -&gt; ()) -&gt; NFData ImageState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ImageState -&gt; ()
 $crnf :: ImageState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681113557"><span class="annot"><span class="annottext">Text -&gt; Either String ImageState
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681113566"><span class="annot"><span class="annottext">Text -&gt; Either String ImageState
 (Text -&gt; Either String ImageState) -&gt; FromText ImageState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ImageState
 $cfromText :: Text -&gt; Either String ImageState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681113554"><span class="annot"><span class="annottext">ImageState -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681113563"><span class="annot"><span class="annottext">ImageState -&gt; Text
 (ImageState -&gt; Text) -&gt; ToText ImageState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ImageState -&gt; Text
 $ctoText :: ImageState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681113551"><span class="annot"><span class="annottext">ImageState -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681113560"><span class="annot"><span class="annottext">ImageState -&gt; ByteString
 (ImageState -&gt; ByteString) -&gt; ToByteString ImageState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ImageState -&gt; ByteString
 $ctoBS :: ImageState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681113548"><span class="annot"><span class="annottext">ImageState -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681113557"><span class="annot"><span class="annottext">ImageState -&gt; ByteStringBuilder
 (ImageState -&gt; ByteStringBuilder) -&gt; ToLog ImageState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ImageState -&gt; ByteStringBuilder
 $cbuild :: ImageState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681113545"><span class="annot"><span class="annottext">HeaderName -&gt; ImageState -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681113554"><span class="annot"><span class="annottext">HeaderName -&gt; ImageState -&gt; [Header]
 (HeaderName -&gt; ImageState -&gt; [Header]) -&gt; ToHeader ImageState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ImageState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ImageState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681113542"><span class="annot"><span class="annottext">ImageState -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681113551"><span class="annot"><span class="annottext">ImageState -&gt; QueryString
 (ImageState -&gt; QueryString) -&gt; ToQuery ImageState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ImageState -&gt; QueryString
 $ctoQuery :: ImageState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681113537"><span id="local-6989586621681113539"><span class="annot"><span class="annottext">Value -&gt; Parser [ImageState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681113546"><span id="local-6989586621681113548"><span class="annot"><span class="annottext">Value -&gt; Parser [ImageState]
 Value -&gt; Parser ImageState
 (Value -&gt; Parser ImageState)
 -&gt; (Value -&gt; Parser [ImageState]) -&gt; FromJSON ImageState
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [ImageState]
 parseJSON :: Value -&gt; Parser ImageState
 $cparseJSON :: Value -&gt; Parser ImageState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681113532"><span id="local-6989586621681113534"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImageState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681113541"><span id="local-6989586621681113543"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImageState]
 FromJSONKeyFunction ImageState
 FromJSONKeyFunction ImageState
 -&gt; FromJSONKeyFunction [ImageState] -&gt; FromJSONKey ImageState
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ImageState]
 fromJSONKey :: FromJSONKeyFunction ImageState
 $cfromJSONKey :: FromJSONKeyFunction ImageState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681113523"><span id="local-6989586621681113525"><span id="local-6989586621681113527"><span id="local-6989586621681113529"><span class="annot"><span class="annottext">[ImageState] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681113532"><span id="local-6989586621681113534"><span id="local-6989586621681113536"><span id="local-6989586621681113538"><span class="annot"><span class="annottext">[ImageState] -&gt; Encoding
 [ImageState] -&gt; Value
 ImageState -&gt; Encoding
 ImageState -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: ImageState -&gt; Encoding
 toJSON :: ImageState -&gt; Value
 $ctoJSON :: ImageState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681113518"><span id="local-6989586621681113520"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImageState]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681113527"><span id="local-6989586621681113529"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImageState]
 ToJSONKeyFunction ImageState
 ToJSONKeyFunction ImageState
 -&gt; ToJSONKeyFunction [ImageState] -&gt; ToJSONKey ImageState
@@ -246,13 +246,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ImageState]
 toJSONKey :: ToJSONKeyFunction ImageState
 $ctoJSONKey :: ToJSONKeyFunction ImageState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621681113515"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImageState
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681113524"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImageState
 ([Node] -&gt; Either String ImageState) -&gt; FromXML ImageState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ImageState
 $cparseXML :: [Node] -&gt; Either String ImageState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621681113512"><span class="annot"><span class="annottext">ImageState -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621681113521"><span class="annot"><span class="annottext">ImageState -&gt; XML
 (ImageState -&gt; XML) -&gt; ToXML ImageState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ImageState -&gt; XML

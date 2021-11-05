@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | The input for the DeleteThing operation.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newDeleteThing' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679842643"><span id="local-6989586621679842644"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteThing"><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing"><span class="hs-identifier hs-var">DeleteThing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteThing%27"><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing%27"><span class="hs-identifier hs-var">DeleteThing'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679842652"><span id="local-6989586621679842653"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteThing"><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing"><span class="hs-identifier hs-var">DeleteThing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteThing%27"><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing%27"><span class="hs-identifier hs-var">DeleteThing'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The expected version of the thing record in the registry. If the version</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- of the record in the registry does not match the expected version</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- specified in the request, the @DeleteThing@ request is rejected with a</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AthingName%3ADeleteThing%27"><span class="annot"><span class="annottext">DeleteThing -&gt; Text
 </span><a href="Network.AWS.IoT.DeleteThing.html#%24sel%3AthingName%3ADeleteThing%27"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679842636"><span id="local-6989586621679842638"><span class="annot"><span class="annottext">DeleteThing -&gt; DeleteThing -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679842645"><span id="local-6989586621679842647"><span class="annot"><span class="annottext">DeleteThing -&gt; DeleteThing -&gt; Bool
 (DeleteThing -&gt; DeleteThing -&gt; Bool)
 -&gt; (DeleteThing -&gt; DeleteThing -&gt; Bool) -&gt; Eq DeleteThing
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteThing -&gt; DeleteThing -&gt; Bool
 == :: DeleteThing -&gt; DeleteThing -&gt; Bool
 $c== :: DeleteThing -&gt; DeleteThing -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842627"><span id="local-6989586621679842629"><span id="local-6989586621679842631"><span id="local-6989586621679842633"><span class="annot"><span class="annottext">ReadPrec [DeleteThing]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842636"><span id="local-6989586621679842638"><span id="local-6989586621679842640"><span id="local-6989586621679842642"><span class="annot"><span class="annottext">ReadPrec [DeleteThing]
 ReadPrec DeleteThing
 Int -&gt; ReadS DeleteThing
 ReadS [DeleteThing]
@@ -93,7 +93,7 @@ readList :: ReadS [DeleteThing]
 $creadList :: ReadS [DeleteThing]
 readsPrec :: Int -&gt; ReadS DeleteThing
 $creadsPrec :: Int -&gt; ReadS DeleteThing
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842620"><span id="local-6989586621679842622"><span id="local-6989586621679842624"><span class="annot"><span class="annottext">Int -&gt; DeleteThing -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842629"><span id="local-6989586621679842631"><span id="local-6989586621679842633"><span class="annot"><span class="annottext">Int -&gt; DeleteThing -&gt; ShowS
 [DeleteThing] -&gt; ShowS
 DeleteThing -&gt; String
 (Int -&gt; DeleteThing -&gt; ShowS)
@@ -138,8 +138,8 @@ $cfrom :: forall x. DeleteThing -&gt; Rep DeleteThing x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing"><span class="hs-identifier hs-type">DeleteThing</span></a></span><span>
 </span><span id="line-86"></span><span id="newDeleteThing"><span class="annot"><span class="annottext">newDeleteThing :: Text -&gt; DeleteThing
-</span><a href="Network.AWS.IoT.DeleteThing.html#newDeleteThing"><span class="hs-identifier hs-var hs-var">newDeleteThing</span></a></span></span><span> </span><span id="local-6989586621679842615"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679842615"><span class="hs-identifier hs-var">pThingName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DeleteThing.html#newDeleteThing"><span class="hs-identifier hs-var hs-var">newDeleteThing</span></a></span></span><span> </span><span id="local-6989586621679842624"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842624"><span class="hs-identifier hs-var">pThingName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">DeleteThing' :: Maybe Integer -&gt; Text -&gt; DeleteThing
 </span><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing%27"><span class="hs-identifier hs-type">DeleteThing'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedVersion:DeleteThing' :: Maybe Integer
@@ -148,7 +148,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingName:DeleteThing' :: Text
 </span><a href="Network.AWS.IoT.DeleteThing.html#%24sel%3AthingName%3ADeleteThing%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679842615"><span class="hs-identifier hs-var">pThingName_</span></a></span><span>
+</span><a href="#local-6989586621679842624"><span class="hs-identifier hs-var">pThingName_</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The expected version of the thing record in the registry. If the version</span><span>
@@ -162,16 +162,16 @@ forall a. Maybe a
 -&gt; (DeleteThing -&gt; Maybe Integer -&gt; DeleteThing)
 -&gt; Lens DeleteThing DeleteThing (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing%27"><span class="hs-identifier hs-type">DeleteThing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842612"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing%27"><span class="hs-identifier hs-type">DeleteThing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842621"><span class="annot"><span class="annottext">Maybe Integer
 expectedVersion :: Maybe Integer
 $sel:expectedVersion:DeleteThing' :: DeleteThing -&gt; Maybe Integer
-</span><a href="#local-6989586621679842612"><span class="hs-identifier hs-var hs-var">expectedVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679842612"><span class="hs-identifier hs-var">expectedVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842611"><span class="annot"><span class="annottext">s :: DeleteThing
-</span><a href="#local-6989586621679842611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing%27"><span class="hs-identifier hs-type">DeleteThing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842610"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679842610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteThing
-</span><a href="#local-6989586621679842611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedVersion:DeleteThing' :: Maybe Integer
+</span><a href="#local-6989586621679842621"><span class="hs-identifier hs-var hs-var">expectedVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679842621"><span class="hs-identifier hs-var">expectedVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842620"><span class="annot"><span class="annottext">s :: DeleteThing
+</span><a href="#local-6989586621679842620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing%27"><span class="hs-identifier hs-type">DeleteThing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842619"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679842619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteThing
+</span><a href="#local-6989586621679842620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedVersion:DeleteThing' :: Maybe Integer
 </span><a href="Network.AWS.IoT.DeleteThing.html#%24sel%3AexpectedVersion%3ADeleteThing%27"><span class="hs-identifier hs-var">expectedVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679842610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing"><span class="hs-identifier hs-type">DeleteThing</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679842619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing"><span class="hs-identifier hs-type">DeleteThing</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The name of the thing to delete.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#deleteThing_thingName"><span class="hs-identifier hs-type">deleteThing_thingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing"><span class="hs-identifier hs-type">DeleteThing</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -180,25 +180,25 @@ $sel:expectedVersion:DeleteThing' :: DeleteThing -&gt; Maybe Integer
 -&gt; (DeleteThing -&gt; Text -&gt; DeleteThing)
 -&gt; Lens DeleteThing DeleteThing Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing%27"><span class="hs-identifier hs-type">DeleteThing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842609"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing%27"><span class="hs-identifier hs-type">DeleteThing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842618"><span class="annot"><span class="annottext">Text
 thingName :: Text
 $sel:thingName:DeleteThing' :: DeleteThing -&gt; Text
-</span><a href="#local-6989586621679842609"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679842609"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842608"><span class="annot"><span class="annottext">s :: DeleteThing
-</span><a href="#local-6989586621679842608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing%27"><span class="hs-identifier hs-type">DeleteThing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842607"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679842607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteThing
-</span><a href="#local-6989586621679842608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:DeleteThing' :: Text
+</span><a href="#local-6989586621679842618"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842618"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842617"><span class="annot"><span class="annottext">s :: DeleteThing
+</span><a href="#local-6989586621679842617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing%27"><span class="hs-identifier hs-type">DeleteThing'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842616"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteThing
+</span><a href="#local-6989586621679842617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:DeleteThing' :: Text
 </span><a href="Network.AWS.IoT.DeleteThing.html#%24sel%3AthingName%3ADeleteThing%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679842607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing"><span class="hs-identifier hs-type">DeleteThing</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679842616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing"><span class="hs-identifier hs-type">DeleteThing</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing"><span class="hs-identifier hs-type">DeleteThing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing"><span class="hs-identifier hs-type">DeleteThing</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThingResponse"><span class="hs-identifier hs-type">DeleteThingResponse</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679842603"><span class="annot"><span class="annottext">request :: DeleteThing -&gt; Request DeleteThing
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679842612"><span class="annot"><span class="annottext">request :: DeleteThing -&gt; Request DeleteThing
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteThing -&gt; Request DeleteThing
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679842599"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679842608"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteThing
 -&gt; ClientResponse ClientBody
@@ -222,10 +222,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679842596"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679842596"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679842595"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679842595"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679842594"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679842594"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679842605"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679842605"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679842604"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679842604"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679842603"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679842603"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteThingResponse
 </span><a href="Network.AWS.IoT.DeleteThing.html#DeleteThingResponse%27"><span class="hs-identifier hs-var">DeleteThingResponse'</span></a></span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteThingResponse)
@@ -236,15 +236,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679842596"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679842605"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842587"><span id="local-6989586621679842589"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing"><span class="hs-identifier hs-type">DeleteThing</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842596"><span id="local-6989586621679842598"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing"><span class="hs-identifier hs-type">DeleteThing</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842584"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing"><span class="hs-identifier hs-type">DeleteThing</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842593"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing"><span class="hs-identifier hs-type">DeleteThing</span></a></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing"><span class="hs-identifier hs-type">DeleteThing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679842580"><span class="annot"><span class="annottext">toHeaders :: DeleteThing -&gt; ResponseHeaders
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679842589"><span class="annot"><span class="annottext">toHeaders :: DeleteThing -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteThing -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -252,31 +252,31 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing"><span class="hs-identifier hs-type">DeleteThing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679842575"><span class="annot"><span class="annottext">toPath :: DeleteThing -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing%27"><span class="hs-identifier hs-type">DeleteThing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842572"><span id="local-6989586621679842573"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679842584"><span class="annot"><span class="annottext">toPath :: DeleteThing -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing%27"><span class="hs-identifier hs-type">DeleteThing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842581"><span id="local-6989586621679842582"><span class="annot"><span class="annottext">Maybe Integer
 Text
 thingName :: Text
 expectedVersion :: Maybe Integer
 $sel:thingName:DeleteThing' :: DeleteThing -&gt; Text
 $sel:expectedVersion:DeleteThing' :: DeleteThing -&gt; Maybe Integer
-</span><a href="#local-6989586621679842572"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679842581"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/things/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679842572"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679842581"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing"><span class="hs-identifier hs-type">DeleteThing</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679842568"><span class="annot"><span class="annottext">toQuery :: DeleteThing -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing%27"><span class="hs-identifier hs-type">DeleteThing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842565"><span id="local-6989586621679842566"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679842577"><span class="annot"><span class="annottext">toQuery :: DeleteThing -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThing%27"><span class="hs-identifier hs-type">DeleteThing'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842574"><span id="local-6989586621679842575"><span class="annot"><span class="annottext">Maybe Integer
 Text
 thingName :: Text
 expectedVersion :: Maybe Integer
 $sel:thingName:DeleteThing' :: DeleteThing -&gt; Text
 $sel:expectedVersion:DeleteThing' :: DeleteThing -&gt; Maybe Integer
-</span><a href="#local-6989586621679842565"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679842574"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -284,17 +284,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;expectedVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Integer -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679842566"><span class="hs-identifier hs-var">expectedVersion</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679842575"><span class="hs-identifier hs-var">expectedVersion</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The output of the DeleteThing operation.</span><span>
 </span><span id="line-130"></span><span class="hs-comment">--</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- /See:/ 'newDeleteThingResponse' smart constructor.</span><span>
-</span><span id="line-132"></span><span id="local-6989586621679842562"><span id="local-6989586621679842563"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteThingResponse"><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThingResponse"><span class="hs-identifier hs-var">DeleteThingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteThingResponse%27"><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThingResponse%27"><span class="hs-identifier hs-var">DeleteThingResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span id="local-6989586621679842571"><span id="local-6989586621679842572"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteThingResponse"><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThingResponse"><span class="hs-identifier hs-var">DeleteThingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteThingResponse%27"><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThingResponse%27"><span class="hs-identifier hs-var">DeleteThingResponse'</span></a></span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-134"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteThingResponse%27"><span class="annot"><span class="annottext">DeleteThingResponse -&gt; Int
 </span><a href="Network.AWS.IoT.DeleteThing.html#%24sel%3AhttpStatus%3ADeleteThingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679842557"><span id="local-6989586621679842559"><span class="annot"><span class="annottext">DeleteThingResponse -&gt; DeleteThingResponse -&gt; Bool
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679842566"><span id="local-6989586621679842568"><span class="annot"><span class="annottext">DeleteThingResponse -&gt; DeleteThingResponse -&gt; Bool
 (DeleteThingResponse -&gt; DeleteThingResponse -&gt; Bool)
 -&gt; (DeleteThingResponse -&gt; DeleteThingResponse -&gt; Bool)
 -&gt; Eq DeleteThingResponse
@@ -303,7 +303,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteThingResponse -&gt; DeleteThingResponse -&gt; Bool
 == :: DeleteThingResponse -&gt; DeleteThingResponse -&gt; Bool
 $c== :: DeleteThingResponse -&gt; DeleteThingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842549"><span id="local-6989586621679842551"><span id="local-6989586621679842553"><span id="local-6989586621679842555"><span class="annot"><span class="annottext">ReadPrec [DeleteThingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842558"><span id="local-6989586621679842560"><span id="local-6989586621679842562"><span id="local-6989586621679842564"><span class="annot"><span class="annottext">ReadPrec [DeleteThingResponse]
 ReadPrec DeleteThingResponse
 Int -&gt; ReadS DeleteThingResponse
 ReadS [DeleteThingResponse]
@@ -323,7 +323,7 @@ readList :: ReadS [DeleteThingResponse]
 $creadList :: ReadS [DeleteThingResponse]
 readsPrec :: Int -&gt; ReadS DeleteThingResponse
 $creadsPrec :: Int -&gt; ReadS DeleteThingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842543"><span id="local-6989586621679842545"><span id="local-6989586621679842547"><span class="annot"><span class="annottext">Int -&gt; DeleteThingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842552"><span id="local-6989586621679842554"><span id="local-6989586621679842556"><span class="annot"><span class="annottext">Int -&gt; DeleteThingResponse -&gt; ShowS
 [DeleteThingResponse] -&gt; ShowS
 DeleteThingResponse -&gt; String
 (Int -&gt; DeleteThingResponse -&gt; ShowS)
@@ -363,12 +363,12 @@ $cfrom :: forall x. DeleteThingResponse -&gt; Rep DeleteThingResponse x
 </span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThingResponse"><span class="hs-identifier hs-type">DeleteThingResponse</span></a></span><span>
 </span><span id="line-151"></span><span id="newDeleteThingResponse"><span class="annot"><span class="annottext">newDeleteThingResponse :: Int -&gt; DeleteThingResponse
-</span><a href="Network.AWS.IoT.DeleteThing.html#newDeleteThingResponse"><span class="hs-identifier hs-var hs-var">newDeleteThingResponse</span></a></span></span><span> </span><span id="local-6989586621679842540"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679842540"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DeleteThing.html#newDeleteThingResponse"><span class="hs-identifier hs-var hs-var">newDeleteThingResponse</span></a></span></span><span> </span><span id="local-6989586621679842549"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679842549"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">DeleteThingResponse' :: Int -&gt; DeleteThingResponse
 </span><a href="Network.AWS.IoT.DeleteThing.html#DeleteThingResponse%27"><span class="hs-identifier hs-type">DeleteThingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteThingResponse' :: Int
 </span><a href="Network.AWS.IoT.DeleteThing.html#%24sel%3AhttpStatus%3ADeleteThingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679842540"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679842549"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#deleteThingResponse_httpStatus"><span class="hs-identifier hs-type">deleteThingResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThingResponse"><span class="hs-identifier hs-type">DeleteThingResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -377,16 +377,16 @@ $cfrom :: forall x. DeleteThingResponse -&gt; Rep DeleteThingResponse x
 -&gt; (DeleteThingResponse -&gt; Int -&gt; DeleteThingResponse)
 -&gt; Lens DeleteThingResponse DeleteThingResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThingResponse%27"><span class="hs-identifier hs-type">DeleteThingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842539"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThingResponse%27"><span class="hs-identifier hs-type">DeleteThingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842548"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteThingResponse' :: DeleteThingResponse -&gt; Int
-</span><a href="#local-6989586621679842539"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679842539"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842538"><span class="annot"><span class="annottext">s :: DeleteThingResponse
-</span><a href="#local-6989586621679842538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThingResponse%27"><span class="hs-identifier hs-type">DeleteThingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842537"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679842537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteThingResponse
-</span><a href="#local-6989586621679842538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteThingResponse' :: Int
+</span><a href="#local-6989586621679842548"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679842548"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842547"><span class="annot"><span class="annottext">s :: DeleteThingResponse
+</span><a href="#local-6989586621679842547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThingResponse%27"><span class="hs-identifier hs-type">DeleteThingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842546"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679842546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteThingResponse
+</span><a href="#local-6989586621679842547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteThingResponse' :: Int
 </span><a href="Network.AWS.IoT.DeleteThing.html#%24sel%3AhttpStatus%3ADeleteThingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679842537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThingResponse"><span class="hs-identifier hs-type">DeleteThingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679842546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThingResponse"><span class="hs-identifier hs-type">DeleteThingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842535"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThingResponse"><span class="hs-identifier hs-type">DeleteThingResponse</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842544"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteThing.html#DeleteThingResponse"><span class="hs-identifier hs-type">DeleteThingResponse</span></a></span></span><span>
 </span><span id="line-159"></span></pre></body></html>

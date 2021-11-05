@@ -68,7 +68,7 @@
 </span><span id="line-68"></span><span class="hs-comment">-- | Request to add a method to an existing Resource resource.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- /See:/ 'newPutMethod' smart constructor.</span><span>
-</span><span id="line-71"></span><span id="local-6989586621679374736"><span id="local-6989586621679374737"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutMethod"><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-var">PutMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutMethod%27"><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-var">PutMethod'</span></a></span></span><span>
+</span><span id="line-71"></span><span id="local-6989586621679374745"><span id="local-6989586621679374746"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutMethod"><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-var">PutMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutMethod%27"><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-var">PutMethod'</span></a></span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of authorization scopes configured on the method. The scopes are</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- used with a @COGNITO_USER_POOLS@ authorizer to authorize the method</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- invocation. The authorization works by matching the method scopes</span><span>
@@ -127,7 +127,7 @@
 </span><span id="line-117"></span><span>    </span><span id="%24sel%3AauthorizationType%3APutMethod%27"><span class="annot"><span class="annottext">PutMethod -&gt; Text
 </span><a href="Network.AWS.APIGateway.PutMethod.html#%24sel%3AauthorizationType%3APutMethod%27"><span class="hs-identifier hs-var hs-var">authorizationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374720"><span id="local-6989586621679374722"><span class="annot"><span class="annottext">PutMethod -&gt; PutMethod -&gt; Bool
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374729"><span id="local-6989586621679374731"><span class="annot"><span class="annottext">PutMethod -&gt; PutMethod -&gt; Bool
 (PutMethod -&gt; PutMethod -&gt; Bool)
 -&gt; (PutMethod -&gt; PutMethod -&gt; Bool) -&gt; Eq PutMethod
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -135,7 +135,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutMethod -&gt; PutMethod -&gt; Bool
 == :: PutMethod -&gt; PutMethod -&gt; Bool
 $c== :: PutMethod -&gt; PutMethod -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374711"><span id="local-6989586621679374713"><span id="local-6989586621679374715"><span id="local-6989586621679374717"><span class="annot"><span class="annottext">ReadPrec [PutMethod]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374720"><span id="local-6989586621679374722"><span id="local-6989586621679374724"><span id="local-6989586621679374726"><span class="annot"><span class="annottext">ReadPrec [PutMethod]
 ReadPrec PutMethod
 Int -&gt; ReadS PutMethod
 ReadS [PutMethod]
@@ -155,7 +155,7 @@ readList :: ReadS [PutMethod]
 $creadList :: ReadS [PutMethod]
 readsPrec :: Int -&gt; ReadS PutMethod
 $creadsPrec :: Int -&gt; ReadS PutMethod
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374704"><span id="local-6989586621679374706"><span id="local-6989586621679374708"><span class="annot"><span class="annottext">Int -&gt; PutMethod -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374713"><span id="local-6989586621679374715"><span id="local-6989586621679374717"><span class="annot"><span class="annottext">Int -&gt; PutMethod -&gt; ShowS
 [PutMethod] -&gt; ShowS
 PutMethod -&gt; String
 (Int -&gt; PutMethod -&gt; ShowS)
@@ -245,14 +245,14 @@ $cfrom :: forall x. PutMethod -&gt; Rep PutMethod x
 </span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span>
 </span><span id="line-184"></span><span id="newPutMethod"><span class="annot"><span class="annottext">newPutMethod :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; PutMethod
 </span><a href="Network.AWS.APIGateway.PutMethod.html#newPutMethod"><span class="hs-identifier hs-var hs-var">newPutMethod</span></a></span></span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679374699"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374699"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679374698"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374698"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679374697"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374697"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span></span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679374696"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374696"><span class="hs-identifier hs-var">pAuthorizationType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679374708"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374708"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679374707"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374707"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679374706"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374706"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span></span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679374705"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374705"><span class="hs-identifier hs-var">pAuthorizationType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">PutMethod' :: Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe (HashMap Text Text)
@@ -296,16 +296,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">$sel:restApiId:PutMethod' :: Text
 </span><a href="Network.AWS.APIGateway.PutMethod.html#%24sel%3ArestApiId%3APutMethod%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374699"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374708"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceId:PutMethod' :: Text
 </span><a href="Network.AWS.APIGateway.PutMethod.html#%24sel%3AresourceId%3APutMethod%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374698"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374707"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpMethod:PutMethod' :: Text
 </span><a href="Network.AWS.APIGateway.PutMethod.html#%24sel%3AhttpMethod%3APutMethod%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374697"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374706"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">$sel:authorizationType:PutMethod' :: Text
 </span><a href="Network.AWS.APIGateway.PutMethod.html#%24sel%3AauthorizationType%3APutMethod%27"><span class="hs-identifier hs-var">authorizationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374696"><span class="hs-identifier hs-var">pAuthorizationType_</span></a></span><span>
+</span><a href="#local-6989586621679374705"><span class="hs-identifier hs-var">pAuthorizationType_</span></a></span><span>
 </span><span id="line-201"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | A list of authorization scopes configured on the method. The scopes are</span><span>
@@ -322,16 +322,16 @@ forall a. Maybe a
 -&gt; (PutMethod -&gt; Maybe [Text] -&gt; PutMethod)
 -&gt; Lens PutMethod PutMethod (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374693"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374702"><span class="annot"><span class="annottext">Maybe [Text]
 authorizationScopes :: Maybe [Text]
 $sel:authorizationScopes:PutMethod' :: PutMethod -&gt; Maybe [Text]
-</span><a href="#local-6989586621679374693"><span class="hs-identifier hs-var hs-var">authorizationScopes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679374693"><span class="hs-identifier hs-var">authorizationScopes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374692"><span class="annot"><span class="annottext">s :: PutMethod
-</span><a href="#local-6989586621679374692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374691"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679374691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
-</span><a href="#local-6989586621679374692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationScopes:PutMethod' :: Maybe [Text]
+</span><a href="#local-6989586621679374702"><span class="hs-identifier hs-var hs-var">authorizationScopes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679374702"><span class="hs-identifier hs-var">authorizationScopes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374701"><span class="annot"><span class="annottext">s :: PutMethod
+</span><a href="#local-6989586621679374701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374700"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679374700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
+</span><a href="#local-6989586621679374701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationScopes:PutMethod' :: Maybe [Text]
 </span><a href="Network.AWS.APIGateway.PutMethod.html#%24sel%3AauthorizationScopes%3APutMethod%27"><span class="hs-identifier hs-var">authorizationScopes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679374691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; PutMethod -&gt; f PutMethod)
+</span><a href="#local-6989586621679374700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; PutMethod -&gt; f PutMethod)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -354,16 +354,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (PutMethod -&gt; Maybe Text -&gt; PutMethod)
 -&gt; Lens PutMethod PutMethod (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374687"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374696"><span class="annot"><span class="annottext">Maybe Text
 requestValidatorId :: Maybe Text
 $sel:requestValidatorId:PutMethod' :: PutMethod -&gt; Maybe Text
-</span><a href="#local-6989586621679374687"><span class="hs-identifier hs-var hs-var">requestValidatorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374687"><span class="hs-identifier hs-var">requestValidatorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374686"><span class="annot"><span class="annottext">s :: PutMethod
-</span><a href="#local-6989586621679374686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374685"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
-</span><a href="#local-6989586621679374686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestValidatorId:PutMethod' :: Maybe Text
+</span><a href="#local-6989586621679374696"><span class="hs-identifier hs-var hs-var">requestValidatorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374696"><span class="hs-identifier hs-var">requestValidatorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374695"><span class="annot"><span class="annottext">s :: PutMethod
+</span><a href="#local-6989586621679374695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374694"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
+</span><a href="#local-6989586621679374695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestValidatorId:PutMethod' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.PutMethod.html#%24sel%3ArequestValidatorId%3APutMethod%27"><span class="hs-identifier hs-var">requestValidatorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | Specifies the Model resources used for the request\'s content type.</span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- Request models are represented as a key\/value map, with a content type</span><span>
@@ -379,16 +379,16 @@ $sel:requestValidatorId:PutMethod' :: PutMethod -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374684"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374693"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 requestModels :: Maybe (HashMap Text Text)
 $sel:requestModels:PutMethod' :: PutMethod -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679374684"><span class="hs-identifier hs-var hs-var">requestModels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679374684"><span class="hs-identifier hs-var">requestModels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374683"><span class="annot"><span class="annottext">s :: PutMethod
-</span><a href="#local-6989586621679374683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374682"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679374682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
-</span><a href="#local-6989586621679374683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestModels:PutMethod' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679374693"><span class="hs-identifier hs-var hs-var">requestModels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679374693"><span class="hs-identifier hs-var">requestModels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374692"><span class="annot"><span class="annottext">s :: PutMethod
+</span><a href="#local-6989586621679374692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374691"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679374691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
+</span><a href="#local-6989586621679374692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestModels:PutMethod' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.APIGateway.PutMethod.html#%24sel%3ArequestModels%3APutMethod%27"><span class="hs-identifier hs-var">requestModels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679374682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679374691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; PutMethod -&gt; f PutMethod)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -437,16 +437,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (HashMap Text Bool))
      (Maybe (HashMap Text Bool))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374681"><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374690"><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
 requestParameters :: Maybe (HashMap Text Bool)
 $sel:requestParameters:PutMethod' :: PutMethod -&gt; Maybe (HashMap Text Bool)
-</span><a href="#local-6989586621679374681"><span class="hs-identifier hs-var hs-var">requestParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
-</span><a href="#local-6989586621679374681"><span class="hs-identifier hs-var">requestParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374680"><span class="annot"><span class="annottext">s :: PutMethod
-</span><a href="#local-6989586621679374680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374679"><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
-</span><a href="#local-6989586621679374679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
-</span><a href="#local-6989586621679374680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestParameters:PutMethod' :: Maybe (HashMap Text Bool)
+</span><a href="#local-6989586621679374690"><span class="hs-identifier hs-var hs-var">requestParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
+</span><a href="#local-6989586621679374690"><span class="hs-identifier hs-var">requestParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374689"><span class="annot"><span class="annottext">s :: PutMethod
+</span><a href="#local-6989586621679374689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374688"><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
+</span><a href="#local-6989586621679374688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
+</span><a href="#local-6989586621679374689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestParameters:PutMethod' :: Maybe (HashMap Text Bool)
 </span><a href="Network.AWS.APIGateway.PutMethod.html#%24sel%3ArequestParameters%3APutMethod%27"><span class="hs-identifier hs-var">requestParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
-</span><a href="#local-6989586621679374679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
+</span><a href="#local-6989586621679374688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
  -&gt; PutMethod -&gt; f PutMethod)
 -&gt; ((Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
     -&gt; Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
@@ -484,16 +484,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (PutMethod -&gt; Maybe Text -&gt; PutMethod)
 -&gt; Lens PutMethod PutMethod (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374678"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374687"><span class="annot"><span class="annottext">Maybe Text
 authorizerId :: Maybe Text
 $sel:authorizerId:PutMethod' :: PutMethod -&gt; Maybe Text
-</span><a href="#local-6989586621679374678"><span class="hs-identifier hs-var hs-var">authorizerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374678"><span class="hs-identifier hs-var">authorizerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374677"><span class="annot"><span class="annottext">s :: PutMethod
-</span><a href="#local-6989586621679374677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374676"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
-</span><a href="#local-6989586621679374677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerId:PutMethod' :: Maybe Text
+</span><a href="#local-6989586621679374687"><span class="hs-identifier hs-var hs-var">authorizerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374687"><span class="hs-identifier hs-var">authorizerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374686"><span class="annot"><span class="annottext">s :: PutMethod
+</span><a href="#local-6989586621679374686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374685"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
+</span><a href="#local-6989586621679374686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerId:PutMethod' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.PutMethod.html#%24sel%3AauthorizerId%3APutMethod%27"><span class="hs-identifier hs-var">authorizerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- | A human-friendly operation identifier for the method. For example, you</span><span>
 </span><span id="line-243"></span><span class="hs-comment">-- can assign the @operationName@ of @ListPets@ for the @GET \/pets@ method</span><span>
@@ -504,16 +504,16 @@ $sel:authorizerId:PutMethod' :: PutMethod -&gt; Maybe Text
 -&gt; (PutMethod -&gt; Maybe Text -&gt; PutMethod)
 -&gt; Lens PutMethod PutMethod (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374675"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374684"><span class="annot"><span class="annottext">Maybe Text
 operationName :: Maybe Text
 $sel:operationName:PutMethod' :: PutMethod -&gt; Maybe Text
-</span><a href="#local-6989586621679374675"><span class="hs-identifier hs-var hs-var">operationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374675"><span class="hs-identifier hs-var">operationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374674"><span class="annot"><span class="annottext">s :: PutMethod
-</span><a href="#local-6989586621679374674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374673"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
-</span><a href="#local-6989586621679374674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationName:PutMethod' :: Maybe Text
+</span><a href="#local-6989586621679374684"><span class="hs-identifier hs-var hs-var">operationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374684"><span class="hs-identifier hs-var">operationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374683"><span class="annot"><span class="annottext">s :: PutMethod
+</span><a href="#local-6989586621679374683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374682"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
+</span><a href="#local-6989586621679374683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationName:PutMethod' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.PutMethod.html#%24sel%3AoperationName%3APutMethod%27"><span class="hs-identifier hs-var">operationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- | Specifies whether the method required a valid ApiKey.</span><span>
 </span><span id="line-249"></span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#putMethod_apiKeyRequired"><span class="hs-identifier hs-type">putMethod_apiKeyRequired</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -522,16 +522,16 @@ $sel:operationName:PutMethod' :: PutMethod -&gt; Maybe Text
 -&gt; (PutMethod -&gt; Maybe Bool -&gt; PutMethod)
 -&gt; Lens PutMethod PutMethod (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374672"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374681"><span class="annot"><span class="annottext">Maybe Bool
 apiKeyRequired :: Maybe Bool
 $sel:apiKeyRequired:PutMethod' :: PutMethod -&gt; Maybe Bool
-</span><a href="#local-6989586621679374672"><span class="hs-identifier hs-var hs-var">apiKeyRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679374672"><span class="hs-identifier hs-var">apiKeyRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374671"><span class="annot"><span class="annottext">s :: PutMethod
-</span><a href="#local-6989586621679374671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374670"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679374670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
-</span><a href="#local-6989586621679374671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKeyRequired:PutMethod' :: Maybe Bool
+</span><a href="#local-6989586621679374681"><span class="hs-identifier hs-var hs-var">apiKeyRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374681"><span class="hs-identifier hs-var">apiKeyRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374680"><span class="annot"><span class="annottext">s :: PutMethod
+</span><a href="#local-6989586621679374680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374679"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
+</span><a href="#local-6989586621679374680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKeyRequired:PutMethod' :: Maybe Bool
 </span><a href="Network.AWS.APIGateway.PutMethod.html#%24sel%3AapiKeyRequired%3APutMethod%27"><span class="hs-identifier hs-var">apiKeyRequired</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679374670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
 </span><span id="line-253"></span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#putMethod_restApiId"><span class="hs-identifier hs-type">putMethod_restApiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -540,16 +540,16 @@ $sel:apiKeyRequired:PutMethod' :: PutMethod -&gt; Maybe Bool
 -&gt; (PutMethod -&gt; Text -&gt; PutMethod)
 -&gt; Lens PutMethod PutMethod Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374669"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374678"><span class="annot"><span class="annottext">Text
 restApiId :: Text
 $sel:restApiId:PutMethod' :: PutMethod -&gt; Text
-</span><a href="#local-6989586621679374669"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374669"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374668"><span class="annot"><span class="annottext">s :: PutMethod
-</span><a href="#local-6989586621679374668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374667"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
-</span><a href="#local-6989586621679374668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:PutMethod' :: Text
+</span><a href="#local-6989586621679374678"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374678"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374677"><span class="annot"><span class="annottext">s :: PutMethod
+</span><a href="#local-6989586621679374677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374676"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
+</span><a href="#local-6989586621679374677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:PutMethod' :: Text
 </span><a href="Network.AWS.APIGateway.PutMethod.html#%24sel%3ArestApiId%3APutMethod%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- | [Required] The Resource identifier for the new Method resource.</span><span>
 </span><span id="line-257"></span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#putMethod_resourceId"><span class="hs-identifier hs-type">putMethod_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -558,16 +558,16 @@ $sel:restApiId:PutMethod' :: PutMethod -&gt; Text
 -&gt; (PutMethod -&gt; Text -&gt; PutMethod)
 -&gt; Lens PutMethod PutMethod Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374666"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374675"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:PutMethod' :: PutMethod -&gt; Text
-</span><a href="#local-6989586621679374666"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374666"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374665"><span class="annot"><span class="annottext">s :: PutMethod
-</span><a href="#local-6989586621679374665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374664"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
-</span><a href="#local-6989586621679374665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:PutMethod' :: Text
+</span><a href="#local-6989586621679374675"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374675"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374674"><span class="annot"><span class="annottext">s :: PutMethod
+</span><a href="#local-6989586621679374674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374673"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
+</span><a href="#local-6989586621679374674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:PutMethod' :: Text
 </span><a href="Network.AWS.APIGateway.PutMethod.html#%24sel%3AresourceId%3APutMethod%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- | [Required] Specifies the method request\'s HTTP method type.</span><span>
 </span><span id="line-261"></span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#putMethod_httpMethod"><span class="hs-identifier hs-type">putMethod_httpMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -576,16 +576,16 @@ $sel:resourceId:PutMethod' :: PutMethod -&gt; Text
 -&gt; (PutMethod -&gt; Text -&gt; PutMethod)
 -&gt; Lens PutMethod PutMethod Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374663"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374672"><span class="annot"><span class="annottext">Text
 httpMethod :: Text
 $sel:httpMethod:PutMethod' :: PutMethod -&gt; Text
-</span><a href="#local-6989586621679374663"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374663"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374662"><span class="annot"><span class="annottext">s :: PutMethod
-</span><a href="#local-6989586621679374662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374661"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
-</span><a href="#local-6989586621679374662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpMethod:PutMethod' :: Text
+</span><a href="#local-6989586621679374672"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374672"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374671"><span class="annot"><span class="annottext">s :: PutMethod
+</span><a href="#local-6989586621679374671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374670"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
+</span><a href="#local-6989586621679374671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpMethod:PutMethod' :: Text
 </span><a href="Network.AWS.APIGateway.PutMethod.html#%24sel%3AhttpMethod%3APutMethod%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-263"></span><span>
 </span><span id="line-264"></span><span class="hs-comment">-- | [Required] The method\'s authorization type. Valid values are @NONE@ for</span><span>
 </span><span id="line-265"></span><span class="hs-comment">-- open access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using</span><span>
@@ -597,25 +597,25 @@ $sel:httpMethod:PutMethod' :: PutMethod -&gt; Text
 -&gt; (PutMethod -&gt; Text -&gt; PutMethod)
 -&gt; Lens PutMethod PutMethod Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374660"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374669"><span class="annot"><span class="annottext">Text
 authorizationType :: Text
 $sel:authorizationType:PutMethod' :: PutMethod -&gt; Text
-</span><a href="#local-6989586621679374660"><span class="hs-identifier hs-var hs-var">authorizationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374660"><span class="hs-identifier hs-var">authorizationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374659"><span class="annot"><span class="annottext">s :: PutMethod
-</span><a href="#local-6989586621679374659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374658"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
-</span><a href="#local-6989586621679374659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationType:PutMethod' :: Text
+</span><a href="#local-6989586621679374669"><span class="hs-identifier hs-var hs-var">authorizationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374669"><span class="hs-identifier hs-var">authorizationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374668"><span class="annot"><span class="annottext">s :: PutMethod
+</span><a href="#local-6989586621679374668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374667"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMethod
+</span><a href="#local-6989586621679374668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationType:PutMethod' :: Text
 </span><a href="Network.AWS.APIGateway.PutMethod.html#%24sel%3AauthorizationType%3APutMethod%27"><span class="hs-identifier hs-var">authorizationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>
 </span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-272"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span>
-</span><span id="line-273"></span><span>  </span><span id="local-6989586621679374654"><span class="annot"><span class="annottext">request :: PutMethod -&gt; Request PutMethod
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621679374663"><span class="annot"><span class="annottext">request :: PutMethod -&gt; Request PutMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutMethod -&gt; Request PutMethod
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-274"></span><span>  </span><span id="local-6989586621679374650"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621679374659"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutMethod
 -&gt; ClientResponse ClientBody
@@ -639,20 +639,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-276"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374647"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374647"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679374646"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679374646"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679374645"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374645"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Method
+</span><span id="line-276"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374656"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374656"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679374655"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679374655"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679374654"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374654"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Method
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374645"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374654"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-277"></span><span>
-</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374640"><span id="local-6989586621679374642"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span></span></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374649"><span id="local-6989586621679374651"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span></span></span><span>
 </span><span id="line-279"></span><span>
-</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374637"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374646"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span></span><span>
 </span><span id="line-281"></span><span>
 </span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-283"></span><span>  </span><span id="local-6989586621679374633"><span class="annot"><span class="annottext">toHeaders :: PutMethod -&gt; ResponseHeaders
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621679374642"><span class="annot"><span class="annottext">toHeaders :: PutMethod -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-284"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutMethod -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -669,9 +669,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-288"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-289"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-290"></span><span>
-</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374623"><span id="local-6989586621679374625"><span id="local-6989586621679374627"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-292"></span><span>  </span><span id="local-6989586621679374621"><span class="annot"><span class="annottext">toJSON :: PutMethod -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374609"><span id="local-6989586621679374610"><span id="local-6989586621679374611"><span id="local-6989586621679374612"><span id="local-6989586621679374613"><span id="local-6989586621679374614"><span id="local-6989586621679374615"><span id="local-6989586621679374616"><span id="local-6989586621679374617"><span id="local-6989586621679374618"><span id="local-6989586621679374619"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374632"><span id="local-6989586621679374634"><span id="local-6989586621679374636"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-292"></span><span>  </span><span id="local-6989586621679374630"><span class="annot"><span class="annottext">toJSON :: PutMethod -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374618"><span id="local-6989586621679374619"><span id="local-6989586621679374620"><span id="local-6989586621679374621"><span id="local-6989586621679374622"><span id="local-6989586621679374623"><span id="local-6989586621679374624"><span id="local-6989586621679374625"><span id="local-6989586621679374626"><span id="local-6989586621679374627"><span id="local-6989586621679374628"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe Text
 Maybe (HashMap Text Bool)
@@ -699,7 +699,7 @@ $sel:requestParameters:PutMethod' :: PutMethod -&gt; Maybe (HashMap Text Bool)
 $sel:requestModels:PutMethod' :: PutMethod -&gt; Maybe (HashMap Text Text)
 $sel:requestValidatorId:PutMethod' :: PutMethod -&gt; Maybe Text
 $sel:authorizationScopes:PutMethod' :: PutMethod -&gt; Maybe [Text]
-</span><a href="#local-6989586621679374609"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679374618"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-293"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-294"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -712,7 +712,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-296"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679374619"><span class="hs-identifier hs-var">authorizationScopes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374628"><span class="hs-identifier hs-var">authorizationScopes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-297"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;requestValidatorId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -720,7 +720,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-298"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374618"><span class="hs-identifier hs-var">requestValidatorId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374627"><span class="hs-identifier hs-var">requestValidatorId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-299"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;requestModels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -728,7 +728,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679374617"><span class="hs-identifier hs-var">requestModels</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374626"><span class="hs-identifier hs-var">requestModels</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-300"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;requestParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -737,21 +737,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Bool) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
-</span><a href="#local-6989586621679374616"><span class="hs-identifier hs-var">requestParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374625"><span class="hs-identifier hs-var">requestParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-302"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authorizerId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374615"><span class="hs-identifier hs-var">authorizerId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374624"><span class="hs-identifier hs-var">authorizerId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-303"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374614"><span class="hs-identifier hs-var">operationName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374623"><span class="hs-identifier hs-var">operationName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-304"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;apiKeyRequired&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -759,7 +759,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-305"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679374613"><span class="hs-identifier hs-var">apiKeyRequired</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374622"><span class="hs-identifier hs-var">apiKeyRequired</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-306"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -767,13 +767,13 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;authorizationType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374609"><span class="hs-identifier hs-var">authorizationType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374618"><span class="hs-identifier hs-var">authorizationType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-308"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-309"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-310"></span><span>
 </span><span id="line-311"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-312"></span><span>  </span><span id="local-6989586621679374602"><span class="annot"><span class="annottext">toPath :: PutMethod -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374590"><span id="local-6989586621679374591"><span id="local-6989586621679374592"><span id="local-6989586621679374593"><span id="local-6989586621679374594"><span id="local-6989586621679374595"><span id="local-6989586621679374596"><span id="local-6989586621679374597"><span id="local-6989586621679374598"><span id="local-6989586621679374599"><span id="local-6989586621679374600"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-312"></span><span>  </span><span id="local-6989586621679374611"><span class="annot"><span class="annottext">toPath :: PutMethod -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod%27"><span class="hs-identifier hs-type">PutMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374599"><span id="local-6989586621679374600"><span id="local-6989586621679374601"><span id="local-6989586621679374602"><span id="local-6989586621679374603"><span id="local-6989586621679374604"><span id="local-6989586621679374605"><span id="local-6989586621679374606"><span id="local-6989586621679374607"><span id="local-6989586621679374608"><span id="local-6989586621679374609"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe Text
 Maybe (HashMap Text Bool)
@@ -801,7 +801,7 @@ $sel:requestParameters:PutMethod' :: PutMethod -&gt; Maybe (HashMap Text Bool)
 $sel:requestModels:PutMethod' :: PutMethod -&gt; Maybe (HashMap Text Text)
 $sel:requestValidatorId:PutMethod' :: PutMethod -&gt; Maybe Text
 $sel:authorizationScopes:PutMethod' :: PutMethod -&gt; Maybe [Text]
-</span><a href="#local-6989586621679374590"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679374599"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-313"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -810,23 +810,23 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-315"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374593"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374602"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-316"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/resources/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-317"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374592"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374601"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-318"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/methods/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-319"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374591"><span class="hs-identifier hs-var">httpMethod</span></a></span><span>
+</span><a href="#local-6989586621679374600"><span class="hs-identifier hs-var">httpMethod</span></a></span><span>
 </span><span id="line-320"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-321"></span><span>
 </span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.PutMethod.html#PutMethod"><span class="hs-identifier hs-type">PutMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-323"></span><span>  </span><span id="local-6989586621679374586"><span class="annot"><span class="annottext">toQuery :: PutMethod -&gt; QueryString
+</span><span id="line-323"></span><span>  </span><span id="local-6989586621679374595"><span class="annot"><span class="annottext">toQuery :: PutMethod -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutMethod -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

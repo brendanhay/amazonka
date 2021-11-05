@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679377515"><span id="local-6989586621679377516"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SharedResourceSortByType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.SharedResourceSortByType.html#SharedResourceSortByType"><span class="hs-identifier hs-var">SharedResourceSortByType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SharedResourceSortByType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.SharedResourceSortByType.html#SharedResourceSortByType%27"><span class="hs-identifier hs-var">SharedResourceSortByType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679377524"><span id="local-6989586621679377525"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SharedResourceSortByType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.SharedResourceSortByType.html#SharedResourceSortByType"><span class="hs-identifier hs-var">SharedResourceSortByType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SharedResourceSortByType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.SharedResourceSortByType.html#SharedResourceSortByType%27"><span class="hs-identifier hs-var">SharedResourceSortByType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSharedResourceSortByType"><span class="annot"><span class="annottext">SharedResourceSortByType -&gt; Text
 </span><a href="Network.AWS.CodeBuild.Types.SharedResourceSortByType.html#fromSharedResourceSortByType"><span class="hs-identifier hs-var hs-var">fromSharedResourceSortByType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377507"><span id="local-6989586621679377509"><span id="local-6989586621679377511"><span class="annot"><span class="annottext">Int -&gt; SharedResourceSortByType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377516"><span id="local-6989586621679377518"><span id="local-6989586621679377520"><span class="annot"><span class="annottext">Int -&gt; SharedResourceSortByType -&gt; ShowS
 [SharedResourceSortByType] -&gt; ShowS
 SharedResourceSortByType -&gt; String
 (Int -&gt; SharedResourceSortByType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: SharedResourceSortByType -&gt; String
 showsPrec :: Int -&gt; SharedResourceSortByType -&gt; ShowS
 $cshowsPrec :: Int -&gt; SharedResourceSortByType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679377498"><span id="local-6989586621679377500"><span id="local-6989586621679377502"><span id="local-6989586621679377504"><span class="annot"><span class="annottext">ReadPrec [SharedResourceSortByType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679377507"><span id="local-6989586621679377509"><span id="local-6989586621679377511"><span id="local-6989586621679377513"><span class="annot"><span class="annottext">ReadPrec [SharedResourceSortByType]
 ReadPrec SharedResourceSortByType
 Int -&gt; ReadS SharedResourceSortByType
 ReadS [SharedResourceSortByType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [SharedResourceSortByType]
 readsPrec :: Int -&gt; ReadS SharedResourceSortByType
 $creadsPrec :: Int -&gt; ReadS SharedResourceSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679377493"><span id="local-6989586621679377495"><span class="annot"><span class="annottext">SharedResourceSortByType -&gt; SharedResourceSortByType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679377502"><span id="local-6989586621679377504"><span class="annot"><span class="annottext">SharedResourceSortByType -&gt; SharedResourceSortByType -&gt; Bool
 (SharedResourceSortByType -&gt; SharedResourceSortByType -&gt; Bool)
 -&gt; (SharedResourceSortByType -&gt; SharedResourceSortByType -&gt; Bool)
 -&gt; Eq SharedResourceSortByType
@@ -82,7 +82,7 @@ $c/= :: SharedResourceSortByType -&gt; SharedResourceSortByType -&gt; Bool
 == :: SharedResourceSortByType -&gt; SharedResourceSortByType -&gt; Bool
 $c== :: SharedResourceSortByType -&gt; SharedResourceSortByType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679377477"><span id="local-6989586621679377479"><span id="local-6989586621679377481"><span id="local-6989586621679377483"><span id="local-6989586621679377485"><span id="local-6989586621679377487"><span id="local-6989586621679377489"><span class="annot"><span class="annottext">Eq SharedResourceSortByType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679377486"><span id="local-6989586621679377488"><span id="local-6989586621679377490"><span id="local-6989586621679377492"><span id="local-6989586621679377494"><span id="local-6989586621679377496"><span id="local-6989586621679377498"><span class="annot"><span class="annottext">Eq SharedResourceSortByType
 Eq SharedResourceSortByType
 -&gt; (SharedResourceSortByType
     -&gt; SharedResourceSortByType -&gt; Ordering)
@@ -147,7 +147,7 @@ SharedResourceSortByType -&gt; Rep SharedResourceSortByType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377469"><span id="local-6989586621679377471"><span class="annot"><span class="annottext">Int -&gt; SharedResourceSortByType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377478"><span id="local-6989586621679377480"><span class="annot"><span class="annottext">Int -&gt; SharedResourceSortByType -&gt; Int
 SharedResourceSortByType -&gt; Int
 (Int -&gt; SharedResourceSortByType -&gt; Int)
 -&gt; (SharedResourceSortByType -&gt; Int)
@@ -158,55 +158,55 @@ $chash :: SharedResourceSortByType -&gt; Int
 hashWithSalt :: Int -&gt; SharedResourceSortByType -&gt; Int
 $chashWithSalt :: Int -&gt; SharedResourceSortByType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679377466"><span class="annot"><span class="annottext">SharedResourceSortByType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679377475"><span class="annot"><span class="annottext">SharedResourceSortByType -&gt; ()
 (SharedResourceSortByType -&gt; ()) -&gt; NFData SharedResourceSortByType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SharedResourceSortByType -&gt; ()
 $crnf :: SharedResourceSortByType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679377463"><span class="annot"><span class="annottext">Text -&gt; Either String SharedResourceSortByType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679377472"><span class="annot"><span class="annottext">Text -&gt; Either String SharedResourceSortByType
 (Text -&gt; Either String SharedResourceSortByType)
 -&gt; FromText SharedResourceSortByType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SharedResourceSortByType
 $cfromText :: Text -&gt; Either String SharedResourceSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679377460"><span class="annot"><span class="annottext">SharedResourceSortByType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679377469"><span class="annot"><span class="annottext">SharedResourceSortByType -&gt; Text
 (SharedResourceSortByType -&gt; Text)
 -&gt; ToText SharedResourceSortByType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SharedResourceSortByType -&gt; Text
 $ctoText :: SharedResourceSortByType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679377457"><span class="annot"><span class="annottext">SharedResourceSortByType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679377466"><span class="annot"><span class="annottext">SharedResourceSortByType -&gt; ByteString
 (SharedResourceSortByType -&gt; ByteString)
 -&gt; ToByteString SharedResourceSortByType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SharedResourceSortByType -&gt; ByteString
 $ctoBS :: SharedResourceSortByType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679377454"><span class="annot"><span class="annottext">SharedResourceSortByType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679377463"><span class="annot"><span class="annottext">SharedResourceSortByType -&gt; ByteStringBuilder
 (SharedResourceSortByType -&gt; ByteStringBuilder)
 -&gt; ToLog SharedResourceSortByType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SharedResourceSortByType -&gt; ByteStringBuilder
 $cbuild :: SharedResourceSortByType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679377451"><span class="annot"><span class="annottext">HeaderName -&gt; SharedResourceSortByType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679377460"><span class="annot"><span class="annottext">HeaderName -&gt; SharedResourceSortByType -&gt; [Header]
 (HeaderName -&gt; SharedResourceSortByType -&gt; [Header])
 -&gt; ToHeader SharedResourceSortByType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SharedResourceSortByType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SharedResourceSortByType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679377448"><span class="annot"><span class="annottext">SharedResourceSortByType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679377457"><span class="annot"><span class="annottext">SharedResourceSortByType -&gt; QueryString
 (SharedResourceSortByType -&gt; QueryString)
 -&gt; ToQuery SharedResourceSortByType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SharedResourceSortByType -&gt; QueryString
 $ctoQuery :: SharedResourceSortByType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679377443"><span id="local-6989586621679377445"><span class="annot"><span class="annottext">Value -&gt; Parser [SharedResourceSortByType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679377452"><span id="local-6989586621679377454"><span class="annot"><span class="annottext">Value -&gt; Parser [SharedResourceSortByType]
 Value -&gt; Parser SharedResourceSortByType
 (Value -&gt; Parser SharedResourceSortByType)
 -&gt; (Value -&gt; Parser [SharedResourceSortByType])
@@ -218,7 +218,7 @@ $cparseJSONList :: Value -&gt; Parser [SharedResourceSortByType]
 parseJSON :: Value -&gt; Parser SharedResourceSortByType
 $cparseJSON :: Value -&gt; Parser SharedResourceSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679377438"><span id="local-6989586621679377440"><span class="annot"><span class="annottext">FromJSONKeyFunction [SharedResourceSortByType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679377447"><span id="local-6989586621679377449"><span class="annot"><span class="annottext">FromJSONKeyFunction [SharedResourceSortByType]
 FromJSONKeyFunction SharedResourceSortByType
 FromJSONKeyFunction SharedResourceSortByType
 -&gt; FromJSONKeyFunction [SharedResourceSortByType]
@@ -230,7 +230,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SharedResourceSortByType]
 fromJSONKey :: FromJSONKeyFunction SharedResourceSortByType
 $cfromJSONKey :: FromJSONKeyFunction SharedResourceSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679377429"><span id="local-6989586621679377431"><span id="local-6989586621679377433"><span id="local-6989586621679377435"><span class="annot"><span class="annottext">[SharedResourceSortByType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679377438"><span id="local-6989586621679377440"><span id="local-6989586621679377442"><span id="local-6989586621679377444"><span class="annot"><span class="annottext">[SharedResourceSortByType] -&gt; Encoding
 [SharedResourceSortByType] -&gt; Value
 SharedResourceSortByType -&gt; Encoding
 SharedResourceSortByType -&gt; Value
@@ -254,7 +254,7 @@ $ctoEncoding :: SharedResourceSortByType -&gt; Encoding
 toJSON :: SharedResourceSortByType -&gt; Value
 $ctoJSON :: SharedResourceSortByType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679377424"><span id="local-6989586621679377426"><span class="annot"><span class="annottext">ToJSONKeyFunction [SharedResourceSortByType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679377433"><span id="local-6989586621679377435"><span class="annot"><span class="annottext">ToJSONKeyFunction [SharedResourceSortByType]
 ToJSONKeyFunction SharedResourceSortByType
 ToJSONKeyFunction SharedResourceSortByType
 -&gt; ToJSONKeyFunction [SharedResourceSortByType]
@@ -266,14 +266,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SharedResourceSortByType]
 toJSONKey :: ToJSONKeyFunction SharedResourceSortByType
 $ctoJSONKey :: ToJSONKeyFunction SharedResourceSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679377421"><span class="annot"><span class="annottext">[Node] -&gt; Either String SharedResourceSortByType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679377430"><span class="annot"><span class="annottext">[Node] -&gt; Either String SharedResourceSortByType
 ([Node] -&gt; Either String SharedResourceSortByType)
 -&gt; FromXML SharedResourceSortByType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SharedResourceSortByType
 $cparseXML :: [Node] -&gt; Either String SharedResourceSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679377418"><span class="annot"><span class="annottext">SharedResourceSortByType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679377427"><span class="annot"><span class="annottext">SharedResourceSortByType -&gt; XML
 (SharedResourceSortByType -&gt; XML) -&gt; ToXML SharedResourceSortByType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SharedResourceSortByType -&gt; XML

@@ -1,0 +1,512 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.DeleteFolder</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an empty folder.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.DeleteFolder</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder"><span class="hs-identifier">DeleteFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#newDeleteFolder"><span class="hs-identifier">newDeleteFolder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolder_awsAccountId"><span class="hs-identifier">deleteFolder_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolder_folderId"><span class="hs-identifier">deleteFolder_folderId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse"><span class="hs-identifier">DeleteFolderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#newDeleteFolderResponse"><span class="hs-identifier">newDeleteFolderResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolderResponse_requestId"><span class="hs-identifier">deleteFolderResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolderResponse_arn"><span class="hs-identifier">deleteFolderResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolderResponse_folderId"><span class="hs-identifier">deleteFolderResponse_folderId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolderResponse_status"><span class="hs-identifier">deleteFolderResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.html"><span class="hs-identifier">Network.AWS.QuickSight.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteFolder' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679591357"><span id="local-6989586621679591358"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFolder"><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder"><span class="hs-identifier hs-var">DeleteFolder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFolder%27"><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder%27"><span class="hs-identifier hs-var">DeleteFolder'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS Account ID for the folder.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AawsAccountId%3ADeleteFolder%27"><span class="annot"><span class="annottext">DeleteFolder -&gt; Text
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3AawsAccountId%3ADeleteFolder%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The folder ID.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AfolderId%3ADeleteFolder%27"><span class="annot"><span class="annottext">DeleteFolder -&gt; Text
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3AfolderId%3ADeleteFolder%27"><span class="hs-identifier hs-var hs-var">folderId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679591350"><span id="local-6989586621679591352"><span class="annot"><span class="annottext">DeleteFolder -&gt; DeleteFolder -&gt; Bool
+(DeleteFolder -&gt; DeleteFolder -&gt; Bool)
+-&gt; (DeleteFolder -&gt; DeleteFolder -&gt; Bool) -&gt; Eq DeleteFolder
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteFolder -&gt; DeleteFolder -&gt; Bool
+$c/= :: DeleteFolder -&gt; DeleteFolder -&gt; Bool
+== :: DeleteFolder -&gt; DeleteFolder -&gt; Bool
+$c== :: DeleteFolder -&gt; DeleteFolder -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591341"><span id="local-6989586621679591343"><span id="local-6989586621679591345"><span id="local-6989586621679591347"><span class="annot"><span class="annottext">ReadPrec [DeleteFolder]
+ReadPrec DeleteFolder
+Int -&gt; ReadS DeleteFolder
+ReadS [DeleteFolder]
+(Int -&gt; ReadS DeleteFolder)
+-&gt; ReadS [DeleteFolder]
+-&gt; ReadPrec DeleteFolder
+-&gt; ReadPrec [DeleteFolder]
+-&gt; Read DeleteFolder
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteFolder]
+$creadListPrec :: ReadPrec [DeleteFolder]
+readPrec :: ReadPrec DeleteFolder
+$creadPrec :: ReadPrec DeleteFolder
+readList :: ReadS [DeleteFolder]
+$creadList :: ReadS [DeleteFolder]
+readsPrec :: Int -&gt; ReadS DeleteFolder
+$creadsPrec :: Int -&gt; ReadS DeleteFolder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591334"><span id="local-6989586621679591336"><span id="local-6989586621679591338"><span class="annot"><span class="annottext">Int -&gt; DeleteFolder -&gt; ShowS
+[DeleteFolder] -&gt; ShowS
+DeleteFolder -&gt; String
+(Int -&gt; DeleteFolder -&gt; ShowS)
+-&gt; (DeleteFolder -&gt; String)
+-&gt; ([DeleteFolder] -&gt; ShowS)
+-&gt; Show DeleteFolder
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteFolder] -&gt; ShowS
+$cshowList :: [DeleteFolder] -&gt; ShowS
+show :: DeleteFolder -&gt; String
+$cshow :: DeleteFolder -&gt; String
+showsPrec :: Int -&gt; DeleteFolder -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteFolder -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteFolder -&gt; Rep DeleteFolder x)
+-&gt; (forall x. Rep DeleteFolder x -&gt; DeleteFolder)
+-&gt; Generic DeleteFolder
+forall x. Rep DeleteFolder x -&gt; DeleteFolder
+forall x. DeleteFolder -&gt; Rep DeleteFolder x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteFolder x -&gt; DeleteFolder
+$cfrom :: forall x. DeleteFolder -&gt; Rep DeleteFolder x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'DeleteFolder' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'awsAccountId', 'deleteFolder_awsAccountId' - The AWS Account ID for the folder.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'folderId', 'deleteFolder_folderId' - The folder ID.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#newDeleteFolder"><span class="hs-identifier hs-type">newDeleteFolder</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'folderId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder"><span class="hs-identifier hs-type">DeleteFolder</span></a></span><span>
+</span><span id="line-78"></span><span id="newDeleteFolder"><span class="annot"><span class="annottext">newDeleteFolder :: Text -&gt; Text -&gt; DeleteFolder
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#newDeleteFolder"><span class="hs-identifier hs-var hs-var">newDeleteFolder</span></a></span></span><span> </span><span id="local-6989586621679591329"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591329"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span> </span><span id="local-6989586621679591328"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591328"><span class="hs-identifier hs-var">pFolderId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DeleteFolder' :: Text -&gt; Text -&gt; DeleteFolder
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder%27"><span class="hs-identifier hs-type">DeleteFolder'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:awsAccountId:DeleteFolder' :: Text
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3AawsAccountId%3ADeleteFolder%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591329"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:folderId:DeleteFolder' :: Text
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3AfolderId%3ADeleteFolder%27"><span class="hs-identifier hs-var">folderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591328"><span class="hs-identifier hs-var">pFolderId_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The AWS Account ID for the folder.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolder_awsAccountId"><span class="hs-identifier hs-type">deleteFolder_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder"><span class="hs-identifier hs-type">DeleteFolder</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="deleteFolder_awsAccountId"><span class="annot"><span class="annottext">deleteFolder_awsAccountId :: (Text -&gt; f Text) -&gt; DeleteFolder -&gt; f DeleteFolder
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolder_awsAccountId"><span class="hs-identifier hs-var hs-var">deleteFolder_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFolder -&gt; Text)
+-&gt; (DeleteFolder -&gt; Text -&gt; DeleteFolder)
+-&gt; Lens DeleteFolder DeleteFolder Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder%27"><span class="hs-identifier hs-type">DeleteFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591325"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:DeleteFolder' :: DeleteFolder -&gt; Text
+</span><a href="#local-6989586621679591325"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591325"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591324"><span class="annot"><span class="annottext">s :: DeleteFolder
+</span><a href="#local-6989586621679591324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder%27"><span class="hs-identifier hs-type">DeleteFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591323"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFolder
+</span><a href="#local-6989586621679591324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:DeleteFolder' :: Text
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3AawsAccountId%3ADeleteFolder%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder"><span class="hs-identifier hs-type">DeleteFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The folder ID.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolder_folderId"><span class="hs-identifier hs-type">deleteFolder_folderId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder"><span class="hs-identifier hs-type">DeleteFolder</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="deleteFolder_folderId"><span class="annot"><span class="annottext">deleteFolder_folderId :: (Text -&gt; f Text) -&gt; DeleteFolder -&gt; f DeleteFolder
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolder_folderId"><span class="hs-identifier hs-var hs-var">deleteFolder_folderId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFolder -&gt; Text)
+-&gt; (DeleteFolder -&gt; Text -&gt; DeleteFolder)
+-&gt; Lens DeleteFolder DeleteFolder Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder%27"><span class="hs-identifier hs-type">DeleteFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591322"><span class="annot"><span class="annottext">Text
+folderId :: Text
+$sel:folderId:DeleteFolder' :: DeleteFolder -&gt; Text
+</span><a href="#local-6989586621679591322"><span class="hs-identifier hs-var hs-var">folderId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591322"><span class="hs-identifier hs-var">folderId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591321"><span class="annot"><span class="annottext">s :: DeleteFolder
+</span><a href="#local-6989586621679591321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder%27"><span class="hs-identifier hs-type">DeleteFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591320"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFolder
+</span><a href="#local-6989586621679591321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:folderId:DeleteFolder' :: Text
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3AfolderId%3ADeleteFolder%27"><span class="hs-identifier hs-var">folderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder"><span class="hs-identifier hs-type">DeleteFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder"><span class="hs-identifier hs-type">DeleteFolder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder"><span class="hs-identifier hs-type">DeleteFolder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse"><span class="hs-identifier hs-type">DeleteFolderResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679591316"><span class="annot"><span class="annottext">request :: DeleteFolder -&gt; Request DeleteFolder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteFolder -&gt; Request DeleteFolder
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679591312"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteFolder
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteFolder)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteFolder))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteFolder
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteFolder)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679591309"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591309"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679591308"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679591308"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679591307"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679591307"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DeleteFolderResponse
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse%27"><span class="hs-identifier hs-var">DeleteFolderResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DeleteFolderResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DeleteFolderResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679591307"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DeleteFolderResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; DeleteFolderResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679591307"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DeleteFolderResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DeleteFolderResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679591307"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FolderId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteFolderResponse)
+-&gt; Either String Int -&gt; Either String DeleteFolderResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591309"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591299"><span id="local-6989586621679591301"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder"><span class="hs-identifier hs-type">DeleteFolder</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591296"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder"><span class="hs-identifier hs-type">DeleteFolder</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder"><span class="hs-identifier hs-type">DeleteFolder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679591292"><span class="annot"><span class="annottext">toHeaders :: DeleteFolder -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteFolder -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder"><span class="hs-identifier hs-type">DeleteFolder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679591286"><span class="annot"><span class="annottext">toPath :: DeleteFolder -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder%27"><span class="hs-identifier hs-type">DeleteFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591283"><span id="local-6989586621679591284"><span class="annot"><span class="annottext">Text
+folderId :: Text
+awsAccountId :: Text
+$sel:folderId:DeleteFolder' :: DeleteFolder -&gt; Text
+$sel:awsAccountId:DeleteFolder' :: DeleteFolder -&gt; Text
+</span><a href="#local-6989586621679591283"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591284"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/folders/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591283"><span class="hs-identifier hs-var">folderId</span></a></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolder"><span class="hs-identifier hs-type">DeleteFolder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679591279"><span class="annot"><span class="annottext">toQuery :: DeleteFolder -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteFolder -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newDeleteFolderResponse' smart constructor.</span><span>
+</span><span id="line-133"></span><span id="local-6989586621679591276"><span id="local-6989586621679591277"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFolderResponse"><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse"><span class="hs-identifier hs-var">DeleteFolderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFolderResponse%27"><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse%27"><span class="hs-identifier hs-var">DeleteFolderResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The request ID.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3ArequestId%3ADeleteFolderResponse%27"><span class="annot"><span class="annottext">DeleteFolderResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3ArequestId%3ADeleteFolderResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name of the deleted folder.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3Aarn%3ADeleteFolderResponse%27"><span class="annot"><span class="annottext">DeleteFolderResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3Aarn%3ADeleteFolderResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The folder ID.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AfolderId%3ADeleteFolderResponse%27"><span class="annot"><span class="annottext">DeleteFolderResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3AfolderId%3ADeleteFolderResponse%27"><span class="hs-identifier hs-var hs-var">folderId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The status of deleting the folder. If succeeded, the status is</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- @SC_OK (200)@.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3Astatus%3ADeleteFolderResponse%27"><span class="annot"><span class="annottext">DeleteFolderResponse -&gt; Int
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3Astatus%3ADeleteFolderResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679591268"><span id="local-6989586621679591270"><span class="annot"><span class="annottext">DeleteFolderResponse -&gt; DeleteFolderResponse -&gt; Bool
+(DeleteFolderResponse -&gt; DeleteFolderResponse -&gt; Bool)
+-&gt; (DeleteFolderResponse -&gt; DeleteFolderResponse -&gt; Bool)
+-&gt; Eq DeleteFolderResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteFolderResponse -&gt; DeleteFolderResponse -&gt; Bool
+$c/= :: DeleteFolderResponse -&gt; DeleteFolderResponse -&gt; Bool
+== :: DeleteFolderResponse -&gt; DeleteFolderResponse -&gt; Bool
+$c== :: DeleteFolderResponse -&gt; DeleteFolderResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591260"><span id="local-6989586621679591262"><span id="local-6989586621679591264"><span id="local-6989586621679591266"><span class="annot"><span class="annottext">ReadPrec [DeleteFolderResponse]
+ReadPrec DeleteFolderResponse
+Int -&gt; ReadS DeleteFolderResponse
+ReadS [DeleteFolderResponse]
+(Int -&gt; ReadS DeleteFolderResponse)
+-&gt; ReadS [DeleteFolderResponse]
+-&gt; ReadPrec DeleteFolderResponse
+-&gt; ReadPrec [DeleteFolderResponse]
+-&gt; Read DeleteFolderResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteFolderResponse]
+$creadListPrec :: ReadPrec [DeleteFolderResponse]
+readPrec :: ReadPrec DeleteFolderResponse
+$creadPrec :: ReadPrec DeleteFolderResponse
+readList :: ReadS [DeleteFolderResponse]
+$creadList :: ReadS [DeleteFolderResponse]
+readsPrec :: Int -&gt; ReadS DeleteFolderResponse
+$creadsPrec :: Int -&gt; ReadS DeleteFolderResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591254"><span id="local-6989586621679591256"><span id="local-6989586621679591258"><span class="annot"><span class="annottext">Int -&gt; DeleteFolderResponse -&gt; ShowS
+[DeleteFolderResponse] -&gt; ShowS
+DeleteFolderResponse -&gt; String
+(Int -&gt; DeleteFolderResponse -&gt; ShowS)
+-&gt; (DeleteFolderResponse -&gt; String)
+-&gt; ([DeleteFolderResponse] -&gt; ShowS)
+-&gt; Show DeleteFolderResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteFolderResponse] -&gt; ShowS
+$cshowList :: [DeleteFolderResponse] -&gt; ShowS
+show :: DeleteFolderResponse -&gt; String
+$cshow :: DeleteFolderResponse -&gt; String
+showsPrec :: Int -&gt; DeleteFolderResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteFolderResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteFolderResponse -&gt; Rep DeleteFolderResponse x)
+-&gt; (forall x. Rep DeleteFolderResponse x -&gt; DeleteFolderResponse)
+-&gt; Generic DeleteFolderResponse
+forall x. Rep DeleteFolderResponse x -&gt; DeleteFolderResponse
+forall x. DeleteFolderResponse -&gt; Rep DeleteFolderResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteFolderResponse x -&gt; DeleteFolderResponse
+$cfrom :: forall x. DeleteFolderResponse -&gt; Rep DeleteFolderResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'DeleteFolderResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'requestId', 'deleteFolderResponse_requestId' - The request ID.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'arn', 'deleteFolderResponse_arn' - The Amazon Resource Name of the deleted folder.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'folderId', 'deleteFolderResponse_folderId' - The folder ID.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'status', 'deleteFolderResponse_status' - The status of deleting the folder. If succeeded, the status is</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- @SC_OK (200)@.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#newDeleteFolderResponse"><span class="hs-identifier hs-type">newDeleteFolderResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse"><span class="hs-identifier hs-type">DeleteFolderResponse</span></a></span><span>
+</span><span id="line-166"></span><span id="newDeleteFolderResponse"><span class="annot"><span class="annottext">newDeleteFolderResponse :: Int -&gt; DeleteFolderResponse
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#newDeleteFolderResponse"><span class="hs-identifier hs-var hs-var">newDeleteFolderResponse</span></a></span></span><span> </span><span id="local-6989586621679591251"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591251"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">DeleteFolderResponse' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DeleteFolderResponse
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse%27"><span class="hs-identifier hs-type">DeleteFolderResponse'</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:DeleteFolderResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3ArequestId%3ADeleteFolderResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:DeleteFolderResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3Aarn%3ADeleteFolderResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:folderId:DeleteFolderResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3AfolderId%3ADeleteFolderResponse%27"><span class="hs-identifier hs-var">folderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DeleteFolderResponse' :: Int
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3Astatus%3ADeleteFolderResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591251"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The request ID.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolderResponse_requestId"><span class="hs-identifier hs-type">deleteFolderResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse"><span class="hs-identifier hs-type">DeleteFolderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="deleteFolderResponse_requestId"><span class="annot"><span class="annottext">deleteFolderResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteFolderResponse -&gt; f DeleteFolderResponse
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolderResponse_requestId"><span class="hs-identifier hs-var hs-var">deleteFolderResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFolderResponse -&gt; Maybe Text)
+-&gt; (DeleteFolderResponse -&gt; Maybe Text -&gt; DeleteFolderResponse)
+-&gt; Lens
+     DeleteFolderResponse DeleteFolderResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse%27"><span class="hs-identifier hs-type">DeleteFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591250"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:DeleteFolderResponse' :: DeleteFolderResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679591250"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591250"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591249"><span class="annot"><span class="annottext">s :: DeleteFolderResponse
+</span><a href="#local-6989586621679591249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse%27"><span class="hs-identifier hs-type">DeleteFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591248"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFolderResponse
+</span><a href="#local-6989586621679591249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:DeleteFolderResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3ArequestId%3ADeleteFolderResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse"><span class="hs-identifier hs-type">DeleteFolderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The Amazon Resource Name of the deleted folder.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolderResponse_arn"><span class="hs-identifier hs-type">deleteFolderResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse"><span class="hs-identifier hs-type">DeleteFolderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="deleteFolderResponse_arn"><span class="annot"><span class="annottext">deleteFolderResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteFolderResponse -&gt; f DeleteFolderResponse
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolderResponse_arn"><span class="hs-identifier hs-var hs-var">deleteFolderResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFolderResponse -&gt; Maybe Text)
+-&gt; (DeleteFolderResponse -&gt; Maybe Text -&gt; DeleteFolderResponse)
+-&gt; Lens
+     DeleteFolderResponse DeleteFolderResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse%27"><span class="hs-identifier hs-type">DeleteFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591247"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:DeleteFolderResponse' :: DeleteFolderResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679591247"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591247"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591246"><span class="annot"><span class="annottext">s :: DeleteFolderResponse
+</span><a href="#local-6989586621679591246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse%27"><span class="hs-identifier hs-type">DeleteFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591245"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFolderResponse
+</span><a href="#local-6989586621679591246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DeleteFolderResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3Aarn%3ADeleteFolderResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse"><span class="hs-identifier hs-type">DeleteFolderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The folder ID.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolderResponse_folderId"><span class="hs-identifier hs-type">deleteFolderResponse_folderId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse"><span class="hs-identifier hs-type">DeleteFolderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="deleteFolderResponse_folderId"><span class="annot"><span class="annottext">deleteFolderResponse_folderId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteFolderResponse -&gt; f DeleteFolderResponse
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolderResponse_folderId"><span class="hs-identifier hs-var hs-var">deleteFolderResponse_folderId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFolderResponse -&gt; Maybe Text)
+-&gt; (DeleteFolderResponse -&gt; Maybe Text -&gt; DeleteFolderResponse)
+-&gt; Lens
+     DeleteFolderResponse DeleteFolderResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse%27"><span class="hs-identifier hs-type">DeleteFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591244"><span class="annot"><span class="annottext">Maybe Text
+folderId :: Maybe Text
+$sel:folderId:DeleteFolderResponse' :: DeleteFolderResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679591244"><span class="hs-identifier hs-var hs-var">folderId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591244"><span class="hs-identifier hs-var">folderId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591243"><span class="annot"><span class="annottext">s :: DeleteFolderResponse
+</span><a href="#local-6989586621679591243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse%27"><span class="hs-identifier hs-type">DeleteFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591242"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFolderResponse
+</span><a href="#local-6989586621679591243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:folderId:DeleteFolderResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3AfolderId%3ADeleteFolderResponse%27"><span class="hs-identifier hs-var">folderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse"><span class="hs-identifier hs-type">DeleteFolderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The status of deleting the folder. If succeeded, the status is</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- @SC_OK (200)@.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolderResponse_status"><span class="hs-identifier hs-type">deleteFolderResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse"><span class="hs-identifier hs-type">DeleteFolderResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-189"></span><span id="deleteFolderResponse_status"><span class="annot"><span class="annottext">deleteFolderResponse_status :: (Int -&gt; f Int) -&gt; DeleteFolderResponse -&gt; f DeleteFolderResponse
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#deleteFolderResponse_status"><span class="hs-identifier hs-var hs-var">deleteFolderResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFolderResponse -&gt; Int)
+-&gt; (DeleteFolderResponse -&gt; Int -&gt; DeleteFolderResponse)
+-&gt; Lens DeleteFolderResponse DeleteFolderResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse%27"><span class="hs-identifier hs-type">DeleteFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591241"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:DeleteFolderResponse' :: DeleteFolderResponse -&gt; Int
+</span><a href="#local-6989586621679591241"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591241"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591240"><span class="annot"><span class="annottext">s :: DeleteFolderResponse
+</span><a href="#local-6989586621679591240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse%27"><span class="hs-identifier hs-type">DeleteFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591239"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFolderResponse
+</span><a href="#local-6989586621679591240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DeleteFolderResponse' :: Int
+</span><a href="Network.AWS.QuickSight.DeleteFolder.html#%24sel%3Astatus%3ADeleteFolderResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse"><span class="hs-identifier hs-type">DeleteFolderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591237"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolder.html#DeleteFolderResponse"><span class="hs-identifier hs-type">DeleteFolderResponse</span></a></span></span><span>
+</span><span id="line-192"></span></pre></body></html>

@@ -35,7 +35,7 @@
 </span><span id="line-35"></span><span class="hs-comment">-- additional artifacts, and schema elements in the definition.</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newReportDefinition' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679151468"><span id="local-6989586621679151469"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReportDefinition"><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-var">ReportDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportDefinition%27"><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-var">ReportDefinition'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679151477"><span id="local-6989586621679151478"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReportDefinition"><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-var">ReportDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportDefinition%27"><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-var">ReportDefinition'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether you want Amazon Web Services to overwrite the previous version</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- of each report or to deliver the report in addition to the previous</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- versions.</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3As3Region%3AReportDefinition%27"><span class="annot"><span class="annottext">ReportDefinition -&gt; AWSRegion
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3As3Region%3AReportDefinition%27"><span class="hs-identifier hs-var hs-var">s3Region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151451"><span id="local-6989586621679151453"><span class="annot"><span class="annottext">ReportDefinition -&gt; ReportDefinition -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151460"><span id="local-6989586621679151462"><span class="annot"><span class="annottext">ReportDefinition -&gt; ReportDefinition -&gt; Bool
 (ReportDefinition -&gt; ReportDefinition -&gt; Bool)
 -&gt; (ReportDefinition -&gt; ReportDefinition -&gt; Bool)
 -&gt; Eq ReportDefinition
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReportDefinition -&gt; ReportDefinition -&gt; Bool
 == :: ReportDefinition -&gt; ReportDefinition -&gt; Bool
 $c== :: ReportDefinition -&gt; ReportDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151442"><span id="local-6989586621679151444"><span id="local-6989586621679151446"><span id="local-6989586621679151448"><span class="annot"><span class="annottext">ReadPrec [ReportDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151451"><span id="local-6989586621679151453"><span id="local-6989586621679151455"><span id="local-6989586621679151457"><span class="annot"><span class="annottext">ReadPrec [ReportDefinition]
 ReadPrec ReportDefinition
 Int -&gt; ReadS ReportDefinition
 ReadS [ReportDefinition]
@@ -103,7 +103,7 @@ readList :: ReadS [ReportDefinition]
 $creadList :: ReadS [ReportDefinition]
 readsPrec :: Int -&gt; ReadS ReportDefinition
 $creadsPrec :: Int -&gt; ReadS ReportDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151435"><span id="local-6989586621679151437"><span id="local-6989586621679151439"><span class="annot"><span class="annottext">Int -&gt; ReportDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151444"><span id="local-6989586621679151446"><span id="local-6989586621679151448"><span class="annot"><span class="annottext">Int -&gt; ReportDefinition -&gt; ShowS
 [ReportDefinition] -&gt; ShowS
 ReportDefinition -&gt; String
 (Int -&gt; ReportDefinition -&gt; ShowS)
@@ -193,20 +193,20 @@ $cfrom :: forall x. ReportDefinition -&gt; Rep ReportDefinition x
 -&gt; AWSRegion
 -&gt; ReportDefinition
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#newReportDefinition"><span class="hs-identifier hs-var hs-var">newReportDefinition</span></a></span></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679151429"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151429"><span class="hs-identifier hs-var">pReportName_</span></a></span></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679151428"><span class="annot"><span class="annottext">TimeUnit
-</span><a href="#local-6989586621679151428"><span class="hs-identifier hs-var">pTimeUnit_</span></a></span></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679151427"><span class="annot"><span class="annottext">ReportFormat
-</span><a href="#local-6989586621679151427"><span class="hs-identifier hs-var">pFormat_</span></a></span></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679151426"><span class="annot"><span class="annottext">CompressionFormat
-</span><a href="#local-6989586621679151426"><span class="hs-identifier hs-var">pCompression_</span></a></span></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679151425"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151425"><span class="hs-identifier hs-var">pS3Bucket_</span></a></span></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679151424"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151424"><span class="hs-identifier hs-var">pS3Prefix_</span></a></span></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679151423"><span class="annot"><span class="annottext">AWSRegion
-</span><a href="#local-6989586621679151423"><span class="hs-identifier hs-var">pS3Region_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679151438"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151438"><span class="hs-identifier hs-var">pReportName_</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679151437"><span class="annot"><span class="annottext">TimeUnit
+</span><a href="#local-6989586621679151437"><span class="hs-identifier hs-var">pTimeUnit_</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679151436"><span class="annot"><span class="annottext">ReportFormat
+</span><a href="#local-6989586621679151436"><span class="hs-identifier hs-var">pFormat_</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679151435"><span class="annot"><span class="annottext">CompressionFormat
+</span><a href="#local-6989586621679151435"><span class="hs-identifier hs-var">pCompression_</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679151434"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151434"><span class="hs-identifier hs-var">pS3Bucket_</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679151433"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151433"><span class="hs-identifier hs-var">pS3Prefix_</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679151432"><span class="annot"><span class="annottext">AWSRegion
+</span><a href="#local-6989586621679151432"><span class="hs-identifier hs-var">pS3Region_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">ReportDefinition' :: Maybe ReportVersioning
 -&gt; Maybe Text
 -&gt; Maybe [AdditionalArtifact]
@@ -240,29 +240,29 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:reportName:ReportDefinition' :: Text
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3AreportName%3AReportDefinition%27"><span class="hs-identifier hs-var">reportName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151429"><span class="hs-identifier hs-var">pReportName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151438"><span class="hs-identifier hs-var">pReportName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:timeUnit:ReportDefinition' :: TimeUnit
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3AtimeUnit%3AReportDefinition%27"><span class="hs-identifier hs-var">timeUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TimeUnit
-</span><a href="#local-6989586621679151428"><span class="hs-identifier hs-var">pTimeUnit_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151437"><span class="hs-identifier hs-var">pTimeUnit_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:format:ReportDefinition' :: ReportFormat
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3Aformat%3AReportDefinition%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportFormat
-</span><a href="#local-6989586621679151427"><span class="hs-identifier hs-var">pFormat_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151436"><span class="hs-identifier hs-var">pFormat_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:compression:ReportDefinition' :: CompressionFormat
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3Acompression%3AReportDefinition%27"><span class="hs-identifier hs-var">compression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CompressionFormat
-</span><a href="#local-6989586621679151426"><span class="hs-identifier hs-var">pCompression_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151435"><span class="hs-identifier hs-var">pCompression_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:additionalSchemaElements:ReportDefinition' :: [SchemaElement]
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3AadditionalSchemaElements%3AReportDefinition%27"><span class="hs-identifier hs-var">additionalSchemaElements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SchemaElement]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3Bucket:ReportDefinition' :: Text
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3As3Bucket%3AReportDefinition%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151425"><span class="hs-identifier hs-var">pS3Bucket_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151434"><span class="hs-identifier hs-var">pS3Bucket_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3Prefix:ReportDefinition' :: Text
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3As3Prefix%3AReportDefinition%27"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151424"><span class="hs-identifier hs-var">pS3Prefix_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151433"><span class="hs-identifier hs-var">pS3Prefix_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3Region:ReportDefinition' :: AWSRegion
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3As3Region%3AReportDefinition%27"><span class="hs-identifier hs-var">s3Region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AWSRegion
-</span><a href="#local-6989586621679151423"><span class="hs-identifier hs-var">pS3Region_</span></a></span><span>
+</span><a href="#local-6989586621679151432"><span class="hs-identifier hs-var">pS3Region_</span></a></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | Whether you want Amazon Web Services to overwrite the previous version</span><span>
@@ -279,16 +279,16 @@ forall a. Monoid a =&gt; a
      (Maybe ReportVersioning)
      (Maybe ReportVersioning)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151419"><span class="annot"><span class="annottext">Maybe ReportVersioning
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151428"><span class="annot"><span class="annottext">Maybe ReportVersioning
 reportVersioning :: Maybe ReportVersioning
 $sel:reportVersioning:ReportDefinition' :: ReportDefinition -&gt; Maybe ReportVersioning
-</span><a href="#local-6989586621679151419"><span class="hs-identifier hs-var hs-var">reportVersioning</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReportVersioning
-</span><a href="#local-6989586621679151419"><span class="hs-identifier hs-var">reportVersioning</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151418"><span class="annot"><span class="annottext">s :: ReportDefinition
-</span><a href="#local-6989586621679151418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151417"><span class="annot"><span class="annottext">Maybe ReportVersioning
-</span><a href="#local-6989586621679151417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportVersioning:ReportDefinition' :: Maybe ReportVersioning
+</span><a href="#local-6989586621679151428"><span class="hs-identifier hs-var hs-var">reportVersioning</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReportVersioning
+</span><a href="#local-6989586621679151428"><span class="hs-identifier hs-var">reportVersioning</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151427"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679151427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151426"><span class="annot"><span class="annottext">Maybe ReportVersioning
+</span><a href="#local-6989586621679151426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679151427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportVersioning:ReportDefinition' :: Maybe ReportVersioning
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3AreportVersioning%3AReportDefinition%27"><span class="hs-identifier hs-var">reportVersioning</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReportVersioning
-</span><a href="#local-6989586621679151417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The Amazon resource name of the billing view. You can get this value by</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- using the billing view service public APIs.</span><span>
@@ -299,16 +299,16 @@ $sel:reportVersioning:ReportDefinition' :: ReportDefinition -&gt; Maybe ReportVe
 -&gt; (ReportDefinition -&gt; Maybe Text -&gt; ReportDefinition)
 -&gt; Lens ReportDefinition ReportDefinition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151415"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151424"><span class="annot"><span class="annottext">Maybe Text
 billingViewArn :: Maybe Text
 $sel:billingViewArn:ReportDefinition' :: ReportDefinition -&gt; Maybe Text
-</span><a href="#local-6989586621679151415"><span class="hs-identifier hs-var hs-var">billingViewArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679151415"><span class="hs-identifier hs-var">billingViewArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151414"><span class="annot"><span class="annottext">s :: ReportDefinition
-</span><a href="#local-6989586621679151414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151413"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679151413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingViewArn:ReportDefinition' :: Maybe Text
+</span><a href="#local-6989586621679151424"><span class="hs-identifier hs-var hs-var">billingViewArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151424"><span class="hs-identifier hs-var">billingViewArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151423"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679151423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151422"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679151423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingViewArn:ReportDefinition' :: Maybe Text
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3AbillingViewArn%3AReportDefinition%27"><span class="hs-identifier hs-var">billingViewArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679151413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | A list of manifests that you want Amazon Web Services to create for this</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- report.</span><span>
@@ -324,16 +324,16 @@ $sel:billingViewArn:ReportDefinition' :: ReportDefinition -&gt; Maybe Text
      (Maybe [AdditionalArtifact])
      (Maybe [AdditionalArtifact])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151411"><span class="annot"><span class="annottext">Maybe [AdditionalArtifact]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151420"><span class="annot"><span class="annottext">Maybe [AdditionalArtifact]
 additionalArtifacts :: Maybe [AdditionalArtifact]
 $sel:additionalArtifacts:ReportDefinition' :: ReportDefinition -&gt; Maybe [AdditionalArtifact]
-</span><a href="#local-6989586621679151411"><span class="hs-identifier hs-var hs-var">additionalArtifacts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AdditionalArtifact]
-</span><a href="#local-6989586621679151411"><span class="hs-identifier hs-var">additionalArtifacts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151410"><span class="annot"><span class="annottext">s :: ReportDefinition
-</span><a href="#local-6989586621679151410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151409"><span class="annot"><span class="annottext">Maybe [AdditionalArtifact]
-</span><a href="#local-6989586621679151409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalArtifacts:ReportDefinition' :: Maybe [AdditionalArtifact]
+</span><a href="#local-6989586621679151420"><span class="hs-identifier hs-var hs-var">additionalArtifacts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AdditionalArtifact]
+</span><a href="#local-6989586621679151420"><span class="hs-identifier hs-var">additionalArtifacts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151419"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679151419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151418"><span class="annot"><span class="annottext">Maybe [AdditionalArtifact]
+</span><a href="#local-6989586621679151418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679151419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalArtifacts:ReportDefinition' :: Maybe [AdditionalArtifact]
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3AadditionalArtifacts%3AReportDefinition%27"><span class="hs-identifier hs-var">additionalArtifacts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AdditionalArtifact]
-</span><a href="#local-6989586621679151409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AdditionalArtifact] -&gt; f (Maybe [AdditionalArtifact]))
+</span><a href="#local-6989586621679151418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AdditionalArtifact] -&gt; f (Maybe [AdditionalArtifact]))
  -&gt; ReportDefinition -&gt; f ReportDefinition)
 -&gt; ((Maybe [AdditionalArtifact] -&gt; f (Maybe [AdditionalArtifact]))
     -&gt; Maybe [AdditionalArtifact] -&gt; f (Maybe [AdditionalArtifact]))
@@ -373,16 +373,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ReportDefinition -&gt; Maybe Bool -&gt; ReportDefinition)
 -&gt; Lens ReportDefinition ReportDefinition (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151404"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151413"><span class="annot"><span class="annottext">Maybe Bool
 refreshClosedReports :: Maybe Bool
 $sel:refreshClosedReports:ReportDefinition' :: ReportDefinition -&gt; Maybe Bool
-</span><a href="#local-6989586621679151404"><span class="hs-identifier hs-var hs-var">refreshClosedReports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679151404"><span class="hs-identifier hs-var">refreshClosedReports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151403"><span class="annot"><span class="annottext">s :: ReportDefinition
-</span><a href="#local-6989586621679151403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151402"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679151402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:refreshClosedReports:ReportDefinition' :: Maybe Bool
+</span><a href="#local-6989586621679151413"><span class="hs-identifier hs-var hs-var">refreshClosedReports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679151413"><span class="hs-identifier hs-var">refreshClosedReports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151412"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679151412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151411"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679151411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679151412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:refreshClosedReports:ReportDefinition' :: Maybe Bool
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3ArefreshClosedReports%3AReportDefinition%27"><span class="hs-identifier hs-var">refreshClosedReports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679151402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-170"></span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#reportDefinition_reportName"><span class="hs-identifier hs-type">reportDefinition_reportName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -391,16 +391,16 @@ $sel:refreshClosedReports:ReportDefinition' :: ReportDefinition -&gt; Maybe Bool
 -&gt; (ReportDefinition -&gt; Text -&gt; ReportDefinition)
 -&gt; Lens ReportDefinition ReportDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151400"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151409"><span class="annot"><span class="annottext">Text
 reportName :: Text
 $sel:reportName:ReportDefinition' :: ReportDefinition -&gt; Text
-</span><a href="#local-6989586621679151400"><span class="hs-identifier hs-var hs-var">reportName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151400"><span class="hs-identifier hs-var">reportName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151399"><span class="annot"><span class="annottext">s :: ReportDefinition
-</span><a href="#local-6989586621679151399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151398"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportName:ReportDefinition' :: Text
+</span><a href="#local-6989586621679151409"><span class="hs-identifier hs-var hs-var">reportName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151409"><span class="hs-identifier hs-var">reportName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151408"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679151408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151407"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679151408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportName:ReportDefinition' :: Text
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3AreportName%3AReportDefinition%27"><span class="hs-identifier hs-var">reportName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-174"></span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#reportDefinition_timeUnit"><span class="hs-identifier hs-type">reportDefinition_timeUnit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.TimeUnit.html#TimeUnit"><span class="hs-identifier hs-type">TimeUnit</span></a></span><span>
@@ -409,16 +409,16 @@ $sel:reportName:ReportDefinition' :: ReportDefinition -&gt; Text
 -&gt; (ReportDefinition -&gt; TimeUnit -&gt; ReportDefinition)
 -&gt; Lens ReportDefinition ReportDefinition TimeUnit TimeUnit
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151396"><span class="annot"><span class="annottext">TimeUnit
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151405"><span class="annot"><span class="annottext">TimeUnit
 timeUnit :: TimeUnit
 $sel:timeUnit:ReportDefinition' :: ReportDefinition -&gt; TimeUnit
-</span><a href="#local-6989586621679151396"><span class="hs-identifier hs-var hs-var">timeUnit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeUnit
-</span><a href="#local-6989586621679151396"><span class="hs-identifier hs-var">timeUnit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151395"><span class="annot"><span class="annottext">s :: ReportDefinition
-</span><a href="#local-6989586621679151395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151394"><span class="annot"><span class="annottext">TimeUnit
-</span><a href="#local-6989586621679151394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeUnit:ReportDefinition' :: TimeUnit
+</span><a href="#local-6989586621679151405"><span class="hs-identifier hs-var hs-var">timeUnit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeUnit
+</span><a href="#local-6989586621679151405"><span class="hs-identifier hs-var">timeUnit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151404"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679151404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151403"><span class="annot"><span class="annottext">TimeUnit
+</span><a href="#local-6989586621679151403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679151404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeUnit:ReportDefinition' :: TimeUnit
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3AtimeUnit%3AReportDefinition%27"><span class="hs-identifier hs-var">timeUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TimeUnit
-</span><a href="#local-6989586621679151394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#reportDefinition_format"><span class="hs-identifier hs-type">reportDefinition_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportFormat.html#ReportFormat"><span class="hs-identifier hs-type">ReportFormat</span></a></span><span>
@@ -428,16 +428,16 @@ $sel:timeUnit:ReportDefinition' :: ReportDefinition -&gt; TimeUnit
 -&gt; (ReportDefinition -&gt; ReportFormat -&gt; ReportDefinition)
 -&gt; Lens ReportDefinition ReportDefinition ReportFormat ReportFormat
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151392"><span class="annot"><span class="annottext">ReportFormat
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151401"><span class="annot"><span class="annottext">ReportFormat
 format :: ReportFormat
 $sel:format:ReportDefinition' :: ReportDefinition -&gt; ReportFormat
-</span><a href="#local-6989586621679151392"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportFormat
-</span><a href="#local-6989586621679151392"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151391"><span class="annot"><span class="annottext">s :: ReportDefinition
-</span><a href="#local-6989586621679151391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151390"><span class="annot"><span class="annottext">ReportFormat
-</span><a href="#local-6989586621679151390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:ReportDefinition' :: ReportFormat
+</span><a href="#local-6989586621679151401"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportFormat
+</span><a href="#local-6989586621679151401"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151400"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679151400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151399"><span class="annot"><span class="annottext">ReportFormat
+</span><a href="#local-6989586621679151399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679151400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:ReportDefinition' :: ReportFormat
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3Aformat%3AReportDefinition%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportFormat
-</span><a href="#local-6989586621679151390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-182"></span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#reportDefinition_compression"><span class="hs-identifier hs-type">reportDefinition_compression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.CompressionFormat.html#CompressionFormat"><span class="hs-identifier hs-type">CompressionFormat</span></a></span><span>
@@ -451,16 +451,16 @@ $sel:format:ReportDefinition' :: ReportDefinition -&gt; ReportFormat
      CompressionFormat
      CompressionFormat
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151388"><span class="annot"><span class="annottext">CompressionFormat
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151397"><span class="annot"><span class="annottext">CompressionFormat
 compression :: CompressionFormat
 $sel:compression:ReportDefinition' :: ReportDefinition -&gt; CompressionFormat
-</span><a href="#local-6989586621679151388"><span class="hs-identifier hs-var hs-var">compression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompressionFormat
-</span><a href="#local-6989586621679151388"><span class="hs-identifier hs-var">compression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151387"><span class="annot"><span class="annottext">s :: ReportDefinition
-</span><a href="#local-6989586621679151387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151386"><span class="annot"><span class="annottext">CompressionFormat
-</span><a href="#local-6989586621679151386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compression:ReportDefinition' :: CompressionFormat
+</span><a href="#local-6989586621679151397"><span class="hs-identifier hs-var hs-var">compression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompressionFormat
+</span><a href="#local-6989586621679151397"><span class="hs-identifier hs-var">compression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151396"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679151396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151395"><span class="annot"><span class="annottext">CompressionFormat
+</span><a href="#local-6989586621679151395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679151396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compression:ReportDefinition' :: CompressionFormat
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3Acompression%3AReportDefinition%27"><span class="hs-identifier hs-var">compression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CompressionFormat
-</span><a href="#local-6989586621679151386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | A list of strings that indicate additional content that Amazon Web</span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- Services includes in the report, such as individual resource IDs.</span><span>
@@ -472,16 +472,16 @@ $sel:compression:ReportDefinition' :: ReportDefinition -&gt; CompressionFormat
 -&gt; Lens
      ReportDefinition ReportDefinition [SchemaElement] [SchemaElement]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151384"><span class="annot"><span class="annottext">[SchemaElement]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151393"><span class="annot"><span class="annottext">[SchemaElement]
 additionalSchemaElements :: [SchemaElement]
 $sel:additionalSchemaElements:ReportDefinition' :: ReportDefinition -&gt; [SchemaElement]
-</span><a href="#local-6989586621679151384"><span class="hs-identifier hs-var hs-var">additionalSchemaElements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SchemaElement]
-</span><a href="#local-6989586621679151384"><span class="hs-identifier hs-var">additionalSchemaElements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151383"><span class="annot"><span class="annottext">s :: ReportDefinition
-</span><a href="#local-6989586621679151383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151382"><span class="annot"><span class="annottext">[SchemaElement]
-</span><a href="#local-6989586621679151382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalSchemaElements:ReportDefinition' :: [SchemaElement]
+</span><a href="#local-6989586621679151393"><span class="hs-identifier hs-var hs-var">additionalSchemaElements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SchemaElement]
+</span><a href="#local-6989586621679151393"><span class="hs-identifier hs-var">additionalSchemaElements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151392"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679151392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151391"><span class="annot"><span class="annottext">[SchemaElement]
+</span><a href="#local-6989586621679151391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679151392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalSchemaElements:ReportDefinition' :: [SchemaElement]
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3AadditionalSchemaElements%3AReportDefinition%27"><span class="hs-identifier hs-var">additionalSchemaElements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SchemaElement]
-</span><a href="#local-6989586621679151382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SchemaElement] -&gt; f [SchemaElement])
+</span><a href="#local-6989586621679151391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SchemaElement] -&gt; f [SchemaElement])
  -&gt; ReportDefinition -&gt; f ReportDefinition)
 -&gt; (([SchemaElement] -&gt; f [SchemaElement])
     -&gt; [SchemaElement] -&gt; f [SchemaElement])
@@ -501,16 +501,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ReportDefinition -&gt; Text -&gt; ReportDefinition)
 -&gt; Lens ReportDefinition ReportDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151380"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151389"><span class="annot"><span class="annottext">Text
 s3Bucket :: Text
 $sel:s3Bucket:ReportDefinition' :: ReportDefinition -&gt; Text
-</span><a href="#local-6989586621679151380"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151380"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151379"><span class="annot"><span class="annottext">s :: ReportDefinition
-</span><a href="#local-6989586621679151379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151378"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:ReportDefinition' :: Text
+</span><a href="#local-6989586621679151389"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151389"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151388"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679151388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151387"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679151388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:ReportDefinition' :: Text
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3As3Bucket%3AReportDefinition%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-195"></span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#reportDefinition_s3Prefix"><span class="hs-identifier hs-type">reportDefinition_s3Prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -519,16 +519,16 @@ $sel:s3Bucket:ReportDefinition' :: ReportDefinition -&gt; Text
 -&gt; (ReportDefinition -&gt; Text -&gt; ReportDefinition)
 -&gt; Lens ReportDefinition ReportDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151376"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151385"><span class="annot"><span class="annottext">Text
 s3Prefix :: Text
 $sel:s3Prefix:ReportDefinition' :: ReportDefinition -&gt; Text
-</span><a href="#local-6989586621679151376"><span class="hs-identifier hs-var hs-var">s3Prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151376"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151375"><span class="annot"><span class="annottext">s :: ReportDefinition
-</span><a href="#local-6989586621679151375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151374"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Prefix:ReportDefinition' :: Text
+</span><a href="#local-6989586621679151385"><span class="hs-identifier hs-var hs-var">s3Prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151385"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151384"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679151384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151383"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679151384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Prefix:ReportDefinition' :: Text
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3As3Prefix%3AReportDefinition%27"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-199"></span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#reportDefinition_s3Region"><span class="hs-identifier hs-type">reportDefinition_s3Region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.AWSRegion.html#AWSRegion"><span class="hs-identifier hs-type">AWSRegion</span></a></span><span>
@@ -538,19 +538,19 @@ $sel:s3Prefix:ReportDefinition' :: ReportDefinition -&gt; Text
 -&gt; (ReportDefinition -&gt; AWSRegion -&gt; ReportDefinition)
 -&gt; Lens ReportDefinition ReportDefinition AWSRegion AWSRegion
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151372"><span class="annot"><span class="annottext">AWSRegion
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151381"><span class="annot"><span class="annottext">AWSRegion
 s3Region :: AWSRegion
 $sel:s3Region:ReportDefinition' :: ReportDefinition -&gt; AWSRegion
-</span><a href="#local-6989586621679151372"><span class="hs-identifier hs-var hs-var">s3Region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AWSRegion
-</span><a href="#local-6989586621679151372"><span class="hs-identifier hs-var">s3Region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151371"><span class="annot"><span class="annottext">s :: ReportDefinition
-</span><a href="#local-6989586621679151371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151370"><span class="annot"><span class="annottext">AWSRegion
-</span><a href="#local-6989586621679151370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Region:ReportDefinition' :: AWSRegion
+</span><a href="#local-6989586621679151381"><span class="hs-identifier hs-var hs-var">s3Region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AWSRegion
+</span><a href="#local-6989586621679151381"><span class="hs-identifier hs-var">s3Region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151380"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679151380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151379"><span class="annot"><span class="annottext">AWSRegion
+</span><a href="#local-6989586621679151379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679151380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Region:ReportDefinition' :: AWSRegion
 </span><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#%24sel%3As3Region%3AReportDefinition%27"><span class="hs-identifier hs-var">s3Region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AWSRegion
-</span><a href="#local-6989586621679151370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151367"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679151365"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReportDefinition
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151376"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679151374"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReportDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-204"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReportDefinition)
@@ -560,8 +560,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReportDefinition&quot;</span></span><span>
-</span><span id="line-206"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679151362"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679151362"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679151371"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679151371"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-207"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReportVersioning
 -&gt; Maybe Text
 -&gt; Maybe [AdditionalArtifact]
@@ -605,7 +605,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ReportDefinition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679151362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReportVersioning)
+</span><a href="#local-6989586621679151371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReportVersioning)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReportVersioning&quot;</span></span><span class="hs-special">)</span><span>
@@ -637,7 +637,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ReportDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679151362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679151371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BillingViewArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -667,7 +667,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ReportDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679151362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AdditionalArtifact]))
+</span><a href="#local-6989586621679151371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AdditionalArtifact]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AdditionalArtifacts&quot;</span></span><span>
@@ -703,7 +703,7 @@ forall a. Monoid a =&gt; a
       -&gt; ReportDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679151362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679151371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RefreshClosedReports&quot;</span></span><span class="hs-special">)</span><span>
@@ -729,7 +729,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ReportDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679151362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679151371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReportName&quot;</span></span><span class="hs-special">)</span><span>
@@ -753,7 +753,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; ReportDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679151362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TimeUnit
+</span><a href="#local-6989586621679151371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TimeUnit
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TimeUnit&quot;</span></span><span class="hs-special">)</span><span>
@@ -775,7 +775,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; ReportDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679151362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ReportFormat
+</span><a href="#local-6989586621679151371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ReportFormat
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Format&quot;</span></span><span class="hs-special">)</span><span>
@@ -791,7 +791,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      ([SchemaElement] -&gt; Text -&gt; Text -&gt; AWSRegion -&gt; ReportDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679151362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser CompressionFormat
+</span><a href="#local-6989586621679151371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser CompressionFormat
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Compression&quot;</span></span><span class="hs-special">)</span><span>
@@ -801,7 +801,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; AWSRegion -&gt; ReportDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679151362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [SchemaElement])
+</span><a href="#local-6989586621679151371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [SchemaElement])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AdditionalSchemaElements&quot;</span></span><span>
@@ -816,7 +816,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser Text -&gt; Parser (Text -&gt; AWSRegion -&gt; ReportDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679151362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679151371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Bucket&quot;</span></span><span class="hs-special">)</span><span>
@@ -824,7 +824,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (AWSRegion -&gt; ReportDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679151362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679151371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Prefix&quot;</span></span><span class="hs-special">)</span><span>
@@ -832,19 +832,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser AWSRegion -&gt; Parser ReportDefinition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679151362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AWSRegion
+</span><a href="#local-6989586621679151371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AWSRegion
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Region&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
-</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151354"><span id="local-6989586621679151356"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span></span></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151363"><span id="local-6989586621679151365"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span></span></span><span>
 </span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151360"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span></span><span>
 </span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151343"><span id="local-6989586621679151345"><span id="local-6989586621679151347"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621679151341"><span class="annot"><span class="annottext">toJSON :: ReportDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151328"><span id="local-6989586621679151329"><span id="local-6989586621679151330"><span id="local-6989586621679151331"><span id="local-6989586621679151332"><span id="local-6989586621679151333"><span id="local-6989586621679151334"><span id="local-6989586621679151335"><span id="local-6989586621679151336"><span id="local-6989586621679151337"><span id="local-6989586621679151338"><span id="local-6989586621679151339"><span class="annot"><span class="annottext">[SchemaElement]
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151352"><span id="local-6989586621679151354"><span id="local-6989586621679151356"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679151350"><span class="annot"><span class="annottext">toJSON :: ReportDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151337"><span id="local-6989586621679151338"><span id="local-6989586621679151339"><span id="local-6989586621679151340"><span id="local-6989586621679151341"><span id="local-6989586621679151342"><span id="local-6989586621679151343"><span id="local-6989586621679151344"><span id="local-6989586621679151345"><span id="local-6989586621679151346"><span id="local-6989586621679151347"><span id="local-6989586621679151348"><span class="annot"><span class="annottext">[SchemaElement]
 Maybe Bool
 Maybe [AdditionalArtifact]
 Maybe Text
@@ -878,7 +878,7 @@ $sel:refreshClosedReports:ReportDefinition' :: ReportDefinition -&gt; Maybe Bool
 $sel:additionalArtifacts:ReportDefinition' :: ReportDefinition -&gt; Maybe [AdditionalArtifact]
 $sel:billingViewArn:ReportDefinition' :: ReportDefinition -&gt; Maybe Text
 $sel:reportVersioning:ReportDefinition' :: ReportDefinition -&gt; Maybe ReportVersioning
-</span><a href="#local-6989586621679151328"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679151337"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-233"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -891,7 +891,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-235"></span><span>              </span><span class="annot"><span class="annottext">(ReportVersioning -&gt; Pair) -&gt; Maybe ReportVersioning -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReportVersioning
-</span><a href="#local-6989586621679151339"><span class="hs-identifier hs-var">reportVersioning</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151348"><span class="hs-identifier hs-var">reportVersioning</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-236"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BillingViewArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -899,7 +899,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-237"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679151338"><span class="hs-identifier hs-var">billingViewArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151347"><span class="hs-identifier hs-var">billingViewArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-238"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AdditionalArtifacts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AdditionalArtifact] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -908,7 +908,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [AdditionalArtifact] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AdditionalArtifact]
-</span><a href="#local-6989586621679151337"><span class="hs-identifier hs-var">additionalArtifacts</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151346"><span class="hs-identifier hs-var">additionalArtifacts</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-240"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RefreshClosedReports&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -916,35 +916,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-241"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679151336"><span class="hs-identifier hs-var">refreshClosedReports</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151345"><span class="hs-identifier hs-var">refreshClosedReports</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReportName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151335"><span class="hs-identifier hs-var">reportName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151344"><span class="hs-identifier hs-var">reportName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TimeUnit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimeUnit -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TimeUnit
-</span><a href="#local-6989586621679151334"><span class="hs-identifier hs-var">timeUnit</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151343"><span class="hs-identifier hs-var">timeUnit</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Format&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReportFormat -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ReportFormat
-</span><a href="#local-6989586621679151333"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151342"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Compression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CompressionFormat -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">CompressionFormat
-</span><a href="#local-6989586621679151332"><span class="hs-identifier hs-var">compression</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151341"><span class="hs-identifier hs-var">compression</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -953,7 +953,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-248"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [SchemaElement] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[SchemaElement]
-</span><a href="#local-6989586621679151331"><span class="hs-identifier hs-var">additionalSchemaElements</span></a></span><span>
+</span><a href="#local-6989586621679151340"><span class="hs-identifier hs-var">additionalSchemaElements</span></a></span><span>
 </span><span id="line-249"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -961,21 +961,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;S3Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151330"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151339"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151329"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151338"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Region&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AWSRegion -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AWSRegion
-</span><a href="#local-6989586621679151328"><span class="hs-identifier hs-var">s3Region</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151337"><span class="hs-identifier hs-var">s3Region</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-254"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span></pre></body></html>

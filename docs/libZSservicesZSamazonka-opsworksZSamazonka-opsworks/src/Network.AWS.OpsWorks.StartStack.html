@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newStartStack' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679382573"><span id="local-6989586621679382574"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartStack"><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack"><span class="hs-identifier hs-var">StartStack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartStack%27"><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack%27"><span class="hs-identifier hs-var">StartStack'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679382582"><span id="local-6989586621679382583"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartStack"><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack"><span class="hs-identifier hs-var">StartStack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartStack%27"><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack%27"><span class="hs-identifier hs-var">StartStack'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The stack ID.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AstackId%3AStartStack%27"><span class="annot"><span class="annottext">StartStack -&gt; Text
 </span><a href="Network.AWS.OpsWorks.StartStack.html#%24sel%3AstackId%3AStartStack%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382567"><span id="local-6989586621679382569"><span class="annot"><span class="annottext">StartStack -&gt; StartStack -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382576"><span id="local-6989586621679382578"><span class="annot"><span class="annottext">StartStack -&gt; StartStack -&gt; Bool
 (StartStack -&gt; StartStack -&gt; Bool)
 -&gt; (StartStack -&gt; StartStack -&gt; Bool) -&gt; Eq StartStack
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartStack -&gt; StartStack -&gt; Bool
 == :: StartStack -&gt; StartStack -&gt; Bool
 $c== :: StartStack -&gt; StartStack -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382558"><span id="local-6989586621679382560"><span id="local-6989586621679382562"><span id="local-6989586621679382564"><span class="annot"><span class="annottext">ReadPrec [StartStack]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382567"><span id="local-6989586621679382569"><span id="local-6989586621679382571"><span id="local-6989586621679382573"><span class="annot"><span class="annottext">ReadPrec [StartStack]
 ReadPrec StartStack
 Int -&gt; ReadS StartStack
 ReadS [StartStack]
@@ -82,7 +82,7 @@ readList :: ReadS [StartStack]
 $creadList :: ReadS [StartStack]
 readsPrec :: Int -&gt; ReadS StartStack
 $creadsPrec :: Int -&gt; ReadS StartStack
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382551"><span id="local-6989586621679382553"><span id="local-6989586621679382555"><span class="annot"><span class="annottext">Int -&gt; StartStack -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382560"><span id="local-6989586621679382562"><span id="local-6989586621679382564"><span class="annot"><span class="annottext">Int -&gt; StartStack -&gt; ShowS
 [StartStack] -&gt; ShowS
 StartStack -&gt; String
 (Int -&gt; StartStack -&gt; ShowS)
@@ -121,12 +121,12 @@ $cfrom :: forall x. StartStack -&gt; Rep StartStack x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack"><span class="hs-identifier hs-type">StartStack</span></a></span><span>
 </span><span id="line-71"></span><span id="newStartStack"><span class="annot"><span class="annottext">newStartStack :: Text -&gt; StartStack
-</span><a href="Network.AWS.OpsWorks.StartStack.html#newStartStack"><span class="hs-identifier hs-var hs-var">newStartStack</span></a></span></span><span> </span><span id="local-6989586621679382546"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382546"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.StartStack.html#newStartStack"><span class="hs-identifier hs-var hs-var">newStartStack</span></a></span></span><span> </span><span id="local-6989586621679382555"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382555"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">StartStack' :: Text -&gt; StartStack
 </span><a href="Network.AWS.OpsWorks.StartStack.html#StartStack%27"><span class="hs-identifier hs-type">StartStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:StartStack' :: Text
 </span><a href="Network.AWS.OpsWorks.StartStack.html#%24sel%3AstackId%3AStartStack%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382546"><span class="hs-identifier hs-var">pStackId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679382555"><span class="hs-identifier hs-var">pStackId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The stack ID.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#startStack_stackId"><span class="hs-identifier hs-type">startStack_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack"><span class="hs-identifier hs-type">StartStack</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,25 +135,25 @@ $cfrom :: forall x. StartStack -&gt; Rep StartStack x
 -&gt; (StartStack -&gt; Text -&gt; StartStack)
 -&gt; Lens StartStack StartStack Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack%27"><span class="hs-identifier hs-type">StartStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382543"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack%27"><span class="hs-identifier hs-type">StartStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382552"><span class="annot"><span class="annottext">Text
 stackId :: Text
 $sel:stackId:StartStack' :: StartStack -&gt; Text
-</span><a href="#local-6989586621679382543"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382543"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382542"><span class="annot"><span class="annottext">s :: StartStack
-</span><a href="#local-6989586621679382542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack%27"><span class="hs-identifier hs-type">StartStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382541"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartStack
-</span><a href="#local-6989586621679382542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:StartStack' :: Text
+</span><a href="#local-6989586621679382552"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382552"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382551"><span class="annot"><span class="annottext">s :: StartStack
+</span><a href="#local-6989586621679382551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack%27"><span class="hs-identifier hs-type">StartStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382550"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartStack
+</span><a href="#local-6989586621679382551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:StartStack' :: Text
 </span><a href="Network.AWS.OpsWorks.StartStack.html#%24sel%3AstackId%3AStartStack%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack"><span class="hs-identifier hs-type">StartStack</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack"><span class="hs-identifier hs-type">StartStack</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack"><span class="hs-identifier hs-type">StartStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack"><span class="hs-identifier hs-type">StartStack</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStackResponse"><span class="hs-identifier hs-type">StartStackResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679382537"><span class="annot"><span class="annottext">request :: StartStack -&gt; Request StartStack
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679382546"><span class="annot"><span class="annottext">request :: StartStack -&gt; Request StartStack
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartStack -&gt; Request StartStack
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679382533"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679382542"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartStack
 -&gt; ClientResponse ClientBody
@@ -176,12 +176,12 @@ AWSResponse a
 StartStackResponse
 </span><a href="Network.AWS.OpsWorks.StartStack.html#StartStackResponse%27"><span class="hs-identifier hs-var">StartStackResponse'</span></a></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382526"><span id="local-6989586621679382528"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack"><span class="hs-identifier hs-type">StartStack</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382535"><span id="local-6989586621679382537"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack"><span class="hs-identifier hs-type">StartStack</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382523"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack"><span class="hs-identifier hs-type">StartStack</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382532"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack"><span class="hs-identifier hs-type">StartStack</span></a></span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack"><span class="hs-identifier hs-type">StartStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679382519"><span class="annot"><span class="annottext">toHeaders :: StartStack -&gt; [Header]
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679382528"><span class="annot"><span class="annottext">toHeaders :: StartStack -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; StartStack -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -208,12 +208,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382509"><span id="local-6989586621679382511"><span id="local-6989586621679382513"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack"><span class="hs-identifier hs-type">StartStack</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679382507"><span class="annot"><span class="annottext">toJSON :: StartStack -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack%27"><span class="hs-identifier hs-type">StartStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382505"><span class="annot"><span class="annottext">Text
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382518"><span id="local-6989586621679382520"><span id="local-6989586621679382522"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack"><span class="hs-identifier hs-type">StartStack</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679382516"><span class="annot"><span class="annottext">toJSON :: StartStack -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack%27"><span class="hs-identifier hs-type">StartStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382514"><span class="annot"><span class="annottext">Text
 stackId :: Text
 $sel:stackId:StartStack' :: StartStack -&gt; Text
-</span><a href="#local-6989586621679382505"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679382514"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -225,18 +225,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StackId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382505"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679382514"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack"><span class="hs-identifier hs-type">StartStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679382499"><span class="annot"><span class="annottext">toPath :: StartStack -&gt; ByteString
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679382508"><span class="annot"><span class="annottext">toPath :: StartStack -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartStack -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStack"><span class="hs-identifier hs-type">StartStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679382495"><span class="annot"><span class="annottext">toQuery :: StartStack -&gt; QueryString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679382504"><span class="annot"><span class="annottext">toQuery :: StartStack -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartStack -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -244,10 +244,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newStartStackResponse' smart constructor.</span><span>
-</span><span id="line-116"></span><span id="local-6989586621679382492"><span id="local-6989586621679382493"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartStackResponse"><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStackResponse"><span class="hs-identifier hs-var">StartStackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartStackResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStackResponse%27"><span class="hs-identifier hs-var">StartStackResponse'</span></a></span></span><span>
+</span><span id="line-116"></span><span id="local-6989586621679382501"><span id="local-6989586621679382502"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartStackResponse"><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStackResponse"><span class="hs-identifier hs-var">StartStackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartStackResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStackResponse%27"><span class="hs-identifier hs-var">StartStackResponse'</span></a></span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382488"><span id="local-6989586621679382490"><span class="annot"><span class="annottext">StartStackResponse -&gt; StartStackResponse -&gt; Bool
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382497"><span id="local-6989586621679382499"><span class="annot"><span class="annottext">StartStackResponse -&gt; StartStackResponse -&gt; Bool
 (StartStackResponse -&gt; StartStackResponse -&gt; Bool)
 -&gt; (StartStackResponse -&gt; StartStackResponse -&gt; Bool)
 -&gt; Eq StartStackResponse
@@ -256,7 +256,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartStackResponse -&gt; StartStackResponse -&gt; Bool
 == :: StartStackResponse -&gt; StartStackResponse -&gt; Bool
 $c== :: StartStackResponse -&gt; StartStackResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382480"><span id="local-6989586621679382482"><span id="local-6989586621679382484"><span id="local-6989586621679382486"><span class="annot"><span class="annottext">ReadPrec [StartStackResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382489"><span id="local-6989586621679382491"><span id="local-6989586621679382493"><span id="local-6989586621679382495"><span class="annot"><span class="annottext">ReadPrec [StartStackResponse]
 ReadPrec StartStackResponse
 Int -&gt; ReadS StartStackResponse
 ReadS [StartStackResponse]
@@ -276,7 +276,7 @@ readList :: ReadS [StartStackResponse]
 $creadList :: ReadS [StartStackResponse]
 readsPrec :: Int -&gt; ReadS StartStackResponse
 $creadsPrec :: Int -&gt; ReadS StartStackResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382474"><span id="local-6989586621679382476"><span id="local-6989586621679382478"><span class="annot"><span class="annottext">Int -&gt; StartStackResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382483"><span id="local-6989586621679382485"><span id="local-6989586621679382487"><span class="annot"><span class="annottext">Int -&gt; StartStackResponse -&gt; ShowS
 [StartStackResponse] -&gt; ShowS
 StartStackResponse -&gt; String
 (Int -&gt; StartStackResponse -&gt; ShowS)
@@ -312,5 +312,5 @@ $cfrom :: forall x. StartStackResponse -&gt; Rep StartStackResponse x
 </span><a href="Network.AWS.OpsWorks.StartStack.html#newStartStackResponse"><span class="hs-identifier hs-var hs-var">newStartStackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StartStackResponse
 </span><a href="Network.AWS.OpsWorks.StartStack.html#StartStackResponse%27"><span class="hs-identifier hs-var">StartStackResponse'</span></a></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382470"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStackResponse"><span class="hs-identifier hs-type">StartStackResponse</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382479"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StartStack.html#StartStackResponse"><span class="hs-identifier hs-type">StartStackResponse</span></a></span></span><span>
 </span><span id="line-130"></span></pre></body></html>

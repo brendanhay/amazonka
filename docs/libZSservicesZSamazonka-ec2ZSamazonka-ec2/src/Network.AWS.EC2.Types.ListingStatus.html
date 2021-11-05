@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621681125882"><span id="local-6989586621681125883"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ListingStatus"><span class="annot"><a href="Network.AWS.EC2.Types.ListingStatus.html#ListingStatus"><span class="hs-identifier hs-var">ListingStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListingStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.ListingStatus.html#ListingStatus%27"><span class="hs-identifier hs-var">ListingStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681125891"><span id="local-6989586621681125892"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ListingStatus"><span class="annot"><a href="Network.AWS.EC2.Types.ListingStatus.html#ListingStatus"><span class="hs-identifier hs-var">ListingStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListingStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.ListingStatus.html#ListingStatus%27"><span class="hs-identifier hs-var">ListingStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromListingStatus"><span class="annot"><span class="annottext">ListingStatus -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ListingStatus.html#fromListingStatus"><span class="hs-identifier hs-var hs-var">fromListingStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681125874"><span id="local-6989586621681125876"><span id="local-6989586621681125878"><span class="annot"><span class="annottext">Int -&gt; ListingStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681125883"><span id="local-6989586621681125885"><span id="local-6989586621681125887"><span class="annot"><span class="annottext">Int -&gt; ListingStatus -&gt; ShowS
 [ListingStatus] -&gt; ShowS
 ListingStatus -&gt; String
 (Int -&gt; ListingStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ListingStatus -&gt; String
 showsPrec :: Int -&gt; ListingStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ListingStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681125865"><span id="local-6989586621681125867"><span id="local-6989586621681125869"><span id="local-6989586621681125871"><span class="annot"><span class="annottext">ReadPrec [ListingStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681125874"><span id="local-6989586621681125876"><span id="local-6989586621681125878"><span id="local-6989586621681125880"><span class="annot"><span class="annottext">ReadPrec [ListingStatus]
 ReadPrec ListingStatus
 Int -&gt; ReadS ListingStatus
 ReadS [ListingStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ListingStatus]
 readsPrec :: Int -&gt; ReadS ListingStatus
 $creadsPrec :: Int -&gt; ReadS ListingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681125860"><span id="local-6989586621681125862"><span class="annot"><span class="annottext">ListingStatus -&gt; ListingStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681125869"><span id="local-6989586621681125871"><span class="annot"><span class="annottext">ListingStatus -&gt; ListingStatus -&gt; Bool
 (ListingStatus -&gt; ListingStatus -&gt; Bool)
 -&gt; (ListingStatus -&gt; ListingStatus -&gt; Bool) -&gt; Eq ListingStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: ListingStatus -&gt; ListingStatus -&gt; Bool
 == :: ListingStatus -&gt; ListingStatus -&gt; Bool
 $c== :: ListingStatus -&gt; ListingStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681125844"><span id="local-6989586621681125846"><span id="local-6989586621681125848"><span id="local-6989586621681125850"><span id="local-6989586621681125852"><span id="local-6989586621681125854"><span id="local-6989586621681125856"><span class="annot"><span class="annottext">Eq ListingStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681125853"><span id="local-6989586621681125855"><span id="local-6989586621681125857"><span id="local-6989586621681125859"><span id="local-6989586621681125861"><span id="local-6989586621681125863"><span id="local-6989586621681125865"><span class="annot"><span class="annottext">Eq ListingStatus
 Eq ListingStatus
 -&gt; (ListingStatus -&gt; ListingStatus -&gt; Ordering)
 -&gt; (ListingStatus -&gt; ListingStatus -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. ListingStatus -&gt; Rep ListingStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681125836"><span id="local-6989586621681125838"><span class="annot"><span class="annottext">Int -&gt; ListingStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681125845"><span id="local-6989586621681125847"><span class="annot"><span class="annottext">Int -&gt; ListingStatus -&gt; Int
 ListingStatus -&gt; Int
 (Int -&gt; ListingStatus -&gt; Int)
 -&gt; (ListingStatus -&gt; Int) -&gt; Hashable ListingStatus
@@ -145,49 +145,49 @@ $chash :: ListingStatus -&gt; Int
 hashWithSalt :: Int -&gt; ListingStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ListingStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681125833"><span class="annot"><span class="annottext">ListingStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681125842"><span class="annot"><span class="annottext">ListingStatus -&gt; ()
 (ListingStatus -&gt; ()) -&gt; NFData ListingStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ListingStatus -&gt; ()
 $crnf :: ListingStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681125830"><span class="annot"><span class="annottext">Text -&gt; Either String ListingStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681125839"><span class="annot"><span class="annottext">Text -&gt; Either String ListingStatus
 (Text -&gt; Either String ListingStatus) -&gt; FromText ListingStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ListingStatus
 $cfromText :: Text -&gt; Either String ListingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681125827"><span class="annot"><span class="annottext">ListingStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681125836"><span class="annot"><span class="annottext">ListingStatus -&gt; Text
 (ListingStatus -&gt; Text) -&gt; ToText ListingStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ListingStatus -&gt; Text
 $ctoText :: ListingStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681125824"><span class="annot"><span class="annottext">ListingStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681125833"><span class="annot"><span class="annottext">ListingStatus -&gt; ByteString
 (ListingStatus -&gt; ByteString) -&gt; ToByteString ListingStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ListingStatus -&gt; ByteString
 $ctoBS :: ListingStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681125821"><span class="annot"><span class="annottext">ListingStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681125830"><span class="annot"><span class="annottext">ListingStatus -&gt; ByteStringBuilder
 (ListingStatus -&gt; ByteStringBuilder) -&gt; ToLog ListingStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ListingStatus -&gt; ByteStringBuilder
 $cbuild :: ListingStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681125818"><span class="annot"><span class="annottext">HeaderName -&gt; ListingStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681125827"><span class="annot"><span class="annottext">HeaderName -&gt; ListingStatus -&gt; [Header]
 (HeaderName -&gt; ListingStatus -&gt; [Header]) -&gt; ToHeader ListingStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ListingStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ListingStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681125815"><span class="annot"><span class="annottext">ListingStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681125824"><span class="annot"><span class="annottext">ListingStatus -&gt; QueryString
 (ListingStatus -&gt; QueryString) -&gt; ToQuery ListingStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ListingStatus -&gt; QueryString
 $ctoQuery :: ListingStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681125810"><span id="local-6989586621681125812"><span class="annot"><span class="annottext">Value -&gt; Parser [ListingStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681125819"><span id="local-6989586621681125821"><span class="annot"><span class="annottext">Value -&gt; Parser [ListingStatus]
 Value -&gt; Parser ListingStatus
 (Value -&gt; Parser ListingStatus)
 -&gt; (Value -&gt; Parser [ListingStatus]) -&gt; FromJSON ListingStatus
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [ListingStatus]
 parseJSON :: Value -&gt; Parser ListingStatus
 $cparseJSON :: Value -&gt; Parser ListingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681125805"><span id="local-6989586621681125807"><span class="annot"><span class="annottext">FromJSONKeyFunction [ListingStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681125814"><span id="local-6989586621681125816"><span class="annot"><span class="annottext">FromJSONKeyFunction [ListingStatus]
 FromJSONKeyFunction ListingStatus
 FromJSONKeyFunction ListingStatus
 -&gt; FromJSONKeyFunction [ListingStatus] -&gt; FromJSONKey ListingStatus
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ListingStatus]
 fromJSONKey :: FromJSONKeyFunction ListingStatus
 $cfromJSONKey :: FromJSONKeyFunction ListingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681125796"><span id="local-6989586621681125798"><span id="local-6989586621681125800"><span id="local-6989586621681125802"><span class="annot"><span class="annottext">[ListingStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681125805"><span id="local-6989586621681125807"><span id="local-6989586621681125809"><span id="local-6989586621681125811"><span class="annot"><span class="annottext">[ListingStatus] -&gt; Encoding
 [ListingStatus] -&gt; Value
 ListingStatus -&gt; Encoding
 ListingStatus -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: ListingStatus -&gt; Encoding
 toJSON :: ListingStatus -&gt; Value
 $ctoJSON :: ListingStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681125791"><span id="local-6989586621681125793"><span class="annot"><span class="annottext">ToJSONKeyFunction [ListingStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681125800"><span id="local-6989586621681125802"><span class="annot"><span class="annottext">ToJSONKeyFunction [ListingStatus]
 ToJSONKeyFunction ListingStatus
 ToJSONKeyFunction ListingStatus
 -&gt; ToJSONKeyFunction [ListingStatus] -&gt; ToJSONKey ListingStatus
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ListingStatus]
 toJSONKey :: ToJSONKeyFunction ListingStatus
 $ctoJSONKey :: ToJSONKeyFunction ListingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681125788"><span class="annot"><span class="annottext">[Node] -&gt; Either String ListingStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681125797"><span class="annot"><span class="annottext">[Node] -&gt; Either String ListingStatus
 ([Node] -&gt; Either String ListingStatus) -&gt; FromXML ListingStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ListingStatus
 $cparseXML :: [Node] -&gt; Either String ListingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681125785"><span class="annot"><span class="annottext">ListingStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681125794"><span class="annot"><span class="annottext">ListingStatus -&gt; XML
 (ListingStatus -&gt; XML) -&gt; ToXML ListingStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ListingStatus -&gt; XML

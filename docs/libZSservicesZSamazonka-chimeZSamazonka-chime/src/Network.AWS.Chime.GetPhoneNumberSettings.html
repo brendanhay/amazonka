@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.GetPhoneNumberSettings</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the phone number settings for the administrator\'s AWS</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- account, such as the default outbound calling name.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.GetPhoneNumberSettings</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettings"><span class="hs-identifier">GetPhoneNumberSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#newGetPhoneNumberSettings"><span class="hs-identifier">newGetPhoneNumberSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse"><span class="hs-identifier">GetPhoneNumberSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#newGetPhoneNumberSettingsResponse"><span class="hs-identifier">newGetPhoneNumberSettingsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#getPhoneNumberSettingsResponse_callingNameUpdatedTimestamp"><span class="hs-identifier">getPhoneNumberSettingsResponse_callingNameUpdatedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#getPhoneNumberSettingsResponse_callingName"><span class="hs-identifier">getPhoneNumberSettingsResponse_callingName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#getPhoneNumberSettingsResponse_httpStatus"><span class="hs-identifier">getPhoneNumberSettingsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.html"><span class="hs-identifier">Network.AWS.Chime.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newGetPhoneNumberSettings' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679540823"><span id="local-6989586621679540824"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPhoneNumberSettings"><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettings"><span class="hs-identifier hs-var">GetPhoneNumberSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPhoneNumberSettings%27"><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettings%27"><span class="hs-identifier hs-var">GetPhoneNumberSettings'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679540818"><span id="local-6989586621679540820"><span class="annot"><span class="annottext">GetPhoneNumberSettings -&gt; GetPhoneNumberSettings -&gt; Bool
+(GetPhoneNumberSettings -&gt; GetPhoneNumberSettings -&gt; Bool)
+-&gt; (GetPhoneNumberSettings -&gt; GetPhoneNumberSettings -&gt; Bool)
+-&gt; Eq GetPhoneNumberSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetPhoneNumberSettings -&gt; GetPhoneNumberSettings -&gt; Bool
+$c/= :: GetPhoneNumberSettings -&gt; GetPhoneNumberSettings -&gt; Bool
+== :: GetPhoneNumberSettings -&gt; GetPhoneNumberSettings -&gt; Bool
+$c== :: GetPhoneNumberSettings -&gt; GetPhoneNumberSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679540809"><span id="local-6989586621679540811"><span id="local-6989586621679540813"><span id="local-6989586621679540815"><span class="annot"><span class="annottext">ReadPrec [GetPhoneNumberSettings]
+ReadPrec GetPhoneNumberSettings
+Int -&gt; ReadS GetPhoneNumberSettings
+ReadS [GetPhoneNumberSettings]
+(Int -&gt; ReadS GetPhoneNumberSettings)
+-&gt; ReadS [GetPhoneNumberSettings]
+-&gt; ReadPrec GetPhoneNumberSettings
+-&gt; ReadPrec [GetPhoneNumberSettings]
+-&gt; Read GetPhoneNumberSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetPhoneNumberSettings]
+$creadListPrec :: ReadPrec [GetPhoneNumberSettings]
+readPrec :: ReadPrec GetPhoneNumberSettings
+$creadPrec :: ReadPrec GetPhoneNumberSettings
+readList :: ReadS [GetPhoneNumberSettings]
+$creadList :: ReadS [GetPhoneNumberSettings]
+readsPrec :: Int -&gt; ReadS GetPhoneNumberSettings
+$creadsPrec :: Int -&gt; ReadS GetPhoneNumberSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679540802"><span id="local-6989586621679540804"><span id="local-6989586621679540806"><span class="annot"><span class="annottext">Int -&gt; GetPhoneNumberSettings -&gt; ShowS
+[GetPhoneNumberSettings] -&gt; ShowS
+GetPhoneNumberSettings -&gt; String
+(Int -&gt; GetPhoneNumberSettings -&gt; ShowS)
+-&gt; (GetPhoneNumberSettings -&gt; String)
+-&gt; ([GetPhoneNumberSettings] -&gt; ShowS)
+-&gt; Show GetPhoneNumberSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPhoneNumberSettings] -&gt; ShowS
+$cshowList :: [GetPhoneNumberSettings] -&gt; ShowS
+show :: GetPhoneNumberSettings -&gt; String
+$cshow :: GetPhoneNumberSettings -&gt; String
+showsPrec :: Int -&gt; GetPhoneNumberSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPhoneNumberSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetPhoneNumberSettings -&gt; Rep GetPhoneNumberSettings x)
+-&gt; (forall x.
+    Rep GetPhoneNumberSettings x -&gt; GetPhoneNumberSettings)
+-&gt; Generic GetPhoneNumberSettings
+forall x. Rep GetPhoneNumberSettings x -&gt; GetPhoneNumberSettings
+forall x. GetPhoneNumberSettings -&gt; Rep GetPhoneNumberSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetPhoneNumberSettings x -&gt; GetPhoneNumberSettings
+$cfrom :: forall x. GetPhoneNumberSettings -&gt; Rep GetPhoneNumberSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'GetPhoneNumberSettings' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#newGetPhoneNumberSettings"><span class="hs-identifier hs-type">newGetPhoneNumberSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettings"><span class="hs-identifier hs-type">GetPhoneNumberSettings</span></a></span><span>
+</span><span id="line-60"></span><span id="newGetPhoneNumberSettings"><span class="annot"><span class="annottext">newGetPhoneNumberSettings :: GetPhoneNumberSettings
+</span><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#newGetPhoneNumberSettings"><span class="hs-identifier hs-var hs-var">newGetPhoneNumberSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetPhoneNumberSettings
+</span><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettings%27"><span class="hs-identifier hs-var">GetPhoneNumberSettings'</span></a></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettings"><span class="hs-identifier hs-type">GetPhoneNumberSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-64"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettings"><span class="hs-identifier hs-type">GetPhoneNumberSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse"><span class="hs-identifier hs-type">GetPhoneNumberSettingsResponse</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679540794"><span class="annot"><span class="annottext">request :: GetPhoneNumberSettings -&gt; Request GetPhoneNumberSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetPhoneNumberSettings -&gt; Request GetPhoneNumberSettings
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679540790"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetPhoneNumberSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetPhoneNumberSettings)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetPhoneNumberSettings))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetPhoneNumberSettings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetPhoneNumberSettings)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679540787"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679540787"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679540786"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679540786"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679540785"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679540785"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe (Sensitive Text) -&gt; Int -&gt; GetPhoneNumberSettingsResponse
+</span><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-var">GetPhoneNumberSettingsResponse'</span></a></span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe (Sensitive Text) -&gt; Int -&gt; GetPhoneNumberSettingsResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe (Sensitive Text) -&gt; Int -&gt; GetPhoneNumberSettingsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679540785"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CallingNameUpdatedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (Sensitive Text) -&gt; Int -&gt; GetPhoneNumberSettingsResponse)
+-&gt; Either String (Maybe (Sensitive Text))
+-&gt; Either String (Int -&gt; GetPhoneNumberSettingsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679540785"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CallingName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetPhoneNumberSettingsResponse)
+-&gt; Either String Int
+-&gt; Either String GetPhoneNumberSettingsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679540787"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679540777"><span id="local-6989586621679540779"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettings"><span class="hs-identifier hs-type">GetPhoneNumberSettings</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679540774"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettings"><span class="hs-identifier hs-type">GetPhoneNumberSettings</span></a></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettings"><span class="hs-identifier hs-type">GetPhoneNumberSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679540770"><span class="annot"><span class="annottext">toHeaders :: GetPhoneNumberSettings -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetPhoneNumberSettings -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettings"><span class="hs-identifier hs-type">GetPhoneNumberSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679540765"><span class="annot"><span class="annottext">toPath :: GetPhoneNumberSettings -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetPhoneNumberSettings -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/settings/phone-number&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettings"><span class="hs-identifier hs-type">GetPhoneNumberSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679540761"><span class="annot"><span class="annottext">toQuery :: GetPhoneNumberSettings -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetPhoneNumberSettings -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | /See:/ 'newGetPhoneNumberSettingsResponse' smart constructor.</span><span>
+</span><span id="line-90"></span><span id="local-6989586621679540758"><span id="local-6989586621679540759"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPhoneNumberSettingsResponse"><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse"><span class="hs-identifier hs-var">GetPhoneNumberSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPhoneNumberSettingsResponse%27"><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-var">GetPhoneNumberSettingsResponse'</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated outbound calling name timestamp, in ISO 8601 format.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AcallingNameUpdatedTimestamp%3AGetPhoneNumberSettingsResponse%27"><span class="annot"><span class="annottext">GetPhoneNumberSettingsResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#%24sel%3AcallingNameUpdatedTimestamp%3AGetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-var hs-var">callingNameUpdatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The default outbound calling name for the account.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AcallingName%3AGetPhoneNumberSettingsResponse%27"><span class="annot"><span class="annottext">GetPhoneNumberSettingsResponse -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#%24sel%3AcallingName%3AGetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-var hs-var">callingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetPhoneNumberSettingsResponse%27"><span class="annot"><span class="annottext">GetPhoneNumberSettingsResponse -&gt; Int
+</span><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#%24sel%3AhttpStatus%3AGetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679540751"><span id="local-6989586621679540753"><span class="annot"><span class="annottext">GetPhoneNumberSettingsResponse
+-&gt; GetPhoneNumberSettingsResponse -&gt; Bool
+(GetPhoneNumberSettingsResponse
+ -&gt; GetPhoneNumberSettingsResponse -&gt; Bool)
+-&gt; (GetPhoneNumberSettingsResponse
+    -&gt; GetPhoneNumberSettingsResponse -&gt; Bool)
+-&gt; Eq GetPhoneNumberSettingsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetPhoneNumberSettingsResponse
+-&gt; GetPhoneNumberSettingsResponse -&gt; Bool
+$c/= :: GetPhoneNumberSettingsResponse
+-&gt; GetPhoneNumberSettingsResponse -&gt; Bool
+== :: GetPhoneNumberSettingsResponse
+-&gt; GetPhoneNumberSettingsResponse -&gt; Bool
+$c== :: GetPhoneNumberSettingsResponse
+-&gt; GetPhoneNumberSettingsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679540745"><span id="local-6989586621679540747"><span id="local-6989586621679540749"><span class="annot"><span class="annottext">Int -&gt; GetPhoneNumberSettingsResponse -&gt; ShowS
+[GetPhoneNumberSettingsResponse] -&gt; ShowS
+GetPhoneNumberSettingsResponse -&gt; String
+(Int -&gt; GetPhoneNumberSettingsResponse -&gt; ShowS)
+-&gt; (GetPhoneNumberSettingsResponse -&gt; String)
+-&gt; ([GetPhoneNumberSettingsResponse] -&gt; ShowS)
+-&gt; Show GetPhoneNumberSettingsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPhoneNumberSettingsResponse] -&gt; ShowS
+$cshowList :: [GetPhoneNumberSettingsResponse] -&gt; ShowS
+show :: GetPhoneNumberSettingsResponse -&gt; String
+$cshow :: GetPhoneNumberSettingsResponse -&gt; String
+showsPrec :: Int -&gt; GetPhoneNumberSettingsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPhoneNumberSettingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetPhoneNumberSettingsResponse
+ -&gt; Rep GetPhoneNumberSettingsResponse x)
+-&gt; (forall x.
+    Rep GetPhoneNumberSettingsResponse x
+    -&gt; GetPhoneNumberSettingsResponse)
+-&gt; Generic GetPhoneNumberSettingsResponse
+forall x.
+Rep GetPhoneNumberSettingsResponse x
+-&gt; GetPhoneNumberSettingsResponse
+forall x.
+GetPhoneNumberSettingsResponse
+-&gt; Rep GetPhoneNumberSettingsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetPhoneNumberSettingsResponse x
+-&gt; GetPhoneNumberSettingsResponse
+$cfrom :: forall x.
+GetPhoneNumberSettingsResponse
+-&gt; Rep GetPhoneNumberSettingsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Create a value of 'GetPhoneNumberSettingsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'callingNameUpdatedTimestamp', 'getPhoneNumberSettingsResponse_callingNameUpdatedTimestamp' - The updated outbound calling name timestamp, in ISO 8601 format.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'callingName', 'getPhoneNumberSettingsResponse_callingName' - The default outbound calling name for the account.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'httpStatus', 'getPhoneNumberSettingsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#newGetPhoneNumberSettingsResponse"><span class="hs-identifier hs-type">newGetPhoneNumberSettingsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse"><span class="hs-identifier hs-type">GetPhoneNumberSettingsResponse</span></a></span><span>
+</span><span id="line-117"></span><span id="newGetPhoneNumberSettingsResponse"><span class="annot"><span class="annottext">newGetPhoneNumberSettingsResponse :: Int -&gt; GetPhoneNumberSettingsResponse
+</span><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#newGetPhoneNumberSettingsResponse"><span class="hs-identifier hs-var hs-var">newGetPhoneNumberSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679540742"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679540742"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><span class="annottext">GetPhoneNumberSettingsResponse' :: Maybe POSIX
+-&gt; Maybe (Sensitive Text) -&gt; Int -&gt; GetPhoneNumberSettingsResponse
+</span><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-type">GetPhoneNumberSettingsResponse'</span></a></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:callingNameUpdatedTimestamp:GetPhoneNumberSettingsResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#%24sel%3AcallingNameUpdatedTimestamp%3AGetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-var">callingNameUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:callingName:GetPhoneNumberSettingsResponse' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#%24sel%3AcallingName%3AGetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-var">callingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetPhoneNumberSettingsResponse' :: Int
+</span><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#%24sel%3AhttpStatus%3AGetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679540742"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The updated outbound calling name timestamp, in ISO 8601 format.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#getPhoneNumberSettingsResponse_callingNameUpdatedTimestamp"><span class="hs-identifier hs-type">getPhoneNumberSettingsResponse_callingNameUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse"><span class="hs-identifier hs-type">GetPhoneNumberSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="getPhoneNumberSettingsResponse_callingNameUpdatedTimestamp"><span class="annot"><span class="annottext">getPhoneNumberSettingsResponse_callingNameUpdatedTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetPhoneNumberSettingsResponse
+-&gt; f GetPhoneNumberSettingsResponse
+</span><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#getPhoneNumberSettingsResponse_callingNameUpdatedTimestamp"><span class="hs-identifier hs-var hs-var">getPhoneNumberSettingsResponse_callingNameUpdatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPhoneNumberSettingsResponse -&gt; Maybe POSIX)
+-&gt; (GetPhoneNumberSettingsResponse
+    -&gt; Maybe POSIX -&gt; GetPhoneNumberSettingsResponse)
+-&gt; Lens
+     GetPhoneNumberSettingsResponse
+     GetPhoneNumberSettingsResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-type">GetPhoneNumberSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679540739"><span class="annot"><span class="annottext">Maybe POSIX
+callingNameUpdatedTimestamp :: Maybe POSIX
+$sel:callingNameUpdatedTimestamp:GetPhoneNumberSettingsResponse' :: GetPhoneNumberSettingsResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679540739"><span class="hs-identifier hs-var hs-var">callingNameUpdatedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679540739"><span class="hs-identifier hs-var">callingNameUpdatedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679540738"><span class="annot"><span class="annottext">s :: GetPhoneNumberSettingsResponse
+</span><a href="#local-6989586621679540738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-type">GetPhoneNumberSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679540737"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679540737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPhoneNumberSettingsResponse
+</span><a href="#local-6989586621679540738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callingNameUpdatedTimestamp:GetPhoneNumberSettingsResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#%24sel%3AcallingNameUpdatedTimestamp%3AGetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-var">callingNameUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679540737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse"><span class="hs-identifier hs-type">GetPhoneNumberSettingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetPhoneNumberSettingsResponse
+ -&gt; f GetPhoneNumberSettingsResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetPhoneNumberSettingsResponse
+-&gt; f GetPhoneNumberSettingsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The default outbound calling name for the account.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#getPhoneNumberSettingsResponse_callingName"><span class="hs-identifier hs-type">getPhoneNumberSettingsResponse_callingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse"><span class="hs-identifier hs-type">GetPhoneNumberSettingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="getPhoneNumberSettingsResponse_callingName"><span class="annot"><span class="annottext">getPhoneNumberSettingsResponse_callingName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPhoneNumberSettingsResponse
+-&gt; f GetPhoneNumberSettingsResponse
+</span><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#getPhoneNumberSettingsResponse_callingName"><span class="hs-identifier hs-var hs-var">getPhoneNumberSettingsResponse_callingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPhoneNumberSettingsResponse -&gt; Maybe (Sensitive Text))
+-&gt; (GetPhoneNumberSettingsResponse
+    -&gt; Maybe (Sensitive Text) -&gt; GetPhoneNumberSettingsResponse)
+-&gt; Lens
+     GetPhoneNumberSettingsResponse
+     GetPhoneNumberSettingsResponse
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-type">GetPhoneNumberSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679540733"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+callingName :: Maybe (Sensitive Text)
+$sel:callingName:GetPhoneNumberSettingsResponse' :: GetPhoneNumberSettingsResponse -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679540733"><span class="hs-identifier hs-var hs-var">callingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679540733"><span class="hs-identifier hs-var">callingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679540732"><span class="annot"><span class="annottext">s :: GetPhoneNumberSettingsResponse
+</span><a href="#local-6989586621679540732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-type">GetPhoneNumberSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679540731"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679540731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPhoneNumberSettingsResponse
+</span><a href="#local-6989586621679540732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callingName:GetPhoneNumberSettingsResponse' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#%24sel%3AcallingName%3AGetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-var">callingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679540731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse"><span class="hs-identifier hs-type">GetPhoneNumberSettingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; GetPhoneNumberSettingsResponse
+ -&gt; f GetPhoneNumberSettingsResponse)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPhoneNumberSettingsResponse
+-&gt; f GetPhoneNumberSettingsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#getPhoneNumberSettingsResponse_httpStatus"><span class="hs-identifier hs-type">getPhoneNumberSettingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse"><span class="hs-identifier hs-type">GetPhoneNumberSettingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-135"></span><span id="getPhoneNumberSettingsResponse_httpStatus"><span class="annot"><span class="annottext">getPhoneNumberSettingsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetPhoneNumberSettingsResponse
+-&gt; f GetPhoneNumberSettingsResponse
+</span><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#getPhoneNumberSettingsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getPhoneNumberSettingsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPhoneNumberSettingsResponse -&gt; Int)
+-&gt; (GetPhoneNumberSettingsResponse
+    -&gt; Int -&gt; GetPhoneNumberSettingsResponse)
+-&gt; Lens
+     GetPhoneNumberSettingsResponse
+     GetPhoneNumberSettingsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-type">GetPhoneNumberSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679540729"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetPhoneNumberSettingsResponse' :: GetPhoneNumberSettingsResponse -&gt; Int
+</span><a href="#local-6989586621679540729"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679540729"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679540728"><span class="annot"><span class="annottext">s :: GetPhoneNumberSettingsResponse
+</span><a href="#local-6989586621679540728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-type">GetPhoneNumberSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679540727"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679540727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPhoneNumberSettingsResponse
+</span><a href="#local-6989586621679540728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPhoneNumberSettingsResponse' :: Int
+</span><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#%24sel%3AhttpStatus%3AGetPhoneNumberSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679540727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse"><span class="hs-identifier hs-type">GetPhoneNumberSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679540725"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetPhoneNumberSettings.html#GetPhoneNumberSettingsResponse"><span class="hs-identifier hs-type">GetPhoneNumberSettingsResponse</span></a></span></span><span>
+</span><span id="line-140"></span></pre></body></html>

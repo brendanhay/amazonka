@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679247291"><span id="local-6989586621679247292"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServerCatalogStatus"><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus"><span class="hs-identifier hs-var">ServerCatalogStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerCatalogStatus%27"><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus%27"><span class="hs-identifier hs-var">ServerCatalogStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679247300"><span id="local-6989586621679247301"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServerCatalogStatus"><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus"><span class="hs-identifier hs-var">ServerCatalogStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerCatalogStatus%27"><span class="annot"><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#ServerCatalogStatus%27"><span class="hs-identifier hs-var">ServerCatalogStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromServerCatalogStatus"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; Text
 </span><a href="Network.AWS.SMS.Types.ServerCatalogStatus.html#fromServerCatalogStatus"><span class="hs-identifier hs-var hs-var">fromServerCatalogStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247283"><span id="local-6989586621679247285"><span id="local-6989586621679247287"><span class="annot"><span class="annottext">Int -&gt; ServerCatalogStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247292"><span id="local-6989586621679247294"><span id="local-6989586621679247296"><span class="annot"><span class="annottext">Int -&gt; ServerCatalogStatus -&gt; ShowS
 [ServerCatalogStatus] -&gt; ShowS
 ServerCatalogStatus -&gt; String
 (Int -&gt; ServerCatalogStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ServerCatalogStatus -&gt; String
 showsPrec :: Int -&gt; ServerCatalogStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ServerCatalogStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679247274"><span id="local-6989586621679247276"><span id="local-6989586621679247278"><span id="local-6989586621679247280"><span class="annot"><span class="annottext">ReadPrec [ServerCatalogStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679247283"><span id="local-6989586621679247285"><span id="local-6989586621679247287"><span id="local-6989586621679247289"><span class="annot"><span class="annottext">ReadPrec [ServerCatalogStatus]
 ReadPrec ServerCatalogStatus
 Int -&gt; ReadS ServerCatalogStatus
 ReadS [ServerCatalogStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ServerCatalogStatus]
 readsPrec :: Int -&gt; ReadS ServerCatalogStatus
 $creadsPrec :: Int -&gt; ReadS ServerCatalogStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679247269"><span id="local-6989586621679247271"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679247278"><span id="local-6989586621679247280"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
 (ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool)
 -&gt; (ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool)
 -&gt; Eq ServerCatalogStatus
@@ -85,7 +85,7 @@ $c/= :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
 == :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
 $c== :: ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679247253"><span id="local-6989586621679247255"><span id="local-6989586621679247257"><span id="local-6989586621679247259"><span id="local-6989586621679247261"><span id="local-6989586621679247263"><span id="local-6989586621679247265"><span class="annot"><span class="annottext">Eq ServerCatalogStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679247262"><span id="local-6989586621679247264"><span id="local-6989586621679247266"><span id="local-6989586621679247268"><span id="local-6989586621679247270"><span id="local-6989586621679247272"><span id="local-6989586621679247274"><span class="annot"><span class="annottext">Eq ServerCatalogStatus
 Eq ServerCatalogStatus
 -&gt; (ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Ordering)
 -&gt; (ServerCatalogStatus -&gt; ServerCatalogStatus -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. ServerCatalogStatus -&gt; Rep ServerCatalogStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247245"><span id="local-6989586621679247247"><span class="annot"><span class="annottext">Int -&gt; ServerCatalogStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247254"><span id="local-6989586621679247256"><span class="annot"><span class="annottext">Int -&gt; ServerCatalogStatus -&gt; Int
 ServerCatalogStatus -&gt; Int
 (Int -&gt; ServerCatalogStatus -&gt; Int)
 -&gt; (ServerCatalogStatus -&gt; Int) -&gt; Hashable ServerCatalogStatus
@@ -148,53 +148,53 @@ $chash :: ServerCatalogStatus -&gt; Int
 hashWithSalt :: Int -&gt; ServerCatalogStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ServerCatalogStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679247242"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679247251"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; ()
 (ServerCatalogStatus -&gt; ()) -&gt; NFData ServerCatalogStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ServerCatalogStatus -&gt; ()
 $crnf :: ServerCatalogStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679247239"><span class="annot"><span class="annottext">Text -&gt; Either String ServerCatalogStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679247248"><span class="annot"><span class="annottext">Text -&gt; Either String ServerCatalogStatus
 (Text -&gt; Either String ServerCatalogStatus)
 -&gt; FromText ServerCatalogStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ServerCatalogStatus
 $cfromText :: Text -&gt; Either String ServerCatalogStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679247236"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679247245"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; Text
 (ServerCatalogStatus -&gt; Text) -&gt; ToText ServerCatalogStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ServerCatalogStatus -&gt; Text
 $ctoText :: ServerCatalogStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679247233"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679247242"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; ByteString
 (ServerCatalogStatus -&gt; ByteString)
 -&gt; ToByteString ServerCatalogStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ServerCatalogStatus -&gt; ByteString
 $ctoBS :: ServerCatalogStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679247230"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679247239"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; ByteStringBuilder
 (ServerCatalogStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ServerCatalogStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ServerCatalogStatus -&gt; ByteStringBuilder
 $cbuild :: ServerCatalogStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679247227"><span class="annot"><span class="annottext">HeaderName -&gt; ServerCatalogStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679247236"><span class="annot"><span class="annottext">HeaderName -&gt; ServerCatalogStatus -&gt; [Header]
 (HeaderName -&gt; ServerCatalogStatus -&gt; [Header])
 -&gt; ToHeader ServerCatalogStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ServerCatalogStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ServerCatalogStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679247224"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679247233"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; QueryString
 (ServerCatalogStatus -&gt; QueryString) -&gt; ToQuery ServerCatalogStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ServerCatalogStatus -&gt; QueryString
 $ctoQuery :: ServerCatalogStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679247219"><span id="local-6989586621679247221"><span class="annot"><span class="annottext">Value -&gt; Parser [ServerCatalogStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679247228"><span id="local-6989586621679247230"><span class="annot"><span class="annottext">Value -&gt; Parser [ServerCatalogStatus]
 Value -&gt; Parser ServerCatalogStatus
 (Value -&gt; Parser ServerCatalogStatus)
 -&gt; (Value -&gt; Parser [ServerCatalogStatus])
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [ServerCatalogStatus]
 parseJSON :: Value -&gt; Parser ServerCatalogStatus
 $cparseJSON :: Value -&gt; Parser ServerCatalogStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679247214"><span id="local-6989586621679247216"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServerCatalogStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679247223"><span id="local-6989586621679247225"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServerCatalogStatus]
 FromJSONKeyFunction ServerCatalogStatus
 FromJSONKeyFunction ServerCatalogStatus
 -&gt; FromJSONKeyFunction [ServerCatalogStatus]
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ServerCatalogStatus]
 fromJSONKey :: FromJSONKeyFunction ServerCatalogStatus
 $cfromJSONKey :: FromJSONKeyFunction ServerCatalogStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679247205"><span id="local-6989586621679247207"><span id="local-6989586621679247209"><span id="local-6989586621679247211"><span class="annot"><span class="annottext">[ServerCatalogStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679247214"><span id="local-6989586621679247216"><span id="local-6989586621679247218"><span id="local-6989586621679247220"><span class="annot"><span class="annottext">[ServerCatalogStatus] -&gt; Encoding
 [ServerCatalogStatus] -&gt; Value
 ServerCatalogStatus -&gt; Encoding
 ServerCatalogStatus -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: ServerCatalogStatus -&gt; Encoding
 toJSON :: ServerCatalogStatus -&gt; Value
 $ctoJSON :: ServerCatalogStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679247200"><span id="local-6989586621679247202"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServerCatalogStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679247209"><span id="local-6989586621679247211"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServerCatalogStatus]
 ToJSONKeyFunction ServerCatalogStatus
 ToJSONKeyFunction ServerCatalogStatus
 -&gt; ToJSONKeyFunction [ServerCatalogStatus]
@@ -254,14 +254,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ServerCatalogStatus]
 toJSONKey :: ToJSONKeyFunction ServerCatalogStatus
 $ctoJSONKey :: ToJSONKeyFunction ServerCatalogStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679247197"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServerCatalogStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679247206"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServerCatalogStatus
 ([Node] -&gt; Either String ServerCatalogStatus)
 -&gt; FromXML ServerCatalogStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ServerCatalogStatus
 $cparseXML :: [Node] -&gt; Either String ServerCatalogStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679247194"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679247203"><span class="annot"><span class="annottext">ServerCatalogStatus -&gt; XML
 (ServerCatalogStatus -&gt; XML) -&gt; ToXML ServerCatalogStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ServerCatalogStatus -&gt; XML

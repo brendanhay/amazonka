@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newGetCertificateAuthorityCsr' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679216101"><span id="local-6989586621679216102"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCertificateAuthorityCsr"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-var">GetCertificateAuthorityCsr</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCertificateAuthorityCsr%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr%27"><span class="hs-identifier hs-var">GetCertificateAuthorityCsr'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679216110"><span id="local-6989586621679216111"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCertificateAuthorityCsr"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-var">GetCertificateAuthorityCsr</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCertificateAuthorityCsr%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr%27"><span class="hs-identifier hs-var">GetCertificateAuthorityCsr'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that was returned when you called the</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority&gt;</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- action. This must be of the form:</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AcertificateAuthorityArn%3AGetCertificateAuthorityCsr%27"><span class="annot"><span class="annottext">GetCertificateAuthorityCsr -&gt; Text
 </span><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#%24sel%3AcertificateAuthorityArn%3AGetCertificateAuthorityCsr%27"><span class="hs-identifier hs-var hs-var">certificateAuthorityArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216095"><span id="local-6989586621679216097"><span class="annot"><span class="annottext">GetCertificateAuthorityCsr -&gt; GetCertificateAuthorityCsr -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216104"><span id="local-6989586621679216106"><span class="annot"><span class="annottext">GetCertificateAuthorityCsr -&gt; GetCertificateAuthorityCsr -&gt; Bool
 (GetCertificateAuthorityCsr -&gt; GetCertificateAuthorityCsr -&gt; Bool)
 -&gt; (GetCertificateAuthorityCsr
     -&gt; GetCertificateAuthorityCsr -&gt; Bool)
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCertificateAuthorityCsr -&gt; GetCertificateAuthorityCsr -&gt; Bool
 == :: GetCertificateAuthorityCsr -&gt; GetCertificateAuthorityCsr -&gt; Bool
 $c== :: GetCertificateAuthorityCsr -&gt; GetCertificateAuthorityCsr -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216086"><span id="local-6989586621679216088"><span id="local-6989586621679216090"><span id="local-6989586621679216092"><span class="annot"><span class="annottext">ReadPrec [GetCertificateAuthorityCsr]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216095"><span id="local-6989586621679216097"><span id="local-6989586621679216099"><span id="local-6989586621679216101"><span class="annot"><span class="annottext">ReadPrec [GetCertificateAuthorityCsr]
 ReadPrec GetCertificateAuthorityCsr
 Int -&gt; ReadS GetCertificateAuthorityCsr
 ReadS [GetCertificateAuthorityCsr]
@@ -93,7 +93,7 @@ readList :: ReadS [GetCertificateAuthorityCsr]
 $creadList :: ReadS [GetCertificateAuthorityCsr]
 readsPrec :: Int -&gt; ReadS GetCertificateAuthorityCsr
 $creadsPrec :: Int -&gt; ReadS GetCertificateAuthorityCsr
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216079"><span id="local-6989586621679216081"><span id="local-6989586621679216083"><span class="annot"><span class="annottext">Int -&gt; GetCertificateAuthorityCsr -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216088"><span id="local-6989586621679216090"><span id="local-6989586621679216092"><span class="annot"><span class="annottext">Int -&gt; GetCertificateAuthorityCsr -&gt; ShowS
 [GetCertificateAuthorityCsr] -&gt; ShowS
 GetCertificateAuthorityCsr -&gt; String
 (Int -&gt; GetCertificateAuthorityCsr -&gt; ShowS)
@@ -144,14 +144,14 @@ GetCertificateAuthorityCsr -&gt; Rep GetCertificateAuthorityCsr x
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr</span></a></span><span>
 </span><span id="line-84"></span><span id="newGetCertificateAuthorityCsr"><span class="annot"><span class="annottext">newGetCertificateAuthorityCsr :: Text -&gt; GetCertificateAuthorityCsr
 </span><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#newGetCertificateAuthorityCsr"><span class="hs-identifier hs-var hs-var">newGetCertificateAuthorityCsr</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679216074"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216074"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679216083"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216083"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">GetCertificateAuthorityCsr' :: Text -&gt; GetCertificateAuthorityCsr
 </span><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr%27"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr'</span></a></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:GetCertificateAuthorityCsr' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#%24sel%3AcertificateAuthorityArn%3AGetCertificateAuthorityCsr%27"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216074"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span><span>
+</span><a href="#local-6989586621679216083"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that was returned when you called the</span><span>
@@ -168,28 +168,28 @@ GetCertificateAuthorityCsr -&gt; Rep GetCertificateAuthorityCsr x
 -&gt; Lens
      GetCertificateAuthorityCsr GetCertificateAuthorityCsr Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr%27"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216071"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr%27"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216080"><span class="annot"><span class="annottext">Text
 certificateAuthorityArn :: Text
 $sel:certificateAuthorityArn:GetCertificateAuthorityCsr' :: GetCertificateAuthorityCsr -&gt; Text
-</span><a href="#local-6989586621679216071"><span class="hs-identifier hs-var hs-var">certificateAuthorityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216071"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216070"><span class="annot"><span class="annottext">s :: GetCertificateAuthorityCsr
-</span><a href="#local-6989586621679216070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr%27"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216069"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCertificateAuthorityCsr
-</span><a href="#local-6989586621679216070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:GetCertificateAuthorityCsr' :: Text
+</span><a href="#local-6989586621679216080"><span class="hs-identifier hs-var hs-var">certificateAuthorityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216080"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216079"><span class="annot"><span class="annottext">s :: GetCertificateAuthorityCsr
+</span><a href="#local-6989586621679216079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr%27"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216078"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCertificateAuthorityCsr
+</span><a href="#local-6989586621679216079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:GetCertificateAuthorityCsr' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#%24sel%3AcertificateAuthorityArn%3AGetCertificateAuthorityCsr%27"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse"><span class="hs-identifier hs-type">GetCertificateAuthorityCsrResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679216065"><span class="annot"><span class="annottext">request :: GetCertificateAuthorityCsr -&gt; Request GetCertificateAuthorityCsr
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679216074"><span class="annot"><span class="annottext">request :: GetCertificateAuthorityCsr -&gt; Request GetCertificateAuthorityCsr
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetCertificateAuthorityCsr -&gt; Request GetCertificateAuthorityCsr
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CertificateManagerPCA.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679216061"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679216070"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetCertificateAuthorityCsr
 -&gt; ClientResponse ClientBody
@@ -215,10 +215,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216058"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216058"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679216057"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679216057"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679216056"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216056"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216067"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216067"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679216066"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679216066"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679216065"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216065"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; GetCertificateAuthorityCsrResponse
 </span><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse%27"><span class="hs-identifier hs-var">GetCertificateAuthorityCsrResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; GetCertificateAuthorityCsrResponse)
@@ -226,7 +226,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetCertificateAuthorityCsrResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216056"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679216065"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Csr&quot;</span></span><span class="hs-special">)</span><span>
@@ -239,15 +239,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216058"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216067"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216048"><span id="local-6989586621679216050"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216057"><span id="local-6989586621679216059"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216045"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216054"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679216041"><span class="annot"><span class="annottext">toHeaders :: GetCertificateAuthorityCsr -&gt; ResponseHeaders
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679216050"><span class="annot"><span class="annottext">toHeaders :: GetCertificateAuthorityCsr -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCertificateAuthorityCsr -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -274,12 +274,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216031"><span id="local-6989586621679216033"><span id="local-6989586621679216035"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679216029"><span class="annot"><span class="annottext">toJSON :: GetCertificateAuthorityCsr -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr%27"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216027"><span class="annot"><span class="annottext">Text
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216040"><span id="local-6989586621679216042"><span id="local-6989586621679216044"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679216038"><span class="annot"><span class="annottext">toJSON :: GetCertificateAuthorityCsr -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr%27"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216036"><span class="annot"><span class="annottext">Text
 certificateAuthorityArn :: Text
 $sel:certificateAuthorityArn:GetCertificateAuthorityCsr' :: GetCertificateAuthorityCsr -&gt; Text
-</span><a href="#local-6989586621679216027"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679216036"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -293,20 +293,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-137"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216027"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span>
+</span><a href="#local-6989586621679216036"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span>
 </span><span id="line-138"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679216021"><span class="annot"><span class="annottext">toPath :: GetCertificateAuthorityCsr -&gt; ByteString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679216030"><span class="annot"><span class="annottext">toPath :: GetCertificateAuthorityCsr -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetCertificateAuthorityCsr -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsr"><span class="hs-identifier hs-type">GetCertificateAuthorityCsr</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679216017"><span class="annot"><span class="annottext">toQuery :: GetCertificateAuthorityCsr -&gt; QueryString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679216026"><span class="annot"><span class="annottext">toQuery :: GetCertificateAuthorityCsr -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetCertificateAuthorityCsr -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -314,7 +314,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newGetCertificateAuthorityCsrResponse' smart constructor.</span><span>
-</span><span id="line-149"></span><span id="local-6989586621679216014"><span id="local-6989586621679216015"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCertificateAuthorityCsrResponse"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse"><span class="hs-identifier hs-var">GetCertificateAuthorityCsrResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCertificateAuthorityCsrResponse%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse%27"><span class="hs-identifier hs-var">GetCertificateAuthorityCsrResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span id="local-6989586621679216023"><span id="local-6989586621679216024"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCertificateAuthorityCsrResponse"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse"><span class="hs-identifier hs-var">GetCertificateAuthorityCsrResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCertificateAuthorityCsrResponse%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse%27"><span class="hs-identifier hs-var">GetCertificateAuthorityCsrResponse'</span></a></span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The base64 PEM-encoded certificate signing request (CSR) for your</span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-comment">-- private CA certificate.</span><span>
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3Acsr%3AGetCertificateAuthorityCsrResponse%27"><span class="annot"><span class="annottext">GetCertificateAuthorityCsrResponse -&gt; Maybe Text
@@ -323,7 +323,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCertificateAuthorityCsrResponse%27"><span class="annot"><span class="annottext">GetCertificateAuthorityCsrResponse -&gt; Int
 </span><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#%24sel%3AhttpStatus%3AGetCertificateAuthorityCsrResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216008"><span id="local-6989586621679216010"><span class="annot"><span class="annottext">GetCertificateAuthorityCsrResponse
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216017"><span id="local-6989586621679216019"><span class="annot"><span class="annottext">GetCertificateAuthorityCsrResponse
 -&gt; GetCertificateAuthorityCsrResponse -&gt; Bool
 (GetCertificateAuthorityCsrResponse
  -&gt; GetCertificateAuthorityCsrResponse -&gt; Bool)
@@ -339,7 +339,7 @@ $c/= :: GetCertificateAuthorityCsrResponse
 -&gt; GetCertificateAuthorityCsrResponse -&gt; Bool
 $c== :: GetCertificateAuthorityCsrResponse
 -&gt; GetCertificateAuthorityCsrResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216000"><span id="local-6989586621679216002"><span id="local-6989586621679216004"><span id="local-6989586621679216006"><span class="annot"><span class="annottext">ReadPrec [GetCertificateAuthorityCsrResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216009"><span id="local-6989586621679216011"><span id="local-6989586621679216013"><span id="local-6989586621679216015"><span class="annot"><span class="annottext">ReadPrec [GetCertificateAuthorityCsrResponse]
 ReadPrec GetCertificateAuthorityCsrResponse
 Int -&gt; ReadS GetCertificateAuthorityCsrResponse
 ReadS [GetCertificateAuthorityCsrResponse]
@@ -359,7 +359,7 @@ readList :: ReadS [GetCertificateAuthorityCsrResponse]
 $creadList :: ReadS [GetCertificateAuthorityCsrResponse]
 readsPrec :: Int -&gt; ReadS GetCertificateAuthorityCsrResponse
 $creadsPrec :: Int -&gt; ReadS GetCertificateAuthorityCsrResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215994"><span id="local-6989586621679215996"><span id="local-6989586621679215998"><span class="annot"><span class="annottext">Int -&gt; GetCertificateAuthorityCsrResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216003"><span id="local-6989586621679216005"><span id="local-6989586621679216007"><span class="annot"><span class="annottext">Int -&gt; GetCertificateAuthorityCsrResponse -&gt; ShowS
 [GetCertificateAuthorityCsrResponse] -&gt; ShowS
 GetCertificateAuthorityCsrResponse -&gt; String
 (Int -&gt; GetCertificateAuthorityCsrResponse -&gt; ShowS)
@@ -414,8 +414,8 @@ GetCertificateAuthorityCsrResponse
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse"><span class="hs-identifier hs-type">GetCertificateAuthorityCsrResponse</span></a></span><span>
 </span><span id="line-174"></span><span id="newGetCertificateAuthorityCsrResponse"><span class="annot"><span class="annottext">newGetCertificateAuthorityCsrResponse :: Int -&gt; GetCertificateAuthorityCsrResponse
-</span><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#newGetCertificateAuthorityCsrResponse"><span class="hs-identifier hs-var hs-var">newGetCertificateAuthorityCsrResponse</span></a></span></span><span> </span><span id="local-6989586621679215991"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215991"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#newGetCertificateAuthorityCsrResponse"><span class="hs-identifier hs-var hs-var">newGetCertificateAuthorityCsrResponse</span></a></span></span><span> </span><span id="local-6989586621679216000"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216000"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">GetCertificateAuthorityCsrResponse' :: Maybe Text -&gt; Int -&gt; GetCertificateAuthorityCsrResponse
 </span><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse%27"><span class="hs-identifier hs-type">GetCertificateAuthorityCsrResponse'</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:csr:GetCertificateAuthorityCsrResponse' :: Maybe Text
@@ -425,7 +425,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCertificateAuthorityCsrResponse' :: Int
 </span><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#%24sel%3AhttpStatus%3AGetCertificateAuthorityCsrResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215991"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679216000"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The base64 PEM-encoded certificate signing request (CSR) for your</span><span>
@@ -443,16 +443,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse%27"><span class="hs-identifier hs-type">GetCertificateAuthorityCsrResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215990"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse%27"><span class="hs-identifier hs-type">GetCertificateAuthorityCsrResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215999"><span class="annot"><span class="annottext">Maybe Text
 csr :: Maybe Text
 $sel:csr:GetCertificateAuthorityCsrResponse' :: GetCertificateAuthorityCsrResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679215990"><span class="hs-identifier hs-var hs-var">csr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215990"><span class="hs-identifier hs-var">csr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215989"><span class="annot"><span class="annottext">s :: GetCertificateAuthorityCsrResponse
-</span><a href="#local-6989586621679215989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse%27"><span class="hs-identifier hs-type">GetCertificateAuthorityCsrResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215988"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCertificateAuthorityCsrResponse
-</span><a href="#local-6989586621679215989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:csr:GetCertificateAuthorityCsrResponse' :: Maybe Text
+</span><a href="#local-6989586621679215999"><span class="hs-identifier hs-var hs-var">csr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215999"><span class="hs-identifier hs-var">csr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215998"><span class="annot"><span class="annottext">s :: GetCertificateAuthorityCsrResponse
+</span><a href="#local-6989586621679215998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse%27"><span class="hs-identifier hs-type">GetCertificateAuthorityCsrResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215997"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCertificateAuthorityCsrResponse
+</span><a href="#local-6989586621679215998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:csr:GetCertificateAuthorityCsrResponse' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#%24sel%3Acsr%3AGetCertificateAuthorityCsrResponse%27"><span class="hs-identifier hs-var">csr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse"><span class="hs-identifier hs-type">GetCertificateAuthorityCsrResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse"><span class="hs-identifier hs-type">GetCertificateAuthorityCsrResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-187"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#getCertificateAuthorityCsrResponse_httpStatus"><span class="hs-identifier hs-type">getCertificateAuthorityCsrResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse"><span class="hs-identifier hs-type">GetCertificateAuthorityCsrResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -468,18 +468,18 @@ $sel:csr:GetCertificateAuthorityCsrResponse' :: GetCertificateAuthorityCsrRespon
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse%27"><span class="hs-identifier hs-type">GetCertificateAuthorityCsrResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215987"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse%27"><span class="hs-identifier hs-type">GetCertificateAuthorityCsrResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215996"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetCertificateAuthorityCsrResponse' :: GetCertificateAuthorityCsrResponse -&gt; Int
-</span><a href="#local-6989586621679215987"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215987"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215986"><span class="annot"><span class="annottext">s :: GetCertificateAuthorityCsrResponse
-</span><a href="#local-6989586621679215986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse%27"><span class="hs-identifier hs-type">GetCertificateAuthorityCsrResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215985"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCertificateAuthorityCsrResponse
-</span><a href="#local-6989586621679215986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCertificateAuthorityCsrResponse' :: Int
+</span><a href="#local-6989586621679215996"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215996"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215995"><span class="annot"><span class="annottext">s :: GetCertificateAuthorityCsrResponse
+</span><a href="#local-6989586621679215995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse%27"><span class="hs-identifier hs-type">GetCertificateAuthorityCsrResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215994"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCertificateAuthorityCsrResponse
+</span><a href="#local-6989586621679215995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCertificateAuthorityCsrResponse' :: Int
 </span><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#%24sel%3AhttpStatus%3AGetCertificateAuthorityCsrResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse"><span class="hs-identifier hs-type">GetCertificateAuthorityCsrResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse"><span class="hs-identifier hs-type">GetCertificateAuthorityCsrResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679215983"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679215992"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr.html#GetCertificateAuthorityCsrResponse"><span class="hs-identifier hs-type">GetCertificateAuthorityCsrResponse</span></a></span></span><span>
 </span><span id="line-193"></span></pre></body></html>

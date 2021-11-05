@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679436358"><span id="local-6989586621679436359"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReleaseStatusValues"><span class="annot"><a href="Network.AWS.DMS.Types.ReleaseStatusValues.html#ReleaseStatusValues"><span class="hs-identifier hs-var">ReleaseStatusValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReleaseStatusValues%27"><span class="annot"><a href="Network.AWS.DMS.Types.ReleaseStatusValues.html#ReleaseStatusValues%27"><span class="hs-identifier hs-var">ReleaseStatusValues'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679436367"><span id="local-6989586621679436368"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReleaseStatusValues"><span class="annot"><a href="Network.AWS.DMS.Types.ReleaseStatusValues.html#ReleaseStatusValues"><span class="hs-identifier hs-var">ReleaseStatusValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReleaseStatusValues%27"><span class="annot"><a href="Network.AWS.DMS.Types.ReleaseStatusValues.html#ReleaseStatusValues%27"><span class="hs-identifier hs-var">ReleaseStatusValues'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReleaseStatusValues"><span class="annot"><span class="annottext">ReleaseStatusValues -&gt; Text
 </span><a href="Network.AWS.DMS.Types.ReleaseStatusValues.html#fromReleaseStatusValues"><span class="hs-identifier hs-var hs-var">fromReleaseStatusValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436350"><span id="local-6989586621679436352"><span id="local-6989586621679436354"><span class="annot"><span class="annottext">Int -&gt; ReleaseStatusValues -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436359"><span id="local-6989586621679436361"><span id="local-6989586621679436363"><span class="annot"><span class="annottext">Int -&gt; ReleaseStatusValues -&gt; ShowS
 [ReleaseStatusValues] -&gt; ShowS
 ReleaseStatusValues -&gt; String
 (Int -&gt; ReleaseStatusValues -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: ReleaseStatusValues -&gt; String
 showsPrec :: Int -&gt; ReleaseStatusValues -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReleaseStatusValues -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679436341"><span id="local-6989586621679436343"><span id="local-6989586621679436345"><span id="local-6989586621679436347"><span class="annot"><span class="annottext">ReadPrec [ReleaseStatusValues]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679436350"><span id="local-6989586621679436352"><span id="local-6989586621679436354"><span id="local-6989586621679436356"><span class="annot"><span class="annottext">ReadPrec [ReleaseStatusValues]
 ReadPrec ReleaseStatusValues
 Int -&gt; ReadS ReleaseStatusValues
 ReadS [ReleaseStatusValues]
@@ -71,7 +71,7 @@ $creadList :: ReadS [ReleaseStatusValues]
 readsPrec :: Int -&gt; ReadS ReleaseStatusValues
 $creadsPrec :: Int -&gt; ReadS ReleaseStatusValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679436336"><span id="local-6989586621679436338"><span class="annot"><span class="annottext">ReleaseStatusValues -&gt; ReleaseStatusValues -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679436345"><span id="local-6989586621679436347"><span class="annot"><span class="annottext">ReleaseStatusValues -&gt; ReleaseStatusValues -&gt; Bool
 (ReleaseStatusValues -&gt; ReleaseStatusValues -&gt; Bool)
 -&gt; (ReleaseStatusValues -&gt; ReleaseStatusValues -&gt; Bool)
 -&gt; Eq ReleaseStatusValues
@@ -81,7 +81,7 @@ $c/= :: ReleaseStatusValues -&gt; ReleaseStatusValues -&gt; Bool
 == :: ReleaseStatusValues -&gt; ReleaseStatusValues -&gt; Bool
 $c== :: ReleaseStatusValues -&gt; ReleaseStatusValues -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679436320"><span id="local-6989586621679436322"><span id="local-6989586621679436324"><span id="local-6989586621679436326"><span id="local-6989586621679436328"><span id="local-6989586621679436330"><span id="local-6989586621679436332"><span class="annot"><span class="annottext">Eq ReleaseStatusValues
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679436329"><span id="local-6989586621679436331"><span id="local-6989586621679436333"><span id="local-6989586621679436335"><span id="local-6989586621679436337"><span id="local-6989586621679436339"><span id="local-6989586621679436341"><span class="annot"><span class="annottext">Eq ReleaseStatusValues
 Eq ReleaseStatusValues
 -&gt; (ReleaseStatusValues -&gt; ReleaseStatusValues -&gt; Ordering)
 -&gt; (ReleaseStatusValues -&gt; ReleaseStatusValues -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ReleaseStatusValues -&gt; Rep ReleaseStatusValues x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436312"><span id="local-6989586621679436314"><span class="annot"><span class="annottext">Int -&gt; ReleaseStatusValues -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436321"><span id="local-6989586621679436323"><span class="annot"><span class="annottext">Int -&gt; ReleaseStatusValues -&gt; Int
 ReleaseStatusValues -&gt; Int
 (Int -&gt; ReleaseStatusValues -&gt; Int)
 -&gt; (ReleaseStatusValues -&gt; Int) -&gt; Hashable ReleaseStatusValues
@@ -144,53 +144,53 @@ $chash :: ReleaseStatusValues -&gt; Int
 hashWithSalt :: Int -&gt; ReleaseStatusValues -&gt; Int
 $chashWithSalt :: Int -&gt; ReleaseStatusValues -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679436309"><span class="annot"><span class="annottext">ReleaseStatusValues -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679436318"><span class="annot"><span class="annottext">ReleaseStatusValues -&gt; ()
 (ReleaseStatusValues -&gt; ()) -&gt; NFData ReleaseStatusValues
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReleaseStatusValues -&gt; ()
 $crnf :: ReleaseStatusValues -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679436306"><span class="annot"><span class="annottext">Text -&gt; Either String ReleaseStatusValues
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679436315"><span class="annot"><span class="annottext">Text -&gt; Either String ReleaseStatusValues
 (Text -&gt; Either String ReleaseStatusValues)
 -&gt; FromText ReleaseStatusValues
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReleaseStatusValues
 $cfromText :: Text -&gt; Either String ReleaseStatusValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679436303"><span class="annot"><span class="annottext">ReleaseStatusValues -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679436312"><span class="annot"><span class="annottext">ReleaseStatusValues -&gt; Text
 (ReleaseStatusValues -&gt; Text) -&gt; ToText ReleaseStatusValues
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReleaseStatusValues -&gt; Text
 $ctoText :: ReleaseStatusValues -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679436300"><span class="annot"><span class="annottext">ReleaseStatusValues -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679436309"><span class="annot"><span class="annottext">ReleaseStatusValues -&gt; ByteString
 (ReleaseStatusValues -&gt; ByteString)
 -&gt; ToByteString ReleaseStatusValues
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReleaseStatusValues -&gt; ByteString
 $ctoBS :: ReleaseStatusValues -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679436297"><span class="annot"><span class="annottext">ReleaseStatusValues -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679436306"><span class="annot"><span class="annottext">ReleaseStatusValues -&gt; ByteStringBuilder
 (ReleaseStatusValues -&gt; ByteStringBuilder)
 -&gt; ToLog ReleaseStatusValues
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReleaseStatusValues -&gt; ByteStringBuilder
 $cbuild :: ReleaseStatusValues -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679436294"><span class="annot"><span class="annottext">HeaderName -&gt; ReleaseStatusValues -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679436303"><span class="annot"><span class="annottext">HeaderName -&gt; ReleaseStatusValues -&gt; [Header]
 (HeaderName -&gt; ReleaseStatusValues -&gt; [Header])
 -&gt; ToHeader ReleaseStatusValues
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReleaseStatusValues -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReleaseStatusValues -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679436291"><span class="annot"><span class="annottext">ReleaseStatusValues -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679436300"><span class="annot"><span class="annottext">ReleaseStatusValues -&gt; QueryString
 (ReleaseStatusValues -&gt; QueryString) -&gt; ToQuery ReleaseStatusValues
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReleaseStatusValues -&gt; QueryString
 $ctoQuery :: ReleaseStatusValues -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679436286"><span id="local-6989586621679436288"><span class="annot"><span class="annottext">Value -&gt; Parser [ReleaseStatusValues]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679436295"><span id="local-6989586621679436297"><span class="annot"><span class="annottext">Value -&gt; Parser [ReleaseStatusValues]
 Value -&gt; Parser ReleaseStatusValues
 (Value -&gt; Parser ReleaseStatusValues)
 -&gt; (Value -&gt; Parser [ReleaseStatusValues])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [ReleaseStatusValues]
 parseJSON :: Value -&gt; Parser ReleaseStatusValues
 $cparseJSON :: Value -&gt; Parser ReleaseStatusValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679436281"><span id="local-6989586621679436283"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReleaseStatusValues]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679436290"><span id="local-6989586621679436292"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReleaseStatusValues]
 FromJSONKeyFunction ReleaseStatusValues
 FromJSONKeyFunction ReleaseStatusValues
 -&gt; FromJSONKeyFunction [ReleaseStatusValues]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReleaseStatusValues]
 fromJSONKey :: FromJSONKeyFunction ReleaseStatusValues
 $cfromJSONKey :: FromJSONKeyFunction ReleaseStatusValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679436272"><span id="local-6989586621679436274"><span id="local-6989586621679436276"><span id="local-6989586621679436278"><span class="annot"><span class="annottext">[ReleaseStatusValues] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679436281"><span id="local-6989586621679436283"><span id="local-6989586621679436285"><span id="local-6989586621679436287"><span class="annot"><span class="annottext">[ReleaseStatusValues] -&gt; Encoding
 [ReleaseStatusValues] -&gt; Value
 ReleaseStatusValues -&gt; Encoding
 ReleaseStatusValues -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: ReleaseStatusValues -&gt; Encoding
 toJSON :: ReleaseStatusValues -&gt; Value
 $ctoJSON :: ReleaseStatusValues -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679436267"><span id="local-6989586621679436269"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReleaseStatusValues]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679436276"><span id="local-6989586621679436278"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReleaseStatusValues]
 ToJSONKeyFunction ReleaseStatusValues
 ToJSONKeyFunction ReleaseStatusValues
 -&gt; ToJSONKeyFunction [ReleaseStatusValues]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReleaseStatusValues]
 toJSONKey :: ToJSONKeyFunction ReleaseStatusValues
 $ctoJSONKey :: ToJSONKeyFunction ReleaseStatusValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679436264"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReleaseStatusValues
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679436273"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReleaseStatusValues
 ([Node] -&gt; Either String ReleaseStatusValues)
 -&gt; FromXML ReleaseStatusValues
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReleaseStatusValues
 $cparseXML :: [Node] -&gt; Either String ReleaseStatusValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679436261"><span class="annot"><span class="annottext">ReleaseStatusValues -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679436270"><span class="annot"><span class="annottext">ReleaseStatusValues -&gt; XML
 (ReleaseStatusValues -&gt; XML) -&gt; ToXML ReleaseStatusValues
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReleaseStatusValues -&gt; XML

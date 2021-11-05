@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus"><span class="hs-identifier">SpeakerEnrollmentJobStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus_COMPLETED"><span class="hs-identifier">SpeakerEnrollmentJobStatus_COMPLETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus_COMPLETED_WITH_ERRORS"><span class="hs-identifier">SpeakerEnrollmentJobStatus_COMPLETED_WITH_ERRORS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus_FAILED"><span class="hs-identifier">SpeakerEnrollmentJobStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus_IN_PROGRESS"><span class="hs-identifier">SpeakerEnrollmentJobStatus_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus_SUBMITTED"><span class="hs-identifier">SpeakerEnrollmentJobStatus_SUBMITTED</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679204089"><span id="local-6989586621679204090"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SpeakerEnrollmentJobStatus"><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus"><span class="hs-identifier hs-var">SpeakerEnrollmentJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SpeakerEnrollmentJobStatus%27"><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus%27"><span class="hs-identifier hs-var">SpeakerEnrollmentJobStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSpeakerEnrollmentJobStatus"><span class="annot"><span class="annottext">SpeakerEnrollmentJobStatus -&gt; Text
+</span><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#fromSpeakerEnrollmentJobStatus"><span class="hs-identifier hs-var hs-var">fromSpeakerEnrollmentJobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679204081"><span id="local-6989586621679204083"><span id="local-6989586621679204085"><span class="annot"><span class="annottext">Int -&gt; SpeakerEnrollmentJobStatus -&gt; ShowS
+[SpeakerEnrollmentJobStatus] -&gt; ShowS
+SpeakerEnrollmentJobStatus -&gt; String
+(Int -&gt; SpeakerEnrollmentJobStatus -&gt; ShowS)
+-&gt; (SpeakerEnrollmentJobStatus -&gt; String)
+-&gt; ([SpeakerEnrollmentJobStatus] -&gt; ShowS)
+-&gt; Show SpeakerEnrollmentJobStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SpeakerEnrollmentJobStatus] -&gt; ShowS
+$cshowList :: [SpeakerEnrollmentJobStatus] -&gt; ShowS
+show :: SpeakerEnrollmentJobStatus -&gt; String
+$cshow :: SpeakerEnrollmentJobStatus -&gt; String
+showsPrec :: Int -&gt; SpeakerEnrollmentJobStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; SpeakerEnrollmentJobStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679204072"><span id="local-6989586621679204074"><span id="local-6989586621679204076"><span id="local-6989586621679204078"><span class="annot"><span class="annottext">ReadPrec [SpeakerEnrollmentJobStatus]
+ReadPrec SpeakerEnrollmentJobStatus
+Int -&gt; ReadS SpeakerEnrollmentJobStatus
+ReadS [SpeakerEnrollmentJobStatus]
+(Int -&gt; ReadS SpeakerEnrollmentJobStatus)
+-&gt; ReadS [SpeakerEnrollmentJobStatus]
+-&gt; ReadPrec SpeakerEnrollmentJobStatus
+-&gt; ReadPrec [SpeakerEnrollmentJobStatus]
+-&gt; Read SpeakerEnrollmentJobStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SpeakerEnrollmentJobStatus]
+$creadListPrec :: ReadPrec [SpeakerEnrollmentJobStatus]
+readPrec :: ReadPrec SpeakerEnrollmentJobStatus
+$creadPrec :: ReadPrec SpeakerEnrollmentJobStatus
+readList :: ReadS [SpeakerEnrollmentJobStatus]
+$creadList :: ReadS [SpeakerEnrollmentJobStatus]
+readsPrec :: Int -&gt; ReadS SpeakerEnrollmentJobStatus
+$creadsPrec :: Int -&gt; ReadS SpeakerEnrollmentJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679204067"><span id="local-6989586621679204069"><span class="annot"><span class="annottext">SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus -&gt; Bool
+(SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus -&gt; Bool)
+-&gt; (SpeakerEnrollmentJobStatus
+    -&gt; SpeakerEnrollmentJobStatus -&gt; Bool)
+-&gt; Eq SpeakerEnrollmentJobStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus -&gt; Bool
+$c/= :: SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus -&gt; Bool
+== :: SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus -&gt; Bool
+$c== :: SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679204051"><span id="local-6989586621679204053"><span id="local-6989586621679204055"><span id="local-6989586621679204057"><span id="local-6989586621679204059"><span id="local-6989586621679204061"><span id="local-6989586621679204063"><span class="annot"><span class="annottext">Eq SpeakerEnrollmentJobStatus
+Eq SpeakerEnrollmentJobStatus
+-&gt; (SpeakerEnrollmentJobStatus
+    -&gt; SpeakerEnrollmentJobStatus -&gt; Ordering)
+-&gt; (SpeakerEnrollmentJobStatus
+    -&gt; SpeakerEnrollmentJobStatus -&gt; Bool)
+-&gt; (SpeakerEnrollmentJobStatus
+    -&gt; SpeakerEnrollmentJobStatus -&gt; Bool)
+-&gt; (SpeakerEnrollmentJobStatus
+    -&gt; SpeakerEnrollmentJobStatus -&gt; Bool)
+-&gt; (SpeakerEnrollmentJobStatus
+    -&gt; SpeakerEnrollmentJobStatus -&gt; Bool)
+-&gt; (SpeakerEnrollmentJobStatus
+    -&gt; SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus)
+-&gt; (SpeakerEnrollmentJobStatus
+    -&gt; SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus)
+-&gt; Ord SpeakerEnrollmentJobStatus
+SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus -&gt; Bool
+SpeakerEnrollmentJobStatus
+-&gt; SpeakerEnrollmentJobStatus -&gt; Ordering
+SpeakerEnrollmentJobStatus
+-&gt; SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SpeakerEnrollmentJobStatus
+-&gt; SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus
+$cmin :: SpeakerEnrollmentJobStatus
+-&gt; SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus
+max :: SpeakerEnrollmentJobStatus
+-&gt; SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus
+$cmax :: SpeakerEnrollmentJobStatus
+-&gt; SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus
+&gt;= :: SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus -&gt; Bool
+$c&gt;= :: SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus -&gt; Bool
+&gt; :: SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus -&gt; Bool
+$c&gt; :: SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus -&gt; Bool
+&lt;= :: SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus -&gt; Bool
+$c&lt;= :: SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus -&gt; Bool
+&lt; :: SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus -&gt; Bool
+$c&lt; :: SpeakerEnrollmentJobStatus -&gt; SpeakerEnrollmentJobStatus -&gt; Bool
+compare :: SpeakerEnrollmentJobStatus
+-&gt; SpeakerEnrollmentJobStatus -&gt; Ordering
+$ccompare :: SpeakerEnrollmentJobStatus
+-&gt; SpeakerEnrollmentJobStatus -&gt; Ordering
+$cp1Ord :: Eq SpeakerEnrollmentJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ SpeakerEnrollmentJobStatus -&gt; Rep SpeakerEnrollmentJobStatus x)
+-&gt; (forall x.
+    Rep SpeakerEnrollmentJobStatus x -&gt; SpeakerEnrollmentJobStatus)
+-&gt; Generic SpeakerEnrollmentJobStatus
+forall x.
+Rep SpeakerEnrollmentJobStatus x -&gt; SpeakerEnrollmentJobStatus
+forall x.
+SpeakerEnrollmentJobStatus -&gt; Rep SpeakerEnrollmentJobStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SpeakerEnrollmentJobStatus x -&gt; SpeakerEnrollmentJobStatus
+$cfrom :: forall x.
+SpeakerEnrollmentJobStatus -&gt; Rep SpeakerEnrollmentJobStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679204043"><span id="local-6989586621679204045"><span class="annot"><span class="annottext">Int -&gt; SpeakerEnrollmentJobStatus -&gt; Int
+SpeakerEnrollmentJobStatus -&gt; Int
+(Int -&gt; SpeakerEnrollmentJobStatus -&gt; Int)
+-&gt; (SpeakerEnrollmentJobStatus -&gt; Int)
+-&gt; Hashable SpeakerEnrollmentJobStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SpeakerEnrollmentJobStatus -&gt; Int
+$chash :: SpeakerEnrollmentJobStatus -&gt; Int
+hashWithSalt :: Int -&gt; SpeakerEnrollmentJobStatus -&gt; Int
+$chashWithSalt :: Int -&gt; SpeakerEnrollmentJobStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679204040"><span class="annot"><span class="annottext">SpeakerEnrollmentJobStatus -&gt; ()
+(SpeakerEnrollmentJobStatus -&gt; ())
+-&gt; NFData SpeakerEnrollmentJobStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SpeakerEnrollmentJobStatus -&gt; ()
+$crnf :: SpeakerEnrollmentJobStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679204037"><span class="annot"><span class="annottext">Text -&gt; Either String SpeakerEnrollmentJobStatus
+(Text -&gt; Either String SpeakerEnrollmentJobStatus)
+-&gt; FromText SpeakerEnrollmentJobStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SpeakerEnrollmentJobStatus
+$cfromText :: Text -&gt; Either String SpeakerEnrollmentJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679204034"><span class="annot"><span class="annottext">SpeakerEnrollmentJobStatus -&gt; Text
+(SpeakerEnrollmentJobStatus -&gt; Text)
+-&gt; ToText SpeakerEnrollmentJobStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SpeakerEnrollmentJobStatus -&gt; Text
+$ctoText :: SpeakerEnrollmentJobStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679204031"><span class="annot"><span class="annottext">SpeakerEnrollmentJobStatus -&gt; ByteString
+(SpeakerEnrollmentJobStatus -&gt; ByteString)
+-&gt; ToByteString SpeakerEnrollmentJobStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SpeakerEnrollmentJobStatus -&gt; ByteString
+$ctoBS :: SpeakerEnrollmentJobStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679204028"><span class="annot"><span class="annottext">SpeakerEnrollmentJobStatus -&gt; ByteStringBuilder
+(SpeakerEnrollmentJobStatus -&gt; ByteStringBuilder)
+-&gt; ToLog SpeakerEnrollmentJobStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SpeakerEnrollmentJobStatus -&gt; ByteStringBuilder
+$cbuild :: SpeakerEnrollmentJobStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679204025"><span class="annot"><span class="annottext">HeaderName -&gt; SpeakerEnrollmentJobStatus -&gt; [Header]
+(HeaderName -&gt; SpeakerEnrollmentJobStatus -&gt; [Header])
+-&gt; ToHeader SpeakerEnrollmentJobStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SpeakerEnrollmentJobStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SpeakerEnrollmentJobStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679204022"><span class="annot"><span class="annottext">SpeakerEnrollmentJobStatus -&gt; QueryString
+(SpeakerEnrollmentJobStatus -&gt; QueryString)
+-&gt; ToQuery SpeakerEnrollmentJobStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SpeakerEnrollmentJobStatus -&gt; QueryString
+$ctoQuery :: SpeakerEnrollmentJobStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679204017"><span id="local-6989586621679204019"><span class="annot"><span class="annottext">Value -&gt; Parser [SpeakerEnrollmentJobStatus]
+Value -&gt; Parser SpeakerEnrollmentJobStatus
+(Value -&gt; Parser SpeakerEnrollmentJobStatus)
+-&gt; (Value -&gt; Parser [SpeakerEnrollmentJobStatus])
+-&gt; FromJSON SpeakerEnrollmentJobStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SpeakerEnrollmentJobStatus]
+$cparseJSONList :: Value -&gt; Parser [SpeakerEnrollmentJobStatus]
+parseJSON :: Value -&gt; Parser SpeakerEnrollmentJobStatus
+$cparseJSON :: Value -&gt; Parser SpeakerEnrollmentJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679204012"><span id="local-6989586621679204014"><span class="annot"><span class="annottext">FromJSONKeyFunction [SpeakerEnrollmentJobStatus]
+FromJSONKeyFunction SpeakerEnrollmentJobStatus
+FromJSONKeyFunction SpeakerEnrollmentJobStatus
+-&gt; FromJSONKeyFunction [SpeakerEnrollmentJobStatus]
+-&gt; FromJSONKey SpeakerEnrollmentJobStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SpeakerEnrollmentJobStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [SpeakerEnrollmentJobStatus]
+fromJSONKey :: FromJSONKeyFunction SpeakerEnrollmentJobStatus
+$cfromJSONKey :: FromJSONKeyFunction SpeakerEnrollmentJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679204003"><span id="local-6989586621679204005"><span id="local-6989586621679204007"><span id="local-6989586621679204009"><span class="annot"><span class="annottext">[SpeakerEnrollmentJobStatus] -&gt; Encoding
+[SpeakerEnrollmentJobStatus] -&gt; Value
+SpeakerEnrollmentJobStatus -&gt; Encoding
+SpeakerEnrollmentJobStatus -&gt; Value
+(SpeakerEnrollmentJobStatus -&gt; Value)
+-&gt; (SpeakerEnrollmentJobStatus -&gt; Encoding)
+-&gt; ([SpeakerEnrollmentJobStatus] -&gt; Value)
+-&gt; ([SpeakerEnrollmentJobStatus] -&gt; Encoding)
+-&gt; ToJSON SpeakerEnrollmentJobStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SpeakerEnrollmentJobStatus] -&gt; Encoding
+$ctoEncodingList :: [SpeakerEnrollmentJobStatus] -&gt; Encoding
+toJSONList :: [SpeakerEnrollmentJobStatus] -&gt; Value
+$ctoJSONList :: [SpeakerEnrollmentJobStatus] -&gt; Value
+toEncoding :: SpeakerEnrollmentJobStatus -&gt; Encoding
+$ctoEncoding :: SpeakerEnrollmentJobStatus -&gt; Encoding
+toJSON :: SpeakerEnrollmentJobStatus -&gt; Value
+$ctoJSON :: SpeakerEnrollmentJobStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679203998"><span id="local-6989586621679204000"><span class="annot"><span class="annottext">ToJSONKeyFunction [SpeakerEnrollmentJobStatus]
+ToJSONKeyFunction SpeakerEnrollmentJobStatus
+ToJSONKeyFunction SpeakerEnrollmentJobStatus
+-&gt; ToJSONKeyFunction [SpeakerEnrollmentJobStatus]
+-&gt; ToJSONKey SpeakerEnrollmentJobStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SpeakerEnrollmentJobStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [SpeakerEnrollmentJobStatus]
+toJSONKey :: ToJSONKeyFunction SpeakerEnrollmentJobStatus
+$ctoJSONKey :: ToJSONKeyFunction SpeakerEnrollmentJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679203995"><span class="annot"><span class="annottext">[Node] -&gt; Either String SpeakerEnrollmentJobStatus
+([Node] -&gt; Either String SpeakerEnrollmentJobStatus)
+-&gt; FromXML SpeakerEnrollmentJobStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SpeakerEnrollmentJobStatus
+$cparseXML :: [Node] -&gt; Either String SpeakerEnrollmentJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679203992"><span class="annot"><span class="annottext">SpeakerEnrollmentJobStatus -&gt; XML
+(SpeakerEnrollmentJobStatus -&gt; XML)
+-&gt; ToXML SpeakerEnrollmentJobStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SpeakerEnrollmentJobStatus -&gt; XML
+$ctoXML :: SpeakerEnrollmentJobStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus_COMPLETED"><span class="hs-identifier hs-type">SpeakerEnrollmentJobStatus_COMPLETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus"><span class="hs-identifier hs-type">SpeakerEnrollmentJobStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSpeakerEnrollmentJobStatus_COMPLETED"><span id="%24mSpeakerEnrollmentJobStatus_COMPLETED"><span id="SpeakerEnrollmentJobStatus_COMPLETED"><span class="annot"><span class="annottext">$bSpeakerEnrollmentJobStatus_COMPLETED :: SpeakerEnrollmentJobStatus
+$mSpeakerEnrollmentJobStatus_COMPLETED :: forall r.
+SpeakerEnrollmentJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#%24bSpeakerEnrollmentJobStatus_COMPLETED"><span class="hs-identifier hs-var hs-var hs-var">SpeakerEnrollmentJobStatus_COMPLETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus%27"><span class="hs-identifier hs-type">SpeakerEnrollmentJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus_COMPLETED_WITH_ERRORS"><span class="hs-identifier hs-type">SpeakerEnrollmentJobStatus_COMPLETED_WITH_ERRORS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus"><span class="hs-identifier hs-type">SpeakerEnrollmentJobStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSpeakerEnrollmentJobStatus_COMPLETED_WITH_ERRORS"><span id="%24mSpeakerEnrollmentJobStatus_COMPLETED_WITH_ERRORS"><span id="SpeakerEnrollmentJobStatus_COMPLETED_WITH_ERRORS"><span class="annot"><span class="annottext">$bSpeakerEnrollmentJobStatus_COMPLETED_WITH_ERRORS :: SpeakerEnrollmentJobStatus
+$mSpeakerEnrollmentJobStatus_COMPLETED_WITH_ERRORS :: forall r.
+SpeakerEnrollmentJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#%24bSpeakerEnrollmentJobStatus_COMPLETED_WITH_ERRORS"><span class="hs-identifier hs-var hs-var hs-var">SpeakerEnrollmentJobStatus_COMPLETED_WITH_ERRORS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus%27"><span class="hs-identifier hs-type">SpeakerEnrollmentJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETED_WITH_ERRORS&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus_FAILED"><span class="hs-identifier hs-type">SpeakerEnrollmentJobStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus"><span class="hs-identifier hs-type">SpeakerEnrollmentJobStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSpeakerEnrollmentJobStatus_FAILED"><span id="%24mSpeakerEnrollmentJobStatus_FAILED"><span id="SpeakerEnrollmentJobStatus_FAILED"><span class="annot"><span class="annottext">$bSpeakerEnrollmentJobStatus_FAILED :: SpeakerEnrollmentJobStatus
+$mSpeakerEnrollmentJobStatus_FAILED :: forall r.
+SpeakerEnrollmentJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#%24bSpeakerEnrollmentJobStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">SpeakerEnrollmentJobStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus%27"><span class="hs-identifier hs-type">SpeakerEnrollmentJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus_IN_PROGRESS"><span class="hs-identifier hs-type">SpeakerEnrollmentJobStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus"><span class="hs-identifier hs-type">SpeakerEnrollmentJobStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSpeakerEnrollmentJobStatus_IN_PROGRESS"><span id="%24mSpeakerEnrollmentJobStatus_IN_PROGRESS"><span id="SpeakerEnrollmentJobStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bSpeakerEnrollmentJobStatus_IN_PROGRESS :: SpeakerEnrollmentJobStatus
+$mSpeakerEnrollmentJobStatus_IN_PROGRESS :: forall r.
+SpeakerEnrollmentJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#%24bSpeakerEnrollmentJobStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">SpeakerEnrollmentJobStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus%27"><span class="hs-identifier hs-type">SpeakerEnrollmentJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus_SUBMITTED"><span class="hs-identifier hs-type">SpeakerEnrollmentJobStatus_SUBMITTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus"><span class="hs-identifier hs-type">SpeakerEnrollmentJobStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSpeakerEnrollmentJobStatus_SUBMITTED"><span id="%24mSpeakerEnrollmentJobStatus_SUBMITTED"><span id="SpeakerEnrollmentJobStatus_SUBMITTED"><span class="annot"><span class="annottext">$bSpeakerEnrollmentJobStatus_SUBMITTED :: SpeakerEnrollmentJobStatus
+$mSpeakerEnrollmentJobStatus_SUBMITTED :: forall r.
+SpeakerEnrollmentJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#%24bSpeakerEnrollmentJobStatus_SUBMITTED"><span class="hs-identifier hs-var hs-var hs-var">SpeakerEnrollmentJobStatus_SUBMITTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus%27"><span class="hs-identifier hs-type">SpeakerEnrollmentJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUBMITTED&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus_COMPLETED"><span class="hs-pragma hs-type">SpeakerEnrollmentJobStatus_COMPLETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus_COMPLETED_WITH_ERRORS"><span class="hs-pragma hs-type">SpeakerEnrollmentJobStatus_COMPLETED_WITH_ERRORS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus_FAILED"><span class="hs-pragma hs-type">SpeakerEnrollmentJobStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus_IN_PROGRESS"><span class="hs-pragma hs-type">SpeakerEnrollmentJobStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus_SUBMITTED"><span class="hs-pragma hs-type">SpeakerEnrollmentJobStatus_SUBMITTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerEnrollmentJobStatus.html#SpeakerEnrollmentJobStatus%27"><span class="hs-pragma hs-type">SpeakerEnrollmentJobStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

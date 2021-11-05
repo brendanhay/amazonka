@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | An Amazon SQS message.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMessage' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679175843"><span id="local-6989586621679175844"></span></span><span class="hs-keyword">data</span><span> </span><span id="Message"><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-var">Message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Message%27"><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-var">Message'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679175852"><span id="local-6989586621679175853"></span></span><span class="hs-keyword">data</span><span> </span><span id="Message"><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-var">Message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Message%27"><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-var">Message'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Each message attribute consists of a @Name@, @Type@, and @Value@. For</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS message attributes&gt;</span><span>
@@ -81,7 +81,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AmD5OfMessageAttributes%3AMessage%27"><span class="annot"><span class="annottext">Message -&gt; Maybe Text
 </span><a href="Network.AWS.SQS.Types.Message.html#%24sel%3AmD5OfMessageAttributes%3AMessage%27"><span class="hs-identifier hs-var hs-var">mD5OfMessageAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175831"><span id="local-6989586621679175833"><span class="annot"><span class="annottext">Message -&gt; Message -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175840"><span id="local-6989586621679175842"><span class="annot"><span class="annottext">Message -&gt; Message -&gt; Bool
 (Message -&gt; Message -&gt; Bool)
 -&gt; (Message -&gt; Message -&gt; Bool) -&gt; Eq Message
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Message -&gt; Message -&gt; Bool
 == :: Message -&gt; Message -&gt; Bool
 $c== :: Message -&gt; Message -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175822"><span id="local-6989586621679175824"><span id="local-6989586621679175826"><span id="local-6989586621679175828"><span class="annot"><span class="annottext">ReadPrec [Message]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175831"><span id="local-6989586621679175833"><span id="local-6989586621679175835"><span id="local-6989586621679175837"><span class="annot"><span class="annottext">ReadPrec [Message]
 ReadPrec Message
 Int -&gt; ReadS Message
 ReadS [Message]
@@ -109,7 +109,7 @@ readList :: ReadS [Message]
 $creadList :: ReadS [Message]
 readsPrec :: Int -&gt; ReadS Message
 $creadsPrec :: Int -&gt; ReadS Message
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175815"><span id="local-6989586621679175817"><span id="local-6989586621679175819"><span class="annot"><span class="annottext">Int -&gt; Message -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175824"><span id="local-6989586621679175826"><span id="local-6989586621679175828"><span class="annot"><span class="annottext">Int -&gt; Message -&gt; ShowS
 [Message] -&gt; ShowS
 Message -&gt; String
 (Int -&gt; Message -&gt; ShowS)
@@ -243,16 +243,16 @@ forall a. Maybe a
      (Maybe (HashMap Text MessageAttributeValue))
      (Maybe (HashMap Text MessageAttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175806"><span class="annot"><span class="annottext">Maybe (HashMap Text MessageAttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175815"><span class="annot"><span class="annottext">Maybe (HashMap Text MessageAttributeValue)
 messageAttributes :: Maybe (HashMap Text MessageAttributeValue)
 $sel:messageAttributes:Message' :: Message -&gt; Maybe (HashMap Text MessageAttributeValue)
-</span><a href="#local-6989586621679175806"><span class="hs-identifier hs-var hs-var">messageAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MessageAttributeValue)
-</span><a href="#local-6989586621679175806"><span class="hs-identifier hs-var">messageAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175805"><span class="annot"><span class="annottext">s :: Message
-</span><a href="#local-6989586621679175805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175804"><span class="annot"><span class="annottext">Maybe (HashMap Text MessageAttributeValue)
-</span><a href="#local-6989586621679175804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
-</span><a href="#local-6989586621679175805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageAttributes:Message' :: Maybe (HashMap Text MessageAttributeValue)
+</span><a href="#local-6989586621679175815"><span class="hs-identifier hs-var hs-var">messageAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MessageAttributeValue)
+</span><a href="#local-6989586621679175815"><span class="hs-identifier hs-var">messageAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175814"><span class="annot"><span class="annottext">s :: Message
+</span><a href="#local-6989586621679175814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175813"><span class="annot"><span class="annottext">Maybe (HashMap Text MessageAttributeValue)
+</span><a href="#local-6989586621679175813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679175814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageAttributes:Message' :: Maybe (HashMap Text MessageAttributeValue)
 </span><a href="Network.AWS.SQS.Types.Message.html#%24sel%3AmessageAttributes%3AMessage%27"><span class="hs-identifier hs-var">messageAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MessageAttributeValue)
-</span><a href="#local-6989586621679175804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MessageAttributeValue)
+</span><a href="#local-6989586621679175813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MessageAttributeValue)
   -&gt; f (Maybe (HashMap Text MessageAttributeValue)))
  -&gt; Message -&gt; f Message)
 -&gt; ((Maybe (HashMap Text MessageAttributeValue)
@@ -292,16 +292,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Message -&gt; Maybe Text -&gt; Message)
 -&gt; Lens Message Message (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175799"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175808"><span class="annot"><span class="annottext">Maybe Text
 mD5OfBody :: Maybe Text
 $sel:mD5OfBody:Message' :: Message -&gt; Maybe Text
-</span><a href="#local-6989586621679175799"><span class="hs-identifier hs-var hs-var">mD5OfBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175799"><span class="hs-identifier hs-var">mD5OfBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175798"><span class="annot"><span class="annottext">s :: Message
-</span><a href="#local-6989586621679175798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175797"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
-</span><a href="#local-6989586621679175798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mD5OfBody:Message' :: Maybe Text
+</span><a href="#local-6989586621679175808"><span class="hs-identifier hs-var hs-var">mD5OfBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175808"><span class="hs-identifier hs-var">mD5OfBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175807"><span class="annot"><span class="annottext">s :: Message
+</span><a href="#local-6989586621679175807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175806"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679175807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mD5OfBody:Message' :: Maybe Text
 </span><a href="Network.AWS.SQS.Types.Message.html#%24sel%3AmD5OfBody%3AMessage%27"><span class="hs-identifier hs-var">mD5OfBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The message\'s contents (not URL-encoded).</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#message_body"><span class="hs-identifier hs-type">message_body</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -310,16 +310,16 @@ $sel:mD5OfBody:Message' :: Message -&gt; Maybe Text
 -&gt; (Message -&gt; Maybe Text -&gt; Message)
 -&gt; Lens Message Message (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175795"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175804"><span class="annot"><span class="annottext">Maybe Text
 body :: Maybe Text
 $sel:body:Message' :: Message -&gt; Maybe Text
-</span><a href="#local-6989586621679175795"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175795"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175794"><span class="annot"><span class="annottext">s :: Message
-</span><a href="#local-6989586621679175794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175793"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
-</span><a href="#local-6989586621679175794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:Message' :: Maybe Text
+</span><a href="#local-6989586621679175804"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175804"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175803"><span class="annot"><span class="annottext">s :: Message
+</span><a href="#local-6989586621679175803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175802"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679175803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:Message' :: Maybe Text
 </span><a href="Network.AWS.SQS.Types.Message.html#%24sel%3Abody%3AMessage%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | A map of the attributes requested in @ ReceiveMessage @ to their</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- respective values. Supported attributes:</span><span>
@@ -353,16 +353,16 @@ $sel:body:Message' :: Message -&gt; Maybe Text
      (Maybe (HashMap MessageAttribute Text))
      (Maybe (HashMap MessageAttribute Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175791"><span class="annot"><span class="annottext">Maybe (HashMap MessageAttribute Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175800"><span class="annot"><span class="annottext">Maybe (HashMap MessageAttribute Text)
 attributes :: Maybe (HashMap MessageAttribute Text)
 $sel:attributes:Message' :: Message -&gt; Maybe (HashMap MessageAttribute Text)
-</span><a href="#local-6989586621679175791"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap MessageAttribute Text)
-</span><a href="#local-6989586621679175791"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175790"><span class="annot"><span class="annottext">s :: Message
-</span><a href="#local-6989586621679175790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175789"><span class="annot"><span class="annottext">Maybe (HashMap MessageAttribute Text)
-</span><a href="#local-6989586621679175789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
-</span><a href="#local-6989586621679175790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:Message' :: Maybe (HashMap MessageAttribute Text)
+</span><a href="#local-6989586621679175800"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap MessageAttribute Text)
+</span><a href="#local-6989586621679175800"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175799"><span class="annot"><span class="annottext">s :: Message
+</span><a href="#local-6989586621679175799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175798"><span class="annot"><span class="annottext">Maybe (HashMap MessageAttribute Text)
+</span><a href="#local-6989586621679175798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679175799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:Message' :: Maybe (HashMap MessageAttribute Text)
 </span><a href="Network.AWS.SQS.Types.Message.html#%24sel%3Aattributes%3AMessage%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap MessageAttribute Text)
-</span><a href="#local-6989586621679175789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap MessageAttribute Text)
+</span><a href="#local-6989586621679175798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap MessageAttribute Text)
   -&gt; f (Maybe (HashMap MessageAttribute Text)))
  -&gt; Message -&gt; f Message)
 -&gt; ((Maybe (HashMap MessageAttribute Text)
@@ -405,16 +405,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Message -&gt; Maybe Text -&gt; Message)
 -&gt; Lens Message Message (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175787"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175796"><span class="annot"><span class="annottext">Maybe Text
 receiptHandle :: Maybe Text
 $sel:receiptHandle:Message' :: Message -&gt; Maybe Text
-</span><a href="#local-6989586621679175787"><span class="hs-identifier hs-var hs-var">receiptHandle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175787"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175786"><span class="annot"><span class="annottext">s :: Message
-</span><a href="#local-6989586621679175786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175785"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
-</span><a href="#local-6989586621679175786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:receiptHandle:Message' :: Maybe Text
+</span><a href="#local-6989586621679175796"><span class="hs-identifier hs-var hs-var">receiptHandle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175796"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175795"><span class="annot"><span class="annottext">s :: Message
+</span><a href="#local-6989586621679175795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175794"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679175795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:receiptHandle:Message' :: Maybe Text
 </span><a href="Network.AWS.SQS.Types.Message.html#%24sel%3AreceiptHandle%3AMessage%27"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | A unique identifier for the message. A @MessageId@is considered unique</span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- across all accounts for an extended period of time.</span><span>
@@ -424,16 +424,16 @@ $sel:receiptHandle:Message' :: Message -&gt; Maybe Text
 -&gt; (Message -&gt; Maybe Text -&gt; Message)
 -&gt; Lens Message Message (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175783"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175792"><span class="annot"><span class="annottext">Maybe Text
 messageId :: Maybe Text
 $sel:messageId:Message' :: Message -&gt; Maybe Text
-</span><a href="#local-6989586621679175783"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175783"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175782"><span class="annot"><span class="annottext">s :: Message
-</span><a href="#local-6989586621679175782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175781"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
-</span><a href="#local-6989586621679175782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:Message' :: Maybe Text
+</span><a href="#local-6989586621679175792"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175792"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175791"><span class="annot"><span class="annottext">s :: Message
+</span><a href="#local-6989586621679175791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175790"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679175791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:Message' :: Maybe Text
 </span><a href="Network.AWS.SQS.Types.Message.html#%24sel%3AmessageId%3AMessage%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | An MD5 digest of the non-URL-encoded message attribute string. You can</span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- use this attribute to verify that Amazon SQS received the message</span><span>
@@ -446,21 +446,21 @@ $sel:messageId:Message' :: Message -&gt; Maybe Text
 -&gt; (Message -&gt; Maybe Text -&gt; Message)
 -&gt; Lens Message Message (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175779"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175788"><span class="annot"><span class="annottext">Maybe Text
 mD5OfMessageAttributes :: Maybe Text
 $sel:mD5OfMessageAttributes:Message' :: Message -&gt; Maybe Text
-</span><a href="#local-6989586621679175779"><span class="hs-identifier hs-var hs-var">mD5OfMessageAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175779"><span class="hs-identifier hs-var">mD5OfMessageAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175778"><span class="annot"><span class="annottext">s :: Message
-</span><a href="#local-6989586621679175778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175777"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
-</span><a href="#local-6989586621679175778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mD5OfMessageAttributes:Message' :: Maybe Text
+</span><a href="#local-6989586621679175788"><span class="hs-identifier hs-var hs-var">mD5OfMessageAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175788"><span class="hs-identifier hs-var">mD5OfMessageAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175787"><span class="annot"><span class="annottext">s :: Message
+</span><a href="#local-6989586621679175787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message%27"><span class="hs-identifier hs-type">Message'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175786"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Message
+</span><a href="#local-6989586621679175787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mD5OfMessageAttributes:Message' :: Maybe Text
 </span><a href="Network.AWS.SQS.Types.Message.html#%24sel%3AmD5OfMessageAttributes%3AMessage%27"><span class="hs-identifier hs-var">mD5OfMessageAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-202"></span><span>  </span><span id="local-6989586621679175774"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Message
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679175772"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679175772"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679175783"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Message
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679175781"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679175781"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">Maybe (HashMap Text MessageAttributeValue)
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -509,7 +509,7 @@ Text -&gt; Text -&gt; Text -&gt; [Node] -&gt; Either String (HashMap k v)
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>                      </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679175772"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><a href="#local-6989586621679175781"><span class="hs-identifier hs-var">x</span></a></span><span>
 </span><span id="line-207"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
@@ -531,7 +531,7 @@ Text -&gt; Text -&gt; Text -&gt; [Node] -&gt; Either String (HashMap k v)
       -&gt; Message)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679175772"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679175781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MD5OfBody&quot;</span></span><span class="hs-special">)</span><span>
@@ -550,7 +550,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Message)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679175772"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679175781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Body&quot;</span></span><span class="hs-special">)</span><span>
@@ -581,14 +581,14 @@ Text -&gt; Text -&gt; Text -&gt; [Node] -&gt; Either String (HashMap k v)
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>                      </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679175772"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><a href="#local-6989586621679175781"><span class="hs-identifier hs-var">x</span></a></span><span>
 </span><span id="line-213"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Message)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; Message)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679175772"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679175781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReceiptHandle&quot;</span></span><span class="hs-special">)</span><span>
@@ -597,7 +597,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Message)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679175772"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679175781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageId&quot;</span></span><span class="hs-special">)</span><span>
@@ -605,12 +605,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String Message
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679175772"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679175781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MD5OfMessageAttributes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175764"><span id="local-6989586621679175766"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span></span></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175773"><span id="local-6989586621679175775"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span></span></span><span>
 </span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175761"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175770"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span></span><span>
 </span><span id="line-221"></span></pre></body></html>

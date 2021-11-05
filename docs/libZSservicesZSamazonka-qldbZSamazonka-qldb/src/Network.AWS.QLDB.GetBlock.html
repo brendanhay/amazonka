@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newGetBlock' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679186284"><span id="local-6989586621679186285"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlock"><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-var">GetBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlock%27"><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-var">GetBlock'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679186293"><span id="local-6989586621679186294"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlock"><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-var">GetBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlock%27"><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-var">GetBlock'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The latest block location covered by the digest for which to request a</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- proof. An address is an Amazon Ion structure that has two fields:</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @strandId@ and @sequenceNo@.</span><span>
@@ -83,7 +83,7 @@
 </span><span id="line-81"></span><span>    </span><span id="%24sel%3AblockAddress%3AGetBlock%27"><span class="annot"><span class="annottext">GetBlock -&gt; Sensitive ValueHolder
 </span><a href="Network.AWS.QLDB.GetBlock.html#%24sel%3AblockAddress%3AGetBlock%27"><span class="hs-identifier hs-var hs-var">blockAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186276"><span id="local-6989586621679186278"><span class="annot"><span class="annottext">GetBlock -&gt; GetBlock -&gt; Bool
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186285"><span id="local-6989586621679186287"><span class="annot"><span class="annottext">GetBlock -&gt; GetBlock -&gt; Bool
 (GetBlock -&gt; GetBlock -&gt; Bool)
 -&gt; (GetBlock -&gt; GetBlock -&gt; Bool) -&gt; Eq GetBlock
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -91,7 +91,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBlock -&gt; GetBlock -&gt; Bool
 == :: GetBlock -&gt; GetBlock -&gt; Bool
 $c== :: GetBlock -&gt; GetBlock -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186269"><span id="local-6989586621679186271"><span id="local-6989586621679186273"><span class="annot"><span class="annottext">Int -&gt; GetBlock -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186278"><span id="local-6989586621679186280"><span id="local-6989586621679186282"><span class="annot"><span class="annottext">Int -&gt; GetBlock -&gt; ShowS
 [GetBlock] -&gt; ShowS
 GetBlock -&gt; String
 (Int -&gt; GetBlock -&gt; ShowS)
@@ -141,9 +141,9 @@ $cfrom :: forall x. GetBlock -&gt; Rep GetBlock x
 </span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span><span>
 </span><span id="line-111"></span><span id="newGetBlock"><span class="annot"><span class="annottext">newGetBlock :: Text -&gt; ValueHolder -&gt; GetBlock
-</span><a href="Network.AWS.QLDB.GetBlock.html#newGetBlock"><span class="hs-identifier hs-var hs-var">newGetBlock</span></a></span></span><span> </span><span id="local-6989586621679186264"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186264"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679186263"><span class="annot"><span class="annottext">ValueHolder
-</span><a href="#local-6989586621679186263"><span class="hs-identifier hs-var">pBlockAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.QLDB.GetBlock.html#newGetBlock"><span class="hs-identifier hs-var hs-var">newGetBlock</span></a></span></span><span> </span><span id="local-6989586621679186273"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186273"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679186272"><span class="annot"><span class="annottext">ValueHolder
+</span><a href="#local-6989586621679186272"><span class="hs-identifier hs-var">pBlockAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">GetBlock' :: Maybe (Sensitive ValueHolder)
 -&gt; Text -&gt; Sensitive ValueHolder -&gt; GetBlock
 </span><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-type">GetBlock'</span></a></span><span>
@@ -153,7 +153,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetBlock' :: Text
 </span><a href="Network.AWS.QLDB.GetBlock.html#%24sel%3Aname%3AGetBlock%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186264"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679186273"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:blockAddress:GetBlock' :: Sensitive ValueHolder
 </span><a href="Network.AWS.QLDB.GetBlock.html#%24sel%3AblockAddress%3AGetBlock%27"><span class="hs-identifier hs-var">blockAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ValueHolder (Identity ValueHolder)
 -&gt; Tagged
@@ -165,7 +165,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; ValueHolder -&gt; Sensitive ValueHolder
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ValueHolder
-</span><a href="#local-6989586621679186263"><span class="hs-identifier hs-var">pBlockAddress_</span></a></span><span>
+</span><a href="#local-6989586621679186272"><span class="hs-identifier hs-var">pBlockAddress_</span></a></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The latest block location covered by the digest for which to request a</span><span>
@@ -184,16 +184,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe (Sensitive ValueHolder))
      (Maybe (Sensitive ValueHolder))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-type">GetBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186258"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-type">GetBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186267"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
 digestTipAddress :: Maybe (Sensitive ValueHolder)
 $sel:digestTipAddress:GetBlock' :: GetBlock -&gt; Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679186258"><span class="hs-identifier hs-var hs-var">digestTipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679186258"><span class="hs-identifier hs-var">digestTipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186257"><span class="annot"><span class="annottext">s :: GetBlock
-</span><a href="#local-6989586621679186257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-type">GetBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186256"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679186256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlock
-</span><a href="#local-6989586621679186257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:digestTipAddress:GetBlock' :: Maybe (Sensitive ValueHolder)
+</span><a href="#local-6989586621679186267"><span class="hs-identifier hs-var hs-var">digestTipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
+</span><a href="#local-6989586621679186267"><span class="hs-identifier hs-var">digestTipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186266"><span class="annot"><span class="annottext">s :: GetBlock
+</span><a href="#local-6989586621679186266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-type">GetBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186265"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
+</span><a href="#local-6989586621679186265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlock
+</span><a href="#local-6989586621679186266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:digestTipAddress:GetBlock' :: Maybe (Sensitive ValueHolder)
 </span><a href="Network.AWS.QLDB.GetBlock.html#%24sel%3AdigestTipAddress%3AGetBlock%27"><span class="hs-identifier hs-var">digestTipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679186256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive ValueHolder)
+</span><a href="#local-6989586621679186265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive ValueHolder)
   -&gt; f (Maybe (Sensitive ValueHolder)))
  -&gt; GetBlock -&gt; f GetBlock)
 -&gt; ((Maybe ValueHolder -&gt; f (Maybe ValueHolder))
@@ -231,16 +231,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (GetBlock -&gt; Text -&gt; GetBlock)
 -&gt; Lens GetBlock GetBlock Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-type">GetBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186253"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-type">GetBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186262"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:GetBlock' :: GetBlock -&gt; Text
-</span><a href="#local-6989586621679186253"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186253"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186252"><span class="annot"><span class="annottext">s :: GetBlock
-</span><a href="#local-6989586621679186252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-type">GetBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186251"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlock
-</span><a href="#local-6989586621679186252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetBlock' :: Text
+</span><a href="#local-6989586621679186262"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186262"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186261"><span class="annot"><span class="annottext">s :: GetBlock
+</span><a href="#local-6989586621679186261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-type">GetBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186260"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlock
+</span><a href="#local-6989586621679186261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetBlock' :: Text
 </span><a href="Network.AWS.QLDB.GetBlock.html#%24sel%3Aname%3AGetBlock%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The location of the block that you want to request. An address is an</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- Amazon Ion structure that has two fields: @strandId@ and @sequenceNo@.</span><span>
@@ -253,16 +253,16 @@ $sel:name:GetBlock' :: GetBlock -&gt; Text
 -&gt; Lens
      GetBlock GetBlock (Sensitive ValueHolder) (Sensitive ValueHolder)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-type">GetBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186250"><span class="annot"><span class="annottext">Sensitive ValueHolder
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-type">GetBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186259"><span class="annot"><span class="annottext">Sensitive ValueHolder
 blockAddress :: Sensitive ValueHolder
 $sel:blockAddress:GetBlock' :: GetBlock -&gt; Sensitive ValueHolder
-</span><a href="#local-6989586621679186250"><span class="hs-identifier hs-var hs-var">blockAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive ValueHolder
-</span><a href="#local-6989586621679186250"><span class="hs-identifier hs-var">blockAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186249"><span class="annot"><span class="annottext">s :: GetBlock
-</span><a href="#local-6989586621679186249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-type">GetBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186248"><span class="annot"><span class="annottext">Sensitive ValueHolder
-</span><a href="#local-6989586621679186248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlock
-</span><a href="#local-6989586621679186249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockAddress:GetBlock' :: Sensitive ValueHolder
+</span><a href="#local-6989586621679186259"><span class="hs-identifier hs-var hs-var">blockAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive ValueHolder
+</span><a href="#local-6989586621679186259"><span class="hs-identifier hs-var">blockAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186258"><span class="annot"><span class="annottext">s :: GetBlock
+</span><a href="#local-6989586621679186258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-type">GetBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186257"><span class="annot"><span class="annottext">Sensitive ValueHolder
+</span><a href="#local-6989586621679186257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlock
+</span><a href="#local-6989586621679186258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockAddress:GetBlock' :: Sensitive ValueHolder
 </span><a href="Network.AWS.QLDB.GetBlock.html#%24sel%3AblockAddress%3AGetBlock%27"><span class="hs-identifier hs-var">blockAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive ValueHolder
-</span><a href="#local-6989586621679186248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive ValueHolder -&gt; f (Sensitive ValueHolder))
+</span><a href="#local-6989586621679186257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive ValueHolder -&gt; f (Sensitive ValueHolder))
  -&gt; GetBlock -&gt; f GetBlock)
 -&gt; ((ValueHolder -&gt; f ValueHolder)
     -&gt; Sensitive ValueHolder -&gt; f (Sensitive ValueHolder))
@@ -277,12 +277,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse"><span class="hs-identifier hs-type">GetBlockResponse</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679186244"><span class="annot"><span class="annottext">request :: GetBlock -&gt; Request GetBlock
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679186253"><span class="annot"><span class="annottext">request :: GetBlock -&gt; Request GetBlock
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetBlock -&gt; Request GetBlock
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.QLDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679186240"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679186249"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetBlock
 -&gt; ClientResponse ClientBody
@@ -306,10 +306,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679186237"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186237"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679186236"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679186236"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679186235"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186235"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679186246"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186246"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679186245"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679186245"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679186244"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186244"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
 -&gt; Int -&gt; Sensitive ValueHolder -&gt; GetBlockResponse
 </span><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse%27"><span class="hs-identifier hs-var">GetBlockResponse'</span></a></span><span>
@@ -319,7 +319,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; Sensitive ValueHolder -&gt; GetBlockResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive ValueHolder))
+</span><a href="#local-6989586621679186244"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive ValueHolder))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Proof&quot;</span></span><span class="hs-special">)</span><span>
@@ -332,24 +332,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186237"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186246"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either String (Sensitive ValueHolder -&gt; GetBlockResponse)
 -&gt; Either String (Sensitive ValueHolder)
 -&gt; Either String GetBlockResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Sensitive ValueHolder)
+</span><a href="#local-6989586621679186244"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Sensitive ValueHolder)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Block&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186226"><span id="local-6989586621679186228"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186235"><span id="local-6989586621679186237"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span></span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186223"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186232"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679186219"><span class="annot"><span class="annottext">toHeaders :: GetBlock -&gt; ResponseHeaders
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679186228"><span class="annot"><span class="annottext">toHeaders :: GetBlock -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetBlock -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -368,9 +368,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186209"><span id="local-6989586621679186211"><span id="local-6989586621679186213"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679186207"><span class="annot"><span class="annottext">toJSON :: GetBlock -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-type">GetBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186203"><span id="local-6989586621679186204"><span id="local-6989586621679186205"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186218"><span id="local-6989586621679186220"><span id="local-6989586621679186222"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679186216"><span class="annot"><span class="annottext">toJSON :: GetBlock -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-type">GetBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186212"><span id="local-6989586621679186213"><span id="local-6989586621679186214"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
 Text
 Sensitive ValueHolder
 blockAddress :: Sensitive ValueHolder
@@ -379,7 +379,7 @@ digestTipAddress :: Maybe (Sensitive ValueHolder)
 $sel:blockAddress:GetBlock' :: GetBlock -&gt; Sensitive ValueHolder
 $sel:name:GetBlock' :: GetBlock -&gt; Text
 $sel:digestTipAddress:GetBlock' :: GetBlock -&gt; Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679186203"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679186212"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -393,20 +393,20 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (Sensitive ValueHolder) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679186205"><span class="hs-identifier hs-var">digestTipAddress</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679186214"><span class="hs-identifier hs-var">digestTipAddress</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BlockAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive ValueHolder -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive ValueHolder
-</span><a href="#local-6989586621679186203"><span class="hs-identifier hs-var">blockAddress</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186212"><span class="hs-identifier hs-var">blockAddress</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679186197"><span class="annot"><span class="annottext">toPath :: GetBlock -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-type">GetBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186193"><span id="local-6989586621679186194"><span id="local-6989586621679186195"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679186206"><span class="annot"><span class="annottext">toPath :: GetBlock -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock%27"><span class="hs-identifier hs-type">GetBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186202"><span id="local-6989586621679186203"><span id="local-6989586621679186204"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
 Text
 Sensitive ValueHolder
 blockAddress :: Sensitive ValueHolder
@@ -415,7 +415,7 @@ digestTipAddress :: Maybe (Sensitive ValueHolder)
 $sel:blockAddress:GetBlock' :: GetBlock -&gt; Sensitive ValueHolder
 $sel:name:GetBlock' :: GetBlock -&gt; Text
 $sel:digestTipAddress:GetBlock' :: GetBlock -&gt; Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679186193"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679186202"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -423,11 +423,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/ledgers/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186194"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679186203"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/block&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlock"><span class="hs-identifier hs-type">GetBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679186189"><span class="annot"><span class="annottext">toQuery :: GetBlock -&gt; QueryString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679186198"><span class="annot"><span class="annottext">toQuery :: GetBlock -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetBlock -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -435,7 +435,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newGetBlockResponse' smart constructor.</span><span>
-</span><span id="line-183"></span><span id="local-6989586621679186186"><span id="local-6989586621679186187"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlockResponse"><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse"><span class="hs-identifier hs-var">GetBlockResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlockResponse%27"><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse%27"><span class="hs-identifier hs-var">GetBlockResponse'</span></a></span></span><span>
+</span><span id="line-183"></span><span id="local-6989586621679186195"><span id="local-6989586621679186196"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlockResponse"><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse"><span class="hs-identifier hs-var">GetBlockResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlockResponse%27"><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse%27"><span class="hs-identifier hs-var">GetBlockResponse'</span></a></span></span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The proof object in Amazon Ion format returned by a @GetBlock@ request.</span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-comment">-- A proof contains the list of hash values required to recalculate the</span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-comment">-- specified digest using a Merkle tree, starting with the specified block.</span><span>
@@ -448,7 +448,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-191"></span><span>    </span><span id="%24sel%3Ablock%3AGetBlockResponse%27"><span class="annot"><span class="annottext">GetBlockResponse -&gt; Sensitive ValueHolder
 </span><a href="Network.AWS.QLDB.GetBlock.html#%24sel%3Ablock%3AGetBlockResponse%27"><span class="hs-identifier hs-var hs-var">block</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186179"><span id="local-6989586621679186181"><span class="annot"><span class="annottext">GetBlockResponse -&gt; GetBlockResponse -&gt; Bool
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186188"><span id="local-6989586621679186190"><span class="annot"><span class="annottext">GetBlockResponse -&gt; GetBlockResponse -&gt; Bool
 (GetBlockResponse -&gt; GetBlockResponse -&gt; Bool)
 -&gt; (GetBlockResponse -&gt; GetBlockResponse -&gt; Bool)
 -&gt; Eq GetBlockResponse
@@ -457,7 +457,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBlockResponse -&gt; GetBlockResponse -&gt; Bool
 == :: GetBlockResponse -&gt; GetBlockResponse -&gt; Bool
 $c== :: GetBlockResponse -&gt; GetBlockResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186173"><span id="local-6989586621679186175"><span id="local-6989586621679186177"><span class="annot"><span class="annottext">Int -&gt; GetBlockResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186182"><span id="local-6989586621679186184"><span id="local-6989586621679186186"><span class="annot"><span class="annottext">Int -&gt; GetBlockResponse -&gt; ShowS
 [GetBlockResponse] -&gt; ShowS
 GetBlockResponse -&gt; String
 (Int -&gt; GetBlockResponse -&gt; ShowS)
@@ -505,9 +505,9 @@ $cfrom :: forall x. GetBlockResponse -&gt; Rep GetBlockResponse x
 </span><span id="line-214"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse"><span class="hs-identifier hs-type">GetBlockResponse</span></a></span><span>
 </span><span id="line-216"></span><span id="newGetBlockResponse"><span class="annot"><span class="annottext">newGetBlockResponse :: Int -&gt; ValueHolder -&gt; GetBlockResponse
-</span><a href="Network.AWS.QLDB.GetBlock.html#newGetBlockResponse"><span class="hs-identifier hs-var hs-var">newGetBlockResponse</span></a></span></span><span> </span><span id="local-6989586621679186170"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186170"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679186169"><span class="annot"><span class="annottext">ValueHolder
-</span><a href="#local-6989586621679186169"><span class="hs-identifier hs-var">pBlock_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.QLDB.GetBlock.html#newGetBlockResponse"><span class="hs-identifier hs-var hs-var">newGetBlockResponse</span></a></span></span><span> </span><span id="local-6989586621679186179"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186179"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679186178"><span class="annot"><span class="annottext">ValueHolder
+</span><a href="#local-6989586621679186178"><span class="hs-identifier hs-var">pBlock_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">GetBlockResponse' :: Maybe (Sensitive ValueHolder)
 -&gt; Int -&gt; Sensitive ValueHolder -&gt; GetBlockResponse
 </span><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse%27"><span class="hs-identifier hs-type">GetBlockResponse'</span></a></span><span>
@@ -517,7 +517,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBlockResponse' :: Int
 </span><a href="Network.AWS.QLDB.GetBlock.html#%24sel%3AhttpStatus%3AGetBlockResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186170"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679186179"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:block:GetBlockResponse' :: Sensitive ValueHolder
 </span><a href="Network.AWS.QLDB.GetBlock.html#%24sel%3Ablock%3AGetBlockResponse%27"><span class="hs-identifier hs-var">block</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ValueHolder (Identity ValueHolder)
 -&gt; Tagged
@@ -529,7 +529,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; ValueHolder -&gt; Sensitive ValueHolder
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ValueHolder
-</span><a href="#local-6989586621679186169"><span class="hs-identifier hs-var">pBlock_</span></a></span><span>
+</span><a href="#local-6989586621679186178"><span class="hs-identifier hs-var">pBlock_</span></a></span><span>
 </span><span id="line-221"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | The proof object in Amazon Ion format returned by a @GetBlock@ request.</span><span>
@@ -547,16 +547,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe (Sensitive ValueHolder))
      (Maybe (Sensitive ValueHolder))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse%27"><span class="hs-identifier hs-type">GetBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186168"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse%27"><span class="hs-identifier hs-type">GetBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186177"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
 proof :: Maybe (Sensitive ValueHolder)
 $sel:proof:GetBlockResponse' :: GetBlockResponse -&gt; Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679186168"><span class="hs-identifier hs-var hs-var">proof</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679186168"><span class="hs-identifier hs-var">proof</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186167"><span class="annot"><span class="annottext">s :: GetBlockResponse
-</span><a href="#local-6989586621679186167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse%27"><span class="hs-identifier hs-type">GetBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186166"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679186166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlockResponse
-</span><a href="#local-6989586621679186167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:proof:GetBlockResponse' :: Maybe (Sensitive ValueHolder)
+</span><a href="#local-6989586621679186177"><span class="hs-identifier hs-var hs-var">proof</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
+</span><a href="#local-6989586621679186177"><span class="hs-identifier hs-var">proof</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186176"><span class="annot"><span class="annottext">s :: GetBlockResponse
+</span><a href="#local-6989586621679186176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse%27"><span class="hs-identifier hs-type">GetBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186175"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
+</span><a href="#local-6989586621679186175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlockResponse
+</span><a href="#local-6989586621679186176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:proof:GetBlockResponse' :: Maybe (Sensitive ValueHolder)
 </span><a href="Network.AWS.QLDB.GetBlock.html#%24sel%3Aproof%3AGetBlockResponse%27"><span class="hs-identifier hs-var">proof</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679186166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse"><span class="hs-identifier hs-type">GetBlockResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive ValueHolder)
+</span><a href="#local-6989586621679186175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse"><span class="hs-identifier hs-type">GetBlockResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive ValueHolder)
   -&gt; f (Maybe (Sensitive ValueHolder)))
  -&gt; GetBlockResponse -&gt; f GetBlockResponse)
 -&gt; ((Maybe ValueHolder -&gt; f (Maybe ValueHolder))
@@ -594,16 +594,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (GetBlockResponse -&gt; Int -&gt; GetBlockResponse)
 -&gt; Lens GetBlockResponse GetBlockResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse%27"><span class="hs-identifier hs-type">GetBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186165"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse%27"><span class="hs-identifier hs-type">GetBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186174"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetBlockResponse' :: GetBlockResponse -&gt; Int
-</span><a href="#local-6989586621679186165"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186165"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186164"><span class="annot"><span class="annottext">s :: GetBlockResponse
-</span><a href="#local-6989586621679186164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse%27"><span class="hs-identifier hs-type">GetBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186163"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlockResponse
-</span><a href="#local-6989586621679186164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBlockResponse' :: Int
+</span><a href="#local-6989586621679186174"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186174"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186173"><span class="annot"><span class="annottext">s :: GetBlockResponse
+</span><a href="#local-6989586621679186173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse%27"><span class="hs-identifier hs-type">GetBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186172"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlockResponse
+</span><a href="#local-6989586621679186173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBlockResponse' :: Int
 </span><a href="Network.AWS.QLDB.GetBlock.html#%24sel%3AhttpStatus%3AGetBlockResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse"><span class="hs-identifier hs-type">GetBlockResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse"><span class="hs-identifier hs-type">GetBlockResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | The block data object in Amazon Ion format.</span><span>
 </span><span id="line-234"></span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#getBlockResponse_block"><span class="hs-identifier hs-type">getBlockResponse_block</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse"><span class="hs-identifier hs-type">GetBlockResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span><span>
@@ -617,16 +617,16 @@ $sel:httpStatus:GetBlockResponse' :: GetBlockResponse -&gt; Int
      (Sensitive ValueHolder)
      (Sensitive ValueHolder)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse%27"><span class="hs-identifier hs-type">GetBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186162"><span class="annot"><span class="annottext">Sensitive ValueHolder
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse%27"><span class="hs-identifier hs-type">GetBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186171"><span class="annot"><span class="annottext">Sensitive ValueHolder
 block :: Sensitive ValueHolder
 $sel:block:GetBlockResponse' :: GetBlockResponse -&gt; Sensitive ValueHolder
-</span><a href="#local-6989586621679186162"><span class="hs-identifier hs-var hs-var">block</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive ValueHolder
-</span><a href="#local-6989586621679186162"><span class="hs-identifier hs-var">block</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186161"><span class="annot"><span class="annottext">s :: GetBlockResponse
-</span><a href="#local-6989586621679186161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse%27"><span class="hs-identifier hs-type">GetBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186160"><span class="annot"><span class="annottext">Sensitive ValueHolder
-</span><a href="#local-6989586621679186160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlockResponse
-</span><a href="#local-6989586621679186161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:block:GetBlockResponse' :: Sensitive ValueHolder
+</span><a href="#local-6989586621679186171"><span class="hs-identifier hs-var hs-var">block</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive ValueHolder
+</span><a href="#local-6989586621679186171"><span class="hs-identifier hs-var">block</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186170"><span class="annot"><span class="annottext">s :: GetBlockResponse
+</span><a href="#local-6989586621679186170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse%27"><span class="hs-identifier hs-type">GetBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186169"><span class="annot"><span class="annottext">Sensitive ValueHolder
+</span><a href="#local-6989586621679186169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlockResponse
+</span><a href="#local-6989586621679186170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:block:GetBlockResponse' :: Sensitive ValueHolder
 </span><a href="Network.AWS.QLDB.GetBlock.html#%24sel%3Ablock%3AGetBlockResponse%27"><span class="hs-identifier hs-var">block</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive ValueHolder
-</span><a href="#local-6989586621679186160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse"><span class="hs-identifier hs-type">GetBlockResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive ValueHolder -&gt; f (Sensitive ValueHolder))
+</span><a href="#local-6989586621679186169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse"><span class="hs-identifier hs-type">GetBlockResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive ValueHolder -&gt; f (Sensitive ValueHolder))
  -&gt; GetBlockResponse -&gt; f GetBlockResponse)
 -&gt; ((ValueHolder -&gt; f ValueHolder)
     -&gt; Sensitive ValueHolder -&gt; f (Sensitive ValueHolder))
@@ -639,5 +639,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
 </span><span id="line-236"></span><span>
-</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186158"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse"><span class="hs-identifier hs-type">GetBlockResponse</span></a></span></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186167"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetBlock.html#GetBlockResponse"><span class="hs-identifier hs-type">GetBlockResponse</span></a></span></span><span>
 </span><span id="line-238"></span></pre></body></html>

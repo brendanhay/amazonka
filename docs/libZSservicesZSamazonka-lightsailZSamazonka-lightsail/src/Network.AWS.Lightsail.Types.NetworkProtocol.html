@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679616563"><span id="local-6989586621679616564"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NetworkProtocol"><span class="annot"><a href="Network.AWS.Lightsail.Types.NetworkProtocol.html#NetworkProtocol"><span class="hs-identifier hs-var">NetworkProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkProtocol%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.NetworkProtocol.html#NetworkProtocol%27"><span class="hs-identifier hs-var">NetworkProtocol'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679616572"><span id="local-6989586621679616573"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NetworkProtocol"><span class="annot"><a href="Network.AWS.Lightsail.Types.NetworkProtocol.html#NetworkProtocol"><span class="hs-identifier hs-var">NetworkProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkProtocol%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.NetworkProtocol.html#NetworkProtocol%27"><span class="hs-identifier hs-var">NetworkProtocol'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNetworkProtocol"><span class="annot"><span class="annottext">NetworkProtocol -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.NetworkProtocol.html#fromNetworkProtocol"><span class="hs-identifier hs-var hs-var">fromNetworkProtocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679616555"><span id="local-6989586621679616557"><span id="local-6989586621679616559"><span class="annot"><span class="annottext">Int -&gt; NetworkProtocol -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679616564"><span id="local-6989586621679616566"><span id="local-6989586621679616568"><span class="annot"><span class="annottext">Int -&gt; NetworkProtocol -&gt; ShowS
 [NetworkProtocol] -&gt; ShowS
 NetworkProtocol -&gt; String
 (Int -&gt; NetworkProtocol -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: NetworkProtocol -&gt; String
 showsPrec :: Int -&gt; NetworkProtocol -&gt; ShowS
 $cshowsPrec :: Int -&gt; NetworkProtocol -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679616546"><span id="local-6989586621679616548"><span id="local-6989586621679616550"><span id="local-6989586621679616552"><span class="annot"><span class="annottext">ReadPrec [NetworkProtocol]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679616555"><span id="local-6989586621679616557"><span id="local-6989586621679616559"><span id="local-6989586621679616561"><span class="annot"><span class="annottext">ReadPrec [NetworkProtocol]
 ReadPrec NetworkProtocol
 Int -&gt; ReadS NetworkProtocol
 ReadS [NetworkProtocol]
@@ -74,7 +74,7 @@ $creadList :: ReadS [NetworkProtocol]
 readsPrec :: Int -&gt; ReadS NetworkProtocol
 $creadsPrec :: Int -&gt; ReadS NetworkProtocol
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679616541"><span id="local-6989586621679616543"><span class="annot"><span class="annottext">NetworkProtocol -&gt; NetworkProtocol -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679616550"><span id="local-6989586621679616552"><span class="annot"><span class="annottext">NetworkProtocol -&gt; NetworkProtocol -&gt; Bool
 (NetworkProtocol -&gt; NetworkProtocol -&gt; Bool)
 -&gt; (NetworkProtocol -&gt; NetworkProtocol -&gt; Bool)
 -&gt; Eq NetworkProtocol
@@ -84,7 +84,7 @@ $c/= :: NetworkProtocol -&gt; NetworkProtocol -&gt; Bool
 == :: NetworkProtocol -&gt; NetworkProtocol -&gt; Bool
 $c== :: NetworkProtocol -&gt; NetworkProtocol -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679616525"><span id="local-6989586621679616527"><span id="local-6989586621679616529"><span id="local-6989586621679616531"><span id="local-6989586621679616533"><span id="local-6989586621679616535"><span id="local-6989586621679616537"><span class="annot"><span class="annottext">Eq NetworkProtocol
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679616534"><span id="local-6989586621679616536"><span id="local-6989586621679616538"><span id="local-6989586621679616540"><span id="local-6989586621679616542"><span id="local-6989586621679616544"><span id="local-6989586621679616546"><span class="annot"><span class="annottext">Eq NetworkProtocol
 Eq NetworkProtocol
 -&gt; (NetworkProtocol -&gt; NetworkProtocol -&gt; Ordering)
 -&gt; (NetworkProtocol -&gt; NetworkProtocol -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. NetworkProtocol -&gt; Rep NetworkProtocol x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679616517"><span id="local-6989586621679616519"><span class="annot"><span class="annottext">Int -&gt; NetworkProtocol -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679616526"><span id="local-6989586621679616528"><span class="annot"><span class="annottext">Int -&gt; NetworkProtocol -&gt; Int
 NetworkProtocol -&gt; Int
 (Int -&gt; NetworkProtocol -&gt; Int)
 -&gt; (NetworkProtocol -&gt; Int) -&gt; Hashable NetworkProtocol
@@ -145,50 +145,50 @@ $chash :: NetworkProtocol -&gt; Int
 hashWithSalt :: Int -&gt; NetworkProtocol -&gt; Int
 $chashWithSalt :: Int -&gt; NetworkProtocol -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679616514"><span class="annot"><span class="annottext">NetworkProtocol -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679616523"><span class="annot"><span class="annottext">NetworkProtocol -&gt; ()
 (NetworkProtocol -&gt; ()) -&gt; NFData NetworkProtocol
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NetworkProtocol -&gt; ()
 $crnf :: NetworkProtocol -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679616511"><span class="annot"><span class="annottext">Text -&gt; Either String NetworkProtocol
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679616520"><span class="annot"><span class="annottext">Text -&gt; Either String NetworkProtocol
 (Text -&gt; Either String NetworkProtocol) -&gt; FromText NetworkProtocol
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NetworkProtocol
 $cfromText :: Text -&gt; Either String NetworkProtocol
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679616508"><span class="annot"><span class="annottext">NetworkProtocol -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679616517"><span class="annot"><span class="annottext">NetworkProtocol -&gt; Text
 (NetworkProtocol -&gt; Text) -&gt; ToText NetworkProtocol
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NetworkProtocol -&gt; Text
 $ctoText :: NetworkProtocol -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679616505"><span class="annot"><span class="annottext">NetworkProtocol -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679616514"><span class="annot"><span class="annottext">NetworkProtocol -&gt; ByteString
 (NetworkProtocol -&gt; ByteString) -&gt; ToByteString NetworkProtocol
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NetworkProtocol -&gt; ByteString
 $ctoBS :: NetworkProtocol -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679616502"><span class="annot"><span class="annottext">NetworkProtocol -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679616511"><span class="annot"><span class="annottext">NetworkProtocol -&gt; ByteStringBuilder
 (NetworkProtocol -&gt; ByteStringBuilder) -&gt; ToLog NetworkProtocol
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NetworkProtocol -&gt; ByteStringBuilder
 $cbuild :: NetworkProtocol -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679616499"><span class="annot"><span class="annottext">HeaderName -&gt; NetworkProtocol -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679616508"><span class="annot"><span class="annottext">HeaderName -&gt; NetworkProtocol -&gt; [Header]
 (HeaderName -&gt; NetworkProtocol -&gt; [Header])
 -&gt; ToHeader NetworkProtocol
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NetworkProtocol -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NetworkProtocol -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679616496"><span class="annot"><span class="annottext">NetworkProtocol -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679616505"><span class="annot"><span class="annottext">NetworkProtocol -&gt; QueryString
 (NetworkProtocol -&gt; QueryString) -&gt; ToQuery NetworkProtocol
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NetworkProtocol -&gt; QueryString
 $ctoQuery :: NetworkProtocol -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679616491"><span id="local-6989586621679616493"><span class="annot"><span class="annottext">Value -&gt; Parser [NetworkProtocol]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679616500"><span id="local-6989586621679616502"><span class="annot"><span class="annottext">Value -&gt; Parser [NetworkProtocol]
 Value -&gt; Parser NetworkProtocol
 (Value -&gt; Parser NetworkProtocol)
 -&gt; (Value -&gt; Parser [NetworkProtocol]) -&gt; FromJSON NetworkProtocol
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [NetworkProtocol]
 parseJSON :: Value -&gt; Parser NetworkProtocol
 $cparseJSON :: Value -&gt; Parser NetworkProtocol
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679616486"><span id="local-6989586621679616488"><span class="annot"><span class="annottext">FromJSONKeyFunction [NetworkProtocol]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679616495"><span id="local-6989586621679616497"><span class="annot"><span class="annottext">FromJSONKeyFunction [NetworkProtocol]
 FromJSONKeyFunction NetworkProtocol
 FromJSONKeyFunction NetworkProtocol
 -&gt; FromJSONKeyFunction [NetworkProtocol]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NetworkProtocol]
 fromJSONKey :: FromJSONKeyFunction NetworkProtocol
 $cfromJSONKey :: FromJSONKeyFunction NetworkProtocol
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679616477"><span id="local-6989586621679616479"><span id="local-6989586621679616481"><span id="local-6989586621679616483"><span class="annot"><span class="annottext">[NetworkProtocol] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679616486"><span id="local-6989586621679616488"><span id="local-6989586621679616490"><span id="local-6989586621679616492"><span class="annot"><span class="annottext">[NetworkProtocol] -&gt; Encoding
 [NetworkProtocol] -&gt; Value
 NetworkProtocol -&gt; Encoding
 NetworkProtocol -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: NetworkProtocol -&gt; Encoding
 toJSON :: NetworkProtocol -&gt; Value
 $ctoJSON :: NetworkProtocol -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679616472"><span id="local-6989586621679616474"><span class="annot"><span class="annottext">ToJSONKeyFunction [NetworkProtocol]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679616481"><span id="local-6989586621679616483"><span class="annot"><span class="annottext">ToJSONKeyFunction [NetworkProtocol]
 ToJSONKeyFunction NetworkProtocol
 ToJSONKeyFunction NetworkProtocol
 -&gt; ToJSONKeyFunction [NetworkProtocol] -&gt; ToJSONKey NetworkProtocol
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NetworkProtocol]
 toJSONKey :: ToJSONKeyFunction NetworkProtocol
 $ctoJSONKey :: ToJSONKeyFunction NetworkProtocol
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679616469"><span class="annot"><span class="annottext">[Node] -&gt; Either String NetworkProtocol
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679616478"><span class="annot"><span class="annottext">[Node] -&gt; Either String NetworkProtocol
 ([Node] -&gt; Either String NetworkProtocol)
 -&gt; FromXML NetworkProtocol
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NetworkProtocol
 $cparseXML :: [Node] -&gt; Either String NetworkProtocol
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679616466"><span class="annot"><span class="annottext">NetworkProtocol -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679616475"><span class="annot"><span class="annottext">NetworkProtocol -&gt; XML
 (NetworkProtocol -&gt; XML) -&gt; ToXML NetworkProtocol
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NetworkProtocol -&gt; XML

@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Provides information that defines an Amazon Neptune endpoint.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newNeptuneSettings' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679433741"><span id="local-6989586621679433742"></span></span><span class="hs-keyword">data</span><span> </span><span id="NeptuneSettings"><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-var">NeptuneSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NeptuneSettings%27"><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-var">NeptuneSettings'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679433750"><span id="local-6989586621679433751"></span></span><span class="hs-keyword">data</span><span> </span><span id="NeptuneSettings"><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-var">NeptuneSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NeptuneSettings%27"><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-var">NeptuneSettings'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum size in kilobytes of migrated graph data stored in a .csv</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- file before DMS bulk-loads the data to the Neptune target database. The</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- default is 1,048,576 KB. If the bulk load is successful, DMS clears the</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3As3BucketFolder%3ANeptuneSettings%27"><span class="annot"><span class="annottext">NeptuneSettings -&gt; Text
 </span><a href="Network.AWS.DMS.Types.NeptuneSettings.html#%24sel%3As3BucketFolder%3ANeptuneSettings%27"><span class="hs-identifier hs-var hs-var">s3BucketFolder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433729"><span id="local-6989586621679433731"><span class="annot"><span class="annottext">NeptuneSettings -&gt; NeptuneSettings -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433738"><span id="local-6989586621679433740"><span class="annot"><span class="annottext">NeptuneSettings -&gt; NeptuneSettings -&gt; Bool
 (NeptuneSettings -&gt; NeptuneSettings -&gt; Bool)
 -&gt; (NeptuneSettings -&gt; NeptuneSettings -&gt; Bool)
 -&gt; Eq NeptuneSettings
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NeptuneSettings -&gt; NeptuneSettings -&gt; Bool
 == :: NeptuneSettings -&gt; NeptuneSettings -&gt; Bool
 $c== :: NeptuneSettings -&gt; NeptuneSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433720"><span id="local-6989586621679433722"><span id="local-6989586621679433724"><span id="local-6989586621679433726"><span class="annot"><span class="annottext">ReadPrec [NeptuneSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433729"><span id="local-6989586621679433731"><span id="local-6989586621679433733"><span id="local-6989586621679433735"><span class="annot"><span class="annottext">ReadPrec [NeptuneSettings]
 ReadPrec NeptuneSettings
 Int -&gt; ReadS NeptuneSettings
 ReadS [NeptuneSettings]
@@ -96,7 +96,7 @@ readList :: ReadS [NeptuneSettings]
 $creadList :: ReadS [NeptuneSettings]
 readsPrec :: Int -&gt; ReadS NeptuneSettings
 $creadsPrec :: Int -&gt; ReadS NeptuneSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433713"><span id="local-6989586621679433715"><span id="local-6989586621679433717"><span class="annot"><span class="annottext">Int -&gt; NeptuneSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433722"><span id="local-6989586621679433724"><span id="local-6989586621679433726"><span class="annot"><span class="annottext">Int -&gt; NeptuneSettings -&gt; ShowS
 [NeptuneSettings] -&gt; ShowS
 NeptuneSettings -&gt; String
 (Int -&gt; NeptuneSettings -&gt; ShowS)
@@ -168,9 +168,9 @@ $cfrom :: forall x. NeptuneSettings -&gt; Rep NeptuneSettings x
 </span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span><span>
 </span><span id="line-110"></span><span id="newNeptuneSettings"><span class="annot"><span class="annottext">newNeptuneSettings :: Text -&gt; Text -&gt; NeptuneSettings
-</span><a href="Network.AWS.DMS.Types.NeptuneSettings.html#newNeptuneSettings"><span class="hs-identifier hs-var hs-var">newNeptuneSettings</span></a></span></span><span> </span><span id="local-6989586621679433707"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433707"><span class="hs-identifier hs-var">pS3BucketName_</span></a></span></span><span> </span><span id="local-6989586621679433706"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433706"><span class="hs-identifier hs-var">pS3BucketFolder_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DMS.Types.NeptuneSettings.html#newNeptuneSettings"><span class="hs-identifier hs-var hs-var">newNeptuneSettings</span></a></span></span><span> </span><span id="local-6989586621679433716"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433716"><span class="hs-identifier hs-var">pS3BucketName_</span></a></span></span><span> </span><span id="local-6989586621679433715"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433715"><span class="hs-identifier hs-var">pS3BucketFolder_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="annottext">NeptuneSettings' :: Maybe Int
 -&gt; Maybe Int
 -&gt; Maybe Text
@@ -202,10 +202,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3BucketName:NeptuneSettings' :: Text
 </span><a href="Network.AWS.DMS.Types.NeptuneSettings.html#%24sel%3As3BucketName%3ANeptuneSettings%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433707"><span class="hs-identifier hs-var">pS3BucketName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433716"><span class="hs-identifier hs-var">pS3BucketName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3BucketFolder:NeptuneSettings' :: Text
 </span><a href="Network.AWS.DMS.Types.NeptuneSettings.html#%24sel%3As3BucketFolder%3ANeptuneSettings%27"><span class="hs-identifier hs-var">s3BucketFolder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433706"><span class="hs-identifier hs-var">pS3BucketFolder_</span></a></span><span>
+</span><a href="#local-6989586621679433715"><span class="hs-identifier hs-var">pS3BucketFolder_</span></a></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The maximum size in kilobytes of migrated graph data stored in a .csv</span><span>
@@ -219,16 +219,16 @@ forall a. Maybe a
 -&gt; (NeptuneSettings -&gt; Maybe Int -&gt; NeptuneSettings)
 -&gt; Lens NeptuneSettings NeptuneSettings (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433702"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433711"><span class="annot"><span class="annottext">Maybe Int
 maxFileSize :: Maybe Int
 $sel:maxFileSize:NeptuneSettings' :: NeptuneSettings -&gt; Maybe Int
-</span><a href="#local-6989586621679433702"><span class="hs-identifier hs-var hs-var">maxFileSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679433702"><span class="hs-identifier hs-var">maxFileSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433701"><span class="annot"><span class="annottext">s :: NeptuneSettings
-</span><a href="#local-6989586621679433701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433700"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679433700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NeptuneSettings
-</span><a href="#local-6989586621679433701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxFileSize:NeptuneSettings' :: Maybe Int
+</span><a href="#local-6989586621679433711"><span class="hs-identifier hs-var hs-var">maxFileSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679433711"><span class="hs-identifier hs-var">maxFileSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433710"><span class="annot"><span class="annottext">s :: NeptuneSettings
+</span><a href="#local-6989586621679433710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433709"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679433709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NeptuneSettings
+</span><a href="#local-6989586621679433710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxFileSize:NeptuneSettings' :: Maybe Int
 </span><a href="Network.AWS.DMS.Types.NeptuneSettings.html#%24sel%3AmaxFileSize%3ANeptuneSettings%27"><span class="hs-identifier hs-var">maxFileSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679433700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The number of times for DMS to retry a bulk load of migrated graph data</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- to the Neptune target database before raising an error. The default is</span><span>
@@ -240,16 +240,16 @@ $sel:maxFileSize:NeptuneSettings' :: NeptuneSettings -&gt; Maybe Int
 -&gt; (NeptuneSettings -&gt; Maybe Int -&gt; NeptuneSettings)
 -&gt; Lens NeptuneSettings NeptuneSettings (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433698"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433707"><span class="annot"><span class="annottext">Maybe Int
 maxRetryCount :: Maybe Int
 $sel:maxRetryCount:NeptuneSettings' :: NeptuneSettings -&gt; Maybe Int
-</span><a href="#local-6989586621679433698"><span class="hs-identifier hs-var hs-var">maxRetryCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679433698"><span class="hs-identifier hs-var">maxRetryCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433697"><span class="annot"><span class="annottext">s :: NeptuneSettings
-</span><a href="#local-6989586621679433697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433696"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679433696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NeptuneSettings
-</span><a href="#local-6989586621679433697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRetryCount:NeptuneSettings' :: Maybe Int
+</span><a href="#local-6989586621679433707"><span class="hs-identifier hs-var hs-var">maxRetryCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679433707"><span class="hs-identifier hs-var">maxRetryCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433706"><span class="annot"><span class="annottext">s :: NeptuneSettings
+</span><a href="#local-6989586621679433706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433705"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679433705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NeptuneSettings
+</span><a href="#local-6989586621679433706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRetryCount:NeptuneSettings' :: Maybe Int
 </span><a href="Network.AWS.DMS.Types.NeptuneSettings.html#%24sel%3AmaxRetryCount%3ANeptuneSettings%27"><span class="hs-identifier hs-var">maxRetryCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679433696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the service role that you created for</span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- the Neptune target endpoint. The role must allow the @iam:PassRole@</span><span>
@@ -263,16 +263,16 @@ $sel:maxRetryCount:NeptuneSettings' :: NeptuneSettings -&gt; Maybe Int
 -&gt; (NeptuneSettings -&gt; Maybe Text -&gt; NeptuneSettings)
 -&gt; Lens NeptuneSettings NeptuneSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433694"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433703"><span class="annot"><span class="annottext">Maybe Text
 serviceAccessRoleArn :: Maybe Text
 $sel:serviceAccessRoleArn:NeptuneSettings' :: NeptuneSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679433694"><span class="hs-identifier hs-var hs-var">serviceAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433694"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433693"><span class="annot"><span class="annottext">s :: NeptuneSettings
-</span><a href="#local-6989586621679433693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433692"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NeptuneSettings
-</span><a href="#local-6989586621679433693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccessRoleArn:NeptuneSettings' :: Maybe Text
+</span><a href="#local-6989586621679433703"><span class="hs-identifier hs-var hs-var">serviceAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433703"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433702"><span class="annot"><span class="annottext">s :: NeptuneSettings
+</span><a href="#local-6989586621679433702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433701"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NeptuneSettings
+</span><a href="#local-6989586621679433702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccessRoleArn:NeptuneSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.NeptuneSettings.html#%24sel%3AserviceAccessRoleArn%3ANeptuneSettings%27"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | If you want Identity and Access Management (IAM) authorization enabled</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- for this endpoint, set this parameter to @true@. Then attach the</span><span>
@@ -285,16 +285,16 @@ $sel:serviceAccessRoleArn:NeptuneSettings' :: NeptuneSettings -&gt; Maybe Text
 -&gt; (NeptuneSettings -&gt; Maybe Bool -&gt; NeptuneSettings)
 -&gt; Lens NeptuneSettings NeptuneSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433690"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433699"><span class="annot"><span class="annottext">Maybe Bool
 iamAuthEnabled :: Maybe Bool
 $sel:iamAuthEnabled:NeptuneSettings' :: NeptuneSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679433690"><span class="hs-identifier hs-var hs-var">iamAuthEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433690"><span class="hs-identifier hs-var">iamAuthEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433689"><span class="annot"><span class="annottext">s :: NeptuneSettings
-</span><a href="#local-6989586621679433689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433688"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NeptuneSettings
-</span><a href="#local-6989586621679433689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamAuthEnabled:NeptuneSettings' :: Maybe Bool
+</span><a href="#local-6989586621679433699"><span class="hs-identifier hs-var hs-var">iamAuthEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433699"><span class="hs-identifier hs-var">iamAuthEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433698"><span class="annot"><span class="annottext">s :: NeptuneSettings
+</span><a href="#local-6989586621679433698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433697"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NeptuneSettings
+</span><a href="#local-6989586621679433698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamAuthEnabled:NeptuneSettings' :: Maybe Bool
 </span><a href="Network.AWS.DMS.Types.NeptuneSettings.html#%24sel%3AiamAuthEnabled%3ANeptuneSettings%27"><span class="hs-identifier hs-var">iamAuthEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The number of milliseconds for DMS to wait to retry a bulk-load of</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- migrated graph data to the Neptune target database before raising an</span><span>
@@ -306,16 +306,16 @@ $sel:iamAuthEnabled:NeptuneSettings' :: NeptuneSettings -&gt; Maybe Bool
 -&gt; (NeptuneSettings -&gt; Maybe Int -&gt; NeptuneSettings)
 -&gt; Lens NeptuneSettings NeptuneSettings (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433686"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433695"><span class="annot"><span class="annottext">Maybe Int
 errorRetryDuration :: Maybe Int
 $sel:errorRetryDuration:NeptuneSettings' :: NeptuneSettings -&gt; Maybe Int
-</span><a href="#local-6989586621679433686"><span class="hs-identifier hs-var hs-var">errorRetryDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679433686"><span class="hs-identifier hs-var">errorRetryDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433685"><span class="annot"><span class="annottext">s :: NeptuneSettings
-</span><a href="#local-6989586621679433685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433684"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679433684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NeptuneSettings
-</span><a href="#local-6989586621679433685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorRetryDuration:NeptuneSettings' :: Maybe Int
+</span><a href="#local-6989586621679433695"><span class="hs-identifier hs-var hs-var">errorRetryDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679433695"><span class="hs-identifier hs-var">errorRetryDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433694"><span class="annot"><span class="annottext">s :: NeptuneSettings
+</span><a href="#local-6989586621679433694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433693"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679433693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NeptuneSettings
+</span><a href="#local-6989586621679433694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorRetryDuration:NeptuneSettings' :: Maybe Int
 </span><a href="Network.AWS.DMS.Types.NeptuneSettings.html#%24sel%3AerrorRetryDuration%3ANeptuneSettings%27"><span class="hs-identifier hs-var">errorRetryDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679433684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket where DMS can temporarily store</span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- migrated graph data in .csv files before bulk-loading it to the Neptune</span><span>
@@ -327,16 +327,16 @@ $sel:errorRetryDuration:NeptuneSettings' :: NeptuneSettings -&gt; Maybe Int
 -&gt; (NeptuneSettings -&gt; Text -&gt; NeptuneSettings)
 -&gt; Lens NeptuneSettings NeptuneSettings Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433682"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433691"><span class="annot"><span class="annottext">Text
 s3BucketName :: Text
 $sel:s3BucketName:NeptuneSettings' :: NeptuneSettings -&gt; Text
-</span><a href="#local-6989586621679433682"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433682"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433681"><span class="annot"><span class="annottext">s :: NeptuneSettings
-</span><a href="#local-6989586621679433681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433680"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NeptuneSettings
-</span><a href="#local-6989586621679433681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:NeptuneSettings' :: Text
+</span><a href="#local-6989586621679433691"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433691"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433690"><span class="annot"><span class="annottext">s :: NeptuneSettings
+</span><a href="#local-6989586621679433690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433689"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NeptuneSettings
+</span><a href="#local-6989586621679433690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:NeptuneSettings' :: Text
 </span><a href="Network.AWS.DMS.Types.NeptuneSettings.html#%24sel%3As3BucketName%3ANeptuneSettings%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | A folder path where you want DMS to store migrated graph data in the S3</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- bucket specified by @S3BucketName@</span><span>
@@ -346,19 +346,19 @@ $sel:s3BucketName:NeptuneSettings' :: NeptuneSettings -&gt; Text
 -&gt; (NeptuneSettings -&gt; Text -&gt; NeptuneSettings)
 -&gt; Lens NeptuneSettings NeptuneSettings Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433678"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433687"><span class="annot"><span class="annottext">Text
 s3BucketFolder :: Text
 $sel:s3BucketFolder:NeptuneSettings' :: NeptuneSettings -&gt; Text
-</span><a href="#local-6989586621679433678"><span class="hs-identifier hs-var hs-var">s3BucketFolder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433678"><span class="hs-identifier hs-var">s3BucketFolder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433677"><span class="annot"><span class="annottext">s :: NeptuneSettings
-</span><a href="#local-6989586621679433677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433676"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NeptuneSettings
-</span><a href="#local-6989586621679433677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketFolder:NeptuneSettings' :: Text
+</span><a href="#local-6989586621679433687"><span class="hs-identifier hs-var hs-var">s3BucketFolder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433687"><span class="hs-identifier hs-var">s3BucketFolder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433686"><span class="annot"><span class="annottext">s :: NeptuneSettings
+</span><a href="#local-6989586621679433686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433685"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NeptuneSettings
+</span><a href="#local-6989586621679433686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketFolder:NeptuneSettings' :: Text
 </span><a href="Network.AWS.DMS.Types.NeptuneSettings.html#%24sel%3As3BucketFolder%3ANeptuneSettings%27"><span class="hs-identifier hs-var">s3BucketFolder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433673"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679433671"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NeptuneSettings
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433682"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679433680"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NeptuneSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser NeptuneSettings)
@@ -368,8 +368,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;NeptuneSettings&quot;</span></span><span>
-</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679433668"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433668"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679433677"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433677"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe Int
 -&gt; Maybe Text
@@ -398,7 +398,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; NeptuneSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679433677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxFileSize&quot;</span></span><span class="hs-special">)</span><span>
@@ -416,7 +416,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Bool -&gt; Maybe Int -&gt; Text -&gt; Text -&gt; NeptuneSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679433677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxRetryCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -428,7 +428,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Bool -&gt; Maybe Int -&gt; Text -&gt; Text -&gt; NeptuneSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679433677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceAccessRoleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -437,7 +437,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int -&gt; Text -&gt; Text -&gt; NeptuneSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679433677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IamAuthEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -445,7 +445,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser (Text -&gt; Text -&gt; NeptuneSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679433677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorRetryDuration&quot;</span></span><span class="hs-special">)</span><span>
@@ -453,7 +453,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; NeptuneSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679433677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3BucketName&quot;</span></span><span class="hs-special">)</span><span>
@@ -461,19 +461,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser NeptuneSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679433677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3BucketFolder&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433661"><span id="local-6989586621679433663"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433670"><span id="local-6989586621679433672"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span></span></span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433658"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433667"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span></span><span>
 </span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433650"><span id="local-6989586621679433652"><span id="local-6989586621679433654"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679433648"><span class="annot"><span class="annottext">toJSON :: NeptuneSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433640"><span id="local-6989586621679433641"><span id="local-6989586621679433642"><span id="local-6989586621679433643"><span id="local-6989586621679433644"><span id="local-6989586621679433645"><span id="local-6989586621679433646"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433659"><span id="local-6989586621679433661"><span id="local-6989586621679433663"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings"><span class="hs-identifier hs-type">NeptuneSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679433657"><span class="annot"><span class="annottext">toJSON :: NeptuneSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.NeptuneSettings.html#NeptuneSettings%27"><span class="hs-identifier hs-type">NeptuneSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433649"><span id="local-6989586621679433650"><span id="local-6989586621679433651"><span id="local-6989586621679433652"><span id="local-6989586621679433653"><span id="local-6989586621679433654"><span id="local-6989586621679433655"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe Text
 Text
@@ -491,7 +491,7 @@ $sel:iamAuthEnabled:NeptuneSettings' :: NeptuneSettings -&gt; Maybe Bool
 $sel:serviceAccessRoleArn:NeptuneSettings' :: NeptuneSettings -&gt; Maybe Text
 $sel:maxRetryCount:NeptuneSettings' :: NeptuneSettings -&gt; Maybe Int
 $sel:maxFileSize:NeptuneSettings' :: NeptuneSettings -&gt; Maybe Int
-</span><a href="#local-6989586621679433640"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679433649"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -503,14 +503,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679433646"><span class="hs-identifier hs-var">maxFileSize</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433655"><span class="hs-identifier hs-var">maxFileSize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxRetryCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679433645"><span class="hs-identifier hs-var">maxRetryCount</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433654"><span class="hs-identifier hs-var">maxRetryCount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceAccessRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -518,7 +518,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-193"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433644"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433653"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IamAuthEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -526,7 +526,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-195"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433643"><span class="hs-identifier hs-var">iamAuthEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433652"><span class="hs-identifier hs-var">iamAuthEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorRetryDuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -534,14 +534,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-197"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679433642"><span class="hs-identifier hs-var">errorRetryDuration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433651"><span class="hs-identifier hs-var">errorRetryDuration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433641"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433650"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -549,7 +549,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;S3BucketFolder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433640"><span class="hs-identifier hs-var">s3BucketFolder</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433649"><span class="hs-identifier hs-var">s3BucketFolder</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span></pre></body></html>

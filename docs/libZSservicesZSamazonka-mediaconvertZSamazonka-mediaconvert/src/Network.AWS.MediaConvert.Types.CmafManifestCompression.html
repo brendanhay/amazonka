@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | When set to GZIP, compresses HLS playlist.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679949778"><span id="local-6989586621679949779"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafManifestCompression"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafManifestCompression.html#CmafManifestCompression"><span class="hs-identifier hs-var">CmafManifestCompression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafManifestCompression%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafManifestCompression.html#CmafManifestCompression%27"><span class="hs-identifier hs-var">CmafManifestCompression'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679949787"><span id="local-6989586621679949788"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafManifestCompression"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafManifestCompression.html#CmafManifestCompression"><span class="hs-identifier hs-var">CmafManifestCompression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafManifestCompression%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafManifestCompression.html#CmafManifestCompression%27"><span class="hs-identifier hs-var">CmafManifestCompression'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmafManifestCompression"><span class="annot"><span class="annottext">CmafManifestCompression -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.CmafManifestCompression.html#fromCmafManifestCompression"><span class="hs-identifier hs-var hs-var">fromCmafManifestCompression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679949770"><span id="local-6989586621679949772"><span id="local-6989586621679949774"><span class="annot"><span class="annottext">Int -&gt; CmafManifestCompression -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679949779"><span id="local-6989586621679949781"><span id="local-6989586621679949783"><span class="annot"><span class="annottext">Int -&gt; CmafManifestCompression -&gt; ShowS
 [CmafManifestCompression] -&gt; ShowS
 CmafManifestCompression -&gt; String
 (Int -&gt; CmafManifestCompression -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: CmafManifestCompression -&gt; String
 showsPrec :: Int -&gt; CmafManifestCompression -&gt; ShowS
 $cshowsPrec :: Int -&gt; CmafManifestCompression -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679949761"><span id="local-6989586621679949763"><span id="local-6989586621679949765"><span id="local-6989586621679949767"><span class="annot"><span class="annottext">ReadPrec [CmafManifestCompression]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679949770"><span id="local-6989586621679949772"><span id="local-6989586621679949774"><span id="local-6989586621679949776"><span class="annot"><span class="annottext">ReadPrec [CmafManifestCompression]
 ReadPrec CmafManifestCompression
 Int -&gt; ReadS CmafManifestCompression
 ReadS [CmafManifestCompression]
@@ -73,7 +73,7 @@ $creadList :: ReadS [CmafManifestCompression]
 readsPrec :: Int -&gt; ReadS CmafManifestCompression
 $creadsPrec :: Int -&gt; ReadS CmafManifestCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679949756"><span id="local-6989586621679949758"><span class="annot"><span class="annottext">CmafManifestCompression -&gt; CmafManifestCompression -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679949765"><span id="local-6989586621679949767"><span class="annot"><span class="annottext">CmafManifestCompression -&gt; CmafManifestCompression -&gt; Bool
 (CmafManifestCompression -&gt; CmafManifestCompression -&gt; Bool)
 -&gt; (CmafManifestCompression -&gt; CmafManifestCompression -&gt; Bool)
 -&gt; Eq CmafManifestCompression
@@ -83,7 +83,7 @@ $c/= :: CmafManifestCompression -&gt; CmafManifestCompression -&gt; Bool
 == :: CmafManifestCompression -&gt; CmafManifestCompression -&gt; Bool
 $c== :: CmafManifestCompression -&gt; CmafManifestCompression -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679949740"><span id="local-6989586621679949742"><span id="local-6989586621679949744"><span id="local-6989586621679949746"><span id="local-6989586621679949748"><span id="local-6989586621679949750"><span id="local-6989586621679949752"><span class="annot"><span class="annottext">Eq CmafManifestCompression
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679949749"><span id="local-6989586621679949751"><span id="local-6989586621679949753"><span id="local-6989586621679949755"><span id="local-6989586621679949757"><span id="local-6989586621679949759"><span id="local-6989586621679949761"><span class="annot"><span class="annottext">Eq CmafManifestCompression
 Eq CmafManifestCompression
 -&gt; (CmafManifestCompression -&gt; CmafManifestCompression -&gt; Ordering)
 -&gt; (CmafManifestCompression -&gt; CmafManifestCompression -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. CmafManifestCompression -&gt; Rep CmafManifestCompression x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679949732"><span id="local-6989586621679949734"><span class="annot"><span class="annottext">Int -&gt; CmafManifestCompression -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679949741"><span id="local-6989586621679949743"><span class="annot"><span class="annottext">Int -&gt; CmafManifestCompression -&gt; Int
 CmafManifestCompression -&gt; Int
 (Int -&gt; CmafManifestCompression -&gt; Int)
 -&gt; (CmafManifestCompression -&gt; Int)
@@ -154,54 +154,54 @@ $chash :: CmafManifestCompression -&gt; Int
 hashWithSalt :: Int -&gt; CmafManifestCompression -&gt; Int
 $chashWithSalt :: Int -&gt; CmafManifestCompression -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679949729"><span class="annot"><span class="annottext">CmafManifestCompression -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679949738"><span class="annot"><span class="annottext">CmafManifestCompression -&gt; ()
 (CmafManifestCompression -&gt; ()) -&gt; NFData CmafManifestCompression
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CmafManifestCompression -&gt; ()
 $crnf :: CmafManifestCompression -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679949726"><span class="annot"><span class="annottext">Text -&gt; Either String CmafManifestCompression
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679949735"><span class="annot"><span class="annottext">Text -&gt; Either String CmafManifestCompression
 (Text -&gt; Either String CmafManifestCompression)
 -&gt; FromText CmafManifestCompression
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CmafManifestCompression
 $cfromText :: Text -&gt; Either String CmafManifestCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679949723"><span class="annot"><span class="annottext">CmafManifestCompression -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679949732"><span class="annot"><span class="annottext">CmafManifestCompression -&gt; Text
 (CmafManifestCompression -&gt; Text) -&gt; ToText CmafManifestCompression
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CmafManifestCompression -&gt; Text
 $ctoText :: CmafManifestCompression -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679949720"><span class="annot"><span class="annottext">CmafManifestCompression -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679949729"><span class="annot"><span class="annottext">CmafManifestCompression -&gt; ByteString
 (CmafManifestCompression -&gt; ByteString)
 -&gt; ToByteString CmafManifestCompression
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CmafManifestCompression -&gt; ByteString
 $ctoBS :: CmafManifestCompression -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679949717"><span class="annot"><span class="annottext">CmafManifestCompression -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679949726"><span class="annot"><span class="annottext">CmafManifestCompression -&gt; ByteStringBuilder
 (CmafManifestCompression -&gt; ByteStringBuilder)
 -&gt; ToLog CmafManifestCompression
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CmafManifestCompression -&gt; ByteStringBuilder
 $cbuild :: CmafManifestCompression -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679949714"><span class="annot"><span class="annottext">HeaderName -&gt; CmafManifestCompression -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679949723"><span class="annot"><span class="annottext">HeaderName -&gt; CmafManifestCompression -&gt; [Header]
 (HeaderName -&gt; CmafManifestCompression -&gt; [Header])
 -&gt; ToHeader CmafManifestCompression
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CmafManifestCompression -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CmafManifestCompression -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679949711"><span class="annot"><span class="annottext">CmafManifestCompression -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679949720"><span class="annot"><span class="annottext">CmafManifestCompression -&gt; QueryString
 (CmafManifestCompression -&gt; QueryString)
 -&gt; ToQuery CmafManifestCompression
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CmafManifestCompression -&gt; QueryString
 $ctoQuery :: CmafManifestCompression -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679949706"><span id="local-6989586621679949708"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafManifestCompression]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679949715"><span id="local-6989586621679949717"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafManifestCompression]
 Value -&gt; Parser CmafManifestCompression
 (Value -&gt; Parser CmafManifestCompression)
 -&gt; (Value -&gt; Parser [CmafManifestCompression])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [CmafManifestCompression]
 parseJSON :: Value -&gt; Parser CmafManifestCompression
 $cparseJSON :: Value -&gt; Parser CmafManifestCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679949701"><span id="local-6989586621679949703"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafManifestCompression]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679949710"><span id="local-6989586621679949712"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafManifestCompression]
 FromJSONKeyFunction CmafManifestCompression
 FromJSONKeyFunction CmafManifestCompression
 -&gt; FromJSONKeyFunction [CmafManifestCompression]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CmafManifestCompression]
 fromJSONKey :: FromJSONKeyFunction CmafManifestCompression
 $cfromJSONKey :: FromJSONKeyFunction CmafManifestCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679949692"><span id="local-6989586621679949694"><span id="local-6989586621679949696"><span id="local-6989586621679949698"><span class="annot"><span class="annottext">[CmafManifestCompression] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679949701"><span id="local-6989586621679949703"><span id="local-6989586621679949705"><span id="local-6989586621679949707"><span class="annot"><span class="annottext">[CmafManifestCompression] -&gt; Encoding
 [CmafManifestCompression] -&gt; Value
 CmafManifestCompression -&gt; Encoding
 CmafManifestCompression -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: CmafManifestCompression -&gt; Encoding
 toJSON :: CmafManifestCompression -&gt; Value
 $ctoJSON :: CmafManifestCompression -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679949687"><span id="local-6989586621679949689"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafManifestCompression]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679949696"><span id="local-6989586621679949698"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafManifestCompression]
 ToJSONKeyFunction CmafManifestCompression
 ToJSONKeyFunction CmafManifestCompression
 -&gt; ToJSONKeyFunction [CmafManifestCompression]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CmafManifestCompression]
 toJSONKey :: ToJSONKeyFunction CmafManifestCompression
 $ctoJSONKey :: ToJSONKeyFunction CmafManifestCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679949684"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafManifestCompression
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679949693"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafManifestCompression
 ([Node] -&gt; Either String CmafManifestCompression)
 -&gt; FromXML CmafManifestCompression
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CmafManifestCompression
 $cparseXML :: [Node] -&gt; Either String CmafManifestCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679949681"><span class="annot"><span class="annottext">CmafManifestCompression -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679949690"><span class="annot"><span class="annottext">CmafManifestCompression -&gt; XML
 (CmafManifestCompression -&gt; XML) -&gt; ToXML CmafManifestCompression
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CmafManifestCompression -&gt; XML

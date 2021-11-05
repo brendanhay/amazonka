@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- container service.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEndpointRequest' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679610318"><span id="local-6989586621679610319"></span></span><span class="hs-keyword">data</span><span> </span><span id="EndpointRequest"><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-var">EndpointRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointRequest%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest%27"><span class="hs-identifier hs-var">EndpointRequest'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679610327"><span id="local-6989586621679610328"></span></span><span class="hs-keyword">data</span><span> </span><span id="EndpointRequest"><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-var">EndpointRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointRequest%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest%27"><span class="hs-identifier hs-var">EndpointRequest'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that describes the health check configuration of the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- container.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AhealthCheck%3AEndpointRequest%27"><span class="annot"><span class="annottext">EndpointRequest -&gt; Maybe ContainerServiceHealthCheckConfig
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AcontainerPort%3AEndpointRequest%27"><span class="annot"><span class="annottext">EndpointRequest -&gt; Int
 </span><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#%24sel%3AcontainerPort%3AEndpointRequest%27"><span class="hs-identifier hs-var hs-var">containerPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679610310"><span id="local-6989586621679610312"><span class="annot"><span class="annottext">EndpointRequest -&gt; EndpointRequest -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679610319"><span id="local-6989586621679610321"><span class="annot"><span class="annottext">EndpointRequest -&gt; EndpointRequest -&gt; Bool
 (EndpointRequest -&gt; EndpointRequest -&gt; Bool)
 -&gt; (EndpointRequest -&gt; EndpointRequest -&gt; Bool)
 -&gt; Eq EndpointRequest
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EndpointRequest -&gt; EndpointRequest -&gt; Bool
 == :: EndpointRequest -&gt; EndpointRequest -&gt; Bool
 $c== :: EndpointRequest -&gt; EndpointRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610301"><span id="local-6989586621679610303"><span id="local-6989586621679610305"><span id="local-6989586621679610307"><span class="annot"><span class="annottext">ReadPrec [EndpointRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610310"><span id="local-6989586621679610312"><span id="local-6989586621679610314"><span id="local-6989586621679610316"><span class="annot"><span class="annottext">ReadPrec [EndpointRequest]
 ReadPrec EndpointRequest
 Int -&gt; ReadS EndpointRequest
 ReadS [EndpointRequest]
@@ -69,7 +69,7 @@ readList :: ReadS [EndpointRequest]
 $creadList :: ReadS [EndpointRequest]
 readsPrec :: Int -&gt; ReadS EndpointRequest
 $creadsPrec :: Int -&gt; ReadS EndpointRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610294"><span id="local-6989586621679610296"><span id="local-6989586621679610298"><span class="annot"><span class="annottext">Int -&gt; EndpointRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610303"><span id="local-6989586621679610305"><span id="local-6989586621679610307"><span class="annot"><span class="annottext">Int -&gt; EndpointRequest -&gt; ShowS
 [EndpointRequest] -&gt; ShowS
 EndpointRequest -&gt; String
 (Int -&gt; EndpointRequest -&gt; ShowS)
@@ -116,9 +116,9 @@ $cfrom :: forall x. EndpointRequest -&gt; Rep EndpointRequest x
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-type">EndpointRequest</span></a></span><span>
 </span><span id="line-62"></span><span id="newEndpointRequest"><span class="annot"><span class="annottext">newEndpointRequest :: Text -&gt; Int -&gt; EndpointRequest
-</span><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#newEndpointRequest"><span class="hs-identifier hs-var hs-var">newEndpointRequest</span></a></span></span><span> </span><span id="local-6989586621679610288"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679610288"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span id="local-6989586621679610287"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679610287"><span class="hs-identifier hs-var">pContainerPort_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#newEndpointRequest"><span class="hs-identifier hs-var hs-var">newEndpointRequest</span></a></span></span><span> </span><span id="local-6989586621679610297"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679610297"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span id="local-6989586621679610296"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679610296"><span class="hs-identifier hs-var">pContainerPort_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">EndpointRequest' :: Maybe ContainerServiceHealthCheckConfig
 -&gt; Text -&gt; Int -&gt; EndpointRequest
 </span><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest%27"><span class="hs-identifier hs-type">EndpointRequest'</span></a></span><span>
@@ -128,10 +128,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerName:EndpointRequest' :: Text
 </span><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#%24sel%3AcontainerName%3AEndpointRequest%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679610288"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610297"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerPort:EndpointRequest' :: Int
 </span><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#%24sel%3AcontainerPort%3AEndpointRequest%27"><span class="hs-identifier hs-var">containerPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679610287"><span class="hs-identifier hs-var">pContainerPort_</span></a></span><span>
+</span><a href="#local-6989586621679610296"><span class="hs-identifier hs-var">pContainerPort_</span></a></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | An object that describes the health check configuration of the</span><span>
@@ -149,16 +149,16 @@ forall a. Maybe a
      (Maybe ContainerServiceHealthCheckConfig)
      (Maybe ContainerServiceHealthCheckConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest%27"><span class="hs-identifier hs-type">EndpointRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610283"><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest%27"><span class="hs-identifier hs-type">EndpointRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610292"><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
 healthCheck :: Maybe ContainerServiceHealthCheckConfig
 $sel:healthCheck:EndpointRequest' :: EndpointRequest -&gt; Maybe ContainerServiceHealthCheckConfig
-</span><a href="#local-6989586621679610283"><span class="hs-identifier hs-var hs-var">healthCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
-</span><a href="#local-6989586621679610283"><span class="hs-identifier hs-var">healthCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610282"><span class="annot"><span class="annottext">s :: EndpointRequest
-</span><a href="#local-6989586621679610282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest%27"><span class="hs-identifier hs-type">EndpointRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610281"><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
-</span><a href="#local-6989586621679610281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointRequest
-</span><a href="#local-6989586621679610282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheck:EndpointRequest' :: Maybe ContainerServiceHealthCheckConfig
+</span><a href="#local-6989586621679610292"><span class="hs-identifier hs-var hs-var">healthCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
+</span><a href="#local-6989586621679610292"><span class="hs-identifier hs-var">healthCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610291"><span class="annot"><span class="annottext">s :: EndpointRequest
+</span><a href="#local-6989586621679610291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest%27"><span class="hs-identifier hs-type">EndpointRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610290"><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
+</span><a href="#local-6989586621679610290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointRequest
+</span><a href="#local-6989586621679610291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheck:EndpointRequest' :: Maybe ContainerServiceHealthCheckConfig
 </span><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#%24sel%3AhealthCheck%3AEndpointRequest%27"><span class="hs-identifier hs-var">healthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
-</span><a href="#local-6989586621679610281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-type">EndpointRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-type">EndpointRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The name of the container for the endpoint.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#endpointRequest_containerName"><span class="hs-identifier hs-type">endpointRequest_containerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-type">EndpointRequest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -167,16 +167,16 @@ $sel:healthCheck:EndpointRequest' :: EndpointRequest -&gt; Maybe ContainerServic
 -&gt; (EndpointRequest -&gt; Text -&gt; EndpointRequest)
 -&gt; Lens EndpointRequest EndpointRequest Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest%27"><span class="hs-identifier hs-type">EndpointRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610279"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest%27"><span class="hs-identifier hs-type">EndpointRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610288"><span class="annot"><span class="annottext">Text
 containerName :: Text
 $sel:containerName:EndpointRequest' :: EndpointRequest -&gt; Text
-</span><a href="#local-6989586621679610279"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679610279"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610278"><span class="annot"><span class="annottext">s :: EndpointRequest
-</span><a href="#local-6989586621679610278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest%27"><span class="hs-identifier hs-type">EndpointRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610277"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679610277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointRequest
-</span><a href="#local-6989586621679610278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:EndpointRequest' :: Text
+</span><a href="#local-6989586621679610288"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679610288"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610287"><span class="annot"><span class="annottext">s :: EndpointRequest
+</span><a href="#local-6989586621679610287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest%27"><span class="hs-identifier hs-type">EndpointRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610286"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679610286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointRequest
+</span><a href="#local-6989586621679610287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:EndpointRequest' :: Text
 </span><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#%24sel%3AcontainerName%3AEndpointRequest%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679610277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-type">EndpointRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-type">EndpointRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The port of the container to which traffic is forwarded to.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#endpointRequest_containerPort"><span class="hs-identifier hs-type">endpointRequest_containerPort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-type">EndpointRequest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -185,24 +185,24 @@ $sel:containerName:EndpointRequest' :: EndpointRequest -&gt; Text
 -&gt; (EndpointRequest -&gt; Int -&gt; EndpointRequest)
 -&gt; Lens EndpointRequest EndpointRequest Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest%27"><span class="hs-identifier hs-type">EndpointRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610275"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest%27"><span class="hs-identifier hs-type">EndpointRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610284"><span class="annot"><span class="annottext">Int
 containerPort :: Int
 $sel:containerPort:EndpointRequest' :: EndpointRequest -&gt; Int
-</span><a href="#local-6989586621679610275"><span class="hs-identifier hs-var hs-var">containerPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679610275"><span class="hs-identifier hs-var">containerPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610274"><span class="annot"><span class="annottext">s :: EndpointRequest
-</span><a href="#local-6989586621679610274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest%27"><span class="hs-identifier hs-type">EndpointRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610273"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679610273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointRequest
-</span><a href="#local-6989586621679610274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerPort:EndpointRequest' :: Int
+</span><a href="#local-6989586621679610284"><span class="hs-identifier hs-var hs-var">containerPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679610284"><span class="hs-identifier hs-var">containerPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610283"><span class="annot"><span class="annottext">s :: EndpointRequest
+</span><a href="#local-6989586621679610283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest%27"><span class="hs-identifier hs-type">EndpointRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610282"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679610282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointRequest
+</span><a href="#local-6989586621679610283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerPort:EndpointRequest' :: Int
 </span><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#%24sel%3AcontainerPort%3AEndpointRequest%27"><span class="hs-identifier hs-var">containerPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679610273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-type">EndpointRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-type">EndpointRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610269"><span id="local-6989586621679610271"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-type">EndpointRequest</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610278"><span id="local-6989586621679610280"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-type">EndpointRequest</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610266"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-type">EndpointRequest</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-type">EndpointRequest</span></a></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610258"><span id="local-6989586621679610260"><span id="local-6989586621679610262"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-type">EndpointRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679610256"><span class="annot"><span class="annottext">toJSON :: EndpointRequest -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest%27"><span class="hs-identifier hs-type">EndpointRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610252"><span id="local-6989586621679610253"><span id="local-6989586621679610254"><span class="annot"><span class="annottext">Int
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610267"><span id="local-6989586621679610269"><span id="local-6989586621679610271"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-type">EndpointRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679610265"><span class="annot"><span class="annottext">toJSON :: EndpointRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest%27"><span class="hs-identifier hs-type">EndpointRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610261"><span id="local-6989586621679610262"><span id="local-6989586621679610263"><span class="annot"><span class="annottext">Int
 Maybe ContainerServiceHealthCheckConfig
 Text
 containerPort :: Int
@@ -211,7 +211,7 @@ healthCheck :: Maybe ContainerServiceHealthCheckConfig
 $sel:containerPort:EndpointRequest' :: EndpointRequest -&gt; Int
 $sel:containerName:EndpointRequest' :: EndpointRequest -&gt; Text
 $sel:healthCheck:EndpointRequest' :: EndpointRequest -&gt; Maybe ContainerServiceHealthCheckConfig
-</span><a href="#local-6989586621679610252"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679610261"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -224,14 +224,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ContainerServiceHealthCheckConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceHealthCheckConfig
-</span><a href="#local-6989586621679610254"><span class="hs-identifier hs-var">healthCheck</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610263"><span class="hs-identifier hs-var">healthCheck</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;containerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679610253"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610262"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -239,7 +239,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;containerPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679610252"><span class="hs-identifier hs-var">containerPort</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610261"><span class="hs-identifier hs-var">containerPort</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span></pre></body></html>

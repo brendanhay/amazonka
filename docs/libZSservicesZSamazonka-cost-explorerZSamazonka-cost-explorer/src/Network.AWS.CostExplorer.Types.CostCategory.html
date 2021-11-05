@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- the set of rules for the @CostCategory@ object.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newCostCategory' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679339056"><span id="local-6989586621679339057"></span></span><span class="hs-keyword">data</span><span> </span><span id="CostCategory"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-var">CostCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CostCategory%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-var">CostCategory'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679339065"><span id="local-6989586621679339066"></span></span><span class="hs-keyword">data</span><span> </span><span id="CostCategory"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-var">CostCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CostCategory%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-var">CostCategory'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of processing statuses for Cost Management products for a</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- specific cost category.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AprocessingStatus%3ACostCategory%27"><span class="annot"><span class="annottext">CostCategory -&gt; Maybe [CostCategoryProcessingStatus]
@@ -61,7 +61,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3Arules%3ACostCategory%27"><span class="annot"><span class="annottext">CostCategory -&gt; NonEmpty CostCategoryRule
 </span><a href="Network.AWS.CostExplorer.Types.CostCategory.html#%24sel%3Arules%3ACostCategory%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryRule.html#CostCategoryRule"><span class="hs-identifier hs-type">CostCategoryRule</span></a></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339042"><span id="local-6989586621679339044"><span class="annot"><span class="annottext">CostCategory -&gt; CostCategory -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339051"><span id="local-6989586621679339053"><span class="annot"><span class="annottext">CostCategory -&gt; CostCategory -&gt; Bool
 (CostCategory -&gt; CostCategory -&gt; Bool)
 -&gt; (CostCategory -&gt; CostCategory -&gt; Bool) -&gt; Eq CostCategory
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CostCategory -&gt; CostCategory -&gt; Bool
 == :: CostCategory -&gt; CostCategory -&gt; Bool
 $c== :: CostCategory -&gt; CostCategory -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339033"><span id="local-6989586621679339035"><span id="local-6989586621679339037"><span id="local-6989586621679339039"><span class="annot"><span class="annottext">ReadPrec [CostCategory]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339042"><span id="local-6989586621679339044"><span id="local-6989586621679339046"><span id="local-6989586621679339048"><span class="annot"><span class="annottext">ReadPrec [CostCategory]
 ReadPrec CostCategory
 Int -&gt; ReadS CostCategory
 ReadS [CostCategory]
@@ -89,7 +89,7 @@ readList :: ReadS [CostCategory]
 $creadList :: ReadS [CostCategory]
 readsPrec :: Int -&gt; ReadS CostCategory
 $creadsPrec :: Int -&gt; ReadS CostCategory
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339026"><span id="local-6989586621679339028"><span id="local-6989586621679339030"><span class="annot"><span class="annottext">Int -&gt; CostCategory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339035"><span id="local-6989586621679339037"><span id="local-6989586621679339039"><span class="annot"><span class="annottext">Int -&gt; CostCategory -&gt; ShowS
 [CostCategory] -&gt; ShowS
 CostCategory -&gt; String
 (Int -&gt; CostCategory -&gt; ShowS)
@@ -163,16 +163,16 @@ $cfrom :: forall x. CostCategory -&gt; Rep CostCategory x
 -&gt; NonEmpty CostCategoryRule
 -&gt; CostCategory
 </span><a href="Network.AWS.CostExplorer.Types.CostCategory.html#newCostCategory"><span class="hs-identifier hs-var hs-var">newCostCategory</span></a></span></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679339020"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679339020"><span class="hs-identifier hs-var">pCostCategoryArn_</span></a></span></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679339019"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679339019"><span class="hs-identifier hs-var">pEffectiveStart_</span></a></span></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679339018"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679339018"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679339017"><span class="annot"><span class="annottext">CostCategoryRuleVersion
-</span><a href="#local-6989586621679339017"><span class="hs-identifier hs-var">pRuleVersion_</span></a></span></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679339016"><span class="annot"><span class="annottext">NonEmpty CostCategoryRule
-</span><a href="#local-6989586621679339016"><span class="hs-identifier hs-var">pRules_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679339029"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679339029"><span class="hs-identifier hs-var">pCostCategoryArn_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679339028"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679339028"><span class="hs-identifier hs-var">pEffectiveStart_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679339027"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679339027"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679339026"><span class="annot"><span class="annottext">CostCategoryRuleVersion
+</span><a href="#local-6989586621679339026"><span class="hs-identifier hs-var">pRuleVersion_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679339025"><span class="annot"><span class="annottext">NonEmpty CostCategoryRule
+</span><a href="#local-6989586621679339025"><span class="hs-identifier hs-var">pRules_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">CostCategory' :: Maybe [CostCategoryProcessingStatus]
 -&gt; Maybe Text
 -&gt; Maybe (NonEmpty CostCategorySplitChargeRule)
@@ -202,16 +202,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:costCategoryArn:CostCategory' :: Text
 </span><a href="Network.AWS.CostExplorer.Types.CostCategory.html#%24sel%3AcostCategoryArn%3ACostCategory%27"><span class="hs-identifier hs-var">costCategoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679339020"><span class="hs-identifier hs-var">pCostCategoryArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679339029"><span class="hs-identifier hs-var">pCostCategoryArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:effectiveStart:CostCategory' :: Text
 </span><a href="Network.AWS.CostExplorer.Types.CostCategory.html#%24sel%3AeffectiveStart%3ACostCategory%27"><span class="hs-identifier hs-var">effectiveStart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679339019"><span class="hs-identifier hs-var">pEffectiveStart_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679339028"><span class="hs-identifier hs-var">pEffectiveStart_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CostCategory' :: Text
 </span><a href="Network.AWS.CostExplorer.Types.CostCategory.html#%24sel%3Aname%3ACostCategory%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679339018"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679339027"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:ruleVersion:CostCategory' :: CostCategoryRuleVersion
 </span><a href="Network.AWS.CostExplorer.Types.CostCategory.html#%24sel%3AruleVersion%3ACostCategory%27"><span class="hs-identifier hs-var">ruleVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CostCategoryRuleVersion
-</span><a href="#local-6989586621679339017"><span class="hs-identifier hs-var">pRuleVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679339026"><span class="hs-identifier hs-var">pRuleVersion_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:rules:CostCategory' :: NonEmpty CostCategoryRule
 </span><a href="Network.AWS.CostExplorer.Types.CostCategory.html#%24sel%3Arules%3ACostCategory%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
   (NonEmpty CostCategoryRule) (Identity (NonEmpty CostCategoryRule))
@@ -225,7 +225,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty CostCategoryRule -&gt; NonEmpty CostCategoryRule
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty CostCategoryRule
-</span><a href="#local-6989586621679339016"><span class="hs-identifier hs-var">pRules_</span></a></span><span>
+</span><a href="#local-6989586621679339025"><span class="hs-identifier hs-var">pRules_</span></a></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The list of processing statuses for Cost Management products for a</span><span>
@@ -243,16 +243,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe [CostCategoryProcessingStatus])
      (Maybe [CostCategoryProcessingStatus])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339010"><span class="annot"><span class="annottext">Maybe [CostCategoryProcessingStatus]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339019"><span class="annot"><span class="annottext">Maybe [CostCategoryProcessingStatus]
 processingStatus :: Maybe [CostCategoryProcessingStatus]
 $sel:processingStatus:CostCategory' :: CostCategory -&gt; Maybe [CostCategoryProcessingStatus]
-</span><a href="#local-6989586621679339010"><span class="hs-identifier hs-var hs-var">processingStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CostCategoryProcessingStatus]
-</span><a href="#local-6989586621679339010"><span class="hs-identifier hs-var">processingStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339009"><span class="annot"><span class="annottext">s :: CostCategory
-</span><a href="#local-6989586621679339009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339008"><span class="annot"><span class="annottext">Maybe [CostCategoryProcessingStatus]
-</span><a href="#local-6989586621679339008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
-</span><a href="#local-6989586621679339009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingStatus:CostCategory' :: Maybe [CostCategoryProcessingStatus]
+</span><a href="#local-6989586621679339019"><span class="hs-identifier hs-var hs-var">processingStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CostCategoryProcessingStatus]
+</span><a href="#local-6989586621679339019"><span class="hs-identifier hs-var">processingStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339018"><span class="annot"><span class="annottext">s :: CostCategory
+</span><a href="#local-6989586621679339018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339017"><span class="annot"><span class="annottext">Maybe [CostCategoryProcessingStatus]
+</span><a href="#local-6989586621679339017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
+</span><a href="#local-6989586621679339018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingStatus:CostCategory' :: Maybe [CostCategoryProcessingStatus]
 </span><a href="Network.AWS.CostExplorer.Types.CostCategory.html#%24sel%3AprocessingStatus%3ACostCategory%27"><span class="hs-identifier hs-var">processingStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CostCategoryProcessingStatus]
-</span><a href="#local-6989586621679339008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CostCategoryProcessingStatus]
+</span><a href="#local-6989586621679339017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CostCategoryProcessingStatus]
   -&gt; f (Maybe [CostCategoryProcessingStatus]))
  -&gt; CostCategory -&gt; f CostCategory)
 -&gt; ((Maybe [CostCategoryProcessingStatus]
@@ -292,16 +292,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CostCategory -&gt; Maybe Text -&gt; CostCategory)
 -&gt; Lens CostCategory CostCategory (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339004"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339013"><span class="annot"><span class="annottext">Maybe Text
 effectiveEnd :: Maybe Text
 $sel:effectiveEnd:CostCategory' :: CostCategory -&gt; Maybe Text
-</span><a href="#local-6989586621679339004"><span class="hs-identifier hs-var hs-var">effectiveEnd</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339004"><span class="hs-identifier hs-var">effectiveEnd</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339003"><span class="annot"><span class="annottext">s :: CostCategory
-</span><a href="#local-6989586621679339003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339002"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
-</span><a href="#local-6989586621679339003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effectiveEnd:CostCategory' :: Maybe Text
+</span><a href="#local-6989586621679339013"><span class="hs-identifier hs-var hs-var">effectiveEnd</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339013"><span class="hs-identifier hs-var">effectiveEnd</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339012"><span class="annot"><span class="annottext">s :: CostCategory
+</span><a href="#local-6989586621679339012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339011"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
+</span><a href="#local-6989586621679339012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effectiveEnd:CostCategory' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.CostCategory.html#%24sel%3AeffectiveEnd%3ACostCategory%27"><span class="hs-identifier hs-var">effectiveEnd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679339011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The split charge rules that are used to allocate your charges between</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- your Cost Category values.</span><span>
@@ -318,16 +318,16 @@ $sel:effectiveEnd:CostCategory' :: CostCategory -&gt; Maybe Text
      (Maybe (NonEmpty CostCategorySplitChargeRule))
      (Maybe (NonEmpty CostCategorySplitChargeRule))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339000"><span class="annot"><span class="annottext">Maybe (NonEmpty CostCategorySplitChargeRule)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339009"><span class="annot"><span class="annottext">Maybe (NonEmpty CostCategorySplitChargeRule)
 splitChargeRules :: Maybe (NonEmpty CostCategorySplitChargeRule)
 $sel:splitChargeRules:CostCategory' :: CostCategory -&gt; Maybe (NonEmpty CostCategorySplitChargeRule)
-</span><a href="#local-6989586621679339000"><span class="hs-identifier hs-var hs-var">splitChargeRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CostCategorySplitChargeRule)
-</span><a href="#local-6989586621679339000"><span class="hs-identifier hs-var">splitChargeRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338999"><span class="annot"><span class="annottext">s :: CostCategory
-</span><a href="#local-6989586621679338999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338998"><span class="annot"><span class="annottext">Maybe (NonEmpty CostCategorySplitChargeRule)
-</span><a href="#local-6989586621679338998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
-</span><a href="#local-6989586621679338999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:splitChargeRules:CostCategory' :: Maybe (NonEmpty CostCategorySplitChargeRule)
+</span><a href="#local-6989586621679339009"><span class="hs-identifier hs-var hs-var">splitChargeRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CostCategorySplitChargeRule)
+</span><a href="#local-6989586621679339009"><span class="hs-identifier hs-var">splitChargeRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339008"><span class="annot"><span class="annottext">s :: CostCategory
+</span><a href="#local-6989586621679339008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339007"><span class="annot"><span class="annottext">Maybe (NonEmpty CostCategorySplitChargeRule)
+</span><a href="#local-6989586621679339007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
+</span><a href="#local-6989586621679339008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:splitChargeRules:CostCategory' :: Maybe (NonEmpty CostCategorySplitChargeRule)
 </span><a href="Network.AWS.CostExplorer.Types.CostCategory.html#%24sel%3AsplitChargeRules%3ACostCategory%27"><span class="hs-identifier hs-var">splitChargeRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CostCategorySplitChargeRule)
-</span><a href="#local-6989586621679338998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty CostCategorySplitChargeRule)
+</span><a href="#local-6989586621679339007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty CostCategorySplitChargeRule)
   -&gt; f (Maybe (NonEmpty CostCategorySplitChargeRule)))
  -&gt; CostCategory -&gt; f CostCategory)
 -&gt; ((Maybe (NonEmpty CostCategorySplitChargeRule)
@@ -367,16 +367,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CostCategory -&gt; Maybe Text -&gt; CostCategory)
 -&gt; Lens CostCategory CostCategory (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338996"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339005"><span class="annot"><span class="annottext">Maybe Text
 defaultValue :: Maybe Text
 $sel:defaultValue:CostCategory' :: CostCategory -&gt; Maybe Text
-</span><a href="#local-6989586621679338996"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338996"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338995"><span class="annot"><span class="annottext">s :: CostCategory
-</span><a href="#local-6989586621679338995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338994"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
-</span><a href="#local-6989586621679338995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultValue:CostCategory' :: Maybe Text
+</span><a href="#local-6989586621679339005"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339005"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339004"><span class="annot"><span class="annottext">s :: CostCategory
+</span><a href="#local-6989586621679339004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339003"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
+</span><a href="#local-6989586621679339004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultValue:CostCategory' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.CostCategory.html#%24sel%3AdefaultValue%3ACostCategory%27"><span class="hs-identifier hs-var">defaultValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679339003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The unique identifier for your Cost Category.</span><span>
 </span><span id="line-135"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#costCategory_costCategoryArn"><span class="hs-identifier hs-type">costCategory_costCategoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -385,16 +385,16 @@ $sel:defaultValue:CostCategory' :: CostCategory -&gt; Maybe Text
 -&gt; (CostCategory -&gt; Text -&gt; CostCategory)
 -&gt; Lens CostCategory CostCategory Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338992"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339001"><span class="annot"><span class="annottext">Text
 costCategoryArn :: Text
 $sel:costCategoryArn:CostCategory' :: CostCategory -&gt; Text
-</span><a href="#local-6989586621679338992"><span class="hs-identifier hs-var hs-var">costCategoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679338992"><span class="hs-identifier hs-var">costCategoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338991"><span class="annot"><span class="annottext">s :: CostCategory
-</span><a href="#local-6989586621679338991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338990"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679338990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
-</span><a href="#local-6989586621679338991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:costCategoryArn:CostCategory' :: Text
+</span><a href="#local-6989586621679339001"><span class="hs-identifier hs-var hs-var">costCategoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679339001"><span class="hs-identifier hs-var">costCategoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339000"><span class="annot"><span class="annottext">s :: CostCategory
+</span><a href="#local-6989586621679339000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338999"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
+</span><a href="#local-6989586621679339000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:costCategoryArn:CostCategory' :: Text
 </span><a href="Network.AWS.CostExplorer.Types.CostCategory.html#%24sel%3AcostCategoryArn%3ACostCategory%27"><span class="hs-identifier hs-var">costCategoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679338990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The effective state data of your Cost Category.</span><span>
 </span><span id="line-139"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#costCategory_effectiveStart"><span class="hs-identifier hs-type">costCategory_effectiveStart</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -403,16 +403,16 @@ $sel:costCategoryArn:CostCategory' :: CostCategory -&gt; Text
 -&gt; (CostCategory -&gt; Text -&gt; CostCategory)
 -&gt; Lens CostCategory CostCategory Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338988"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338997"><span class="annot"><span class="annottext">Text
 effectiveStart :: Text
 $sel:effectiveStart:CostCategory' :: CostCategory -&gt; Text
-</span><a href="#local-6989586621679338988"><span class="hs-identifier hs-var hs-var">effectiveStart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679338988"><span class="hs-identifier hs-var">effectiveStart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338987"><span class="annot"><span class="annottext">s :: CostCategory
-</span><a href="#local-6989586621679338987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338986"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679338986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
-</span><a href="#local-6989586621679338987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effectiveStart:CostCategory' :: Text
+</span><a href="#local-6989586621679338997"><span class="hs-identifier hs-var hs-var">effectiveStart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338997"><span class="hs-identifier hs-var">effectiveStart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338996"><span class="annot"><span class="annottext">s :: CostCategory
+</span><a href="#local-6989586621679338996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338995"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
+</span><a href="#local-6989586621679338996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effectiveStart:CostCategory' :: Text
 </span><a href="Network.AWS.CostExplorer.Types.CostCategory.html#%24sel%3AeffectiveStart%3ACostCategory%27"><span class="hs-identifier hs-var">effectiveStart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679338986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#costCategory_name"><span class="hs-identifier hs-type">costCategory_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -421,16 +421,16 @@ $sel:effectiveStart:CostCategory' :: CostCategory -&gt; Text
 -&gt; (CostCategory -&gt; Text -&gt; CostCategory)
 -&gt; Lens CostCategory CostCategory Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338984"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338993"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CostCategory' :: CostCategory -&gt; Text
-</span><a href="#local-6989586621679338984"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679338984"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338983"><span class="annot"><span class="annottext">s :: CostCategory
-</span><a href="#local-6989586621679338983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338982"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679338982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
-</span><a href="#local-6989586621679338983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CostCategory' :: Text
+</span><a href="#local-6989586621679338993"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338993"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338992"><span class="annot"><span class="annottext">s :: CostCategory
+</span><a href="#local-6989586621679338992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338991"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
+</span><a href="#local-6989586621679338992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CostCategory' :: Text
 </span><a href="Network.AWS.CostExplorer.Types.CostCategory.html#%24sel%3Aname%3ACostCategory%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679338982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-147"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#costCategory_ruleVersion"><span class="hs-identifier hs-type">costCategory_ruleVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryRuleVersion.html#CostCategoryRuleVersion"><span class="hs-identifier hs-type">CostCategoryRuleVersion</span></a></span><span>
@@ -444,16 +444,16 @@ $sel:name:CostCategory' :: CostCategory -&gt; Text
      CostCategoryRuleVersion
      CostCategoryRuleVersion
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338980"><span class="annot"><span class="annottext">CostCategoryRuleVersion
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338989"><span class="annot"><span class="annottext">CostCategoryRuleVersion
 ruleVersion :: CostCategoryRuleVersion
 $sel:ruleVersion:CostCategory' :: CostCategory -&gt; CostCategoryRuleVersion
-</span><a href="#local-6989586621679338980"><span class="hs-identifier hs-var hs-var">ruleVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategoryRuleVersion
-</span><a href="#local-6989586621679338980"><span class="hs-identifier hs-var">ruleVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338979"><span class="annot"><span class="annottext">s :: CostCategory
-</span><a href="#local-6989586621679338979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338978"><span class="annot"><span class="annottext">CostCategoryRuleVersion
-</span><a href="#local-6989586621679338978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
-</span><a href="#local-6989586621679338979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleVersion:CostCategory' :: CostCategoryRuleVersion
+</span><a href="#local-6989586621679338989"><span class="hs-identifier hs-var hs-var">ruleVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategoryRuleVersion
+</span><a href="#local-6989586621679338989"><span class="hs-identifier hs-var">ruleVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338988"><span class="annot"><span class="annottext">s :: CostCategory
+</span><a href="#local-6989586621679338988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338987"><span class="annot"><span class="annottext">CostCategoryRuleVersion
+</span><a href="#local-6989586621679338987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
+</span><a href="#local-6989586621679338988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleVersion:CostCategory' :: CostCategoryRuleVersion
 </span><a href="Network.AWS.CostExplorer.Types.CostCategory.html#%24sel%3AruleVersion%3ACostCategory%27"><span class="hs-identifier hs-var">ruleVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CostCategoryRuleVersion
-</span><a href="#local-6989586621679338978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The rules are processed in order. If there are multiple rules that match</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- the line item, then the first rule to match is used to determine that</span><span>
@@ -469,16 +469,16 @@ $sel:ruleVersion:CostCategory' :: CostCategory -&gt; CostCategoryRuleVersion
      (NonEmpty CostCategoryRule)
      (NonEmpty CostCategoryRule)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338976"><span class="annot"><span class="annottext">NonEmpty CostCategoryRule
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338985"><span class="annot"><span class="annottext">NonEmpty CostCategoryRule
 rules :: NonEmpty CostCategoryRule
 $sel:rules:CostCategory' :: CostCategory -&gt; NonEmpty CostCategoryRule
-</span><a href="#local-6989586621679338976"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty CostCategoryRule
-</span><a href="#local-6989586621679338976"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338975"><span class="annot"><span class="annottext">s :: CostCategory
-</span><a href="#local-6989586621679338975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338974"><span class="annot"><span class="annottext">NonEmpty CostCategoryRule
-</span><a href="#local-6989586621679338974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
-</span><a href="#local-6989586621679338975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:CostCategory' :: NonEmpty CostCategoryRule
+</span><a href="#local-6989586621679338985"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty CostCategoryRule
+</span><a href="#local-6989586621679338985"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338984"><span class="annot"><span class="annottext">s :: CostCategory
+</span><a href="#local-6989586621679338984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory%27"><span class="hs-identifier hs-type">CostCategory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338983"><span class="annot"><span class="annottext">NonEmpty CostCategoryRule
+</span><a href="#local-6989586621679338983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CostCategory
+</span><a href="#local-6989586621679338984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:CostCategory' :: NonEmpty CostCategoryRule
 </span><a href="Network.AWS.CostExplorer.Types.CostCategory.html#%24sel%3Arules%3ACostCategory%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty CostCategoryRule
-</span><a href="#local-6989586621679338974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty CostCategoryRule -&gt; f (NonEmpty CostCategoryRule))
+</span><a href="#local-6989586621679338983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty CostCategoryRule -&gt; f (NonEmpty CostCategoryRule))
  -&gt; CostCategory -&gt; f CostCategory)
 -&gt; ((NonEmpty CostCategoryRule -&gt; f (NonEmpty CostCategoryRule))
     -&gt; NonEmpty CostCategoryRule -&gt; f (NonEmpty CostCategoryRule))
@@ -491,8 +491,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338971"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679338969"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CostCategory
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338980"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679338978"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CostCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CostCategory) -&gt; Value -&gt; Parser CostCategory
@@ -500,8 +500,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CostCategory&quot;</span></span><span>
-</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338966"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338966"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338975"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338975"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">Maybe [CostCategoryProcessingStatus]
 -&gt; Maybe Text
 -&gt; Maybe (NonEmpty CostCategorySplitChargeRule)
@@ -536,7 +536,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; CostCategory)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [CostCategoryProcessingStatus]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -571,7 +571,7 @@ forall a. Monoid a =&gt; a
       -&gt; CostCategory)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679338975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EffectiveEnd&quot;</span></span><span class="hs-special">)</span><span>
@@ -595,7 +595,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CostCategory)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (NonEmpty CostCategorySplitChargeRule))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -618,7 +618,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CostCategory)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679338975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -638,7 +638,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CostCategory)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679338975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CostCategoryArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -656,7 +656,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; CostCategory)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679338975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EffectiveStart&quot;</span></span><span class="hs-special">)</span><span>
@@ -671,7 +671,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; NonEmpty CostCategoryRule -&gt; CostCategory)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679338975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -682,7 +682,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (NonEmpty CostCategoryRule -&gt; CostCategory)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser CostCategoryRuleVersion
+</span><a href="#local-6989586621679338975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser CostCategoryRuleVersion
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RuleVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -690,13 +690,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (NonEmpty CostCategoryRule) -&gt; Parser CostCategory
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty CostCategoryRule)
+</span><a href="#local-6989586621679338975"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty CostCategoryRule)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Rules&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338958"><span id="local-6989586621679338960"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338967"><span id="local-6989586621679338969"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span></span></span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338955"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338964"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategory.html#CostCategory"><span class="hs-identifier hs-type">CostCategory</span></a></span></span><span>
 </span><span id="line-178"></span></pre></body></html>

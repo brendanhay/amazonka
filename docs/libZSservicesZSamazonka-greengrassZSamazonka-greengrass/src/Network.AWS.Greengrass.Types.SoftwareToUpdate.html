@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | The piece of software on the Greengrass core that will be updated.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679347101"><span id="local-6989586621679347102"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SoftwareToUpdate"><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate"><span class="hs-identifier hs-var">SoftwareToUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SoftwareToUpdate%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate%27"><span class="hs-identifier hs-var">SoftwareToUpdate'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679347110"><span id="local-6989586621679347111"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SoftwareToUpdate"><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate"><span class="hs-identifier hs-var">SoftwareToUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SoftwareToUpdate%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate%27"><span class="hs-identifier hs-var">SoftwareToUpdate'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSoftwareToUpdate"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; Text
 </span><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#fromSoftwareToUpdate"><span class="hs-identifier hs-var hs-var">fromSoftwareToUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347093"><span id="local-6989586621679347095"><span id="local-6989586621679347097"><span class="annot"><span class="annottext">Int -&gt; SoftwareToUpdate -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347102"><span id="local-6989586621679347104"><span id="local-6989586621679347106"><span class="annot"><span class="annottext">Int -&gt; SoftwareToUpdate -&gt; ShowS
 [SoftwareToUpdate] -&gt; ShowS
 SoftwareToUpdate -&gt; String
 (Int -&gt; SoftwareToUpdate -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: SoftwareToUpdate -&gt; String
 showsPrec :: Int -&gt; SoftwareToUpdate -&gt; ShowS
 $cshowsPrec :: Int -&gt; SoftwareToUpdate -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679347084"><span id="local-6989586621679347086"><span id="local-6989586621679347088"><span id="local-6989586621679347090"><span class="annot"><span class="annottext">ReadPrec [SoftwareToUpdate]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679347093"><span id="local-6989586621679347095"><span id="local-6989586621679347097"><span id="local-6989586621679347099"><span class="annot"><span class="annottext">ReadPrec [SoftwareToUpdate]
 ReadPrec SoftwareToUpdate
 Int -&gt; ReadS SoftwareToUpdate
 ReadS [SoftwareToUpdate]
@@ -73,7 +73,7 @@ $creadList :: ReadS [SoftwareToUpdate]
 readsPrec :: Int -&gt; ReadS SoftwareToUpdate
 $creadsPrec :: Int -&gt; ReadS SoftwareToUpdate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679347079"><span id="local-6989586621679347081"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679347088"><span id="local-6989586621679347090"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
 (SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool)
 -&gt; (SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool)
 -&gt; Eq SoftwareToUpdate
@@ -83,7 +83,7 @@ $c/= :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
 == :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
 $c== :: SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679347063"><span id="local-6989586621679347065"><span id="local-6989586621679347067"><span id="local-6989586621679347069"><span id="local-6989586621679347071"><span id="local-6989586621679347073"><span id="local-6989586621679347075"><span class="annot"><span class="annottext">Eq SoftwareToUpdate
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679347072"><span id="local-6989586621679347074"><span id="local-6989586621679347076"><span id="local-6989586621679347078"><span id="local-6989586621679347080"><span id="local-6989586621679347082"><span id="local-6989586621679347084"><span class="annot"><span class="annottext">Eq SoftwareToUpdate
 Eq SoftwareToUpdate
 -&gt; (SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Ordering)
 -&gt; (SoftwareToUpdate -&gt; SoftwareToUpdate -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. SoftwareToUpdate -&gt; Rep SoftwareToUpdate x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347055"><span id="local-6989586621679347057"><span class="annot"><span class="annottext">Int -&gt; SoftwareToUpdate -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347064"><span id="local-6989586621679347066"><span class="annot"><span class="annottext">Int -&gt; SoftwareToUpdate -&gt; Int
 SoftwareToUpdate -&gt; Int
 (Int -&gt; SoftwareToUpdate -&gt; Int)
 -&gt; (SoftwareToUpdate -&gt; Int) -&gt; Hashable SoftwareToUpdate
@@ -144,51 +144,51 @@ $chash :: SoftwareToUpdate -&gt; Int
 hashWithSalt :: Int -&gt; SoftwareToUpdate -&gt; Int
 $chashWithSalt :: Int -&gt; SoftwareToUpdate -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679347052"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679347061"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; ()
 (SoftwareToUpdate -&gt; ()) -&gt; NFData SoftwareToUpdate
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SoftwareToUpdate -&gt; ()
 $crnf :: SoftwareToUpdate -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679347049"><span class="annot"><span class="annottext">Text -&gt; Either String SoftwareToUpdate
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679347058"><span class="annot"><span class="annottext">Text -&gt; Either String SoftwareToUpdate
 (Text -&gt; Either String SoftwareToUpdate)
 -&gt; FromText SoftwareToUpdate
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SoftwareToUpdate
 $cfromText :: Text -&gt; Either String SoftwareToUpdate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679347046"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679347055"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; Text
 (SoftwareToUpdate -&gt; Text) -&gt; ToText SoftwareToUpdate
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SoftwareToUpdate -&gt; Text
 $ctoText :: SoftwareToUpdate -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679347043"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679347052"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; ByteString
 (SoftwareToUpdate -&gt; ByteString) -&gt; ToByteString SoftwareToUpdate
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SoftwareToUpdate -&gt; ByteString
 $ctoBS :: SoftwareToUpdate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679347040"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679347049"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; ByteStringBuilder
 (SoftwareToUpdate -&gt; ByteStringBuilder) -&gt; ToLog SoftwareToUpdate
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SoftwareToUpdate -&gt; ByteStringBuilder
 $cbuild :: SoftwareToUpdate -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679347037"><span class="annot"><span class="annottext">HeaderName -&gt; SoftwareToUpdate -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679347046"><span class="annot"><span class="annottext">HeaderName -&gt; SoftwareToUpdate -&gt; [Header]
 (HeaderName -&gt; SoftwareToUpdate -&gt; [Header])
 -&gt; ToHeader SoftwareToUpdate
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SoftwareToUpdate -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SoftwareToUpdate -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679347034"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679347043"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; QueryString
 (SoftwareToUpdate -&gt; QueryString) -&gt; ToQuery SoftwareToUpdate
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SoftwareToUpdate -&gt; QueryString
 $ctoQuery :: SoftwareToUpdate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679347029"><span id="local-6989586621679347031"><span class="annot"><span class="annottext">Value -&gt; Parser [SoftwareToUpdate]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679347038"><span id="local-6989586621679347040"><span class="annot"><span class="annottext">Value -&gt; Parser [SoftwareToUpdate]
 Value -&gt; Parser SoftwareToUpdate
 (Value -&gt; Parser SoftwareToUpdate)
 -&gt; (Value -&gt; Parser [SoftwareToUpdate])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [SoftwareToUpdate]
 parseJSON :: Value -&gt; Parser SoftwareToUpdate
 $cparseJSON :: Value -&gt; Parser SoftwareToUpdate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679347024"><span id="local-6989586621679347026"><span class="annot"><span class="annottext">FromJSONKeyFunction [SoftwareToUpdate]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679347033"><span id="local-6989586621679347035"><span class="annot"><span class="annottext">FromJSONKeyFunction [SoftwareToUpdate]
 FromJSONKeyFunction SoftwareToUpdate
 FromJSONKeyFunction SoftwareToUpdate
 -&gt; FromJSONKeyFunction [SoftwareToUpdate]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SoftwareToUpdate]
 fromJSONKey :: FromJSONKeyFunction SoftwareToUpdate
 $cfromJSONKey :: FromJSONKeyFunction SoftwareToUpdate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679347015"><span id="local-6989586621679347017"><span id="local-6989586621679347019"><span id="local-6989586621679347021"><span class="annot"><span class="annottext">[SoftwareToUpdate] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679347024"><span id="local-6989586621679347026"><span id="local-6989586621679347028"><span id="local-6989586621679347030"><span class="annot"><span class="annottext">[SoftwareToUpdate] -&gt; Encoding
 [SoftwareToUpdate] -&gt; Value
 SoftwareToUpdate -&gt; Encoding
 SoftwareToUpdate -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: SoftwareToUpdate -&gt; Encoding
 toJSON :: SoftwareToUpdate -&gt; Value
 $ctoJSON :: SoftwareToUpdate -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679347010"><span id="local-6989586621679347012"><span class="annot"><span class="annottext">ToJSONKeyFunction [SoftwareToUpdate]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679347019"><span id="local-6989586621679347021"><span class="annot"><span class="annottext">ToJSONKeyFunction [SoftwareToUpdate]
 ToJSONKeyFunction SoftwareToUpdate
 ToJSONKeyFunction SoftwareToUpdate
 -&gt; ToJSONKeyFunction [SoftwareToUpdate]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SoftwareToUpdate]
 toJSONKey :: ToJSONKeyFunction SoftwareToUpdate
 $ctoJSONKey :: ToJSONKeyFunction SoftwareToUpdate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679347007"><span class="annot"><span class="annottext">[Node] -&gt; Either String SoftwareToUpdate
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679347016"><span class="annot"><span class="annottext">[Node] -&gt; Either String SoftwareToUpdate
 ([Node] -&gt; Either String SoftwareToUpdate)
 -&gt; FromXML SoftwareToUpdate
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SoftwareToUpdate
 $cparseXML :: [Node] -&gt; Either String SoftwareToUpdate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679347004"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679347013"><span class="annot"><span class="annottext">SoftwareToUpdate -&gt; XML
 (SoftwareToUpdate -&gt; XML) -&gt; ToXML SoftwareToUpdate
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SoftwareToUpdate -&gt; XML

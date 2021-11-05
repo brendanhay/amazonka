@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ECRPublic.GetRepositoryCatalogData</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieve catalog metadata for a repository in a public registry. This</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- metadata is displayed publicly in the Amazon ECR Public Gallery.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ECRPublic.GetRepositoryCatalogData</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData"><span class="hs-identifier">GetRepositoryCatalogData</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#newGetRepositoryCatalogData"><span class="hs-identifier">newGetRepositoryCatalogData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#getRepositoryCatalogData_registryId"><span class="hs-identifier">getRepositoryCatalogData_registryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#getRepositoryCatalogData_repositoryName"><span class="hs-identifier">getRepositoryCatalogData_repositoryName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogDataResponse"><span class="hs-identifier">GetRepositoryCatalogDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#newGetRepositoryCatalogDataResponse"><span class="hs-identifier">newGetRepositoryCatalogDataResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#getRepositoryCatalogDataResponse_catalogData"><span class="hs-identifier">getRepositoryCatalogDataResponse_catalogData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#getRepositoryCatalogDataResponse_httpStatus"><span class="hs-identifier">getRepositoryCatalogDataResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.Types.html"><span class="hs-identifier">Network.AWS.ECRPublic.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetRepositoryCatalogData' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679195701"><span id="local-6989586621679195702"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRepositoryCatalogData"><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData"><span class="hs-identifier hs-var">GetRepositoryCatalogData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRepositoryCatalogData%27"><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData%27"><span class="hs-identifier hs-var">GetRepositoryCatalogData'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS account ID associated with the registry that contains the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- repositories to be described. If you do not specify a registry, the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- default public registry is assumed.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AregistryId%3AGetRepositoryCatalogData%27"><span class="annot"><span class="annottext">GetRepositoryCatalogData -&gt; Maybe Text
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#%24sel%3AregistryId%3AGetRepositoryCatalogData%27"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The name of the repository to retrieve the catalog metadata for.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3ArepositoryName%3AGetRepositoryCatalogData%27"><span class="annot"><span class="annottext">GetRepositoryCatalogData -&gt; Text
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#%24sel%3ArepositoryName%3AGetRepositoryCatalogData%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195694"><span id="local-6989586621679195696"><span class="annot"><span class="annottext">GetRepositoryCatalogData -&gt; GetRepositoryCatalogData -&gt; Bool
+(GetRepositoryCatalogData -&gt; GetRepositoryCatalogData -&gt; Bool)
+-&gt; (GetRepositoryCatalogData -&gt; GetRepositoryCatalogData -&gt; Bool)
+-&gt; Eq GetRepositoryCatalogData
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetRepositoryCatalogData -&gt; GetRepositoryCatalogData -&gt; Bool
+$c/= :: GetRepositoryCatalogData -&gt; GetRepositoryCatalogData -&gt; Bool
+== :: GetRepositoryCatalogData -&gt; GetRepositoryCatalogData -&gt; Bool
+$c== :: GetRepositoryCatalogData -&gt; GetRepositoryCatalogData -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195685"><span id="local-6989586621679195687"><span id="local-6989586621679195689"><span id="local-6989586621679195691"><span class="annot"><span class="annottext">ReadPrec [GetRepositoryCatalogData]
+ReadPrec GetRepositoryCatalogData
+Int -&gt; ReadS GetRepositoryCatalogData
+ReadS [GetRepositoryCatalogData]
+(Int -&gt; ReadS GetRepositoryCatalogData)
+-&gt; ReadS [GetRepositoryCatalogData]
+-&gt; ReadPrec GetRepositoryCatalogData
+-&gt; ReadPrec [GetRepositoryCatalogData]
+-&gt; Read GetRepositoryCatalogData
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetRepositoryCatalogData]
+$creadListPrec :: ReadPrec [GetRepositoryCatalogData]
+readPrec :: ReadPrec GetRepositoryCatalogData
+$creadPrec :: ReadPrec GetRepositoryCatalogData
+readList :: ReadS [GetRepositoryCatalogData]
+$creadList :: ReadS [GetRepositoryCatalogData]
+readsPrec :: Int -&gt; ReadS GetRepositoryCatalogData
+$creadsPrec :: Int -&gt; ReadS GetRepositoryCatalogData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195678"><span id="local-6989586621679195680"><span id="local-6989586621679195682"><span class="annot"><span class="annottext">Int -&gt; GetRepositoryCatalogData -&gt; ShowS
+[GetRepositoryCatalogData] -&gt; ShowS
+GetRepositoryCatalogData -&gt; String
+(Int -&gt; GetRepositoryCatalogData -&gt; ShowS)
+-&gt; (GetRepositoryCatalogData -&gt; String)
+-&gt; ([GetRepositoryCatalogData] -&gt; ShowS)
+-&gt; Show GetRepositoryCatalogData
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetRepositoryCatalogData] -&gt; ShowS
+$cshowList :: [GetRepositoryCatalogData] -&gt; ShowS
+show :: GetRepositoryCatalogData -&gt; String
+$cshow :: GetRepositoryCatalogData -&gt; String
+showsPrec :: Int -&gt; GetRepositoryCatalogData -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetRepositoryCatalogData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetRepositoryCatalogData -&gt; Rep GetRepositoryCatalogData x)
+-&gt; (forall x.
+    Rep GetRepositoryCatalogData x -&gt; GetRepositoryCatalogData)
+-&gt; Generic GetRepositoryCatalogData
+forall x.
+Rep GetRepositoryCatalogData x -&gt; GetRepositoryCatalogData
+forall x.
+GetRepositoryCatalogData -&gt; Rep GetRepositoryCatalogData x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetRepositoryCatalogData x -&gt; GetRepositoryCatalogData
+$cfrom :: forall x.
+GetRepositoryCatalogData -&gt; Rep GetRepositoryCatalogData x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'GetRepositoryCatalogData' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'registryId', 'getRepositoryCatalogData_registryId' - The AWS account ID associated with the registry that contains the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- repositories to be described. If you do not specify a registry, the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- default public registry is assumed.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'repositoryName', 'getRepositoryCatalogData_repositoryName' - The name of the repository to retrieve the catalog metadata for.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#newGetRepositoryCatalogData"><span class="hs-identifier hs-type">newGetRepositoryCatalogData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'repositoryName'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData"><span class="hs-identifier hs-type">GetRepositoryCatalogData</span></a></span><span>
+</span><span id="line-79"></span><span id="newGetRepositoryCatalogData"><span class="annot"><span class="annottext">newGetRepositoryCatalogData :: Text -&gt; GetRepositoryCatalogData
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#newGetRepositoryCatalogData"><span class="hs-identifier hs-var hs-var">newGetRepositoryCatalogData</span></a></span></span><span> </span><span id="local-6989586621679195673"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195673"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">GetRepositoryCatalogData' :: Maybe Text -&gt; Text -&gt; GetRepositoryCatalogData
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData%27"><span class="hs-identifier hs-type">GetRepositoryCatalogData'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:registryId:GetRepositoryCatalogData' :: Maybe Text
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#%24sel%3AregistryId%3AGetRepositoryCatalogData%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:GetRepositoryCatalogData' :: Text
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#%24sel%3ArepositoryName%3AGetRepositoryCatalogData%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195673"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The AWS account ID associated with the registry that contains the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- repositories to be described. If you do not specify a registry, the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- default public registry is assumed.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#getRepositoryCatalogData_registryId"><span class="hs-identifier hs-type">getRepositoryCatalogData_registryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData"><span class="hs-identifier hs-type">GetRepositoryCatalogData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="getRepositoryCatalogData_registryId"><span class="annot"><span class="annottext">getRepositoryCatalogData_registryId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetRepositoryCatalogData -&gt; f GetRepositoryCatalogData
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#getRepositoryCatalogData_registryId"><span class="hs-identifier hs-var hs-var">getRepositoryCatalogData_registryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRepositoryCatalogData -&gt; Maybe Text)
+-&gt; (GetRepositoryCatalogData
+    -&gt; Maybe Text -&gt; GetRepositoryCatalogData)
+-&gt; Lens
+     GetRepositoryCatalogData
+     GetRepositoryCatalogData
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData%27"><span class="hs-identifier hs-type">GetRepositoryCatalogData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195670"><span class="annot"><span class="annottext">Maybe Text
+registryId :: Maybe Text
+$sel:registryId:GetRepositoryCatalogData' :: GetRepositoryCatalogData -&gt; Maybe Text
+</span><a href="#local-6989586621679195670"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195670"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195669"><span class="annot"><span class="annottext">s :: GetRepositoryCatalogData
+</span><a href="#local-6989586621679195669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData%27"><span class="hs-identifier hs-type">GetRepositoryCatalogData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195668"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRepositoryCatalogData
+</span><a href="#local-6989586621679195669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:GetRepositoryCatalogData' :: Maybe Text
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#%24sel%3AregistryId%3AGetRepositoryCatalogData%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData"><span class="hs-identifier hs-type">GetRepositoryCatalogData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The name of the repository to retrieve the catalog metadata for.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#getRepositoryCatalogData_repositoryName"><span class="hs-identifier hs-type">getRepositoryCatalogData_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData"><span class="hs-identifier hs-type">GetRepositoryCatalogData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="getRepositoryCatalogData_repositoryName"><span class="annot"><span class="annottext">getRepositoryCatalogData_repositoryName :: (Text -&gt; f Text)
+-&gt; GetRepositoryCatalogData -&gt; f GetRepositoryCatalogData
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#getRepositoryCatalogData_repositoryName"><span class="hs-identifier hs-var hs-var">getRepositoryCatalogData_repositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRepositoryCatalogData -&gt; Text)
+-&gt; (GetRepositoryCatalogData -&gt; Text -&gt; GetRepositoryCatalogData)
+-&gt; Lens GetRepositoryCatalogData GetRepositoryCatalogData Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData%27"><span class="hs-identifier hs-type">GetRepositoryCatalogData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195667"><span class="annot"><span class="annottext">Text
+repositoryName :: Text
+$sel:repositoryName:GetRepositoryCatalogData' :: GetRepositoryCatalogData -&gt; Text
+</span><a href="#local-6989586621679195667"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195667"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195666"><span class="annot"><span class="annottext">s :: GetRepositoryCatalogData
+</span><a href="#local-6989586621679195666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData%27"><span class="hs-identifier hs-type">GetRepositoryCatalogData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195665"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRepositoryCatalogData
+</span><a href="#local-6989586621679195666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetRepositoryCatalogData' :: Text
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#%24sel%3ArepositoryName%3AGetRepositoryCatalogData%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData"><span class="hs-identifier hs-type">GetRepositoryCatalogData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData"><span class="hs-identifier hs-type">GetRepositoryCatalogData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData"><span class="hs-identifier hs-type">GetRepositoryCatalogData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogDataResponse"><span class="hs-identifier hs-type">GetRepositoryCatalogDataResponse</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679195661"><span class="annot"><span class="annottext">request :: GetRepositoryCatalogData -&gt; Request GetRepositoryCatalogData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetRepositoryCatalogData -&gt; Request GetRepositoryCatalogData
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ECRPublic.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679195657"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetRepositoryCatalogData
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetRepositoryCatalogData)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetRepositoryCatalogData))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetRepositoryCatalogData
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetRepositoryCatalogData)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679195654"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195654"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679195653"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679195653"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679195652"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195652"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe RepositoryCatalogData
+-&gt; Int -&gt; GetRepositoryCatalogDataResponse
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogDataResponse%27"><span class="hs-identifier hs-var">GetRepositoryCatalogDataResponse'</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RepositoryCatalogData
+ -&gt; Int -&gt; GetRepositoryCatalogDataResponse)
+-&gt; Either String (Maybe RepositoryCatalogData)
+-&gt; Either String (Int -&gt; GetRepositoryCatalogDataResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RepositoryCatalogData)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;catalogData&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetRepositoryCatalogDataResponse)
+-&gt; Either String Int
+-&gt; Either String GetRepositoryCatalogDataResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195654"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195644"><span id="local-6989586621679195646"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData"><span class="hs-identifier hs-type">GetRepositoryCatalogData</span></a></span></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195641"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData"><span class="hs-identifier hs-type">GetRepositoryCatalogData</span></a></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData"><span class="hs-identifier hs-type">GetRepositoryCatalogData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679195637"><span class="annot"><span class="annottext">toHeaders :: GetRepositoryCatalogData -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetRepositoryCatalogData -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SpencerFrontendService.GetRepositoryCatalogData&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-120"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195627"><span id="local-6989586621679195629"><span id="local-6989586621679195631"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData"><span class="hs-identifier hs-type">GetRepositoryCatalogData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679195625"><span class="annot"><span class="annottext">toJSON :: GetRepositoryCatalogData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData%27"><span class="hs-identifier hs-type">GetRepositoryCatalogData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195622"><span id="local-6989586621679195623"><span class="annot"><span class="annottext">Maybe Text
+Text
+repositoryName :: Text
+registryId :: Maybe Text
+$sel:repositoryName:GetRepositoryCatalogData' :: GetRepositoryCatalogData -&gt; Text
+$sel:registryId:GetRepositoryCatalogData' :: GetRepositoryCatalogData -&gt; Maybe Text
+</span><a href="#local-6989586621679195622"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;registryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195623"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195622"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData"><span class="hs-identifier hs-type">GetRepositoryCatalogData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679195616"><span class="annot"><span class="annottext">toPath :: GetRepositoryCatalogData -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetRepositoryCatalogData -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogData"><span class="hs-identifier hs-type">GetRepositoryCatalogData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679195612"><span class="annot"><span class="annottext">toQuery :: GetRepositoryCatalogData -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetRepositoryCatalogData -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newGetRepositoryCatalogDataResponse' smart constructor.</span><span>
+</span><span id="line-145"></span><span id="local-6989586621679195609"><span id="local-6989586621679195610"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRepositoryCatalogDataResponse"><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogDataResponse"><span class="hs-identifier hs-var">GetRepositoryCatalogDataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRepositoryCatalogDataResponse%27"><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogDataResponse%27"><span class="hs-identifier hs-var">GetRepositoryCatalogDataResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The catalog metadata for the repository.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AcatalogData%3AGetRepositoryCatalogDataResponse%27"><span class="annot"><span class="annottext">GetRepositoryCatalogDataResponse -&gt; Maybe RepositoryCatalogData
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#%24sel%3AcatalogData%3AGetRepositoryCatalogDataResponse%27"><span class="hs-identifier hs-var hs-var">catalogData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.Types.RepositoryCatalogData.html#RepositoryCatalogData"><span class="hs-identifier hs-type">RepositoryCatalogData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetRepositoryCatalogDataResponse%27"><span class="annot"><span class="annottext">GetRepositoryCatalogDataResponse -&gt; Int
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#%24sel%3AhttpStatus%3AGetRepositoryCatalogDataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195603"><span id="local-6989586621679195605"><span class="annot"><span class="annottext">GetRepositoryCatalogDataResponse
+-&gt; GetRepositoryCatalogDataResponse -&gt; Bool
+(GetRepositoryCatalogDataResponse
+ -&gt; GetRepositoryCatalogDataResponse -&gt; Bool)
+-&gt; (GetRepositoryCatalogDataResponse
+    -&gt; GetRepositoryCatalogDataResponse -&gt; Bool)
+-&gt; Eq GetRepositoryCatalogDataResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetRepositoryCatalogDataResponse
+-&gt; GetRepositoryCatalogDataResponse -&gt; Bool
+$c/= :: GetRepositoryCatalogDataResponse
+-&gt; GetRepositoryCatalogDataResponse -&gt; Bool
+== :: GetRepositoryCatalogDataResponse
+-&gt; GetRepositoryCatalogDataResponse -&gt; Bool
+$c== :: GetRepositoryCatalogDataResponse
+-&gt; GetRepositoryCatalogDataResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195595"><span id="local-6989586621679195597"><span id="local-6989586621679195599"><span id="local-6989586621679195601"><span class="annot"><span class="annottext">ReadPrec [GetRepositoryCatalogDataResponse]
+ReadPrec GetRepositoryCatalogDataResponse
+Int -&gt; ReadS GetRepositoryCatalogDataResponse
+ReadS [GetRepositoryCatalogDataResponse]
+(Int -&gt; ReadS GetRepositoryCatalogDataResponse)
+-&gt; ReadS [GetRepositoryCatalogDataResponse]
+-&gt; ReadPrec GetRepositoryCatalogDataResponse
+-&gt; ReadPrec [GetRepositoryCatalogDataResponse]
+-&gt; Read GetRepositoryCatalogDataResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetRepositoryCatalogDataResponse]
+$creadListPrec :: ReadPrec [GetRepositoryCatalogDataResponse]
+readPrec :: ReadPrec GetRepositoryCatalogDataResponse
+$creadPrec :: ReadPrec GetRepositoryCatalogDataResponse
+readList :: ReadS [GetRepositoryCatalogDataResponse]
+$creadList :: ReadS [GetRepositoryCatalogDataResponse]
+readsPrec :: Int -&gt; ReadS GetRepositoryCatalogDataResponse
+$creadsPrec :: Int -&gt; ReadS GetRepositoryCatalogDataResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195589"><span id="local-6989586621679195591"><span id="local-6989586621679195593"><span class="annot"><span class="annottext">Int -&gt; GetRepositoryCatalogDataResponse -&gt; ShowS
+[GetRepositoryCatalogDataResponse] -&gt; ShowS
+GetRepositoryCatalogDataResponse -&gt; String
+(Int -&gt; GetRepositoryCatalogDataResponse -&gt; ShowS)
+-&gt; (GetRepositoryCatalogDataResponse -&gt; String)
+-&gt; ([GetRepositoryCatalogDataResponse] -&gt; ShowS)
+-&gt; Show GetRepositoryCatalogDataResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetRepositoryCatalogDataResponse] -&gt; ShowS
+$cshowList :: [GetRepositoryCatalogDataResponse] -&gt; ShowS
+show :: GetRepositoryCatalogDataResponse -&gt; String
+$cshow :: GetRepositoryCatalogDataResponse -&gt; String
+showsPrec :: Int -&gt; GetRepositoryCatalogDataResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetRepositoryCatalogDataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetRepositoryCatalogDataResponse
+ -&gt; Rep GetRepositoryCatalogDataResponse x)
+-&gt; (forall x.
+    Rep GetRepositoryCatalogDataResponse x
+    -&gt; GetRepositoryCatalogDataResponse)
+-&gt; Generic GetRepositoryCatalogDataResponse
+forall x.
+Rep GetRepositoryCatalogDataResponse x
+-&gt; GetRepositoryCatalogDataResponse
+forall x.
+GetRepositoryCatalogDataResponse
+-&gt; Rep GetRepositoryCatalogDataResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetRepositoryCatalogDataResponse x
+-&gt; GetRepositoryCatalogDataResponse
+$cfrom :: forall x.
+GetRepositoryCatalogDataResponse
+-&gt; Rep GetRepositoryCatalogDataResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Create a value of 'GetRepositoryCatalogDataResponse' with all optional fields omitted.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'catalogData', 'getRepositoryCatalogDataResponse_catalogData' - The catalog metadata for the repository.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'httpStatus', 'getRepositoryCatalogDataResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#newGetRepositoryCatalogDataResponse"><span class="hs-identifier hs-type">newGetRepositoryCatalogDataResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogDataResponse"><span class="hs-identifier hs-type">GetRepositoryCatalogDataResponse</span></a></span><span>
+</span><span id="line-168"></span><span id="newGetRepositoryCatalogDataResponse"><span class="annot"><span class="annottext">newGetRepositoryCatalogDataResponse :: Int -&gt; GetRepositoryCatalogDataResponse
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#newGetRepositoryCatalogDataResponse"><span class="hs-identifier hs-var hs-var">newGetRepositoryCatalogDataResponse</span></a></span></span><span> </span><span id="local-6989586621679195586"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195586"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="annottext">GetRepositoryCatalogDataResponse' :: Maybe RepositoryCatalogData
+-&gt; Int -&gt; GetRepositoryCatalogDataResponse
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogDataResponse%27"><span class="hs-identifier hs-type">GetRepositoryCatalogDataResponse'</span></a></span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:catalogData:GetRepositoryCatalogDataResponse' :: Maybe RepositoryCatalogData
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#%24sel%3AcatalogData%3AGetRepositoryCatalogDataResponse%27"><span class="hs-identifier hs-var">catalogData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">Maybe RepositoryCatalogData
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetRepositoryCatalogDataResponse' :: Int
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#%24sel%3AhttpStatus%3AGetRepositoryCatalogDataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195586"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The catalog metadata for the repository.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#getRepositoryCatalogDataResponse_catalogData"><span class="hs-identifier hs-type">getRepositoryCatalogDataResponse_catalogData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogDataResponse"><span class="hs-identifier hs-type">GetRepositoryCatalogDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.Types.RepositoryCatalogData.html#RepositoryCatalogData"><span class="hs-identifier hs-type">RepositoryCatalogData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="getRepositoryCatalogDataResponse_catalogData"><span class="annot"><span class="annottext">getRepositoryCatalogDataResponse_catalogData :: (Maybe RepositoryCatalogData -&gt; f (Maybe RepositoryCatalogData))
+-&gt; GetRepositoryCatalogDataResponse
+-&gt; f GetRepositoryCatalogDataResponse
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#getRepositoryCatalogDataResponse_catalogData"><span class="hs-identifier hs-var hs-var">getRepositoryCatalogDataResponse_catalogData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRepositoryCatalogDataResponse -&gt; Maybe RepositoryCatalogData)
+-&gt; (GetRepositoryCatalogDataResponse
+    -&gt; Maybe RepositoryCatalogData -&gt; GetRepositoryCatalogDataResponse)
+-&gt; Lens
+     GetRepositoryCatalogDataResponse
+     GetRepositoryCatalogDataResponse
+     (Maybe RepositoryCatalogData)
+     (Maybe RepositoryCatalogData)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogDataResponse%27"><span class="hs-identifier hs-type">GetRepositoryCatalogDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195585"><span class="annot"><span class="annottext">Maybe RepositoryCatalogData
+catalogData :: Maybe RepositoryCatalogData
+$sel:catalogData:GetRepositoryCatalogDataResponse' :: GetRepositoryCatalogDataResponse -&gt; Maybe RepositoryCatalogData
+</span><a href="#local-6989586621679195585"><span class="hs-identifier hs-var hs-var">catalogData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RepositoryCatalogData
+</span><a href="#local-6989586621679195585"><span class="hs-identifier hs-var">catalogData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195584"><span class="annot"><span class="annottext">s :: GetRepositoryCatalogDataResponse
+</span><a href="#local-6989586621679195584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogDataResponse%27"><span class="hs-identifier hs-type">GetRepositoryCatalogDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195583"><span class="annot"><span class="annottext">Maybe RepositoryCatalogData
+</span><a href="#local-6989586621679195583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRepositoryCatalogDataResponse
+</span><a href="#local-6989586621679195584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogData:GetRepositoryCatalogDataResponse' :: Maybe RepositoryCatalogData
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#%24sel%3AcatalogData%3AGetRepositoryCatalogDataResponse%27"><span class="hs-identifier hs-var">catalogData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RepositoryCatalogData
+</span><a href="#local-6989586621679195583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogDataResponse"><span class="hs-identifier hs-type">GetRepositoryCatalogDataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#getRepositoryCatalogDataResponse_httpStatus"><span class="hs-identifier hs-type">getRepositoryCatalogDataResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogDataResponse"><span class="hs-identifier hs-type">GetRepositoryCatalogDataResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-181"></span><span id="getRepositoryCatalogDataResponse_httpStatus"><span class="annot"><span class="annottext">getRepositoryCatalogDataResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetRepositoryCatalogDataResponse
+-&gt; f GetRepositoryCatalogDataResponse
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#getRepositoryCatalogDataResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getRepositoryCatalogDataResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRepositoryCatalogDataResponse -&gt; Int)
+-&gt; (GetRepositoryCatalogDataResponse
+    -&gt; Int -&gt; GetRepositoryCatalogDataResponse)
+-&gt; Lens
+     GetRepositoryCatalogDataResponse
+     GetRepositoryCatalogDataResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogDataResponse%27"><span class="hs-identifier hs-type">GetRepositoryCatalogDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195582"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetRepositoryCatalogDataResponse' :: GetRepositoryCatalogDataResponse -&gt; Int
+</span><a href="#local-6989586621679195582"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195582"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195581"><span class="annot"><span class="annottext">s :: GetRepositoryCatalogDataResponse
+</span><a href="#local-6989586621679195581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogDataResponse%27"><span class="hs-identifier hs-type">GetRepositoryCatalogDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195580"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRepositoryCatalogDataResponse
+</span><a href="#local-6989586621679195581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRepositoryCatalogDataResponse' :: Int
+</span><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#%24sel%3AhttpStatus%3AGetRepositoryCatalogDataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679195580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogDataResponse"><span class="hs-identifier hs-type">GetRepositoryCatalogDataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679195578"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.ECRPublic.GetRepositoryCatalogData.html#GetRepositoryCatalogDataResponse"><span class="hs-identifier hs-type">GetRepositoryCatalogDataResponse</span></a></span></span><span>
+</span><span id="line-186"></span></pre></body></html>

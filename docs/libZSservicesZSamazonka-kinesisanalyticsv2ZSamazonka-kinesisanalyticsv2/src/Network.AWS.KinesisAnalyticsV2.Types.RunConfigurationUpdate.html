@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationRestoreConfiguration.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.ApplicationRestoreConfiguration</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.FlinkRunConfiguration.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.FlinkRunConfiguration</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes the updates to the starting parameters for a Kinesis Data</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newRunConfigurationUpdate' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679293950"><span id="local-6989586621679293951"></span></span><span class="hs-keyword">data</span><span> </span><span id="RunConfigurationUpdate"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#RunConfigurationUpdate"><span class="hs-identifier hs-var">RunConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RunConfigurationUpdate%27"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#RunConfigurationUpdate%27"><span class="hs-identifier hs-var">RunConfigurationUpdate'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the starting parameters for a Flink-based Kinesis Data</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AflinkRunConfiguration%3ARunConfigurationUpdate%27"><span class="annot"><span class="annottext">RunConfigurationUpdate -&gt; Maybe FlinkRunConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#%24sel%3AflinkRunConfiguration%3ARunConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">flinkRunConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.FlinkRunConfiguration.html#FlinkRunConfiguration"><span class="hs-identifier hs-type">FlinkRunConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Describes updates to the restore behavior of a restarting application.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AapplicationRestoreConfiguration%3ARunConfigurationUpdate%27"><span class="annot"><span class="annottext">RunConfigurationUpdate -&gt; Maybe ApplicationRestoreConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#%24sel%3AapplicationRestoreConfiguration%3ARunConfigurationUpdate%27"><span class="hs-identifier hs-var hs-var">applicationRestoreConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationRestoreConfiguration.html#ApplicationRestoreConfiguration"><span class="hs-identifier hs-type">ApplicationRestoreConfiguration</span></a></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293943"><span id="local-6989586621679293945"><span class="annot"><span class="annottext">RunConfigurationUpdate -&gt; RunConfigurationUpdate -&gt; Bool
+(RunConfigurationUpdate -&gt; RunConfigurationUpdate -&gt; Bool)
+-&gt; (RunConfigurationUpdate -&gt; RunConfigurationUpdate -&gt; Bool)
+-&gt; Eq RunConfigurationUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RunConfigurationUpdate -&gt; RunConfigurationUpdate -&gt; Bool
+$c/= :: RunConfigurationUpdate -&gt; RunConfigurationUpdate -&gt; Bool
+== :: RunConfigurationUpdate -&gt; RunConfigurationUpdate -&gt; Bool
+$c== :: RunConfigurationUpdate -&gt; RunConfigurationUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293934"><span id="local-6989586621679293936"><span id="local-6989586621679293938"><span id="local-6989586621679293940"><span class="annot"><span class="annottext">ReadPrec [RunConfigurationUpdate]
+ReadPrec RunConfigurationUpdate
+Int -&gt; ReadS RunConfigurationUpdate
+ReadS [RunConfigurationUpdate]
+(Int -&gt; ReadS RunConfigurationUpdate)
+-&gt; ReadS [RunConfigurationUpdate]
+-&gt; ReadPrec RunConfigurationUpdate
+-&gt; ReadPrec [RunConfigurationUpdate]
+-&gt; Read RunConfigurationUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RunConfigurationUpdate]
+$creadListPrec :: ReadPrec [RunConfigurationUpdate]
+readPrec :: ReadPrec RunConfigurationUpdate
+$creadPrec :: ReadPrec RunConfigurationUpdate
+readList :: ReadS [RunConfigurationUpdate]
+$creadList :: ReadS [RunConfigurationUpdate]
+readsPrec :: Int -&gt; ReadS RunConfigurationUpdate
+$creadsPrec :: Int -&gt; ReadS RunConfigurationUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293927"><span id="local-6989586621679293929"><span id="local-6989586621679293931"><span class="annot"><span class="annottext">Int -&gt; RunConfigurationUpdate -&gt; ShowS
+[RunConfigurationUpdate] -&gt; ShowS
+RunConfigurationUpdate -&gt; String
+(Int -&gt; RunConfigurationUpdate -&gt; ShowS)
+-&gt; (RunConfigurationUpdate -&gt; String)
+-&gt; ([RunConfigurationUpdate] -&gt; ShowS)
+-&gt; Show RunConfigurationUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RunConfigurationUpdate] -&gt; ShowS
+$cshowList :: [RunConfigurationUpdate] -&gt; ShowS
+show :: RunConfigurationUpdate -&gt; String
+$cshow :: RunConfigurationUpdate -&gt; String
+showsPrec :: Int -&gt; RunConfigurationUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; RunConfigurationUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RunConfigurationUpdate -&gt; Rep RunConfigurationUpdate x)
+-&gt; (forall x.
+    Rep RunConfigurationUpdate x -&gt; RunConfigurationUpdate)
+-&gt; Generic RunConfigurationUpdate
+forall x. Rep RunConfigurationUpdate x -&gt; RunConfigurationUpdate
+forall x. RunConfigurationUpdate -&gt; Rep RunConfigurationUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RunConfigurationUpdate x -&gt; RunConfigurationUpdate
+$cfrom :: forall x. RunConfigurationUpdate -&gt; Rep RunConfigurationUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'RunConfigurationUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'flinkRunConfiguration', 'runConfigurationUpdate_flinkRunConfiguration' - Describes the starting parameters for a Flink-based Kinesis Data</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'applicationRestoreConfiguration', 'runConfigurationUpdate_applicationRestoreConfiguration' - Describes updates to the restore behavior of a restarting application.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#newRunConfigurationUpdate"><span class="hs-identifier hs-type">newRunConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#RunConfigurationUpdate"><span class="hs-identifier hs-type">RunConfigurationUpdate</span></a></span><span>
+</span><span id="line-55"></span><span id="newRunConfigurationUpdate"><span class="annot"><span class="annottext">newRunConfigurationUpdate :: RunConfigurationUpdate
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#newRunConfigurationUpdate"><span class="hs-identifier hs-var hs-var">newRunConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">RunConfigurationUpdate' :: Maybe FlinkRunConfiguration
+-&gt; Maybe ApplicationRestoreConfiguration -&gt; RunConfigurationUpdate
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#RunConfigurationUpdate%27"><span class="hs-identifier hs-type">RunConfigurationUpdate'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:flinkRunConfiguration:RunConfigurationUpdate' :: Maybe FlinkRunConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#%24sel%3AflinkRunConfiguration%3ARunConfigurationUpdate%27"><span class="hs-identifier hs-var">flinkRunConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe FlinkRunConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationRestoreConfiguration:RunConfigurationUpdate' :: Maybe ApplicationRestoreConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#%24sel%3AapplicationRestoreConfiguration%3ARunConfigurationUpdate%27"><span class="hs-identifier hs-var">applicationRestoreConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationRestoreConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | Describes the starting parameters for a Flink-based Kinesis Data</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#runConfigurationUpdate_flinkRunConfiguration"><span class="hs-identifier hs-type">runConfigurationUpdate_flinkRunConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#RunConfigurationUpdate"><span class="hs-identifier hs-type">RunConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.FlinkRunConfiguration.html#FlinkRunConfiguration"><span class="hs-identifier hs-type">FlinkRunConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="runConfigurationUpdate_flinkRunConfiguration"><span class="annot"><span class="annottext">runConfigurationUpdate_flinkRunConfiguration :: (Maybe FlinkRunConfiguration -&gt; f (Maybe FlinkRunConfiguration))
+-&gt; RunConfigurationUpdate -&gt; f RunConfigurationUpdate
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#runConfigurationUpdate_flinkRunConfiguration"><span class="hs-identifier hs-var hs-var">runConfigurationUpdate_flinkRunConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RunConfigurationUpdate -&gt; Maybe FlinkRunConfiguration)
+-&gt; (RunConfigurationUpdate
+    -&gt; Maybe FlinkRunConfiguration -&gt; RunConfigurationUpdate)
+-&gt; Lens
+     RunConfigurationUpdate
+     RunConfigurationUpdate
+     (Maybe FlinkRunConfiguration)
+     (Maybe FlinkRunConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#RunConfigurationUpdate%27"><span class="hs-identifier hs-type">RunConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293918"><span class="annot"><span class="annottext">Maybe FlinkRunConfiguration
+flinkRunConfiguration :: Maybe FlinkRunConfiguration
+$sel:flinkRunConfiguration:RunConfigurationUpdate' :: RunConfigurationUpdate -&gt; Maybe FlinkRunConfiguration
+</span><a href="#local-6989586621679293918"><span class="hs-identifier hs-var hs-var">flinkRunConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FlinkRunConfiguration
+</span><a href="#local-6989586621679293918"><span class="hs-identifier hs-var">flinkRunConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293917"><span class="annot"><span class="annottext">s :: RunConfigurationUpdate
+</span><a href="#local-6989586621679293917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#RunConfigurationUpdate%27"><span class="hs-identifier hs-type">RunConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293916"><span class="annot"><span class="annottext">Maybe FlinkRunConfiguration
+</span><a href="#local-6989586621679293916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunConfigurationUpdate
+</span><a href="#local-6989586621679293917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flinkRunConfiguration:RunConfigurationUpdate' :: Maybe FlinkRunConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#%24sel%3AflinkRunConfiguration%3ARunConfigurationUpdate%27"><span class="hs-identifier hs-var">flinkRunConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FlinkRunConfiguration
+</span><a href="#local-6989586621679293916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#RunConfigurationUpdate"><span class="hs-identifier hs-type">RunConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | Describes updates to the restore behavior of a restarting application.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#runConfigurationUpdate_applicationRestoreConfiguration"><span class="hs-identifier hs-type">runConfigurationUpdate_applicationRestoreConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#RunConfigurationUpdate"><span class="hs-identifier hs-type">RunConfigurationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ApplicationRestoreConfiguration.html#ApplicationRestoreConfiguration"><span class="hs-identifier hs-type">ApplicationRestoreConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="runConfigurationUpdate_applicationRestoreConfiguration"><span class="annot"><span class="annottext">runConfigurationUpdate_applicationRestoreConfiguration :: (Maybe ApplicationRestoreConfiguration
+ -&gt; f (Maybe ApplicationRestoreConfiguration))
+-&gt; RunConfigurationUpdate -&gt; f RunConfigurationUpdate
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#runConfigurationUpdate_applicationRestoreConfiguration"><span class="hs-identifier hs-var hs-var">runConfigurationUpdate_applicationRestoreConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RunConfigurationUpdate -&gt; Maybe ApplicationRestoreConfiguration)
+-&gt; (RunConfigurationUpdate
+    -&gt; Maybe ApplicationRestoreConfiguration -&gt; RunConfigurationUpdate)
+-&gt; Lens
+     RunConfigurationUpdate
+     RunConfigurationUpdate
+     (Maybe ApplicationRestoreConfiguration)
+     (Maybe ApplicationRestoreConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#RunConfigurationUpdate%27"><span class="hs-identifier hs-type">RunConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293914"><span class="annot"><span class="annottext">Maybe ApplicationRestoreConfiguration
+applicationRestoreConfiguration :: Maybe ApplicationRestoreConfiguration
+$sel:applicationRestoreConfiguration:RunConfigurationUpdate' :: RunConfigurationUpdate -&gt; Maybe ApplicationRestoreConfiguration
+</span><a href="#local-6989586621679293914"><span class="hs-identifier hs-var hs-var">applicationRestoreConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationRestoreConfiguration
+</span><a href="#local-6989586621679293914"><span class="hs-identifier hs-var">applicationRestoreConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293913"><span class="annot"><span class="annottext">s :: RunConfigurationUpdate
+</span><a href="#local-6989586621679293913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#RunConfigurationUpdate%27"><span class="hs-identifier hs-type">RunConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293912"><span class="annot"><span class="annottext">Maybe ApplicationRestoreConfiguration
+</span><a href="#local-6989586621679293912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunConfigurationUpdate
+</span><a href="#local-6989586621679293913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationRestoreConfiguration:RunConfigurationUpdate' :: Maybe ApplicationRestoreConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#%24sel%3AapplicationRestoreConfiguration%3ARunConfigurationUpdate%27"><span class="hs-identifier hs-var">applicationRestoreConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationRestoreConfiguration
+</span><a href="#local-6989586621679293912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#RunConfigurationUpdate"><span class="hs-identifier hs-type">RunConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293908"><span id="local-6989586621679293910"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#RunConfigurationUpdate"><span class="hs-identifier hs-type">RunConfigurationUpdate</span></a></span></span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293905"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#RunConfigurationUpdate"><span class="hs-identifier hs-type">RunConfigurationUpdate</span></a></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293897"><span id="local-6989586621679293899"><span id="local-6989586621679293901"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#RunConfigurationUpdate"><span class="hs-identifier hs-type">RunConfigurationUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679293895"><span class="annot"><span class="annottext">toJSON :: RunConfigurationUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.RunConfigurationUpdate.html#RunConfigurationUpdate%27"><span class="hs-identifier hs-type">RunConfigurationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293892"><span id="local-6989586621679293893"><span class="annot"><span class="annottext">Maybe ApplicationRestoreConfiguration
+Maybe FlinkRunConfiguration
+applicationRestoreConfiguration :: Maybe ApplicationRestoreConfiguration
+flinkRunConfiguration :: Maybe FlinkRunConfiguration
+$sel:applicationRestoreConfiguration:RunConfigurationUpdate' :: RunConfigurationUpdate -&gt; Maybe ApplicationRestoreConfiguration
+$sel:flinkRunConfiguration:RunConfigurationUpdate' :: RunConfigurationUpdate -&gt; Maybe FlinkRunConfiguration
+</span><a href="#local-6989586621679293892"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-79"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FlinkRunConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FlinkRunConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>              </span><span class="annot"><span class="annottext">(FlinkRunConfiguration -&gt; Pair)
+-&gt; Maybe FlinkRunConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FlinkRunConfiguration
+</span><a href="#local-6989586621679293893"><span class="hs-identifier hs-var">flinkRunConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationRestoreConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ApplicationRestoreConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>              </span><span class="annot"><span class="annottext">(ApplicationRestoreConfiguration -&gt; Pair)
+-&gt; Maybe ApplicationRestoreConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationRestoreConfiguration
+</span><a href="#local-6989586621679293892"><span class="hs-identifier hs-var">applicationRestoreConfiguration</span></a></span><span>
+</span><span id="line-83"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span></pre></body></html>

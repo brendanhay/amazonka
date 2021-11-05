@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about a pipeline.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPipelineMetadata' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679279991"><span id="local-6989586621679279992"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineMetadata"><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata"><span class="hs-identifier hs-var">PipelineMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineMetadata%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata%27"><span class="hs-identifier hs-var">PipelineMetadata'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679280000"><span id="local-6989586621679280001"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineMetadata"><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata"><span class="hs-identifier hs-var">PipelineMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineMetadata%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata%27"><span class="hs-identifier hs-var">PipelineMetadata'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time the pipeline was created, in timestamp format.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Acreated%3APipelineMetadata%27"><span class="annot"><span class="annottext">PipelineMetadata -&gt; Maybe POSIX
 </span><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#%24sel%3Acreated%3APipelineMetadata%27"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aupdated%3APipelineMetadata%27"><span class="annot"><span class="annottext">PipelineMetadata -&gt; Maybe POSIX
 </span><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#%24sel%3Aupdated%3APipelineMetadata%27"><span class="hs-identifier hs-var hs-var">updated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279983"><span id="local-6989586621679279985"><span class="annot"><span class="annottext">PipelineMetadata -&gt; PipelineMetadata -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279992"><span id="local-6989586621679279994"><span class="annot"><span class="annottext">PipelineMetadata -&gt; PipelineMetadata -&gt; Bool
 (PipelineMetadata -&gt; PipelineMetadata -&gt; Bool)
 -&gt; (PipelineMetadata -&gt; PipelineMetadata -&gt; Bool)
 -&gt; Eq PipelineMetadata
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PipelineMetadata -&gt; PipelineMetadata -&gt; Bool
 == :: PipelineMetadata -&gt; PipelineMetadata -&gt; Bool
 $c== :: PipelineMetadata -&gt; PipelineMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279974"><span id="local-6989586621679279976"><span id="local-6989586621679279978"><span id="local-6989586621679279980"><span class="annot"><span class="annottext">ReadPrec [PipelineMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279983"><span id="local-6989586621679279985"><span id="local-6989586621679279987"><span id="local-6989586621679279989"><span class="annot"><span class="annottext">ReadPrec [PipelineMetadata]
 ReadPrec PipelineMetadata
 Int -&gt; ReadS PipelineMetadata
 ReadS [PipelineMetadata]
@@ -66,7 +66,7 @@ readList :: ReadS [PipelineMetadata]
 $creadList :: ReadS [PipelineMetadata]
 readsPrec :: Int -&gt; ReadS PipelineMetadata
 $creadsPrec :: Int -&gt; ReadS PipelineMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279967"><span id="local-6989586621679279969"><span id="local-6989586621679279971"><span class="annot"><span class="annottext">Int -&gt; PipelineMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279976"><span id="local-6989586621679279978"><span id="local-6989586621679279980"><span class="annot"><span class="annottext">Int -&gt; PipelineMetadata -&gt; ShowS
 [PipelineMetadata] -&gt; ShowS
 PipelineMetadata -&gt; String
 (Int -&gt; PipelineMetadata -&gt; ShowS)
@@ -134,16 +134,16 @@ forall a. Maybe a
 -&gt; Lens
      PipelineMetadata PipelineMetadata (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata%27"><span class="hs-identifier hs-type">PipelineMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279958"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata%27"><span class="hs-identifier hs-type">PipelineMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279967"><span class="annot"><span class="annottext">Maybe POSIX
 created :: Maybe POSIX
 $sel:created:PipelineMetadata' :: PipelineMetadata -&gt; Maybe POSIX
-</span><a href="#local-6989586621679279958"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679279958"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279957"><span class="annot"><span class="annottext">s :: PipelineMetadata
-</span><a href="#local-6989586621679279957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata%27"><span class="hs-identifier hs-type">PipelineMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279956"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679279956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineMetadata
-</span><a href="#local-6989586621679279957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:PipelineMetadata' :: Maybe POSIX
+</span><a href="#local-6989586621679279967"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679279967"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279966"><span class="annot"><span class="annottext">s :: PipelineMetadata
+</span><a href="#local-6989586621679279966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata%27"><span class="hs-identifier hs-type">PipelineMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279965"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679279965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineMetadata
+</span><a href="#local-6989586621679279966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:PipelineMetadata' :: Maybe POSIX
 </span><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#%24sel%3Acreated%3APipelineMetadata%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679279956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata"><span class="hs-identifier hs-type">PipelineMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679279965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata"><span class="hs-identifier hs-type">PipelineMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; PipelineMetadata -&gt; f PipelineMetadata)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -168,16 +168,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (PipelineMetadata -&gt; Maybe Text -&gt; PipelineMetadata)
 -&gt; Lens PipelineMetadata PipelineMetadata (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata%27"><span class="hs-identifier hs-type">PipelineMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279951"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata%27"><span class="hs-identifier hs-type">PipelineMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279960"><span class="annot"><span class="annottext">Maybe Text
 pipelineArn :: Maybe Text
 $sel:pipelineArn:PipelineMetadata' :: PipelineMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679279951"><span class="hs-identifier hs-var hs-var">pipelineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279951"><span class="hs-identifier hs-var">pipelineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279950"><span class="annot"><span class="annottext">s :: PipelineMetadata
-</span><a href="#local-6989586621679279950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata%27"><span class="hs-identifier hs-type">PipelineMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279949"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineMetadata
-</span><a href="#local-6989586621679279950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineArn:PipelineMetadata' :: Maybe Text
+</span><a href="#local-6989586621679279960"><span class="hs-identifier hs-var hs-var">pipelineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279960"><span class="hs-identifier hs-var">pipelineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279959"><span class="annot"><span class="annottext">s :: PipelineMetadata
+</span><a href="#local-6989586621679279959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata%27"><span class="hs-identifier hs-type">PipelineMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279958"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineMetadata
+</span><a href="#local-6989586621679279959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineArn:PipelineMetadata' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#%24sel%3ApipelineArn%3APipelineMetadata%27"><span class="hs-identifier hs-var">pipelineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata"><span class="hs-identifier hs-type">PipelineMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata"><span class="hs-identifier hs-type">PipelineMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The date and time the pipeline was last updated, in timestamp format.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#pipelineMetadata_updated"><span class="hs-identifier hs-type">pipelineMetadata_updated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata"><span class="hs-identifier hs-type">PipelineMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -188,16 +188,16 @@ $sel:pipelineArn:PipelineMetadata' :: PipelineMetadata -&gt; Maybe Text
 -&gt; Lens
      PipelineMetadata PipelineMetadata (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata%27"><span class="hs-identifier hs-type">PipelineMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279947"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata%27"><span class="hs-identifier hs-type">PipelineMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279956"><span class="annot"><span class="annottext">Maybe POSIX
 updated :: Maybe POSIX
 $sel:updated:PipelineMetadata' :: PipelineMetadata -&gt; Maybe POSIX
-</span><a href="#local-6989586621679279947"><span class="hs-identifier hs-var hs-var">updated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679279947"><span class="hs-identifier hs-var">updated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279946"><span class="annot"><span class="annottext">s :: PipelineMetadata
-</span><a href="#local-6989586621679279946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata%27"><span class="hs-identifier hs-type">PipelineMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279945"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679279945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineMetadata
-</span><a href="#local-6989586621679279946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updated:PipelineMetadata' :: Maybe POSIX
+</span><a href="#local-6989586621679279956"><span class="hs-identifier hs-var hs-var">updated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679279956"><span class="hs-identifier hs-var">updated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279955"><span class="annot"><span class="annottext">s :: PipelineMetadata
+</span><a href="#local-6989586621679279955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata%27"><span class="hs-identifier hs-type">PipelineMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279954"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679279954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineMetadata
+</span><a href="#local-6989586621679279955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updated:PipelineMetadata' :: Maybe POSIX
 </span><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#%24sel%3Aupdated%3APipelineMetadata%27"><span class="hs-identifier hs-var">updated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679279945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata"><span class="hs-identifier hs-type">PipelineMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679279954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata"><span class="hs-identifier hs-type">PipelineMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; PipelineMetadata -&gt; f PipelineMetadata)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -214,8 +214,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279942"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata"><span class="hs-identifier hs-type">PipelineMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679279940"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineMetadata
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279951"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata"><span class="hs-identifier hs-type">PipelineMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679279949"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PipelineMetadata)
@@ -225,8 +225,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PipelineMetadata&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279937"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279937"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279946"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279946"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe Text -&gt; Maybe POSIX -&gt; PipelineMetadata
 </span><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata%27"><span class="hs-identifier hs-var">PipelineMetadata'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe Text -&gt; Maybe POSIX -&gt; PipelineMetadata)
@@ -234,7 +234,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; PipelineMetadata)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679279946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;created&quot;</span></span><span class="hs-special">)</span><span>
@@ -242,7 +242,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; PipelineMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679279946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pipelineArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -250,13 +250,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser PipelineMetadata
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679279946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;updated&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279931"><span id="local-6989586621679279933"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata"><span class="hs-identifier hs-type">PipelineMetadata</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279940"><span id="local-6989586621679279942"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata"><span class="hs-identifier hs-type">PipelineMetadata</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279928"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata"><span class="hs-identifier hs-type">PipelineMetadata</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279937"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineMetadata.html#PipelineMetadata"><span class="hs-identifier hs-type">PipelineMetadata</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

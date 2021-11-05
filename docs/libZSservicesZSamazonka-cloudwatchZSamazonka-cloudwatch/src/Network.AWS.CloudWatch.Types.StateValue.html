@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679257183"><span id="local-6989586621679257184"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StateValue"><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue"><span class="hs-identifier hs-var">StateValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StateValue%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue%27"><span class="hs-identifier hs-var">StateValue'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679257192"><span id="local-6989586621679257193"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StateValue"><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue"><span class="hs-identifier hs-var">StateValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StateValue%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue%27"><span class="hs-identifier hs-var">StateValue'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStateValue"><span class="annot"><span class="annottext">StateValue -&gt; Text
 </span><a href="Network.AWS.CloudWatch.Types.StateValue.html#fromStateValue"><span class="hs-identifier hs-var hs-var">fromStateValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679257175"><span id="local-6989586621679257177"><span id="local-6989586621679257179"><span class="annot"><span class="annottext">Int -&gt; StateValue -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679257184"><span id="local-6989586621679257186"><span id="local-6989586621679257188"><span class="annot"><span class="annottext">Int -&gt; StateValue -&gt; ShowS
 [StateValue] -&gt; ShowS
 StateValue -&gt; String
 (Int -&gt; StateValue -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: StateValue -&gt; String
 showsPrec :: Int -&gt; StateValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; StateValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679257166"><span id="local-6989586621679257168"><span id="local-6989586621679257170"><span id="local-6989586621679257172"><span class="annot"><span class="annottext">ReadPrec [StateValue]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679257175"><span id="local-6989586621679257177"><span id="local-6989586621679257179"><span id="local-6989586621679257181"><span class="annot"><span class="annottext">ReadPrec [StateValue]
 ReadPrec StateValue
 Int -&gt; ReadS StateValue
 ReadS [StateValue]
@@ -73,7 +73,7 @@ $creadList :: ReadS [StateValue]
 readsPrec :: Int -&gt; ReadS StateValue
 $creadsPrec :: Int -&gt; ReadS StateValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679257161"><span id="local-6989586621679257163"><span class="annot"><span class="annottext">StateValue -&gt; StateValue -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679257170"><span id="local-6989586621679257172"><span class="annot"><span class="annottext">StateValue -&gt; StateValue -&gt; Bool
 (StateValue -&gt; StateValue -&gt; Bool)
 -&gt; (StateValue -&gt; StateValue -&gt; Bool) -&gt; Eq StateValue
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: StateValue -&gt; StateValue -&gt; Bool
 == :: StateValue -&gt; StateValue -&gt; Bool
 $c== :: StateValue -&gt; StateValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679257145"><span id="local-6989586621679257147"><span id="local-6989586621679257149"><span id="local-6989586621679257151"><span id="local-6989586621679257153"><span id="local-6989586621679257155"><span id="local-6989586621679257157"><span class="annot"><span class="annottext">Eq StateValue
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679257154"><span id="local-6989586621679257156"><span id="local-6989586621679257158"><span id="local-6989586621679257160"><span id="local-6989586621679257162"><span id="local-6989586621679257164"><span id="local-6989586621679257166"><span class="annot"><span class="annottext">Eq StateValue
 Eq StateValue
 -&gt; (StateValue -&gt; StateValue -&gt; Ordering)
 -&gt; (StateValue -&gt; StateValue -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. StateValue -&gt; Rep StateValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679257137"><span id="local-6989586621679257139"><span class="annot"><span class="annottext">Int -&gt; StateValue -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679257146"><span id="local-6989586621679257148"><span class="annot"><span class="annottext">Int -&gt; StateValue -&gt; Int
 StateValue -&gt; Int
 (Int -&gt; StateValue -&gt; Int)
 -&gt; (StateValue -&gt; Int) -&gt; Hashable StateValue
@@ -142,49 +142,49 @@ $chash :: StateValue -&gt; Int
 hashWithSalt :: Int -&gt; StateValue -&gt; Int
 $chashWithSalt :: Int -&gt; StateValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679257134"><span class="annot"><span class="annottext">StateValue -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679257143"><span class="annot"><span class="annottext">StateValue -&gt; ()
 (StateValue -&gt; ()) -&gt; NFData StateValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StateValue -&gt; ()
 $crnf :: StateValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679257131"><span class="annot"><span class="annottext">Text -&gt; Either String StateValue
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679257140"><span class="annot"><span class="annottext">Text -&gt; Either String StateValue
 (Text -&gt; Either String StateValue) -&gt; FromText StateValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StateValue
 $cfromText :: Text -&gt; Either String StateValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679257128"><span class="annot"><span class="annottext">StateValue -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679257137"><span class="annot"><span class="annottext">StateValue -&gt; Text
 (StateValue -&gt; Text) -&gt; ToText StateValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StateValue -&gt; Text
 $ctoText :: StateValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679257125"><span class="annot"><span class="annottext">StateValue -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679257134"><span class="annot"><span class="annottext">StateValue -&gt; ByteString
 (StateValue -&gt; ByteString) -&gt; ToByteString StateValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StateValue -&gt; ByteString
 $ctoBS :: StateValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679257122"><span class="annot"><span class="annottext">StateValue -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679257131"><span class="annot"><span class="annottext">StateValue -&gt; ByteStringBuilder
 (StateValue -&gt; ByteStringBuilder) -&gt; ToLog StateValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StateValue -&gt; ByteStringBuilder
 $cbuild :: StateValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679257119"><span class="annot"><span class="annottext">HeaderName -&gt; StateValue -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679257128"><span class="annot"><span class="annottext">HeaderName -&gt; StateValue -&gt; [Header]
 (HeaderName -&gt; StateValue -&gt; [Header]) -&gt; ToHeader StateValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StateValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StateValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679257116"><span class="annot"><span class="annottext">StateValue -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679257125"><span class="annot"><span class="annottext">StateValue -&gt; QueryString
 (StateValue -&gt; QueryString) -&gt; ToQuery StateValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StateValue -&gt; QueryString
 $ctoQuery :: StateValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679257111"><span id="local-6989586621679257113"><span class="annot"><span class="annottext">Value -&gt; Parser [StateValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679257120"><span id="local-6989586621679257122"><span class="annot"><span class="annottext">Value -&gt; Parser [StateValue]
 Value -&gt; Parser StateValue
 (Value -&gt; Parser StateValue)
 -&gt; (Value -&gt; Parser [StateValue]) -&gt; FromJSON StateValue
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [StateValue]
 parseJSON :: Value -&gt; Parser StateValue
 $cparseJSON :: Value -&gt; Parser StateValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679257106"><span id="local-6989586621679257108"><span class="annot"><span class="annottext">FromJSONKeyFunction [StateValue]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679257115"><span id="local-6989586621679257117"><span class="annot"><span class="annottext">FromJSONKeyFunction [StateValue]
 FromJSONKeyFunction StateValue
 FromJSONKeyFunction StateValue
 -&gt; FromJSONKeyFunction [StateValue] -&gt; FromJSONKey StateValue
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StateValue]
 fromJSONKey :: FromJSONKeyFunction StateValue
 $cfromJSONKey :: FromJSONKeyFunction StateValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679257097"><span id="local-6989586621679257099"><span id="local-6989586621679257101"><span id="local-6989586621679257103"><span class="annot"><span class="annottext">[StateValue] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679257106"><span id="local-6989586621679257108"><span id="local-6989586621679257110"><span id="local-6989586621679257112"><span class="annot"><span class="annottext">[StateValue] -&gt; Encoding
 [StateValue] -&gt; Value
 StateValue -&gt; Encoding
 StateValue -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: StateValue -&gt; Encoding
 toJSON :: StateValue -&gt; Value
 $ctoJSON :: StateValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679257092"><span id="local-6989586621679257094"><span class="annot"><span class="annottext">ToJSONKeyFunction [StateValue]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679257101"><span id="local-6989586621679257103"><span class="annot"><span class="annottext">ToJSONKeyFunction [StateValue]
 ToJSONKeyFunction StateValue
 ToJSONKeyFunction StateValue
 -&gt; ToJSONKeyFunction [StateValue] -&gt; ToJSONKey StateValue
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StateValue]
 toJSONKey :: ToJSONKeyFunction StateValue
 $ctoJSONKey :: ToJSONKeyFunction StateValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679257089"><span class="annot"><span class="annottext">[Node] -&gt; Either String StateValue
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679257098"><span class="annot"><span class="annottext">[Node] -&gt; Either String StateValue
 ([Node] -&gt; Either String StateValue) -&gt; FromXML StateValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StateValue
 $cparseXML :: [Node] -&gt; Either String StateValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679257086"><span class="annot"><span class="annottext">StateValue -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679257095"><span class="annot"><span class="annottext">StateValue -&gt; XML
 (StateValue -&gt; XML) -&gt; ToXML StateValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StateValue -&gt; XML

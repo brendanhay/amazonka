@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | If set to LOG, log each output\'s audio track loudness to a CSV file.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679942084"><span id="local-6989586621679942085"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioNormalizationLoudnessLogging"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationLoudnessLogging.html#AudioNormalizationLoudnessLogging"><span class="hs-identifier hs-var">AudioNormalizationLoudnessLogging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioNormalizationLoudnessLogging%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationLoudnessLogging.html#AudioNormalizationLoudnessLogging%27"><span class="hs-identifier hs-var">AudioNormalizationLoudnessLogging'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679942093"><span id="local-6989586621679942094"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioNormalizationLoudnessLogging"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationLoudnessLogging.html#AudioNormalizationLoudnessLogging"><span class="hs-identifier hs-var">AudioNormalizationLoudnessLogging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioNormalizationLoudnessLogging%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationLoudnessLogging.html#AudioNormalizationLoudnessLogging%27"><span class="hs-identifier hs-var">AudioNormalizationLoudnessLogging'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAudioNormalizationLoudnessLogging"><span class="annot"><span class="annottext">AudioNormalizationLoudnessLogging -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AudioNormalizationLoudnessLogging.html#fromAudioNormalizationLoudnessLogging"><span class="hs-identifier hs-var hs-var">fromAudioNormalizationLoudnessLogging</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679942076"><span id="local-6989586621679942078"><span id="local-6989586621679942080"><span class="annot"><span class="annottext">Int -&gt; AudioNormalizationLoudnessLogging -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679942085"><span id="local-6989586621679942087"><span id="local-6989586621679942089"><span class="annot"><span class="annottext">Int -&gt; AudioNormalizationLoudnessLogging -&gt; ShowS
 [AudioNormalizationLoudnessLogging] -&gt; ShowS
 AudioNormalizationLoudnessLogging -&gt; String
 (Int -&gt; AudioNormalizationLoudnessLogging -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AudioNormalizationLoudnessLogging -&gt; String
 showsPrec :: Int -&gt; AudioNormalizationLoudnessLogging -&gt; ShowS
 $cshowsPrec :: Int -&gt; AudioNormalizationLoudnessLogging -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679942067"><span id="local-6989586621679942069"><span id="local-6989586621679942071"><span id="local-6989586621679942073"><span class="annot"><span class="annottext">ReadPrec [AudioNormalizationLoudnessLogging]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679942076"><span id="local-6989586621679942078"><span id="local-6989586621679942080"><span id="local-6989586621679942082"><span class="annot"><span class="annottext">ReadPrec [AudioNormalizationLoudnessLogging]
 ReadPrec AudioNormalizationLoudnessLogging
 Int -&gt; ReadS AudioNormalizationLoudnessLogging
 ReadS [AudioNormalizationLoudnessLogging]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AudioNormalizationLoudnessLogging]
 readsPrec :: Int -&gt; ReadS AudioNormalizationLoudnessLogging
 $creadsPrec :: Int -&gt; ReadS AudioNormalizationLoudnessLogging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679942062"><span id="local-6989586621679942064"><span class="annot"><span class="annottext">AudioNormalizationLoudnessLogging
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679942071"><span id="local-6989586621679942073"><span class="annot"><span class="annottext">AudioNormalizationLoudnessLogging
 -&gt; AudioNormalizationLoudnessLogging -&gt; Bool
 (AudioNormalizationLoudnessLogging
  -&gt; AudioNormalizationLoudnessLogging -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: AudioNormalizationLoudnessLogging
 $c== :: AudioNormalizationLoudnessLogging
 -&gt; AudioNormalizationLoudnessLogging -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679942046"><span id="local-6989586621679942048"><span id="local-6989586621679942050"><span id="local-6989586621679942052"><span id="local-6989586621679942054"><span id="local-6989586621679942056"><span id="local-6989586621679942058"><span class="annot"><span class="annottext">Eq AudioNormalizationLoudnessLogging
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679942055"><span id="local-6989586621679942057"><span id="local-6989586621679942059"><span id="local-6989586621679942061"><span id="local-6989586621679942063"><span id="local-6989586621679942065"><span id="local-6989586621679942067"><span class="annot"><span class="annottext">Eq AudioNormalizationLoudnessLogging
 Eq AudioNormalizationLoudnessLogging
 -&gt; (AudioNormalizationLoudnessLogging
     -&gt; AudioNormalizationLoudnessLogging -&gt; Ordering)
@@ -184,7 +184,7 @@ AudioNormalizationLoudnessLogging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679942038"><span id="local-6989586621679942040"><span class="annot"><span class="annottext">Int -&gt; AudioNormalizationLoudnessLogging -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679942047"><span id="local-6989586621679942049"><span class="annot"><span class="annottext">Int -&gt; AudioNormalizationLoudnessLogging -&gt; Int
 AudioNormalizationLoudnessLogging -&gt; Int
 (Int -&gt; AudioNormalizationLoudnessLogging -&gt; Int)
 -&gt; (AudioNormalizationLoudnessLogging -&gt; Int)
@@ -195,56 +195,56 @@ $chash :: AudioNormalizationLoudnessLogging -&gt; Int
 hashWithSalt :: Int -&gt; AudioNormalizationLoudnessLogging -&gt; Int
 $chashWithSalt :: Int -&gt; AudioNormalizationLoudnessLogging -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679942035"><span class="annot"><span class="annottext">AudioNormalizationLoudnessLogging -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679942044"><span class="annot"><span class="annottext">AudioNormalizationLoudnessLogging -&gt; ()
 (AudioNormalizationLoudnessLogging -&gt; ())
 -&gt; NFData AudioNormalizationLoudnessLogging
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AudioNormalizationLoudnessLogging -&gt; ()
 $crnf :: AudioNormalizationLoudnessLogging -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679942032"><span class="annot"><span class="annottext">Text -&gt; Either String AudioNormalizationLoudnessLogging
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679942041"><span class="annot"><span class="annottext">Text -&gt; Either String AudioNormalizationLoudnessLogging
 (Text -&gt; Either String AudioNormalizationLoudnessLogging)
 -&gt; FromText AudioNormalizationLoudnessLogging
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AudioNormalizationLoudnessLogging
 $cfromText :: Text -&gt; Either String AudioNormalizationLoudnessLogging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679942029"><span class="annot"><span class="annottext">AudioNormalizationLoudnessLogging -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679942038"><span class="annot"><span class="annottext">AudioNormalizationLoudnessLogging -&gt; Text
 (AudioNormalizationLoudnessLogging -&gt; Text)
 -&gt; ToText AudioNormalizationLoudnessLogging
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AudioNormalizationLoudnessLogging -&gt; Text
 $ctoText :: AudioNormalizationLoudnessLogging -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679942026"><span class="annot"><span class="annottext">AudioNormalizationLoudnessLogging -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679942035"><span class="annot"><span class="annottext">AudioNormalizationLoudnessLogging -&gt; ByteString
 (AudioNormalizationLoudnessLogging -&gt; ByteString)
 -&gt; ToByteString AudioNormalizationLoudnessLogging
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AudioNormalizationLoudnessLogging -&gt; ByteString
 $ctoBS :: AudioNormalizationLoudnessLogging -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679942023"><span class="annot"><span class="annottext">AudioNormalizationLoudnessLogging -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679942032"><span class="annot"><span class="annottext">AudioNormalizationLoudnessLogging -&gt; ByteStringBuilder
 (AudioNormalizationLoudnessLogging -&gt; ByteStringBuilder)
 -&gt; ToLog AudioNormalizationLoudnessLogging
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AudioNormalizationLoudnessLogging -&gt; ByteStringBuilder
 $cbuild :: AudioNormalizationLoudnessLogging -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679942020"><span class="annot"><span class="annottext">HeaderName -&gt; AudioNormalizationLoudnessLogging -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679942029"><span class="annot"><span class="annottext">HeaderName -&gt; AudioNormalizationLoudnessLogging -&gt; [Header]
 (HeaderName -&gt; AudioNormalizationLoudnessLogging -&gt; [Header])
 -&gt; ToHeader AudioNormalizationLoudnessLogging
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AudioNormalizationLoudnessLogging -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AudioNormalizationLoudnessLogging -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679942017"><span class="annot"><span class="annottext">AudioNormalizationLoudnessLogging -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679942026"><span class="annot"><span class="annottext">AudioNormalizationLoudnessLogging -&gt; QueryString
 (AudioNormalizationLoudnessLogging -&gt; QueryString)
 -&gt; ToQuery AudioNormalizationLoudnessLogging
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AudioNormalizationLoudnessLogging -&gt; QueryString
 $ctoQuery :: AudioNormalizationLoudnessLogging -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679942012"><span id="local-6989586621679942014"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioNormalizationLoudnessLogging]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679942021"><span id="local-6989586621679942023"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioNormalizationLoudnessLogging]
 Value -&gt; Parser AudioNormalizationLoudnessLogging
 (Value -&gt; Parser AudioNormalizationLoudnessLogging)
 -&gt; (Value -&gt; Parser [AudioNormalizationLoudnessLogging])
@@ -256,7 +256,7 @@ $cparseJSONList :: Value -&gt; Parser [AudioNormalizationLoudnessLogging]
 parseJSON :: Value -&gt; Parser AudioNormalizationLoudnessLogging
 $cparseJSON :: Value -&gt; Parser AudioNormalizationLoudnessLogging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679942007"><span id="local-6989586621679942009"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioNormalizationLoudnessLogging]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679942016"><span id="local-6989586621679942018"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioNormalizationLoudnessLogging]
 FromJSONKeyFunction AudioNormalizationLoudnessLogging
 FromJSONKeyFunction AudioNormalizationLoudnessLogging
 -&gt; FromJSONKeyFunction [AudioNormalizationLoudnessLogging]
@@ -268,7 +268,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AudioNormalizationLoudnessLogging]
 fromJSONKey :: FromJSONKeyFunction AudioNormalizationLoudnessLogging
 $cfromJSONKey :: FromJSONKeyFunction AudioNormalizationLoudnessLogging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679941998"><span id="local-6989586621679942000"><span id="local-6989586621679942002"><span id="local-6989586621679942004"><span class="annot"><span class="annottext">[AudioNormalizationLoudnessLogging] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679942007"><span id="local-6989586621679942009"><span id="local-6989586621679942011"><span id="local-6989586621679942013"><span class="annot"><span class="annottext">[AudioNormalizationLoudnessLogging] -&gt; Encoding
 [AudioNormalizationLoudnessLogging] -&gt; Value
 AudioNormalizationLoudnessLogging -&gt; Encoding
 AudioNormalizationLoudnessLogging -&gt; Value
@@ -292,7 +292,7 @@ $ctoEncoding :: AudioNormalizationLoudnessLogging -&gt; Encoding
 toJSON :: AudioNormalizationLoudnessLogging -&gt; Value
 $ctoJSON :: AudioNormalizationLoudnessLogging -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679941993"><span id="local-6989586621679941995"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioNormalizationLoudnessLogging]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679942002"><span id="local-6989586621679942004"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioNormalizationLoudnessLogging]
 ToJSONKeyFunction AudioNormalizationLoudnessLogging
 ToJSONKeyFunction AudioNormalizationLoudnessLogging
 -&gt; ToJSONKeyFunction [AudioNormalizationLoudnessLogging]
@@ -304,14 +304,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AudioNormalizationLoudnessLogging]
 toJSONKey :: ToJSONKeyFunction AudioNormalizationLoudnessLogging
 $ctoJSONKey :: ToJSONKeyFunction AudioNormalizationLoudnessLogging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679941990"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioNormalizationLoudnessLogging
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679941999"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioNormalizationLoudnessLogging
 ([Node] -&gt; Either String AudioNormalizationLoudnessLogging)
 -&gt; FromXML AudioNormalizationLoudnessLogging
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AudioNormalizationLoudnessLogging
 $cparseXML :: [Node] -&gt; Either String AudioNormalizationLoudnessLogging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679941987"><span class="annot"><span class="annottext">AudioNormalizationLoudnessLogging -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679941996"><span class="annot"><span class="annottext">AudioNormalizationLoudnessLogging -&gt; XML
 (AudioNormalizationLoudnessLogging -&gt; XML)
 -&gt; ToXML AudioNormalizationLoudnessLogging
 forall a. (a -&gt; XML) -&gt; ToXML a

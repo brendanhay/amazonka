@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeTimeToLive' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679391401"><span id="local-6989586621679391402"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTimeToLive"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive"><span class="hs-identifier hs-var">DescribeTimeToLive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTimeToLive%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive%27"><span class="hs-identifier hs-var">DescribeTimeToLive'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679391410"><span id="local-6989586621679391411"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTimeToLive"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive"><span class="hs-identifier hs-var">DescribeTimeToLive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTimeToLive%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive%27"><span class="hs-identifier hs-var">DescribeTimeToLive'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the table to be described.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AtableName%3ADescribeTimeToLive%27"><span class="annot"><span class="annottext">DescribeTimeToLive -&gt; Text
 </span><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#%24sel%3AtableName%3ADescribeTimeToLive%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391395"><span id="local-6989586621679391397"><span class="annot"><span class="annottext">DescribeTimeToLive -&gt; DescribeTimeToLive -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391404"><span id="local-6989586621679391406"><span class="annot"><span class="annottext">DescribeTimeToLive -&gt; DescribeTimeToLive -&gt; Bool
 (DescribeTimeToLive -&gt; DescribeTimeToLive -&gt; Bool)
 -&gt; (DescribeTimeToLive -&gt; DescribeTimeToLive -&gt; Bool)
 -&gt; Eq DescribeTimeToLive
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeTimeToLive -&gt; DescribeTimeToLive -&gt; Bool
 == :: DescribeTimeToLive -&gt; DescribeTimeToLive -&gt; Bool
 $c== :: DescribeTimeToLive -&gt; DescribeTimeToLive -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391386"><span id="local-6989586621679391388"><span id="local-6989586621679391390"><span id="local-6989586621679391392"><span class="annot"><span class="annottext">ReadPrec [DescribeTimeToLive]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391395"><span id="local-6989586621679391397"><span id="local-6989586621679391399"><span id="local-6989586621679391401"><span class="annot"><span class="annottext">ReadPrec [DescribeTimeToLive]
 ReadPrec DescribeTimeToLive
 Int -&gt; ReadS DescribeTimeToLive
 ReadS [DescribeTimeToLive]
@@ -82,7 +82,7 @@ readList :: ReadS [DescribeTimeToLive]
 $creadList :: ReadS [DescribeTimeToLive]
 readsPrec :: Int -&gt; ReadS DescribeTimeToLive
 $creadsPrec :: Int -&gt; ReadS DescribeTimeToLive
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391379"><span id="local-6989586621679391381"><span id="local-6989586621679391383"><span class="annot"><span class="annottext">Int -&gt; DescribeTimeToLive -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391388"><span id="local-6989586621679391390"><span id="local-6989586621679391392"><span class="annot"><span class="annottext">Int -&gt; DescribeTimeToLive -&gt; ShowS
 [DescribeTimeToLive] -&gt; ShowS
 DescribeTimeToLive -&gt; String
 (Int -&gt; DescribeTimeToLive -&gt; ShowS)
@@ -122,12 +122,12 @@ $cfrom :: forall x. DescribeTimeToLive -&gt; Rep DescribeTimeToLive x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive"><span class="hs-identifier hs-type">DescribeTimeToLive</span></a></span><span>
 </span><span id="line-70"></span><span id="newDescribeTimeToLive"><span class="annot"><span class="annottext">newDescribeTimeToLive :: Text -&gt; DescribeTimeToLive
-</span><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#newDescribeTimeToLive"><span class="hs-identifier hs-var hs-var">newDescribeTimeToLive</span></a></span></span><span> </span><span id="local-6989586621679391374"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391374"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#newDescribeTimeToLive"><span class="hs-identifier hs-var hs-var">newDescribeTimeToLive</span></a></span></span><span> </span><span id="local-6989586621679391383"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391383"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DescribeTimeToLive' :: Text -&gt; DescribeTimeToLive
 </span><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive%27"><span class="hs-identifier hs-type">DescribeTimeToLive'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DescribeTimeToLive' :: Text
 </span><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#%24sel%3AtableName%3ADescribeTimeToLive%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391374"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679391383"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The name of the table to be described.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#describeTimeToLive_tableName"><span class="hs-identifier hs-type">describeTimeToLive_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive"><span class="hs-identifier hs-type">DescribeTimeToLive</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -136,27 +136,27 @@ $cfrom :: forall x. DescribeTimeToLive -&gt; Rep DescribeTimeToLive x
 -&gt; (DescribeTimeToLive -&gt; Text -&gt; DescribeTimeToLive)
 -&gt; Lens DescribeTimeToLive DescribeTimeToLive Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive%27"><span class="hs-identifier hs-type">DescribeTimeToLive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391371"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive%27"><span class="hs-identifier hs-type">DescribeTimeToLive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391380"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:DescribeTimeToLive' :: DescribeTimeToLive -&gt; Text
-</span><a href="#local-6989586621679391371"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391371"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391370"><span class="annot"><span class="annottext">s :: DescribeTimeToLive
-</span><a href="#local-6989586621679391370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive%27"><span class="hs-identifier hs-type">DescribeTimeToLive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391369"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTimeToLive
-</span><a href="#local-6989586621679391370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DescribeTimeToLive' :: Text
+</span><a href="#local-6989586621679391380"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391380"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391379"><span class="annot"><span class="annottext">s :: DescribeTimeToLive
+</span><a href="#local-6989586621679391379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive%27"><span class="hs-identifier hs-type">DescribeTimeToLive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391378"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTimeToLive
+</span><a href="#local-6989586621679391379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DescribeTimeToLive' :: Text
 </span><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#%24sel%3AtableName%3ADescribeTimeToLive%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive"><span class="hs-identifier hs-type">DescribeTimeToLive</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive"><span class="hs-identifier hs-type">DescribeTimeToLive</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive"><span class="hs-identifier hs-type">DescribeTimeToLive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive"><span class="hs-identifier hs-type">DescribeTimeToLive</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679391365"><span class="annot"><span class="annottext">request :: DescribeTimeToLive -&gt; Request DescribeTimeToLive
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679391374"><span class="annot"><span class="annottext">request :: DescribeTimeToLive -&gt; Request DescribeTimeToLive
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeTimeToLive -&gt; Request DescribeTimeToLive
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679391361"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679391370"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeTimeToLive
 -&gt; ClientResponse ClientBody
@@ -182,10 +182,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679391358"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391358"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391357"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679391357"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391356"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391356"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679391367"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391367"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391366"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679391366"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391365"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391365"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe TimeToLiveDescription -&gt; Int -&gt; DescribeTimeToLiveResponse
 </span><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse%27"><span class="hs-identifier hs-var">DescribeTimeToLiveResponse'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TimeToLiveDescription -&gt; Int -&gt; DescribeTimeToLiveResponse)
@@ -193,7 +193,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeTimeToLiveResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TimeToLiveDescription)
+</span><a href="#local-6989586621679391365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TimeToLiveDescription)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TimeToLiveDescription&quot;</span></span><span class="hs-special">)</span><span>
@@ -205,15 +205,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391358"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391367"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391348"><span id="local-6989586621679391350"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive"><span class="hs-identifier hs-type">DescribeTimeToLive</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391357"><span id="local-6989586621679391359"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive"><span class="hs-identifier hs-type">DescribeTimeToLive</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391345"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive"><span class="hs-identifier hs-type">DescribeTimeToLive</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391354"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive"><span class="hs-identifier hs-type">DescribeTimeToLive</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive"><span class="hs-identifier hs-type">DescribeTimeToLive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679391341"><span class="annot"><span class="annottext">toHeaders :: DescribeTimeToLive -&gt; ResponseHeaders
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679391350"><span class="annot"><span class="annottext">toHeaders :: DescribeTimeToLive -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeTimeToLive -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -240,12 +240,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391331"><span id="local-6989586621679391333"><span id="local-6989586621679391335"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive"><span class="hs-identifier hs-type">DescribeTimeToLive</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679391329"><span class="annot"><span class="annottext">toJSON :: DescribeTimeToLive -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive%27"><span class="hs-identifier hs-type">DescribeTimeToLive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391327"><span class="annot"><span class="annottext">Text
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391340"><span id="local-6989586621679391342"><span id="local-6989586621679391344"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive"><span class="hs-identifier hs-type">DescribeTimeToLive</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679391338"><span class="annot"><span class="annottext">toJSON :: DescribeTimeToLive -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive%27"><span class="hs-identifier hs-type">DescribeTimeToLive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391336"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:DescribeTimeToLive' :: DescribeTimeToLive -&gt; Text
-</span><a href="#local-6989586621679391327"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679391336"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -257,18 +257,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391327"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679391336"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive"><span class="hs-identifier hs-type">DescribeTimeToLive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679391321"><span class="annot"><span class="annottext">toPath :: DescribeTimeToLive -&gt; ByteString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679391330"><span class="annot"><span class="annottext">toPath :: DescribeTimeToLive -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeTimeToLive -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLive"><span class="hs-identifier hs-type">DescribeTimeToLive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679391317"><span class="annot"><span class="annottext">toQuery :: DescribeTimeToLive -&gt; QueryString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679391326"><span class="annot"><span class="annottext">toQuery :: DescribeTimeToLive -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeTimeToLive -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -276,14 +276,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newDescribeTimeToLiveResponse' smart constructor.</span><span>
-</span><span id="line-123"></span><span id="local-6989586621679391314"><span id="local-6989586621679391315"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTimeToLiveResponse"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse"><span class="hs-identifier hs-var">DescribeTimeToLiveResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTimeToLiveResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse%27"><span class="hs-identifier hs-var">DescribeTimeToLiveResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span id="local-6989586621679391323"><span id="local-6989586621679391324"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTimeToLiveResponse"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse"><span class="hs-identifier hs-var">DescribeTimeToLiveResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTimeToLiveResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse%27"><span class="hs-identifier hs-var">DescribeTimeToLiveResponse'</span></a></span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AtimeToLiveDescription%3ADescribeTimeToLiveResponse%27"><span class="annot"><span class="annottext">DescribeTimeToLiveResponse -&gt; Maybe TimeToLiveDescription
 </span><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#%24sel%3AtimeToLiveDescription%3ADescribeTimeToLiveResponse%27"><span class="hs-identifier hs-var hs-var">timeToLiveDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveDescription.html#TimeToLiveDescription"><span class="hs-identifier hs-type">TimeToLiveDescription</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeTimeToLiveResponse%27"><span class="annot"><span class="annottext">DescribeTimeToLiveResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#%24sel%3AhttpStatus%3ADescribeTimeToLiveResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391308"><span id="local-6989586621679391310"><span class="annot"><span class="annottext">DescribeTimeToLiveResponse -&gt; DescribeTimeToLiveResponse -&gt; Bool
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391317"><span id="local-6989586621679391319"><span class="annot"><span class="annottext">DescribeTimeToLiveResponse -&gt; DescribeTimeToLiveResponse -&gt; Bool
 (DescribeTimeToLiveResponse -&gt; DescribeTimeToLiveResponse -&gt; Bool)
 -&gt; (DescribeTimeToLiveResponse
     -&gt; DescribeTimeToLiveResponse -&gt; Bool)
@@ -293,7 +293,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeTimeToLiveResponse -&gt; DescribeTimeToLiveResponse -&gt; Bool
 == :: DescribeTimeToLiveResponse -&gt; DescribeTimeToLiveResponse -&gt; Bool
 $c== :: DescribeTimeToLiveResponse -&gt; DescribeTimeToLiveResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391300"><span id="local-6989586621679391302"><span id="local-6989586621679391304"><span id="local-6989586621679391306"><span class="annot"><span class="annottext">ReadPrec [DescribeTimeToLiveResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391309"><span id="local-6989586621679391311"><span id="local-6989586621679391313"><span id="local-6989586621679391315"><span class="annot"><span class="annottext">ReadPrec [DescribeTimeToLiveResponse]
 ReadPrec DescribeTimeToLiveResponse
 Int -&gt; ReadS DescribeTimeToLiveResponse
 ReadS [DescribeTimeToLiveResponse]
@@ -313,7 +313,7 @@ readList :: ReadS [DescribeTimeToLiveResponse]
 $creadList :: ReadS [DescribeTimeToLiveResponse]
 readsPrec :: Int -&gt; ReadS DescribeTimeToLiveResponse
 $creadsPrec :: Int -&gt; ReadS DescribeTimeToLiveResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391294"><span id="local-6989586621679391296"><span id="local-6989586621679391298"><span class="annot"><span class="annottext">Int -&gt; DescribeTimeToLiveResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391303"><span id="local-6989586621679391305"><span id="local-6989586621679391307"><span class="annot"><span class="annottext">Int -&gt; DescribeTimeToLiveResponse -&gt; ShowS
 [DescribeTimeToLiveResponse] -&gt; ShowS
 DescribeTimeToLiveResponse -&gt; String
 (Int -&gt; DescribeTimeToLiveResponse -&gt; ShowS)
@@ -361,8 +361,8 @@ DescribeTimeToLiveResponse -&gt; Rep DescribeTimeToLiveResponse x
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse</span></a></span><span>
 </span><span id="line-145"></span><span id="newDescribeTimeToLiveResponse"><span class="annot"><span class="annottext">newDescribeTimeToLiveResponse :: Int -&gt; DescribeTimeToLiveResponse
-</span><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#newDescribeTimeToLiveResponse"><span class="hs-identifier hs-var hs-var">newDescribeTimeToLiveResponse</span></a></span></span><span> </span><span id="local-6989586621679391291"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391291"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#newDescribeTimeToLiveResponse"><span class="hs-identifier hs-var hs-var">newDescribeTimeToLiveResponse</span></a></span></span><span> </span><span id="local-6989586621679391300"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391300"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">DescribeTimeToLiveResponse' :: Maybe TimeToLiveDescription -&gt; Int -&gt; DescribeTimeToLiveResponse
 </span><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse%27"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse'</span></a></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timeToLiveDescription:DescribeTimeToLiveResponse' :: Maybe TimeToLiveDescription
@@ -372,7 +372,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTimeToLiveResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#%24sel%3AhttpStatus%3ADescribeTimeToLiveResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391291"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679391300"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- |</span><span>
@@ -388,16 +388,16 @@ forall a. Maybe a
      (Maybe TimeToLiveDescription)
      (Maybe TimeToLiveDescription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse%27"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391290"><span class="annot"><span class="annottext">Maybe TimeToLiveDescription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse%27"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391299"><span class="annot"><span class="annottext">Maybe TimeToLiveDescription
 timeToLiveDescription :: Maybe TimeToLiveDescription
 $sel:timeToLiveDescription:DescribeTimeToLiveResponse' :: DescribeTimeToLiveResponse -&gt; Maybe TimeToLiveDescription
-</span><a href="#local-6989586621679391290"><span class="hs-identifier hs-var hs-var">timeToLiveDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeToLiveDescription
-</span><a href="#local-6989586621679391290"><span class="hs-identifier hs-var">timeToLiveDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391289"><span class="annot"><span class="annottext">s :: DescribeTimeToLiveResponse
-</span><a href="#local-6989586621679391289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse%27"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391288"><span class="annot"><span class="annottext">Maybe TimeToLiveDescription
-</span><a href="#local-6989586621679391288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTimeToLiveResponse
-</span><a href="#local-6989586621679391289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeToLiveDescription:DescribeTimeToLiveResponse' :: Maybe TimeToLiveDescription
+</span><a href="#local-6989586621679391299"><span class="hs-identifier hs-var hs-var">timeToLiveDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeToLiveDescription
+</span><a href="#local-6989586621679391299"><span class="hs-identifier hs-var">timeToLiveDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391298"><span class="annot"><span class="annottext">s :: DescribeTimeToLiveResponse
+</span><a href="#local-6989586621679391298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse%27"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391297"><span class="annot"><span class="annottext">Maybe TimeToLiveDescription
+</span><a href="#local-6989586621679391297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTimeToLiveResponse
+</span><a href="#local-6989586621679391298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeToLiveDescription:DescribeTimeToLiveResponse' :: Maybe TimeToLiveDescription
 </span><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#%24sel%3AtimeToLiveDescription%3ADescribeTimeToLiveResponse%27"><span class="hs-identifier hs-var">timeToLiveDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimeToLiveDescription
-</span><a href="#local-6989586621679391288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#describeTimeToLiveResponse_httpStatus"><span class="hs-identifier hs-type">describeTimeToLiveResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -409,16 +409,16 @@ $sel:timeToLiveDescription:DescribeTimeToLiveResponse' :: DescribeTimeToLiveResp
 -&gt; Lens
      DescribeTimeToLiveResponse DescribeTimeToLiveResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse%27"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391287"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse%27"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391296"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeTimeToLiveResponse' :: DescribeTimeToLiveResponse -&gt; Int
-</span><a href="#local-6989586621679391287"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391287"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391286"><span class="annot"><span class="annottext">s :: DescribeTimeToLiveResponse
-</span><a href="#local-6989586621679391286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse%27"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391285"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTimeToLiveResponse
-</span><a href="#local-6989586621679391286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTimeToLiveResponse' :: Int
+</span><a href="#local-6989586621679391296"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391296"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391295"><span class="annot"><span class="annottext">s :: DescribeTimeToLiveResponse
+</span><a href="#local-6989586621679391295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse%27"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391294"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTimeToLiveResponse
+</span><a href="#local-6989586621679391295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTimeToLiveResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#%24sel%3AhttpStatus%3ADescribeTimeToLiveResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391292"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTimeToLive.html#DescribeTimeToLiveResponse"><span class="hs-identifier hs-type">DescribeTimeToLiveResponse</span></a></span></span><span>
 </span><span id="line-161"></span></pre></body></html>

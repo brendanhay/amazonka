@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679243341"><span id="local-6989586621679243342"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HITStatus"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.HITStatus.html#HITStatus"><span class="hs-identifier hs-var">HITStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HITStatus%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.HITStatus.html#HITStatus%27"><span class="hs-identifier hs-var">HITStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679243350"><span id="local-6989586621679243351"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HITStatus"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.HITStatus.html#HITStatus"><span class="hs-identifier hs-var">HITStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HITStatus%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.HITStatus.html#HITStatus%27"><span class="hs-identifier hs-var">HITStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHITStatus"><span class="annot"><span class="annottext">HITStatus -&gt; Text
 </span><a href="Network.AWS.MechanicalTurk.Types.HITStatus.html#fromHITStatus"><span class="hs-identifier hs-var hs-var">fromHITStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243333"><span id="local-6989586621679243335"><span id="local-6989586621679243337"><span class="annot"><span class="annottext">Int -&gt; HITStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243342"><span id="local-6989586621679243344"><span id="local-6989586621679243346"><span class="annot"><span class="annottext">Int -&gt; HITStatus -&gt; ShowS
 [HITStatus] -&gt; ShowS
 HITStatus -&gt; String
 (Int -&gt; HITStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: HITStatus -&gt; String
 showsPrec :: Int -&gt; HITStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; HITStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679243324"><span id="local-6989586621679243326"><span id="local-6989586621679243328"><span id="local-6989586621679243330"><span class="annot"><span class="annottext">ReadPrec [HITStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679243333"><span id="local-6989586621679243335"><span id="local-6989586621679243337"><span id="local-6989586621679243339"><span class="annot"><span class="annottext">ReadPrec [HITStatus]
 ReadPrec HITStatus
 Int -&gt; ReadS HITStatus
 ReadS [HITStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [HITStatus]
 readsPrec :: Int -&gt; ReadS HITStatus
 $creadsPrec :: Int -&gt; ReadS HITStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679243319"><span id="local-6989586621679243321"><span class="annot"><span class="annottext">HITStatus -&gt; HITStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679243328"><span id="local-6989586621679243330"><span class="annot"><span class="annottext">HITStatus -&gt; HITStatus -&gt; Bool
 (HITStatus -&gt; HITStatus -&gt; Bool)
 -&gt; (HITStatus -&gt; HITStatus -&gt; Bool) -&gt; Eq HITStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: HITStatus -&gt; HITStatus -&gt; Bool
 == :: HITStatus -&gt; HITStatus -&gt; Bool
 $c== :: HITStatus -&gt; HITStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679243303"><span id="local-6989586621679243305"><span id="local-6989586621679243307"><span id="local-6989586621679243309"><span id="local-6989586621679243311"><span id="local-6989586621679243313"><span id="local-6989586621679243315"><span class="annot"><span class="annottext">Eq HITStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679243312"><span id="local-6989586621679243314"><span id="local-6989586621679243316"><span id="local-6989586621679243318"><span id="local-6989586621679243320"><span id="local-6989586621679243322"><span id="local-6989586621679243324"><span class="annot"><span class="annottext">Eq HITStatus
 Eq HITStatus
 -&gt; (HITStatus -&gt; HITStatus -&gt; Ordering)
 -&gt; (HITStatus -&gt; HITStatus -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. HITStatus -&gt; Rep HITStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243295"><span id="local-6989586621679243297"><span class="annot"><span class="annottext">Int -&gt; HITStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243304"><span id="local-6989586621679243306"><span class="annot"><span class="annottext">Int -&gt; HITStatus -&gt; Int
 HITStatus -&gt; Int
 (Int -&gt; HITStatus -&gt; Int)
 -&gt; (HITStatus -&gt; Int) -&gt; Hashable HITStatus
@@ -144,49 +144,49 @@ $chash :: HITStatus -&gt; Int
 hashWithSalt :: Int -&gt; HITStatus -&gt; Int
 $chashWithSalt :: Int -&gt; HITStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679243292"><span class="annot"><span class="annottext">HITStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679243301"><span class="annot"><span class="annottext">HITStatus -&gt; ()
 (HITStatus -&gt; ()) -&gt; NFData HITStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HITStatus -&gt; ()
 $crnf :: HITStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679243289"><span class="annot"><span class="annottext">Text -&gt; Either String HITStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679243298"><span class="annot"><span class="annottext">Text -&gt; Either String HITStatus
 (Text -&gt; Either String HITStatus) -&gt; FromText HITStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HITStatus
 $cfromText :: Text -&gt; Either String HITStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679243286"><span class="annot"><span class="annottext">HITStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679243295"><span class="annot"><span class="annottext">HITStatus -&gt; Text
 (HITStatus -&gt; Text) -&gt; ToText HITStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HITStatus -&gt; Text
 $ctoText :: HITStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679243283"><span class="annot"><span class="annottext">HITStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679243292"><span class="annot"><span class="annottext">HITStatus -&gt; ByteString
 (HITStatus -&gt; ByteString) -&gt; ToByteString HITStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HITStatus -&gt; ByteString
 $ctoBS :: HITStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679243280"><span class="annot"><span class="annottext">HITStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679243289"><span class="annot"><span class="annottext">HITStatus -&gt; ByteStringBuilder
 (HITStatus -&gt; ByteStringBuilder) -&gt; ToLog HITStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HITStatus -&gt; ByteStringBuilder
 $cbuild :: HITStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679243277"><span class="annot"><span class="annottext">HeaderName -&gt; HITStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679243286"><span class="annot"><span class="annottext">HeaderName -&gt; HITStatus -&gt; [Header]
 (HeaderName -&gt; HITStatus -&gt; [Header]) -&gt; ToHeader HITStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HITStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HITStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679243274"><span class="annot"><span class="annottext">HITStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679243283"><span class="annot"><span class="annottext">HITStatus -&gt; QueryString
 (HITStatus -&gt; QueryString) -&gt; ToQuery HITStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HITStatus -&gt; QueryString
 $ctoQuery :: HITStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679243269"><span id="local-6989586621679243271"><span class="annot"><span class="annottext">Value -&gt; Parser [HITStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679243278"><span id="local-6989586621679243280"><span class="annot"><span class="annottext">Value -&gt; Parser [HITStatus]
 Value -&gt; Parser HITStatus
 (Value -&gt; Parser HITStatus)
 -&gt; (Value -&gt; Parser [HITStatus]) -&gt; FromJSON HITStatus
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [HITStatus]
 parseJSON :: Value -&gt; Parser HITStatus
 $cparseJSON :: Value -&gt; Parser HITStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679243264"><span id="local-6989586621679243266"><span class="annot"><span class="annottext">FromJSONKeyFunction [HITStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679243273"><span id="local-6989586621679243275"><span class="annot"><span class="annottext">FromJSONKeyFunction [HITStatus]
 FromJSONKeyFunction HITStatus
 FromJSONKeyFunction HITStatus
 -&gt; FromJSONKeyFunction [HITStatus] -&gt; FromJSONKey HITStatus
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HITStatus]
 fromJSONKey :: FromJSONKeyFunction HITStatus
 $cfromJSONKey :: FromJSONKeyFunction HITStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679243255"><span id="local-6989586621679243257"><span id="local-6989586621679243259"><span id="local-6989586621679243261"><span class="annot"><span class="annottext">[HITStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679243264"><span id="local-6989586621679243266"><span id="local-6989586621679243268"><span id="local-6989586621679243270"><span class="annot"><span class="annottext">[HITStatus] -&gt; Encoding
 [HITStatus] -&gt; Value
 HITStatus -&gt; Encoding
 HITStatus -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: HITStatus -&gt; Encoding
 toJSON :: HITStatus -&gt; Value
 $ctoJSON :: HITStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679243250"><span id="local-6989586621679243252"><span class="annot"><span class="annottext">ToJSONKeyFunction [HITStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679243259"><span id="local-6989586621679243261"><span class="annot"><span class="annottext">ToJSONKeyFunction [HITStatus]
 ToJSONKeyFunction HITStatus
 ToJSONKeyFunction HITStatus
 -&gt; ToJSONKeyFunction [HITStatus] -&gt; ToJSONKey HITStatus
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HITStatus]
 toJSONKey :: ToJSONKeyFunction HITStatus
 $ctoJSONKey :: ToJSONKeyFunction HITStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679243247"><span class="annot"><span class="annottext">[Node] -&gt; Either String HITStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679243256"><span class="annot"><span class="annottext">[Node] -&gt; Either String HITStatus
 ([Node] -&gt; Either String HITStatus) -&gt; FromXML HITStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HITStatus
 $cparseXML :: [Node] -&gt; Either String HITStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679243244"><span class="annot"><span class="annottext">HITStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679243253"><span class="annot"><span class="annottext">HITStatus -&gt; XML
 (HITStatus -&gt; XML) -&gt; ToXML HITStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HITStatus -&gt; XML

@@ -85,7 +85,7 @@
 </span><span id="line-85"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- /See:/ 'newDescribeFleetAttributes' smart constructor.</span><span>
-</span><span id="line-88"></span><span id="local-6989586621679456039"><span id="local-6989586621679456040"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFleetAttributes"><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-var">DescribeFleetAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFleetAttributes%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes%27"><span class="hs-identifier hs-var">DescribeFleetAttributes'</span></a></span></span><span>
+</span><span id="line-88"></span><span id="local-6989586621679456048"><span id="local-6989586621679456049"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFleetAttributes"><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-var">DescribeFleetAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFleetAttributes%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes%27"><span class="hs-identifier hs-var">DescribeFleetAttributes'</span></a></span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token that indicates the start of the next sequential page of results.</span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Use the token that is returned with a previous call to this operation.</span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-comment">-- To start at the beginning of the result set, do not specify a value.</span><span>
@@ -104,7 +104,7 @@
 </span><span id="line-102"></span><span>    </span><span id="%24sel%3AfleetIds%3ADescribeFleetAttributes%27"><span class="annot"><span class="annottext">DescribeFleetAttributes -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#%24sel%3AfleetIds%3ADescribeFleetAttributes%27"><span class="hs-identifier hs-var hs-var">fleetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679456031"><span id="local-6989586621679456033"><span class="annot"><span class="annottext">DescribeFleetAttributes -&gt; DescribeFleetAttributes -&gt; Bool
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679456040"><span id="local-6989586621679456042"><span class="annot"><span class="annottext">DescribeFleetAttributes -&gt; DescribeFleetAttributes -&gt; Bool
 (DescribeFleetAttributes -&gt; DescribeFleetAttributes -&gt; Bool)
 -&gt; (DescribeFleetAttributes -&gt; DescribeFleetAttributes -&gt; Bool)
 -&gt; Eq DescribeFleetAttributes
@@ -113,7 +113,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeFleetAttributes -&gt; DescribeFleetAttributes -&gt; Bool
 == :: DescribeFleetAttributes -&gt; DescribeFleetAttributes -&gt; Bool
 $c== :: DescribeFleetAttributes -&gt; DescribeFleetAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456022"><span id="local-6989586621679456024"><span id="local-6989586621679456026"><span id="local-6989586621679456028"><span class="annot"><span class="annottext">ReadPrec [DescribeFleetAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456031"><span id="local-6989586621679456033"><span id="local-6989586621679456035"><span id="local-6989586621679456037"><span class="annot"><span class="annottext">ReadPrec [DescribeFleetAttributes]
 ReadPrec DescribeFleetAttributes
 Int -&gt; ReadS DescribeFleetAttributes
 ReadS [DescribeFleetAttributes]
@@ -133,7 +133,7 @@ readList :: ReadS [DescribeFleetAttributes]
 $creadList :: ReadS [DescribeFleetAttributes]
 readsPrec :: Int -&gt; ReadS DescribeFleetAttributes
 $creadsPrec :: Int -&gt; ReadS DescribeFleetAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456015"><span id="local-6989586621679456017"><span id="local-6989586621679456019"><span class="annot"><span class="annottext">Int -&gt; DescribeFleetAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456024"><span id="local-6989586621679456026"><span id="local-6989586621679456028"><span class="annot"><span class="annottext">Int -&gt; DescribeFleetAttributes -&gt; ShowS
 [DescribeFleetAttributes] -&gt; ShowS
 DescribeFleetAttributes -&gt; String
 (Int -&gt; DescribeFleetAttributes -&gt; ShowS)
@@ -223,16 +223,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes%27"><span class="hs-identifier hs-type">DescribeFleetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456009"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes%27"><span class="hs-identifier hs-type">DescribeFleetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456018"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeFleetAttributes' :: DescribeFleetAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679456009"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679456009"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456008"><span class="annot"><span class="annottext">s :: DescribeFleetAttributes
-</span><a href="#local-6989586621679456008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes%27"><span class="hs-identifier hs-type">DescribeFleetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456007"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679456007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetAttributes
-</span><a href="#local-6989586621679456008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeFleetAttributes' :: Maybe Text
+</span><a href="#local-6989586621679456018"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679456018"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456017"><span class="annot"><span class="annottext">s :: DescribeFleetAttributes
+</span><a href="#local-6989586621679456017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes%27"><span class="hs-identifier hs-type">DescribeFleetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456016"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679456016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetAttributes
+</span><a href="#local-6989586621679456017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeFleetAttributes' :: Maybe Text
 </span><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#%24sel%3AnextToken%3ADescribeFleetAttributes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679456007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-type">DescribeFleetAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679456016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-type">DescribeFleetAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The maximum number of results to return. Use this parameter with</span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- @NextToken@ to get results as a set of sequential pages. This parameter</span><span>
@@ -249,16 +249,16 @@ $sel:nextToken:DescribeFleetAttributes' :: DescribeFleetAttributes -&gt; Maybe T
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes%27"><span class="hs-identifier hs-type">DescribeFleetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456006"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes%27"><span class="hs-identifier hs-type">DescribeFleetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456015"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:DescribeFleetAttributes' :: DescribeFleetAttributes -&gt; Maybe Natural
-</span><a href="#local-6989586621679456006"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679456006"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456005"><span class="annot"><span class="annottext">s :: DescribeFleetAttributes
-</span><a href="#local-6989586621679456005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes%27"><span class="hs-identifier hs-type">DescribeFleetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456004"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679456004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetAttributes
-</span><a href="#local-6989586621679456005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeFleetAttributes' :: Maybe Natural
+</span><a href="#local-6989586621679456015"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679456015"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456014"><span class="annot"><span class="annottext">s :: DescribeFleetAttributes
+</span><a href="#local-6989586621679456014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes%27"><span class="hs-identifier hs-type">DescribeFleetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456013"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679456013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetAttributes
+</span><a href="#local-6989586621679456014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeFleetAttributes' :: Maybe Natural
 </span><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#%24sel%3Alimit%3ADescribeFleetAttributes%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679456004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-type">DescribeFleetAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679456013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-type">DescribeFleetAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | A list of unique fleet identifiers to retrieve attributes for. You can</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- use either the fleet ID or ARN value. To retrieve attributes for all</span><span>
@@ -275,16 +275,16 @@ $sel:limit:DescribeFleetAttributes' :: DescribeFleetAttributes -&gt; Maybe Natur
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes%27"><span class="hs-identifier hs-type">DescribeFleetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456003"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes%27"><span class="hs-identifier hs-type">DescribeFleetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456012"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 fleetIds :: Maybe (NonEmpty Text)
 $sel:fleetIds:DescribeFleetAttributes' :: DescribeFleetAttributes -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679456003"><span class="hs-identifier hs-var hs-var">fleetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679456003"><span class="hs-identifier hs-var">fleetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456002"><span class="annot"><span class="annottext">s :: DescribeFleetAttributes
-</span><a href="#local-6989586621679456002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes%27"><span class="hs-identifier hs-type">DescribeFleetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456001"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679456001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetAttributes
-</span><a href="#local-6989586621679456002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetIds:DescribeFleetAttributes' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679456012"><span class="hs-identifier hs-var hs-var">fleetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679456012"><span class="hs-identifier hs-var">fleetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456011"><span class="annot"><span class="annottext">s :: DescribeFleetAttributes
+</span><a href="#local-6989586621679456011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes%27"><span class="hs-identifier hs-type">DescribeFleetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456010"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679456010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetAttributes
+</span><a href="#local-6989586621679456011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetIds:DescribeFleetAttributes' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#%24sel%3AfleetIds%3ADescribeFleetAttributes%27"><span class="hs-identifier hs-var">fleetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679456001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-type">DescribeFleetAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679456010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-type">DescribeFleetAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; DescribeFleetAttributes -&gt; f DescribeFleetAttributes)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -308,18 +308,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-type">DescribeFleetAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679455994"><span class="annot"><span class="annottext">page :: DescribeFleetAttributes
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679456003"><span class="annot"><span class="annottext">page :: DescribeFleetAttributes
 -&gt; AWSResponse DescribeFleetAttributes
 -&gt; Maybe DescribeFleetAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679455992"><span class="annot"><span class="annottext">DescribeFleetAttributes
-</span><a href="#local-6989586621679455992"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679455991"><span class="annot"><span class="annottext">AWSResponse DescribeFleetAttributes
-</span><a href="#local-6989586621679455991"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679456001"><span class="annot"><span class="annottext">DescribeFleetAttributes
+</span><a href="#local-6989586621679456001"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679456000"><span class="annot"><span class="annottext">AWSResponse DescribeFleetAttributes
+</span><a href="#local-6989586621679456000"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-160"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeFleetAttributes
 DescribeFleetAttributesResponse
-</span><a href="#local-6989586621679455991"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679456000"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">DescribeFleetAttributesResponse
 -&gt; Getting (First Text) DescribeFleetAttributesResponse Text
 -&gt; Maybe Text
@@ -349,7 +349,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-166"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeFleetAttributes
 DescribeFleetAttributesResponse
-</span><a href="#local-6989586621679455991"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679456000"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">DescribeFleetAttributesResponse
 -&gt; Getting
      (First [FleetAttributes])
@@ -395,7 +395,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">DescribeFleetAttributes
-</span><a href="#local-6989586621679455992"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679456001"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">DescribeFleetAttributes
 -&gt; (DescribeFleetAttributes -&gt; DescribeFleetAttributes)
 -&gt; DescribeFleetAttributes
@@ -414,7 +414,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeFleetAttributes
 DescribeFleetAttributesResponse
-</span><a href="#local-6989586621679455991"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679456000"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">DescribeFleetAttributesResponse
 -&gt; Getting (First Text) DescribeFleetAttributesResponse Text
 -&gt; Maybe Text
@@ -440,13 +440,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-180"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-181"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-type">DescribeFleetAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse</span></a></span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679455982"><span class="annot"><span class="annottext">request :: DescribeFleetAttributes -&gt; Request DescribeFleetAttributes
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679455991"><span class="annot"><span class="annottext">request :: DescribeFleetAttributes -&gt; Request DescribeFleetAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeFleetAttributes -&gt; Request DescribeFleetAttributes
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679455978"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679455987"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeFleetAttributes
 -&gt; ClientResponse ClientBody
@@ -472,10 +472,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679455975"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679455975"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679455974"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679455974"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679455973"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679455973"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679455984"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679455984"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679455983"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679455983"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679455982"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679455982"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [FleetAttributes]
 -&gt; Int
@@ -491,7 +491,7 @@ MonadResource m =&gt;
      (Maybe [FleetAttributes] -&gt; Int -&gt; DescribeFleetAttributesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679455973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679455982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -502,7 +502,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeFleetAttributesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679455973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [FleetAttributes]))
+</span><a href="#local-6989586621679455982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [FleetAttributes]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FleetAttributes&quot;</span></span><span>
@@ -523,15 +523,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679455975"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679455984"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455964"><span id="local-6989586621679455966"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-type">DescribeFleetAttributes</span></a></span></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455973"><span id="local-6989586621679455975"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-type">DescribeFleetAttributes</span></a></span></span></span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455961"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-type">DescribeFleetAttributes</span></a></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455970"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-type">DescribeFleetAttributes</span></a></span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-type">DescribeFleetAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679455957"><span class="annot"><span class="annottext">toHeaders :: DescribeFleetAttributes -&gt; ResponseHeaders
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679455966"><span class="annot"><span class="annottext">toHeaders :: DescribeFleetAttributes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeFleetAttributes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -558,9 +558,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-211"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455947"><span id="local-6989586621679455949"><span id="local-6989586621679455951"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-type">DescribeFleetAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679455945"><span class="annot"><span class="annottext">toJSON :: DescribeFleetAttributes -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes%27"><span class="hs-identifier hs-type">DescribeFleetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455941"><span id="local-6989586621679455942"><span id="local-6989586621679455943"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455956"><span id="local-6989586621679455958"><span id="local-6989586621679455960"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-type">DescribeFleetAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679455954"><span class="annot"><span class="annottext">toJSON :: DescribeFleetAttributes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes%27"><span class="hs-identifier hs-type">DescribeFleetAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455950"><span id="local-6989586621679455951"><span id="local-6989586621679455952"><span class="annot"><span class="annottext">Maybe Natural
 Maybe (NonEmpty Text)
 Maybe Text
 fleetIds :: Maybe (NonEmpty Text)
@@ -569,7 +569,7 @@ nextToken :: Maybe Text
 $sel:fleetIds:DescribeFleetAttributes' :: DescribeFleetAttributes -&gt; Maybe (NonEmpty Text)
 $sel:limit:DescribeFleetAttributes' :: DescribeFleetAttributes -&gt; Maybe Natural
 $sel:nextToken:DescribeFleetAttributes' :: DescribeFleetAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679455941"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679455950"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-216"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-217"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -581,33 +581,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679455943"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679455952"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679455942"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679455951"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FleetIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679455941"><span class="hs-identifier hs-var">fleetIds</span></a></span><span>
+</span><a href="#local-6989586621679455950"><span class="hs-identifier hs-var">fleetIds</span></a></span><span>
 </span><span id="line-221"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-222"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-type">DescribeFleetAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-225"></span><span>  </span><span id="local-6989586621679455935"><span class="annot"><span class="annottext">toPath :: DescribeFleetAttributes -&gt; ByteString
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679455944"><span class="annot"><span class="annottext">toPath :: DescribeFleetAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeFleetAttributes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributes"><span class="hs-identifier hs-type">DescribeFleetAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621679455931"><span class="annot"><span class="annottext">toQuery :: DescribeFleetAttributes -&gt; QueryString
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679455940"><span class="annot"><span class="annottext">toQuery :: DescribeFleetAttributes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeFleetAttributes -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -617,7 +617,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-230"></span><span class="hs-comment">-- | Represents the returned data in response to a request operation.</span><span>
 </span><span id="line-231"></span><span class="hs-comment">--</span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- /See:/ 'newDescribeFleetAttributesResponse' smart constructor.</span><span>
-</span><span id="line-233"></span><span id="local-6989586621679455928"><span id="local-6989586621679455929"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFleetAttributesResponse"><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse"><span class="hs-identifier hs-var">DescribeFleetAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFleetAttributesResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse%27"><span class="hs-identifier hs-var">DescribeFleetAttributesResponse'</span></a></span></span><span>
+</span><span id="line-233"></span><span id="local-6989586621679455937"><span id="local-6989586621679455938"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFleetAttributesResponse"><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse"><span class="hs-identifier hs-var">DescribeFleetAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFleetAttributesResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse%27"><span class="hs-identifier hs-var">DescribeFleetAttributesResponse'</span></a></span></span><span>
 </span><span id="line-234"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token that indicates where to resume retrieving results on the next</span><span>
 </span><span id="line-235"></span><span>    </span><span class="hs-comment">-- call to this operation. If no token is returned, these results represent</span><span>
 </span><span id="line-236"></span><span>    </span><span class="hs-comment">-- the end of the list.</span><span>
@@ -632,7 +632,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-243"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeFleetAttributesResponse%27"><span class="annot"><span class="annottext">DescribeFleetAttributesResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#%24sel%3AhttpStatus%3ADescribeFleetAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-244"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-245"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679455921"><span id="local-6989586621679455923"><span class="annot"><span class="annottext">DescribeFleetAttributesResponse
+</span><span id="line-245"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679455930"><span id="local-6989586621679455932"><span class="annot"><span class="annottext">DescribeFleetAttributesResponse
 -&gt; DescribeFleetAttributesResponse -&gt; Bool
 (DescribeFleetAttributesResponse
  -&gt; DescribeFleetAttributesResponse -&gt; Bool)
@@ -648,7 +648,7 @@ $c/= :: DescribeFleetAttributesResponse
 -&gt; DescribeFleetAttributesResponse -&gt; Bool
 $c== :: DescribeFleetAttributesResponse
 -&gt; DescribeFleetAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455913"><span id="local-6989586621679455915"><span id="local-6989586621679455917"><span id="local-6989586621679455919"><span class="annot"><span class="annottext">ReadPrec [DescribeFleetAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455922"><span id="local-6989586621679455924"><span id="local-6989586621679455926"><span id="local-6989586621679455928"><span class="annot"><span class="annottext">ReadPrec [DescribeFleetAttributesResponse]
 ReadPrec DescribeFleetAttributesResponse
 Int -&gt; ReadS DescribeFleetAttributesResponse
 ReadS [DescribeFleetAttributesResponse]
@@ -668,7 +668,7 @@ readList :: ReadS [DescribeFleetAttributesResponse]
 $creadList :: ReadS [DescribeFleetAttributesResponse]
 readsPrec :: Int -&gt; ReadS DescribeFleetAttributesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeFleetAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455907"><span id="local-6989586621679455909"><span id="local-6989586621679455911"><span class="annot"><span class="annottext">Int -&gt; DescribeFleetAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455916"><span id="local-6989586621679455918"><span id="local-6989586621679455920"><span class="annot"><span class="annottext">Int -&gt; DescribeFleetAttributesResponse -&gt; ShowS
 [DescribeFleetAttributesResponse] -&gt; ShowS
 DescribeFleetAttributesResponse -&gt; String
 (Int -&gt; DescribeFleetAttributesResponse -&gt; ShowS)
@@ -728,8 +728,8 @@ DescribeFleetAttributesResponse
 </span><span id="line-266"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-267"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse</span></a></span><span>
 </span><span id="line-268"></span><span id="newDescribeFleetAttributesResponse"><span class="annot"><span class="annottext">newDescribeFleetAttributesResponse :: Int -&gt; DescribeFleetAttributesResponse
-</span><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#newDescribeFleetAttributesResponse"><span class="hs-identifier hs-var hs-var">newDescribeFleetAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679455904"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679455904"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#newDescribeFleetAttributesResponse"><span class="hs-identifier hs-var hs-var">newDescribeFleetAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679455913"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679455913"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-269"></span><span>  </span><span class="annot"><span class="annottext">DescribeFleetAttributesResponse' :: Maybe Text
 -&gt; Maybe [FleetAttributes]
 -&gt; Int
@@ -746,7 +746,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFleetAttributesResponse' :: Int
 </span><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#%24sel%3AhttpStatus%3ADescribeFleetAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679455904"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679455913"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-274"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-275"></span><span>
 </span><span id="line-276"></span><span class="hs-comment">-- | A token that indicates where to resume retrieving results on the next</span><span>
@@ -761,16 +761,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeFleetAttributesResponse)
 -&gt; Lens' DescribeFleetAttributesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse%27"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455903"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse%27"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455912"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeFleetAttributesResponse' :: DescribeFleetAttributesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679455903"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679455903"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455902"><span class="annot"><span class="annottext">s :: DescribeFleetAttributesResponse
-</span><a href="#local-6989586621679455902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse%27"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455901"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679455901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetAttributesResponse
-</span><a href="#local-6989586621679455902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeFleetAttributesResponse' :: Maybe Text
+</span><a href="#local-6989586621679455912"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679455912"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455911"><span class="annot"><span class="annottext">s :: DescribeFleetAttributesResponse
+</span><a href="#local-6989586621679455911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse%27"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455910"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679455910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetAttributesResponse
+</span><a href="#local-6989586621679455911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeFleetAttributesResponse' :: Maybe Text
 </span><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#%24sel%3AnextToken%3ADescribeFleetAttributesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679455901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679455910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-281"></span><span>
 </span><span id="line-282"></span><span class="hs-comment">-- | A collection of objects containing attribute metadata for each requested</span><span>
 </span><span id="line-283"></span><span class="hs-comment">-- fleet ID. Attribute objects are returned only for fleets that currently</span><span>
@@ -784,16 +784,16 @@ $sel:nextToken:DescribeFleetAttributesResponse' :: DescribeFleetAttributesRespon
     -&gt; Maybe [FleetAttributes] -&gt; DescribeFleetAttributesResponse)
 -&gt; Lens' DescribeFleetAttributesResponse (Maybe [FleetAttributes])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse%27"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455900"><span class="annot"><span class="annottext">Maybe [FleetAttributes]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse%27"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455909"><span class="annot"><span class="annottext">Maybe [FleetAttributes]
 fleetAttributes :: Maybe [FleetAttributes]
 $sel:fleetAttributes:DescribeFleetAttributesResponse' :: DescribeFleetAttributesResponse -&gt; Maybe [FleetAttributes]
-</span><a href="#local-6989586621679455900"><span class="hs-identifier hs-var hs-var">fleetAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FleetAttributes]
-</span><a href="#local-6989586621679455900"><span class="hs-identifier hs-var">fleetAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455899"><span class="annot"><span class="annottext">s :: DescribeFleetAttributesResponse
-</span><a href="#local-6989586621679455899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse%27"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455898"><span class="annot"><span class="annottext">Maybe [FleetAttributes]
-</span><a href="#local-6989586621679455898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetAttributesResponse
-</span><a href="#local-6989586621679455899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetAttributes:DescribeFleetAttributesResponse' :: Maybe [FleetAttributes]
+</span><a href="#local-6989586621679455909"><span class="hs-identifier hs-var hs-var">fleetAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FleetAttributes]
+</span><a href="#local-6989586621679455909"><span class="hs-identifier hs-var">fleetAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455908"><span class="annot"><span class="annottext">s :: DescribeFleetAttributesResponse
+</span><a href="#local-6989586621679455908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse%27"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455907"><span class="annot"><span class="annottext">Maybe [FleetAttributes]
+</span><a href="#local-6989586621679455907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetAttributesResponse
+</span><a href="#local-6989586621679455908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetAttributes:DescribeFleetAttributesResponse' :: Maybe [FleetAttributes]
 </span><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#%24sel%3AfleetAttributes%3ADescribeFleetAttributesResponse%27"><span class="hs-identifier hs-var">fleetAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FleetAttributes]
-</span><a href="#local-6989586621679455898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FleetAttributes] -&gt; f (Maybe [FleetAttributes]))
+</span><a href="#local-6989586621679455907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FleetAttributes] -&gt; f (Maybe [FleetAttributes]))
  -&gt; DescribeFleetAttributesResponse
  -&gt; f DescribeFleetAttributesResponse)
 -&gt; ((Maybe [FleetAttributes] -&gt; f (Maybe [FleetAttributes]))
@@ -837,18 +837,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse%27"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455897"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse%27"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455906"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeFleetAttributesResponse' :: DescribeFleetAttributesResponse -&gt; Int
-</span><a href="#local-6989586621679455897"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679455897"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455896"><span class="annot"><span class="annottext">s :: DescribeFleetAttributesResponse
-</span><a href="#local-6989586621679455896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse%27"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455895"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679455895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetAttributesResponse
-</span><a href="#local-6989586621679455896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFleetAttributesResponse' :: Int
+</span><a href="#local-6989586621679455906"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679455906"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455905"><span class="annot"><span class="annottext">s :: DescribeFleetAttributesResponse
+</span><a href="#local-6989586621679455905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse%27"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455904"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679455904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetAttributesResponse
+</span><a href="#local-6989586621679455905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFleetAttributesResponse' :: Int
 </span><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#%24sel%3AhttpStatus%3ADescribeFleetAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679455895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679455904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-291"></span><span>
 </span><span id="line-292"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-293"></span><span>  </span><span id="local-6989586621679455893"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-293"></span><span>  </span><span id="local-6989586621679455902"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-294"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DescribeFleetAttributes.html#DescribeFleetAttributesResponse"><span class="hs-identifier hs-type">DescribeFleetAttributesResponse</span></a></span></span><span>
 </span><span id="line-295"></span></pre></body></html>

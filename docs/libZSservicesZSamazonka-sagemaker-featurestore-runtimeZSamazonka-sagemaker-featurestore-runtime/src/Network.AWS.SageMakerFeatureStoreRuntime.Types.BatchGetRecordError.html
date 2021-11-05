@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The error that has occurred when attempting to retrieve a batch of</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Records.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBatchGetRecordError' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679141813"><span id="local-6989586621679141814"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetRecordError"><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError"><span class="hs-identifier hs-var">BatchGetRecordError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetRecordError%27"><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError%27"><span class="hs-identifier hs-var">BatchGetRecordError'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the feature group that the record belongs to.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AfeatureGroupName%3ABatchGetRecordError%27"><span class="annot"><span class="annottext">BatchGetRecordError -&gt; Text
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#%24sel%3AfeatureGroupName%3ABatchGetRecordError%27"><span class="hs-identifier hs-var hs-var">featureGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The value for the @RecordIdentifier@ in string format of a Record from a</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @FeatureGroup@ that is causing an error when attempting to be retrieved.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3ArecordIdentifierValueAsString%3ABatchGetRecordError%27"><span class="annot"><span class="annottext">BatchGetRecordError -&gt; Text
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#%24sel%3ArecordIdentifierValueAsString%3ABatchGetRecordError%27"><span class="hs-identifier hs-var hs-var">recordIdentifierValueAsString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The error code of an error that has occured when attempting to retrieve</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- a batch of Records. For more information on errors, see</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_GetRecord.html#API_feature_store_GetRecord_Errors Errors&gt;.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AerrorCode%3ABatchGetRecordError%27"><span class="annot"><span class="annottext">BatchGetRecordError -&gt; Text
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#%24sel%3AerrorCode%3ABatchGetRecordError%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The error message of an error that has occured when attempting to</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- retrieve a record in the batch.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AerrorMessage%3ABatchGetRecordError%27"><span class="annot"><span class="annottext">BatchGetRecordError -&gt; Text
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#%24sel%3AerrorMessage%3ABatchGetRecordError%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679141804"><span id="local-6989586621679141806"><span class="annot"><span class="annottext">BatchGetRecordError -&gt; BatchGetRecordError -&gt; Bool
+(BatchGetRecordError -&gt; BatchGetRecordError -&gt; Bool)
+-&gt; (BatchGetRecordError -&gt; BatchGetRecordError -&gt; Bool)
+-&gt; Eq BatchGetRecordError
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchGetRecordError -&gt; BatchGetRecordError -&gt; Bool
+$c/= :: BatchGetRecordError -&gt; BatchGetRecordError -&gt; Bool
+== :: BatchGetRecordError -&gt; BatchGetRecordError -&gt; Bool
+$c== :: BatchGetRecordError -&gt; BatchGetRecordError -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679141795"><span id="local-6989586621679141797"><span id="local-6989586621679141799"><span id="local-6989586621679141801"><span class="annot"><span class="annottext">ReadPrec [BatchGetRecordError]
+ReadPrec BatchGetRecordError
+Int -&gt; ReadS BatchGetRecordError
+ReadS [BatchGetRecordError]
+(Int -&gt; ReadS BatchGetRecordError)
+-&gt; ReadS [BatchGetRecordError]
+-&gt; ReadPrec BatchGetRecordError
+-&gt; ReadPrec [BatchGetRecordError]
+-&gt; Read BatchGetRecordError
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchGetRecordError]
+$creadListPrec :: ReadPrec [BatchGetRecordError]
+readPrec :: ReadPrec BatchGetRecordError
+$creadPrec :: ReadPrec BatchGetRecordError
+readList :: ReadS [BatchGetRecordError]
+$creadList :: ReadS [BatchGetRecordError]
+readsPrec :: Int -&gt; ReadS BatchGetRecordError
+$creadsPrec :: Int -&gt; ReadS BatchGetRecordError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679141788"><span id="local-6989586621679141790"><span id="local-6989586621679141792"><span class="annot"><span class="annottext">Int -&gt; BatchGetRecordError -&gt; ShowS
+[BatchGetRecordError] -&gt; ShowS
+BatchGetRecordError -&gt; String
+(Int -&gt; BatchGetRecordError -&gt; ShowS)
+-&gt; (BatchGetRecordError -&gt; String)
+-&gt; ([BatchGetRecordError] -&gt; ShowS)
+-&gt; Show BatchGetRecordError
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchGetRecordError] -&gt; ShowS
+$cshowList :: [BatchGetRecordError] -&gt; ShowS
+show :: BatchGetRecordError -&gt; String
+$cshow :: BatchGetRecordError -&gt; String
+showsPrec :: Int -&gt; BatchGetRecordError -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchGetRecordError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchGetRecordError -&gt; Rep BatchGetRecordError x)
+-&gt; (forall x. Rep BatchGetRecordError x -&gt; BatchGetRecordError)
+-&gt; Generic BatchGetRecordError
+forall x. Rep BatchGetRecordError x -&gt; BatchGetRecordError
+forall x. BatchGetRecordError -&gt; Rep BatchGetRecordError x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchGetRecordError x -&gt; BatchGetRecordError
+$cfrom :: forall x. BatchGetRecordError -&gt; Rep BatchGetRecordError x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'BatchGetRecordError' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'featureGroupName', 'batchGetRecordError_featureGroupName' - The name of the feature group that the record belongs to.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'recordIdentifierValueAsString', 'batchGetRecordError_recordIdentifierValueAsString' - The value for the @RecordIdentifier@ in string format of a Record from a</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- @FeatureGroup@ that is causing an error when attempting to be retrieved.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'errorCode', 'batchGetRecordError_errorCode' - The error code of an error that has occured when attempting to retrieve</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- a batch of Records. For more information on errors, see</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_GetRecord.html#API_feature_store_GetRecord_Errors Errors&gt;.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'errorMessage', 'batchGetRecordError_errorMessage' - The error message of an error that has occured when attempting to</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- retrieve a record in the batch.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#newBatchGetRecordError"><span class="hs-identifier hs-type">newBatchGetRecordError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'featureGroupName'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'recordIdentifierValueAsString'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'errorCode'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'errorMessage'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError"><span class="hs-identifier hs-type">BatchGetRecordError</span></a></span><span>
+</span><span id="line-75"></span><span id="newBatchGetRecordError"><span class="annot"><span class="annottext">newBatchGetRecordError :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; BatchGetRecordError
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#newBatchGetRecordError"><span class="hs-identifier hs-var hs-var">newBatchGetRecordError</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679141782"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141782"><span class="hs-identifier hs-var">pFeatureGroupName_</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679141781"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141781"><span class="hs-identifier hs-var">pRecordIdentifierValueAsString_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679141780"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141780"><span class="hs-identifier hs-var">pErrorCode_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679141779"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141779"><span class="hs-identifier hs-var">pErrorMessage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">BatchGetRecordError' :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; BatchGetRecordError
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError%27"><span class="hs-identifier hs-type">BatchGetRecordError'</span></a></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:featureGroupName:BatchGetRecordError' :: Text
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#%24sel%3AfeatureGroupName%3ABatchGetRecordError%27"><span class="hs-identifier hs-var">featureGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141782"><span class="hs-identifier hs-var">pFeatureGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:recordIdentifierValueAsString:BatchGetRecordError' :: Text
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#%24sel%3ArecordIdentifierValueAsString%3ABatchGetRecordError%27"><span class="hs-identifier hs-var">recordIdentifierValueAsString</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141781"><span class="hs-identifier hs-var">pRecordIdentifierValueAsString_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:errorCode:BatchGetRecordError' :: Text
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#%24sel%3AerrorCode%3ABatchGetRecordError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141780"><span class="hs-identifier hs-var">pErrorCode_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:errorMessage:BatchGetRecordError' :: Text
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#%24sel%3AerrorMessage%3ABatchGetRecordError%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141779"><span class="hs-identifier hs-var">pErrorMessage_</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The name of the feature group that the record belongs to.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#batchGetRecordError_featureGroupName"><span class="hs-identifier hs-type">batchGetRecordError_featureGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError"><span class="hs-identifier hs-type">BatchGetRecordError</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span id="batchGetRecordError_featureGroupName"><span class="annot"><span class="annottext">batchGetRecordError_featureGroupName :: (Text -&gt; f Text) -&gt; BatchGetRecordError -&gt; f BatchGetRecordError
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#batchGetRecordError_featureGroupName"><span class="hs-identifier hs-var hs-var">batchGetRecordError_featureGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetRecordError -&gt; Text)
+-&gt; (BatchGetRecordError -&gt; Text -&gt; BatchGetRecordError)
+-&gt; Lens BatchGetRecordError BatchGetRecordError Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError%27"><span class="hs-identifier hs-type">BatchGetRecordError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141775"><span class="annot"><span class="annottext">Text
+featureGroupName :: Text
+$sel:featureGroupName:BatchGetRecordError' :: BatchGetRecordError -&gt; Text
+</span><a href="#local-6989586621679141775"><span class="hs-identifier hs-var hs-var">featureGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141775"><span class="hs-identifier hs-var">featureGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141774"><span class="annot"><span class="annottext">s :: BatchGetRecordError
+</span><a href="#local-6989586621679141774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError%27"><span class="hs-identifier hs-type">BatchGetRecordError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141773"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetRecordError
+</span><a href="#local-6989586621679141774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureGroupName:BatchGetRecordError' :: Text
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#%24sel%3AfeatureGroupName%3ABatchGetRecordError%27"><span class="hs-identifier hs-var">featureGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError"><span class="hs-identifier hs-type">BatchGetRecordError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The value for the @RecordIdentifier@ in string format of a Record from a</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- @FeatureGroup@ that is causing an error when attempting to be retrieved.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#batchGetRecordError_recordIdentifierValueAsString"><span class="hs-identifier hs-type">batchGetRecordError_recordIdentifierValueAsString</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError"><span class="hs-identifier hs-type">BatchGetRecordError</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="batchGetRecordError_recordIdentifierValueAsString"><span class="annot"><span class="annottext">batchGetRecordError_recordIdentifierValueAsString :: (Text -&gt; f Text) -&gt; BatchGetRecordError -&gt; f BatchGetRecordError
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#batchGetRecordError_recordIdentifierValueAsString"><span class="hs-identifier hs-var hs-var">batchGetRecordError_recordIdentifierValueAsString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetRecordError -&gt; Text)
+-&gt; (BatchGetRecordError -&gt; Text -&gt; BatchGetRecordError)
+-&gt; Lens BatchGetRecordError BatchGetRecordError Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError%27"><span class="hs-identifier hs-type">BatchGetRecordError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141771"><span class="annot"><span class="annottext">Text
+recordIdentifierValueAsString :: Text
+$sel:recordIdentifierValueAsString:BatchGetRecordError' :: BatchGetRecordError -&gt; Text
+</span><a href="#local-6989586621679141771"><span class="hs-identifier hs-var hs-var">recordIdentifierValueAsString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141771"><span class="hs-identifier hs-var">recordIdentifierValueAsString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141770"><span class="annot"><span class="annottext">s :: BatchGetRecordError
+</span><a href="#local-6989586621679141770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError%27"><span class="hs-identifier hs-type">BatchGetRecordError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141769"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetRecordError
+</span><a href="#local-6989586621679141770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordIdentifierValueAsString:BatchGetRecordError' :: Text
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#%24sel%3ArecordIdentifierValueAsString%3ABatchGetRecordError%27"><span class="hs-identifier hs-var">recordIdentifierValueAsString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError"><span class="hs-identifier hs-type">BatchGetRecordError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The error code of an error that has occured when attempting to retrieve</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- a batch of Records. For more information on errors, see</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_GetRecord.html#API_feature_store_GetRecord_Errors Errors&gt;.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#batchGetRecordError_errorCode"><span class="hs-identifier hs-type">batchGetRecordError_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError"><span class="hs-identifier hs-type">BatchGetRecordError</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-102"></span><span id="batchGetRecordError_errorCode"><span class="annot"><span class="annottext">batchGetRecordError_errorCode :: (Text -&gt; f Text) -&gt; BatchGetRecordError -&gt; f BatchGetRecordError
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#batchGetRecordError_errorCode"><span class="hs-identifier hs-var hs-var">batchGetRecordError_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetRecordError -&gt; Text)
+-&gt; (BatchGetRecordError -&gt; Text -&gt; BatchGetRecordError)
+-&gt; Lens BatchGetRecordError BatchGetRecordError Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError%27"><span class="hs-identifier hs-type">BatchGetRecordError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141767"><span class="annot"><span class="annottext">Text
+errorCode :: Text
+$sel:errorCode:BatchGetRecordError' :: BatchGetRecordError -&gt; Text
+</span><a href="#local-6989586621679141767"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141767"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141766"><span class="annot"><span class="annottext">s :: BatchGetRecordError
+</span><a href="#local-6989586621679141766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError%27"><span class="hs-identifier hs-type">BatchGetRecordError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141765"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetRecordError
+</span><a href="#local-6989586621679141766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:BatchGetRecordError' :: Text
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#%24sel%3AerrorCode%3ABatchGetRecordError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError"><span class="hs-identifier hs-type">BatchGetRecordError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The error message of an error that has occured when attempting to</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- retrieve a record in the batch.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#batchGetRecordError_errorMessage"><span class="hs-identifier hs-type">batchGetRecordError_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError"><span class="hs-identifier hs-type">BatchGetRecordError</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="batchGetRecordError_errorMessage"><span class="annot"><span class="annottext">batchGetRecordError_errorMessage :: (Text -&gt; f Text) -&gt; BatchGetRecordError -&gt; f BatchGetRecordError
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#batchGetRecordError_errorMessage"><span class="hs-identifier hs-var hs-var">batchGetRecordError_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetRecordError -&gt; Text)
+-&gt; (BatchGetRecordError -&gt; Text -&gt; BatchGetRecordError)
+-&gt; Lens BatchGetRecordError BatchGetRecordError Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError%27"><span class="hs-identifier hs-type">BatchGetRecordError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141763"><span class="annot"><span class="annottext">Text
+errorMessage :: Text
+$sel:errorMessage:BatchGetRecordError' :: BatchGetRecordError -&gt; Text
+</span><a href="#local-6989586621679141763"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141763"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141762"><span class="annot"><span class="annottext">s :: BatchGetRecordError
+</span><a href="#local-6989586621679141762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError%27"><span class="hs-identifier hs-type">BatchGetRecordError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141761"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetRecordError
+</span><a href="#local-6989586621679141762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:BatchGetRecordError' :: Text
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#%24sel%3AerrorMessage%3ABatchGetRecordError%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError"><span class="hs-identifier hs-type">BatchGetRecordError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141758"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError"><span class="hs-identifier hs-type">BatchGetRecordError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679141756"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchGetRecordError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BatchGetRecordError)
+-&gt; Value
+-&gt; Parser BatchGetRecordError
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BatchGetRecordError&quot;</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679141753"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141753"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text -&gt; Text -&gt; BatchGetRecordError
+</span><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError%27"><span class="hs-identifier hs-var">BatchGetRecordError'</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Text -&gt; Text -&gt; BatchGetRecordError)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; Text -&gt; Text -&gt; BatchGetRecordError)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141753"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeatureGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; BatchGetRecordError)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; BatchGetRecordError)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141753"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordIdentifierValueAsString&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; BatchGetRecordError)
+-&gt; Parser Text -&gt; Parser (Text -&gt; BatchGetRecordError)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141753"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; BatchGetRecordError)
+-&gt; Parser Text -&gt; Parser BatchGetRecordError
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141753"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141747"><span id="local-6989586621679141749"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError"><span class="hs-identifier hs-type">BatchGetRecordError</span></a></span></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141744"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#BatchGetRecordError"><span class="hs-identifier hs-type">BatchGetRecordError</span></a></span></span><span>
+</span><span id="line-124"></span></pre></body></html>

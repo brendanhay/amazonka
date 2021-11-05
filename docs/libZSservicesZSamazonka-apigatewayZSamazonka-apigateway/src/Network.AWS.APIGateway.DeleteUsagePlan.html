@@ -45,12 +45,12 @@
 </span><span id="line-45"></span><span class="hs-comment">-- | The DELETE request to delete a usage plan of a given plan Id.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- /See:/ 'newDeleteUsagePlan' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679387034"><span id="local-6989586621679387035"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUsagePlan"><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan"><span class="hs-identifier hs-var">DeleteUsagePlan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUsagePlan%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan%27"><span class="hs-identifier hs-var">DeleteUsagePlan'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679387043"><span id="local-6989586621679387044"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUsagePlan"><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan"><span class="hs-identifier hs-var">DeleteUsagePlan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUsagePlan%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan%27"><span class="hs-identifier hs-var">DeleteUsagePlan'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | [Required] The Id of the to-be-deleted usage plan.</span><span>
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3AusagePlanId%3ADeleteUsagePlan%27"><span class="annot"><span class="annottext">DeleteUsagePlan -&gt; Text
 </span><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#%24sel%3AusagePlanId%3ADeleteUsagePlan%27"><span class="hs-identifier hs-var hs-var">usagePlanId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387028"><span id="local-6989586621679387030"><span class="annot"><span class="annottext">DeleteUsagePlan -&gt; DeleteUsagePlan -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387037"><span id="local-6989586621679387039"><span class="annot"><span class="annottext">DeleteUsagePlan -&gt; DeleteUsagePlan -&gt; Bool
 (DeleteUsagePlan -&gt; DeleteUsagePlan -&gt; Bool)
 -&gt; (DeleteUsagePlan -&gt; DeleteUsagePlan -&gt; Bool)
 -&gt; Eq DeleteUsagePlan
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteUsagePlan -&gt; DeleteUsagePlan -&gt; Bool
 == :: DeleteUsagePlan -&gt; DeleteUsagePlan -&gt; Bool
 $c== :: DeleteUsagePlan -&gt; DeleteUsagePlan -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387019"><span id="local-6989586621679387021"><span id="local-6989586621679387023"><span id="local-6989586621679387025"><span class="annot"><span class="annottext">ReadPrec [DeleteUsagePlan]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387028"><span id="local-6989586621679387030"><span id="local-6989586621679387032"><span id="local-6989586621679387034"><span class="annot"><span class="annottext">ReadPrec [DeleteUsagePlan]
 ReadPrec DeleteUsagePlan
 Int -&gt; ReadS DeleteUsagePlan
 ReadS [DeleteUsagePlan]
@@ -79,7 +79,7 @@ readList :: ReadS [DeleteUsagePlan]
 $creadList :: ReadS [DeleteUsagePlan]
 readsPrec :: Int -&gt; ReadS DeleteUsagePlan
 $creadsPrec :: Int -&gt; ReadS DeleteUsagePlan
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387012"><span id="local-6989586621679387014"><span id="local-6989586621679387016"><span class="annot"><span class="annottext">Int -&gt; DeleteUsagePlan -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387021"><span id="local-6989586621679387023"><span id="local-6989586621679387025"><span class="annot"><span class="annottext">Int -&gt; DeleteUsagePlan -&gt; ShowS
 [DeleteUsagePlan] -&gt; ShowS
 DeleteUsagePlan -&gt; String
 (Int -&gt; DeleteUsagePlan -&gt; ShowS)
@@ -119,12 +119,12 @@ $cfrom :: forall x. DeleteUsagePlan -&gt; Rep DeleteUsagePlan x
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan"><span class="hs-identifier hs-type">DeleteUsagePlan</span></a></span><span>
 </span><span id="line-67"></span><span id="newDeleteUsagePlan"><span class="annot"><span class="annottext">newDeleteUsagePlan :: Text -&gt; DeleteUsagePlan
-</span><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#newDeleteUsagePlan"><span class="hs-identifier hs-var hs-var">newDeleteUsagePlan</span></a></span></span><span> </span><span id="local-6989586621679387007"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387007"><span class="hs-identifier hs-var">pUsagePlanId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#newDeleteUsagePlan"><span class="hs-identifier hs-var hs-var">newDeleteUsagePlan</span></a></span></span><span> </span><span id="local-6989586621679387016"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387016"><span class="hs-identifier hs-var">pUsagePlanId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">DeleteUsagePlan' :: Text -&gt; DeleteUsagePlan
 </span><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan%27"><span class="hs-identifier hs-type">DeleteUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usagePlanId:DeleteUsagePlan' :: Text
 </span><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#%24sel%3AusagePlanId%3ADeleteUsagePlan%27"><span class="hs-identifier hs-var">usagePlanId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387007"><span class="hs-identifier hs-var">pUsagePlanId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679387016"><span class="hs-identifier hs-var">pUsagePlanId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | [Required] The Id of the to-be-deleted usage plan.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#deleteUsagePlan_usagePlanId"><span class="hs-identifier hs-type">deleteUsagePlan_usagePlanId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan"><span class="hs-identifier hs-type">DeleteUsagePlan</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -133,27 +133,27 @@ $cfrom :: forall x. DeleteUsagePlan -&gt; Rep DeleteUsagePlan x
 -&gt; (DeleteUsagePlan -&gt; Text -&gt; DeleteUsagePlan)
 -&gt; Lens DeleteUsagePlan DeleteUsagePlan Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan%27"><span class="hs-identifier hs-type">DeleteUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387004"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan%27"><span class="hs-identifier hs-type">DeleteUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387013"><span class="annot"><span class="annottext">Text
 usagePlanId :: Text
 $sel:usagePlanId:DeleteUsagePlan' :: DeleteUsagePlan -&gt; Text
-</span><a href="#local-6989586621679387004"><span class="hs-identifier hs-var hs-var">usagePlanId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387004"><span class="hs-identifier hs-var">usagePlanId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387003"><span class="annot"><span class="annottext">s :: DeleteUsagePlan
-</span><a href="#local-6989586621679387003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan%27"><span class="hs-identifier hs-type">DeleteUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387002"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUsagePlan
-</span><a href="#local-6989586621679387003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usagePlanId:DeleteUsagePlan' :: Text
+</span><a href="#local-6989586621679387013"><span class="hs-identifier hs-var hs-var">usagePlanId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387013"><span class="hs-identifier hs-var">usagePlanId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387012"><span class="annot"><span class="annottext">s :: DeleteUsagePlan
+</span><a href="#local-6989586621679387012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan%27"><span class="hs-identifier hs-type">DeleteUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387011"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUsagePlan
+</span><a href="#local-6989586621679387012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usagePlanId:DeleteUsagePlan' :: Text
 </span><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#%24sel%3AusagePlanId%3ADeleteUsagePlan%27"><span class="hs-identifier hs-var">usagePlanId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan"><span class="hs-identifier hs-type">DeleteUsagePlan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan"><span class="hs-identifier hs-type">DeleteUsagePlan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan"><span class="hs-identifier hs-type">DeleteUsagePlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-76"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan"><span class="hs-identifier hs-type">DeleteUsagePlan</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlanResponse"><span class="hs-identifier hs-type">DeleteUsagePlanResponse</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679386998"><span class="annot"><span class="annottext">request :: DeleteUsagePlan -&gt; Request DeleteUsagePlan
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679387007"><span class="annot"><span class="annottext">request :: DeleteUsagePlan -&gt; Request DeleteUsagePlan
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteUsagePlan -&gt; Request DeleteUsagePlan
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679386994"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679387003"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteUsagePlan
 -&gt; ClientResponse ClientBody
@@ -177,12 +177,12 @@ AWSResponse a
 DeleteUsagePlanResponse
 </span><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlanResponse%27"><span class="hs-identifier hs-var">DeleteUsagePlanResponse'</span></a></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386987"><span id="local-6989586621679386989"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan"><span class="hs-identifier hs-type">DeleteUsagePlan</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386996"><span id="local-6989586621679386998"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan"><span class="hs-identifier hs-type">DeleteUsagePlan</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386984"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan"><span class="hs-identifier hs-type">DeleteUsagePlan</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386993"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan"><span class="hs-identifier hs-type">DeleteUsagePlan</span></a></span></span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan"><span class="hs-identifier hs-type">DeleteUsagePlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679386980"><span class="annot"><span class="annottext">toHeaders :: DeleteUsagePlan -&gt; [Header]
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679386989"><span class="annot"><span class="annottext">toHeaders :: DeleteUsagePlan -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteUsagePlan -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -200,11 +200,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan"><span class="hs-identifier hs-type">DeleteUsagePlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679386974"><span class="annot"><span class="annottext">toPath :: DeleteUsagePlan -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan%27"><span class="hs-identifier hs-type">DeleteUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386972"><span class="annot"><span class="annottext">Text
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679386983"><span class="annot"><span class="annottext">toPath :: DeleteUsagePlan -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan%27"><span class="hs-identifier hs-type">DeleteUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386981"><span class="annot"><span class="annottext">Text
 usagePlanId :: Text
 $sel:usagePlanId:DeleteUsagePlan' :: DeleteUsagePlan -&gt; Text
-</span><a href="#local-6989586621679386972"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679386981"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -212,10 +212,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/usageplans/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386972"><span class="hs-identifier hs-var">usagePlanId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679386981"><span class="hs-identifier hs-var">usagePlanId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlan"><span class="hs-identifier hs-type">DeleteUsagePlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679386968"><span class="annot"><span class="annottext">toQuery :: DeleteUsagePlan -&gt; QueryString
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679386977"><span class="annot"><span class="annottext">toQuery :: DeleteUsagePlan -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteUsagePlan -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -223,10 +223,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | /See:/ 'newDeleteUsagePlanResponse' smart constructor.</span><span>
-</span><span id="line-104"></span><span id="local-6989586621679386965"><span id="local-6989586621679386966"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUsagePlanResponse"><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlanResponse"><span class="hs-identifier hs-var">DeleteUsagePlanResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUsagePlanResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlanResponse%27"><span class="hs-identifier hs-var">DeleteUsagePlanResponse'</span></a></span></span><span>
+</span><span id="line-104"></span><span id="local-6989586621679386974"><span id="local-6989586621679386975"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUsagePlanResponse"><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlanResponse"><span class="hs-identifier hs-var">DeleteUsagePlanResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUsagePlanResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlanResponse%27"><span class="hs-identifier hs-var">DeleteUsagePlanResponse'</span></a></span></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-107"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386961"><span id="local-6989586621679386963"><span class="annot"><span class="annottext">DeleteUsagePlanResponse -&gt; DeleteUsagePlanResponse -&gt; Bool
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386970"><span id="local-6989586621679386972"><span class="annot"><span class="annottext">DeleteUsagePlanResponse -&gt; DeleteUsagePlanResponse -&gt; Bool
 (DeleteUsagePlanResponse -&gt; DeleteUsagePlanResponse -&gt; Bool)
 -&gt; (DeleteUsagePlanResponse -&gt; DeleteUsagePlanResponse -&gt; Bool)
 -&gt; Eq DeleteUsagePlanResponse
@@ -235,7 +235,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteUsagePlanResponse -&gt; DeleteUsagePlanResponse -&gt; Bool
 == :: DeleteUsagePlanResponse -&gt; DeleteUsagePlanResponse -&gt; Bool
 $c== :: DeleteUsagePlanResponse -&gt; DeleteUsagePlanResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386953"><span id="local-6989586621679386955"><span id="local-6989586621679386957"><span id="local-6989586621679386959"><span class="annot"><span class="annottext">ReadPrec [DeleteUsagePlanResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386962"><span id="local-6989586621679386964"><span id="local-6989586621679386966"><span id="local-6989586621679386968"><span class="annot"><span class="annottext">ReadPrec [DeleteUsagePlanResponse]
 ReadPrec DeleteUsagePlanResponse
 Int -&gt; ReadS DeleteUsagePlanResponse
 ReadS [DeleteUsagePlanResponse]
@@ -255,7 +255,7 @@ readList :: ReadS [DeleteUsagePlanResponse]
 $creadList :: ReadS [DeleteUsagePlanResponse]
 readsPrec :: Int -&gt; ReadS DeleteUsagePlanResponse
 $creadsPrec :: Int -&gt; ReadS DeleteUsagePlanResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386947"><span id="local-6989586621679386949"><span id="local-6989586621679386951"><span class="annot"><span class="annottext">Int -&gt; DeleteUsagePlanResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386956"><span id="local-6989586621679386958"><span id="local-6989586621679386960"><span class="annot"><span class="annottext">Int -&gt; DeleteUsagePlanResponse -&gt; ShowS
 [DeleteUsagePlanResponse] -&gt; ShowS
 DeleteUsagePlanResponse -&gt; String
 (Int -&gt; DeleteUsagePlanResponse -&gt; ShowS)
@@ -293,5 +293,5 @@ $cfrom :: forall x. DeleteUsagePlanResponse -&gt; Rep DeleteUsagePlanResponse x
 </span><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#newDeleteUsagePlanResponse"><span class="hs-identifier hs-var hs-var">newDeleteUsagePlanResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteUsagePlanResponse
 </span><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlanResponse%27"><span class="hs-identifier hs-var">DeleteUsagePlanResponse'</span></a></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlanResponse"><span class="hs-identifier hs-type">DeleteUsagePlanResponse</span></a></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386952"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteUsagePlan.html#DeleteUsagePlanResponse"><span class="hs-identifier hs-type">DeleteUsagePlanResponse</span></a></span></span><span>
 </span><span id="line-118"></span></pre></body></html>

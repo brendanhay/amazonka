@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The timeline of the instance lifecycle.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newInstanceTimeline' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679371485"><span id="local-6989586621679371486"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceTimeline"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline"><span class="hs-identifier hs-var">InstanceTimeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceTimeline%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline%27"><span class="hs-identifier hs-var">InstanceTimeline'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679371494"><span id="local-6989586621679371495"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceTimeline"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline"><span class="hs-identifier hs-var">InstanceTimeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceTimeline%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline%27"><span class="hs-identifier hs-var">InstanceTimeline'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time when the instance was ready to perform tasks.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AreadyDateTime%3AInstanceTimeline%27"><span class="annot"><span class="annottext">InstanceTimeline -&gt; Maybe POSIX
 </span><a href="Network.AWS.EMR.Types.InstanceTimeline.html#%24sel%3AreadyDateTime%3AInstanceTimeline%27"><span class="hs-identifier hs-var hs-var">readyDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AendDateTime%3AInstanceTimeline%27"><span class="annot"><span class="annottext">InstanceTimeline -&gt; Maybe POSIX
 </span><a href="Network.AWS.EMR.Types.InstanceTimeline.html#%24sel%3AendDateTime%3AInstanceTimeline%27"><span class="hs-identifier hs-var hs-var">endDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371477"><span id="local-6989586621679371479"><span class="annot"><span class="annottext">InstanceTimeline -&gt; InstanceTimeline -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371486"><span id="local-6989586621679371488"><span class="annot"><span class="annottext">InstanceTimeline -&gt; InstanceTimeline -&gt; Bool
 (InstanceTimeline -&gt; InstanceTimeline -&gt; Bool)
 -&gt; (InstanceTimeline -&gt; InstanceTimeline -&gt; Bool)
 -&gt; Eq InstanceTimeline
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceTimeline -&gt; InstanceTimeline -&gt; Bool
 == :: InstanceTimeline -&gt; InstanceTimeline -&gt; Bool
 $c== :: InstanceTimeline -&gt; InstanceTimeline -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371468"><span id="local-6989586621679371470"><span id="local-6989586621679371472"><span id="local-6989586621679371474"><span class="annot"><span class="annottext">ReadPrec [InstanceTimeline]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371477"><span id="local-6989586621679371479"><span id="local-6989586621679371481"><span id="local-6989586621679371483"><span class="annot"><span class="annottext">ReadPrec [InstanceTimeline]
 ReadPrec InstanceTimeline
 Int -&gt; ReadS InstanceTimeline
 ReadS [InstanceTimeline]
@@ -66,7 +66,7 @@ readList :: ReadS [InstanceTimeline]
 $creadList :: ReadS [InstanceTimeline]
 readsPrec :: Int -&gt; ReadS InstanceTimeline
 $creadsPrec :: Int -&gt; ReadS InstanceTimeline
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371461"><span id="local-6989586621679371463"><span id="local-6989586621679371465"><span class="annot"><span class="annottext">Int -&gt; InstanceTimeline -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371470"><span id="local-6989586621679371472"><span id="local-6989586621679371474"><span class="annot"><span class="annottext">Int -&gt; InstanceTimeline -&gt; ShowS
 [InstanceTimeline] -&gt; ShowS
 InstanceTimeline -&gt; String
 (Int -&gt; InstanceTimeline -&gt; ShowS)
@@ -134,16 +134,16 @@ forall a. Maybe a
 -&gt; Lens
      InstanceTimeline InstanceTimeline (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline%27"><span class="hs-identifier hs-type">InstanceTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371452"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline%27"><span class="hs-identifier hs-type">InstanceTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371461"><span class="annot"><span class="annottext">Maybe POSIX
 readyDateTime :: Maybe POSIX
 $sel:readyDateTime:InstanceTimeline' :: InstanceTimeline -&gt; Maybe POSIX
-</span><a href="#local-6989586621679371452"><span class="hs-identifier hs-var hs-var">readyDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679371452"><span class="hs-identifier hs-var">readyDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371451"><span class="annot"><span class="annottext">s :: InstanceTimeline
-</span><a href="#local-6989586621679371451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline%27"><span class="hs-identifier hs-type">InstanceTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371450"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679371450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTimeline
-</span><a href="#local-6989586621679371451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readyDateTime:InstanceTimeline' :: Maybe POSIX
+</span><a href="#local-6989586621679371461"><span class="hs-identifier hs-var hs-var">readyDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679371461"><span class="hs-identifier hs-var">readyDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371460"><span class="annot"><span class="annottext">s :: InstanceTimeline
+</span><a href="#local-6989586621679371460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline%27"><span class="hs-identifier hs-type">InstanceTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371459"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679371459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTimeline
+</span><a href="#local-6989586621679371460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readyDateTime:InstanceTimeline' :: Maybe POSIX
 </span><a href="Network.AWS.EMR.Types.InstanceTimeline.html#%24sel%3AreadyDateTime%3AInstanceTimeline%27"><span class="hs-identifier hs-var">readyDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679371450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline"><span class="hs-identifier hs-type">InstanceTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679371459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline"><span class="hs-identifier hs-type">InstanceTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; InstanceTimeline -&gt; f InstanceTimeline)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -169,16 +169,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      InstanceTimeline InstanceTimeline (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline%27"><span class="hs-identifier hs-type">InstanceTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371445"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline%27"><span class="hs-identifier hs-type">InstanceTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371454"><span class="annot"><span class="annottext">Maybe POSIX
 creationDateTime :: Maybe POSIX
 $sel:creationDateTime:InstanceTimeline' :: InstanceTimeline -&gt; Maybe POSIX
-</span><a href="#local-6989586621679371445"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679371445"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371444"><span class="annot"><span class="annottext">s :: InstanceTimeline
-</span><a href="#local-6989586621679371444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline%27"><span class="hs-identifier hs-type">InstanceTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371443"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679371443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTimeline
-</span><a href="#local-6989586621679371444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDateTime:InstanceTimeline' :: Maybe POSIX
+</span><a href="#local-6989586621679371454"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679371454"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371453"><span class="annot"><span class="annottext">s :: InstanceTimeline
+</span><a href="#local-6989586621679371453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline%27"><span class="hs-identifier hs-type">InstanceTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371452"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679371452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTimeline
+</span><a href="#local-6989586621679371453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDateTime:InstanceTimeline' :: Maybe POSIX
 </span><a href="Network.AWS.EMR.Types.InstanceTimeline.html#%24sel%3AcreationDateTime%3AInstanceTimeline%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679371443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline"><span class="hs-identifier hs-type">InstanceTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679371452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline"><span class="hs-identifier hs-type">InstanceTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; InstanceTimeline -&gt; f InstanceTimeline)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -204,16 +204,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      InstanceTimeline InstanceTimeline (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline%27"><span class="hs-identifier hs-type">InstanceTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371441"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline%27"><span class="hs-identifier hs-type">InstanceTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371450"><span class="annot"><span class="annottext">Maybe POSIX
 endDateTime :: Maybe POSIX
 $sel:endDateTime:InstanceTimeline' :: InstanceTimeline -&gt; Maybe POSIX
-</span><a href="#local-6989586621679371441"><span class="hs-identifier hs-var hs-var">endDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679371441"><span class="hs-identifier hs-var">endDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371440"><span class="annot"><span class="annottext">s :: InstanceTimeline
-</span><a href="#local-6989586621679371440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline%27"><span class="hs-identifier hs-type">InstanceTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371439"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679371439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTimeline
-</span><a href="#local-6989586621679371440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDateTime:InstanceTimeline' :: Maybe POSIX
+</span><a href="#local-6989586621679371450"><span class="hs-identifier hs-var hs-var">endDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679371450"><span class="hs-identifier hs-var">endDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371449"><span class="annot"><span class="annottext">s :: InstanceTimeline
+</span><a href="#local-6989586621679371449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline%27"><span class="hs-identifier hs-type">InstanceTimeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371448"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679371448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceTimeline
+</span><a href="#local-6989586621679371449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDateTime:InstanceTimeline' :: Maybe POSIX
 </span><a href="Network.AWS.EMR.Types.InstanceTimeline.html#%24sel%3AendDateTime%3AInstanceTimeline%27"><span class="hs-identifier hs-var">endDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679371439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline"><span class="hs-identifier hs-type">InstanceTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679371448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline"><span class="hs-identifier hs-type">InstanceTimeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; InstanceTimeline -&gt; f InstanceTimeline)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -230,8 +230,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371436"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline"><span class="hs-identifier hs-type">InstanceTimeline</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679371434"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceTimeline
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371445"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline"><span class="hs-identifier hs-type">InstanceTimeline</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679371443"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceTimeline
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InstanceTimeline)
@@ -241,8 +241,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InstanceTimeline&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371431"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371431"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371440"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371440"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; InstanceTimeline
 </span><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline%27"><span class="hs-identifier hs-var">InstanceTimeline'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; InstanceTimeline)
@@ -250,7 +250,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; InstanceTimeline)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679371440"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReadyDateTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -258,7 +258,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe POSIX -&gt; InstanceTimeline)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679371440"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationDateTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -266,13 +266,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser InstanceTimeline
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679371440"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndDateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371425"><span id="local-6989586621679371427"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline"><span class="hs-identifier hs-type">InstanceTimeline</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371434"><span id="local-6989586621679371436"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline"><span class="hs-identifier hs-type">InstanceTimeline</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371422"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline"><span class="hs-identifier hs-type">InstanceTimeline</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371431"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceTimeline.html#InstanceTimeline"><span class="hs-identifier hs-type">InstanceTimeline</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

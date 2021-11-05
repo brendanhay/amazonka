@@ -41,7 +41,7 @@
 </span><span id="line-41"></span><span class="hs-comment">-- in the /Amazon Aurora User Guide/.</span><span>
 </span><span id="line-42"></span><span class="hs-comment">--</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- /See:/ 'newCloudwatchLogsExportConfiguration' smart constructor.</span><span>
-</span><span id="line-44"></span><span id="local-6989586621679757166"><span id="local-6989586621679757167"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudwatchLogsExportConfiguration"><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration"><span class="hs-identifier hs-var">CloudwatchLogsExportConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudwatchLogsExportConfiguration%27"><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration%27"><span class="hs-identifier hs-var">CloudwatchLogsExportConfiguration'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679757175"><span id="local-6989586621679757176"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudwatchLogsExportConfiguration"><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration"><span class="hs-identifier hs-var">CloudwatchLogsExportConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudwatchLogsExportConfiguration%27"><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration%27"><span class="hs-identifier hs-var">CloudwatchLogsExportConfiguration'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of log types to disable.</span><span>
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AdisableLogTypes%3ACloudwatchLogsExportConfiguration%27"><span class="annot"><span class="annottext">CloudwatchLogsExportConfiguration -&gt; Maybe [Text]
 </span><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#%24sel%3AdisableLogTypes%3ACloudwatchLogsExportConfiguration%27"><span class="hs-identifier hs-var hs-var">disableLogTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AenableLogTypes%3ACloudwatchLogsExportConfiguration%27"><span class="annot"><span class="annottext">CloudwatchLogsExportConfiguration -&gt; Maybe [Text]
 </span><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#%24sel%3AenableLogTypes%3ACloudwatchLogsExportConfiguration%27"><span class="hs-identifier hs-var hs-var">enableLogTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679757159"><span id="local-6989586621679757161"><span class="annot"><span class="annottext">CloudwatchLogsExportConfiguration
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679757168"><span id="local-6989586621679757170"><span class="annot"><span class="annottext">CloudwatchLogsExportConfiguration
 -&gt; CloudwatchLogsExportConfiguration -&gt; Bool
 (CloudwatchLogsExportConfiguration
  -&gt; CloudwatchLogsExportConfiguration -&gt; Bool)
@@ -65,7 +65,7 @@ $c/= :: CloudwatchLogsExportConfiguration
 -&gt; CloudwatchLogsExportConfiguration -&gt; Bool
 $c== :: CloudwatchLogsExportConfiguration
 -&gt; CloudwatchLogsExportConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679757150"><span id="local-6989586621679757152"><span id="local-6989586621679757154"><span id="local-6989586621679757156"><span class="annot"><span class="annottext">ReadPrec [CloudwatchLogsExportConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679757159"><span id="local-6989586621679757161"><span id="local-6989586621679757163"><span id="local-6989586621679757165"><span class="annot"><span class="annottext">ReadPrec [CloudwatchLogsExportConfiguration]
 ReadPrec CloudwatchLogsExportConfiguration
 Int -&gt; ReadS CloudwatchLogsExportConfiguration
 ReadS [CloudwatchLogsExportConfiguration]
@@ -85,7 +85,7 @@ readList :: ReadS [CloudwatchLogsExportConfiguration]
 $creadList :: ReadS [CloudwatchLogsExportConfiguration]
 readsPrec :: Int -&gt; ReadS CloudwatchLogsExportConfiguration
 $creadsPrec :: Int -&gt; ReadS CloudwatchLogsExportConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679757143"><span id="local-6989586621679757145"><span id="local-6989586621679757147"><span class="annot"><span class="annottext">Int -&gt; CloudwatchLogsExportConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679757152"><span id="local-6989586621679757154"><span id="local-6989586621679757156"><span class="annot"><span class="annottext">Int -&gt; CloudwatchLogsExportConfiguration -&gt; ShowS
 [CloudwatchLogsExportConfiguration] -&gt; ShowS
 CloudwatchLogsExportConfiguration -&gt; String
 (Int -&gt; CloudwatchLogsExportConfiguration -&gt; ShowS)
@@ -165,16 +165,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration%27"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679757134"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration%27"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679757143"><span class="annot"><span class="annottext">Maybe [Text]
 disableLogTypes :: Maybe [Text]
 $sel:disableLogTypes:CloudwatchLogsExportConfiguration' :: CloudwatchLogsExportConfiguration -&gt; Maybe [Text]
-</span><a href="#local-6989586621679757134"><span class="hs-identifier hs-var hs-var">disableLogTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679757134"><span class="hs-identifier hs-var">disableLogTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679757133"><span class="annot"><span class="annottext">s :: CloudwatchLogsExportConfiguration
-</span><a href="#local-6989586621679757133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration%27"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679757132"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679757132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchLogsExportConfiguration
-</span><a href="#local-6989586621679757133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disableLogTypes:CloudwatchLogsExportConfiguration' :: Maybe [Text]
+</span><a href="#local-6989586621679757143"><span class="hs-identifier hs-var hs-var">disableLogTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679757143"><span class="hs-identifier hs-var">disableLogTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679757142"><span class="annot"><span class="annottext">s :: CloudwatchLogsExportConfiguration
+</span><a href="#local-6989586621679757142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration%27"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679757141"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679757141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchLogsExportConfiguration
+</span><a href="#local-6989586621679757142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disableLogTypes:CloudwatchLogsExportConfiguration' :: Maybe [Text]
 </span><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#%24sel%3AdisableLogTypes%3ACloudwatchLogsExportConfiguration%27"><span class="hs-identifier hs-var">disableLogTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679757132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679757141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; CloudwatchLogsExportConfiguration
  -&gt; f CloudwatchLogsExportConfiguration)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -206,16 +206,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration%27"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679757127"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration%27"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679757136"><span class="annot"><span class="annottext">Maybe [Text]
 enableLogTypes :: Maybe [Text]
 $sel:enableLogTypes:CloudwatchLogsExportConfiguration' :: CloudwatchLogsExportConfiguration -&gt; Maybe [Text]
-</span><a href="#local-6989586621679757127"><span class="hs-identifier hs-var hs-var">enableLogTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679757127"><span class="hs-identifier hs-var">enableLogTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679757126"><span class="annot"><span class="annottext">s :: CloudwatchLogsExportConfiguration
-</span><a href="#local-6989586621679757126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration%27"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679757125"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679757125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchLogsExportConfiguration
-</span><a href="#local-6989586621679757126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableLogTypes:CloudwatchLogsExportConfiguration' :: Maybe [Text]
+</span><a href="#local-6989586621679757136"><span class="hs-identifier hs-var hs-var">enableLogTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679757136"><span class="hs-identifier hs-var">enableLogTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679757135"><span class="annot"><span class="annottext">s :: CloudwatchLogsExportConfiguration
+</span><a href="#local-6989586621679757135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration%27"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679757134"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679757134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchLogsExportConfiguration
+</span><a href="#local-6989586621679757135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableLogTypes:CloudwatchLogsExportConfiguration' :: Maybe [Text]
 </span><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#%24sel%3AenableLogTypes%3ACloudwatchLogsExportConfiguration%27"><span class="hs-identifier hs-var">enableLogTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679757125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679757134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; CloudwatchLogsExportConfiguration
  -&gt; f CloudwatchLogsExportConfiguration)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -234,24 +234,24 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679757121"><span id="local-6989586621679757123"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679757130"><span id="local-6989586621679757132"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679757118"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679757127"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration</span></a></span></span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration</span></a></span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679757114"><span class="annot"><span class="annottext">toQuery :: CloudwatchLogsExportConfiguration -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration%27"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679757111"><span id="local-6989586621679757112"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679757123"><span class="annot"><span class="annottext">toQuery :: CloudwatchLogsExportConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration.html#CloudwatchLogsExportConfiguration%27"><span class="hs-identifier hs-type">CloudwatchLogsExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679757120"><span id="local-6989586621679757121"><span class="annot"><span class="annottext">Maybe [Text]
 enableLogTypes :: Maybe [Text]
 disableLogTypes :: Maybe [Text]
 $sel:enableLogTypes:CloudwatchLogsExportConfiguration' :: CloudwatchLogsExportConfiguration -&gt; Maybe [Text]
 $sel:disableLogTypes:CloudwatchLogsExportConfiguration' :: CloudwatchLogsExportConfiguration -&gt; Maybe [Text]
-</span><a href="#local-6989586621679757111"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679757120"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -271,7 +271,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-97"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679757112"><span class="hs-identifier hs-var">disableLogTypes</span></a></span><span>
+</span><a href="#local-6989586621679757121"><span class="hs-identifier hs-var">disableLogTypes</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;EnableLogTypes&quot;</span></span><span>
@@ -289,7 +289,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-102"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679757111"><span class="hs-identifier hs-var">enableLogTypes</span></a></span><span>
+</span><a href="#local-6989586621679757120"><span class="hs-identifier hs-var">enableLogTypes</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span></pre></body></html>

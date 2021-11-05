@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Video Selector Color Space Usage</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679930531"><span id="local-6989586621679930532"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VideoSelectorColorSpaceUsage"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceUsage.html#VideoSelectorColorSpaceUsage"><span class="hs-identifier hs-var">VideoSelectorColorSpaceUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoSelectorColorSpaceUsage%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceUsage.html#VideoSelectorColorSpaceUsage%27"><span class="hs-identifier hs-var">VideoSelectorColorSpaceUsage'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679930540"><span id="local-6989586621679930541"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VideoSelectorColorSpaceUsage"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceUsage.html#VideoSelectorColorSpaceUsage"><span class="hs-identifier hs-var">VideoSelectorColorSpaceUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoSelectorColorSpaceUsage%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceUsage.html#VideoSelectorColorSpaceUsage%27"><span class="hs-identifier hs-var">VideoSelectorColorSpaceUsage'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVideoSelectorColorSpaceUsage"><span class="annot"><span class="annottext">VideoSelectorColorSpaceUsage -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceUsage.html#fromVideoSelectorColorSpaceUsage"><span class="hs-identifier hs-var hs-var">fromVideoSelectorColorSpaceUsage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679930523"><span id="local-6989586621679930525"><span id="local-6989586621679930527"><span class="annot"><span class="annottext">Int -&gt; VideoSelectorColorSpaceUsage -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679930532"><span id="local-6989586621679930534"><span id="local-6989586621679930536"><span class="annot"><span class="annottext">Int -&gt; VideoSelectorColorSpaceUsage -&gt; ShowS
 [VideoSelectorColorSpaceUsage] -&gt; ShowS
 VideoSelectorColorSpaceUsage -&gt; String
 (Int -&gt; VideoSelectorColorSpaceUsage -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: VideoSelectorColorSpaceUsage -&gt; String
 showsPrec :: Int -&gt; VideoSelectorColorSpaceUsage -&gt; ShowS
 $cshowsPrec :: Int -&gt; VideoSelectorColorSpaceUsage -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679930514"><span id="local-6989586621679930516"><span id="local-6989586621679930518"><span id="local-6989586621679930520"><span class="annot"><span class="annottext">ReadPrec [VideoSelectorColorSpaceUsage]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679930523"><span id="local-6989586621679930525"><span id="local-6989586621679930527"><span id="local-6989586621679930529"><span class="annot"><span class="annottext">ReadPrec [VideoSelectorColorSpaceUsage]
 ReadPrec VideoSelectorColorSpaceUsage
 Int -&gt; ReadS VideoSelectorColorSpaceUsage
 ReadS [VideoSelectorColorSpaceUsage]
@@ -73,7 +73,7 @@ $creadList :: ReadS [VideoSelectorColorSpaceUsage]
 readsPrec :: Int -&gt; ReadS VideoSelectorColorSpaceUsage
 $creadsPrec :: Int -&gt; ReadS VideoSelectorColorSpaceUsage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679930509"><span id="local-6989586621679930511"><span class="annot"><span class="annottext">VideoSelectorColorSpaceUsage
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679930518"><span id="local-6989586621679930520"><span class="annot"><span class="annottext">VideoSelectorColorSpaceUsage
 -&gt; VideoSelectorColorSpaceUsage -&gt; Bool
 (VideoSelectorColorSpaceUsage
  -&gt; VideoSelectorColorSpaceUsage -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: VideoSelectorColorSpaceUsage
 $c== :: VideoSelectorColorSpaceUsage
 -&gt; VideoSelectorColorSpaceUsage -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679930493"><span id="local-6989586621679930495"><span id="local-6989586621679930497"><span id="local-6989586621679930499"><span id="local-6989586621679930501"><span id="local-6989586621679930503"><span id="local-6989586621679930505"><span class="annot"><span class="annottext">Eq VideoSelectorColorSpaceUsage
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679930502"><span id="local-6989586621679930504"><span id="local-6989586621679930506"><span id="local-6989586621679930508"><span id="local-6989586621679930510"><span id="local-6989586621679930512"><span id="local-6989586621679930514"><span class="annot"><span class="annottext">Eq VideoSelectorColorSpaceUsage
 Eq VideoSelectorColorSpaceUsage
 -&gt; (VideoSelectorColorSpaceUsage
     -&gt; VideoSelectorColorSpaceUsage -&gt; Ordering)
@@ -171,7 +171,7 @@ VideoSelectorColorSpaceUsage -&gt; Rep VideoSelectorColorSpaceUsage x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679930485"><span id="local-6989586621679930487"><span class="annot"><span class="annottext">Int -&gt; VideoSelectorColorSpaceUsage -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679930494"><span id="local-6989586621679930496"><span class="annot"><span class="annottext">Int -&gt; VideoSelectorColorSpaceUsage -&gt; Int
 VideoSelectorColorSpaceUsage -&gt; Int
 (Int -&gt; VideoSelectorColorSpaceUsage -&gt; Int)
 -&gt; (VideoSelectorColorSpaceUsage -&gt; Int)
@@ -182,56 +182,56 @@ $chash :: VideoSelectorColorSpaceUsage -&gt; Int
 hashWithSalt :: Int -&gt; VideoSelectorColorSpaceUsage -&gt; Int
 $chashWithSalt :: Int -&gt; VideoSelectorColorSpaceUsage -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679930482"><span class="annot"><span class="annottext">VideoSelectorColorSpaceUsage -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679930491"><span class="annot"><span class="annottext">VideoSelectorColorSpaceUsage -&gt; ()
 (VideoSelectorColorSpaceUsage -&gt; ())
 -&gt; NFData VideoSelectorColorSpaceUsage
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VideoSelectorColorSpaceUsage -&gt; ()
 $crnf :: VideoSelectorColorSpaceUsage -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679930479"><span class="annot"><span class="annottext">Text -&gt; Either String VideoSelectorColorSpaceUsage
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679930488"><span class="annot"><span class="annottext">Text -&gt; Either String VideoSelectorColorSpaceUsage
 (Text -&gt; Either String VideoSelectorColorSpaceUsage)
 -&gt; FromText VideoSelectorColorSpaceUsage
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VideoSelectorColorSpaceUsage
 $cfromText :: Text -&gt; Either String VideoSelectorColorSpaceUsage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679930476"><span class="annot"><span class="annottext">VideoSelectorColorSpaceUsage -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679930485"><span class="annot"><span class="annottext">VideoSelectorColorSpaceUsage -&gt; Text
 (VideoSelectorColorSpaceUsage -&gt; Text)
 -&gt; ToText VideoSelectorColorSpaceUsage
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VideoSelectorColorSpaceUsage -&gt; Text
 $ctoText :: VideoSelectorColorSpaceUsage -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679930473"><span class="annot"><span class="annottext">VideoSelectorColorSpaceUsage -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679930482"><span class="annot"><span class="annottext">VideoSelectorColorSpaceUsage -&gt; ByteString
 (VideoSelectorColorSpaceUsage -&gt; ByteString)
 -&gt; ToByteString VideoSelectorColorSpaceUsage
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VideoSelectorColorSpaceUsage -&gt; ByteString
 $ctoBS :: VideoSelectorColorSpaceUsage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679930470"><span class="annot"><span class="annottext">VideoSelectorColorSpaceUsage -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679930479"><span class="annot"><span class="annottext">VideoSelectorColorSpaceUsage -&gt; ByteStringBuilder
 (VideoSelectorColorSpaceUsage -&gt; ByteStringBuilder)
 -&gt; ToLog VideoSelectorColorSpaceUsage
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VideoSelectorColorSpaceUsage -&gt; ByteStringBuilder
 $cbuild :: VideoSelectorColorSpaceUsage -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679930467"><span class="annot"><span class="annottext">HeaderName -&gt; VideoSelectorColorSpaceUsage -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679930476"><span class="annot"><span class="annottext">HeaderName -&gt; VideoSelectorColorSpaceUsage -&gt; [Header]
 (HeaderName -&gt; VideoSelectorColorSpaceUsage -&gt; [Header])
 -&gt; ToHeader VideoSelectorColorSpaceUsage
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VideoSelectorColorSpaceUsage -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VideoSelectorColorSpaceUsage -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679930464"><span class="annot"><span class="annottext">VideoSelectorColorSpaceUsage -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679930473"><span class="annot"><span class="annottext">VideoSelectorColorSpaceUsage -&gt; QueryString
 (VideoSelectorColorSpaceUsage -&gt; QueryString)
 -&gt; ToQuery VideoSelectorColorSpaceUsage
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VideoSelectorColorSpaceUsage -&gt; QueryString
 $ctoQuery :: VideoSelectorColorSpaceUsage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679930459"><span id="local-6989586621679930461"><span class="annot"><span class="annottext">Value -&gt; Parser [VideoSelectorColorSpaceUsage]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679930468"><span id="local-6989586621679930470"><span class="annot"><span class="annottext">Value -&gt; Parser [VideoSelectorColorSpaceUsage]
 Value -&gt; Parser VideoSelectorColorSpaceUsage
 (Value -&gt; Parser VideoSelectorColorSpaceUsage)
 -&gt; (Value -&gt; Parser [VideoSelectorColorSpaceUsage])
@@ -243,7 +243,7 @@ $cparseJSONList :: Value -&gt; Parser [VideoSelectorColorSpaceUsage]
 parseJSON :: Value -&gt; Parser VideoSelectorColorSpaceUsage
 $cparseJSON :: Value -&gt; Parser VideoSelectorColorSpaceUsage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679930454"><span id="local-6989586621679930456"><span class="annot"><span class="annottext">FromJSONKeyFunction [VideoSelectorColorSpaceUsage]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679930463"><span id="local-6989586621679930465"><span class="annot"><span class="annottext">FromJSONKeyFunction [VideoSelectorColorSpaceUsage]
 FromJSONKeyFunction VideoSelectorColorSpaceUsage
 FromJSONKeyFunction VideoSelectorColorSpaceUsage
 -&gt; FromJSONKeyFunction [VideoSelectorColorSpaceUsage]
@@ -255,7 +255,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VideoSelectorColorSpaceUsage]
 fromJSONKey :: FromJSONKeyFunction VideoSelectorColorSpaceUsage
 $cfromJSONKey :: FromJSONKeyFunction VideoSelectorColorSpaceUsage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679930445"><span id="local-6989586621679930447"><span id="local-6989586621679930449"><span id="local-6989586621679930451"><span class="annot"><span class="annottext">[VideoSelectorColorSpaceUsage] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679930454"><span id="local-6989586621679930456"><span id="local-6989586621679930458"><span id="local-6989586621679930460"><span class="annot"><span class="annottext">[VideoSelectorColorSpaceUsage] -&gt; Encoding
 [VideoSelectorColorSpaceUsage] -&gt; Value
 VideoSelectorColorSpaceUsage -&gt; Encoding
 VideoSelectorColorSpaceUsage -&gt; Value
@@ -279,7 +279,7 @@ $ctoEncoding :: VideoSelectorColorSpaceUsage -&gt; Encoding
 toJSON :: VideoSelectorColorSpaceUsage -&gt; Value
 $ctoJSON :: VideoSelectorColorSpaceUsage -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679930440"><span id="local-6989586621679930442"><span class="annot"><span class="annottext">ToJSONKeyFunction [VideoSelectorColorSpaceUsage]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679930449"><span id="local-6989586621679930451"><span class="annot"><span class="annottext">ToJSONKeyFunction [VideoSelectorColorSpaceUsage]
 ToJSONKeyFunction VideoSelectorColorSpaceUsage
 ToJSONKeyFunction VideoSelectorColorSpaceUsage
 -&gt; ToJSONKeyFunction [VideoSelectorColorSpaceUsage]
@@ -291,14 +291,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VideoSelectorColorSpaceUsage]
 toJSONKey :: ToJSONKeyFunction VideoSelectorColorSpaceUsage
 $ctoJSONKey :: ToJSONKeyFunction VideoSelectorColorSpaceUsage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679930437"><span class="annot"><span class="annottext">[Node] -&gt; Either String VideoSelectorColorSpaceUsage
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679930446"><span class="annot"><span class="annottext">[Node] -&gt; Either String VideoSelectorColorSpaceUsage
 ([Node] -&gt; Either String VideoSelectorColorSpaceUsage)
 -&gt; FromXML VideoSelectorColorSpaceUsage
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VideoSelectorColorSpaceUsage
 $cparseXML :: [Node] -&gt; Either String VideoSelectorColorSpaceUsage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679930434"><span class="annot"><span class="annottext">VideoSelectorColorSpaceUsage -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679930443"><span class="annot"><span class="annottext">VideoSelectorColorSpaceUsage -&gt; XML
 (VideoSelectorColorSpaceUsage -&gt; XML)
 -&gt; ToXML VideoSelectorColorSpaceUsage
 forall a. (a -&gt; XML) -&gt; ToXML a

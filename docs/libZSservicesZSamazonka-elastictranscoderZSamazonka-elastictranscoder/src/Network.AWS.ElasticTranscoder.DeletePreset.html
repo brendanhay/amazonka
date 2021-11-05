@@ -52,13 +52,13 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | The @DeletePresetRequest@ structure.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newDeletePreset' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679216607"><span id="local-6989586621679216608"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePreset"><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-var">DeletePreset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePreset%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-var">DeletePreset'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679216616"><span id="local-6989586621679216617"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePreset"><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-var">DeletePreset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePreset%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-var">DeletePreset'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the preset for which you want to get detailed</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- information.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Aid%3ADeletePreset%27"><span class="annot"><span class="annottext">DeletePreset -&gt; Text
 </span><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#%24sel%3Aid%3ADeletePreset%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216601"><span id="local-6989586621679216603"><span class="annot"><span class="annottext">DeletePreset -&gt; DeletePreset -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216610"><span id="local-6989586621679216612"><span class="annot"><span class="annottext">DeletePreset -&gt; DeletePreset -&gt; Bool
 (DeletePreset -&gt; DeletePreset -&gt; Bool)
 -&gt; (DeletePreset -&gt; DeletePreset -&gt; Bool) -&gt; Eq DeletePreset
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeletePreset -&gt; DeletePreset -&gt; Bool
 == :: DeletePreset -&gt; DeletePreset -&gt; Bool
 $c== :: DeletePreset -&gt; DeletePreset -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216592"><span id="local-6989586621679216594"><span id="local-6989586621679216596"><span id="local-6989586621679216598"><span class="annot"><span class="annottext">ReadPrec [DeletePreset]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216601"><span id="local-6989586621679216603"><span id="local-6989586621679216605"><span id="local-6989586621679216607"><span class="annot"><span class="annottext">ReadPrec [DeletePreset]
 ReadPrec DeletePreset
 Int -&gt; ReadS DeletePreset
 ReadS [DeletePreset]
@@ -86,7 +86,7 @@ readList :: ReadS [DeletePreset]
 $creadList :: ReadS [DeletePreset]
 readsPrec :: Int -&gt; ReadS DeletePreset
 $creadsPrec :: Int -&gt; ReadS DeletePreset
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216585"><span id="local-6989586621679216587"><span id="local-6989586621679216589"><span class="annot"><span class="annottext">Int -&gt; DeletePreset -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216594"><span id="local-6989586621679216596"><span id="local-6989586621679216598"><span class="annot"><span class="annottext">Int -&gt; DeletePreset -&gt; ShowS
 [DeletePreset] -&gt; ShowS
 DeletePreset -&gt; String
 (Int -&gt; DeletePreset -&gt; ShowS)
@@ -127,11 +127,11 @@ $cfrom :: forall x. DeletePreset -&gt; Rep DeletePreset x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span><span>
 </span><span id="line-76"></span><span id="newDeletePreset"><span class="annot"><span class="annottext">newDeletePreset :: Text -&gt; DeletePreset
-</span><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#newDeletePreset"><span class="hs-identifier hs-var hs-var">newDeletePreset</span></a></span></span><span> </span><span id="local-6989586621679216580"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216580"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeletePreset' :: Text -&gt; DeletePreset
+</span><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#newDeletePreset"><span class="hs-identifier hs-var hs-var">newDeletePreset</span></a></span></span><span> </span><span id="local-6989586621679216589"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216589"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeletePreset' :: Text -&gt; DeletePreset
 </span><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-type">DeletePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeletePreset' :: Text
 </span><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#%24sel%3Aid%3ADeletePreset%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216580"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679216589"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The identifier of the preset for which you want to get detailed</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- information.</span><span>
@@ -141,25 +141,25 @@ $cfrom :: forall x. DeletePreset -&gt; Rep DeletePreset x
 -&gt; (DeletePreset -&gt; Text -&gt; DeletePreset)
 -&gt; Lens DeletePreset DeletePreset Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-type">DeletePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216577"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-type">DeletePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216586"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:DeletePreset' :: DeletePreset -&gt; Text
-</span><a href="#local-6989586621679216577"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216577"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216576"><span class="annot"><span class="annottext">s :: DeletePreset
-</span><a href="#local-6989586621679216576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-type">DeletePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216575"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePreset
-</span><a href="#local-6989586621679216576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeletePreset' :: Text
+</span><a href="#local-6989586621679216586"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216586"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216585"><span class="annot"><span class="annottext">s :: DeletePreset
+</span><a href="#local-6989586621679216585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-type">DeletePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216584"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePreset
+</span><a href="#local-6989586621679216585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeletePreset' :: Text
 </span><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#%24sel%3Aid%3ADeletePreset%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-type">DeletePresetResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679216571"><span class="annot"><span class="annottext">request :: DeletePreset -&gt; Request DeletePreset
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679216580"><span class="annot"><span class="annottext">request :: DeletePreset -&gt; Request DeletePreset
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeletePreset -&gt; Request DeletePreset
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElasticTranscoder.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679216567"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679216576"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeletePreset
 -&gt; ClientResponse ClientBody
@@ -183,10 +183,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216564"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216564"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679216563"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679216563"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679216562"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679216562"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216573"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216573"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679216572"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679216572"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679216571"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679216571"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeletePresetResponse
 </span><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePresetResponse%27"><span class="hs-identifier hs-var">DeletePresetResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeletePresetResponse)
@@ -197,15 +197,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216564"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216573"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216555"><span id="local-6989586621679216557"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216564"><span id="local-6989586621679216566"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216552"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216561"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679216548"><span class="annot"><span class="annottext">toHeaders :: DeletePreset -&gt; ResponseHeaders
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679216557"><span class="annot"><span class="annottext">toHeaders :: DeletePreset -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeletePreset -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -213,11 +213,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679216543"><span class="annot"><span class="annottext">toPath :: DeletePreset -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-type">DeletePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216541"><span class="annot"><span class="annottext">Text
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679216552"><span class="annot"><span class="annottext">toPath :: DeletePreset -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset%27"><span class="hs-identifier hs-type">DeletePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216550"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:DeletePreset' :: DeletePreset -&gt; Text
-</span><a href="#local-6989586621679216541"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679216550"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -225,10 +225,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2012-09-25/presets/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216541"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679216550"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePreset"><span class="hs-identifier hs-type">DeletePreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679216537"><span class="annot"><span class="annottext">toQuery :: DeletePreset -&gt; QueryString
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679216546"><span class="annot"><span class="annottext">toQuery :: DeletePreset -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeletePreset -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -238,12 +238,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-108"></span><span class="hs-comment">-- | The @DeletePresetResponse@ structure.</span><span>
 </span><span id="line-109"></span><span class="hs-comment">--</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- /See:/ 'newDeletePresetResponse' smart constructor.</span><span>
-</span><span id="line-111"></span><span id="local-6989586621679216534"><span id="local-6989586621679216535"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePresetResponse"><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-var">DeletePresetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePresetResponse%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePresetResponse%27"><span class="hs-identifier hs-var">DeletePresetResponse'</span></a></span></span><span>
+</span><span id="line-111"></span><span id="local-6989586621679216543"><span id="local-6989586621679216544"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePresetResponse"><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-var">DeletePresetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePresetResponse%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePresetResponse%27"><span class="hs-identifier hs-var">DeletePresetResponse'</span></a></span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-113"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeletePresetResponse%27"><span class="annot"><span class="annottext">DeletePresetResponse -&gt; Int
 </span><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#%24sel%3AhttpStatus%3ADeletePresetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216529"><span id="local-6989586621679216531"><span class="annot"><span class="annottext">DeletePresetResponse -&gt; DeletePresetResponse -&gt; Bool
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216538"><span id="local-6989586621679216540"><span class="annot"><span class="annottext">DeletePresetResponse -&gt; DeletePresetResponse -&gt; Bool
 (DeletePresetResponse -&gt; DeletePresetResponse -&gt; Bool)
 -&gt; (DeletePresetResponse -&gt; DeletePresetResponse -&gt; Bool)
 -&gt; Eq DeletePresetResponse
@@ -252,7 +252,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeletePresetResponse -&gt; DeletePresetResponse -&gt; Bool
 == :: DeletePresetResponse -&gt; DeletePresetResponse -&gt; Bool
 $c== :: DeletePresetResponse -&gt; DeletePresetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216521"><span id="local-6989586621679216523"><span id="local-6989586621679216525"><span id="local-6989586621679216527"><span class="annot"><span class="annottext">ReadPrec [DeletePresetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216530"><span id="local-6989586621679216532"><span id="local-6989586621679216534"><span id="local-6989586621679216536"><span class="annot"><span class="annottext">ReadPrec [DeletePresetResponse]
 ReadPrec DeletePresetResponse
 Int -&gt; ReadS DeletePresetResponse
 ReadS [DeletePresetResponse]
@@ -272,7 +272,7 @@ readList :: ReadS [DeletePresetResponse]
 $creadList :: ReadS [DeletePresetResponse]
 readsPrec :: Int -&gt; ReadS DeletePresetResponse
 $creadsPrec :: Int -&gt; ReadS DeletePresetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216515"><span id="local-6989586621679216517"><span id="local-6989586621679216519"><span class="annot"><span class="annottext">Int -&gt; DeletePresetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216524"><span id="local-6989586621679216526"><span id="local-6989586621679216528"><span class="annot"><span class="annottext">Int -&gt; DeletePresetResponse -&gt; ShowS
 [DeletePresetResponse] -&gt; ShowS
 DeletePresetResponse -&gt; String
 (Int -&gt; DeletePresetResponse -&gt; ShowS)
@@ -312,12 +312,12 @@ $cfrom :: forall x. DeletePresetResponse -&gt; Rep DeletePresetResponse x
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-type">DeletePresetResponse</span></a></span><span>
 </span><span id="line-130"></span><span id="newDeletePresetResponse"><span class="annot"><span class="annottext">newDeletePresetResponse :: Int -&gt; DeletePresetResponse
-</span><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#newDeletePresetResponse"><span class="hs-identifier hs-var hs-var">newDeletePresetResponse</span></a></span></span><span> </span><span id="local-6989586621679216512"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216512"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#newDeletePresetResponse"><span class="hs-identifier hs-var hs-var">newDeletePresetResponse</span></a></span></span><span> </span><span id="local-6989586621679216521"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216521"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><span class="annottext">DeletePresetResponse' :: Int -&gt; DeletePresetResponse
 </span><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePresetResponse%27"><span class="hs-identifier hs-type">DeletePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePresetResponse' :: Int
 </span><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#%24sel%3AhttpStatus%3ADeletePresetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216512"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679216521"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-134"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#deletePresetResponse_httpStatus"><span class="hs-identifier hs-type">deletePresetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-type">DeletePresetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -326,16 +326,16 @@ $cfrom :: forall x. DeletePresetResponse -&gt; Rep DeletePresetResponse x
 -&gt; (DeletePresetResponse -&gt; Int -&gt; DeletePresetResponse)
 -&gt; Lens DeletePresetResponse DeletePresetResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePresetResponse%27"><span class="hs-identifier hs-type">DeletePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216511"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePresetResponse%27"><span class="hs-identifier hs-type">DeletePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216520"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeletePresetResponse' :: DeletePresetResponse -&gt; Int
-</span><a href="#local-6989586621679216511"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216511"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216510"><span class="annot"><span class="annottext">s :: DeletePresetResponse
-</span><a href="#local-6989586621679216510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePresetResponse%27"><span class="hs-identifier hs-type">DeletePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216509"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePresetResponse
-</span><a href="#local-6989586621679216510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePresetResponse' :: Int
+</span><a href="#local-6989586621679216520"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216520"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216519"><span class="annot"><span class="annottext">s :: DeletePresetResponse
+</span><a href="#local-6989586621679216519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePresetResponse%27"><span class="hs-identifier hs-type">DeletePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216518"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePresetResponse
+</span><a href="#local-6989586621679216519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePresetResponse' :: Int
 </span><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#%24sel%3AhttpStatus%3ADeletePresetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-type">DeletePresetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-type">DeletePresetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216507"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-type">DeletePresetResponse</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216516"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.DeletePreset.html#DeletePresetResponse"><span class="hs-identifier hs-type">DeletePresetResponse</span></a></span></span><span>
 </span><span id="line-138"></span></pre></body></html>

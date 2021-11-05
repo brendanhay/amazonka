@@ -69,7 +69,7 @@
 </span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | /See:/ 'newPutMetricFilter' smart constructor.</span><span>
-</span><span id="line-72"></span><span id="local-6989586621679225862"><span id="local-6989586621679225863"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutMetricFilter"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-var">PutMetricFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutMetricFilter%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-var">PutMetricFilter'</span></a></span></span><span>
+</span><span id="line-72"></span><span id="local-6989586621679225871"><span id="local-6989586621679225872"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutMetricFilter"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-var">PutMetricFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutMetricFilter%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-var">PutMetricFilter'</span></a></span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the log group.</span><span>
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AlogGroupName%3APutMetricFilter%27"><span class="annot"><span class="annottext">PutMetricFilter -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#%24sel%3AlogGroupName%3APutMetricFilter%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -83,7 +83,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AmetricTransformations%3APutMetricFilter%27"><span class="annot"><span class="annottext">PutMetricFilter -&gt; NonEmpty MetricTransformation
 </span><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#%24sel%3AmetricTransformations%3APutMetricFilter%27"><span class="hs-identifier hs-var hs-var">metricTransformations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225853"><span id="local-6989586621679225855"><span class="annot"><span class="annottext">PutMetricFilter -&gt; PutMetricFilter -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225862"><span id="local-6989586621679225864"><span class="annot"><span class="annottext">PutMetricFilter -&gt; PutMetricFilter -&gt; Bool
 (PutMetricFilter -&gt; PutMetricFilter -&gt; Bool)
 -&gt; (PutMetricFilter -&gt; PutMetricFilter -&gt; Bool)
 -&gt; Eq PutMetricFilter
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutMetricFilter -&gt; PutMetricFilter -&gt; Bool
 == :: PutMetricFilter -&gt; PutMetricFilter -&gt; Bool
 $c== :: PutMetricFilter -&gt; PutMetricFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225844"><span id="local-6989586621679225846"><span id="local-6989586621679225848"><span id="local-6989586621679225850"><span class="annot"><span class="annottext">ReadPrec [PutMetricFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225853"><span id="local-6989586621679225855"><span id="local-6989586621679225857"><span id="local-6989586621679225859"><span class="annot"><span class="annottext">ReadPrec [PutMetricFilter]
 ReadPrec PutMetricFilter
 Int -&gt; ReadS PutMetricFilter
 ReadS [PutMetricFilter]
@@ -112,7 +112,7 @@ readList :: ReadS [PutMetricFilter]
 $creadList :: ReadS [PutMetricFilter]
 readsPrec :: Int -&gt; ReadS PutMetricFilter
 $creadsPrec :: Int -&gt; ReadS PutMetricFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225837"><span id="local-6989586621679225839"><span id="local-6989586621679225841"><span class="annot"><span class="annottext">Int -&gt; PutMetricFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225846"><span id="local-6989586621679225848"><span id="local-6989586621679225850"><span class="annot"><span class="annottext">Int -&gt; PutMetricFilter -&gt; ShowS
 [PutMetricFilter] -&gt; ShowS
 PutMetricFilter -&gt; String
 (Int -&gt; PutMetricFilter -&gt; ShowS)
@@ -166,26 +166,26 @@ $cfrom :: forall x. PutMetricFilter -&gt; Rep PutMetricFilter x
 </span><span id="line-109"></span><span id="newPutMetricFilter"><span class="annot"><span class="annottext">newPutMetricFilter :: Text
 -&gt; Text -&gt; Text -&gt; NonEmpty MetricTransformation -&gt; PutMetricFilter
 </span><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#newPutMetricFilter"><span class="hs-identifier hs-var hs-var">newPutMetricFilter</span></a></span></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679225832"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225832"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679225831"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225831"><span class="hs-identifier hs-var">pFilterName_</span></a></span></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679225830"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225830"><span class="hs-identifier hs-var">pFilterPattern_</span></a></span></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679225829"><span class="annot"><span class="annottext">NonEmpty MetricTransformation
-</span><a href="#local-6989586621679225829"><span class="hs-identifier hs-var">pMetricTransformations_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679225841"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225841"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679225840"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225840"><span class="hs-identifier hs-var">pFilterName_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679225839"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225839"><span class="hs-identifier hs-var">pFilterPattern_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679225838"><span class="annot"><span class="annottext">NonEmpty MetricTransformation
+</span><a href="#local-6989586621679225838"><span class="hs-identifier hs-var">pMetricTransformations_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">PutMetricFilter' :: Text
 -&gt; Text -&gt; Text -&gt; NonEmpty MetricTransformation -&gt; PutMetricFilter
 </span><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logGroupName:PutMetricFilter' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#%24sel%3AlogGroupName%3APutMetricFilter%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225832"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225841"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:filterName:PutMetricFilter' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#%24sel%3AfilterName%3APutMetricFilter%27"><span class="hs-identifier hs-var">filterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225831"><span class="hs-identifier hs-var">pFilterName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225840"><span class="hs-identifier hs-var">pFilterName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:filterPattern:PutMetricFilter' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#%24sel%3AfilterPattern%3APutMetricFilter%27"><span class="hs-identifier hs-var">filterPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225830"><span class="hs-identifier hs-var">pFilterPattern_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225839"><span class="hs-identifier hs-var">pFilterPattern_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricTransformations:PutMetricFilter' :: NonEmpty MetricTransformation
 </span><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#%24sel%3AmetricTransformations%3APutMetricFilter%27"><span class="hs-identifier hs-var">metricTransformations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Tagged
@@ -204,7 +204,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty MetricTransformation -&gt; NonEmpty MetricTransformation
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty MetricTransformation
-</span><a href="#local-6989586621679225829"><span class="hs-identifier hs-var">pMetricTransformations_</span></a></span><span>
+</span><a href="#local-6989586621679225838"><span class="hs-identifier hs-var">pMetricTransformations_</span></a></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The name of the log group.</span><span>
@@ -214,16 +214,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (PutMetricFilter -&gt; Text -&gt; PutMetricFilter)
 -&gt; Lens PutMetricFilter PutMetricFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225824"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225833"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 $sel:logGroupName:PutMetricFilter' :: PutMetricFilter -&gt; Text
-</span><a href="#local-6989586621679225824"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225824"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225823"><span class="annot"><span class="annottext">s :: PutMetricFilter
-</span><a href="#local-6989586621679225823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225822"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricFilter
-</span><a href="#local-6989586621679225823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:PutMetricFilter' :: Text
+</span><a href="#local-6989586621679225833"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225833"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225832"><span class="annot"><span class="annottext">s :: PutMetricFilter
+</span><a href="#local-6989586621679225832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225831"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricFilter
+</span><a href="#local-6989586621679225832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:PutMetricFilter' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#%24sel%3AlogGroupName%3APutMetricFilter%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | A name for the metric filter.</span><span>
 </span><span id="line-127"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#putMetricFilter_filterName"><span class="hs-identifier hs-type">putMetricFilter_filterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -232,16 +232,16 @@ $sel:logGroupName:PutMetricFilter' :: PutMetricFilter -&gt; Text
 -&gt; (PutMetricFilter -&gt; Text -&gt; PutMetricFilter)
 -&gt; Lens PutMetricFilter PutMetricFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225821"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225830"><span class="annot"><span class="annottext">Text
 filterName :: Text
 $sel:filterName:PutMetricFilter' :: PutMetricFilter -&gt; Text
-</span><a href="#local-6989586621679225821"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225821"><span class="hs-identifier hs-var">filterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225820"><span class="annot"><span class="annottext">s :: PutMetricFilter
-</span><a href="#local-6989586621679225820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225819"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricFilter
-</span><a href="#local-6989586621679225820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterName:PutMetricFilter' :: Text
+</span><a href="#local-6989586621679225830"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225830"><span class="hs-identifier hs-var">filterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225829"><span class="annot"><span class="annottext">s :: PutMetricFilter
+</span><a href="#local-6989586621679225829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225828"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricFilter
+</span><a href="#local-6989586621679225829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterName:PutMetricFilter' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#%24sel%3AfilterName%3APutMetricFilter%27"><span class="hs-identifier hs-var">filterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | A filter pattern for extracting metric data out of ingested log events.</span><span>
 </span><span id="line-131"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#putMetricFilter_filterPattern"><span class="hs-identifier hs-type">putMetricFilter_filterPattern</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -250,16 +250,16 @@ $sel:filterName:PutMetricFilter' :: PutMetricFilter -&gt; Text
 -&gt; (PutMetricFilter -&gt; Text -&gt; PutMetricFilter)
 -&gt; Lens PutMetricFilter PutMetricFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225818"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225827"><span class="annot"><span class="annottext">Text
 filterPattern :: Text
 $sel:filterPattern:PutMetricFilter' :: PutMetricFilter -&gt; Text
-</span><a href="#local-6989586621679225818"><span class="hs-identifier hs-var hs-var">filterPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225818"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225817"><span class="annot"><span class="annottext">s :: PutMetricFilter
-</span><a href="#local-6989586621679225817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225816"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricFilter
-</span><a href="#local-6989586621679225817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterPattern:PutMetricFilter' :: Text
+</span><a href="#local-6989586621679225827"><span class="hs-identifier hs-var hs-var">filterPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225827"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225826"><span class="annot"><span class="annottext">s :: PutMetricFilter
+</span><a href="#local-6989586621679225826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225825"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricFilter
+</span><a href="#local-6989586621679225826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterPattern:PutMetricFilter' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#%24sel%3AfilterPattern%3APutMetricFilter%27"><span class="hs-identifier hs-var">filterPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | A collection of information that defines how metric data gets emitted.</span><span>
 </span><span id="line-135"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#putMetricFilter_metricTransformations"><span class="hs-identifier hs-type">putMetricFilter_metricTransformations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricTransformation.html#MetricTransformation"><span class="hs-identifier hs-type">MetricTransformation</span></a></span><span class="hs-special">)</span><span>
@@ -275,16 +275,16 @@ $sel:filterPattern:PutMetricFilter' :: PutMetricFilter -&gt; Text
      (NonEmpty MetricTransformation)
      (NonEmpty MetricTransformation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225815"><span class="annot"><span class="annottext">NonEmpty MetricTransformation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225824"><span class="annot"><span class="annottext">NonEmpty MetricTransformation
 metricTransformations :: NonEmpty MetricTransformation
 $sel:metricTransformations:PutMetricFilter' :: PutMetricFilter -&gt; NonEmpty MetricTransformation
-</span><a href="#local-6989586621679225815"><span class="hs-identifier hs-var hs-var">metricTransformations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty MetricTransformation
-</span><a href="#local-6989586621679225815"><span class="hs-identifier hs-var">metricTransformations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225814"><span class="annot"><span class="annottext">s :: PutMetricFilter
-</span><a href="#local-6989586621679225814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225813"><span class="annot"><span class="annottext">NonEmpty MetricTransformation
-</span><a href="#local-6989586621679225813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricFilter
-</span><a href="#local-6989586621679225814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricTransformations:PutMetricFilter' :: NonEmpty MetricTransformation
+</span><a href="#local-6989586621679225824"><span class="hs-identifier hs-var hs-var">metricTransformations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty MetricTransformation
+</span><a href="#local-6989586621679225824"><span class="hs-identifier hs-var">metricTransformations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225823"><span class="annot"><span class="annottext">s :: PutMetricFilter
+</span><a href="#local-6989586621679225823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225822"><span class="annot"><span class="annottext">NonEmpty MetricTransformation
+</span><a href="#local-6989586621679225822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutMetricFilter
+</span><a href="#local-6989586621679225823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricTransformations:PutMetricFilter' :: NonEmpty MetricTransformation
 </span><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#%24sel%3AmetricTransformations%3APutMetricFilter%27"><span class="hs-identifier hs-var">metricTransformations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty MetricTransformation
-</span><a href="#local-6989586621679225813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty MetricTransformation
+</span><a href="#local-6989586621679225822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty MetricTransformation
   -&gt; f (NonEmpty MetricTransformation))
  -&gt; PutMetricFilter -&gt; f PutMetricFilter)
 -&gt; ((NonEmpty MetricTransformation
@@ -307,12 +307,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-140"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilterResponse"><span class="hs-identifier hs-type">PutMetricFilterResponse</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679225808"><span class="annot"><span class="annottext">request :: PutMetricFilter -&gt; Request PutMetricFilter
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679225817"><span class="annot"><span class="annottext">request :: PutMetricFilter -&gt; Request PutMetricFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutMetricFilter -&gt; Request PutMetricFilter
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679225804"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679225813"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutMetricFilter
 -&gt; ClientResponse ClientBody
@@ -336,12 +336,12 @@ AWSResponse a
 PutMetricFilterResponse
 </span><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilterResponse%27"><span class="hs-identifier hs-var">PutMetricFilterResponse'</span></a></span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225797"><span id="local-6989586621679225799"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225806"><span id="local-6989586621679225808"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225794"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225803"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679225790"><span class="annot"><span class="annottext">toHeaders :: PutMetricFilter -&gt; [Header]
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679225799"><span class="annot"><span class="annottext">toHeaders :: PutMetricFilter -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; PutMetricFilter -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -368,9 +368,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225780"><span id="local-6989586621679225782"><span id="local-6989586621679225784"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679225778"><span class="annot"><span class="annottext">toJSON :: PutMetricFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225773"><span id="local-6989586621679225774"><span id="local-6989586621679225775"><span id="local-6989586621679225776"><span class="annot"><span class="annottext">NonEmpty MetricTransformation
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225789"><span id="local-6989586621679225791"><span id="local-6989586621679225793"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679225787"><span class="annot"><span class="annottext">toJSON :: PutMetricFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter%27"><span class="hs-identifier hs-type">PutMetricFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225782"><span id="local-6989586621679225783"><span id="local-6989586621679225784"><span id="local-6989586621679225785"><span class="annot"><span class="annottext">NonEmpty MetricTransformation
 Text
 metricTransformations :: NonEmpty MetricTransformation
 filterPattern :: Text
@@ -380,7 +380,7 @@ $sel:metricTransformations:PutMetricFilter' :: PutMetricFilter -&gt; NonEmpty Me
 $sel:filterPattern:PutMetricFilter' :: PutMetricFilter -&gt; Text
 $sel:filterName:PutMetricFilter' :: PutMetricFilter -&gt; Text
 $sel:logGroupName:PutMetricFilter' :: PutMetricFilter -&gt; Text
-</span><a href="#local-6989586621679225773"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679225782"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -392,21 +392,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225776"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225785"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filterName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225775"><span class="hs-identifier hs-var">filterName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225784"><span class="hs-identifier hs-var">filterName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filterPattern&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225774"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225783"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -415,20 +415,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-174"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty MetricTransformation -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty MetricTransformation
-</span><a href="#local-6989586621679225773"><span class="hs-identifier hs-var">metricTransformations</span></a></span><span>
+</span><a href="#local-6989586621679225782"><span class="hs-identifier hs-var">metricTransformations</span></a></span><span>
 </span><span id="line-175"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679225767"><span class="annot"><span class="annottext">toPath :: PutMetricFilter -&gt; ByteString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679225776"><span class="annot"><span class="annottext">toPath :: PutMetricFilter -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutMetricFilter -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilter"><span class="hs-identifier hs-type">PutMetricFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679225763"><span class="annot"><span class="annottext">toQuery :: PutMetricFilter -&gt; QueryString
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679225772"><span class="annot"><span class="annottext">toQuery :: PutMetricFilter -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutMetricFilter -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -436,10 +436,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | /See:/ 'newPutMetricFilterResponse' smart constructor.</span><span>
-</span><span id="line-186"></span><span id="local-6989586621679225760"><span id="local-6989586621679225761"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutMetricFilterResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilterResponse"><span class="hs-identifier hs-var">PutMetricFilterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutMetricFilterResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilterResponse%27"><span class="hs-identifier hs-var">PutMetricFilterResponse'</span></a></span></span><span>
+</span><span id="line-186"></span><span id="local-6989586621679225769"><span id="local-6989586621679225770"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutMetricFilterResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilterResponse"><span class="hs-identifier hs-var">PutMetricFilterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutMetricFilterResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilterResponse%27"><span class="hs-identifier hs-var">PutMetricFilterResponse'</span></a></span></span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225756"><span id="local-6989586621679225758"><span class="annot"><span class="annottext">PutMetricFilterResponse -&gt; PutMetricFilterResponse -&gt; Bool
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225765"><span id="local-6989586621679225767"><span class="annot"><span class="annottext">PutMetricFilterResponse -&gt; PutMetricFilterResponse -&gt; Bool
 (PutMetricFilterResponse -&gt; PutMetricFilterResponse -&gt; Bool)
 -&gt; (PutMetricFilterResponse -&gt; PutMetricFilterResponse -&gt; Bool)
 -&gt; Eq PutMetricFilterResponse
@@ -448,7 +448,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutMetricFilterResponse -&gt; PutMetricFilterResponse -&gt; Bool
 == :: PutMetricFilterResponse -&gt; PutMetricFilterResponse -&gt; Bool
 $c== :: PutMetricFilterResponse -&gt; PutMetricFilterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225748"><span id="local-6989586621679225750"><span id="local-6989586621679225752"><span id="local-6989586621679225754"><span class="annot"><span class="annottext">ReadPrec [PutMetricFilterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225757"><span id="local-6989586621679225759"><span id="local-6989586621679225761"><span id="local-6989586621679225763"><span class="annot"><span class="annottext">ReadPrec [PutMetricFilterResponse]
 ReadPrec PutMetricFilterResponse
 Int -&gt; ReadS PutMetricFilterResponse
 ReadS [PutMetricFilterResponse]
@@ -468,7 +468,7 @@ readList :: ReadS [PutMetricFilterResponse]
 $creadList :: ReadS [PutMetricFilterResponse]
 readsPrec :: Int -&gt; ReadS PutMetricFilterResponse
 $creadsPrec :: Int -&gt; ReadS PutMetricFilterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225742"><span id="local-6989586621679225744"><span id="local-6989586621679225746"><span class="annot"><span class="annottext">Int -&gt; PutMetricFilterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225751"><span id="local-6989586621679225753"><span id="local-6989586621679225755"><span class="annot"><span class="annottext">Int -&gt; PutMetricFilterResponse -&gt; ShowS
 [PutMetricFilterResponse] -&gt; ShowS
 PutMetricFilterResponse -&gt; String
 (Int -&gt; PutMetricFilterResponse -&gt; ShowS)
@@ -506,5 +506,5 @@ $cfrom :: forall x. PutMetricFilterResponse -&gt; Rep PutMetricFilterResponse x
 </span><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#newPutMetricFilterResponse"><span class="hs-identifier hs-var hs-var">newPutMetricFilterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutMetricFilterResponse
 </span><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilterResponse%27"><span class="hs-identifier hs-var">PutMetricFilterResponse'</span></a></span><span>
 </span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225738"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilterResponse"><span class="hs-identifier hs-type">PutMetricFilterResponse</span></a></span></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutMetricFilter.html#PutMetricFilterResponse"><span class="hs-identifier hs-type">PutMetricFilterResponse</span></a></span></span><span>
 </span><span id="line-200"></span></pre></body></html>

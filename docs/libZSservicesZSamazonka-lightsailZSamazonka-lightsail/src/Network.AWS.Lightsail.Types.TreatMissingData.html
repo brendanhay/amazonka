@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679627280"><span id="local-6989586621679627281"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TreatMissingData"><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData"><span class="hs-identifier hs-var">TreatMissingData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TreatMissingData%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData%27"><span class="hs-identifier hs-var">TreatMissingData'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679627289"><span id="local-6989586621679627290"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TreatMissingData"><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData"><span class="hs-identifier hs-var">TreatMissingData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TreatMissingData%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#TreatMissingData%27"><span class="hs-identifier hs-var">TreatMissingData'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTreatMissingData"><span class="annot"><span class="annottext">TreatMissingData -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.TreatMissingData.html#fromTreatMissingData"><span class="hs-identifier hs-var hs-var">fromTreatMissingData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679627272"><span id="local-6989586621679627274"><span id="local-6989586621679627276"><span class="annot"><span class="annottext">Int -&gt; TreatMissingData -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679627281"><span id="local-6989586621679627283"><span id="local-6989586621679627285"><span class="annot"><span class="annottext">Int -&gt; TreatMissingData -&gt; ShowS
 [TreatMissingData] -&gt; ShowS
 TreatMissingData -&gt; String
 (Int -&gt; TreatMissingData -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: TreatMissingData -&gt; String
 showsPrec :: Int -&gt; TreatMissingData -&gt; ShowS
 $cshowsPrec :: Int -&gt; TreatMissingData -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679627263"><span id="local-6989586621679627265"><span id="local-6989586621679627267"><span id="local-6989586621679627269"><span class="annot"><span class="annottext">ReadPrec [TreatMissingData]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679627272"><span id="local-6989586621679627274"><span id="local-6989586621679627276"><span id="local-6989586621679627278"><span class="annot"><span class="annottext">ReadPrec [TreatMissingData]
 ReadPrec TreatMissingData
 Int -&gt; ReadS TreatMissingData
 ReadS [TreatMissingData]
@@ -74,7 +74,7 @@ $creadList :: ReadS [TreatMissingData]
 readsPrec :: Int -&gt; ReadS TreatMissingData
 $creadsPrec :: Int -&gt; ReadS TreatMissingData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679627258"><span id="local-6989586621679627260"><span class="annot"><span class="annottext">TreatMissingData -&gt; TreatMissingData -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679627267"><span id="local-6989586621679627269"><span class="annot"><span class="annottext">TreatMissingData -&gt; TreatMissingData -&gt; Bool
 (TreatMissingData -&gt; TreatMissingData -&gt; Bool)
 -&gt; (TreatMissingData -&gt; TreatMissingData -&gt; Bool)
 -&gt; Eq TreatMissingData
@@ -84,7 +84,7 @@ $c/= :: TreatMissingData -&gt; TreatMissingData -&gt; Bool
 == :: TreatMissingData -&gt; TreatMissingData -&gt; Bool
 $c== :: TreatMissingData -&gt; TreatMissingData -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679627242"><span id="local-6989586621679627244"><span id="local-6989586621679627246"><span id="local-6989586621679627248"><span id="local-6989586621679627250"><span id="local-6989586621679627252"><span id="local-6989586621679627254"><span class="annot"><span class="annottext">Eq TreatMissingData
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679627251"><span id="local-6989586621679627253"><span id="local-6989586621679627255"><span id="local-6989586621679627257"><span id="local-6989586621679627259"><span id="local-6989586621679627261"><span id="local-6989586621679627263"><span class="annot"><span class="annottext">Eq TreatMissingData
 Eq TreatMissingData
 -&gt; (TreatMissingData -&gt; TreatMissingData -&gt; Ordering)
 -&gt; (TreatMissingData -&gt; TreatMissingData -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. TreatMissingData -&gt; Rep TreatMissingData x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679627234"><span id="local-6989586621679627236"><span class="annot"><span class="annottext">Int -&gt; TreatMissingData -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679627243"><span id="local-6989586621679627245"><span class="annot"><span class="annottext">Int -&gt; TreatMissingData -&gt; Int
 TreatMissingData -&gt; Int
 (Int -&gt; TreatMissingData -&gt; Int)
 -&gt; (TreatMissingData -&gt; Int) -&gt; Hashable TreatMissingData
@@ -145,51 +145,51 @@ $chash :: TreatMissingData -&gt; Int
 hashWithSalt :: Int -&gt; TreatMissingData -&gt; Int
 $chashWithSalt :: Int -&gt; TreatMissingData -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679627231"><span class="annot"><span class="annottext">TreatMissingData -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679627240"><span class="annot"><span class="annottext">TreatMissingData -&gt; ()
 (TreatMissingData -&gt; ()) -&gt; NFData TreatMissingData
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TreatMissingData -&gt; ()
 $crnf :: TreatMissingData -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679627228"><span class="annot"><span class="annottext">Text -&gt; Either String TreatMissingData
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679627237"><span class="annot"><span class="annottext">Text -&gt; Either String TreatMissingData
 (Text -&gt; Either String TreatMissingData)
 -&gt; FromText TreatMissingData
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TreatMissingData
 $cfromText :: Text -&gt; Either String TreatMissingData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679627225"><span class="annot"><span class="annottext">TreatMissingData -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679627234"><span class="annot"><span class="annottext">TreatMissingData -&gt; Text
 (TreatMissingData -&gt; Text) -&gt; ToText TreatMissingData
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TreatMissingData -&gt; Text
 $ctoText :: TreatMissingData -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679627222"><span class="annot"><span class="annottext">TreatMissingData -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679627231"><span class="annot"><span class="annottext">TreatMissingData -&gt; ByteString
 (TreatMissingData -&gt; ByteString) -&gt; ToByteString TreatMissingData
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TreatMissingData -&gt; ByteString
 $ctoBS :: TreatMissingData -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679627219"><span class="annot"><span class="annottext">TreatMissingData -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679627228"><span class="annot"><span class="annottext">TreatMissingData -&gt; ByteStringBuilder
 (TreatMissingData -&gt; ByteStringBuilder) -&gt; ToLog TreatMissingData
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TreatMissingData -&gt; ByteStringBuilder
 $cbuild :: TreatMissingData -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679627216"><span class="annot"><span class="annottext">HeaderName -&gt; TreatMissingData -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679627225"><span class="annot"><span class="annottext">HeaderName -&gt; TreatMissingData -&gt; [Header]
 (HeaderName -&gt; TreatMissingData -&gt; [Header])
 -&gt; ToHeader TreatMissingData
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TreatMissingData -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TreatMissingData -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679627213"><span class="annot"><span class="annottext">TreatMissingData -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679627222"><span class="annot"><span class="annottext">TreatMissingData -&gt; QueryString
 (TreatMissingData -&gt; QueryString) -&gt; ToQuery TreatMissingData
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TreatMissingData -&gt; QueryString
 $ctoQuery :: TreatMissingData -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679627208"><span id="local-6989586621679627210"><span class="annot"><span class="annottext">Value -&gt; Parser [TreatMissingData]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679627217"><span id="local-6989586621679627219"><span class="annot"><span class="annottext">Value -&gt; Parser [TreatMissingData]
 Value -&gt; Parser TreatMissingData
 (Value -&gt; Parser TreatMissingData)
 -&gt; (Value -&gt; Parser [TreatMissingData])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [TreatMissingData]
 parseJSON :: Value -&gt; Parser TreatMissingData
 $cparseJSON :: Value -&gt; Parser TreatMissingData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679627203"><span id="local-6989586621679627205"><span class="annot"><span class="annottext">FromJSONKeyFunction [TreatMissingData]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679627212"><span id="local-6989586621679627214"><span class="annot"><span class="annottext">FromJSONKeyFunction [TreatMissingData]
 FromJSONKeyFunction TreatMissingData
 FromJSONKeyFunction TreatMissingData
 -&gt; FromJSONKeyFunction [TreatMissingData]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TreatMissingData]
 fromJSONKey :: FromJSONKeyFunction TreatMissingData
 $cfromJSONKey :: FromJSONKeyFunction TreatMissingData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679627194"><span id="local-6989586621679627196"><span id="local-6989586621679627198"><span id="local-6989586621679627200"><span class="annot"><span class="annottext">[TreatMissingData] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679627203"><span id="local-6989586621679627205"><span id="local-6989586621679627207"><span id="local-6989586621679627209"><span class="annot"><span class="annottext">[TreatMissingData] -&gt; Encoding
 [TreatMissingData] -&gt; Value
 TreatMissingData -&gt; Encoding
 TreatMissingData -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: TreatMissingData -&gt; Encoding
 toJSON :: TreatMissingData -&gt; Value
 $ctoJSON :: TreatMissingData -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679627189"><span id="local-6989586621679627191"><span class="annot"><span class="annottext">ToJSONKeyFunction [TreatMissingData]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679627198"><span id="local-6989586621679627200"><span class="annot"><span class="annottext">ToJSONKeyFunction [TreatMissingData]
 ToJSONKeyFunction TreatMissingData
 ToJSONKeyFunction TreatMissingData
 -&gt; ToJSONKeyFunction [TreatMissingData]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TreatMissingData]
 toJSONKey :: ToJSONKeyFunction TreatMissingData
 $ctoJSONKey :: ToJSONKeyFunction TreatMissingData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679627186"><span class="annot"><span class="annottext">[Node] -&gt; Either String TreatMissingData
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679627195"><span class="annot"><span class="annottext">[Node] -&gt; Either String TreatMissingData
 ([Node] -&gt; Either String TreatMissingData)
 -&gt; FromXML TreatMissingData
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TreatMissingData
 $cparseXML :: [Node] -&gt; Either String TreatMissingData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679627183"><span class="annot"><span class="annottext">TreatMissingData -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679627192"><span class="annot"><span class="annottext">TreatMissingData -&gt; XML
 (TreatMissingData -&gt; XML) -&gt; ToXML TreatMissingData
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TreatMissingData -&gt; XML

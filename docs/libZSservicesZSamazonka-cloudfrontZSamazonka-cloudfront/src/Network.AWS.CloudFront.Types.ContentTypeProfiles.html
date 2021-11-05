@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Field-level encryption content type-profile.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newContentTypeProfiles' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679390763"><span id="local-6989586621679390764"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContentTypeProfiles"><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles"><span class="hs-identifier hs-var">ContentTypeProfiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContentTypeProfiles%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles%27"><span class="hs-identifier hs-var">ContentTypeProfiles'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679390772"><span id="local-6989586621679390773"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContentTypeProfiles"><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles"><span class="hs-identifier hs-var">ContentTypeProfiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContentTypeProfiles%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles%27"><span class="hs-identifier hs-var">ContentTypeProfiles'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Items in a field-level encryption content type-profile mapping.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aitems%3AContentTypeProfiles%27"><span class="annot"><span class="annottext">ContentTypeProfiles -&gt; Maybe [ContentTypeProfile]
 </span><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#%24sel%3Aitems%3AContentTypeProfiles%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfile.html#ContentTypeProfile"><span class="hs-identifier hs-type">ContentTypeProfile</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aquantity%3AContentTypeProfiles%27"><span class="annot"><span class="annottext">ContentTypeProfiles -&gt; Int
 </span><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#%24sel%3Aquantity%3AContentTypeProfiles%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390756"><span id="local-6989586621679390758"><span class="annot"><span class="annottext">ContentTypeProfiles -&gt; ContentTypeProfiles -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390765"><span id="local-6989586621679390767"><span class="annot"><span class="annottext">ContentTypeProfiles -&gt; ContentTypeProfiles -&gt; Bool
 (ContentTypeProfiles -&gt; ContentTypeProfiles -&gt; Bool)
 -&gt; (ContentTypeProfiles -&gt; ContentTypeProfiles -&gt; Bool)
 -&gt; Eq ContentTypeProfiles
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ContentTypeProfiles -&gt; ContentTypeProfiles -&gt; Bool
 == :: ContentTypeProfiles -&gt; ContentTypeProfiles -&gt; Bool
 $c== :: ContentTypeProfiles -&gt; ContentTypeProfiles -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390747"><span id="local-6989586621679390749"><span id="local-6989586621679390751"><span id="local-6989586621679390753"><span class="annot"><span class="annottext">ReadPrec [ContentTypeProfiles]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390756"><span id="local-6989586621679390758"><span id="local-6989586621679390760"><span id="local-6989586621679390762"><span class="annot"><span class="annottext">ReadPrec [ContentTypeProfiles]
 ReadPrec ContentTypeProfiles
 Int -&gt; ReadS ContentTypeProfiles
 ReadS [ContentTypeProfiles]
@@ -64,7 +64,7 @@ readList :: ReadS [ContentTypeProfiles]
 $creadList :: ReadS [ContentTypeProfiles]
 readsPrec :: Int -&gt; ReadS ContentTypeProfiles
 $creadsPrec :: Int -&gt; ReadS ContentTypeProfiles
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390740"><span id="local-6989586621679390742"><span id="local-6989586621679390744"><span class="annot"><span class="annottext">Int -&gt; ContentTypeProfiles -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390749"><span id="local-6989586621679390751"><span id="local-6989586621679390753"><span class="annot"><span class="annottext">Int -&gt; ContentTypeProfiles -&gt; ShowS
 [ContentTypeProfiles] -&gt; ShowS
 ContentTypeProfiles -&gt; String
 (Int -&gt; ContentTypeProfiles -&gt; ShowS)
@@ -106,8 +106,8 @@ $cfrom :: forall x. ContentTypeProfiles -&gt; Rep ContentTypeProfiles x
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles"><span class="hs-identifier hs-type">ContentTypeProfiles</span></a></span><span>
 </span><span id="line-53"></span><span id="newContentTypeProfiles"><span class="annot"><span class="annottext">newContentTypeProfiles :: Int -&gt; ContentTypeProfiles
-</span><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#newContentTypeProfiles"><span class="hs-identifier hs-var hs-var">newContentTypeProfiles</span></a></span></span><span> </span><span id="local-6989586621679390734"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390734"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#newContentTypeProfiles"><span class="hs-identifier hs-var hs-var">newContentTypeProfiles</span></a></span></span><span> </span><span id="local-6989586621679390743"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390743"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">ContentTypeProfiles' :: Maybe [ContentTypeProfile] -&gt; Int -&gt; ContentTypeProfiles
 </span><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles%27"><span class="hs-identifier hs-type">ContentTypeProfiles'</span></a></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:ContentTypeProfiles' :: Maybe [ContentTypeProfile]
@@ -116,7 +116,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:quantity:ContentTypeProfiles' :: Int
 </span><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#%24sel%3Aquantity%3AContentTypeProfiles%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390734"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
+</span><a href="#local-6989586621679390743"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | Items in a field-level encryption content type-profile mapping.</span><span>
@@ -132,16 +132,16 @@ forall a. Maybe a
      (Maybe [ContentTypeProfile])
      (Maybe [ContentTypeProfile])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles%27"><span class="hs-identifier hs-type">ContentTypeProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390730"><span class="annot"><span class="annottext">Maybe [ContentTypeProfile]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles%27"><span class="hs-identifier hs-type">ContentTypeProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390739"><span class="annot"><span class="annottext">Maybe [ContentTypeProfile]
 items :: Maybe [ContentTypeProfile]
 $sel:items:ContentTypeProfiles' :: ContentTypeProfiles -&gt; Maybe [ContentTypeProfile]
-</span><a href="#local-6989586621679390730"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContentTypeProfile]
-</span><a href="#local-6989586621679390730"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390729"><span class="annot"><span class="annottext">s :: ContentTypeProfiles
-</span><a href="#local-6989586621679390729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles%27"><span class="hs-identifier hs-type">ContentTypeProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390728"><span class="annot"><span class="annottext">Maybe [ContentTypeProfile]
-</span><a href="#local-6989586621679390728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentTypeProfiles
-</span><a href="#local-6989586621679390729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:ContentTypeProfiles' :: Maybe [ContentTypeProfile]
+</span><a href="#local-6989586621679390739"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContentTypeProfile]
+</span><a href="#local-6989586621679390739"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390738"><span class="annot"><span class="annottext">s :: ContentTypeProfiles
+</span><a href="#local-6989586621679390738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles%27"><span class="hs-identifier hs-type">ContentTypeProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390737"><span class="annot"><span class="annottext">Maybe [ContentTypeProfile]
+</span><a href="#local-6989586621679390737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentTypeProfiles
+</span><a href="#local-6989586621679390738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:ContentTypeProfiles' :: Maybe [ContentTypeProfile]
 </span><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#%24sel%3Aitems%3AContentTypeProfiles%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContentTypeProfile]
-</span><a href="#local-6989586621679390728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles"><span class="hs-identifier hs-type">ContentTypeProfiles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContentTypeProfile] -&gt; f (Maybe [ContentTypeProfile]))
+</span><a href="#local-6989586621679390737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles"><span class="hs-identifier hs-type">ContentTypeProfiles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContentTypeProfile] -&gt; f (Maybe [ContentTypeProfile]))
  -&gt; ContentTypeProfiles -&gt; f ContentTypeProfiles)
 -&gt; ((Maybe [ContentTypeProfile] -&gt; f (Maybe [ContentTypeProfile]))
     -&gt; Maybe [ContentTypeProfile] -&gt; f (Maybe [ContentTypeProfile]))
@@ -177,21 +177,21 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ContentTypeProfiles -&gt; Int -&gt; ContentTypeProfiles)
 -&gt; Lens ContentTypeProfiles ContentTypeProfiles Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles%27"><span class="hs-identifier hs-type">ContentTypeProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390723"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles%27"><span class="hs-identifier hs-type">ContentTypeProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390732"><span class="annot"><span class="annottext">Int
 quantity :: Int
 $sel:quantity:ContentTypeProfiles' :: ContentTypeProfiles -&gt; Int
-</span><a href="#local-6989586621679390723"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390723"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390722"><span class="annot"><span class="annottext">s :: ContentTypeProfiles
-</span><a href="#local-6989586621679390722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles%27"><span class="hs-identifier hs-type">ContentTypeProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390721"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentTypeProfiles
-</span><a href="#local-6989586621679390722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:ContentTypeProfiles' :: Int
+</span><a href="#local-6989586621679390732"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390732"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390731"><span class="annot"><span class="annottext">s :: ContentTypeProfiles
+</span><a href="#local-6989586621679390731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles%27"><span class="hs-identifier hs-type">ContentTypeProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390730"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentTypeProfiles
+</span><a href="#local-6989586621679390731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:ContentTypeProfiles' :: Int
 </span><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#%24sel%3Aquantity%3AContentTypeProfiles%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles"><span class="hs-identifier hs-type">ContentTypeProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles"><span class="hs-identifier hs-type">ContentTypeProfiles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles"><span class="hs-identifier hs-type">ContentTypeProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679390718"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ContentTypeProfiles
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679390716"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679390716"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679390727"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ContentTypeProfiles
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679390725"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679390725"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe [ContentTypeProfile] -&gt; Int -&gt; ContentTypeProfiles
 </span><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles%27"><span class="hs-identifier hs-var">ContentTypeProfiles'</span></a></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [ContentTypeProfile] -&gt; Int -&gt; ContentTypeProfiles)
@@ -199,7 +199,7 @@ $sel:quantity:ContentTypeProfiles' :: ContentTypeProfiles -&gt; Int
 -&gt; Either String (Int -&gt; ContentTypeProfiles)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679390716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679390725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -225,24 +225,24 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String Int -&gt; Either String ContentTypeProfiles
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679390716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679390725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390706"><span id="local-6989586621679390708"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles"><span class="hs-identifier hs-type">ContentTypeProfiles</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390715"><span id="local-6989586621679390717"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles"><span class="hs-identifier hs-type">ContentTypeProfiles</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles"><span class="hs-identifier hs-type">ContentTypeProfiles</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390712"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles"><span class="hs-identifier hs-type">ContentTypeProfiles</span></a></span></span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles"><span class="hs-identifier hs-type">ContentTypeProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679390699"><span class="annot"><span class="annottext">toXML :: ContentTypeProfiles -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles%27"><span class="hs-identifier hs-type">ContentTypeProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390696"><span id="local-6989586621679390697"><span class="annot"><span class="annottext">Int
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679390708"><span class="annot"><span class="annottext">toXML :: ContentTypeProfiles -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ContentTypeProfiles.html#ContentTypeProfiles%27"><span class="hs-identifier hs-type">ContentTypeProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390705"><span id="local-6989586621679390706"><span class="annot"><span class="annottext">Int
 Maybe [ContentTypeProfile]
 quantity :: Int
 items :: Maybe [ContentTypeProfile]
 $sel:quantity:ContentTypeProfiles' :: ContentTypeProfiles -&gt; Int
 $sel:items:ContentTypeProfiles' :: ContentTypeProfiles -&gt; Maybe [ContentTypeProfile]
-</span><a href="#local-6989586621679390696"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679390705"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -261,12 +261,12 @@ forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 -&gt; Maybe [ContentTypeProfile] -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ContentTypeProfile]
-</span><a href="#local-6989586621679390697"><span class="hs-identifier hs-var">items</span></a></span><span>
+</span><a href="#local-6989586621679390706"><span class="hs-identifier hs-var">items</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390696"><span class="hs-identifier hs-var">quantity</span></a></span><span>
+</span><a href="#local-6989586621679390705"><span class="hs-identifier hs-var">quantity</span></a></span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span></pre></body></html>

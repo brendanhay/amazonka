@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUntagResource' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679201433"><span id="local-6989586621679201434"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagResource"><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource"><span class="hs-identifier hs-var">UntagResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagResource%27"><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-var">UntagResource'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679201442"><span id="local-6989586621679201443"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagResource"><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource"><span class="hs-identifier hs-var">UntagResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagResource%27"><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-var">UntagResource'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the DAX resource from which the tags should be removed.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AresourceName%3AUntagResource%27"><span class="annot"><span class="annottext">UntagResource -&gt; Text
 </span><a href="Network.AWS.DAX.UntagResource.html#%24sel%3AresourceName%3AUntagResource%27"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AtagKeys%3AUntagResource%27"><span class="annot"><span class="annottext">UntagResource -&gt; [Text]
 </span><a href="Network.AWS.DAX.UntagResource.html#%24sel%3AtagKeys%3AUntagResource%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201426"><span id="local-6989586621679201428"><span class="annot"><span class="annottext">UntagResource -&gt; UntagResource -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201435"><span id="local-6989586621679201437"><span class="annot"><span class="annottext">UntagResource -&gt; UntagResource -&gt; Bool
 (UntagResource -&gt; UntagResource -&gt; Bool)
 -&gt; (UntagResource -&gt; UntagResource -&gt; Bool) -&gt; Eq UntagResource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UntagResource -&gt; UntagResource -&gt; Bool
 == :: UntagResource -&gt; UntagResource -&gt; Bool
 $c== :: UntagResource -&gt; UntagResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201417"><span id="local-6989586621679201419"><span id="local-6989586621679201421"><span id="local-6989586621679201423"><span class="annot"><span class="annottext">ReadPrec [UntagResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201426"><span id="local-6989586621679201428"><span id="local-6989586621679201430"><span id="local-6989586621679201432"><span class="annot"><span class="annottext">ReadPrec [UntagResource]
 ReadPrec UntagResource
 Int -&gt; ReadS UntagResource
 ReadS [UntagResource]
@@ -86,7 +86,7 @@ readList :: ReadS [UntagResource]
 $creadList :: ReadS [UntagResource]
 readsPrec :: Int -&gt; ReadS UntagResource
 $creadsPrec :: Int -&gt; ReadS UntagResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201410"><span id="local-6989586621679201412"><span id="local-6989586621679201414"><span class="annot"><span class="annottext">Int -&gt; UntagResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201419"><span id="local-6989586621679201421"><span id="local-6989586621679201423"><span class="annot"><span class="annottext">Int -&gt; UntagResource -&gt; ShowS
 [UntagResource] -&gt; ShowS
 UntagResource -&gt; String
 (Int -&gt; UntagResource -&gt; ShowS)
@@ -129,13 +129,13 @@ $cfrom :: forall x. UntagResource -&gt; Rep UntagResource x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span>
 </span><span id="line-77"></span><span id="newUntagResource"><span class="annot"><span class="annottext">newUntagResource :: Text -&gt; UntagResource
-</span><a href="Network.AWS.DAX.UntagResource.html#newUntagResource"><span class="hs-identifier hs-var hs-var">newUntagResource</span></a></span></span><span> </span><span id="local-6989586621679201405"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201405"><span class="hs-identifier hs-var">pResourceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DAX.UntagResource.html#newUntagResource"><span class="hs-identifier hs-var hs-var">newUntagResource</span></a></span></span><span> </span><span id="local-6989586621679201414"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201414"><span class="hs-identifier hs-var">pResourceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">UntagResource' :: Text -&gt; [Text] -&gt; UntagResource
 </span><a href="Network.AWS.DAX.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceName:UntagResource' :: Text
 </span><a href="Network.AWS.DAX.UntagResource.html#%24sel%3AresourceName%3AUntagResource%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201405"><span class="hs-identifier hs-var">pResourceName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679201414"><span class="hs-identifier hs-var">pResourceName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeys:UntagResource' :: [Text]
 </span><a href="Network.AWS.DAX.UntagResource.html#%24sel%3AtagKeys%3AUntagResource%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -149,16 +149,16 @@ forall a. Monoid a =&gt; a
 -&gt; (UntagResource -&gt; Text -&gt; UntagResource)
 -&gt; Lens UntagResource UntagResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201402"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201411"><span class="annot"><span class="annottext">Text
 resourceName :: Text
 $sel:resourceName:UntagResource' :: UntagResource -&gt; Text
-</span><a href="#local-6989586621679201402"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201402"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201401"><span class="annot"><span class="annottext">s :: UntagResource
-</span><a href="#local-6989586621679201401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201400"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResource
-</span><a href="#local-6989586621679201401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:UntagResource' :: Text
+</span><a href="#local-6989586621679201411"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201411"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201410"><span class="annot"><span class="annottext">s :: UntagResource
+</span><a href="#local-6989586621679201410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201409"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResource
+</span><a href="#local-6989586621679201410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:UntagResource' :: Text
 </span><a href="Network.AWS.DAX.UntagResource.html#%24sel%3AresourceName%3AUntagResource%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | A list of tag keys. If the DAX cluster has any tags with these keys,</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- then the tags are removed from the cluster.</span><span>
@@ -168,16 +168,16 @@ $sel:resourceName:UntagResource' :: UntagResource -&gt; Text
 -&gt; (UntagResource -&gt; [Text] -&gt; UntagResource)
 -&gt; Lens UntagResource UntagResource [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201399"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201408"><span class="annot"><span class="annottext">[Text]
 tagKeys :: [Text]
 $sel:tagKeys:UntagResource' :: UntagResource -&gt; [Text]
-</span><a href="#local-6989586621679201399"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679201399"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201398"><span class="annot"><span class="annottext">s :: UntagResource
-</span><a href="#local-6989586621679201398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201397"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679201397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResource
-</span><a href="#local-6989586621679201398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:UntagResource' :: [Text]
+</span><a href="#local-6989586621679201408"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679201408"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201407"><span class="annot"><span class="annottext">s :: UntagResource
+</span><a href="#local-6989586621679201407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201406"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679201406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResource
+</span><a href="#local-6989586621679201407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:UntagResource' :: [Text]
 </span><a href="Network.AWS.DAX.UntagResource.html#%24sel%3AtagKeys%3AUntagResource%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679201397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; UntagResource -&gt; f UntagResource)
+</span><a href="#local-6989586621679201406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; UntagResource -&gt; f UntagResource)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; UntagResource
@@ -191,12 +191,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679201391"><span class="annot"><span class="annottext">request :: UntagResource -&gt; Request UntagResource
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679201400"><span class="annot"><span class="annottext">request :: UntagResource -&gt; Request UntagResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UntagResource -&gt; Request UntagResource
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DAX.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679201387"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679201396"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UntagResource
 -&gt; ClientResponse ClientBody
@@ -220,10 +220,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201384"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201384"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679201383"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679201383"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679201382"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201382"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201393"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201393"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679201392"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679201392"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679201391"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201391"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Tag] -&gt; Int -&gt; UntagResourceResponse
 </span><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-var">UntagResourceResponse'</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Tag] -&gt; Int -&gt; UntagResourceResponse)
@@ -231,7 +231,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UntagResourceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Tag]))
+</span><a href="#local-6989586621679201391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Tag]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Tag]))
@@ -248,15 +248,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201384"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201393"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201373"><span id="local-6989586621679201375"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201382"><span id="local-6989586621679201384"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201379"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679201366"><span class="annot"><span class="annottext">toHeaders :: UntagResource -&gt; ResponseHeaders
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679201375"><span class="annot"><span class="annottext">toHeaders :: UntagResource -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UntagResource -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -281,15 +281,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201356"><span id="local-6989586621679201358"><span id="local-6989586621679201360"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679201354"><span class="annot"><span class="annottext">toJSON :: UntagResource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201351"><span id="local-6989586621679201352"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201365"><span id="local-6989586621679201367"><span id="local-6989586621679201369"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679201363"><span class="annot"><span class="annottext">toJSON :: UntagResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201360"><span id="local-6989586621679201361"><span class="annot"><span class="annottext">[Text]
 Text
 tagKeys :: [Text]
 resourceName :: Text
 $sel:tagKeys:UntagResource' :: UntagResource -&gt; [Text]
 $sel:resourceName:UntagResource' :: UntagResource -&gt; Text
-</span><a href="#local-6989586621679201351"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679201360"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -301,26 +301,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201352"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679201361"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TagKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679201351"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201360"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679201345"><span class="annot"><span class="annottext">toPath :: UntagResource -&gt; ByteString
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679201354"><span class="annot"><span class="annottext">toPath :: UntagResource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UntagResource -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679201341"><span class="annot"><span class="annottext">toQuery :: UntagResource -&gt; QueryString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679201350"><span class="annot"><span class="annottext">toQuery :: UntagResource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UntagResource -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -328,7 +328,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newUntagResourceResponse' smart constructor.</span><span>
-</span><span id="line-138"></span><span id="local-6989586621679201338"><span id="local-6989586621679201339"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagResourceResponse"><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-var">UntagResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagResourceResponse%27"><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-var">UntagResourceResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span id="local-6989586621679201347"><span id="local-6989586621679201348"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagResourceResponse"><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-var">UntagResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagResourceResponse%27"><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-var">UntagResourceResponse'</span></a></span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tag keys that have been removed from the cluster.</span><span>
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3Atags%3AUntagResourceResponse%27"><span class="annot"><span class="annottext">UntagResourceResponse -&gt; Maybe [Tag]
 </span><a href="Network.AWS.DAX.UntagResource.html#%24sel%3Atags%3AUntagResourceResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DAX.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -336,7 +336,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUntagResourceResponse%27"><span class="annot"><span class="annottext">UntagResourceResponse -&gt; Int
 </span><a href="Network.AWS.DAX.UntagResource.html#%24sel%3AhttpStatus%3AUntagResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201332"><span id="local-6989586621679201334"><span class="annot"><span class="annottext">UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201341"><span id="local-6989586621679201343"><span class="annot"><span class="annottext">UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
 (UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool)
 -&gt; (UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool)
 -&gt; Eq UntagResourceResponse
@@ -345,7 +345,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
 == :: UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
 $c== :: UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201324"><span id="local-6989586621679201326"><span id="local-6989586621679201328"><span id="local-6989586621679201330"><span class="annot"><span class="annottext">ReadPrec [UntagResourceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201333"><span id="local-6989586621679201335"><span id="local-6989586621679201337"><span id="local-6989586621679201339"><span class="annot"><span class="annottext">ReadPrec [UntagResourceResponse]
 ReadPrec UntagResourceResponse
 Int -&gt; ReadS UntagResourceResponse
 ReadS [UntagResourceResponse]
@@ -365,7 +365,7 @@ readList :: ReadS [UntagResourceResponse]
 $creadList :: ReadS [UntagResourceResponse]
 readsPrec :: Int -&gt; ReadS UntagResourceResponse
 $creadsPrec :: Int -&gt; ReadS UntagResourceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201318"><span id="local-6989586621679201320"><span id="local-6989586621679201322"><span class="annot"><span class="annottext">Int -&gt; UntagResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201327"><span id="local-6989586621679201329"><span id="local-6989586621679201331"><span class="annot"><span class="annottext">Int -&gt; UntagResourceResponse -&gt; ShowS
 [UntagResourceResponse] -&gt; ShowS
 UntagResourceResponse -&gt; String
 (Int -&gt; UntagResourceResponse -&gt; ShowS)
@@ -407,8 +407,8 @@ $cfrom :: forall x. UntagResourceResponse -&gt; Rep UntagResourceResponse x
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span><span>
 </span><span id="line-161"></span><span id="newUntagResourceResponse"><span class="annot"><span class="annottext">newUntagResourceResponse :: Int -&gt; UntagResourceResponse
-</span><a href="Network.AWS.DAX.UntagResource.html#newUntagResourceResponse"><span class="hs-identifier hs-var hs-var">newUntagResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679201315"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201315"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DAX.UntagResource.html#newUntagResourceResponse"><span class="hs-identifier hs-var hs-var">newUntagResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679201324"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201324"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">UntagResourceResponse' :: Maybe [Tag] -&gt; Int -&gt; UntagResourceResponse
 </span><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-type">UntagResourceResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:UntagResourceResponse' :: Maybe [Tag]
@@ -417,7 +417,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UntagResourceResponse' :: Int
 </span><a href="Network.AWS.DAX.UntagResource.html#%24sel%3AhttpStatus%3AUntagResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201315"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679201324"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The tag keys that have been removed from the cluster.</span><span>
@@ -432,16 +432,16 @@ forall a. Maybe a
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-type">UntagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201314"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-type">UntagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201323"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:UntagResourceResponse' :: UntagResourceResponse -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679201314"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679201314"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201313"><span class="annot"><span class="annottext">s :: UntagResourceResponse
-</span><a href="#local-6989586621679201313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-type">UntagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201312"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679201312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResourceResponse
-</span><a href="#local-6989586621679201313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:UntagResourceResponse' :: Maybe [Tag]
+</span><a href="#local-6989586621679201323"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679201323"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201322"><span class="annot"><span class="annottext">s :: UntagResourceResponse
+</span><a href="#local-6989586621679201322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-type">UntagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201321"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679201321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResourceResponse
+</span><a href="#local-6989586621679201322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:UntagResourceResponse' :: Maybe [Tag]
 </span><a href="Network.AWS.DAX.UntagResource.html#%24sel%3Atags%3AUntagResourceResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679201312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679201321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; UntagResourceResponse -&gt; f UntagResourceResponse)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -465,16 +465,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UntagResourceResponse -&gt; Int -&gt; UntagResourceResponse)
 -&gt; Lens UntagResourceResponse UntagResourceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-type">UntagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201310"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-type">UntagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201319"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UntagResourceResponse' :: UntagResourceResponse -&gt; Int
-</span><a href="#local-6989586621679201310"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201310"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201309"><span class="annot"><span class="annottext">s :: UntagResourceResponse
-</span><a href="#local-6989586621679201309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-type">UntagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201308"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResourceResponse
-</span><a href="#local-6989586621679201309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UntagResourceResponse' :: Int
+</span><a href="#local-6989586621679201319"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201319"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201318"><span class="annot"><span class="annottext">s :: UntagResourceResponse
+</span><a href="#local-6989586621679201318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-type">UntagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201317"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResourceResponse
+</span><a href="#local-6989586621679201318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UntagResourceResponse' :: Int
 </span><a href="Network.AWS.DAX.UntagResource.html#%24sel%3AhttpStatus%3AUntagResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201315"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span></span><span>
 </span><span id="line-176"></span></pre></body></html>

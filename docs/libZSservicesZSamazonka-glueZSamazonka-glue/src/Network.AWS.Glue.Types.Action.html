@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Defines an action to be initiated by a trigger.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAction' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679691858"><span id="local-6989586621679691859"></span></span><span class="hs-keyword">data</span><span> </span><span id="Action"><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-var">Action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Action%27"><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-var">Action'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679691867"><span id="local-6989586621679691868"></span></span><span class="hs-keyword">data</span><span> </span><span id="Action"><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-var">Action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Action%27"><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-var">Action'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies configuration properties of a job run notification.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AnotificationProperty%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe NotificationProperty
 </span><a href="Network.AWS.Glue.Types.Action.html#%24sel%3AnotificationProperty%3AAction%27"><span class="hs-identifier hs-var hs-var">notificationProperty</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.NotificationProperty.html#NotificationProperty"><span class="hs-identifier hs-type">NotificationProperty</span></a></span><span class="hs-special">,</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AcrawlerName%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.Action.html#%24sel%3AcrawlerName%3AAction%27"><span class="hs-identifier hs-var hs-var">crawlerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679691847"><span id="local-6989586621679691849"><span class="annot"><span class="annottext">Action -&gt; Action -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679691856"><span id="local-6989586621679691858"><span class="annot"><span class="annottext">Action -&gt; Action -&gt; Bool
 (Action -&gt; Action -&gt; Bool)
 -&gt; (Action -&gt; Action -&gt; Bool) -&gt; Eq Action
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Action -&gt; Action -&gt; Bool
 == :: Action -&gt; Action -&gt; Bool
 $c== :: Action -&gt; Action -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679691838"><span id="local-6989586621679691840"><span id="local-6989586621679691842"><span id="local-6989586621679691844"><span class="annot"><span class="annottext">ReadPrec [Action]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679691847"><span id="local-6989586621679691849"><span id="local-6989586621679691851"><span id="local-6989586621679691853"><span class="annot"><span class="annottext">ReadPrec [Action]
 ReadPrec Action
 Int -&gt; ReadS Action
 ReadS [Action]
@@ -93,7 +93,7 @@ readList :: ReadS [Action]
 $creadList :: ReadS [Action]
 readsPrec :: Int -&gt; ReadS Action
 $creadsPrec :: Int -&gt; ReadS Action
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679691831"><span id="local-6989586621679691833"><span id="local-6989586621679691835"><span class="annot"><span class="annottext">Int -&gt; Action -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679691840"><span id="local-6989586621679691842"><span id="local-6989586621679691844"><span class="annot"><span class="annottext">Int -&gt; Action -&gt; ShowS
 [Action] -&gt; ShowS
 Action -&gt; String
 (Int -&gt; Action -&gt; ShowS)
@@ -203,16 +203,16 @@ forall a. Maybe a
      (Maybe NotificationProperty)
      (Maybe NotificationProperty)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691822"><span class="annot"><span class="annottext">Maybe NotificationProperty
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691831"><span class="annot"><span class="annottext">Maybe NotificationProperty
 notificationProperty :: Maybe NotificationProperty
 $sel:notificationProperty:Action' :: Action -&gt; Maybe NotificationProperty
-</span><a href="#local-6989586621679691822"><span class="hs-identifier hs-var hs-var">notificationProperty</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationProperty
-</span><a href="#local-6989586621679691822"><span class="hs-identifier hs-var">notificationProperty</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691821"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679691821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691820"><span class="annot"><span class="annottext">Maybe NotificationProperty
-</span><a href="#local-6989586621679691820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679691821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationProperty:Action' :: Maybe NotificationProperty
+</span><a href="#local-6989586621679691831"><span class="hs-identifier hs-var hs-var">notificationProperty</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationProperty
+</span><a href="#local-6989586621679691831"><span class="hs-identifier hs-var">notificationProperty</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691830"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679691830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691829"><span class="annot"><span class="annottext">Maybe NotificationProperty
+</span><a href="#local-6989586621679691829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679691830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationProperty:Action' :: Maybe NotificationProperty
 </span><a href="Network.AWS.Glue.Types.Action.html#%24sel%3AnotificationProperty%3AAction%27"><span class="hs-identifier hs-var">notificationProperty</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationProperty
-</span><a href="#local-6989586621679691820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679691829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The job arguments used when this trigger fires. For this job run, they</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- replace the default arguments set in the job definition itself.</span><span>
@@ -240,16 +240,16 @@ $sel:notificationProperty:Action' :: Action -&gt; Maybe NotificationProperty
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691818"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691827"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 arguments :: Maybe (HashMap Text Text)
 $sel:arguments:Action' :: Action -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679691818"><span class="hs-identifier hs-var hs-var">arguments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679691818"><span class="hs-identifier hs-var">arguments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691817"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679691817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691816"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679691816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679691817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arguments:Action' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679691827"><span class="hs-identifier hs-var hs-var">arguments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679691827"><span class="hs-identifier hs-var">arguments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691826"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679691826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691825"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679691825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679691826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arguments:Action' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Glue.Types.Action.html#%24sel%3Aarguments%3AAction%27"><span class="hs-identifier hs-var">arguments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679691816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679691825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; Action -&gt; f Action)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -285,16 +285,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Action -&gt; Maybe Text -&gt; Action)
 -&gt; Lens Action Action (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691811"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691820"><span class="annot"><span class="annottext">Maybe Text
 jobName :: Maybe Text
 $sel:jobName:Action' :: Action -&gt; Maybe Text
-</span><a href="#local-6989586621679691811"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691811"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691810"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679691810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691809"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679691810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:Action' :: Maybe Text
+</span><a href="#local-6989586621679691820"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691820"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691819"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679691819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691818"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679691819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:Action' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.Action.html#%24sel%3AjobName%3AAction%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679691818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The name of the @SecurityConfiguration@ structure to be used with this</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- action.</span><span>
@@ -304,16 +304,16 @@ $sel:jobName:Action' :: Action -&gt; Maybe Text
 -&gt; (Action -&gt; Maybe Text -&gt; Action)
 -&gt; Lens Action Action (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691807"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691816"><span class="annot"><span class="annottext">Maybe Text
 securityConfiguration :: Maybe Text
 $sel:securityConfiguration:Action' :: Action -&gt; Maybe Text
-</span><a href="#local-6989586621679691807"><span class="hs-identifier hs-var hs-var">securityConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691807"><span class="hs-identifier hs-var">securityConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691806"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679691806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691805"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679691806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityConfiguration:Action' :: Maybe Text
+</span><a href="#local-6989586621679691816"><span class="hs-identifier hs-var hs-var">securityConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691816"><span class="hs-identifier hs-var">securityConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691815"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679691815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691814"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679691815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityConfiguration:Action' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.Action.html#%24sel%3AsecurityConfiguration%3AAction%27"><span class="hs-identifier hs-var">securityConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679691814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The @JobRun@ timeout in minutes. This is the maximum time that a job run</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- can consume resources before it is terminated and enters @TIMEOUT@</span><span>
@@ -325,16 +325,16 @@ $sel:securityConfiguration:Action' :: Action -&gt; Maybe Text
 -&gt; (Action -&gt; Maybe Natural -&gt; Action)
 -&gt; Lens Action Action (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691803"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691812"><span class="annot"><span class="annottext">Maybe Natural
 timeout :: Maybe Natural
 $sel:timeout:Action' :: Action -&gt; Maybe Natural
-</span><a href="#local-6989586621679691803"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679691803"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691802"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679691802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691801"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679691801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679691802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeout:Action' :: Maybe Natural
+</span><a href="#local-6989586621679691812"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679691812"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691811"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679691811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691810"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679691810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679691811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeout:Action' :: Maybe Natural
 </span><a href="Network.AWS.Glue.Types.Action.html#%24sel%3Atimeout%3AAction%27"><span class="hs-identifier hs-var">timeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679691801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679691810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The name of the crawler to be used with this action.</span><span>
 </span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#action_crawlerName"><span class="hs-identifier hs-type">action_crawlerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -343,27 +343,27 @@ $sel:timeout:Action' :: Action -&gt; Maybe Natural
 -&gt; (Action -&gt; Maybe Text -&gt; Action)
 -&gt; Lens Action Action (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691799"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691808"><span class="annot"><span class="annottext">Maybe Text
 crawlerName :: Maybe Text
 $sel:crawlerName:Action' :: Action -&gt; Maybe Text
-</span><a href="#local-6989586621679691799"><span class="hs-identifier hs-var hs-var">crawlerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691799"><span class="hs-identifier hs-var">crawlerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691798"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679691798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691797"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679691798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crawlerName:Action' :: Maybe Text
+</span><a href="#local-6989586621679691808"><span class="hs-identifier hs-var hs-var">crawlerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691808"><span class="hs-identifier hs-var">crawlerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691807"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679691807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691806"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679691806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679691807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crawlerName:Action' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.Action.html#%24sel%3AcrawlerName%3AAction%27"><span class="hs-identifier hs-var">crawlerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679691806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691794"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679691792"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Action
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691803"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679691801"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Action
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Action) -&gt; Value -&gt; Parser Action
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Action&quot;</span></span><span>
-</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679691789"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679691789"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679691798"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679691798"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Maybe NotificationProperty
 -&gt; Maybe (HashMap Text Text)
 -&gt; Maybe Text
@@ -389,7 +389,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679691789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NotificationProperty)
+</span><a href="#local-6989586621679691798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NotificationProperty)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotificationProperty&quot;</span></span><span class="hs-special">)</span><span>
@@ -405,7 +405,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679691789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679691798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arguments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -420,7 +420,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679691789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679691798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobName&quot;</span></span><span class="hs-special">)</span><span>
@@ -429,7 +429,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; Maybe Text -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679691789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679691798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecurityConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -437,7 +437,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser (Maybe Text -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679691789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679691798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timeout&quot;</span></span><span class="hs-special">)</span><span>
@@ -445,19 +445,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Action
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679691789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679691798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CrawlerName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691782"><span id="local-6989586621679691784"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691791"><span id="local-6989586621679691793"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span></span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691779"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691788"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691771"><span id="local-6989586621679691773"><span id="local-6989586621679691775"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679691769"><span class="annot"><span class="annottext">toJSON :: Action -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691762"><span id="local-6989586621679691763"><span id="local-6989586621679691764"><span id="local-6989586621679691765"><span id="local-6989586621679691766"><span id="local-6989586621679691767"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691780"><span id="local-6989586621679691782"><span id="local-6989586621679691784"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679691778"><span class="annot"><span class="annottext">toJSON :: Action -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691771"><span id="local-6989586621679691772"><span id="local-6989586621679691773"><span id="local-6989586621679691774"><span id="local-6989586621679691775"><span id="local-6989586621679691776"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe (HashMap Text Text)
 Maybe NotificationProperty
@@ -473,7 +473,7 @@ $sel:securityConfiguration:Action' :: Action -&gt; Maybe Text
 $sel:jobName:Action' :: Action -&gt; Maybe Text
 $sel:arguments:Action' :: Action -&gt; Maybe (HashMap Text Text)
 $sel:notificationProperty:Action' :: Action -&gt; Maybe NotificationProperty
-</span><a href="#local-6989586621679691762"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679691771"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -487,7 +487,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe NotificationProperty -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NotificationProperty
-</span><a href="#local-6989586621679691767"><span class="hs-identifier hs-var">notificationProperty</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679691776"><span class="hs-identifier hs-var">notificationProperty</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arguments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -495,14 +495,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679691766"><span class="hs-identifier hs-var">arguments</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679691775"><span class="hs-identifier hs-var">arguments</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691765"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679691774"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecurityConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -510,21 +510,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-182"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691764"><span class="hs-identifier hs-var">securityConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679691773"><span class="hs-identifier hs-var">securityConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679691763"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679691772"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CrawlerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691762"><span class="hs-identifier hs-var">crawlerName</span></a></span><span>
+</span><a href="#local-6989586621679691771"><span class="hs-identifier hs-var">crawlerName</span></a></span><span>
 </span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span></pre></body></html>

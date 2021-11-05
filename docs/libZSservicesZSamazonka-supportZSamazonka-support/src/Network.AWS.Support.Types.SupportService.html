@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- operation.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSupportService' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679171309"><span id="local-6989586621679171310"></span></span><span class="hs-keyword">data</span><span> </span><span id="SupportService"><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService"><span class="hs-identifier hs-var">SupportService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SupportService%27"><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService%27"><span class="hs-identifier hs-var">SupportService'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679171318"><span id="local-6989586621679171319"></span></span><span class="hs-keyword">data</span><span> </span><span id="SupportService"><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService"><span class="hs-identifier hs-var">SupportService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SupportService%27"><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService%27"><span class="hs-identifier hs-var">SupportService'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of categories that describe the type of support issue a case</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- describes. Categories consist of a category name and a category code.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Category names and codes are passed to AWS Support when you call</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Acode%3ASupportService%27"><span class="annot"><span class="annottext">SupportService -&gt; Maybe Text
 </span><a href="Network.AWS.Support.Types.SupportService.html#%24sel%3Acode%3ASupportService%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171301"><span id="local-6989586621679171303"><span class="annot"><span class="annottext">SupportService -&gt; SupportService -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171310"><span id="local-6989586621679171312"><span class="annot"><span class="annottext">SupportService -&gt; SupportService -&gt; Bool
 (SupportService -&gt; SupportService -&gt; Bool)
 -&gt; (SupportService -&gt; SupportService -&gt; Bool) -&gt; Eq SupportService
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SupportService -&gt; SupportService -&gt; Bool
 == :: SupportService -&gt; SupportService -&gt; Bool
 $c== :: SupportService -&gt; SupportService -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171292"><span id="local-6989586621679171294"><span id="local-6989586621679171296"><span id="local-6989586621679171298"><span class="annot"><span class="annottext">ReadPrec [SupportService]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171301"><span id="local-6989586621679171303"><span id="local-6989586621679171305"><span id="local-6989586621679171307"><span class="annot"><span class="annottext">ReadPrec [SupportService]
 ReadPrec SupportService
 Int -&gt; ReadS SupportService
 ReadS [SupportService]
@@ -72,7 +72,7 @@ readList :: ReadS [SupportService]
 $creadList :: ReadS [SupportService]
 readsPrec :: Int -&gt; ReadS SupportService
 $creadsPrec :: Int -&gt; ReadS SupportService
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171285"><span id="local-6989586621679171287"><span id="local-6989586621679171289"><span class="annot"><span class="annottext">Int -&gt; SupportService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171294"><span id="local-6989586621679171296"><span id="local-6989586621679171298"><span class="annot"><span class="annottext">Int -&gt; SupportService -&gt; ShowS
 [SupportService] -&gt; ShowS
 SupportService -&gt; String
 (Int -&gt; SupportService -&gt; ShowS)
@@ -148,16 +148,16 @@ forall a. Maybe a
 -&gt; Lens
      SupportService SupportService (Maybe [Category]) (Maybe [Category])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService%27"><span class="hs-identifier hs-type">SupportService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171276"><span class="annot"><span class="annottext">Maybe [Category]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService%27"><span class="hs-identifier hs-type">SupportService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171285"><span class="annot"><span class="annottext">Maybe [Category]
 categories :: Maybe [Category]
 $sel:categories:SupportService' :: SupportService -&gt; Maybe [Category]
-</span><a href="#local-6989586621679171276"><span class="hs-identifier hs-var hs-var">categories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Category]
-</span><a href="#local-6989586621679171276"><span class="hs-identifier hs-var">categories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171275"><span class="annot"><span class="annottext">s :: SupportService
-</span><a href="#local-6989586621679171275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService%27"><span class="hs-identifier hs-type">SupportService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171274"><span class="annot"><span class="annottext">Maybe [Category]
-</span><a href="#local-6989586621679171274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SupportService
-</span><a href="#local-6989586621679171275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:categories:SupportService' :: Maybe [Category]
+</span><a href="#local-6989586621679171285"><span class="hs-identifier hs-var hs-var">categories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Category]
+</span><a href="#local-6989586621679171285"><span class="hs-identifier hs-var">categories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171284"><span class="annot"><span class="annottext">s :: SupportService
+</span><a href="#local-6989586621679171284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService%27"><span class="hs-identifier hs-type">SupportService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171283"><span class="annot"><span class="annottext">Maybe [Category]
+</span><a href="#local-6989586621679171283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SupportService
+</span><a href="#local-6989586621679171284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:categories:SupportService' :: Maybe [Category]
 </span><a href="Network.AWS.Support.Types.SupportService.html#%24sel%3Acategories%3ASupportService%27"><span class="hs-identifier hs-var">categories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Category]
-</span><a href="#local-6989586621679171274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService"><span class="hs-identifier hs-type">SupportService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Category] -&gt; f (Maybe [Category]))
+</span><a href="#local-6989586621679171283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService"><span class="hs-identifier hs-type">SupportService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Category] -&gt; f (Maybe [Category]))
  -&gt; SupportService -&gt; f SupportService)
 -&gt; ((Maybe [Category] -&gt; f (Maybe [Category]))
     -&gt; Maybe [Category] -&gt; f (Maybe [Category]))
@@ -187,16 +187,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (SupportService -&gt; Maybe Text -&gt; SupportService)
 -&gt; Lens SupportService SupportService (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService%27"><span class="hs-identifier hs-type">SupportService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171269"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService%27"><span class="hs-identifier hs-type">SupportService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171278"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:SupportService' :: SupportService -&gt; Maybe Text
-</span><a href="#local-6989586621679171269"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171269"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171268"><span class="annot"><span class="annottext">s :: SupportService
-</span><a href="#local-6989586621679171268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService%27"><span class="hs-identifier hs-type">SupportService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171267"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SupportService
-</span><a href="#local-6989586621679171268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SupportService' :: Maybe Text
+</span><a href="#local-6989586621679171278"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171278"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171277"><span class="annot"><span class="annottext">s :: SupportService
+</span><a href="#local-6989586621679171277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService%27"><span class="hs-identifier hs-type">SupportService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171276"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SupportService
+</span><a href="#local-6989586621679171277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SupportService' :: Maybe Text
 </span><a href="Network.AWS.Support.Types.SupportService.html#%24sel%3Aname%3ASupportService%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService"><span class="hs-identifier hs-type">SupportService</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679171276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService"><span class="hs-identifier hs-type">SupportService</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The code for an AWS service returned by the DescribeServices response.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- The @name@ element contains the corresponding friendly name.</span><span>
@@ -207,19 +207,19 @@ $sel:name:SupportService' :: SupportService -&gt; Maybe Text
 -&gt; (SupportService -&gt; Maybe Text -&gt; SupportService)
 -&gt; Lens SupportService SupportService (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService%27"><span class="hs-identifier hs-type">SupportService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171265"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService%27"><span class="hs-identifier hs-type">SupportService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171274"><span class="annot"><span class="annottext">Maybe Text
 code :: Maybe Text
 $sel:code:SupportService' :: SupportService -&gt; Maybe Text
-</span><a href="#local-6989586621679171265"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171265"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171264"><span class="annot"><span class="annottext">s :: SupportService
-</span><a href="#local-6989586621679171264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService%27"><span class="hs-identifier hs-type">SupportService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171263"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SupportService
-</span><a href="#local-6989586621679171264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:SupportService' :: Maybe Text
+</span><a href="#local-6989586621679171274"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171274"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171273"><span class="annot"><span class="annottext">s :: SupportService
+</span><a href="#local-6989586621679171273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService%27"><span class="hs-identifier hs-type">SupportService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171272"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SupportService
+</span><a href="#local-6989586621679171273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:SupportService' :: Maybe Text
 </span><a href="Network.AWS.Support.Types.SupportService.html#%24sel%3Acode%3ASupportService%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService"><span class="hs-identifier hs-type">SupportService</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679171272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService"><span class="hs-identifier hs-type">SupportService</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171260"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService"><span class="hs-identifier hs-type">SupportService</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679171258"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SupportService
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171269"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService"><span class="hs-identifier hs-type">SupportService</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679171267"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SupportService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SupportService)
@@ -229,8 +229,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SupportService&quot;</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679171255"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679171255"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679171264"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171264"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Category] -&gt; Maybe Text -&gt; Maybe Text -&gt; SupportService
 </span><a href="Network.AWS.Support.Types.SupportService.html#SupportService%27"><span class="hs-identifier hs-var">SupportService'</span></a></span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Category] -&gt; Maybe Text -&gt; Maybe Text -&gt; SupportService)
@@ -238,7 +238,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; SupportService)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679171255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Category]))
+</span><a href="#local-6989586621679171264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Category]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;categories&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Category]))
@@ -251,7 +251,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; SupportService)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679171255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679171264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -259,13 +259,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser SupportService
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679171255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679171264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171248"><span id="local-6989586621679171250"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService"><span class="hs-identifier hs-type">SupportService</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171257"><span id="local-6989586621679171259"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService"><span class="hs-identifier hs-type">SupportService</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171245"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService"><span class="hs-identifier hs-type">SupportService</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171254"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.SupportService.html#SupportService"><span class="hs-identifier hs-type">SupportService</span></a></span></span><span>
 </span><span id="line-104"></span></pre></body></html>

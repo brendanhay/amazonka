@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- into. AWS Snow Family supports Amazon S3 and NFS (Network File System).</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newTargetOnDeviceService' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679226631"><span id="local-6989586621679226632"></span></span><span class="hs-keyword">data</span><span> </span><span id="TargetOnDeviceService"><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService"><span class="hs-identifier hs-var">TargetOnDeviceService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetOnDeviceService%27"><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService%27"><span class="hs-identifier hs-var">TargetOnDeviceService'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679226640"><span id="local-6989586621679226641"></span></span><span class="hs-keyword">data</span><span> </span><span id="TargetOnDeviceService"><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService"><span class="hs-identifier hs-var">TargetOnDeviceService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetOnDeviceService%27"><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService%27"><span class="hs-identifier hs-var">TargetOnDeviceService'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether the data is being imported or exported. You can import</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- or export the data, or use it locally on the device.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AtransferOption%3ATargetOnDeviceService%27"><span class="annot"><span class="annottext">TargetOnDeviceService -&gt; Maybe TransferOption
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AserviceName%3ATargetOnDeviceService%27"><span class="annot"><span class="annottext">TargetOnDeviceService -&gt; Maybe DeviceServiceName
 </span><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#%24sel%3AserviceName%3ATargetOnDeviceService%27"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.DeviceServiceName.html#DeviceServiceName"><span class="hs-identifier hs-type">DeviceServiceName</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226624"><span id="local-6989586621679226626"><span class="annot"><span class="annottext">TargetOnDeviceService -&gt; TargetOnDeviceService -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226633"><span id="local-6989586621679226635"><span class="annot"><span class="annottext">TargetOnDeviceService -&gt; TargetOnDeviceService -&gt; Bool
 (TargetOnDeviceService -&gt; TargetOnDeviceService -&gt; Bool)
 -&gt; (TargetOnDeviceService -&gt; TargetOnDeviceService -&gt; Bool)
 -&gt; Eq TargetOnDeviceService
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TargetOnDeviceService -&gt; TargetOnDeviceService -&gt; Bool
 == :: TargetOnDeviceService -&gt; TargetOnDeviceService -&gt; Bool
 $c== :: TargetOnDeviceService -&gt; TargetOnDeviceService -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226615"><span id="local-6989586621679226617"><span id="local-6989586621679226619"><span id="local-6989586621679226621"><span class="annot"><span class="annottext">ReadPrec [TargetOnDeviceService]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226624"><span id="local-6989586621679226626"><span id="local-6989586621679226628"><span id="local-6989586621679226630"><span class="annot"><span class="annottext">ReadPrec [TargetOnDeviceService]
 ReadPrec TargetOnDeviceService
 Int -&gt; ReadS TargetOnDeviceService
 ReadS [TargetOnDeviceService]
@@ -69,7 +69,7 @@ readList :: ReadS [TargetOnDeviceService]
 $creadList :: ReadS [TargetOnDeviceService]
 readsPrec :: Int -&gt; ReadS TargetOnDeviceService
 $creadsPrec :: Int -&gt; ReadS TargetOnDeviceService
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226608"><span id="local-6989586621679226610"><span id="local-6989586621679226612"><span class="annot"><span class="annottext">Int -&gt; TargetOnDeviceService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226617"><span id="local-6989586621679226619"><span id="local-6989586621679226621"><span class="annot"><span class="annottext">Int -&gt; TargetOnDeviceService -&gt; ShowS
 [TargetOnDeviceService] -&gt; ShowS
 TargetOnDeviceService -&gt; String
 (Int -&gt; TargetOnDeviceService -&gt; ShowS)
@@ -140,16 +140,16 @@ forall a. Maybe a
      (Maybe TransferOption)
      (Maybe TransferOption)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService%27"><span class="hs-identifier hs-type">TargetOnDeviceService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226599"><span class="annot"><span class="annottext">Maybe TransferOption
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService%27"><span class="hs-identifier hs-type">TargetOnDeviceService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226608"><span class="annot"><span class="annottext">Maybe TransferOption
 transferOption :: Maybe TransferOption
 $sel:transferOption:TargetOnDeviceService' :: TargetOnDeviceService -&gt; Maybe TransferOption
-</span><a href="#local-6989586621679226599"><span class="hs-identifier hs-var hs-var">transferOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransferOption
-</span><a href="#local-6989586621679226599"><span class="hs-identifier hs-var">transferOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226598"><span class="annot"><span class="annottext">s :: TargetOnDeviceService
-</span><a href="#local-6989586621679226598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService%27"><span class="hs-identifier hs-type">TargetOnDeviceService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226597"><span class="annot"><span class="annottext">Maybe TransferOption
-</span><a href="#local-6989586621679226597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetOnDeviceService
-</span><a href="#local-6989586621679226598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferOption:TargetOnDeviceService' :: Maybe TransferOption
+</span><a href="#local-6989586621679226608"><span class="hs-identifier hs-var hs-var">transferOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransferOption
+</span><a href="#local-6989586621679226608"><span class="hs-identifier hs-var">transferOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226607"><span class="annot"><span class="annottext">s :: TargetOnDeviceService
+</span><a href="#local-6989586621679226607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService%27"><span class="hs-identifier hs-type">TargetOnDeviceService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226606"><span class="annot"><span class="annottext">Maybe TransferOption
+</span><a href="#local-6989586621679226606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetOnDeviceService
+</span><a href="#local-6989586621679226607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferOption:TargetOnDeviceService' :: Maybe TransferOption
 </span><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#%24sel%3AtransferOption%3ATargetOnDeviceService%27"><span class="hs-identifier hs-var">transferOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransferOption
-</span><a href="#local-6989586621679226597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService"><span class="hs-identifier hs-type">TargetOnDeviceService</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService"><span class="hs-identifier hs-type">TargetOnDeviceService</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | Specifies the name of the service on the Snow Family device that your</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- transferred data will be exported from or imported into.</span><span>
@@ -165,19 +165,19 @@ $sel:transferOption:TargetOnDeviceService' :: TargetOnDeviceService -&gt; Maybe 
      (Maybe DeviceServiceName)
      (Maybe DeviceServiceName)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService%27"><span class="hs-identifier hs-type">TargetOnDeviceService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226595"><span class="annot"><span class="annottext">Maybe DeviceServiceName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService%27"><span class="hs-identifier hs-type">TargetOnDeviceService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226604"><span class="annot"><span class="annottext">Maybe DeviceServiceName
 serviceName :: Maybe DeviceServiceName
 $sel:serviceName:TargetOnDeviceService' :: TargetOnDeviceService -&gt; Maybe DeviceServiceName
-</span><a href="#local-6989586621679226595"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceServiceName
-</span><a href="#local-6989586621679226595"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226594"><span class="annot"><span class="annottext">s :: TargetOnDeviceService
-</span><a href="#local-6989586621679226594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService%27"><span class="hs-identifier hs-type">TargetOnDeviceService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226593"><span class="annot"><span class="annottext">Maybe DeviceServiceName
-</span><a href="#local-6989586621679226593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetOnDeviceService
-</span><a href="#local-6989586621679226594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:TargetOnDeviceService' :: Maybe DeviceServiceName
+</span><a href="#local-6989586621679226604"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceServiceName
+</span><a href="#local-6989586621679226604"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226603"><span class="annot"><span class="annottext">s :: TargetOnDeviceService
+</span><a href="#local-6989586621679226603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService%27"><span class="hs-identifier hs-type">TargetOnDeviceService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226602"><span class="annot"><span class="annottext">Maybe DeviceServiceName
+</span><a href="#local-6989586621679226602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetOnDeviceService
+</span><a href="#local-6989586621679226603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:TargetOnDeviceService' :: Maybe DeviceServiceName
 </span><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#%24sel%3AserviceName%3ATargetOnDeviceService%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceServiceName
-</span><a href="#local-6989586621679226593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService"><span class="hs-identifier hs-type">TargetOnDeviceService</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService"><span class="hs-identifier hs-type">TargetOnDeviceService</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226590"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService"><span class="hs-identifier hs-type">TargetOnDeviceService</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679226588"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TargetOnDeviceService
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226599"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService"><span class="hs-identifier hs-type">TargetOnDeviceService</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679226597"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TargetOnDeviceService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TargetOnDeviceService)
@@ -187,8 +187,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TargetOnDeviceService&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226585"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226585"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226594"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226594"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransferOption
 -&gt; Maybe DeviceServiceName -&gt; TargetOnDeviceService
 </span><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService%27"><span class="hs-identifier hs-var">TargetOnDeviceService'</span></a></span><span>
@@ -198,7 +198,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe DeviceServiceName -&gt; TargetOnDeviceService)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TransferOption)
+</span><a href="#local-6989586621679226594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TransferOption)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TransferOption&quot;</span></span><span class="hs-special">)</span><span>
@@ -206,25 +206,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe DeviceServiceName) -&gt; Parser TargetOnDeviceService
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceServiceName)
+</span><a href="#local-6989586621679226594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceServiceName)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226579"><span id="local-6989586621679226581"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService"><span class="hs-identifier hs-type">TargetOnDeviceService</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226588"><span id="local-6989586621679226590"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService"><span class="hs-identifier hs-type">TargetOnDeviceService</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226576"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService"><span class="hs-identifier hs-type">TargetOnDeviceService</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226585"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService"><span class="hs-identifier hs-type">TargetOnDeviceService</span></a></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226568"><span id="local-6989586621679226570"><span id="local-6989586621679226572"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService"><span class="hs-identifier hs-type">TargetOnDeviceService</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679226566"><span class="annot"><span class="annottext">toJSON :: TargetOnDeviceService -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService%27"><span class="hs-identifier hs-type">TargetOnDeviceService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226563"><span id="local-6989586621679226564"><span class="annot"><span class="annottext">Maybe DeviceServiceName
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226577"><span id="local-6989586621679226579"><span id="local-6989586621679226581"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService"><span class="hs-identifier hs-type">TargetOnDeviceService</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679226575"><span class="annot"><span class="annottext">toJSON :: TargetOnDeviceService -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TargetOnDeviceService.html#TargetOnDeviceService%27"><span class="hs-identifier hs-type">TargetOnDeviceService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226572"><span id="local-6989586621679226573"><span class="annot"><span class="annottext">Maybe DeviceServiceName
 Maybe TransferOption
 serviceName :: Maybe DeviceServiceName
 transferOption :: Maybe TransferOption
 $sel:serviceName:TargetOnDeviceService' :: TargetOnDeviceService -&gt; Maybe DeviceServiceName
 $sel:transferOption:TargetOnDeviceService' :: TargetOnDeviceService -&gt; Maybe TransferOption
-</span><a href="#local-6989586621679226563"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679226572"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -237,7 +237,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-94"></span><span>              </span><span class="annot"><span class="annottext">(TransferOption -&gt; Pair) -&gt; Maybe TransferOption -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TransferOption
-</span><a href="#local-6989586621679226564"><span class="hs-identifier hs-var">transferOption</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226573"><span class="hs-identifier hs-var">transferOption</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeviceServiceName -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -245,7 +245,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DeviceServiceName -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeviceServiceName
-</span><a href="#local-6989586621679226563"><span class="hs-identifier hs-var">serviceName</span></a></span><span>
+</span><a href="#local-6989586621679226572"><span class="hs-identifier hs-var">serviceName</span></a></span><span>
 </span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span></pre></body></html>

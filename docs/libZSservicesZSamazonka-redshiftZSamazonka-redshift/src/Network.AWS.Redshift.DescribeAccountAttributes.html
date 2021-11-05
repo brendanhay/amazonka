@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDescribeAccountAttributes' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679521891"><span id="local-6989586621679521892"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAccountAttributes"><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes"><span class="hs-identifier hs-var">DescribeAccountAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAccountAttributes%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes%27"><span class="hs-identifier hs-var">DescribeAccountAttributes'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679521900"><span id="local-6989586621679521901"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAccountAttributes"><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes"><span class="hs-identifier hs-var">DescribeAccountAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAccountAttributes%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes%27"><span class="hs-identifier hs-var">DescribeAccountAttributes'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of attribute names.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AattributeNames%3ADescribeAccountAttributes%27"><span class="annot"><span class="annottext">DescribeAccountAttributes -&gt; Maybe [Text]
 </span><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#%24sel%3AattributeNames%3ADescribeAccountAttributes%27"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679521885"><span id="local-6989586621679521887"><span class="annot"><span class="annottext">DescribeAccountAttributes -&gt; DescribeAccountAttributes -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679521894"><span id="local-6989586621679521896"><span class="annot"><span class="annottext">DescribeAccountAttributes -&gt; DescribeAccountAttributes -&gt; Bool
 (DescribeAccountAttributes -&gt; DescribeAccountAttributes -&gt; Bool)
 -&gt; (DescribeAccountAttributes -&gt; DescribeAccountAttributes -&gt; Bool)
 -&gt; Eq DescribeAccountAttributes
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeAccountAttributes -&gt; DescribeAccountAttributes -&gt; Bool
 == :: DescribeAccountAttributes -&gt; DescribeAccountAttributes -&gt; Bool
 $c== :: DescribeAccountAttributes -&gt; DescribeAccountAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521876"><span id="local-6989586621679521878"><span id="local-6989586621679521880"><span id="local-6989586621679521882"><span class="annot"><span class="annottext">ReadPrec [DescribeAccountAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521885"><span id="local-6989586621679521887"><span id="local-6989586621679521889"><span id="local-6989586621679521891"><span class="annot"><span class="annottext">ReadPrec [DescribeAccountAttributes]
 ReadPrec DescribeAccountAttributes
 Int -&gt; ReadS DescribeAccountAttributes
 ReadS [DescribeAccountAttributes]
@@ -81,7 +81,7 @@ readList :: ReadS [DescribeAccountAttributes]
 $creadList :: ReadS [DescribeAccountAttributes]
 readsPrec :: Int -&gt; ReadS DescribeAccountAttributes
 $creadsPrec :: Int -&gt; ReadS DescribeAccountAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521869"><span id="local-6989586621679521871"><span id="local-6989586621679521873"><span class="annot"><span class="annottext">Int -&gt; DescribeAccountAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521878"><span id="local-6989586621679521880"><span id="local-6989586621679521882"><span class="annot"><span class="annottext">Int -&gt; DescribeAccountAttributes -&gt; ShowS
 [DescribeAccountAttributes] -&gt; ShowS
 DescribeAccountAttributes -&gt; String
 (Int -&gt; DescribeAccountAttributes -&gt; ShowS)
@@ -148,16 +148,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes%27"><span class="hs-identifier hs-type">DescribeAccountAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521862"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes%27"><span class="hs-identifier hs-type">DescribeAccountAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521871"><span class="annot"><span class="annottext">Maybe [Text]
 attributeNames :: Maybe [Text]
 $sel:attributeNames:DescribeAccountAttributes' :: DescribeAccountAttributes -&gt; Maybe [Text]
-</span><a href="#local-6989586621679521862"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679521862"><span class="hs-identifier hs-var">attributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521861"><span class="annot"><span class="annottext">s :: DescribeAccountAttributes
-</span><a href="#local-6989586621679521861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes%27"><span class="hs-identifier hs-type">DescribeAccountAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521860"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679521860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountAttributes
-</span><a href="#local-6989586621679521861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeNames:DescribeAccountAttributes' :: Maybe [Text]
+</span><a href="#local-6989586621679521871"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679521871"><span class="hs-identifier hs-var">attributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521870"><span class="annot"><span class="annottext">s :: DescribeAccountAttributes
+</span><a href="#local-6989586621679521870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes%27"><span class="hs-identifier hs-type">DescribeAccountAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521869"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679521869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountAttributes
+</span><a href="#local-6989586621679521870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeNames:DescribeAccountAttributes' :: Maybe [Text]
 </span><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#%24sel%3AattributeNames%3ADescribeAccountAttributes%27"><span class="hs-identifier hs-var">attributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679521860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes"><span class="hs-identifier hs-type">DescribeAccountAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679521869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes"><span class="hs-identifier hs-type">DescribeAccountAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeAccountAttributes -&gt; f DescribeAccountAttributes)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -178,13 +178,13 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes"><span class="hs-identifier hs-type">DescribeAccountAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse"><span class="hs-identifier hs-type">DescribeAccountAttributesResponse</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679521853"><span class="annot"><span class="annottext">request :: DescribeAccountAttributes -&gt; Request DescribeAccountAttributes
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679521862"><span class="annot"><span class="annottext">request :: DescribeAccountAttributes -&gt; Request DescribeAccountAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeAccountAttributes -&gt; Request DescribeAccountAttributes
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679521849"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679521858"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeAccountAttributes
 -&gt; ClientResponse ClientBody
@@ -215,10 +215,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeAccountAttributesResult&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679521846"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679521846"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679521845"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679521845"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679521844"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679521844"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679521855"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679521855"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679521854"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679521854"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679521853"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679521853"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AccountAttribute]
 -&gt; Int -&gt; DescribeAccountAttributesResponse
 </span><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse%27"><span class="hs-identifier hs-var">DescribeAccountAttributesResponse'</span></a></span><span>
@@ -228,7 +228,7 @@ Text
 -&gt; Either String (Int -&gt; DescribeAccountAttributesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679521844"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679521853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccountAttributes&quot;</span></span><span>
@@ -260,15 +260,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679521846"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679521855"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521833"><span id="local-6989586621679521835"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes"><span class="hs-identifier hs-type">DescribeAccountAttributes</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521842"><span id="local-6989586621679521844"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes"><span class="hs-identifier hs-type">DescribeAccountAttributes</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes"><span class="hs-identifier hs-type">DescribeAccountAttributes</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521839"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes"><span class="hs-identifier hs-type">DescribeAccountAttributes</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes"><span class="hs-identifier hs-type">DescribeAccountAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679521826"><span class="annot"><span class="annottext">toHeaders :: DescribeAccountAttributes -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679521835"><span class="annot"><span class="annottext">toHeaders :: DescribeAccountAttributes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAccountAttributes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -276,18 +276,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes"><span class="hs-identifier hs-type">DescribeAccountAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679521821"><span class="annot"><span class="annottext">toPath :: DescribeAccountAttributes -&gt; ByteString
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679521830"><span class="annot"><span class="annottext">toPath :: DescribeAccountAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeAccountAttributes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes"><span class="hs-identifier hs-type">DescribeAccountAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679521817"><span class="annot"><span class="annottext">toQuery :: DescribeAccountAttributes -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes%27"><span class="hs-identifier hs-type">DescribeAccountAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521815"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679521826"><span class="annot"><span class="annottext">toQuery :: DescribeAccountAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributes%27"><span class="hs-identifier hs-type">DescribeAccountAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521824"><span class="annot"><span class="annottext">Maybe [Text]
 attributeNames :: Maybe [Text]
 $sel:attributeNames:DescribeAccountAttributes' :: DescribeAccountAttributes -&gt; Maybe [Text]
-</span><a href="#local-6989586621679521815"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679521824"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -319,12 +319,12 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-114"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679521815"><span class="hs-identifier hs-var">attributeNames</span></a></span><span>
+</span><a href="#local-6989586621679521824"><span class="hs-identifier hs-var">attributeNames</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newDescribeAccountAttributesResponse' smart constructor.</span><span>
-</span><span id="line-119"></span><span id="local-6989586621679521811"><span id="local-6989586621679521812"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAccountAttributesResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse"><span class="hs-identifier hs-var">DescribeAccountAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAccountAttributesResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse%27"><span class="hs-identifier hs-var">DescribeAccountAttributesResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span id="local-6989586621679521820"><span id="local-6989586621679521821"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAccountAttributesResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse"><span class="hs-identifier hs-var">DescribeAccountAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAccountAttributesResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse%27"><span class="hs-identifier hs-var">DescribeAccountAttributesResponse'</span></a></span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of attributes assigned to an account.</span><span>
 </span><span id="line-121"></span><span>    </span><span id="%24sel%3AaccountAttributes%3ADescribeAccountAttributesResponse%27"><span class="annot"><span class="annottext">DescribeAccountAttributesResponse -&gt; Maybe [AccountAttribute]
 </span><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#%24sel%3AaccountAttributes%3ADescribeAccountAttributesResponse%27"><span class="hs-identifier hs-var hs-var">accountAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-type">AccountAttribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -332,7 +332,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAccountAttributesResponse%27"><span class="annot"><span class="annottext">DescribeAccountAttributesResponse -&gt; Int
 </span><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#%24sel%3AhttpStatus%3ADescribeAccountAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679521805"><span id="local-6989586621679521807"><span class="annot"><span class="annottext">DescribeAccountAttributesResponse
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679521814"><span id="local-6989586621679521816"><span class="annot"><span class="annottext">DescribeAccountAttributesResponse
 -&gt; DescribeAccountAttributesResponse -&gt; Bool
 (DescribeAccountAttributesResponse
  -&gt; DescribeAccountAttributesResponse -&gt; Bool)
@@ -348,7 +348,7 @@ $c/= :: DescribeAccountAttributesResponse
 -&gt; DescribeAccountAttributesResponse -&gt; Bool
 $c== :: DescribeAccountAttributesResponse
 -&gt; DescribeAccountAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521797"><span id="local-6989586621679521799"><span id="local-6989586621679521801"><span id="local-6989586621679521803"><span class="annot"><span class="annottext">ReadPrec [DescribeAccountAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521806"><span id="local-6989586621679521808"><span id="local-6989586621679521810"><span id="local-6989586621679521812"><span class="annot"><span class="annottext">ReadPrec [DescribeAccountAttributesResponse]
 ReadPrec DescribeAccountAttributesResponse
 Int -&gt; ReadS DescribeAccountAttributesResponse
 ReadS [DescribeAccountAttributesResponse]
@@ -368,7 +368,7 @@ readList :: ReadS [DescribeAccountAttributesResponse]
 $creadList :: ReadS [DescribeAccountAttributesResponse]
 readsPrec :: Int -&gt; ReadS DescribeAccountAttributesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeAccountAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521791"><span id="local-6989586621679521793"><span id="local-6989586621679521795"><span class="annot"><span class="annottext">Int -&gt; DescribeAccountAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521800"><span id="local-6989586621679521802"><span id="local-6989586621679521804"><span class="annot"><span class="annottext">Int -&gt; DescribeAccountAttributesResponse -&gt; ShowS
 [DescribeAccountAttributesResponse] -&gt; ShowS
 DescribeAccountAttributesResponse -&gt; String
 (Int -&gt; DescribeAccountAttributesResponse -&gt; ShowS)
@@ -422,8 +422,8 @@ DescribeAccountAttributesResponse
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse"><span class="hs-identifier hs-type">DescribeAccountAttributesResponse</span></a></span><span>
 </span><span id="line-142"></span><span id="newDescribeAccountAttributesResponse"><span class="annot"><span class="annottext">newDescribeAccountAttributesResponse :: Int -&gt; DescribeAccountAttributesResponse
-</span><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#newDescribeAccountAttributesResponse"><span class="hs-identifier hs-var hs-var">newDescribeAccountAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679521788"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679521788"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#newDescribeAccountAttributesResponse"><span class="hs-identifier hs-var hs-var">newDescribeAccountAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679521797"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679521797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">DescribeAccountAttributesResponse' :: Maybe [AccountAttribute]
 -&gt; Int -&gt; DescribeAccountAttributesResponse
 </span><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse%27"><span class="hs-identifier hs-type">DescribeAccountAttributesResponse'</span></a></span><span>
@@ -434,7 +434,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAccountAttributesResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#%24sel%3AhttpStatus%3ADescribeAccountAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679521788"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679521797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | A list of attributes assigned to an account.</span><span>
@@ -451,16 +451,16 @@ forall a. Maybe a
      (Maybe [AccountAttribute])
      (Maybe [AccountAttribute])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse%27"><span class="hs-identifier hs-type">DescribeAccountAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521787"><span class="annot"><span class="annottext">Maybe [AccountAttribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse%27"><span class="hs-identifier hs-type">DescribeAccountAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521796"><span class="annot"><span class="annottext">Maybe [AccountAttribute]
 accountAttributes :: Maybe [AccountAttribute]
 $sel:accountAttributes:DescribeAccountAttributesResponse' :: DescribeAccountAttributesResponse -&gt; Maybe [AccountAttribute]
-</span><a href="#local-6989586621679521787"><span class="hs-identifier hs-var hs-var">accountAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AccountAttribute]
-</span><a href="#local-6989586621679521787"><span class="hs-identifier hs-var">accountAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521786"><span class="annot"><span class="annottext">s :: DescribeAccountAttributesResponse
-</span><a href="#local-6989586621679521786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse%27"><span class="hs-identifier hs-type">DescribeAccountAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521785"><span class="annot"><span class="annottext">Maybe [AccountAttribute]
-</span><a href="#local-6989586621679521785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountAttributesResponse
-</span><a href="#local-6989586621679521786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountAttributes:DescribeAccountAttributesResponse' :: Maybe [AccountAttribute]
+</span><a href="#local-6989586621679521796"><span class="hs-identifier hs-var hs-var">accountAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AccountAttribute]
+</span><a href="#local-6989586621679521796"><span class="hs-identifier hs-var">accountAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521795"><span class="annot"><span class="annottext">s :: DescribeAccountAttributesResponse
+</span><a href="#local-6989586621679521795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse%27"><span class="hs-identifier hs-type">DescribeAccountAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521794"><span class="annot"><span class="annottext">Maybe [AccountAttribute]
+</span><a href="#local-6989586621679521794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountAttributesResponse
+</span><a href="#local-6989586621679521795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountAttributes:DescribeAccountAttributesResponse' :: Maybe [AccountAttribute]
 </span><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#%24sel%3AaccountAttributes%3ADescribeAccountAttributesResponse%27"><span class="hs-identifier hs-var">accountAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AccountAttribute]
-</span><a href="#local-6989586621679521785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse"><span class="hs-identifier hs-type">DescribeAccountAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AccountAttribute] -&gt; f (Maybe [AccountAttribute]))
+</span><a href="#local-6989586621679521794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse"><span class="hs-identifier hs-type">DescribeAccountAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AccountAttribute] -&gt; f (Maybe [AccountAttribute]))
  -&gt; DescribeAccountAttributesResponse
  -&gt; f DescribeAccountAttributesResponse)
 -&gt; ((Maybe [AccountAttribute] -&gt; f (Maybe [AccountAttribute]))
@@ -504,18 +504,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse%27"><span class="hs-identifier hs-type">DescribeAccountAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521784"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse%27"><span class="hs-identifier hs-type">DescribeAccountAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521793"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeAccountAttributesResponse' :: DescribeAccountAttributesResponse -&gt; Int
-</span><a href="#local-6989586621679521784"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679521784"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521783"><span class="annot"><span class="annottext">s :: DescribeAccountAttributesResponse
-</span><a href="#local-6989586621679521783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse%27"><span class="hs-identifier hs-type">DescribeAccountAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521782"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679521782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountAttributesResponse
-</span><a href="#local-6989586621679521783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAccountAttributesResponse' :: Int
+</span><a href="#local-6989586621679521793"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679521793"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521792"><span class="annot"><span class="annottext">s :: DescribeAccountAttributesResponse
+</span><a href="#local-6989586621679521792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse%27"><span class="hs-identifier hs-type">DescribeAccountAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521791"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679521791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAccountAttributesResponse
+</span><a href="#local-6989586621679521792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAccountAttributesResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#%24sel%3AhttpStatus%3ADescribeAccountAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679521782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse"><span class="hs-identifier hs-type">DescribeAccountAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679521791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse"><span class="hs-identifier hs-type">DescribeAccountAttributesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679521780"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679521789"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeAccountAttributes.html#DescribeAccountAttributesResponse"><span class="hs-identifier hs-type">DescribeAccountAttributesResponse</span></a></span></span><span>
 </span><span id="line-160"></span></pre></body></html>

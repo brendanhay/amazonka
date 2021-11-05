@@ -91,7 +91,7 @@
 </span><span id="line-91"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.html"><span class="hs-identifier">Network.AWS.SDB.Types</span></a></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | /See:/ 'newBatchPutAttributes' smart constructor.</span><span>
-</span><span id="line-94"></span><span id="local-6989586621679151648"><span id="local-6989586621679151649"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchPutAttributes"><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes"><span class="hs-identifier hs-var">BatchPutAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPutAttributes%27"><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes%27"><span class="hs-identifier hs-var">BatchPutAttributes'</span></a></span></span><span>
+</span><span id="line-94"></span><span id="local-6989586621679151657"><span id="local-6989586621679151658"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchPutAttributes"><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes"><span class="hs-identifier hs-var">BatchPutAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPutAttributes%27"><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes%27"><span class="hs-identifier hs-var">BatchPutAttributes'</span></a></span></span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the domain in which the attributes are being stored.</span><span>
 </span><span id="line-96"></span><span>    </span><span id="%24sel%3AdomainName%3ABatchPutAttributes%27"><span class="annot"><span class="annottext">BatchPutAttributes -&gt; Text
 </span><a href="Network.AWS.SDB.BatchPutAttributes.html#%24sel%3AdomainName%3ABatchPutAttributes%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -99,7 +99,7 @@
 </span><span id="line-98"></span><span>    </span><span id="%24sel%3Aitems%3ABatchPutAttributes%27"><span class="annot"><span class="annottext">BatchPutAttributes -&gt; [ReplaceableItem]
 </span><a href="Network.AWS.SDB.BatchPutAttributes.html#%24sel%3Aitems%3ABatchPutAttributes%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SDB.Types.ReplaceableItem.html#ReplaceableItem"><span class="hs-identifier hs-type">ReplaceableItem</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151641"><span id="local-6989586621679151643"><span class="annot"><span class="annottext">BatchPutAttributes -&gt; BatchPutAttributes -&gt; Bool
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151650"><span id="local-6989586621679151652"><span class="annot"><span class="annottext">BatchPutAttributes -&gt; BatchPutAttributes -&gt; Bool
 (BatchPutAttributes -&gt; BatchPutAttributes -&gt; Bool)
 -&gt; (BatchPutAttributes -&gt; BatchPutAttributes -&gt; Bool)
 -&gt; Eq BatchPutAttributes
@@ -108,7 +108,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchPutAttributes -&gt; BatchPutAttributes -&gt; Bool
 == :: BatchPutAttributes -&gt; BatchPutAttributes -&gt; Bool
 $c== :: BatchPutAttributes -&gt; BatchPutAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151632"><span id="local-6989586621679151634"><span id="local-6989586621679151636"><span id="local-6989586621679151638"><span class="annot"><span class="annottext">ReadPrec [BatchPutAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151641"><span id="local-6989586621679151643"><span id="local-6989586621679151645"><span id="local-6989586621679151647"><span class="annot"><span class="annottext">ReadPrec [BatchPutAttributes]
 ReadPrec BatchPutAttributes
 Int -&gt; ReadS BatchPutAttributes
 ReadS [BatchPutAttributes]
@@ -128,7 +128,7 @@ readList :: ReadS [BatchPutAttributes]
 $creadList :: ReadS [BatchPutAttributes]
 readsPrec :: Int -&gt; ReadS BatchPutAttributes
 $creadsPrec :: Int -&gt; ReadS BatchPutAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151625"><span id="local-6989586621679151627"><span id="local-6989586621679151629"><span class="annot"><span class="annottext">Int -&gt; BatchPutAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151634"><span id="local-6989586621679151636"><span id="local-6989586621679151638"><span class="annot"><span class="annottext">Int -&gt; BatchPutAttributes -&gt; ShowS
 [BatchPutAttributes] -&gt; ShowS
 BatchPutAttributes -&gt; String
 (Int -&gt; BatchPutAttributes -&gt; ShowS)
@@ -170,13 +170,13 @@ $cfrom :: forall x. BatchPutAttributes -&gt; Rep BatchPutAttributes x
 </span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes"><span class="hs-identifier hs-type">BatchPutAttributes</span></a></span><span>
 </span><span id="line-117"></span><span id="newBatchPutAttributes"><span class="annot"><span class="annottext">newBatchPutAttributes :: Text -&gt; BatchPutAttributes
-</span><a href="Network.AWS.SDB.BatchPutAttributes.html#newBatchPutAttributes"><span class="hs-identifier hs-var hs-var">newBatchPutAttributes</span></a></span></span><span> </span><span id="local-6989586621679151620"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151620"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SDB.BatchPutAttributes.html#newBatchPutAttributes"><span class="hs-identifier hs-var hs-var">newBatchPutAttributes</span></a></span></span><span> </span><span id="local-6989586621679151629"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151629"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>  </span><span class="annot"><span class="annottext">BatchPutAttributes' :: Text -&gt; [ReplaceableItem] -&gt; BatchPutAttributes
 </span><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes%27"><span class="hs-identifier hs-type">BatchPutAttributes'</span></a></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainName:BatchPutAttributes' :: Text
 </span><a href="Network.AWS.SDB.BatchPutAttributes.html#%24sel%3AdomainName%3ABatchPutAttributes%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151620"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151629"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:items:BatchPutAttributes' :: [ReplaceableItem]
 </span><a href="Network.AWS.SDB.BatchPutAttributes.html#%24sel%3Aitems%3ABatchPutAttributes%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ReplaceableItem]
 forall a. Monoid a =&gt; a
@@ -190,16 +190,16 @@ forall a. Monoid a =&gt; a
 -&gt; (BatchPutAttributes -&gt; Text -&gt; BatchPutAttributes)
 -&gt; Lens BatchPutAttributes BatchPutAttributes Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes%27"><span class="hs-identifier hs-type">BatchPutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151617"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes%27"><span class="hs-identifier hs-type">BatchPutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151626"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:BatchPutAttributes' :: BatchPutAttributes -&gt; Text
-</span><a href="#local-6989586621679151617"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151617"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151616"><span class="annot"><span class="annottext">s :: BatchPutAttributes
-</span><a href="#local-6989586621679151616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes%27"><span class="hs-identifier hs-type">BatchPutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151615"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutAttributes
-</span><a href="#local-6989586621679151616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:BatchPutAttributes' :: Text
+</span><a href="#local-6989586621679151626"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151626"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151625"><span class="annot"><span class="annottext">s :: BatchPutAttributes
+</span><a href="#local-6989586621679151625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes%27"><span class="hs-identifier hs-type">BatchPutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151624"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutAttributes
+</span><a href="#local-6989586621679151625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:BatchPutAttributes' :: Text
 </span><a href="Network.AWS.SDB.BatchPutAttributes.html#%24sel%3AdomainName%3ABatchPutAttributes%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes"><span class="hs-identifier hs-type">BatchPutAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes"><span class="hs-identifier hs-type">BatchPutAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | A list of items on which to perform the operation.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#batchPutAttributes_items"><span class="hs-identifier hs-type">batchPutAttributes_items</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes"><span class="hs-identifier hs-type">BatchPutAttributes</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SDB.Types.ReplaceableItem.html#ReplaceableItem"><span class="hs-identifier hs-type">ReplaceableItem</span></a></span><span class="hs-special">]</span><span>
@@ -213,16 +213,16 @@ $sel:domainName:BatchPutAttributes' :: BatchPutAttributes -&gt; Text
      [ReplaceableItem]
      [ReplaceableItem]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes%27"><span class="hs-identifier hs-type">BatchPutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151614"><span class="annot"><span class="annottext">[ReplaceableItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes%27"><span class="hs-identifier hs-type">BatchPutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151623"><span class="annot"><span class="annottext">[ReplaceableItem]
 items :: [ReplaceableItem]
 $sel:items:BatchPutAttributes' :: BatchPutAttributes -&gt; [ReplaceableItem]
-</span><a href="#local-6989586621679151614"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ReplaceableItem]
-</span><a href="#local-6989586621679151614"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151613"><span class="annot"><span class="annottext">s :: BatchPutAttributes
-</span><a href="#local-6989586621679151613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes%27"><span class="hs-identifier hs-type">BatchPutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151612"><span class="annot"><span class="annottext">[ReplaceableItem]
-</span><a href="#local-6989586621679151612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutAttributes
-</span><a href="#local-6989586621679151613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:BatchPutAttributes' :: [ReplaceableItem]
+</span><a href="#local-6989586621679151623"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ReplaceableItem]
+</span><a href="#local-6989586621679151623"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151622"><span class="annot"><span class="annottext">s :: BatchPutAttributes
+</span><a href="#local-6989586621679151622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes%27"><span class="hs-identifier hs-type">BatchPutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151621"><span class="annot"><span class="annottext">[ReplaceableItem]
+</span><a href="#local-6989586621679151621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutAttributes
+</span><a href="#local-6989586621679151622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:BatchPutAttributes' :: [ReplaceableItem]
 </span><a href="Network.AWS.SDB.BatchPutAttributes.html#%24sel%3Aitems%3ABatchPutAttributes%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ReplaceableItem]
-</span><a href="#local-6989586621679151612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes"><span class="hs-identifier hs-type">BatchPutAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ReplaceableItem] -&gt; f [ReplaceableItem])
+</span><a href="#local-6989586621679151621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes"><span class="hs-identifier hs-type">BatchPutAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ReplaceableItem] -&gt; f [ReplaceableItem])
  -&gt; BatchPutAttributes -&gt; f BatchPutAttributes)
 -&gt; (([ReplaceableItem] -&gt; f [ReplaceableItem])
     -&gt; [ReplaceableItem] -&gt; f [ReplaceableItem])
@@ -239,12 +239,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-133"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes"><span class="hs-identifier hs-type">BatchPutAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributesResponse"><span class="hs-identifier hs-type">BatchPutAttributesResponse</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679151606"><span class="annot"><span class="annottext">request :: BatchPutAttributes -&gt; Request BatchPutAttributes
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679151615"><span class="annot"><span class="annottext">request :: BatchPutAttributes -&gt; Request BatchPutAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchPutAttributes -&gt; Request BatchPutAttributes
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679151602"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679151611"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchPutAttributes
 -&gt; ClientResponse ClientBody
@@ -270,12 +270,12 @@ AWSResponse a
 BatchPutAttributesResponse
 </span><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributesResponse%27"><span class="hs-identifier hs-var">BatchPutAttributesResponse'</span></a></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151595"><span id="local-6989586621679151597"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes"><span class="hs-identifier hs-type">BatchPutAttributes</span></a></span></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151604"><span id="local-6989586621679151606"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes"><span class="hs-identifier hs-type">BatchPutAttributes</span></a></span></span></span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151592"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes"><span class="hs-identifier hs-type">BatchPutAttributes</span></a></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151601"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes"><span class="hs-identifier hs-type">BatchPutAttributes</span></a></span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes"><span class="hs-identifier hs-type">BatchPutAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679151588"><span class="annot"><span class="annottext">toHeaders :: BatchPutAttributes -&gt; [Header]
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679151597"><span class="annot"><span class="annottext">toHeaders :: BatchPutAttributes -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; BatchPutAttributes -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -283,21 +283,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes"><span class="hs-identifier hs-type">BatchPutAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679151583"><span class="annot"><span class="annottext">toPath :: BatchPutAttributes -&gt; ByteString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679151592"><span class="annot"><span class="annottext">toPath :: BatchPutAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchPutAttributes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes"><span class="hs-identifier hs-type">BatchPutAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679151579"><span class="annot"><span class="annottext">toQuery :: BatchPutAttributes -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes%27"><span class="hs-identifier hs-type">BatchPutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151576"><span id="local-6989586621679151577"><span class="annot"><span class="annottext">[ReplaceableItem]
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679151588"><span class="annot"><span class="annottext">toQuery :: BatchPutAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributes%27"><span class="hs-identifier hs-type">BatchPutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151585"><span id="local-6989586621679151586"><span class="annot"><span class="annottext">[ReplaceableItem]
 Text
 items :: [ReplaceableItem]
 domainName :: Text
 $sel:items:BatchPutAttributes' :: BatchPutAttributes -&gt; [ReplaceableItem]
 $sel:domainName:BatchPutAttributes' :: BatchPutAttributes -&gt; Text
-</span><a href="#local-6989586621679151576"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679151585"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -317,21 +317,21 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151577"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151586"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [ReplaceableItem] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Item&quot;</span></span><span> </span><span class="annot"><span class="annottext">[ReplaceableItem]
-</span><a href="#local-6989586621679151576"><span class="hs-identifier hs-var">items</span></a></span><span>
+</span><a href="#local-6989586621679151585"><span class="hs-identifier hs-var">items</span></a></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | /See:/ 'newBatchPutAttributesResponse' smart constructor.</span><span>
-</span><span id="line-161"></span><span id="local-6989586621679151572"><span id="local-6989586621679151573"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchPutAttributesResponse"><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributesResponse"><span class="hs-identifier hs-var">BatchPutAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPutAttributesResponse%27"><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributesResponse%27"><span class="hs-identifier hs-var">BatchPutAttributesResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span id="local-6989586621679151581"><span id="local-6989586621679151582"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchPutAttributesResponse"><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributesResponse"><span class="hs-identifier hs-var">BatchPutAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPutAttributesResponse%27"><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributesResponse%27"><span class="hs-identifier hs-var">BatchPutAttributesResponse'</span></a></span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151568"><span id="local-6989586621679151570"><span class="annot"><span class="annottext">BatchPutAttributesResponse -&gt; BatchPutAttributesResponse -&gt; Bool
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151577"><span id="local-6989586621679151579"><span class="annot"><span class="annottext">BatchPutAttributesResponse -&gt; BatchPutAttributesResponse -&gt; Bool
 (BatchPutAttributesResponse -&gt; BatchPutAttributesResponse -&gt; Bool)
 -&gt; (BatchPutAttributesResponse
     -&gt; BatchPutAttributesResponse -&gt; Bool)
@@ -341,7 +341,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchPutAttributesResponse -&gt; BatchPutAttributesResponse -&gt; Bool
 == :: BatchPutAttributesResponse -&gt; BatchPutAttributesResponse -&gt; Bool
 $c== :: BatchPutAttributesResponse -&gt; BatchPutAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151560"><span id="local-6989586621679151562"><span id="local-6989586621679151564"><span id="local-6989586621679151566"><span class="annot"><span class="annottext">ReadPrec [BatchPutAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151569"><span id="local-6989586621679151571"><span id="local-6989586621679151573"><span id="local-6989586621679151575"><span class="annot"><span class="annottext">ReadPrec [BatchPutAttributesResponse]
 ReadPrec BatchPutAttributesResponse
 Int -&gt; ReadS BatchPutAttributesResponse
 ReadS [BatchPutAttributesResponse]
@@ -361,7 +361,7 @@ readList :: ReadS [BatchPutAttributesResponse]
 $creadList :: ReadS [BatchPutAttributesResponse]
 readsPrec :: Int -&gt; ReadS BatchPutAttributesResponse
 $creadsPrec :: Int -&gt; ReadS BatchPutAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151554"><span id="local-6989586621679151556"><span id="local-6989586621679151558"><span class="annot"><span class="annottext">Int -&gt; BatchPutAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151563"><span id="local-6989586621679151565"><span id="local-6989586621679151567"><span class="annot"><span class="annottext">Int -&gt; BatchPutAttributesResponse -&gt; ShowS
 [BatchPutAttributesResponse] -&gt; ShowS
 BatchPutAttributesResponse -&gt; String
 (Int -&gt; BatchPutAttributesResponse -&gt; ShowS)
@@ -404,5 +404,5 @@ BatchPutAttributesResponse -&gt; Rep BatchPutAttributesResponse x
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">BatchPutAttributesResponse
 </span><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributesResponse%27"><span class="hs-identifier hs-var">BatchPutAttributesResponse'</span></a></span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151550"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributesResponse"><span class="hs-identifier hs-type">BatchPutAttributesResponse</span></a></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#BatchPutAttributesResponse"><span class="hs-identifier hs-type">BatchPutAttributesResponse</span></a></span></span><span>
 </span><span id="line-176"></span></pre></body></html>

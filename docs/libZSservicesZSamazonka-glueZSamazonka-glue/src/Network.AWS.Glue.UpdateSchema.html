@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newUpdateSchema' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679749715"><span id="local-6989586621679749716"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSchema"><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-var">UpdateSchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSchema%27"><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-var">UpdateSchema'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679749724"><span id="local-6989586621679749725"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSchema"><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-var">UpdateSchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSchema%27"><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-var">UpdateSchema'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Version number required for check pointing. One of @VersionNumber@ or</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @Compatibility@ has to be provided.</span><span>
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AschemaVersionNumber%3AUpdateSchema%27"><span class="annot"><span class="annottext">UpdateSchema -&gt; Maybe SchemaVersionNumber
@@ -87,7 +87,7 @@
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3AschemaId%3AUpdateSchema%27"><span class="annot"><span class="annottext">UpdateSchema -&gt; SchemaId
 </span><a href="Network.AWS.Glue.UpdateSchema.html#%24sel%3AschemaId%3AUpdateSchema%27"><span class="hs-identifier hs-var hs-var">schemaId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679749706"><span id="local-6989586621679749708"><span class="annot"><span class="annottext">UpdateSchema -&gt; UpdateSchema -&gt; Bool
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679749715"><span id="local-6989586621679749717"><span class="annot"><span class="annottext">UpdateSchema -&gt; UpdateSchema -&gt; Bool
 (UpdateSchema -&gt; UpdateSchema -&gt; Bool)
 -&gt; (UpdateSchema -&gt; UpdateSchema -&gt; Bool) -&gt; Eq UpdateSchema
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -95,7 +95,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateSchema -&gt; UpdateSchema -&gt; Bool
 == :: UpdateSchema -&gt; UpdateSchema -&gt; Bool
 $c== :: UpdateSchema -&gt; UpdateSchema -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679749697"><span id="local-6989586621679749699"><span id="local-6989586621679749701"><span id="local-6989586621679749703"><span class="annot"><span class="annottext">ReadPrec [UpdateSchema]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679749706"><span id="local-6989586621679749708"><span id="local-6989586621679749710"><span id="local-6989586621679749712"><span class="annot"><span class="annottext">ReadPrec [UpdateSchema]
 ReadPrec UpdateSchema
 Int -&gt; ReadS UpdateSchema
 ReadS [UpdateSchema]
@@ -115,7 +115,7 @@ readList :: ReadS [UpdateSchema]
 $creadList :: ReadS [UpdateSchema]
 readsPrec :: Int -&gt; ReadS UpdateSchema
 $creadsPrec :: Int -&gt; ReadS UpdateSchema
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679749690"><span id="local-6989586621679749692"><span id="local-6989586621679749694"><span class="annot"><span class="annottext">Int -&gt; UpdateSchema -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679749699"><span id="local-6989586621679749701"><span id="local-6989586621679749703"><span class="annot"><span class="annottext">Int -&gt; UpdateSchema -&gt; ShowS
 [UpdateSchema] -&gt; ShowS
 UpdateSchema -&gt; String
 (Int -&gt; UpdateSchema -&gt; ShowS)
@@ -169,8 +169,8 @@ $cfrom :: forall x. UpdateSchema -&gt; Rep UpdateSchema x
 </span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span><span>
 </span><span id="line-115"></span><span id="newUpdateSchema"><span class="annot"><span class="annottext">newUpdateSchema :: SchemaId -&gt; UpdateSchema
-</span><a href="Network.AWS.Glue.UpdateSchema.html#newUpdateSchema"><span class="hs-identifier hs-var hs-var">newUpdateSchema</span></a></span></span><span> </span><span id="local-6989586621679749685"><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679749685"><span class="hs-identifier hs-var">pSchemaId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.UpdateSchema.html#newUpdateSchema"><span class="hs-identifier hs-var hs-var">newUpdateSchema</span></a></span></span><span> </span><span id="local-6989586621679749694"><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679749694"><span class="hs-identifier hs-var">pSchemaId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">UpdateSchema' :: Maybe SchemaVersionNumber
 -&gt; Maybe Text -&gt; Maybe Compatibility -&gt; SchemaId -&gt; UpdateSchema
 </span><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span>
@@ -189,7 +189,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaId:UpdateSchema' :: SchemaId
 </span><a href="Network.AWS.Glue.UpdateSchema.html#%24sel%3AschemaId%3AUpdateSchema%27"><span class="hs-identifier hs-var">schemaId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679749685"><span class="hs-identifier hs-var">pSchemaId_</span></a></span><span>
+</span><a href="#local-6989586621679749694"><span class="hs-identifier hs-var">pSchemaId_</span></a></span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | Version number required for check pointing. One of @VersionNumber@ or</span><span>
@@ -205,16 +205,16 @@ forall a. Maybe a
      (Maybe SchemaVersionNumber)
      (Maybe SchemaVersionNumber)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749682"><span class="annot"><span class="annottext">Maybe SchemaVersionNumber
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749691"><span class="annot"><span class="annottext">Maybe SchemaVersionNumber
 schemaVersionNumber :: Maybe SchemaVersionNumber
 $sel:schemaVersionNumber:UpdateSchema' :: UpdateSchema -&gt; Maybe SchemaVersionNumber
-</span><a href="#local-6989586621679749682"><span class="hs-identifier hs-var hs-var">schemaVersionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaVersionNumber
-</span><a href="#local-6989586621679749682"><span class="hs-identifier hs-var">schemaVersionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749681"><span class="annot"><span class="annottext">s :: UpdateSchema
-</span><a href="#local-6989586621679749681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749680"><span class="annot"><span class="annottext">Maybe SchemaVersionNumber
-</span><a href="#local-6989586621679749680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSchema
-</span><a href="#local-6989586621679749681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaVersionNumber:UpdateSchema' :: Maybe SchemaVersionNumber
+</span><a href="#local-6989586621679749691"><span class="hs-identifier hs-var hs-var">schemaVersionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaVersionNumber
+</span><a href="#local-6989586621679749691"><span class="hs-identifier hs-var">schemaVersionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749690"><span class="annot"><span class="annottext">s :: UpdateSchema
+</span><a href="#local-6989586621679749690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749689"><span class="annot"><span class="annottext">Maybe SchemaVersionNumber
+</span><a href="#local-6989586621679749689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSchema
+</span><a href="#local-6989586621679749690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaVersionNumber:UpdateSchema' :: Maybe SchemaVersionNumber
 </span><a href="Network.AWS.Glue.UpdateSchema.html#%24sel%3AschemaVersionNumber%3AUpdateSchema%27"><span class="hs-identifier hs-var">schemaVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaVersionNumber
-</span><a href="#local-6989586621679749680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679749689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The new description for the schema.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#updateSchema_description"><span class="hs-identifier hs-type">updateSchema_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -223,16 +223,16 @@ $sel:schemaVersionNumber:UpdateSchema' :: UpdateSchema -&gt; Maybe SchemaVersion
 -&gt; (UpdateSchema -&gt; Maybe Text -&gt; UpdateSchema)
 -&gt; Lens UpdateSchema UpdateSchema (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749679"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749688"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:UpdateSchema' :: UpdateSchema -&gt; Maybe Text
-</span><a href="#local-6989586621679749679"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679749679"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749678"><span class="annot"><span class="annottext">s :: UpdateSchema
-</span><a href="#local-6989586621679749678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749677"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679749677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSchema
-</span><a href="#local-6989586621679749678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateSchema' :: Maybe Text
+</span><a href="#local-6989586621679749688"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679749688"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749687"><span class="annot"><span class="annottext">s :: UpdateSchema
+</span><a href="#local-6989586621679749687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749686"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679749686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSchema
+</span><a href="#local-6989586621679749687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateSchema' :: Maybe Text
 </span><a href="Network.AWS.Glue.UpdateSchema.html#%24sel%3Adescription%3AUpdateSchema%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679749677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679749686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The new compatibility setting for the schema.</span><span>
 </span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#updateSchema_compatibility"><span class="hs-identifier hs-type">updateSchema_compatibility</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Compatibility.html#Compatibility"><span class="hs-identifier hs-type">Compatibility</span></a></span><span class="hs-special">)</span><span>
@@ -246,16 +246,16 @@ $sel:description:UpdateSchema' :: UpdateSchema -&gt; Maybe Text
      (Maybe Compatibility)
      (Maybe Compatibility)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749676"><span class="annot"><span class="annottext">Maybe Compatibility
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749685"><span class="annot"><span class="annottext">Maybe Compatibility
 compatibility :: Maybe Compatibility
 $sel:compatibility:UpdateSchema' :: UpdateSchema -&gt; Maybe Compatibility
-</span><a href="#local-6989586621679749676"><span class="hs-identifier hs-var hs-var">compatibility</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Compatibility
-</span><a href="#local-6989586621679749676"><span class="hs-identifier hs-var">compatibility</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749675"><span class="annot"><span class="annottext">s :: UpdateSchema
-</span><a href="#local-6989586621679749675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749674"><span class="annot"><span class="annottext">Maybe Compatibility
-</span><a href="#local-6989586621679749674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSchema
-</span><a href="#local-6989586621679749675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compatibility:UpdateSchema' :: Maybe Compatibility
+</span><a href="#local-6989586621679749685"><span class="hs-identifier hs-var hs-var">compatibility</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Compatibility
+</span><a href="#local-6989586621679749685"><span class="hs-identifier hs-var">compatibility</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749684"><span class="annot"><span class="annottext">s :: UpdateSchema
+</span><a href="#local-6989586621679749684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749683"><span class="annot"><span class="annottext">Maybe Compatibility
+</span><a href="#local-6989586621679749683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSchema
+</span><a href="#local-6989586621679749684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compatibility:UpdateSchema' :: Maybe Compatibility
 </span><a href="Network.AWS.Glue.UpdateSchema.html#%24sel%3Acompatibility%3AUpdateSchema%27"><span class="hs-identifier hs-var">compatibility</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Compatibility
-</span><a href="#local-6989586621679749674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679749683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | This is a wrapper structure to contain schema identity fields. The</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- structure contains:</span><span>
@@ -271,25 +271,25 @@ $sel:compatibility:UpdateSchema' :: UpdateSchema -&gt; Maybe Compatibility
 -&gt; (UpdateSchema -&gt; SchemaId -&gt; UpdateSchema)
 -&gt; Lens UpdateSchema UpdateSchema SchemaId SchemaId
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749673"><span class="annot"><span class="annottext">SchemaId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749682"><span class="annot"><span class="annottext">SchemaId
 schemaId :: SchemaId
 $sel:schemaId:UpdateSchema' :: UpdateSchema -&gt; SchemaId
-</span><a href="#local-6989586621679749673"><span class="hs-identifier hs-var hs-var">schemaId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679749673"><span class="hs-identifier hs-var">schemaId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749672"><span class="annot"><span class="annottext">s :: UpdateSchema
-</span><a href="#local-6989586621679749672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749671"><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679749671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSchema
-</span><a href="#local-6989586621679749672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaId:UpdateSchema' :: SchemaId
+</span><a href="#local-6989586621679749682"><span class="hs-identifier hs-var hs-var">schemaId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679749682"><span class="hs-identifier hs-var">schemaId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749681"><span class="annot"><span class="annottext">s :: UpdateSchema
+</span><a href="#local-6989586621679749681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749680"><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679749680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSchema
+</span><a href="#local-6989586621679749681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaId:UpdateSchema' :: SchemaId
 </span><a href="Network.AWS.Glue.UpdateSchema.html#%24sel%3AschemaId%3AUpdateSchema%27"><span class="hs-identifier hs-var">schemaId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679749671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679749680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse"><span class="hs-identifier hs-type">UpdateSchemaResponse</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679749667"><span class="annot"><span class="annottext">request :: UpdateSchema -&gt; Request UpdateSchema
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679749676"><span class="annot"><span class="annottext">request :: UpdateSchema -&gt; Request UpdateSchema
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateSchema -&gt; Request UpdateSchema
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679749663"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679749672"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateSchema
 -&gt; ClientResponse ClientBody
@@ -313,10 +313,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679749660"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679749660"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679749659"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679749659"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679749658"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679749658"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679749669"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679749669"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679749668"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679749668"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679749667"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679749667"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateSchemaResponse
 </span><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-var">UpdateSchemaResponse'</span></a></span><span>
@@ -327,7 +327,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateSchemaResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679749658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679749667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegistryName&quot;</span></span><span class="hs-special">)</span><span>
@@ -337,7 +337,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; UpdateSchemaResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679749658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679749667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaName&quot;</span></span><span class="hs-special">)</span><span>
@@ -346,7 +346,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; UpdateSchemaResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679749658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679749667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -358,15 +358,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679749660"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679749669"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679749650"><span id="local-6989586621679749652"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679749659"><span id="local-6989586621679749661"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span></span></span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679749647"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679749656"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679749643"><span class="annot"><span class="annottext">toHeaders :: UpdateSchema -&gt; ResponseHeaders
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679749652"><span class="annot"><span class="annottext">toHeaders :: UpdateSchema -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateSchema -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -391,9 +391,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-175"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679749633"><span id="local-6989586621679749635"><span id="local-6989586621679749637"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679749631"><span class="annot"><span class="annottext">toJSON :: UpdateSchema -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749626"><span id="local-6989586621679749627"><span id="local-6989586621679749628"><span id="local-6989586621679749629"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679749642"><span id="local-6989586621679749644"><span id="local-6989586621679749646"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679749640"><span class="annot"><span class="annottext">toJSON :: UpdateSchema -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema%27"><span class="hs-identifier hs-type">UpdateSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749635"><span id="local-6989586621679749636"><span id="local-6989586621679749637"><span id="local-6989586621679749638"><span class="annot"><span class="annottext">Maybe Text
 Maybe Compatibility
 Maybe SchemaVersionNumber
 SchemaId
@@ -405,7 +405,7 @@ $sel:schemaId:UpdateSchema' :: UpdateSchema -&gt; SchemaId
 $sel:compatibility:UpdateSchema' :: UpdateSchema -&gt; Maybe Compatibility
 $sel:description:UpdateSchema' :: UpdateSchema -&gt; Maybe Text
 $sel:schemaVersionNumber:UpdateSchema' :: UpdateSchema -&gt; Maybe SchemaVersionNumber
-</span><a href="#local-6989586621679749626"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679749635"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -419,40 +419,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe SchemaVersionNumber -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SchemaVersionNumber
-</span><a href="#local-6989586621679749629"><span class="hs-identifier hs-var">schemaVersionNumber</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679749638"><span class="hs-identifier hs-var">schemaVersionNumber</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679749628"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679749637"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Compatibility&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Compatibility -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Compatibility -&gt; Pair) -&gt; Maybe Compatibility -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Compatibility
-</span><a href="#local-6989586621679749627"><span class="hs-identifier hs-var">compatibility</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679749636"><span class="hs-identifier hs-var">compatibility</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SchemaId -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679749626"><span class="hs-identifier hs-var">schemaId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679749635"><span class="hs-identifier hs-var">schemaId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679749620"><span class="annot"><span class="annottext">toPath :: UpdateSchema -&gt; ByteString
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679749629"><span class="annot"><span class="annottext">toPath :: UpdateSchema -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateSchema -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchema"><span class="hs-identifier hs-type">UpdateSchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679749616"><span class="annot"><span class="annottext">toQuery :: UpdateSchema -&gt; QueryString
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679749625"><span class="annot"><span class="annottext">toQuery :: UpdateSchema -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateSchema -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -460,7 +460,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | /See:/ 'newUpdateSchemaResponse' smart constructor.</span><span>
-</span><span id="line-197"></span><span id="local-6989586621679749613"><span id="local-6989586621679749614"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSchemaResponse"><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse"><span class="hs-identifier hs-var">UpdateSchemaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSchemaResponse%27"><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-var">UpdateSchemaResponse'</span></a></span></span><span>
+</span><span id="line-197"></span><span id="local-6989586621679749622"><span id="local-6989586621679749623"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSchemaResponse"><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse"><span class="hs-identifier hs-var">UpdateSchemaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSchemaResponse%27"><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-var">UpdateSchemaResponse'</span></a></span></span><span>
 </span><span id="line-198"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the registry that contains the schema.</span><span>
 </span><span id="line-199"></span><span>    </span><span id="%24sel%3AregistryName%3AUpdateSchemaResponse%27"><span class="annot"><span class="annottext">UpdateSchemaResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.UpdateSchema.html#%24sel%3AregistryName%3AUpdateSchemaResponse%27"><span class="hs-identifier hs-var hs-var">registryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -474,7 +474,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-205"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateSchemaResponse%27"><span class="annot"><span class="annottext">UpdateSchemaResponse -&gt; Int
 </span><a href="Network.AWS.Glue.UpdateSchema.html#%24sel%3AhttpStatus%3AUpdateSchemaResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-206"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-207"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679749605"><span id="local-6989586621679749607"><span class="annot"><span class="annottext">UpdateSchemaResponse -&gt; UpdateSchemaResponse -&gt; Bool
+</span><span id="line-207"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679749614"><span id="local-6989586621679749616"><span class="annot"><span class="annottext">UpdateSchemaResponse -&gt; UpdateSchemaResponse -&gt; Bool
 (UpdateSchemaResponse -&gt; UpdateSchemaResponse -&gt; Bool)
 -&gt; (UpdateSchemaResponse -&gt; UpdateSchemaResponse -&gt; Bool)
 -&gt; Eq UpdateSchemaResponse
@@ -483,7 +483,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateSchemaResponse -&gt; UpdateSchemaResponse -&gt; Bool
 == :: UpdateSchemaResponse -&gt; UpdateSchemaResponse -&gt; Bool
 $c== :: UpdateSchemaResponse -&gt; UpdateSchemaResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679749597"><span id="local-6989586621679749599"><span id="local-6989586621679749601"><span id="local-6989586621679749603"><span class="annot"><span class="annottext">ReadPrec [UpdateSchemaResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679749606"><span id="local-6989586621679749608"><span id="local-6989586621679749610"><span id="local-6989586621679749612"><span class="annot"><span class="annottext">ReadPrec [UpdateSchemaResponse]
 ReadPrec UpdateSchemaResponse
 Int -&gt; ReadS UpdateSchemaResponse
 ReadS [UpdateSchemaResponse]
@@ -503,7 +503,7 @@ readList :: ReadS [UpdateSchemaResponse]
 $creadList :: ReadS [UpdateSchemaResponse]
 readsPrec :: Int -&gt; ReadS UpdateSchemaResponse
 $creadsPrec :: Int -&gt; ReadS UpdateSchemaResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679749591"><span id="local-6989586621679749593"><span id="local-6989586621679749595"><span class="annot"><span class="annottext">Int -&gt; UpdateSchemaResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679749600"><span id="local-6989586621679749602"><span id="local-6989586621679749604"><span class="annot"><span class="annottext">Int -&gt; UpdateSchemaResponse -&gt; ShowS
 [UpdateSchemaResponse] -&gt; ShowS
 UpdateSchemaResponse -&gt; String
 (Int -&gt; UpdateSchemaResponse -&gt; ShowS)
@@ -549,8 +549,8 @@ $cfrom :: forall x. UpdateSchemaResponse -&gt; Rep UpdateSchemaResponse x
 </span><span id="line-226"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-227"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse"><span class="hs-identifier hs-type">UpdateSchemaResponse</span></a></span><span>
 </span><span id="line-228"></span><span id="newUpdateSchemaResponse"><span class="annot"><span class="annottext">newUpdateSchemaResponse :: Int -&gt; UpdateSchemaResponse
-</span><a href="Network.AWS.Glue.UpdateSchema.html#newUpdateSchemaResponse"><span class="hs-identifier hs-var hs-var">newUpdateSchemaResponse</span></a></span></span><span> </span><span id="local-6989586621679749588"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679749588"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.UpdateSchema.html#newUpdateSchemaResponse"><span class="hs-identifier hs-var hs-var">newUpdateSchemaResponse</span></a></span></span><span> </span><span id="local-6989586621679749597"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679749597"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-229"></span><span>  </span><span class="annot"><span class="annottext">UpdateSchemaResponse' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateSchemaResponse
 </span><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-type">UpdateSchemaResponse'</span></a></span><span>
@@ -569,7 +569,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSchemaResponse' :: Int
 </span><a href="Network.AWS.Glue.UpdateSchema.html#%24sel%3AhttpStatus%3AUpdateSchemaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679749588"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679749597"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-235"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | The name of the registry that contains the schema.</span><span>
@@ -581,16 +581,16 @@ forall a. Maybe a
 -&gt; Lens
      UpdateSchemaResponse UpdateSchemaResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-type">UpdateSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749587"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-type">UpdateSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749596"><span class="annot"><span class="annottext">Maybe Text
 registryName :: Maybe Text
 $sel:registryName:UpdateSchemaResponse' :: UpdateSchemaResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679749587"><span class="hs-identifier hs-var hs-var">registryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679749587"><span class="hs-identifier hs-var">registryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749586"><span class="annot"><span class="annottext">s :: UpdateSchemaResponse
-</span><a href="#local-6989586621679749586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-type">UpdateSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749585"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679749585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSchemaResponse
-</span><a href="#local-6989586621679749586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryName:UpdateSchemaResponse' :: Maybe Text
+</span><a href="#local-6989586621679749596"><span class="hs-identifier hs-var hs-var">registryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679749596"><span class="hs-identifier hs-var">registryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749595"><span class="annot"><span class="annottext">s :: UpdateSchemaResponse
+</span><a href="#local-6989586621679749595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-type">UpdateSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749594"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679749594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSchemaResponse
+</span><a href="#local-6989586621679749595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryName:UpdateSchemaResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.UpdateSchema.html#%24sel%3AregistryName%3AUpdateSchemaResponse%27"><span class="hs-identifier hs-var">registryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679749585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse"><span class="hs-identifier hs-type">UpdateSchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679749594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse"><span class="hs-identifier hs-type">UpdateSchemaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- | The name of the schema.</span><span>
 </span><span id="line-242"></span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#updateSchemaResponse_schemaName"><span class="hs-identifier hs-type">updateSchemaResponse_schemaName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse"><span class="hs-identifier hs-type">UpdateSchemaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -601,16 +601,16 @@ $sel:registryName:UpdateSchemaResponse' :: UpdateSchemaResponse -&gt; Maybe Text
 -&gt; Lens
      UpdateSchemaResponse UpdateSchemaResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-type">UpdateSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749584"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-type">UpdateSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749593"><span class="annot"><span class="annottext">Maybe Text
 schemaName :: Maybe Text
 $sel:schemaName:UpdateSchemaResponse' :: UpdateSchemaResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679749584"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679749584"><span class="hs-identifier hs-var">schemaName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749583"><span class="annot"><span class="annottext">s :: UpdateSchemaResponse
-</span><a href="#local-6989586621679749583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-type">UpdateSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749582"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679749582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSchemaResponse
-</span><a href="#local-6989586621679749583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaName:UpdateSchemaResponse' :: Maybe Text
+</span><a href="#local-6989586621679749593"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679749593"><span class="hs-identifier hs-var">schemaName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749592"><span class="annot"><span class="annottext">s :: UpdateSchemaResponse
+</span><a href="#local-6989586621679749592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-type">UpdateSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749591"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679749591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSchemaResponse
+</span><a href="#local-6989586621679749592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaName:UpdateSchemaResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.UpdateSchema.html#%24sel%3AschemaName%3AUpdateSchemaResponse%27"><span class="hs-identifier hs-var">schemaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679749582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse"><span class="hs-identifier hs-type">UpdateSchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679749591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse"><span class="hs-identifier hs-type">UpdateSchemaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the schema.</span><span>
 </span><span id="line-246"></span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#updateSchemaResponse_schemaArn"><span class="hs-identifier hs-type">updateSchemaResponse_schemaArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse"><span class="hs-identifier hs-type">UpdateSchemaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -621,16 +621,16 @@ $sel:schemaName:UpdateSchemaResponse' :: UpdateSchemaResponse -&gt; Maybe Text
 -&gt; Lens
      UpdateSchemaResponse UpdateSchemaResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-type">UpdateSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749581"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-type">UpdateSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749590"><span class="annot"><span class="annottext">Maybe Text
 schemaArn :: Maybe Text
 $sel:schemaArn:UpdateSchemaResponse' :: UpdateSchemaResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679749581"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679749581"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749580"><span class="annot"><span class="annottext">s :: UpdateSchemaResponse
-</span><a href="#local-6989586621679749580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-type">UpdateSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749579"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679749579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSchemaResponse
-</span><a href="#local-6989586621679749580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:UpdateSchemaResponse' :: Maybe Text
+</span><a href="#local-6989586621679749590"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679749590"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749589"><span class="annot"><span class="annottext">s :: UpdateSchemaResponse
+</span><a href="#local-6989586621679749589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-type">UpdateSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749588"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679749588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSchemaResponse
+</span><a href="#local-6989586621679749589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:UpdateSchemaResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.UpdateSchema.html#%24sel%3AschemaArn%3AUpdateSchemaResponse%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679749579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse"><span class="hs-identifier hs-type">UpdateSchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679749588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse"><span class="hs-identifier hs-type">UpdateSchemaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-250"></span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#updateSchemaResponse_httpStatus"><span class="hs-identifier hs-type">updateSchemaResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse"><span class="hs-identifier hs-type">UpdateSchemaResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -639,16 +639,16 @@ $sel:schemaArn:UpdateSchemaResponse' :: UpdateSchemaResponse -&gt; Maybe Text
 -&gt; (UpdateSchemaResponse -&gt; Int -&gt; UpdateSchemaResponse)
 -&gt; Lens UpdateSchemaResponse UpdateSchemaResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-type">UpdateSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749578"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-type">UpdateSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749587"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateSchemaResponse' :: UpdateSchemaResponse -&gt; Int
-</span><a href="#local-6989586621679749578"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679749578"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749577"><span class="annot"><span class="annottext">s :: UpdateSchemaResponse
-</span><a href="#local-6989586621679749577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-type">UpdateSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749576"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679749576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSchemaResponse
-</span><a href="#local-6989586621679749577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSchemaResponse' :: Int
+</span><a href="#local-6989586621679749587"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679749587"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749586"><span class="annot"><span class="annottext">s :: UpdateSchemaResponse
+</span><a href="#local-6989586621679749586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse%27"><span class="hs-identifier hs-type">UpdateSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749585"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679749585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSchemaResponse
+</span><a href="#local-6989586621679749586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSchemaResponse' :: Int
 </span><a href="Network.AWS.Glue.UpdateSchema.html#%24sel%3AhttpStatus%3AUpdateSchemaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679749576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse"><span class="hs-identifier hs-type">UpdateSchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679749585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse"><span class="hs-identifier hs-type">UpdateSchemaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679749574"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse"><span class="hs-identifier hs-type">UpdateSchemaResponse</span></a></span></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679749583"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateSchema.html#UpdateSchemaResponse"><span class="hs-identifier hs-type">UpdateSchemaResponse</span></a></span></span><span>
 </span><span id="line-254"></span></pre></body></html>

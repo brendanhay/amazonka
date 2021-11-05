@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newAuthorizeEndpointAccess' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679529364"><span id="local-6989586621679529365"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizeEndpointAccess"><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-var">AuthorizeEndpointAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizeEndpointAccess%27"><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess%27"><span class="hs-identifier hs-var">AuthorizeEndpointAccess'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679529373"><span id="local-6989586621679529374"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizeEndpointAccess"><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-var">AuthorizeEndpointAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizeEndpointAccess%27"><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess%27"><span class="hs-identifier hs-var">AuthorizeEndpointAccess'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The cluster identifier of the cluster to grant access to.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3AAuthorizeEndpointAccess%27"><span class="annot"><span class="annottext">AuthorizeEndpointAccess -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#%24sel%3AclusterIdentifier%3AAuthorizeEndpointAccess%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3Aaccount%3AAuthorizeEndpointAccess%27"><span class="annot"><span class="annottext">AuthorizeEndpointAccess -&gt; Text
 </span><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#%24sel%3Aaccount%3AAuthorizeEndpointAccess%27"><span class="hs-identifier hs-var hs-var">account</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679529356"><span id="local-6989586621679529358"><span class="annot"><span class="annottext">AuthorizeEndpointAccess -&gt; AuthorizeEndpointAccess -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679529365"><span id="local-6989586621679529367"><span class="annot"><span class="annottext">AuthorizeEndpointAccess -&gt; AuthorizeEndpointAccess -&gt; Bool
 (AuthorizeEndpointAccess -&gt; AuthorizeEndpointAccess -&gt; Bool)
 -&gt; (AuthorizeEndpointAccess -&gt; AuthorizeEndpointAccess -&gt; Bool)
 -&gt; Eq AuthorizeEndpointAccess
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AuthorizeEndpointAccess -&gt; AuthorizeEndpointAccess -&gt; Bool
 == :: AuthorizeEndpointAccess -&gt; AuthorizeEndpointAccess -&gt; Bool
 $c== :: AuthorizeEndpointAccess -&gt; AuthorizeEndpointAccess -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529347"><span id="local-6989586621679529349"><span id="local-6989586621679529351"><span id="local-6989586621679529353"><span class="annot"><span class="annottext">ReadPrec [AuthorizeEndpointAccess]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529356"><span id="local-6989586621679529358"><span id="local-6989586621679529360"><span id="local-6989586621679529362"><span class="annot"><span class="annottext">ReadPrec [AuthorizeEndpointAccess]
 ReadPrec AuthorizeEndpointAccess
 Int -&gt; ReadS AuthorizeEndpointAccess
 ReadS [AuthorizeEndpointAccess]
@@ -96,7 +96,7 @@ readList :: ReadS [AuthorizeEndpointAccess]
 $creadList :: ReadS [AuthorizeEndpointAccess]
 readsPrec :: Int -&gt; ReadS AuthorizeEndpointAccess
 $creadsPrec :: Int -&gt; ReadS AuthorizeEndpointAccess
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529340"><span id="local-6989586621679529342"><span id="local-6989586621679529344"><span class="annot"><span class="annottext">Int -&gt; AuthorizeEndpointAccess -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529349"><span id="local-6989586621679529351"><span id="local-6989586621679529353"><span class="annot"><span class="annottext">Int -&gt; AuthorizeEndpointAccess -&gt; ShowS
 [AuthorizeEndpointAccess] -&gt; ShowS
 AuthorizeEndpointAccess -&gt; String
 (Int -&gt; AuthorizeEndpointAccess -&gt; ShowS)
@@ -142,8 +142,8 @@ $cfrom :: forall x. AuthorizeEndpointAccess -&gt; Rep AuthorizeEndpointAccess x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-type">AuthorizeEndpointAccess</span></a></span><span>
 </span><span id="line-86"></span><span id="newAuthorizeEndpointAccess"><span class="annot"><span class="annottext">newAuthorizeEndpointAccess :: Text -&gt; AuthorizeEndpointAccess
-</span><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#newAuthorizeEndpointAccess"><span class="hs-identifier hs-var hs-var">newAuthorizeEndpointAccess</span></a></span></span><span> </span><span id="local-6989586621679529335"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529335"><span class="hs-identifier hs-var">pAccount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#newAuthorizeEndpointAccess"><span class="hs-identifier hs-var hs-var">newAuthorizeEndpointAccess</span></a></span></span><span> </span><span id="local-6989586621679529344"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529344"><span class="hs-identifier hs-var">pAccount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">AuthorizeEndpointAccess' :: Maybe Text -&gt; Maybe [Text] -&gt; Text -&gt; AuthorizeEndpointAccess
 </span><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess%27"><span class="hs-identifier hs-type">AuthorizeEndpointAccess'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:AuthorizeEndpointAccess' :: Maybe Text
@@ -157,7 +157,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:account:AuthorizeEndpointAccess' :: Text
 </span><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#%24sel%3Aaccount%3AAuthorizeEndpointAccess%27"><span class="hs-identifier hs-var">account</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529335"><span class="hs-identifier hs-var">pAccount_</span></a></span><span>
+</span><a href="#local-6989586621679529344"><span class="hs-identifier hs-var">pAccount_</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The cluster identifier of the cluster to grant access to.</span><span>
@@ -173,16 +173,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess%27"><span class="hs-identifier hs-type">AuthorizeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529332"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess%27"><span class="hs-identifier hs-type">AuthorizeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529341"><span class="annot"><span class="annottext">Maybe Text
 clusterIdentifier :: Maybe Text
 $sel:clusterIdentifier:AuthorizeEndpointAccess' :: AuthorizeEndpointAccess -&gt; Maybe Text
-</span><a href="#local-6989586621679529332"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679529332"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529331"><span class="annot"><span class="annottext">s :: AuthorizeEndpointAccess
-</span><a href="#local-6989586621679529331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess%27"><span class="hs-identifier hs-type">AuthorizeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529330"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679529330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeEndpointAccess
-</span><a href="#local-6989586621679529331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:AuthorizeEndpointAccess' :: Maybe Text
+</span><a href="#local-6989586621679529341"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679529341"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529340"><span class="annot"><span class="annottext">s :: AuthorizeEndpointAccess
+</span><a href="#local-6989586621679529340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess%27"><span class="hs-identifier hs-type">AuthorizeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529339"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679529339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeEndpointAccess
+</span><a href="#local-6989586621679529340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:AuthorizeEndpointAccess' :: Maybe Text
 </span><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#%24sel%3AclusterIdentifier%3AAuthorizeEndpointAccess%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679529330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-type">AuthorizeEndpointAccess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679529339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-type">AuthorizeEndpointAccess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The virtual private cloud (VPC) identifiers to grant access to.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#authorizeEndpointAccess_vpcIds"><span class="hs-identifier hs-type">authorizeEndpointAccess_vpcIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-type">AuthorizeEndpointAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -197,16 +197,16 @@ $sel:clusterIdentifier:AuthorizeEndpointAccess' :: AuthorizeEndpointAccess -&gt;
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess%27"><span class="hs-identifier hs-type">AuthorizeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529329"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess%27"><span class="hs-identifier hs-type">AuthorizeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529338"><span class="annot"><span class="annottext">Maybe [Text]
 vpcIds :: Maybe [Text]
 $sel:vpcIds:AuthorizeEndpointAccess' :: AuthorizeEndpointAccess -&gt; Maybe [Text]
-</span><a href="#local-6989586621679529329"><span class="hs-identifier hs-var hs-var">vpcIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679529329"><span class="hs-identifier hs-var">vpcIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529328"><span class="annot"><span class="annottext">s :: AuthorizeEndpointAccess
-</span><a href="#local-6989586621679529328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess%27"><span class="hs-identifier hs-type">AuthorizeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529327"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679529327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeEndpointAccess
-</span><a href="#local-6989586621679529328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcIds:AuthorizeEndpointAccess' :: Maybe [Text]
+</span><a href="#local-6989586621679529338"><span class="hs-identifier hs-var hs-var">vpcIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679529338"><span class="hs-identifier hs-var">vpcIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529337"><span class="annot"><span class="annottext">s :: AuthorizeEndpointAccess
+</span><a href="#local-6989586621679529337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess%27"><span class="hs-identifier hs-type">AuthorizeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529336"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679529336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeEndpointAccess
+</span><a href="#local-6989586621679529337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcIds:AuthorizeEndpointAccess' :: Maybe [Text]
 </span><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#%24sel%3AvpcIds%3AAuthorizeEndpointAccess%27"><span class="hs-identifier hs-var">vpcIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679529327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-type">AuthorizeEndpointAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679529336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-type">AuthorizeEndpointAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; AuthorizeEndpointAccess -&gt; f AuthorizeEndpointAccess)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -231,28 +231,28 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (AuthorizeEndpointAccess -&gt; Text -&gt; AuthorizeEndpointAccess)
 -&gt; Lens AuthorizeEndpointAccess AuthorizeEndpointAccess Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess%27"><span class="hs-identifier hs-type">AuthorizeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529323"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess%27"><span class="hs-identifier hs-type">AuthorizeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529332"><span class="annot"><span class="annottext">Text
 account :: Text
 $sel:account:AuthorizeEndpointAccess' :: AuthorizeEndpointAccess -&gt; Text
-</span><a href="#local-6989586621679529323"><span class="hs-identifier hs-var hs-var">account</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529323"><span class="hs-identifier hs-var">account</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529322"><span class="annot"><span class="annottext">s :: AuthorizeEndpointAccess
-</span><a href="#local-6989586621679529322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess%27"><span class="hs-identifier hs-type">AuthorizeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529321"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeEndpointAccess
-</span><a href="#local-6989586621679529322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:account:AuthorizeEndpointAccess' :: Text
+</span><a href="#local-6989586621679529332"><span class="hs-identifier hs-var hs-var">account</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529332"><span class="hs-identifier hs-var">account</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529331"><span class="annot"><span class="annottext">s :: AuthorizeEndpointAccess
+</span><a href="#local-6989586621679529331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess%27"><span class="hs-identifier hs-type">AuthorizeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679529330"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679529330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeEndpointAccess
+</span><a href="#local-6989586621679529331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:account:AuthorizeEndpointAccess' :: Text
 </span><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#%24sel%3Aaccount%3AAuthorizeEndpointAccess%27"><span class="hs-identifier hs-var">account</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-type">AuthorizeEndpointAccess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679529330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-type">AuthorizeEndpointAccess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-type">AuthorizeEndpointAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-type">AuthorizeEndpointAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAuthorization.html#EndpointAuthorization"><span class="hs-identifier hs-type">EndpointAuthorization</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679529317"><span class="annot"><span class="annottext">request :: AuthorizeEndpointAccess -&gt; Request AuthorizeEndpointAccess
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679529326"><span class="annot"><span class="annottext">request :: AuthorizeEndpointAccess -&gt; Request AuthorizeEndpointAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; AuthorizeEndpointAccess -&gt; Request AuthorizeEndpointAccess
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679529313"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679529322"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AuthorizeEndpointAccess
 -&gt; ClientResponse ClientBody
@@ -283,20 +283,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AuthorizeEndpointAccessResult&quot;</span></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529310"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679529310"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679529309"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679529309"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679529308"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679529308"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String EndpointAuthorization
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679529319"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679529319"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679529318"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679529318"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679529317"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679529317"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String EndpointAuthorization
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679529308"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679529317"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529303"><span id="local-6989586621679529305"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-type">AuthorizeEndpointAccess</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529312"><span id="local-6989586621679529314"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-type">AuthorizeEndpointAccess</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529300"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-type">AuthorizeEndpointAccess</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679529309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-type">AuthorizeEndpointAccess</span></a></span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-type">AuthorizeEndpointAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679529296"><span class="annot"><span class="annottext">toHeaders :: AuthorizeEndpointAccess -&gt; ResponseHeaders
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679529305"><span class="annot"><span class="annottext">toHeaders :: AuthorizeEndpointAccess -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AuthorizeEndpointAccess -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -304,15 +304,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-type">AuthorizeEndpointAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679529291"><span class="annot"><span class="annottext">toPath :: AuthorizeEndpointAccess -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679529300"><span class="annot"><span class="annottext">toPath :: AuthorizeEndpointAccess -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AuthorizeEndpointAccess -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess"><span class="hs-identifier hs-type">AuthorizeEndpointAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679529287"><span class="annot"><span class="annottext">toQuery :: AuthorizeEndpointAccess -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess%27"><span class="hs-identifier hs-type">AuthorizeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529283"><span id="local-6989586621679529284"><span id="local-6989586621679529285"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679529296"><span class="annot"><span class="annottext">toQuery :: AuthorizeEndpointAccess -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.AuthorizeEndpointAccess.html#AuthorizeEndpointAccess%27"><span class="hs-identifier hs-type">AuthorizeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679529292"><span id="local-6989586621679529293"><span id="local-6989586621679529294"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 Text
 account :: Text
@@ -321,7 +321,7 @@ clusterIdentifier :: Maybe Text
 $sel:account:AuthorizeEndpointAccess' :: AuthorizeEndpointAccess -&gt; Text
 $sel:vpcIds:AuthorizeEndpointAccess' :: AuthorizeEndpointAccess -&gt; Maybe [Text]
 $sel:clusterIdentifier:AuthorizeEndpointAccess' :: AuthorizeEndpointAccess -&gt; Maybe Text
-</span><a href="#local-6989586621679529283"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679529292"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -341,7 +341,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679529285"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679529294"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;VpcIds&quot;</span></span><span>
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -358,12 +358,12 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-137"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679529284"><span class="hs-identifier hs-var">vpcIds</span></a></span><span>
+</span><a href="#local-6989586621679529293"><span class="hs-identifier hs-var">vpcIds</span></a></span><span>
 </span><span id="line-138"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Account&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679529283"><span class="hs-identifier hs-var">account</span></a></span><span>
+</span><a href="#local-6989586621679529292"><span class="hs-identifier hs-var">account</span></a></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span></pre></body></html>

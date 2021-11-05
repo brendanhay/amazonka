@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-comment">-- | Represents the input of a @GetShardIterator@ operation.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newGetShardIterator' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679159948"><span id="local-6989586621679159949"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetShardIterator"><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-var">GetShardIterator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetShardIterator%27"><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-var">GetShardIterator'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679159957"><span id="local-6989586621679159958"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetShardIterator"><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-var">GetShardIterator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetShardIterator%27"><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-var">GetShardIterator'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The sequence number of a stream record in the shard from which to start</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- reading.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AsequenceNumber%3AGetShardIterator%27"><span class="annot"><span class="annottext">GetShardIterator -&gt; Maybe Text
@@ -91,7 +91,7 @@
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3AshardIteratorType%3AGetShardIterator%27"><span class="annot"><span class="annottext">GetShardIterator -&gt; ShardIteratorType
 </span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#%24sel%3AshardIteratorType%3AGetShardIterator%27"><span class="hs-identifier hs-var hs-var">shardIteratorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.ShardIteratorType.html#ShardIteratorType"><span class="hs-identifier hs-type">ShardIteratorType</span></a></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159939"><span id="local-6989586621679159941"><span class="annot"><span class="annottext">GetShardIterator -&gt; GetShardIterator -&gt; Bool
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159948"><span id="local-6989586621679159950"><span class="annot"><span class="annottext">GetShardIterator -&gt; GetShardIterator -&gt; Bool
 (GetShardIterator -&gt; GetShardIterator -&gt; Bool)
 -&gt; (GetShardIterator -&gt; GetShardIterator -&gt; Bool)
 -&gt; Eq GetShardIterator
@@ -100,7 +100,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetShardIterator -&gt; GetShardIterator -&gt; Bool
 == :: GetShardIterator -&gt; GetShardIterator -&gt; Bool
 $c== :: GetShardIterator -&gt; GetShardIterator -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159930"><span id="local-6989586621679159932"><span id="local-6989586621679159934"><span id="local-6989586621679159936"><span class="annot"><span class="annottext">ReadPrec [GetShardIterator]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159939"><span id="local-6989586621679159941"><span id="local-6989586621679159943"><span id="local-6989586621679159945"><span class="annot"><span class="annottext">ReadPrec [GetShardIterator]
 ReadPrec GetShardIterator
 Int -&gt; ReadS GetShardIterator
 ReadS [GetShardIterator]
@@ -120,7 +120,7 @@ readList :: ReadS [GetShardIterator]
 $creadList :: ReadS [GetShardIterator]
 readsPrec :: Int -&gt; ReadS GetShardIterator
 $creadsPrec :: Int -&gt; ReadS GetShardIterator
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159923"><span id="local-6989586621679159925"><span id="local-6989586621679159927"><span class="annot"><span class="annottext">Int -&gt; GetShardIterator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159932"><span id="local-6989586621679159934"><span id="local-6989586621679159936"><span class="annot"><span class="annottext">Int -&gt; GetShardIterator -&gt; ShowS
 [GetShardIterator] -&gt; ShowS
 GetShardIterator -&gt; String
 (Int -&gt; GetShardIterator -&gt; ShowS)
@@ -190,12 +190,12 @@ $cfrom :: forall x. GetShardIterator -&gt; Rep GetShardIterator x
 </span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span><span>
 </span><span id="line-134"></span><span id="newGetShardIterator"><span class="annot"><span class="annottext">newGetShardIterator :: Text -&gt; Text -&gt; ShardIteratorType -&gt; GetShardIterator
 </span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#newGetShardIterator"><span class="hs-identifier hs-var hs-var">newGetShardIterator</span></a></span></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679159918"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679159918"><span class="hs-identifier hs-var">pStreamArn_</span></a></span></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679159917"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679159917"><span class="hs-identifier hs-var">pShardId_</span></a></span></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679159916"><span class="annot"><span class="annottext">ShardIteratorType
-</span><a href="#local-6989586621679159916"><span class="hs-identifier hs-var">pShardIteratorType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679159927"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159927"><span class="hs-identifier hs-var">pStreamArn_</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679159926"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159926"><span class="hs-identifier hs-var">pShardId_</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679159925"><span class="annot"><span class="annottext">ShardIteratorType
+</span><a href="#local-6989586621679159925"><span class="hs-identifier hs-var">pShardIteratorType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">GetShardIterator' :: Maybe Text -&gt; Text -&gt; Text -&gt; ShardIteratorType -&gt; GetShardIterator
 </span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sequenceNumber:GetShardIterator' :: Maybe Text
@@ -204,13 +204,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:streamArn:GetShardIterator' :: Text
 </span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#%24sel%3AstreamArn%3AGetShardIterator%27"><span class="hs-identifier hs-var">streamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679159918"><span class="hs-identifier hs-var">pStreamArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679159927"><span class="hs-identifier hs-var">pStreamArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:shardId:GetShardIterator' :: Text
 </span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#%24sel%3AshardId%3AGetShardIterator%27"><span class="hs-identifier hs-var">shardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679159917"><span class="hs-identifier hs-var">pShardId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679159926"><span class="hs-identifier hs-var">pShardId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:shardIteratorType:GetShardIterator' :: ShardIteratorType
 </span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#%24sel%3AshardIteratorType%3AGetShardIterator%27"><span class="hs-identifier hs-var">shardIteratorType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ShardIteratorType
-</span><a href="#local-6989586621679159916"><span class="hs-identifier hs-var">pShardIteratorType_</span></a></span><span>
+</span><a href="#local-6989586621679159925"><span class="hs-identifier hs-var">pShardIteratorType_</span></a></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The sequence number of a stream record in the shard from which to start</span><span>
@@ -222,16 +222,16 @@ forall a. Maybe a
 -&gt; (GetShardIterator -&gt; Maybe Text -&gt; GetShardIterator)
 -&gt; Lens GetShardIterator GetShardIterator (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159913"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159922"><span class="annot"><span class="annottext">Maybe Text
 sequenceNumber :: Maybe Text
 $sel:sequenceNumber:GetShardIterator' :: GetShardIterator -&gt; Maybe Text
-</span><a href="#local-6989586621679159913"><span class="hs-identifier hs-var hs-var">sequenceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159913"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159912"><span class="annot"><span class="annottext">s :: GetShardIterator
-</span><a href="#local-6989586621679159912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159911"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetShardIterator
-</span><a href="#local-6989586621679159912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sequenceNumber:GetShardIterator' :: Maybe Text
+</span><a href="#local-6989586621679159922"><span class="hs-identifier hs-var hs-var">sequenceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159922"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159921"><span class="annot"><span class="annottext">s :: GetShardIterator
+</span><a href="#local-6989586621679159921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159920"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetShardIterator
+</span><a href="#local-6989586621679159921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sequenceNumber:GetShardIterator' :: Maybe Text
 </span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#%24sel%3AsequenceNumber%3AGetShardIterator%27"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the stream.</span><span>
 </span><span id="line-151"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#getShardIterator_streamArn"><span class="hs-identifier hs-type">getShardIterator_streamArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -240,16 +240,16 @@ $sel:sequenceNumber:GetShardIterator' :: GetShardIterator -&gt; Maybe Text
 -&gt; (GetShardIterator -&gt; Text -&gt; GetShardIterator)
 -&gt; Lens GetShardIterator GetShardIterator Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159910"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159919"><span class="annot"><span class="annottext">Text
 streamArn :: Text
 $sel:streamArn:GetShardIterator' :: GetShardIterator -&gt; Text
-</span><a href="#local-6989586621679159910"><span class="hs-identifier hs-var hs-var">streamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679159910"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159909"><span class="annot"><span class="annottext">s :: GetShardIterator
-</span><a href="#local-6989586621679159909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159908"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679159908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetShardIterator
-</span><a href="#local-6989586621679159909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamArn:GetShardIterator' :: Text
+</span><a href="#local-6989586621679159919"><span class="hs-identifier hs-var hs-var">streamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159919"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159918"><span class="annot"><span class="annottext">s :: GetShardIterator
+</span><a href="#local-6989586621679159918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159917"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetShardIterator
+</span><a href="#local-6989586621679159918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamArn:GetShardIterator' :: Text
 </span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#%24sel%3AstreamArn%3AGetShardIterator%27"><span class="hs-identifier hs-var">streamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679159908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The identifier of the shard. The iterator will be returned for this</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- shard ID.</span><span>
@@ -259,16 +259,16 @@ $sel:streamArn:GetShardIterator' :: GetShardIterator -&gt; Text
 -&gt; (GetShardIterator -&gt; Text -&gt; GetShardIterator)
 -&gt; Lens GetShardIterator GetShardIterator Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159907"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159916"><span class="annot"><span class="annottext">Text
 shardId :: Text
 $sel:shardId:GetShardIterator' :: GetShardIterator -&gt; Text
-</span><a href="#local-6989586621679159907"><span class="hs-identifier hs-var hs-var">shardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679159907"><span class="hs-identifier hs-var">shardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159906"><span class="annot"><span class="annottext">s :: GetShardIterator
-</span><a href="#local-6989586621679159906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159905"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679159905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetShardIterator
-</span><a href="#local-6989586621679159906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardId:GetShardIterator' :: Text
+</span><a href="#local-6989586621679159916"><span class="hs-identifier hs-var hs-var">shardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159916"><span class="hs-identifier hs-var">shardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159915"><span class="annot"><span class="annottext">s :: GetShardIterator
+</span><a href="#local-6989586621679159915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159914"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetShardIterator
+</span><a href="#local-6989586621679159915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardId:GetShardIterator' :: Text
 </span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#%24sel%3AshardId%3AGetShardIterator%27"><span class="hs-identifier hs-var">shardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679159905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | Determines how the shard iterator is used to start reading stream</span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- records from the shard:</span><span>
@@ -299,27 +299,27 @@ $sel:shardId:GetShardIterator' :: GetShardIterator -&gt; Text
      ShardIteratorType
      ShardIteratorType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159904"><span class="annot"><span class="annottext">ShardIteratorType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159913"><span class="annot"><span class="annottext">ShardIteratorType
 shardIteratorType :: ShardIteratorType
 $sel:shardIteratorType:GetShardIterator' :: GetShardIterator -&gt; ShardIteratorType
-</span><a href="#local-6989586621679159904"><span class="hs-identifier hs-var hs-var">shardIteratorType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShardIteratorType
-</span><a href="#local-6989586621679159904"><span class="hs-identifier hs-var">shardIteratorType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159903"><span class="annot"><span class="annottext">s :: GetShardIterator
-</span><a href="#local-6989586621679159903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159902"><span class="annot"><span class="annottext">ShardIteratorType
-</span><a href="#local-6989586621679159902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetShardIterator
-</span><a href="#local-6989586621679159903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardIteratorType:GetShardIterator' :: ShardIteratorType
+</span><a href="#local-6989586621679159913"><span class="hs-identifier hs-var hs-var">shardIteratorType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShardIteratorType
+</span><a href="#local-6989586621679159913"><span class="hs-identifier hs-var">shardIteratorType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159912"><span class="annot"><span class="annottext">s :: GetShardIterator
+</span><a href="#local-6989586621679159912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159911"><span class="annot"><span class="annottext">ShardIteratorType
+</span><a href="#local-6989586621679159911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetShardIterator
+</span><a href="#local-6989586621679159912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardIteratorType:GetShardIterator' :: ShardIteratorType
 </span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#%24sel%3AshardIteratorType%3AGetShardIterator%27"><span class="hs-identifier hs-var">shardIteratorType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ShardIteratorType
-</span><a href="#local-6989586621679159902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-182"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>      </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse"><span class="hs-identifier hs-type">GetShardIteratorResponse</span></a></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679159898"><span class="annot"><span class="annottext">request :: GetShardIterator -&gt; Request GetShardIterator
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679159907"><span class="annot"><span class="annottext">request :: GetShardIterator -&gt; Request GetShardIterator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetShardIterator -&gt; Request GetShardIterator
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDBStreams.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679159894"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679159903"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetShardIterator
 -&gt; ClientResponse ClientBody
@@ -343,10 +343,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679159891"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159891"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679159890"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679159890"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679159889"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679159889"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679159900"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159900"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679159899"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679159899"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679159898"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679159898"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; GetShardIteratorResponse
 </span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse%27"><span class="hs-identifier hs-var">GetShardIteratorResponse'</span></a></span><span>
 </span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; GetShardIteratorResponse)
@@ -354,7 +354,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetShardIteratorResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679159889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679159898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ShardIterator&quot;</span></span><span class="hs-special">)</span><span>
@@ -366,15 +366,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159891"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159900"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159881"><span id="local-6989586621679159883"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159890"><span id="local-6989586621679159892"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span></span></span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159878"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159887"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span></span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679159874"><span class="annot"><span class="annottext">toHeaders :: GetShardIterator -&gt; ResponseHeaders
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679159883"><span class="annot"><span class="annottext">toHeaders :: GetShardIterator -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetShardIterator -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -401,9 +401,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-209"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159864"><span id="local-6989586621679159866"><span id="local-6989586621679159868"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679159862"><span class="annot"><span class="annottext">toJSON :: GetShardIterator -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159857"><span id="local-6989586621679159858"><span id="local-6989586621679159859"><span id="local-6989586621679159860"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159873"><span id="local-6989586621679159875"><span id="local-6989586621679159877"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679159871"><span class="annot"><span class="annottext">toJSON :: GetShardIterator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier hs-type">GetShardIterator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159866"><span id="local-6989586621679159867"><span id="local-6989586621679159868"><span id="local-6989586621679159869"><span class="annot"><span class="annottext">Maybe Text
 Text
 ShardIteratorType
 shardIteratorType :: ShardIteratorType
@@ -414,7 +414,7 @@ $sel:shardIteratorType:GetShardIterator' :: GetShardIterator -&gt; ShardIterator
 $sel:shardId:GetShardIterator' :: GetShardIterator -&gt; Text
 $sel:streamArn:GetShardIterator' :: GetShardIterator -&gt; Text
 $sel:sequenceNumber:GetShardIterator' :: GetShardIterator -&gt; Maybe Text
-</span><a href="#local-6989586621679159857"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679159866"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -427,21 +427,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159860"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679159869"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679159859"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679159868"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ShardId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679159858"><span class="hs-identifier hs-var">shardId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679159867"><span class="hs-identifier hs-var">shardId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -449,19 +449,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ShardIteratorType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ShardIteratorType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ShardIteratorType
-</span><a href="#local-6989586621679159857"><span class="hs-identifier hs-var">shardIteratorType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159866"><span class="hs-identifier hs-var">shardIteratorType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621679159851"><span class="annot"><span class="annottext">toPath :: GetShardIterator -&gt; ByteString
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679159860"><span class="annot"><span class="annottext">toPath :: GetShardIterator -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetShardIterator -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier hs-type">GetShardIterator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679159847"><span class="annot"><span class="annottext">toQuery :: GetShardIterator -&gt; QueryString
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679159856"><span class="annot"><span class="annottext">toQuery :: GetShardIterator -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetShardIterator -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -471,7 +471,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-231"></span><span class="hs-comment">-- | Represents the output of a @GetShardIterator@ operation.</span><span>
 </span><span id="line-232"></span><span class="hs-comment">--</span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- /See:/ 'newGetShardIteratorResponse' smart constructor.</span><span>
-</span><span id="line-234"></span><span id="local-6989586621679159844"><span id="local-6989586621679159845"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetShardIteratorResponse"><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse"><span class="hs-identifier hs-var">GetShardIteratorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetShardIteratorResponse%27"><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse%27"><span class="hs-identifier hs-var">GetShardIteratorResponse'</span></a></span></span><span>
+</span><span id="line-234"></span><span id="local-6989586621679159853"><span id="local-6989586621679159854"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetShardIteratorResponse"><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse"><span class="hs-identifier hs-var">GetShardIteratorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetShardIteratorResponse%27"><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse%27"><span class="hs-identifier hs-var">GetShardIteratorResponse'</span></a></span></span><span>
 </span><span id="line-235"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The position in the shard from which to start reading stream records</span><span>
 </span><span id="line-236"></span><span>    </span><span class="hs-comment">-- sequentially. A shard iterator specifies this position using the</span><span>
 </span><span id="line-237"></span><span>    </span><span class="hs-comment">-- sequence number of a stream record in a shard.</span><span>
@@ -481,7 +481,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-240"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetShardIteratorResponse%27"><span class="annot"><span class="annottext">GetShardIteratorResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#%24sel%3AhttpStatus%3AGetShardIteratorResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-241"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159838"><span id="local-6989586621679159840"><span class="annot"><span class="annottext">GetShardIteratorResponse -&gt; GetShardIteratorResponse -&gt; Bool
+</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159847"><span id="local-6989586621679159849"><span class="annot"><span class="annottext">GetShardIteratorResponse -&gt; GetShardIteratorResponse -&gt; Bool
 (GetShardIteratorResponse -&gt; GetShardIteratorResponse -&gt; Bool)
 -&gt; (GetShardIteratorResponse -&gt; GetShardIteratorResponse -&gt; Bool)
 -&gt; Eq GetShardIteratorResponse
@@ -490,7 +490,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetShardIteratorResponse -&gt; GetShardIteratorResponse -&gt; Bool
 == :: GetShardIteratorResponse -&gt; GetShardIteratorResponse -&gt; Bool
 $c== :: GetShardIteratorResponse -&gt; GetShardIteratorResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159830"><span id="local-6989586621679159832"><span id="local-6989586621679159834"><span id="local-6989586621679159836"><span class="annot"><span class="annottext">ReadPrec [GetShardIteratorResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159839"><span id="local-6989586621679159841"><span id="local-6989586621679159843"><span id="local-6989586621679159845"><span class="annot"><span class="annottext">ReadPrec [GetShardIteratorResponse]
 ReadPrec GetShardIteratorResponse
 Int -&gt; ReadS GetShardIteratorResponse
 ReadS [GetShardIteratorResponse]
@@ -510,7 +510,7 @@ readList :: ReadS [GetShardIteratorResponse]
 $creadList :: ReadS [GetShardIteratorResponse]
 readsPrec :: Int -&gt; ReadS GetShardIteratorResponse
 $creadsPrec :: Int -&gt; ReadS GetShardIteratorResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159824"><span id="local-6989586621679159826"><span id="local-6989586621679159828"><span class="annot"><span class="annottext">Int -&gt; GetShardIteratorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159833"><span id="local-6989586621679159835"><span id="local-6989586621679159837"><span class="annot"><span class="annottext">Int -&gt; GetShardIteratorResponse -&gt; ShowS
 [GetShardIteratorResponse] -&gt; ShowS
 GetShardIteratorResponse -&gt; String
 (Int -&gt; GetShardIteratorResponse -&gt; ShowS)
@@ -560,8 +560,8 @@ GetShardIteratorResponse -&gt; Rep GetShardIteratorResponse x
 </span><span id="line-259"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-260"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse"><span class="hs-identifier hs-type">GetShardIteratorResponse</span></a></span><span>
 </span><span id="line-261"></span><span id="newGetShardIteratorResponse"><span class="annot"><span class="annottext">newGetShardIteratorResponse :: Int -&gt; GetShardIteratorResponse
-</span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#newGetShardIteratorResponse"><span class="hs-identifier hs-var hs-var">newGetShardIteratorResponse</span></a></span></span><span> </span><span id="local-6989586621679159821"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159821"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#newGetShardIteratorResponse"><span class="hs-identifier hs-var hs-var">newGetShardIteratorResponse</span></a></span></span><span> </span><span id="local-6989586621679159830"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159830"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-262"></span><span>  </span><span class="annot"><span class="annottext">GetShardIteratorResponse' :: Maybe Text -&gt; Int -&gt; GetShardIteratorResponse
 </span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse%27"><span class="hs-identifier hs-type">GetShardIteratorResponse'</span></a></span><span>
 </span><span id="line-263"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:shardIterator:GetShardIteratorResponse' :: Maybe Text
@@ -571,7 +571,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-265"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetShardIteratorResponse' :: Int
 </span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#%24sel%3AhttpStatus%3AGetShardIteratorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159821"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679159830"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-266"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-267"></span><span>
 </span><span id="line-268"></span><span class="hs-comment">-- | The position in the shard from which to start reading stream records</span><span>
@@ -589,16 +589,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse%27"><span class="hs-identifier hs-type">GetShardIteratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159820"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse%27"><span class="hs-identifier hs-type">GetShardIteratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159829"><span class="annot"><span class="annottext">Maybe Text
 shardIterator :: Maybe Text
 $sel:shardIterator:GetShardIteratorResponse' :: GetShardIteratorResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679159820"><span class="hs-identifier hs-var hs-var">shardIterator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159820"><span class="hs-identifier hs-var">shardIterator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159819"><span class="annot"><span class="annottext">s :: GetShardIteratorResponse
-</span><a href="#local-6989586621679159819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse%27"><span class="hs-identifier hs-type">GetShardIteratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159818"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetShardIteratorResponse
-</span><a href="#local-6989586621679159819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardIterator:GetShardIteratorResponse' :: Maybe Text
+</span><a href="#local-6989586621679159829"><span class="hs-identifier hs-var hs-var">shardIterator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159829"><span class="hs-identifier hs-var">shardIterator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159828"><span class="annot"><span class="annottext">s :: GetShardIteratorResponse
+</span><a href="#local-6989586621679159828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse%27"><span class="hs-identifier hs-type">GetShardIteratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159827"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetShardIteratorResponse
+</span><a href="#local-6989586621679159828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardIterator:GetShardIteratorResponse' :: Maybe Text
 </span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#%24sel%3AshardIterator%3AGetShardIteratorResponse%27"><span class="hs-identifier hs-var">shardIterator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse"><span class="hs-identifier hs-type">GetShardIteratorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse"><span class="hs-identifier hs-type">GetShardIteratorResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-275"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#getShardIteratorResponse_httpStatus"><span class="hs-identifier hs-type">getShardIteratorResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse"><span class="hs-identifier hs-type">GetShardIteratorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -608,16 +608,16 @@ $sel:shardIterator:GetShardIteratorResponse' :: GetShardIteratorResponse -&gt; M
 -&gt; (GetShardIteratorResponse -&gt; Int -&gt; GetShardIteratorResponse)
 -&gt; Lens GetShardIteratorResponse GetShardIteratorResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse%27"><span class="hs-identifier hs-type">GetShardIteratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159817"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse%27"><span class="hs-identifier hs-type">GetShardIteratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159826"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetShardIteratorResponse' :: GetShardIteratorResponse -&gt; Int
-</span><a href="#local-6989586621679159817"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159817"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159816"><span class="annot"><span class="annottext">s :: GetShardIteratorResponse
-</span><a href="#local-6989586621679159816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse%27"><span class="hs-identifier hs-type">GetShardIteratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159815"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetShardIteratorResponse
-</span><a href="#local-6989586621679159816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetShardIteratorResponse' :: Int
+</span><a href="#local-6989586621679159826"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159826"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159825"><span class="annot"><span class="annottext">s :: GetShardIteratorResponse
+</span><a href="#local-6989586621679159825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse%27"><span class="hs-identifier hs-type">GetShardIteratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159824"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetShardIteratorResponse
+</span><a href="#local-6989586621679159825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetShardIteratorResponse' :: Int
 </span><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#%24sel%3AhttpStatus%3AGetShardIteratorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse"><span class="hs-identifier hs-type">GetShardIteratorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse"><span class="hs-identifier hs-type">GetShardIteratorResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-277"></span><span>
-</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159813"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse"><span class="hs-identifier hs-type">GetShardIteratorResponse</span></a></span></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159822"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse"><span class="hs-identifier hs-type">GetShardIteratorResponse</span></a></span></span><span>
 </span><span id="line-279"></span></pre></body></html>

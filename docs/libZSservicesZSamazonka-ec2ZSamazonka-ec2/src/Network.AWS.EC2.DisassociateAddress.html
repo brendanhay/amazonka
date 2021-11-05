@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDisassociateAddress' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621681236051"><span id="local-6989586621681236052"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateAddress"><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-var">DisassociateAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateAddress%27"><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress%27"><span class="hs-identifier hs-var">DisassociateAddress'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621681236060"><span id="local-6989586621681236061"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateAddress"><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-var">DisassociateAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateAddress%27"><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress%27"><span class="hs-identifier hs-var">DisassociateAddress'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | [EC2-VPC] The association ID. Required for EC2-VPC.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AassociationId%3ADisassociateAddress%27"><span class="annot"><span class="annottext">DisassociateAddress -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.DisassociateAddress.html#%24sel%3AassociationId%3ADisassociateAddress%27"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AdryRun%3ADisassociateAddress%27"><span class="annot"><span class="annottext">DisassociateAddress -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.DisassociateAddress.html#%24sel%3AdryRun%3ADisassociateAddress%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681236043"><span id="local-6989586621681236045"><span class="annot"><span class="annottext">DisassociateAddress -&gt; DisassociateAddress -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681236052"><span id="local-6989586621681236054"><span class="annot"><span class="annottext">DisassociateAddress -&gt; DisassociateAddress -&gt; Bool
 (DisassociateAddress -&gt; DisassociateAddress -&gt; Bool)
 -&gt; (DisassociateAddress -&gt; DisassociateAddress -&gt; Bool)
 -&gt; Eq DisassociateAddress
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DisassociateAddress -&gt; DisassociateAddress -&gt; Bool
 == :: DisassociateAddress -&gt; DisassociateAddress -&gt; Bool
 $c== :: DisassociateAddress -&gt; DisassociateAddress -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681236034"><span id="local-6989586621681236036"><span id="local-6989586621681236038"><span id="local-6989586621681236040"><span class="annot"><span class="annottext">ReadPrec [DisassociateAddress]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681236043"><span id="local-6989586621681236045"><span id="local-6989586621681236047"><span id="local-6989586621681236049"><span class="annot"><span class="annottext">ReadPrec [DisassociateAddress]
 ReadPrec DisassociateAddress
 Int -&gt; ReadS DisassociateAddress
 ReadS [DisassociateAddress]
@@ -97,7 +97,7 @@ readList :: ReadS [DisassociateAddress]
 $creadList :: ReadS [DisassociateAddress]
 readsPrec :: Int -&gt; ReadS DisassociateAddress
 $creadsPrec :: Int -&gt; ReadS DisassociateAddress
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681236027"><span id="local-6989586621681236029"><span id="local-6989586621681236031"><span class="annot"><span class="annottext">Int -&gt; DisassociateAddress -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681236036"><span id="local-6989586621681236038"><span id="local-6989586621681236040"><span class="annot"><span class="annottext">Int -&gt; DisassociateAddress -&gt; ShowS
 [DisassociateAddress] -&gt; ShowS
 DisassociateAddress -&gt; String
 (Int -&gt; DisassociateAddress -&gt; ShowS)
@@ -169,16 +169,16 @@ forall a. Maybe a
 -&gt; Lens
      DisassociateAddress DisassociateAddress (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress%27"><span class="hs-identifier hs-type">DisassociateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681236020"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress%27"><span class="hs-identifier hs-type">DisassociateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681236029"><span class="annot"><span class="annottext">Maybe Text
 associationId :: Maybe Text
 $sel:associationId:DisassociateAddress' :: DisassociateAddress -&gt; Maybe Text
-</span><a href="#local-6989586621681236020"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681236020"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681236019"><span class="annot"><span class="annottext">s :: DisassociateAddress
-</span><a href="#local-6989586621681236019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress%27"><span class="hs-identifier hs-type">DisassociateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681236018"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681236018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateAddress
-</span><a href="#local-6989586621681236019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationId:DisassociateAddress' :: Maybe Text
+</span><a href="#local-6989586621681236029"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681236029"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681236028"><span class="annot"><span class="annottext">s :: DisassociateAddress
+</span><a href="#local-6989586621681236028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress%27"><span class="hs-identifier hs-type">DisassociateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681236027"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681236027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateAddress
+</span><a href="#local-6989586621681236028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationId:DisassociateAddress' :: Maybe Text
 </span><a href="Network.AWS.EC2.DisassociateAddress.html#%24sel%3AassociationId%3ADisassociateAddress%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681236018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-type">DisassociateAddress</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681236027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-type">DisassociateAddress</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#disassociateAddress_publicIp"><span class="hs-identifier hs-type">disassociateAddress_publicIp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-type">DisassociateAddress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -189,16 +189,16 @@ $sel:associationId:DisassociateAddress' :: DisassociateAddress -&gt; Maybe Text
 -&gt; Lens
      DisassociateAddress DisassociateAddress (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress%27"><span class="hs-identifier hs-type">DisassociateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681236017"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress%27"><span class="hs-identifier hs-type">DisassociateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681236026"><span class="annot"><span class="annottext">Maybe Text
 publicIp :: Maybe Text
 $sel:publicIp:DisassociateAddress' :: DisassociateAddress -&gt; Maybe Text
-</span><a href="#local-6989586621681236017"><span class="hs-identifier hs-var hs-var">publicIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681236017"><span class="hs-identifier hs-var">publicIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681236016"><span class="annot"><span class="annottext">s :: DisassociateAddress
-</span><a href="#local-6989586621681236016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress%27"><span class="hs-identifier hs-type">DisassociateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681236015"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681236015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateAddress
-</span><a href="#local-6989586621681236016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicIp:DisassociateAddress' :: Maybe Text
+</span><a href="#local-6989586621681236026"><span class="hs-identifier hs-var hs-var">publicIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681236026"><span class="hs-identifier hs-var">publicIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681236025"><span class="annot"><span class="annottext">s :: DisassociateAddress
+</span><a href="#local-6989586621681236025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress%27"><span class="hs-identifier hs-type">DisassociateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681236024"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681236024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateAddress
+</span><a href="#local-6989586621681236025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicIp:DisassociateAddress' :: Maybe Text
 </span><a href="Network.AWS.EC2.DisassociateAddress.html#%24sel%3ApublicIp%3ADisassociateAddress%27"><span class="hs-identifier hs-var">publicIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681236015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-type">DisassociateAddress</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681236024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-type">DisassociateAddress</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
@@ -212,27 +212,27 @@ $sel:publicIp:DisassociateAddress' :: DisassociateAddress -&gt; Maybe Text
 -&gt; Lens
      DisassociateAddress DisassociateAddress (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress%27"><span class="hs-identifier hs-type">DisassociateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681236014"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress%27"><span class="hs-identifier hs-type">DisassociateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681236023"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:DisassociateAddress' :: DisassociateAddress -&gt; Maybe Bool
-</span><a href="#local-6989586621681236014"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681236014"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681236013"><span class="annot"><span class="annottext">s :: DisassociateAddress
-</span><a href="#local-6989586621681236013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress%27"><span class="hs-identifier hs-type">DisassociateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681236012"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681236012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateAddress
-</span><a href="#local-6989586621681236013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DisassociateAddress' :: Maybe Bool
+</span><a href="#local-6989586621681236023"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681236023"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681236022"><span class="annot"><span class="annottext">s :: DisassociateAddress
+</span><a href="#local-6989586621681236022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress%27"><span class="hs-identifier hs-type">DisassociateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681236021"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681236021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateAddress
+</span><a href="#local-6989586621681236022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DisassociateAddress' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DisassociateAddress.html#%24sel%3AdryRun%3ADisassociateAddress%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681236012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-type">DisassociateAddress</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681236021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-type">DisassociateAddress</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-type">DisassociateAddress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-type">DisassociateAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddressResponse"><span class="hs-identifier hs-type">DisassociateAddressResponse</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621681236008"><span class="annot"><span class="annottext">request :: DisassociateAddress -&gt; Request DisassociateAddress
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621681236017"><span class="annot"><span class="annottext">request :: DisassociateAddress -&gt; Request DisassociateAddress
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DisassociateAddress -&gt; Request DisassociateAddress
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621681236004"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621681236013"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DisassociateAddress
 -&gt; ClientResponse ClientBody
@@ -258,12 +258,12 @@ AWSResponse a
 DisassociateAddressResponse
 </span><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddressResponse%27"><span class="hs-identifier hs-var">DisassociateAddressResponse'</span></a></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681235997"><span id="local-6989586621681235999"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-type">DisassociateAddress</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681236006"><span id="local-6989586621681236008"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-type">DisassociateAddress</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681235994"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-type">DisassociateAddress</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681236003"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-type">DisassociateAddress</span></a></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-type">DisassociateAddress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621681235990"><span class="annot"><span class="annottext">toHeaders :: DisassociateAddress -&gt; [Header]
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621681235999"><span class="annot"><span class="annottext">toHeaders :: DisassociateAddress -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DisassociateAddress -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -271,15 +271,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-type">DisassociateAddress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621681235985"><span class="annot"><span class="annottext">toPath :: DisassociateAddress -&gt; ByteString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621681235994"><span class="annot"><span class="annottext">toPath :: DisassociateAddress -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DisassociateAddress -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress"><span class="hs-identifier hs-type">DisassociateAddress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621681235981"><span class="annot"><span class="annottext">toQuery :: DisassociateAddress -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress%27"><span class="hs-identifier hs-type">DisassociateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681235977"><span id="local-6989586621681235978"><span id="local-6989586621681235979"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621681235990"><span class="annot"><span class="annottext">toQuery :: DisassociateAddress -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddress%27"><span class="hs-identifier hs-type">DisassociateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681235986"><span id="local-6989586621681235987"><span id="local-6989586621681235988"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 dryRun :: Maybe Bool
 publicIp :: Maybe Text
@@ -287,7 +287,7 @@ associationId :: Maybe Text
 $sel:dryRun:DisassociateAddress' :: DisassociateAddress -&gt; Maybe Bool
 $sel:publicIp:DisassociateAddress' :: DisassociateAddress -&gt; Maybe Text
 $sel:associationId:DisassociateAddress' :: DisassociateAddress -&gt; Maybe Text
-</span><a href="#local-6989586621681235977"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681235986"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -307,24 +307,24 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;AssociationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681235979"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681235988"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PublicIp&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681235978"><span class="hs-identifier hs-var">publicIp</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681235987"><span class="hs-identifier hs-var">publicIp</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681235977"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
+</span><a href="#local-6989586621681235986"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newDisassociateAddressResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621681235974"><span id="local-6989586621681235975"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateAddressResponse"><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddressResponse"><span class="hs-identifier hs-var">DisassociateAddressResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateAddressResponse%27"><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddressResponse%27"><span class="hs-identifier hs-var">DisassociateAddressResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621681235983"><span id="local-6989586621681235984"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateAddressResponse"><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddressResponse"><span class="hs-identifier hs-var">DisassociateAddressResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateAddressResponse%27"><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddressResponse%27"><span class="hs-identifier hs-var">DisassociateAddressResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681235970"><span id="local-6989586621681235972"><span class="annot"><span class="annottext">DisassociateAddressResponse -&gt; DisassociateAddressResponse -&gt; Bool
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681235979"><span id="local-6989586621681235981"><span class="annot"><span class="annottext">DisassociateAddressResponse -&gt; DisassociateAddressResponse -&gt; Bool
 (DisassociateAddressResponse
  -&gt; DisassociateAddressResponse -&gt; Bool)
 -&gt; (DisassociateAddressResponse
@@ -335,7 +335,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DisassociateAddressResponse -&gt; DisassociateAddressResponse -&gt; Bool
 == :: DisassociateAddressResponse -&gt; DisassociateAddressResponse -&gt; Bool
 $c== :: DisassociateAddressResponse -&gt; DisassociateAddressResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681235962"><span id="local-6989586621681235964"><span id="local-6989586621681235966"><span id="local-6989586621681235968"><span class="annot"><span class="annottext">ReadPrec [DisassociateAddressResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681235971"><span id="local-6989586621681235973"><span id="local-6989586621681235975"><span id="local-6989586621681235977"><span class="annot"><span class="annottext">ReadPrec [DisassociateAddressResponse]
 ReadPrec DisassociateAddressResponse
 Int -&gt; ReadS DisassociateAddressResponse
 ReadS [DisassociateAddressResponse]
@@ -355,7 +355,7 @@ readList :: ReadS [DisassociateAddressResponse]
 $creadList :: ReadS [DisassociateAddressResponse]
 readsPrec :: Int -&gt; ReadS DisassociateAddressResponse
 $creadsPrec :: Int -&gt; ReadS DisassociateAddressResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681235956"><span id="local-6989586621681235958"><span id="local-6989586621681235960"><span class="annot"><span class="annottext">Int -&gt; DisassociateAddressResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681235965"><span id="local-6989586621681235967"><span id="local-6989586621681235969"><span class="annot"><span class="annottext">Int -&gt; DisassociateAddressResponse -&gt; ShowS
 [DisassociateAddressResponse] -&gt; ShowS
 DisassociateAddressResponse -&gt; String
 (Int -&gt; DisassociateAddressResponse -&gt; ShowS)
@@ -398,5 +398,5 @@ DisassociateAddressResponse -&gt; Rep DisassociateAddressResponse x
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">DisassociateAddressResponse
 </span><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddressResponse%27"><span class="hs-identifier hs-var">DisassociateAddressResponse'</span></a></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681235952"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddressResponse"><span class="hs-identifier hs-type">DisassociateAddressResponse</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681235961"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DisassociateAddress.html#DisassociateAddressResponse"><span class="hs-identifier hs-type">DisassociateAddressResponse</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDisassociateFleet' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679295616"><span id="local-6989586621679295617"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateFleet"><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-var">DisassociateFleet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateFleet%27"><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet%27"><span class="hs-identifier hs-var">DisassociateFleet'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679295625"><span id="local-6989586621679295626"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateFleet"><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-var">DisassociateFleet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateFleet%27"><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet%27"><span class="hs-identifier hs-var">DisassociateFleet'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the fleet.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AfleetName%3ADisassociateFleet%27"><span class="annot"><span class="annottext">DisassociateFleet -&gt; Text
 </span><a href="Network.AWS.AppStream.DisassociateFleet.html#%24sel%3AfleetName%3ADisassociateFleet%27"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AstackName%3ADisassociateFleet%27"><span class="annot"><span class="annottext">DisassociateFleet -&gt; Text
 </span><a href="Network.AWS.AppStream.DisassociateFleet.html#%24sel%3AstackName%3ADisassociateFleet%27"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295609"><span id="local-6989586621679295611"><span class="annot"><span class="annottext">DisassociateFleet -&gt; DisassociateFleet -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295618"><span id="local-6989586621679295620"><span class="annot"><span class="annottext">DisassociateFleet -&gt; DisassociateFleet -&gt; Bool
 (DisassociateFleet -&gt; DisassociateFleet -&gt; Bool)
 -&gt; (DisassociateFleet -&gt; DisassociateFleet -&gt; Bool)
 -&gt; Eq DisassociateFleet
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DisassociateFleet -&gt; DisassociateFleet -&gt; Bool
 == :: DisassociateFleet -&gt; DisassociateFleet -&gt; Bool
 $c== :: DisassociateFleet -&gt; DisassociateFleet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295600"><span id="local-6989586621679295602"><span id="local-6989586621679295604"><span id="local-6989586621679295606"><span class="annot"><span class="annottext">ReadPrec [DisassociateFleet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295609"><span id="local-6989586621679295611"><span id="local-6989586621679295613"><span id="local-6989586621679295615"><span class="annot"><span class="annottext">ReadPrec [DisassociateFleet]
 ReadPrec DisassociateFleet
 Int -&gt; ReadS DisassociateFleet
 ReadS [DisassociateFleet]
@@ -84,7 +84,7 @@ readList :: ReadS [DisassociateFleet]
 $creadList :: ReadS [DisassociateFleet]
 readsPrec :: Int -&gt; ReadS DisassociateFleet
 $creadsPrec :: Int -&gt; ReadS DisassociateFleet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295593"><span id="local-6989586621679295595"><span id="local-6989586621679295597"><span class="annot"><span class="annottext">Int -&gt; DisassociateFleet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295602"><span id="local-6989586621679295604"><span id="local-6989586621679295606"><span class="annot"><span class="annottext">Int -&gt; DisassociateFleet -&gt; ShowS
 [DisassociateFleet] -&gt; ShowS
 DisassociateFleet -&gt; String
 (Int -&gt; DisassociateFleet -&gt; ShowS)
@@ -128,17 +128,17 @@ $cfrom :: forall x. DisassociateFleet -&gt; Rep DisassociateFleet x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-type">DisassociateFleet</span></a></span><span>
 </span><span id="line-75"></span><span id="newDisassociateFleet"><span class="annot"><span class="annottext">newDisassociateFleet :: Text -&gt; Text -&gt; DisassociateFleet
-</span><a href="Network.AWS.AppStream.DisassociateFleet.html#newDisassociateFleet"><span class="hs-identifier hs-var hs-var">newDisassociateFleet</span></a></span></span><span> </span><span id="local-6989586621679295588"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295588"><span class="hs-identifier hs-var">pFleetName_</span></a></span></span><span> </span><span id="local-6989586621679295587"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295587"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.DisassociateFleet.html#newDisassociateFleet"><span class="hs-identifier hs-var hs-var">newDisassociateFleet</span></a></span></span><span> </span><span id="local-6989586621679295597"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295597"><span class="hs-identifier hs-var">pFleetName_</span></a></span></span><span> </span><span id="local-6989586621679295596"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295596"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DisassociateFleet' :: Text -&gt; Text -&gt; DisassociateFleet
 </span><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet%27"><span class="hs-identifier hs-type">DisassociateFleet'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fleetName:DisassociateFleet' :: Text
 </span><a href="Network.AWS.AppStream.DisassociateFleet.html#%24sel%3AfleetName%3ADisassociateFleet%27"><span class="hs-identifier hs-var">fleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295588"><span class="hs-identifier hs-var">pFleetName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679295597"><span class="hs-identifier hs-var">pFleetName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackName:DisassociateFleet' :: Text
 </span><a href="Network.AWS.AppStream.DisassociateFleet.html#%24sel%3AstackName%3ADisassociateFleet%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295587"><span class="hs-identifier hs-var">pStackName_</span></a></span><span>
+</span><a href="#local-6989586621679295596"><span class="hs-identifier hs-var">pStackName_</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The name of the fleet.</span><span>
@@ -148,16 +148,16 @@ $cfrom :: forall x. DisassociateFleet -&gt; Rep DisassociateFleet x
 -&gt; (DisassociateFleet -&gt; Text -&gt; DisassociateFleet)
 -&gt; Lens DisassociateFleet DisassociateFleet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet%27"><span class="hs-identifier hs-type">DisassociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295584"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet%27"><span class="hs-identifier hs-type">DisassociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295593"><span class="annot"><span class="annottext">Text
 fleetName :: Text
 $sel:fleetName:DisassociateFleet' :: DisassociateFleet -&gt; Text
-</span><a href="#local-6989586621679295584"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295584"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295583"><span class="annot"><span class="annottext">s :: DisassociateFleet
-</span><a href="#local-6989586621679295583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet%27"><span class="hs-identifier hs-type">DisassociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295582"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateFleet
-</span><a href="#local-6989586621679295583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetName:DisassociateFleet' :: Text
+</span><a href="#local-6989586621679295593"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295593"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295592"><span class="annot"><span class="annottext">s :: DisassociateFleet
+</span><a href="#local-6989586621679295592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet%27"><span class="hs-identifier hs-type">DisassociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295591"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateFleet
+</span><a href="#local-6989586621679295592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetName:DisassociateFleet' :: Text
 </span><a href="Network.AWS.AppStream.DisassociateFleet.html#%24sel%3AfleetName%3ADisassociateFleet%27"><span class="hs-identifier hs-var">fleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-type">DisassociateFleet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-type">DisassociateFleet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The name of the stack.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#disassociateFleet_stackName"><span class="hs-identifier hs-type">disassociateFleet_stackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-type">DisassociateFleet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -166,27 +166,27 @@ $sel:fleetName:DisassociateFleet' :: DisassociateFleet -&gt; Text
 -&gt; (DisassociateFleet -&gt; Text -&gt; DisassociateFleet)
 -&gt; Lens DisassociateFleet DisassociateFleet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet%27"><span class="hs-identifier hs-type">DisassociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295581"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet%27"><span class="hs-identifier hs-type">DisassociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295590"><span class="annot"><span class="annottext">Text
 stackName :: Text
 $sel:stackName:DisassociateFleet' :: DisassociateFleet -&gt; Text
-</span><a href="#local-6989586621679295581"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295581"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295580"><span class="annot"><span class="annottext">s :: DisassociateFleet
-</span><a href="#local-6989586621679295580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet%27"><span class="hs-identifier hs-type">DisassociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295579"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateFleet
-</span><a href="#local-6989586621679295580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:DisassociateFleet' :: Text
+</span><a href="#local-6989586621679295590"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295590"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295589"><span class="annot"><span class="annottext">s :: DisassociateFleet
+</span><a href="#local-6989586621679295589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet%27"><span class="hs-identifier hs-type">DisassociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295588"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateFleet
+</span><a href="#local-6989586621679295589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:DisassociateFleet' :: Text
 </span><a href="Network.AWS.AppStream.DisassociateFleet.html#%24sel%3AstackName%3ADisassociateFleet%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-type">DisassociateFleet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-type">DisassociateFleet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-type">DisassociateFleet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-type">DisassociateFleet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleetResponse"><span class="hs-identifier hs-type">DisassociateFleetResponse</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679295575"><span class="annot"><span class="annottext">request :: DisassociateFleet -&gt; Request DisassociateFleet
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679295584"><span class="annot"><span class="annottext">request :: DisassociateFleet -&gt; Request DisassociateFleet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DisassociateFleet -&gt; Request DisassociateFleet
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679295571"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679295580"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DisassociateFleet
 -&gt; ClientResponse ClientBody
@@ -212,10 +212,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295568"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295568"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679295567"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679295567"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679295566"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679295566"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295577"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295577"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679295576"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679295576"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679295575"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679295575"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DisassociateFleetResponse
 </span><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleetResponse%27"><span class="hs-identifier hs-var">DisassociateFleetResponse'</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DisassociateFleetResponse)
@@ -226,15 +226,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295568"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295577"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295559"><span id="local-6989586621679295561"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-type">DisassociateFleet</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295568"><span id="local-6989586621679295570"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-type">DisassociateFleet</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295556"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-type">DisassociateFleet</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295565"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-type">DisassociateFleet</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-type">DisassociateFleet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679295552"><span class="annot"><span class="annottext">toHeaders :: DisassociateFleet -&gt; ResponseHeaders
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679295561"><span class="annot"><span class="annottext">toHeaders :: DisassociateFleet -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DisassociateFleet -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -261,14 +261,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295542"><span id="local-6989586621679295544"><span id="local-6989586621679295546"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-type">DisassociateFleet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679295540"><span class="annot"><span class="annottext">toJSON :: DisassociateFleet -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet%27"><span class="hs-identifier hs-type">DisassociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295537"><span id="local-6989586621679295538"><span class="annot"><span class="annottext">Text
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295551"><span id="local-6989586621679295553"><span id="local-6989586621679295555"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-type">DisassociateFleet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679295549"><span class="annot"><span class="annottext">toJSON :: DisassociateFleet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet%27"><span class="hs-identifier hs-type">DisassociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295546"><span id="local-6989586621679295547"><span class="annot"><span class="annottext">Text
 stackName :: Text
 fleetName :: Text
 $sel:stackName:DisassociateFleet' :: DisassociateFleet -&gt; Text
 $sel:fleetName:DisassociateFleet' :: DisassociateFleet -&gt; Text
-</span><a href="#local-6989586621679295537"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679295546"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -280,26 +280,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;FleetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295538"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679295547"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295537"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295546"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-type">DisassociateFleet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679295531"><span class="annot"><span class="annottext">toPath :: DisassociateFleet -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679295540"><span class="annot"><span class="annottext">toPath :: DisassociateFleet -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DisassociateFleet -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleet"><span class="hs-identifier hs-type">DisassociateFleet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679295527"><span class="annot"><span class="annottext">toQuery :: DisassociateFleet -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679295536"><span class="annot"><span class="annottext">toQuery :: DisassociateFleet -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisassociateFleet -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -307,12 +307,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newDisassociateFleetResponse' smart constructor.</span><span>
-</span><span id="line-136"></span><span id="local-6989586621679295524"><span id="local-6989586621679295525"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateFleetResponse"><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleetResponse"><span class="hs-identifier hs-var">DisassociateFleetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateFleetResponse%27"><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleetResponse%27"><span class="hs-identifier hs-var">DisassociateFleetResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span id="local-6989586621679295533"><span id="local-6989586621679295534"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateFleetResponse"><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleetResponse"><span class="hs-identifier hs-var">DisassociateFleetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateFleetResponse%27"><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleetResponse%27"><span class="hs-identifier hs-var">DisassociateFleetResponse'</span></a></span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisassociateFleetResponse%27"><span class="annot"><span class="annottext">DisassociateFleetResponse -&gt; Int
 </span><a href="Network.AWS.AppStream.DisassociateFleet.html#%24sel%3AhttpStatus%3ADisassociateFleetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295519"><span id="local-6989586621679295521"><span class="annot"><span class="annottext">DisassociateFleetResponse -&gt; DisassociateFleetResponse -&gt; Bool
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295528"><span id="local-6989586621679295530"><span class="annot"><span class="annottext">DisassociateFleetResponse -&gt; DisassociateFleetResponse -&gt; Bool
 (DisassociateFleetResponse -&gt; DisassociateFleetResponse -&gt; Bool)
 -&gt; (DisassociateFleetResponse -&gt; DisassociateFleetResponse -&gt; Bool)
 -&gt; Eq DisassociateFleetResponse
@@ -321,7 +321,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DisassociateFleetResponse -&gt; DisassociateFleetResponse -&gt; Bool
 == :: DisassociateFleetResponse -&gt; DisassociateFleetResponse -&gt; Bool
 $c== :: DisassociateFleetResponse -&gt; DisassociateFleetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295511"><span id="local-6989586621679295513"><span id="local-6989586621679295515"><span id="local-6989586621679295517"><span class="annot"><span class="annottext">ReadPrec [DisassociateFleetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295520"><span id="local-6989586621679295522"><span id="local-6989586621679295524"><span id="local-6989586621679295526"><span class="annot"><span class="annottext">ReadPrec [DisassociateFleetResponse]
 ReadPrec DisassociateFleetResponse
 Int -&gt; ReadS DisassociateFleetResponse
 ReadS [DisassociateFleetResponse]
@@ -341,7 +341,7 @@ readList :: ReadS [DisassociateFleetResponse]
 $creadList :: ReadS [DisassociateFleetResponse]
 readsPrec :: Int -&gt; ReadS DisassociateFleetResponse
 $creadsPrec :: Int -&gt; ReadS DisassociateFleetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295505"><span id="local-6989586621679295507"><span id="local-6989586621679295509"><span class="annot"><span class="annottext">Int -&gt; DisassociateFleetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295514"><span id="local-6989586621679295516"><span id="local-6989586621679295518"><span class="annot"><span class="annottext">Int -&gt; DisassociateFleetResponse -&gt; ShowS
 [DisassociateFleetResponse] -&gt; ShowS
 DisassociateFleetResponse -&gt; String
 (Int -&gt; DisassociateFleetResponse -&gt; ShowS)
@@ -387,14 +387,14 @@ DisassociateFleetResponse -&gt; Rep DisassociateFleetResponse x
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleetResponse"><span class="hs-identifier hs-type">DisassociateFleetResponse</span></a></span><span>
 </span><span id="line-155"></span><span id="newDisassociateFleetResponse"><span class="annot"><span class="annottext">newDisassociateFleetResponse :: Int -&gt; DisassociateFleetResponse
-</span><a href="Network.AWS.AppStream.DisassociateFleet.html#newDisassociateFleetResponse"><span class="hs-identifier hs-var hs-var">newDisassociateFleetResponse</span></a></span></span><span> </span><span id="local-6989586621679295502"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295502"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.DisassociateFleet.html#newDisassociateFleetResponse"><span class="hs-identifier hs-var hs-var">newDisassociateFleetResponse</span></a></span></span><span> </span><span id="local-6989586621679295511"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295511"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">DisassociateFleetResponse' :: Int -&gt; DisassociateFleetResponse
 </span><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleetResponse%27"><span class="hs-identifier hs-type">DisassociateFleetResponse'</span></a></span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateFleetResponse' :: Int
 </span><a href="Network.AWS.AppStream.DisassociateFleet.html#%24sel%3AhttpStatus%3ADisassociateFleetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295502"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679295511"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -405,16 +405,16 @@ DisassociateFleetResponse -&gt; Rep DisassociateFleetResponse x
 -&gt; (DisassociateFleetResponse -&gt; Int -&gt; DisassociateFleetResponse)
 -&gt; Lens DisassociateFleetResponse DisassociateFleetResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleetResponse%27"><span class="hs-identifier hs-type">DisassociateFleetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295501"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleetResponse%27"><span class="hs-identifier hs-type">DisassociateFleetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295510"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DisassociateFleetResponse' :: DisassociateFleetResponse -&gt; Int
-</span><a href="#local-6989586621679295501"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295501"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295500"><span class="annot"><span class="annottext">s :: DisassociateFleetResponse
-</span><a href="#local-6989586621679295500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleetResponse%27"><span class="hs-identifier hs-type">DisassociateFleetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295499"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateFleetResponse
-</span><a href="#local-6989586621679295500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateFleetResponse' :: Int
+</span><a href="#local-6989586621679295510"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295510"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295509"><span class="annot"><span class="annottext">s :: DisassociateFleetResponse
+</span><a href="#local-6989586621679295509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleetResponse%27"><span class="hs-identifier hs-type">DisassociateFleetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295508"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateFleetResponse
+</span><a href="#local-6989586621679295509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateFleetResponse' :: Int
 </span><a href="Network.AWS.AppStream.DisassociateFleet.html#%24sel%3AhttpStatus%3ADisassociateFleetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleetResponse"><span class="hs-identifier hs-type">DisassociateFleetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleetResponse"><span class="hs-identifier hs-type">DisassociateFleetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295497"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleetResponse"><span class="hs-identifier hs-type">DisassociateFleetResponse</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295506"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DisassociateFleet.html#DisassociateFleetResponse"><span class="hs-identifier hs-type">DisassociateFleetResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

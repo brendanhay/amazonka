@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeIdentityProvider' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679449266"><span id="local-6989586621679449267"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityProvider"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-var">DescribeIdentityProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityProvider%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider%27"><span class="hs-identifier hs-var">DescribeIdentityProvider'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679449275"><span id="local-6989586621679449276"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityProvider"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-var">DescribeIdentityProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityProvider%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider%27"><span class="hs-identifier hs-var">DescribeIdentityProvider'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user pool ID.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AuserPoolId%3ADescribeIdentityProvider%27"><span class="annot"><span class="annottext">DescribeIdentityProvider -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#%24sel%3AuserPoolId%3ADescribeIdentityProvider%27"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AproviderName%3ADescribeIdentityProvider%27"><span class="annot"><span class="annottext">DescribeIdentityProvider -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#%24sel%3AproviderName%3ADescribeIdentityProvider%27"><span class="hs-identifier hs-var hs-var">providerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449259"><span id="local-6989586621679449261"><span class="annot"><span class="annottext">DescribeIdentityProvider -&gt; DescribeIdentityProvider -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449268"><span id="local-6989586621679449270"><span class="annot"><span class="annottext">DescribeIdentityProvider -&gt; DescribeIdentityProvider -&gt; Bool
 (DescribeIdentityProvider -&gt; DescribeIdentityProvider -&gt; Bool)
 -&gt; (DescribeIdentityProvider -&gt; DescribeIdentityProvider -&gt; Bool)
 -&gt; Eq DescribeIdentityProvider
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeIdentityProvider -&gt; DescribeIdentityProvider -&gt; Bool
 == :: DescribeIdentityProvider -&gt; DescribeIdentityProvider -&gt; Bool
 $c== :: DescribeIdentityProvider -&gt; DescribeIdentityProvider -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449250"><span id="local-6989586621679449252"><span id="local-6989586621679449254"><span id="local-6989586621679449256"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityProvider]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449259"><span id="local-6989586621679449261"><span id="local-6989586621679449263"><span id="local-6989586621679449265"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityProvider]
 ReadPrec DescribeIdentityProvider
 Int -&gt; ReadS DescribeIdentityProvider
 ReadS [DescribeIdentityProvider]
@@ -85,7 +85,7 @@ readList :: ReadS [DescribeIdentityProvider]
 $creadList :: ReadS [DescribeIdentityProvider]
 readsPrec :: Int -&gt; ReadS DescribeIdentityProvider
 $creadsPrec :: Int -&gt; ReadS DescribeIdentityProvider
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449243"><span id="local-6989586621679449245"><span id="local-6989586621679449247"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityProvider -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449252"><span id="local-6989586621679449254"><span id="local-6989586621679449256"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityProvider -&gt; ShowS
 [DescribeIdentityProvider] -&gt; ShowS
 DescribeIdentityProvider -&gt; String
 (Int -&gt; DescribeIdentityProvider -&gt; ShowS)
@@ -136,19 +136,19 @@ DescribeIdentityProvider -&gt; Rep DescribeIdentityProvider x
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-type">DescribeIdentityProvider</span></a></span><span>
 </span><span id="line-76"></span><span id="newDescribeIdentityProvider"><span class="annot"><span class="annottext">newDescribeIdentityProvider :: Text -&gt; Text -&gt; DescribeIdentityProvider
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#newDescribeIdentityProvider"><span class="hs-identifier hs-var hs-var">newDescribeIdentityProvider</span></a></span></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679449238"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449238"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679449237"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449237"><span class="hs-identifier hs-var">pProviderName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679449247"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449247"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679449246"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449246"><span class="hs-identifier hs-var">pProviderName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">DescribeIdentityProvider' :: Text -&gt; Text -&gt; DescribeIdentityProvider
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider%27"><span class="hs-identifier hs-type">DescribeIdentityProvider'</span></a></span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userPoolId:DescribeIdentityProvider' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#%24sel%3AuserPoolId%3ADescribeIdentityProvider%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449238"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679449247"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:providerName:DescribeIdentityProvider' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#%24sel%3AproviderName%3ADescribeIdentityProvider%27"><span class="hs-identifier hs-var">providerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449237"><span class="hs-identifier hs-var">pProviderName_</span></a></span><span>
+</span><a href="#local-6989586621679449246"><span class="hs-identifier hs-var">pProviderName_</span></a></span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The user pool ID.</span><span>
@@ -159,16 +159,16 @@ DescribeIdentityProvider -&gt; Rep DescribeIdentityProvider x
 -&gt; (DescribeIdentityProvider -&gt; Text -&gt; DescribeIdentityProvider)
 -&gt; Lens DescribeIdentityProvider DescribeIdentityProvider Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider%27"><span class="hs-identifier hs-type">DescribeIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449234"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider%27"><span class="hs-identifier hs-type">DescribeIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449243"><span class="annot"><span class="annottext">Text
 userPoolId :: Text
 $sel:userPoolId:DescribeIdentityProvider' :: DescribeIdentityProvider -&gt; Text
-</span><a href="#local-6989586621679449234"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449234"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449233"><span class="annot"><span class="annottext">s :: DescribeIdentityProvider
-</span><a href="#local-6989586621679449233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider%27"><span class="hs-identifier hs-type">DescribeIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449232"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityProvider
-</span><a href="#local-6989586621679449233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:DescribeIdentityProvider' :: Text
+</span><a href="#local-6989586621679449243"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449243"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449242"><span class="annot"><span class="annottext">s :: DescribeIdentityProvider
+</span><a href="#local-6989586621679449242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider%27"><span class="hs-identifier hs-type">DescribeIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449241"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityProvider
+</span><a href="#local-6989586621679449242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:DescribeIdentityProvider' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#%24sel%3AuserPoolId%3ADescribeIdentityProvider%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-type">DescribeIdentityProvider</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-type">DescribeIdentityProvider</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The identity provider name.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#describeIdentityProvider_providerName"><span class="hs-identifier hs-type">describeIdentityProvider_providerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-type">DescribeIdentityProvider</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -178,28 +178,28 @@ $sel:userPoolId:DescribeIdentityProvider' :: DescribeIdentityProvider -&gt; Text
 -&gt; (DescribeIdentityProvider -&gt; Text -&gt; DescribeIdentityProvider)
 -&gt; Lens DescribeIdentityProvider DescribeIdentityProvider Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider%27"><span class="hs-identifier hs-type">DescribeIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449231"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider%27"><span class="hs-identifier hs-type">DescribeIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449240"><span class="annot"><span class="annottext">Text
 providerName :: Text
 $sel:providerName:DescribeIdentityProvider' :: DescribeIdentityProvider -&gt; Text
-</span><a href="#local-6989586621679449231"><span class="hs-identifier hs-var hs-var">providerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449231"><span class="hs-identifier hs-var">providerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449230"><span class="annot"><span class="annottext">s :: DescribeIdentityProvider
-</span><a href="#local-6989586621679449230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider%27"><span class="hs-identifier hs-type">DescribeIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449229"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityProvider
-</span><a href="#local-6989586621679449230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerName:DescribeIdentityProvider' :: Text
+</span><a href="#local-6989586621679449240"><span class="hs-identifier hs-var hs-var">providerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449240"><span class="hs-identifier hs-var">providerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449239"><span class="annot"><span class="annottext">s :: DescribeIdentityProvider
+</span><a href="#local-6989586621679449239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider%27"><span class="hs-identifier hs-type">DescribeIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449238"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityProvider
+</span><a href="#local-6989586621679449239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerName:DescribeIdentityProvider' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#%24sel%3AproviderName%3ADescribeIdentityProvider%27"><span class="hs-identifier hs-var">providerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-type">DescribeIdentityProvider</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-type">DescribeIdentityProvider</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-type">DescribeIdentityProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-type">DescribeIdentityProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679449225"><span class="annot"><span class="annottext">request :: DescribeIdentityProvider -&gt; Request DescribeIdentityProvider
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679449234"><span class="annot"><span class="annottext">request :: DescribeIdentityProvider -&gt; Request DescribeIdentityProvider
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeIdentityProvider -&gt; Request DescribeIdentityProvider
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679449221"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679449230"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeIdentityProvider
 -&gt; ClientResponse ClientBody
@@ -225,10 +225,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679449218"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679449218"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679449217"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679449217"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679449216"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679449216"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679449227"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449227"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679449226"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679449226"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679449225"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679449225"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; IdentityProviderType -&gt; DescribeIdentityProviderResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse%27"><span class="hs-identifier hs-var">DescribeIdentityProviderResponse'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; IdentityProviderType -&gt; DescribeIdentityProviderResponse)
@@ -241,25 +241,25 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679449218"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449227"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (IdentityProviderType -&gt; DescribeIdentityProviderResponse)
 -&gt; Either String IdentityProviderType
 -&gt; Either String DescribeIdentityProviderResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679449216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String IdentityProviderType
+</span><a href="#local-6989586621679449225"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String IdentityProviderType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IdentityProvider&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449208"><span id="local-6989586621679449210"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-type">DescribeIdentityProvider</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449217"><span id="local-6989586621679449219"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-type">DescribeIdentityProvider</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-type">DescribeIdentityProvider</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449214"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-type">DescribeIdentityProvider</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-type">DescribeIdentityProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679449201"><span class="annot"><span class="annottext">toHeaders :: DescribeIdentityProvider -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679449210"><span class="annot"><span class="annottext">toHeaders :: DescribeIdentityProvider -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeIdentityProvider -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -286,14 +286,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449191"><span id="local-6989586621679449193"><span id="local-6989586621679449195"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-type">DescribeIdentityProvider</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679449189"><span class="annot"><span class="annottext">toJSON :: DescribeIdentityProvider -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider%27"><span class="hs-identifier hs-type">DescribeIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449186"><span id="local-6989586621679449187"><span class="annot"><span class="annottext">Text
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449200"><span id="local-6989586621679449202"><span id="local-6989586621679449204"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-type">DescribeIdentityProvider</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679449198"><span class="annot"><span class="annottext">toJSON :: DescribeIdentityProvider -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider%27"><span class="hs-identifier hs-type">DescribeIdentityProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449195"><span id="local-6989586621679449196"><span class="annot"><span class="annottext">Text
 providerName :: Text
 userPoolId :: Text
 $sel:providerName:DescribeIdentityProvider' :: DescribeIdentityProvider -&gt; Text
 $sel:userPoolId:DescribeIdentityProvider' :: DescribeIdentityProvider -&gt; Text
-</span><a href="#local-6989586621679449186"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679449195"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -305,26 +305,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449187"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679449196"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProviderName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449186"><span class="hs-identifier hs-var">providerName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449195"><span class="hs-identifier hs-var">providerName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-type">DescribeIdentityProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679449180"><span class="annot"><span class="annottext">toPath :: DescribeIdentityProvider -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679449189"><span class="annot"><span class="annottext">toPath :: DescribeIdentityProvider -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeIdentityProvider -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProvider"><span class="hs-identifier hs-type">DescribeIdentityProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679449176"><span class="annot"><span class="annottext">toQuery :: DescribeIdentityProvider -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679449185"><span class="annot"><span class="annottext">toQuery :: DescribeIdentityProvider -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeIdentityProvider -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -332,7 +332,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newDescribeIdentityProviderResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679449173"><span id="local-6989586621679449174"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityProviderResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse"><span class="hs-identifier hs-var">DescribeIdentityProviderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityProviderResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse%27"><span class="hs-identifier hs-var">DescribeIdentityProviderResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679449182"><span id="local-6989586621679449183"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityProviderResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse"><span class="hs-identifier hs-var">DescribeIdentityProviderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityProviderResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse%27"><span class="hs-identifier hs-var">DescribeIdentityProviderResponse'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeIdentityProviderResponse%27"><span class="annot"><span class="annottext">DescribeIdentityProviderResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#%24sel%3AhttpStatus%3ADescribeIdentityProviderResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -340,7 +340,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AidentityProvider%3ADescribeIdentityProviderResponse%27"><span class="annot"><span class="annottext">DescribeIdentityProviderResponse -&gt; IdentityProviderType
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#%24sel%3AidentityProvider%3ADescribeIdentityProviderResponse%27"><span class="hs-identifier hs-var hs-var">identityProvider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.IdentityProviderType.html#IdentityProviderType"><span class="hs-identifier hs-type">IdentityProviderType</span></a></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449167"><span id="local-6989586621679449169"><span class="annot"><span class="annottext">DescribeIdentityProviderResponse
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449176"><span id="local-6989586621679449178"><span class="annot"><span class="annottext">DescribeIdentityProviderResponse
 -&gt; DescribeIdentityProviderResponse -&gt; Bool
 (DescribeIdentityProviderResponse
  -&gt; DescribeIdentityProviderResponse -&gt; Bool)
@@ -356,7 +356,7 @@ $c/= :: DescribeIdentityProviderResponse
 -&gt; DescribeIdentityProviderResponse -&gt; Bool
 $c== :: DescribeIdentityProviderResponse
 -&gt; DescribeIdentityProviderResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449159"><span id="local-6989586621679449161"><span id="local-6989586621679449163"><span id="local-6989586621679449165"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityProviderResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449168"><span id="local-6989586621679449170"><span id="local-6989586621679449172"><span id="local-6989586621679449174"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityProviderResponse]
 ReadPrec DescribeIdentityProviderResponse
 Int -&gt; ReadS DescribeIdentityProviderResponse
 ReadS [DescribeIdentityProviderResponse]
@@ -376,7 +376,7 @@ readList :: ReadS [DescribeIdentityProviderResponse]
 $creadList :: ReadS [DescribeIdentityProviderResponse]
 readsPrec :: Int -&gt; ReadS DescribeIdentityProviderResponse
 $creadsPrec :: Int -&gt; ReadS DescribeIdentityProviderResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449153"><span id="local-6989586621679449155"><span id="local-6989586621679449157"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityProviderResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449162"><span id="local-6989586621679449164"><span id="local-6989586621679449166"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityProviderResponse -&gt; ShowS
 [DescribeIdentityProviderResponse] -&gt; ShowS
 DescribeIdentityProviderResponse -&gt; String
 (Int -&gt; DescribeIdentityProviderResponse -&gt; ShowS)
@@ -433,19 +433,19 @@ DescribeIdentityProviderResponse
 </span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderResponse</span></a></span><span>
 </span><span id="line-166"></span><span id="newDescribeIdentityProviderResponse"><span class="annot"><span class="annottext">newDescribeIdentityProviderResponse :: Int -&gt; IdentityProviderType -&gt; DescribeIdentityProviderResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#newDescribeIdentityProviderResponse"><span class="hs-identifier hs-var hs-var">newDescribeIdentityProviderResponse</span></a></span></span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679449150"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679449150"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679449149"><span class="annot"><span class="annottext">IdentityProviderType
-</span><a href="#local-6989586621679449149"><span class="hs-identifier hs-var">pIdentityProvider_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679449159"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449159"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679449158"><span class="annot"><span class="annottext">IdentityProviderType
+</span><a href="#local-6989586621679449158"><span class="hs-identifier hs-var">pIdentityProvider_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">DescribeIdentityProviderResponse' :: Int -&gt; IdentityProviderType -&gt; DescribeIdentityProviderResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderResponse'</span></a></span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIdentityProviderResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#%24sel%3AhttpStatus%3ADescribeIdentityProviderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679449150"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679449159"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">$sel:identityProvider:DescribeIdentityProviderResponse' :: IdentityProviderType
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#%24sel%3AidentityProvider%3ADescribeIdentityProviderResponse%27"><span class="hs-identifier hs-var">identityProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IdentityProviderType
-</span><a href="#local-6989586621679449149"><span class="hs-identifier hs-var">pIdentityProvider_</span></a></span><span>
+</span><a href="#local-6989586621679449158"><span class="hs-identifier hs-var">pIdentityProvider_</span></a></span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -462,16 +462,16 @@ DescribeIdentityProviderResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449148"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449157"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeIdentityProviderResponse' :: DescribeIdentityProviderResponse -&gt; Int
-</span><a href="#local-6989586621679449148"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679449148"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449147"><span class="annot"><span class="annottext">s :: DescribeIdentityProviderResponse
-</span><a href="#local-6989586621679449147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449146"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679449146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityProviderResponse
-</span><a href="#local-6989586621679449147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIdentityProviderResponse' :: Int
+</span><a href="#local-6989586621679449157"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449157"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449156"><span class="annot"><span class="annottext">s :: DescribeIdentityProviderResponse
+</span><a href="#local-6989586621679449156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449155"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679449155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityProviderResponse
+</span><a href="#local-6989586621679449156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIdentityProviderResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#%24sel%3AhttpStatus%3ADescribeIdentityProviderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679449146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The identity provider that was deleted.</span><span>
 </span><span id="line-180"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#describeIdentityProviderResponse_identityProvider"><span class="hs-identifier hs-type">describeIdentityProviderResponse_identityProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.IdentityProviderType.html#IdentityProviderType"><span class="hs-identifier hs-type">IdentityProviderType</span></a></span><span>
@@ -487,18 +487,18 @@ $sel:httpStatus:DescribeIdentityProviderResponse' :: DescribeIdentityProviderRes
      IdentityProviderType
      IdentityProviderType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449145"><span class="annot"><span class="annottext">IdentityProviderType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449154"><span class="annot"><span class="annottext">IdentityProviderType
 identityProvider :: IdentityProviderType
 $sel:identityProvider:DescribeIdentityProviderResponse' :: DescribeIdentityProviderResponse -&gt; IdentityProviderType
-</span><a href="#local-6989586621679449145"><span class="hs-identifier hs-var hs-var">identityProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityProviderType
-</span><a href="#local-6989586621679449145"><span class="hs-identifier hs-var">identityProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449144"><span class="annot"><span class="annottext">s :: DescribeIdentityProviderResponse
-</span><a href="#local-6989586621679449144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449143"><span class="annot"><span class="annottext">IdentityProviderType
-</span><a href="#local-6989586621679449143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityProviderResponse
-</span><a href="#local-6989586621679449144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityProvider:DescribeIdentityProviderResponse' :: IdentityProviderType
+</span><a href="#local-6989586621679449154"><span class="hs-identifier hs-var hs-var">identityProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityProviderType
+</span><a href="#local-6989586621679449154"><span class="hs-identifier hs-var">identityProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449153"><span class="annot"><span class="annottext">s :: DescribeIdentityProviderResponse
+</span><a href="#local-6989586621679449153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449152"><span class="annot"><span class="annottext">IdentityProviderType
+</span><a href="#local-6989586621679449152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityProviderResponse
+</span><a href="#local-6989586621679449153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityProvider:DescribeIdentityProviderResponse' :: IdentityProviderType
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#%24sel%3AidentityProvider%3ADescribeIdentityProviderResponse%27"><span class="hs-identifier hs-var">identityProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IdentityProviderType
-</span><a href="#local-6989586621679449143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679449141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679449150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider.html#DescribeIdentityProviderResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderResponse</span></a></span></span><span>
 </span><span id="line-186"></span></pre></body></html>

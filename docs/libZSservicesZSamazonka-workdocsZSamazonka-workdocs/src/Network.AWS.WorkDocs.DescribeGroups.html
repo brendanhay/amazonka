@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.html"><span class="hs-identifier">Network.AWS.WorkDocs.Types</span></a></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeGroups' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679270662"><span id="local-6989586621679270663"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGroups"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-var">DescribeGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGroups%27"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-var">DescribeGroups'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679270671"><span id="local-6989586621679270672"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGroups"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-var">DescribeGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGroups%27"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-var">DescribeGroups'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AauthenticationToken%3ADescribeGroups%27"><span class="annot"><span class="annottext">DescribeGroups -&gt; Maybe (Sensitive Text)
@@ -74,7 +74,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AsearchQuery%3ADescribeGroups%27"><span class="annot"><span class="annottext">DescribeGroups -&gt; Sensitive Text
 </span><a href="Network.AWS.WorkDocs.DescribeGroups.html#%24sel%3AsearchQuery%3ADescribeGroups%27"><span class="hs-identifier hs-var hs-var">searchQuery</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270652"><span id="local-6989586621679270654"><span class="annot"><span class="annottext">DescribeGroups -&gt; DescribeGroups -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270661"><span id="local-6989586621679270663"><span class="annot"><span class="annottext">DescribeGroups -&gt; DescribeGroups -&gt; Bool
 (DescribeGroups -&gt; DescribeGroups -&gt; Bool)
 -&gt; (DescribeGroups -&gt; DescribeGroups -&gt; Bool) -&gt; Eq DescribeGroups
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeGroups -&gt; DescribeGroups -&gt; Bool
 == :: DescribeGroups -&gt; DescribeGroups -&gt; Bool
 $c== :: DescribeGroups -&gt; DescribeGroups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270645"><span id="local-6989586621679270647"><span id="local-6989586621679270649"><span class="annot"><span class="annottext">Int -&gt; DescribeGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270654"><span id="local-6989586621679270656"><span id="local-6989586621679270658"><span class="annot"><span class="annottext">Int -&gt; DescribeGroups -&gt; ShowS
 [DescribeGroups] -&gt; ShowS
 DescribeGroups -&gt; String
 (Int -&gt; DescribeGroups -&gt; ShowS)
@@ -132,8 +132,8 @@ $cfrom :: forall x. DescribeGroups -&gt; Rep DescribeGroups x
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span>
 </span><span id="line-97"></span><span id="newDescribeGroups"><span class="annot"><span class="annottext">newDescribeGroups :: Text -&gt; DescribeGroups
-</span><a href="Network.AWS.WorkDocs.DescribeGroups.html#newDescribeGroups"><span class="hs-identifier hs-var hs-var">newDescribeGroups</span></a></span></span><span> </span><span id="local-6989586621679270640"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270640"><span class="hs-identifier hs-var">pSearchQuery_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkDocs.DescribeGroups.html#newDescribeGroups"><span class="hs-identifier hs-var hs-var">newDescribeGroups</span></a></span></span><span> </span><span id="local-6989586621679270649"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270649"><span class="hs-identifier hs-var">pSearchQuery_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">DescribeGroups' :: Maybe (Sensitive Text)
 -&gt; Maybe Text
 -&gt; Maybe Natural
@@ -167,7 +167,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270640"><span class="hs-identifier hs-var">pSearchQuery_</span></a></span><span>
+</span><a href="#local-6989586621679270649"><span class="hs-identifier hs-var">pSearchQuery_</span></a></span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
@@ -183,16 +183,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270636"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270645"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 authenticationToken :: Maybe (Sensitive Text)
 $sel:authenticationToken:DescribeGroups' :: DescribeGroups -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679270636"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679270636"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270635"><span class="annot"><span class="annottext">s :: DescribeGroups
-</span><a href="#local-6989586621679270635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270634"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679270634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroups
-</span><a href="#local-6989586621679270635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:DescribeGroups' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679270645"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679270645"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270644"><span class="annot"><span class="annottext">s :: DescribeGroups
+</span><a href="#local-6989586621679270644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270643"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679270643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroups
+</span><a href="#local-6989586621679270644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:DescribeGroups' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.WorkDocs.DescribeGroups.html#%24sel%3AauthenticationToken%3ADescribeGroups%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679270634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679270643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; DescribeGroups -&gt; f DescribeGroups)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -222,16 +222,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (DescribeGroups -&gt; Maybe Text -&gt; DescribeGroups)
 -&gt; Lens DescribeGroups DescribeGroups (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270631"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270640"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeGroups' :: DescribeGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679270631"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270631"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270630"><span class="annot"><span class="annottext">s :: DescribeGroups
-</span><a href="#local-6989586621679270630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270629"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroups
-</span><a href="#local-6989586621679270630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeGroups' :: Maybe Text
+</span><a href="#local-6989586621679270640"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270640"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270639"><span class="annot"><span class="annottext">s :: DescribeGroups
+</span><a href="#local-6989586621679270639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270638"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroups
+</span><a href="#local-6989586621679270639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeGroups' :: Maybe Text
 </span><a href="Network.AWS.WorkDocs.DescribeGroups.html#%24sel%3Amarker%3ADescribeGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#describeGroups_limit"><span class="hs-identifier hs-type">describeGroups_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -242,16 +242,16 @@ $sel:marker:DescribeGroups' :: DescribeGroups -&gt; Maybe Text
 -&gt; Lens
      DescribeGroups DescribeGroups (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270628"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270637"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:DescribeGroups' :: DescribeGroups -&gt; Maybe Natural
-</span><a href="#local-6989586621679270628"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270628"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270627"><span class="annot"><span class="annottext">s :: DescribeGroups
-</span><a href="#local-6989586621679270627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270626"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroups
-</span><a href="#local-6989586621679270627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeGroups' :: Maybe Natural
+</span><a href="#local-6989586621679270637"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270637"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270636"><span class="annot"><span class="annottext">s :: DescribeGroups
+</span><a href="#local-6989586621679270636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270635"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679270635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroups
+</span><a href="#local-6989586621679270636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeGroups' :: Maybe Natural
 </span><a href="Network.AWS.WorkDocs.DescribeGroups.html#%24sel%3Alimit%3ADescribeGroups%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The ID of the organization.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#describeGroups_organizationId"><span class="hs-identifier hs-type">describeGroups_organizationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -261,16 +261,16 @@ $sel:limit:DescribeGroups' :: DescribeGroups -&gt; Maybe Natural
 -&gt; (DescribeGroups -&gt; Maybe Text -&gt; DescribeGroups)
 -&gt; Lens DescribeGroups DescribeGroups (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270625"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270634"><span class="annot"><span class="annottext">Maybe Text
 organizationId :: Maybe Text
 $sel:organizationId:DescribeGroups' :: DescribeGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679270625"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270625"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270624"><span class="annot"><span class="annottext">s :: DescribeGroups
-</span><a href="#local-6989586621679270624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270623"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroups
-</span><a href="#local-6989586621679270624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:DescribeGroups' :: Maybe Text
+</span><a href="#local-6989586621679270634"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270634"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270633"><span class="annot"><span class="annottext">s :: DescribeGroups
+</span><a href="#local-6989586621679270633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270632"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroups
+</span><a href="#local-6989586621679270633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:DescribeGroups' :: Maybe Text
 </span><a href="Network.AWS.WorkDocs.DescribeGroups.html#%24sel%3AorganizationId%3ADescribeGroups%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | A query to describe groups by group name.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#describeGroups_searchQuery"><span class="hs-identifier hs-type">describeGroups_searchQuery</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -280,16 +280,16 @@ $sel:organizationId:DescribeGroups' :: DescribeGroups -&gt; Maybe Text
 -&gt; Lens
      DescribeGroups DescribeGroups (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270622"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270631"><span class="annot"><span class="annottext">Sensitive Text
 searchQuery :: Sensitive Text
 $sel:searchQuery:DescribeGroups' :: DescribeGroups -&gt; Sensitive Text
-</span><a href="#local-6989586621679270622"><span class="hs-identifier hs-var hs-var">searchQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679270622"><span class="hs-identifier hs-var">searchQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270621"><span class="annot"><span class="annottext">s :: DescribeGroups
-</span><a href="#local-6989586621679270621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270620"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679270620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroups
-</span><a href="#local-6989586621679270621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:searchQuery:DescribeGroups' :: Sensitive Text
+</span><a href="#local-6989586621679270631"><span class="hs-identifier hs-var hs-var">searchQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679270631"><span class="hs-identifier hs-var">searchQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270630"><span class="annot"><span class="annottext">s :: DescribeGroups
+</span><a href="#local-6989586621679270630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270629"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679270629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroups
+</span><a href="#local-6989586621679270630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:searchQuery:DescribeGroups' :: Sensitive Text
 </span><a href="Network.AWS.WorkDocs.DescribeGroups.html#%24sel%3AsearchQuery%3ADescribeGroups%27"><span class="hs-identifier hs-var">searchQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679270620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679270629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; DescribeGroups -&gt; f DescribeGroups)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -301,17 +301,17 @@ forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679270616"><span class="annot"><span class="annottext">page :: DescribeGroups
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679270625"><span class="annot"><span class="annottext">page :: DescribeGroups
 -&gt; AWSResponse DescribeGroups -&gt; Maybe DescribeGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679270614"><span class="annot"><span class="annottext">DescribeGroups
-</span><a href="#local-6989586621679270614"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679270613"><span class="annot"><span class="annottext">AWSResponse DescribeGroups
-</span><a href="#local-6989586621679270613"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679270623"><span class="annot"><span class="annottext">DescribeGroups
+</span><a href="#local-6989586621679270623"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679270622"><span class="annot"><span class="annottext">AWSResponse DescribeGroups
+</span><a href="#local-6989586621679270622"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-132"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeGroups
 DescribeGroupsResponse
-</span><a href="#local-6989586621679270613"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679270622"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">DescribeGroupsResponse
 -&gt; Getting (First Text) DescribeGroupsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -339,7 +339,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-137"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeGroups
 DescribeGroupsResponse
-</span><a href="#local-6989586621679270613"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679270622"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">DescribeGroupsResponse
 -&gt; Getting
      (First [GroupMetadata]) DescribeGroupsResponse [GroupMetadata]
@@ -379,7 +379,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">DescribeGroups
-</span><a href="#local-6989586621679270614"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679270623"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">DescribeGroups
 -&gt; (DescribeGroups -&gt; DescribeGroups) -&gt; DescribeGroups
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -393,7 +393,7 @@ Lens DescribeGroups DescribeGroups (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeGroups
 DescribeGroupsResponse
-</span><a href="#local-6989586621679270613"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679270622"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">DescribeGroupsResponse
 -&gt; Getting (First Text) DescribeGroupsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -417,12 +417,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-149"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-150"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse"><span class="hs-identifier hs-type">DescribeGroupsResponse</span></a></span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679270604"><span class="annot"><span class="annottext">request :: DescribeGroups -&gt; Request DescribeGroups
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679270613"><span class="annot"><span class="annottext">request :: DescribeGroups -&gt; Request DescribeGroups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeGroups -&gt; Request DescribeGroups
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkDocs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679270600"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679270609"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeGroups
 -&gt; ClientResponse ClientBody
@@ -446,10 +446,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270597"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270597"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679270596"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679270596"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679270595"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270595"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270606"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270606"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679270605"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679270605"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679270604"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270604"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe [GroupMetadata]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeGroupsResponse
 </span><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse%27"><span class="hs-identifier hs-var">DescribeGroupsResponse'</span></a></span><span>
@@ -459,7 +459,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeGroupsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [GroupMetadata]))
+</span><a href="#local-6989586621679270604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [GroupMetadata]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Groups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [GroupMetadata]))
@@ -473,7 +473,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; DescribeGroupsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679270604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -485,16 +485,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270597"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270606"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270586"><span id="local-6989586621679270588"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270595"><span id="local-6989586621679270597"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span></span></span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270583"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270592"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679270579"><span class="annot"><span class="annottext">toHeaders :: DescribeGroups -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270573"><span id="local-6989586621679270574"><span id="local-6989586621679270575"><span id="local-6989586621679270576"><span id="local-6989586621679270577"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679270588"><span class="annot"><span class="annottext">toHeaders :: DescribeGroups -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270582"><span id="local-6989586621679270583"><span id="local-6989586621679270584"><span id="local-6989586621679270585"><span id="local-6989586621679270586"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe (Sensitive Text)
 Sensitive Text
@@ -508,7 +508,7 @@ $sel:organizationId:DescribeGroups' :: DescribeGroups -&gt; Maybe Text
 $sel:limit:DescribeGroups' :: DescribeGroups -&gt; Maybe Natural
 $sel:marker:DescribeGroups' :: DescribeGroups -&gt; Maybe Text
 $sel:authenticationToken:DescribeGroups' :: DescribeGroups -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679270573"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679270582"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -516,7 +516,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Authentication&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe (Sensitive Text) -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679270577"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270586"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
 </span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
@@ -526,15 +526,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-172"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679270569"><span class="annot"><span class="annottext">toPath :: DescribeGroups -&gt; ByteString
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679270578"><span class="annot"><span class="annottext">toPath :: DescribeGroups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeGroups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/api/v1/groups&quot;</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups"><span class="hs-identifier hs-type">DescribeGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679270564"><span class="annot"><span class="annottext">toQuery :: DescribeGroups -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270558"><span id="local-6989586621679270559"><span id="local-6989586621679270560"><span id="local-6989586621679270561"><span id="local-6989586621679270562"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679270573"><span class="annot"><span class="annottext">toQuery :: DescribeGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroups%27"><span class="hs-identifier hs-type">DescribeGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270567"><span id="local-6989586621679270568"><span id="local-6989586621679270569"><span id="local-6989586621679270570"><span id="local-6989586621679270571"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe (Sensitive Text)
 Sensitive Text
@@ -548,7 +548,7 @@ $sel:organizationId:DescribeGroups' :: DescribeGroups -&gt; Maybe Text
 $sel:limit:DescribeGroups' :: DescribeGroups -&gt; Maybe Natural
 $sel:marker:DescribeGroups' :: DescribeGroups -&gt; Maybe Text
 $sel:authenticationToken:DescribeGroups' :: DescribeGroups -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679270558"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679270567"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -556,26 +556,26 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270561"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270570"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679270560"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270569"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;organizationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270559"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270568"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;searchQuery&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Sensitive Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679270558"><span class="hs-identifier hs-var">searchQuery</span></a></span><span>
+</span><a href="#local-6989586621679270567"><span class="hs-identifier hs-var">searchQuery</span></a></span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | /See:/ 'newDescribeGroupsResponse' smart constructor.</span><span>
-</span><span id="line-187"></span><span id="local-6989586621679270555"><span id="local-6989586621679270556"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGroupsResponse"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse"><span class="hs-identifier hs-var">DescribeGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGroupsResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse%27"><span class="hs-identifier hs-var">DescribeGroupsResponse'</span></a></span></span><span>
+</span><span id="line-187"></span><span id="local-6989586621679270564"><span id="local-6989586621679270565"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGroupsResponse"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse"><span class="hs-identifier hs-var">DescribeGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGroupsResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse%27"><span class="hs-identifier hs-var">DescribeGroupsResponse'</span></a></span></span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of groups.</span><span>
 </span><span id="line-189"></span><span>    </span><span id="%24sel%3Agroups%3ADescribeGroupsResponse%27"><span class="annot"><span class="annottext">DescribeGroupsResponse -&gt; Maybe [GroupMetadata]
 </span><a href="Network.AWS.WorkDocs.DescribeGroups.html#%24sel%3Agroups%3ADescribeGroupsResponse%27"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.GroupMetadata.html#GroupMetadata"><span class="hs-identifier hs-type">GroupMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -587,7 +587,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-194"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeGroupsResponse%27"><span class="annot"><span class="annottext">DescribeGroupsResponse -&gt; Int
 </span><a href="Network.AWS.WorkDocs.DescribeGroups.html#%24sel%3AhttpStatus%3ADescribeGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-195"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270548"><span id="local-6989586621679270550"><span class="annot"><span class="annottext">DescribeGroupsResponse -&gt; DescribeGroupsResponse -&gt; Bool
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270557"><span id="local-6989586621679270559"><span class="annot"><span class="annottext">DescribeGroupsResponse -&gt; DescribeGroupsResponse -&gt; Bool
 (DescribeGroupsResponse -&gt; DescribeGroupsResponse -&gt; Bool)
 -&gt; (DescribeGroupsResponse -&gt; DescribeGroupsResponse -&gt; Bool)
 -&gt; Eq DescribeGroupsResponse
@@ -596,7 +596,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeGroupsResponse -&gt; DescribeGroupsResponse -&gt; Bool
 == :: DescribeGroupsResponse -&gt; DescribeGroupsResponse -&gt; Bool
 $c== :: DescribeGroupsResponse -&gt; DescribeGroupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270540"><span id="local-6989586621679270542"><span id="local-6989586621679270544"><span id="local-6989586621679270546"><span class="annot"><span class="annottext">ReadPrec [DescribeGroupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270549"><span id="local-6989586621679270551"><span id="local-6989586621679270553"><span id="local-6989586621679270555"><span class="annot"><span class="annottext">ReadPrec [DescribeGroupsResponse]
 ReadPrec DescribeGroupsResponse
 Int -&gt; ReadS DescribeGroupsResponse
 ReadS [DescribeGroupsResponse]
@@ -616,7 +616,7 @@ readList :: ReadS [DescribeGroupsResponse]
 $creadList :: ReadS [DescribeGroupsResponse]
 readsPrec :: Int -&gt; ReadS DescribeGroupsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeGroupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270533"><span id="local-6989586621679270535"><span id="local-6989586621679270537"><span class="annot"><span class="annottext">Int -&gt; DescribeGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270542"><span id="local-6989586621679270544"><span id="local-6989586621679270546"><span class="annot"><span class="annottext">Int -&gt; DescribeGroupsResponse -&gt; ShowS
 [DescribeGroupsResponse] -&gt; ShowS
 DescribeGroupsResponse -&gt; String
 (Int -&gt; DescribeGroupsResponse -&gt; ShowS)
@@ -662,8 +662,8 @@ $cfrom :: forall x. DescribeGroupsResponse -&gt; Rep DescribeGroupsResponse x
 </span><span id="line-214"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse"><span class="hs-identifier hs-type">DescribeGroupsResponse</span></a></span><span>
 </span><span id="line-216"></span><span id="newDescribeGroupsResponse"><span class="annot"><span class="annottext">newDescribeGroupsResponse :: Int -&gt; DescribeGroupsResponse
-</span><a href="Network.AWS.WorkDocs.DescribeGroups.html#newDescribeGroupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679270530"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270530"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkDocs.DescribeGroups.html#newDescribeGroupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679270539"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270539"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">DescribeGroupsResponse' :: Maybe [GroupMetadata]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeGroupsResponse
 </span><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse%27"><span class="hs-identifier hs-type">DescribeGroupsResponse'</span></a></span><span>
@@ -677,7 +677,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeGroupsResponse' :: Int
 </span><a href="Network.AWS.WorkDocs.DescribeGroups.html#%24sel%3AhttpStatus%3ADescribeGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270530"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679270539"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-221"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | The list of groups.</span><span>
@@ -689,16 +689,16 @@ forall a. Maybe a
     -&gt; Maybe [GroupMetadata] -&gt; DescribeGroupsResponse)
 -&gt; Lens' DescribeGroupsResponse (Maybe [GroupMetadata])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse%27"><span class="hs-identifier hs-type">DescribeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270529"><span class="annot"><span class="annottext">Maybe [GroupMetadata]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse%27"><span class="hs-identifier hs-type">DescribeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270538"><span class="annot"><span class="annottext">Maybe [GroupMetadata]
 groups :: Maybe [GroupMetadata]
 $sel:groups:DescribeGroupsResponse' :: DescribeGroupsResponse -&gt; Maybe [GroupMetadata]
-</span><a href="#local-6989586621679270529"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupMetadata]
-</span><a href="#local-6989586621679270529"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270528"><span class="annot"><span class="annottext">s :: DescribeGroupsResponse
-</span><a href="#local-6989586621679270528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse%27"><span class="hs-identifier hs-type">DescribeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270527"><span class="annot"><span class="annottext">Maybe [GroupMetadata]
-</span><a href="#local-6989586621679270527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroupsResponse
-</span><a href="#local-6989586621679270528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:DescribeGroupsResponse' :: Maybe [GroupMetadata]
+</span><a href="#local-6989586621679270538"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupMetadata]
+</span><a href="#local-6989586621679270538"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270537"><span class="annot"><span class="annottext">s :: DescribeGroupsResponse
+</span><a href="#local-6989586621679270537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse%27"><span class="hs-identifier hs-type">DescribeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270536"><span class="annot"><span class="annottext">Maybe [GroupMetadata]
+</span><a href="#local-6989586621679270536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroupsResponse
+</span><a href="#local-6989586621679270537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:DescribeGroupsResponse' :: Maybe [GroupMetadata]
 </span><a href="Network.AWS.WorkDocs.DescribeGroups.html#%24sel%3Agroups%3ADescribeGroupsResponse%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupMetadata]
-</span><a href="#local-6989586621679270527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse"><span class="hs-identifier hs-type">DescribeGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupMetadata] -&gt; f (Maybe [GroupMetadata]))
+</span><a href="#local-6989586621679270536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse"><span class="hs-identifier hs-type">DescribeGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupMetadata] -&gt; f (Maybe [GroupMetadata]))
  -&gt; DescribeGroupsResponse -&gt; f DescribeGroupsResponse)
 -&gt; ((Maybe [GroupMetadata] -&gt; f (Maybe [GroupMetadata]))
     -&gt; Maybe [GroupMetadata] -&gt; f (Maybe [GroupMetadata]))
@@ -730,16 +730,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeGroupsResponse -&gt; Maybe Text -&gt; DescribeGroupsResponse)
 -&gt; Lens' DescribeGroupsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse%27"><span class="hs-identifier hs-type">DescribeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270525"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse%27"><span class="hs-identifier hs-type">DescribeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270534"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeGroupsResponse' :: DescribeGroupsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679270525"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270525"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270524"><span class="annot"><span class="annottext">s :: DescribeGroupsResponse
-</span><a href="#local-6989586621679270524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse%27"><span class="hs-identifier hs-type">DescribeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270523"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroupsResponse
-</span><a href="#local-6989586621679270524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeGroupsResponse' :: Maybe Text
+</span><a href="#local-6989586621679270534"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270534"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270533"><span class="annot"><span class="annottext">s :: DescribeGroupsResponse
+</span><a href="#local-6989586621679270533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse%27"><span class="hs-identifier hs-type">DescribeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270532"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroupsResponse
+</span><a href="#local-6989586621679270533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeGroupsResponse' :: Maybe Text
 </span><a href="Network.AWS.WorkDocs.DescribeGroups.html#%24sel%3Amarker%3ADescribeGroupsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse"><span class="hs-identifier hs-type">DescribeGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse"><span class="hs-identifier hs-type">DescribeGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-233"></span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#describeGroupsResponse_httpStatus"><span class="hs-identifier hs-type">describeGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse"><span class="hs-identifier hs-type">DescribeGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -749,16 +749,16 @@ $sel:marker:DescribeGroupsResponse' :: DescribeGroupsResponse -&gt; Maybe Text
 -&gt; (DescribeGroupsResponse -&gt; Int -&gt; DescribeGroupsResponse)
 -&gt; Lens DescribeGroupsResponse DescribeGroupsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse%27"><span class="hs-identifier hs-type">DescribeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270522"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse%27"><span class="hs-identifier hs-type">DescribeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270531"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeGroupsResponse' :: DescribeGroupsResponse -&gt; Int
-</span><a href="#local-6989586621679270522"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270522"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270521"><span class="annot"><span class="annottext">s :: DescribeGroupsResponse
-</span><a href="#local-6989586621679270521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse%27"><span class="hs-identifier hs-type">DescribeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270520"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroupsResponse
-</span><a href="#local-6989586621679270521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeGroupsResponse' :: Int
+</span><a href="#local-6989586621679270531"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270531"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270530"><span class="annot"><span class="annottext">s :: DescribeGroupsResponse
+</span><a href="#local-6989586621679270530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse%27"><span class="hs-identifier hs-type">DescribeGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270529"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGroupsResponse
+</span><a href="#local-6989586621679270530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeGroupsResponse' :: Int
 </span><a href="Network.AWS.WorkDocs.DescribeGroups.html#%24sel%3AhttpStatus%3ADescribeGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse"><span class="hs-identifier hs-type">DescribeGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse"><span class="hs-identifier hs-type">DescribeGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270518"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse"><span class="hs-identifier hs-type">DescribeGroupsResponse</span></a></span></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270527"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DescribeGroups.html#DescribeGroupsResponse"><span class="hs-identifier hs-type">DescribeGroupsResponse</span></a></span></span><span>
 </span><span id="line-237"></span></pre></body></html>

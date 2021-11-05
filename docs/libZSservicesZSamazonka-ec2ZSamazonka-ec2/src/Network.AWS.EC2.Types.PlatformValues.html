@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621681136338"><span id="local-6989586621681136339"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PlatformValues"><span class="annot"><a href="Network.AWS.EC2.Types.PlatformValues.html#PlatformValues"><span class="hs-identifier hs-var">PlatformValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlatformValues%27"><span class="annot"><a href="Network.AWS.EC2.Types.PlatformValues.html#PlatformValues%27"><span class="hs-identifier hs-var">PlatformValues'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681136347"><span id="local-6989586621681136348"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PlatformValues"><span class="annot"><a href="Network.AWS.EC2.Types.PlatformValues.html#PlatformValues"><span class="hs-identifier hs-var">PlatformValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlatformValues%27"><span class="annot"><a href="Network.AWS.EC2.Types.PlatformValues.html#PlatformValues%27"><span class="hs-identifier hs-var">PlatformValues'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPlatformValues"><span class="annot"><span class="annottext">PlatformValues -&gt; Text
 </span><a href="Network.AWS.EC2.Types.PlatformValues.html#fromPlatformValues"><span class="hs-identifier hs-var hs-var">fromPlatformValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681136330"><span id="local-6989586621681136332"><span id="local-6989586621681136334"><span class="annot"><span class="annottext">Int -&gt; PlatformValues -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681136339"><span id="local-6989586621681136341"><span id="local-6989586621681136343"><span class="annot"><span class="annottext">Int -&gt; PlatformValues -&gt; ShowS
 [PlatformValues] -&gt; ShowS
 PlatformValues -&gt; String
 (Int -&gt; PlatformValues -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: PlatformValues -&gt; String
 showsPrec :: Int -&gt; PlatformValues -&gt; ShowS
 $cshowsPrec :: Int -&gt; PlatformValues -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621681136321"><span id="local-6989586621681136323"><span id="local-6989586621681136325"><span id="local-6989586621681136327"><span class="annot"><span class="annottext">ReadPrec [PlatformValues]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681136330"><span id="local-6989586621681136332"><span id="local-6989586621681136334"><span id="local-6989586621681136336"><span class="annot"><span class="annottext">ReadPrec [PlatformValues]
 ReadPrec PlatformValues
 Int -&gt; ReadS PlatformValues
 ReadS [PlatformValues]
@@ -72,7 +72,7 @@ $creadList :: ReadS [PlatformValues]
 readsPrec :: Int -&gt; ReadS PlatformValues
 $creadsPrec :: Int -&gt; ReadS PlatformValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681136316"><span id="local-6989586621681136318"><span class="annot"><span class="annottext">PlatformValues -&gt; PlatformValues -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681136325"><span id="local-6989586621681136327"><span class="annot"><span class="annottext">PlatformValues -&gt; PlatformValues -&gt; Bool
 (PlatformValues -&gt; PlatformValues -&gt; Bool)
 -&gt; (PlatformValues -&gt; PlatformValues -&gt; Bool) -&gt; Eq PlatformValues
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: PlatformValues -&gt; PlatformValues -&gt; Bool
 == :: PlatformValues -&gt; PlatformValues -&gt; Bool
 $c== :: PlatformValues -&gt; PlatformValues -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681136300"><span id="local-6989586621681136302"><span id="local-6989586621681136304"><span id="local-6989586621681136306"><span id="local-6989586621681136308"><span id="local-6989586621681136310"><span id="local-6989586621681136312"><span class="annot"><span class="annottext">Eq PlatformValues
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681136309"><span id="local-6989586621681136311"><span id="local-6989586621681136313"><span id="local-6989586621681136315"><span id="local-6989586621681136317"><span id="local-6989586621681136319"><span id="local-6989586621681136321"><span class="annot"><span class="annottext">Eq PlatformValues
 Eq PlatformValues
 -&gt; (PlatformValues -&gt; PlatformValues -&gt; Ordering)
 -&gt; (PlatformValues -&gt; PlatformValues -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. PlatformValues -&gt; Rep PlatformValues x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681136292"><span id="local-6989586621681136294"><span class="annot"><span class="annottext">Int -&gt; PlatformValues -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681136301"><span id="local-6989586621681136303"><span class="annot"><span class="annottext">Int -&gt; PlatformValues -&gt; Int
 PlatformValues -&gt; Int
 (Int -&gt; PlatformValues -&gt; Int)
 -&gt; (PlatformValues -&gt; Int) -&gt; Hashable PlatformValues
@@ -142,50 +142,50 @@ $chash :: PlatformValues -&gt; Int
 hashWithSalt :: Int -&gt; PlatformValues -&gt; Int
 $chashWithSalt :: Int -&gt; PlatformValues -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681136289"><span class="annot"><span class="annottext">PlatformValues -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681136298"><span class="annot"><span class="annottext">PlatformValues -&gt; ()
 (PlatformValues -&gt; ()) -&gt; NFData PlatformValues
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PlatformValues -&gt; ()
 $crnf :: PlatformValues -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681136286"><span class="annot"><span class="annottext">Text -&gt; Either String PlatformValues
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681136295"><span class="annot"><span class="annottext">Text -&gt; Either String PlatformValues
 (Text -&gt; Either String PlatformValues) -&gt; FromText PlatformValues
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PlatformValues
 $cfromText :: Text -&gt; Either String PlatformValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681136283"><span class="annot"><span class="annottext">PlatformValues -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681136292"><span class="annot"><span class="annottext">PlatformValues -&gt; Text
 (PlatformValues -&gt; Text) -&gt; ToText PlatformValues
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PlatformValues -&gt; Text
 $ctoText :: PlatformValues -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681136280"><span class="annot"><span class="annottext">PlatformValues -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681136289"><span class="annot"><span class="annottext">PlatformValues -&gt; ByteString
 (PlatformValues -&gt; ByteString) -&gt; ToByteString PlatformValues
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PlatformValues -&gt; ByteString
 $ctoBS :: PlatformValues -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681136277"><span class="annot"><span class="annottext">PlatformValues -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681136286"><span class="annot"><span class="annottext">PlatformValues -&gt; ByteStringBuilder
 (PlatformValues -&gt; ByteStringBuilder) -&gt; ToLog PlatformValues
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PlatformValues -&gt; ByteStringBuilder
 $cbuild :: PlatformValues -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681136274"><span class="annot"><span class="annottext">HeaderName -&gt; PlatformValues -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681136283"><span class="annot"><span class="annottext">HeaderName -&gt; PlatformValues -&gt; [Header]
 (HeaderName -&gt; PlatformValues -&gt; [Header])
 -&gt; ToHeader PlatformValues
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PlatformValues -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PlatformValues -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681136271"><span class="annot"><span class="annottext">PlatformValues -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681136280"><span class="annot"><span class="annottext">PlatformValues -&gt; QueryString
 (PlatformValues -&gt; QueryString) -&gt; ToQuery PlatformValues
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PlatformValues -&gt; QueryString
 $ctoQuery :: PlatformValues -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681136266"><span id="local-6989586621681136268"><span class="annot"><span class="annottext">Value -&gt; Parser [PlatformValues]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681136275"><span id="local-6989586621681136277"><span class="annot"><span class="annottext">Value -&gt; Parser [PlatformValues]
 Value -&gt; Parser PlatformValues
 (Value -&gt; Parser PlatformValues)
 -&gt; (Value -&gt; Parser [PlatformValues]) -&gt; FromJSON PlatformValues
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [PlatformValues]
 parseJSON :: Value -&gt; Parser PlatformValues
 $cparseJSON :: Value -&gt; Parser PlatformValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681136261"><span id="local-6989586621681136263"><span class="annot"><span class="annottext">FromJSONKeyFunction [PlatformValues]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681136270"><span id="local-6989586621681136272"><span class="annot"><span class="annottext">FromJSONKeyFunction [PlatformValues]
 FromJSONKeyFunction PlatformValues
 FromJSONKeyFunction PlatformValues
 -&gt; FromJSONKeyFunction [PlatformValues]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PlatformValues]
 fromJSONKey :: FromJSONKeyFunction PlatformValues
 $cfromJSONKey :: FromJSONKeyFunction PlatformValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681136252"><span id="local-6989586621681136254"><span id="local-6989586621681136256"><span id="local-6989586621681136258"><span class="annot"><span class="annottext">[PlatformValues] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681136261"><span id="local-6989586621681136263"><span id="local-6989586621681136265"><span id="local-6989586621681136267"><span class="annot"><span class="annottext">[PlatformValues] -&gt; Encoding
 [PlatformValues] -&gt; Value
 PlatformValues -&gt; Encoding
 PlatformValues -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: PlatformValues -&gt; Encoding
 toJSON :: PlatformValues -&gt; Value
 $ctoJSON :: PlatformValues -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681136247"><span id="local-6989586621681136249"><span class="annot"><span class="annottext">ToJSONKeyFunction [PlatformValues]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681136256"><span id="local-6989586621681136258"><span class="annot"><span class="annottext">ToJSONKeyFunction [PlatformValues]
 ToJSONKeyFunction PlatformValues
 ToJSONKeyFunction PlatformValues
 -&gt; ToJSONKeyFunction [PlatformValues] -&gt; ToJSONKey PlatformValues
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PlatformValues]
 toJSONKey :: ToJSONKeyFunction PlatformValues
 $ctoJSONKey :: ToJSONKeyFunction PlatformValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681136244"><span class="annot"><span class="annottext">[Node] -&gt; Either String PlatformValues
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681136253"><span class="annot"><span class="annottext">[Node] -&gt; Either String PlatformValues
 ([Node] -&gt; Either String PlatformValues) -&gt; FromXML PlatformValues
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PlatformValues
 $cparseXML :: [Node] -&gt; Either String PlatformValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681136241"><span class="annot"><span class="annottext">PlatformValues -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681136250"><span class="annot"><span class="annottext">PlatformValues -&gt; XML
 (PlatformValues -&gt; XML) -&gt; ToXML PlatformValues
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PlatformValues -&gt; XML

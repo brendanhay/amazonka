@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679402287"><span id="local-6989586621679402288"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NodeUpdateInitiatedBy"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy.html#NodeUpdateInitiatedBy"><span class="hs-identifier hs-var">NodeUpdateInitiatedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeUpdateInitiatedBy%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy.html#NodeUpdateInitiatedBy%27"><span class="hs-identifier hs-var">NodeUpdateInitiatedBy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679402296"><span id="local-6989586621679402297"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NodeUpdateInitiatedBy"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy.html#NodeUpdateInitiatedBy"><span class="hs-identifier hs-var">NodeUpdateInitiatedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeUpdateInitiatedBy%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy.html#NodeUpdateInitiatedBy%27"><span class="hs-identifier hs-var">NodeUpdateInitiatedBy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNodeUpdateInitiatedBy"><span class="annot"><span class="annottext">NodeUpdateInitiatedBy -&gt; Text
 </span><a href="Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy.html#fromNodeUpdateInitiatedBy"><span class="hs-identifier hs-var hs-var">fromNodeUpdateInitiatedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679402279"><span id="local-6989586621679402281"><span id="local-6989586621679402283"><span class="annot"><span class="annottext">Int -&gt; NodeUpdateInitiatedBy -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679402288"><span id="local-6989586621679402290"><span id="local-6989586621679402292"><span class="annot"><span class="annottext">Int -&gt; NodeUpdateInitiatedBy -&gt; ShowS
 [NodeUpdateInitiatedBy] -&gt; ShowS
 NodeUpdateInitiatedBy -&gt; String
 (Int -&gt; NodeUpdateInitiatedBy -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: NodeUpdateInitiatedBy -&gt; String
 showsPrec :: Int -&gt; NodeUpdateInitiatedBy -&gt; ShowS
 $cshowsPrec :: Int -&gt; NodeUpdateInitiatedBy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679402270"><span id="local-6989586621679402272"><span id="local-6989586621679402274"><span id="local-6989586621679402276"><span class="annot"><span class="annottext">ReadPrec [NodeUpdateInitiatedBy]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679402279"><span id="local-6989586621679402281"><span id="local-6989586621679402283"><span id="local-6989586621679402285"><span class="annot"><span class="annottext">ReadPrec [NodeUpdateInitiatedBy]
 ReadPrec NodeUpdateInitiatedBy
 Int -&gt; ReadS NodeUpdateInitiatedBy
 ReadS [NodeUpdateInitiatedBy]
@@ -72,7 +72,7 @@ $creadList :: ReadS [NodeUpdateInitiatedBy]
 readsPrec :: Int -&gt; ReadS NodeUpdateInitiatedBy
 $creadsPrec :: Int -&gt; ReadS NodeUpdateInitiatedBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679402265"><span id="local-6989586621679402267"><span class="annot"><span class="annottext">NodeUpdateInitiatedBy -&gt; NodeUpdateInitiatedBy -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679402274"><span id="local-6989586621679402276"><span class="annot"><span class="annottext">NodeUpdateInitiatedBy -&gt; NodeUpdateInitiatedBy -&gt; Bool
 (NodeUpdateInitiatedBy -&gt; NodeUpdateInitiatedBy -&gt; Bool)
 -&gt; (NodeUpdateInitiatedBy -&gt; NodeUpdateInitiatedBy -&gt; Bool)
 -&gt; Eq NodeUpdateInitiatedBy
@@ -82,7 +82,7 @@ $c/= :: NodeUpdateInitiatedBy -&gt; NodeUpdateInitiatedBy -&gt; Bool
 == :: NodeUpdateInitiatedBy -&gt; NodeUpdateInitiatedBy -&gt; Bool
 $c== :: NodeUpdateInitiatedBy -&gt; NodeUpdateInitiatedBy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679402249"><span id="local-6989586621679402251"><span id="local-6989586621679402253"><span id="local-6989586621679402255"><span id="local-6989586621679402257"><span id="local-6989586621679402259"><span id="local-6989586621679402261"><span class="annot"><span class="annottext">Eq NodeUpdateInitiatedBy
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679402258"><span id="local-6989586621679402260"><span id="local-6989586621679402262"><span id="local-6989586621679402264"><span id="local-6989586621679402266"><span id="local-6989586621679402268"><span id="local-6989586621679402270"><span class="annot"><span class="annottext">Eq NodeUpdateInitiatedBy
 Eq NodeUpdateInitiatedBy
 -&gt; (NodeUpdateInitiatedBy -&gt; NodeUpdateInitiatedBy -&gt; Ordering)
 -&gt; (NodeUpdateInitiatedBy -&gt; NodeUpdateInitiatedBy -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. NodeUpdateInitiatedBy -&gt; Rep NodeUpdateInitiatedBy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679402241"><span id="local-6989586621679402243"><span class="annot"><span class="annottext">Int -&gt; NodeUpdateInitiatedBy -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679402250"><span id="local-6989586621679402252"><span class="annot"><span class="annottext">Int -&gt; NodeUpdateInitiatedBy -&gt; Int
 NodeUpdateInitiatedBy -&gt; Int
 (Int -&gt; NodeUpdateInitiatedBy -&gt; Int)
 -&gt; (NodeUpdateInitiatedBy -&gt; Int) -&gt; Hashable NodeUpdateInitiatedBy
@@ -150,54 +150,54 @@ $chash :: NodeUpdateInitiatedBy -&gt; Int
 hashWithSalt :: Int -&gt; NodeUpdateInitiatedBy -&gt; Int
 $chashWithSalt :: Int -&gt; NodeUpdateInitiatedBy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679402238"><span class="annot"><span class="annottext">NodeUpdateInitiatedBy -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679402247"><span class="annot"><span class="annottext">NodeUpdateInitiatedBy -&gt; ()
 (NodeUpdateInitiatedBy -&gt; ()) -&gt; NFData NodeUpdateInitiatedBy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NodeUpdateInitiatedBy -&gt; ()
 $crnf :: NodeUpdateInitiatedBy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679402235"><span class="annot"><span class="annottext">Text -&gt; Either String NodeUpdateInitiatedBy
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679402244"><span class="annot"><span class="annottext">Text -&gt; Either String NodeUpdateInitiatedBy
 (Text -&gt; Either String NodeUpdateInitiatedBy)
 -&gt; FromText NodeUpdateInitiatedBy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NodeUpdateInitiatedBy
 $cfromText :: Text -&gt; Either String NodeUpdateInitiatedBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679402232"><span class="annot"><span class="annottext">NodeUpdateInitiatedBy -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679402241"><span class="annot"><span class="annottext">NodeUpdateInitiatedBy -&gt; Text
 (NodeUpdateInitiatedBy -&gt; Text) -&gt; ToText NodeUpdateInitiatedBy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NodeUpdateInitiatedBy -&gt; Text
 $ctoText :: NodeUpdateInitiatedBy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679402229"><span class="annot"><span class="annottext">NodeUpdateInitiatedBy -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679402238"><span class="annot"><span class="annottext">NodeUpdateInitiatedBy -&gt; ByteString
 (NodeUpdateInitiatedBy -&gt; ByteString)
 -&gt; ToByteString NodeUpdateInitiatedBy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NodeUpdateInitiatedBy -&gt; ByteString
 $ctoBS :: NodeUpdateInitiatedBy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679402226"><span class="annot"><span class="annottext">NodeUpdateInitiatedBy -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679402235"><span class="annot"><span class="annottext">NodeUpdateInitiatedBy -&gt; ByteStringBuilder
 (NodeUpdateInitiatedBy -&gt; ByteStringBuilder)
 -&gt; ToLog NodeUpdateInitiatedBy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NodeUpdateInitiatedBy -&gt; ByteStringBuilder
 $cbuild :: NodeUpdateInitiatedBy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679402223"><span class="annot"><span class="annottext">HeaderName -&gt; NodeUpdateInitiatedBy -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679402232"><span class="annot"><span class="annottext">HeaderName -&gt; NodeUpdateInitiatedBy -&gt; [Header]
 (HeaderName -&gt; NodeUpdateInitiatedBy -&gt; [Header])
 -&gt; ToHeader NodeUpdateInitiatedBy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NodeUpdateInitiatedBy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NodeUpdateInitiatedBy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679402220"><span class="annot"><span class="annottext">NodeUpdateInitiatedBy -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679402229"><span class="annot"><span class="annottext">NodeUpdateInitiatedBy -&gt; QueryString
 (NodeUpdateInitiatedBy -&gt; QueryString)
 -&gt; ToQuery NodeUpdateInitiatedBy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NodeUpdateInitiatedBy -&gt; QueryString
 $ctoQuery :: NodeUpdateInitiatedBy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679402215"><span id="local-6989586621679402217"><span class="annot"><span class="annottext">Value -&gt; Parser [NodeUpdateInitiatedBy]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679402224"><span id="local-6989586621679402226"><span class="annot"><span class="annottext">Value -&gt; Parser [NodeUpdateInitiatedBy]
 Value -&gt; Parser NodeUpdateInitiatedBy
 (Value -&gt; Parser NodeUpdateInitiatedBy)
 -&gt; (Value -&gt; Parser [NodeUpdateInitiatedBy])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [NodeUpdateInitiatedBy]
 parseJSON :: Value -&gt; Parser NodeUpdateInitiatedBy
 $cparseJSON :: Value -&gt; Parser NodeUpdateInitiatedBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679402210"><span id="local-6989586621679402212"><span class="annot"><span class="annottext">FromJSONKeyFunction [NodeUpdateInitiatedBy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679402219"><span id="local-6989586621679402221"><span class="annot"><span class="annottext">FromJSONKeyFunction [NodeUpdateInitiatedBy]
 FromJSONKeyFunction NodeUpdateInitiatedBy
 FromJSONKeyFunction NodeUpdateInitiatedBy
 -&gt; FromJSONKeyFunction [NodeUpdateInitiatedBy]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NodeUpdateInitiatedBy]
 fromJSONKey :: FromJSONKeyFunction NodeUpdateInitiatedBy
 $cfromJSONKey :: FromJSONKeyFunction NodeUpdateInitiatedBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679402201"><span id="local-6989586621679402203"><span id="local-6989586621679402205"><span id="local-6989586621679402207"><span class="annot"><span class="annottext">[NodeUpdateInitiatedBy] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679402210"><span id="local-6989586621679402212"><span id="local-6989586621679402214"><span id="local-6989586621679402216"><span class="annot"><span class="annottext">[NodeUpdateInitiatedBy] -&gt; Encoding
 [NodeUpdateInitiatedBy] -&gt; Value
 NodeUpdateInitiatedBy -&gt; Encoding
 NodeUpdateInitiatedBy -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: NodeUpdateInitiatedBy -&gt; Encoding
 toJSON :: NodeUpdateInitiatedBy -&gt; Value
 $ctoJSON :: NodeUpdateInitiatedBy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679402196"><span id="local-6989586621679402198"><span class="annot"><span class="annottext">ToJSONKeyFunction [NodeUpdateInitiatedBy]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679402205"><span id="local-6989586621679402207"><span class="annot"><span class="annottext">ToJSONKeyFunction [NodeUpdateInitiatedBy]
 ToJSONKeyFunction NodeUpdateInitiatedBy
 ToJSONKeyFunction NodeUpdateInitiatedBy
 -&gt; ToJSONKeyFunction [NodeUpdateInitiatedBy]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NodeUpdateInitiatedBy]
 toJSONKey :: ToJSONKeyFunction NodeUpdateInitiatedBy
 $ctoJSONKey :: ToJSONKeyFunction NodeUpdateInitiatedBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679402193"><span class="annot"><span class="annottext">[Node] -&gt; Either String NodeUpdateInitiatedBy
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679402202"><span class="annot"><span class="annottext">[Node] -&gt; Either String NodeUpdateInitiatedBy
 ([Node] -&gt; Either String NodeUpdateInitiatedBy)
 -&gt; FromXML NodeUpdateInitiatedBy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NodeUpdateInitiatedBy
 $cparseXML :: [Node] -&gt; Either String NodeUpdateInitiatedBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679402190"><span class="annot"><span class="annottext">NodeUpdateInitiatedBy -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679402199"><span class="annot"><span class="annottext">NodeUpdateInitiatedBy -&gt; XML
 (NodeUpdateInitiatedBy -&gt; XML) -&gt; ToXML NodeUpdateInitiatedBy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NodeUpdateInitiatedBy -&gt; XML

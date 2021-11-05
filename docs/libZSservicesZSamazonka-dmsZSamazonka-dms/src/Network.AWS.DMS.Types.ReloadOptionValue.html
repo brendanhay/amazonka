@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679436681"><span id="local-6989586621679436682"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReloadOptionValue"><span class="annot"><a href="Network.AWS.DMS.Types.ReloadOptionValue.html#ReloadOptionValue"><span class="hs-identifier hs-var">ReloadOptionValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReloadOptionValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.ReloadOptionValue.html#ReloadOptionValue%27"><span class="hs-identifier hs-var">ReloadOptionValue'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679436690"><span id="local-6989586621679436691"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReloadOptionValue"><span class="annot"><a href="Network.AWS.DMS.Types.ReloadOptionValue.html#ReloadOptionValue"><span class="hs-identifier hs-var">ReloadOptionValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReloadOptionValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.ReloadOptionValue.html#ReloadOptionValue%27"><span class="hs-identifier hs-var">ReloadOptionValue'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReloadOptionValue"><span class="annot"><span class="annottext">ReloadOptionValue -&gt; Text
 </span><a href="Network.AWS.DMS.Types.ReloadOptionValue.html#fromReloadOptionValue"><span class="hs-identifier hs-var hs-var">fromReloadOptionValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436673"><span id="local-6989586621679436675"><span id="local-6989586621679436677"><span class="annot"><span class="annottext">Int -&gt; ReloadOptionValue -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436682"><span id="local-6989586621679436684"><span id="local-6989586621679436686"><span class="annot"><span class="annottext">Int -&gt; ReloadOptionValue -&gt; ShowS
 [ReloadOptionValue] -&gt; ShowS
 ReloadOptionValue -&gt; String
 (Int -&gt; ReloadOptionValue -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ReloadOptionValue -&gt; String
 showsPrec :: Int -&gt; ReloadOptionValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReloadOptionValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679436664"><span id="local-6989586621679436666"><span id="local-6989586621679436668"><span id="local-6989586621679436670"><span class="annot"><span class="annottext">ReadPrec [ReloadOptionValue]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679436673"><span id="local-6989586621679436675"><span id="local-6989586621679436677"><span id="local-6989586621679436679"><span class="annot"><span class="annottext">ReadPrec [ReloadOptionValue]
 ReadPrec ReloadOptionValue
 Int -&gt; ReadS ReloadOptionValue
 ReadS [ReloadOptionValue]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ReloadOptionValue]
 readsPrec :: Int -&gt; ReadS ReloadOptionValue
 $creadsPrec :: Int -&gt; ReadS ReloadOptionValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679436659"><span id="local-6989586621679436661"><span class="annot"><span class="annottext">ReloadOptionValue -&gt; ReloadOptionValue -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679436668"><span id="local-6989586621679436670"><span class="annot"><span class="annottext">ReloadOptionValue -&gt; ReloadOptionValue -&gt; Bool
 (ReloadOptionValue -&gt; ReloadOptionValue -&gt; Bool)
 -&gt; (ReloadOptionValue -&gt; ReloadOptionValue -&gt; Bool)
 -&gt; Eq ReloadOptionValue
@@ -82,7 +82,7 @@ $c/= :: ReloadOptionValue -&gt; ReloadOptionValue -&gt; Bool
 == :: ReloadOptionValue -&gt; ReloadOptionValue -&gt; Bool
 $c== :: ReloadOptionValue -&gt; ReloadOptionValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679436643"><span id="local-6989586621679436645"><span id="local-6989586621679436647"><span id="local-6989586621679436649"><span id="local-6989586621679436651"><span id="local-6989586621679436653"><span id="local-6989586621679436655"><span class="annot"><span class="annottext">Eq ReloadOptionValue
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679436652"><span id="local-6989586621679436654"><span id="local-6989586621679436656"><span id="local-6989586621679436658"><span id="local-6989586621679436660"><span id="local-6989586621679436662"><span id="local-6989586621679436664"><span class="annot"><span class="annottext">Eq ReloadOptionValue
 Eq ReloadOptionValue
 -&gt; (ReloadOptionValue -&gt; ReloadOptionValue -&gt; Ordering)
 -&gt; (ReloadOptionValue -&gt; ReloadOptionValue -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ReloadOptionValue -&gt; Rep ReloadOptionValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436635"><span id="local-6989586621679436637"><span class="annot"><span class="annottext">Int -&gt; ReloadOptionValue -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679436644"><span id="local-6989586621679436646"><span class="annot"><span class="annottext">Int -&gt; ReloadOptionValue -&gt; Int
 ReloadOptionValue -&gt; Int
 (Int -&gt; ReloadOptionValue -&gt; Int)
 -&gt; (ReloadOptionValue -&gt; Int) -&gt; Hashable ReloadOptionValue
@@ -143,51 +143,51 @@ $chash :: ReloadOptionValue -&gt; Int
 hashWithSalt :: Int -&gt; ReloadOptionValue -&gt; Int
 $chashWithSalt :: Int -&gt; ReloadOptionValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679436632"><span class="annot"><span class="annottext">ReloadOptionValue -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679436641"><span class="annot"><span class="annottext">ReloadOptionValue -&gt; ()
 (ReloadOptionValue -&gt; ()) -&gt; NFData ReloadOptionValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReloadOptionValue -&gt; ()
 $crnf :: ReloadOptionValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679436629"><span class="annot"><span class="annottext">Text -&gt; Either String ReloadOptionValue
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679436638"><span class="annot"><span class="annottext">Text -&gt; Either String ReloadOptionValue
 (Text -&gt; Either String ReloadOptionValue)
 -&gt; FromText ReloadOptionValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReloadOptionValue
 $cfromText :: Text -&gt; Either String ReloadOptionValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679436626"><span class="annot"><span class="annottext">ReloadOptionValue -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679436635"><span class="annot"><span class="annottext">ReloadOptionValue -&gt; Text
 (ReloadOptionValue -&gt; Text) -&gt; ToText ReloadOptionValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReloadOptionValue -&gt; Text
 $ctoText :: ReloadOptionValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679436623"><span class="annot"><span class="annottext">ReloadOptionValue -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679436632"><span class="annot"><span class="annottext">ReloadOptionValue -&gt; ByteString
 (ReloadOptionValue -&gt; ByteString) -&gt; ToByteString ReloadOptionValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReloadOptionValue -&gt; ByteString
 $ctoBS :: ReloadOptionValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679436620"><span class="annot"><span class="annottext">ReloadOptionValue -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679436629"><span class="annot"><span class="annottext">ReloadOptionValue -&gt; ByteStringBuilder
 (ReloadOptionValue -&gt; ByteStringBuilder) -&gt; ToLog ReloadOptionValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReloadOptionValue -&gt; ByteStringBuilder
 $cbuild :: ReloadOptionValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679436617"><span class="annot"><span class="annottext">HeaderName -&gt; ReloadOptionValue -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679436626"><span class="annot"><span class="annottext">HeaderName -&gt; ReloadOptionValue -&gt; [Header]
 (HeaderName -&gt; ReloadOptionValue -&gt; [Header])
 -&gt; ToHeader ReloadOptionValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReloadOptionValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReloadOptionValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679436614"><span class="annot"><span class="annottext">ReloadOptionValue -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679436623"><span class="annot"><span class="annottext">ReloadOptionValue -&gt; QueryString
 (ReloadOptionValue -&gt; QueryString) -&gt; ToQuery ReloadOptionValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReloadOptionValue -&gt; QueryString
 $ctoQuery :: ReloadOptionValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679436609"><span id="local-6989586621679436611"><span class="annot"><span class="annottext">Value -&gt; Parser [ReloadOptionValue]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679436618"><span id="local-6989586621679436620"><span class="annot"><span class="annottext">Value -&gt; Parser [ReloadOptionValue]
 Value -&gt; Parser ReloadOptionValue
 (Value -&gt; Parser ReloadOptionValue)
 -&gt; (Value -&gt; Parser [ReloadOptionValue])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ReloadOptionValue]
 parseJSON :: Value -&gt; Parser ReloadOptionValue
 $cparseJSON :: Value -&gt; Parser ReloadOptionValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679436604"><span id="local-6989586621679436606"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReloadOptionValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679436613"><span id="local-6989586621679436615"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReloadOptionValue]
 FromJSONKeyFunction ReloadOptionValue
 FromJSONKeyFunction ReloadOptionValue
 -&gt; FromJSONKeyFunction [ReloadOptionValue]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReloadOptionValue]
 fromJSONKey :: FromJSONKeyFunction ReloadOptionValue
 $cfromJSONKey :: FromJSONKeyFunction ReloadOptionValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679436595"><span id="local-6989586621679436597"><span id="local-6989586621679436599"><span id="local-6989586621679436601"><span class="annot"><span class="annottext">[ReloadOptionValue] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679436604"><span id="local-6989586621679436606"><span id="local-6989586621679436608"><span id="local-6989586621679436610"><span class="annot"><span class="annottext">[ReloadOptionValue] -&gt; Encoding
 [ReloadOptionValue] -&gt; Value
 ReloadOptionValue -&gt; Encoding
 ReloadOptionValue -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: ReloadOptionValue -&gt; Encoding
 toJSON :: ReloadOptionValue -&gt; Value
 $ctoJSON :: ReloadOptionValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679436590"><span id="local-6989586621679436592"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReloadOptionValue]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679436599"><span id="local-6989586621679436601"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReloadOptionValue]
 ToJSONKeyFunction ReloadOptionValue
 ToJSONKeyFunction ReloadOptionValue
 -&gt; ToJSONKeyFunction [ReloadOptionValue]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReloadOptionValue]
 toJSONKey :: ToJSONKeyFunction ReloadOptionValue
 $ctoJSONKey :: ToJSONKeyFunction ReloadOptionValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679436587"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReloadOptionValue
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679436596"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReloadOptionValue
 ([Node] -&gt; Either String ReloadOptionValue)
 -&gt; FromXML ReloadOptionValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReloadOptionValue
 $cparseXML :: [Node] -&gt; Either String ReloadOptionValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679436584"><span class="annot"><span class="annottext">ReloadOptionValue -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679436593"><span class="annot"><span class="annottext">ReloadOptionValue -&gt; XML
 (ReloadOptionValue -&gt; XML) -&gt; ToXML ReloadOptionValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReloadOptionValue -&gt; XML

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- RDS) @DataSource@.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newRDSDataSpec' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679251860"><span id="local-6989586621679251861"></span></span><span class="hs-keyword">data</span><span> </span><span id="RDSDataSpec"><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-var">RDSDataSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RDSDataSpec%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-var">RDSDataSpec'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679251869"><span id="local-6989586621679251870"></span></span><span class="hs-keyword">data</span><span> </span><span id="RDSDataSpec"><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-var">RDSDataSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RDSDataSpec%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-var">RDSDataSpec'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon S3 location of the @DataSchema@.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AdataSchemaUri%3ARDSDataSpec%27"><span class="annot"><span class="annottext">RDSDataSpec -&gt; Maybe Text
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AdataSchemaUri%3ARDSDataSpec%27"><span class="hs-identifier hs-var hs-var">dataSchemaUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -198,7 +198,7 @@
 </span><span id="line-188"></span><span>    </span><span id="%24sel%3AsecurityGroupIds%3ARDSDataSpec%27"><span class="annot"><span class="annottext">RDSDataSpec -&gt; [Text]
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AsecurityGroupIds%3ARDSDataSpec%27"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251844"><span id="local-6989586621679251846"><span class="annot"><span class="annottext">RDSDataSpec -&gt; RDSDataSpec -&gt; Bool
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251853"><span id="local-6989586621679251855"><span class="annot"><span class="annottext">RDSDataSpec -&gt; RDSDataSpec -&gt; Bool
 (RDSDataSpec -&gt; RDSDataSpec -&gt; Bool)
 -&gt; (RDSDataSpec -&gt; RDSDataSpec -&gt; Bool) -&gt; Eq RDSDataSpec
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -206,7 +206,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RDSDataSpec -&gt; RDSDataSpec -&gt; Bool
 == :: RDSDataSpec -&gt; RDSDataSpec -&gt; Bool
 $c== :: RDSDataSpec -&gt; RDSDataSpec -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251835"><span id="local-6989586621679251837"><span id="local-6989586621679251839"><span id="local-6989586621679251841"><span class="annot"><span class="annottext">ReadPrec [RDSDataSpec]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251844"><span id="local-6989586621679251846"><span id="local-6989586621679251848"><span id="local-6989586621679251850"><span class="annot"><span class="annottext">ReadPrec [RDSDataSpec]
 ReadPrec RDSDataSpec
 Int -&gt; ReadS RDSDataSpec
 ReadS [RDSDataSpec]
@@ -226,7 +226,7 @@ readList :: ReadS [RDSDataSpec]
 $creadList :: ReadS [RDSDataSpec]
 readsPrec :: Int -&gt; ReadS RDSDataSpec
 $creadsPrec :: Int -&gt; ReadS RDSDataSpec
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251828"><span id="local-6989586621679251830"><span id="local-6989586621679251832"><span class="annot"><span class="annottext">Int -&gt; RDSDataSpec -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251837"><span id="local-6989586621679251839"><span id="local-6989586621679251841"><span class="annot"><span class="annottext">Int -&gt; RDSDataSpec -&gt; ShowS
 [RDSDataSpec] -&gt; ShowS
 RDSDataSpec -&gt; String
 (Int -&gt; RDSDataSpec -&gt; ShowS)
@@ -440,20 +440,20 @@ $cfrom :: forall x. RDSDataSpec -&gt; Rep RDSDataSpec x
 -&gt; Text
 -&gt; RDSDataSpec
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#newRDSDataSpec"><span class="hs-identifier hs-var hs-var">newRDSDataSpec</span></a></span></span><span>
-</span><span id="line-372"></span><span>  </span><span id="local-6989586621679251822"><span class="annot"><span class="annottext">RDSDatabase
-</span><a href="#local-6989586621679251822"><span class="hs-identifier hs-var">pDatabaseInformation_</span></a></span></span><span>
-</span><span id="line-373"></span><span>  </span><span id="local-6989586621679251821"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251821"><span class="hs-identifier hs-var">pSelectSqlQuery_</span></a></span></span><span>
-</span><span id="line-374"></span><span>  </span><span id="local-6989586621679251820"><span class="annot"><span class="annottext">RDSDatabaseCredentials
-</span><a href="#local-6989586621679251820"><span class="hs-identifier hs-var">pDatabaseCredentials_</span></a></span></span><span>
-</span><span id="line-375"></span><span>  </span><span id="local-6989586621679251819"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251819"><span class="hs-identifier hs-var">pS3StagingLocation_</span></a></span></span><span>
-</span><span id="line-376"></span><span>  </span><span id="local-6989586621679251818"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251818"><span class="hs-identifier hs-var">pResourceRole_</span></a></span></span><span>
-</span><span id="line-377"></span><span>  </span><span id="local-6989586621679251817"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251817"><span class="hs-identifier hs-var">pServiceRole_</span></a></span></span><span>
-</span><span id="line-378"></span><span>  </span><span id="local-6989586621679251816"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251816"><span class="hs-identifier hs-var">pSubnetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-372"></span><span>  </span><span id="local-6989586621679251831"><span class="annot"><span class="annottext">RDSDatabase
+</span><a href="#local-6989586621679251831"><span class="hs-identifier hs-var">pDatabaseInformation_</span></a></span></span><span>
+</span><span id="line-373"></span><span>  </span><span id="local-6989586621679251830"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251830"><span class="hs-identifier hs-var">pSelectSqlQuery_</span></a></span></span><span>
+</span><span id="line-374"></span><span>  </span><span id="local-6989586621679251829"><span class="annot"><span class="annottext">RDSDatabaseCredentials
+</span><a href="#local-6989586621679251829"><span class="hs-identifier hs-var">pDatabaseCredentials_</span></a></span></span><span>
+</span><span id="line-375"></span><span>  </span><span id="local-6989586621679251828"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251828"><span class="hs-identifier hs-var">pS3StagingLocation_</span></a></span></span><span>
+</span><span id="line-376"></span><span>  </span><span id="local-6989586621679251827"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251827"><span class="hs-identifier hs-var">pResourceRole_</span></a></span></span><span>
+</span><span id="line-377"></span><span>  </span><span id="local-6989586621679251826"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251826"><span class="hs-identifier hs-var">pServiceRole_</span></a></span></span><span>
+</span><span id="line-378"></span><span>  </span><span id="local-6989586621679251825"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251825"><span class="hs-identifier hs-var">pSubnetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-379"></span><span>    </span><span class="annot"><span class="annottext">RDSDataSpec' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -481,25 +481,25 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-383"></span><span>        </span><span class="annot"><span class="annottext">$sel:databaseInformation:RDSDataSpec' :: RDSDatabase
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AdatabaseInformation%3ARDSDataSpec%27"><span class="hs-identifier hs-var">databaseInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RDSDatabase
-</span><a href="#local-6989586621679251822"><span class="hs-identifier hs-var">pDatabaseInformation_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251831"><span class="hs-identifier hs-var">pDatabaseInformation_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-384"></span><span>        </span><span class="annot"><span class="annottext">$sel:selectSqlQuery:RDSDataSpec' :: Text
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AselectSqlQuery%3ARDSDataSpec%27"><span class="hs-identifier hs-var">selectSqlQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251821"><span class="hs-identifier hs-var">pSelectSqlQuery_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251830"><span class="hs-identifier hs-var">pSelectSqlQuery_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-385"></span><span>        </span><span class="annot"><span class="annottext">$sel:databaseCredentials:RDSDataSpec' :: RDSDatabaseCredentials
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AdatabaseCredentials%3ARDSDataSpec%27"><span class="hs-identifier hs-var">databaseCredentials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RDSDatabaseCredentials
-</span><a href="#local-6989586621679251820"><span class="hs-identifier hs-var">pDatabaseCredentials_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251829"><span class="hs-identifier hs-var">pDatabaseCredentials_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-386"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3StagingLocation:RDSDataSpec' :: Text
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3As3StagingLocation%3ARDSDataSpec%27"><span class="hs-identifier hs-var">s3StagingLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251819"><span class="hs-identifier hs-var">pS3StagingLocation_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251828"><span class="hs-identifier hs-var">pS3StagingLocation_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-387"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceRole:RDSDataSpec' :: Text
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AresourceRole%3ARDSDataSpec%27"><span class="hs-identifier hs-var">resourceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251818"><span class="hs-identifier hs-var">pResourceRole_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251827"><span class="hs-identifier hs-var">pResourceRole_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-388"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceRole:RDSDataSpec' :: Text
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AserviceRole%3ARDSDataSpec%27"><span class="hs-identifier hs-var">serviceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251817"><span class="hs-identifier hs-var">pServiceRole_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251826"><span class="hs-identifier hs-var">pServiceRole_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-389"></span><span>        </span><span class="annot"><span class="annottext">$sel:subnetId:RDSDataSpec' :: Text
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AsubnetId%3ARDSDataSpec%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251816"><span class="hs-identifier hs-var">pSubnetId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251825"><span class="hs-identifier hs-var">pSubnetId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-390"></span><span>        </span><span class="annot"><span class="annottext">$sel:securityGroupIds:RDSDataSpec' :: [Text]
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AsecurityGroupIds%3ARDSDataSpec%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -513,16 +513,16 @@ forall a. Monoid a =&gt; a
 -&gt; (RDSDataSpec -&gt; Maybe Text -&gt; RDSDataSpec)
 -&gt; Lens RDSDataSpec RDSDataSpec (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251812"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251821"><span class="annot"><span class="annottext">Maybe Text
 dataSchemaUri :: Maybe Text
 $sel:dataSchemaUri:RDSDataSpec' :: RDSDataSpec -&gt; Maybe Text
-</span><a href="#local-6989586621679251812"><span class="hs-identifier hs-var hs-var">dataSchemaUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251812"><span class="hs-identifier hs-var">dataSchemaUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251811"><span class="annot"><span class="annottext">s :: RDSDataSpec
-</span><a href="#local-6989586621679251811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251810"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
-</span><a href="#local-6989586621679251811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSchemaUri:RDSDataSpec' :: Maybe Text
+</span><a href="#local-6989586621679251821"><span class="hs-identifier hs-var hs-var">dataSchemaUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251821"><span class="hs-identifier hs-var">dataSchemaUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251820"><span class="annot"><span class="annottext">s :: RDSDataSpec
+</span><a href="#local-6989586621679251820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251819"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
+</span><a href="#local-6989586621679251820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSchemaUri:RDSDataSpec' :: Maybe Text
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AdataSchemaUri%3ARDSDataSpec%27"><span class="hs-identifier hs-var">dataSchemaUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-396"></span><span>
 </span><span id="line-397"></span><span class="hs-comment">-- | A JSON string that represents the schema for an Amazon RDS @DataSource@.</span><span>
 </span><span id="line-398"></span><span class="hs-comment">-- The @DataSchema@ defines the structure of the observation data in the</span><span>
@@ -563,16 +563,16 @@ $sel:dataSchemaUri:RDSDataSpec' :: RDSDataSpec -&gt; Maybe Text
 -&gt; (RDSDataSpec -&gt; Maybe Text -&gt; RDSDataSpec)
 -&gt; Lens RDSDataSpec RDSDataSpec (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251808"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251817"><span class="annot"><span class="annottext">Maybe Text
 dataSchema :: Maybe Text
 $sel:dataSchema:RDSDataSpec' :: RDSDataSpec -&gt; Maybe Text
-</span><a href="#local-6989586621679251808"><span class="hs-identifier hs-var hs-var">dataSchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251808"><span class="hs-identifier hs-var">dataSchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251807"><span class="annot"><span class="annottext">s :: RDSDataSpec
-</span><a href="#local-6989586621679251807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251806"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
-</span><a href="#local-6989586621679251807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSchema:RDSDataSpec' :: Maybe Text
+</span><a href="#local-6989586621679251817"><span class="hs-identifier hs-var hs-var">dataSchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251817"><span class="hs-identifier hs-var">dataSchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251816"><span class="annot"><span class="annottext">s :: RDSDataSpec
+</span><a href="#local-6989586621679251816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251815"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
+</span><a href="#local-6989586621679251816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSchema:RDSDataSpec' :: Maybe Text
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AdataSchema%3ARDSDataSpec%27"><span class="hs-identifier hs-var">dataSchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-432"></span><span>
 </span><span id="line-433"></span><span class="hs-comment">-- | A JSON string that represents the splitting and rearrangement processing</span><span>
 </span><span id="line-434"></span><span class="hs-comment">-- to be applied to a @DataSource@. If the @DataRearrangement@ parameter is</span><span>
@@ -666,16 +666,16 @@ $sel:dataSchema:RDSDataSpec' :: RDSDataSpec -&gt; Maybe Text
 -&gt; (RDSDataSpec -&gt; Maybe Text -&gt; RDSDataSpec)
 -&gt; Lens RDSDataSpec RDSDataSpec (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251804"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251813"><span class="annot"><span class="annottext">Maybe Text
 dataRearrangement :: Maybe Text
 $sel:dataRearrangement:RDSDataSpec' :: RDSDataSpec -&gt; Maybe Text
-</span><a href="#local-6989586621679251804"><span class="hs-identifier hs-var hs-var">dataRearrangement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251804"><span class="hs-identifier hs-var">dataRearrangement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251803"><span class="annot"><span class="annottext">s :: RDSDataSpec
-</span><a href="#local-6989586621679251803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251802"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
-</span><a href="#local-6989586621679251803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataRearrangement:RDSDataSpec' :: Maybe Text
+</span><a href="#local-6989586621679251813"><span class="hs-identifier hs-var hs-var">dataRearrangement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251813"><span class="hs-identifier hs-var">dataRearrangement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251812"><span class="annot"><span class="annottext">s :: RDSDataSpec
+</span><a href="#local-6989586621679251812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251811"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
+</span><a href="#local-6989586621679251812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataRearrangement:RDSDataSpec' :: Maybe Text
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AdataRearrangement%3ARDSDataSpec%27"><span class="hs-identifier hs-var">dataRearrangement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-521"></span><span>
 </span><span id="line-522"></span><span class="hs-comment">-- | Describes the @DatabaseName@ and @InstanceIdentifier@ of an Amazon RDS</span><span>
 </span><span id="line-523"></span><span class="hs-comment">-- database.</span><span>
@@ -685,16 +685,16 @@ $sel:dataRearrangement:RDSDataSpec' :: RDSDataSpec -&gt; Maybe Text
 -&gt; (RDSDataSpec -&gt; RDSDatabase -&gt; RDSDataSpec)
 -&gt; Lens RDSDataSpec RDSDataSpec RDSDatabase RDSDatabase
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251800"><span class="annot"><span class="annottext">RDSDatabase
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251809"><span class="annot"><span class="annottext">RDSDatabase
 databaseInformation :: RDSDatabase
 $sel:databaseInformation:RDSDataSpec' :: RDSDataSpec -&gt; RDSDatabase
-</span><a href="#local-6989586621679251800"><span class="hs-identifier hs-var hs-var">databaseInformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDatabase
-</span><a href="#local-6989586621679251800"><span class="hs-identifier hs-var">databaseInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251799"><span class="annot"><span class="annottext">s :: RDSDataSpec
-</span><a href="#local-6989586621679251799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251798"><span class="annot"><span class="annottext">RDSDatabase
-</span><a href="#local-6989586621679251798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
-</span><a href="#local-6989586621679251799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseInformation:RDSDataSpec' :: RDSDatabase
+</span><a href="#local-6989586621679251809"><span class="hs-identifier hs-var hs-var">databaseInformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDatabase
+</span><a href="#local-6989586621679251809"><span class="hs-identifier hs-var">databaseInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251808"><span class="annot"><span class="annottext">s :: RDSDataSpec
+</span><a href="#local-6989586621679251808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251807"><span class="annot"><span class="annottext">RDSDatabase
+</span><a href="#local-6989586621679251807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
+</span><a href="#local-6989586621679251808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseInformation:RDSDataSpec' :: RDSDatabase
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AdatabaseInformation%3ARDSDataSpec%27"><span class="hs-identifier hs-var">databaseInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RDSDatabase
-</span><a href="#local-6989586621679251798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-526"></span><span>
 </span><span id="line-527"></span><span class="hs-comment">-- | The query that is used to retrieve the observation data for the</span><span>
 </span><span id="line-528"></span><span class="hs-comment">-- @DataSource@.</span><span>
@@ -704,16 +704,16 @@ $sel:databaseInformation:RDSDataSpec' :: RDSDataSpec -&gt; RDSDatabase
 -&gt; (RDSDataSpec -&gt; Text -&gt; RDSDataSpec)
 -&gt; Lens RDSDataSpec RDSDataSpec Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251796"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251805"><span class="annot"><span class="annottext">Text
 selectSqlQuery :: Text
 $sel:selectSqlQuery:RDSDataSpec' :: RDSDataSpec -&gt; Text
-</span><a href="#local-6989586621679251796"><span class="hs-identifier hs-var hs-var">selectSqlQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251796"><span class="hs-identifier hs-var">selectSqlQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251795"><span class="annot"><span class="annottext">s :: RDSDataSpec
-</span><a href="#local-6989586621679251795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251794"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
-</span><a href="#local-6989586621679251795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectSqlQuery:RDSDataSpec' :: Text
+</span><a href="#local-6989586621679251805"><span class="hs-identifier hs-var hs-var">selectSqlQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251805"><span class="hs-identifier hs-var">selectSqlQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251804"><span class="annot"><span class="annottext">s :: RDSDataSpec
+</span><a href="#local-6989586621679251804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251803"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
+</span><a href="#local-6989586621679251804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectSqlQuery:RDSDataSpec' :: Text
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AselectSqlQuery%3ARDSDataSpec%27"><span class="hs-identifier hs-var">selectSqlQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-531"></span><span>
 </span><span id="line-532"></span><span class="hs-comment">-- | The AWS Identity and Access Management (IAM) credentials that are used</span><span>
 </span><span id="line-533"></span><span class="hs-comment">-- connect to the Amazon RDS database.</span><span>
@@ -728,16 +728,16 @@ $sel:selectSqlQuery:RDSDataSpec' :: RDSDataSpec -&gt; Text
      RDSDatabaseCredentials
      RDSDatabaseCredentials
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251792"><span class="annot"><span class="annottext">RDSDatabaseCredentials
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251801"><span class="annot"><span class="annottext">RDSDatabaseCredentials
 databaseCredentials :: RDSDatabaseCredentials
 $sel:databaseCredentials:RDSDataSpec' :: RDSDataSpec -&gt; RDSDatabaseCredentials
-</span><a href="#local-6989586621679251792"><span class="hs-identifier hs-var hs-var">databaseCredentials</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDatabaseCredentials
-</span><a href="#local-6989586621679251792"><span class="hs-identifier hs-var">databaseCredentials</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251791"><span class="annot"><span class="annottext">s :: RDSDataSpec
-</span><a href="#local-6989586621679251791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251790"><span class="annot"><span class="annottext">RDSDatabaseCredentials
-</span><a href="#local-6989586621679251790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
-</span><a href="#local-6989586621679251791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseCredentials:RDSDataSpec' :: RDSDatabaseCredentials
+</span><a href="#local-6989586621679251801"><span class="hs-identifier hs-var hs-var">databaseCredentials</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDatabaseCredentials
+</span><a href="#local-6989586621679251801"><span class="hs-identifier hs-var">databaseCredentials</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251800"><span class="annot"><span class="annottext">s :: RDSDataSpec
+</span><a href="#local-6989586621679251800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251799"><span class="annot"><span class="annottext">RDSDatabaseCredentials
+</span><a href="#local-6989586621679251799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
+</span><a href="#local-6989586621679251800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseCredentials:RDSDataSpec' :: RDSDatabaseCredentials
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AdatabaseCredentials%3ARDSDataSpec%27"><span class="hs-identifier hs-var">databaseCredentials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RDSDatabaseCredentials
-</span><a href="#local-6989586621679251790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-536"></span><span>
 </span><span id="line-537"></span><span class="hs-comment">-- | The Amazon S3 location for staging Amazon RDS data. The data retrieved</span><span>
 </span><span id="line-538"></span><span class="hs-comment">-- from Amazon RDS using @SelectSqlQuery@ is stored in this location.</span><span>
@@ -747,16 +747,16 @@ $sel:databaseCredentials:RDSDataSpec' :: RDSDataSpec -&gt; RDSDatabaseCredential
 -&gt; (RDSDataSpec -&gt; Text -&gt; RDSDataSpec)
 -&gt; Lens RDSDataSpec RDSDataSpec Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251788"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251797"><span class="annot"><span class="annottext">Text
 s3StagingLocation :: Text
 $sel:s3StagingLocation:RDSDataSpec' :: RDSDataSpec -&gt; Text
-</span><a href="#local-6989586621679251788"><span class="hs-identifier hs-var hs-var">s3StagingLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251788"><span class="hs-identifier hs-var">s3StagingLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251787"><span class="annot"><span class="annottext">s :: RDSDataSpec
-</span><a href="#local-6989586621679251787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251786"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
-</span><a href="#local-6989586621679251787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3StagingLocation:RDSDataSpec' :: Text
+</span><a href="#local-6989586621679251797"><span class="hs-identifier hs-var hs-var">s3StagingLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251797"><span class="hs-identifier hs-var">s3StagingLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251796"><span class="annot"><span class="annottext">s :: RDSDataSpec
+</span><a href="#local-6989586621679251796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251795"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
+</span><a href="#local-6989586621679251796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3StagingLocation:RDSDataSpec' :: Text
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3As3StagingLocation%3ARDSDataSpec%27"><span class="hs-identifier hs-var">s3StagingLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-541"></span><span>
 </span><span id="line-542"></span><span class="hs-comment">-- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic</span><span>
 </span><span id="line-543"></span><span class="hs-comment">-- Compute Cloud (Amazon EC2) instance to carry out the copy operation from</span><span>
@@ -769,16 +769,16 @@ $sel:s3StagingLocation:RDSDataSpec' :: RDSDataSpec -&gt; Text
 -&gt; (RDSDataSpec -&gt; Text -&gt; RDSDataSpec)
 -&gt; Lens RDSDataSpec RDSDataSpec Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251784"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251793"><span class="annot"><span class="annottext">Text
 resourceRole :: Text
 $sel:resourceRole:RDSDataSpec' :: RDSDataSpec -&gt; Text
-</span><a href="#local-6989586621679251784"><span class="hs-identifier hs-var hs-var">resourceRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251784"><span class="hs-identifier hs-var">resourceRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251783"><span class="annot"><span class="annottext">s :: RDSDataSpec
-</span><a href="#local-6989586621679251783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251782"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
-</span><a href="#local-6989586621679251783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceRole:RDSDataSpec' :: Text
+</span><a href="#local-6989586621679251793"><span class="hs-identifier hs-var hs-var">resourceRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251793"><span class="hs-identifier hs-var">resourceRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251792"><span class="annot"><span class="annottext">s :: RDSDataSpec
+</span><a href="#local-6989586621679251792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251791"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
+</span><a href="#local-6989586621679251792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceRole:RDSDataSpec' :: Text
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AresourceRole%3ARDSDataSpec%27"><span class="hs-identifier hs-var">resourceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-549"></span><span>
 </span><span id="line-550"></span><span class="hs-comment">-- | The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service</span><span>
 </span><span id="line-551"></span><span class="hs-comment">-- to monitor the progress of the copy task from Amazon RDS to Amazon S3.</span><span>
@@ -791,16 +791,16 @@ $sel:resourceRole:RDSDataSpec' :: RDSDataSpec -&gt; Text
 -&gt; (RDSDataSpec -&gt; Text -&gt; RDSDataSpec)
 -&gt; Lens RDSDataSpec RDSDataSpec Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251780"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251789"><span class="annot"><span class="annottext">Text
 serviceRole :: Text
 $sel:serviceRole:RDSDataSpec' :: RDSDataSpec -&gt; Text
-</span><a href="#local-6989586621679251780"><span class="hs-identifier hs-var hs-var">serviceRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251780"><span class="hs-identifier hs-var">serviceRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251779"><span class="annot"><span class="annottext">s :: RDSDataSpec
-</span><a href="#local-6989586621679251779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251778"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
-</span><a href="#local-6989586621679251779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceRole:RDSDataSpec' :: Text
+</span><a href="#local-6989586621679251789"><span class="hs-identifier hs-var hs-var">serviceRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251789"><span class="hs-identifier hs-var">serviceRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251788"><span class="annot"><span class="annottext">s :: RDSDataSpec
+</span><a href="#local-6989586621679251788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251787"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
+</span><a href="#local-6989586621679251788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceRole:RDSDataSpec' :: Text
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AserviceRole%3ARDSDataSpec%27"><span class="hs-identifier hs-var">serviceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-557"></span><span>
 </span><span id="line-558"></span><span class="hs-comment">-- | The subnet ID to be used to access a VPC-based RDS DB instance. This</span><span>
 </span><span id="line-559"></span><span class="hs-comment">-- attribute is used by Data Pipeline to carry out the copy task from</span><span>
@@ -811,16 +811,16 @@ $sel:serviceRole:RDSDataSpec' :: RDSDataSpec -&gt; Text
 -&gt; (RDSDataSpec -&gt; Text -&gt; RDSDataSpec)
 -&gt; Lens RDSDataSpec RDSDataSpec Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251776"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251785"><span class="annot"><span class="annottext">Text
 subnetId :: Text
 $sel:subnetId:RDSDataSpec' :: RDSDataSpec -&gt; Text
-</span><a href="#local-6989586621679251776"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251776"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251775"><span class="annot"><span class="annottext">s :: RDSDataSpec
-</span><a href="#local-6989586621679251775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251774"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
-</span><a href="#local-6989586621679251775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:RDSDataSpec' :: Text
+</span><a href="#local-6989586621679251785"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251785"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251784"><span class="annot"><span class="annottext">s :: RDSDataSpec
+</span><a href="#local-6989586621679251784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251783"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
+</span><a href="#local-6989586621679251784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:RDSDataSpec' :: Text
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AsubnetId%3ARDSDataSpec%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-563"></span><span>
 </span><span id="line-564"></span><span class="hs-comment">-- | The security group IDs to be used to access a VPC-based RDS DB instance.</span><span>
 </span><span id="line-565"></span><span class="hs-comment">-- Ensure that there are appropriate ingress rules set up to allow access</span><span>
@@ -832,16 +832,16 @@ $sel:subnetId:RDSDataSpec' :: RDSDataSpec -&gt; Text
 -&gt; (RDSDataSpec -&gt; [Text] -&gt; RDSDataSpec)
 -&gt; Lens RDSDataSpec RDSDataSpec [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251772"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251781"><span class="annot"><span class="annottext">[Text]
 securityGroupIds :: [Text]
 $sel:securityGroupIds:RDSDataSpec' :: RDSDataSpec -&gt; [Text]
-</span><a href="#local-6989586621679251772"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679251772"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251771"><span class="annot"><span class="annottext">s :: RDSDataSpec
-</span><a href="#local-6989586621679251771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251770"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679251770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
-</span><a href="#local-6989586621679251771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:RDSDataSpec' :: [Text]
+</span><a href="#local-6989586621679251781"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679251781"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251780"><span class="annot"><span class="annottext">s :: RDSDataSpec
+</span><a href="#local-6989586621679251780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251779"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679251779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
+</span><a href="#local-6989586621679251780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:RDSDataSpec' :: [Text]
 </span><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#%24sel%3AsecurityGroupIds%3ARDSDataSpec%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679251770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; RDSDataSpec -&gt; f RDSDataSpec)
+</span><a href="#local-6989586621679251779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; RDSDataSpec -&gt; f RDSDataSpec)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; RDSDataSpec
@@ -851,13 +851,13 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-570"></span><span>
-</span><span id="line-571"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251764"><span id="local-6989586621679251766"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span></span></span><span>
+</span><span id="line-571"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251773"><span id="local-6989586621679251775"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span></span></span><span>
 </span><span id="line-572"></span><span>
-</span><span id="line-573"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251761"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span></span><span>
+</span><span id="line-573"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251770"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span></span><span>
 </span><span id="line-574"></span><span>
-</span><span id="line-575"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251753"><span id="local-6989586621679251755"><span id="local-6989586621679251757"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-576"></span><span>  </span><span id="local-6989586621679251751"><span class="annot"><span class="annottext">toJSON :: RDSDataSpec -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251739"><span id="local-6989586621679251740"><span id="local-6989586621679251741"><span id="local-6989586621679251742"><span id="local-6989586621679251743"><span id="local-6989586621679251744"><span id="local-6989586621679251745"><span id="local-6989586621679251746"><span id="local-6989586621679251747"><span id="local-6989586621679251748"><span id="local-6989586621679251749"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-575"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251762"><span id="local-6989586621679251764"><span id="local-6989586621679251766"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec"><span class="hs-identifier hs-type">RDSDataSpec</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-576"></span><span>  </span><span id="local-6989586621679251760"><span class="annot"><span class="annottext">toJSON :: RDSDataSpec -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.RDSDataSpec.html#RDSDataSpec%27"><span class="hs-identifier hs-type">RDSDataSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251748"><span id="local-6989586621679251749"><span id="local-6989586621679251750"><span id="local-6989586621679251751"><span id="local-6989586621679251752"><span id="local-6989586621679251753"><span id="local-6989586621679251754"><span id="local-6989586621679251755"><span id="local-6989586621679251756"><span id="local-6989586621679251757"><span id="local-6989586621679251758"><span class="annot"><span class="annottext">[Text]
 Maybe Text
 Text
 RDSDatabase
@@ -884,7 +884,7 @@ $sel:databaseInformation:RDSDataSpec' :: RDSDataSpec -&gt; RDSDatabase
 $sel:dataRearrangement:RDSDataSpec' :: RDSDataSpec -&gt; Maybe Text
 $sel:dataSchema:RDSDataSpec' :: RDSDataSpec -&gt; Maybe Text
 $sel:dataSchemaUri:RDSDataSpec' :: RDSDataSpec -&gt; Maybe Text
-</span><a href="#local-6989586621679251739"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679251748"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-577"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-578"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -896,14 +896,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251749"><span class="hs-identifier hs-var">dataSchemaUri</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251758"><span class="hs-identifier hs-var">dataSchemaUri</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-580"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataSchema&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251748"><span class="hs-identifier hs-var">dataSchema</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251757"><span class="hs-identifier hs-var">dataSchema</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-581"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataRearrangement&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -911,7 +911,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-582"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251747"><span class="hs-identifier hs-var">dataRearrangement</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251756"><span class="hs-identifier hs-var">dataRearrangement</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-583"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -919,7 +919,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DatabaseInformation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RDSDatabase -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RDSDatabase
-</span><a href="#local-6989586621679251746"><span class="hs-identifier hs-var">databaseInformation</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251755"><span class="hs-identifier hs-var">databaseInformation</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-585"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -927,7 +927,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SelectSqlQuery&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251745"><span class="hs-identifier hs-var">selectSqlQuery</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251754"><span class="hs-identifier hs-var">selectSqlQuery</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-587"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -935,7 +935,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DatabaseCredentials&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RDSDatabaseCredentials -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RDSDatabaseCredentials
-</span><a href="#local-6989586621679251744"><span class="hs-identifier hs-var">databaseCredentials</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251753"><span class="hs-identifier hs-var">databaseCredentials</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-589"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -943,28 +943,28 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;S3StagingLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251743"><span class="hs-identifier hs-var">s3StagingLocation</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251752"><span class="hs-identifier hs-var">s3StagingLocation</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-591"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251742"><span class="hs-identifier hs-var">resourceRole</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251751"><span class="hs-identifier hs-var">resourceRole</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-592"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251741"><span class="hs-identifier hs-var">serviceRole</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251750"><span class="hs-identifier hs-var">serviceRole</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-593"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubnetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251740"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251749"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-594"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -972,7 +972,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SecurityGroupIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679251739"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251748"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-596"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-597"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-598"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Details about the managed agent status for the container.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newManagedAgent' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679455729"><span id="local-6989586621679455730"></span></span><span class="hs-keyword">data</span><span> </span><span id="ManagedAgent"><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-var">ManagedAgent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ManagedAgent%27"><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-var">ManagedAgent'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679455738"><span id="local-6989586621679455739"></span></span><span class="hs-keyword">data</span><span> </span><span id="ManagedAgent"><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-var">ManagedAgent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ManagedAgent%27"><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-var">ManagedAgent'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The last known status of the managed agent.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AlastStatus%3AManagedAgent%27"><span class="annot"><span class="annottext">ManagedAgent -&gt; Maybe Text
 </span><a href="Network.AWS.ECS.Types.ManagedAgent.html#%24sel%3AlastStatus%3AManagedAgent%27"><span class="hs-identifier hs-var hs-var">lastStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AlastStartedAt%3AManagedAgent%27"><span class="annot"><span class="annottext">ManagedAgent -&gt; Maybe POSIX
 </span><a href="Network.AWS.ECS.Types.ManagedAgent.html#%24sel%3AlastStartedAt%3AManagedAgent%27"><span class="hs-identifier hs-var hs-var">lastStartedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679455720"><span id="local-6989586621679455722"><span class="annot"><span class="annottext">ManagedAgent -&gt; ManagedAgent -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679455729"><span id="local-6989586621679455731"><span class="annot"><span class="annottext">ManagedAgent -&gt; ManagedAgent -&gt; Bool
 (ManagedAgent -&gt; ManagedAgent -&gt; Bool)
 -&gt; (ManagedAgent -&gt; ManagedAgent -&gt; Bool) -&gt; Eq ManagedAgent
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ManagedAgent -&gt; ManagedAgent -&gt; Bool
 == :: ManagedAgent -&gt; ManagedAgent -&gt; Bool
 $c== :: ManagedAgent -&gt; ManagedAgent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455711"><span id="local-6989586621679455713"><span id="local-6989586621679455715"><span id="local-6989586621679455717"><span class="annot"><span class="annottext">ReadPrec [ManagedAgent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455720"><span id="local-6989586621679455722"><span id="local-6989586621679455724"><span id="local-6989586621679455726"><span class="annot"><span class="annottext">ReadPrec [ManagedAgent]
 ReadPrec ManagedAgent
 Int -&gt; ReadS ManagedAgent
 ReadS [ManagedAgent]
@@ -70,7 +70,7 @@ readList :: ReadS [ManagedAgent]
 $creadList :: ReadS [ManagedAgent]
 readsPrec :: Int -&gt; ReadS ManagedAgent
 $creadsPrec :: Int -&gt; ReadS ManagedAgent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455704"><span id="local-6989586621679455706"><span id="local-6989586621679455708"><span class="annot"><span class="annottext">Int -&gt; ManagedAgent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455713"><span id="local-6989586621679455715"><span id="local-6989586621679455717"><span class="annot"><span class="annottext">Int -&gt; ManagedAgent -&gt; ShowS
 [ManagedAgent] -&gt; ShowS
 ManagedAgent -&gt; String
 (Int -&gt; ManagedAgent -&gt; ShowS)
@@ -147,16 +147,16 @@ forall a. Maybe a
 -&gt; (ManagedAgent -&gt; Maybe Text -&gt; ManagedAgent)
 -&gt; Lens ManagedAgent ManagedAgent (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-type">ManagedAgent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455695"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-type">ManagedAgent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455704"><span class="annot"><span class="annottext">Maybe Text
 lastStatus :: Maybe Text
 $sel:lastStatus:ManagedAgent' :: ManagedAgent -&gt; Maybe Text
-</span><a href="#local-6989586621679455695"><span class="hs-identifier hs-var hs-var">lastStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679455695"><span class="hs-identifier hs-var">lastStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455694"><span class="annot"><span class="annottext">s :: ManagedAgent
-</span><a href="#local-6989586621679455694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-type">ManagedAgent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455693"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679455693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAgent
-</span><a href="#local-6989586621679455694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStatus:ManagedAgent' :: Maybe Text
+</span><a href="#local-6989586621679455704"><span class="hs-identifier hs-var hs-var">lastStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679455704"><span class="hs-identifier hs-var">lastStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455703"><span class="annot"><span class="annottext">s :: ManagedAgent
+</span><a href="#local-6989586621679455703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-type">ManagedAgent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455702"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679455702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAgent
+</span><a href="#local-6989586621679455703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStatus:ManagedAgent' :: Maybe Text
 </span><a href="Network.AWS.ECS.Types.ManagedAgent.html#%24sel%3AlastStatus%3AManagedAgent%27"><span class="hs-identifier hs-var">lastStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679455693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-type">ManagedAgent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679455702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-type">ManagedAgent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The reason for why the managed agent is in the state it is in.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#managedAgent_reason"><span class="hs-identifier hs-type">managedAgent_reason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-type">ManagedAgent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -165,16 +165,16 @@ $sel:lastStatus:ManagedAgent' :: ManagedAgent -&gt; Maybe Text
 -&gt; (ManagedAgent -&gt; Maybe Text -&gt; ManagedAgent)
 -&gt; Lens ManagedAgent ManagedAgent (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-type">ManagedAgent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455691"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-type">ManagedAgent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455700"><span class="annot"><span class="annottext">Maybe Text
 reason :: Maybe Text
 $sel:reason:ManagedAgent' :: ManagedAgent -&gt; Maybe Text
-</span><a href="#local-6989586621679455691"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679455691"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455690"><span class="annot"><span class="annottext">s :: ManagedAgent
-</span><a href="#local-6989586621679455690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-type">ManagedAgent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455689"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679455689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAgent
-</span><a href="#local-6989586621679455690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:ManagedAgent' :: Maybe Text
+</span><a href="#local-6989586621679455700"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679455700"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455699"><span class="annot"><span class="annottext">s :: ManagedAgent
+</span><a href="#local-6989586621679455699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-type">ManagedAgent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455698"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679455698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAgent
+</span><a href="#local-6989586621679455699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:ManagedAgent' :: Maybe Text
 </span><a href="Network.AWS.ECS.Types.ManagedAgent.html#%24sel%3Areason%3AManagedAgent%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679455689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-type">ManagedAgent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679455698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-type">ManagedAgent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The name of the managed agent. When the execute command feature is</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- enabled, the managed agent name is @ExecuteCommandAgent@.</span><span>
@@ -189,16 +189,16 @@ $sel:reason:ManagedAgent' :: ManagedAgent -&gt; Maybe Text
      (Maybe ManagedAgentName)
      (Maybe ManagedAgentName)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-type">ManagedAgent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455687"><span class="annot"><span class="annottext">Maybe ManagedAgentName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-type">ManagedAgent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455696"><span class="annot"><span class="annottext">Maybe ManagedAgentName
 name :: Maybe ManagedAgentName
 $sel:name:ManagedAgent' :: ManagedAgent -&gt; Maybe ManagedAgentName
-</span><a href="#local-6989586621679455687"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ManagedAgentName
-</span><a href="#local-6989586621679455687"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455686"><span class="annot"><span class="annottext">s :: ManagedAgent
-</span><a href="#local-6989586621679455686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-type">ManagedAgent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455685"><span class="annot"><span class="annottext">Maybe ManagedAgentName
-</span><a href="#local-6989586621679455685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAgent
-</span><a href="#local-6989586621679455686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ManagedAgent' :: Maybe ManagedAgentName
+</span><a href="#local-6989586621679455696"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ManagedAgentName
+</span><a href="#local-6989586621679455696"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455695"><span class="annot"><span class="annottext">s :: ManagedAgent
+</span><a href="#local-6989586621679455695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-type">ManagedAgent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455694"><span class="annot"><span class="annottext">Maybe ManagedAgentName
+</span><a href="#local-6989586621679455694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAgent
+</span><a href="#local-6989586621679455695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ManagedAgent' :: Maybe ManagedAgentName
 </span><a href="Network.AWS.ECS.Types.ManagedAgent.html#%24sel%3Aname%3AManagedAgent%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ManagedAgentName
-</span><a href="#local-6989586621679455685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-type">ManagedAgent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679455694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-type">ManagedAgent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The Unix timestamp for when the managed agent was last started.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#managedAgent_lastStartedAt"><span class="hs-identifier hs-type">managedAgent_lastStartedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-type">ManagedAgent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -208,16 +208,16 @@ $sel:name:ManagedAgent' :: ManagedAgent -&gt; Maybe ManagedAgentName
 -&gt; (ManagedAgent -&gt; Maybe POSIX -&gt; ManagedAgent)
 -&gt; Lens ManagedAgent ManagedAgent (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-type">ManagedAgent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455683"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-type">ManagedAgent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455692"><span class="annot"><span class="annottext">Maybe POSIX
 lastStartedAt :: Maybe POSIX
 $sel:lastStartedAt:ManagedAgent' :: ManagedAgent -&gt; Maybe POSIX
-</span><a href="#local-6989586621679455683"><span class="hs-identifier hs-var hs-var">lastStartedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679455683"><span class="hs-identifier hs-var">lastStartedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455682"><span class="annot"><span class="annottext">s :: ManagedAgent
-</span><a href="#local-6989586621679455682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-type">ManagedAgent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455681"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679455681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAgent
-</span><a href="#local-6989586621679455682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStartedAt:ManagedAgent' :: Maybe POSIX
+</span><a href="#local-6989586621679455692"><span class="hs-identifier hs-var hs-var">lastStartedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679455692"><span class="hs-identifier hs-var">lastStartedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455691"><span class="annot"><span class="annottext">s :: ManagedAgent
+</span><a href="#local-6989586621679455691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent%27"><span class="hs-identifier hs-type">ManagedAgent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455690"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679455690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAgent
+</span><a href="#local-6989586621679455691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStartedAt:ManagedAgent' :: Maybe POSIX
 </span><a href="Network.AWS.ECS.Types.ManagedAgent.html#%24sel%3AlastStartedAt%3AManagedAgent%27"><span class="hs-identifier hs-var">lastStartedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679455681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-type">ManagedAgent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679455690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-type">ManagedAgent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ManagedAgent -&gt; f ManagedAgent)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -234,8 +234,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455675"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-type">ManagedAgent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679455673"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ManagedAgent
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455684"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-type">ManagedAgent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679455682"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ManagedAgent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ManagedAgent) -&gt; Value -&gt; Parser ManagedAgent
@@ -243,8 +243,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ManagedAgent&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679455670"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679455670"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679455679"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679455679"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe ManagedAgentName
@@ -262,7 +262,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe ManagedAgentName -&gt; Maybe POSIX -&gt; ManagedAgent)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679455670"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679455679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lastStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -273,7 +273,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe ManagedAgentName -&gt; Maybe POSIX -&gt; ManagedAgent)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679455670"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679455679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;reason&quot;</span></span><span class="hs-special">)</span><span>
@@ -282,7 +282,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX -&gt; ManagedAgent)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679455670"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ManagedAgentName)
+</span><a href="#local-6989586621679455679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ManagedAgentName)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -290,13 +290,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser ManagedAgent
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679455670"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679455679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lastStartedAt&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455664"><span id="local-6989586621679455666"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-type">ManagedAgent</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455673"><span id="local-6989586621679455675"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-type">ManagedAgent</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455661"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-type">ManagedAgent</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455670"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ManagedAgent.html#ManagedAgent"><span class="hs-identifier hs-type">ManagedAgent</span></a></span></span><span>
 </span><span id="line-101"></span></pre></body></html>

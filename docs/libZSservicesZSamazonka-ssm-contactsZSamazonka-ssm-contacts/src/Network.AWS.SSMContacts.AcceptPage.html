@@ -1,0 +1,595 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SSMContacts.AcceptPage</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Used to acknowledge an engagement to a contact channel during an</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- incident.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSMContacts.AcceptPage</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier">AcceptPage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#newAcceptPage"><span class="hs-identifier">newAcceptPage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_note"><span class="hs-identifier">acceptPage_note</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_contactChannelId"><span class="hs-identifier">acceptPage_contactChannelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_acceptCodeValidation"><span class="hs-identifier">acceptPage_acceptCodeValidation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_pageId"><span class="hs-identifier">acceptPage_pageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_acceptType"><span class="hs-identifier">acceptPage_acceptType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_acceptCode"><span class="hs-identifier">acceptPage_acceptCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPageResponse"><span class="hs-identifier">AcceptPageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#newAcceptPageResponse"><span class="hs-identifier">newAcceptPageResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPageResponse_httpStatus"><span class="hs-identifier">acceptPageResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.html"><span class="hs-identifier">Network.AWS.SSMContacts.Types</span></a></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newAcceptPage' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679203589"><span id="local-6989586621679203590"></span></span><span class="hs-keyword">data</span><span> </span><span id="AcceptPage"><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-var">AcceptPage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptPage%27"><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage%27"><span class="hs-identifier hs-var">AcceptPage'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information provided by the user when the user acknowledges the page.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Anote%3AAcceptPage%27"><span class="annot"><span class="annottext">AcceptPage -&gt; Maybe Text
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3Anote%3AAcceptPage%27"><span class="hs-identifier hs-var hs-var">note</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ARN of the contact channel.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AcontactChannelId%3AAcceptPage%27"><span class="annot"><span class="annottext">AcceptPage -&gt; Maybe Text
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3AcontactChannelId%3AAcceptPage%27"><span class="hs-identifier hs-var hs-var">contactChannelId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | An optional field that Incident Manager uses to @ENFORCE@ @AcceptCode@</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- validation when acknowledging an page. Acknowledgement can occur by</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- replying to a page, or when entering the AcceptCode in the console.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Enforcing AcceptCode validation causes Incident Manager to verify that</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- the code entered by the user matches the code sent by Incident Manager</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- with the page.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- Incident Manager can also @IGNORE@ @AcceptCode@ validation. Ignoring</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @AcceptCode@ validation causes Incident Manager to accept any value</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- entered for the @AcceptCode@.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AacceptCodeValidation%3AAcceptPage%27"><span class="annot"><span class="annottext">AcceptPage -&gt; Maybe AcceptCodeValidation
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3AacceptCodeValidation%3AAcceptPage%27"><span class="hs-identifier hs-var hs-var">acceptCodeValidation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.AcceptCodeValidation.html#AcceptCodeValidation"><span class="hs-identifier hs-type">AcceptCodeValidation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the engagement to a contact channel.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3ApageId%3AAcceptPage%27"><span class="annot"><span class="annottext">AcceptPage -&gt; Text
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3ApageId%3AAcceptPage%27"><span class="hs-identifier hs-var hs-var">pageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The type indicates if the page was @DELIVERED@ or @READ@.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AacceptType%3AAcceptPage%27"><span class="annot"><span class="annottext">AcceptPage -&gt; AcceptType
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3AacceptType%3AAcceptPage%27"><span class="hs-identifier hs-var hs-var">acceptType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.AcceptType.html#AcceptType"><span class="hs-identifier hs-type">AcceptType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The accept code is a 6-digit code used to acknowledge the page.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AacceptCode%3AAcceptPage%27"><span class="annot"><span class="annottext">AcceptPage -&gt; Text
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3AacceptCode%3AAcceptPage%27"><span class="hs-identifier hs-var hs-var">acceptCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203578"><span id="local-6989586621679203580"><span class="annot"><span class="annottext">AcceptPage -&gt; AcceptPage -&gt; Bool
+(AcceptPage -&gt; AcceptPage -&gt; Bool)
+-&gt; (AcceptPage -&gt; AcceptPage -&gt; Bool) -&gt; Eq AcceptPage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AcceptPage -&gt; AcceptPage -&gt; Bool
+$c/= :: AcceptPage -&gt; AcceptPage -&gt; Bool
+== :: AcceptPage -&gt; AcceptPage -&gt; Bool
+$c== :: AcceptPage -&gt; AcceptPage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203569"><span id="local-6989586621679203571"><span id="local-6989586621679203573"><span id="local-6989586621679203575"><span class="annot"><span class="annottext">ReadPrec [AcceptPage]
+ReadPrec AcceptPage
+Int -&gt; ReadS AcceptPage
+ReadS [AcceptPage]
+(Int -&gt; ReadS AcceptPage)
+-&gt; ReadS [AcceptPage]
+-&gt; ReadPrec AcceptPage
+-&gt; ReadPrec [AcceptPage]
+-&gt; Read AcceptPage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AcceptPage]
+$creadListPrec :: ReadPrec [AcceptPage]
+readPrec :: ReadPrec AcceptPage
+$creadPrec :: ReadPrec AcceptPage
+readList :: ReadS [AcceptPage]
+$creadList :: ReadS [AcceptPage]
+readsPrec :: Int -&gt; ReadS AcceptPage
+$creadsPrec :: Int -&gt; ReadS AcceptPage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203562"><span id="local-6989586621679203564"><span id="local-6989586621679203566"><span class="annot"><span class="annottext">Int -&gt; AcceptPage -&gt; ShowS
+[AcceptPage] -&gt; ShowS
+AcceptPage -&gt; String
+(Int -&gt; AcceptPage -&gt; ShowS)
+-&gt; (AcceptPage -&gt; String)
+-&gt; ([AcceptPage] -&gt; ShowS)
+-&gt; Show AcceptPage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AcceptPage] -&gt; ShowS
+$cshowList :: [AcceptPage] -&gt; ShowS
+show :: AcceptPage -&gt; String
+$cshow :: AcceptPage -&gt; String
+showsPrec :: Int -&gt; AcceptPage -&gt; ShowS
+$cshowsPrec :: Int -&gt; AcceptPage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AcceptPage -&gt; Rep AcceptPage x)
+-&gt; (forall x. Rep AcceptPage x -&gt; AcceptPage) -&gt; Generic AcceptPage
+forall x. Rep AcceptPage x -&gt; AcceptPage
+forall x. AcceptPage -&gt; Rep AcceptPage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AcceptPage x -&gt; AcceptPage
+$cfrom :: forall x. AcceptPage -&gt; Rep AcceptPage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'AcceptPage' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'note', 'acceptPage_note' - Information provided by the user when the user acknowledges the page.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'contactChannelId', 'acceptPage_contactChannelId' - The ARN of the contact channel.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'acceptCodeValidation', 'acceptPage_acceptCodeValidation' - An optional field that Incident Manager uses to @ENFORCE@ @AcceptCode@</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- validation when acknowledging an page. Acknowledgement can occur by</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- replying to a page, or when entering the AcceptCode in the console.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Enforcing AcceptCode validation causes Incident Manager to verify that</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- the code entered by the user matches the code sent by Incident Manager</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- with the page.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Incident Manager can also @IGNORE@ @AcceptCode@ validation. Ignoring</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- @AcceptCode@ validation causes Incident Manager to accept any value</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- entered for the @AcceptCode@.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'pageId', 'acceptPage_pageId' - The Amazon Resource Name (ARN) of the engagement to a contact channel.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'acceptType', 'acceptPage_acceptType' - The type indicates if the page was @DELIVERED@ or @READ@.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'acceptCode', 'acceptPage_acceptCode' - The accept code is a 6-digit code used to acknowledge the page.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#newAcceptPage"><span class="hs-identifier hs-type">newAcceptPage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-comment">-- | 'pageId'</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-comment">-- | 'acceptType'</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.AcceptType.html#AcceptType"><span class="hs-identifier hs-type">AcceptType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-comment">-- | 'acceptCode'</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span>
+</span><span id="line-116"></span><span id="newAcceptPage"><span class="annot"><span class="annottext">newAcceptPage :: Text -&gt; AcceptType -&gt; Text -&gt; AcceptPage
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#newAcceptPage"><span class="hs-identifier hs-var hs-var">newAcceptPage</span></a></span></span><span> </span><span id="local-6989586621679203557"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203557"><span class="hs-identifier hs-var">pPageId_</span></a></span></span><span> </span><span id="local-6989586621679203556"><span class="annot"><span class="annottext">AcceptType
+</span><a href="#local-6989586621679203556"><span class="hs-identifier hs-var">pAcceptType_</span></a></span></span><span> </span><span id="local-6989586621679203555"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203555"><span class="hs-identifier hs-var">pAcceptCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">AcceptPage' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AcceptCodeValidation
+-&gt; Text
+-&gt; AcceptType
+-&gt; Text
+-&gt; AcceptPage
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage%27"><span class="hs-identifier hs-type">AcceptPage'</span></a></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:note:AcceptPage' :: Maybe Text
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3Anote%3AAcceptPage%27"><span class="hs-identifier hs-var">note</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:contactChannelId:AcceptPage' :: Maybe Text
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3AcontactChannelId%3AAcceptPage%27"><span class="hs-identifier hs-var">contactChannelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:acceptCodeValidation:AcceptPage' :: Maybe AcceptCodeValidation
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3AacceptCodeValidation%3AAcceptPage%27"><span class="hs-identifier hs-var">acceptCodeValidation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AcceptCodeValidation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageId:AcceptPage' :: Text
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3ApageId%3AAcceptPage%27"><span class="hs-identifier hs-var">pageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203557"><span class="hs-identifier hs-var">pPageId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:acceptType:AcceptPage' :: AcceptType
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3AacceptType%3AAcceptPage%27"><span class="hs-identifier hs-var">acceptType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AcceptType
+</span><a href="#local-6989586621679203556"><span class="hs-identifier hs-var">pAcceptType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:acceptCode:AcceptPage' :: Text
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3AacceptCode%3AAcceptPage%27"><span class="hs-identifier hs-var">acceptCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203555"><span class="hs-identifier hs-var">pAcceptCode_</span></a></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | Information provided by the user when the user acknowledges the page.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_note"><span class="hs-identifier hs-type">acceptPage_note</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="acceptPage_note"><span class="annot"><span class="annottext">acceptPage_note :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AcceptPage -&gt; f AcceptPage
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_note"><span class="hs-identifier hs-var hs-var">acceptPage_note</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AcceptPage -&gt; Maybe Text)
+-&gt; (AcceptPage -&gt; Maybe Text -&gt; AcceptPage)
+-&gt; Lens AcceptPage AcceptPage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage%27"><span class="hs-identifier hs-type">AcceptPage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203552"><span class="annot"><span class="annottext">Maybe Text
+note :: Maybe Text
+$sel:note:AcceptPage' :: AcceptPage -&gt; Maybe Text
+</span><a href="#local-6989586621679203552"><span class="hs-identifier hs-var hs-var">note</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203552"><span class="hs-identifier hs-var">note</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203551"><span class="annot"><span class="annottext">s :: AcceptPage
+</span><a href="#local-6989586621679203551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage%27"><span class="hs-identifier hs-type">AcceptPage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203550"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptPage
+</span><a href="#local-6989586621679203551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:note:AcceptPage' :: Maybe Text
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3Anote%3AAcceptPage%27"><span class="hs-identifier hs-var">note</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The ARN of the contact channel.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_contactChannelId"><span class="hs-identifier hs-type">acceptPage_contactChannelId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="acceptPage_contactChannelId"><span class="annot"><span class="annottext">acceptPage_contactChannelId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AcceptPage -&gt; f AcceptPage
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_contactChannelId"><span class="hs-identifier hs-var hs-var">acceptPage_contactChannelId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AcceptPage -&gt; Maybe Text)
+-&gt; (AcceptPage -&gt; Maybe Text -&gt; AcceptPage)
+-&gt; Lens AcceptPage AcceptPage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage%27"><span class="hs-identifier hs-type">AcceptPage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203549"><span class="annot"><span class="annottext">Maybe Text
+contactChannelId :: Maybe Text
+$sel:contactChannelId:AcceptPage' :: AcceptPage -&gt; Maybe Text
+</span><a href="#local-6989586621679203549"><span class="hs-identifier hs-var hs-var">contactChannelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203549"><span class="hs-identifier hs-var">contactChannelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203548"><span class="annot"><span class="annottext">s :: AcceptPage
+</span><a href="#local-6989586621679203548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage%27"><span class="hs-identifier hs-type">AcceptPage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203547"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptPage
+</span><a href="#local-6989586621679203548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactChannelId:AcceptPage' :: Maybe Text
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3AcontactChannelId%3AAcceptPage%27"><span class="hs-identifier hs-var">contactChannelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | An optional field that Incident Manager uses to @ENFORCE@ @AcceptCode@</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- validation when acknowledging an page. Acknowledgement can occur by</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- replying to a page, or when entering the AcceptCode in the console.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Enforcing AcceptCode validation causes Incident Manager to verify that</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- the code entered by the user matches the code sent by Incident Manager</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- with the page.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Incident Manager can also @IGNORE@ @AcceptCode@ validation. Ignoring</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- @AcceptCode@ validation causes Incident Manager to accept any value</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- entered for the @AcceptCode@.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_acceptCodeValidation"><span class="hs-identifier hs-type">acceptPage_acceptCodeValidation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.AcceptCodeValidation.html#AcceptCodeValidation"><span class="hs-identifier hs-type">AcceptCodeValidation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="acceptPage_acceptCodeValidation"><span class="annot"><span class="annottext">acceptPage_acceptCodeValidation :: (Maybe AcceptCodeValidation -&gt; f (Maybe AcceptCodeValidation))
+-&gt; AcceptPage -&gt; f AcceptPage
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_acceptCodeValidation"><span class="hs-identifier hs-var hs-var">acceptPage_acceptCodeValidation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AcceptPage -&gt; Maybe AcceptCodeValidation)
+-&gt; (AcceptPage -&gt; Maybe AcceptCodeValidation -&gt; AcceptPage)
+-&gt; Lens
+     AcceptPage
+     AcceptPage
+     (Maybe AcceptCodeValidation)
+     (Maybe AcceptCodeValidation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage%27"><span class="hs-identifier hs-type">AcceptPage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203546"><span class="annot"><span class="annottext">Maybe AcceptCodeValidation
+acceptCodeValidation :: Maybe AcceptCodeValidation
+$sel:acceptCodeValidation:AcceptPage' :: AcceptPage -&gt; Maybe AcceptCodeValidation
+</span><a href="#local-6989586621679203546"><span class="hs-identifier hs-var hs-var">acceptCodeValidation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AcceptCodeValidation
+</span><a href="#local-6989586621679203546"><span class="hs-identifier hs-var">acceptCodeValidation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203545"><span class="annot"><span class="annottext">s :: AcceptPage
+</span><a href="#local-6989586621679203545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage%27"><span class="hs-identifier hs-type">AcceptPage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203544"><span class="annot"><span class="annottext">Maybe AcceptCodeValidation
+</span><a href="#local-6989586621679203544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptPage
+</span><a href="#local-6989586621679203545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptCodeValidation:AcceptPage' :: Maybe AcceptCodeValidation
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3AacceptCodeValidation%3AAcceptPage%27"><span class="hs-identifier hs-var">acceptCodeValidation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AcceptCodeValidation
+</span><a href="#local-6989586621679203544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the engagement to a contact channel.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_pageId"><span class="hs-identifier hs-type">acceptPage_pageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-149"></span><span id="acceptPage_pageId"><span class="annot"><span class="annottext">acceptPage_pageId :: (Text -&gt; f Text) -&gt; AcceptPage -&gt; f AcceptPage
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_pageId"><span class="hs-identifier hs-var hs-var">acceptPage_pageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AcceptPage -&gt; Text)
+-&gt; (AcceptPage -&gt; Text -&gt; AcceptPage)
+-&gt; Lens AcceptPage AcceptPage Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage%27"><span class="hs-identifier hs-type">AcceptPage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203543"><span class="annot"><span class="annottext">Text
+pageId :: Text
+$sel:pageId:AcceptPage' :: AcceptPage -&gt; Text
+</span><a href="#local-6989586621679203543"><span class="hs-identifier hs-var hs-var">pageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203543"><span class="hs-identifier hs-var">pageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203542"><span class="annot"><span class="annottext">s :: AcceptPage
+</span><a href="#local-6989586621679203542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage%27"><span class="hs-identifier hs-type">AcceptPage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203541"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptPage
+</span><a href="#local-6989586621679203542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageId:AcceptPage' :: Text
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3ApageId%3AAcceptPage%27"><span class="hs-identifier hs-var">pageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The type indicates if the page was @DELIVERED@ or @READ@.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_acceptType"><span class="hs-identifier hs-type">acceptPage_acceptType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.AcceptType.html#AcceptType"><span class="hs-identifier hs-type">AcceptType</span></a></span><span>
+</span><span id="line-153"></span><span id="acceptPage_acceptType"><span class="annot"><span class="annottext">acceptPage_acceptType :: (AcceptType -&gt; f AcceptType) -&gt; AcceptPage -&gt; f AcceptPage
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_acceptType"><span class="hs-identifier hs-var hs-var">acceptPage_acceptType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AcceptPage -&gt; AcceptType)
+-&gt; (AcceptPage -&gt; AcceptType -&gt; AcceptPage)
+-&gt; Lens AcceptPage AcceptPage AcceptType AcceptType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage%27"><span class="hs-identifier hs-type">AcceptPage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203540"><span class="annot"><span class="annottext">AcceptType
+acceptType :: AcceptType
+$sel:acceptType:AcceptPage' :: AcceptPage -&gt; AcceptType
+</span><a href="#local-6989586621679203540"><span class="hs-identifier hs-var hs-var">acceptType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptType
+</span><a href="#local-6989586621679203540"><span class="hs-identifier hs-var">acceptType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203539"><span class="annot"><span class="annottext">s :: AcceptPage
+</span><a href="#local-6989586621679203539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage%27"><span class="hs-identifier hs-type">AcceptPage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203538"><span class="annot"><span class="annottext">AcceptType
+</span><a href="#local-6989586621679203538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptPage
+</span><a href="#local-6989586621679203539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptType:AcceptPage' :: AcceptType
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3AacceptType%3AAcceptPage%27"><span class="hs-identifier hs-var">acceptType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AcceptType
+</span><a href="#local-6989586621679203538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The accept code is a 6-digit code used to acknowledge the page.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_acceptCode"><span class="hs-identifier hs-type">acceptPage_acceptCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-157"></span><span id="acceptPage_acceptCode"><span class="annot"><span class="annottext">acceptPage_acceptCode :: (Text -&gt; f Text) -&gt; AcceptPage -&gt; f AcceptPage
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPage_acceptCode"><span class="hs-identifier hs-var hs-var">acceptPage_acceptCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AcceptPage -&gt; Text)
+-&gt; (AcceptPage -&gt; Text -&gt; AcceptPage)
+-&gt; Lens AcceptPage AcceptPage Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage%27"><span class="hs-identifier hs-type">AcceptPage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203537"><span class="annot"><span class="annottext">Text
+acceptCode :: Text
+$sel:acceptCode:AcceptPage' :: AcceptPage -&gt; Text
+</span><a href="#local-6989586621679203537"><span class="hs-identifier hs-var hs-var">acceptCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203537"><span class="hs-identifier hs-var">acceptCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203536"><span class="annot"><span class="annottext">s :: AcceptPage
+</span><a href="#local-6989586621679203536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage%27"><span class="hs-identifier hs-type">AcceptPage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203535"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptPage
+</span><a href="#local-6989586621679203536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptCode:AcceptPage' :: Text
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3AacceptCode%3AAcceptPage%27"><span class="hs-identifier hs-var">acceptCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPageResponse"><span class="hs-identifier hs-type">AcceptPageResponse</span></a></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679203531"><span class="annot"><span class="annottext">request :: AcceptPage -&gt; Request AcceptPage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AcceptPage -&gt; Request AcceptPage
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SSMContacts.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679203527"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AcceptPage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AcceptPage)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse AcceptPage))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AcceptPage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AcceptPage)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203524"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203524"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679203523"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679203523"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679203522"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679203522"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AcceptPageResponse
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPageResponse%27"><span class="hs-identifier hs-var">AcceptPageResponse'</span></a></span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AcceptPageResponse)
+-&gt; Either String Int -&gt; Either String AcceptPageResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203524"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203515"><span id="local-6989586621679203517"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203512"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679203508"><span class="annot"><span class="annottext">toHeaders :: AcceptPage -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AcceptPage -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-178"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SSMContacts.AcceptPage&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-181"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-182"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203498"><span id="local-6989586621679203500"><span id="local-6989586621679203502"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679203496"><span class="annot"><span class="annottext">toJSON :: AcceptPage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage%27"><span class="hs-identifier hs-type">AcceptPage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203489"><span id="local-6989586621679203490"><span id="local-6989586621679203491"><span id="local-6989586621679203492"><span id="local-6989586621679203493"><span id="local-6989586621679203494"><span class="annot"><span class="annottext">Maybe Text
+Maybe AcceptCodeValidation
+Text
+AcceptType
+acceptCode :: Text
+acceptType :: AcceptType
+pageId :: Text
+acceptCodeValidation :: Maybe AcceptCodeValidation
+contactChannelId :: Maybe Text
+note :: Maybe Text
+$sel:acceptCode:AcceptPage' :: AcceptPage -&gt; Text
+$sel:acceptType:AcceptPage' :: AcceptPage -&gt; AcceptType
+$sel:pageId:AcceptPage' :: AcceptPage -&gt; Text
+$sel:acceptCodeValidation:AcceptPage' :: AcceptPage -&gt; Maybe AcceptCodeValidation
+$sel:contactChannelId:AcceptPage' :: AcceptPage -&gt; Maybe Text
+$sel:note:AcceptPage' :: AcceptPage -&gt; Maybe Text
+</span><a href="#local-6989586621679203489"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Note&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203494"><span class="hs-identifier hs-var">note</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContactChannelId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203493"><span class="hs-identifier hs-var">contactChannelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AcceptCodeValidation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AcceptCodeValidation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>              </span><span class="annot"><span class="annottext">(AcceptCodeValidation -&gt; Pair)
+-&gt; Maybe AcceptCodeValidation -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AcceptCodeValidation
+</span><a href="#local-6989586621679203492"><span class="hs-identifier hs-var">acceptCodeValidation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PageId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203491"><span class="hs-identifier hs-var">pageId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AcceptType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AcceptType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AcceptType
+</span><a href="#local-6989586621679203490"><span class="hs-identifier hs-var">acceptType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AcceptCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203489"><span class="hs-identifier hs-var">acceptCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679203483"><span class="annot"><span class="annottext">toPath :: AcceptPage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AcceptPage -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPage"><span class="hs-identifier hs-type">AcceptPage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679203479"><span class="annot"><span class="annottext">toQuery :: AcceptPage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AcceptPage -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | /See:/ 'newAcceptPageResponse' smart constructor.</span><span>
+</span><span id="line-208"></span><span id="local-6989586621679203476"><span id="local-6989586621679203477"></span></span><span class="hs-keyword">data</span><span> </span><span id="AcceptPageResponse"><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPageResponse"><span class="hs-identifier hs-var">AcceptPageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptPageResponse%27"><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPageResponse%27"><span class="hs-identifier hs-var">AcceptPageResponse'</span></a></span></span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-210"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAcceptPageResponse%27"><span class="annot"><span class="annottext">AcceptPageResponse -&gt; Int
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3AhttpStatus%3AAcceptPageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203471"><span id="local-6989586621679203473"><span class="annot"><span class="annottext">AcceptPageResponse -&gt; AcceptPageResponse -&gt; Bool
+(AcceptPageResponse -&gt; AcceptPageResponse -&gt; Bool)
+-&gt; (AcceptPageResponse -&gt; AcceptPageResponse -&gt; Bool)
+-&gt; Eq AcceptPageResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AcceptPageResponse -&gt; AcceptPageResponse -&gt; Bool
+$c/= :: AcceptPageResponse -&gt; AcceptPageResponse -&gt; Bool
+== :: AcceptPageResponse -&gt; AcceptPageResponse -&gt; Bool
+$c== :: AcceptPageResponse -&gt; AcceptPageResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203463"><span id="local-6989586621679203465"><span id="local-6989586621679203467"><span id="local-6989586621679203469"><span class="annot"><span class="annottext">ReadPrec [AcceptPageResponse]
+ReadPrec AcceptPageResponse
+Int -&gt; ReadS AcceptPageResponse
+ReadS [AcceptPageResponse]
+(Int -&gt; ReadS AcceptPageResponse)
+-&gt; ReadS [AcceptPageResponse]
+-&gt; ReadPrec AcceptPageResponse
+-&gt; ReadPrec [AcceptPageResponse]
+-&gt; Read AcceptPageResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AcceptPageResponse]
+$creadListPrec :: ReadPrec [AcceptPageResponse]
+readPrec :: ReadPrec AcceptPageResponse
+$creadPrec :: ReadPrec AcceptPageResponse
+readList :: ReadS [AcceptPageResponse]
+$creadList :: ReadS [AcceptPageResponse]
+readsPrec :: Int -&gt; ReadS AcceptPageResponse
+$creadsPrec :: Int -&gt; ReadS AcceptPageResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203457"><span id="local-6989586621679203459"><span id="local-6989586621679203461"><span class="annot"><span class="annottext">Int -&gt; AcceptPageResponse -&gt; ShowS
+[AcceptPageResponse] -&gt; ShowS
+AcceptPageResponse -&gt; String
+(Int -&gt; AcceptPageResponse -&gt; ShowS)
+-&gt; (AcceptPageResponse -&gt; String)
+-&gt; ([AcceptPageResponse] -&gt; ShowS)
+-&gt; Show AcceptPageResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AcceptPageResponse] -&gt; ShowS
+$cshowList :: [AcceptPageResponse] -&gt; ShowS
+show :: AcceptPageResponse -&gt; String
+$cshow :: AcceptPageResponse -&gt; String
+showsPrec :: Int -&gt; AcceptPageResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AcceptPageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AcceptPageResponse -&gt; Rep AcceptPageResponse x)
+-&gt; (forall x. Rep AcceptPageResponse x -&gt; AcceptPageResponse)
+-&gt; Generic AcceptPageResponse
+forall x. Rep AcceptPageResponse x -&gt; AcceptPageResponse
+forall x. AcceptPageResponse -&gt; Rep AcceptPageResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AcceptPageResponse x -&gt; AcceptPageResponse
+$cfrom :: forall x. AcceptPageResponse -&gt; Rep AcceptPageResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- Create a value of 'AcceptPageResponse' with all optional fields omitted.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'httpStatus', 'acceptPageResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#newAcceptPageResponse"><span class="hs-identifier hs-type">newAcceptPageResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPageResponse"><span class="hs-identifier hs-type">AcceptPageResponse</span></a></span><span>
+</span><span id="line-227"></span><span id="newAcceptPageResponse"><span class="annot"><span class="annottext">newAcceptPageResponse :: Int -&gt; AcceptPageResponse
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#newAcceptPageResponse"><span class="hs-identifier hs-var hs-var">newAcceptPageResponse</span></a></span></span><span> </span><span id="local-6989586621679203454"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203454"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>  </span><span class="annot"><span class="annottext">AcceptPageResponse' :: Int -&gt; AcceptPageResponse
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPageResponse%27"><span class="hs-identifier hs-type">AcceptPageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AcceptPageResponse' :: Int
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3AhttpStatus%3AAcceptPageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203454"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPageResponse_httpStatus"><span class="hs-identifier hs-type">acceptPageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPageResponse"><span class="hs-identifier hs-type">AcceptPageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-232"></span><span id="acceptPageResponse_httpStatus"><span class="annot"><span class="annottext">acceptPageResponse_httpStatus :: (Int -&gt; f Int) -&gt; AcceptPageResponse -&gt; f AcceptPageResponse
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#acceptPageResponse_httpStatus"><span class="hs-identifier hs-var hs-var">acceptPageResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AcceptPageResponse -&gt; Int)
+-&gt; (AcceptPageResponse -&gt; Int -&gt; AcceptPageResponse)
+-&gt; Lens AcceptPageResponse AcceptPageResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPageResponse%27"><span class="hs-identifier hs-type">AcceptPageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203453"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AcceptPageResponse' :: AcceptPageResponse -&gt; Int
+</span><a href="#local-6989586621679203453"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203453"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203452"><span class="annot"><span class="annottext">s :: AcceptPageResponse
+</span><a href="#local-6989586621679203452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPageResponse%27"><span class="hs-identifier hs-type">AcceptPageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203451"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptPageResponse
+</span><a href="#local-6989586621679203452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AcceptPageResponse' :: Int
+</span><a href="Network.AWS.SSMContacts.AcceptPage.html#%24sel%3AhttpStatus%3AAcceptPageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPageResponse"><span class="hs-identifier hs-type">AcceptPageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203449"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.AcceptPage.html#AcceptPageResponse"><span class="hs-identifier hs-type">AcceptPageResponse</span></a></span></span><span>
+</span><span id="line-235"></span></pre></body></html>

@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDiscoverPollEndpoint' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679475684"><span id="local-6989586621679475685"></span></span><span class="hs-keyword">data</span><span> </span><span id="DiscoverPollEndpoint"><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint"><span class="hs-identifier hs-var">DiscoverPollEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiscoverPollEndpoint%27"><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint%27"><span class="hs-identifier hs-var">DiscoverPollEndpoint'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679475693"><span id="local-6989586621679475694"></span></span><span class="hs-keyword">data</span><span> </span><span id="DiscoverPollEndpoint"><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint"><span class="hs-identifier hs-var">DiscoverPollEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiscoverPollEndpoint%27"><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint%27"><span class="hs-identifier hs-var">DiscoverPollEndpoint'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the cluster to</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- which the container instance belongs.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Acluster%3ADiscoverPollEndpoint%27"><span class="annot"><span class="annottext">DiscoverPollEndpoint -&gt; Maybe Text
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AcontainerInstance%3ADiscoverPollEndpoint%27"><span class="annot"><span class="annottext">DiscoverPollEndpoint -&gt; Maybe Text
 </span><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#%24sel%3AcontainerInstance%3ADiscoverPollEndpoint%27"><span class="hs-identifier hs-var hs-var">containerInstance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679475677"><span id="local-6989586621679475679"><span class="annot"><span class="annottext">DiscoverPollEndpoint -&gt; DiscoverPollEndpoint -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679475686"><span id="local-6989586621679475688"><span class="annot"><span class="annottext">DiscoverPollEndpoint -&gt; DiscoverPollEndpoint -&gt; Bool
 (DiscoverPollEndpoint -&gt; DiscoverPollEndpoint -&gt; Bool)
 -&gt; (DiscoverPollEndpoint -&gt; DiscoverPollEndpoint -&gt; Bool)
 -&gt; Eq DiscoverPollEndpoint
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DiscoverPollEndpoint -&gt; DiscoverPollEndpoint -&gt; Bool
 == :: DiscoverPollEndpoint -&gt; DiscoverPollEndpoint -&gt; Bool
 $c== :: DiscoverPollEndpoint -&gt; DiscoverPollEndpoint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679475668"><span id="local-6989586621679475670"><span id="local-6989586621679475672"><span id="local-6989586621679475674"><span class="annot"><span class="annottext">ReadPrec [DiscoverPollEndpoint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679475677"><span id="local-6989586621679475679"><span id="local-6989586621679475681"><span id="local-6989586621679475683"><span class="annot"><span class="annottext">ReadPrec [DiscoverPollEndpoint]
 ReadPrec DiscoverPollEndpoint
 Int -&gt; ReadS DiscoverPollEndpoint
 ReadS [DiscoverPollEndpoint]
@@ -95,7 +95,7 @@ readList :: ReadS [DiscoverPollEndpoint]
 $creadList :: ReadS [DiscoverPollEndpoint]
 readsPrec :: Int -&gt; ReadS DiscoverPollEndpoint
 $creadsPrec :: Int -&gt; ReadS DiscoverPollEndpoint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679475661"><span id="local-6989586621679475663"><span id="local-6989586621679475665"><span class="annot"><span class="annottext">Int -&gt; DiscoverPollEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679475670"><span id="local-6989586621679475672"><span id="local-6989586621679475674"><span class="annot"><span class="annottext">Int -&gt; DiscoverPollEndpoint -&gt; ShowS
 [DiscoverPollEndpoint] -&gt; ShowS
 DiscoverPollEndpoint -&gt; String
 (Int -&gt; DiscoverPollEndpoint -&gt; ShowS)
@@ -164,16 +164,16 @@ forall a. Maybe a
 -&gt; Lens
      DiscoverPollEndpoint DiscoverPollEndpoint (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint%27"><span class="hs-identifier hs-type">DiscoverPollEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475654"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint%27"><span class="hs-identifier hs-type">DiscoverPollEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475663"><span class="annot"><span class="annottext">Maybe Text
 cluster :: Maybe Text
 $sel:cluster:DiscoverPollEndpoint' :: DiscoverPollEndpoint -&gt; Maybe Text
-</span><a href="#local-6989586621679475654"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475654"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475653"><span class="annot"><span class="annottext">s :: DiscoverPollEndpoint
-</span><a href="#local-6989586621679475653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint%27"><span class="hs-identifier hs-type">DiscoverPollEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475652"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiscoverPollEndpoint
-</span><a href="#local-6989586621679475653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:DiscoverPollEndpoint' :: Maybe Text
+</span><a href="#local-6989586621679475663"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679475663"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475662"><span class="annot"><span class="annottext">s :: DiscoverPollEndpoint
+</span><a href="#local-6989586621679475662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint%27"><span class="hs-identifier hs-type">DiscoverPollEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475661"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679475661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiscoverPollEndpoint
+</span><a href="#local-6989586621679475662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:DiscoverPollEndpoint' :: Maybe Text
 </span><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#%24sel%3Acluster%3ADiscoverPollEndpoint%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint"><span class="hs-identifier hs-type">DiscoverPollEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679475661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint"><span class="hs-identifier hs-type">DiscoverPollEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The container instance ID or full ARN of the container instance. The ARN</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- contains the @arn:aws:ecs@ namespace, followed by the Region of the</span><span>
@@ -189,27 +189,27 @@ $sel:cluster:DiscoverPollEndpoint' :: DiscoverPollEndpoint -&gt; Maybe Text
 -&gt; Lens
      DiscoverPollEndpoint DiscoverPollEndpoint (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint%27"><span class="hs-identifier hs-type">DiscoverPollEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475651"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint%27"><span class="hs-identifier hs-type">DiscoverPollEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475660"><span class="annot"><span class="annottext">Maybe Text
 containerInstance :: Maybe Text
 $sel:containerInstance:DiscoverPollEndpoint' :: DiscoverPollEndpoint -&gt; Maybe Text
-</span><a href="#local-6989586621679475651"><span class="hs-identifier hs-var hs-var">containerInstance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475651"><span class="hs-identifier hs-var">containerInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475650"><span class="annot"><span class="annottext">s :: DiscoverPollEndpoint
-</span><a href="#local-6989586621679475650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint%27"><span class="hs-identifier hs-type">DiscoverPollEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475649"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiscoverPollEndpoint
-</span><a href="#local-6989586621679475650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerInstance:DiscoverPollEndpoint' :: Maybe Text
+</span><a href="#local-6989586621679475660"><span class="hs-identifier hs-var hs-var">containerInstance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679475660"><span class="hs-identifier hs-var">containerInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475659"><span class="annot"><span class="annottext">s :: DiscoverPollEndpoint
+</span><a href="#local-6989586621679475659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint%27"><span class="hs-identifier hs-type">DiscoverPollEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475658"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679475658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiscoverPollEndpoint
+</span><a href="#local-6989586621679475659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerInstance:DiscoverPollEndpoint' :: Maybe Text
 </span><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#%24sel%3AcontainerInstance%3ADiscoverPollEndpoint%27"><span class="hs-identifier hs-var">containerInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint"><span class="hs-identifier hs-type">DiscoverPollEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679475658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint"><span class="hs-identifier hs-type">DiscoverPollEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint"><span class="hs-identifier hs-type">DiscoverPollEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-110"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint"><span class="hs-identifier hs-type">DiscoverPollEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679475645"><span class="annot"><span class="annottext">request :: DiscoverPollEndpoint -&gt; Request DiscoverPollEndpoint
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679475654"><span class="annot"><span class="annottext">request :: DiscoverPollEndpoint -&gt; Request DiscoverPollEndpoint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DiscoverPollEndpoint -&gt; Request DiscoverPollEndpoint
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679475641"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679475650"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DiscoverPollEndpoint
 -&gt; ClientResponse ClientBody
@@ -235,10 +235,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679475638"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679475638"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679475637"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679475637"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679475636"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679475636"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679475647"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679475647"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679475646"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679475646"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679475645"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679475645"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DiscoverPollEndpointResponse
 </span><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse%27"><span class="hs-identifier hs-var">DiscoverPollEndpointResponse'</span></a></span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DiscoverPollEndpointResponse)
@@ -247,7 +247,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; DiscoverPollEndpointResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679475636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679475645"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;telemetryEndpoint&quot;</span></span><span class="hs-special">)</span><span>
@@ -256,7 +256,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DiscoverPollEndpointResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679475636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679475645"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;endpoint&quot;</span></span><span class="hs-special">)</span><span>
@@ -268,15 +268,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679475638"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679475647"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679475628"><span id="local-6989586621679475630"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint"><span class="hs-identifier hs-type">DiscoverPollEndpoint</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679475637"><span id="local-6989586621679475639"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint"><span class="hs-identifier hs-type">DiscoverPollEndpoint</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679475625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint"><span class="hs-identifier hs-type">DiscoverPollEndpoint</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679475634"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint"><span class="hs-identifier hs-type">DiscoverPollEndpoint</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint"><span class="hs-identifier hs-type">DiscoverPollEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679475621"><span class="annot"><span class="annottext">toHeaders :: DiscoverPollEndpoint -&gt; ResponseHeaders
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679475630"><span class="annot"><span class="annottext">toHeaders :: DiscoverPollEndpoint -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DiscoverPollEndpoint -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -303,14 +303,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679475611"><span id="local-6989586621679475613"><span id="local-6989586621679475615"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint"><span class="hs-identifier hs-type">DiscoverPollEndpoint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679475609"><span class="annot"><span class="annottext">toJSON :: DiscoverPollEndpoint -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint%27"><span class="hs-identifier hs-type">DiscoverPollEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475606"><span id="local-6989586621679475607"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679475620"><span id="local-6989586621679475622"><span id="local-6989586621679475624"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint"><span class="hs-identifier hs-type">DiscoverPollEndpoint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679475618"><span class="annot"><span class="annottext">toJSON :: DiscoverPollEndpoint -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint%27"><span class="hs-identifier hs-type">DiscoverPollEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475615"><span id="local-6989586621679475616"><span class="annot"><span class="annottext">Maybe Text
 containerInstance :: Maybe Text
 cluster :: Maybe Text
 $sel:containerInstance:DiscoverPollEndpoint' :: DiscoverPollEndpoint -&gt; Maybe Text
 $sel:cluster:DiscoverPollEndpoint' :: DiscoverPollEndpoint -&gt; Maybe Text
-</span><a href="#local-6989586621679475606"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679475615"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -322,7 +322,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475607"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679475616"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;containerInstance&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -330,19 +330,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475606"><span class="hs-identifier hs-var">containerInstance</span></a></span><span>
+</span><a href="#local-6989586621679475615"><span class="hs-identifier hs-var">containerInstance</span></a></span><span>
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint"><span class="hs-identifier hs-type">DiscoverPollEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679475600"><span class="annot"><span class="annottext">toPath :: DiscoverPollEndpoint -&gt; ByteString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679475609"><span class="annot"><span class="annottext">toPath :: DiscoverPollEndpoint -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DiscoverPollEndpoint -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpoint"><span class="hs-identifier hs-type">DiscoverPollEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679475596"><span class="annot"><span class="annottext">toQuery :: DiscoverPollEndpoint -&gt; QueryString
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679475605"><span class="annot"><span class="annottext">toQuery :: DiscoverPollEndpoint -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DiscoverPollEndpoint -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -350,7 +350,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newDiscoverPollEndpointResponse' smart constructor.</span><span>
-</span><span id="line-158"></span><span id="local-6989586621679475593"><span id="local-6989586621679475594"></span></span><span class="hs-keyword">data</span><span> </span><span id="DiscoverPollEndpointResponse"><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse"><span class="hs-identifier hs-var">DiscoverPollEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiscoverPollEndpointResponse%27"><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse%27"><span class="hs-identifier hs-var">DiscoverPollEndpointResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span id="local-6989586621679475602"><span id="local-6989586621679475603"></span></span><span class="hs-keyword">data</span><span> </span><span id="DiscoverPollEndpointResponse"><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse"><span class="hs-identifier hs-var">DiscoverPollEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiscoverPollEndpointResponse%27"><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse%27"><span class="hs-identifier hs-var">DiscoverPollEndpointResponse'</span></a></span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The telemetry endpoint for the Amazon ECS agent.</span><span>
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AtelemetryEndpoint%3ADiscoverPollEndpointResponse%27"><span class="annot"><span class="annottext">DiscoverPollEndpointResponse -&gt; Maybe Text
 </span><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#%24sel%3AtelemetryEndpoint%3ADiscoverPollEndpointResponse%27"><span class="hs-identifier hs-var hs-var">telemetryEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -361,7 +361,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADiscoverPollEndpointResponse%27"><span class="annot"><span class="annottext">DiscoverPollEndpointResponse -&gt; Int
 </span><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#%24sel%3AhttpStatus%3ADiscoverPollEndpointResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679475586"><span id="local-6989586621679475588"><span class="annot"><span class="annottext">DiscoverPollEndpointResponse
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679475595"><span id="local-6989586621679475597"><span class="annot"><span class="annottext">DiscoverPollEndpointResponse
 -&gt; DiscoverPollEndpointResponse -&gt; Bool
 (DiscoverPollEndpointResponse
  -&gt; DiscoverPollEndpointResponse -&gt; Bool)
@@ -377,7 +377,7 @@ $c/= :: DiscoverPollEndpointResponse
 -&gt; DiscoverPollEndpointResponse -&gt; Bool
 $c== :: DiscoverPollEndpointResponse
 -&gt; DiscoverPollEndpointResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679475578"><span id="local-6989586621679475580"><span id="local-6989586621679475582"><span id="local-6989586621679475584"><span class="annot"><span class="annottext">ReadPrec [DiscoverPollEndpointResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679475587"><span id="local-6989586621679475589"><span id="local-6989586621679475591"><span id="local-6989586621679475593"><span class="annot"><span class="annottext">ReadPrec [DiscoverPollEndpointResponse]
 ReadPrec DiscoverPollEndpointResponse
 Int -&gt; ReadS DiscoverPollEndpointResponse
 ReadS [DiscoverPollEndpointResponse]
@@ -397,7 +397,7 @@ readList :: ReadS [DiscoverPollEndpointResponse]
 $creadList :: ReadS [DiscoverPollEndpointResponse]
 readsPrec :: Int -&gt; ReadS DiscoverPollEndpointResponse
 $creadsPrec :: Int -&gt; ReadS DiscoverPollEndpointResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679475572"><span id="local-6989586621679475574"><span id="local-6989586621679475576"><span class="annot"><span class="annottext">Int -&gt; DiscoverPollEndpointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679475581"><span id="local-6989586621679475583"><span id="local-6989586621679475585"><span class="annot"><span class="annottext">Int -&gt; DiscoverPollEndpointResponse -&gt; ShowS
 [DiscoverPollEndpointResponse] -&gt; ShowS
 DiscoverPollEndpointResponse -&gt; String
 (Int -&gt; DiscoverPollEndpointResponse -&gt; ShowS)
@@ -447,8 +447,8 @@ DiscoverPollEndpointResponse -&gt; Rep DiscoverPollEndpointResponse x
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse</span></a></span><span>
 </span><span id="line-185"></span><span id="newDiscoverPollEndpointResponse"><span class="annot"><span class="annottext">newDiscoverPollEndpointResponse :: Int -&gt; DiscoverPollEndpointResponse
-</span><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#newDiscoverPollEndpointResponse"><span class="hs-identifier hs-var hs-var">newDiscoverPollEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679475569"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679475569"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#newDiscoverPollEndpointResponse"><span class="hs-identifier hs-var hs-var">newDiscoverPollEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679475578"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679475578"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><span class="annottext">DiscoverPollEndpointResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DiscoverPollEndpointResponse
 </span><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse%27"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse'</span></a></span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:telemetryEndpoint:DiscoverPollEndpointResponse' :: Maybe Text
@@ -462,7 +462,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DiscoverPollEndpointResponse' :: Int
 </span><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#%24sel%3AhttpStatus%3ADiscoverPollEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679475569"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679475578"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The telemetry endpoint for the Amazon ECS agent.</span><span>
@@ -478,16 +478,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse%27"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475568"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse%27"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475577"><span class="annot"><span class="annottext">Maybe Text
 telemetryEndpoint :: Maybe Text
 $sel:telemetryEndpoint:DiscoverPollEndpointResponse' :: DiscoverPollEndpointResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679475568"><span class="hs-identifier hs-var hs-var">telemetryEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475568"><span class="hs-identifier hs-var">telemetryEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475567"><span class="annot"><span class="annottext">s :: DiscoverPollEndpointResponse
-</span><a href="#local-6989586621679475567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse%27"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475566"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiscoverPollEndpointResponse
-</span><a href="#local-6989586621679475567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:telemetryEndpoint:DiscoverPollEndpointResponse' :: Maybe Text
+</span><a href="#local-6989586621679475577"><span class="hs-identifier hs-var hs-var">telemetryEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679475577"><span class="hs-identifier hs-var">telemetryEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475576"><span class="annot"><span class="annottext">s :: DiscoverPollEndpointResponse
+</span><a href="#local-6989586621679475576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse%27"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475575"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679475575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiscoverPollEndpointResponse
+</span><a href="#local-6989586621679475576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:telemetryEndpoint:DiscoverPollEndpointResponse' :: Maybe Text
 </span><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#%24sel%3AtelemetryEndpoint%3ADiscoverPollEndpointResponse%27"><span class="hs-identifier hs-var">telemetryEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679475575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | The endpoint for the Amazon ECS agent to poll.</span><span>
 </span><span id="line-198"></span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#discoverPollEndpointResponse_endpoint"><span class="hs-identifier hs-type">discoverPollEndpointResponse_endpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -502,16 +502,16 @@ $sel:telemetryEndpoint:DiscoverPollEndpointResponse' :: DiscoverPollEndpointResp
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse%27"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475565"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse%27"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475574"><span class="annot"><span class="annottext">Maybe Text
 endpoint :: Maybe Text
 $sel:endpoint:DiscoverPollEndpointResponse' :: DiscoverPollEndpointResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679475565"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475565"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475564"><span class="annot"><span class="annottext">s :: DiscoverPollEndpointResponse
-</span><a href="#local-6989586621679475564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse%27"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475563"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiscoverPollEndpointResponse
-</span><a href="#local-6989586621679475564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:DiscoverPollEndpointResponse' :: Maybe Text
+</span><a href="#local-6989586621679475574"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679475574"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475573"><span class="annot"><span class="annottext">s :: DiscoverPollEndpointResponse
+</span><a href="#local-6989586621679475573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse%27"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475572"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679475572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiscoverPollEndpointResponse
+</span><a href="#local-6989586621679475573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:DiscoverPollEndpointResponse' :: Maybe Text
 </span><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#%24sel%3Aendpoint%3ADiscoverPollEndpointResponse%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679475572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-202"></span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#discoverPollEndpointResponse_httpStatus"><span class="hs-identifier hs-type">discoverPollEndpointResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -523,16 +523,16 @@ $sel:endpoint:DiscoverPollEndpointResponse' :: DiscoverPollEndpointResponse -&gt
 -&gt; Lens
      DiscoverPollEndpointResponse DiscoverPollEndpointResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse%27"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475562"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse%27"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475571"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DiscoverPollEndpointResponse' :: DiscoverPollEndpointResponse -&gt; Int
-</span><a href="#local-6989586621679475562"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679475562"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475561"><span class="annot"><span class="annottext">s :: DiscoverPollEndpointResponse
-</span><a href="#local-6989586621679475561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse%27"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475560"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679475560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiscoverPollEndpointResponse
-</span><a href="#local-6989586621679475561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DiscoverPollEndpointResponse' :: Int
+</span><a href="#local-6989586621679475571"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679475571"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475570"><span class="annot"><span class="annottext">s :: DiscoverPollEndpointResponse
+</span><a href="#local-6989586621679475570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse%27"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475569"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679475569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiscoverPollEndpointResponse
+</span><a href="#local-6989586621679475570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DiscoverPollEndpointResponse' :: Int
 </span><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#%24sel%3AhttpStatus%3ADiscoverPollEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679475560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679475569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679475558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse</span></a></span></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679475567"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DiscoverPollEndpoint.html#DiscoverPollEndpointResponse"><span class="hs-identifier hs-type">DiscoverPollEndpointResponse</span></a></span></span><span>
 </span><span id="line-206"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- over the last 10 seconds.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLatency' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679302862"><span id="local-6989586621679302863"></span></span><span class="hs-keyword">data</span><span> </span><span id="Latency"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-var">Latency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Latency%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-var">Latency'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679302871"><span id="local-6989586621679302872"></span></span><span class="hs-keyword">data</span><span> </span><span id="Latency"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-var">Latency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Latency%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-var">Latency'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The average latency for the slowest 25 percent of requests over the last</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- 10 seconds.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Ap75%3ALatency%27"><span class="annot"><span class="annottext">Latency -&gt; Maybe Double
@@ -61,7 +61,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Ap10%3ALatency%27"><span class="annot"><span class="annottext">Latency -&gt; Maybe Double
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#%24sel%3Ap10%3ALatency%27"><span class="hs-identifier hs-var hs-var">p10</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302849"><span id="local-6989586621679302851"><span class="annot"><span class="annottext">Latency -&gt; Latency -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302858"><span id="local-6989586621679302860"><span class="annot"><span class="annottext">Latency -&gt; Latency -&gt; Bool
 (Latency -&gt; Latency -&gt; Bool)
 -&gt; (Latency -&gt; Latency -&gt; Bool) -&gt; Eq Latency
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Latency -&gt; Latency -&gt; Bool
 == :: Latency -&gt; Latency -&gt; Bool
 $c== :: Latency -&gt; Latency -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302840"><span id="local-6989586621679302842"><span id="local-6989586621679302844"><span id="local-6989586621679302846"><span class="annot"><span class="annottext">ReadPrec [Latency]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302849"><span id="local-6989586621679302851"><span id="local-6989586621679302853"><span id="local-6989586621679302855"><span class="annot"><span class="annottext">ReadPrec [Latency]
 ReadPrec Latency
 Int -&gt; ReadS Latency
 ReadS [Latency]
@@ -89,7 +89,7 @@ readList :: ReadS [Latency]
 $creadList :: ReadS [Latency]
 readsPrec :: Int -&gt; ReadS Latency
 $creadsPrec :: Int -&gt; ReadS Latency
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302833"><span id="local-6989586621679302835"><span id="local-6989586621679302837"><span class="annot"><span class="annottext">Int -&gt; Latency -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302842"><span id="local-6989586621679302844"><span id="local-6989586621679302846"><span class="annot"><span class="annottext">Int -&gt; Latency -&gt; ShowS
 [Latency] -&gt; ShowS
 Latency -&gt; String
 (Int -&gt; Latency -&gt; ShowS)
@@ -199,16 +199,16 @@ forall a. Maybe a
 -&gt; (Latency -&gt; Maybe Double -&gt; Latency)
 -&gt; Lens Latency Latency (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302824"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302833"><span class="annot"><span class="annottext">Maybe Double
 p75 :: Maybe Double
 $sel:p75:Latency' :: Latency -&gt; Maybe Double
-</span><a href="#local-6989586621679302824"><span class="hs-identifier hs-var hs-var">p75</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302824"><span class="hs-identifier hs-var">p75</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302823"><span class="annot"><span class="annottext">s :: Latency
-</span><a href="#local-6989586621679302823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302822"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Latency
-</span><a href="#local-6989586621679302823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:p75:Latency' :: Maybe Double
+</span><a href="#local-6989586621679302833"><span class="hs-identifier hs-var hs-var">p75</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679302833"><span class="hs-identifier hs-var">p75</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302832"><span class="annot"><span class="annottext">s :: Latency
+</span><a href="#local-6989586621679302832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302831"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679302831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Latency
+</span><a href="#local-6989586621679302832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:p75:Latency' :: Maybe Double
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#%24sel%3Ap75%3ALatency%27"><span class="hs-identifier hs-var">p75</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The average latency for the slowest 50 percent of requests over the last</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- 10 seconds.</span><span>
@@ -218,16 +218,16 @@ $sel:p75:Latency' :: Latency -&gt; Maybe Double
 -&gt; (Latency -&gt; Maybe Double -&gt; Latency)
 -&gt; Lens Latency Latency (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302820"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302829"><span class="annot"><span class="annottext">Maybe Double
 p50 :: Maybe Double
 $sel:p50:Latency' :: Latency -&gt; Maybe Double
-</span><a href="#local-6989586621679302820"><span class="hs-identifier hs-var hs-var">p50</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302820"><span class="hs-identifier hs-var">p50</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302819"><span class="annot"><span class="annottext">s :: Latency
-</span><a href="#local-6989586621679302819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302818"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Latency
-</span><a href="#local-6989586621679302819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:p50:Latency' :: Maybe Double
+</span><a href="#local-6989586621679302829"><span class="hs-identifier hs-var hs-var">p50</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679302829"><span class="hs-identifier hs-var">p50</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302828"><span class="annot"><span class="annottext">s :: Latency
+</span><a href="#local-6989586621679302828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302827"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679302827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Latency
+</span><a href="#local-6989586621679302828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:p50:Latency' :: Maybe Double
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#%24sel%3Ap50%3ALatency%27"><span class="hs-identifier hs-var">p50</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The average latency for the slowest 15 percent of requests over the last</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- 10 seconds.</span><span>
@@ -237,16 +237,16 @@ $sel:p50:Latency' :: Latency -&gt; Maybe Double
 -&gt; (Latency -&gt; Maybe Double -&gt; Latency)
 -&gt; Lens Latency Latency (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302816"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302825"><span class="annot"><span class="annottext">Maybe Double
 p85 :: Maybe Double
 $sel:p85:Latency' :: Latency -&gt; Maybe Double
-</span><a href="#local-6989586621679302816"><span class="hs-identifier hs-var hs-var">p85</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302816"><span class="hs-identifier hs-var">p85</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302815"><span class="annot"><span class="annottext">s :: Latency
-</span><a href="#local-6989586621679302815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302814"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Latency
-</span><a href="#local-6989586621679302815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:p85:Latency' :: Maybe Double
+</span><a href="#local-6989586621679302825"><span class="hs-identifier hs-var hs-var">p85</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679302825"><span class="hs-identifier hs-var">p85</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302824"><span class="annot"><span class="annottext">s :: Latency
+</span><a href="#local-6989586621679302824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302823"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679302823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Latency
+</span><a href="#local-6989586621679302824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:p85:Latency' :: Maybe Double
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#%24sel%3Ap85%3ALatency%27"><span class="hs-identifier hs-var">p85</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The average latency for the slowest 0.1 percent of requests over the</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- last 10 seconds.</span><span>
@@ -256,16 +256,16 @@ $sel:p85:Latency' :: Latency -&gt; Maybe Double
 -&gt; (Latency -&gt; Maybe Double -&gt; Latency)
 -&gt; Lens Latency Latency (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302812"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302821"><span class="annot"><span class="annottext">Maybe Double
 p999 :: Maybe Double
 $sel:p999:Latency' :: Latency -&gt; Maybe Double
-</span><a href="#local-6989586621679302812"><span class="hs-identifier hs-var hs-var">p999</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302812"><span class="hs-identifier hs-var">p999</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302811"><span class="annot"><span class="annottext">s :: Latency
-</span><a href="#local-6989586621679302811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302810"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Latency
-</span><a href="#local-6989586621679302811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:p999:Latency' :: Maybe Double
+</span><a href="#local-6989586621679302821"><span class="hs-identifier hs-var hs-var">p999</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679302821"><span class="hs-identifier hs-var">p999</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302820"><span class="annot"><span class="annottext">s :: Latency
+</span><a href="#local-6989586621679302820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302819"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679302819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Latency
+</span><a href="#local-6989586621679302820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:p999:Latency' :: Maybe Double
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#%24sel%3Ap999%3ALatency%27"><span class="hs-identifier hs-var">p999</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The average latency for the slowest 10 percent of requests over the last</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- 10 seconds.</span><span>
@@ -275,16 +275,16 @@ $sel:p999:Latency' :: Latency -&gt; Maybe Double
 -&gt; (Latency -&gt; Maybe Double -&gt; Latency)
 -&gt; Lens Latency Latency (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302808"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302817"><span class="annot"><span class="annottext">Maybe Double
 p90 :: Maybe Double
 $sel:p90:Latency' :: Latency -&gt; Maybe Double
-</span><a href="#local-6989586621679302808"><span class="hs-identifier hs-var hs-var">p90</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302808"><span class="hs-identifier hs-var">p90</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302807"><span class="annot"><span class="annottext">s :: Latency
-</span><a href="#local-6989586621679302807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302806"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Latency
-</span><a href="#local-6989586621679302807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:p90:Latency' :: Maybe Double
+</span><a href="#local-6989586621679302817"><span class="hs-identifier hs-var hs-var">p90</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679302817"><span class="hs-identifier hs-var">p90</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302816"><span class="annot"><span class="annottext">s :: Latency
+</span><a href="#local-6989586621679302816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302815"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679302815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Latency
+</span><a href="#local-6989586621679302816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:p90:Latency' :: Maybe Double
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#%24sel%3Ap90%3ALatency%27"><span class="hs-identifier hs-var">p90</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The average latency for the slowest 5 percent of requests over the last</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- 10 seconds.</span><span>
@@ -294,16 +294,16 @@ $sel:p90:Latency' :: Latency -&gt; Maybe Double
 -&gt; (Latency -&gt; Maybe Double -&gt; Latency)
 -&gt; Lens Latency Latency (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302804"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302813"><span class="annot"><span class="annottext">Maybe Double
 p95 :: Maybe Double
 $sel:p95:Latency' :: Latency -&gt; Maybe Double
-</span><a href="#local-6989586621679302804"><span class="hs-identifier hs-var hs-var">p95</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302804"><span class="hs-identifier hs-var">p95</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302803"><span class="annot"><span class="annottext">s :: Latency
-</span><a href="#local-6989586621679302803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302802"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Latency
-</span><a href="#local-6989586621679302803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:p95:Latency' :: Maybe Double
+</span><a href="#local-6989586621679302813"><span class="hs-identifier hs-var hs-var">p95</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679302813"><span class="hs-identifier hs-var">p95</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302812"><span class="annot"><span class="annottext">s :: Latency
+</span><a href="#local-6989586621679302812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302811"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679302811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Latency
+</span><a href="#local-6989586621679302812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:p95:Latency' :: Maybe Double
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#%24sel%3Ap95%3ALatency%27"><span class="hs-identifier hs-var">p95</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The average latency for the slowest 1 percent of requests over the last</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- 10 seconds.</span><span>
@@ -313,16 +313,16 @@ $sel:p95:Latency' :: Latency -&gt; Maybe Double
 -&gt; (Latency -&gt; Maybe Double -&gt; Latency)
 -&gt; Lens Latency Latency (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302800"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302809"><span class="annot"><span class="annottext">Maybe Double
 p99 :: Maybe Double
 $sel:p99:Latency' :: Latency -&gt; Maybe Double
-</span><a href="#local-6989586621679302800"><span class="hs-identifier hs-var hs-var">p99</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302800"><span class="hs-identifier hs-var">p99</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302799"><span class="annot"><span class="annottext">s :: Latency
-</span><a href="#local-6989586621679302799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302798"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Latency
-</span><a href="#local-6989586621679302799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:p99:Latency' :: Maybe Double
+</span><a href="#local-6989586621679302809"><span class="hs-identifier hs-var hs-var">p99</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679302809"><span class="hs-identifier hs-var">p99</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302808"><span class="annot"><span class="annottext">s :: Latency
+</span><a href="#local-6989586621679302808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302807"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679302807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Latency
+</span><a href="#local-6989586621679302808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:p99:Latency' :: Maybe Double
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#%24sel%3Ap99%3ALatency%27"><span class="hs-identifier hs-var">p99</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The average latency for the slowest 90 percent of requests over the last</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- 10 seconds.</span><span>
@@ -332,21 +332,21 @@ $sel:p99:Latency' :: Latency -&gt; Maybe Double
 -&gt; (Latency -&gt; Maybe Double -&gt; Latency)
 -&gt; Lens Latency Latency (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302796"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302805"><span class="annot"><span class="annottext">Maybe Double
 p10 :: Maybe Double
 $sel:p10:Latency' :: Latency -&gt; Maybe Double
-</span><a href="#local-6989586621679302796"><span class="hs-identifier hs-var hs-var">p10</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302796"><span class="hs-identifier hs-var">p10</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302795"><span class="annot"><span class="annottext">s :: Latency
-</span><a href="#local-6989586621679302795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302794"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Latency
-</span><a href="#local-6989586621679302795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:p10:Latency' :: Maybe Double
+</span><a href="#local-6989586621679302805"><span class="hs-identifier hs-var hs-var">p10</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679302805"><span class="hs-identifier hs-var">p10</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302804"><span class="annot"><span class="annottext">s :: Latency
+</span><a href="#local-6989586621679302804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency%27"><span class="hs-identifier hs-type">Latency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302803"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679302803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Latency
+</span><a href="#local-6989586621679302804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:p10:Latency' :: Maybe Double
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#%24sel%3Ap10%3ALatency%27"><span class="hs-identifier hs-var">p10</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679302794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679302791"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Latency
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679302789"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302789"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679302800"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Latency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679302798"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679302798"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">Maybe Double
 -&gt; Maybe Double
 -&gt; Maybe Double
@@ -379,7 +379,7 @@ $sel:p10:Latency' :: Latency -&gt; Maybe Double
       -&gt; Latency)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679302798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;P75&quot;</span></span><span class="hs-special">)</span><span>
@@ -405,7 +405,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Latency)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679302798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;P50&quot;</span></span><span class="hs-special">)</span><span>
@@ -429,7 +429,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Latency)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679302798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;P85&quot;</span></span><span class="hs-special">)</span><span>
@@ -448,7 +448,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Double -&gt; Maybe Double -&gt; Maybe Double -&gt; Latency)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679302798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;P999&quot;</span></span><span class="hs-special">)</span><span>
@@ -461,7 +461,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Double -&gt; Maybe Double -&gt; Maybe Double -&gt; Latency)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679302798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;P90&quot;</span></span><span class="hs-special">)</span><span>
@@ -471,7 +471,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Double -&gt; Maybe Double -&gt; Latency)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679302798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;P95&quot;</span></span><span class="hs-special">)</span><span>
@@ -480,7 +480,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Double -&gt; Latency)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679302798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;P99&quot;</span></span><span class="hs-special">)</span><span>
@@ -488,12 +488,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Double) -&gt; Either String Latency
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679302798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;P10&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302783"><span id="local-6989586621679302785"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302792"><span id="local-6989586621679302794"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span></span></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302780"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302789"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Latency.html#Latency"><span class="hs-identifier hs-type">Latency</span></a></span></span><span>
 </span><span id="line-158"></span></pre></body></html>

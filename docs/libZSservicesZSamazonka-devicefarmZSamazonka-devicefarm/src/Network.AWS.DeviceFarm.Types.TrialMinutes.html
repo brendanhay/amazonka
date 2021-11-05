@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- account.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTrialMinutes' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679370911"><span id="local-6989586621679370912"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrialMinutes"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes"><span class="hs-identifier hs-var">TrialMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrialMinutes%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes%27"><span class="hs-identifier hs-var">TrialMinutes'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679370920"><span id="local-6989586621679370921"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrialMinutes"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes"><span class="hs-identifier hs-var">TrialMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrialMinutes%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes%27"><span class="hs-identifier hs-var">TrialMinutes'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of free trial minutes remaining in the account.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aremaining%3ATrialMinutes%27"><span class="annot"><span class="annottext">TrialMinutes -&gt; Maybe Double
 </span><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#%24sel%3Aremaining%3ATrialMinutes%27"><span class="hs-identifier hs-var hs-var">remaining</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Atotal%3ATrialMinutes%27"><span class="annot"><span class="annottext">TrialMinutes -&gt; Maybe Double
 </span><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#%24sel%3Atotal%3ATrialMinutes%27"><span class="hs-identifier hs-var hs-var">total</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370904"><span id="local-6989586621679370906"><span class="annot"><span class="annottext">TrialMinutes -&gt; TrialMinutes -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370913"><span id="local-6989586621679370915"><span class="annot"><span class="annottext">TrialMinutes -&gt; TrialMinutes -&gt; Bool
 (TrialMinutes -&gt; TrialMinutes -&gt; Bool)
 -&gt; (TrialMinutes -&gt; TrialMinutes -&gt; Bool) -&gt; Eq TrialMinutes
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TrialMinutes -&gt; TrialMinutes -&gt; Bool
 == :: TrialMinutes -&gt; TrialMinutes -&gt; Bool
 $c== :: TrialMinutes -&gt; TrialMinutes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370895"><span id="local-6989586621679370897"><span id="local-6989586621679370899"><span id="local-6989586621679370901"><span class="annot"><span class="annottext">ReadPrec [TrialMinutes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370904"><span id="local-6989586621679370906"><span id="local-6989586621679370908"><span id="local-6989586621679370910"><span class="annot"><span class="annottext">ReadPrec [TrialMinutes]
 ReadPrec TrialMinutes
 Int -&gt; ReadS TrialMinutes
 ReadS [TrialMinutes]
@@ -63,7 +63,7 @@ readList :: ReadS [TrialMinutes]
 $creadList :: ReadS [TrialMinutes]
 readsPrec :: Int -&gt; ReadS TrialMinutes
 $creadsPrec :: Int -&gt; ReadS TrialMinutes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370888"><span id="local-6989586621679370890"><span id="local-6989586621679370892"><span class="annot"><span class="annottext">Int -&gt; TrialMinutes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370897"><span id="local-6989586621679370899"><span id="local-6989586621679370901"><span class="annot"><span class="annottext">Int -&gt; TrialMinutes -&gt; ShowS
 [TrialMinutes] -&gt; ShowS
 TrialMinutes -&gt; String
 (Int -&gt; TrialMinutes -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Maybe a
 -&gt; (TrialMinutes -&gt; Maybe Double -&gt; TrialMinutes)
 -&gt; Lens TrialMinutes TrialMinutes (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes%27"><span class="hs-identifier hs-type">TrialMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370879"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes%27"><span class="hs-identifier hs-type">TrialMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370888"><span class="annot"><span class="annottext">Maybe Double
 remaining :: Maybe Double
 $sel:remaining:TrialMinutes' :: TrialMinutes -&gt; Maybe Double
-</span><a href="#local-6989586621679370879"><span class="hs-identifier hs-var hs-var">remaining</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679370879"><span class="hs-identifier hs-var">remaining</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370878"><span class="annot"><span class="annottext">s :: TrialMinutes
-</span><a href="#local-6989586621679370878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes%27"><span class="hs-identifier hs-type">TrialMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370877"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679370877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialMinutes
-</span><a href="#local-6989586621679370878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remaining:TrialMinutes' :: Maybe Double
+</span><a href="#local-6989586621679370888"><span class="hs-identifier hs-var hs-var">remaining</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679370888"><span class="hs-identifier hs-var">remaining</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370887"><span class="annot"><span class="annottext">s :: TrialMinutes
+</span><a href="#local-6989586621679370887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes%27"><span class="hs-identifier hs-type">TrialMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370886"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679370886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialMinutes
+</span><a href="#local-6989586621679370887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remaining:TrialMinutes' :: Maybe Double
 </span><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#%24sel%3Aremaining%3ATrialMinutes%27"><span class="hs-identifier hs-var">remaining</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679370877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes"><span class="hs-identifier hs-type">TrialMinutes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes"><span class="hs-identifier hs-type">TrialMinutes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The total number of free trial minutes that the account started with.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#trialMinutes_total"><span class="hs-identifier hs-type">trialMinutes_total</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes"><span class="hs-identifier hs-type">TrialMinutes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
@@ -143,19 +143,19 @@ $sel:remaining:TrialMinutes' :: TrialMinutes -&gt; Maybe Double
 -&gt; (TrialMinutes -&gt; Maybe Double -&gt; TrialMinutes)
 -&gt; Lens TrialMinutes TrialMinutes (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes%27"><span class="hs-identifier hs-type">TrialMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370875"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes%27"><span class="hs-identifier hs-type">TrialMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370884"><span class="annot"><span class="annottext">Maybe Double
 total :: Maybe Double
 $sel:total:TrialMinutes' :: TrialMinutes -&gt; Maybe Double
-</span><a href="#local-6989586621679370875"><span class="hs-identifier hs-var hs-var">total</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679370875"><span class="hs-identifier hs-var">total</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370874"><span class="annot"><span class="annottext">s :: TrialMinutes
-</span><a href="#local-6989586621679370874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes%27"><span class="hs-identifier hs-type">TrialMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370873"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679370873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialMinutes
-</span><a href="#local-6989586621679370874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:total:TrialMinutes' :: Maybe Double
+</span><a href="#local-6989586621679370884"><span class="hs-identifier hs-var hs-var">total</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679370884"><span class="hs-identifier hs-var">total</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370883"><span class="annot"><span class="annottext">s :: TrialMinutes
+</span><a href="#local-6989586621679370883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes%27"><span class="hs-identifier hs-type">TrialMinutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370882"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679370882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialMinutes
+</span><a href="#local-6989586621679370883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:total:TrialMinutes' :: Maybe Double
 </span><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#%24sel%3Atotal%3ATrialMinutes%27"><span class="hs-identifier hs-var">total</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679370873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes"><span class="hs-identifier hs-type">TrialMinutes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes"><span class="hs-identifier hs-type">TrialMinutes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370870"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes"><span class="hs-identifier hs-type">TrialMinutes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679370868"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrialMinutes
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370879"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes"><span class="hs-identifier hs-type">TrialMinutes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679370877"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrialMinutes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TrialMinutes) -&gt; Value -&gt; Parser TrialMinutes
@@ -163,15 +163,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TrialMinutes&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370865"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370865"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370874"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370874"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Double -&gt; TrialMinutes
 </span><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes%27"><span class="hs-identifier hs-var">TrialMinutes'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe Double -&gt; TrialMinutes)
 -&gt; Parser (Maybe Double) -&gt; Parser (Maybe Double -&gt; TrialMinutes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679370874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;remaining&quot;</span></span><span class="hs-special">)</span><span>
@@ -179,13 +179,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double) -&gt; Parser TrialMinutes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679370874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;total&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370859"><span id="local-6989586621679370861"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes"><span class="hs-identifier hs-type">TrialMinutes</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370868"><span id="local-6989586621679370870"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes"><span class="hs-identifier hs-type">TrialMinutes</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370856"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes"><span class="hs-identifier hs-type">TrialMinutes</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370865"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes"><span class="hs-identifier hs-type">TrialMinutes</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

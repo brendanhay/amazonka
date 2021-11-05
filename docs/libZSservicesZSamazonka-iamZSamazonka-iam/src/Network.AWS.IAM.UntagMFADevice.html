@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newUntagMFADevice' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679462044"><span id="local-6989586621679462045"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagMFADevice"><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice"><span class="hs-identifier hs-var">UntagMFADevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagMFADevice%27"><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice%27"><span class="hs-identifier hs-var">UntagMFADevice'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679462053"><span id="local-6989586621679462054"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagMFADevice"><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice"><span class="hs-identifier hs-var">UntagMFADevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagMFADevice%27"><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice%27"><span class="hs-identifier hs-var">UntagMFADevice'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the IAM virtual MFA device from which you want</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- to remove tags. For virtual MFA devices, the serial number is the same</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- as the ARN.</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AtagKeys%3AUntagMFADevice%27"><span class="annot"><span class="annottext">UntagMFADevice -&gt; [Text]
 </span><a href="Network.AWS.IAM.UntagMFADevice.html#%24sel%3AtagKeys%3AUntagMFADevice%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679462037"><span id="local-6989586621679462039"><span class="annot"><span class="annottext">UntagMFADevice -&gt; UntagMFADevice -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679462046"><span id="local-6989586621679462048"><span class="annot"><span class="annottext">UntagMFADevice -&gt; UntagMFADevice -&gt; Bool
 (UntagMFADevice -&gt; UntagMFADevice -&gt; Bool)
 -&gt; (UntagMFADevice -&gt; UntagMFADevice -&gt; Bool) -&gt; Eq UntagMFADevice
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UntagMFADevice -&gt; UntagMFADevice -&gt; Bool
 == :: UntagMFADevice -&gt; UntagMFADevice -&gt; Bool
 $c== :: UntagMFADevice -&gt; UntagMFADevice -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462028"><span id="local-6989586621679462030"><span id="local-6989586621679462032"><span id="local-6989586621679462034"><span class="annot"><span class="annottext">ReadPrec [UntagMFADevice]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462037"><span id="local-6989586621679462039"><span id="local-6989586621679462041"><span id="local-6989586621679462043"><span class="annot"><span class="annottext">ReadPrec [UntagMFADevice]
 ReadPrec UntagMFADevice
 Int -&gt; ReadS UntagMFADevice
 ReadS [UntagMFADevice]
@@ -91,7 +91,7 @@ readList :: ReadS [UntagMFADevice]
 $creadList :: ReadS [UntagMFADevice]
 readsPrec :: Int -&gt; ReadS UntagMFADevice
 $creadsPrec :: Int -&gt; ReadS UntagMFADevice
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462021"><span id="local-6989586621679462023"><span id="local-6989586621679462025"><span class="annot"><span class="annottext">Int -&gt; UntagMFADevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462030"><span id="local-6989586621679462032"><span id="local-6989586621679462034"><span class="annot"><span class="annottext">Int -&gt; UntagMFADevice -&gt; ShowS
 [UntagMFADevice] -&gt; ShowS
 UntagMFADevice -&gt; String
 (Int -&gt; UntagMFADevice -&gt; ShowS)
@@ -141,13 +141,13 @@ $cfrom :: forall x. UntagMFADevice -&gt; Rep UntagMFADevice x
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice"><span class="hs-identifier hs-type">UntagMFADevice</span></a></span><span>
 </span><span id="line-89"></span><span id="newUntagMFADevice"><span class="annot"><span class="annottext">newUntagMFADevice :: Text -&gt; UntagMFADevice
-</span><a href="Network.AWS.IAM.UntagMFADevice.html#newUntagMFADevice"><span class="hs-identifier hs-var hs-var">newUntagMFADevice</span></a></span></span><span> </span><span id="local-6989586621679462016"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462016"><span class="hs-identifier hs-var">pSerialNumber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.UntagMFADevice.html#newUntagMFADevice"><span class="hs-identifier hs-var hs-var">newUntagMFADevice</span></a></span></span><span> </span><span id="local-6989586621679462025"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679462025"><span class="hs-identifier hs-var">pSerialNumber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">UntagMFADevice' :: Text -&gt; [Text] -&gt; UntagMFADevice
 </span><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice%27"><span class="hs-identifier hs-type">UntagMFADevice'</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serialNumber:UntagMFADevice' :: Text
 </span><a href="Network.AWS.IAM.UntagMFADevice.html#%24sel%3AserialNumber%3AUntagMFADevice%27"><span class="hs-identifier hs-var">serialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462016"><span class="hs-identifier hs-var">pSerialNumber_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679462025"><span class="hs-identifier hs-var">pSerialNumber_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeys:UntagMFADevice' :: [Text]
 </span><a href="Network.AWS.IAM.UntagMFADevice.html#%24sel%3AtagKeys%3AUntagMFADevice%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -168,16 +168,16 @@ forall a. Monoid a =&gt; a
 -&gt; (UntagMFADevice -&gt; Text -&gt; UntagMFADevice)
 -&gt; Lens UntagMFADevice UntagMFADevice Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice%27"><span class="hs-identifier hs-type">UntagMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462013"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice%27"><span class="hs-identifier hs-type">UntagMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462022"><span class="annot"><span class="annottext">Text
 serialNumber :: Text
 $sel:serialNumber:UntagMFADevice' :: UntagMFADevice -&gt; Text
-</span><a href="#local-6989586621679462013"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462013"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462012"><span class="annot"><span class="annottext">s :: UntagMFADevice
-</span><a href="#local-6989586621679462012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice%27"><span class="hs-identifier hs-type">UntagMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462011"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagMFADevice
-</span><a href="#local-6989586621679462012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serialNumber:UntagMFADevice' :: Text
+</span><a href="#local-6989586621679462022"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679462022"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462021"><span class="annot"><span class="annottext">s :: UntagMFADevice
+</span><a href="#local-6989586621679462021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice%27"><span class="hs-identifier hs-type">UntagMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462020"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679462020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagMFADevice
+</span><a href="#local-6989586621679462021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serialNumber:UntagMFADevice' :: Text
 </span><a href="Network.AWS.IAM.UntagMFADevice.html#%24sel%3AserialNumber%3AUntagMFADevice%27"><span class="hs-identifier hs-var">serialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice"><span class="hs-identifier hs-type">UntagMFADevice</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679462020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice"><span class="hs-identifier hs-type">UntagMFADevice</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | A list of key names as a simple array of strings. The tags with matching</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- keys are removed from the specified instance profile.</span><span>
@@ -187,16 +187,16 @@ $sel:serialNumber:UntagMFADevice' :: UntagMFADevice -&gt; Text
 -&gt; (UntagMFADevice -&gt; [Text] -&gt; UntagMFADevice)
 -&gt; Lens UntagMFADevice UntagMFADevice [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice%27"><span class="hs-identifier hs-type">UntagMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462010"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice%27"><span class="hs-identifier hs-type">UntagMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462019"><span class="annot"><span class="annottext">[Text]
 tagKeys :: [Text]
 $sel:tagKeys:UntagMFADevice' :: UntagMFADevice -&gt; [Text]
-</span><a href="#local-6989586621679462010"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679462010"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462009"><span class="annot"><span class="annottext">s :: UntagMFADevice
-</span><a href="#local-6989586621679462009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice%27"><span class="hs-identifier hs-type">UntagMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462008"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679462008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagMFADevice
-</span><a href="#local-6989586621679462009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:UntagMFADevice' :: [Text]
+</span><a href="#local-6989586621679462019"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679462019"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462018"><span class="annot"><span class="annottext">s :: UntagMFADevice
+</span><a href="#local-6989586621679462018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice%27"><span class="hs-identifier hs-type">UntagMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462017"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679462017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagMFADevice
+</span><a href="#local-6989586621679462018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:UntagMFADevice' :: [Text]
 </span><a href="Network.AWS.IAM.UntagMFADevice.html#%24sel%3AtagKeys%3AUntagMFADevice%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679462008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice"><span class="hs-identifier hs-type">UntagMFADevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; UntagMFADevice -&gt; f UntagMFADevice)
+</span><a href="#local-6989586621679462017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice"><span class="hs-identifier hs-type">UntagMFADevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; UntagMFADevice -&gt; f UntagMFADevice)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; UntagMFADevice
@@ -210,12 +210,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice"><span class="hs-identifier hs-type">UntagMFADevice</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADeviceResponse"><span class="hs-identifier hs-type">UntagMFADeviceResponse</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679462002"><span class="annot"><span class="annottext">request :: UntagMFADevice -&gt; Request UntagMFADevice
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679462011"><span class="annot"><span class="annottext">request :: UntagMFADevice -&gt; Request UntagMFADevice
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UntagMFADevice -&gt; Request UntagMFADevice
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679461998"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679462007"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UntagMFADevice
 -&gt; ClientResponse ClientBody
@@ -239,12 +239,12 @@ AWSResponse a
 UntagMFADeviceResponse
 </span><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADeviceResponse%27"><span class="hs-identifier hs-var">UntagMFADeviceResponse'</span></a></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461991"><span id="local-6989586621679461993"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice"><span class="hs-identifier hs-type">UntagMFADevice</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462000"><span id="local-6989586621679462002"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice"><span class="hs-identifier hs-type">UntagMFADevice</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461988"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice"><span class="hs-identifier hs-type">UntagMFADevice</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice"><span class="hs-identifier hs-type">UntagMFADevice</span></a></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice"><span class="hs-identifier hs-type">UntagMFADevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679461984"><span class="annot"><span class="annottext">toHeaders :: UntagMFADevice -&gt; [Header]
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679461993"><span class="annot"><span class="annottext">toHeaders :: UntagMFADevice -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; UntagMFADevice -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -252,21 +252,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice"><span class="hs-identifier hs-type">UntagMFADevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679461979"><span class="annot"><span class="annottext">toPath :: UntagMFADevice -&gt; ByteString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679461988"><span class="annot"><span class="annottext">toPath :: UntagMFADevice -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UntagMFADevice -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice"><span class="hs-identifier hs-type">UntagMFADevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679461975"><span class="annot"><span class="annottext">toQuery :: UntagMFADevice -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice%27"><span class="hs-identifier hs-type">UntagMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461972"><span id="local-6989586621679461973"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679461984"><span class="annot"><span class="annottext">toQuery :: UntagMFADevice -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADevice%27"><span class="hs-identifier hs-type">UntagMFADevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461981"><span id="local-6989586621679461982"><span class="annot"><span class="annottext">[Text]
 Text
 tagKeys :: [Text]
 serialNumber :: Text
 $sel:tagKeys:UntagMFADevice' :: UntagMFADevice -&gt; [Text]
 $sel:serialNumber:UntagMFADevice' :: UntagMFADevice -&gt; Text
-</span><a href="#local-6989586621679461972"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679461981"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -286,7 +286,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;SerialNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679461973"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679461982"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TagKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
@@ -296,14 +296,14 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679461972"><span class="hs-identifier hs-var">tagKeys</span></a></span><span>
+</span><a href="#local-6989586621679461981"><span class="hs-identifier hs-var">tagKeys</span></a></span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newUntagMFADeviceResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679461968"><span id="local-6989586621679461969"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagMFADeviceResponse"><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADeviceResponse"><span class="hs-identifier hs-var">UntagMFADeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagMFADeviceResponse%27"><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADeviceResponse%27"><span class="hs-identifier hs-var">UntagMFADeviceResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679461977"><span id="local-6989586621679461978"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagMFADeviceResponse"><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADeviceResponse"><span class="hs-identifier hs-var">UntagMFADeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagMFADeviceResponse%27"><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADeviceResponse%27"><span class="hs-identifier hs-var">UntagMFADeviceResponse'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461964"><span id="local-6989586621679461966"><span class="annot"><span class="annottext">UntagMFADeviceResponse -&gt; UntagMFADeviceResponse -&gt; Bool
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461973"><span id="local-6989586621679461975"><span class="annot"><span class="annottext">UntagMFADeviceResponse -&gt; UntagMFADeviceResponse -&gt; Bool
 (UntagMFADeviceResponse -&gt; UntagMFADeviceResponse -&gt; Bool)
 -&gt; (UntagMFADeviceResponse -&gt; UntagMFADeviceResponse -&gt; Bool)
 -&gt; Eq UntagMFADeviceResponse
@@ -312,7 +312,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UntagMFADeviceResponse -&gt; UntagMFADeviceResponse -&gt; Bool
 == :: UntagMFADeviceResponse -&gt; UntagMFADeviceResponse -&gt; Bool
 $c== :: UntagMFADeviceResponse -&gt; UntagMFADeviceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461956"><span id="local-6989586621679461958"><span id="local-6989586621679461960"><span id="local-6989586621679461962"><span class="annot"><span class="annottext">ReadPrec [UntagMFADeviceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461965"><span id="local-6989586621679461967"><span id="local-6989586621679461969"><span id="local-6989586621679461971"><span class="annot"><span class="annottext">ReadPrec [UntagMFADeviceResponse]
 ReadPrec UntagMFADeviceResponse
 Int -&gt; ReadS UntagMFADeviceResponse
 ReadS [UntagMFADeviceResponse]
@@ -332,7 +332,7 @@ readList :: ReadS [UntagMFADeviceResponse]
 $creadList :: ReadS [UntagMFADeviceResponse]
 readsPrec :: Int -&gt; ReadS UntagMFADeviceResponse
 $creadsPrec :: Int -&gt; ReadS UntagMFADeviceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461950"><span id="local-6989586621679461952"><span id="local-6989586621679461954"><span class="annot"><span class="annottext">Int -&gt; UntagMFADeviceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461959"><span id="local-6989586621679461961"><span id="local-6989586621679461963"><span class="annot"><span class="annottext">Int -&gt; UntagMFADeviceResponse -&gt; ShowS
 [UntagMFADeviceResponse] -&gt; ShowS
 UntagMFADeviceResponse -&gt; String
 (Int -&gt; UntagMFADeviceResponse -&gt; ShowS)
@@ -369,5 +369,5 @@ $cfrom :: forall x. UntagMFADeviceResponse -&gt; Rep UntagMFADeviceResponse x
 </span><a href="Network.AWS.IAM.UntagMFADevice.html#newUntagMFADeviceResponse"><span class="hs-identifier hs-var hs-var">newUntagMFADeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UntagMFADeviceResponse
 </span><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADeviceResponse%27"><span class="hs-identifier hs-var">UntagMFADeviceResponse'</span></a></span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADeviceResponse"><span class="hs-identifier hs-type">UntagMFADeviceResponse</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461955"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagMFADevice.html#UntagMFADeviceResponse"><span class="hs-identifier hs-type">UntagMFADeviceResponse</span></a></span></span><span>
 </span><span id="line-155"></span></pre></body></html>

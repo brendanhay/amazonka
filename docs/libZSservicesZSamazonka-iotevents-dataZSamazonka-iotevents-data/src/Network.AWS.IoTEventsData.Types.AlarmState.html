@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTEventsData.Types.AlarmState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTEventsData.Types.AlarmState</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmStateName.html"><span class="hs-identifier">Network.AWS.IoTEventsData.Types.AlarmStateName</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.CustomerAction.html"><span class="hs-identifier">Network.AWS.IoTEventsData.Types.CustomerAction</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.RuleEvaluation.html"><span class="hs-identifier">Network.AWS.IoTEventsData.Types.RuleEvaluation</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SystemEvent.html"><span class="hs-identifier">Network.AWS.IoTEventsData.Types.SystemEvent</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Contains information about the current state of the alarm.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAlarmState' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679184187"><span id="local-6989586621679184188"></span></span><span class="hs-keyword">data</span><span> </span><span id="AlarmState"><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-var">AlarmState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlarmState%27"><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState%27"><span class="hs-identifier hs-var">AlarmState'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains information about the action that you can take to respond to</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the alarm.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcustomerAction%3AAlarmState%27"><span class="annot"><span class="annottext">AlarmState -&gt; Maybe CustomerAction
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#%24sel%3AcustomerAction%3AAlarmState%27"><span class="hs-identifier hs-var hs-var">customerAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the alarm state. The state name can be one of the following</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- values:</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   @DISABLED@ - When the alarm is in the @DISABLED@ state, it isn\'t</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--     ready to evaluate data. To enable the alarm, you must change the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     alarm to the @NORMAL@ state.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   @NORMAL@ - When the alarm is in the @NORMAL@ state, it\'s ready to</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     evaluate data.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   @ACTIVE@ - If the alarm is in the @ACTIVE@ state, the alarm is</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     invoked.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @ACKNOWLEDGED@ - When the alarm is in the @ACKNOWLEDGED@ state, the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     alarm was invoked and you acknowledged the alarm.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   @SNOOZE_DISABLED@ - When the alarm is in the @SNOOZE_DISABLED@</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     state, the alarm is disabled for a specified period of time. After</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     the snooze time, the alarm automatically changes to the @NORMAL@</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     state.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   @LATCHED@ - When the alarm is in the @LATCHED@ state, the alarm was</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     invoked. However, the data that the alarm is currently evaluating is</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     within the specified range. To change the alarm to the @NORMAL@</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     state, you must acknowledge the alarm.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AstateName%3AAlarmState%27"><span class="annot"><span class="annottext">AlarmState -&gt; Maybe AlarmStateName
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#%24sel%3AstateName%3AAlarmState%27"><span class="hs-identifier hs-var hs-var">stateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmStateName.html#AlarmStateName"><span class="hs-identifier hs-type">AlarmStateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Information needed to evaluate data.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AruleEvaluation%3AAlarmState%27"><span class="annot"><span class="annottext">AlarmState -&gt; Maybe RuleEvaluation
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#%24sel%3AruleEvaluation%3AAlarmState%27"><span class="hs-identifier hs-var hs-var">ruleEvaluation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.RuleEvaluation.html#RuleEvaluation"><span class="hs-identifier hs-type">RuleEvaluation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Contains information about alarm state changes.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AsystemEvent%3AAlarmState%27"><span class="annot"><span class="annottext">AlarmState -&gt; Maybe SystemEvent
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#%24sel%3AsystemEvent%3AAlarmState%27"><span class="hs-identifier hs-var hs-var">systemEvent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SystemEvent.html#SystemEvent"><span class="hs-identifier hs-type">SystemEvent</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184178"><span id="local-6989586621679184180"><span class="annot"><span class="annottext">AlarmState -&gt; AlarmState -&gt; Bool
+(AlarmState -&gt; AlarmState -&gt; Bool)
+-&gt; (AlarmState -&gt; AlarmState -&gt; Bool) -&gt; Eq AlarmState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AlarmState -&gt; AlarmState -&gt; Bool
+$c/= :: AlarmState -&gt; AlarmState -&gt; Bool
+== :: AlarmState -&gt; AlarmState -&gt; Bool
+$c== :: AlarmState -&gt; AlarmState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184169"><span id="local-6989586621679184171"><span id="local-6989586621679184173"><span id="local-6989586621679184175"><span class="annot"><span class="annottext">ReadPrec [AlarmState]
+ReadPrec AlarmState
+Int -&gt; ReadS AlarmState
+ReadS [AlarmState]
+(Int -&gt; ReadS AlarmState)
+-&gt; ReadS [AlarmState]
+-&gt; ReadPrec AlarmState
+-&gt; ReadPrec [AlarmState]
+-&gt; Read AlarmState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AlarmState]
+$creadListPrec :: ReadPrec [AlarmState]
+readPrec :: ReadPrec AlarmState
+$creadPrec :: ReadPrec AlarmState
+readList :: ReadS [AlarmState]
+$creadList :: ReadS [AlarmState]
+readsPrec :: Int -&gt; ReadS AlarmState
+$creadsPrec :: Int -&gt; ReadS AlarmState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184162"><span id="local-6989586621679184164"><span id="local-6989586621679184166"><span class="annot"><span class="annottext">Int -&gt; AlarmState -&gt; ShowS
+[AlarmState] -&gt; ShowS
+AlarmState -&gt; String
+(Int -&gt; AlarmState -&gt; ShowS)
+-&gt; (AlarmState -&gt; String)
+-&gt; ([AlarmState] -&gt; ShowS)
+-&gt; Show AlarmState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AlarmState] -&gt; ShowS
+$cshowList :: [AlarmState] -&gt; ShowS
+show :: AlarmState -&gt; String
+$cshow :: AlarmState -&gt; String
+showsPrec :: Int -&gt; AlarmState -&gt; ShowS
+$cshowsPrec :: Int -&gt; AlarmState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AlarmState -&gt; Rep AlarmState x)
+-&gt; (forall x. Rep AlarmState x -&gt; AlarmState) -&gt; Generic AlarmState
+forall x. Rep AlarmState x -&gt; AlarmState
+forall x. AlarmState -&gt; Rep AlarmState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AlarmState x -&gt; AlarmState
+$cfrom :: forall x. AlarmState -&gt; Rep AlarmState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'AlarmState' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'customerAction', 'alarmState_customerAction' - Contains information about the action that you can take to respond to</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- the alarm.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'stateName', 'alarmState_stateName' - The name of the alarm state. The state name can be one of the following</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- values:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- -   @DISABLED@ - When the alarm is in the @DISABLED@ state, it isn\'t</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--     ready to evaluate data. To enable the alarm, you must change the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--     alarm to the @NORMAL@ state.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- -   @NORMAL@ - When the alarm is in the @NORMAL@ state, it\'s ready to</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--     evaluate data.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- -   @ACTIVE@ - If the alarm is in the @ACTIVE@ state, the alarm is</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--     invoked.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   @ACKNOWLEDGED@ - When the alarm is in the @ACKNOWLEDGED@ state, the</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--     alarm was invoked and you acknowledged the alarm.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   @SNOOZE_DISABLED@ - When the alarm is in the @SNOOZE_DISABLED@</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--     state, the alarm is disabled for a specified period of time. After</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--     the snooze time, the alarm automatically changes to the @NORMAL@</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--     state.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- -   @LATCHED@ - When the alarm is in the @LATCHED@ state, the alarm was</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--     invoked. However, the data that the alarm is currently evaluating is</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--     within the specified range. To change the alarm to the @NORMAL@</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--     state, you must acknowledge the alarm.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'ruleEvaluation', 'alarmState_ruleEvaluation' - Information needed to evaluate data.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'systemEvent', 'alarmState_systemEvent' - Contains information about alarm state changes.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#newAlarmState"><span class="hs-identifier hs-type">newAlarmState</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-type">AlarmState</span></a></span><span>
+</span><span id="line-112"></span><span id="newAlarmState"><span class="annot"><span class="annottext">newAlarmState :: AlarmState
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#newAlarmState"><span class="hs-identifier hs-var hs-var">newAlarmState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">AlarmState' :: Maybe CustomerAction
+-&gt; Maybe AlarmStateName
+-&gt; Maybe RuleEvaluation
+-&gt; Maybe SystemEvent
+-&gt; AlarmState
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState%27"><span class="hs-identifier hs-type">AlarmState'</span></a></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:customerAction:AlarmState' :: Maybe CustomerAction
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#%24sel%3AcustomerAction%3AAlarmState%27"><span class="hs-identifier hs-var">customerAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateName:AlarmState' :: Maybe AlarmStateName
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#%24sel%3AstateName%3AAlarmState%27"><span class="hs-identifier hs-var">stateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AlarmStateName
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleEvaluation:AlarmState' :: Maybe RuleEvaluation
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#%24sel%3AruleEvaluation%3AAlarmState%27"><span class="hs-identifier hs-var">ruleEvaluation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RuleEvaluation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:systemEvent:AlarmState' :: Maybe SystemEvent
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#%24sel%3AsystemEvent%3AAlarmState%27"><span class="hs-identifier hs-var">systemEvent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SystemEvent
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Contains information about the action that you can take to respond to</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- the alarm.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#alarmState_customerAction"><span class="hs-identifier hs-type">alarmState_customerAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-type">AlarmState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier hs-type">CustomerAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="alarmState_customerAction"><span class="annot"><span class="annottext">alarmState_customerAction :: (Maybe CustomerAction -&gt; f (Maybe CustomerAction))
+-&gt; AlarmState -&gt; f AlarmState
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#alarmState_customerAction"><span class="hs-identifier hs-var hs-var">alarmState_customerAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmState -&gt; Maybe CustomerAction)
+-&gt; (AlarmState -&gt; Maybe CustomerAction -&gt; AlarmState)
+-&gt; Lens
+     AlarmState AlarmState (Maybe CustomerAction) (Maybe CustomerAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState%27"><span class="hs-identifier hs-type">AlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184153"><span class="annot"><span class="annottext">Maybe CustomerAction
+customerAction :: Maybe CustomerAction
+$sel:customerAction:AlarmState' :: AlarmState -&gt; Maybe CustomerAction
+</span><a href="#local-6989586621679184153"><span class="hs-identifier hs-var hs-var">customerAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerAction
+</span><a href="#local-6989586621679184153"><span class="hs-identifier hs-var">customerAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184152"><span class="annot"><span class="annottext">s :: AlarmState
+</span><a href="#local-6989586621679184152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState%27"><span class="hs-identifier hs-type">AlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184151"><span class="annot"><span class="annottext">Maybe CustomerAction
+</span><a href="#local-6989586621679184151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmState
+</span><a href="#local-6989586621679184152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerAction:AlarmState' :: Maybe CustomerAction
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#%24sel%3AcustomerAction%3AAlarmState%27"><span class="hs-identifier hs-var">customerAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerAction
+</span><a href="#local-6989586621679184151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-type">AlarmState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The name of the alarm state. The state name can be one of the following</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- values:</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   @DISABLED@ - When the alarm is in the @DISABLED@ state, it isn\'t</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--     ready to evaluate data. To enable the alarm, you must change the</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--     alarm to the @NORMAL@ state.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- -   @NORMAL@ - When the alarm is in the @NORMAL@ state, it\'s ready to</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--     evaluate data.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- -   @ACTIVE@ - If the alarm is in the @ACTIVE@ state, the alarm is</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--     invoked.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   @ACKNOWLEDGED@ - When the alarm is in the @ACKNOWLEDGED@ state, the</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--     alarm was invoked and you acknowledged the alarm.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- -   @SNOOZE_DISABLED@ - When the alarm is in the @SNOOZE_DISABLED@</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--     state, the alarm is disabled for a specified period of time. After</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--     the snooze time, the alarm automatically changes to the @NORMAL@</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     state.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- -   @LATCHED@ - When the alarm is in the @LATCHED@ state, the alarm was</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--     invoked. However, the data that the alarm is currently evaluating is</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--     within the specified range. To change the alarm to the @NORMAL@</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--     state, you must acknowledge the alarm.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#alarmState_stateName"><span class="hs-identifier hs-type">alarmState_stateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-type">AlarmState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmStateName.html#AlarmStateName"><span class="hs-identifier hs-type">AlarmStateName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="alarmState_stateName"><span class="annot"><span class="annottext">alarmState_stateName :: (Maybe AlarmStateName -&gt; f (Maybe AlarmStateName))
+-&gt; AlarmState -&gt; f AlarmState
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#alarmState_stateName"><span class="hs-identifier hs-var hs-var">alarmState_stateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmState -&gt; Maybe AlarmStateName)
+-&gt; (AlarmState -&gt; Maybe AlarmStateName -&gt; AlarmState)
+-&gt; Lens
+     AlarmState AlarmState (Maybe AlarmStateName) (Maybe AlarmStateName)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState%27"><span class="hs-identifier hs-type">AlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184149"><span class="annot"><span class="annottext">Maybe AlarmStateName
+stateName :: Maybe AlarmStateName
+$sel:stateName:AlarmState' :: AlarmState -&gt; Maybe AlarmStateName
+</span><a href="#local-6989586621679184149"><span class="hs-identifier hs-var hs-var">stateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AlarmStateName
+</span><a href="#local-6989586621679184149"><span class="hs-identifier hs-var">stateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184148"><span class="annot"><span class="annottext">s :: AlarmState
+</span><a href="#local-6989586621679184148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState%27"><span class="hs-identifier hs-type">AlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184147"><span class="annot"><span class="annottext">Maybe AlarmStateName
+</span><a href="#local-6989586621679184147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmState
+</span><a href="#local-6989586621679184148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateName:AlarmState' :: Maybe AlarmStateName
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#%24sel%3AstateName%3AAlarmState%27"><span class="hs-identifier hs-var">stateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AlarmStateName
+</span><a href="#local-6989586621679184147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-type">AlarmState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Information needed to evaluate data.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#alarmState_ruleEvaluation"><span class="hs-identifier hs-type">alarmState_ruleEvaluation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-type">AlarmState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.RuleEvaluation.html#RuleEvaluation"><span class="hs-identifier hs-type">RuleEvaluation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="alarmState_ruleEvaluation"><span class="annot"><span class="annottext">alarmState_ruleEvaluation :: (Maybe RuleEvaluation -&gt; f (Maybe RuleEvaluation))
+-&gt; AlarmState -&gt; f AlarmState
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#alarmState_ruleEvaluation"><span class="hs-identifier hs-var hs-var">alarmState_ruleEvaluation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmState -&gt; Maybe RuleEvaluation)
+-&gt; (AlarmState -&gt; Maybe RuleEvaluation -&gt; AlarmState)
+-&gt; Lens
+     AlarmState AlarmState (Maybe RuleEvaluation) (Maybe RuleEvaluation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState%27"><span class="hs-identifier hs-type">AlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184145"><span class="annot"><span class="annottext">Maybe RuleEvaluation
+ruleEvaluation :: Maybe RuleEvaluation
+$sel:ruleEvaluation:AlarmState' :: AlarmState -&gt; Maybe RuleEvaluation
+</span><a href="#local-6989586621679184145"><span class="hs-identifier hs-var hs-var">ruleEvaluation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RuleEvaluation
+</span><a href="#local-6989586621679184145"><span class="hs-identifier hs-var">ruleEvaluation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184144"><span class="annot"><span class="annottext">s :: AlarmState
+</span><a href="#local-6989586621679184144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState%27"><span class="hs-identifier hs-type">AlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184143"><span class="annot"><span class="annottext">Maybe RuleEvaluation
+</span><a href="#local-6989586621679184143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmState
+</span><a href="#local-6989586621679184144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleEvaluation:AlarmState' :: Maybe RuleEvaluation
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#%24sel%3AruleEvaluation%3AAlarmState%27"><span class="hs-identifier hs-var">ruleEvaluation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RuleEvaluation
+</span><a href="#local-6989586621679184143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-type">AlarmState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | Contains information about alarm state changes.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#alarmState_systemEvent"><span class="hs-identifier hs-type">alarmState_systemEvent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-type">AlarmState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SystemEvent.html#SystemEvent"><span class="hs-identifier hs-type">SystemEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="alarmState_systemEvent"><span class="annot"><span class="annottext">alarmState_systemEvent :: (Maybe SystemEvent -&gt; f (Maybe SystemEvent))
+-&gt; AlarmState -&gt; f AlarmState
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#alarmState_systemEvent"><span class="hs-identifier hs-var hs-var">alarmState_systemEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmState -&gt; Maybe SystemEvent)
+-&gt; (AlarmState -&gt; Maybe SystemEvent -&gt; AlarmState)
+-&gt; Lens
+     AlarmState AlarmState (Maybe SystemEvent) (Maybe SystemEvent)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState%27"><span class="hs-identifier hs-type">AlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184141"><span class="annot"><span class="annottext">Maybe SystemEvent
+systemEvent :: Maybe SystemEvent
+$sel:systemEvent:AlarmState' :: AlarmState -&gt; Maybe SystemEvent
+</span><a href="#local-6989586621679184141"><span class="hs-identifier hs-var hs-var">systemEvent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SystemEvent
+</span><a href="#local-6989586621679184141"><span class="hs-identifier hs-var">systemEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184140"><span class="annot"><span class="annottext">s :: AlarmState
+</span><a href="#local-6989586621679184140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState%27"><span class="hs-identifier hs-type">AlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184139"><span class="annot"><span class="annottext">Maybe SystemEvent
+</span><a href="#local-6989586621679184139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmState
+</span><a href="#local-6989586621679184140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:systemEvent:AlarmState' :: Maybe SystemEvent
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#%24sel%3AsystemEvent%3AAlarmState%27"><span class="hs-identifier hs-var">systemEvent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SystemEvent
+</span><a href="#local-6989586621679184139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-type">AlarmState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184136"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-type">AlarmState</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679184134"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AlarmState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AlarmState) -&gt; Value -&gt; Parser AlarmState
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AlarmState&quot;</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679184131"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184131"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Maybe CustomerAction
+-&gt; Maybe AlarmStateName
+-&gt; Maybe RuleEvaluation
+-&gt; Maybe SystemEvent
+-&gt; AlarmState
+</span><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState%27"><span class="hs-identifier hs-var">AlarmState'</span></a></span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CustomerAction
+ -&gt; Maybe AlarmStateName
+ -&gt; Maybe RuleEvaluation
+ -&gt; Maybe SystemEvent
+ -&gt; AlarmState)
+-&gt; Parser (Maybe CustomerAction)
+-&gt; Parser
+     (Maybe AlarmStateName
+      -&gt; Maybe RuleEvaluation -&gt; Maybe SystemEvent -&gt; AlarmState)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184131"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomerAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;customerAction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AlarmStateName
+   -&gt; Maybe RuleEvaluation -&gt; Maybe SystemEvent -&gt; AlarmState)
+-&gt; Parser (Maybe AlarmStateName)
+-&gt; Parser (Maybe RuleEvaluation -&gt; Maybe SystemEvent -&gt; AlarmState)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184131"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AlarmStateName)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stateName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe RuleEvaluation -&gt; Maybe SystemEvent -&gt; AlarmState)
+-&gt; Parser (Maybe RuleEvaluation)
+-&gt; Parser (Maybe SystemEvent -&gt; AlarmState)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184131"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RuleEvaluation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ruleEvaluation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe SystemEvent -&gt; AlarmState)
+-&gt; Parser (Maybe SystemEvent) -&gt; Parser AlarmState
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184131"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SystemEvent)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;systemEvent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184125"><span id="local-6989586621679184127"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-type">AlarmState</span></a></span></span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184122"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-type">AlarmState</span></a></span></span><span>
+</span><span id="line-176"></span></pre></body></html>

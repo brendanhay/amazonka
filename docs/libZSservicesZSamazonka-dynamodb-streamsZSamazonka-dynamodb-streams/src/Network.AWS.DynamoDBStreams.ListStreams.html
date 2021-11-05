@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-comment">-- | Represents the input of a @ListStreams@ operation.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newListStreams' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679159700"><span id="local-6989586621679159701"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreams"><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-var">ListStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreams%27"><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-var">ListStreams'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679159709"><span id="local-6989586621679159710"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreams"><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-var">ListStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreams%27"><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-var">ListStreams'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN (Amazon Resource Name) of the first item that this operation</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- will evaluate. Use the value that was returned for</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @LastEvaluatedStreamArn@ in the previous operation.</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AtableName%3AListStreams%27"><span class="annot"><span class="annottext">ListStreams -&gt; Maybe Text
 </span><a href="Network.AWS.DynamoDBStreams.ListStreams.html#%24sel%3AtableName%3AListStreams%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159692"><span id="local-6989586621679159694"><span class="annot"><span class="annottext">ListStreams -&gt; ListStreams -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159701"><span id="local-6989586621679159703"><span class="annot"><span class="annottext">ListStreams -&gt; ListStreams -&gt; Bool
 (ListStreams -&gt; ListStreams -&gt; Bool)
 -&gt; (ListStreams -&gt; ListStreams -&gt; Bool) -&gt; Eq ListStreams
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListStreams -&gt; ListStreams -&gt; Bool
 == :: ListStreams -&gt; ListStreams -&gt; Bool
 $c== :: ListStreams -&gt; ListStreams -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159683"><span id="local-6989586621679159685"><span id="local-6989586621679159687"><span id="local-6989586621679159689"><span class="annot"><span class="annottext">ReadPrec [ListStreams]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159692"><span id="local-6989586621679159694"><span id="local-6989586621679159696"><span id="local-6989586621679159698"><span class="annot"><span class="annottext">ReadPrec [ListStreams]
 ReadPrec ListStreams
 Int -&gt; ReadS ListStreams
 ReadS [ListStreams]
@@ -98,7 +98,7 @@ readList :: ReadS [ListStreams]
 $creadList :: ReadS [ListStreams]
 readsPrec :: Int -&gt; ReadS ListStreams
 $creadsPrec :: Int -&gt; ReadS ListStreams
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159676"><span id="local-6989586621679159678"><span id="local-6989586621679159680"><span class="annot"><span class="annottext">Int -&gt; ListStreams -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159685"><span id="local-6989586621679159687"><span id="local-6989586621679159689"><span class="annot"><span class="annottext">Int -&gt; ListStreams -&gt; ShowS
 [ListStreams] -&gt; ShowS
 ListStreams -&gt; String
 (Int -&gt; ListStreams -&gt; ShowS)
@@ -170,16 +170,16 @@ forall a. Maybe a
 -&gt; (ListStreams -&gt; Maybe Text -&gt; ListStreams)
 -&gt; Lens ListStreams ListStreams (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159669"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159678"><span class="annot"><span class="annottext">Maybe Text
 exclusiveStartStreamArn :: Maybe Text
 $sel:exclusiveStartStreamArn:ListStreams' :: ListStreams -&gt; Maybe Text
-</span><a href="#local-6989586621679159669"><span class="hs-identifier hs-var hs-var">exclusiveStartStreamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159669"><span class="hs-identifier hs-var">exclusiveStartStreamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159668"><span class="annot"><span class="annottext">s :: ListStreams
-</span><a href="#local-6989586621679159668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159667"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
-</span><a href="#local-6989586621679159668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveStartStreamArn:ListStreams' :: Maybe Text
+</span><a href="#local-6989586621679159678"><span class="hs-identifier hs-var hs-var">exclusiveStartStreamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159678"><span class="hs-identifier hs-var">exclusiveStartStreamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159677"><span class="annot"><span class="annottext">s :: ListStreams
+</span><a href="#local-6989586621679159677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159676"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
+</span><a href="#local-6989586621679159677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveStartStreamArn:ListStreams' :: Maybe Text
 </span><a href="Network.AWS.DynamoDBStreams.ListStreams.html#%24sel%3AexclusiveStartStreamArn%3AListStreams%27"><span class="hs-identifier hs-var">exclusiveStartStreamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The maximum number of streams to return. The upper limit is 100.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#listStreams_limit"><span class="hs-identifier hs-type">listStreams_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -189,16 +189,16 @@ $sel:exclusiveStartStreamArn:ListStreams' :: ListStreams -&gt; Maybe Text
 -&gt; (ListStreams -&gt; Maybe Natural -&gt; ListStreams)
 -&gt; Lens ListStreams ListStreams (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159666"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159675"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListStreams' :: ListStreams -&gt; Maybe Natural
-</span><a href="#local-6989586621679159666"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679159666"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159665"><span class="annot"><span class="annottext">s :: ListStreams
-</span><a href="#local-6989586621679159665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159664"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679159664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
-</span><a href="#local-6989586621679159665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListStreams' :: Maybe Natural
+</span><a href="#local-6989586621679159675"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679159675"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159674"><span class="annot"><span class="annottext">s :: ListStreams
+</span><a href="#local-6989586621679159674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159673"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679159673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
+</span><a href="#local-6989586621679159674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListStreams' :: Maybe Natural
 </span><a href="Network.AWS.DynamoDBStreams.ListStreams.html#%24sel%3Alimit%3AListStreams%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679159664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | If this parameter is provided, then only the streams associated with</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- this table name are returned.</span><span>
@@ -208,25 +208,25 @@ $sel:limit:ListStreams' :: ListStreams -&gt; Maybe Natural
 -&gt; (ListStreams -&gt; Maybe Text -&gt; ListStreams)
 -&gt; Lens ListStreams ListStreams (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159663"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159672"><span class="annot"><span class="annottext">Maybe Text
 tableName :: Maybe Text
 $sel:tableName:ListStreams' :: ListStreams -&gt; Maybe Text
-</span><a href="#local-6989586621679159663"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159663"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159662"><span class="annot"><span class="annottext">s :: ListStreams
-</span><a href="#local-6989586621679159662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159661"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
-</span><a href="#local-6989586621679159662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:ListStreams' :: Maybe Text
+</span><a href="#local-6989586621679159672"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159672"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159671"><span class="annot"><span class="annottext">s :: ListStreams
+</span><a href="#local-6989586621679159671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159670"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
+</span><a href="#local-6989586621679159671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:ListStreams' :: Maybe Text
 </span><a href="Network.AWS.DynamoDBStreams.ListStreams.html#%24sel%3AtableName%3AListStreams%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679159657"><span class="annot"><span class="annottext">request :: ListStreams -&gt; Request ListStreams
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679159666"><span class="annot"><span class="annottext">request :: ListStreams -&gt; Request ListStreams
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListStreams -&gt; Request ListStreams
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDBStreams.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679159653"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679159662"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListStreams
 -&gt; ClientResponse ClientBody
@@ -250,10 +250,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679159650"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159650"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679159649"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679159649"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679159648"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679159648"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679159659"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159659"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679159658"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679159658"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679159657"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679159657"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Stream] -&gt; Int -&gt; ListStreamsResponse
 </span><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-var">ListStreamsResponse'</span></a></span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Stream] -&gt; Int -&gt; ListStreamsResponse)
@@ -261,7 +261,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Stream] -&gt; Int -&gt; ListStreamsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679159648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679159657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastEvaluatedStreamArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -270,7 +270,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListStreamsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679159648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Stream]))
+</span><a href="#local-6989586621679159657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Stream]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Streams&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Stream]))
@@ -287,15 +287,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159650"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159659"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159639"><span id="local-6989586621679159641"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159648"><span id="local-6989586621679159650"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159636"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159645"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679159632"><span class="annot"><span class="annottext">toHeaders :: ListStreams -&gt; ResponseHeaders
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679159641"><span class="annot"><span class="annottext">toHeaders :: ListStreams -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListStreams -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -322,9 +322,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159622"><span id="local-6989586621679159624"><span id="local-6989586621679159626"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679159620"><span class="annot"><span class="annottext">toJSON :: ListStreams -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159616"><span id="local-6989586621679159617"><span id="local-6989586621679159618"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159631"><span id="local-6989586621679159633"><span id="local-6989586621679159635"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679159629"><span class="annot"><span class="annottext">toJSON :: ListStreams -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159625"><span id="local-6989586621679159626"><span id="local-6989586621679159627"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 tableName :: Maybe Text
 limit :: Maybe Natural
@@ -332,7 +332,7 @@ exclusiveStartStreamArn :: Maybe Text
 $sel:tableName:ListStreams' :: ListStreams -&gt; Maybe Text
 $sel:limit:ListStreams' :: ListStreams -&gt; Maybe Natural
 $sel:exclusiveStartStreamArn:ListStreams' :: ListStreams -&gt; Maybe Text
-</span><a href="#local-6989586621679159616"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679159625"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -345,33 +345,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159618"><span class="hs-identifier hs-var">exclusiveStartStreamArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679159627"><span class="hs-identifier hs-var">exclusiveStartStreamArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679159617"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679159626"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159616"><span class="hs-identifier hs-var">tableName</span></a></span><span>
+</span><a href="#local-6989586621679159625"><span class="hs-identifier hs-var">tableName</span></a></span><span>
 </span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679159610"><span class="annot"><span class="annottext">toPath :: ListStreams -&gt; ByteString
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679159619"><span class="annot"><span class="annottext">toPath :: ListStreams -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListStreams -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679159606"><span class="annot"><span class="annottext">toQuery :: ListStreams -&gt; QueryString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679159615"><span class="annot"><span class="annottext">toQuery :: ListStreams -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListStreams -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -381,7 +381,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-161"></span><span class="hs-comment">-- | Represents the output of a @ListStreams@ operation.</span><span>
 </span><span id="line-162"></span><span class="hs-comment">--</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- /See:/ 'newListStreamsResponse' smart constructor.</span><span>
-</span><span id="line-164"></span><span id="local-6989586621679159603"><span id="local-6989586621679159604"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreamsResponse"><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-var">ListStreamsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreamsResponse%27"><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-var">ListStreamsResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span id="local-6989586621679159612"><span id="local-6989586621679159613"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreamsResponse"><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-var">ListStreamsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreamsResponse%27"><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-var">ListStreamsResponse'</span></a></span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The stream ARN of the item where the operation stopped, inclusive of the</span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-comment">-- previous result set. Use this value to start a new operation, excluding</span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-comment">-- this value in the new request.</span><span>
@@ -403,7 +403,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListStreamsResponse%27"><span class="annot"><span class="annottext">ListStreamsResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDBStreams.ListStreams.html#%24sel%3AhttpStatus%3AListStreamsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159596"><span id="local-6989586621679159598"><span class="annot"><span class="annottext">ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159605"><span id="local-6989586621679159607"><span class="annot"><span class="annottext">ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool
 (ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool)
 -&gt; (ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool)
 -&gt; Eq ListStreamsResponse
@@ -412,7 +412,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool
 == :: ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool
 $c== :: ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159588"><span id="local-6989586621679159590"><span id="local-6989586621679159592"><span id="local-6989586621679159594"><span class="annot"><span class="annottext">ReadPrec [ListStreamsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159597"><span id="local-6989586621679159599"><span id="local-6989586621679159601"><span id="local-6989586621679159603"><span class="annot"><span class="annottext">ReadPrec [ListStreamsResponse]
 ReadPrec ListStreamsResponse
 Int -&gt; ReadS ListStreamsResponse
 ReadS [ListStreamsResponse]
@@ -432,7 +432,7 @@ readList :: ReadS [ListStreamsResponse]
 $creadList :: ReadS [ListStreamsResponse]
 readsPrec :: Int -&gt; ReadS ListStreamsResponse
 $creadsPrec :: Int -&gt; ReadS ListStreamsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159582"><span id="local-6989586621679159584"><span id="local-6989586621679159586"><span class="annot"><span class="annottext">Int -&gt; ListStreamsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159591"><span id="local-6989586621679159593"><span id="local-6989586621679159595"><span class="annot"><span class="annottext">Int -&gt; ListStreamsResponse -&gt; ShowS
 [ListStreamsResponse] -&gt; ShowS
 ListStreamsResponse -&gt; String
 (Int -&gt; ListStreamsResponse -&gt; ShowS)
@@ -487,8 +487,8 @@ $cfrom :: forall x. ListStreamsResponse -&gt; Rep ListStreamsResponse x
 </span><span id="line-211"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-212"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span>
 </span><span id="line-213"></span><span id="newListStreamsResponse"><span class="annot"><span class="annottext">newListStreamsResponse :: Int -&gt; ListStreamsResponse
-</span><a href="Network.AWS.DynamoDBStreams.ListStreams.html#newListStreamsResponse"><span class="hs-identifier hs-var hs-var">newListStreamsResponse</span></a></span></span><span> </span><span id="local-6989586621679159579"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159579"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDBStreams.ListStreams.html#newListStreamsResponse"><span class="hs-identifier hs-var hs-var">newListStreamsResponse</span></a></span></span><span> </span><span id="local-6989586621679159588"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159588"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>  </span><span class="annot"><span class="annottext">ListStreamsResponse' :: Maybe Text -&gt; Maybe [Stream] -&gt; Int -&gt; ListStreamsResponse
 </span><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span>
 </span><span id="line-215"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastEvaluatedStreamArn:ListStreamsResponse' :: Maybe Text
@@ -502,7 +502,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListStreamsResponse' :: Int
 </span><a href="Network.AWS.DynamoDBStreams.ListStreams.html#%24sel%3AhttpStatus%3AListStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159579"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679159588"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-219"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | The stream ARN of the item where the operation stopped, inclusive of the</span><span>
@@ -524,16 +524,16 @@ forall a. Maybe a
 -&gt; Lens
      ListStreamsResponse ListStreamsResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159578"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159587"><span class="annot"><span class="annottext">Maybe Text
 lastEvaluatedStreamArn :: Maybe Text
 $sel:lastEvaluatedStreamArn:ListStreamsResponse' :: ListStreamsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679159578"><span class="hs-identifier hs-var hs-var">lastEvaluatedStreamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159578"><span class="hs-identifier hs-var">lastEvaluatedStreamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159577"><span class="annot"><span class="annottext">s :: ListStreamsResponse
-</span><a href="#local-6989586621679159577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159576"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
-</span><a href="#local-6989586621679159577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastEvaluatedStreamArn:ListStreamsResponse' :: Maybe Text
+</span><a href="#local-6989586621679159587"><span class="hs-identifier hs-var hs-var">lastEvaluatedStreamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159587"><span class="hs-identifier hs-var">lastEvaluatedStreamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159586"><span class="annot"><span class="annottext">s :: ListStreamsResponse
+</span><a href="#local-6989586621679159586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159585"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
+</span><a href="#local-6989586621679159586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastEvaluatedStreamArn:ListStreamsResponse' :: Maybe Text
 </span><a href="Network.AWS.DynamoDBStreams.ListStreams.html#%24sel%3AlastEvaluatedStreamArn%3AListStreamsResponse%27"><span class="hs-identifier hs-var">lastEvaluatedStreamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | A list of stream descriptors associated with the current account and</span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- endpoint.</span><span>
@@ -548,16 +548,16 @@ $sel:lastEvaluatedStreamArn:ListStreamsResponse' :: ListStreamsResponse -&gt; Ma
      (Maybe [Stream])
      (Maybe [Stream])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159575"><span class="annot"><span class="annottext">Maybe [Stream]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159584"><span class="annot"><span class="annottext">Maybe [Stream]
 streams :: Maybe [Stream]
 $sel:streams:ListStreamsResponse' :: ListStreamsResponse -&gt; Maybe [Stream]
-</span><a href="#local-6989586621679159575"><span class="hs-identifier hs-var hs-var">streams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Stream]
-</span><a href="#local-6989586621679159575"><span class="hs-identifier hs-var">streams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159574"><span class="annot"><span class="annottext">s :: ListStreamsResponse
-</span><a href="#local-6989586621679159574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159573"><span class="annot"><span class="annottext">Maybe [Stream]
-</span><a href="#local-6989586621679159573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
-</span><a href="#local-6989586621679159574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streams:ListStreamsResponse' :: Maybe [Stream]
+</span><a href="#local-6989586621679159584"><span class="hs-identifier hs-var hs-var">streams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Stream]
+</span><a href="#local-6989586621679159584"><span class="hs-identifier hs-var">streams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159583"><span class="annot"><span class="annottext">s :: ListStreamsResponse
+</span><a href="#local-6989586621679159583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159582"><span class="annot"><span class="annottext">Maybe [Stream]
+</span><a href="#local-6989586621679159582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
+</span><a href="#local-6989586621679159583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streams:ListStreamsResponse' :: Maybe [Stream]
 </span><a href="Network.AWS.DynamoDBStreams.ListStreams.html#%24sel%3Astreams%3AListStreamsResponse%27"><span class="hs-identifier hs-var">streams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Stream]
-</span><a href="#local-6989586621679159573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Stream] -&gt; f (Maybe [Stream]))
+</span><a href="#local-6989586621679159582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Stream] -&gt; f (Maybe [Stream]))
  -&gt; ListStreamsResponse -&gt; f ListStreamsResponse)
 -&gt; ((Maybe [Stream] -&gt; f (Maybe [Stream]))
     -&gt; Maybe [Stream] -&gt; f (Maybe [Stream]))
@@ -582,16 +582,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListStreamsResponse -&gt; Int -&gt; ListStreamsResponse)
 -&gt; Lens ListStreamsResponse ListStreamsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159569"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159578"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListStreamsResponse' :: ListStreamsResponse -&gt; Int
-</span><a href="#local-6989586621679159569"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159569"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159568"><span class="annot"><span class="annottext">s :: ListStreamsResponse
-</span><a href="#local-6989586621679159568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159567"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
-</span><a href="#local-6989586621679159568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListStreamsResponse' :: Int
+</span><a href="#local-6989586621679159578"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159578"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159577"><span class="annot"><span class="annottext">s :: ListStreamsResponse
+</span><a href="#local-6989586621679159577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159576"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
+</span><a href="#local-6989586621679159577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListStreamsResponse' :: Int
 </span><a href="Network.AWS.DynamoDBStreams.ListStreams.html#%24sel%3AhttpStatus%3AListStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>
-</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159565"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159574"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span></span><span>
 </span><span id="line-245"></span></pre></body></html>

@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span class="hs-comment">-- Linux manual page.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newKernelCapabilities' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679454702"><span id="local-6989586621679454703"></span></span><span class="hs-keyword">data</span><span> </span><span id="KernelCapabilities"><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities"><span class="hs-identifier hs-var">KernelCapabilities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KernelCapabilities%27"><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities%27"><span class="hs-identifier hs-var">KernelCapabilities'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679454711"><span id="local-6989586621679454712"></span></span><span class="hs-keyword">data</span><span> </span><span id="KernelCapabilities"><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities"><span class="hs-identifier hs-var">KernelCapabilities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KernelCapabilities%27"><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities%27"><span class="hs-identifier hs-var">KernelCapabilities'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Linux capabilities for the container that have been removed from the</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- default configuration provided by Docker. This parameter maps to</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @CapDrop@ in the</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3Aadd%3AKernelCapabilities%27"><span class="annot"><span class="annottext">KernelCapabilities -&gt; Maybe [Text]
 </span><a href="Network.AWS.ECS.Types.KernelCapabilities.html#%24sel%3Aadd%3AKernelCapabilities%27"><span class="hs-identifier hs-var hs-var">add</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454695"><span id="local-6989586621679454697"><span class="annot"><span class="annottext">KernelCapabilities -&gt; KernelCapabilities -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454704"><span id="local-6989586621679454706"><span class="annot"><span class="annottext">KernelCapabilities -&gt; KernelCapabilities -&gt; Bool
 (KernelCapabilities -&gt; KernelCapabilities -&gt; Bool)
 -&gt; (KernelCapabilities -&gt; KernelCapabilities -&gt; Bool)
 -&gt; Eq KernelCapabilities
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KernelCapabilities -&gt; KernelCapabilities -&gt; Bool
 == :: KernelCapabilities -&gt; KernelCapabilities -&gt; Bool
 $c== :: KernelCapabilities -&gt; KernelCapabilities -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454686"><span id="local-6989586621679454688"><span id="local-6989586621679454690"><span id="local-6989586621679454692"><span class="annot"><span class="annottext">ReadPrec [KernelCapabilities]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454695"><span id="local-6989586621679454697"><span id="local-6989586621679454699"><span id="local-6989586621679454701"><span class="annot"><span class="annottext">ReadPrec [KernelCapabilities]
 ReadPrec KernelCapabilities
 Int -&gt; ReadS KernelCapabilities
 ReadS [KernelCapabilities]
@@ -94,7 +94,7 @@ readList :: ReadS [KernelCapabilities]
 $creadList :: ReadS [KernelCapabilities]
 readsPrec :: Int -&gt; ReadS KernelCapabilities
 $creadsPrec :: Int -&gt; ReadS KernelCapabilities
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454679"><span id="local-6989586621679454681"><span id="local-6989586621679454683"><span class="annot"><span class="annottext">Int -&gt; KernelCapabilities -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454688"><span id="local-6989586621679454690"><span id="local-6989586621679454692"><span class="annot"><span class="annottext">Int -&gt; KernelCapabilities -&gt; ShowS
 [KernelCapabilities] -&gt; ShowS
 KernelCapabilities -&gt; String
 (Int -&gt; KernelCapabilities -&gt; ShowS)
@@ -189,16 +189,16 @@ forall a. Maybe a
 -&gt; Lens
      KernelCapabilities KernelCapabilities (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities%27"><span class="hs-identifier hs-type">KernelCapabilities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454670"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities%27"><span class="hs-identifier hs-type">KernelCapabilities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454679"><span class="annot"><span class="annottext">Maybe [Text]
 drop :: Maybe [Text]
 $sel:drop:KernelCapabilities' :: KernelCapabilities -&gt; Maybe [Text]
-</span><a href="#local-6989586621679454670"><span class="hs-identifier hs-var hs-var">drop</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679454670"><span class="hs-identifier hs-var">drop</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454669"><span class="annot"><span class="annottext">s :: KernelCapabilities
-</span><a href="#local-6989586621679454669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities%27"><span class="hs-identifier hs-type">KernelCapabilities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454668"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679454668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KernelCapabilities
-</span><a href="#local-6989586621679454669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:drop:KernelCapabilities' :: Maybe [Text]
+</span><a href="#local-6989586621679454679"><span class="hs-identifier hs-var hs-var">drop</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679454679"><span class="hs-identifier hs-var">drop</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454678"><span class="annot"><span class="annottext">s :: KernelCapabilities
+</span><a href="#local-6989586621679454678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities%27"><span class="hs-identifier hs-type">KernelCapabilities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454677"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679454677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KernelCapabilities
+</span><a href="#local-6989586621679454678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:drop:KernelCapabilities' :: Maybe [Text]
 </span><a href="Network.AWS.ECS.Types.KernelCapabilities.html#%24sel%3Adrop%3AKernelCapabilities%27"><span class="hs-identifier hs-var">drop</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679454668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities"><span class="hs-identifier hs-type">KernelCapabilities</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679454677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities"><span class="hs-identifier hs-type">KernelCapabilities</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; KernelCapabilities -&gt; f KernelCapabilities)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -237,16 +237,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      KernelCapabilities KernelCapabilities (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities%27"><span class="hs-identifier hs-type">KernelCapabilities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454663"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities%27"><span class="hs-identifier hs-type">KernelCapabilities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454672"><span class="annot"><span class="annottext">Maybe [Text]
 add :: Maybe [Text]
 $sel:add:KernelCapabilities' :: KernelCapabilities -&gt; Maybe [Text]
-</span><a href="#local-6989586621679454663"><span class="hs-identifier hs-var hs-var">add</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679454663"><span class="hs-identifier hs-var">add</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454662"><span class="annot"><span class="annottext">s :: KernelCapabilities
-</span><a href="#local-6989586621679454662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities%27"><span class="hs-identifier hs-type">KernelCapabilities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454661"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679454661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KernelCapabilities
-</span><a href="#local-6989586621679454662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:add:KernelCapabilities' :: Maybe [Text]
+</span><a href="#local-6989586621679454672"><span class="hs-identifier hs-var hs-var">add</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679454672"><span class="hs-identifier hs-var">add</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454671"><span class="annot"><span class="annottext">s :: KernelCapabilities
+</span><a href="#local-6989586621679454671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities%27"><span class="hs-identifier hs-type">KernelCapabilities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454670"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679454670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KernelCapabilities
+</span><a href="#local-6989586621679454671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:add:KernelCapabilities' :: Maybe [Text]
 </span><a href="Network.AWS.ECS.Types.KernelCapabilities.html#%24sel%3Aadd%3AKernelCapabilities%27"><span class="hs-identifier hs-var">add</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679454661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities"><span class="hs-identifier hs-type">KernelCapabilities</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679454670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities"><span class="hs-identifier hs-type">KernelCapabilities</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; KernelCapabilities -&gt; f KernelCapabilities)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -263,8 +263,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454658"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities"><span class="hs-identifier hs-type">KernelCapabilities</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679454656"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KernelCapabilities
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454667"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities"><span class="hs-identifier hs-type">KernelCapabilities</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679454665"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KernelCapabilities
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KernelCapabilities)
@@ -274,8 +274,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KernelCapabilities&quot;</span></span><span>
-</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679454653"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679454653"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679454662"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679454662"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe [Text] -&gt; KernelCapabilities
 </span><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities%27"><span class="hs-identifier hs-var">KernelCapabilities'</span></a></span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe [Text] -&gt; KernelCapabilities)
@@ -283,7 +283,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [Text] -&gt; KernelCapabilities)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679454653"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679454662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;drop&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -296,7 +296,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [Text]) -&gt; Parser KernelCapabilities
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679454653"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679454662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;add&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -307,18 +307,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454646"><span id="local-6989586621679454648"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities"><span class="hs-identifier hs-type">KernelCapabilities</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454655"><span id="local-6989586621679454657"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities"><span class="hs-identifier hs-type">KernelCapabilities</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454643"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities"><span class="hs-identifier hs-type">KernelCapabilities</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities"><span class="hs-identifier hs-type">KernelCapabilities</span></a></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454635"><span id="local-6989586621679454637"><span id="local-6989586621679454639"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities"><span class="hs-identifier hs-type">KernelCapabilities</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679454633"><span class="annot"><span class="annottext">toJSON :: KernelCapabilities -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities%27"><span class="hs-identifier hs-type">KernelCapabilities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454630"><span id="local-6989586621679454631"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454644"><span id="local-6989586621679454646"><span id="local-6989586621679454648"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities"><span class="hs-identifier hs-type">KernelCapabilities</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679454642"><span class="annot"><span class="annottext">toJSON :: KernelCapabilities -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.KernelCapabilities.html#KernelCapabilities%27"><span class="hs-identifier hs-type">KernelCapabilities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454639"><span id="local-6989586621679454640"><span class="annot"><span class="annottext">Maybe [Text]
 add :: Maybe [Text]
 drop :: Maybe [Text]
 $sel:add:KernelCapabilities' :: KernelCapabilities -&gt; Maybe [Text]
 $sel:drop:KernelCapabilities' :: KernelCapabilities -&gt; Maybe [Text]
-</span><a href="#local-6989586621679454630"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679454639"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -330,14 +330,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679454631"><span class="hs-identifier hs-var">drop</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679454640"><span class="hs-identifier hs-var">drop</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;add&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679454630"><span class="hs-identifier hs-var">add</span></a></span><span>
+</span><a href="#local-6989586621679454639"><span class="hs-identifier hs-var">add</span></a></span><span>
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span></pre></body></html>

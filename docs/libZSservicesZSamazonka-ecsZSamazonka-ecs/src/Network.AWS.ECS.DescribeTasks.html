@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDescribeTasks' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679475912"><span id="local-6989586621679475913"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTasks"><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-var">DescribeTasks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTasks%27"><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks%27"><span class="hs-identifier hs-var">DescribeTasks'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679475921"><span id="local-6989586621679475922"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTasks"><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-var">DescribeTasks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTasks%27"><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks%27"><span class="hs-identifier hs-var">DescribeTasks'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether you want to see the resource tags for the task. If</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- @TAGS@ is specified, the tags are included in the response. If this</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- field is omitted, tags are not included in the response.</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3Atasks%3ADescribeTasks%27"><span class="annot"><span class="annottext">DescribeTasks -&gt; [Text]
 </span><a href="Network.AWS.ECS.DescribeTasks.html#%24sel%3Atasks%3ADescribeTasks%27"><span class="hs-identifier hs-var hs-var">tasks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679475904"><span id="local-6989586621679475906"><span class="annot"><span class="annottext">DescribeTasks -&gt; DescribeTasks -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679475913"><span id="local-6989586621679475915"><span class="annot"><span class="annottext">DescribeTasks -&gt; DescribeTasks -&gt; Bool
 (DescribeTasks -&gt; DescribeTasks -&gt; Bool)
 -&gt; (DescribeTasks -&gt; DescribeTasks -&gt; Bool) -&gt; Eq DescribeTasks
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeTasks -&gt; DescribeTasks -&gt; Bool
 == :: DescribeTasks -&gt; DescribeTasks -&gt; Bool
 $c== :: DescribeTasks -&gt; DescribeTasks -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679475895"><span id="local-6989586621679475897"><span id="local-6989586621679475899"><span id="local-6989586621679475901"><span class="annot"><span class="annottext">ReadPrec [DescribeTasks]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679475904"><span id="local-6989586621679475906"><span id="local-6989586621679475908"><span id="local-6989586621679475910"><span class="annot"><span class="annottext">ReadPrec [DescribeTasks]
 ReadPrec DescribeTasks
 Int -&gt; ReadS DescribeTasks
 ReadS [DescribeTasks]
@@ -95,7 +95,7 @@ readList :: ReadS [DescribeTasks]
 $creadList :: ReadS [DescribeTasks]
 readsPrec :: Int -&gt; ReadS DescribeTasks
 $creadsPrec :: Int -&gt; ReadS DescribeTasks
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679475888"><span id="local-6989586621679475890"><span id="local-6989586621679475892"><span class="annot"><span class="annottext">Int -&gt; DescribeTasks -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679475897"><span id="local-6989586621679475899"><span id="local-6989586621679475901"><span class="annot"><span class="annottext">Int -&gt; DescribeTasks -&gt; ShowS
 [DescribeTasks] -&gt; ShowS
 DescribeTasks -&gt; String
 (Int -&gt; DescribeTasks -&gt; ShowS)
@@ -171,16 +171,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      DescribeTasks DescribeTasks (Maybe [TaskField]) (Maybe [TaskField])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks%27"><span class="hs-identifier hs-type">DescribeTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475881"><span class="annot"><span class="annottext">Maybe [TaskField]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks%27"><span class="hs-identifier hs-type">DescribeTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475890"><span class="annot"><span class="annottext">Maybe [TaskField]
 include :: Maybe [TaskField]
 $sel:include:DescribeTasks' :: DescribeTasks -&gt; Maybe [TaskField]
-</span><a href="#local-6989586621679475881"><span class="hs-identifier hs-var hs-var">include</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TaskField]
-</span><a href="#local-6989586621679475881"><span class="hs-identifier hs-var">include</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475880"><span class="annot"><span class="annottext">s :: DescribeTasks
-</span><a href="#local-6989586621679475880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks%27"><span class="hs-identifier hs-type">DescribeTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475879"><span class="annot"><span class="annottext">Maybe [TaskField]
-</span><a href="#local-6989586621679475879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTasks
-</span><a href="#local-6989586621679475880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:include:DescribeTasks' :: Maybe [TaskField]
+</span><a href="#local-6989586621679475890"><span class="hs-identifier hs-var hs-var">include</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TaskField]
+</span><a href="#local-6989586621679475890"><span class="hs-identifier hs-var">include</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475889"><span class="annot"><span class="annottext">s :: DescribeTasks
+</span><a href="#local-6989586621679475889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks%27"><span class="hs-identifier hs-type">DescribeTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475888"><span class="annot"><span class="annottext">Maybe [TaskField]
+</span><a href="#local-6989586621679475888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTasks
+</span><a href="#local-6989586621679475889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:include:DescribeTasks' :: Maybe [TaskField]
 </span><a href="Network.AWS.ECS.DescribeTasks.html#%24sel%3Ainclude%3ADescribeTasks%27"><span class="hs-identifier hs-var">include</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TaskField]
-</span><a href="#local-6989586621679475879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TaskField] -&gt; f (Maybe [TaskField]))
+</span><a href="#local-6989586621679475888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TaskField] -&gt; f (Maybe [TaskField]))
  -&gt; DescribeTasks -&gt; f DescribeTasks)
 -&gt; ((Maybe [TaskField] -&gt; f (Maybe [TaskField]))
     -&gt; Maybe [TaskField] -&gt; f (Maybe [TaskField]))
@@ -212,16 +212,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeTasks -&gt; Maybe Text -&gt; DescribeTasks)
 -&gt; Lens DescribeTasks DescribeTasks (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks%27"><span class="hs-identifier hs-type">DescribeTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475875"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks%27"><span class="hs-identifier hs-type">DescribeTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475884"><span class="annot"><span class="annottext">Maybe Text
 cluster :: Maybe Text
 $sel:cluster:DescribeTasks' :: DescribeTasks -&gt; Maybe Text
-</span><a href="#local-6989586621679475875"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475875"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475874"><span class="annot"><span class="annottext">s :: DescribeTasks
-</span><a href="#local-6989586621679475874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks%27"><span class="hs-identifier hs-type">DescribeTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475873"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTasks
-</span><a href="#local-6989586621679475874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:DescribeTasks' :: Maybe Text
+</span><a href="#local-6989586621679475884"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679475884"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475883"><span class="annot"><span class="annottext">s :: DescribeTasks
+</span><a href="#local-6989586621679475883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks%27"><span class="hs-identifier hs-type">DescribeTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475882"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679475882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTasks
+</span><a href="#local-6989586621679475883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:DescribeTasks' :: Maybe Text
 </span><a href="Network.AWS.ECS.DescribeTasks.html#%24sel%3Acluster%3ADescribeTasks%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679475882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | A list of up to 100 task IDs or full ARN entries.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#describeTasks_tasks"><span class="hs-identifier hs-type">describeTasks_tasks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -230,16 +230,16 @@ $sel:cluster:DescribeTasks' :: DescribeTasks -&gt; Maybe Text
 -&gt; (DescribeTasks -&gt; [Text] -&gt; DescribeTasks)
 -&gt; Lens DescribeTasks DescribeTasks [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks%27"><span class="hs-identifier hs-type">DescribeTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475872"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks%27"><span class="hs-identifier hs-type">DescribeTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475881"><span class="annot"><span class="annottext">[Text]
 tasks :: [Text]
 $sel:tasks:DescribeTasks' :: DescribeTasks -&gt; [Text]
-</span><a href="#local-6989586621679475872"><span class="hs-identifier hs-var hs-var">tasks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679475872"><span class="hs-identifier hs-var">tasks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475871"><span class="annot"><span class="annottext">s :: DescribeTasks
-</span><a href="#local-6989586621679475871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks%27"><span class="hs-identifier hs-type">DescribeTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475870"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679475870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTasks
-</span><a href="#local-6989586621679475871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tasks:DescribeTasks' :: [Text]
+</span><a href="#local-6989586621679475881"><span class="hs-identifier hs-var hs-var">tasks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679475881"><span class="hs-identifier hs-var">tasks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475880"><span class="annot"><span class="annottext">s :: DescribeTasks
+</span><a href="#local-6989586621679475880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks%27"><span class="hs-identifier hs-type">DescribeTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475879"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679475879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTasks
+</span><a href="#local-6989586621679475880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tasks:DescribeTasks' :: [Text]
 </span><a href="Network.AWS.ECS.DescribeTasks.html#%24sel%3Atasks%3ADescribeTasks%27"><span class="hs-identifier hs-var">tasks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679475870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; DescribeTasks -&gt; f DescribeTasks)
+</span><a href="#local-6989586621679475879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; DescribeTasks -&gt; f DescribeTasks)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; DescribeTasks
@@ -253,12 +253,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse"><span class="hs-identifier hs-type">DescribeTasksResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679475866"><span class="annot"><span class="annottext">request :: DescribeTasks -&gt; Request DescribeTasks
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679475875"><span class="annot"><span class="annottext">request :: DescribeTasks -&gt; Request DescribeTasks
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeTasks -&gt; Request DescribeTasks
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679475862"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679475871"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeTasks
 -&gt; ClientResponse ClientBody
@@ -282,10 +282,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679475859"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679475859"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679475858"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679475858"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679475857"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679475857"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679475868"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679475868"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679475867"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679475867"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679475866"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679475866"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Failure] -&gt; Maybe [Task] -&gt; Int -&gt; DescribeTasksResponse
 </span><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse%27"><span class="hs-identifier hs-var">DescribeTasksResponse'</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Failure] -&gt; Maybe [Task] -&gt; Int -&gt; DescribeTasksResponse)
@@ -293,7 +293,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Task] -&gt; Int -&gt; DescribeTasksResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679475857"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Failure]))
+</span><a href="#local-6989586621679475866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Failure]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;failures&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Failure]))
@@ -307,7 +307,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; DescribeTasksResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679475857"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Task]))
+</span><a href="#local-6989586621679475866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Task]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tasks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Task]))
@@ -324,15 +324,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679475859"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679475868"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679475848"><span id="local-6989586621679475850"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679475857"><span id="local-6989586621679475859"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679475845"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679475854"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679475841"><span class="annot"><span class="annottext">toHeaders :: DescribeTasks -&gt; ResponseHeaders
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679475850"><span class="annot"><span class="annottext">toHeaders :: DescribeTasks -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeTasks -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -359,9 +359,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679475831"><span id="local-6989586621679475833"><span id="local-6989586621679475835"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679475829"><span class="annot"><span class="annottext">toJSON :: DescribeTasks -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks%27"><span class="hs-identifier hs-type">DescribeTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475825"><span id="local-6989586621679475826"><span id="local-6989586621679475827"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679475840"><span id="local-6989586621679475842"><span id="local-6989586621679475844"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679475838"><span class="annot"><span class="annottext">toJSON :: DescribeTasks -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks%27"><span class="hs-identifier hs-type">DescribeTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475834"><span id="local-6989586621679475835"><span id="local-6989586621679475836"><span class="annot"><span class="annottext">[Text]
 Maybe [TaskField]
 Maybe Text
 tasks :: [Text]
@@ -370,7 +370,7 @@ include :: Maybe [TaskField]
 $sel:tasks:DescribeTasks' :: DescribeTasks -&gt; [Text]
 $sel:cluster:DescribeTasks' :: DescribeTasks -&gt; Maybe Text
 $sel:include:DescribeTasks' :: DescribeTasks -&gt; Maybe [TaskField]
-</span><a href="#local-6989586621679475825"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679475834"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -382,33 +382,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([TaskField] -&gt; Pair) -&gt; Maybe [TaskField] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TaskField]
-</span><a href="#local-6989586621679475827"><span class="hs-identifier hs-var">include</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679475836"><span class="hs-identifier hs-var">include</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cluster&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679475826"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679475835"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tasks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679475825"><span class="hs-identifier hs-var">tasks</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679475834"><span class="hs-identifier hs-var">tasks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679475819"><span class="annot"><span class="annottext">toPath :: DescribeTasks -&gt; ByteString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679475828"><span class="annot"><span class="annottext">toPath :: DescribeTasks -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeTasks -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasks"><span class="hs-identifier hs-type">DescribeTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679475815"><span class="annot"><span class="annottext">toQuery :: DescribeTasks -&gt; QueryString
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679475824"><span class="annot"><span class="annottext">toQuery :: DescribeTasks -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeTasks -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -416,7 +416,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newDescribeTasksResponse' smart constructor.</span><span>
-</span><span id="line-165"></span><span id="local-6989586621679475812"><span id="local-6989586621679475813"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTasksResponse"><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse"><span class="hs-identifier hs-var">DescribeTasksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTasksResponse%27"><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse%27"><span class="hs-identifier hs-var">DescribeTasksResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span id="local-6989586621679475821"><span id="local-6989586621679475822"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTasksResponse"><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse"><span class="hs-identifier hs-var">DescribeTasksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTasksResponse%27"><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse%27"><span class="hs-identifier hs-var">DescribeTasksResponse'</span></a></span></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
 </span><span id="line-167"></span><span>    </span><span id="%24sel%3Afailures%3ADescribeTasksResponse%27"><span class="annot"><span class="annottext">DescribeTasksResponse -&gt; Maybe [Failure]
 </span><a href="Network.AWS.ECS.DescribeTasks.html#%24sel%3Afailures%3ADescribeTasksResponse%27"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.Failure.html#Failure"><span class="hs-identifier hs-type">Failure</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -427,7 +427,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeTasksResponse%27"><span class="annot"><span class="annottext">DescribeTasksResponse -&gt; Int
 </span><a href="Network.AWS.ECS.DescribeTasks.html#%24sel%3AhttpStatus%3ADescribeTasksResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679475805"><span id="local-6989586621679475807"><span class="annot"><span class="annottext">DescribeTasksResponse -&gt; DescribeTasksResponse -&gt; Bool
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679475814"><span id="local-6989586621679475816"><span class="annot"><span class="annottext">DescribeTasksResponse -&gt; DescribeTasksResponse -&gt; Bool
 (DescribeTasksResponse -&gt; DescribeTasksResponse -&gt; Bool)
 -&gt; (DescribeTasksResponse -&gt; DescribeTasksResponse -&gt; Bool)
 -&gt; Eq DescribeTasksResponse
@@ -436,7 +436,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeTasksResponse -&gt; DescribeTasksResponse -&gt; Bool
 == :: DescribeTasksResponse -&gt; DescribeTasksResponse -&gt; Bool
 $c== :: DescribeTasksResponse -&gt; DescribeTasksResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679475797"><span id="local-6989586621679475799"><span id="local-6989586621679475801"><span id="local-6989586621679475803"><span class="annot"><span class="annottext">ReadPrec [DescribeTasksResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679475806"><span id="local-6989586621679475808"><span id="local-6989586621679475810"><span id="local-6989586621679475812"><span class="annot"><span class="annottext">ReadPrec [DescribeTasksResponse]
 ReadPrec DescribeTasksResponse
 Int -&gt; ReadS DescribeTasksResponse
 ReadS [DescribeTasksResponse]
@@ -456,7 +456,7 @@ readList :: ReadS [DescribeTasksResponse]
 $creadList :: ReadS [DescribeTasksResponse]
 readsPrec :: Int -&gt; ReadS DescribeTasksResponse
 $creadsPrec :: Int -&gt; ReadS DescribeTasksResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679475791"><span id="local-6989586621679475793"><span id="local-6989586621679475795"><span class="annot"><span class="annottext">Int -&gt; DescribeTasksResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679475800"><span id="local-6989586621679475802"><span id="local-6989586621679475804"><span class="annot"><span class="annottext">Int -&gt; DescribeTasksResponse -&gt; ShowS
 [DescribeTasksResponse] -&gt; ShowS
 DescribeTasksResponse -&gt; String
 (Int -&gt; DescribeTasksResponse -&gt; ShowS)
@@ -500,8 +500,8 @@ $cfrom :: forall x. DescribeTasksResponse -&gt; Rep DescribeTasksResponse x
 </span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse"><span class="hs-identifier hs-type">DescribeTasksResponse</span></a></span><span>
 </span><span id="line-192"></span><span id="newDescribeTasksResponse"><span class="annot"><span class="annottext">newDescribeTasksResponse :: Int -&gt; DescribeTasksResponse
-</span><a href="Network.AWS.ECS.DescribeTasks.html#newDescribeTasksResponse"><span class="hs-identifier hs-var hs-var">newDescribeTasksResponse</span></a></span></span><span> </span><span id="local-6989586621679475788"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679475788"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.DescribeTasks.html#newDescribeTasksResponse"><span class="hs-identifier hs-var hs-var">newDescribeTasksResponse</span></a></span></span><span> </span><span id="local-6989586621679475797"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679475797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="annottext">DescribeTasksResponse' :: Maybe [Failure] -&gt; Maybe [Task] -&gt; Int -&gt; DescribeTasksResponse
 </span><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse%27"><span class="hs-identifier hs-type">DescribeTasksResponse'</span></a></span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failures:DescribeTasksResponse' :: Maybe [Failure]
@@ -514,7 +514,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTasksResponse' :: Int
 </span><a href="Network.AWS.ECS.DescribeTasks.html#%24sel%3AhttpStatus%3ADescribeTasksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679475788"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679475797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-197"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
@@ -530,16 +530,16 @@ forall a. Maybe a
      (Maybe [Failure])
      (Maybe [Failure])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse%27"><span class="hs-identifier hs-type">DescribeTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475787"><span class="annot"><span class="annottext">Maybe [Failure]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse%27"><span class="hs-identifier hs-type">DescribeTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475796"><span class="annot"><span class="annottext">Maybe [Failure]
 failures :: Maybe [Failure]
 $sel:failures:DescribeTasksResponse' :: DescribeTasksResponse -&gt; Maybe [Failure]
-</span><a href="#local-6989586621679475787"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Failure]
-</span><a href="#local-6989586621679475787"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475786"><span class="annot"><span class="annottext">s :: DescribeTasksResponse
-</span><a href="#local-6989586621679475786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse%27"><span class="hs-identifier hs-type">DescribeTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475785"><span class="annot"><span class="annottext">Maybe [Failure]
-</span><a href="#local-6989586621679475785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTasksResponse
-</span><a href="#local-6989586621679475786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:DescribeTasksResponse' :: Maybe [Failure]
+</span><a href="#local-6989586621679475796"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Failure]
+</span><a href="#local-6989586621679475796"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475795"><span class="annot"><span class="annottext">s :: DescribeTasksResponse
+</span><a href="#local-6989586621679475795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse%27"><span class="hs-identifier hs-type">DescribeTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475794"><span class="annot"><span class="annottext">Maybe [Failure]
+</span><a href="#local-6989586621679475794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTasksResponse
+</span><a href="#local-6989586621679475795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:DescribeTasksResponse' :: Maybe [Failure]
 </span><a href="Network.AWS.ECS.DescribeTasks.html#%24sel%3Afailures%3ADescribeTasksResponse%27"><span class="hs-identifier hs-var">failures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Failure]
-</span><a href="#local-6989586621679475785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse"><span class="hs-identifier hs-type">DescribeTasksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Failure] -&gt; f (Maybe [Failure]))
+</span><a href="#local-6989586621679475794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse"><span class="hs-identifier hs-type">DescribeTasksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Failure] -&gt; f (Maybe [Failure]))
  -&gt; DescribeTasksResponse -&gt; f DescribeTasksResponse)
 -&gt; ((Maybe [Failure] -&gt; f (Maybe [Failure]))
     -&gt; Maybe [Failure] -&gt; f (Maybe [Failure]))
@@ -572,16 +572,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Task])
      (Maybe [Task])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse%27"><span class="hs-identifier hs-type">DescribeTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475784"><span class="annot"><span class="annottext">Maybe [Task]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse%27"><span class="hs-identifier hs-type">DescribeTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475793"><span class="annot"><span class="annottext">Maybe [Task]
 tasks :: Maybe [Task]
 $sel:tasks:DescribeTasksResponse' :: DescribeTasksResponse -&gt; Maybe [Task]
-</span><a href="#local-6989586621679475784"><span class="hs-identifier hs-var hs-var">tasks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Task]
-</span><a href="#local-6989586621679475784"><span class="hs-identifier hs-var">tasks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475783"><span class="annot"><span class="annottext">s :: DescribeTasksResponse
-</span><a href="#local-6989586621679475783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse%27"><span class="hs-identifier hs-type">DescribeTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475782"><span class="annot"><span class="annottext">Maybe [Task]
-</span><a href="#local-6989586621679475782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTasksResponse
-</span><a href="#local-6989586621679475783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tasks:DescribeTasksResponse' :: Maybe [Task]
+</span><a href="#local-6989586621679475793"><span class="hs-identifier hs-var hs-var">tasks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Task]
+</span><a href="#local-6989586621679475793"><span class="hs-identifier hs-var">tasks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475792"><span class="annot"><span class="annottext">s :: DescribeTasksResponse
+</span><a href="#local-6989586621679475792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse%27"><span class="hs-identifier hs-type">DescribeTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475791"><span class="annot"><span class="annottext">Maybe [Task]
+</span><a href="#local-6989586621679475791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTasksResponse
+</span><a href="#local-6989586621679475792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tasks:DescribeTasksResponse' :: Maybe [Task]
 </span><a href="Network.AWS.ECS.DescribeTasks.html#%24sel%3Atasks%3ADescribeTasksResponse%27"><span class="hs-identifier hs-var">tasks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Task]
-</span><a href="#local-6989586621679475782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse"><span class="hs-identifier hs-type">DescribeTasksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Task] -&gt; f (Maybe [Task]))
+</span><a href="#local-6989586621679475791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse"><span class="hs-identifier hs-type">DescribeTasksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Task] -&gt; f (Maybe [Task]))
  -&gt; DescribeTasksResponse -&gt; f DescribeTasksResponse)
 -&gt; ((Maybe [Task] -&gt; f (Maybe [Task]))
     -&gt; Maybe [Task] -&gt; f (Maybe [Task]))
@@ -605,16 +605,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeTasksResponse -&gt; Int -&gt; DescribeTasksResponse)
 -&gt; Lens DescribeTasksResponse DescribeTasksResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse%27"><span class="hs-identifier hs-type">DescribeTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475781"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse%27"><span class="hs-identifier hs-type">DescribeTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679475790"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeTasksResponse' :: DescribeTasksResponse -&gt; Int
-</span><a href="#local-6989586621679475781"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679475781"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475780"><span class="annot"><span class="annottext">s :: DescribeTasksResponse
-</span><a href="#local-6989586621679475780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse%27"><span class="hs-identifier hs-type">DescribeTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475779"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679475779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTasksResponse
-</span><a href="#local-6989586621679475780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTasksResponse' :: Int
+</span><a href="#local-6989586621679475790"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679475790"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679475789"><span class="annot"><span class="annottext">s :: DescribeTasksResponse
+</span><a href="#local-6989586621679475789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse%27"><span class="hs-identifier hs-type">DescribeTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679475788"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679475788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTasksResponse
+</span><a href="#local-6989586621679475789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTasksResponse' :: Int
 </span><a href="Network.AWS.ECS.DescribeTasks.html#%24sel%3AhttpStatus%3ADescribeTasksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679475779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse"><span class="hs-identifier hs-type">DescribeTasksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679475788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse"><span class="hs-identifier hs-type">DescribeTasksResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679475777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse"><span class="hs-identifier hs-type">DescribeTasksResponse</span></a></span></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679475786"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeTasks.html#DescribeTasksResponse"><span class="hs-identifier hs-type">DescribeTasksResponse</span></a></span></span><span>
 </span><span id="line-212"></span></pre></body></html>

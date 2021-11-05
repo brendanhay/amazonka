@@ -1,0 +1,474 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a routing control. You can only update the name of the routing</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- control. To get or update the routing control state, see the Recovery</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Cluster (data plane) API actions for Amazon Route 53 Application</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Recovery Controller.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl"><span class="hs-identifier">UpdateRoutingControl</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#newUpdateRoutingControl"><span class="hs-identifier">newUpdateRoutingControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#updateRoutingControl_routingControlName"><span class="hs-identifier">updateRoutingControl_routingControlName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#updateRoutingControl_routingControlArn"><span class="hs-identifier">updateRoutingControl_routingControlArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControlResponse"><span class="hs-identifier">UpdateRoutingControlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#newUpdateRoutingControlResponse"><span class="hs-identifier">newUpdateRoutingControlResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#updateRoutingControlResponse_routingControl"><span class="hs-identifier">updateRoutingControlResponse_routingControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#updateRoutingControlResponse_httpStatus"><span class="hs-identifier">updateRoutingControlResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.html"><span class="hs-identifier">Network.AWS.Route53RecoveryControlConfig.Types</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | The details of the routing control that you\'re updating.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newUpdateRoutingControl' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679180165"><span id="local-6989586621679180166"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoutingControl"><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl"><span class="hs-identifier hs-var">UpdateRoutingControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoutingControl%27"><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl%27"><span class="hs-identifier hs-var">UpdateRoutingControl'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the routing control.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AroutingControlName%3AUpdateRoutingControl%27"><span class="annot"><span class="annottext">UpdateRoutingControl -&gt; Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#%24sel%3AroutingControlName%3AUpdateRoutingControl%27"><span class="hs-identifier hs-var hs-var">routingControlName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the routing control.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AroutingControlArn%3AUpdateRoutingControl%27"><span class="annot"><span class="annottext">UpdateRoutingControl -&gt; Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#%24sel%3AroutingControlArn%3AUpdateRoutingControl%27"><span class="hs-identifier hs-var hs-var">routingControlArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180158"><span id="local-6989586621679180160"><span class="annot"><span class="annottext">UpdateRoutingControl -&gt; UpdateRoutingControl -&gt; Bool
+(UpdateRoutingControl -&gt; UpdateRoutingControl -&gt; Bool)
+-&gt; (UpdateRoutingControl -&gt; UpdateRoutingControl -&gt; Bool)
+-&gt; Eq UpdateRoutingControl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRoutingControl -&gt; UpdateRoutingControl -&gt; Bool
+$c/= :: UpdateRoutingControl -&gt; UpdateRoutingControl -&gt; Bool
+== :: UpdateRoutingControl -&gt; UpdateRoutingControl -&gt; Bool
+$c== :: UpdateRoutingControl -&gt; UpdateRoutingControl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180149"><span id="local-6989586621679180151"><span id="local-6989586621679180153"><span id="local-6989586621679180155"><span class="annot"><span class="annottext">ReadPrec [UpdateRoutingControl]
+ReadPrec UpdateRoutingControl
+Int -&gt; ReadS UpdateRoutingControl
+ReadS [UpdateRoutingControl]
+(Int -&gt; ReadS UpdateRoutingControl)
+-&gt; ReadS [UpdateRoutingControl]
+-&gt; ReadPrec UpdateRoutingControl
+-&gt; ReadPrec [UpdateRoutingControl]
+-&gt; Read UpdateRoutingControl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateRoutingControl]
+$creadListPrec :: ReadPrec [UpdateRoutingControl]
+readPrec :: ReadPrec UpdateRoutingControl
+$creadPrec :: ReadPrec UpdateRoutingControl
+readList :: ReadS [UpdateRoutingControl]
+$creadList :: ReadS [UpdateRoutingControl]
+readsPrec :: Int -&gt; ReadS UpdateRoutingControl
+$creadsPrec :: Int -&gt; ReadS UpdateRoutingControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180142"><span id="local-6989586621679180144"><span id="local-6989586621679180146"><span class="annot"><span class="annottext">Int -&gt; UpdateRoutingControl -&gt; ShowS
+[UpdateRoutingControl] -&gt; ShowS
+UpdateRoutingControl -&gt; String
+(Int -&gt; UpdateRoutingControl -&gt; ShowS)
+-&gt; (UpdateRoutingControl -&gt; String)
+-&gt; ([UpdateRoutingControl] -&gt; ShowS)
+-&gt; Show UpdateRoutingControl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRoutingControl] -&gt; ShowS
+$cshowList :: [UpdateRoutingControl] -&gt; ShowS
+show :: UpdateRoutingControl -&gt; String
+$cshow :: UpdateRoutingControl -&gt; String
+showsPrec :: Int -&gt; UpdateRoutingControl -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRoutingControl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateRoutingControl -&gt; Rep UpdateRoutingControl x)
+-&gt; (forall x. Rep UpdateRoutingControl x -&gt; UpdateRoutingControl)
+-&gt; Generic UpdateRoutingControl
+forall x. Rep UpdateRoutingControl x -&gt; UpdateRoutingControl
+forall x. UpdateRoutingControl -&gt; Rep UpdateRoutingControl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateRoutingControl x -&gt; UpdateRoutingControl
+$cfrom :: forall x. UpdateRoutingControl -&gt; Rep UpdateRoutingControl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'UpdateRoutingControl' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'routingControlName', 'updateRoutingControl_routingControlName' - The name of the routing control.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'routingControlArn', 'updateRoutingControl_routingControlArn' - The Amazon Resource Name (ARN) of the routing control.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#newUpdateRoutingControl"><span class="hs-identifier hs-type">newUpdateRoutingControl</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'routingControlName'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'routingControlArn'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl"><span class="hs-identifier hs-type">UpdateRoutingControl</span></a></span><span>
+</span><span id="line-81"></span><span id="newUpdateRoutingControl"><span class="annot"><span class="annottext">newUpdateRoutingControl :: Text -&gt; Text -&gt; UpdateRoutingControl
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#newUpdateRoutingControl"><span class="hs-identifier hs-var hs-var">newUpdateRoutingControl</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679180137"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180137"><span class="hs-identifier hs-var">pRoutingControlName_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679180136"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180136"><span class="hs-identifier hs-var">pRoutingControlArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">UpdateRoutingControl' :: Text -&gt; Text -&gt; UpdateRoutingControl
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl%27"><span class="hs-identifier hs-type">UpdateRoutingControl'</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:routingControlName:UpdateRoutingControl' :: Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#%24sel%3AroutingControlName%3AUpdateRoutingControl%27"><span class="hs-identifier hs-var">routingControlName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180137"><span class="hs-identifier hs-var">pRoutingControlName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:routingControlArn:UpdateRoutingControl' :: Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#%24sel%3AroutingControlArn%3AUpdateRoutingControl%27"><span class="hs-identifier hs-var">routingControlArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180136"><span class="hs-identifier hs-var">pRoutingControlArn_</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The name of the routing control.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#updateRoutingControl_routingControlName"><span class="hs-identifier hs-type">updateRoutingControl_routingControlName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl"><span class="hs-identifier hs-type">UpdateRoutingControl</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="updateRoutingControl_routingControlName"><span class="annot"><span class="annottext">updateRoutingControl_routingControlName :: (Text -&gt; f Text) -&gt; UpdateRoutingControl -&gt; f UpdateRoutingControl
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#updateRoutingControl_routingControlName"><span class="hs-identifier hs-var hs-var">updateRoutingControl_routingControlName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoutingControl -&gt; Text)
+-&gt; (UpdateRoutingControl -&gt; Text -&gt; UpdateRoutingControl)
+-&gt; Lens UpdateRoutingControl UpdateRoutingControl Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl%27"><span class="hs-identifier hs-type">UpdateRoutingControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180133"><span class="annot"><span class="annottext">Text
+routingControlName :: Text
+$sel:routingControlName:UpdateRoutingControl' :: UpdateRoutingControl -&gt; Text
+</span><a href="#local-6989586621679180133"><span class="hs-identifier hs-var hs-var">routingControlName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180133"><span class="hs-identifier hs-var">routingControlName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180132"><span class="annot"><span class="annottext">s :: UpdateRoutingControl
+</span><a href="#local-6989586621679180132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl%27"><span class="hs-identifier hs-type">UpdateRoutingControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180131"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoutingControl
+</span><a href="#local-6989586621679180132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingControlName:UpdateRoutingControl' :: Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#%24sel%3AroutingControlName%3AUpdateRoutingControl%27"><span class="hs-identifier hs-var">routingControlName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl"><span class="hs-identifier hs-type">UpdateRoutingControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the routing control.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#updateRoutingControl_routingControlArn"><span class="hs-identifier hs-type">updateRoutingControl_routingControlArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl"><span class="hs-identifier hs-type">UpdateRoutingControl</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="updateRoutingControl_routingControlArn"><span class="annot"><span class="annottext">updateRoutingControl_routingControlArn :: (Text -&gt; f Text) -&gt; UpdateRoutingControl -&gt; f UpdateRoutingControl
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#updateRoutingControl_routingControlArn"><span class="hs-identifier hs-var hs-var">updateRoutingControl_routingControlArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoutingControl -&gt; Text)
+-&gt; (UpdateRoutingControl -&gt; Text -&gt; UpdateRoutingControl)
+-&gt; Lens UpdateRoutingControl UpdateRoutingControl Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl%27"><span class="hs-identifier hs-type">UpdateRoutingControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180130"><span class="annot"><span class="annottext">Text
+routingControlArn :: Text
+$sel:routingControlArn:UpdateRoutingControl' :: UpdateRoutingControl -&gt; Text
+</span><a href="#local-6989586621679180130"><span class="hs-identifier hs-var hs-var">routingControlArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180130"><span class="hs-identifier hs-var">routingControlArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180129"><span class="annot"><span class="annottext">s :: UpdateRoutingControl
+</span><a href="#local-6989586621679180129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl%27"><span class="hs-identifier hs-type">UpdateRoutingControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180128"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoutingControl
+</span><a href="#local-6989586621679180129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingControlArn:UpdateRoutingControl' :: Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#%24sel%3AroutingControlArn%3AUpdateRoutingControl%27"><span class="hs-identifier hs-var">routingControlArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl"><span class="hs-identifier hs-type">UpdateRoutingControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl"><span class="hs-identifier hs-type">UpdateRoutingControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl"><span class="hs-identifier hs-type">UpdateRoutingControl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControlResponse"><span class="hs-identifier hs-type">UpdateRoutingControlResponse</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679180124"><span class="annot"><span class="annottext">request :: UpdateRoutingControl -&gt; Request UpdateRoutingControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateRoutingControl -&gt; Request UpdateRoutingControl
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679180120"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateRoutingControl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateRoutingControl)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateRoutingControl))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateRoutingControl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateRoutingControl)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679180117"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180117"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679180116"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679180116"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679180115"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180115"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe RoutingControl -&gt; Int -&gt; UpdateRoutingControlResponse
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControlResponse%27"><span class="hs-identifier hs-var">UpdateRoutingControlResponse'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RoutingControl -&gt; Int -&gt; UpdateRoutingControlResponse)
+-&gt; Either String (Maybe RoutingControl)
+-&gt; Either String (Int -&gt; UpdateRoutingControlResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RoutingControl)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoutingControl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateRoutingControlResponse)
+-&gt; Either String Int -&gt; Either String UpdateRoutingControlResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180117"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180107"><span id="local-6989586621679180109"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl"><span class="hs-identifier hs-type">UpdateRoutingControl</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180104"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl"><span class="hs-identifier hs-type">UpdateRoutingControl</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl"><span class="hs-identifier hs-type">UpdateRoutingControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679180100"><span class="annot"><span class="annottext">toHeaders :: UpdateRoutingControl -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateRoutingControl -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-122"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180090"><span id="local-6989586621679180092"><span id="local-6989586621679180094"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl"><span class="hs-identifier hs-type">UpdateRoutingControl</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679180088"><span class="annot"><span class="annottext">toJSON :: UpdateRoutingControl -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl%27"><span class="hs-identifier hs-type">UpdateRoutingControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180085"><span id="local-6989586621679180086"><span class="annot"><span class="annottext">Text
+routingControlArn :: Text
+routingControlName :: Text
+$sel:routingControlArn:UpdateRoutingControl' :: UpdateRoutingControl -&gt; Text
+$sel:routingControlName:UpdateRoutingControl' :: UpdateRoutingControl -&gt; Text
+</span><a href="#local-6989586621679180085"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-131"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoutingControlName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180086"><span class="hs-identifier hs-var">routingControlName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-133"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoutingControlArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180085"><span class="hs-identifier hs-var">routingControlArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl"><span class="hs-identifier hs-type">UpdateRoutingControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679180079"><span class="annot"><span class="annottext">toPath :: UpdateRoutingControl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateRoutingControl -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/routingcontrol&quot;</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControl"><span class="hs-identifier hs-type">UpdateRoutingControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679180075"><span class="annot"><span class="annottext">toQuery :: UpdateRoutingControl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateRoutingControl -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newUpdateRoutingControlResponse' smart constructor.</span><span>
+</span><span id="line-144"></span><span id="local-6989586621679180072"><span id="local-6989586621679180073"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoutingControlResponse"><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControlResponse"><span class="hs-identifier hs-var">UpdateRoutingControlResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoutingControlResponse%27"><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControlResponse%27"><span class="hs-identifier hs-var">UpdateRoutingControlResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The routing control that was updated.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AroutingControl%3AUpdateRoutingControlResponse%27"><span class="annot"><span class="annottext">UpdateRoutingControlResponse -&gt; Maybe RoutingControl
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#%24sel%3AroutingControl%3AUpdateRoutingControlResponse%27"><span class="hs-identifier hs-var hs-var">routingControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.RoutingControl.html#RoutingControl"><span class="hs-identifier hs-type">RoutingControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateRoutingControlResponse%27"><span class="annot"><span class="annottext">UpdateRoutingControlResponse -&gt; Int
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#%24sel%3AhttpStatus%3AUpdateRoutingControlResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180066"><span id="local-6989586621679180068"><span class="annot"><span class="annottext">UpdateRoutingControlResponse
+-&gt; UpdateRoutingControlResponse -&gt; Bool
+(UpdateRoutingControlResponse
+ -&gt; UpdateRoutingControlResponse -&gt; Bool)
+-&gt; (UpdateRoutingControlResponse
+    -&gt; UpdateRoutingControlResponse -&gt; Bool)
+-&gt; Eq UpdateRoutingControlResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRoutingControlResponse
+-&gt; UpdateRoutingControlResponse -&gt; Bool
+$c/= :: UpdateRoutingControlResponse
+-&gt; UpdateRoutingControlResponse -&gt; Bool
+== :: UpdateRoutingControlResponse
+-&gt; UpdateRoutingControlResponse -&gt; Bool
+$c== :: UpdateRoutingControlResponse
+-&gt; UpdateRoutingControlResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180058"><span id="local-6989586621679180060"><span id="local-6989586621679180062"><span id="local-6989586621679180064"><span class="annot"><span class="annottext">ReadPrec [UpdateRoutingControlResponse]
+ReadPrec UpdateRoutingControlResponse
+Int -&gt; ReadS UpdateRoutingControlResponse
+ReadS [UpdateRoutingControlResponse]
+(Int -&gt; ReadS UpdateRoutingControlResponse)
+-&gt; ReadS [UpdateRoutingControlResponse]
+-&gt; ReadPrec UpdateRoutingControlResponse
+-&gt; ReadPrec [UpdateRoutingControlResponse]
+-&gt; Read UpdateRoutingControlResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateRoutingControlResponse]
+$creadListPrec :: ReadPrec [UpdateRoutingControlResponse]
+readPrec :: ReadPrec UpdateRoutingControlResponse
+$creadPrec :: ReadPrec UpdateRoutingControlResponse
+readList :: ReadS [UpdateRoutingControlResponse]
+$creadList :: ReadS [UpdateRoutingControlResponse]
+readsPrec :: Int -&gt; ReadS UpdateRoutingControlResponse
+$creadsPrec :: Int -&gt; ReadS UpdateRoutingControlResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180052"><span id="local-6989586621679180054"><span id="local-6989586621679180056"><span class="annot"><span class="annottext">Int -&gt; UpdateRoutingControlResponse -&gt; ShowS
+[UpdateRoutingControlResponse] -&gt; ShowS
+UpdateRoutingControlResponse -&gt; String
+(Int -&gt; UpdateRoutingControlResponse -&gt; ShowS)
+-&gt; (UpdateRoutingControlResponse -&gt; String)
+-&gt; ([UpdateRoutingControlResponse] -&gt; ShowS)
+-&gt; Show UpdateRoutingControlResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRoutingControlResponse] -&gt; ShowS
+$cshowList :: [UpdateRoutingControlResponse] -&gt; ShowS
+show :: UpdateRoutingControlResponse -&gt; String
+$cshow :: UpdateRoutingControlResponse -&gt; String
+showsPrec :: Int -&gt; UpdateRoutingControlResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRoutingControlResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateRoutingControlResponse -&gt; Rep UpdateRoutingControlResponse x)
+-&gt; (forall x.
+    Rep UpdateRoutingControlResponse x -&gt; UpdateRoutingControlResponse)
+-&gt; Generic UpdateRoutingControlResponse
+forall x.
+Rep UpdateRoutingControlResponse x -&gt; UpdateRoutingControlResponse
+forall x.
+UpdateRoutingControlResponse -&gt; Rep UpdateRoutingControlResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateRoutingControlResponse x -&gt; UpdateRoutingControlResponse
+$cfrom :: forall x.
+UpdateRoutingControlResponse -&gt; Rep UpdateRoutingControlResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- Create a value of 'UpdateRoutingControlResponse' with all optional fields omitted.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'routingControl', 'updateRoutingControlResponse_routingControl' - The routing control that was updated.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'httpStatus', 'updateRoutingControlResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#newUpdateRoutingControlResponse"><span class="hs-identifier hs-type">newUpdateRoutingControlResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControlResponse"><span class="hs-identifier hs-type">UpdateRoutingControlResponse</span></a></span><span>
+</span><span id="line-167"></span><span id="newUpdateRoutingControlResponse"><span class="annot"><span class="annottext">newUpdateRoutingControlResponse :: Int -&gt; UpdateRoutingControlResponse
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#newUpdateRoutingControlResponse"><span class="hs-identifier hs-var hs-var">newUpdateRoutingControlResponse</span></a></span></span><span> </span><span id="local-6989586621679180049"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180049"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">UpdateRoutingControlResponse' :: Maybe RoutingControl -&gt; Int -&gt; UpdateRoutingControlResponse
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControlResponse%27"><span class="hs-identifier hs-type">UpdateRoutingControlResponse'</span></a></span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:routingControl:UpdateRoutingControlResponse' :: Maybe RoutingControl
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#%24sel%3AroutingControl%3AUpdateRoutingControlResponse%27"><span class="hs-identifier hs-var">routingControl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Maybe RoutingControl
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRoutingControlResponse' :: Int
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#%24sel%3AhttpStatus%3AUpdateRoutingControlResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180049"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The routing control that was updated.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#updateRoutingControlResponse_routingControl"><span class="hs-identifier hs-type">updateRoutingControlResponse_routingControl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControlResponse"><span class="hs-identifier hs-type">UpdateRoutingControlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.RoutingControl.html#RoutingControl"><span class="hs-identifier hs-type">RoutingControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="updateRoutingControlResponse_routingControl"><span class="annot"><span class="annottext">updateRoutingControlResponse_routingControl :: (Maybe RoutingControl -&gt; f (Maybe RoutingControl))
+-&gt; UpdateRoutingControlResponse -&gt; f UpdateRoutingControlResponse
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#updateRoutingControlResponse_routingControl"><span class="hs-identifier hs-var hs-var">updateRoutingControlResponse_routingControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoutingControlResponse -&gt; Maybe RoutingControl)
+-&gt; (UpdateRoutingControlResponse
+    -&gt; Maybe RoutingControl -&gt; UpdateRoutingControlResponse)
+-&gt; Lens
+     UpdateRoutingControlResponse
+     UpdateRoutingControlResponse
+     (Maybe RoutingControl)
+     (Maybe RoutingControl)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControlResponse%27"><span class="hs-identifier hs-type">UpdateRoutingControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180048"><span class="annot"><span class="annottext">Maybe RoutingControl
+routingControl :: Maybe RoutingControl
+$sel:routingControl:UpdateRoutingControlResponse' :: UpdateRoutingControlResponse -&gt; Maybe RoutingControl
+</span><a href="#local-6989586621679180048"><span class="hs-identifier hs-var hs-var">routingControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RoutingControl
+</span><a href="#local-6989586621679180048"><span class="hs-identifier hs-var">routingControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180047"><span class="annot"><span class="annottext">s :: UpdateRoutingControlResponse
+</span><a href="#local-6989586621679180047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControlResponse%27"><span class="hs-identifier hs-type">UpdateRoutingControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180046"><span class="annot"><span class="annottext">Maybe RoutingControl
+</span><a href="#local-6989586621679180046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoutingControlResponse
+</span><a href="#local-6989586621679180047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingControl:UpdateRoutingControlResponse' :: Maybe RoutingControl
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#%24sel%3AroutingControl%3AUpdateRoutingControlResponse%27"><span class="hs-identifier hs-var">routingControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RoutingControl
+</span><a href="#local-6989586621679180046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControlResponse"><span class="hs-identifier hs-type">UpdateRoutingControlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#updateRoutingControlResponse_httpStatus"><span class="hs-identifier hs-type">updateRoutingControlResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControlResponse"><span class="hs-identifier hs-type">UpdateRoutingControlResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-180"></span><span id="updateRoutingControlResponse_httpStatus"><span class="annot"><span class="annottext">updateRoutingControlResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateRoutingControlResponse -&gt; f UpdateRoutingControlResponse
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#updateRoutingControlResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateRoutingControlResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoutingControlResponse -&gt; Int)
+-&gt; (UpdateRoutingControlResponse
+    -&gt; Int -&gt; UpdateRoutingControlResponse)
+-&gt; Lens
+     UpdateRoutingControlResponse UpdateRoutingControlResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControlResponse%27"><span class="hs-identifier hs-type">UpdateRoutingControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180045"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateRoutingControlResponse' :: UpdateRoutingControlResponse -&gt; Int
+</span><a href="#local-6989586621679180045"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180045"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180044"><span class="annot"><span class="annottext">s :: UpdateRoutingControlResponse
+</span><a href="#local-6989586621679180044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControlResponse%27"><span class="hs-identifier hs-type">UpdateRoutingControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180043"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoutingControlResponse
+</span><a href="#local-6989586621679180044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRoutingControlResponse' :: Int
+</span><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#%24sel%3AhttpStatus%3AUpdateRoutingControlResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControlResponse"><span class="hs-identifier hs-type">UpdateRoutingControlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180041"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.UpdateRoutingControl.html#UpdateRoutingControlResponse"><span class="hs-identifier hs-type">UpdateRoutingControlResponse</span></a></span></span><span>
+</span><span id="line-183"></span></pre></body></html>

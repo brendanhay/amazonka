@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- destination for an Amazon QLDB journal stream.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newKinesisConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679182156"><span id="local-6989586621679182157"></span></span><span class="hs-keyword">data</span><span> </span><span id="KinesisConfiguration"><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration"><span class="hs-identifier hs-var">KinesisConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KinesisConfiguration%27"><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration%27"><span class="hs-identifier hs-var">KinesisConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679182165"><span id="local-6989586621679182166"></span></span><span class="hs-keyword">data</span><span> </span><span id="KinesisConfiguration"><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration"><span class="hs-identifier hs-var">KinesisConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KinesisConfiguration%27"><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration%27"><span class="hs-identifier hs-var">KinesisConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Enables QLDB to publish multiple data records in a single Kinesis Data</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- Streams record, increasing the number of records sent per API call.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AstreamArn%3AKinesisConfiguration%27"><span class="annot"><span class="annottext">KinesisConfiguration -&gt; Text
 </span><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#%24sel%3AstreamArn%3AKinesisConfiguration%27"><span class="hs-identifier hs-var hs-var">streamArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182149"><span id="local-6989586621679182151"><span class="annot"><span class="annottext">KinesisConfiguration -&gt; KinesisConfiguration -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182158"><span id="local-6989586621679182160"><span class="annot"><span class="annottext">KinesisConfiguration -&gt; KinesisConfiguration -&gt; Bool
 (KinesisConfiguration -&gt; KinesisConfiguration -&gt; Bool)
 -&gt; (KinesisConfiguration -&gt; KinesisConfiguration -&gt; Bool)
 -&gt; Eq KinesisConfiguration
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KinesisConfiguration -&gt; KinesisConfiguration -&gt; Bool
 == :: KinesisConfiguration -&gt; KinesisConfiguration -&gt; Bool
 $c== :: KinesisConfiguration -&gt; KinesisConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182140"><span id="local-6989586621679182142"><span id="local-6989586621679182144"><span id="local-6989586621679182146"><span class="annot"><span class="annottext">ReadPrec [KinesisConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182149"><span id="local-6989586621679182151"><span id="local-6989586621679182153"><span id="local-6989586621679182155"><span class="annot"><span class="annottext">ReadPrec [KinesisConfiguration]
 ReadPrec KinesisConfiguration
 Int -&gt; ReadS KinesisConfiguration
 ReadS [KinesisConfiguration]
@@ -73,7 +73,7 @@ readList :: ReadS [KinesisConfiguration]
 $creadList :: ReadS [KinesisConfiguration]
 readsPrec :: Int -&gt; ReadS KinesisConfiguration
 $creadsPrec :: Int -&gt; ReadS KinesisConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182133"><span id="local-6989586621679182135"><span id="local-6989586621679182137"><span class="annot"><span class="annottext">Int -&gt; KinesisConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182142"><span id="local-6989586621679182144"><span id="local-6989586621679182146"><span class="annot"><span class="annottext">Int -&gt; KinesisConfiguration -&gt; ShowS
 [KinesisConfiguration] -&gt; ShowS
 KinesisConfiguration -&gt; String
 (Int -&gt; KinesisConfiguration -&gt; ShowS)
@@ -124,8 +124,8 @@ $cfrom :: forall x. KinesisConfiguration -&gt; Rep KinesisConfiguration x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration"><span class="hs-identifier hs-type">KinesisConfiguration</span></a></span><span>
 </span><span id="line-71"></span><span id="newKinesisConfiguration"><span class="annot"><span class="annottext">newKinesisConfiguration :: Text -&gt; KinesisConfiguration
-</span><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#newKinesisConfiguration"><span class="hs-identifier hs-var hs-var">newKinesisConfiguration</span></a></span></span><span> </span><span id="local-6989586621679182127"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182127"><span class="hs-identifier hs-var">pStreamArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#newKinesisConfiguration"><span class="hs-identifier hs-var hs-var">newKinesisConfiguration</span></a></span></span><span> </span><span id="local-6989586621679182136"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182136"><span class="hs-identifier hs-var">pStreamArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">KinesisConfiguration' :: Maybe Bool -&gt; Text -&gt; KinesisConfiguration
 </span><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration%27"><span class="hs-identifier hs-type">KinesisConfiguration'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:aggregationEnabled:KinesisConfiguration' :: Maybe Bool
@@ -135,7 +135,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamArn:KinesisConfiguration' :: Text
 </span><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#%24sel%3AstreamArn%3AKinesisConfiguration%27"><span class="hs-identifier hs-var">streamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182127"><span class="hs-identifier hs-var">pStreamArn_</span></a></span><span>
+</span><a href="#local-6989586621679182136"><span class="hs-identifier hs-var">pStreamArn_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | Enables QLDB to publish multiple data records in a single Kinesis Data</span><span>
@@ -156,16 +156,16 @@ forall a. Maybe a
 -&gt; Lens
      KinesisConfiguration KinesisConfiguration (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration%27"><span class="hs-identifier hs-type">KinesisConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182123"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration%27"><span class="hs-identifier hs-type">KinesisConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182132"><span class="annot"><span class="annottext">Maybe Bool
 aggregationEnabled :: Maybe Bool
 $sel:aggregationEnabled:KinesisConfiguration' :: KinesisConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679182123"><span class="hs-identifier hs-var hs-var">aggregationEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679182123"><span class="hs-identifier hs-var">aggregationEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182122"><span class="annot"><span class="annottext">s :: KinesisConfiguration
-</span><a href="#local-6989586621679182122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration%27"><span class="hs-identifier hs-type">KinesisConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182121"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679182121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisConfiguration
-</span><a href="#local-6989586621679182122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregationEnabled:KinesisConfiguration' :: Maybe Bool
+</span><a href="#local-6989586621679182132"><span class="hs-identifier hs-var hs-var">aggregationEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679182132"><span class="hs-identifier hs-var">aggregationEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182131"><span class="annot"><span class="annottext">s :: KinesisConfiguration
+</span><a href="#local-6989586621679182131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration%27"><span class="hs-identifier hs-type">KinesisConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182130"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679182130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisConfiguration
+</span><a href="#local-6989586621679182131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregationEnabled:KinesisConfiguration' :: Maybe Bool
 </span><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#%24sel%3AaggregationEnabled%3AKinesisConfiguration%27"><span class="hs-identifier hs-var">aggregationEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679182121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration"><span class="hs-identifier hs-type">KinesisConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679182130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration"><span class="hs-identifier hs-type">KinesisConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#kinesisConfiguration_streamArn"><span class="hs-identifier hs-type">kinesisConfiguration_streamArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration"><span class="hs-identifier hs-type">KinesisConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -174,19 +174,19 @@ $sel:aggregationEnabled:KinesisConfiguration' :: KinesisConfiguration -&gt; Mayb
 -&gt; (KinesisConfiguration -&gt; Text -&gt; KinesisConfiguration)
 -&gt; Lens KinesisConfiguration KinesisConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration%27"><span class="hs-identifier hs-type">KinesisConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182119"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration%27"><span class="hs-identifier hs-type">KinesisConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182128"><span class="annot"><span class="annottext">Text
 streamArn :: Text
 $sel:streamArn:KinesisConfiguration' :: KinesisConfiguration -&gt; Text
-</span><a href="#local-6989586621679182119"><span class="hs-identifier hs-var hs-var">streamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182119"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182118"><span class="annot"><span class="annottext">s :: KinesisConfiguration
-</span><a href="#local-6989586621679182118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration%27"><span class="hs-identifier hs-type">KinesisConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182117"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisConfiguration
-</span><a href="#local-6989586621679182118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamArn:KinesisConfiguration' :: Text
+</span><a href="#local-6989586621679182128"><span class="hs-identifier hs-var hs-var">streamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182128"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182127"><span class="annot"><span class="annottext">s :: KinesisConfiguration
+</span><a href="#local-6989586621679182127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration%27"><span class="hs-identifier hs-type">KinesisConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182126"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisConfiguration
+</span><a href="#local-6989586621679182127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamArn:KinesisConfiguration' :: Text
 </span><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#%24sel%3AstreamArn%3AKinesisConfiguration%27"><span class="hs-identifier hs-var">streamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration"><span class="hs-identifier hs-type">KinesisConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679182126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration"><span class="hs-identifier hs-type">KinesisConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182114"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration"><span class="hs-identifier hs-type">KinesisConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679182112"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KinesisConfiguration
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182123"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration"><span class="hs-identifier hs-type">KinesisConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679182121"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KinesisConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KinesisConfiguration)
@@ -196,15 +196,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KinesisConfiguration&quot;</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679182109"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182109"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679182118"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182118"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Text -&gt; KinesisConfiguration
 </span><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration%27"><span class="hs-identifier hs-var">KinesisConfiguration'</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Text -&gt; KinesisConfiguration)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Text -&gt; KinesisConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679182118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AggregationEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -212,25 +212,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser KinesisConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679182118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182102"><span id="local-6989586621679182104"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration"><span class="hs-identifier hs-type">KinesisConfiguration</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182111"><span id="local-6989586621679182113"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration"><span class="hs-identifier hs-type">KinesisConfiguration</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182099"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration"><span class="hs-identifier hs-type">KinesisConfiguration</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182108"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration"><span class="hs-identifier hs-type">KinesisConfiguration</span></a></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182091"><span id="local-6989586621679182093"><span id="local-6989586621679182095"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration"><span class="hs-identifier hs-type">KinesisConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679182089"><span class="annot"><span class="annottext">toJSON :: KinesisConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration%27"><span class="hs-identifier hs-type">KinesisConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182086"><span id="local-6989586621679182087"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182100"><span id="local-6989586621679182102"><span id="local-6989586621679182104"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration"><span class="hs-identifier hs-type">KinesisConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679182098"><span class="annot"><span class="annottext">toJSON :: KinesisConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.KinesisConfiguration.html#KinesisConfiguration%27"><span class="hs-identifier hs-type">KinesisConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182095"><span id="local-6989586621679182096"><span class="annot"><span class="annottext">Maybe Bool
 Text
 streamArn :: Text
 aggregationEnabled :: Maybe Bool
 $sel:streamArn:KinesisConfiguration' :: KinesisConfiguration -&gt; Text
 $sel:aggregationEnabled:KinesisConfiguration' :: KinesisConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679182086"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679182095"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -243,14 +243,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679182087"><span class="hs-identifier hs-var">aggregationEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679182096"><span class="hs-identifier hs-var">aggregationEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679182086"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679182095"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span></pre></body></html>

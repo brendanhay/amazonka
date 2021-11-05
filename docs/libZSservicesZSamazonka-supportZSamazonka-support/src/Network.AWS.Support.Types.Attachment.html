@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- file name and the content of the file.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAttachment' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679170455"><span id="local-6989586621679170456"></span></span><span class="hs-keyword">data</span><span> </span><span id="Attachment"><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment"><span class="hs-identifier hs-var">Attachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Attachment%27"><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment%27"><span class="hs-identifier hs-var">Attachment'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679170464"><span id="local-6989586621679170465"></span></span><span class="hs-keyword">data</span><span> </span><span id="Attachment"><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment"><span class="hs-identifier hs-var">Attachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Attachment%27"><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment%27"><span class="hs-identifier hs-var">Attachment'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The content of the attachment file.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Adata%27%3AAttachment%27"><span class="annot"><span class="annottext">Attachment -&gt; Maybe Base64
 </span><a href="Network.AWS.Support.Types.Attachment.html#%24sel%3Adata%27%3AAttachment%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AfileName%3AAttachment%27"><span class="annot"><span class="annottext">Attachment -&gt; Maybe Text
 </span><a href="Network.AWS.Support.Types.Attachment.html#%24sel%3AfileName%3AAttachment%27"><span class="hs-identifier hs-var hs-var">fileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679170448"><span id="local-6989586621679170450"><span class="annot"><span class="annottext">Attachment -&gt; Attachment -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679170457"><span id="local-6989586621679170459"><span class="annot"><span class="annottext">Attachment -&gt; Attachment -&gt; Bool
 (Attachment -&gt; Attachment -&gt; Bool)
 -&gt; (Attachment -&gt; Attachment -&gt; Bool) -&gt; Eq Attachment
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Attachment -&gt; Attachment -&gt; Bool
 == :: Attachment -&gt; Attachment -&gt; Bool
 $c== :: Attachment -&gt; Attachment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170439"><span id="local-6989586621679170441"><span id="local-6989586621679170443"><span id="local-6989586621679170445"><span class="annot"><span class="annottext">ReadPrec [Attachment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170448"><span id="local-6989586621679170450"><span id="local-6989586621679170452"><span id="local-6989586621679170454"><span class="annot"><span class="annottext">ReadPrec [Attachment]
 ReadPrec Attachment
 Int -&gt; ReadS Attachment
 ReadS [Attachment]
@@ -63,7 +63,7 @@ readList :: ReadS [Attachment]
 $creadList :: ReadS [Attachment]
 readsPrec :: Int -&gt; ReadS Attachment
 $creadsPrec :: Int -&gt; ReadS Attachment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170432"><span id="local-6989586621679170434"><span id="local-6989586621679170436"><span class="annot"><span class="annottext">Int -&gt; Attachment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170441"><span id="local-6989586621679170443"><span id="local-6989586621679170445"><span class="annot"><span class="annottext">Int -&gt; Attachment -&gt; ShowS
 [Attachment] -&gt; ShowS
 Attachment -&gt; String
 (Int -&gt; Attachment -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
 -&gt; (Attachment -&gt; Maybe Base64 -&gt; Attachment)
 -&gt; Lens Attachment Attachment (Maybe Base64) (Maybe Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment%27"><span class="hs-identifier hs-type">Attachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170423"><span class="annot"><span class="annottext">Maybe Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment%27"><span class="hs-identifier hs-type">Attachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170432"><span class="annot"><span class="annottext">Maybe Base64
 data' :: Maybe Base64
 $sel:data':Attachment' :: Attachment -&gt; Maybe Base64
-</span><a href="#local-6989586621679170423"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679170423"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170422"><span class="annot"><span class="annottext">s :: Attachment
-</span><a href="#local-6989586621679170422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment%27"><span class="hs-identifier hs-type">Attachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170421"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679170421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attachment
-</span><a href="#local-6989586621679170422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':Attachment' :: Maybe Base64
+</span><a href="#local-6989586621679170432"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679170432"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170431"><span class="annot"><span class="annottext">s :: Attachment
+</span><a href="#local-6989586621679170431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment%27"><span class="hs-identifier hs-type">Attachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170430"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679170430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attachment
+</span><a href="#local-6989586621679170431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':Attachment' :: Maybe Base64
 </span><a href="Network.AWS.Support.Types.Attachment.html#%24sel%3Adata%27%3AAttachment%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679170421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment"><span class="hs-identifier hs-type">Attachment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64)) -&gt; Attachment -&gt; f Attachment)
+</span><a href="#local-6989586621679170430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment"><span class="hs-identifier hs-type">Attachment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64)) -&gt; Attachment -&gt; f Attachment)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe Base64 -&gt; f (Maybe Base64))
 -&gt; (Maybe ByteString -&gt; f (Maybe ByteString))
@@ -164,19 +164,19 @@ Iso' Base64 ByteString
 -&gt; (Attachment -&gt; Maybe Text -&gt; Attachment)
 -&gt; Lens Attachment Attachment (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment%27"><span class="hs-identifier hs-type">Attachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170416"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment%27"><span class="hs-identifier hs-type">Attachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170425"><span class="annot"><span class="annottext">Maybe Text
 fileName :: Maybe Text
 $sel:fileName:Attachment' :: Attachment -&gt; Maybe Text
-</span><a href="#local-6989586621679170416"><span class="hs-identifier hs-var hs-var">fileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170416"><span class="hs-identifier hs-var">fileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170415"><span class="annot"><span class="annottext">s :: Attachment
-</span><a href="#local-6989586621679170415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment%27"><span class="hs-identifier hs-type">Attachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170414"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attachment
-</span><a href="#local-6989586621679170415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileName:Attachment' :: Maybe Text
+</span><a href="#local-6989586621679170425"><span class="hs-identifier hs-var hs-var">fileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170425"><span class="hs-identifier hs-var">fileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170424"><span class="annot"><span class="annottext">s :: Attachment
+</span><a href="#local-6989586621679170424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment%27"><span class="hs-identifier hs-type">Attachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170423"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attachment
+</span><a href="#local-6989586621679170424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileName:Attachment' :: Maybe Text
 </span><a href="Network.AWS.Support.Types.Attachment.html#%24sel%3AfileName%3AAttachment%27"><span class="hs-identifier hs-var">fileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment"><span class="hs-identifier hs-type">Attachment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679170423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment"><span class="hs-identifier hs-type">Attachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170411"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment"><span class="hs-identifier hs-type">Attachment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679170409"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Attachment
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170420"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment"><span class="hs-identifier hs-type">Attachment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679170418"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Attachment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Attachment) -&gt; Value -&gt; Parser Attachment
@@ -184,15 +184,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Attachment&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679170406"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170406"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679170415"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170415"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe Base64 -&gt; Maybe Text -&gt; Attachment
 </span><a href="Network.AWS.Support.Types.Attachment.html#Attachment%27"><span class="hs-identifier hs-var">Attachment'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Base64 -&gt; Maybe Text -&gt; Attachment)
 -&gt; Parser (Maybe Base64) -&gt; Parser (Maybe Text -&gt; Attachment)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170406"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Base64)
+</span><a href="#local-6989586621679170415"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Base64)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;data&quot;</span></span><span class="hs-special">)</span><span>
@@ -200,25 +200,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Attachment
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170406"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679170415"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fileName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170400"><span id="local-6989586621679170402"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment"><span class="hs-identifier hs-type">Attachment</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170409"><span id="local-6989586621679170411"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment"><span class="hs-identifier hs-type">Attachment</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170397"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment"><span class="hs-identifier hs-type">Attachment</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170406"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment"><span class="hs-identifier hs-type">Attachment</span></a></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170389"><span id="local-6989586621679170391"><span id="local-6989586621679170393"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment"><span class="hs-identifier hs-type">Attachment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679170387"><span class="annot"><span class="annottext">toJSON :: Attachment -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment%27"><span class="hs-identifier hs-type">Attachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170384"><span id="local-6989586621679170385"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170398"><span id="local-6989586621679170400"><span id="local-6989586621679170402"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment"><span class="hs-identifier hs-type">Attachment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679170396"><span class="annot"><span class="annottext">toJSON :: Attachment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Attachment.html#Attachment%27"><span class="hs-identifier hs-type">Attachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170393"><span id="local-6989586621679170394"><span class="annot"><span class="annottext">Maybe Text
 Maybe Base64
 fileName :: Maybe Text
 data' :: Maybe Base64
 $sel:fileName:Attachment' :: Attachment -&gt; Maybe Text
 $sel:data':Attachment' :: Attachment -&gt; Maybe Base64
-</span><a href="#local-6989586621679170384"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679170393"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -230,14 +230,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Base64 -&gt; Pair) -&gt; Maybe Base64 -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679170385"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679170394"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fileName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170384"><span class="hs-identifier hs-var">fileName</span></a></span><span>
+</span><a href="#local-6989586621679170393"><span class="hs-identifier hs-var">fileName</span></a></span><span>
 </span><span id="line-93"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span></pre></body></html>

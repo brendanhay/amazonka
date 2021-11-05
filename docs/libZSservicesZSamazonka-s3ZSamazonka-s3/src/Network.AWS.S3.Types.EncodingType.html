@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-comment">-- such as characters with an ASCII value from 0 to 10. For characters that</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- are not supported in XML 1.0, you can add this parameter to request that</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- Amazon S3 encode the keys in the response.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679540572"><span id="local-6989586621679540573"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EncodingType"><span class="annot"><a href="Network.AWS.S3.Types.EncodingType.html#EncodingType"><span class="hs-identifier hs-var">EncodingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncodingType%27"><span class="annot"><a href="Network.AWS.S3.Types.EncodingType.html#EncodingType%27"><span class="hs-identifier hs-var">EncodingType'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679540581"><span id="local-6989586621679540582"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EncodingType"><span class="annot"><a href="Network.AWS.S3.Types.EncodingType.html#EncodingType"><span class="hs-identifier hs-var">EncodingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncodingType%27"><span class="annot"><a href="Network.AWS.S3.Types.EncodingType.html#EncodingType%27"><span class="hs-identifier hs-var">EncodingType'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEncodingType"><span class="annot"><span class="annottext">EncodingType -&gt; Text
 </span><a href="Network.AWS.S3.Types.EncodingType.html#fromEncodingType"><span class="hs-identifier hs-var hs-var">fromEncodingType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679540564"><span id="local-6989586621679540566"><span id="local-6989586621679540568"><span class="annot"><span class="annottext">Int -&gt; EncodingType -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679540573"><span id="local-6989586621679540575"><span id="local-6989586621679540577"><span class="annot"><span class="annottext">Int -&gt; EncodingType -&gt; ShowS
 [EncodingType] -&gt; ShowS
 EncodingType -&gt; String
 (Int -&gt; EncodingType -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: EncodingType -&gt; String
 showsPrec :: Int -&gt; EncodingType -&gt; ShowS
 $cshowsPrec :: Int -&gt; EncodingType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679540555"><span id="local-6989586621679540557"><span id="local-6989586621679540559"><span id="local-6989586621679540561"><span class="annot"><span class="annottext">ReadPrec [EncodingType]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679540564"><span id="local-6989586621679540566"><span id="local-6989586621679540568"><span id="local-6989586621679540570"><span class="annot"><span class="annottext">ReadPrec [EncodingType]
 ReadPrec EncodingType
 Int -&gt; ReadS EncodingType
 ReadS [EncodingType]
@@ -78,7 +78,7 @@ $creadList :: ReadS [EncodingType]
 readsPrec :: Int -&gt; ReadS EncodingType
 $creadsPrec :: Int -&gt; ReadS EncodingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679540550"><span id="local-6989586621679540552"><span class="annot"><span class="annottext">EncodingType -&gt; EncodingType -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679540559"><span id="local-6989586621679540561"><span class="annot"><span class="annottext">EncodingType -&gt; EncodingType -&gt; Bool
 (EncodingType -&gt; EncodingType -&gt; Bool)
 -&gt; (EncodingType -&gt; EncodingType -&gt; Bool) -&gt; Eq EncodingType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ $c/= :: EncodingType -&gt; EncodingType -&gt; Bool
 == :: EncodingType -&gt; EncodingType -&gt; Bool
 $c== :: EncodingType -&gt; EncodingType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679540534"><span id="local-6989586621679540536"><span id="local-6989586621679540538"><span id="local-6989586621679540540"><span id="local-6989586621679540542"><span id="local-6989586621679540544"><span id="local-6989586621679540546"><span class="annot"><span class="annottext">Eq EncodingType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679540543"><span id="local-6989586621679540545"><span id="local-6989586621679540547"><span id="local-6989586621679540549"><span id="local-6989586621679540551"><span id="local-6989586621679540553"><span id="local-6989586621679540555"><span class="annot"><span class="annottext">Eq EncodingType
 Eq EncodingType
 -&gt; (EncodingType -&gt; EncodingType -&gt; Ordering)
 -&gt; (EncodingType -&gt; EncodingType -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. EncodingType -&gt; Rep EncodingType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679540526"><span id="local-6989586621679540528"><span class="annot"><span class="annottext">Int -&gt; EncodingType -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679540535"><span id="local-6989586621679540537"><span class="annot"><span class="annottext">Int -&gt; EncodingType -&gt; Int
 EncodingType -&gt; Int
 (Int -&gt; EncodingType -&gt; Int)
 -&gt; (EncodingType -&gt; Int) -&gt; Hashable EncodingType
@@ -148,49 +148,49 @@ $chash :: EncodingType -&gt; Int
 hashWithSalt :: Int -&gt; EncodingType -&gt; Int
 $chashWithSalt :: Int -&gt; EncodingType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679540523"><span class="annot"><span class="annottext">EncodingType -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679540532"><span class="annot"><span class="annottext">EncodingType -&gt; ()
 (EncodingType -&gt; ()) -&gt; NFData EncodingType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EncodingType -&gt; ()
 $crnf :: EncodingType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679540520"><span class="annot"><span class="annottext">Text -&gt; Either String EncodingType
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679540529"><span class="annot"><span class="annottext">Text -&gt; Either String EncodingType
 (Text -&gt; Either String EncodingType) -&gt; FromText EncodingType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EncodingType
 $cfromText :: Text -&gt; Either String EncodingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679540517"><span class="annot"><span class="annottext">EncodingType -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679540526"><span class="annot"><span class="annottext">EncodingType -&gt; Text
 (EncodingType -&gt; Text) -&gt; ToText EncodingType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EncodingType -&gt; Text
 $ctoText :: EncodingType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679540514"><span class="annot"><span class="annottext">EncodingType -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679540523"><span class="annot"><span class="annottext">EncodingType -&gt; ByteString
 (EncodingType -&gt; ByteString) -&gt; ToByteString EncodingType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EncodingType -&gt; ByteString
 $ctoBS :: EncodingType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679540511"><span class="annot"><span class="annottext">EncodingType -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679540520"><span class="annot"><span class="annottext">EncodingType -&gt; ByteStringBuilder
 (EncodingType -&gt; ByteStringBuilder) -&gt; ToLog EncodingType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EncodingType -&gt; ByteStringBuilder
 $cbuild :: EncodingType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679540508"><span class="annot"><span class="annottext">HeaderName -&gt; EncodingType -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679540517"><span class="annot"><span class="annottext">HeaderName -&gt; EncodingType -&gt; [Header]
 (HeaderName -&gt; EncodingType -&gt; [Header]) -&gt; ToHeader EncodingType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EncodingType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EncodingType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679540505"><span class="annot"><span class="annottext">EncodingType -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679540514"><span class="annot"><span class="annottext">EncodingType -&gt; QueryString
 (EncodingType -&gt; QueryString) -&gt; ToQuery EncodingType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EncodingType -&gt; QueryString
 $ctoQuery :: EncodingType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679540500"><span id="local-6989586621679540502"><span class="annot"><span class="annottext">Value -&gt; Parser [EncodingType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679540509"><span id="local-6989586621679540511"><span class="annot"><span class="annottext">Value -&gt; Parser [EncodingType]
 Value -&gt; Parser EncodingType
 (Value -&gt; Parser EncodingType)
 -&gt; (Value -&gt; Parser [EncodingType]) -&gt; FromJSON EncodingType
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [EncodingType]
 parseJSON :: Value -&gt; Parser EncodingType
 $cparseJSON :: Value -&gt; Parser EncodingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679540495"><span id="local-6989586621679540497"><span class="annot"><span class="annottext">FromJSONKeyFunction [EncodingType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679540504"><span id="local-6989586621679540506"><span class="annot"><span class="annottext">FromJSONKeyFunction [EncodingType]
 FromJSONKeyFunction EncodingType
 FromJSONKeyFunction EncodingType
 -&gt; FromJSONKeyFunction [EncodingType] -&gt; FromJSONKey EncodingType
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EncodingType]
 fromJSONKey :: FromJSONKeyFunction EncodingType
 $cfromJSONKey :: FromJSONKeyFunction EncodingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679540486"><span id="local-6989586621679540488"><span id="local-6989586621679540490"><span id="local-6989586621679540492"><span class="annot"><span class="annottext">[EncodingType] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679540495"><span id="local-6989586621679540497"><span id="local-6989586621679540499"><span id="local-6989586621679540501"><span class="annot"><span class="annottext">[EncodingType] -&gt; Encoding
 [EncodingType] -&gt; Value
 EncodingType -&gt; Encoding
 EncodingType -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: EncodingType -&gt; Encoding
 toJSON :: EncodingType -&gt; Value
 $ctoJSON :: EncodingType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679540481"><span id="local-6989586621679540483"><span class="annot"><span class="annottext">ToJSONKeyFunction [EncodingType]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679540490"><span id="local-6989586621679540492"><span class="annot"><span class="annottext">ToJSONKeyFunction [EncodingType]
 ToJSONKeyFunction EncodingType
 ToJSONKeyFunction EncodingType
 -&gt; ToJSONKeyFunction [EncodingType] -&gt; ToJSONKey EncodingType
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EncodingType]
 toJSONKey :: ToJSONKeyFunction EncodingType
 $ctoJSONKey :: ToJSONKeyFunction EncodingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679540478"><span class="annot"><span class="annottext">[Node] -&gt; Either String EncodingType
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679540487"><span class="annot"><span class="annottext">[Node] -&gt; Either String EncodingType
 ([Node] -&gt; Either String EncodingType) -&gt; FromXML EncodingType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EncodingType
 $cparseXML :: [Node] -&gt; Either String EncodingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679540475"><span class="annot"><span class="annottext">EncodingType -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679540484"><span class="annot"><span class="annottext">EncodingType -&gt; XML
 (EncodingType -&gt; XML) -&gt; ToXML EncodingType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EncodingType -&gt; XML

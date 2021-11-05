@@ -43,7 +43,7 @@
 </span><span id="line-43"></span><span class="hs-comment">-- cookies, and HTTP headers.</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- /See:/ 'newForwardedValues' smart constructor.</span><span>
-</span><span id="line-46"></span><span id="local-6989586621679399325"><span id="local-6989586621679399326"></span></span><span class="hs-keyword">data</span><span> </span><span id="ForwardedValues"><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues"><span class="hs-identifier hs-var">ForwardedValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ForwardedValues%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-var">ForwardedValues'</span></a></span></span><span>
+</span><span id="line-46"></span><span id="local-6989586621679399334"><span id="local-6989586621679399335"></span></span><span class="hs-keyword">data</span><span> </span><span id="ForwardedValues"><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues"><span class="hs-identifier hs-var">ForwardedValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ForwardedValues%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-var">ForwardedValues'</span></a></span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This field is deprecated. We recommend that you use a cache policy or an</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- origin request policy instead of this field.</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -147,7 +147,7 @@
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3Acookies%3AForwardedValues%27"><span class="annot"><span class="annottext">ForwardedValues -&gt; CookiePreference
 </span><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#%24sel%3Acookies%3AForwardedValues%27"><span class="hs-identifier hs-var hs-var">cookies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookiePreference.html#CookiePreference"><span class="hs-identifier hs-type">CookiePreference</span></a></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399316"><span id="local-6989586621679399318"><span class="annot"><span class="annottext">ForwardedValues -&gt; ForwardedValues -&gt; Bool
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399325"><span id="local-6989586621679399327"><span class="annot"><span class="annottext">ForwardedValues -&gt; ForwardedValues -&gt; Bool
 (ForwardedValues -&gt; ForwardedValues -&gt; Bool)
 -&gt; (ForwardedValues -&gt; ForwardedValues -&gt; Bool)
 -&gt; Eq ForwardedValues
@@ -156,7 +156,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ForwardedValues -&gt; ForwardedValues -&gt; Bool
 == :: ForwardedValues -&gt; ForwardedValues -&gt; Bool
 $c== :: ForwardedValues -&gt; ForwardedValues -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399307"><span id="local-6989586621679399309"><span id="local-6989586621679399311"><span id="local-6989586621679399313"><span class="annot"><span class="annottext">ReadPrec [ForwardedValues]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399316"><span id="local-6989586621679399318"><span id="local-6989586621679399320"><span id="local-6989586621679399322"><span class="annot"><span class="annottext">ReadPrec [ForwardedValues]
 ReadPrec ForwardedValues
 Int -&gt; ReadS ForwardedValues
 ReadS [ForwardedValues]
@@ -176,7 +176,7 @@ readList :: ReadS [ForwardedValues]
 $creadList :: ReadS [ForwardedValues]
 readsPrec :: Int -&gt; ReadS ForwardedValues
 $creadsPrec :: Int -&gt; ReadS ForwardedValues
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399300"><span id="local-6989586621679399302"><span id="local-6989586621679399304"><span class="annot"><span class="annottext">Int -&gt; ForwardedValues -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399309"><span id="local-6989586621679399311"><span id="local-6989586621679399313"><span class="annot"><span class="annottext">Int -&gt; ForwardedValues -&gt; ShowS
 [ForwardedValues] -&gt; ShowS
 ForwardedValues -&gt; String
 (Int -&gt; ForwardedValues -&gt; ShowS)
@@ -314,9 +314,9 @@ $cfrom :: forall x. ForwardedValues -&gt; Rep ForwardedValues x
 </span><span id="line-257"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookiePreference.html#CookiePreference"><span class="hs-identifier hs-type">CookiePreference</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-258"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues"><span class="hs-identifier hs-type">ForwardedValues</span></a></span><span>
 </span><span id="line-259"></span><span id="newForwardedValues"><span class="annot"><span class="annottext">newForwardedValues :: Bool -&gt; CookiePreference -&gt; ForwardedValues
-</span><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#newForwardedValues"><span class="hs-identifier hs-var hs-var">newForwardedValues</span></a></span></span><span> </span><span id="local-6989586621679399294"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679399294"><span class="hs-identifier hs-var">pQueryString_</span></a></span></span><span> </span><span id="local-6989586621679399293"><span class="annot"><span class="annottext">CookiePreference
-</span><a href="#local-6989586621679399293"><span class="hs-identifier hs-var">pCookies_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#newForwardedValues"><span class="hs-identifier hs-var hs-var">newForwardedValues</span></a></span></span><span> </span><span id="local-6989586621679399303"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679399303"><span class="hs-identifier hs-var">pQueryString_</span></a></span></span><span> </span><span id="local-6989586621679399302"><span class="annot"><span class="annottext">CookiePreference
+</span><a href="#local-6989586621679399302"><span class="hs-identifier hs-var">pCookies_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-260"></span><span>  </span><span class="annot"><span class="annottext">ForwardedValues' :: Maybe QueryStringCacheKeys
 -&gt; Maybe Headers -&gt; Bool -&gt; CookiePreference -&gt; ForwardedValues
 </span><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span>
@@ -331,10 +331,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-264"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryString:ForwardedValues' :: Bool
 </span><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#%24sel%3AqueryString%3AForwardedValues%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679399294"><span class="hs-identifier hs-var">pQueryString_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679399303"><span class="hs-identifier hs-var">pQueryString_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-265"></span><span>      </span><span class="annot"><span class="annottext">$sel:cookies:ForwardedValues' :: CookiePreference
 </span><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#%24sel%3Acookies%3AForwardedValues%27"><span class="hs-identifier hs-var">cookies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CookiePreference
-</span><a href="#local-6989586621679399293"><span class="hs-identifier hs-var">pCookies_</span></a></span><span>
+</span><a href="#local-6989586621679399302"><span class="hs-identifier hs-var">pCookies_</span></a></span><span>
 </span><span id="line-266"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-267"></span><span>
 </span><span id="line-268"></span><span class="hs-comment">-- | This field is deprecated. We recommend that you use a cache policy or an</span><span>
@@ -365,16 +365,16 @@ forall a. Maybe a
      (Maybe QueryStringCacheKeys)
      (Maybe QueryStringCacheKeys)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399289"><span class="annot"><span class="annottext">Maybe QueryStringCacheKeys
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399298"><span class="annot"><span class="annottext">Maybe QueryStringCacheKeys
 queryStringCacheKeys :: Maybe QueryStringCacheKeys
 $sel:queryStringCacheKeys:ForwardedValues' :: ForwardedValues -&gt; Maybe QueryStringCacheKeys
-</span><a href="#local-6989586621679399289"><span class="hs-identifier hs-var hs-var">queryStringCacheKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStringCacheKeys
-</span><a href="#local-6989586621679399289"><span class="hs-identifier hs-var">queryStringCacheKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399288"><span class="annot"><span class="annottext">s :: ForwardedValues
-</span><a href="#local-6989586621679399288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399287"><span class="annot"><span class="annottext">Maybe QueryStringCacheKeys
-</span><a href="#local-6989586621679399287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ForwardedValues
-</span><a href="#local-6989586621679399288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryStringCacheKeys:ForwardedValues' :: Maybe QueryStringCacheKeys
+</span><a href="#local-6989586621679399298"><span class="hs-identifier hs-var hs-var">queryStringCacheKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStringCacheKeys
+</span><a href="#local-6989586621679399298"><span class="hs-identifier hs-var">queryStringCacheKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399297"><span class="annot"><span class="annottext">s :: ForwardedValues
+</span><a href="#local-6989586621679399297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399296"><span class="annot"><span class="annottext">Maybe QueryStringCacheKeys
+</span><a href="#local-6989586621679399296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ForwardedValues
+</span><a href="#local-6989586621679399297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryStringCacheKeys:ForwardedValues' :: Maybe QueryStringCacheKeys
 </span><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#%24sel%3AqueryStringCacheKeys%3AForwardedValues%27"><span class="hs-identifier hs-var">queryStringCacheKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryStringCacheKeys
-</span><a href="#local-6989586621679399287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues"><span class="hs-identifier hs-type">ForwardedValues</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues"><span class="hs-identifier hs-type">ForwardedValues</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-286"></span><span>
 </span><span id="line-287"></span><span class="hs-comment">-- | This field is deprecated. We recommend that you use a cache policy or an</span><span>
 </span><span id="line-288"></span><span class="hs-comment">-- origin request policy instead of this field.</span><span>
@@ -406,16 +406,16 @@ $sel:queryStringCacheKeys:ForwardedValues' :: ForwardedValues -&gt; Maybe QueryS
 -&gt; Lens
      ForwardedValues ForwardedValues (Maybe Headers) (Maybe Headers)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399285"><span class="annot"><span class="annottext">Maybe Headers
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399294"><span class="annot"><span class="annottext">Maybe Headers
 headers :: Maybe Headers
 $sel:headers:ForwardedValues' :: ForwardedValues -&gt; Maybe Headers
-</span><a href="#local-6989586621679399285"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Headers
-</span><a href="#local-6989586621679399285"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399284"><span class="annot"><span class="annottext">s :: ForwardedValues
-</span><a href="#local-6989586621679399284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399283"><span class="annot"><span class="annottext">Maybe Headers
-</span><a href="#local-6989586621679399283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ForwardedValues
-</span><a href="#local-6989586621679399284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headers:ForwardedValues' :: Maybe Headers
+</span><a href="#local-6989586621679399294"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Headers
+</span><a href="#local-6989586621679399294"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399293"><span class="annot"><span class="annottext">s :: ForwardedValues
+</span><a href="#local-6989586621679399293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399292"><span class="annot"><span class="annottext">Maybe Headers
+</span><a href="#local-6989586621679399292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ForwardedValues
+</span><a href="#local-6989586621679399293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headers:ForwardedValues' :: Maybe Headers
 </span><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#%24sel%3Aheaders%3AForwardedValues%27"><span class="hs-identifier hs-var">headers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Headers
-</span><a href="#local-6989586621679399283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues"><span class="hs-identifier hs-type">ForwardedValues</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues"><span class="hs-identifier hs-type">ForwardedValues</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-311"></span><span>
 </span><span id="line-312"></span><span class="hs-comment">-- | This field is deprecated. We recommend that you use a cache policy or an</span><span>
 </span><span id="line-313"></span><span class="hs-comment">-- origin request policy instead of this field.</span><span>
@@ -461,16 +461,16 @@ $sel:headers:ForwardedValues' :: ForwardedValues -&gt; Maybe Headers
 -&gt; (ForwardedValues -&gt; Bool -&gt; ForwardedValues)
 -&gt; Lens ForwardedValues ForwardedValues Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399281"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399290"><span class="annot"><span class="annottext">Bool
 queryString :: Bool
 $sel:queryString:ForwardedValues' :: ForwardedValues -&gt; Bool
-</span><a href="#local-6989586621679399281"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679399281"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399280"><span class="annot"><span class="annottext">s :: ForwardedValues
-</span><a href="#local-6989586621679399280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399279"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679399279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ForwardedValues
-</span><a href="#local-6989586621679399280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryString:ForwardedValues' :: Bool
+</span><a href="#local-6989586621679399290"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679399290"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399289"><span class="annot"><span class="annottext">s :: ForwardedValues
+</span><a href="#local-6989586621679399289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399288"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679399288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ForwardedValues
+</span><a href="#local-6989586621679399289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryString:ForwardedValues' :: Bool
 </span><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#%24sel%3AqueryString%3AForwardedValues%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679399279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues"><span class="hs-identifier hs-type">ForwardedValues</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues"><span class="hs-identifier hs-type">ForwardedValues</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-352"></span><span>
 </span><span id="line-353"></span><span class="hs-comment">-- | This field is deprecated. We recommend that you use a cache policy or an</span><span>
 </span><span id="line-354"></span><span class="hs-comment">-- origin request policy instead of this field.</span><span>
@@ -498,21 +498,21 @@ $sel:queryString:ForwardedValues' :: ForwardedValues -&gt; Bool
 -&gt; Lens
      ForwardedValues ForwardedValues CookiePreference CookiePreference
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399277"><span class="annot"><span class="annottext">CookiePreference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399286"><span class="annot"><span class="annottext">CookiePreference
 cookies :: CookiePreference
 $sel:cookies:ForwardedValues' :: ForwardedValues -&gt; CookiePreference
-</span><a href="#local-6989586621679399277"><span class="hs-identifier hs-var hs-var">cookies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CookiePreference
-</span><a href="#local-6989586621679399277"><span class="hs-identifier hs-var">cookies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399276"><span class="annot"><span class="annottext">s :: ForwardedValues
-</span><a href="#local-6989586621679399276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399275"><span class="annot"><span class="annottext">CookiePreference
-</span><a href="#local-6989586621679399275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ForwardedValues
-</span><a href="#local-6989586621679399276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cookies:ForwardedValues' :: CookiePreference
+</span><a href="#local-6989586621679399286"><span class="hs-identifier hs-var hs-var">cookies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CookiePreference
+</span><a href="#local-6989586621679399286"><span class="hs-identifier hs-var">cookies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399285"><span class="annot"><span class="annottext">s :: ForwardedValues
+</span><a href="#local-6989586621679399285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399284"><span class="annot"><span class="annottext">CookiePreference
+</span><a href="#local-6989586621679399284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ForwardedValues
+</span><a href="#local-6989586621679399285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cookies:ForwardedValues' :: CookiePreference
 </span><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#%24sel%3Acookies%3AForwardedValues%27"><span class="hs-identifier hs-var">cookies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CookiePreference
-</span><a href="#local-6989586621679399275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues"><span class="hs-identifier hs-type">ForwardedValues</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues"><span class="hs-identifier hs-type">ForwardedValues</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-373"></span><span>
 </span><span id="line-374"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues"><span class="hs-identifier hs-type">ForwardedValues</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-375"></span><span>  </span><span id="local-6989586621679399272"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ForwardedValues
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679399270"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679399270"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-375"></span><span>  </span><span id="local-6989586621679399281"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ForwardedValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679399279"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399279"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-376"></span><span>    </span><span class="annot"><span class="annottext">Maybe QueryStringCacheKeys
 -&gt; Maybe Headers -&gt; Bool -&gt; CookiePreference -&gt; ForwardedValues
 </span><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-var">ForwardedValues'</span></a></span><span>
@@ -524,7 +524,7 @@ $sel:cookies:ForwardedValues' :: ForwardedValues -&gt; CookiePreference
      (Maybe Headers -&gt; Bool -&gt; CookiePreference -&gt; ForwardedValues)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679399270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe QueryStringCacheKeys)
+</span><a href="#local-6989586621679399279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe QueryStringCacheKeys)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QueryStringCacheKeys&quot;</span></span><span class="hs-special">)</span><span>
@@ -535,7 +535,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Bool -&gt; CookiePreference -&gt; ForwardedValues)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679399270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Headers)
+</span><a href="#local-6989586621679399279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Headers)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Headers&quot;</span></span><span class="hs-special">)</span><span>
@@ -544,7 +544,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (CookiePreference -&gt; ForwardedValues)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679399270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+</span><a href="#local-6989586621679399279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QueryString&quot;</span></span><span class="hs-special">)</span><span>
@@ -552,18 +552,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String CookiePreference -&gt; Either String ForwardedValues
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679399270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String CookiePreference
+</span><a href="#local-6989586621679399279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String CookiePreference
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Cookies&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-381"></span><span>
-</span><span id="line-382"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399263"><span id="local-6989586621679399265"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues"><span class="hs-identifier hs-type">ForwardedValues</span></a></span></span></span><span>
+</span><span id="line-382"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399272"><span id="local-6989586621679399274"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues"><span class="hs-identifier hs-type">ForwardedValues</span></a></span></span></span><span>
 </span><span id="line-383"></span><span>
-</span><span id="line-384"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399260"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues"><span class="hs-identifier hs-type">ForwardedValues</span></a></span></span><span>
+</span><span id="line-384"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399269"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues"><span class="hs-identifier hs-type">ForwardedValues</span></a></span></span><span>
 </span><span id="line-385"></span><span>
 </span><span id="line-386"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues"><span class="hs-identifier hs-type">ForwardedValues</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-387"></span><span>  </span><span id="local-6989586621679399256"><span class="annot"><span class="annottext">toXML :: ForwardedValues -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399251"><span id="local-6989586621679399252"><span id="local-6989586621679399253"><span id="local-6989586621679399254"><span class="annot"><span class="annottext">Bool
+</span><span id="line-387"></span><span>  </span><span id="local-6989586621679399265"><span class="annot"><span class="annottext">toXML :: ForwardedValues -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ForwardedValues.html#ForwardedValues%27"><span class="hs-identifier hs-type">ForwardedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399260"><span id="local-6989586621679399261"><span id="local-6989586621679399262"><span id="local-6989586621679399263"><span class="annot"><span class="annottext">Bool
 Maybe Headers
 Maybe QueryStringCacheKeys
 CookiePreference
@@ -575,7 +575,7 @@ $sel:cookies:ForwardedValues' :: ForwardedValues -&gt; CookiePreference
 $sel:queryString:ForwardedValues' :: ForwardedValues -&gt; Bool
 $sel:headers:ForwardedValues' :: ForwardedValues -&gt; Maybe Headers
 $sel:queryStringCacheKeys:ForwardedValues' :: ForwardedValues -&gt; Maybe QueryStringCacheKeys
-</span><a href="#local-6989586621679399251"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679399260"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-388"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -583,21 +583,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;QueryStringCacheKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe QueryStringCacheKeys -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryStringCacheKeys
-</span><a href="#local-6989586621679399254"><span class="hs-identifier hs-var">queryStringCacheKeys</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679399263"><span class="hs-identifier hs-var">queryStringCacheKeys</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-390"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Headers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Headers -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Headers
-</span><a href="#local-6989586621679399253"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679399262"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-391"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;QueryString&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Bool -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679399252"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679399261"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-392"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Cookies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; CookiePreference -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">CookiePreference
-</span><a href="#local-6989586621679399251"><span class="hs-identifier hs-var">cookies</span></a></span><span>
+</span><a href="#local-6989586621679399260"><span class="hs-identifier hs-var">cookies</span></a></span><span>
 </span><span id="line-393"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-394"></span></pre></body></html>

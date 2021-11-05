@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about the Capacity Reservation usage.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInstanceUsage' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681120714"><span id="local-6989586621681120715"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceUsage"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage"><span class="hs-identifier hs-var">InstanceUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceUsage%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage%27"><span class="hs-identifier hs-var">InstanceUsage'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681120723"><span id="local-6989586621681120724"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceUsage"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage"><span class="hs-identifier hs-var">InstanceUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceUsage%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage%27"><span class="hs-identifier hs-var">InstanceUsage'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that is making use of the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- Capacity Reservation.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AaccountId%3AInstanceUsage%27"><span class="annot"><span class="annottext">InstanceUsage -&gt; Maybe Text
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AusedInstanceCount%3AInstanceUsage%27"><span class="annot"><span class="annottext">InstanceUsage -&gt; Maybe Int
 </span><a href="Network.AWS.EC2.Types.InstanceUsage.html#%24sel%3AusedInstanceCount%3AInstanceUsage%27"><span class="hs-identifier hs-var hs-var">usedInstanceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681120707"><span id="local-6989586621681120709"><span class="annot"><span class="annottext">InstanceUsage -&gt; InstanceUsage -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681120716"><span id="local-6989586621681120718"><span class="annot"><span class="annottext">InstanceUsage -&gt; InstanceUsage -&gt; Bool
 (InstanceUsage -&gt; InstanceUsage -&gt; Bool)
 -&gt; (InstanceUsage -&gt; InstanceUsage -&gt; Bool) -&gt; Eq InstanceUsage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceUsage -&gt; InstanceUsage -&gt; Bool
 == :: InstanceUsage -&gt; InstanceUsage -&gt; Bool
 $c== :: InstanceUsage -&gt; InstanceUsage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681120698"><span id="local-6989586621681120700"><span id="local-6989586621681120702"><span id="local-6989586621681120704"><span class="annot"><span class="annottext">ReadPrec [InstanceUsage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681120707"><span id="local-6989586621681120709"><span id="local-6989586621681120711"><span id="local-6989586621681120713"><span class="annot"><span class="annottext">ReadPrec [InstanceUsage]
 ReadPrec InstanceUsage
 Int -&gt; ReadS InstanceUsage
 ReadS [InstanceUsage]
@@ -65,7 +65,7 @@ readList :: ReadS [InstanceUsage]
 $creadList :: ReadS [InstanceUsage]
 readsPrec :: Int -&gt; ReadS InstanceUsage
 $creadsPrec :: Int -&gt; ReadS InstanceUsage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681120691"><span id="local-6989586621681120693"><span id="local-6989586621681120695"><span class="annot"><span class="annottext">Int -&gt; InstanceUsage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681120700"><span id="local-6989586621681120702"><span id="local-6989586621681120704"><span class="annot"><span class="annottext">Int -&gt; InstanceUsage -&gt; ShowS
 [InstanceUsage] -&gt; ShowS
 InstanceUsage -&gt; String
 (Int -&gt; InstanceUsage -&gt; ShowS)
@@ -128,16 +128,16 @@ forall a. Maybe a
 -&gt; (InstanceUsage -&gt; Maybe Text -&gt; InstanceUsage)
 -&gt; Lens InstanceUsage InstanceUsage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage%27"><span class="hs-identifier hs-type">InstanceUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681120682"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage%27"><span class="hs-identifier hs-type">InstanceUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681120691"><span class="annot"><span class="annottext">Maybe Text
 accountId :: Maybe Text
 $sel:accountId:InstanceUsage' :: InstanceUsage -&gt; Maybe Text
-</span><a href="#local-6989586621681120682"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681120682"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681120681"><span class="annot"><span class="annottext">s :: InstanceUsage
-</span><a href="#local-6989586621681120681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage%27"><span class="hs-identifier hs-type">InstanceUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681120680"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681120680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceUsage
-</span><a href="#local-6989586621681120681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:InstanceUsage' :: Maybe Text
+</span><a href="#local-6989586621681120691"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681120691"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681120690"><span class="annot"><span class="annottext">s :: InstanceUsage
+</span><a href="#local-6989586621681120690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage%27"><span class="hs-identifier hs-type">InstanceUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681120689"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681120689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceUsage
+</span><a href="#local-6989586621681120690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:InstanceUsage' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.InstanceUsage.html#%24sel%3AaccountId%3AInstanceUsage%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681120680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage"><span class="hs-identifier hs-type">InstanceUsage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681120689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage"><span class="hs-identifier hs-type">InstanceUsage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The number of instances the Amazon Web Services account currently has in</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- the Capacity Reservation.</span><span>
@@ -147,21 +147,21 @@ $sel:accountId:InstanceUsage' :: InstanceUsage -&gt; Maybe Text
 -&gt; (InstanceUsage -&gt; Maybe Int -&gt; InstanceUsage)
 -&gt; Lens InstanceUsage InstanceUsage (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage%27"><span class="hs-identifier hs-type">InstanceUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681120678"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage%27"><span class="hs-identifier hs-type">InstanceUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681120687"><span class="annot"><span class="annottext">Maybe Int
 usedInstanceCount :: Maybe Int
 $sel:usedInstanceCount:InstanceUsage' :: InstanceUsage -&gt; Maybe Int
-</span><a href="#local-6989586621681120678"><span class="hs-identifier hs-var hs-var">usedInstanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681120678"><span class="hs-identifier hs-var">usedInstanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681120677"><span class="annot"><span class="annottext">s :: InstanceUsage
-</span><a href="#local-6989586621681120677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage%27"><span class="hs-identifier hs-type">InstanceUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681120676"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681120676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceUsage
-</span><a href="#local-6989586621681120677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usedInstanceCount:InstanceUsage' :: Maybe Int
+</span><a href="#local-6989586621681120687"><span class="hs-identifier hs-var hs-var">usedInstanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681120687"><span class="hs-identifier hs-var">usedInstanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681120686"><span class="annot"><span class="annottext">s :: InstanceUsage
+</span><a href="#local-6989586621681120686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage%27"><span class="hs-identifier hs-type">InstanceUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681120685"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681120685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceUsage
+</span><a href="#local-6989586621681120686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usedInstanceCount:InstanceUsage' :: Maybe Int
 </span><a href="Network.AWS.EC2.Types.InstanceUsage.html#%24sel%3AusedInstanceCount%3AInstanceUsage%27"><span class="hs-identifier hs-var">usedInstanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681120676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage"><span class="hs-identifier hs-type">InstanceUsage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681120685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage"><span class="hs-identifier hs-type">InstanceUsage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage"><span class="hs-identifier hs-type">InstanceUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621681120673"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceUsage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681120671"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681120671"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621681120682"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceUsage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681120680"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681120680"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Int -&gt; InstanceUsage
 </span><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage%27"><span class="hs-identifier hs-var">InstanceUsage'</span></a></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Int -&gt; InstanceUsage)
@@ -169,7 +169,7 @@ $sel:usedInstanceCount:InstanceUsage' :: InstanceUsage -&gt; Maybe Int
 -&gt; Either String (Maybe Int -&gt; InstanceUsage)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681120671"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681120680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;accountId&quot;</span></span><span class="hs-special">)</span><span>
@@ -177,12 +177,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Int) -&gt; Either String InstanceUsage
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681120671"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621681120680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;usedInstanceCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681120665"><span id="local-6989586621681120667"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage"><span class="hs-identifier hs-type">InstanceUsage</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681120674"><span id="local-6989586621681120676"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage"><span class="hs-identifier hs-type">InstanceUsage</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681120662"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage"><span class="hs-identifier hs-type">InstanceUsage</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681120671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceUsage.html#InstanceUsage"><span class="hs-identifier hs-type">InstanceUsage</span></a></span></span><span>
 </span><span id="line-80"></span></pre></body></html>

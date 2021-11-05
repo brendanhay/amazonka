@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newDescribeMetricFilters' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679229620"><span id="local-6989586621679229621"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeMetricFilters"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-var">DescribeMetricFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeMetricFilters%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-var">DescribeMetricFilters'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679229629"><span id="local-6989586621679229630"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeMetricFilters"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-var">DescribeMetricFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeMetricFilters%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-var">DescribeMetricFilters'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The prefix to match. CloudWatch Logs uses the value you set here only if</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- you also include the @logGroupName@ parameter in your request.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AfilterNamePrefix%3ADescribeMetricFilters%27"><span class="annot"><span class="annottext">DescribeMetricFilters -&gt; Maybe Text
@@ -84,7 +84,7 @@
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeMetricFilters%27"><span class="annot"><span class="annottext">DescribeMetricFilters -&gt; Maybe Natural
 </span><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#%24sel%3Alimit%3ADescribeMetricFilters%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229609"><span id="local-6989586621679229611"><span class="annot"><span class="annottext">DescribeMetricFilters -&gt; DescribeMetricFilters -&gt; Bool
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229618"><span id="local-6989586621679229620"><span class="annot"><span class="annottext">DescribeMetricFilters -&gt; DescribeMetricFilters -&gt; Bool
 (DescribeMetricFilters -&gt; DescribeMetricFilters -&gt; Bool)
 -&gt; (DescribeMetricFilters -&gt; DescribeMetricFilters -&gt; Bool)
 -&gt; Eq DescribeMetricFilters
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeMetricFilters -&gt; DescribeMetricFilters -&gt; Bool
 == :: DescribeMetricFilters -&gt; DescribeMetricFilters -&gt; Bool
 $c== :: DescribeMetricFilters -&gt; DescribeMetricFilters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229600"><span id="local-6989586621679229602"><span id="local-6989586621679229604"><span id="local-6989586621679229606"><span class="annot"><span class="annottext">ReadPrec [DescribeMetricFilters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229609"><span id="local-6989586621679229611"><span id="local-6989586621679229613"><span id="local-6989586621679229615"><span class="annot"><span class="annottext">ReadPrec [DescribeMetricFilters]
 ReadPrec DescribeMetricFilters
 Int -&gt; ReadS DescribeMetricFilters
 ReadS [DescribeMetricFilters]
@@ -113,7 +113,7 @@ readList :: ReadS [DescribeMetricFilters]
 $creadList :: ReadS [DescribeMetricFilters]
 readsPrec :: Int -&gt; ReadS DescribeMetricFilters
 $creadsPrec :: Int -&gt; ReadS DescribeMetricFilters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229593"><span id="local-6989586621679229595"><span id="local-6989586621679229597"><span class="annot"><span class="annottext">Int -&gt; DescribeMetricFilters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229602"><span id="local-6989586621679229604"><span id="local-6989586621679229606"><span class="annot"><span class="annottext">Int -&gt; DescribeMetricFilters -&gt; ShowS
 [DescribeMetricFilters] -&gt; ShowS
 DescribeMetricFilters -&gt; String
 (Int -&gt; DescribeMetricFilters -&gt; ShowS)
@@ -217,16 +217,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229587"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229596"><span class="annot"><span class="annottext">Maybe Text
 filterNamePrefix :: Maybe Text
 $sel:filterNamePrefix:DescribeMetricFilters' :: DescribeMetricFilters -&gt; Maybe Text
-</span><a href="#local-6989586621679229587"><span class="hs-identifier hs-var hs-var">filterNamePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229587"><span class="hs-identifier hs-var">filterNamePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229586"><span class="annot"><span class="annottext">s :: DescribeMetricFilters
-</span><a href="#local-6989586621679229586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229585"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFilters
-</span><a href="#local-6989586621679229586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterNamePrefix:DescribeMetricFilters' :: Maybe Text
+</span><a href="#local-6989586621679229596"><span class="hs-identifier hs-var hs-var">filterNamePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229596"><span class="hs-identifier hs-var">filterNamePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229595"><span class="annot"><span class="annottext">s :: DescribeMetricFilters
+</span><a href="#local-6989586621679229595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229594"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFilters
+</span><a href="#local-6989586621679229595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterNamePrefix:DescribeMetricFilters' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#%24sel%3AfilterNamePrefix%3ADescribeMetricFilters%27"><span class="hs-identifier hs-var">filterNamePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | Filters results to include only those with the specified metric name. If</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- you include this parameter in your request, you must also include the</span><span>
@@ -242,16 +242,16 @@ $sel:filterNamePrefix:DescribeMetricFilters' :: DescribeMetricFilters -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229584"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229593"><span class="annot"><span class="annottext">Maybe Text
 metricName :: Maybe Text
 $sel:metricName:DescribeMetricFilters' :: DescribeMetricFilters -&gt; Maybe Text
-</span><a href="#local-6989586621679229584"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229584"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229583"><span class="annot"><span class="annottext">s :: DescribeMetricFilters
-</span><a href="#local-6989586621679229583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229582"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFilters
-</span><a href="#local-6989586621679229583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:DescribeMetricFilters' :: Maybe Text
+</span><a href="#local-6989586621679229593"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229593"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229592"><span class="annot"><span class="annottext">s :: DescribeMetricFilters
+</span><a href="#local-6989586621679229592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229591"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFilters
+</span><a href="#local-6989586621679229592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:DescribeMetricFilters' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#%24sel%3AmetricName%3ADescribeMetricFilters%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The name of the log group.</span><span>
 </span><span id="line-134"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#describeMetricFilters_logGroupName"><span class="hs-identifier hs-type">describeMetricFilters_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -265,16 +265,16 @@ $sel:metricName:DescribeMetricFilters' :: DescribeMetricFilters -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229581"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229590"><span class="annot"><span class="annottext">Maybe Text
 logGroupName :: Maybe Text
 $sel:logGroupName:DescribeMetricFilters' :: DescribeMetricFilters -&gt; Maybe Text
-</span><a href="#local-6989586621679229581"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229581"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229580"><span class="annot"><span class="annottext">s :: DescribeMetricFilters
-</span><a href="#local-6989586621679229580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229579"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFilters
-</span><a href="#local-6989586621679229580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:DescribeMetricFilters' :: Maybe Text
+</span><a href="#local-6989586621679229590"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229590"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229589"><span class="annot"><span class="annottext">s :: DescribeMetricFilters
+</span><a href="#local-6989586621679229589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229588"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFilters
+</span><a href="#local-6989586621679229589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:DescribeMetricFilters' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#%24sel%3AlogGroupName%3ADescribeMetricFilters%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- from a previous call.)</span><span>
@@ -289,16 +289,16 @@ $sel:logGroupName:DescribeMetricFilters' :: DescribeMetricFilters -&gt; Maybe Te
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229578"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229587"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeMetricFilters' :: DescribeMetricFilters -&gt; Maybe Text
-</span><a href="#local-6989586621679229578"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229578"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229577"><span class="annot"><span class="annottext">s :: DescribeMetricFilters
-</span><a href="#local-6989586621679229577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229576"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFilters
-</span><a href="#local-6989586621679229577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeMetricFilters' :: Maybe Text
+</span><a href="#local-6989586621679229587"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229587"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229586"><span class="annot"><span class="annottext">s :: DescribeMetricFilters
+</span><a href="#local-6989586621679229586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229585"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFilters
+</span><a href="#local-6989586621679229586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeMetricFilters' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#%24sel%3AnextToken%3ADescribeMetricFilters%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | Filters results to include only those in the specified namespace. If you</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- include this parameter in your request, you must also include the</span><span>
@@ -314,16 +314,16 @@ $sel:nextToken:DescribeMetricFilters' :: DescribeMetricFilters -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229575"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229584"><span class="annot"><span class="annottext">Maybe Text
 metricNamespace :: Maybe Text
 $sel:metricNamespace:DescribeMetricFilters' :: DescribeMetricFilters -&gt; Maybe Text
-</span><a href="#local-6989586621679229575"><span class="hs-identifier hs-var hs-var">metricNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229575"><span class="hs-identifier hs-var">metricNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229574"><span class="annot"><span class="annottext">s :: DescribeMetricFilters
-</span><a href="#local-6989586621679229574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229573"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFilters
-</span><a href="#local-6989586621679229574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricNamespace:DescribeMetricFilters' :: Maybe Text
+</span><a href="#local-6989586621679229584"><span class="hs-identifier hs-var hs-var">metricNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229584"><span class="hs-identifier hs-var">metricNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229583"><span class="annot"><span class="annottext">s :: DescribeMetricFilters
+</span><a href="#local-6989586621679229583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229582"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFilters
+</span><a href="#local-6989586621679229583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricNamespace:DescribeMetricFilters' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#%24sel%3AmetricNamespace%3ADescribeMetricFilters%27"><span class="hs-identifier hs-var">metricNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The maximum number of items returned. If you don\'t specify a value, the</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- default is up to 50 items.</span><span>
@@ -339,29 +339,29 @@ $sel:metricNamespace:DescribeMetricFilters' :: DescribeMetricFilters -&gt; Maybe
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229572"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229581"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:DescribeMetricFilters' :: DescribeMetricFilters -&gt; Maybe Natural
-</span><a href="#local-6989586621679229572"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679229572"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229571"><span class="annot"><span class="annottext">s :: DescribeMetricFilters
-</span><a href="#local-6989586621679229571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229570"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679229570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFilters
-</span><a href="#local-6989586621679229571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeMetricFilters' :: Maybe Natural
+</span><a href="#local-6989586621679229581"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679229581"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229580"><span class="annot"><span class="annottext">s :: DescribeMetricFilters
+</span><a href="#local-6989586621679229580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229579"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679229579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFilters
+</span><a href="#local-6989586621679229580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeMetricFilters' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#%24sel%3Alimit%3ADescribeMetricFilters%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679229570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679229566"><span class="annot"><span class="annottext">page :: DescribeMetricFilters
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679229575"><span class="annot"><span class="annottext">page :: DescribeMetricFilters
 -&gt; AWSResponse DescribeMetricFilters -&gt; Maybe DescribeMetricFilters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679229564"><span class="annot"><span class="annottext">DescribeMetricFilters
-</span><a href="#local-6989586621679229564"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679229563"><span class="annot"><span class="annottext">AWSResponse DescribeMetricFilters
-</span><a href="#local-6989586621679229563"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679229573"><span class="annot"><span class="annottext">DescribeMetricFilters
+</span><a href="#local-6989586621679229573"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679229572"><span class="annot"><span class="annottext">AWSResponse DescribeMetricFilters
+</span><a href="#local-6989586621679229572"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-156"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeMetricFilters
 DescribeMetricFiltersResponse
-</span><a href="#local-6989586621679229563"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679229572"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">DescribeMetricFiltersResponse
 -&gt; Getting (First Text) DescribeMetricFiltersResponse Text
 -&gt; Maybe Text
@@ -391,7 +391,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-162"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeMetricFilters
 DescribeMetricFiltersResponse
-</span><a href="#local-6989586621679229563"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679229572"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">DescribeMetricFiltersResponse
 -&gt; Getting
      (First [MetricFilter]) DescribeMetricFiltersResponse [MetricFilter]
@@ -431,7 +431,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">DescribeMetricFilters
-</span><a href="#local-6989586621679229564"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679229573"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">DescribeMetricFilters
 -&gt; (DescribeMetricFilters -&gt; DescribeMetricFilters)
 -&gt; DescribeMetricFilters
@@ -450,7 +450,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeMetricFilters
 DescribeMetricFiltersResponse
-</span><a href="#local-6989586621679229563"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679229572"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">DescribeMetricFiltersResponse
 -&gt; Getting (First Text) DescribeMetricFiltersResponse Text
 -&gt; Maybe Text
@@ -476,12 +476,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-176"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-177"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse</span></a></span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679229553"><span class="annot"><span class="annottext">request :: DescribeMetricFilters -&gt; Request DescribeMetricFilters
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679229562"><span class="annot"><span class="annottext">request :: DescribeMetricFilters -&gt; Request DescribeMetricFilters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeMetricFilters -&gt; Request DescribeMetricFilters
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679229549"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679229558"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeMetricFilters
 -&gt; ClientResponse ClientBody
@@ -507,10 +507,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229546"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229546"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229545"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679229545"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229544"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679229544"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229555"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229555"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229554"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679229554"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229553"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229553"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [MetricFilter] -&gt; Int -&gt; DescribeMetricFiltersResponse
 </span><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse%27"><span class="hs-identifier hs-var">DescribeMetricFiltersResponse'</span></a></span><span>
@@ -522,7 +522,7 @@ MonadResource m =&gt;
      (Maybe [MetricFilter] -&gt; Int -&gt; DescribeMetricFiltersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679229544"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679229553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -533,7 +533,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeMetricFiltersResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679229544"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [MetricFilter]))
+</span><a href="#local-6989586621679229553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [MetricFilter]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metricFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [MetricFilter]))
@@ -550,15 +550,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229546"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229555"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229535"><span id="local-6989586621679229537"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229544"><span id="local-6989586621679229546"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span></span></span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229532"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229541"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span></span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679229528"><span class="annot"><span class="annottext">toHeaders :: DescribeMetricFilters -&gt; ResponseHeaders
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679229537"><span class="annot"><span class="annottext">toHeaders :: DescribeMetricFilters -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeMetricFilters -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -585,9 +585,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-205"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-206"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229518"><span id="local-6989586621679229520"><span id="local-6989586621679229522"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621679229516"><span class="annot"><span class="annottext">toJSON :: DescribeMetricFilters -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229509"><span id="local-6989586621679229510"><span id="local-6989586621679229511"><span id="local-6989586621679229512"><span id="local-6989586621679229513"><span id="local-6989586621679229514"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229527"><span id="local-6989586621679229529"><span id="local-6989586621679229531"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679229525"><span class="annot"><span class="annottext">toJSON :: DescribeMetricFilters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters%27"><span class="hs-identifier hs-type">DescribeMetricFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229518"><span id="local-6989586621679229519"><span id="local-6989586621679229520"><span id="local-6989586621679229521"><span id="local-6989586621679229522"><span id="local-6989586621679229523"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 limit :: Maybe Natural
 metricNamespace :: Maybe Text
@@ -601,7 +601,7 @@ $sel:nextToken:DescribeMetricFilters' :: DescribeMetricFilters -&gt; Maybe Text
 $sel:logGroupName:DescribeMetricFilters' :: DescribeMetricFilters -&gt; Maybe Text
 $sel:metricName:DescribeMetricFilters' :: DescribeMetricFilters -&gt; Maybe Text
 $sel:filterNamePrefix:DescribeMetricFilters' :: DescribeMetricFilters -&gt; Maybe Text
-</span><a href="#local-6989586621679229509"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679229518"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-211"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -614,28 +614,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229514"><span class="hs-identifier hs-var">filterNamePrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229523"><span class="hs-identifier hs-var">filterNamePrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metricName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229513"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229522"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229512"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229521"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229511"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229520"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metricNamespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -643,26 +643,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-218"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229510"><span class="hs-identifier hs-var">metricNamespace</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229519"><span class="hs-identifier hs-var">metricNamespace</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679229509"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679229518"><span class="hs-identifier hs-var">limit</span></a></span><span>
 </span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679229503"><span class="annot"><span class="annottext">toPath :: DescribeMetricFilters -&gt; ByteString
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679229512"><span class="annot"><span class="annottext">toPath :: DescribeMetricFilters -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeMetricFilters -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFilters"><span class="hs-identifier hs-type">DescribeMetricFilters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621679229499"><span class="annot"><span class="annottext">toQuery :: DescribeMetricFilters -&gt; QueryString
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679229508"><span class="annot"><span class="annottext">toQuery :: DescribeMetricFilters -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeMetricFilters -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -670,7 +670,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | /See:/ 'newDescribeMetricFiltersResponse' smart constructor.</span><span>
-</span><span id="line-230"></span><span id="local-6989586621679229496"><span id="local-6989586621679229497"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeMetricFiltersResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse"><span class="hs-identifier hs-var">DescribeMetricFiltersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeMetricFiltersResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse%27"><span class="hs-identifier hs-var">DescribeMetricFiltersResponse'</span></a></span></span><span>
+</span><span id="line-230"></span><span id="local-6989586621679229505"><span id="local-6989586621679229506"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeMetricFiltersResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse"><span class="hs-identifier hs-var">DescribeMetricFiltersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeMetricFiltersResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse%27"><span class="hs-identifier hs-var">DescribeMetricFiltersResponse'</span></a></span></span><span>
 </span><span id="line-231"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnextToken%3ADescribeMetricFiltersResponse%27"><span class="annot"><span class="annottext">DescribeMetricFiltersResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#%24sel%3AnextToken%3ADescribeMetricFiltersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>    </span><span class="hs-comment">-- | The metric filters.</span><span>
@@ -680,7 +680,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-235"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeMetricFiltersResponse%27"><span class="annot"><span class="annottext">DescribeMetricFiltersResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#%24sel%3AhttpStatus%3ADescribeMetricFiltersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-236"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-237"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229489"><span id="local-6989586621679229491"><span class="annot"><span class="annottext">DescribeMetricFiltersResponse
+</span><span id="line-237"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229498"><span id="local-6989586621679229500"><span class="annot"><span class="annottext">DescribeMetricFiltersResponse
 -&gt; DescribeMetricFiltersResponse -&gt; Bool
 (DescribeMetricFiltersResponse
  -&gt; DescribeMetricFiltersResponse -&gt; Bool)
@@ -696,7 +696,7 @@ $c/= :: DescribeMetricFiltersResponse
 -&gt; DescribeMetricFiltersResponse -&gt; Bool
 $c== :: DescribeMetricFiltersResponse
 -&gt; DescribeMetricFiltersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229481"><span id="local-6989586621679229483"><span id="local-6989586621679229485"><span id="local-6989586621679229487"><span class="annot"><span class="annottext">ReadPrec [DescribeMetricFiltersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229490"><span id="local-6989586621679229492"><span id="local-6989586621679229494"><span id="local-6989586621679229496"><span class="annot"><span class="annottext">ReadPrec [DescribeMetricFiltersResponse]
 ReadPrec DescribeMetricFiltersResponse
 Int -&gt; ReadS DescribeMetricFiltersResponse
 ReadS [DescribeMetricFiltersResponse]
@@ -716,7 +716,7 @@ readList :: ReadS [DescribeMetricFiltersResponse]
 $creadList :: ReadS [DescribeMetricFiltersResponse]
 readsPrec :: Int -&gt; ReadS DescribeMetricFiltersResponse
 $creadsPrec :: Int -&gt; ReadS DescribeMetricFiltersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229475"><span id="local-6989586621679229477"><span id="local-6989586621679229479"><span class="annot"><span class="annottext">Int -&gt; DescribeMetricFiltersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229484"><span id="local-6989586621679229486"><span id="local-6989586621679229488"><span class="annot"><span class="annottext">Int -&gt; DescribeMetricFiltersResponse -&gt; ShowS
 [DescribeMetricFiltersResponse] -&gt; ShowS
 DescribeMetricFiltersResponse -&gt; String
 (Int -&gt; DescribeMetricFiltersResponse -&gt; ShowS)
@@ -772,8 +772,8 @@ DescribeMetricFiltersResponse
 </span><span id="line-254"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-255"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse</span></a></span><span>
 </span><span id="line-256"></span><span id="newDescribeMetricFiltersResponse"><span class="annot"><span class="annottext">newDescribeMetricFiltersResponse :: Int -&gt; DescribeMetricFiltersResponse
-</span><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#newDescribeMetricFiltersResponse"><span class="hs-identifier hs-var hs-var">newDescribeMetricFiltersResponse</span></a></span></span><span> </span><span id="local-6989586621679229472"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229472"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#newDescribeMetricFiltersResponse"><span class="hs-identifier hs-var hs-var">newDescribeMetricFiltersResponse</span></a></span></span><span> </span><span id="local-6989586621679229481"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229481"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-257"></span><span>  </span><span class="annot"><span class="annottext">DescribeMetricFiltersResponse' :: Maybe Text
 -&gt; Maybe [MetricFilter] -&gt; Int -&gt; DescribeMetricFiltersResponse
 </span><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse%27"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse'</span></a></span><span>
@@ -788,7 +788,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-261"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeMetricFiltersResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#%24sel%3AhttpStatus%3ADescribeMetricFiltersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229472"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679229481"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-262"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-263"></span><span>
 </span><span id="line-264"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -800,16 +800,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeMetricFiltersResponse)
 -&gt; Lens' DescribeMetricFiltersResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse%27"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229471"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse%27"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229480"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeMetricFiltersResponse' :: DescribeMetricFiltersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679229471"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229471"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229470"><span class="annot"><span class="annottext">s :: DescribeMetricFiltersResponse
-</span><a href="#local-6989586621679229470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse%27"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229469"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFiltersResponse
-</span><a href="#local-6989586621679229470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeMetricFiltersResponse' :: Maybe Text
+</span><a href="#local-6989586621679229480"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229480"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229479"><span class="annot"><span class="annottext">s :: DescribeMetricFiltersResponse
+</span><a href="#local-6989586621679229479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse%27"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229478"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFiltersResponse
+</span><a href="#local-6989586621679229479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeMetricFiltersResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#%24sel%3AnextToken%3ADescribeMetricFiltersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-267"></span><span>
 </span><span id="line-268"></span><span class="hs-comment">-- | The metric filters.</span><span>
 </span><span id="line-269"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#describeMetricFiltersResponse_metricFilters"><span class="hs-identifier hs-type">describeMetricFiltersResponse_metricFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.MetricFilter.html#MetricFilter"><span class="hs-identifier hs-type">MetricFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -820,16 +820,16 @@ $sel:nextToken:DescribeMetricFiltersResponse' :: DescribeMetricFiltersResponse -
     -&gt; Maybe [MetricFilter] -&gt; DescribeMetricFiltersResponse)
 -&gt; Lens' DescribeMetricFiltersResponse (Maybe [MetricFilter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse%27"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229468"><span class="annot"><span class="annottext">Maybe [MetricFilter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse%27"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229477"><span class="annot"><span class="annottext">Maybe [MetricFilter]
 metricFilters :: Maybe [MetricFilter]
 $sel:metricFilters:DescribeMetricFiltersResponse' :: DescribeMetricFiltersResponse -&gt; Maybe [MetricFilter]
-</span><a href="#local-6989586621679229468"><span class="hs-identifier hs-var hs-var">metricFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricFilter]
-</span><a href="#local-6989586621679229468"><span class="hs-identifier hs-var">metricFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229467"><span class="annot"><span class="annottext">s :: DescribeMetricFiltersResponse
-</span><a href="#local-6989586621679229467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse%27"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229466"><span class="annot"><span class="annottext">Maybe [MetricFilter]
-</span><a href="#local-6989586621679229466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFiltersResponse
-</span><a href="#local-6989586621679229467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricFilters:DescribeMetricFiltersResponse' :: Maybe [MetricFilter]
+</span><a href="#local-6989586621679229477"><span class="hs-identifier hs-var hs-var">metricFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricFilter]
+</span><a href="#local-6989586621679229477"><span class="hs-identifier hs-var">metricFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229476"><span class="annot"><span class="annottext">s :: DescribeMetricFiltersResponse
+</span><a href="#local-6989586621679229476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse%27"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229475"><span class="annot"><span class="annottext">Maybe [MetricFilter]
+</span><a href="#local-6989586621679229475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFiltersResponse
+</span><a href="#local-6989586621679229476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricFilters:DescribeMetricFiltersResponse' :: Maybe [MetricFilter]
 </span><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#%24sel%3AmetricFilters%3ADescribeMetricFiltersResponse%27"><span class="hs-identifier hs-var">metricFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricFilter]
-</span><a href="#local-6989586621679229466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricFilter] -&gt; f (Maybe [MetricFilter]))
+</span><a href="#local-6989586621679229475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricFilter] -&gt; f (Maybe [MetricFilter]))
  -&gt; DescribeMetricFiltersResponse
  -&gt; f DescribeMetricFiltersResponse)
 -&gt; ((Maybe [MetricFilter] -&gt; f (Maybe [MetricFilter]))
@@ -861,16 +861,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DescribeMetricFiltersResponse DescribeMetricFiltersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse%27"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229463"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse%27"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229472"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeMetricFiltersResponse' :: DescribeMetricFiltersResponse -&gt; Int
-</span><a href="#local-6989586621679229463"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229463"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229462"><span class="annot"><span class="annottext">s :: DescribeMetricFiltersResponse
-</span><a href="#local-6989586621679229462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse%27"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229461"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFiltersResponse
-</span><a href="#local-6989586621679229462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeMetricFiltersResponse' :: Int
+</span><a href="#local-6989586621679229472"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229472"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229471"><span class="annot"><span class="annottext">s :: DescribeMetricFiltersResponse
+</span><a href="#local-6989586621679229471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse%27"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229470"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMetricFiltersResponse
+</span><a href="#local-6989586621679229471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeMetricFiltersResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#%24sel%3AhttpStatus%3ADescribeMetricFiltersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-275"></span><span>
-</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229459"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse</span></a></span></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229468"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeMetricFilters.html#DescribeMetricFiltersResponse"><span class="hs-identifier hs-type">DescribeMetricFiltersResponse</span></a></span></span><span>
 </span><span id="line-277"></span></pre></body></html>

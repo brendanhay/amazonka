@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Specifies JSON as object\'s input serialization format.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newJSONInput' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679543907"><span id="local-6989586621679543908"></span></span><span class="hs-keyword">data</span><span> </span><span id="JSONInput"><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput"><span class="hs-identifier hs-var">JSONInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JSONInput%27"><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput%27"><span class="hs-identifier hs-var">JSONInput'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679543916"><span id="local-6989586621679543917"></span></span><span class="hs-keyword">data</span><span> </span><span id="JSONInput"><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput"><span class="hs-identifier hs-var">JSONInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JSONInput%27"><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput%27"><span class="hs-identifier hs-var">JSONInput'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of JSON. Valid values: Document, Lines.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Atype%27%3AJSONInput%27"><span class="annot"><span class="annottext">JSONInput -&gt; Maybe JSONType
 </span><a href="Network.AWS.S3.Types.JSONInput.html#%24sel%3Atype%27%3AJSONInput%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.JSONType.html#JSONType"><span class="hs-identifier hs-type">JSONType</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679543901"><span id="local-6989586621679543903"><span class="annot"><span class="annottext">JSONInput -&gt; JSONInput -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679543910"><span id="local-6989586621679543912"><span class="annot"><span class="annottext">JSONInput -&gt; JSONInput -&gt; Bool
 (JSONInput -&gt; JSONInput -&gt; Bool)
 -&gt; (JSONInput -&gt; JSONInput -&gt; Bool) -&gt; Eq JSONInput
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JSONInput -&gt; JSONInput -&gt; Bool
 == :: JSONInput -&gt; JSONInput -&gt; Bool
 $c== :: JSONInput -&gt; JSONInput -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543892"><span id="local-6989586621679543894"><span id="local-6989586621679543896"><span id="local-6989586621679543898"><span class="annot"><span class="annottext">ReadPrec [JSONInput]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543901"><span id="local-6989586621679543903"><span id="local-6989586621679543905"><span id="local-6989586621679543907"><span class="annot"><span class="annottext">ReadPrec [JSONInput]
 ReadPrec JSONInput
 Int -&gt; ReadS JSONInput
 ReadS [JSONInput]
@@ -61,7 +61,7 @@ readList :: ReadS [JSONInput]
 $creadList :: ReadS [JSONInput]
 readsPrec :: Int -&gt; ReadS JSONInput
 $creadsPrec :: Int -&gt; ReadS JSONInput
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543885"><span id="local-6989586621679543887"><span id="local-6989586621679543889"><span class="annot"><span class="annottext">Int -&gt; JSONInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543894"><span id="local-6989586621679543896"><span id="local-6989586621679543898"><span class="annot"><span class="annottext">Int -&gt; JSONInput -&gt; ShowS
 [JSONInput] -&gt; ShowS
 JSONInput -&gt; String
 (Int -&gt; JSONInput -&gt; ShowS)
@@ -111,32 +111,32 @@ forall a. Maybe a
 -&gt; (JSONInput -&gt; Maybe JSONType -&gt; JSONInput)
 -&gt; Lens JSONInput JSONInput (Maybe JSONType) (Maybe JSONType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput%27"><span class="hs-identifier hs-type">JSONInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543876"><span class="annot"><span class="annottext">Maybe JSONType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput%27"><span class="hs-identifier hs-type">JSONInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543885"><span class="annot"><span class="annottext">Maybe JSONType
 type' :: Maybe JSONType
 $sel:type':JSONInput' :: JSONInput -&gt; Maybe JSONType
-</span><a href="#local-6989586621679543876"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JSONType
-</span><a href="#local-6989586621679543876"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543875"><span class="annot"><span class="annottext">s :: JSONInput
-</span><a href="#local-6989586621679543875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput%27"><span class="hs-identifier hs-type">JSONInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543874"><span class="annot"><span class="annottext">Maybe JSONType
-</span><a href="#local-6989586621679543874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JSONInput
-</span><a href="#local-6989586621679543875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':JSONInput' :: Maybe JSONType
+</span><a href="#local-6989586621679543885"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JSONType
+</span><a href="#local-6989586621679543885"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543884"><span class="annot"><span class="annottext">s :: JSONInput
+</span><a href="#local-6989586621679543884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput%27"><span class="hs-identifier hs-type">JSONInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543883"><span class="annot"><span class="annottext">Maybe JSONType
+</span><a href="#local-6989586621679543883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JSONInput
+</span><a href="#local-6989586621679543884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':JSONInput' :: Maybe JSONType
 </span><a href="Network.AWS.S3.Types.JSONInput.html#%24sel%3Atype%27%3AJSONInput%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JSONType
-</span><a href="#local-6989586621679543874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput"><span class="hs-identifier hs-type">JSONInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679543883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput"><span class="hs-identifier hs-type">JSONInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679543870"><span id="local-6989586621679543872"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput"><span class="hs-identifier hs-type">JSONInput</span></a></span></span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679543879"><span id="local-6989586621679543881"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput"><span class="hs-identifier hs-type">JSONInput</span></a></span></span></span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679543867"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput"><span class="hs-identifier hs-type">JSONInput</span></a></span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679543876"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput"><span class="hs-identifier hs-type">JSONInput</span></a></span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput"><span class="hs-identifier hs-type">JSONInput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679543863"><span class="annot"><span class="annottext">toXML :: JSONInput -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput%27"><span class="hs-identifier hs-type">JSONInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543861"><span class="annot"><span class="annottext">Maybe JSONType
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679543872"><span class="annot"><span class="annottext">toXML :: JSONInput -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput%27"><span class="hs-identifier hs-type">JSONInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543870"><span class="annot"><span class="annottext">Maybe JSONType
 type' :: Maybe JSONType
 $sel:type':JSONInput' :: JSONInput -&gt; Maybe JSONType
-</span><a href="#local-6989586621679543861"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679543870"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe JSONType -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe JSONType
-</span><a href="#local-6989586621679543861"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679543870"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-61"></span></pre></body></html>

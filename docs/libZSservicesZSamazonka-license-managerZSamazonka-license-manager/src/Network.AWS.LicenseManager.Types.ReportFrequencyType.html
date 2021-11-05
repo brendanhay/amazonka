@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.LicenseManager.Types.ReportFrequencyType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LicenseManager.Types.ReportFrequencyType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType"><span class="hs-identifier">ReportFrequencyType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType_DAY"><span class="hs-identifier">ReportFrequencyType_DAY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType_MONTH"><span class="hs-identifier">ReportFrequencyType_MONTH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType_WEEK"><span class="hs-identifier">ReportFrequencyType_WEEK</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679301222"><span id="local-6989586621679301223"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReportFrequencyType"><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType"><span class="hs-identifier hs-var">ReportFrequencyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportFrequencyType%27"><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType%27"><span class="hs-identifier hs-var">ReportFrequencyType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReportFrequencyType"><span class="annot"><span class="annottext">ReportFrequencyType -&gt; Text
+</span><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#fromReportFrequencyType"><span class="hs-identifier hs-var hs-var">fromReportFrequencyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301214"><span id="local-6989586621679301216"><span id="local-6989586621679301218"><span class="annot"><span class="annottext">Int -&gt; ReportFrequencyType -&gt; ShowS
+[ReportFrequencyType] -&gt; ShowS
+ReportFrequencyType -&gt; String
+(Int -&gt; ReportFrequencyType -&gt; ShowS)
+-&gt; (ReportFrequencyType -&gt; String)
+-&gt; ([ReportFrequencyType] -&gt; ShowS)
+-&gt; Show ReportFrequencyType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReportFrequencyType] -&gt; ShowS
+$cshowList :: [ReportFrequencyType] -&gt; ShowS
+show :: ReportFrequencyType -&gt; String
+$cshow :: ReportFrequencyType -&gt; String
+showsPrec :: Int -&gt; ReportFrequencyType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReportFrequencyType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679301205"><span id="local-6989586621679301207"><span id="local-6989586621679301209"><span id="local-6989586621679301211"><span class="annot"><span class="annottext">ReadPrec [ReportFrequencyType]
+ReadPrec ReportFrequencyType
+Int -&gt; ReadS ReportFrequencyType
+ReadS [ReportFrequencyType]
+(Int -&gt; ReadS ReportFrequencyType)
+-&gt; ReadS [ReportFrequencyType]
+-&gt; ReadPrec ReportFrequencyType
+-&gt; ReadPrec [ReportFrequencyType]
+-&gt; Read ReportFrequencyType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReportFrequencyType]
+$creadListPrec :: ReadPrec [ReportFrequencyType]
+readPrec :: ReadPrec ReportFrequencyType
+$creadPrec :: ReadPrec ReportFrequencyType
+readList :: ReadS [ReportFrequencyType]
+$creadList :: ReadS [ReportFrequencyType]
+readsPrec :: Int -&gt; ReadS ReportFrequencyType
+$creadsPrec :: Int -&gt; ReadS ReportFrequencyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679301200"><span id="local-6989586621679301202"><span class="annot"><span class="annottext">ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool
+(ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool)
+-&gt; (ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool)
+-&gt; Eq ReportFrequencyType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool
+$c/= :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool
+== :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool
+$c== :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679301184"><span id="local-6989586621679301186"><span id="local-6989586621679301188"><span id="local-6989586621679301190"><span id="local-6989586621679301192"><span id="local-6989586621679301194"><span id="local-6989586621679301196"><span class="annot"><span class="annottext">Eq ReportFrequencyType
+Eq ReportFrequencyType
+-&gt; (ReportFrequencyType -&gt; ReportFrequencyType -&gt; Ordering)
+-&gt; (ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool)
+-&gt; (ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool)
+-&gt; (ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool)
+-&gt; (ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool)
+-&gt; (ReportFrequencyType
+    -&gt; ReportFrequencyType -&gt; ReportFrequencyType)
+-&gt; (ReportFrequencyType
+    -&gt; ReportFrequencyType -&gt; ReportFrequencyType)
+-&gt; Ord ReportFrequencyType
+ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool
+ReportFrequencyType -&gt; ReportFrequencyType -&gt; Ordering
+ReportFrequencyType -&gt; ReportFrequencyType -&gt; ReportFrequencyType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; ReportFrequencyType
+$cmin :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; ReportFrequencyType
+max :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; ReportFrequencyType
+$cmax :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; ReportFrequencyType
+&gt;= :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool
+$c&gt;= :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool
+&gt; :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool
+$c&gt; :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool
+&lt;= :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool
+$c&lt;= :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool
+&lt; :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool
+$c&lt; :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; Bool
+compare :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; Ordering
+$ccompare :: ReportFrequencyType -&gt; ReportFrequencyType -&gt; Ordering
+$cp1Ord :: Eq ReportFrequencyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ReportFrequencyType -&gt; Rep ReportFrequencyType x)
+-&gt; (forall x. Rep ReportFrequencyType x -&gt; ReportFrequencyType)
+-&gt; Generic ReportFrequencyType
+forall x. Rep ReportFrequencyType x -&gt; ReportFrequencyType
+forall x. ReportFrequencyType -&gt; Rep ReportFrequencyType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReportFrequencyType x -&gt; ReportFrequencyType
+$cfrom :: forall x. ReportFrequencyType -&gt; Rep ReportFrequencyType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301176"><span id="local-6989586621679301178"><span class="annot"><span class="annottext">Int -&gt; ReportFrequencyType -&gt; Int
+ReportFrequencyType -&gt; Int
+(Int -&gt; ReportFrequencyType -&gt; Int)
+-&gt; (ReportFrequencyType -&gt; Int) -&gt; Hashable ReportFrequencyType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ReportFrequencyType -&gt; Int
+$chash :: ReportFrequencyType -&gt; Int
+hashWithSalt :: Int -&gt; ReportFrequencyType -&gt; Int
+$chashWithSalt :: Int -&gt; ReportFrequencyType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679301173"><span class="annot"><span class="annottext">ReportFrequencyType -&gt; ()
+(ReportFrequencyType -&gt; ()) -&gt; NFData ReportFrequencyType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ReportFrequencyType -&gt; ()
+$crnf :: ReportFrequencyType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679301170"><span class="annot"><span class="annottext">Text -&gt; Either String ReportFrequencyType
+(Text -&gt; Either String ReportFrequencyType)
+-&gt; FromText ReportFrequencyType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ReportFrequencyType
+$cfromText :: Text -&gt; Either String ReportFrequencyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679301167"><span class="annot"><span class="annottext">ReportFrequencyType -&gt; Text
+(ReportFrequencyType -&gt; Text) -&gt; ToText ReportFrequencyType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ReportFrequencyType -&gt; Text
+$ctoText :: ReportFrequencyType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679301164"><span class="annot"><span class="annottext">ReportFrequencyType -&gt; ByteString
+(ReportFrequencyType -&gt; ByteString)
+-&gt; ToByteString ReportFrequencyType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ReportFrequencyType -&gt; ByteString
+$ctoBS :: ReportFrequencyType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679301161"><span class="annot"><span class="annottext">ReportFrequencyType -&gt; ByteStringBuilder
+(ReportFrequencyType -&gt; ByteStringBuilder)
+-&gt; ToLog ReportFrequencyType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ReportFrequencyType -&gt; ByteStringBuilder
+$cbuild :: ReportFrequencyType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679301158"><span class="annot"><span class="annottext">HeaderName -&gt; ReportFrequencyType -&gt; [Header]
+(HeaderName -&gt; ReportFrequencyType -&gt; [Header])
+-&gt; ToHeader ReportFrequencyType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ReportFrequencyType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ReportFrequencyType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679301155"><span class="annot"><span class="annottext">ReportFrequencyType -&gt; QueryString
+(ReportFrequencyType -&gt; QueryString) -&gt; ToQuery ReportFrequencyType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ReportFrequencyType -&gt; QueryString
+$ctoQuery :: ReportFrequencyType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301150"><span id="local-6989586621679301152"><span class="annot"><span class="annottext">Value -&gt; Parser [ReportFrequencyType]
+Value -&gt; Parser ReportFrequencyType
+(Value -&gt; Parser ReportFrequencyType)
+-&gt; (Value -&gt; Parser [ReportFrequencyType])
+-&gt; FromJSON ReportFrequencyType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ReportFrequencyType]
+$cparseJSONList :: Value -&gt; Parser [ReportFrequencyType]
+parseJSON :: Value -&gt; Parser ReportFrequencyType
+$cparseJSON :: Value -&gt; Parser ReportFrequencyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301145"><span id="local-6989586621679301147"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReportFrequencyType]
+FromJSONKeyFunction ReportFrequencyType
+FromJSONKeyFunction ReportFrequencyType
+-&gt; FromJSONKeyFunction [ReportFrequencyType]
+-&gt; FromJSONKey ReportFrequencyType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ReportFrequencyType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ReportFrequencyType]
+fromJSONKey :: FromJSONKeyFunction ReportFrequencyType
+$cfromJSONKey :: FromJSONKeyFunction ReportFrequencyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301136"><span id="local-6989586621679301138"><span id="local-6989586621679301140"><span id="local-6989586621679301142"><span class="annot"><span class="annottext">[ReportFrequencyType] -&gt; Encoding
+[ReportFrequencyType] -&gt; Value
+ReportFrequencyType -&gt; Encoding
+ReportFrequencyType -&gt; Value
+(ReportFrequencyType -&gt; Value)
+-&gt; (ReportFrequencyType -&gt; Encoding)
+-&gt; ([ReportFrequencyType] -&gt; Value)
+-&gt; ([ReportFrequencyType] -&gt; Encoding)
+-&gt; ToJSON ReportFrequencyType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ReportFrequencyType] -&gt; Encoding
+$ctoEncodingList :: [ReportFrequencyType] -&gt; Encoding
+toJSONList :: [ReportFrequencyType] -&gt; Value
+$ctoJSONList :: [ReportFrequencyType] -&gt; Value
+toEncoding :: ReportFrequencyType -&gt; Encoding
+$ctoEncoding :: ReportFrequencyType -&gt; Encoding
+toJSON :: ReportFrequencyType -&gt; Value
+$ctoJSON :: ReportFrequencyType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301131"><span id="local-6989586621679301133"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReportFrequencyType]
+ToJSONKeyFunction ReportFrequencyType
+ToJSONKeyFunction ReportFrequencyType
+-&gt; ToJSONKeyFunction [ReportFrequencyType]
+-&gt; ToJSONKey ReportFrequencyType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ReportFrequencyType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ReportFrequencyType]
+toJSONKey :: ToJSONKeyFunction ReportFrequencyType
+$ctoJSONKey :: ToJSONKeyFunction ReportFrequencyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301128"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReportFrequencyType
+([Node] -&gt; Either String ReportFrequencyType)
+-&gt; FromXML ReportFrequencyType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ReportFrequencyType
+$cparseXML :: [Node] -&gt; Either String ReportFrequencyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679301125"><span class="annot"><span class="annottext">ReportFrequencyType -&gt; XML
+(ReportFrequencyType -&gt; XML) -&gt; ToXML ReportFrequencyType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ReportFrequencyType -&gt; XML
+$ctoXML :: ReportFrequencyType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType_DAY"><span class="hs-identifier hs-type">ReportFrequencyType_DAY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType"><span class="hs-identifier hs-type">ReportFrequencyType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReportFrequencyType_DAY"><span id="%24mReportFrequencyType_DAY"><span id="ReportFrequencyType_DAY"><span class="annot"><span class="annottext">$bReportFrequencyType_DAY :: ReportFrequencyType
+$mReportFrequencyType_DAY :: forall r. ReportFrequencyType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#%24bReportFrequencyType_DAY"><span class="hs-identifier hs-var hs-var hs-var">ReportFrequencyType_DAY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType%27"><span class="hs-identifier hs-type">ReportFrequencyType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DAY&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType_MONTH"><span class="hs-identifier hs-type">ReportFrequencyType_MONTH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType"><span class="hs-identifier hs-type">ReportFrequencyType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReportFrequencyType_MONTH"><span id="%24mReportFrequencyType_MONTH"><span id="ReportFrequencyType_MONTH"><span class="annot"><span class="annottext">$bReportFrequencyType_MONTH :: ReportFrequencyType
+$mReportFrequencyType_MONTH :: forall r. ReportFrequencyType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#%24bReportFrequencyType_MONTH"><span class="hs-identifier hs-var hs-var hs-var">ReportFrequencyType_MONTH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType%27"><span class="hs-identifier hs-type">ReportFrequencyType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MONTH&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType_WEEK"><span class="hs-identifier hs-type">ReportFrequencyType_WEEK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType"><span class="hs-identifier hs-type">ReportFrequencyType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReportFrequencyType_WEEK"><span id="%24mReportFrequencyType_WEEK"><span id="ReportFrequencyType_WEEK"><span class="annot"><span class="annottext">$bReportFrequencyType_WEEK :: ReportFrequencyType
+$mReportFrequencyType_WEEK :: forall r. ReportFrequencyType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#%24bReportFrequencyType_WEEK"><span class="hs-identifier hs-var hs-var hs-var">ReportFrequencyType_WEEK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType%27"><span class="hs-identifier hs-type">ReportFrequencyType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WEEK&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType_DAY"><span class="hs-pragma hs-type">ReportFrequencyType_DAY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType_MONTH"><span class="hs-pragma hs-type">ReportFrequencyType_MONTH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType_WEEK"><span class="hs-pragma hs-type">ReportFrequencyType_WEEK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequencyType.html#ReportFrequencyType%27"><span class="hs-pragma hs-type">ReportFrequencyType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

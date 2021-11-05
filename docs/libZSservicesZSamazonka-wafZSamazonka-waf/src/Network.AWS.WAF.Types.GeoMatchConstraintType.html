@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679299795"><span id="local-6989586621679299796"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GeoMatchConstraintType"><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchConstraintType.html#GeoMatchConstraintType"><span class="hs-identifier hs-var">GeoMatchConstraintType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GeoMatchConstraintType%27"><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchConstraintType.html#GeoMatchConstraintType%27"><span class="hs-identifier hs-var">GeoMatchConstraintType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679299804"><span id="local-6989586621679299805"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GeoMatchConstraintType"><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchConstraintType.html#GeoMatchConstraintType"><span class="hs-identifier hs-var">GeoMatchConstraintType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GeoMatchConstraintType%27"><span class="annot"><a href="Network.AWS.WAF.Types.GeoMatchConstraintType.html#GeoMatchConstraintType%27"><span class="hs-identifier hs-var">GeoMatchConstraintType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGeoMatchConstraintType"><span class="annot"><span class="annottext">GeoMatchConstraintType -&gt; Text
 </span><a href="Network.AWS.WAF.Types.GeoMatchConstraintType.html#fromGeoMatchConstraintType"><span class="hs-identifier hs-var hs-var">fromGeoMatchConstraintType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299787"><span id="local-6989586621679299789"><span id="local-6989586621679299791"><span class="annot"><span class="annottext">Int -&gt; GeoMatchConstraintType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299796"><span id="local-6989586621679299798"><span id="local-6989586621679299800"><span class="annot"><span class="annottext">Int -&gt; GeoMatchConstraintType -&gt; ShowS
 [GeoMatchConstraintType] -&gt; ShowS
 GeoMatchConstraintType -&gt; String
 (Int -&gt; GeoMatchConstraintType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: GeoMatchConstraintType -&gt; String
 showsPrec :: Int -&gt; GeoMatchConstraintType -&gt; ShowS
 $cshowsPrec :: Int -&gt; GeoMatchConstraintType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679299778"><span id="local-6989586621679299780"><span id="local-6989586621679299782"><span id="local-6989586621679299784"><span class="annot"><span class="annottext">ReadPrec [GeoMatchConstraintType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679299787"><span id="local-6989586621679299789"><span id="local-6989586621679299791"><span id="local-6989586621679299793"><span class="annot"><span class="annottext">ReadPrec [GeoMatchConstraintType]
 ReadPrec GeoMatchConstraintType
 Int -&gt; ReadS GeoMatchConstraintType
 ReadS [GeoMatchConstraintType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [GeoMatchConstraintType]
 readsPrec :: Int -&gt; ReadS GeoMatchConstraintType
 $creadsPrec :: Int -&gt; ReadS GeoMatchConstraintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679299773"><span id="local-6989586621679299775"><span class="annot"><span class="annottext">GeoMatchConstraintType -&gt; GeoMatchConstraintType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679299782"><span id="local-6989586621679299784"><span class="annot"><span class="annottext">GeoMatchConstraintType -&gt; GeoMatchConstraintType -&gt; Bool
 (GeoMatchConstraintType -&gt; GeoMatchConstraintType -&gt; Bool)
 -&gt; (GeoMatchConstraintType -&gt; GeoMatchConstraintType -&gt; Bool)
 -&gt; Eq GeoMatchConstraintType
@@ -81,7 +81,7 @@ $c/= :: GeoMatchConstraintType -&gt; GeoMatchConstraintType -&gt; Bool
 == :: GeoMatchConstraintType -&gt; GeoMatchConstraintType -&gt; Bool
 $c== :: GeoMatchConstraintType -&gt; GeoMatchConstraintType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679299757"><span id="local-6989586621679299759"><span id="local-6989586621679299761"><span id="local-6989586621679299763"><span id="local-6989586621679299765"><span id="local-6989586621679299767"><span id="local-6989586621679299769"><span class="annot"><span class="annottext">Eq GeoMatchConstraintType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679299766"><span id="local-6989586621679299768"><span id="local-6989586621679299770"><span id="local-6989586621679299772"><span id="local-6989586621679299774"><span id="local-6989586621679299776"><span id="local-6989586621679299778"><span class="annot"><span class="annottext">Eq GeoMatchConstraintType
 Eq GeoMatchConstraintType
 -&gt; (GeoMatchConstraintType -&gt; GeoMatchConstraintType -&gt; Ordering)
 -&gt; (GeoMatchConstraintType -&gt; GeoMatchConstraintType -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. GeoMatchConstraintType -&gt; Rep GeoMatchConstraintType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299749"><span id="local-6989586621679299751"><span class="annot"><span class="annottext">Int -&gt; GeoMatchConstraintType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299758"><span id="local-6989586621679299760"><span class="annot"><span class="annottext">Int -&gt; GeoMatchConstraintType -&gt; Int
 GeoMatchConstraintType -&gt; Int
 (Int -&gt; GeoMatchConstraintType -&gt; Int)
 -&gt; (GeoMatchConstraintType -&gt; Int)
@@ -151,54 +151,54 @@ $chash :: GeoMatchConstraintType -&gt; Int
 hashWithSalt :: Int -&gt; GeoMatchConstraintType -&gt; Int
 $chashWithSalt :: Int -&gt; GeoMatchConstraintType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679299746"><span class="annot"><span class="annottext">GeoMatchConstraintType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679299755"><span class="annot"><span class="annottext">GeoMatchConstraintType -&gt; ()
 (GeoMatchConstraintType -&gt; ()) -&gt; NFData GeoMatchConstraintType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: GeoMatchConstraintType -&gt; ()
 $crnf :: GeoMatchConstraintType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679299743"><span class="annot"><span class="annottext">Text -&gt; Either String GeoMatchConstraintType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679299752"><span class="annot"><span class="annottext">Text -&gt; Either String GeoMatchConstraintType
 (Text -&gt; Either String GeoMatchConstraintType)
 -&gt; FromText GeoMatchConstraintType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String GeoMatchConstraintType
 $cfromText :: Text -&gt; Either String GeoMatchConstraintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679299740"><span class="annot"><span class="annottext">GeoMatchConstraintType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679299749"><span class="annot"><span class="annottext">GeoMatchConstraintType -&gt; Text
 (GeoMatchConstraintType -&gt; Text) -&gt; ToText GeoMatchConstraintType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: GeoMatchConstraintType -&gt; Text
 $ctoText :: GeoMatchConstraintType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679299737"><span class="annot"><span class="annottext">GeoMatchConstraintType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679299746"><span class="annot"><span class="annottext">GeoMatchConstraintType -&gt; ByteString
 (GeoMatchConstraintType -&gt; ByteString)
 -&gt; ToByteString GeoMatchConstraintType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: GeoMatchConstraintType -&gt; ByteString
 $ctoBS :: GeoMatchConstraintType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679299734"><span class="annot"><span class="annottext">GeoMatchConstraintType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679299743"><span class="annot"><span class="annottext">GeoMatchConstraintType -&gt; ByteStringBuilder
 (GeoMatchConstraintType -&gt; ByteStringBuilder)
 -&gt; ToLog GeoMatchConstraintType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: GeoMatchConstraintType -&gt; ByteStringBuilder
 $cbuild :: GeoMatchConstraintType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679299731"><span class="annot"><span class="annottext">HeaderName -&gt; GeoMatchConstraintType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679299740"><span class="annot"><span class="annottext">HeaderName -&gt; GeoMatchConstraintType -&gt; [Header]
 (HeaderName -&gt; GeoMatchConstraintType -&gt; [Header])
 -&gt; ToHeader GeoMatchConstraintType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; GeoMatchConstraintType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; GeoMatchConstraintType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679299728"><span class="annot"><span class="annottext">GeoMatchConstraintType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679299737"><span class="annot"><span class="annottext">GeoMatchConstraintType -&gt; QueryString
 (GeoMatchConstraintType -&gt; QueryString)
 -&gt; ToQuery GeoMatchConstraintType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: GeoMatchConstraintType -&gt; QueryString
 $ctoQuery :: GeoMatchConstraintType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679299723"><span id="local-6989586621679299725"><span class="annot"><span class="annottext">Value -&gt; Parser [GeoMatchConstraintType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679299732"><span id="local-6989586621679299734"><span class="annot"><span class="annottext">Value -&gt; Parser [GeoMatchConstraintType]
 Value -&gt; Parser GeoMatchConstraintType
 (Value -&gt; Parser GeoMatchConstraintType)
 -&gt; (Value -&gt; Parser [GeoMatchConstraintType])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [GeoMatchConstraintType]
 parseJSON :: Value -&gt; Parser GeoMatchConstraintType
 $cparseJSON :: Value -&gt; Parser GeoMatchConstraintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679299718"><span id="local-6989586621679299720"><span class="annot"><span class="annottext">FromJSONKeyFunction [GeoMatchConstraintType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679299727"><span id="local-6989586621679299729"><span class="annot"><span class="annottext">FromJSONKeyFunction [GeoMatchConstraintType]
 FromJSONKeyFunction GeoMatchConstraintType
 FromJSONKeyFunction GeoMatchConstraintType
 -&gt; FromJSONKeyFunction [GeoMatchConstraintType]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [GeoMatchConstraintType]
 fromJSONKey :: FromJSONKeyFunction GeoMatchConstraintType
 $cfromJSONKey :: FromJSONKeyFunction GeoMatchConstraintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679299709"><span id="local-6989586621679299711"><span id="local-6989586621679299713"><span id="local-6989586621679299715"><span class="annot"><span class="annottext">[GeoMatchConstraintType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679299718"><span id="local-6989586621679299720"><span id="local-6989586621679299722"><span id="local-6989586621679299724"><span class="annot"><span class="annottext">[GeoMatchConstraintType] -&gt; Encoding
 [GeoMatchConstraintType] -&gt; Value
 GeoMatchConstraintType -&gt; Encoding
 GeoMatchConstraintType -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: GeoMatchConstraintType -&gt; Encoding
 toJSON :: GeoMatchConstraintType -&gt; Value
 $ctoJSON :: GeoMatchConstraintType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679299704"><span id="local-6989586621679299706"><span class="annot"><span class="annottext">ToJSONKeyFunction [GeoMatchConstraintType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679299713"><span id="local-6989586621679299715"><span class="annot"><span class="annottext">ToJSONKeyFunction [GeoMatchConstraintType]
 ToJSONKeyFunction GeoMatchConstraintType
 ToJSONKeyFunction GeoMatchConstraintType
 -&gt; ToJSONKeyFunction [GeoMatchConstraintType]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [GeoMatchConstraintType]
 toJSONKey :: ToJSONKeyFunction GeoMatchConstraintType
 $ctoJSONKey :: ToJSONKeyFunction GeoMatchConstraintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679299701"><span class="annot"><span class="annottext">[Node] -&gt; Either String GeoMatchConstraintType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679299710"><span class="annot"><span class="annottext">[Node] -&gt; Either String GeoMatchConstraintType
 ([Node] -&gt; Either String GeoMatchConstraintType)
 -&gt; FromXML GeoMatchConstraintType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String GeoMatchConstraintType
 $cparseXML :: [Node] -&gt; Either String GeoMatchConstraintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679299698"><span class="annot"><span class="annottext">GeoMatchConstraintType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679299707"><span class="annot"><span class="annottext">GeoMatchConstraintType -&gt; XML
 (GeoMatchConstraintType -&gt; XML) -&gt; ToXML GeoMatchConstraintType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: GeoMatchConstraintType -&gt; XML

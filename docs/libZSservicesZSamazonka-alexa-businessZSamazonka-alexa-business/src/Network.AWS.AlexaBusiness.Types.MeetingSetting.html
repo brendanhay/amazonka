@@ -35,12 +35,12 @@
 </span><span id="line-35"></span><span class="hs-comment">--     customer responds with yes, it will ask for the meeting pin.</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newMeetingSetting' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679370859"><span id="local-6989586621679370860"></span></span><span class="hs-keyword">data</span><span> </span><span id="MeetingSetting"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-var">MeetingSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MeetingSetting%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting%27"><span class="hs-identifier hs-var">MeetingSetting'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679370868"><span id="local-6989586621679370869"></span></span><span class="hs-keyword">data</span><span> </span><span id="MeetingSetting"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-var">MeetingSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MeetingSetting%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting%27"><span class="hs-identifier hs-var">MeetingSetting'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The values that indicate whether the pin is always required.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3ArequirePin%3AMeetingSetting%27"><span class="annot"><span class="annottext">MeetingSetting -&gt; RequirePin
 </span><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#%24sel%3ArequirePin%3AMeetingSetting%27"><span class="hs-identifier hs-var hs-var">requirePin</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin"><span class="hs-identifier hs-type">RequirePin</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370853"><span id="local-6989586621679370855"><span class="annot"><span class="annottext">MeetingSetting -&gt; MeetingSetting -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370862"><span id="local-6989586621679370864"><span class="annot"><span class="annottext">MeetingSetting -&gt; MeetingSetting -&gt; Bool
 (MeetingSetting -&gt; MeetingSetting -&gt; Bool)
 -&gt; (MeetingSetting -&gt; MeetingSetting -&gt; Bool) -&gt; Eq MeetingSetting
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MeetingSetting -&gt; MeetingSetting -&gt; Bool
 == :: MeetingSetting -&gt; MeetingSetting -&gt; Bool
 $c== :: MeetingSetting -&gt; MeetingSetting -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370844"><span id="local-6989586621679370846"><span id="local-6989586621679370848"><span id="local-6989586621679370850"><span class="annot"><span class="annottext">ReadPrec [MeetingSetting]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370853"><span id="local-6989586621679370855"><span id="local-6989586621679370857"><span id="local-6989586621679370859"><span class="annot"><span class="annottext">ReadPrec [MeetingSetting]
 ReadPrec MeetingSetting
 Int -&gt; ReadS MeetingSetting
 ReadS [MeetingSetting]
@@ -68,7 +68,7 @@ readList :: ReadS [MeetingSetting]
 $creadList :: ReadS [MeetingSetting]
 readsPrec :: Int -&gt; ReadS MeetingSetting
 $creadsPrec :: Int -&gt; ReadS MeetingSetting
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370837"><span id="local-6989586621679370839"><span id="local-6989586621679370841"><span class="annot"><span class="annottext">Int -&gt; MeetingSetting -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370846"><span id="local-6989586621679370848"><span id="local-6989586621679370850"><span class="annot"><span class="annottext">Int -&gt; MeetingSetting -&gt; ShowS
 [MeetingSetting] -&gt; ShowS
 MeetingSetting -&gt; String
 (Int -&gt; MeetingSetting -&gt; ShowS)
@@ -108,12 +108,12 @@ $cfrom :: forall x. MeetingSetting -&gt; Rep MeetingSetting x
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin"><span class="hs-identifier hs-type">RequirePin</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span><span>
 </span><span id="line-57"></span><span id="newMeetingSetting"><span class="annot"><span class="annottext">newMeetingSetting :: RequirePin -&gt; MeetingSetting
-</span><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#newMeetingSetting"><span class="hs-identifier hs-var hs-var">newMeetingSetting</span></a></span></span><span> </span><span id="local-6989586621679370831"><span class="annot"><span class="annottext">RequirePin
-</span><a href="#local-6989586621679370831"><span class="hs-identifier hs-var">pRequirePin_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#newMeetingSetting"><span class="hs-identifier hs-var hs-var">newMeetingSetting</span></a></span></span><span> </span><span id="local-6989586621679370840"><span class="annot"><span class="annottext">RequirePin
+</span><a href="#local-6989586621679370840"><span class="hs-identifier hs-var">pRequirePin_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">MeetingSetting' :: RequirePin -&gt; MeetingSetting
 </span><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting%27"><span class="hs-identifier hs-type">MeetingSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requirePin:MeetingSetting' :: RequirePin
 </span><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#%24sel%3ArequirePin%3AMeetingSetting%27"><span class="hs-identifier hs-var">requirePin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RequirePin
-</span><a href="#local-6989586621679370831"><span class="hs-identifier hs-var">pRequirePin_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679370840"><span class="hs-identifier hs-var">pRequirePin_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The values that indicate whether the pin is always required.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#meetingSetting_requirePin"><span class="hs-identifier hs-type">meetingSetting_requirePin</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequirePin.html#RequirePin"><span class="hs-identifier hs-type">RequirePin</span></a></span><span>
@@ -122,19 +122,19 @@ $cfrom :: forall x. MeetingSetting -&gt; Rep MeetingSetting x
 -&gt; (MeetingSetting -&gt; RequirePin -&gt; MeetingSetting)
 -&gt; Lens MeetingSetting MeetingSetting RequirePin RequirePin
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting%27"><span class="hs-identifier hs-type">MeetingSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370827"><span class="annot"><span class="annottext">RequirePin
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting%27"><span class="hs-identifier hs-type">MeetingSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370836"><span class="annot"><span class="annottext">RequirePin
 requirePin :: RequirePin
 $sel:requirePin:MeetingSetting' :: MeetingSetting -&gt; RequirePin
-</span><a href="#local-6989586621679370827"><span class="hs-identifier hs-var hs-var">requirePin</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RequirePin
-</span><a href="#local-6989586621679370827"><span class="hs-identifier hs-var">requirePin</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370826"><span class="annot"><span class="annottext">s :: MeetingSetting
-</span><a href="#local-6989586621679370826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting%27"><span class="hs-identifier hs-type">MeetingSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370825"><span class="annot"><span class="annottext">RequirePin
-</span><a href="#local-6989586621679370825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MeetingSetting
-</span><a href="#local-6989586621679370826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requirePin:MeetingSetting' :: RequirePin
+</span><a href="#local-6989586621679370836"><span class="hs-identifier hs-var hs-var">requirePin</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RequirePin
+</span><a href="#local-6989586621679370836"><span class="hs-identifier hs-var">requirePin</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370835"><span class="annot"><span class="annottext">s :: MeetingSetting
+</span><a href="#local-6989586621679370835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting%27"><span class="hs-identifier hs-type">MeetingSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370834"><span class="annot"><span class="annottext">RequirePin
+</span><a href="#local-6989586621679370834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MeetingSetting
+</span><a href="#local-6989586621679370835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requirePin:MeetingSetting' :: RequirePin
 </span><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#%24sel%3ArequirePin%3AMeetingSetting%27"><span class="hs-identifier hs-var">requirePin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RequirePin
-</span><a href="#local-6989586621679370825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370822"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679370820"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MeetingSetting
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370831"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679370829"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MeetingSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MeetingSetting)
@@ -144,29 +144,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MeetingSetting&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370817"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370817"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370826"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370826"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">RequirePin -&gt; MeetingSetting
 </span><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting%27"><span class="hs-identifier hs-var">MeetingSetting'</span></a></span><span> </span><span class="annot"><span class="annottext">(RequirePin -&gt; MeetingSetting)
 -&gt; Parser RequirePin -&gt; Parser MeetingSetting
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RequirePin
+</span><a href="#local-6989586621679370826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RequirePin
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RequirePin&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370811"><span id="local-6989586621679370813"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370820"><span id="local-6989586621679370822"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370808"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370817"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370800"><span id="local-6989586621679370802"><span id="local-6989586621679370804"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679370798"><span class="annot"><span class="annottext">toJSON :: MeetingSetting -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting%27"><span class="hs-identifier hs-type">MeetingSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370796"><span class="annot"><span class="annottext">RequirePin
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370809"><span id="local-6989586621679370811"><span id="local-6989586621679370813"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting"><span class="hs-identifier hs-type">MeetingSetting</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679370807"><span class="annot"><span class="annottext">toJSON :: MeetingSetting -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.MeetingSetting.html#MeetingSetting%27"><span class="hs-identifier hs-type">MeetingSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370805"><span class="annot"><span class="annottext">RequirePin
 requirePin :: RequirePin
 $sel:requirePin:MeetingSetting' :: MeetingSetting -&gt; RequirePin
-</span><a href="#local-6989586621679370796"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679370805"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -178,6 +178,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RequirePin&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RequirePin -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RequirePin
-</span><a href="#local-6989586621679370796"><span class="hs-identifier hs-var">requirePin</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679370805"><span class="hs-identifier hs-var">requirePin</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span></pre></body></html>

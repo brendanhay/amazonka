@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains the name and identifier of a pipeline.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPipelineIdName' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679175808"><span id="local-6989586621679175809"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineIdName"><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName"><span class="hs-identifier hs-var">PipelineIdName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineIdName%27"><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName%27"><span class="hs-identifier hs-var">PipelineIdName'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679175817"><span id="local-6989586621679175818"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineIdName"><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName"><span class="hs-identifier hs-var">PipelineIdName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineIdName%27"><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName%27"><span class="hs-identifier hs-var">PipelineIdName'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the pipeline.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3APipelineIdName%27"><span class="annot"><span class="annottext">PipelineIdName -&gt; Maybe Text
 </span><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#%24sel%3Aname%3APipelineIdName%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aid%3APipelineIdName%27"><span class="annot"><span class="annottext">PipelineIdName -&gt; Maybe Text
 </span><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#%24sel%3Aid%3APipelineIdName%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175801"><span id="local-6989586621679175803"><span class="annot"><span class="annottext">PipelineIdName -&gt; PipelineIdName -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175810"><span id="local-6989586621679175812"><span class="annot"><span class="annottext">PipelineIdName -&gt; PipelineIdName -&gt; Bool
 (PipelineIdName -&gt; PipelineIdName -&gt; Bool)
 -&gt; (PipelineIdName -&gt; PipelineIdName -&gt; Bool) -&gt; Eq PipelineIdName
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PipelineIdName -&gt; PipelineIdName -&gt; Bool
 == :: PipelineIdName -&gt; PipelineIdName -&gt; Bool
 $c== :: PipelineIdName -&gt; PipelineIdName -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175792"><span id="local-6989586621679175794"><span id="local-6989586621679175796"><span id="local-6989586621679175798"><span class="annot"><span class="annottext">ReadPrec [PipelineIdName]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175801"><span id="local-6989586621679175803"><span id="local-6989586621679175805"><span id="local-6989586621679175807"><span class="annot"><span class="annottext">ReadPrec [PipelineIdName]
 ReadPrec PipelineIdName
 Int -&gt; ReadS PipelineIdName
 ReadS [PipelineIdName]
@@ -63,7 +63,7 @@ readList :: ReadS [PipelineIdName]
 $creadList :: ReadS [PipelineIdName]
 readsPrec :: Int -&gt; ReadS PipelineIdName
 $creadsPrec :: Int -&gt; ReadS PipelineIdName
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175785"><span id="local-6989586621679175787"><span id="local-6989586621679175789"><span class="annot"><span class="annottext">Int -&gt; PipelineIdName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175794"><span id="local-6989586621679175796"><span id="local-6989586621679175798"><span class="annot"><span class="annottext">Int -&gt; PipelineIdName -&gt; ShowS
 [PipelineIdName] -&gt; ShowS
 PipelineIdName -&gt; String
 (Int -&gt; PipelineIdName -&gt; ShowS)
@@ -125,16 +125,16 @@ forall a. Maybe a
 -&gt; (PipelineIdName -&gt; Maybe Text -&gt; PipelineIdName)
 -&gt; Lens PipelineIdName PipelineIdName (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName%27"><span class="hs-identifier hs-type">PipelineIdName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175776"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName%27"><span class="hs-identifier hs-type">PipelineIdName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175785"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:PipelineIdName' :: PipelineIdName -&gt; Maybe Text
-</span><a href="#local-6989586621679175776"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175776"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175775"><span class="annot"><span class="annottext">s :: PipelineIdName
-</span><a href="#local-6989586621679175775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName%27"><span class="hs-identifier hs-type">PipelineIdName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175774"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineIdName
-</span><a href="#local-6989586621679175775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PipelineIdName' :: Maybe Text
+</span><a href="#local-6989586621679175785"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175785"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175784"><span class="annot"><span class="annottext">s :: PipelineIdName
+</span><a href="#local-6989586621679175784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName%27"><span class="hs-identifier hs-type">PipelineIdName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175783"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineIdName
+</span><a href="#local-6989586621679175784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PipelineIdName' :: Maybe Text
 </span><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#%24sel%3Aname%3APipelineIdName%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName"><span class="hs-identifier hs-type">PipelineIdName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName"><span class="hs-identifier hs-type">PipelineIdName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- string of the form @df-297EG78HU43EEXAMPLE@.</span><span>
@@ -145,19 +145,19 @@ $sel:name:PipelineIdName' :: PipelineIdName -&gt; Maybe Text
 -&gt; (PipelineIdName -&gt; Maybe Text -&gt; PipelineIdName)
 -&gt; Lens PipelineIdName PipelineIdName (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName%27"><span class="hs-identifier hs-type">PipelineIdName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175772"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName%27"><span class="hs-identifier hs-type">PipelineIdName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175781"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:PipelineIdName' :: PipelineIdName -&gt; Maybe Text
-</span><a href="#local-6989586621679175772"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175772"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175771"><span class="annot"><span class="annottext">s :: PipelineIdName
-</span><a href="#local-6989586621679175771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName%27"><span class="hs-identifier hs-type">PipelineIdName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175770"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineIdName
-</span><a href="#local-6989586621679175771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PipelineIdName' :: Maybe Text
+</span><a href="#local-6989586621679175781"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175781"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175780"><span class="annot"><span class="annottext">s :: PipelineIdName
+</span><a href="#local-6989586621679175780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName%27"><span class="hs-identifier hs-type">PipelineIdName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175779"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineIdName
+</span><a href="#local-6989586621679175780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PipelineIdName' :: Maybe Text
 </span><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#%24sel%3Aid%3APipelineIdName%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName"><span class="hs-identifier hs-type">PipelineIdName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName"><span class="hs-identifier hs-type">PipelineIdName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175767"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName"><span class="hs-identifier hs-type">PipelineIdName</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679175765"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineIdName
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175776"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName"><span class="hs-identifier hs-type">PipelineIdName</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679175774"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineIdName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PipelineIdName)
@@ -167,28 +167,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PipelineIdName&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175762"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175762"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175771"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175771"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; PipelineIdName
 </span><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName%27"><span class="hs-identifier hs-var">PipelineIdName'</span></a></span><span>
 </span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; PipelineIdName)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; PipelineIdName)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679175771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PipelineIdName)
 -&gt; Parser (Maybe Text) -&gt; Parser PipelineIdName
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679175771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175756"><span id="local-6989586621679175758"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName"><span class="hs-identifier hs-type">PipelineIdName</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175765"><span id="local-6989586621679175767"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName"><span class="hs-identifier hs-type">PipelineIdName</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175753"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName"><span class="hs-identifier hs-type">PipelineIdName</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175762"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineIdName.html#PipelineIdName"><span class="hs-identifier hs-type">PipelineIdName</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

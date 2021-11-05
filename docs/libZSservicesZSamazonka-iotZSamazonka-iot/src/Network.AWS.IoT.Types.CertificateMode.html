@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679780185"><span id="local-6989586621679780186"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CertificateMode"><span class="annot"><a href="Network.AWS.IoT.Types.CertificateMode.html#CertificateMode"><span class="hs-identifier hs-var">CertificateMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CertificateMode%27"><span class="annot"><a href="Network.AWS.IoT.Types.CertificateMode.html#CertificateMode%27"><span class="hs-identifier hs-var">CertificateMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679780194"><span id="local-6989586621679780195"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CertificateMode"><span class="annot"><a href="Network.AWS.IoT.Types.CertificateMode.html#CertificateMode"><span class="hs-identifier hs-var">CertificateMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CertificateMode%27"><span class="annot"><a href="Network.AWS.IoT.Types.CertificateMode.html#CertificateMode%27"><span class="hs-identifier hs-var">CertificateMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCertificateMode"><span class="annot"><span class="annottext">CertificateMode -&gt; Text
 </span><a href="Network.AWS.IoT.Types.CertificateMode.html#fromCertificateMode"><span class="hs-identifier hs-var hs-var">fromCertificateMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679780177"><span id="local-6989586621679780179"><span id="local-6989586621679780181"><span class="annot"><span class="annottext">Int -&gt; CertificateMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679780186"><span id="local-6989586621679780188"><span id="local-6989586621679780190"><span class="annot"><span class="annottext">Int -&gt; CertificateMode -&gt; ShowS
 [CertificateMode] -&gt; ShowS
 CertificateMode -&gt; String
 (Int -&gt; CertificateMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CertificateMode -&gt; String
 showsPrec :: Int -&gt; CertificateMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; CertificateMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679780168"><span id="local-6989586621679780170"><span id="local-6989586621679780172"><span id="local-6989586621679780174"><span class="annot"><span class="annottext">ReadPrec [CertificateMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679780177"><span id="local-6989586621679780179"><span id="local-6989586621679780181"><span id="local-6989586621679780183"><span class="annot"><span class="annottext">ReadPrec [CertificateMode]
 ReadPrec CertificateMode
 Int -&gt; ReadS CertificateMode
 ReadS [CertificateMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CertificateMode]
 readsPrec :: Int -&gt; ReadS CertificateMode
 $creadsPrec :: Int -&gt; ReadS CertificateMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679780163"><span id="local-6989586621679780165"><span class="annot"><span class="annottext">CertificateMode -&gt; CertificateMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679780172"><span id="local-6989586621679780174"><span class="annot"><span class="annottext">CertificateMode -&gt; CertificateMode -&gt; Bool
 (CertificateMode -&gt; CertificateMode -&gt; Bool)
 -&gt; (CertificateMode -&gt; CertificateMode -&gt; Bool)
 -&gt; Eq CertificateMode
@@ -82,7 +82,7 @@ $c/= :: CertificateMode -&gt; CertificateMode -&gt; Bool
 == :: CertificateMode -&gt; CertificateMode -&gt; Bool
 $c== :: CertificateMode -&gt; CertificateMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679780147"><span id="local-6989586621679780149"><span id="local-6989586621679780151"><span id="local-6989586621679780153"><span id="local-6989586621679780155"><span id="local-6989586621679780157"><span id="local-6989586621679780159"><span class="annot"><span class="annottext">Eq CertificateMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679780156"><span id="local-6989586621679780158"><span id="local-6989586621679780160"><span id="local-6989586621679780162"><span id="local-6989586621679780164"><span id="local-6989586621679780166"><span id="local-6989586621679780168"><span class="annot"><span class="annottext">Eq CertificateMode
 Eq CertificateMode
 -&gt; (CertificateMode -&gt; CertificateMode -&gt; Ordering)
 -&gt; (CertificateMode -&gt; CertificateMode -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. CertificateMode -&gt; Rep CertificateMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679780139"><span id="local-6989586621679780141"><span class="annot"><span class="annottext">Int -&gt; CertificateMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679780148"><span id="local-6989586621679780150"><span class="annot"><span class="annottext">Int -&gt; CertificateMode -&gt; Int
 CertificateMode -&gt; Int
 (Int -&gt; CertificateMode -&gt; Int)
 -&gt; (CertificateMode -&gt; Int) -&gt; Hashable CertificateMode
@@ -143,50 +143,50 @@ $chash :: CertificateMode -&gt; Int
 hashWithSalt :: Int -&gt; CertificateMode -&gt; Int
 $chashWithSalt :: Int -&gt; CertificateMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679780136"><span class="annot"><span class="annottext">CertificateMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679780145"><span class="annot"><span class="annottext">CertificateMode -&gt; ()
 (CertificateMode -&gt; ()) -&gt; NFData CertificateMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CertificateMode -&gt; ()
 $crnf :: CertificateMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679780133"><span class="annot"><span class="annottext">Text -&gt; Either String CertificateMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679780142"><span class="annot"><span class="annottext">Text -&gt; Either String CertificateMode
 (Text -&gt; Either String CertificateMode) -&gt; FromText CertificateMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CertificateMode
 $cfromText :: Text -&gt; Either String CertificateMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679780130"><span class="annot"><span class="annottext">CertificateMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679780139"><span class="annot"><span class="annottext">CertificateMode -&gt; Text
 (CertificateMode -&gt; Text) -&gt; ToText CertificateMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CertificateMode -&gt; Text
 $ctoText :: CertificateMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679780127"><span class="annot"><span class="annottext">CertificateMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679780136"><span class="annot"><span class="annottext">CertificateMode -&gt; ByteString
 (CertificateMode -&gt; ByteString) -&gt; ToByteString CertificateMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CertificateMode -&gt; ByteString
 $ctoBS :: CertificateMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679780124"><span class="annot"><span class="annottext">CertificateMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679780133"><span class="annot"><span class="annottext">CertificateMode -&gt; ByteStringBuilder
 (CertificateMode -&gt; ByteStringBuilder) -&gt; ToLog CertificateMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CertificateMode -&gt; ByteStringBuilder
 $cbuild :: CertificateMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679780121"><span class="annot"><span class="annottext">HeaderName -&gt; CertificateMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679780130"><span class="annot"><span class="annottext">HeaderName -&gt; CertificateMode -&gt; [Header]
 (HeaderName -&gt; CertificateMode -&gt; [Header])
 -&gt; ToHeader CertificateMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CertificateMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CertificateMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679780118"><span class="annot"><span class="annottext">CertificateMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679780127"><span class="annot"><span class="annottext">CertificateMode -&gt; QueryString
 (CertificateMode -&gt; QueryString) -&gt; ToQuery CertificateMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CertificateMode -&gt; QueryString
 $ctoQuery :: CertificateMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679780113"><span id="local-6989586621679780115"><span class="annot"><span class="annottext">Value -&gt; Parser [CertificateMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679780122"><span id="local-6989586621679780124"><span class="annot"><span class="annottext">Value -&gt; Parser [CertificateMode]
 Value -&gt; Parser CertificateMode
 (Value -&gt; Parser CertificateMode)
 -&gt; (Value -&gt; Parser [CertificateMode]) -&gt; FromJSON CertificateMode
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [CertificateMode]
 parseJSON :: Value -&gt; Parser CertificateMode
 $cparseJSON :: Value -&gt; Parser CertificateMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679780108"><span id="local-6989586621679780110"><span class="annot"><span class="annottext">FromJSONKeyFunction [CertificateMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679780117"><span id="local-6989586621679780119"><span class="annot"><span class="annottext">FromJSONKeyFunction [CertificateMode]
 FromJSONKeyFunction CertificateMode
 FromJSONKeyFunction CertificateMode
 -&gt; FromJSONKeyFunction [CertificateMode]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CertificateMode]
 fromJSONKey :: FromJSONKeyFunction CertificateMode
 $cfromJSONKey :: FromJSONKeyFunction CertificateMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679780099"><span id="local-6989586621679780101"><span id="local-6989586621679780103"><span id="local-6989586621679780105"><span class="annot"><span class="annottext">[CertificateMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679780108"><span id="local-6989586621679780110"><span id="local-6989586621679780112"><span id="local-6989586621679780114"><span class="annot"><span class="annottext">[CertificateMode] -&gt; Encoding
 [CertificateMode] -&gt; Value
 CertificateMode -&gt; Encoding
 CertificateMode -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: CertificateMode -&gt; Encoding
 toJSON :: CertificateMode -&gt; Value
 $ctoJSON :: CertificateMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679780094"><span id="local-6989586621679780096"><span class="annot"><span class="annottext">ToJSONKeyFunction [CertificateMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679780103"><span id="local-6989586621679780105"><span class="annot"><span class="annottext">ToJSONKeyFunction [CertificateMode]
 ToJSONKeyFunction CertificateMode
 ToJSONKeyFunction CertificateMode
 -&gt; ToJSONKeyFunction [CertificateMode] -&gt; ToJSONKey CertificateMode
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CertificateMode]
 toJSONKey :: ToJSONKeyFunction CertificateMode
 $ctoJSONKey :: ToJSONKeyFunction CertificateMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679780091"><span class="annot"><span class="annottext">[Node] -&gt; Either String CertificateMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679780100"><span class="annot"><span class="annottext">[Node] -&gt; Either String CertificateMode
 ([Node] -&gt; Either String CertificateMode)
 -&gt; FromXML CertificateMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CertificateMode
 $cparseXML :: [Node] -&gt; Either String CertificateMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679780088"><span class="annot"><span class="annottext">CertificateMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679780097"><span class="annot"><span class="annottext">CertificateMode -&gt; XML
 (CertificateMode -&gt; XML) -&gt; ToXML CertificateMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CertificateMode -&gt; XML

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The @VideoParameters@ structure.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newVideoParameters' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679214005"><span id="local-6989586621679214006"></span></span><span class="hs-keyword">data</span><span> </span><span id="VideoParameters"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-var">VideoParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoParameters%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-var">VideoParameters'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679214014"><span id="local-6989586621679214015"></span></span><span class="hs-keyword">data</span><span> </span><span id="VideoParameters"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-var">VideoParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoParameters%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-var">VideoParameters'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Applicable only when the value of Video:Codec is one of @H.264@,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- @MPEG2@, or @VP8@.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -468,7 +468,7 @@
 </span><span id="line-454"></span><span>    </span><span id="%24sel%3AcodecOptions%3AVideoParameters%27"><span class="annot"><span class="annottext">VideoParameters -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#%24sel%3AcodecOptions%3AVideoParameters%27"><span class="hs-identifier hs-var hs-var">codecOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-455"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-456"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213985"><span id="local-6989586621679213987"><span class="annot"><span class="annottext">VideoParameters -&gt; VideoParameters -&gt; Bool
+</span><span id="line-456"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213994"><span id="local-6989586621679213996"><span class="annot"><span class="annottext">VideoParameters -&gt; VideoParameters -&gt; Bool
 (VideoParameters -&gt; VideoParameters -&gt; Bool)
 -&gt; (VideoParameters -&gt; VideoParameters -&gt; Bool)
 -&gt; Eq VideoParameters
@@ -477,7 +477,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VideoParameters -&gt; VideoParameters -&gt; Bool
 == :: VideoParameters -&gt; VideoParameters -&gt; Bool
 $c== :: VideoParameters -&gt; VideoParameters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213976"><span id="local-6989586621679213978"><span id="local-6989586621679213980"><span id="local-6989586621679213982"><span class="annot"><span class="annottext">ReadPrec [VideoParameters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213985"><span id="local-6989586621679213987"><span id="local-6989586621679213989"><span id="local-6989586621679213991"><span class="annot"><span class="annottext">ReadPrec [VideoParameters]
 ReadPrec VideoParameters
 Int -&gt; ReadS VideoParameters
 ReadS [VideoParameters]
@@ -497,7 +497,7 @@ readList :: ReadS [VideoParameters]
 $creadList :: ReadS [VideoParameters]
 readsPrec :: Int -&gt; ReadS VideoParameters
 $creadsPrec :: Int -&gt; ReadS VideoParameters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213969"><span id="local-6989586621679213971"><span id="local-6989586621679213973"><span class="annot"><span class="annottext">Int -&gt; VideoParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213978"><span id="local-6989586621679213980"><span id="local-6989586621679213982"><span class="annot"><span class="annottext">Int -&gt; VideoParameters -&gt; ShowS
 [VideoParameters] -&gt; ShowS
 VideoParameters -&gt; String
 (Int -&gt; VideoParameters -&gt; ShowS)
@@ -1066,16 +1066,16 @@ forall a. Maybe a
 -&gt; (VideoParameters -&gt; Maybe Text -&gt; VideoParameters)
 -&gt; Lens VideoParameters VideoParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213960"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213969"><span class="annot"><span class="annottext">Maybe Text
 keyframesMaxDist :: Maybe Text
 $sel:keyframesMaxDist:VideoParameters' :: VideoParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679213960"><span class="hs-identifier hs-var hs-var">keyframesMaxDist</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213960"><span class="hs-identifier hs-var">keyframesMaxDist</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213959"><span class="annot"><span class="annottext">s :: VideoParameters
-</span><a href="#local-6989586621679213959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213958"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
-</span><a href="#local-6989586621679213959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyframesMaxDist:VideoParameters' :: Maybe Text
+</span><a href="#local-6989586621679213969"><span class="hs-identifier hs-var hs-var">keyframesMaxDist</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213969"><span class="hs-identifier hs-var">keyframesMaxDist</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213968"><span class="annot"><span class="annottext">s :: VideoParameters
+</span><a href="#local-6989586621679213968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213967"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
+</span><a href="#local-6989586621679213968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyframesMaxDist:VideoParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#%24sel%3AkeyframesMaxDist%3AVideoParameters%27"><span class="hs-identifier hs-var">keyframesMaxDist</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-934"></span><span>
 </span><span id="line-935"></span><span class="hs-comment">-- | The frames per second for the video stream in the output file. Valid</span><span>
 </span><span id="line-936"></span><span class="hs-comment">-- values include:</span><span>
@@ -1132,16 +1132,16 @@ $sel:keyframesMaxDist:VideoParameters' :: VideoParameters -&gt; Maybe Text
 -&gt; (VideoParameters -&gt; Maybe Text -&gt; VideoParameters)
 -&gt; Lens VideoParameters VideoParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213956"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213965"><span class="annot"><span class="annottext">Maybe Text
 frameRate :: Maybe Text
 $sel:frameRate:VideoParameters' :: VideoParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679213956"><span class="hs-identifier hs-var hs-var">frameRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213956"><span class="hs-identifier hs-var">frameRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213955"><span class="annot"><span class="annottext">s :: VideoParameters
-</span><a href="#local-6989586621679213955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213954"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
-</span><a href="#local-6989586621679213955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameRate:VideoParameters' :: Maybe Text
+</span><a href="#local-6989586621679213965"><span class="hs-identifier hs-var hs-var">frameRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213965"><span class="hs-identifier hs-var">frameRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213964"><span class="annot"><span class="annottext">s :: VideoParameters
+</span><a href="#local-6989586621679213964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213963"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
+</span><a href="#local-6989586621679213964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameRate:VideoParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#%24sel%3AframeRate%3AVideoParameters%27"><span class="hs-identifier hs-var">frameRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-985"></span><span>
 </span><span id="line-986"></span><span class="hs-comment">-- | Specify one of the following values to control scaling of the output</span><span>
 </span><span id="line-987"></span><span class="hs-comment">-- video:</span><span>
@@ -1184,16 +1184,16 @@ $sel:frameRate:VideoParameters' :: VideoParameters -&gt; Maybe Text
 -&gt; (VideoParameters -&gt; Maybe Text -&gt; VideoParameters)
 -&gt; Lens VideoParameters VideoParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213952"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213961"><span class="annot"><span class="annottext">Maybe Text
 sizingPolicy :: Maybe Text
 $sel:sizingPolicy:VideoParameters' :: VideoParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679213952"><span class="hs-identifier hs-var hs-var">sizingPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213952"><span class="hs-identifier hs-var">sizingPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213951"><span class="annot"><span class="annottext">s :: VideoParameters
-</span><a href="#local-6989586621679213951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213950"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
-</span><a href="#local-6989586621679213951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizingPolicy:VideoParameters' :: Maybe Text
+</span><a href="#local-6989586621679213961"><span class="hs-identifier hs-var hs-var">sizingPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213961"><span class="hs-identifier hs-var">sizingPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213960"><span class="annot"><span class="annottext">s :: VideoParameters
+</span><a href="#local-6989586621679213960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213959"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
+</span><a href="#local-6989586621679213960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizingPolicy:VideoParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#%24sel%3AsizingPolicy%3AVideoParameters%27"><span class="hs-identifier hs-var">sizingPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1022"></span><span>
 </span><span id="line-1023"></span><span class="hs-comment">-- | If you specify @auto@ for @FrameRate@, Elastic Transcoder uses the frame</span><span>
 </span><span id="line-1024"></span><span class="hs-comment">-- rate of the input video for the frame rate of the output video. Specify</span><span>
@@ -1208,16 +1208,16 @@ $sel:sizingPolicy:VideoParameters' :: VideoParameters -&gt; Maybe Text
 -&gt; (VideoParameters -&gt; Maybe Text -&gt; VideoParameters)
 -&gt; Lens VideoParameters VideoParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213948"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213957"><span class="annot"><span class="annottext">Maybe Text
 maxFrameRate :: Maybe Text
 $sel:maxFrameRate:VideoParameters' :: VideoParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679213948"><span class="hs-identifier hs-var hs-var">maxFrameRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213948"><span class="hs-identifier hs-var">maxFrameRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213947"><span class="annot"><span class="annottext">s :: VideoParameters
-</span><a href="#local-6989586621679213947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213946"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
-</span><a href="#local-6989586621679213947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxFrameRate:VideoParameters' :: Maybe Text
+</span><a href="#local-6989586621679213957"><span class="hs-identifier hs-var hs-var">maxFrameRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213957"><span class="hs-identifier hs-var">maxFrameRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213956"><span class="annot"><span class="annottext">s :: VideoParameters
+</span><a href="#local-6989586621679213956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213955"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
+</span><a href="#local-6989586621679213956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxFrameRate:VideoParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#%24sel%3AmaxFrameRate%3AVideoParameters%27"><span class="hs-identifier hs-var">maxFrameRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1031"></span><span>
 </span><span id="line-1032"></span><span class="hs-comment">-- | The maximum height of the output video in pixels. If you specify @auto@,</span><span>
 </span><span id="line-1033"></span><span class="hs-comment">-- Elastic Transcoder uses 1080 (Full HD) as the default value. If you</span><span>
@@ -1229,16 +1229,16 @@ $sel:maxFrameRate:VideoParameters' :: VideoParameters -&gt; Maybe Text
 -&gt; (VideoParameters -&gt; Maybe Text -&gt; VideoParameters)
 -&gt; Lens VideoParameters VideoParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213944"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213953"><span class="annot"><span class="annottext">Maybe Text
 maxHeight :: Maybe Text
 $sel:maxHeight:VideoParameters' :: VideoParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679213944"><span class="hs-identifier hs-var hs-var">maxHeight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213944"><span class="hs-identifier hs-var">maxHeight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213943"><span class="annot"><span class="annottext">s :: VideoParameters
-</span><a href="#local-6989586621679213943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213942"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
-</span><a href="#local-6989586621679213943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxHeight:VideoParameters' :: Maybe Text
+</span><a href="#local-6989586621679213953"><span class="hs-identifier hs-var hs-var">maxHeight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213953"><span class="hs-identifier hs-var">maxHeight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213952"><span class="annot"><span class="annottext">s :: VideoParameters
+</span><a href="#local-6989586621679213952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213951"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
+</span><a href="#local-6989586621679213952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxHeight:VideoParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#%24sel%3AmaxHeight%3AVideoParameters%27"><span class="hs-identifier hs-var">maxHeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1037"></span><span>
 </span><span id="line-1038"></span><span class="hs-comment">-- | Settings for the size, location, and opacity of graphics that you want</span><span>
 </span><span id="line-1039"></span><span class="hs-comment">-- Elastic Transcoder to overlay over videos that are transcoded using this</span><span>
@@ -1266,16 +1266,16 @@ $sel:maxHeight:VideoParameters' :: VideoParameters -&gt; Maybe Text
      (Maybe [PresetWatermark])
      (Maybe [PresetWatermark])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213940"><span class="annot"><span class="annottext">Maybe [PresetWatermark]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213949"><span class="annot"><span class="annottext">Maybe [PresetWatermark]
 watermarks :: Maybe [PresetWatermark]
 $sel:watermarks:VideoParameters' :: VideoParameters -&gt; Maybe [PresetWatermark]
-</span><a href="#local-6989586621679213940"><span class="hs-identifier hs-var hs-var">watermarks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PresetWatermark]
-</span><a href="#local-6989586621679213940"><span class="hs-identifier hs-var">watermarks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213939"><span class="annot"><span class="annottext">s :: VideoParameters
-</span><a href="#local-6989586621679213939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213938"><span class="annot"><span class="annottext">Maybe [PresetWatermark]
-</span><a href="#local-6989586621679213938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
-</span><a href="#local-6989586621679213939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:watermarks:VideoParameters' :: Maybe [PresetWatermark]
+</span><a href="#local-6989586621679213949"><span class="hs-identifier hs-var hs-var">watermarks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PresetWatermark]
+</span><a href="#local-6989586621679213949"><span class="hs-identifier hs-var">watermarks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213948"><span class="annot"><span class="annottext">s :: VideoParameters
+</span><a href="#local-6989586621679213948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213947"><span class="annot"><span class="annottext">Maybe [PresetWatermark]
+</span><a href="#local-6989586621679213947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
+</span><a href="#local-6989586621679213948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:watermarks:VideoParameters' :: Maybe [PresetWatermark]
 </span><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#%24sel%3Awatermarks%3AVideoParameters%27"><span class="hs-identifier hs-var">watermarks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PresetWatermark]
-</span><a href="#local-6989586621679213938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PresetWatermark] -&gt; f (Maybe [PresetWatermark]))
+</span><a href="#local-6989586621679213947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PresetWatermark] -&gt; f (Maybe [PresetWatermark]))
  -&gt; VideoParameters -&gt; f VideoParameters)
 -&gt; ((Maybe [PresetWatermark] -&gt; f (Maybe [PresetWatermark]))
     -&gt; Maybe [PresetWatermark] -&gt; f (Maybe [PresetWatermark]))
@@ -1313,16 +1313,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (VideoParameters -&gt; Maybe Text -&gt; VideoParameters)
 -&gt; Lens VideoParameters VideoParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213933"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213942"><span class="annot"><span class="annottext">Maybe Text
 displayAspectRatio :: Maybe Text
 $sel:displayAspectRatio:VideoParameters' :: VideoParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679213933"><span class="hs-identifier hs-var hs-var">displayAspectRatio</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213933"><span class="hs-identifier hs-var">displayAspectRatio</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213932"><span class="annot"><span class="annottext">s :: VideoParameters
-</span><a href="#local-6989586621679213932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213931"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
-</span><a href="#local-6989586621679213932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayAspectRatio:VideoParameters' :: Maybe Text
+</span><a href="#local-6989586621679213942"><span class="hs-identifier hs-var hs-var">displayAspectRatio</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213942"><span class="hs-identifier hs-var">displayAspectRatio</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213941"><span class="annot"><span class="annottext">s :: VideoParameters
+</span><a href="#local-6989586621679213941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213940"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
+</span><a href="#local-6989586621679213941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayAspectRatio:VideoParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#%24sel%3AdisplayAspectRatio%3AVideoParameters%27"><span class="hs-identifier hs-var">displayAspectRatio</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1060"></span><span>
 </span><span id="line-1061"></span><span class="hs-comment">-- | To better control resolution and aspect ratio of output videos, we</span><span>
 </span><span id="line-1062"></span><span class="hs-comment">-- recommend that you use the values @MaxWidth@, @MaxHeight@,</span><span>
@@ -1389,16 +1389,16 @@ $sel:displayAspectRatio:VideoParameters' :: VideoParameters -&gt; Maybe Text
 -&gt; (VideoParameters -&gt; Maybe Text -&gt; VideoParameters)
 -&gt; Lens VideoParameters VideoParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213929"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213938"><span class="annot"><span class="annottext">Maybe Text
 resolution :: Maybe Text
 $sel:resolution:VideoParameters' :: VideoParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679213929"><span class="hs-identifier hs-var hs-var">resolution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213929"><span class="hs-identifier hs-var">resolution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213928"><span class="annot"><span class="annottext">s :: VideoParameters
-</span><a href="#local-6989586621679213928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213927"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
-</span><a href="#local-6989586621679213928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolution:VideoParameters' :: Maybe Text
+</span><a href="#local-6989586621679213938"><span class="hs-identifier hs-var hs-var">resolution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213938"><span class="hs-identifier hs-var">resolution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213937"><span class="annot"><span class="annottext">s :: VideoParameters
+</span><a href="#local-6989586621679213937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213936"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
+</span><a href="#local-6989586621679213937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolution:VideoParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#%24sel%3Aresolution%3AVideoParameters%27"><span class="hs-identifier hs-var">resolution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1121"></span><span>
 </span><span id="line-1122"></span><span class="hs-comment">-- | The video codec for the output file. Valid values include @gif@,</span><span>
 </span><span id="line-1123"></span><span class="hs-comment">-- @H.264@, @mpeg2@, @vp8@, and @vp9@. You can only specify @vp8@ and @vp9@</span><span>
@@ -1411,16 +1411,16 @@ $sel:resolution:VideoParameters' :: VideoParameters -&gt; Maybe Text
 -&gt; (VideoParameters -&gt; Maybe Text -&gt; VideoParameters)
 -&gt; Lens VideoParameters VideoParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213925"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213934"><span class="annot"><span class="annottext">Maybe Text
 codec :: Maybe Text
 $sel:codec:VideoParameters' :: VideoParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679213925"><span class="hs-identifier hs-var hs-var">codec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213925"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213924"><span class="annot"><span class="annottext">s :: VideoParameters
-</span><a href="#local-6989586621679213924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213923"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
-</span><a href="#local-6989586621679213924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codec:VideoParameters' :: Maybe Text
+</span><a href="#local-6989586621679213934"><span class="hs-identifier hs-var hs-var">codec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213934"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213933"><span class="annot"><span class="annottext">s :: VideoParameters
+</span><a href="#local-6989586621679213933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213932"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
+</span><a href="#local-6989586621679213933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codec:VideoParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#%24sel%3Acodec%3AVideoParameters%27"><span class="hs-identifier hs-var">codec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1128"></span><span>
 </span><span id="line-1129"></span><span class="hs-comment">-- | To better control resolution and aspect ratio of output videos, we</span><span>
 </span><span id="line-1130"></span><span class="hs-comment">-- recommend that you use the values @MaxWidth@, @MaxHeight@,</span><span>
@@ -1447,16 +1447,16 @@ $sel:codec:VideoParameters' :: VideoParameters -&gt; Maybe Text
 -&gt; (VideoParameters -&gt; Maybe Text -&gt; VideoParameters)
 -&gt; Lens VideoParameters VideoParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213921"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213930"><span class="annot"><span class="annottext">Maybe Text
 aspectRatio :: Maybe Text
 $sel:aspectRatio:VideoParameters' :: VideoParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679213921"><span class="hs-identifier hs-var hs-var">aspectRatio</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213921"><span class="hs-identifier hs-var">aspectRatio</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213920"><span class="annot"><span class="annottext">s :: VideoParameters
-</span><a href="#local-6989586621679213920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213919"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
-</span><a href="#local-6989586621679213920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aspectRatio:VideoParameters' :: Maybe Text
+</span><a href="#local-6989586621679213930"><span class="hs-identifier hs-var hs-var">aspectRatio</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213930"><span class="hs-identifier hs-var">aspectRatio</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213929"><span class="annot"><span class="annottext">s :: VideoParameters
+</span><a href="#local-6989586621679213929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213928"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
+</span><a href="#local-6989586621679213929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aspectRatio:VideoParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#%24sel%3AaspectRatio%3AVideoParameters%27"><span class="hs-identifier hs-var">aspectRatio</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1149"></span><span>
 </span><span id="line-1150"></span><span class="hs-comment">-- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add black</span><span>
 </span><span id="line-1151"></span><span class="hs-comment">-- bars to the top and bottom and\/or left and right sides of the output</span><span>
@@ -1469,16 +1469,16 @@ $sel:aspectRatio:VideoParameters' :: VideoParameters -&gt; Maybe Text
 -&gt; (VideoParameters -&gt; Maybe Text -&gt; VideoParameters)
 -&gt; Lens VideoParameters VideoParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213917"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213926"><span class="annot"><span class="annottext">Maybe Text
 paddingPolicy :: Maybe Text
 $sel:paddingPolicy:VideoParameters' :: VideoParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679213917"><span class="hs-identifier hs-var hs-var">paddingPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213917"><span class="hs-identifier hs-var">paddingPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213916"><span class="annot"><span class="annottext">s :: VideoParameters
-</span><a href="#local-6989586621679213916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213915"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
-</span><a href="#local-6989586621679213916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paddingPolicy:VideoParameters' :: Maybe Text
+</span><a href="#local-6989586621679213926"><span class="hs-identifier hs-var hs-var">paddingPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213926"><span class="hs-identifier hs-var">paddingPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213925"><span class="annot"><span class="annottext">s :: VideoParameters
+</span><a href="#local-6989586621679213925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213924"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
+</span><a href="#local-6989586621679213925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paddingPolicy:VideoParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#%24sel%3ApaddingPolicy%3AVideoParameters%27"><span class="hs-identifier hs-var">paddingPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1156"></span><span>
 </span><span id="line-1157"></span><span class="hs-comment">-- | The maximum width of the output video in pixels. If you specify @auto@,</span><span>
 </span><span id="line-1158"></span><span class="hs-comment">-- Elastic Transcoder uses 1920 (Full HD) as the default value. If you</span><span>
@@ -1490,16 +1490,16 @@ $sel:paddingPolicy:VideoParameters' :: VideoParameters -&gt; Maybe Text
 -&gt; (VideoParameters -&gt; Maybe Text -&gt; VideoParameters)
 -&gt; Lens VideoParameters VideoParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213913"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213922"><span class="annot"><span class="annottext">Maybe Text
 maxWidth :: Maybe Text
 $sel:maxWidth:VideoParameters' :: VideoParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679213913"><span class="hs-identifier hs-var hs-var">maxWidth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213913"><span class="hs-identifier hs-var">maxWidth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213912"><span class="annot"><span class="annottext">s :: VideoParameters
-</span><a href="#local-6989586621679213912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213911"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
-</span><a href="#local-6989586621679213912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxWidth:VideoParameters' :: Maybe Text
+</span><a href="#local-6989586621679213922"><span class="hs-identifier hs-var hs-var">maxWidth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213922"><span class="hs-identifier hs-var">maxWidth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213921"><span class="annot"><span class="annottext">s :: VideoParameters
+</span><a href="#local-6989586621679213921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213920"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
+</span><a href="#local-6989586621679213921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxWidth:VideoParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#%24sel%3AmaxWidth%3AVideoParameters%27"><span class="hs-identifier hs-var">maxWidth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1162"></span><span>
 </span><span id="line-1163"></span><span class="hs-comment">-- | The bit rate of the video stream in the output file, in</span><span>
 </span><span id="line-1164"></span><span class="hs-comment">-- kilobits\/second. Valid values depend on the values of @Level@ and</span><span>
@@ -1539,16 +1539,16 @@ $sel:maxWidth:VideoParameters' :: VideoParameters -&gt; Maybe Text
 -&gt; (VideoParameters -&gt; Maybe Text -&gt; VideoParameters)
 -&gt; Lens VideoParameters VideoParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213909"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213918"><span class="annot"><span class="annottext">Maybe Text
 bitRate :: Maybe Text
 $sel:bitRate:VideoParameters' :: VideoParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679213909"><span class="hs-identifier hs-var hs-var">bitRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213909"><span class="hs-identifier hs-var">bitRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213908"><span class="annot"><span class="annottext">s :: VideoParameters
-</span><a href="#local-6989586621679213908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213907"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
-</span><a href="#local-6989586621679213908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitRate:VideoParameters' :: Maybe Text
+</span><a href="#local-6989586621679213918"><span class="hs-identifier hs-var hs-var">bitRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213918"><span class="hs-identifier hs-var">bitRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213917"><span class="annot"><span class="annottext">s :: VideoParameters
+</span><a href="#local-6989586621679213917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213916"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
+</span><a href="#local-6989586621679213917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitRate:VideoParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#%24sel%3AbitRate%3AVideoParameters%27"><span class="hs-identifier hs-var">bitRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1196"></span><span>
 </span><span id="line-1197"></span><span class="hs-comment">-- | Applicable only when the value of Video:Codec is one of @H.264@,</span><span>
 </span><span id="line-1198"></span><span class="hs-comment">-- @MPEG2@, or @VP8@.</span><span>
@@ -1570,16 +1570,16 @@ $sel:bitRate:VideoParameters' :: VideoParameters -&gt; Maybe Text
 -&gt; (VideoParameters -&gt; Maybe Text -&gt; VideoParameters)
 -&gt; Lens VideoParameters VideoParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213905"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213914"><span class="annot"><span class="annottext">Maybe Text
 fixedGOP :: Maybe Text
 $sel:fixedGOP:VideoParameters' :: VideoParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679213905"><span class="hs-identifier hs-var hs-var">fixedGOP</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213905"><span class="hs-identifier hs-var">fixedGOP</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213904"><span class="annot"><span class="annottext">s :: VideoParameters
-</span><a href="#local-6989586621679213904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213903"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
-</span><a href="#local-6989586621679213904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fixedGOP:VideoParameters' :: Maybe Text
+</span><a href="#local-6989586621679213914"><span class="hs-identifier hs-var hs-var">fixedGOP</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213914"><span class="hs-identifier hs-var">fixedGOP</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213913"><span class="annot"><span class="annottext">s :: VideoParameters
+</span><a href="#local-6989586621679213913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213912"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
+</span><a href="#local-6989586621679213913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fixedGOP:VideoParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#%24sel%3AfixedGOP%3AVideoParameters%27"><span class="hs-identifier hs-var">fixedGOP</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1212"></span><span>
 </span><span id="line-1213"></span><span class="hs-comment">-- | __Profile (H.264\/VP8\/VP9 Only)__</span><span>
 </span><span id="line-1214"></span><span class="hs-comment">--</span><span>
@@ -1742,16 +1742,16 @@ $sel:fixedGOP:VideoParameters' :: VideoParameters -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213901"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213910"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 codecOptions :: Maybe (HashMap Text Text)
 $sel:codecOptions:VideoParameters' :: VideoParameters -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679213901"><span class="hs-identifier hs-var hs-var">codecOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679213901"><span class="hs-identifier hs-var">codecOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213900"><span class="annot"><span class="annottext">s :: VideoParameters
-</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213899"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679213899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
-</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codecOptions:VideoParameters' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679213910"><span class="hs-identifier hs-var hs-var">codecOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679213910"><span class="hs-identifier hs-var">codecOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213909"><span class="annot"><span class="annottext">s :: VideoParameters
+</span><a href="#local-6989586621679213909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213908"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679213908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoParameters
+</span><a href="#local-6989586621679213909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codecOptions:VideoParameters' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#%24sel%3AcodecOptions%3AVideoParameters%27"><span class="hs-identifier hs-var">codecOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679213899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679213908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; VideoParameters -&gt; f VideoParameters)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -1780,8 +1780,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-1364"></span><span>
-</span><span id="line-1365"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213896"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-1366"></span><span>  </span><span id="local-6989586621679213894"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VideoParameters
+</span><span id="line-1365"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213905"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-1366"></span><span>  </span><span id="local-6989586621679213903"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VideoParameters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-1367"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser VideoParameters)
@@ -1791,8 +1791,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-1368"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;VideoParameters&quot;</span></span><span>
-</span><span id="line-1369"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679213891"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213891"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-1369"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679213900"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-1370"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -1845,7 +1845,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; VideoParameters)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyframesMaxDist&quot;</span></span><span class="hs-special">)</span><span>
@@ -1883,7 +1883,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; VideoParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FrameRate&quot;</span></span><span class="hs-special">)</span><span>
@@ -1919,7 +1919,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; VideoParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SizingPolicy&quot;</span></span><span class="hs-special">)</span><span>
@@ -1953,7 +1953,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; VideoParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxFrameRate&quot;</span></span><span class="hs-special">)</span><span>
@@ -1985,7 +1985,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; VideoParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxHeight&quot;</span></span><span class="hs-special">)</span><span>
@@ -2015,7 +2015,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; VideoParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PresetWatermark]))
+</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PresetWatermark]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Watermarks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PresetWatermark]))
@@ -2048,7 +2048,7 @@ forall a. Monoid a =&gt; a
       -&gt; VideoParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DisplayAspectRatio&quot;</span></span><span class="hs-special">)</span><span>
@@ -2074,7 +2074,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; VideoParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Resolution&quot;</span></span><span class="hs-special">)</span><span>
@@ -2098,7 +2098,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; VideoParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Codec&quot;</span></span><span class="hs-special">)</span><span>
@@ -2120,7 +2120,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; VideoParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AspectRatio&quot;</span></span><span class="hs-special">)</span><span>
@@ -2140,7 +2140,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; VideoParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PaddingPolicy&quot;</span></span><span class="hs-special">)</span><span>
@@ -2156,7 +2156,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; VideoParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxWidth&quot;</span></span><span class="hs-special">)</span><span>
@@ -2168,7 +2168,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; VideoParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BitRate&quot;</span></span><span class="hs-special">)</span><span>
@@ -2177,7 +2177,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Text) -&gt; VideoParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FixedGOP&quot;</span></span><span class="hs-special">)</span><span>
@@ -2185,7 +2185,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser VideoParameters
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679213900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CodecOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -2196,13 +2196,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-1386"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-1387"></span><span>
-</span><span id="line-1388"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213884"><span id="local-6989586621679213886"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span></span></span><span>
+</span><span id="line-1388"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213893"><span id="local-6989586621679213895"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span></span></span><span>
 </span><span id="line-1389"></span><span>
-</span><span id="line-1390"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213881"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span></span><span>
+</span><span id="line-1390"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213890"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span></span><span>
 </span><span id="line-1391"></span><span>
-</span><span id="line-1392"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213873"><span id="local-6989586621679213875"><span id="local-6989586621679213877"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-1393"></span><span>  </span><span id="local-6989586621679213871"><span class="annot"><span class="annottext">toJSON :: VideoParameters -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213855"><span id="local-6989586621679213856"><span id="local-6989586621679213857"><span id="local-6989586621679213858"><span id="local-6989586621679213859"><span id="local-6989586621679213860"><span id="local-6989586621679213861"><span id="local-6989586621679213862"><span id="local-6989586621679213863"><span id="local-6989586621679213864"><span id="local-6989586621679213865"><span id="local-6989586621679213866"><span id="local-6989586621679213867"><span id="local-6989586621679213868"><span id="local-6989586621679213869"><span class="annot"><span class="annottext">Maybe [PresetWatermark]
+</span><span id="line-1392"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213882"><span id="local-6989586621679213884"><span id="local-6989586621679213886"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-1393"></span><span>  </span><span id="local-6989586621679213880"><span class="annot"><span class="annottext">toJSON :: VideoParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters%27"><span class="hs-identifier hs-type">VideoParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213864"><span id="local-6989586621679213865"><span id="local-6989586621679213866"><span id="local-6989586621679213867"><span id="local-6989586621679213868"><span id="local-6989586621679213869"><span id="local-6989586621679213870"><span id="local-6989586621679213871"><span id="local-6989586621679213872"><span id="local-6989586621679213873"><span id="local-6989586621679213874"><span id="local-6989586621679213875"><span id="local-6989586621679213876"><span id="local-6989586621679213877"><span id="local-6989586621679213878"><span class="annot"><span class="annottext">Maybe [PresetWatermark]
 Maybe Text
 Maybe (HashMap Text Text)
 codecOptions :: Maybe (HashMap Text Text)
@@ -2235,7 +2235,7 @@ $sel:maxFrameRate:VideoParameters' :: VideoParameters -&gt; Maybe Text
 $sel:sizingPolicy:VideoParameters' :: VideoParameters -&gt; Maybe Text
 $sel:frameRate:VideoParameters' :: VideoParameters -&gt; Maybe Text
 $sel:keyframesMaxDist:VideoParameters' :: VideoParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679213855"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679213864"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-1394"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-1395"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -2248,35 +2248,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-1397"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213869"><span class="hs-identifier hs-var">keyframesMaxDist</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213878"><span class="hs-identifier hs-var">keyframesMaxDist</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1398"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FrameRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213868"><span class="hs-identifier hs-var">frameRate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213877"><span class="hs-identifier hs-var">frameRate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1399"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SizingPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213867"><span class="hs-identifier hs-var">sizingPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213876"><span class="hs-identifier hs-var">sizingPolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1400"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxFrameRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213866"><span class="hs-identifier hs-var">maxFrameRate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213875"><span class="hs-identifier hs-var">maxFrameRate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1401"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxHeight&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213865"><span class="hs-identifier hs-var">maxHeight</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213874"><span class="hs-identifier hs-var">maxHeight</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1402"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Watermarks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PresetWatermark] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2284,7 +2284,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [PresetWatermark] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PresetWatermark]
-</span><a href="#local-6989586621679213864"><span class="hs-identifier hs-var">watermarks</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213873"><span class="hs-identifier hs-var">watermarks</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1403"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DisplayAspectRatio&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2292,56 +2292,56 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-1404"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213863"><span class="hs-identifier hs-var">displayAspectRatio</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213872"><span class="hs-identifier hs-var">displayAspectRatio</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1405"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Resolution&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213862"><span class="hs-identifier hs-var">resolution</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213871"><span class="hs-identifier hs-var">resolution</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1406"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Codec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213861"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213870"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1407"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AspectRatio&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213860"><span class="hs-identifier hs-var">aspectRatio</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213869"><span class="hs-identifier hs-var">aspectRatio</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1408"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PaddingPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213859"><span class="hs-identifier hs-var">paddingPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213868"><span class="hs-identifier hs-var">paddingPolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1409"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxWidth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213858"><span class="hs-identifier hs-var">maxWidth</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213867"><span class="hs-identifier hs-var">maxWidth</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1410"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BitRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213857"><span class="hs-identifier hs-var">bitRate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213866"><span class="hs-identifier hs-var">bitRate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1411"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FixedGOP&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679213856"><span class="hs-identifier hs-var">fixedGOP</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213865"><span class="hs-identifier hs-var">fixedGOP</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1412"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CodecOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2349,7 +2349,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679213855"><span class="hs-identifier hs-var">codecOptions</span></a></span><span>
+</span><a href="#local-6989586621679213864"><span class="hs-identifier hs-var">codecOptions</span></a></span><span>
 </span><span id="line-1413"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-1414"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-1415"></span></pre></body></html>

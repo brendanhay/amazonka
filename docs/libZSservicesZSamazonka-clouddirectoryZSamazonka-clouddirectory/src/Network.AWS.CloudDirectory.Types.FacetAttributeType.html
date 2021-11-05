@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679324369"><span id="local-6989586621679324370"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FacetAttributeType"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeType.html#FacetAttributeType"><span class="hs-identifier hs-var">FacetAttributeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FacetAttributeType%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeType.html#FacetAttributeType%27"><span class="hs-identifier hs-var">FacetAttributeType'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679324378"><span id="local-6989586621679324379"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FacetAttributeType"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeType.html#FacetAttributeType"><span class="hs-identifier hs-var">FacetAttributeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FacetAttributeType%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.FacetAttributeType.html#FacetAttributeType%27"><span class="hs-identifier hs-var">FacetAttributeType'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFacetAttributeType"><span class="annot"><span class="annottext">FacetAttributeType -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.Types.FacetAttributeType.html#fromFacetAttributeType"><span class="hs-identifier hs-var hs-var">fromFacetAttributeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324361"><span id="local-6989586621679324363"><span id="local-6989586621679324365"><span class="annot"><span class="annottext">Int -&gt; FacetAttributeType -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324370"><span id="local-6989586621679324372"><span id="local-6989586621679324374"><span class="annot"><span class="annottext">Int -&gt; FacetAttributeType -&gt; ShowS
 [FacetAttributeType] -&gt; ShowS
 FacetAttributeType -&gt; String
 (Int -&gt; FacetAttributeType -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: FacetAttributeType -&gt; String
 showsPrec :: Int -&gt; FacetAttributeType -&gt; ShowS
 $cshowsPrec :: Int -&gt; FacetAttributeType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679324352"><span id="local-6989586621679324354"><span id="local-6989586621679324356"><span id="local-6989586621679324358"><span class="annot"><span class="annottext">ReadPrec [FacetAttributeType]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679324361"><span id="local-6989586621679324363"><span id="local-6989586621679324365"><span id="local-6989586621679324367"><span class="annot"><span class="annottext">ReadPrec [FacetAttributeType]
 ReadPrec FacetAttributeType
 Int -&gt; ReadS FacetAttributeType
 ReadS [FacetAttributeType]
@@ -76,7 +76,7 @@ $creadList :: ReadS [FacetAttributeType]
 readsPrec :: Int -&gt; ReadS FacetAttributeType
 $creadsPrec :: Int -&gt; ReadS FacetAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679324347"><span id="local-6989586621679324349"><span class="annot"><span class="annottext">FacetAttributeType -&gt; FacetAttributeType -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679324356"><span id="local-6989586621679324358"><span class="annot"><span class="annottext">FacetAttributeType -&gt; FacetAttributeType -&gt; Bool
 (FacetAttributeType -&gt; FacetAttributeType -&gt; Bool)
 -&gt; (FacetAttributeType -&gt; FacetAttributeType -&gt; Bool)
 -&gt; Eq FacetAttributeType
@@ -86,7 +86,7 @@ $c/= :: FacetAttributeType -&gt; FacetAttributeType -&gt; Bool
 == :: FacetAttributeType -&gt; FacetAttributeType -&gt; Bool
 $c== :: FacetAttributeType -&gt; FacetAttributeType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679324331"><span id="local-6989586621679324333"><span id="local-6989586621679324335"><span id="local-6989586621679324337"><span id="local-6989586621679324339"><span id="local-6989586621679324341"><span id="local-6989586621679324343"><span class="annot"><span class="annottext">Eq FacetAttributeType
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679324340"><span id="local-6989586621679324342"><span id="local-6989586621679324344"><span id="local-6989586621679324346"><span id="local-6989586621679324348"><span id="local-6989586621679324350"><span id="local-6989586621679324352"><span class="annot"><span class="annottext">Eq FacetAttributeType
 Eq FacetAttributeType
 -&gt; (FacetAttributeType -&gt; FacetAttributeType -&gt; Ordering)
 -&gt; (FacetAttributeType -&gt; FacetAttributeType -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. FacetAttributeType -&gt; Rep FacetAttributeType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324323"><span id="local-6989586621679324325"><span class="annot"><span class="annottext">Int -&gt; FacetAttributeType -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324332"><span id="local-6989586621679324334"><span class="annot"><span class="annottext">Int -&gt; FacetAttributeType -&gt; Int
 FacetAttributeType -&gt; Int
 (Int -&gt; FacetAttributeType -&gt; Int)
 -&gt; (FacetAttributeType -&gt; Int) -&gt; Hashable FacetAttributeType
@@ -147,53 +147,53 @@ $chash :: FacetAttributeType -&gt; Int
 hashWithSalt :: Int -&gt; FacetAttributeType -&gt; Int
 $chashWithSalt :: Int -&gt; FacetAttributeType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679324320"><span class="annot"><span class="annottext">FacetAttributeType -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679324329"><span class="annot"><span class="annottext">FacetAttributeType -&gt; ()
 (FacetAttributeType -&gt; ()) -&gt; NFData FacetAttributeType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FacetAttributeType -&gt; ()
 $crnf :: FacetAttributeType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679324317"><span class="annot"><span class="annottext">Text -&gt; Either String FacetAttributeType
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679324326"><span class="annot"><span class="annottext">Text -&gt; Either String FacetAttributeType
 (Text -&gt; Either String FacetAttributeType)
 -&gt; FromText FacetAttributeType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FacetAttributeType
 $cfromText :: Text -&gt; Either String FacetAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679324314"><span class="annot"><span class="annottext">FacetAttributeType -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679324323"><span class="annot"><span class="annottext">FacetAttributeType -&gt; Text
 (FacetAttributeType -&gt; Text) -&gt; ToText FacetAttributeType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FacetAttributeType -&gt; Text
 $ctoText :: FacetAttributeType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679324311"><span class="annot"><span class="annottext">FacetAttributeType -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679324320"><span class="annot"><span class="annottext">FacetAttributeType -&gt; ByteString
 (FacetAttributeType -&gt; ByteString)
 -&gt; ToByteString FacetAttributeType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FacetAttributeType -&gt; ByteString
 $ctoBS :: FacetAttributeType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679324308"><span class="annot"><span class="annottext">FacetAttributeType -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679324317"><span class="annot"><span class="annottext">FacetAttributeType -&gt; ByteStringBuilder
 (FacetAttributeType -&gt; ByteStringBuilder)
 -&gt; ToLog FacetAttributeType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FacetAttributeType -&gt; ByteStringBuilder
 $cbuild :: FacetAttributeType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679324305"><span class="annot"><span class="annottext">HeaderName -&gt; FacetAttributeType -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679324314"><span class="annot"><span class="annottext">HeaderName -&gt; FacetAttributeType -&gt; [Header]
 (HeaderName -&gt; FacetAttributeType -&gt; [Header])
 -&gt; ToHeader FacetAttributeType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FacetAttributeType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FacetAttributeType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679324302"><span class="annot"><span class="annottext">FacetAttributeType -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679324311"><span class="annot"><span class="annottext">FacetAttributeType -&gt; QueryString
 (FacetAttributeType -&gt; QueryString) -&gt; ToQuery FacetAttributeType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FacetAttributeType -&gt; QueryString
 $ctoQuery :: FacetAttributeType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679324297"><span id="local-6989586621679324299"><span class="annot"><span class="annottext">Value -&gt; Parser [FacetAttributeType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679324306"><span id="local-6989586621679324308"><span class="annot"><span class="annottext">Value -&gt; Parser [FacetAttributeType]
 Value -&gt; Parser FacetAttributeType
 (Value -&gt; Parser FacetAttributeType)
 -&gt; (Value -&gt; Parser [FacetAttributeType])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [FacetAttributeType]
 parseJSON :: Value -&gt; Parser FacetAttributeType
 $cparseJSON :: Value -&gt; Parser FacetAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679324292"><span id="local-6989586621679324294"><span class="annot"><span class="annottext">FromJSONKeyFunction [FacetAttributeType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679324301"><span id="local-6989586621679324303"><span class="annot"><span class="annottext">FromJSONKeyFunction [FacetAttributeType]
 FromJSONKeyFunction FacetAttributeType
 FromJSONKeyFunction FacetAttributeType
 -&gt; FromJSONKeyFunction [FacetAttributeType]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FacetAttributeType]
 fromJSONKey :: FromJSONKeyFunction FacetAttributeType
 $cfromJSONKey :: FromJSONKeyFunction FacetAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679324283"><span id="local-6989586621679324285"><span id="local-6989586621679324287"><span id="local-6989586621679324289"><span class="annot"><span class="annottext">[FacetAttributeType] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679324292"><span id="local-6989586621679324294"><span id="local-6989586621679324296"><span id="local-6989586621679324298"><span class="annot"><span class="annottext">[FacetAttributeType] -&gt; Encoding
 [FacetAttributeType] -&gt; Value
 FacetAttributeType -&gt; Encoding
 FacetAttributeType -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: FacetAttributeType -&gt; Encoding
 toJSON :: FacetAttributeType -&gt; Value
 $ctoJSON :: FacetAttributeType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679324278"><span id="local-6989586621679324280"><span class="annot"><span class="annottext">ToJSONKeyFunction [FacetAttributeType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679324287"><span id="local-6989586621679324289"><span class="annot"><span class="annottext">ToJSONKeyFunction [FacetAttributeType]
 ToJSONKeyFunction FacetAttributeType
 ToJSONKeyFunction FacetAttributeType
 -&gt; ToJSONKeyFunction [FacetAttributeType]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FacetAttributeType]
 toJSONKey :: ToJSONKeyFunction FacetAttributeType
 $ctoJSONKey :: ToJSONKeyFunction FacetAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679324275"><span class="annot"><span class="annottext">[Node] -&gt; Either String FacetAttributeType
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679324284"><span class="annot"><span class="annottext">[Node] -&gt; Either String FacetAttributeType
 ([Node] -&gt; Either String FacetAttributeType)
 -&gt; FromXML FacetAttributeType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FacetAttributeType
 $cparseXML :: [Node] -&gt; Either String FacetAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679324272"><span class="annot"><span class="annottext">FacetAttributeType -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679324281"><span class="annot"><span class="annottext">FacetAttributeType -&gt; XML
 (FacetAttributeType -&gt; XML) -&gt; ToXML FacetAttributeType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FacetAttributeType -&gt; XML

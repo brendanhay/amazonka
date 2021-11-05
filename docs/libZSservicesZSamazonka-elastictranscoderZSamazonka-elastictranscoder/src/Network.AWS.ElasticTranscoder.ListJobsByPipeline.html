@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-comment">-- | The @ListJobsByPipelineRequest@ structure.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newListJobsByPipeline' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679216379"><span id="local-6989586621679216380"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobsByPipeline"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-var">ListJobsByPipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobsByPipeline%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-var">ListJobsByPipeline'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679216388"><span id="local-6989586621679216389"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobsByPipeline"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-var">ListJobsByPipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobsByPipeline%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-var">ListJobsByPipeline'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | To list jobs in chronological order by the date and time that they were</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- submitted, enter @true@. To list jobs in reverse chronological order,</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- enter @false@.</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3ApipelineId%3AListJobsByPipeline%27"><span class="annot"><span class="annottext">ListJobsByPipeline -&gt; Text
 </span><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#%24sel%3ApipelineId%3AListJobsByPipeline%27"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216371"><span id="local-6989586621679216373"><span class="annot"><span class="annottext">ListJobsByPipeline -&gt; ListJobsByPipeline -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216380"><span id="local-6989586621679216382"><span class="annot"><span class="annottext">ListJobsByPipeline -&gt; ListJobsByPipeline -&gt; Bool
 (ListJobsByPipeline -&gt; ListJobsByPipeline -&gt; Bool)
 -&gt; (ListJobsByPipeline -&gt; ListJobsByPipeline -&gt; Bool)
 -&gt; Eq ListJobsByPipeline
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListJobsByPipeline -&gt; ListJobsByPipeline -&gt; Bool
 == :: ListJobsByPipeline -&gt; ListJobsByPipeline -&gt; Bool
 $c== :: ListJobsByPipeline -&gt; ListJobsByPipeline -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216362"><span id="local-6989586621679216364"><span id="local-6989586621679216366"><span id="local-6989586621679216368"><span class="annot"><span class="annottext">ReadPrec [ListJobsByPipeline]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216371"><span id="local-6989586621679216373"><span id="local-6989586621679216375"><span id="local-6989586621679216377"><span class="annot"><span class="annottext">ReadPrec [ListJobsByPipeline]
 ReadPrec ListJobsByPipeline
 Int -&gt; ReadS ListJobsByPipeline
 ReadS [ListJobsByPipeline]
@@ -103,7 +103,7 @@ readList :: ReadS [ListJobsByPipeline]
 $creadList :: ReadS [ListJobsByPipeline]
 readsPrec :: Int -&gt; ReadS ListJobsByPipeline
 $creadsPrec :: Int -&gt; ReadS ListJobsByPipeline
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216355"><span id="local-6989586621679216357"><span id="local-6989586621679216359"><span class="annot"><span class="annottext">Int -&gt; ListJobsByPipeline -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216364"><span id="local-6989586621679216366"><span id="local-6989586621679216368"><span class="annot"><span class="annottext">Int -&gt; ListJobsByPipeline -&gt; ShowS
 [ListJobsByPipeline] -&gt; ShowS
 ListJobsByPipeline -&gt; String
 (Int -&gt; ListJobsByPipeline -&gt; ShowS)
@@ -151,8 +151,8 @@ $cfrom :: forall x. ListJobsByPipeline -&gt; Rep ListJobsByPipeline x
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-type">ListJobsByPipeline</span></a></span><span>
 </span><span id="line-97"></span><span id="newListJobsByPipeline"><span class="annot"><span class="annottext">newListJobsByPipeline :: Text -&gt; ListJobsByPipeline
-</span><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#newListJobsByPipeline"><span class="hs-identifier hs-var hs-var">newListJobsByPipeline</span></a></span></span><span> </span><span id="local-6989586621679216350"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216350"><span class="hs-identifier hs-var">pPipelineId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#newListJobsByPipeline"><span class="hs-identifier hs-var hs-var">newListJobsByPipeline</span></a></span></span><span> </span><span id="local-6989586621679216359"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216359"><span class="hs-identifier hs-var">pPipelineId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">ListJobsByPipeline' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ListJobsByPipeline
 </span><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-type">ListJobsByPipeline'</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ascending:ListJobsByPipeline' :: Maybe Text
@@ -165,7 +165,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineId:ListJobsByPipeline' :: Text
 </span><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#%24sel%3ApipelineId%3AListJobsByPipeline%27"><span class="hs-identifier hs-var">pipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216350"><span class="hs-identifier hs-var">pPipelineId_</span></a></span><span>
+</span><a href="#local-6989586621679216359"><span class="hs-identifier hs-var">pPipelineId_</span></a></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | To list jobs in chronological order by the date and time that they were</span><span>
@@ -179,16 +179,16 @@ forall a. Maybe a
 -&gt; Lens
      ListJobsByPipeline ListJobsByPipeline (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-type">ListJobsByPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216348"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-type">ListJobsByPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216357"><span class="annot"><span class="annottext">Maybe Text
 ascending :: Maybe Text
 $sel:ascending:ListJobsByPipeline' :: ListJobsByPipeline -&gt; Maybe Text
-</span><a href="#local-6989586621679216348"><span class="hs-identifier hs-var hs-var">ascending</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216348"><span class="hs-identifier hs-var">ascending</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216347"><span class="annot"><span class="annottext">s :: ListJobsByPipeline
-</span><a href="#local-6989586621679216347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-type">ListJobsByPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216346"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsByPipeline
-</span><a href="#local-6989586621679216347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ascending:ListJobsByPipeline' :: Maybe Text
+</span><a href="#local-6989586621679216357"><span class="hs-identifier hs-var hs-var">ascending</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216357"><span class="hs-identifier hs-var">ascending</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216356"><span class="annot"><span class="annottext">s :: ListJobsByPipeline
+</span><a href="#local-6989586621679216356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-type">ListJobsByPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216355"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsByPipeline
+</span><a href="#local-6989586621679216356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ascending:ListJobsByPipeline' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#%24sel%3Aascending%3AListJobsByPipeline%27"><span class="hs-identifier hs-var">ascending</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-type">ListJobsByPipeline</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-type">ListJobsByPipeline</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | When Elastic Transcoder returns more than one page of results, use</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- @pageToken@ in subsequent @GET@ requests to get each successive page of</span><span>
@@ -201,16 +201,16 @@ $sel:ascending:ListJobsByPipeline' :: ListJobsByPipeline -&gt; Maybe Text
 -&gt; Lens
      ListJobsByPipeline ListJobsByPipeline (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-type">ListJobsByPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216345"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-type">ListJobsByPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216354"><span class="annot"><span class="annottext">Maybe Text
 pageToken :: Maybe Text
 $sel:pageToken:ListJobsByPipeline' :: ListJobsByPipeline -&gt; Maybe Text
-</span><a href="#local-6989586621679216345"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216345"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216344"><span class="annot"><span class="annottext">s :: ListJobsByPipeline
-</span><a href="#local-6989586621679216344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-type">ListJobsByPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216343"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsByPipeline
-</span><a href="#local-6989586621679216344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:ListJobsByPipeline' :: Maybe Text
+</span><a href="#local-6989586621679216354"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216354"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216353"><span class="annot"><span class="annottext">s :: ListJobsByPipeline
+</span><a href="#local-6989586621679216353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-type">ListJobsByPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216352"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsByPipeline
+</span><a href="#local-6989586621679216353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:ListJobsByPipeline' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#%24sel%3ApageToken%3AListJobsByPipeline%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-type">ListJobsByPipeline</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-type">ListJobsByPipeline</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The ID of the pipeline for which you want to get job information.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#listJobsByPipeline_pipelineId"><span class="hs-identifier hs-type">listJobsByPipeline_pipelineId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-type">ListJobsByPipeline</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -219,29 +219,29 @@ $sel:pageToken:ListJobsByPipeline' :: ListJobsByPipeline -&gt; Maybe Text
 -&gt; (ListJobsByPipeline -&gt; Text -&gt; ListJobsByPipeline)
 -&gt; Lens ListJobsByPipeline ListJobsByPipeline Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-type">ListJobsByPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216342"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-type">ListJobsByPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216351"><span class="annot"><span class="annottext">Text
 pipelineId :: Text
 $sel:pipelineId:ListJobsByPipeline' :: ListJobsByPipeline -&gt; Text
-</span><a href="#local-6989586621679216342"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216342"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216341"><span class="annot"><span class="annottext">s :: ListJobsByPipeline
-</span><a href="#local-6989586621679216341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-type">ListJobsByPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216340"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsByPipeline
-</span><a href="#local-6989586621679216341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineId:ListJobsByPipeline' :: Text
+</span><a href="#local-6989586621679216351"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216351"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216350"><span class="annot"><span class="annottext">s :: ListJobsByPipeline
+</span><a href="#local-6989586621679216350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-type">ListJobsByPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216349"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsByPipeline
+</span><a href="#local-6989586621679216350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineId:ListJobsByPipeline' :: Text
 </span><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#%24sel%3ApipelineId%3AListJobsByPipeline%27"><span class="hs-identifier hs-var">pipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-type">ListJobsByPipeline</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-type">ListJobsByPipeline</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-type">ListJobsByPipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679216336"><span class="annot"><span class="annottext">page :: ListJobsByPipeline
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679216345"><span class="annot"><span class="annottext">page :: ListJobsByPipeline
 -&gt; AWSResponse ListJobsByPipeline -&gt; Maybe ListJobsByPipeline
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679216334"><span class="annot"><span class="annottext">ListJobsByPipeline
-</span><a href="#local-6989586621679216334"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679216333"><span class="annot"><span class="annottext">AWSResponse ListJobsByPipeline
-</span><a href="#local-6989586621679216333"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679216343"><span class="annot"><span class="annottext">ListJobsByPipeline
+</span><a href="#local-6989586621679216343"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679216342"><span class="annot"><span class="annottext">AWSResponse ListJobsByPipeline
+</span><a href="#local-6989586621679216342"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobsByPipeline
 ListJobsByPipelineResponse
-</span><a href="#local-6989586621679216333"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679216342"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">ListJobsByPipelineResponse
 -&gt; Getting (First Text) ListJobsByPipelineResponse Text
 -&gt; Maybe Text
@@ -271,7 +271,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-129"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobsByPipeline
 ListJobsByPipelineResponse
-</span><a href="#local-6989586621679216333"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679216342"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">ListJobsByPipelineResponse
 -&gt; Getting (First [Job]) ListJobsByPipelineResponse [Job]
 -&gt; Maybe [Job]
@@ -304,7 +304,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">ListJobsByPipeline
-</span><a href="#local-6989586621679216334"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679216343"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">ListJobsByPipeline
 -&gt; (ListJobsByPipeline -&gt; ListJobsByPipeline) -&gt; ListJobsByPipeline
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -319,7 +319,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobsByPipeline
 ListJobsByPipelineResponse
-</span><a href="#local-6989586621679216333"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679216342"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">ListJobsByPipelineResponse
 -&gt; Getting (First Text) ListJobsByPipelineResponse Text
 -&gt; Maybe Text
@@ -345,12 +345,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-142"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-143"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-type">ListJobsByPipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse"><span class="hs-identifier hs-type">ListJobsByPipelineResponse</span></a></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679216323"><span class="annot"><span class="annottext">request :: ListJobsByPipeline -&gt; Request ListJobsByPipeline
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679216332"><span class="annot"><span class="annottext">request :: ListJobsByPipeline -&gt; Request ListJobsByPipeline
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListJobsByPipeline -&gt; Request ListJobsByPipeline
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElasticTranscoder.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679216319"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679216328"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListJobsByPipeline
 -&gt; ClientResponse ClientBody
@@ -376,10 +376,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216316"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216316"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679216315"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679216315"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679216314"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216314"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216325"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216325"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679216324"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679216324"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679216323"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216323"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Job] -&gt; Int -&gt; ListJobsByPipelineResponse
 </span><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse%27"><span class="hs-identifier hs-var">ListJobsByPipelineResponse'</span></a></span><span>
 </span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Job] -&gt; Int -&gt; ListJobsByPipelineResponse)
@@ -387,7 +387,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Job] -&gt; Int -&gt; ListJobsByPipelineResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679216323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextPageToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -396,7 +396,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListJobsByPipelineResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Job]))
+</span><a href="#local-6989586621679216323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Job]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Jobs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Job]))
@@ -413,15 +413,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216316"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216325"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216305"><span id="local-6989586621679216307"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-type">ListJobsByPipeline</span></a></span></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216314"><span id="local-6989586621679216316"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-type">ListJobsByPipeline</span></a></span></span></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216302"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-type">ListJobsByPipeline</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216311"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-type">ListJobsByPipeline</span></a></span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-type">ListJobsByPipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679216298"><span class="annot"><span class="annottext">toHeaders :: ListJobsByPipeline -&gt; ResponseHeaders
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679216307"><span class="annot"><span class="annottext">toHeaders :: ListJobsByPipeline -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListJobsByPipeline -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -429,8 +429,8 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-type">ListJobsByPipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679216293"><span class="annot"><span class="annottext">toPath :: ListJobsByPipeline -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-type">ListJobsByPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216289"><span id="local-6989586621679216290"><span id="local-6989586621679216291"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679216302"><span class="annot"><span class="annottext">toPath :: ListJobsByPipeline -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-type">ListJobsByPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216298"><span id="local-6989586621679216299"><span id="local-6989586621679216300"><span class="annot"><span class="annottext">Maybe Text
 Text
 pipelineId :: Text
 pageToken :: Maybe Text
@@ -438,7 +438,7 @@ ascending :: Maybe Text
 $sel:pipelineId:ListJobsByPipeline' :: ListJobsByPipeline -&gt; Text
 $sel:pageToken:ListJobsByPipeline' :: ListJobsByPipeline -&gt; Maybe Text
 $sel:ascending:ListJobsByPipeline' :: ListJobsByPipeline -&gt; Maybe Text
-</span><a href="#local-6989586621679216289"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679216298"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -446,11 +446,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2012-09-25/jobsByPipeline/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216289"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679216298"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline"><span class="hs-identifier hs-type">ListJobsByPipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679216285"><span class="annot"><span class="annottext">toQuery :: ListJobsByPipeline -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-type">ListJobsByPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216281"><span id="local-6989586621679216282"><span id="local-6989586621679216283"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679216294"><span class="annot"><span class="annottext">toQuery :: ListJobsByPipeline -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipeline%27"><span class="hs-identifier hs-type">ListJobsByPipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216290"><span id="local-6989586621679216291"><span id="local-6989586621679216292"><span class="annot"><span class="annottext">Maybe Text
 Text
 pipelineId :: Text
 pageToken :: Maybe Text
@@ -458,7 +458,7 @@ ascending :: Maybe Text
 $sel:pipelineId:ListJobsByPipeline' :: ListJobsByPipeline -&gt; Text
 $sel:pageToken:ListJobsByPipeline' :: ListJobsByPipeline -&gt; Maybe Text
 $sel:ascending:ListJobsByPipeline' :: ListJobsByPipeline -&gt; Maybe Text
-</span><a href="#local-6989586621679216281"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679216290"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -466,18 +466,18 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Ascending&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216283"><span class="hs-identifier hs-var">ascending</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679216292"><span class="hs-identifier hs-var">ascending</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PageToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216282"><span class="hs-identifier hs-var">pageToken</span></a></span><span>
+</span><a href="#local-6989586621679216291"><span class="hs-identifier hs-var">pageToken</span></a></span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The @ListJobsByPipelineResponse@ structure.</span><span>
 </span><span id="line-175"></span><span class="hs-comment">--</span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- /See:/ 'newListJobsByPipelineResponse' smart constructor.</span><span>
-</span><span id="line-177"></span><span id="local-6989586621679216278"><span id="local-6989586621679216279"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobsByPipelineResponse"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse"><span class="hs-identifier hs-var">ListJobsByPipelineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobsByPipelineResponse%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse%27"><span class="hs-identifier hs-var">ListJobsByPipelineResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span id="local-6989586621679216287"><span id="local-6989586621679216288"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobsByPipelineResponse"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse"><span class="hs-identifier hs-var">ListJobsByPipelineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobsByPipelineResponse%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse%27"><span class="hs-identifier hs-var">ListJobsByPipelineResponse'</span></a></span></span><span>
 </span><span id="line-178"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value that you use to access the second and subsequent pages of</span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-comment">-- results, if any. When the jobs in the specified pipeline fit on one page</span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-comment">-- or when you\'ve reached the last page of results, the value of</span><span>
@@ -491,7 +491,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListJobsByPipelineResponse%27"><span class="annot"><span class="annottext">ListJobsByPipelineResponse -&gt; Int
 </span><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#%24sel%3AhttpStatus%3AListJobsByPipelineResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216271"><span id="local-6989586621679216273"><span class="annot"><span class="annottext">ListJobsByPipelineResponse -&gt; ListJobsByPipelineResponse -&gt; Bool
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216280"><span id="local-6989586621679216282"><span class="annot"><span class="annottext">ListJobsByPipelineResponse -&gt; ListJobsByPipelineResponse -&gt; Bool
 (ListJobsByPipelineResponse -&gt; ListJobsByPipelineResponse -&gt; Bool)
 -&gt; (ListJobsByPipelineResponse
     -&gt; ListJobsByPipelineResponse -&gt; Bool)
@@ -501,7 +501,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListJobsByPipelineResponse -&gt; ListJobsByPipelineResponse -&gt; Bool
 == :: ListJobsByPipelineResponse -&gt; ListJobsByPipelineResponse -&gt; Bool
 $c== :: ListJobsByPipelineResponse -&gt; ListJobsByPipelineResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216263"><span id="local-6989586621679216265"><span id="local-6989586621679216267"><span id="local-6989586621679216269"><span class="annot"><span class="annottext">ReadPrec [ListJobsByPipelineResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216272"><span id="local-6989586621679216274"><span id="local-6989586621679216276"><span id="local-6989586621679216278"><span class="annot"><span class="annottext">ReadPrec [ListJobsByPipelineResponse]
 ReadPrec ListJobsByPipelineResponse
 Int -&gt; ReadS ListJobsByPipelineResponse
 ReadS [ListJobsByPipelineResponse]
@@ -521,7 +521,7 @@ readList :: ReadS [ListJobsByPipelineResponse]
 $creadList :: ReadS [ListJobsByPipelineResponse]
 readsPrec :: Int -&gt; ReadS ListJobsByPipelineResponse
 $creadsPrec :: Int -&gt; ReadS ListJobsByPipelineResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216257"><span id="local-6989586621679216259"><span id="local-6989586621679216261"><span class="annot"><span class="annottext">Int -&gt; ListJobsByPipelineResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216266"><span id="local-6989586621679216268"><span id="local-6989586621679216270"><span class="annot"><span class="annottext">Int -&gt; ListJobsByPipelineResponse -&gt; ShowS
 [ListJobsByPipelineResponse] -&gt; ShowS
 ListJobsByPipelineResponse -&gt; String
 (Int -&gt; ListJobsByPipelineResponse -&gt; ShowS)
@@ -574,8 +574,8 @@ ListJobsByPipelineResponse -&gt; Rep ListJobsByPipelineResponse x
 </span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-209"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse"><span class="hs-identifier hs-type">ListJobsByPipelineResponse</span></a></span><span>
 </span><span id="line-210"></span><span id="newListJobsByPipelineResponse"><span class="annot"><span class="annottext">newListJobsByPipelineResponse :: Int -&gt; ListJobsByPipelineResponse
-</span><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#newListJobsByPipelineResponse"><span class="hs-identifier hs-var hs-var">newListJobsByPipelineResponse</span></a></span></span><span> </span><span id="local-6989586621679216254"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216254"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#newListJobsByPipelineResponse"><span class="hs-identifier hs-var hs-var">newListJobsByPipelineResponse</span></a></span></span><span> </span><span id="local-6989586621679216263"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216263"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-211"></span><span>  </span><span class="annot"><span class="annottext">ListJobsByPipelineResponse' :: Maybe Text -&gt; Maybe [Job] -&gt; Int -&gt; ListJobsByPipelineResponse
 </span><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse%27"><span class="hs-identifier hs-type">ListJobsByPipelineResponse'</span></a></span><span>
 </span><span id="line-212"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextPageToken:ListJobsByPipelineResponse' :: Maybe Text
@@ -589,7 +589,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobsByPipelineResponse' :: Int
 </span><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#%24sel%3AhttpStatus%3AListJobsByPipelineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216254"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679216263"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-216"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | A value that you use to access the second and subsequent pages of</span><span>
@@ -604,16 +604,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListJobsByPipelineResponse)
 -&gt; Lens' ListJobsByPipelineResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse%27"><span class="hs-identifier hs-type">ListJobsByPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216253"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse%27"><span class="hs-identifier hs-type">ListJobsByPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216262"><span class="annot"><span class="annottext">Maybe Text
 nextPageToken :: Maybe Text
 $sel:nextPageToken:ListJobsByPipelineResponse' :: ListJobsByPipelineResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679216253"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216253"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216252"><span class="annot"><span class="annottext">s :: ListJobsByPipelineResponse
-</span><a href="#local-6989586621679216252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse%27"><span class="hs-identifier hs-type">ListJobsByPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216251"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsByPipelineResponse
-</span><a href="#local-6989586621679216252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:ListJobsByPipelineResponse' :: Maybe Text
+</span><a href="#local-6989586621679216262"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216262"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216261"><span class="annot"><span class="annottext">s :: ListJobsByPipelineResponse
+</span><a href="#local-6989586621679216261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse%27"><span class="hs-identifier hs-type">ListJobsByPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216260"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsByPipelineResponse
+</span><a href="#local-6989586621679216261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:ListJobsByPipelineResponse' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#%24sel%3AnextPageToken%3AListJobsByPipelineResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse"><span class="hs-identifier hs-type">ListJobsByPipelineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse"><span class="hs-identifier hs-type">ListJobsByPipelineResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | An array of @Job@ objects that are in the specified pipeline.</span><span>
 </span><span id="line-226"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#listJobsByPipelineResponse_jobs"><span class="hs-identifier hs-type">listJobsByPipelineResponse_jobs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse"><span class="hs-identifier hs-type">ListJobsByPipelineResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -624,16 +624,16 @@ $sel:nextPageToken:ListJobsByPipelineResponse' :: ListJobsByPipelineResponse -&g
     -&gt; Maybe [Job] -&gt; ListJobsByPipelineResponse)
 -&gt; Lens' ListJobsByPipelineResponse (Maybe [Job])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse%27"><span class="hs-identifier hs-type">ListJobsByPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216250"><span class="annot"><span class="annottext">Maybe [Job]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse%27"><span class="hs-identifier hs-type">ListJobsByPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216259"><span class="annot"><span class="annottext">Maybe [Job]
 jobs :: Maybe [Job]
 $sel:jobs:ListJobsByPipelineResponse' :: ListJobsByPipelineResponse -&gt; Maybe [Job]
-</span><a href="#local-6989586621679216250"><span class="hs-identifier hs-var hs-var">jobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Job]
-</span><a href="#local-6989586621679216250"><span class="hs-identifier hs-var">jobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216249"><span class="annot"><span class="annottext">s :: ListJobsByPipelineResponse
-</span><a href="#local-6989586621679216249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse%27"><span class="hs-identifier hs-type">ListJobsByPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216248"><span class="annot"><span class="annottext">Maybe [Job]
-</span><a href="#local-6989586621679216248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsByPipelineResponse
-</span><a href="#local-6989586621679216249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobs:ListJobsByPipelineResponse' :: Maybe [Job]
+</span><a href="#local-6989586621679216259"><span class="hs-identifier hs-var hs-var">jobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Job]
+</span><a href="#local-6989586621679216259"><span class="hs-identifier hs-var">jobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216258"><span class="annot"><span class="annottext">s :: ListJobsByPipelineResponse
+</span><a href="#local-6989586621679216258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse%27"><span class="hs-identifier hs-type">ListJobsByPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216257"><span class="annot"><span class="annottext">Maybe [Job]
+</span><a href="#local-6989586621679216257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsByPipelineResponse
+</span><a href="#local-6989586621679216258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobs:ListJobsByPipelineResponse' :: Maybe [Job]
 </span><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#%24sel%3Ajobs%3AListJobsByPipelineResponse%27"><span class="hs-identifier hs-var">jobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Job]
-</span><a href="#local-6989586621679216248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse"><span class="hs-identifier hs-type">ListJobsByPipelineResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Job] -&gt; f (Maybe [Job]))
+</span><a href="#local-6989586621679216257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse"><span class="hs-identifier hs-type">ListJobsByPipelineResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Job] -&gt; f (Maybe [Job]))
  -&gt; ListJobsByPipelineResponse -&gt; f ListJobsByPipelineResponse)
 -&gt; ((Maybe [Job] -&gt; f (Maybe [Job]))
     -&gt; Maybe [Job] -&gt; f (Maybe [Job]))
@@ -660,16 +660,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ListJobsByPipelineResponse ListJobsByPipelineResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse%27"><span class="hs-identifier hs-type">ListJobsByPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216245"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse%27"><span class="hs-identifier hs-type">ListJobsByPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216254"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListJobsByPipelineResponse' :: ListJobsByPipelineResponse -&gt; Int
-</span><a href="#local-6989586621679216245"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216245"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216244"><span class="annot"><span class="annottext">s :: ListJobsByPipelineResponse
-</span><a href="#local-6989586621679216244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse%27"><span class="hs-identifier hs-type">ListJobsByPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216243"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsByPipelineResponse
-</span><a href="#local-6989586621679216244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobsByPipelineResponse' :: Int
+</span><a href="#local-6989586621679216254"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216254"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216253"><span class="annot"><span class="annottext">s :: ListJobsByPipelineResponse
+</span><a href="#local-6989586621679216253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse%27"><span class="hs-identifier hs-type">ListJobsByPipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216252"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsByPipelineResponse
+</span><a href="#local-6989586621679216253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobsByPipelineResponse' :: Int
 </span><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#%24sel%3AhttpStatus%3AListJobsByPipelineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse"><span class="hs-identifier hs-type">ListJobsByPipelineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse"><span class="hs-identifier hs-type">ListJobsByPipelineResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216241"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse"><span class="hs-identifier hs-type">ListJobsByPipelineResponse</span></a></span></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216250"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ListJobsByPipeline.html#ListJobsByPipelineResponse"><span class="hs-identifier hs-type">ListJobsByPipelineResponse</span></a></span></span><span>
 </span><span id="line-234"></span></pre></body></html>

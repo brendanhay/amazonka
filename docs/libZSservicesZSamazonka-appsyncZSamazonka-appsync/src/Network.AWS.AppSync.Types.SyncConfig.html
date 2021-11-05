@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- strategy should be performed when the resolver is invoked.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newSyncConfig' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679252024"><span id="local-6989586621679252025"></span></span><span class="hs-keyword">data</span><span> </span><span id="SyncConfig"><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-var">SyncConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SyncConfig%27"><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig%27"><span class="hs-identifier hs-var">SyncConfig'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679252033"><span id="local-6989586621679252034"></span></span><span class="hs-keyword">data</span><span> </span><span id="SyncConfig"><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-var">SyncConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SyncConfig%27"><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig%27"><span class="hs-identifier hs-var">SyncConfig'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Conflict Resolution strategy to perform in the event of a conflict.</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   __OPTIMISTIC_CONCURRENCY__: Resolve conflicts by rejecting mutations</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AlambdaConflictHandlerConfig%3ASyncConfig%27"><span class="annot"><span class="annottext">SyncConfig -&gt; Maybe LambdaConflictHandlerConfig
 </span><a href="Network.AWS.AppSync.Types.SyncConfig.html#%24sel%3AlambdaConflictHandlerConfig%3ASyncConfig%27"><span class="hs-identifier hs-var hs-var">lambdaConflictHandlerConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaConflictHandlerConfig.html#LambdaConflictHandlerConfig"><span class="hs-identifier hs-type">LambdaConflictHandlerConfig</span></a></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252016"><span id="local-6989586621679252018"><span class="annot"><span class="annottext">SyncConfig -&gt; SyncConfig -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252025"><span id="local-6989586621679252027"><span class="annot"><span class="annottext">SyncConfig -&gt; SyncConfig -&gt; Bool
 (SyncConfig -&gt; SyncConfig -&gt; Bool)
 -&gt; (SyncConfig -&gt; SyncConfig -&gt; Bool) -&gt; Eq SyncConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SyncConfig -&gt; SyncConfig -&gt; Bool
 == :: SyncConfig -&gt; SyncConfig -&gt; Bool
 $c== :: SyncConfig -&gt; SyncConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252007"><span id="local-6989586621679252009"><span id="local-6989586621679252011"><span id="local-6989586621679252013"><span class="annot"><span class="annottext">ReadPrec [SyncConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252016"><span id="local-6989586621679252018"><span id="local-6989586621679252020"><span id="local-6989586621679252022"><span class="annot"><span class="annottext">ReadPrec [SyncConfig]
 ReadPrec SyncConfig
 Int -&gt; ReadS SyncConfig
 ReadS [SyncConfig]
@@ -86,7 +86,7 @@ readList :: ReadS [SyncConfig]
 $creadList :: ReadS [SyncConfig]
 readsPrec :: Int -&gt; ReadS SyncConfig
 $creadsPrec :: Int -&gt; ReadS SyncConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252000"><span id="local-6989586621679252002"><span id="local-6989586621679252004"><span class="annot"><span class="annottext">Int -&gt; SyncConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252009"><span id="local-6989586621679252011"><span id="local-6989586621679252013"><span class="annot"><span class="annottext">Int -&gt; SyncConfig -&gt; ShowS
 [SyncConfig] -&gt; ShowS
 SyncConfig -&gt; String
 (Int -&gt; SyncConfig -&gt; ShowS)
@@ -183,16 +183,16 @@ forall a. Maybe a
      (Maybe ConflictHandlerType)
      (Maybe ConflictHandlerType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig%27"><span class="hs-identifier hs-type">SyncConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251991"><span class="annot"><span class="annottext">Maybe ConflictHandlerType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig%27"><span class="hs-identifier hs-type">SyncConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252000"><span class="annot"><span class="annottext">Maybe ConflictHandlerType
 conflictHandler :: Maybe ConflictHandlerType
 $sel:conflictHandler:SyncConfig' :: SyncConfig -&gt; Maybe ConflictHandlerType
-</span><a href="#local-6989586621679251991"><span class="hs-identifier hs-var hs-var">conflictHandler</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictHandlerType
-</span><a href="#local-6989586621679251991"><span class="hs-identifier hs-var">conflictHandler</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251990"><span class="annot"><span class="annottext">s :: SyncConfig
-</span><a href="#local-6989586621679251990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig%27"><span class="hs-identifier hs-type">SyncConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251989"><span class="annot"><span class="annottext">Maybe ConflictHandlerType
-</span><a href="#local-6989586621679251989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SyncConfig
-</span><a href="#local-6989586621679251990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictHandler:SyncConfig' :: Maybe ConflictHandlerType
+</span><a href="#local-6989586621679252000"><span class="hs-identifier hs-var hs-var">conflictHandler</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictHandlerType
+</span><a href="#local-6989586621679252000"><span class="hs-identifier hs-var">conflictHandler</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251999"><span class="annot"><span class="annottext">s :: SyncConfig
+</span><a href="#local-6989586621679251999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig%27"><span class="hs-identifier hs-type">SyncConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251998"><span class="annot"><span class="annottext">Maybe ConflictHandlerType
+</span><a href="#local-6989586621679251998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SyncConfig
+</span><a href="#local-6989586621679251999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictHandler:SyncConfig' :: Maybe ConflictHandlerType
 </span><a href="Network.AWS.AppSync.Types.SyncConfig.html#%24sel%3AconflictHandler%3ASyncConfig%27"><span class="hs-identifier hs-var">conflictHandler</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictHandlerType
-</span><a href="#local-6989586621679251989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The Conflict Detection strategy to use.</span><span>
 </span><span id="line-111"></span><span class="hs-comment">--</span><span>
@@ -211,16 +211,16 @@ $sel:conflictHandler:SyncConfig' :: SyncConfig -&gt; Maybe ConflictHandlerType
      (Maybe ConflictDetectionType)
      (Maybe ConflictDetectionType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig%27"><span class="hs-identifier hs-type">SyncConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251987"><span class="annot"><span class="annottext">Maybe ConflictDetectionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig%27"><span class="hs-identifier hs-type">SyncConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251996"><span class="annot"><span class="annottext">Maybe ConflictDetectionType
 conflictDetection :: Maybe ConflictDetectionType
 $sel:conflictDetection:SyncConfig' :: SyncConfig -&gt; Maybe ConflictDetectionType
-</span><a href="#local-6989586621679251987"><span class="hs-identifier hs-var hs-var">conflictDetection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictDetectionType
-</span><a href="#local-6989586621679251987"><span class="hs-identifier hs-var">conflictDetection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251986"><span class="annot"><span class="annottext">s :: SyncConfig
-</span><a href="#local-6989586621679251986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig%27"><span class="hs-identifier hs-type">SyncConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251985"><span class="annot"><span class="annottext">Maybe ConflictDetectionType
-</span><a href="#local-6989586621679251985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SyncConfig
-</span><a href="#local-6989586621679251986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictDetection:SyncConfig' :: Maybe ConflictDetectionType
+</span><a href="#local-6989586621679251996"><span class="hs-identifier hs-var hs-var">conflictDetection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictDetectionType
+</span><a href="#local-6989586621679251996"><span class="hs-identifier hs-var">conflictDetection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251995"><span class="annot"><span class="annottext">s :: SyncConfig
+</span><a href="#local-6989586621679251995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig%27"><span class="hs-identifier hs-type">SyncConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251994"><span class="annot"><span class="annottext">Maybe ConflictDetectionType
+</span><a href="#local-6989586621679251994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SyncConfig
+</span><a href="#local-6989586621679251995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictDetection:SyncConfig' :: Maybe ConflictDetectionType
 </span><a href="Network.AWS.AppSync.Types.SyncConfig.html#%24sel%3AconflictDetection%3ASyncConfig%27"><span class="hs-identifier hs-var">conflictDetection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictDetectionType
-</span><a href="#local-6989586621679251985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The @LambdaConflictHandlerConfig@ when configuring LAMBDA as the</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- Conflict Handler.</span><span>
@@ -236,19 +236,19 @@ $sel:conflictDetection:SyncConfig' :: SyncConfig -&gt; Maybe ConflictDetectionTy
      (Maybe LambdaConflictHandlerConfig)
      (Maybe LambdaConflictHandlerConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig%27"><span class="hs-identifier hs-type">SyncConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251983"><span class="annot"><span class="annottext">Maybe LambdaConflictHandlerConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig%27"><span class="hs-identifier hs-type">SyncConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251992"><span class="annot"><span class="annottext">Maybe LambdaConflictHandlerConfig
 lambdaConflictHandlerConfig :: Maybe LambdaConflictHandlerConfig
 $sel:lambdaConflictHandlerConfig:SyncConfig' :: SyncConfig -&gt; Maybe LambdaConflictHandlerConfig
-</span><a href="#local-6989586621679251983"><span class="hs-identifier hs-var hs-var">lambdaConflictHandlerConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaConflictHandlerConfig
-</span><a href="#local-6989586621679251983"><span class="hs-identifier hs-var">lambdaConflictHandlerConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251982"><span class="annot"><span class="annottext">s :: SyncConfig
-</span><a href="#local-6989586621679251982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig%27"><span class="hs-identifier hs-type">SyncConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251981"><span class="annot"><span class="annottext">Maybe LambdaConflictHandlerConfig
-</span><a href="#local-6989586621679251981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SyncConfig
-</span><a href="#local-6989586621679251982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaConflictHandlerConfig:SyncConfig' :: Maybe LambdaConflictHandlerConfig
+</span><a href="#local-6989586621679251992"><span class="hs-identifier hs-var hs-var">lambdaConflictHandlerConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaConflictHandlerConfig
+</span><a href="#local-6989586621679251992"><span class="hs-identifier hs-var">lambdaConflictHandlerConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251991"><span class="annot"><span class="annottext">s :: SyncConfig
+</span><a href="#local-6989586621679251991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig%27"><span class="hs-identifier hs-type">SyncConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251990"><span class="annot"><span class="annottext">Maybe LambdaConflictHandlerConfig
+</span><a href="#local-6989586621679251990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SyncConfig
+</span><a href="#local-6989586621679251991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaConflictHandlerConfig:SyncConfig' :: Maybe LambdaConflictHandlerConfig
 </span><a href="Network.AWS.AppSync.Types.SyncConfig.html#%24sel%3AlambdaConflictHandlerConfig%3ASyncConfig%27"><span class="hs-identifier hs-var">lambdaConflictHandlerConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaConflictHandlerConfig
-</span><a href="#local-6989586621679251981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251978"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679251976"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SyncConfig
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251987"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679251985"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SyncConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SyncConfig) -&gt; Value -&gt; Parser SyncConfig
@@ -256,8 +256,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SyncConfig&quot;</span></span><span>
-</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251973"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251973"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251982"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251982"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConflictHandlerType
 -&gt; Maybe ConflictDetectionType
 -&gt; Maybe LambdaConflictHandlerConfig
@@ -273,7 +273,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe LambdaConflictHandlerConfig -&gt; SyncConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConflictHandlerType)
+</span><a href="#local-6989586621679251982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConflictHandlerType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;conflictHandler&quot;</span></span><span class="hs-special">)</span><span>
@@ -284,7 +284,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe LambdaConflictHandlerConfig -&gt; SyncConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConflictDetectionType)
+</span><a href="#local-6989586621679251982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConflictDetectionType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;conflictDetection&quot;</span></span><span class="hs-special">)</span><span>
@@ -292,19 +292,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe LambdaConflictHandlerConfig) -&gt; Parser SyncConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LambdaConflictHandlerConfig)
+</span><a href="#local-6989586621679251982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LambdaConflictHandlerConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lambdaConflictHandlerConfig&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251967"><span id="local-6989586621679251969"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251976"><span id="local-6989586621679251978"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251964"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251973"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251956"><span id="local-6989586621679251958"><span id="local-6989586621679251960"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679251954"><span class="annot"><span class="annottext">toJSON :: SyncConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig%27"><span class="hs-identifier hs-type">SyncConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251950"><span id="local-6989586621679251951"><span id="local-6989586621679251952"><span class="annot"><span class="annottext">Maybe ConflictDetectionType
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251965"><span id="local-6989586621679251967"><span id="local-6989586621679251969"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig"><span class="hs-identifier hs-type">SyncConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679251963"><span class="annot"><span class="annottext">toJSON :: SyncConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.SyncConfig.html#SyncConfig%27"><span class="hs-identifier hs-type">SyncConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251959"><span id="local-6989586621679251960"><span id="local-6989586621679251961"><span class="annot"><span class="annottext">Maybe ConflictDetectionType
 Maybe ConflictHandlerType
 Maybe LambdaConflictHandlerConfig
 lambdaConflictHandlerConfig :: Maybe LambdaConflictHandlerConfig
@@ -313,7 +313,7 @@ conflictHandler :: Maybe ConflictHandlerType
 $sel:lambdaConflictHandlerConfig:SyncConfig' :: SyncConfig -&gt; Maybe LambdaConflictHandlerConfig
 $sel:conflictDetection:SyncConfig' :: SyncConfig -&gt; Maybe ConflictDetectionType
 $sel:conflictHandler:SyncConfig' :: SyncConfig -&gt; Maybe ConflictHandlerType
-</span><a href="#local-6989586621679251950"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679251959"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -327,7 +327,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ConflictHandlerType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConflictHandlerType
-</span><a href="#local-6989586621679251952"><span class="hs-identifier hs-var">conflictHandler</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251961"><span class="hs-identifier hs-var">conflictHandler</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;conflictDetection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConflictDetectionType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -336,7 +336,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ConflictDetectionType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConflictDetectionType
-</span><a href="#local-6989586621679251951"><span class="hs-identifier hs-var">conflictDetection</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251960"><span class="hs-identifier hs-var">conflictDetection</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lambdaConflictHandlerConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LambdaConflictHandlerConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -345,7 +345,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe LambdaConflictHandlerConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LambdaConflictHandlerConfig
-</span><a href="#local-6989586621679251950"><span class="hs-identifier hs-var">lambdaConflictHandlerConfig</span></a></span><span>
+</span><a href="#local-6989586621679251959"><span class="hs-identifier hs-var">lambdaConflictHandlerConfig</span></a></span><span>
 </span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span></pre></body></html>

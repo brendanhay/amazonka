@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The properties of a billing group.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newBillingGroupProperties' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679779307"><span id="local-6989586621679779308"></span></span><span class="hs-keyword">data</span><span> </span><span id="BillingGroupProperties"><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties"><span class="hs-identifier hs-var">BillingGroupProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BillingGroupProperties%27"><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties%27"><span class="hs-identifier hs-var">BillingGroupProperties'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679779316"><span id="local-6989586621679779317"></span></span><span class="hs-keyword">data</span><span> </span><span id="BillingGroupProperties"><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties"><span class="hs-identifier hs-var">BillingGroupProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BillingGroupProperties%27"><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties%27"><span class="hs-identifier hs-var">BillingGroupProperties'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the billing group.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AbillingGroupDescription%3ABillingGroupProperties%27"><span class="annot"><span class="annottext">BillingGroupProperties -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#%24sel%3AbillingGroupDescription%3ABillingGroupProperties%27"><span class="hs-identifier hs-var hs-var">billingGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679779301"><span id="local-6989586621679779303"><span class="annot"><span class="annottext">BillingGroupProperties -&gt; BillingGroupProperties -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679779310"><span id="local-6989586621679779312"><span class="annot"><span class="annottext">BillingGroupProperties -&gt; BillingGroupProperties -&gt; Bool
 (BillingGroupProperties -&gt; BillingGroupProperties -&gt; Bool)
 -&gt; (BillingGroupProperties -&gt; BillingGroupProperties -&gt; Bool)
 -&gt; Eq BillingGroupProperties
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BillingGroupProperties -&gt; BillingGroupProperties -&gt; Bool
 == :: BillingGroupProperties -&gt; BillingGroupProperties -&gt; Bool
 $c== :: BillingGroupProperties -&gt; BillingGroupProperties -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779292"><span id="local-6989586621679779294"><span id="local-6989586621679779296"><span id="local-6989586621679779298"><span class="annot"><span class="annottext">ReadPrec [BillingGroupProperties]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779301"><span id="local-6989586621679779303"><span id="local-6989586621679779305"><span id="local-6989586621679779307"><span class="annot"><span class="annottext">ReadPrec [BillingGroupProperties]
 ReadPrec BillingGroupProperties
 Int -&gt; ReadS BillingGroupProperties
 ReadS [BillingGroupProperties]
@@ -60,7 +60,7 @@ readList :: ReadS [BillingGroupProperties]
 $creadList :: ReadS [BillingGroupProperties]
 readsPrec :: Int -&gt; ReadS BillingGroupProperties
 $creadsPrec :: Int -&gt; ReadS BillingGroupProperties
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779285"><span id="local-6989586621679779287"><span id="local-6989586621679779289"><span class="annot"><span class="annottext">Int -&gt; BillingGroupProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779294"><span id="local-6989586621679779296"><span id="local-6989586621679779298"><span class="annot"><span class="annottext">Int -&gt; BillingGroupProperties -&gt; ShowS
 [BillingGroupProperties] -&gt; ShowS
 BillingGroupProperties -&gt; String
 (Int -&gt; BillingGroupProperties -&gt; ShowS)
@@ -121,19 +121,19 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties%27"><span class="hs-identifier hs-type">BillingGroupProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779276"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties%27"><span class="hs-identifier hs-type">BillingGroupProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779285"><span class="annot"><span class="annottext">Maybe Text
 billingGroupDescription :: Maybe Text
 $sel:billingGroupDescription:BillingGroupProperties' :: BillingGroupProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679779276"><span class="hs-identifier hs-var hs-var">billingGroupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779276"><span class="hs-identifier hs-var">billingGroupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779275"><span class="annot"><span class="annottext">s :: BillingGroupProperties
-</span><a href="#local-6989586621679779275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties%27"><span class="hs-identifier hs-type">BillingGroupProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779274"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BillingGroupProperties
-</span><a href="#local-6989586621679779275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingGroupDescription:BillingGroupProperties' :: Maybe Text
+</span><a href="#local-6989586621679779285"><span class="hs-identifier hs-var hs-var">billingGroupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679779285"><span class="hs-identifier hs-var">billingGroupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779284"><span class="annot"><span class="annottext">s :: BillingGroupProperties
+</span><a href="#local-6989586621679779284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties%27"><span class="hs-identifier hs-type">BillingGroupProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779283"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679779283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BillingGroupProperties
+</span><a href="#local-6989586621679779284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingGroupDescription:BillingGroupProperties' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#%24sel%3AbillingGroupDescription%3ABillingGroupProperties%27"><span class="hs-identifier hs-var">billingGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties"><span class="hs-identifier hs-type">BillingGroupProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679779283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties"><span class="hs-identifier hs-type">BillingGroupProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779271"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties"><span class="hs-identifier hs-type">BillingGroupProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679779269"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BillingGroupProperties
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779280"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties"><span class="hs-identifier hs-type">BillingGroupProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679779278"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BillingGroupProperties
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BillingGroupProperties)
@@ -143,30 +143,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BillingGroupProperties&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679779266"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679779266"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679779275"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679779275"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; BillingGroupProperties
 </span><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties%27"><span class="hs-identifier hs-var">BillingGroupProperties'</span></a></span><span>
 </span><span id="line-62"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; BillingGroupProperties)
 -&gt; Parser (Maybe Text) -&gt; Parser BillingGroupProperties
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679779266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679779275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;billingGroupDescription&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779260"><span id="local-6989586621679779262"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties"><span class="hs-identifier hs-type">BillingGroupProperties</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779269"><span id="local-6989586621679779271"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties"><span class="hs-identifier hs-type">BillingGroupProperties</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779257"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties"><span class="hs-identifier hs-type">BillingGroupProperties</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779266"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties"><span class="hs-identifier hs-type">BillingGroupProperties</span></a></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779249"><span id="local-6989586621679779251"><span id="local-6989586621679779253"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties"><span class="hs-identifier hs-type">BillingGroupProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679779247"><span class="annot"><span class="annottext">toJSON :: BillingGroupProperties -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties%27"><span class="hs-identifier hs-type">BillingGroupProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779245"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779258"><span id="local-6989586621679779260"><span id="local-6989586621679779262"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties"><span class="hs-identifier hs-type">BillingGroupProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679779256"><span class="annot"><span class="annottext">toJSON :: BillingGroupProperties -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.BillingGroupProperties.html#BillingGroupProperties%27"><span class="hs-identifier hs-type">BillingGroupProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779254"><span class="annot"><span class="annottext">Maybe Text
 billingGroupDescription :: Maybe Text
 $sel:billingGroupDescription:BillingGroupProperties' :: BillingGroupProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679779245"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679779254"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -179,7 +179,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-74"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779245"><span class="hs-identifier hs-var">billingGroupDescription</span></a></span><span>
+</span><a href="#local-6989586621679779254"><span class="hs-identifier hs-var">billingGroupDescription</span></a></span><span>
 </span><span id="line-75"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span></pre></body></html>

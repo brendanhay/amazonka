@@ -1,0 +1,711 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ELBV2.DescribeRules</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the specified rules or the rules for the specified listener.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- You must specify either a listener or one or more rules.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ELBV2.DescribeRules</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier">DescribeRules</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#newDescribeRules"><span class="hs-identifier">newDescribeRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#describeRules_listenerArn"><span class="hs-identifier">describeRules_listenerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#describeRules_marker"><span class="hs-identifier">describeRules_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#describeRules_ruleArns"><span class="hs-identifier">describeRules_ruleArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#describeRules_pageSize"><span class="hs-identifier">describeRules_pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse"><span class="hs-identifier">DescribeRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#newDescribeRulesResponse"><span class="hs-identifier">newDescribeRulesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#describeRulesResponse_rules"><span class="hs-identifier">describeRulesResponse_rules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#describeRulesResponse_nextMarker"><span class="hs-identifier">describeRulesResponse_nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#describeRulesResponse_httpStatus"><span class="hs-identifier">describeRulesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.html"><span class="hs-identifier">Network.AWS.ELBV2.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeRules' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679260151"><span id="local-6989586621679260152"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRules"><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-var">DescribeRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRules%27"><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules%27"><span class="hs-identifier hs-var">DescribeRules'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the listener.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AlistenerArn%3ADescribeRules%27"><span class="annot"><span class="annottext">DescribeRules -&gt; Maybe Text
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3AlistenerArn%3ADescribeRules%27"><span class="hs-identifier hs-var hs-var">listenerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The marker for the next set of results. (You received this marker from a</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- previous call.)</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeRules%27"><span class="annot"><span class="annottext">DescribeRules -&gt; Maybe Text
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3Amarker%3ADescribeRules%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Names (ARN) of the rules.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AruleArns%3ADescribeRules%27"><span class="annot"><span class="annottext">DescribeRules -&gt; Maybe [Text]
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3AruleArns%3ADescribeRules%27"><span class="hs-identifier hs-var hs-var">ruleArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with this call.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3ApageSize%3ADescribeRules%27"><span class="annot"><span class="annottext">DescribeRules -&gt; Maybe Natural
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3ApageSize%3ADescribeRules%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260142"><span id="local-6989586621679260144"><span class="annot"><span class="annottext">DescribeRules -&gt; DescribeRules -&gt; Bool
+(DescribeRules -&gt; DescribeRules -&gt; Bool)
+-&gt; (DescribeRules -&gt; DescribeRules -&gt; Bool) -&gt; Eq DescribeRules
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeRules -&gt; DescribeRules -&gt; Bool
+$c/= :: DescribeRules -&gt; DescribeRules -&gt; Bool
+== :: DescribeRules -&gt; DescribeRules -&gt; Bool
+$c== :: DescribeRules -&gt; DescribeRules -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260133"><span id="local-6989586621679260135"><span id="local-6989586621679260137"><span id="local-6989586621679260139"><span class="annot"><span class="annottext">ReadPrec [DescribeRules]
+ReadPrec DescribeRules
+Int -&gt; ReadS DescribeRules
+ReadS [DescribeRules]
+(Int -&gt; ReadS DescribeRules)
+-&gt; ReadS [DescribeRules]
+-&gt; ReadPrec DescribeRules
+-&gt; ReadPrec [DescribeRules]
+-&gt; Read DescribeRules
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeRules]
+$creadListPrec :: ReadPrec [DescribeRules]
+readPrec :: ReadPrec DescribeRules
+$creadPrec :: ReadPrec DescribeRules
+readList :: ReadS [DescribeRules]
+$creadList :: ReadS [DescribeRules]
+readsPrec :: Int -&gt; ReadS DescribeRules
+$creadsPrec :: Int -&gt; ReadS DescribeRules
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260126"><span id="local-6989586621679260128"><span id="local-6989586621679260130"><span class="annot"><span class="annottext">Int -&gt; DescribeRules -&gt; ShowS
+[DescribeRules] -&gt; ShowS
+DescribeRules -&gt; String
+(Int -&gt; DescribeRules -&gt; ShowS)
+-&gt; (DescribeRules -&gt; String)
+-&gt; ([DescribeRules] -&gt; ShowS)
+-&gt; Show DescribeRules
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeRules] -&gt; ShowS
+$cshowList :: [DescribeRules] -&gt; ShowS
+show :: DescribeRules -&gt; String
+$cshow :: DescribeRules -&gt; String
+showsPrec :: Int -&gt; DescribeRules -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeRules -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeRules -&gt; Rep DescribeRules x)
+-&gt; (forall x. Rep DescribeRules x -&gt; DescribeRules)
+-&gt; Generic DescribeRules
+forall x. Rep DescribeRules x -&gt; DescribeRules
+forall x. DescribeRules -&gt; Rep DescribeRules x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeRules x -&gt; DescribeRules
+$cfrom :: forall x. DescribeRules -&gt; Rep DescribeRules x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'DescribeRules' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'listenerArn', 'describeRules_listenerArn' - The Amazon Resource Name (ARN) of the listener.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'marker', 'describeRules_marker' - The marker for the next set of results. (You received this marker from a</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- previous call.)</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'ruleArns', 'describeRules_ruleArns' - The Amazon Resource Names (ARN) of the rules.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'pageSize', 'describeRules_pageSize' - The maximum number of results to return with this call.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#newDescribeRules"><span class="hs-identifier hs-type">newDescribeRules</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-type">DescribeRules</span></a></span><span>
+</span><span id="line-88"></span><span id="newDescribeRules"><span class="annot"><span class="annottext">newDescribeRules :: DescribeRules
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#newDescribeRules"><span class="hs-identifier hs-var hs-var">newDescribeRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">DescribeRules' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe [Text] -&gt; Maybe Natural -&gt; DescribeRules
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules%27"><span class="hs-identifier hs-type">DescribeRules'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:listenerArn:DescribeRules' :: Maybe Text
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3AlistenerArn%3ADescribeRules%27"><span class="hs-identifier hs-var">listenerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeRules' :: Maybe Text
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3Amarker%3ADescribeRules%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleArns:DescribeRules' :: Maybe [Text]
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3AruleArns%3ADescribeRules%27"><span class="hs-identifier hs-var">ruleArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageSize:DescribeRules' :: Maybe Natural
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3ApageSize%3ADescribeRules%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the listener.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#describeRules_listenerArn"><span class="hs-identifier hs-type">describeRules_listenerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-type">DescribeRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="describeRules_listenerArn"><span class="annot"><span class="annottext">describeRules_listenerArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DescribeRules -&gt; f DescribeRules
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#describeRules_listenerArn"><span class="hs-identifier hs-var hs-var">describeRules_listenerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRules -&gt; Maybe Text)
+-&gt; (DescribeRules -&gt; Maybe Text -&gt; DescribeRules)
+-&gt; Lens DescribeRules DescribeRules (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules%27"><span class="hs-identifier hs-type">DescribeRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260120"><span class="annot"><span class="annottext">Maybe Text
+listenerArn :: Maybe Text
+$sel:listenerArn:DescribeRules' :: DescribeRules -&gt; Maybe Text
+</span><a href="#local-6989586621679260120"><span class="hs-identifier hs-var hs-var">listenerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260120"><span class="hs-identifier hs-var">listenerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260119"><span class="annot"><span class="annottext">s :: DescribeRules
+</span><a href="#local-6989586621679260119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules%27"><span class="hs-identifier hs-type">DescribeRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260118"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRules
+</span><a href="#local-6989586621679260119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listenerArn:DescribeRules' :: Maybe Text
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3AlistenerArn%3ADescribeRules%27"><span class="hs-identifier hs-var">listenerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-type">DescribeRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The marker for the next set of results. (You received this marker from a</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- previous call.)</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#describeRules_marker"><span class="hs-identifier hs-type">describeRules_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-type">DescribeRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="describeRules_marker"><span class="annot"><span class="annottext">describeRules_marker :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DescribeRules -&gt; f DescribeRules
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#describeRules_marker"><span class="hs-identifier hs-var hs-var">describeRules_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRules -&gt; Maybe Text)
+-&gt; (DescribeRules -&gt; Maybe Text -&gt; DescribeRules)
+-&gt; Lens DescribeRules DescribeRules (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules%27"><span class="hs-identifier hs-type">DescribeRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260117"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeRules' :: DescribeRules -&gt; Maybe Text
+</span><a href="#local-6989586621679260117"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260117"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260116"><span class="annot"><span class="annottext">s :: DescribeRules
+</span><a href="#local-6989586621679260116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules%27"><span class="hs-identifier hs-type">DescribeRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260115"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRules
+</span><a href="#local-6989586621679260116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeRules' :: Maybe Text
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3Amarker%3ADescribeRules%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-type">DescribeRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The Amazon Resource Names (ARN) of the rules.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#describeRules_ruleArns"><span class="hs-identifier hs-type">describeRules_ruleArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-type">DescribeRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="describeRules_ruleArns"><span class="annot"><span class="annottext">describeRules_ruleArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeRules -&gt; f DescribeRules
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#describeRules_ruleArns"><span class="hs-identifier hs-var hs-var">describeRules_ruleArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRules -&gt; Maybe [Text])
+-&gt; (DescribeRules -&gt; Maybe [Text] -&gt; DescribeRules)
+-&gt; Lens DescribeRules DescribeRules (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules%27"><span class="hs-identifier hs-type">DescribeRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260114"><span class="annot"><span class="annottext">Maybe [Text]
+ruleArns :: Maybe [Text]
+$sel:ruleArns:DescribeRules' :: DescribeRules -&gt; Maybe [Text]
+</span><a href="#local-6989586621679260114"><span class="hs-identifier hs-var hs-var">ruleArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679260114"><span class="hs-identifier hs-var">ruleArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260113"><span class="annot"><span class="annottext">s :: DescribeRules
+</span><a href="#local-6989586621679260113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules%27"><span class="hs-identifier hs-type">DescribeRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260112"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679260112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRules
+</span><a href="#local-6989586621679260113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleArns:DescribeRules' :: Maybe [Text]
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3AruleArns%3ADescribeRules%27"><span class="hs-identifier hs-var">ruleArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679260112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-type">DescribeRules</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeRules -&gt; f DescribeRules)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeRules
+-&gt; f DescribeRules
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The maximum number of results to return with this call.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#describeRules_pageSize"><span class="hs-identifier hs-type">describeRules_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-type">DescribeRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="describeRules_pageSize"><span class="annot"><span class="annottext">describeRules_pageSize :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeRules -&gt; f DescribeRules
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#describeRules_pageSize"><span class="hs-identifier hs-var hs-var">describeRules_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRules -&gt; Maybe Natural)
+-&gt; (DescribeRules -&gt; Maybe Natural -&gt; DescribeRules)
+-&gt; Lens DescribeRules DescribeRules (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules%27"><span class="hs-identifier hs-type">DescribeRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260108"><span class="annot"><span class="annottext">Maybe Natural
+pageSize :: Maybe Natural
+$sel:pageSize:DescribeRules' :: DescribeRules -&gt; Maybe Natural
+</span><a href="#local-6989586621679260108"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679260108"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260107"><span class="annot"><span class="annottext">s :: DescribeRules
+</span><a href="#local-6989586621679260107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules%27"><span class="hs-identifier hs-type">DescribeRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260106"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679260106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRules
+</span><a href="#local-6989586621679260107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:DescribeRules' :: Maybe Natural
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3ApageSize%3ADescribeRules%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679260106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-type">DescribeRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-type">DescribeRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679260102"><span class="annot"><span class="annottext">page :: DescribeRules -&gt; AWSResponse DescribeRules -&gt; Maybe DescribeRules
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679260100"><span class="annot"><span class="annottext">DescribeRules
+</span><a href="#local-6989586621679260100"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679260099"><span class="annot"><span class="annottext">AWSResponse DescribeRules
+</span><a href="#local-6989586621679260099"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-116"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeRules
+DescribeRulesResponse
+</span><a href="#local-6989586621679260099"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">DescribeRulesResponse
+-&gt; Getting (First Text) DescribeRulesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeRulesResponse
+-&gt; Const (First Text) DescribeRulesResponse
+Lens' DescribeRulesResponse (Maybe Text)
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#describeRulesResponse_nextMarker"><span class="hs-identifier hs-var">describeRulesResponse_nextMarker</span></a></span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeRulesResponse
+ -&gt; Const (First Text) DescribeRulesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeRulesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-119"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeRules
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-122"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeRules
+DescribeRulesResponse
+</span><a href="#local-6989586621679260099"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">DescribeRulesResponse
+-&gt; Getting (First [Rule]) DescribeRulesResponse [Rule]
+-&gt; Maybe [Rule]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Rule] -&gt; Const (First [Rule]) (Maybe [Rule]))
+-&gt; DescribeRulesResponse
+-&gt; Const (First [Rule]) DescribeRulesResponse
+Lens' DescribeRulesResponse (Maybe [Rule])
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#describeRulesResponse_rules"><span class="hs-identifier hs-var">describeRulesResponse_rules</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [Rule] -&gt; Const (First [Rule]) (Maybe [Rule]))
+ -&gt; DescribeRulesResponse
+ -&gt; Const (First [Rule]) DescribeRulesResponse)
+-&gt; (([Rule] -&gt; Const (First [Rule]) [Rule])
+    -&gt; Maybe [Rule] -&gt; Const (First [Rule]) (Maybe [Rule]))
+-&gt; Getting (First [Rule]) DescribeRulesResponse [Rule]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Rule] -&gt; Const (First [Rule]) [Rule])
+-&gt; Maybe [Rule] -&gt; Const (First [Rule]) (Maybe [Rule])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-124"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeRules
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">DescribeRules -&gt; Maybe DescribeRules
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeRules -&gt; Maybe DescribeRules)
+-&gt; DescribeRules -&gt; Maybe DescribeRules
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">DescribeRules
+</span><a href="#local-6989586621679260100"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">DescribeRules -&gt; (DescribeRules -&gt; DescribeRules) -&gt; DescribeRules
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeRules -&gt; Identity DescribeRules
+Lens DescribeRules DescribeRules (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#describeRules_marker"><span class="hs-identifier hs-var">describeRules_marker</span></a></span><span>
+</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeRules -&gt; Identity DescribeRules)
+-&gt; Maybe Text -&gt; DescribeRules -&gt; DescribeRules
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeRules
+DescribeRulesResponse
+</span><a href="#local-6989586621679260099"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">DescribeRulesResponse
+-&gt; Getting (First Text) DescribeRulesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeRulesResponse
+-&gt; Const (First Text) DescribeRulesResponse
+Lens' DescribeRulesResponse (Maybe Text)
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#describeRulesResponse_nextMarker"><span class="hs-identifier hs-var">describeRulesResponse_nextMarker</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeRulesResponse
+ -&gt; Const (First Text) DescribeRulesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeRulesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-type">DescribeRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-type">DescribeRules</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse"><span class="hs-identifier hs-type">DescribeRulesResponse</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679260090"><span class="annot"><span class="annottext">request :: DescribeRules -&gt; Request DescribeRules
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeRules -&gt; Request DescribeRules
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ELBV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679260086"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeRules
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeRules)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DescribeRules))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeRules
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeRules)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DescribeRulesResult&quot;</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260083"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260083"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679260082"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679260082"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679260081"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679260081"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Rule] -&gt; Maybe Text -&gt; Int -&gt; DescribeRulesResponse
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse%27"><span class="hs-identifier hs-var">DescribeRulesResponse'</span></a></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Rule] -&gt; Maybe Text -&gt; Int -&gt; DescribeRulesResponse)
+-&gt; Either String (Maybe [Rule])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeRulesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679260081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-144"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Rule]))
+-&gt; Either String (Maybe [Rule])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Rule])
+-&gt; [Node] -&gt; Either String (Maybe [Rule])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Rule]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeRulesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeRulesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679260081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeRulesResponse)
+-&gt; Either String Int -&gt; Either String DescribeRulesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260083"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260070"><span id="local-6989586621679260072"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-type">DescribeRules</span></a></span></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260067"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-type">DescribeRules</span></a></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-type">DescribeRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679260063"><span class="annot"><span class="annottext">toHeaders :: DescribeRules -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeRules -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-type">DescribeRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679260058"><span class="annot"><span class="annottext">toPath :: DescribeRules -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeRules -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules"><span class="hs-identifier hs-type">DescribeRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679260054"><span class="annot"><span class="annottext">toQuery :: DescribeRules -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRules%27"><span class="hs-identifier hs-type">DescribeRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260049"><span id="local-6989586621679260050"><span id="local-6989586621679260051"><span id="local-6989586621679260052"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Text]
+Maybe Text
+pageSize :: Maybe Natural
+ruleArns :: Maybe [Text]
+marker :: Maybe Text
+listenerArn :: Maybe Text
+$sel:pageSize:DescribeRules' :: DescribeRules -&gt; Maybe Natural
+$sel:ruleArns:DescribeRules' :: DescribeRules -&gt; Maybe [Text]
+$sel:marker:DescribeRules' :: DescribeRules -&gt; Maybe Text
+$sel:listenerArn:DescribeRules' :: DescribeRules -&gt; Maybe Text
+</span><a href="#local-6989586621679260049"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeRules&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2015-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ListenerArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260052"><span class="hs-identifier hs-var">listenerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260051"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RuleArns&quot;</span></span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679260050"><span class="hs-identifier hs-var">ruleArns</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679260049"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newDescribeRulesResponse' smart constructor.</span><span>
+</span><span id="line-176"></span><span id="local-6989586621679260045"><span id="local-6989586621679260046"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRulesResponse"><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse"><span class="hs-identifier hs-var">DescribeRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRulesResponse%27"><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse%27"><span class="hs-identifier hs-var">DescribeRulesResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the rules.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3Arules%3ADescribeRulesResponse%27"><span class="annot"><span class="annottext">DescribeRulesResponse -&gt; Maybe [Rule]
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3Arules%3ADescribeRulesResponse%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELBV2.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | If there are additional results, this is the marker for the next set of</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- results. Otherwise, this is null.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AnextMarker%3ADescribeRulesResponse%27"><span class="annot"><span class="annottext">DescribeRulesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3AnextMarker%3ADescribeRulesResponse%27"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeRulesResponse%27"><span class="annot"><span class="annottext">DescribeRulesResponse -&gt; Int
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3AhttpStatus%3ADescribeRulesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260038"><span id="local-6989586621679260040"><span class="annot"><span class="annottext">DescribeRulesResponse -&gt; DescribeRulesResponse -&gt; Bool
+(DescribeRulesResponse -&gt; DescribeRulesResponse -&gt; Bool)
+-&gt; (DescribeRulesResponse -&gt; DescribeRulesResponse -&gt; Bool)
+-&gt; Eq DescribeRulesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeRulesResponse -&gt; DescribeRulesResponse -&gt; Bool
+$c/= :: DescribeRulesResponse -&gt; DescribeRulesResponse -&gt; Bool
+== :: DescribeRulesResponse -&gt; DescribeRulesResponse -&gt; Bool
+$c== :: DescribeRulesResponse -&gt; DescribeRulesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260030"><span id="local-6989586621679260032"><span id="local-6989586621679260034"><span id="local-6989586621679260036"><span class="annot"><span class="annottext">ReadPrec [DescribeRulesResponse]
+ReadPrec DescribeRulesResponse
+Int -&gt; ReadS DescribeRulesResponse
+ReadS [DescribeRulesResponse]
+(Int -&gt; ReadS DescribeRulesResponse)
+-&gt; ReadS [DescribeRulesResponse]
+-&gt; ReadPrec DescribeRulesResponse
+-&gt; ReadPrec [DescribeRulesResponse]
+-&gt; Read DescribeRulesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeRulesResponse]
+$creadListPrec :: ReadPrec [DescribeRulesResponse]
+readPrec :: ReadPrec DescribeRulesResponse
+$creadPrec :: ReadPrec DescribeRulesResponse
+readList :: ReadS [DescribeRulesResponse]
+$creadList :: ReadS [DescribeRulesResponse]
+readsPrec :: Int -&gt; ReadS DescribeRulesResponse
+$creadsPrec :: Int -&gt; ReadS DescribeRulesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260024"><span id="local-6989586621679260026"><span id="local-6989586621679260028"><span class="annot"><span class="annottext">Int -&gt; DescribeRulesResponse -&gt; ShowS
+[DescribeRulesResponse] -&gt; ShowS
+DescribeRulesResponse -&gt; String
+(Int -&gt; DescribeRulesResponse -&gt; ShowS)
+-&gt; (DescribeRulesResponse -&gt; String)
+-&gt; ([DescribeRulesResponse] -&gt; ShowS)
+-&gt; Show DescribeRulesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeRulesResponse] -&gt; ShowS
+$cshowList :: [DescribeRulesResponse] -&gt; ShowS
+show :: DescribeRulesResponse -&gt; String
+$cshow :: DescribeRulesResponse -&gt; String
+showsPrec :: Int -&gt; DescribeRulesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeRulesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeRulesResponse -&gt; Rep DescribeRulesResponse x)
+-&gt; (forall x. Rep DescribeRulesResponse x -&gt; DescribeRulesResponse)
+-&gt; Generic DescribeRulesResponse
+forall x. Rep DescribeRulesResponse x -&gt; DescribeRulesResponse
+forall x. DescribeRulesResponse -&gt; Rep DescribeRulesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeRulesResponse x -&gt; DescribeRulesResponse
+$cfrom :: forall x. DescribeRulesResponse -&gt; Rep DescribeRulesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Create a value of 'DescribeRulesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'rules', 'describeRulesResponse_rules' - Information about the rules.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'nextMarker', 'describeRulesResponse_nextMarker' - If there are additional results, this is the marker for the next set of</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- results. Otherwise, this is null.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'httpStatus', 'describeRulesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#newDescribeRulesResponse"><span class="hs-identifier hs-type">newDescribeRulesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse"><span class="hs-identifier hs-type">DescribeRulesResponse</span></a></span><span>
+</span><span id="line-205"></span><span id="newDescribeRulesResponse"><span class="annot"><span class="annottext">newDescribeRulesResponse :: Int -&gt; DescribeRulesResponse
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#newDescribeRulesResponse"><span class="hs-identifier hs-var hs-var">newDescribeRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679260021"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260021"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">DescribeRulesResponse' :: Maybe [Rule] -&gt; Maybe Text -&gt; Int -&gt; DescribeRulesResponse
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse%27"><span class="hs-identifier hs-type">DescribeRulesResponse'</span></a></span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rules:DescribeRulesResponse' :: Maybe [Rule]
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3Arules%3ADescribeRulesResponse%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextMarker:DescribeRulesResponse' :: Maybe Text
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3AnextMarker%3ADescribeRulesResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRulesResponse' :: Int
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3AhttpStatus%3ADescribeRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260021"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | Information about the rules.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#describeRulesResponse_rules"><span class="hs-identifier hs-type">describeRulesResponse_rules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse"><span class="hs-identifier hs-type">DescribeRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELBV2.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="describeRulesResponse_rules"><span class="annot"><span class="annottext">describeRulesResponse_rules :: (Maybe [Rule] -&gt; f (Maybe [Rule]))
+-&gt; DescribeRulesResponse -&gt; f DescribeRulesResponse
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#describeRulesResponse_rules"><span class="hs-identifier hs-var hs-var">describeRulesResponse_rules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRulesResponse -&gt; Maybe [Rule])
+-&gt; (DescribeRulesResponse -&gt; Maybe [Rule] -&gt; DescribeRulesResponse)
+-&gt; Lens' DescribeRulesResponse (Maybe [Rule])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse%27"><span class="hs-identifier hs-type">DescribeRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260020"><span class="annot"><span class="annottext">Maybe [Rule]
+rules :: Maybe [Rule]
+$sel:rules:DescribeRulesResponse' :: DescribeRulesResponse -&gt; Maybe [Rule]
+</span><a href="#local-6989586621679260020"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679260020"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260019"><span class="annot"><span class="annottext">s :: DescribeRulesResponse
+</span><a href="#local-6989586621679260019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse%27"><span class="hs-identifier hs-type">DescribeRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260018"><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679260018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRulesResponse
+</span><a href="#local-6989586621679260019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:DescribeRulesResponse' :: Maybe [Rule]
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3Arules%3ADescribeRulesResponse%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679260018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse"><span class="hs-identifier hs-type">DescribeRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Rule] -&gt; f (Maybe [Rule]))
+ -&gt; DescribeRulesResponse -&gt; f DescribeRulesResponse)
+-&gt; ((Maybe [Rule] -&gt; f (Maybe [Rule]))
+    -&gt; Maybe [Rule] -&gt; f (Maybe [Rule]))
+-&gt; (Maybe [Rule] -&gt; f (Maybe [Rule]))
+-&gt; DescribeRulesResponse
+-&gt; f DescribeRulesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Rule] [Rule] [Rule] [Rule]
+-&gt; Iso (Maybe [Rule]) (Maybe [Rule]) (Maybe [Rule]) (Maybe [Rule])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Rule] [Rule] [Rule] [Rule]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | If there are additional results, this is the marker for the next set of</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- results. Otherwise, this is null.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#describeRulesResponse_nextMarker"><span class="hs-identifier hs-type">describeRulesResponse_nextMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse"><span class="hs-identifier hs-type">DescribeRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="describeRulesResponse_nextMarker"><span class="annot"><span class="annottext">describeRulesResponse_nextMarker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeRulesResponse -&gt; f DescribeRulesResponse
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#describeRulesResponse_nextMarker"><span class="hs-identifier hs-var hs-var">describeRulesResponse_nextMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRulesResponse -&gt; Maybe Text)
+-&gt; (DescribeRulesResponse -&gt; Maybe Text -&gt; DescribeRulesResponse)
+-&gt; Lens' DescribeRulesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse%27"><span class="hs-identifier hs-type">DescribeRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260017"><span class="annot"><span class="annottext">Maybe Text
+nextMarker :: Maybe Text
+$sel:nextMarker:DescribeRulesResponse' :: DescribeRulesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679260017"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260017"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260016"><span class="annot"><span class="annottext">s :: DescribeRulesResponse
+</span><a href="#local-6989586621679260016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse%27"><span class="hs-identifier hs-type">DescribeRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260015"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRulesResponse
+</span><a href="#local-6989586621679260016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:DescribeRulesResponse' :: Maybe Text
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3AnextMarker%3ADescribeRulesResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse"><span class="hs-identifier hs-type">DescribeRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#describeRulesResponse_httpStatus"><span class="hs-identifier hs-type">describeRulesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse"><span class="hs-identifier hs-type">DescribeRulesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-223"></span><span id="describeRulesResponse_httpStatus"><span class="annot"><span class="annottext">describeRulesResponse_httpStatus :: (Int -&gt; f Int) -&gt; DescribeRulesResponse -&gt; f DescribeRulesResponse
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#describeRulesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeRulesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeRulesResponse -&gt; Int)
+-&gt; (DescribeRulesResponse -&gt; Int -&gt; DescribeRulesResponse)
+-&gt; Lens DescribeRulesResponse DescribeRulesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse%27"><span class="hs-identifier hs-type">DescribeRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260014"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeRulesResponse' :: DescribeRulesResponse -&gt; Int
+</span><a href="#local-6989586621679260014"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260014"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260013"><span class="annot"><span class="annottext">s :: DescribeRulesResponse
+</span><a href="#local-6989586621679260013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse%27"><span class="hs-identifier hs-type">DescribeRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260012"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRulesResponse
+</span><a href="#local-6989586621679260013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRulesResponse' :: Int
+</span><a href="Network.AWS.ELBV2.DescribeRules.html#%24sel%3AhttpStatus%3ADescribeRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse"><span class="hs-identifier hs-type">DescribeRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260010"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DescribeRules.html#DescribeRulesResponse"><span class="hs-identifier hs-type">DescribeRulesResponse</span></a></span></span><span>
+</span><span id="line-226"></span></pre></body></html>

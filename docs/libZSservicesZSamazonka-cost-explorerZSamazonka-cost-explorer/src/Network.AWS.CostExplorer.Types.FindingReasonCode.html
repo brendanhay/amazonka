@@ -43,13 +43,13 @@
 </span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-45"></span><span>
-</span><span id="line-46"></span><span id="local-6989586621679329976"><span id="local-6989586621679329977"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FindingReasonCode"><span class="annot"><a href="Network.AWS.CostExplorer.Types.FindingReasonCode.html#FindingReasonCode"><span class="hs-identifier hs-var">FindingReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingReasonCode%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.FindingReasonCode.html#FindingReasonCode%27"><span class="hs-identifier hs-var">FindingReasonCode'</span></a></span></span><span>
+</span><span id="line-46"></span><span id="local-6989586621679329985"><span id="local-6989586621679329986"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FindingReasonCode"><span class="annot"><a href="Network.AWS.CostExplorer.Types.FindingReasonCode.html#FindingReasonCode"><span class="hs-identifier hs-var">FindingReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingReasonCode%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.FindingReasonCode.html#FindingReasonCode%27"><span class="hs-identifier hs-var">FindingReasonCode'</span></a></span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFindingReasonCode"><span class="annot"><span class="annottext">FindingReasonCode -&gt; Text
 </span><a href="Network.AWS.CostExplorer.Types.FindingReasonCode.html#fromFindingReasonCode"><span class="hs-identifier hs-var hs-var">fromFindingReasonCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-48"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329968"><span id="local-6989586621679329970"><span id="local-6989586621679329972"><span class="annot"><span class="annottext">Int -&gt; FindingReasonCode -&gt; ShowS
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329977"><span id="local-6989586621679329979"><span id="local-6989586621679329981"><span class="annot"><span class="annottext">Int -&gt; FindingReasonCode -&gt; ShowS
 [FindingReasonCode] -&gt; ShowS
 FindingReasonCode -&gt; String
 (Int -&gt; FindingReasonCode -&gt; ShowS)
@@ -65,7 +65,7 @@ $cshow :: FindingReasonCode -&gt; String
 showsPrec :: Int -&gt; FindingReasonCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; FindingReasonCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679329959"><span id="local-6989586621679329961"><span id="local-6989586621679329963"><span id="local-6989586621679329965"><span class="annot"><span class="annottext">ReadPrec [FindingReasonCode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679329968"><span id="local-6989586621679329970"><span id="local-6989586621679329972"><span id="local-6989586621679329974"><span class="annot"><span class="annottext">ReadPrec [FindingReasonCode]
 ReadPrec FindingReasonCode
 Int -&gt; ReadS FindingReasonCode
 ReadS [FindingReasonCode]
@@ -86,7 +86,7 @@ $creadList :: ReadS [FindingReasonCode]
 readsPrec :: Int -&gt; ReadS FindingReasonCode
 $creadsPrec :: Int -&gt; ReadS FindingReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679329954"><span id="local-6989586621679329956"><span class="annot"><span class="annottext">FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679329963"><span id="local-6989586621679329965"><span class="annot"><span class="annottext">FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
 (FindingReasonCode -&gt; FindingReasonCode -&gt; Bool)
 -&gt; (FindingReasonCode -&gt; FindingReasonCode -&gt; Bool)
 -&gt; Eq FindingReasonCode
@@ -96,7 +96,7 @@ $c/= :: FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
 == :: FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
 $c== :: FindingReasonCode -&gt; FindingReasonCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679329938"><span id="local-6989586621679329940"><span id="local-6989586621679329942"><span id="local-6989586621679329944"><span id="local-6989586621679329946"><span id="local-6989586621679329948"><span id="local-6989586621679329950"><span class="annot"><span class="annottext">Eq FindingReasonCode
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679329947"><span id="local-6989586621679329949"><span id="local-6989586621679329951"><span id="local-6989586621679329953"><span id="local-6989586621679329955"><span id="local-6989586621679329957"><span id="local-6989586621679329959"><span class="annot"><span class="annottext">Eq FindingReasonCode
 Eq FindingReasonCode
 -&gt; (FindingReasonCode -&gt; FindingReasonCode -&gt; Ordering)
 -&gt; (FindingReasonCode -&gt; FindingReasonCode -&gt; Bool)
@@ -147,7 +147,7 @@ $cfrom :: forall x. FindingReasonCode -&gt; Rep FindingReasonCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329930"><span id="local-6989586621679329932"><span class="annot"><span class="annottext">Int -&gt; FindingReasonCode -&gt; Int
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329939"><span id="local-6989586621679329941"><span class="annot"><span class="annottext">Int -&gt; FindingReasonCode -&gt; Int
 FindingReasonCode -&gt; Int
 (Int -&gt; FindingReasonCode -&gt; Int)
 -&gt; (FindingReasonCode -&gt; Int) -&gt; Hashable FindingReasonCode
@@ -157,51 +157,51 @@ $chash :: FindingReasonCode -&gt; Int
 hashWithSalt :: Int -&gt; FindingReasonCode -&gt; Int
 $chashWithSalt :: Int -&gt; FindingReasonCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679329927"><span class="annot"><span class="annottext">FindingReasonCode -&gt; ()
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679329936"><span class="annot"><span class="annottext">FindingReasonCode -&gt; ()
 (FindingReasonCode -&gt; ()) -&gt; NFData FindingReasonCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FindingReasonCode -&gt; ()
 $crnf :: FindingReasonCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679329924"><span class="annot"><span class="annottext">Text -&gt; Either String FindingReasonCode
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679329933"><span class="annot"><span class="annottext">Text -&gt; Either String FindingReasonCode
 (Text -&gt; Either String FindingReasonCode)
 -&gt; FromText FindingReasonCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FindingReasonCode
 $cfromText :: Text -&gt; Either String FindingReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679329921"><span class="annot"><span class="annottext">FindingReasonCode -&gt; Text
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679329930"><span class="annot"><span class="annottext">FindingReasonCode -&gt; Text
 (FindingReasonCode -&gt; Text) -&gt; ToText FindingReasonCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FindingReasonCode -&gt; Text
 $ctoText :: FindingReasonCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679329918"><span class="annot"><span class="annottext">FindingReasonCode -&gt; ByteString
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679329927"><span class="annot"><span class="annottext">FindingReasonCode -&gt; ByteString
 (FindingReasonCode -&gt; ByteString) -&gt; ToByteString FindingReasonCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FindingReasonCode -&gt; ByteString
 $ctoBS :: FindingReasonCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679329915"><span class="annot"><span class="annottext">FindingReasonCode -&gt; ByteStringBuilder
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679329924"><span class="annot"><span class="annottext">FindingReasonCode -&gt; ByteStringBuilder
 (FindingReasonCode -&gt; ByteStringBuilder) -&gt; ToLog FindingReasonCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FindingReasonCode -&gt; ByteStringBuilder
 $cbuild :: FindingReasonCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679329912"><span class="annot"><span class="annottext">HeaderName -&gt; FindingReasonCode -&gt; [Header]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679329921"><span class="annot"><span class="annottext">HeaderName -&gt; FindingReasonCode -&gt; [Header]
 (HeaderName -&gt; FindingReasonCode -&gt; [Header])
 -&gt; ToHeader FindingReasonCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FindingReasonCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FindingReasonCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679329909"><span class="annot"><span class="annottext">FindingReasonCode -&gt; QueryString
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679329918"><span class="annot"><span class="annottext">FindingReasonCode -&gt; QueryString
 (FindingReasonCode -&gt; QueryString) -&gt; ToQuery FindingReasonCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FindingReasonCode -&gt; QueryString
 $ctoQuery :: FindingReasonCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679329904"><span id="local-6989586621679329906"><span class="annot"><span class="annottext">Value -&gt; Parser [FindingReasonCode]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679329913"><span id="local-6989586621679329915"><span class="annot"><span class="annottext">Value -&gt; Parser [FindingReasonCode]
 Value -&gt; Parser FindingReasonCode
 (Value -&gt; Parser FindingReasonCode)
 -&gt; (Value -&gt; Parser [FindingReasonCode])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [FindingReasonCode]
 parseJSON :: Value -&gt; Parser FindingReasonCode
 $cparseJSON :: Value -&gt; Parser FindingReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679329899"><span id="local-6989586621679329901"><span class="annot"><span class="annottext">FromJSONKeyFunction [FindingReasonCode]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679329908"><span id="local-6989586621679329910"><span class="annot"><span class="annottext">FromJSONKeyFunction [FindingReasonCode]
 FromJSONKeyFunction FindingReasonCode
 FromJSONKeyFunction FindingReasonCode
 -&gt; FromJSONKeyFunction [FindingReasonCode]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FindingReasonCode]
 fromJSONKey :: FromJSONKeyFunction FindingReasonCode
 $cfromJSONKey :: FromJSONKeyFunction FindingReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679329890"><span id="local-6989586621679329892"><span id="local-6989586621679329894"><span id="local-6989586621679329896"><span class="annot"><span class="annottext">[FindingReasonCode] -&gt; Encoding
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679329899"><span id="local-6989586621679329901"><span id="local-6989586621679329903"><span id="local-6989586621679329905"><span class="annot"><span class="annottext">[FindingReasonCode] -&gt; Encoding
 [FindingReasonCode] -&gt; Value
 FindingReasonCode -&gt; Encoding
 FindingReasonCode -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: FindingReasonCode -&gt; Encoding
 toJSON :: FindingReasonCode -&gt; Value
 $ctoJSON :: FindingReasonCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679329885"><span id="local-6989586621679329887"><span class="annot"><span class="annottext">ToJSONKeyFunction [FindingReasonCode]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679329894"><span id="local-6989586621679329896"><span class="annot"><span class="annottext">ToJSONKeyFunction [FindingReasonCode]
 ToJSONKeyFunction FindingReasonCode
 ToJSONKeyFunction FindingReasonCode
 -&gt; ToJSONKeyFunction [FindingReasonCode]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FindingReasonCode]
 toJSONKey :: ToJSONKeyFunction FindingReasonCode
 $ctoJSONKey :: ToJSONKeyFunction FindingReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679329882"><span class="annot"><span class="annottext">[Node] -&gt; Either String FindingReasonCode
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679329891"><span class="annot"><span class="annottext">[Node] -&gt; Either String FindingReasonCode
 ([Node] -&gt; Either String FindingReasonCode)
 -&gt; FromXML FindingReasonCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FindingReasonCode
 $cparseXML :: [Node] -&gt; Either String FindingReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679329879"><span class="annot"><span class="annottext">FindingReasonCode -&gt; XML
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679329888"><span class="annot"><span class="annottext">FindingReasonCode -&gt; XML
 (FindingReasonCode -&gt; XML) -&gt; ToXML FindingReasonCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FindingReasonCode -&gt; XML

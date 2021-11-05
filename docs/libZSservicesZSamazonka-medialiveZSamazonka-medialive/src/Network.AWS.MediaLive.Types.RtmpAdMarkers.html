@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- | Rtmp Ad Markers</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679914464"><span id="local-6989586621679914465"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RtmpAdMarkers"><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpAdMarkers.html#RtmpAdMarkers"><span class="hs-identifier hs-var">RtmpAdMarkers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RtmpAdMarkers%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpAdMarkers.html#RtmpAdMarkers%27"><span class="hs-identifier hs-var">RtmpAdMarkers'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679914473"><span id="local-6989586621679914474"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RtmpAdMarkers"><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpAdMarkers.html#RtmpAdMarkers"><span class="hs-identifier hs-var">RtmpAdMarkers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RtmpAdMarkers%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpAdMarkers.html#RtmpAdMarkers%27"><span class="hs-identifier hs-var">RtmpAdMarkers'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRtmpAdMarkers"><span class="annot"><span class="annottext">RtmpAdMarkers -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.RtmpAdMarkers.html#fromRtmpAdMarkers"><span class="hs-identifier hs-var hs-var">fromRtmpAdMarkers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679914456"><span id="local-6989586621679914458"><span id="local-6989586621679914460"><span class="annot"><span class="annottext">Int -&gt; RtmpAdMarkers -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679914465"><span id="local-6989586621679914467"><span id="local-6989586621679914469"><span class="annot"><span class="annottext">Int -&gt; RtmpAdMarkers -&gt; ShowS
 [RtmpAdMarkers] -&gt; ShowS
 RtmpAdMarkers -&gt; String
 (Int -&gt; RtmpAdMarkers -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: RtmpAdMarkers -&gt; String
 showsPrec :: Int -&gt; RtmpAdMarkers -&gt; ShowS
 $cshowsPrec :: Int -&gt; RtmpAdMarkers -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679914447"><span id="local-6989586621679914449"><span id="local-6989586621679914451"><span id="local-6989586621679914453"><span class="annot"><span class="annottext">ReadPrec [RtmpAdMarkers]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679914456"><span id="local-6989586621679914458"><span id="local-6989586621679914460"><span id="local-6989586621679914462"><span class="annot"><span class="annottext">ReadPrec [RtmpAdMarkers]
 ReadPrec RtmpAdMarkers
 Int -&gt; ReadS RtmpAdMarkers
 ReadS [RtmpAdMarkers]
@@ -72,7 +72,7 @@ $creadList :: ReadS [RtmpAdMarkers]
 readsPrec :: Int -&gt; ReadS RtmpAdMarkers
 $creadsPrec :: Int -&gt; ReadS RtmpAdMarkers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679914442"><span id="local-6989586621679914444"><span class="annot"><span class="annottext">RtmpAdMarkers -&gt; RtmpAdMarkers -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679914451"><span id="local-6989586621679914453"><span class="annot"><span class="annottext">RtmpAdMarkers -&gt; RtmpAdMarkers -&gt; Bool
 (RtmpAdMarkers -&gt; RtmpAdMarkers -&gt; Bool)
 -&gt; (RtmpAdMarkers -&gt; RtmpAdMarkers -&gt; Bool) -&gt; Eq RtmpAdMarkers
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: RtmpAdMarkers -&gt; RtmpAdMarkers -&gt; Bool
 == :: RtmpAdMarkers -&gt; RtmpAdMarkers -&gt; Bool
 $c== :: RtmpAdMarkers -&gt; RtmpAdMarkers -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679914426"><span id="local-6989586621679914428"><span id="local-6989586621679914430"><span id="local-6989586621679914432"><span id="local-6989586621679914434"><span id="local-6989586621679914436"><span id="local-6989586621679914438"><span class="annot"><span class="annottext">Eq RtmpAdMarkers
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679914435"><span id="local-6989586621679914437"><span id="local-6989586621679914439"><span id="local-6989586621679914441"><span id="local-6989586621679914443"><span id="local-6989586621679914445"><span id="local-6989586621679914447"><span class="annot"><span class="annottext">Eq RtmpAdMarkers
 Eq RtmpAdMarkers
 -&gt; (RtmpAdMarkers -&gt; RtmpAdMarkers -&gt; Ordering)
 -&gt; (RtmpAdMarkers -&gt; RtmpAdMarkers -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. RtmpAdMarkers -&gt; Rep RtmpAdMarkers x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679914418"><span id="local-6989586621679914420"><span class="annot"><span class="annottext">Int -&gt; RtmpAdMarkers -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679914427"><span id="local-6989586621679914429"><span class="annot"><span class="annottext">Int -&gt; RtmpAdMarkers -&gt; Int
 RtmpAdMarkers -&gt; Int
 (Int -&gt; RtmpAdMarkers -&gt; Int)
 -&gt; (RtmpAdMarkers -&gt; Int) -&gt; Hashable RtmpAdMarkers
@@ -142,49 +142,49 @@ $chash :: RtmpAdMarkers -&gt; Int
 hashWithSalt :: Int -&gt; RtmpAdMarkers -&gt; Int
 $chashWithSalt :: Int -&gt; RtmpAdMarkers -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679914415"><span class="annot"><span class="annottext">RtmpAdMarkers -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679914424"><span class="annot"><span class="annottext">RtmpAdMarkers -&gt; ()
 (RtmpAdMarkers -&gt; ()) -&gt; NFData RtmpAdMarkers
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RtmpAdMarkers -&gt; ()
 $crnf :: RtmpAdMarkers -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679914412"><span class="annot"><span class="annottext">Text -&gt; Either String RtmpAdMarkers
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679914421"><span class="annot"><span class="annottext">Text -&gt; Either String RtmpAdMarkers
 (Text -&gt; Either String RtmpAdMarkers) -&gt; FromText RtmpAdMarkers
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RtmpAdMarkers
 $cfromText :: Text -&gt; Either String RtmpAdMarkers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679914409"><span class="annot"><span class="annottext">RtmpAdMarkers -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679914418"><span class="annot"><span class="annottext">RtmpAdMarkers -&gt; Text
 (RtmpAdMarkers -&gt; Text) -&gt; ToText RtmpAdMarkers
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RtmpAdMarkers -&gt; Text
 $ctoText :: RtmpAdMarkers -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679914406"><span class="annot"><span class="annottext">RtmpAdMarkers -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679914415"><span class="annot"><span class="annottext">RtmpAdMarkers -&gt; ByteString
 (RtmpAdMarkers -&gt; ByteString) -&gt; ToByteString RtmpAdMarkers
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RtmpAdMarkers -&gt; ByteString
 $ctoBS :: RtmpAdMarkers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679914403"><span class="annot"><span class="annottext">RtmpAdMarkers -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679914412"><span class="annot"><span class="annottext">RtmpAdMarkers -&gt; ByteStringBuilder
 (RtmpAdMarkers -&gt; ByteStringBuilder) -&gt; ToLog RtmpAdMarkers
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RtmpAdMarkers -&gt; ByteStringBuilder
 $cbuild :: RtmpAdMarkers -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679914400"><span class="annot"><span class="annottext">HeaderName -&gt; RtmpAdMarkers -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679914409"><span class="annot"><span class="annottext">HeaderName -&gt; RtmpAdMarkers -&gt; [Header]
 (HeaderName -&gt; RtmpAdMarkers -&gt; [Header]) -&gt; ToHeader RtmpAdMarkers
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RtmpAdMarkers -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RtmpAdMarkers -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679914397"><span class="annot"><span class="annottext">RtmpAdMarkers -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679914406"><span class="annot"><span class="annottext">RtmpAdMarkers -&gt; QueryString
 (RtmpAdMarkers -&gt; QueryString) -&gt; ToQuery RtmpAdMarkers
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RtmpAdMarkers -&gt; QueryString
 $ctoQuery :: RtmpAdMarkers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679914392"><span id="local-6989586621679914394"><span class="annot"><span class="annottext">Value -&gt; Parser [RtmpAdMarkers]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679914401"><span id="local-6989586621679914403"><span class="annot"><span class="annottext">Value -&gt; Parser [RtmpAdMarkers]
 Value -&gt; Parser RtmpAdMarkers
 (Value -&gt; Parser RtmpAdMarkers)
 -&gt; (Value -&gt; Parser [RtmpAdMarkers]) -&gt; FromJSON RtmpAdMarkers
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [RtmpAdMarkers]
 parseJSON :: Value -&gt; Parser RtmpAdMarkers
 $cparseJSON :: Value -&gt; Parser RtmpAdMarkers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679914387"><span id="local-6989586621679914389"><span class="annot"><span class="annottext">FromJSONKeyFunction [RtmpAdMarkers]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679914396"><span id="local-6989586621679914398"><span class="annot"><span class="annottext">FromJSONKeyFunction [RtmpAdMarkers]
 FromJSONKeyFunction RtmpAdMarkers
 FromJSONKeyFunction RtmpAdMarkers
 -&gt; FromJSONKeyFunction [RtmpAdMarkers] -&gt; FromJSONKey RtmpAdMarkers
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RtmpAdMarkers]
 fromJSONKey :: FromJSONKeyFunction RtmpAdMarkers
 $cfromJSONKey :: FromJSONKeyFunction RtmpAdMarkers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679914378"><span id="local-6989586621679914380"><span id="local-6989586621679914382"><span id="local-6989586621679914384"><span class="annot"><span class="annottext">[RtmpAdMarkers] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679914387"><span id="local-6989586621679914389"><span id="local-6989586621679914391"><span id="local-6989586621679914393"><span class="annot"><span class="annottext">[RtmpAdMarkers] -&gt; Encoding
 [RtmpAdMarkers] -&gt; Value
 RtmpAdMarkers -&gt; Encoding
 RtmpAdMarkers -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: RtmpAdMarkers -&gt; Encoding
 toJSON :: RtmpAdMarkers -&gt; Value
 $ctoJSON :: RtmpAdMarkers -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679914373"><span id="local-6989586621679914375"><span class="annot"><span class="annottext">ToJSONKeyFunction [RtmpAdMarkers]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679914382"><span id="local-6989586621679914384"><span class="annot"><span class="annottext">ToJSONKeyFunction [RtmpAdMarkers]
 ToJSONKeyFunction RtmpAdMarkers
 ToJSONKeyFunction RtmpAdMarkers
 -&gt; ToJSONKeyFunction [RtmpAdMarkers] -&gt; ToJSONKey RtmpAdMarkers
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RtmpAdMarkers]
 toJSONKey :: ToJSONKeyFunction RtmpAdMarkers
 $ctoJSONKey :: ToJSONKeyFunction RtmpAdMarkers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679914370"><span class="annot"><span class="annottext">[Node] -&gt; Either String RtmpAdMarkers
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679914379"><span class="annot"><span class="annottext">[Node] -&gt; Either String RtmpAdMarkers
 ([Node] -&gt; Either String RtmpAdMarkers) -&gt; FromXML RtmpAdMarkers
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RtmpAdMarkers
 $cparseXML :: [Node] -&gt; Either String RtmpAdMarkers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679914367"><span class="annot"><span class="annottext">RtmpAdMarkers -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679914376"><span class="annot"><span class="annottext">RtmpAdMarkers -&gt; XML
 (RtmpAdMarkers -&gt; XML) -&gt; ToXML RtmpAdMarkers
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RtmpAdMarkers -&gt; XML

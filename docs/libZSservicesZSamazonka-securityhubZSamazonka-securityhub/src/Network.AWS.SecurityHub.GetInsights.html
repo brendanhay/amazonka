@@ -1,0 +1,647 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.GetInsights</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists and describes insights for the specified insight ARNs.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.GetInsights</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier">GetInsights</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#newGetInsights"><span class="hs-identifier">newGetInsights</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#getInsights_nextToken"><span class="hs-identifier">getInsights_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#getInsights_insightArns"><span class="hs-identifier">getInsights_insightArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#getInsights_maxResults"><span class="hs-identifier">getInsights_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse"><span class="hs-identifier">GetInsightsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#newGetInsightsResponse"><span class="hs-identifier">newGetInsightsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#getInsightsResponse_nextToken"><span class="hs-identifier">getInsightsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#getInsightsResponse_httpStatus"><span class="hs-identifier">getInsightsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#getInsightsResponse_insights"><span class="hs-identifier">getInsightsResponse_insights</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types</span></a></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newGetInsights' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621680000615"><span id="local-6989586621680000616"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInsights"><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier hs-var">GetInsights</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInsights%27"><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights%27"><span class="hs-identifier hs-var">GetInsights'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token that is required for pagination. On your first call to the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @GetInsights@ operation, set the value of this parameter to @NULL@.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- For subsequent calls to the operation, to continue listing data, set the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- value of this parameter to the value returned from the previous</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3AGetInsights%27"><span class="annot"><span class="annottext">GetInsights -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3AnextToken%3AGetInsights%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The ARNs of the insights to describe. If you do not provide any insight</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- ARNs, then @GetInsights@ returns all of your custom insights. It does</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- not return any managed insights.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AinsightArns%3AGetInsights%27"><span class="annot"><span class="annottext">GetInsights -&gt; Maybe [Text]
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3AinsightArns%3AGetInsights%27"><span class="hs-identifier hs-var hs-var">insightArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return in the response.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetInsights%27"><span class="annot"><span class="annottext">GetInsights -&gt; Maybe Natural
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3AmaxResults%3AGetInsights%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680000607"><span id="local-6989586621680000609"><span class="annot"><span class="annottext">GetInsights -&gt; GetInsights -&gt; Bool
+(GetInsights -&gt; GetInsights -&gt; Bool)
+-&gt; (GetInsights -&gt; GetInsights -&gt; Bool) -&gt; Eq GetInsights
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetInsights -&gt; GetInsights -&gt; Bool
+$c/= :: GetInsights -&gt; GetInsights -&gt; Bool
+== :: GetInsights -&gt; GetInsights -&gt; Bool
+$c== :: GetInsights -&gt; GetInsights -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680000598"><span id="local-6989586621680000600"><span id="local-6989586621680000602"><span id="local-6989586621680000604"><span class="annot"><span class="annottext">ReadPrec [GetInsights]
+ReadPrec GetInsights
+Int -&gt; ReadS GetInsights
+ReadS [GetInsights]
+(Int -&gt; ReadS GetInsights)
+-&gt; ReadS [GetInsights]
+-&gt; ReadPrec GetInsights
+-&gt; ReadPrec [GetInsights]
+-&gt; Read GetInsights
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetInsights]
+$creadListPrec :: ReadPrec [GetInsights]
+readPrec :: ReadPrec GetInsights
+$creadPrec :: ReadPrec GetInsights
+readList :: ReadS [GetInsights]
+$creadList :: ReadS [GetInsights]
+readsPrec :: Int -&gt; ReadS GetInsights
+$creadsPrec :: Int -&gt; ReadS GetInsights
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680000591"><span id="local-6989586621680000593"><span id="local-6989586621680000595"><span class="annot"><span class="annottext">Int -&gt; GetInsights -&gt; ShowS
+[GetInsights] -&gt; ShowS
+GetInsights -&gt; String
+(Int -&gt; GetInsights -&gt; ShowS)
+-&gt; (GetInsights -&gt; String)
+-&gt; ([GetInsights] -&gt; ShowS)
+-&gt; Show GetInsights
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetInsights] -&gt; ShowS
+$cshowList :: [GetInsights] -&gt; ShowS
+show :: GetInsights -&gt; String
+$cshow :: GetInsights -&gt; String
+showsPrec :: Int -&gt; GetInsights -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetInsights -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetInsights -&gt; Rep GetInsights x)
+-&gt; (forall x. Rep GetInsights x -&gt; GetInsights)
+-&gt; Generic GetInsights
+forall x. Rep GetInsights x -&gt; GetInsights
+forall x. GetInsights -&gt; Rep GetInsights x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetInsights x -&gt; GetInsights
+$cfrom :: forall x. GetInsights -&gt; Rep GetInsights x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'GetInsights' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'nextToken', 'getInsights_nextToken' - The token that is required for pagination. On your first call to the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- @GetInsights@ operation, set the value of this parameter to @NULL@.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- For subsequent calls to the operation, to continue listing data, set the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- value of this parameter to the value returned from the previous</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'insightArns', 'getInsights_insightArns' - The ARNs of the insights to describe. If you do not provide any insight</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- ARNs, then @GetInsights@ returns all of your custom insights. It does</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- not return any managed insights.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'maxResults', 'getInsights_maxResults' - The maximum number of items to return in the response.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#newGetInsights"><span class="hs-identifier hs-type">newGetInsights</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier hs-type">GetInsights</span></a></span><span>
+</span><span id="line-94"></span><span id="newGetInsights"><span class="annot"><span class="annottext">newGetInsights :: GetInsights
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#newGetInsights"><span class="hs-identifier hs-var hs-var">newGetInsights</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">GetInsights' :: Maybe Text -&gt; Maybe [Text] -&gt; Maybe Natural -&gt; GetInsights
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights%27"><span class="hs-identifier hs-type">GetInsights'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetInsights' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3AnextToken%3AGetInsights%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:insightArns:GetInsights' :: Maybe [Text]
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3AinsightArns%3AGetInsights%27"><span class="hs-identifier hs-var">insightArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetInsights' :: Maybe Natural
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3AmaxResults%3AGetInsights%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The token that is required for pagination. On your first call to the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- @GetInsights@ operation, set the value of this parameter to @NULL@.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- For subsequent calls to the operation, to continue listing data, set the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- value of this parameter to the value returned from the previous</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#getInsights_nextToken"><span class="hs-identifier hs-type">getInsights_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier hs-type">GetInsights</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="getInsights_nextToken"><span class="annot"><span class="annottext">getInsights_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetInsights -&gt; f GetInsights
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#getInsights_nextToken"><span class="hs-identifier hs-var hs-var">getInsights_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInsights -&gt; Maybe Text)
+-&gt; (GetInsights -&gt; Maybe Text -&gt; GetInsights)
+-&gt; Lens GetInsights GetInsights (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights%27"><span class="hs-identifier hs-type">GetInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000585"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetInsights' :: GetInsights -&gt; Maybe Text
+</span><a href="#local-6989586621680000585"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680000585"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680000584"><span class="annot"><span class="annottext">s :: GetInsights
+</span><a href="#local-6989586621680000584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights%27"><span class="hs-identifier hs-type">GetInsights'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680000583"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680000583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInsights
+</span><a href="#local-6989586621680000584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetInsights' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3AnextToken%3AGetInsights%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680000583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier hs-type">GetInsights</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The ARNs of the insights to describe. If you do not provide any insight</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- ARNs, then @GetInsights@ returns all of your custom insights. It does</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- not return any managed insights.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#getInsights_insightArns"><span class="hs-identifier hs-type">getInsights_insightArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier hs-type">GetInsights</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="getInsights_insightArns"><span class="annot"><span class="annottext">getInsights_insightArns :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; GetInsights -&gt; f GetInsights
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#getInsights_insightArns"><span class="hs-identifier hs-var hs-var">getInsights_insightArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInsights -&gt; Maybe [Text])
+-&gt; (GetInsights -&gt; Maybe [Text] -&gt; GetInsights)
+-&gt; Lens GetInsights GetInsights (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights%27"><span class="hs-identifier hs-type">GetInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000582"><span class="annot"><span class="annottext">Maybe [Text]
+insightArns :: Maybe [Text]
+$sel:insightArns:GetInsights' :: GetInsights -&gt; Maybe [Text]
+</span><a href="#local-6989586621680000582"><span class="hs-identifier hs-var hs-var">insightArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680000582"><span class="hs-identifier hs-var">insightArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680000581"><span class="annot"><span class="annottext">s :: GetInsights
+</span><a href="#local-6989586621680000581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights%27"><span class="hs-identifier hs-type">GetInsights'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680000580"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680000580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInsights
+</span><a href="#local-6989586621680000581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightArns:GetInsights' :: Maybe [Text]
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3AinsightArns%3AGetInsights%27"><span class="hs-identifier hs-var">insightArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680000580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier hs-type">GetInsights</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; GetInsights -&gt; f GetInsights)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetInsights
+-&gt; f GetInsights
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The maximum number of items to return in the response.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#getInsights_maxResults"><span class="hs-identifier hs-type">getInsights_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier hs-type">GetInsights</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="getInsights_maxResults"><span class="annot"><span class="annottext">getInsights_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetInsights -&gt; f GetInsights
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#getInsights_maxResults"><span class="hs-identifier hs-var hs-var">getInsights_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInsights -&gt; Maybe Natural)
+-&gt; (GetInsights -&gt; Maybe Natural -&gt; GetInsights)
+-&gt; Lens GetInsights GetInsights (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights%27"><span class="hs-identifier hs-type">GetInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000576"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetInsights' :: GetInsights -&gt; Maybe Natural
+</span><a href="#local-6989586621680000576"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680000576"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680000575"><span class="annot"><span class="annottext">s :: GetInsights
+</span><a href="#local-6989586621680000575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights%27"><span class="hs-identifier hs-type">GetInsights'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680000574"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680000574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInsights
+</span><a href="#local-6989586621680000575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetInsights' :: Maybe Natural
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3AmaxResults%3AGetInsights%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680000574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier hs-type">GetInsights</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier hs-type">GetInsights</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621680000570"><span class="annot"><span class="annottext">page :: GetInsights -&gt; AWSResponse GetInsights -&gt; Maybe GetInsights
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680000568"><span class="annot"><span class="annottext">GetInsights
+</span><a href="#local-6989586621680000568"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680000567"><span class="annot"><span class="annottext">AWSResponse GetInsights
+</span><a href="#local-6989586621680000567"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetInsights
+GetInsightsResponse
+</span><a href="#local-6989586621680000567"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">GetInsightsResponse
+-&gt; Getting (First Text) GetInsightsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetInsightsResponse -&gt; Const (First Text) GetInsightsResponse
+Lens' GetInsightsResponse (Maybe Text)
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#getInsightsResponse_nextToken"><span class="hs-identifier hs-var">getInsightsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetInsightsResponse -&gt; Const (First Text) GetInsightsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetInsightsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-125"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetInsights
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">[Insight] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse GetInsights
+GetInsightsResponse
+</span><a href="#local-6989586621680000567"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">GetInsightsResponse
+-&gt; Getting [Insight] GetInsightsResponse [Insight] -&gt; [Insight]
+forall s a. s -&gt; Getting a s a -&gt; a
+</span><span class="hs-operator hs-var">Lens.^.</span></span><span> </span><span class="annot"><span class="annottext">Getting [Insight] GetInsightsResponse [Insight]
+Lens' GetInsightsResponse [Insight]
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#getInsightsResponse_insights"><span class="hs-identifier hs-var">getInsightsResponse_insights</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetInsights
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">GetInsights -&gt; Maybe GetInsights
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(GetInsights -&gt; Maybe GetInsights)
+-&gt; GetInsights -&gt; Maybe GetInsights
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">GetInsights
+</span><a href="#local-6989586621680000568"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">GetInsights -&gt; (GetInsights -&gt; GetInsights) -&gt; GetInsights
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; GetInsights -&gt; Identity GetInsights
+Lens GetInsights GetInsights (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#getInsights_nextToken"><span class="hs-identifier hs-var">getInsights_nextToken</span></a></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; GetInsights -&gt; Identity GetInsights)
+-&gt; Maybe Text -&gt; GetInsights -&gt; GetInsights
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetInsights
+GetInsightsResponse
+</span><a href="#local-6989586621680000567"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">GetInsightsResponse
+-&gt; Getting (First Text) GetInsightsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetInsightsResponse -&gt; Const (First Text) GetInsightsResponse
+Lens' GetInsightsResponse (Maybe Text)
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#getInsightsResponse_nextToken"><span class="hs-identifier hs-var">getInsightsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetInsightsResponse -&gt; Const (First Text) GetInsightsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetInsightsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier hs-type">GetInsights</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier hs-type">GetInsights</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse"><span class="hs-identifier hs-type">GetInsightsResponse</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621680000557"><span class="annot"><span class="annottext">request :: GetInsights -&gt; Request GetInsights
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetInsights -&gt; Request GetInsights
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SecurityHub.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621680000553"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetInsights
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetInsights)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetInsights))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetInsights
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetInsights)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680000550"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680000550"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680000549"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680000549"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680000548"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680000548"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [Insight] -&gt; GetInsightsResponse
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse%27"><span class="hs-identifier hs-var">GetInsightsResponse'</span></a></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [Insight] -&gt; GetInsightsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; [Insight] -&gt; GetInsightsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680000548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; [Insight] -&gt; GetInsightsResponse)
+-&gt; Either String Int
+-&gt; Either String ([Insight] -&gt; GetInsightsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680000550"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Insight] -&gt; GetInsightsResponse)
+-&gt; Either String [Insight] -&gt; Either String GetInsightsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680000548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Insight])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Insights&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Insight])
+-&gt; [Insight] -&gt; Either String [Insight]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Insight]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000539"><span id="local-6989586621680000541"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier hs-type">GetInsights</span></a></span></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier hs-type">GetInsights</span></a></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier hs-type">GetInsights</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621680000532"><span class="annot"><span class="annottext">toHeaders :: GetInsights -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetInsights -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-159"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000522"><span id="local-6989586621680000524"><span id="local-6989586621680000526"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier hs-type">GetInsights</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621680000520"><span class="annot"><span class="annottext">toJSON :: GetInsights -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights%27"><span class="hs-identifier hs-type">GetInsights'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000516"><span id="local-6989586621680000517"><span id="local-6989586621680000518"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Text]
+Maybe Text
+maxResults :: Maybe Natural
+insightArns :: Maybe [Text]
+nextToken :: Maybe Text
+$sel:maxResults:GetInsights' :: GetInsights -&gt; Maybe Natural
+$sel:insightArns:GetInsights' :: GetInsights -&gt; Maybe [Text]
+$sel:nextToken:GetInsights' :: GetInsights -&gt; Maybe Text
+</span><a href="#local-6989586621680000516"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680000518"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InsightArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680000517"><span class="hs-identifier hs-var">insightArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680000516"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier hs-type">GetInsights</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621680000510"><span class="annot"><span class="annottext">toPath :: GetInsights -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetInsights -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/insights/get&quot;</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsights"><span class="hs-identifier hs-type">GetInsights</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621680000506"><span class="annot"><span class="annottext">toQuery :: GetInsights -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetInsights -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | /See:/ 'newGetInsightsResponse' smart constructor.</span><span>
+</span><span id="line-180"></span><span id="local-6989586621680000503"><span id="local-6989586621680000504"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInsightsResponse"><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse"><span class="hs-identifier hs-var">GetInsightsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInsightsResponse%27"><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse%27"><span class="hs-identifier hs-var">GetInsightsResponse'</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token to use to request the next page of results.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AnextToken%3AGetInsightsResponse%27"><span class="annot"><span class="annottext">GetInsightsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3AnextToken%3AGetInsightsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetInsightsResponse%27"><span class="annot"><span class="annottext">GetInsightsResponse -&gt; Int
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3AhttpStatus%3AGetInsightsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The insights returned by the operation.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3Ainsights%3AGetInsightsResponse%27"><span class="annot"><span class="annottext">GetInsightsResponse -&gt; [Insight]
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3Ainsights%3AGetInsightsResponse%27"><span class="hs-identifier hs-var hs-var">insights</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680000496"><span id="local-6989586621680000498"><span class="annot"><span class="annottext">GetInsightsResponse -&gt; GetInsightsResponse -&gt; Bool
+(GetInsightsResponse -&gt; GetInsightsResponse -&gt; Bool)
+-&gt; (GetInsightsResponse -&gt; GetInsightsResponse -&gt; Bool)
+-&gt; Eq GetInsightsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetInsightsResponse -&gt; GetInsightsResponse -&gt; Bool
+$c/= :: GetInsightsResponse -&gt; GetInsightsResponse -&gt; Bool
+== :: GetInsightsResponse -&gt; GetInsightsResponse -&gt; Bool
+$c== :: GetInsightsResponse -&gt; GetInsightsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680000488"><span id="local-6989586621680000490"><span id="local-6989586621680000492"><span id="local-6989586621680000494"><span class="annot"><span class="annottext">ReadPrec [GetInsightsResponse]
+ReadPrec GetInsightsResponse
+Int -&gt; ReadS GetInsightsResponse
+ReadS [GetInsightsResponse]
+(Int -&gt; ReadS GetInsightsResponse)
+-&gt; ReadS [GetInsightsResponse]
+-&gt; ReadPrec GetInsightsResponse
+-&gt; ReadPrec [GetInsightsResponse]
+-&gt; Read GetInsightsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetInsightsResponse]
+$creadListPrec :: ReadPrec [GetInsightsResponse]
+readPrec :: ReadPrec GetInsightsResponse
+$creadPrec :: ReadPrec GetInsightsResponse
+readList :: ReadS [GetInsightsResponse]
+$creadList :: ReadS [GetInsightsResponse]
+readsPrec :: Int -&gt; ReadS GetInsightsResponse
+$creadsPrec :: Int -&gt; ReadS GetInsightsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680000482"><span id="local-6989586621680000484"><span id="local-6989586621680000486"><span class="annot"><span class="annottext">Int -&gt; GetInsightsResponse -&gt; ShowS
+[GetInsightsResponse] -&gt; ShowS
+GetInsightsResponse -&gt; String
+(Int -&gt; GetInsightsResponse -&gt; ShowS)
+-&gt; (GetInsightsResponse -&gt; String)
+-&gt; ([GetInsightsResponse] -&gt; ShowS)
+-&gt; Show GetInsightsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetInsightsResponse] -&gt; ShowS
+$cshowList :: [GetInsightsResponse] -&gt; ShowS
+show :: GetInsightsResponse -&gt; String
+$cshow :: GetInsightsResponse -&gt; String
+showsPrec :: Int -&gt; GetInsightsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetInsightsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetInsightsResponse -&gt; Rep GetInsightsResponse x)
+-&gt; (forall x. Rep GetInsightsResponse x -&gt; GetInsightsResponse)
+-&gt; Generic GetInsightsResponse
+forall x. Rep GetInsightsResponse x -&gt; GetInsightsResponse
+forall x. GetInsightsResponse -&gt; Rep GetInsightsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetInsightsResponse x -&gt; GetInsightsResponse
+$cfrom :: forall x. GetInsightsResponse -&gt; Rep GetInsightsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Create a value of 'GetInsightsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'nextToken', 'getInsightsResponse_nextToken' - The pagination token to use to request the next page of results.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'httpStatus', 'getInsightsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'insights', 'getInsightsResponse_insights' - The insights returned by the operation.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#newGetInsightsResponse"><span class="hs-identifier hs-type">newGetInsightsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse"><span class="hs-identifier hs-type">GetInsightsResponse</span></a></span><span>
+</span><span id="line-207"></span><span id="newGetInsightsResponse"><span class="annot"><span class="annottext">newGetInsightsResponse :: Int -&gt; GetInsightsResponse
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#newGetInsightsResponse"><span class="hs-identifier hs-var hs-var">newGetInsightsResponse</span></a></span></span><span> </span><span id="local-6989586621680000479"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680000479"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="annottext">GetInsightsResponse' :: Maybe Text -&gt; Int -&gt; [Insight] -&gt; GetInsightsResponse
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse%27"><span class="hs-identifier hs-type">GetInsightsResponse'</span></a></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetInsightsResponse' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3AnextToken%3AGetInsightsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetInsightsResponse' :: Int
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3AhttpStatus%3AGetInsightsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680000479"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:insights:GetInsightsResponse' :: [Insight]
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3Ainsights%3AGetInsightsResponse%27"><span class="hs-identifier hs-var">insights</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Insight]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The pagination token to use to request the next page of results.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#getInsightsResponse_nextToken"><span class="hs-identifier hs-type">getInsightsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse"><span class="hs-identifier hs-type">GetInsightsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="getInsightsResponse_nextToken"><span class="annot"><span class="annottext">getInsightsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetInsightsResponse -&gt; f GetInsightsResponse
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#getInsightsResponse_nextToken"><span class="hs-identifier hs-var hs-var">getInsightsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInsightsResponse -&gt; Maybe Text)
+-&gt; (GetInsightsResponse -&gt; Maybe Text -&gt; GetInsightsResponse)
+-&gt; Lens' GetInsightsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse%27"><span class="hs-identifier hs-type">GetInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000478"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetInsightsResponse' :: GetInsightsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680000478"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680000478"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680000477"><span class="annot"><span class="annottext">s :: GetInsightsResponse
+</span><a href="#local-6989586621680000477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse%27"><span class="hs-identifier hs-type">GetInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680000476"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680000476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInsightsResponse
+</span><a href="#local-6989586621680000477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetInsightsResponse' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3AnextToken%3AGetInsightsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680000476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse"><span class="hs-identifier hs-type">GetInsightsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#getInsightsResponse_httpStatus"><span class="hs-identifier hs-type">getInsightsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse"><span class="hs-identifier hs-type">GetInsightsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-220"></span><span id="getInsightsResponse_httpStatus"><span class="annot"><span class="annottext">getInsightsResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetInsightsResponse -&gt; f GetInsightsResponse
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#getInsightsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getInsightsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInsightsResponse -&gt; Int)
+-&gt; (GetInsightsResponse -&gt; Int -&gt; GetInsightsResponse)
+-&gt; Lens GetInsightsResponse GetInsightsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse%27"><span class="hs-identifier hs-type">GetInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000475"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetInsightsResponse' :: GetInsightsResponse -&gt; Int
+</span><a href="#local-6989586621680000475"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680000475"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680000474"><span class="annot"><span class="annottext">s :: GetInsightsResponse
+</span><a href="#local-6989586621680000474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse%27"><span class="hs-identifier hs-type">GetInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680000473"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680000473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInsightsResponse
+</span><a href="#local-6989586621680000474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInsightsResponse' :: Int
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3AhttpStatus%3AGetInsightsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680000473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse"><span class="hs-identifier hs-type">GetInsightsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The insights returned by the operation.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#getInsightsResponse_insights"><span class="hs-identifier hs-type">getInsightsResponse_insights</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse"><span class="hs-identifier hs-type">GetInsightsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-224"></span><span id="getInsightsResponse_insights"><span class="annot"><span class="annottext">getInsightsResponse_insights :: ([Insight] -&gt; f [Insight])
+-&gt; GetInsightsResponse -&gt; f GetInsightsResponse
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#getInsightsResponse_insights"><span class="hs-identifier hs-var hs-var">getInsightsResponse_insights</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInsightsResponse -&gt; [Insight])
+-&gt; (GetInsightsResponse -&gt; [Insight] -&gt; GetInsightsResponse)
+-&gt; Lens' GetInsightsResponse [Insight]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse%27"><span class="hs-identifier hs-type">GetInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000472"><span class="annot"><span class="annottext">[Insight]
+insights :: [Insight]
+$sel:insights:GetInsightsResponse' :: GetInsightsResponse -&gt; [Insight]
+</span><a href="#local-6989586621680000472"><span class="hs-identifier hs-var hs-var">insights</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Insight]
+</span><a href="#local-6989586621680000472"><span class="hs-identifier hs-var">insights</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680000471"><span class="annot"><span class="annottext">s :: GetInsightsResponse
+</span><a href="#local-6989586621680000471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse%27"><span class="hs-identifier hs-type">GetInsightsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680000470"><span class="annot"><span class="annottext">[Insight]
+</span><a href="#local-6989586621680000470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInsightsResponse
+</span><a href="#local-6989586621680000471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insights:GetInsightsResponse' :: [Insight]
+</span><a href="Network.AWS.SecurityHub.GetInsights.html#%24sel%3Ainsights%3AGetInsightsResponse%27"><span class="hs-identifier hs-var">insights</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Insight]
+</span><a href="#local-6989586621680000470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse"><span class="hs-identifier hs-type">GetInsightsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Insight] -&gt; f [Insight])
+ -&gt; GetInsightsResponse -&gt; f GetInsightsResponse)
+-&gt; (([Insight] -&gt; f [Insight]) -&gt; [Insight] -&gt; f [Insight])
+-&gt; ([Insight] -&gt; f [Insight])
+-&gt; GetInsightsResponse
+-&gt; f GetInsightsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Insight] -&gt; f [Insight]) -&gt; [Insight] -&gt; f [Insight]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000468"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.GetInsights.html#GetInsightsResponse"><span class="hs-identifier hs-type">GetInsightsResponse</span></a></span></span><span>
+</span><span id="line-227"></span></pre></body></html>

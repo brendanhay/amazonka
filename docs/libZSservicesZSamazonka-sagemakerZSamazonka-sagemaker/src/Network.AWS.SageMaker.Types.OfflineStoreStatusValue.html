@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621680325289"><span id="local-6989586621680325290"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OfflineStoreStatusValue"><span class="annot"><a href="Network.AWS.SageMaker.Types.OfflineStoreStatusValue.html#OfflineStoreStatusValue"><span class="hs-identifier hs-var">OfflineStoreStatusValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OfflineStoreStatusValue%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.OfflineStoreStatusValue.html#OfflineStoreStatusValue%27"><span class="hs-identifier hs-var">OfflineStoreStatusValue'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621680325298"><span id="local-6989586621680325299"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OfflineStoreStatusValue"><span class="annot"><a href="Network.AWS.SageMaker.Types.OfflineStoreStatusValue.html#OfflineStoreStatusValue"><span class="hs-identifier hs-var">OfflineStoreStatusValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OfflineStoreStatusValue%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.OfflineStoreStatusValue.html#OfflineStoreStatusValue%27"><span class="hs-identifier hs-var">OfflineStoreStatusValue'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOfflineStoreStatusValue"><span class="annot"><span class="annottext">OfflineStoreStatusValue -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.OfflineStoreStatusValue.html#fromOfflineStoreStatusValue"><span class="hs-identifier hs-var hs-var">fromOfflineStoreStatusValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680325281"><span id="local-6989586621680325283"><span id="local-6989586621680325285"><span class="annot"><span class="annottext">Int -&gt; OfflineStoreStatusValue -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680325290"><span id="local-6989586621680325292"><span id="local-6989586621680325294"><span class="annot"><span class="annottext">Int -&gt; OfflineStoreStatusValue -&gt; ShowS
 [OfflineStoreStatusValue] -&gt; ShowS
 OfflineStoreStatusValue -&gt; String
 (Int -&gt; OfflineStoreStatusValue -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: OfflineStoreStatusValue -&gt; String
 showsPrec :: Int -&gt; OfflineStoreStatusValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; OfflineStoreStatusValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680325272"><span id="local-6989586621680325274"><span id="local-6989586621680325276"><span id="local-6989586621680325278"><span class="annot"><span class="annottext">ReadPrec [OfflineStoreStatusValue]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680325281"><span id="local-6989586621680325283"><span id="local-6989586621680325285"><span id="local-6989586621680325287"><span class="annot"><span class="annottext">ReadPrec [OfflineStoreStatusValue]
 ReadPrec OfflineStoreStatusValue
 Int -&gt; ReadS OfflineStoreStatusValue
 ReadS [OfflineStoreStatusValue]
@@ -73,7 +73,7 @@ $creadList :: ReadS [OfflineStoreStatusValue]
 readsPrec :: Int -&gt; ReadS OfflineStoreStatusValue
 $creadsPrec :: Int -&gt; ReadS OfflineStoreStatusValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680325267"><span id="local-6989586621680325269"><span class="annot"><span class="annottext">OfflineStoreStatusValue -&gt; OfflineStoreStatusValue -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680325276"><span id="local-6989586621680325278"><span class="annot"><span class="annottext">OfflineStoreStatusValue -&gt; OfflineStoreStatusValue -&gt; Bool
 (OfflineStoreStatusValue -&gt; OfflineStoreStatusValue -&gt; Bool)
 -&gt; (OfflineStoreStatusValue -&gt; OfflineStoreStatusValue -&gt; Bool)
 -&gt; Eq OfflineStoreStatusValue
@@ -83,7 +83,7 @@ $c/= :: OfflineStoreStatusValue -&gt; OfflineStoreStatusValue -&gt; Bool
 == :: OfflineStoreStatusValue -&gt; OfflineStoreStatusValue -&gt; Bool
 $c== :: OfflineStoreStatusValue -&gt; OfflineStoreStatusValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680325251"><span id="local-6989586621680325253"><span id="local-6989586621680325255"><span id="local-6989586621680325257"><span id="local-6989586621680325259"><span id="local-6989586621680325261"><span id="local-6989586621680325263"><span class="annot"><span class="annottext">Eq OfflineStoreStatusValue
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680325260"><span id="local-6989586621680325262"><span id="local-6989586621680325264"><span id="local-6989586621680325266"><span id="local-6989586621680325268"><span id="local-6989586621680325270"><span id="local-6989586621680325272"><span class="annot"><span class="annottext">Eq OfflineStoreStatusValue
 Eq OfflineStoreStatusValue
 -&gt; (OfflineStoreStatusValue -&gt; OfflineStoreStatusValue -&gt; Ordering)
 -&gt; (OfflineStoreStatusValue -&gt; OfflineStoreStatusValue -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. OfflineStoreStatusValue -&gt; Rep OfflineStoreStatusValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680325243"><span id="local-6989586621680325245"><span class="annot"><span class="annottext">Int -&gt; OfflineStoreStatusValue -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680325252"><span id="local-6989586621680325254"><span class="annot"><span class="annottext">Int -&gt; OfflineStoreStatusValue -&gt; Int
 OfflineStoreStatusValue -&gt; Int
 (Int -&gt; OfflineStoreStatusValue -&gt; Int)
 -&gt; (OfflineStoreStatusValue -&gt; Int)
@@ -154,54 +154,54 @@ $chash :: OfflineStoreStatusValue -&gt; Int
 hashWithSalt :: Int -&gt; OfflineStoreStatusValue -&gt; Int
 $chashWithSalt :: Int -&gt; OfflineStoreStatusValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680325240"><span class="annot"><span class="annottext">OfflineStoreStatusValue -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680325249"><span class="annot"><span class="annottext">OfflineStoreStatusValue -&gt; ()
 (OfflineStoreStatusValue -&gt; ()) -&gt; NFData OfflineStoreStatusValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OfflineStoreStatusValue -&gt; ()
 $crnf :: OfflineStoreStatusValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680325237"><span class="annot"><span class="annottext">Text -&gt; Either String OfflineStoreStatusValue
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680325246"><span class="annot"><span class="annottext">Text -&gt; Either String OfflineStoreStatusValue
 (Text -&gt; Either String OfflineStoreStatusValue)
 -&gt; FromText OfflineStoreStatusValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OfflineStoreStatusValue
 $cfromText :: Text -&gt; Either String OfflineStoreStatusValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680325234"><span class="annot"><span class="annottext">OfflineStoreStatusValue -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680325243"><span class="annot"><span class="annottext">OfflineStoreStatusValue -&gt; Text
 (OfflineStoreStatusValue -&gt; Text) -&gt; ToText OfflineStoreStatusValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OfflineStoreStatusValue -&gt; Text
 $ctoText :: OfflineStoreStatusValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680325231"><span class="annot"><span class="annottext">OfflineStoreStatusValue -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680325240"><span class="annot"><span class="annottext">OfflineStoreStatusValue -&gt; ByteString
 (OfflineStoreStatusValue -&gt; ByteString)
 -&gt; ToByteString OfflineStoreStatusValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OfflineStoreStatusValue -&gt; ByteString
 $ctoBS :: OfflineStoreStatusValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680325228"><span class="annot"><span class="annottext">OfflineStoreStatusValue -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680325237"><span class="annot"><span class="annottext">OfflineStoreStatusValue -&gt; ByteStringBuilder
 (OfflineStoreStatusValue -&gt; ByteStringBuilder)
 -&gt; ToLog OfflineStoreStatusValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OfflineStoreStatusValue -&gt; ByteStringBuilder
 $cbuild :: OfflineStoreStatusValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680325225"><span class="annot"><span class="annottext">HeaderName -&gt; OfflineStoreStatusValue -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680325234"><span class="annot"><span class="annottext">HeaderName -&gt; OfflineStoreStatusValue -&gt; [Header]
 (HeaderName -&gt; OfflineStoreStatusValue -&gt; [Header])
 -&gt; ToHeader OfflineStoreStatusValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OfflineStoreStatusValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OfflineStoreStatusValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680325222"><span class="annot"><span class="annottext">OfflineStoreStatusValue -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680325231"><span class="annot"><span class="annottext">OfflineStoreStatusValue -&gt; QueryString
 (OfflineStoreStatusValue -&gt; QueryString)
 -&gt; ToQuery OfflineStoreStatusValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OfflineStoreStatusValue -&gt; QueryString
 $ctoQuery :: OfflineStoreStatusValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680325217"><span id="local-6989586621680325219"><span class="annot"><span class="annottext">Value -&gt; Parser [OfflineStoreStatusValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680325226"><span id="local-6989586621680325228"><span class="annot"><span class="annottext">Value -&gt; Parser [OfflineStoreStatusValue]
 Value -&gt; Parser OfflineStoreStatusValue
 (Value -&gt; Parser OfflineStoreStatusValue)
 -&gt; (Value -&gt; Parser [OfflineStoreStatusValue])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [OfflineStoreStatusValue]
 parseJSON :: Value -&gt; Parser OfflineStoreStatusValue
 $cparseJSON :: Value -&gt; Parser OfflineStoreStatusValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680325212"><span id="local-6989586621680325214"><span class="annot"><span class="annottext">FromJSONKeyFunction [OfflineStoreStatusValue]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680325221"><span id="local-6989586621680325223"><span class="annot"><span class="annottext">FromJSONKeyFunction [OfflineStoreStatusValue]
 FromJSONKeyFunction OfflineStoreStatusValue
 FromJSONKeyFunction OfflineStoreStatusValue
 -&gt; FromJSONKeyFunction [OfflineStoreStatusValue]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OfflineStoreStatusValue]
 fromJSONKey :: FromJSONKeyFunction OfflineStoreStatusValue
 $cfromJSONKey :: FromJSONKeyFunction OfflineStoreStatusValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680325203"><span id="local-6989586621680325205"><span id="local-6989586621680325207"><span id="local-6989586621680325209"><span class="annot"><span class="annottext">[OfflineStoreStatusValue] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680325212"><span id="local-6989586621680325214"><span id="local-6989586621680325216"><span id="local-6989586621680325218"><span class="annot"><span class="annottext">[OfflineStoreStatusValue] -&gt; Encoding
 [OfflineStoreStatusValue] -&gt; Value
 OfflineStoreStatusValue -&gt; Encoding
 OfflineStoreStatusValue -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: OfflineStoreStatusValue -&gt; Encoding
 toJSON :: OfflineStoreStatusValue -&gt; Value
 $ctoJSON :: OfflineStoreStatusValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680325198"><span id="local-6989586621680325200"><span class="annot"><span class="annottext">ToJSONKeyFunction [OfflineStoreStatusValue]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680325207"><span id="local-6989586621680325209"><span class="annot"><span class="annottext">ToJSONKeyFunction [OfflineStoreStatusValue]
 ToJSONKeyFunction OfflineStoreStatusValue
 ToJSONKeyFunction OfflineStoreStatusValue
 -&gt; ToJSONKeyFunction [OfflineStoreStatusValue]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OfflineStoreStatusValue]
 toJSONKey :: ToJSONKeyFunction OfflineStoreStatusValue
 $ctoJSONKey :: ToJSONKeyFunction OfflineStoreStatusValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680325195"><span class="annot"><span class="annottext">[Node] -&gt; Either String OfflineStoreStatusValue
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680325204"><span class="annot"><span class="annottext">[Node] -&gt; Either String OfflineStoreStatusValue
 ([Node] -&gt; Either String OfflineStoreStatusValue)
 -&gt; FromXML OfflineStoreStatusValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OfflineStoreStatusValue
 $cparseXML :: [Node] -&gt; Either String OfflineStoreStatusValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680325192"><span class="annot"><span class="annottext">OfflineStoreStatusValue -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680325201"><span class="annot"><span class="annottext">OfflineStoreStatusValue -&gt; XML
 (OfflineStoreStatusValue -&gt; XML) -&gt; ToXML OfflineStoreStatusValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: OfflineStoreStatusValue -&gt; XML

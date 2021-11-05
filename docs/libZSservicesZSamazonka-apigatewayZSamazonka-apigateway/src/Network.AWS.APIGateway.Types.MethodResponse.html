@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API&gt;</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- /See:/ 'newMethodResponse' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679367761"><span id="local-6989586621679367762"></span></span><span class="hs-keyword">data</span><span> </span><span id="MethodResponse"><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-var">MethodResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MethodResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-var">MethodResponse'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679367770"><span id="local-6989586621679367771"></span></span><span class="hs-keyword">data</span><span> </span><span id="MethodResponse"><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-var">MethodResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MethodResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-var">MethodResponse'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the Model resources used for the response\'s content-type.</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Response models are represented as a key\/value map, with a content-type</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- as the key and a Model name as the value.</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AresponseParameters%3AMethodResponse%27"><span class="annot"><span class="annottext">MethodResponse -&gt; Maybe (HashMap Text Bool)
 </span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AresponseParameters%3AMethodResponse%27"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367753"><span id="local-6989586621679367755"><span class="annot"><span class="annottext">MethodResponse -&gt; MethodResponse -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367762"><span id="local-6989586621679367764"><span class="annot"><span class="annottext">MethodResponse -&gt; MethodResponse -&gt; Bool
 (MethodResponse -&gt; MethodResponse -&gt; Bool)
 -&gt; (MethodResponse -&gt; MethodResponse -&gt; Bool) -&gt; Eq MethodResponse
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MethodResponse -&gt; MethodResponse -&gt; Bool
 == :: MethodResponse -&gt; MethodResponse -&gt; Bool
 $c== :: MethodResponse -&gt; MethodResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367744"><span id="local-6989586621679367746"><span id="local-6989586621679367748"><span id="local-6989586621679367750"><span class="annot"><span class="annottext">ReadPrec [MethodResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367753"><span id="local-6989586621679367755"><span id="local-6989586621679367757"><span id="local-6989586621679367759"><span class="annot"><span class="annottext">ReadPrec [MethodResponse]
 ReadPrec MethodResponse
 Int -&gt; ReadS MethodResponse
 ReadS [MethodResponse]
@@ -102,7 +102,7 @@ readList :: ReadS [MethodResponse]
 $creadList :: ReadS [MethodResponse]
 readsPrec :: Int -&gt; ReadS MethodResponse
 $creadsPrec :: Int -&gt; ReadS MethodResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367737"><span id="local-6989586621679367739"><span id="local-6989586621679367741"><span class="annot"><span class="annottext">Int -&gt; MethodResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367746"><span id="local-6989586621679367748"><span id="local-6989586621679367750"><span class="annot"><span class="annottext">Int -&gt; MethodResponse -&gt; ShowS
 [MethodResponse] -&gt; ShowS
 MethodResponse -&gt; String
 (Int -&gt; MethodResponse -&gt; ShowS)
@@ -191,16 +191,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367728"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367737"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 responseModels :: Maybe (HashMap Text Text)
 $sel:responseModels:MethodResponse' :: MethodResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679367728"><span class="hs-identifier hs-var hs-var">responseModels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679367728"><span class="hs-identifier hs-var">responseModels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367727"><span class="annot"><span class="annottext">s :: MethodResponse
-</span><a href="#local-6989586621679367727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367726"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679367726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MethodResponse
-</span><a href="#local-6989586621679367727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseModels:MethodResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679367737"><span class="hs-identifier hs-var hs-var">responseModels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679367737"><span class="hs-identifier hs-var">responseModels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367736"><span class="annot"><span class="annottext">s :: MethodResponse
+</span><a href="#local-6989586621679367736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367735"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679367735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MethodResponse
+</span><a href="#local-6989586621679367736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseModels:MethodResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AresponseModels%3AMethodResponse%27"><span class="hs-identifier hs-var">responseModels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679367726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679367735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; MethodResponse -&gt; f MethodResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -237,16 +237,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (MethodResponse -&gt; Maybe Text -&gt; MethodResponse)
 -&gt; Lens MethodResponse MethodResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367721"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367730"><span class="annot"><span class="annottext">Maybe Text
 statusCode :: Maybe Text
 $sel:statusCode:MethodResponse' :: MethodResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679367721"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367721"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367720"><span class="annot"><span class="annottext">s :: MethodResponse
-</span><a href="#local-6989586621679367720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367719"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MethodResponse
-</span><a href="#local-6989586621679367720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCode:MethodResponse' :: Maybe Text
+</span><a href="#local-6989586621679367730"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367730"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367729"><span class="annot"><span class="annottext">s :: MethodResponse
+</span><a href="#local-6989586621679367729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367728"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MethodResponse
+</span><a href="#local-6989586621679367729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCode:MethodResponse' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AstatusCode%3AMethodResponse%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | A key-value map specifying required or optional response parameters that</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- API Gateway can send back to the caller. A key defines a method response</span><span>
@@ -273,16 +273,16 @@ $sel:statusCode:MethodResponse' :: MethodResponse -&gt; Maybe Text
      (Maybe (HashMap Text Bool))
      (Maybe (HashMap Text Bool))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367717"><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367726"><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
 responseParameters :: Maybe (HashMap Text Bool)
 $sel:responseParameters:MethodResponse' :: MethodResponse -&gt; Maybe (HashMap Text Bool)
-</span><a href="#local-6989586621679367717"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
-</span><a href="#local-6989586621679367717"><span class="hs-identifier hs-var">responseParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367716"><span class="annot"><span class="annottext">s :: MethodResponse
-</span><a href="#local-6989586621679367716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367715"><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
-</span><a href="#local-6989586621679367715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MethodResponse
-</span><a href="#local-6989586621679367716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseParameters:MethodResponse' :: Maybe (HashMap Text Bool)
+</span><a href="#local-6989586621679367726"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
+</span><a href="#local-6989586621679367726"><span class="hs-identifier hs-var">responseParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367725"><span class="annot"><span class="annottext">s :: MethodResponse
+</span><a href="#local-6989586621679367725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367724"><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
+</span><a href="#local-6989586621679367724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MethodResponse
+</span><a href="#local-6989586621679367725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseParameters:MethodResponse' :: Maybe (HashMap Text Bool)
 </span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AresponseParameters%3AMethodResponse%27"><span class="hs-identifier hs-var">responseParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
-</span><a href="#local-6989586621679367715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
+</span><a href="#local-6989586621679367724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
  -&gt; MethodResponse -&gt; f MethodResponse)
 -&gt; ((Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
     -&gt; Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
@@ -311,8 +311,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367712"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679367710"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MethodResponse
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367721"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679367719"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MethodResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MethodResponse)
@@ -322,8 +322,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MethodResponse&quot;</span></span><span>
-</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367707"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367707"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367716"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367716"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 -&gt; Maybe Text -&gt; Maybe (HashMap Text Bool) -&gt; MethodResponse
 </span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-var">MethodResponse'</span></a></span><span>
@@ -334,7 +334,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe (HashMap Text Bool) -&gt; MethodResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679367716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;responseModels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -348,7 +348,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe (HashMap Text Bool) -&gt; MethodResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679367716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statusCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -356,7 +356,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Bool)) -&gt; Parser MethodResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Bool)))
+</span><a href="#local-6989586621679367716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Bool)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;responseParameters&quot;</span></span><span>
@@ -369,7 +369,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-150"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367700"><span id="local-6989586621679367702"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367709"><span id="local-6989586621679367711"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367706"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span></span><span>
 </span><span id="line-156"></span></pre></body></html>

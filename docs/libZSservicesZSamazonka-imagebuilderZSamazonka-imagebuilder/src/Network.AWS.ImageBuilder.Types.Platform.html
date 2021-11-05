@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ImageBuilder.Types.Platform</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ImageBuilder.Types.Platform</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform"><span class="hs-identifier">Platform</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform_Linux"><span class="hs-identifier">Platform_Linux</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform_Windows"><span class="hs-identifier">Platform_Windows</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679316508"><span id="local-6989586621679316509"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Platform"><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform"><span class="hs-identifier hs-var">Platform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Platform%27"><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform%27"><span class="hs-identifier hs-var">Platform'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPlatform"><span class="annot"><span class="annottext">Platform -&gt; Text
+</span><a href="Network.AWS.ImageBuilder.Types.Platform.html#fromPlatform"><span class="hs-identifier hs-var hs-var">fromPlatform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679316500"><span id="local-6989586621679316502"><span id="local-6989586621679316504"><span class="annot"><span class="annottext">Int -&gt; Platform -&gt; ShowS
+[Platform] -&gt; ShowS
+Platform -&gt; String
+(Int -&gt; Platform -&gt; ShowS)
+-&gt; (Platform -&gt; String) -&gt; ([Platform] -&gt; ShowS) -&gt; Show Platform
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Platform] -&gt; ShowS
+$cshowList :: [Platform] -&gt; ShowS
+show :: Platform -&gt; String
+$cshow :: Platform -&gt; String
+showsPrec :: Int -&gt; Platform -&gt; ShowS
+$cshowsPrec :: Int -&gt; Platform -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679316491"><span id="local-6989586621679316493"><span id="local-6989586621679316495"><span id="local-6989586621679316497"><span class="annot"><span class="annottext">ReadPrec [Platform]
+ReadPrec Platform
+Int -&gt; ReadS Platform
+ReadS [Platform]
+(Int -&gt; ReadS Platform)
+-&gt; ReadS [Platform]
+-&gt; ReadPrec Platform
+-&gt; ReadPrec [Platform]
+-&gt; Read Platform
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Platform]
+$creadListPrec :: ReadPrec [Platform]
+readPrec :: ReadPrec Platform
+$creadPrec :: ReadPrec Platform
+readList :: ReadS [Platform]
+$creadList :: ReadS [Platform]
+readsPrec :: Int -&gt; ReadS Platform
+$creadsPrec :: Int -&gt; ReadS Platform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679316486"><span id="local-6989586621679316488"><span class="annot"><span class="annottext">Platform -&gt; Platform -&gt; Bool
+(Platform -&gt; Platform -&gt; Bool)
+-&gt; (Platform -&gt; Platform -&gt; Bool) -&gt; Eq Platform
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Platform -&gt; Platform -&gt; Bool
+$c/= :: Platform -&gt; Platform -&gt; Bool
+== :: Platform -&gt; Platform -&gt; Bool
+$c== :: Platform -&gt; Platform -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679316470"><span id="local-6989586621679316472"><span id="local-6989586621679316474"><span id="local-6989586621679316476"><span id="local-6989586621679316478"><span id="local-6989586621679316480"><span id="local-6989586621679316482"><span class="annot"><span class="annottext">Eq Platform
+Eq Platform
+-&gt; (Platform -&gt; Platform -&gt; Ordering)
+-&gt; (Platform -&gt; Platform -&gt; Bool)
+-&gt; (Platform -&gt; Platform -&gt; Bool)
+-&gt; (Platform -&gt; Platform -&gt; Bool)
+-&gt; (Platform -&gt; Platform -&gt; Bool)
+-&gt; (Platform -&gt; Platform -&gt; Platform)
+-&gt; (Platform -&gt; Platform -&gt; Platform)
+-&gt; Ord Platform
+Platform -&gt; Platform -&gt; Bool
+Platform -&gt; Platform -&gt; Ordering
+Platform -&gt; Platform -&gt; Platform
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Platform -&gt; Platform -&gt; Platform
+$cmin :: Platform -&gt; Platform -&gt; Platform
+max :: Platform -&gt; Platform -&gt; Platform
+$cmax :: Platform -&gt; Platform -&gt; Platform
+&gt;= :: Platform -&gt; Platform -&gt; Bool
+$c&gt;= :: Platform -&gt; Platform -&gt; Bool
+&gt; :: Platform -&gt; Platform -&gt; Bool
+$c&gt; :: Platform -&gt; Platform -&gt; Bool
+&lt;= :: Platform -&gt; Platform -&gt; Bool
+$c&lt;= :: Platform -&gt; Platform -&gt; Bool
+&lt; :: Platform -&gt; Platform -&gt; Bool
+$c&lt; :: Platform -&gt; Platform -&gt; Bool
+compare :: Platform -&gt; Platform -&gt; Ordering
+$ccompare :: Platform -&gt; Platform -&gt; Ordering
+$cp1Ord :: Eq Platform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Platform -&gt; Rep Platform x)
+-&gt; (forall x. Rep Platform x -&gt; Platform) -&gt; Generic Platform
+forall x. Rep Platform x -&gt; Platform
+forall x. Platform -&gt; Rep Platform x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Platform x -&gt; Platform
+$cfrom :: forall x. Platform -&gt; Rep Platform x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679316462"><span id="local-6989586621679316464"><span class="annot"><span class="annottext">Int -&gt; Platform -&gt; Int
+Platform -&gt; Int
+(Int -&gt; Platform -&gt; Int) -&gt; (Platform -&gt; Int) -&gt; Hashable Platform
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Platform -&gt; Int
+$chash :: Platform -&gt; Int
+hashWithSalt :: Int -&gt; Platform -&gt; Int
+$chashWithSalt :: Int -&gt; Platform -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679316459"><span class="annot"><span class="annottext">Platform -&gt; ()
+(Platform -&gt; ()) -&gt; NFData Platform
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Platform -&gt; ()
+$crnf :: Platform -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679316456"><span class="annot"><span class="annottext">Text -&gt; Either String Platform
+(Text -&gt; Either String Platform) -&gt; FromText Platform
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Platform
+$cfromText :: Text -&gt; Either String Platform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679316453"><span class="annot"><span class="annottext">Platform -&gt; Text
+(Platform -&gt; Text) -&gt; ToText Platform
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Platform -&gt; Text
+$ctoText :: Platform -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679316450"><span class="annot"><span class="annottext">Platform -&gt; ByteString
+(Platform -&gt; ByteString) -&gt; ToByteString Platform
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Platform -&gt; ByteString
+$ctoBS :: Platform -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679316447"><span class="annot"><span class="annottext">Platform -&gt; ByteStringBuilder
+(Platform -&gt; ByteStringBuilder) -&gt; ToLog Platform
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Platform -&gt; ByteStringBuilder
+$cbuild :: Platform -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679316444"><span class="annot"><span class="annottext">HeaderName -&gt; Platform -&gt; [Header]
+(HeaderName -&gt; Platform -&gt; [Header]) -&gt; ToHeader Platform
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Platform -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Platform -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679316441"><span class="annot"><span class="annottext">Platform -&gt; QueryString
+(Platform -&gt; QueryString) -&gt; ToQuery Platform
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Platform -&gt; QueryString
+$ctoQuery :: Platform -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679316436"><span id="local-6989586621679316438"><span class="annot"><span class="annottext">Value -&gt; Parser [Platform]
+Value -&gt; Parser Platform
+(Value -&gt; Parser Platform)
+-&gt; (Value -&gt; Parser [Platform]) -&gt; FromJSON Platform
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Platform]
+$cparseJSONList :: Value -&gt; Parser [Platform]
+parseJSON :: Value -&gt; Parser Platform
+$cparseJSON :: Value -&gt; Parser Platform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679316431"><span id="local-6989586621679316433"><span class="annot"><span class="annottext">FromJSONKeyFunction [Platform]
+FromJSONKeyFunction Platform
+FromJSONKeyFunction Platform
+-&gt; FromJSONKeyFunction [Platform] -&gt; FromJSONKey Platform
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Platform]
+$cfromJSONKeyList :: FromJSONKeyFunction [Platform]
+fromJSONKey :: FromJSONKeyFunction Platform
+$cfromJSONKey :: FromJSONKeyFunction Platform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679316422"><span id="local-6989586621679316424"><span id="local-6989586621679316426"><span id="local-6989586621679316428"><span class="annot"><span class="annottext">[Platform] -&gt; Encoding
+[Platform] -&gt; Value
+Platform -&gt; Encoding
+Platform -&gt; Value
+(Platform -&gt; Value)
+-&gt; (Platform -&gt; Encoding)
+-&gt; ([Platform] -&gt; Value)
+-&gt; ([Platform] -&gt; Encoding)
+-&gt; ToJSON Platform
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Platform] -&gt; Encoding
+$ctoEncodingList :: [Platform] -&gt; Encoding
+toJSONList :: [Platform] -&gt; Value
+$ctoJSONList :: [Platform] -&gt; Value
+toEncoding :: Platform -&gt; Encoding
+$ctoEncoding :: Platform -&gt; Encoding
+toJSON :: Platform -&gt; Value
+$ctoJSON :: Platform -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679316417"><span id="local-6989586621679316419"><span class="annot"><span class="annottext">ToJSONKeyFunction [Platform]
+ToJSONKeyFunction Platform
+ToJSONKeyFunction Platform
+-&gt; ToJSONKeyFunction [Platform] -&gt; ToJSONKey Platform
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Platform]
+$ctoJSONKeyList :: ToJSONKeyFunction [Platform]
+toJSONKey :: ToJSONKeyFunction Platform
+$ctoJSONKey :: ToJSONKeyFunction Platform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679316414"><span class="annot"><span class="annottext">[Node] -&gt; Either String Platform
+([Node] -&gt; Either String Platform) -&gt; FromXML Platform
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Platform
+$cparseXML :: [Node] -&gt; Either String Platform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679316411"><span class="annot"><span class="annottext">Platform -&gt; XML
+(Platform -&gt; XML) -&gt; ToXML Platform
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Platform -&gt; XML
+$ctoXML :: Platform -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform_Linux"><span class="hs-identifier hs-type">Platform_Linux</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform"><span class="hs-identifier hs-type">Platform</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlatform_Linux"><span id="%24mPlatform_Linux"><span id="Platform_Linux"><span class="annot"><span class="annottext">$bPlatform_Linux :: Platform
+$mPlatform_Linux :: forall r. Platform -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ImageBuilder.Types.Platform.html#%24bPlatform_Linux"><span class="hs-identifier hs-var hs-var hs-var">Platform_Linux</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform%27"><span class="hs-identifier hs-type">Platform'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Linux&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform_Windows"><span class="hs-identifier hs-type">Platform_Windows</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform"><span class="hs-identifier hs-type">Platform</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlatform_Windows"><span id="%24mPlatform_Windows"><span id="Platform_Windows"><span class="annot"><span class="annottext">$bPlatform_Windows :: Platform
+$mPlatform_Windows :: forall r. Platform -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ImageBuilder.Types.Platform.html#%24bPlatform_Windows"><span class="hs-identifier hs-var hs-var hs-var">Platform_Windows</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform%27"><span class="hs-identifier hs-type">Platform'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Windows&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform_Linux"><span class="hs-pragma hs-type">Platform_Linux</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform_Windows"><span class="hs-pragma hs-type">Platform_Windows</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform%27"><span class="hs-pragma hs-type">Platform'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

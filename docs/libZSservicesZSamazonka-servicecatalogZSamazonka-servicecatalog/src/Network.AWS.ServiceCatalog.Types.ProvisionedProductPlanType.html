@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679402005"><span id="local-6989586621679402006"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProvisionedProductPlanType"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType.html#ProvisionedProductPlanType"><span class="hs-identifier hs-var">ProvisionedProductPlanType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisionedProductPlanType%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType.html#ProvisionedProductPlanType%27"><span class="hs-identifier hs-var">ProvisionedProductPlanType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679402014"><span id="local-6989586621679402015"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProvisionedProductPlanType"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType.html#ProvisionedProductPlanType"><span class="hs-identifier hs-var">ProvisionedProductPlanType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisionedProductPlanType%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType.html#ProvisionedProductPlanType%27"><span class="hs-identifier hs-var">ProvisionedProductPlanType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProvisionedProductPlanType"><span class="annot"><span class="annottext">ProvisionedProductPlanType -&gt; Text
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType.html#fromProvisionedProductPlanType"><span class="hs-identifier hs-var hs-var">fromProvisionedProductPlanType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401997"><span id="local-6989586621679401999"><span id="local-6989586621679402001"><span class="annot"><span class="annottext">Int -&gt; ProvisionedProductPlanType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679402006"><span id="local-6989586621679402008"><span id="local-6989586621679402010"><span class="annot"><span class="annottext">Int -&gt; ProvisionedProductPlanType -&gt; ShowS
 [ProvisionedProductPlanType] -&gt; ShowS
 ProvisionedProductPlanType -&gt; String
 (Int -&gt; ProvisionedProductPlanType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: ProvisionedProductPlanType -&gt; String
 showsPrec :: Int -&gt; ProvisionedProductPlanType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProvisionedProductPlanType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679401988"><span id="local-6989586621679401990"><span id="local-6989586621679401992"><span id="local-6989586621679401994"><span class="annot"><span class="annottext">ReadPrec [ProvisionedProductPlanType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679401997"><span id="local-6989586621679401999"><span id="local-6989586621679402001"><span id="local-6989586621679402003"><span class="annot"><span class="annottext">ReadPrec [ProvisionedProductPlanType]
 ReadPrec ProvisionedProductPlanType
 Int -&gt; ReadS ProvisionedProductPlanType
 ReadS [ProvisionedProductPlanType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [ProvisionedProductPlanType]
 readsPrec :: Int -&gt; ReadS ProvisionedProductPlanType
 $creadsPrec :: Int -&gt; ReadS ProvisionedProductPlanType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679401983"><span id="local-6989586621679401985"><span class="annot"><span class="annottext">ProvisionedProductPlanType -&gt; ProvisionedProductPlanType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679401992"><span id="local-6989586621679401994"><span class="annot"><span class="annottext">ProvisionedProductPlanType -&gt; ProvisionedProductPlanType -&gt; Bool
 (ProvisionedProductPlanType -&gt; ProvisionedProductPlanType -&gt; Bool)
 -&gt; (ProvisionedProductPlanType
     -&gt; ProvisionedProductPlanType -&gt; Bool)
@@ -82,7 +82,7 @@ $c/= :: ProvisionedProductPlanType -&gt; ProvisionedProductPlanType -&gt; Bool
 == :: ProvisionedProductPlanType -&gt; ProvisionedProductPlanType -&gt; Bool
 $c== :: ProvisionedProductPlanType -&gt; ProvisionedProductPlanType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679401967"><span id="local-6989586621679401969"><span id="local-6989586621679401971"><span id="local-6989586621679401973"><span id="local-6989586621679401975"><span id="local-6989586621679401977"><span id="local-6989586621679401979"><span class="annot"><span class="annottext">Eq ProvisionedProductPlanType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679401976"><span id="local-6989586621679401978"><span id="local-6989586621679401980"><span id="local-6989586621679401982"><span id="local-6989586621679401984"><span id="local-6989586621679401986"><span id="local-6989586621679401988"><span class="annot"><span class="annottext">Eq ProvisionedProductPlanType
 Eq ProvisionedProductPlanType
 -&gt; (ProvisionedProductPlanType
     -&gt; ProvisionedProductPlanType -&gt; Ordering)
@@ -154,7 +154,7 @@ ProvisionedProductPlanType -&gt; Rep ProvisionedProductPlanType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401959"><span id="local-6989586621679401961"><span class="annot"><span class="annottext">Int -&gt; ProvisionedProductPlanType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401968"><span id="local-6989586621679401970"><span class="annot"><span class="annottext">Int -&gt; ProvisionedProductPlanType -&gt; Int
 ProvisionedProductPlanType -&gt; Int
 (Int -&gt; ProvisionedProductPlanType -&gt; Int)
 -&gt; (ProvisionedProductPlanType -&gt; Int)
@@ -165,56 +165,56 @@ $chash :: ProvisionedProductPlanType -&gt; Int
 hashWithSalt :: Int -&gt; ProvisionedProductPlanType -&gt; Int
 $chashWithSalt :: Int -&gt; ProvisionedProductPlanType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679401956"><span class="annot"><span class="annottext">ProvisionedProductPlanType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679401965"><span class="annot"><span class="annottext">ProvisionedProductPlanType -&gt; ()
 (ProvisionedProductPlanType -&gt; ())
 -&gt; NFData ProvisionedProductPlanType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProvisionedProductPlanType -&gt; ()
 $crnf :: ProvisionedProductPlanType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679401953"><span class="annot"><span class="annottext">Text -&gt; Either String ProvisionedProductPlanType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679401962"><span class="annot"><span class="annottext">Text -&gt; Either String ProvisionedProductPlanType
 (Text -&gt; Either String ProvisionedProductPlanType)
 -&gt; FromText ProvisionedProductPlanType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProvisionedProductPlanType
 $cfromText :: Text -&gt; Either String ProvisionedProductPlanType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679401950"><span class="annot"><span class="annottext">ProvisionedProductPlanType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679401959"><span class="annot"><span class="annottext">ProvisionedProductPlanType -&gt; Text
 (ProvisionedProductPlanType -&gt; Text)
 -&gt; ToText ProvisionedProductPlanType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProvisionedProductPlanType -&gt; Text
 $ctoText :: ProvisionedProductPlanType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679401947"><span class="annot"><span class="annottext">ProvisionedProductPlanType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679401956"><span class="annot"><span class="annottext">ProvisionedProductPlanType -&gt; ByteString
 (ProvisionedProductPlanType -&gt; ByteString)
 -&gt; ToByteString ProvisionedProductPlanType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProvisionedProductPlanType -&gt; ByteString
 $ctoBS :: ProvisionedProductPlanType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679401944"><span class="annot"><span class="annottext">ProvisionedProductPlanType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679401953"><span class="annot"><span class="annottext">ProvisionedProductPlanType -&gt; ByteStringBuilder
 (ProvisionedProductPlanType -&gt; ByteStringBuilder)
 -&gt; ToLog ProvisionedProductPlanType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProvisionedProductPlanType -&gt; ByteStringBuilder
 $cbuild :: ProvisionedProductPlanType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679401941"><span class="annot"><span class="annottext">HeaderName -&gt; ProvisionedProductPlanType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679401950"><span class="annot"><span class="annottext">HeaderName -&gt; ProvisionedProductPlanType -&gt; [Header]
 (HeaderName -&gt; ProvisionedProductPlanType -&gt; [Header])
 -&gt; ToHeader ProvisionedProductPlanType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProvisionedProductPlanType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProvisionedProductPlanType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679401938"><span class="annot"><span class="annottext">ProvisionedProductPlanType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679401947"><span class="annot"><span class="annottext">ProvisionedProductPlanType -&gt; QueryString
 (ProvisionedProductPlanType -&gt; QueryString)
 -&gt; ToQuery ProvisionedProductPlanType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProvisionedProductPlanType -&gt; QueryString
 $ctoQuery :: ProvisionedProductPlanType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679401933"><span id="local-6989586621679401935"><span class="annot"><span class="annottext">Value -&gt; Parser [ProvisionedProductPlanType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679401942"><span id="local-6989586621679401944"><span class="annot"><span class="annottext">Value -&gt; Parser [ProvisionedProductPlanType]
 Value -&gt; Parser ProvisionedProductPlanType
 (Value -&gt; Parser ProvisionedProductPlanType)
 -&gt; (Value -&gt; Parser [ProvisionedProductPlanType])
@@ -226,7 +226,7 @@ $cparseJSONList :: Value -&gt; Parser [ProvisionedProductPlanType]
 parseJSON :: Value -&gt; Parser ProvisionedProductPlanType
 $cparseJSON :: Value -&gt; Parser ProvisionedProductPlanType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679401928"><span id="local-6989586621679401930"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProvisionedProductPlanType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679401937"><span id="local-6989586621679401939"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProvisionedProductPlanType]
 FromJSONKeyFunction ProvisionedProductPlanType
 FromJSONKeyFunction ProvisionedProductPlanType
 -&gt; FromJSONKeyFunction [ProvisionedProductPlanType]
@@ -238,7 +238,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProvisionedProductPlanType]
 fromJSONKey :: FromJSONKeyFunction ProvisionedProductPlanType
 $cfromJSONKey :: FromJSONKeyFunction ProvisionedProductPlanType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679401919"><span id="local-6989586621679401921"><span id="local-6989586621679401923"><span id="local-6989586621679401925"><span class="annot"><span class="annottext">[ProvisionedProductPlanType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679401928"><span id="local-6989586621679401930"><span id="local-6989586621679401932"><span id="local-6989586621679401934"><span class="annot"><span class="annottext">[ProvisionedProductPlanType] -&gt; Encoding
 [ProvisionedProductPlanType] -&gt; Value
 ProvisionedProductPlanType -&gt; Encoding
 ProvisionedProductPlanType -&gt; Value
@@ -262,7 +262,7 @@ $ctoEncoding :: ProvisionedProductPlanType -&gt; Encoding
 toJSON :: ProvisionedProductPlanType -&gt; Value
 $ctoJSON :: ProvisionedProductPlanType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679401914"><span id="local-6989586621679401916"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProvisionedProductPlanType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679401923"><span id="local-6989586621679401925"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProvisionedProductPlanType]
 ToJSONKeyFunction ProvisionedProductPlanType
 ToJSONKeyFunction ProvisionedProductPlanType
 -&gt; ToJSONKeyFunction [ProvisionedProductPlanType]
@@ -274,14 +274,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProvisionedProductPlanType]
 toJSONKey :: ToJSONKeyFunction ProvisionedProductPlanType
 $ctoJSONKey :: ToJSONKeyFunction ProvisionedProductPlanType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679401911"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProvisionedProductPlanType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679401920"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProvisionedProductPlanType
 ([Node] -&gt; Either String ProvisionedProductPlanType)
 -&gt; FromXML ProvisionedProductPlanType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProvisionedProductPlanType
 $cparseXML :: [Node] -&gt; Either String ProvisionedProductPlanType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679401908"><span class="annot"><span class="annottext">ProvisionedProductPlanType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679401917"><span class="annot"><span class="annottext">ProvisionedProductPlanType -&gt; XML
 (ProvisionedProductPlanType -&gt; XML)
 -&gt; ToXML ProvisionedProductPlanType
 forall a. (a -&gt; XML) -&gt; ToXML a

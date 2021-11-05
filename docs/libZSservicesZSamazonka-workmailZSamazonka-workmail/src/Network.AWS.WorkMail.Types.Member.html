@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | The representation of a user or group.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMember' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679280276"><span id="local-6989586621679280277"></span></span><span class="hs-keyword">data</span><span> </span><span id="Member"><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-var">Member</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Member%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-var">Member'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679280285"><span id="local-6989586621679280286"></span></span><span class="hs-keyword">data</span><span> </span><span id="Member"><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-var">Member</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Member%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-var">Member'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the member, which can be ENABLED, DISABLED, or DELETED.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Astate%3AMember%27"><span class="annot"><span class="annottext">Member -&gt; Maybe EntityState
 </span><a href="Network.AWS.WorkMail.Types.Member.html#%24sel%3Astate%3AMember%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.EntityState.html#EntityState"><span class="hs-identifier hs-type">EntityState</span></a></span><span class="hs-special">,</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AenabledDate%3AMember%27"><span class="annot"><span class="annottext">Member -&gt; Maybe POSIX
 </span><a href="Network.AWS.WorkMail.Types.Member.html#%24sel%3AenabledDate%3AMember%27"><span class="hs-identifier hs-var hs-var">enabledDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280265"><span id="local-6989586621679280267"><span class="annot"><span class="annottext">Member -&gt; Member -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280274"><span id="local-6989586621679280276"><span class="annot"><span class="annottext">Member -&gt; Member -&gt; Bool
 (Member -&gt; Member -&gt; Bool)
 -&gt; (Member -&gt; Member -&gt; Bool) -&gt; Eq Member
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Member -&gt; Member -&gt; Bool
 == :: Member -&gt; Member -&gt; Bool
 $c== :: Member -&gt; Member -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280256"><span id="local-6989586621679280258"><span id="local-6989586621679280260"><span id="local-6989586621679280262"><span class="annot"><span class="annottext">ReadPrec [Member]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280265"><span id="local-6989586621679280267"><span id="local-6989586621679280269"><span id="local-6989586621679280271"><span class="annot"><span class="annottext">ReadPrec [Member]
 ReadPrec Member
 Int -&gt; ReadS Member
 ReadS [Member]
@@ -77,7 +77,7 @@ readList :: ReadS [Member]
 $creadList :: ReadS [Member]
 readsPrec :: Int -&gt; ReadS Member
 $creadsPrec :: Int -&gt; ReadS Member
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280249"><span id="local-6989586621679280251"><span id="local-6989586621679280253"><span class="annot"><span class="annottext">Int -&gt; Member -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280258"><span id="local-6989586621679280260"><span id="local-6989586621679280262"><span class="annot"><span class="annottext">Int -&gt; Member -&gt; ShowS
 [Member] -&gt; ShowS
 Member -&gt; String
 (Int -&gt; Member -&gt; ShowS)
@@ -165,16 +165,16 @@ forall a. Maybe a
 -&gt; (Member -&gt; Maybe EntityState -&gt; Member)
 -&gt; Lens Member Member (Maybe EntityState) (Maybe EntityState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280240"><span class="annot"><span class="annottext">Maybe EntityState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280249"><span class="annot"><span class="annottext">Maybe EntityState
 state :: Maybe EntityState
 $sel:state:Member' :: Member -&gt; Maybe EntityState
-</span><a href="#local-6989586621679280240"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityState
-</span><a href="#local-6989586621679280240"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280239"><span class="annot"><span class="annottext">s :: Member
-</span><a href="#local-6989586621679280239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280238"><span class="annot"><span class="annottext">Maybe EntityState
-</span><a href="#local-6989586621679280238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
-</span><a href="#local-6989586621679280239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:Member' :: Maybe EntityState
+</span><a href="#local-6989586621679280249"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityState
+</span><a href="#local-6989586621679280249"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280248"><span class="annot"><span class="annottext">s :: Member
+</span><a href="#local-6989586621679280248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280247"><span class="annot"><span class="annottext">Maybe EntityState
+</span><a href="#local-6989586621679280247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
+</span><a href="#local-6989586621679280248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:Member' :: Maybe EntityState
 </span><a href="Network.AWS.WorkMail.Types.Member.html#%24sel%3Astate%3AMember%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityState
-</span><a href="#local-6989586621679280238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The date indicating when the member was disabled from Amazon WorkMail</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- use.</span><span>
@@ -184,16 +184,16 @@ $sel:state:Member' :: Member -&gt; Maybe EntityState
 -&gt; (Member -&gt; Maybe POSIX -&gt; Member)
 -&gt; Lens Member Member (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280236"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280245"><span class="annot"><span class="annottext">Maybe POSIX
 disabledDate :: Maybe POSIX
 $sel:disabledDate:Member' :: Member -&gt; Maybe POSIX
-</span><a href="#local-6989586621679280236"><span class="hs-identifier hs-var hs-var">disabledDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679280236"><span class="hs-identifier hs-var">disabledDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280235"><span class="annot"><span class="annottext">s :: Member
-</span><a href="#local-6989586621679280235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280234"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679280234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
-</span><a href="#local-6989586621679280235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disabledDate:Member' :: Maybe POSIX
+</span><a href="#local-6989586621679280245"><span class="hs-identifier hs-var hs-var">disabledDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679280245"><span class="hs-identifier hs-var">disabledDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280244"><span class="annot"><span class="annottext">s :: Member
+</span><a href="#local-6989586621679280244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280243"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679280243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
+</span><a href="#local-6989586621679280244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disabledDate:Member' :: Maybe POSIX
 </span><a href="Network.AWS.WorkMail.Types.Member.html#%24sel%3AdisabledDate%3AMember%27"><span class="hs-identifier hs-var">disabledDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679280234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Member -&gt; f Member)
+</span><a href="#local-6989586621679280243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Member -&gt; f Member)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -216,16 +216,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (Member -&gt; Maybe Text -&gt; Member)
 -&gt; Lens Member Member (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280229"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280238"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Member' :: Member -&gt; Maybe Text
-</span><a href="#local-6989586621679280229"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280229"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280228"><span class="annot"><span class="annottext">s :: Member
-</span><a href="#local-6989586621679280228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280227"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
-</span><a href="#local-6989586621679280228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Member' :: Maybe Text
+</span><a href="#local-6989586621679280238"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280238"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280237"><span class="annot"><span class="annottext">s :: Member
+</span><a href="#local-6989586621679280237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280236"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
+</span><a href="#local-6989586621679280237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Member' :: Maybe Text
 </span><a href="Network.AWS.WorkMail.Types.Member.html#%24sel%3Aname%3AMember%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The identifier of the member.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#member_id"><span class="hs-identifier hs-type">member_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -234,16 +234,16 @@ $sel:name:Member' :: Member -&gt; Maybe Text
 -&gt; (Member -&gt; Maybe Text -&gt; Member)
 -&gt; Lens Member Member (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280225"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280234"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:Member' :: Member -&gt; Maybe Text
-</span><a href="#local-6989586621679280225"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280225"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280224"><span class="annot"><span class="annottext">s :: Member
-</span><a href="#local-6989586621679280224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280223"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
-</span><a href="#local-6989586621679280224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Member' :: Maybe Text
+</span><a href="#local-6989586621679280234"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280234"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280233"><span class="annot"><span class="annottext">s :: Member
+</span><a href="#local-6989586621679280233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280232"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
+</span><a href="#local-6989586621679280233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Member' :: Maybe Text
 </span><a href="Network.AWS.WorkMail.Types.Member.html#%24sel%3Aid%3AMember%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | A member can be a user or group.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#member_type"><span class="hs-identifier hs-type">member_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MemberType.html#MemberType"><span class="hs-identifier hs-type">MemberType</span></a></span><span class="hs-special">)</span><span>
@@ -252,16 +252,16 @@ $sel:id:Member' :: Member -&gt; Maybe Text
 -&gt; (Member -&gt; Maybe MemberType -&gt; Member)
 -&gt; Lens Member Member (Maybe MemberType) (Maybe MemberType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280221"><span class="annot"><span class="annottext">Maybe MemberType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280230"><span class="annot"><span class="annottext">Maybe MemberType
 type' :: Maybe MemberType
 $sel:type':Member' :: Member -&gt; Maybe MemberType
-</span><a href="#local-6989586621679280221"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MemberType
-</span><a href="#local-6989586621679280221"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280220"><span class="annot"><span class="annottext">s :: Member
-</span><a href="#local-6989586621679280220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280219"><span class="annot"><span class="annottext">Maybe MemberType
-</span><a href="#local-6989586621679280219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
-</span><a href="#local-6989586621679280220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Member' :: Maybe MemberType
+</span><a href="#local-6989586621679280230"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MemberType
+</span><a href="#local-6989586621679280230"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280229"><span class="annot"><span class="annottext">s :: Member
+</span><a href="#local-6989586621679280229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280228"><span class="annot"><span class="annottext">Maybe MemberType
+</span><a href="#local-6989586621679280228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
+</span><a href="#local-6989586621679280229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Member' :: Maybe MemberType
 </span><a href="Network.AWS.WorkMail.Types.Member.html#%24sel%3Atype%27%3AMember%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MemberType
-</span><a href="#local-6989586621679280219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The date indicating when the member was enabled for Amazon WorkMail use.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#member_enabledDate"><span class="hs-identifier hs-type">member_enabledDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -270,16 +270,16 @@ $sel:type':Member' :: Member -&gt; Maybe MemberType
 -&gt; (Member -&gt; Maybe POSIX -&gt; Member)
 -&gt; Lens Member Member (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280217"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280226"><span class="annot"><span class="annottext">Maybe POSIX
 enabledDate :: Maybe POSIX
 $sel:enabledDate:Member' :: Member -&gt; Maybe POSIX
-</span><a href="#local-6989586621679280217"><span class="hs-identifier hs-var hs-var">enabledDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679280217"><span class="hs-identifier hs-var">enabledDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280216"><span class="annot"><span class="annottext">s :: Member
-</span><a href="#local-6989586621679280216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280215"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679280215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
-</span><a href="#local-6989586621679280216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabledDate:Member' :: Maybe POSIX
+</span><a href="#local-6989586621679280226"><span class="hs-identifier hs-var hs-var">enabledDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679280226"><span class="hs-identifier hs-var">enabledDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280225"><span class="annot"><span class="annottext">s :: Member
+</span><a href="#local-6989586621679280225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280224"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679280224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
+</span><a href="#local-6989586621679280225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabledDate:Member' :: Maybe POSIX
 </span><a href="Network.AWS.WorkMail.Types.Member.html#%24sel%3AenabledDate%3AMember%27"><span class="hs-identifier hs-var">enabledDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679280215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Member -&gt; f Member)
+</span><a href="#local-6989586621679280224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Member -&gt; f Member)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -295,16 +295,16 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280212"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679280210"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Member
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280221"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679280219"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Member
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Member) -&gt; Value -&gt; Parser Member
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Member&quot;</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280207"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280207"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280216"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280216"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe EntityState
 -&gt; Maybe POSIX
 -&gt; Maybe Text
@@ -330,7 +330,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Member)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EntityState)
+</span><a href="#local-6989586621679280216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EntityState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
@@ -347,7 +347,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe MemberType -&gt; Maybe POSIX -&gt; Member)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679280216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DisabledDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -358,7 +358,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe MemberType -&gt; Maybe POSIX -&gt; Member)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679280216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -367,7 +367,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe MemberType -&gt; Maybe POSIX -&gt; Member)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679280216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -375,7 +375,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe MemberType) -&gt; Parser (Maybe POSIX -&gt; Member)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MemberType)
+</span><a href="#local-6989586621679280216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MemberType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
@@ -383,13 +383,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser Member
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679280216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnabledDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280201"><span id="local-6989586621679280203"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280210"><span id="local-6989586621679280212"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280198"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280207"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span></span><span>
 </span><span id="line-122"></span></pre></body></html>

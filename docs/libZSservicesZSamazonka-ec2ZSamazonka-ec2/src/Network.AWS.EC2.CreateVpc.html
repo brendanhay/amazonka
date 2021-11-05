@@ -77,7 +77,7 @@
 </span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | /See:/ 'newCreateVpc' smart constructor.</span><span>
-</span><span id="line-80"></span><span id="local-6989586621681286371"><span id="local-6989586621681286372"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVpc"><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-var">CreateVpc</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVpc%27"><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-var">CreateVpc'</span></a></span></span><span>
+</span><span id="line-80"></span><span id="local-6989586621681286380"><span id="local-6989586621681286381"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVpc"><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-var">CreateVpc</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVpc%27"><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-var">CreateVpc'</span></a></span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IPv6 CIDR block from the IPv6 address pool. You must also specify</span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-comment">-- @Ipv6Pool@ in the request.</span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -129,7 +129,7 @@
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AcidrBlock%3ACreateVpc%27"><span class="annot"><span class="annottext">CreateVpc -&gt; Text
 </span><a href="Network.AWS.EC2.CreateVpc.html#%24sel%3AcidrBlock%3ACreateVpc%27"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681286358"><span id="local-6989586621681286360"><span class="annot"><span class="annottext">CreateVpc -&gt; CreateVpc -&gt; Bool
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681286367"><span id="local-6989586621681286369"><span class="annot"><span class="annottext">CreateVpc -&gt; CreateVpc -&gt; Bool
 (CreateVpc -&gt; CreateVpc -&gt; Bool)
 -&gt; (CreateVpc -&gt; CreateVpc -&gt; Bool) -&gt; Eq CreateVpc
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -137,7 +137,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateVpc -&gt; CreateVpc -&gt; Bool
 == :: CreateVpc -&gt; CreateVpc -&gt; Bool
 $c== :: CreateVpc -&gt; CreateVpc -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681286349"><span id="local-6989586621681286351"><span id="local-6989586621681286353"><span id="local-6989586621681286355"><span class="annot"><span class="annottext">ReadPrec [CreateVpc]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681286358"><span id="local-6989586621681286360"><span id="local-6989586621681286362"><span id="local-6989586621681286364"><span class="annot"><span class="annottext">ReadPrec [CreateVpc]
 ReadPrec CreateVpc
 Int -&gt; ReadS CreateVpc
 ReadS [CreateVpc]
@@ -157,7 +157,7 @@ readList :: ReadS [CreateVpc]
 $creadList :: ReadS [CreateVpc]
 readsPrec :: Int -&gt; ReadS CreateVpc
 $creadsPrec :: Int -&gt; ReadS CreateVpc
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681286342"><span id="local-6989586621681286344"><span id="local-6989586621681286346"><span class="annot"><span class="annottext">Int -&gt; CreateVpc -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681286351"><span id="local-6989586621681286353"><span id="local-6989586621681286355"><span class="annot"><span class="annottext">Int -&gt; CreateVpc -&gt; ShowS
 [CreateVpc] -&gt; ShowS
 CreateVpc -&gt; String
 (Int -&gt; CreateVpc -&gt; ShowS)
@@ -236,8 +236,8 @@ $cfrom :: forall x. CreateVpc -&gt; Rep CreateVpc x
 </span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span>
 </span><span id="line-179"></span><span id="newCreateVpc"><span class="annot"><span class="annottext">newCreateVpc :: Text -&gt; CreateVpc
-</span><a href="Network.AWS.EC2.CreateVpc.html#newCreateVpc"><span class="hs-identifier hs-var hs-var">newCreateVpc</span></a></span></span><span> </span><span id="local-6989586621681286337"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681286337"><span class="hs-identifier hs-var">pCidrBlock_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.CreateVpc.html#newCreateVpc"><span class="hs-identifier hs-var hs-var">newCreateVpc</span></a></span></span><span> </span><span id="local-6989586621681286346"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681286346"><span class="hs-identifier hs-var">pCidrBlock_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">CreateVpc' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [TagSpecification]
@@ -278,7 +278,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:cidrBlock:CreateVpc' :: Text
 </span><a href="Network.AWS.EC2.CreateVpc.html#%24sel%3AcidrBlock%3ACreateVpc%27"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681286337"><span class="hs-identifier hs-var">pCidrBlock_</span></a></span><span>
+</span><a href="#local-6989586621681286346"><span class="hs-identifier hs-var">pCidrBlock_</span></a></span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The IPv6 CIDR block from the IPv6 address pool. You must also specify</span><span>
@@ -291,16 +291,16 @@ forall a. Maybe a
 -&gt; (CreateVpc -&gt; Maybe Text -&gt; CreateVpc)
 -&gt; Lens CreateVpc CreateVpc (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286334"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286343"><span class="annot"><span class="annottext">Maybe Text
 ipv6CidrBlock :: Maybe Text
 $sel:ipv6CidrBlock:CreateVpc' :: CreateVpc -&gt; Maybe Text
-</span><a href="#local-6989586621681286334"><span class="hs-identifier hs-var hs-var">ipv6CidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681286334"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286333"><span class="annot"><span class="annottext">s :: CreateVpc
-</span><a href="#local-6989586621681286333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286332"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681286332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpc
-</span><a href="#local-6989586621681286333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6CidrBlock:CreateVpc' :: Maybe Text
+</span><a href="#local-6989586621681286343"><span class="hs-identifier hs-var hs-var">ipv6CidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681286343"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286342"><span class="annot"><span class="annottext">s :: CreateVpc
+</span><a href="#local-6989586621681286342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286341"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681286341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpc
+</span><a href="#local-6989586621681286342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6CidrBlock:CreateVpc' :: Maybe Text
 </span><a href="Network.AWS.EC2.CreateVpc.html#%24sel%3Aipv6CidrBlock%3ACreateVpc%27"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681286332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681286341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The name of the location from which we advertise the IPV6 CIDR block.</span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- Use this parameter to limit the address to this location.</span><span>
@@ -313,16 +313,16 @@ $sel:ipv6CidrBlock:CreateVpc' :: CreateVpc -&gt; Maybe Text
 -&gt; (CreateVpc -&gt; Maybe Text -&gt; CreateVpc)
 -&gt; Lens CreateVpc CreateVpc (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286331"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286340"><span class="annot"><span class="annottext">Maybe Text
 ipv6CidrBlockNetworkBorderGroup :: Maybe Text
 $sel:ipv6CidrBlockNetworkBorderGroup:CreateVpc' :: CreateVpc -&gt; Maybe Text
-</span><a href="#local-6989586621681286331"><span class="hs-identifier hs-var hs-var">ipv6CidrBlockNetworkBorderGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681286331"><span class="hs-identifier hs-var">ipv6CidrBlockNetworkBorderGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286330"><span class="annot"><span class="annottext">s :: CreateVpc
-</span><a href="#local-6989586621681286330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286329"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681286329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpc
-</span><a href="#local-6989586621681286330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6CidrBlockNetworkBorderGroup:CreateVpc' :: Maybe Text
+</span><a href="#local-6989586621681286340"><span class="hs-identifier hs-var hs-var">ipv6CidrBlockNetworkBorderGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681286340"><span class="hs-identifier hs-var">ipv6CidrBlockNetworkBorderGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286339"><span class="annot"><span class="annottext">s :: CreateVpc
+</span><a href="#local-6989586621681286339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286338"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681286338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpc
+</span><a href="#local-6989586621681286339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6CidrBlockNetworkBorderGroup:CreateVpc' :: Maybe Text
 </span><a href="Network.AWS.EC2.CreateVpc.html#%24sel%3Aipv6CidrBlockNetworkBorderGroup%3ACreateVpc%27"><span class="hs-identifier hs-var">ipv6CidrBlockNetworkBorderGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681286329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681286338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | The tags to assign to the VPC.</span><span>
 </span><span id="line-207"></span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#createVpc_tagSpecifications"><span class="hs-identifier hs-type">createVpc_tagSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -336,16 +336,16 @@ $sel:ipv6CidrBlockNetworkBorderGroup:CreateVpc' :: CreateVpc -&gt; Maybe Text
      (Maybe [TagSpecification])
      (Maybe [TagSpecification])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286328"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286337"><span class="annot"><span class="annottext">Maybe [TagSpecification]
 tagSpecifications :: Maybe [TagSpecification]
 $sel:tagSpecifications:CreateVpc' :: CreateVpc -&gt; Maybe [TagSpecification]
-</span><a href="#local-6989586621681286328"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681286328"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286327"><span class="annot"><span class="annottext">s :: CreateVpc
-</span><a href="#local-6989586621681286327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286326"><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681286326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpc
-</span><a href="#local-6989586621681286327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateVpc' :: Maybe [TagSpecification]
+</span><a href="#local-6989586621681286337"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681286337"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286336"><span class="annot"><span class="annottext">s :: CreateVpc
+</span><a href="#local-6989586621681286336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286335"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681286335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpc
+</span><a href="#local-6989586621681286336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateVpc' :: Maybe [TagSpecification]
 </span><a href="Network.AWS.EC2.CreateVpc.html#%24sel%3AtagSpecifications%3ACreateVpc%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681286326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+</span><a href="#local-6989586621681286335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
  -&gt; CreateVpc -&gt; f CreateVpc)
 -&gt; ((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
     -&gt; Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
@@ -382,16 +382,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateVpc -&gt; Maybe Text -&gt; CreateVpc)
 -&gt; Lens CreateVpc CreateVpc (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286322"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286331"><span class="annot"><span class="annottext">Maybe Text
 ipv6Pool :: Maybe Text
 $sel:ipv6Pool:CreateVpc' :: CreateVpc -&gt; Maybe Text
-</span><a href="#local-6989586621681286322"><span class="hs-identifier hs-var hs-var">ipv6Pool</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681286322"><span class="hs-identifier hs-var">ipv6Pool</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286321"><span class="annot"><span class="annottext">s :: CreateVpc
-</span><a href="#local-6989586621681286321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286320"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681286320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpc
-</span><a href="#local-6989586621681286321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6Pool:CreateVpc' :: Maybe Text
+</span><a href="#local-6989586621681286331"><span class="hs-identifier hs-var hs-var">ipv6Pool</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681286331"><span class="hs-identifier hs-var">ipv6Pool</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286330"><span class="annot"><span class="annottext">s :: CreateVpc
+</span><a href="#local-6989586621681286330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286329"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681286329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpc
+</span><a href="#local-6989586621681286330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6Pool:CreateVpc' :: Maybe Text
 </span><a href="Network.AWS.EC2.CreateVpc.html#%24sel%3Aipv6Pool%3ACreateVpc%27"><span class="hs-identifier hs-var">ipv6Pool</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681286320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681286329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | Requests an Amazon-provided IPv6 CIDR block with a \/56 prefix length</span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- for the VPC. You cannot specify the range of IP addresses, or the size</span><span>
@@ -402,16 +402,16 @@ $sel:ipv6Pool:CreateVpc' :: CreateVpc -&gt; Maybe Text
 -&gt; (CreateVpc -&gt; Maybe Bool -&gt; CreateVpc)
 -&gt; Lens CreateVpc CreateVpc (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286319"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286328"><span class="annot"><span class="annottext">Maybe Bool
 amazonProvidedIpv6CidrBlock :: Maybe Bool
 $sel:amazonProvidedIpv6CidrBlock:CreateVpc' :: CreateVpc -&gt; Maybe Bool
-</span><a href="#local-6989586621681286319"><span class="hs-identifier hs-var hs-var">amazonProvidedIpv6CidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681286319"><span class="hs-identifier hs-var">amazonProvidedIpv6CidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286318"><span class="annot"><span class="annottext">s :: CreateVpc
-</span><a href="#local-6989586621681286318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286317"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681286317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpc
-</span><a href="#local-6989586621681286318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amazonProvidedIpv6CidrBlock:CreateVpc' :: Maybe Bool
+</span><a href="#local-6989586621681286328"><span class="hs-identifier hs-var hs-var">amazonProvidedIpv6CidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681286328"><span class="hs-identifier hs-var">amazonProvidedIpv6CidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286327"><span class="annot"><span class="annottext">s :: CreateVpc
+</span><a href="#local-6989586621681286327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286326"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681286326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpc
+</span><a href="#local-6989586621681286327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amazonProvidedIpv6CidrBlock:CreateVpc' :: Maybe Bool
 </span><a href="Network.AWS.EC2.CreateVpc.html#%24sel%3AamazonProvidedIpv6CidrBlock%3ACreateVpc%27"><span class="hs-identifier hs-var">amazonProvidedIpv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681286317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681286326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | The tenancy options for instances launched into the VPC. For @default@,</span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- instances are launched with shared tenancy by default. You can launch</span><span>
@@ -430,16 +430,16 @@ $sel:amazonProvidedIpv6CidrBlock:CreateVpc' :: CreateVpc -&gt; Maybe Bool
 -&gt; (CreateVpc -&gt; Maybe Tenancy -&gt; CreateVpc)
 -&gt; Lens CreateVpc CreateVpc (Maybe Tenancy) (Maybe Tenancy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286316"><span class="annot"><span class="annottext">Maybe Tenancy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286325"><span class="annot"><span class="annottext">Maybe Tenancy
 instanceTenancy :: Maybe Tenancy
 $sel:instanceTenancy:CreateVpc' :: CreateVpc -&gt; Maybe Tenancy
-</span><a href="#local-6989586621681286316"><span class="hs-identifier hs-var hs-var">instanceTenancy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
-</span><a href="#local-6989586621681286316"><span class="hs-identifier hs-var">instanceTenancy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286315"><span class="annot"><span class="annottext">s :: CreateVpc
-</span><a href="#local-6989586621681286315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286314"><span class="annot"><span class="annottext">Maybe Tenancy
-</span><a href="#local-6989586621681286314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpc
-</span><a href="#local-6989586621681286315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceTenancy:CreateVpc' :: Maybe Tenancy
+</span><a href="#local-6989586621681286325"><span class="hs-identifier hs-var hs-var">instanceTenancy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
+</span><a href="#local-6989586621681286325"><span class="hs-identifier hs-var">instanceTenancy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286324"><span class="annot"><span class="annottext">s :: CreateVpc
+</span><a href="#local-6989586621681286324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286323"><span class="annot"><span class="annottext">Maybe Tenancy
+</span><a href="#local-6989586621681286323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpc
+</span><a href="#local-6989586621681286324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceTenancy:CreateVpc' :: Maybe Tenancy
 </span><a href="Network.AWS.EC2.CreateVpc.html#%24sel%3AinstanceTenancy%3ACreateVpc%27"><span class="hs-identifier hs-var">instanceTenancy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
-</span><a href="#local-6989586621681286314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681286323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
@@ -451,16 +451,16 @@ $sel:instanceTenancy:CreateVpc' :: CreateVpc -&gt; Maybe Tenancy
 -&gt; (CreateVpc -&gt; Maybe Bool -&gt; CreateVpc)
 -&gt; Lens CreateVpc CreateVpc (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286313"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286322"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:CreateVpc' :: CreateVpc -&gt; Maybe Bool
-</span><a href="#local-6989586621681286313"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681286313"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286312"><span class="annot"><span class="annottext">s :: CreateVpc
-</span><a href="#local-6989586621681286312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286311"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681286311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpc
-</span><a href="#local-6989586621681286312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateVpc' :: Maybe Bool
+</span><a href="#local-6989586621681286322"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681286322"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286321"><span class="annot"><span class="annottext">s :: CreateVpc
+</span><a href="#local-6989586621681286321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286320"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681286320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpc
+</span><a href="#local-6989586621681286321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateVpc' :: Maybe Bool
 </span><a href="Network.AWS.EC2.CreateVpc.html#%24sel%3AdryRun%3ACreateVpc%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681286311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681286320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- | The IPv4 network range for the VPC, in CIDR notation. For example,</span><span>
 </span><span id="line-243"></span><span class="hs-comment">-- @10.0.0.0\/16@. We modify the specified CIDR block to its canonical</span><span>
@@ -472,25 +472,25 @@ $sel:dryRun:CreateVpc' :: CreateVpc -&gt; Maybe Bool
 -&gt; (CreateVpc -&gt; Text -&gt; CreateVpc)
 -&gt; Lens CreateVpc CreateVpc Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286310"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286319"><span class="annot"><span class="annottext">Text
 cidrBlock :: Text
 $sel:cidrBlock:CreateVpc' :: CreateVpc -&gt; Text
-</span><a href="#local-6989586621681286310"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681286310"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286309"><span class="annot"><span class="annottext">s :: CreateVpc
-</span><a href="#local-6989586621681286309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286308"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681286308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpc
-</span><a href="#local-6989586621681286309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrBlock:CreateVpc' :: Text
+</span><a href="#local-6989586621681286319"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681286319"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286318"><span class="annot"><span class="annottext">s :: CreateVpc
+</span><a href="#local-6989586621681286318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286317"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681286317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpc
+</span><a href="#local-6989586621681286318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrBlock:CreateVpc' :: Text
 </span><a href="Network.AWS.EC2.CreateVpc.html#%24sel%3AcidrBlock%3ACreateVpc%27"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681286308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681286317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-250"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse"><span class="hs-identifier hs-type">CreateVpcResponse</span></a></span><span>
-</span><span id="line-251"></span><span>  </span><span id="local-6989586621681286304"><span class="annot"><span class="annottext">request :: CreateVpc -&gt; Request CreateVpc
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621681286313"><span class="annot"><span class="annottext">request :: CreateVpc -&gt; Request CreateVpc
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateVpc -&gt; Request CreateVpc
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-252"></span><span>  </span><span id="local-6989586621681286300"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621681286309"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateVpc
 -&gt; ClientResponse ClientBody
@@ -514,10 +514,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-254"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681286297"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681286297"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681286296"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681286296"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681286295"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681286295"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-254"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681286306"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681286306"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681286305"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681286305"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681286304"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681286304"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-255"></span><span>          </span><span class="annot"><span class="annottext">Maybe Vpc -&gt; Int -&gt; CreateVpcResponse
 </span><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse%27"><span class="hs-identifier hs-var">CreateVpcResponse'</span></a></span><span>
 </span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Vpc -&gt; Int -&gt; CreateVpcResponse)
@@ -525,7 +525,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateVpcResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681286295"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Vpc)
+</span><a href="#local-6989586621681286304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Vpc)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vpc&quot;</span></span><span class="hs-special">)</span><span>
@@ -537,15 +537,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681286297"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681286306"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
-</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681286287"><span id="local-6989586621681286289"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span></span></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681286296"><span id="local-6989586621681286298"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span></span></span><span>
 </span><span id="line-261"></span><span>
-</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681286284"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681286293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span></span><span>
 </span><span id="line-263"></span><span>
 </span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-265"></span><span>  </span><span id="local-6989586621681286280"><span class="annot"><span class="annottext">toHeaders :: CreateVpc -&gt; ResponseHeaders
+</span><span id="line-265"></span><span>  </span><span id="local-6989586621681286289"><span class="annot"><span class="annottext">toHeaders :: CreateVpc -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateVpc -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -553,15 +553,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-268"></span><span>  </span><span id="local-6989586621681286275"><span class="annot"><span class="annottext">toPath :: CreateVpc -&gt; ByteString
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621681286284"><span class="annot"><span class="annottext">toPath :: CreateVpc -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateVpc -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc"><span class="hs-identifier hs-type">CreateVpc</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-271"></span><span>  </span><span id="local-6989586621681286271"><span class="annot"><span class="annottext">toQuery :: CreateVpc -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286262"><span id="local-6989586621681286263"><span id="local-6989586621681286264"><span id="local-6989586621681286265"><span id="local-6989586621681286266"><span id="local-6989586621681286267"><span id="local-6989586621681286268"><span id="local-6989586621681286269"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621681286280"><span class="annot"><span class="annottext">toQuery :: CreateVpc -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpc%27"><span class="hs-identifier hs-type">CreateVpc'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286271"><span id="local-6989586621681286272"><span id="local-6989586621681286273"><span id="local-6989586621681286274"><span id="local-6989586621681286275"><span id="local-6989586621681286276"><span id="local-6989586621681286277"><span id="local-6989586621681286278"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [TagSpecification]
 Maybe Text
 Maybe Tenancy
@@ -582,7 +582,7 @@ $sel:ipv6Pool:CreateVpc' :: CreateVpc -&gt; Maybe Text
 $sel:tagSpecifications:CreateVpc' :: CreateVpc -&gt; Maybe [TagSpecification]
 $sel:ipv6CidrBlockNetworkBorderGroup:CreateVpc' :: CreateVpc -&gt; Maybe Text
 $sel:ipv6CidrBlock:CreateVpc' :: CreateVpc -&gt; Maybe Text
-</span><a href="#local-6989586621681286262"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681286271"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-272"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -602,13 +602,13 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Ipv6CidrBlock&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681286269"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681286278"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-278"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Ipv6CidrBlockNetworkBorderGroup&quot;</span></span><span>
 </span><span id="line-279"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681286268"><span class="hs-identifier hs-var">ipv6CidrBlockNetworkBorderGroup</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681286277"><span class="hs-identifier hs-var">ipv6CidrBlockNetworkBorderGroup</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-280"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -622,38 +622,38 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [TagSpecification] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681286267"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
+</span><a href="#local-6989586621681286276"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
 </span><span id="line-283"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-284"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Ipv6Pool&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681286266"><span class="hs-identifier hs-var">ipv6Pool</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681286275"><span class="hs-identifier hs-var">ipv6Pool</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-285"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AmazonProvidedIpv6CidrBlock&quot;</span></span><span>
 </span><span id="line-286"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681286265"><span class="hs-identifier hs-var">amazonProvidedIpv6CidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681286274"><span class="hs-identifier hs-var">amazonProvidedIpv6CidrBlock</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-287"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;InstanceTenancy&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Tenancy -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
-</span><a href="#local-6989586621681286264"><span class="hs-identifier hs-var">instanceTenancy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681286273"><span class="hs-identifier hs-var">instanceTenancy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-288"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681286263"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681286272"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-289"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;CidrBlock&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681286262"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span>
+</span><a href="#local-6989586621681286271"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span>
 </span><span id="line-290"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-291"></span><span>
 </span><span id="line-292"></span><span class="hs-comment">-- | /See:/ 'newCreateVpcResponse' smart constructor.</span><span>
-</span><span id="line-293"></span><span id="local-6989586621681286258"><span id="local-6989586621681286259"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVpcResponse"><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse"><span class="hs-identifier hs-var">CreateVpcResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVpcResponse%27"><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse%27"><span class="hs-identifier hs-var">CreateVpcResponse'</span></a></span></span><span>
+</span><span id="line-293"></span><span id="local-6989586621681286267"><span id="local-6989586621681286268"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVpcResponse"><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse"><span class="hs-identifier hs-var">CreateVpcResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVpcResponse%27"><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse%27"><span class="hs-identifier hs-var">CreateVpcResponse'</span></a></span></span><span>
 </span><span id="line-294"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the VPC.</span><span>
 </span><span id="line-295"></span><span>    </span><span id="%24sel%3Avpc%3ACreateVpcResponse%27"><span class="annot"><span class="annottext">CreateVpcResponse -&gt; Maybe Vpc
 </span><a href="Network.AWS.EC2.CreateVpc.html#%24sel%3Avpc%3ACreateVpcResponse%27"><span class="hs-identifier hs-var hs-var">vpc</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Vpc.html#Vpc"><span class="hs-identifier hs-type">Vpc</span></a></span><span class="hs-special">,</span><span>
@@ -661,7 +661,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-297"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateVpcResponse%27"><span class="annot"><span class="annottext">CreateVpcResponse -&gt; Int
 </span><a href="Network.AWS.EC2.CreateVpc.html#%24sel%3AhttpStatus%3ACreateVpcResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-298"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-299"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681286252"><span id="local-6989586621681286254"><span class="annot"><span class="annottext">CreateVpcResponse -&gt; CreateVpcResponse -&gt; Bool
+</span><span id="line-299"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681286261"><span id="local-6989586621681286263"><span class="annot"><span class="annottext">CreateVpcResponse -&gt; CreateVpcResponse -&gt; Bool
 (CreateVpcResponse -&gt; CreateVpcResponse -&gt; Bool)
 -&gt; (CreateVpcResponse -&gt; CreateVpcResponse -&gt; Bool)
 -&gt; Eq CreateVpcResponse
@@ -670,7 +670,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateVpcResponse -&gt; CreateVpcResponse -&gt; Bool
 == :: CreateVpcResponse -&gt; CreateVpcResponse -&gt; Bool
 $c== :: CreateVpcResponse -&gt; CreateVpcResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681286244"><span id="local-6989586621681286246"><span id="local-6989586621681286248"><span id="local-6989586621681286250"><span class="annot"><span class="annottext">ReadPrec [CreateVpcResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681286253"><span id="local-6989586621681286255"><span id="local-6989586621681286257"><span id="local-6989586621681286259"><span class="annot"><span class="annottext">ReadPrec [CreateVpcResponse]
 ReadPrec CreateVpcResponse
 Int -&gt; ReadS CreateVpcResponse
 ReadS [CreateVpcResponse]
@@ -690,7 +690,7 @@ readList :: ReadS [CreateVpcResponse]
 $creadList :: ReadS [CreateVpcResponse]
 readsPrec :: Int -&gt; ReadS CreateVpcResponse
 $creadsPrec :: Int -&gt; ReadS CreateVpcResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681286238"><span id="local-6989586621681286240"><span id="local-6989586621681286242"><span class="annot"><span class="annottext">Int -&gt; CreateVpcResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681286247"><span id="local-6989586621681286249"><span id="local-6989586621681286251"><span class="annot"><span class="annottext">Int -&gt; CreateVpcResponse -&gt; ShowS
 [CreateVpcResponse] -&gt; ShowS
 CreateVpcResponse -&gt; String
 (Int -&gt; CreateVpcResponse -&gt; ShowS)
@@ -732,8 +732,8 @@ $cfrom :: forall x. CreateVpcResponse -&gt; Rep CreateVpcResponse x
 </span><span id="line-314"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-315"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse"><span class="hs-identifier hs-type">CreateVpcResponse</span></a></span><span>
 </span><span id="line-316"></span><span id="newCreateVpcResponse"><span class="annot"><span class="annottext">newCreateVpcResponse :: Int -&gt; CreateVpcResponse
-</span><a href="Network.AWS.EC2.CreateVpc.html#newCreateVpcResponse"><span class="hs-identifier hs-var hs-var">newCreateVpcResponse</span></a></span></span><span> </span><span id="local-6989586621681286235"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681286235"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.CreateVpc.html#newCreateVpcResponse"><span class="hs-identifier hs-var hs-var">newCreateVpcResponse</span></a></span></span><span> </span><span id="local-6989586621681286244"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681286244"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-317"></span><span>  </span><span class="annot"><span class="annottext">CreateVpcResponse' :: Maybe Vpc -&gt; Int -&gt; CreateVpcResponse
 </span><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse%27"><span class="hs-identifier hs-type">CreateVpcResponse'</span></a></span><span>
 </span><span id="line-318"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpc:CreateVpcResponse' :: Maybe Vpc
@@ -742,7 +742,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-319"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateVpcResponse' :: Int
 </span><a href="Network.AWS.EC2.CreateVpc.html#%24sel%3AhttpStatus%3ACreateVpcResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681286235"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681286244"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-320"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-321"></span><span>
 </span><span id="line-322"></span><span class="hs-comment">-- | Information about the VPC.</span><span>
@@ -753,16 +753,16 @@ forall a. Maybe a
 -&gt; (CreateVpcResponse -&gt; Maybe Vpc -&gt; CreateVpcResponse)
 -&gt; Lens CreateVpcResponse CreateVpcResponse (Maybe Vpc) (Maybe Vpc)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse%27"><span class="hs-identifier hs-type">CreateVpcResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286234"><span class="annot"><span class="annottext">Maybe Vpc
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse%27"><span class="hs-identifier hs-type">CreateVpcResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286243"><span class="annot"><span class="annottext">Maybe Vpc
 vpc :: Maybe Vpc
 $sel:vpc:CreateVpcResponse' :: CreateVpcResponse -&gt; Maybe Vpc
-</span><a href="#local-6989586621681286234"><span class="hs-identifier hs-var hs-var">vpc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vpc
-</span><a href="#local-6989586621681286234"><span class="hs-identifier hs-var">vpc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286233"><span class="annot"><span class="annottext">s :: CreateVpcResponse
-</span><a href="#local-6989586621681286233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse%27"><span class="hs-identifier hs-type">CreateVpcResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286232"><span class="annot"><span class="annottext">Maybe Vpc
-</span><a href="#local-6989586621681286232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpcResponse
-</span><a href="#local-6989586621681286233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpc:CreateVpcResponse' :: Maybe Vpc
+</span><a href="#local-6989586621681286243"><span class="hs-identifier hs-var hs-var">vpc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vpc
+</span><a href="#local-6989586621681286243"><span class="hs-identifier hs-var">vpc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286242"><span class="annot"><span class="annottext">s :: CreateVpcResponse
+</span><a href="#local-6989586621681286242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse%27"><span class="hs-identifier hs-type">CreateVpcResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286241"><span class="annot"><span class="annottext">Maybe Vpc
+</span><a href="#local-6989586621681286241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpcResponse
+</span><a href="#local-6989586621681286242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpc:CreateVpcResponse' :: Maybe Vpc
 </span><a href="Network.AWS.EC2.CreateVpc.html#%24sel%3Avpc%3ACreateVpcResponse%27"><span class="hs-identifier hs-var">vpc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vpc
-</span><a href="#local-6989586621681286232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse"><span class="hs-identifier hs-type">CreateVpcResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681286241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse"><span class="hs-identifier hs-type">CreateVpcResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-325"></span><span>
 </span><span id="line-326"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-327"></span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#createVpcResponse_httpStatus"><span class="hs-identifier hs-type">createVpcResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse"><span class="hs-identifier hs-type">CreateVpcResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -771,16 +771,16 @@ $sel:vpc:CreateVpcResponse' :: CreateVpcResponse -&gt; Maybe Vpc
 -&gt; (CreateVpcResponse -&gt; Int -&gt; CreateVpcResponse)
 -&gt; Lens CreateVpcResponse CreateVpcResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse%27"><span class="hs-identifier hs-type">CreateVpcResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286231"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse%27"><span class="hs-identifier hs-type">CreateVpcResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681286240"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateVpcResponse' :: CreateVpcResponse -&gt; Int
-</span><a href="#local-6989586621681286231"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681286231"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286230"><span class="annot"><span class="annottext">s :: CreateVpcResponse
-</span><a href="#local-6989586621681286230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse%27"><span class="hs-identifier hs-type">CreateVpcResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286229"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681286229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpcResponse
-</span><a href="#local-6989586621681286230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateVpcResponse' :: Int
+</span><a href="#local-6989586621681286240"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681286240"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681286239"><span class="annot"><span class="annottext">s :: CreateVpcResponse
+</span><a href="#local-6989586621681286239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse%27"><span class="hs-identifier hs-type">CreateVpcResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681286238"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681286238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpcResponse
+</span><a href="#local-6989586621681286239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateVpcResponse' :: Int
 </span><a href="Network.AWS.EC2.CreateVpc.html#%24sel%3AhttpStatus%3ACreateVpcResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681286229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse"><span class="hs-identifier hs-type">CreateVpcResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681286238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse"><span class="hs-identifier hs-type">CreateVpcResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-329"></span><span>
-</span><span id="line-330"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681286227"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse"><span class="hs-identifier hs-type">CreateVpcResponse</span></a></span></span><span>
+</span><span id="line-330"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681286236"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpc.html#CreateVpcResponse"><span class="hs-identifier hs-type">CreateVpcResponse</span></a></span></span><span>
 </span><span id="line-331"></span></pre></body></html>

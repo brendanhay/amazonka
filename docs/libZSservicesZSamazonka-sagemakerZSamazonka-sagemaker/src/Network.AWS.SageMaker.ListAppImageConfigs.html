@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newListAppImageConfigs' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621680388113"><span id="local-6989586621680388114"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAppImageConfigs"><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-var">ListAppImageConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAppImageConfigs%27"><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-var">ListAppImageConfigs'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621680388122"><span id="local-6989586621680388123"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAppImageConfigs"><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-var">ListAppImageConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAppImageConfigs%27"><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-var">ListAppImageConfigs'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A filter that returns only AppImageConfigs whose name contains the</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- specified string.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AnameContains%3AListAppImageConfigs%27"><span class="annot"><span class="annottext">ListAppImageConfigs -&gt; Maybe Text
@@ -97,7 +97,7 @@
 </span><span id="line-89"></span><span>    </span><span id="%24sel%3AsortBy%3AListAppImageConfigs%27"><span class="annot"><span class="annottext">ListAppImageConfigs -&gt; Maybe AppImageConfigSortKey
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#%24sel%3AsortBy%3AListAppImageConfigs%27"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey"><span class="hs-identifier hs-type">AppImageConfigSortKey</span></a></span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680388099"><span id="local-6989586621680388101"><span class="annot"><span class="annottext">ListAppImageConfigs -&gt; ListAppImageConfigs -&gt; Bool
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680388108"><span id="local-6989586621680388110"><span class="annot"><span class="annottext">ListAppImageConfigs -&gt; ListAppImageConfigs -&gt; Bool
 (ListAppImageConfigs -&gt; ListAppImageConfigs -&gt; Bool)
 -&gt; (ListAppImageConfigs -&gt; ListAppImageConfigs -&gt; Bool)
 -&gt; Eq ListAppImageConfigs
@@ -106,7 +106,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListAppImageConfigs -&gt; ListAppImageConfigs -&gt; Bool
 == :: ListAppImageConfigs -&gt; ListAppImageConfigs -&gt; Bool
 $c== :: ListAppImageConfigs -&gt; ListAppImageConfigs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680388090"><span id="local-6989586621680388092"><span id="local-6989586621680388094"><span id="local-6989586621680388096"><span class="annot"><span class="annottext">ReadPrec [ListAppImageConfigs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680388099"><span id="local-6989586621680388101"><span id="local-6989586621680388103"><span id="local-6989586621680388105"><span class="annot"><span class="annottext">ReadPrec [ListAppImageConfigs]
 ReadPrec ListAppImageConfigs
 Int -&gt; ReadS ListAppImageConfigs
 ReadS [ListAppImageConfigs]
@@ -126,7 +126,7 @@ readList :: ReadS [ListAppImageConfigs]
 $creadList :: ReadS [ListAppImageConfigs]
 readsPrec :: Int -&gt; ReadS ListAppImageConfigs
 $creadsPrec :: Int -&gt; ReadS ListAppImageConfigs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680388083"><span id="local-6989586621680388085"><span id="local-6989586621680388087"><span class="annot"><span class="annottext">Int -&gt; ListAppImageConfigs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680388092"><span id="local-6989586621680388094"><span id="local-6989586621680388096"><span class="annot"><span class="annottext">Int -&gt; ListAppImageConfigs -&gt; ShowS
 [ListAppImageConfigs] -&gt; ShowS
 ListAppImageConfigs -&gt; String
 (Int -&gt; ListAppImageConfigs -&gt; ShowS)
@@ -249,16 +249,16 @@ forall a. Maybe a
 -&gt; Lens
      ListAppImageConfigs ListAppImageConfigs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388077"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388086"><span class="annot"><span class="annottext">Maybe Text
 nameContains :: Maybe Text
 $sel:nameContains:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe Text
-</span><a href="#local-6989586621680388077"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680388077"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388076"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
-</span><a href="#local-6989586621680388076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388075"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680388075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
-</span><a href="#local-6989586621680388076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:ListAppImageConfigs' :: Maybe Text
+</span><a href="#local-6989586621680388086"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680388086"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388085"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680388085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388084"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680388084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680388085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:ListAppImageConfigs' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#%24sel%3AnameContains%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680388075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680388084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | A filter that returns only AppImageConfigs created on or after the</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- specified time.</span><span>
@@ -270,16 +270,16 @@ $sel:nameContains:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe Text
 -&gt; Lens
      ListAppImageConfigs ListAppImageConfigs (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388074"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388083"><span class="annot"><span class="annottext">Maybe POSIX
 creationTimeAfter :: Maybe POSIX
 $sel:creationTimeAfter:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe POSIX
-</span><a href="#local-6989586621680388074"><span class="hs-identifier hs-var hs-var">creationTimeAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680388074"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388073"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
-</span><a href="#local-6989586621680388073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388072"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680388072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
-</span><a href="#local-6989586621680388073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeAfter:ListAppImageConfigs' :: Maybe POSIX
+</span><a href="#local-6989586621680388083"><span class="hs-identifier hs-var hs-var">creationTimeAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680388083"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388082"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680388082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388081"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680388081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680388082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeAfter:ListAppImageConfigs' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#%24sel%3AcreationTimeAfter%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680388072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680388081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ListAppImageConfigs -&gt; f ListAppImageConfigs)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -306,16 +306,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      ListAppImageConfigs ListAppImageConfigs (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388068"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388077"><span class="annot"><span class="annottext">Maybe POSIX
 modifiedTimeAfter :: Maybe POSIX
 $sel:modifiedTimeAfter:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe POSIX
-</span><a href="#local-6989586621680388068"><span class="hs-identifier hs-var hs-var">modifiedTimeAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680388068"><span class="hs-identifier hs-var">modifiedTimeAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388067"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
-</span><a href="#local-6989586621680388067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388066"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680388066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
-</span><a href="#local-6989586621680388067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modifiedTimeAfter:ListAppImageConfigs' :: Maybe POSIX
+</span><a href="#local-6989586621680388077"><span class="hs-identifier hs-var hs-var">modifiedTimeAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680388077"><span class="hs-identifier hs-var">modifiedTimeAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388076"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680388076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388075"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680388075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680388076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modifiedTimeAfter:ListAppImageConfigs' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#%24sel%3AmodifiedTimeAfter%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">modifiedTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680388066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680388075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ListAppImageConfigs -&gt; f ListAppImageConfigs)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -343,16 +343,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      ListAppImageConfigs ListAppImageConfigs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388065"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388074"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe Text
-</span><a href="#local-6989586621680388065"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680388065"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388064"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
-</span><a href="#local-6989586621680388064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388063"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680388063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
-</span><a href="#local-6989586621680388064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAppImageConfigs' :: Maybe Text
+</span><a href="#local-6989586621680388074"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680388074"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388073"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680388073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388072"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680388072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680388073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAppImageConfigs' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#%24sel%3AnextToken%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680388063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680388072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | The sort order. The default value is @Descending@.</span><span>
 </span><span id="line-164"></span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_sortOrder"><span class="hs-identifier hs-type">listAppImageConfigs_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">)</span><span>
@@ -366,16 +366,16 @@ $sel:nextToken:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe Text
      (Maybe SortOrder)
      (Maybe SortOrder)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388062"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388071"><span class="annot"><span class="annottext">Maybe SortOrder
 sortOrder :: Maybe SortOrder
 $sel:sortOrder:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe SortOrder
-</span><a href="#local-6989586621680388062"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680388062"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388061"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
-</span><a href="#local-6989586621680388061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388060"><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680388060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
-</span><a href="#local-6989586621680388061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListAppImageConfigs' :: Maybe SortOrder
+</span><a href="#local-6989586621680388071"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680388071"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388070"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680388070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388069"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680388069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680388070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListAppImageConfigs' :: Maybe SortOrder
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#%24sel%3AsortOrder%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680388060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680388069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | A filter that returns only AppImageConfigs created on or before the</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- specified time.</span><span>
@@ -387,16 +387,16 @@ $sel:sortOrder:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe SortOrder
 -&gt; Lens
      ListAppImageConfigs ListAppImageConfigs (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388059"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388068"><span class="annot"><span class="annottext">Maybe POSIX
 creationTimeBefore :: Maybe POSIX
 $sel:creationTimeBefore:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe POSIX
-</span><a href="#local-6989586621680388059"><span class="hs-identifier hs-var hs-var">creationTimeBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680388059"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388058"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
-</span><a href="#local-6989586621680388058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388057"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680388057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
-</span><a href="#local-6989586621680388058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeBefore:ListAppImageConfigs' :: Maybe POSIX
+</span><a href="#local-6989586621680388068"><span class="hs-identifier hs-var hs-var">creationTimeBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680388068"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388067"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680388067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388066"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680388066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680388067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeBefore:ListAppImageConfigs' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#%24sel%3AcreationTimeBefore%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680388057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680388066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ListAppImageConfigs -&gt; f ListAppImageConfigs)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -423,16 +423,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      ListAppImageConfigs ListAppImageConfigs (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388056"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388065"><span class="annot"><span class="annottext">Maybe POSIX
 modifiedTimeBefore :: Maybe POSIX
 $sel:modifiedTimeBefore:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe POSIX
-</span><a href="#local-6989586621680388056"><span class="hs-identifier hs-var hs-var">modifiedTimeBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680388056"><span class="hs-identifier hs-var">modifiedTimeBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388055"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
-</span><a href="#local-6989586621680388055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388054"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680388054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
-</span><a href="#local-6989586621680388055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modifiedTimeBefore:ListAppImageConfigs' :: Maybe POSIX
+</span><a href="#local-6989586621680388065"><span class="hs-identifier hs-var hs-var">modifiedTimeBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680388065"><span class="hs-identifier hs-var">modifiedTimeBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388064"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680388064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388063"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680388063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680388064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modifiedTimeBefore:ListAppImageConfigs' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#%24sel%3AmodifiedTimeBefore%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">modifiedTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680388054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680388063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ListAppImageConfigs -&gt; f ListAppImageConfigs)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -462,16 +462,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388053"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388062"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe Natural
-</span><a href="#local-6989586621680388053"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680388053"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388052"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
-</span><a href="#local-6989586621680388052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388051"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680388051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
-</span><a href="#local-6989586621680388052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAppImageConfigs' :: Maybe Natural
+</span><a href="#local-6989586621680388062"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680388062"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388061"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680388061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388060"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680388060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680388061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAppImageConfigs' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#%24sel%3AmaxResults%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680388051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680388060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | The property used to sort results. The default value is @CreationTime@.</span><span>
 </span><span id="line-183"></span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#listAppImageConfigs_sortBy"><span class="hs-identifier hs-type">listAppImageConfigs_sortBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigSortKey.html#AppImageConfigSortKey"><span class="hs-identifier hs-type">AppImageConfigSortKey</span></a></span><span class="hs-special">)</span><span>
@@ -486,29 +486,29 @@ $sel:maxResults:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe Natural
      (Maybe AppImageConfigSortKey)
      (Maybe AppImageConfigSortKey)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388050"><span class="annot"><span class="annottext">Maybe AppImageConfigSortKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680388059"><span class="annot"><span class="annottext">Maybe AppImageConfigSortKey
 sortBy :: Maybe AppImageConfigSortKey
 $sel:sortBy:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe AppImageConfigSortKey
-</span><a href="#local-6989586621680388050"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppImageConfigSortKey
-</span><a href="#local-6989586621680388050"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388049"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
-</span><a href="#local-6989586621680388049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388048"><span class="annot"><span class="annottext">Maybe AppImageConfigSortKey
-</span><a href="#local-6989586621680388048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
-</span><a href="#local-6989586621680388049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListAppImageConfigs' :: Maybe AppImageConfigSortKey
+</span><a href="#local-6989586621680388059"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppImageConfigSortKey
+</span><a href="#local-6989586621680388059"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680388058"><span class="annot"><span class="annottext">s :: ListAppImageConfigs
+</span><a href="#local-6989586621680388058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680388057"><span class="annot"><span class="annottext">Maybe AppImageConfigSortKey
+</span><a href="#local-6989586621680388057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680388058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListAppImageConfigs' :: Maybe AppImageConfigSortKey
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#%24sel%3AsortBy%3AListAppImageConfigs%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppImageConfigSortKey
-</span><a href="#local-6989586621680388048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680388057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621680388044"><span class="annot"><span class="annottext">page :: ListAppImageConfigs
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621680388053"><span class="annot"><span class="annottext">page :: ListAppImageConfigs
 -&gt; AWSResponse ListAppImageConfigs -&gt; Maybe ListAppImageConfigs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680388042"><span class="annot"><span class="annottext">ListAppImageConfigs
-</span><a href="#local-6989586621680388042"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680388041"><span class="annot"><span class="annottext">AWSResponse ListAppImageConfigs
-</span><a href="#local-6989586621680388041"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680388051"><span class="annot"><span class="annottext">ListAppImageConfigs
+</span><a href="#local-6989586621680388051"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680388050"><span class="annot"><span class="annottext">AWSResponse ListAppImageConfigs
+</span><a href="#local-6989586621680388050"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-189"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAppImageConfigs
 ListAppImageConfigsResponse
-</span><a href="#local-6989586621680388041"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680388050"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">ListAppImageConfigsResponse
 -&gt; Getting (First Text) ListAppImageConfigsResponse Text
 -&gt; Maybe Text
@@ -538,7 +538,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-195"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAppImageConfigs
 ListAppImageConfigsResponse
-</span><a href="#local-6989586621680388041"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680388050"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">ListAppImageConfigsResponse
 -&gt; Getting
      (First [AppImageConfigDetails])
@@ -590,7 +590,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">ListAppImageConfigs
-</span><a href="#local-6989586621680388042"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621680388051"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-203"></span><span>          </span><span class="annot"><span class="annottext">ListAppImageConfigs
 -&gt; (ListAppImageConfigs -&gt; ListAppImageConfigs)
 -&gt; ListAppImageConfigs
@@ -606,7 +606,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAppImageConfigs
 ListAppImageConfigsResponse
-</span><a href="#local-6989586621680388041"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680388050"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-205"></span><span>          </span><span class="annot"><span class="annottext">ListAppImageConfigsResponse
 -&gt; Getting (First Text) ListAppImageConfigsResponse Text
 -&gt; Maybe Text
@@ -632,12 +632,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-209"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-210"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-211"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621680388032"><span class="annot"><span class="annottext">request :: ListAppImageConfigs -&gt; Request ListAppImageConfigs
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621680388041"><span class="annot"><span class="annottext">request :: ListAppImageConfigs -&gt; Request ListAppImageConfigs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAppImageConfigs -&gt; Request ListAppImageConfigs
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621680388028"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621680388037"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListAppImageConfigs
 -&gt; ClientResponse ClientBody
@@ -663,10 +663,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680388025"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680388025"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680388024"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680388024"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680388023"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680388023"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680388034"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680388034"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680388033"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680388033"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680388032"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680388032"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AppImageConfigDetails]
 -&gt; Maybe Text -&gt; Int -&gt; ListAppImageConfigsResponse
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-var">ListAppImageConfigsResponse'</span></a></span><span>
@@ -676,7 +676,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListAppImageConfigsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680388023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680388032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [AppImageConfigDetails]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -694,7 +694,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListAppImageConfigsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680388023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680388032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -706,15 +706,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680388025"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680388034"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680388014"><span id="local-6989586621680388016"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span></span></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680388023"><span id="local-6989586621680388025"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span></span></span><span>
 </span><span id="line-225"></span><span>
-</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680388011"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680388020"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span></span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621680388007"><span class="annot"><span class="annottext">toHeaders :: ListAppImageConfigs -&gt; ResponseHeaders
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621680388016"><span class="annot"><span class="annottext">toHeaders :: ListAppImageConfigs -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-230"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAppImageConfigs -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -741,9 +741,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-240"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-241"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680387997"><span id="local-6989586621680387999"><span id="local-6989586621680388001"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621680387995"><span class="annot"><span class="annottext">toJSON :: ListAppImageConfigs -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387985"><span id="local-6989586621680387986"><span id="local-6989586621680387987"><span id="local-6989586621680387988"><span id="local-6989586621680387989"><span id="local-6989586621680387990"><span id="local-6989586621680387991"><span id="local-6989586621680387992"><span id="local-6989586621680387993"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680388006"><span id="local-6989586621680388008"><span id="local-6989586621680388010"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621680388004"><span class="annot"><span class="annottext">toJSON :: ListAppImageConfigs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs%27"><span class="hs-identifier hs-type">ListAppImageConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387994"><span id="local-6989586621680387995"><span id="local-6989586621680387996"><span id="local-6989586621680387997"><span id="local-6989586621680387998"><span id="local-6989586621680387999"><span id="local-6989586621680388000"><span id="local-6989586621680388001"><span id="local-6989586621680388002"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe POSIX
 Maybe AppImageConfigSortKey
@@ -766,7 +766,7 @@ $sel:nextToken:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe Text
 $sel:modifiedTimeAfter:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe POSIX
 $sel:creationTimeAfter:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe POSIX
 $sel:nameContains:ListAppImageConfigs' :: ListAppImageConfigs -&gt; Maybe Text
-</span><a href="#local-6989586621680387985"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680387994"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-245"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -778,7 +778,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680387993"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680388002"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-248"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTimeAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -786,7 +786,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-249"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680387992"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680388001"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModifiedTimeAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -794,21 +794,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-251"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680387991"><span class="hs-identifier hs-var">modifiedTimeAfter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680388000"><span class="hs-identifier hs-var">modifiedTimeAfter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-252"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680387990"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680387999"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-253"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortOrder -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680387989"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680387998"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-254"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTimeBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -816,7 +816,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-255"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680387988"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680387997"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModifiedTimeBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -824,14 +824,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-257"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680387987"><span class="hs-identifier hs-var">modifiedTimeBefore</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680387996"><span class="hs-identifier hs-var">modifiedTimeBefore</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680387986"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680387995"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AppImageConfigSortKey -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -839,19 +839,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AppImageConfigSortKey -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AppImageConfigSortKey
-</span><a href="#local-6989586621680387985"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
+</span><a href="#local-6989586621680387994"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
 </span><span id="line-260"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-261"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-264"></span><span>  </span><span id="local-6989586621680387979"><span class="annot"><span class="annottext">toPath :: ListAppImageConfigs -&gt; ByteString
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621680387988"><span class="annot"><span class="annottext">toPath :: ListAppImageConfigs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAppImageConfigs -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-265"></span><span>
 </span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigs"><span class="hs-identifier hs-type">ListAppImageConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-267"></span><span>  </span><span id="local-6989586621680387975"><span class="annot"><span class="annottext">toQuery :: ListAppImageConfigs -&gt; QueryString
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621680387984"><span class="annot"><span class="annottext">toQuery :: ListAppImageConfigs -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListAppImageConfigs -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -859,7 +859,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-268"></span><span>
 </span><span id="line-269"></span><span class="hs-comment">-- | /See:/ 'newListAppImageConfigsResponse' smart constructor.</span><span>
-</span><span id="line-270"></span><span id="local-6989586621680387972"><span id="local-6989586621680387973"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAppImageConfigsResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-var">ListAppImageConfigsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAppImageConfigsResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-var">ListAppImageConfigsResponse'</span></a></span></span><span>
+</span><span id="line-270"></span><span id="local-6989586621680387981"><span id="local-6989586621680387982"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAppImageConfigsResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-var">ListAppImageConfigsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAppImageConfigsResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-var">ListAppImageConfigsResponse'</span></a></span></span><span>
 </span><span id="line-271"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of AppImageConfigs and their properties.</span><span>
 </span><span id="line-272"></span><span>    </span><span id="%24sel%3AappImageConfigs%3AListAppImageConfigsResponse%27"><span class="annot"><span class="annottext">ListAppImageConfigsResponse -&gt; Maybe [AppImageConfigDetails]
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#%24sel%3AappImageConfigs%3AListAppImageConfigsResponse%27"><span class="hs-identifier hs-var hs-var">appImageConfigs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppImageConfigDetails.html#AppImageConfigDetails"><span class="hs-identifier hs-type">AppImageConfigDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -870,7 +870,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-276"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAppImageConfigsResponse%27"><span class="annot"><span class="annottext">ListAppImageConfigsResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#%24sel%3AhttpStatus%3AListAppImageConfigsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-277"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-278"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680387965"><span id="local-6989586621680387967"><span class="annot"><span class="annottext">ListAppImageConfigsResponse -&gt; ListAppImageConfigsResponse -&gt; Bool
+</span><span id="line-278"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680387974"><span id="local-6989586621680387976"><span class="annot"><span class="annottext">ListAppImageConfigsResponse -&gt; ListAppImageConfigsResponse -&gt; Bool
 (ListAppImageConfigsResponse
  -&gt; ListAppImageConfigsResponse -&gt; Bool)
 -&gt; (ListAppImageConfigsResponse
@@ -881,7 +881,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListAppImageConfigsResponse -&gt; ListAppImageConfigsResponse -&gt; Bool
 == :: ListAppImageConfigsResponse -&gt; ListAppImageConfigsResponse -&gt; Bool
 $c== :: ListAppImageConfigsResponse -&gt; ListAppImageConfigsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680387957"><span id="local-6989586621680387959"><span id="local-6989586621680387961"><span id="local-6989586621680387963"><span class="annot"><span class="annottext">ReadPrec [ListAppImageConfigsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680387966"><span id="local-6989586621680387968"><span id="local-6989586621680387970"><span id="local-6989586621680387972"><span class="annot"><span class="annottext">ReadPrec [ListAppImageConfigsResponse]
 ReadPrec ListAppImageConfigsResponse
 Int -&gt; ReadS ListAppImageConfigsResponse
 ReadS [ListAppImageConfigsResponse]
@@ -901,7 +901,7 @@ readList :: ReadS [ListAppImageConfigsResponse]
 $creadList :: ReadS [ListAppImageConfigsResponse]
 readsPrec :: Int -&gt; ReadS ListAppImageConfigsResponse
 $creadsPrec :: Int -&gt; ReadS ListAppImageConfigsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680387951"><span id="local-6989586621680387953"><span id="local-6989586621680387955"><span class="annot"><span class="annottext">Int -&gt; ListAppImageConfigsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680387960"><span id="local-6989586621680387962"><span id="local-6989586621680387964"><span class="annot"><span class="annottext">Int -&gt; ListAppImageConfigsResponse -&gt; ShowS
 [ListAppImageConfigsResponse] -&gt; ShowS
 ListAppImageConfigsResponse -&gt; String
 (Int -&gt; ListAppImageConfigsResponse -&gt; ShowS)
@@ -951,8 +951,8 @@ ListAppImageConfigsResponse -&gt; Rep ListAppImageConfigsResponse x
 </span><span id="line-295"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-296"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span><span>
 </span><span id="line-297"></span><span id="newListAppImageConfigsResponse"><span class="annot"><span class="annottext">newListAppImageConfigsResponse :: Int -&gt; ListAppImageConfigsResponse
-</span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#newListAppImageConfigsResponse"><span class="hs-identifier hs-var hs-var">newListAppImageConfigsResponse</span></a></span></span><span> </span><span id="local-6989586621680387948"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680387948"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#newListAppImageConfigsResponse"><span class="hs-identifier hs-var hs-var">newListAppImageConfigsResponse</span></a></span></span><span> </span><span id="local-6989586621680387957"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680387957"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-298"></span><span>  </span><span class="annot"><span class="annottext">ListAppImageConfigsResponse' :: Maybe [AppImageConfigDetails]
 -&gt; Maybe Text -&gt; Int -&gt; ListAppImageConfigsResponse
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span>
@@ -967,7 +967,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-302"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAppImageConfigsResponse' :: Int
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#%24sel%3AhttpStatus%3AListAppImageConfigsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680387948"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621680387957"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-303"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-304"></span><span>
 </span><span id="line-305"></span><span class="hs-comment">-- | A list of AppImageConfigs and their properties.</span><span>
@@ -981,16 +981,16 @@ forall a. Maybe a
 -&gt; Lens'
      ListAppImageConfigsResponse (Maybe [AppImageConfigDetails])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387947"><span class="annot"><span class="annottext">Maybe [AppImageConfigDetails]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387956"><span class="annot"><span class="annottext">Maybe [AppImageConfigDetails]
 appImageConfigs :: Maybe [AppImageConfigDetails]
 $sel:appImageConfigs:ListAppImageConfigsResponse' :: ListAppImageConfigsResponse -&gt; Maybe [AppImageConfigDetails]
-</span><a href="#local-6989586621680387947"><span class="hs-identifier hs-var hs-var">appImageConfigs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AppImageConfigDetails]
-</span><a href="#local-6989586621680387947"><span class="hs-identifier hs-var">appImageConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387946"><span class="annot"><span class="annottext">s :: ListAppImageConfigsResponse
-</span><a href="#local-6989586621680387946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387945"><span class="annot"><span class="annottext">Maybe [AppImageConfigDetails]
-</span><a href="#local-6989586621680387945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigsResponse
-</span><a href="#local-6989586621680387946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appImageConfigs:ListAppImageConfigsResponse' :: Maybe [AppImageConfigDetails]
+</span><a href="#local-6989586621680387956"><span class="hs-identifier hs-var hs-var">appImageConfigs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AppImageConfigDetails]
+</span><a href="#local-6989586621680387956"><span class="hs-identifier hs-var">appImageConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387955"><span class="annot"><span class="annottext">s :: ListAppImageConfigsResponse
+</span><a href="#local-6989586621680387955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387954"><span class="annot"><span class="annottext">Maybe [AppImageConfigDetails]
+</span><a href="#local-6989586621680387954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigsResponse
+</span><a href="#local-6989586621680387955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appImageConfigs:ListAppImageConfigsResponse' :: Maybe [AppImageConfigDetails]
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#%24sel%3AappImageConfigs%3AListAppImageConfigsResponse%27"><span class="hs-identifier hs-var">appImageConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AppImageConfigDetails]
-</span><a href="#local-6989586621680387945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AppImageConfigDetails]
+</span><a href="#local-6989586621680387954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AppImageConfigDetails]
   -&gt; f (Maybe [AppImageConfigDetails]))
  -&gt; ListAppImageConfigsResponse -&gt; f ListAppImageConfigsResponse)
 -&gt; ((Maybe [AppImageConfigDetails]
@@ -1032,16 +1032,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListAppImageConfigsResponse)
 -&gt; Lens' ListAppImageConfigsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387943"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387952"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListAppImageConfigsResponse' :: ListAppImageConfigsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680387943"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680387943"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387942"><span class="annot"><span class="annottext">s :: ListAppImageConfigsResponse
-</span><a href="#local-6989586621680387942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387941"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680387941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigsResponse
-</span><a href="#local-6989586621680387942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAppImageConfigsResponse' :: Maybe Text
+</span><a href="#local-6989586621680387952"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387952"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387951"><span class="annot"><span class="annottext">s :: ListAppImageConfigsResponse
+</span><a href="#local-6989586621680387951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387950"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680387950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigsResponse
+</span><a href="#local-6989586621680387951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAppImageConfigsResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#%24sel%3AnextToken%3AListAppImageConfigsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680387941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680387950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-312"></span><span>
 </span><span id="line-313"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-314"></span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#listAppImageConfigsResponse_httpStatus"><span class="hs-identifier hs-type">listAppImageConfigsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1053,16 +1053,16 @@ $sel:nextToken:ListAppImageConfigsResponse' :: ListAppImageConfigsResponse -&gt;
 -&gt; Lens
      ListAppImageConfigsResponse ListAppImageConfigsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387940"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680387949"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListAppImageConfigsResponse' :: ListAppImageConfigsResponse -&gt; Int
-</span><a href="#local-6989586621680387940"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680387940"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387939"><span class="annot"><span class="annottext">s :: ListAppImageConfigsResponse
-</span><a href="#local-6989586621680387939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387938"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680387938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigsResponse
-</span><a href="#local-6989586621680387939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAppImageConfigsResponse' :: Int
+</span><a href="#local-6989586621680387949"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680387949"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680387948"><span class="annot"><span class="annottext">s :: ListAppImageConfigsResponse
+</span><a href="#local-6989586621680387948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse%27"><span class="hs-identifier hs-type">ListAppImageConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680387947"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680387947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppImageConfigsResponse
+</span><a href="#local-6989586621680387948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAppImageConfigsResponse' :: Int
 </span><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#%24sel%3AhttpStatus%3AListAppImageConfigsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680387938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680387947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-316"></span><span>
-</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680387936"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680387945"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListAppImageConfigs.html#ListAppImageConfigsResponse"><span class="hs-identifier hs-type">ListAppImageConfigsResponse</span></a></span></span><span>
 </span><span id="line-318"></span></pre></body></html>

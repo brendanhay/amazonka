@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679327941"><span id="local-6989586621679327942"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RuleType"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.RuleType.html#RuleType"><span class="hs-identifier hs-var">RuleType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleType%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.RuleType.html#RuleType%27"><span class="hs-identifier hs-var">RuleType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679327950"><span id="local-6989586621679327951"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RuleType"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.RuleType.html#RuleType"><span class="hs-identifier hs-var">RuleType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleType%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.RuleType.html#RuleType%27"><span class="hs-identifier hs-var">RuleType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRuleType"><span class="annot"><span class="annottext">RuleType -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.Types.RuleType.html#fromRuleType"><span class="hs-identifier hs-var hs-var">fromRuleType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327933"><span id="local-6989586621679327935"><span id="local-6989586621679327937"><span class="annot"><span class="annottext">Int -&gt; RuleType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327942"><span id="local-6989586621679327944"><span id="local-6989586621679327946"><span class="annot"><span class="annottext">Int -&gt; RuleType -&gt; ShowS
 [RuleType] -&gt; ShowS
 RuleType -&gt; String
 (Int -&gt; RuleType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: RuleType -&gt; String
 showsPrec :: Int -&gt; RuleType -&gt; ShowS
 $cshowsPrec :: Int -&gt; RuleType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679327924"><span id="local-6989586621679327926"><span id="local-6989586621679327928"><span id="local-6989586621679327930"><span class="annot"><span class="annottext">ReadPrec [RuleType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679327933"><span id="local-6989586621679327935"><span id="local-6989586621679327937"><span id="local-6989586621679327939"><span class="annot"><span class="annottext">ReadPrec [RuleType]
 ReadPrec RuleType
 Int -&gt; ReadS RuleType
 ReadS [RuleType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [RuleType]
 readsPrec :: Int -&gt; ReadS RuleType
 $creadsPrec :: Int -&gt; ReadS RuleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679327919"><span id="local-6989586621679327921"><span class="annot"><span class="annottext">RuleType -&gt; RuleType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679327928"><span id="local-6989586621679327930"><span class="annot"><span class="annottext">RuleType -&gt; RuleType -&gt; Bool
 (RuleType -&gt; RuleType -&gt; Bool)
 -&gt; (RuleType -&gt; RuleType -&gt; Bool) -&gt; Eq RuleType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: RuleType -&gt; RuleType -&gt; Bool
 == :: RuleType -&gt; RuleType -&gt; Bool
 $c== :: RuleType -&gt; RuleType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679327903"><span id="local-6989586621679327905"><span id="local-6989586621679327907"><span id="local-6989586621679327909"><span id="local-6989586621679327911"><span id="local-6989586621679327913"><span id="local-6989586621679327915"><span class="annot"><span class="annottext">Eq RuleType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679327912"><span id="local-6989586621679327914"><span id="local-6989586621679327916"><span id="local-6989586621679327918"><span id="local-6989586621679327920"><span id="local-6989586621679327922"><span id="local-6989586621679327924"><span class="annot"><span class="annottext">Eq RuleType
 Eq RuleType
 -&gt; (RuleType -&gt; RuleType -&gt; Ordering)
 -&gt; (RuleType -&gt; RuleType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. RuleType -&gt; Rep RuleType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327895"><span id="local-6989586621679327897"><span class="annot"><span class="annottext">Int -&gt; RuleType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327904"><span id="local-6989586621679327906"><span class="annot"><span class="annottext">Int -&gt; RuleType -&gt; Int
 RuleType -&gt; Int
 (Int -&gt; RuleType -&gt; Int) -&gt; (RuleType -&gt; Int) -&gt; Hashable RuleType
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -140,49 +140,49 @@ $chash :: RuleType -&gt; Int
 hashWithSalt :: Int -&gt; RuleType -&gt; Int
 $chashWithSalt :: Int -&gt; RuleType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679327892"><span class="annot"><span class="annottext">RuleType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679327901"><span class="annot"><span class="annottext">RuleType -&gt; ()
 (RuleType -&gt; ()) -&gt; NFData RuleType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RuleType -&gt; ()
 $crnf :: RuleType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679327889"><span class="annot"><span class="annottext">Text -&gt; Either String RuleType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679327898"><span class="annot"><span class="annottext">Text -&gt; Either String RuleType
 (Text -&gt; Either String RuleType) -&gt; FromText RuleType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RuleType
 $cfromText :: Text -&gt; Either String RuleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679327886"><span class="annot"><span class="annottext">RuleType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679327895"><span class="annot"><span class="annottext">RuleType -&gt; Text
 (RuleType -&gt; Text) -&gt; ToText RuleType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RuleType -&gt; Text
 $ctoText :: RuleType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679327883"><span class="annot"><span class="annottext">RuleType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679327892"><span class="annot"><span class="annottext">RuleType -&gt; ByteString
 (RuleType -&gt; ByteString) -&gt; ToByteString RuleType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RuleType -&gt; ByteString
 $ctoBS :: RuleType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679327880"><span class="annot"><span class="annottext">RuleType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679327889"><span class="annot"><span class="annottext">RuleType -&gt; ByteStringBuilder
 (RuleType -&gt; ByteStringBuilder) -&gt; ToLog RuleType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RuleType -&gt; ByteStringBuilder
 $cbuild :: RuleType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679327877"><span class="annot"><span class="annottext">HeaderName -&gt; RuleType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679327886"><span class="annot"><span class="annottext">HeaderName -&gt; RuleType -&gt; [Header]
 (HeaderName -&gt; RuleType -&gt; [Header]) -&gt; ToHeader RuleType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RuleType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RuleType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679327874"><span class="annot"><span class="annottext">RuleType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679327883"><span class="annot"><span class="annottext">RuleType -&gt; QueryString
 (RuleType -&gt; QueryString) -&gt; ToQuery RuleType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RuleType -&gt; QueryString
 $ctoQuery :: RuleType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679327869"><span id="local-6989586621679327871"><span class="annot"><span class="annottext">Value -&gt; Parser [RuleType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679327878"><span id="local-6989586621679327880"><span class="annot"><span class="annottext">Value -&gt; Parser [RuleType]
 Value -&gt; Parser RuleType
 (Value -&gt; Parser RuleType)
 -&gt; (Value -&gt; Parser [RuleType]) -&gt; FromJSON RuleType
@@ -193,7 +193,7 @@ $cparseJSONList :: Value -&gt; Parser [RuleType]
 parseJSON :: Value -&gt; Parser RuleType
 $cparseJSON :: Value -&gt; Parser RuleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679327864"><span id="local-6989586621679327866"><span class="annot"><span class="annottext">FromJSONKeyFunction [RuleType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679327873"><span id="local-6989586621679327875"><span class="annot"><span class="annottext">FromJSONKeyFunction [RuleType]
 FromJSONKeyFunction RuleType
 FromJSONKeyFunction RuleType
 -&gt; FromJSONKeyFunction [RuleType] -&gt; FromJSONKey RuleType
@@ -204,7 +204,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RuleType]
 fromJSONKey :: FromJSONKeyFunction RuleType
 $cfromJSONKey :: FromJSONKeyFunction RuleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679327855"><span id="local-6989586621679327857"><span id="local-6989586621679327859"><span id="local-6989586621679327861"><span class="annot"><span class="annottext">[RuleType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679327864"><span id="local-6989586621679327866"><span id="local-6989586621679327868"><span id="local-6989586621679327870"><span class="annot"><span class="annottext">[RuleType] -&gt; Encoding
 [RuleType] -&gt; Value
 RuleType -&gt; Encoding
 RuleType -&gt; Value
@@ -228,7 +228,7 @@ $ctoEncoding :: RuleType -&gt; Encoding
 toJSON :: RuleType -&gt; Value
 $ctoJSON :: RuleType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679327850"><span id="local-6989586621679327852"><span class="annot"><span class="annottext">ToJSONKeyFunction [RuleType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679327859"><span id="local-6989586621679327861"><span class="annot"><span class="annottext">ToJSONKeyFunction [RuleType]
 ToJSONKeyFunction RuleType
 ToJSONKeyFunction RuleType
 -&gt; ToJSONKeyFunction [RuleType] -&gt; ToJSONKey RuleType
@@ -239,13 +239,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RuleType]
 toJSONKey :: ToJSONKeyFunction RuleType
 $ctoJSONKey :: ToJSONKeyFunction RuleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679327847"><span class="annot"><span class="annottext">[Node] -&gt; Either String RuleType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679327856"><span class="annot"><span class="annottext">[Node] -&gt; Either String RuleType
 ([Node] -&gt; Either String RuleType) -&gt; FromXML RuleType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RuleType
 $cparseXML :: [Node] -&gt; Either String RuleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679327844"><span class="annot"><span class="annottext">RuleType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679327853"><span class="annot"><span class="annottext">RuleType -&gt; XML
 (RuleType -&gt; XML) -&gt; ToXML RuleType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RuleType -&gt; XML

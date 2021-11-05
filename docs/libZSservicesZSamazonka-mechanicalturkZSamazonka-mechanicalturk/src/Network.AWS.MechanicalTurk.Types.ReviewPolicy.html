@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- you specify when you create a HIT.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newReviewPolicy' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679245991"><span id="local-6989586621679245992"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReviewPolicy"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-var">ReviewPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReviewPolicy%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy%27"><span class="hs-identifier hs-var">ReviewPolicy'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679246000"><span id="local-6989586621679246001"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReviewPolicy"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-var">ReviewPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReviewPolicy%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy%27"><span class="hs-identifier hs-var">ReviewPolicy'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the parameter from the Review policy.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aparameters%3AReviewPolicy%27"><span class="annot"><span class="annottext">ReviewPolicy -&gt; Maybe [PolicyParameter]
 </span><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#%24sel%3Aparameters%3AReviewPolicy%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.PolicyParameter.html#PolicyParameter"><span class="hs-identifier hs-type">PolicyParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3ApolicyName%3AReviewPolicy%27"><span class="annot"><span class="annottext">ReviewPolicy -&gt; Text
 </span><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#%24sel%3ApolicyName%3AReviewPolicy%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245984"><span id="local-6989586621679245986"><span class="annot"><span class="annottext">ReviewPolicy -&gt; ReviewPolicy -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245993"><span id="local-6989586621679245995"><span class="annot"><span class="annottext">ReviewPolicy -&gt; ReviewPolicy -&gt; Bool
 (ReviewPolicy -&gt; ReviewPolicy -&gt; Bool)
 -&gt; (ReviewPolicy -&gt; ReviewPolicy -&gt; Bool) -&gt; Eq ReviewPolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReviewPolicy -&gt; ReviewPolicy -&gt; Bool
 == :: ReviewPolicy -&gt; ReviewPolicy -&gt; Bool
 $c== :: ReviewPolicy -&gt; ReviewPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245975"><span id="local-6989586621679245977"><span id="local-6989586621679245979"><span id="local-6989586621679245981"><span class="annot"><span class="annottext">ReadPrec [ReviewPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245984"><span id="local-6989586621679245986"><span id="local-6989586621679245988"><span id="local-6989586621679245990"><span class="annot"><span class="annottext">ReadPrec [ReviewPolicy]
 ReadPrec ReviewPolicy
 Int -&gt; ReadS ReviewPolicy
 ReadS [ReviewPolicy]
@@ -65,7 +65,7 @@ readList :: ReadS [ReviewPolicy]
 $creadList :: ReadS [ReviewPolicy]
 readsPrec :: Int -&gt; ReadS ReviewPolicy
 $creadsPrec :: Int -&gt; ReadS ReviewPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245968"><span id="local-6989586621679245970"><span id="local-6989586621679245972"><span class="annot"><span class="annottext">Int -&gt; ReviewPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245977"><span id="local-6989586621679245979"><span id="local-6989586621679245981"><span class="annot"><span class="annottext">Int -&gt; ReviewPolicy -&gt; ShowS
 [ReviewPolicy] -&gt; ShowS
 ReviewPolicy -&gt; String
 (Int -&gt; ReviewPolicy -&gt; ShowS)
@@ -108,8 +108,8 @@ $cfrom :: forall x. ReviewPolicy -&gt; Rep ReviewPolicy x
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-type">ReviewPolicy</span></a></span><span>
 </span><span id="line-56"></span><span id="newReviewPolicy"><span class="annot"><span class="annottext">newReviewPolicy :: Text -&gt; ReviewPolicy
-</span><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#newReviewPolicy"><span class="hs-identifier hs-var hs-var">newReviewPolicy</span></a></span></span><span> </span><span id="local-6989586621679245962"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679245962"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#newReviewPolicy"><span class="hs-identifier hs-var hs-var">newReviewPolicy</span></a></span></span><span> </span><span id="local-6989586621679245971"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245971"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">ReviewPolicy' :: Maybe [PolicyParameter] -&gt; Text -&gt; ReviewPolicy
 </span><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy%27"><span class="hs-identifier hs-type">ReviewPolicy'</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameters:ReviewPolicy' :: Maybe [PolicyParameter]
@@ -118,7 +118,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyName:ReviewPolicy' :: Text
 </span><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#%24sel%3ApolicyName%3AReviewPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679245962"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span>
+</span><a href="#local-6989586621679245971"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | Name of the parameter from the Review policy.</span><span>
@@ -133,16 +133,16 @@ forall a. Maybe a
      (Maybe [PolicyParameter])
      (Maybe [PolicyParameter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy%27"><span class="hs-identifier hs-type">ReviewPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245958"><span class="annot"><span class="annottext">Maybe [PolicyParameter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy%27"><span class="hs-identifier hs-type">ReviewPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245967"><span class="annot"><span class="annottext">Maybe [PolicyParameter]
 parameters :: Maybe [PolicyParameter]
 $sel:parameters:ReviewPolicy' :: ReviewPolicy -&gt; Maybe [PolicyParameter]
-</span><a href="#local-6989586621679245958"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyParameter]
-</span><a href="#local-6989586621679245958"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245957"><span class="annot"><span class="annottext">s :: ReviewPolicy
-</span><a href="#local-6989586621679245957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy%27"><span class="hs-identifier hs-type">ReviewPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245956"><span class="annot"><span class="annottext">Maybe [PolicyParameter]
-</span><a href="#local-6989586621679245956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReviewPolicy
-</span><a href="#local-6989586621679245957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:ReviewPolicy' :: Maybe [PolicyParameter]
+</span><a href="#local-6989586621679245967"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyParameter]
+</span><a href="#local-6989586621679245967"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245966"><span class="annot"><span class="annottext">s :: ReviewPolicy
+</span><a href="#local-6989586621679245966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy%27"><span class="hs-identifier hs-type">ReviewPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245965"><span class="annot"><span class="annottext">Maybe [PolicyParameter]
+</span><a href="#local-6989586621679245965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReviewPolicy
+</span><a href="#local-6989586621679245966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:ReviewPolicy' :: Maybe [PolicyParameter]
 </span><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#%24sel%3Aparameters%3AReviewPolicy%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyParameter]
-</span><a href="#local-6989586621679245956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-type">ReviewPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyParameter] -&gt; f (Maybe [PolicyParameter]))
+</span><a href="#local-6989586621679245965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-type">ReviewPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyParameter] -&gt; f (Maybe [PolicyParameter]))
  -&gt; ReviewPolicy -&gt; f ReviewPolicy)
 -&gt; ((Maybe [PolicyParameter] -&gt; f (Maybe [PolicyParameter]))
     -&gt; Maybe [PolicyParameter] -&gt; f (Maybe [PolicyParameter]))
@@ -179,19 +179,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ReviewPolicy -&gt; Text -&gt; ReviewPolicy)
 -&gt; Lens ReviewPolicy ReviewPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy%27"><span class="hs-identifier hs-type">ReviewPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245951"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy%27"><span class="hs-identifier hs-type">ReviewPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245960"><span class="annot"><span class="annottext">Text
 policyName :: Text
 $sel:policyName:ReviewPolicy' :: ReviewPolicy -&gt; Text
-</span><a href="#local-6989586621679245951"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679245951"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245950"><span class="annot"><span class="annottext">s :: ReviewPolicy
-</span><a href="#local-6989586621679245950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy%27"><span class="hs-identifier hs-type">ReviewPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245949"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679245949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReviewPolicy
-</span><a href="#local-6989586621679245950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:ReviewPolicy' :: Text
+</span><a href="#local-6989586621679245960"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245960"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245959"><span class="annot"><span class="annottext">s :: ReviewPolicy
+</span><a href="#local-6989586621679245959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy%27"><span class="hs-identifier hs-type">ReviewPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245958"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReviewPolicy
+</span><a href="#local-6989586621679245959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:ReviewPolicy' :: Text
 </span><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#%24sel%3ApolicyName%3AReviewPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679245949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-type">ReviewPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-type">ReviewPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245946"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-type">ReviewPolicy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679245944"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReviewPolicy
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245955"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-type">ReviewPolicy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679245953"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReviewPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReviewPolicy) -&gt; Value -&gt; Parser ReviewPolicy
@@ -199,8 +199,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReviewPolicy&quot;</span></span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245941"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245941"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245950"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245950"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PolicyParameter] -&gt; Text -&gt; ReviewPolicy
 </span><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy%27"><span class="hs-identifier hs-var">ReviewPolicy'</span></a></span><span>
 </span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PolicyParameter] -&gt; Text -&gt; ReviewPolicy)
@@ -208,7 +208,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; ReviewPolicy)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PolicyParameter]))
+</span><a href="#local-6989586621679245950"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PolicyParameter]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PolicyParameter]))
@@ -220,25 +220,25 @@ forall a. Monoid a =&gt; a
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ReviewPolicy) -&gt; Parser Text -&gt; Parser ReviewPolicy
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679245950"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245933"><span id="local-6989586621679245935"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-type">ReviewPolicy</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245942"><span id="local-6989586621679245944"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-type">ReviewPolicy</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245930"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-type">ReviewPolicy</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-type">ReviewPolicy</span></a></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245922"><span id="local-6989586621679245924"><span id="local-6989586621679245926"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-type">ReviewPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679245920"><span class="annot"><span class="annottext">toJSON :: ReviewPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy%27"><span class="hs-identifier hs-type">ReviewPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245917"><span id="local-6989586621679245918"><span class="annot"><span class="annottext">Maybe [PolicyParameter]
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245931"><span id="local-6989586621679245933"><span id="local-6989586621679245935"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy"><span class="hs-identifier hs-type">ReviewPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679245929"><span class="annot"><span class="annottext">toJSON :: ReviewPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicy.html#ReviewPolicy%27"><span class="hs-identifier hs-type">ReviewPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245926"><span id="local-6989586621679245927"><span class="annot"><span class="annottext">Maybe [PolicyParameter]
 Text
 policyName :: Text
 parameters :: Maybe [PolicyParameter]
 $sel:policyName:ReviewPolicy' :: ReviewPolicy -&gt; Text
 $sel:parameters:ReviewPolicy' :: ReviewPolicy -&gt; Maybe [PolicyParameter]
-</span><a href="#local-6989586621679245917"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679245926"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -251,14 +251,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [PolicyParameter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyParameter]
-</span><a href="#local-6989586621679245918"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679245927"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679245917"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245926"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span></pre></body></html>

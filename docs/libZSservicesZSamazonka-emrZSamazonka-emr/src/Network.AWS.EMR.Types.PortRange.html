@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- for @MinRange@ and @MaxRange@.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newPortRange' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679374157"><span id="local-6989586621679374158"></span></span><span class="hs-keyword">data</span><span> </span><span id="PortRange"><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange"><span class="hs-identifier hs-var">PortRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PortRange%27"><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange%27"><span class="hs-identifier hs-var">PortRange'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679374166"><span id="local-6989586621679374167"></span></span><span class="hs-keyword">data</span><span> </span><span id="PortRange"><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange"><span class="hs-identifier hs-var">PortRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PortRange%27"><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange%27"><span class="hs-identifier hs-var">PortRange'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The smallest port number in a specified range of port numbers.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AmaxRange%3APortRange%27"><span class="annot"><span class="annottext">PortRange -&gt; Maybe Int
 </span><a href="Network.AWS.EMR.Types.PortRange.html#%24sel%3AmaxRange%3APortRange%27"><span class="hs-identifier hs-var hs-var">maxRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AminRange%3APortRange%27"><span class="annot"><span class="annottext">PortRange -&gt; Int
 </span><a href="Network.AWS.EMR.Types.PortRange.html#%24sel%3AminRange%3APortRange%27"><span class="hs-identifier hs-var hs-var">minRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374150"><span id="local-6989586621679374152"><span class="annot"><span class="annottext">PortRange -&gt; PortRange -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374159"><span id="local-6989586621679374161"><span class="annot"><span class="annottext">PortRange -&gt; PortRange -&gt; Bool
 (PortRange -&gt; PortRange -&gt; Bool)
 -&gt; (PortRange -&gt; PortRange -&gt; Bool) -&gt; Eq PortRange
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PortRange -&gt; PortRange -&gt; Bool
 == :: PortRange -&gt; PortRange -&gt; Bool
 $c== :: PortRange -&gt; PortRange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374141"><span id="local-6989586621679374143"><span id="local-6989586621679374145"><span id="local-6989586621679374147"><span class="annot"><span class="annottext">ReadPrec [PortRange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374150"><span id="local-6989586621679374152"><span id="local-6989586621679374154"><span id="local-6989586621679374156"><span class="annot"><span class="annottext">ReadPrec [PortRange]
 ReadPrec PortRange
 Int -&gt; ReadS PortRange
 ReadS [PortRange]
@@ -64,7 +64,7 @@ readList :: ReadS [PortRange]
 $creadList :: ReadS [PortRange]
 readsPrec :: Int -&gt; ReadS PortRange
 $creadsPrec :: Int -&gt; ReadS PortRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374134"><span id="local-6989586621679374136"><span id="local-6989586621679374138"><span class="annot"><span class="annottext">Int -&gt; PortRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374143"><span id="local-6989586621679374145"><span id="local-6989586621679374147"><span class="annot"><span class="annottext">Int -&gt; PortRange -&gt; ShowS
 [PortRange] -&gt; ShowS
 PortRange -&gt; String
 (Int -&gt; PortRange -&gt; ShowS)
@@ -105,8 +105,8 @@ $cfrom :: forall x. PortRange -&gt; Rep PortRange x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span>
 </span><span id="line-54"></span><span id="newPortRange"><span class="annot"><span class="annottext">newPortRange :: Int -&gt; PortRange
-</span><a href="Network.AWS.EMR.Types.PortRange.html#newPortRange"><span class="hs-identifier hs-var hs-var">newPortRange</span></a></span></span><span> </span><span id="local-6989586621679374128"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374128"><span class="hs-identifier hs-var">pMinRange_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.Types.PortRange.html#newPortRange"><span class="hs-identifier hs-var hs-var">newPortRange</span></a></span></span><span> </span><span id="local-6989586621679374137"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374137"><span class="hs-identifier hs-var">pMinRange_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">PortRange' :: Maybe Int -&gt; Int -&gt; PortRange
 </span><a href="Network.AWS.EMR.Types.PortRange.html#PortRange%27"><span class="hs-identifier hs-type">PortRange'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxRange:PortRange' :: Maybe Int
@@ -115,7 +115,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:minRange:PortRange' :: Int
 </span><a href="Network.AWS.EMR.Types.PortRange.html#%24sel%3AminRange%3APortRange%27"><span class="hs-identifier hs-var">minRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374128"><span class="hs-identifier hs-var">pMinRange_</span></a></span><span>
+</span><a href="#local-6989586621679374137"><span class="hs-identifier hs-var">pMinRange_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The smallest port number in a specified range of port numbers.</span><span>
@@ -125,16 +125,16 @@ forall a. Maybe a
 -&gt; (PortRange -&gt; Maybe Int -&gt; PortRange)
 -&gt; Lens PortRange PortRange (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange%27"><span class="hs-identifier hs-type">PortRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374124"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange%27"><span class="hs-identifier hs-type">PortRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374133"><span class="annot"><span class="annottext">Maybe Int
 maxRange :: Maybe Int
 $sel:maxRange:PortRange' :: PortRange -&gt; Maybe Int
-</span><a href="#local-6989586621679374124"><span class="hs-identifier hs-var hs-var">maxRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679374124"><span class="hs-identifier hs-var">maxRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374123"><span class="annot"><span class="annottext">s :: PortRange
-</span><a href="#local-6989586621679374123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange%27"><span class="hs-identifier hs-type">PortRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374122"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679374122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PortRange
-</span><a href="#local-6989586621679374123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRange:PortRange' :: Maybe Int
+</span><a href="#local-6989586621679374133"><span class="hs-identifier hs-var hs-var">maxRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679374133"><span class="hs-identifier hs-var">maxRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374132"><span class="annot"><span class="annottext">s :: PortRange
+</span><a href="#local-6989586621679374132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange%27"><span class="hs-identifier hs-type">PortRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374131"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679374131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PortRange
+</span><a href="#local-6989586621679374132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRange:PortRange' :: Maybe Int
 </span><a href="Network.AWS.EMR.Types.PortRange.html#%24sel%3AmaxRange%3APortRange%27"><span class="hs-identifier hs-var">maxRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679374122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The smallest port number in a specified range of port numbers.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#portRange_minRange"><span class="hs-identifier hs-type">portRange_minRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -143,59 +143,59 @@ $sel:maxRange:PortRange' :: PortRange -&gt; Maybe Int
 -&gt; (PortRange -&gt; Int -&gt; PortRange)
 -&gt; Lens PortRange PortRange Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange%27"><span class="hs-identifier hs-type">PortRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374120"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange%27"><span class="hs-identifier hs-type">PortRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374129"><span class="annot"><span class="annottext">Int
 minRange :: Int
 $sel:minRange:PortRange' :: PortRange -&gt; Int
-</span><a href="#local-6989586621679374120"><span class="hs-identifier hs-var hs-var">minRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374120"><span class="hs-identifier hs-var">minRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374119"><span class="annot"><span class="annottext">s :: PortRange
-</span><a href="#local-6989586621679374119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange%27"><span class="hs-identifier hs-type">PortRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374118"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PortRange
-</span><a href="#local-6989586621679374119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minRange:PortRange' :: Int
+</span><a href="#local-6989586621679374129"><span class="hs-identifier hs-var hs-var">minRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374129"><span class="hs-identifier hs-var">minRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374128"><span class="annot"><span class="annottext">s :: PortRange
+</span><a href="#local-6989586621679374128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange%27"><span class="hs-identifier hs-type">PortRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374127"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679374127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PortRange
+</span><a href="#local-6989586621679374128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minRange:PortRange' :: Int
 </span><a href="Network.AWS.EMR.Types.PortRange.html#%24sel%3AminRange%3APortRange%27"><span class="hs-identifier hs-var">minRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374115"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679374113"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PortRange
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374124"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679374122"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PortRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser PortRange) -&gt; Value -&gt; Parser PortRange
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PortRange&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374110"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374110"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374119"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374119"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Int -&gt; PortRange
 </span><a href="Network.AWS.EMR.Types.PortRange.html#PortRange%27"><span class="hs-identifier hs-var">PortRange'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Int -&gt; PortRange)
 -&gt; Parser (Maybe Int) -&gt; Parser (Int -&gt; PortRange)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679374119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxRange&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Parser (Int -&gt; PortRange) -&gt; Parser Int -&gt; Parser PortRange
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+</span><a href="#local-6989586621679374119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinRange&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374103"><span id="local-6989586621679374105"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374112"><span id="local-6989586621679374114"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374100"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374109"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374092"><span id="local-6989586621679374094"><span id="local-6989586621679374096"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679374090"><span class="annot"><span class="annottext">toJSON :: PortRange -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange%27"><span class="hs-identifier hs-type">PortRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374087"><span id="local-6989586621679374088"><span class="annot"><span class="annottext">Int
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374101"><span id="local-6989586621679374103"><span id="local-6989586621679374105"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679374099"><span class="annot"><span class="annottext">toJSON :: PortRange -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.PortRange.html#PortRange%27"><span class="hs-identifier hs-type">PortRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374096"><span id="local-6989586621679374097"><span class="annot"><span class="annottext">Int
 Maybe Int
 minRange :: Int
 maxRange :: Maybe Int
 $sel:minRange:PortRange' :: PortRange -&gt; Int
 $sel:maxRange:PortRange' :: PortRange -&gt; Maybe Int
-</span><a href="#local-6989586621679374087"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679374096"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -207,14 +207,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679374088"><span class="hs-identifier hs-var">maxRange</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374097"><span class="hs-identifier hs-var">maxRange</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374087"><span class="hs-identifier hs-var">minRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374096"><span class="hs-identifier hs-var">minRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newFailoverGlobalReplicationGroup' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679414752"><span id="local-6989586621679414753"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverGlobalReplicationGroup"><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup"><span class="hs-identifier hs-var">FailoverGlobalReplicationGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverGlobalReplicationGroup%27"><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-var">FailoverGlobalReplicationGroup'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679414761"><span id="local-6989586621679414762"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverGlobalReplicationGroup"><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup"><span class="hs-identifier hs-var">FailoverGlobalReplicationGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverGlobalReplicationGroup%27"><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-var">FailoverGlobalReplicationGroup'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Global datastore</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AglobalReplicationGroupId%3AFailoverGlobalReplicationGroup%27"><span class="annot"><span class="annottext">FailoverGlobalReplicationGroup -&gt; Text
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#%24sel%3AglobalReplicationGroupId%3AFailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-var hs-var">globalReplicationGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AprimaryReplicationGroupId%3AFailoverGlobalReplicationGroup%27"><span class="annot"><span class="annottext">FailoverGlobalReplicationGroup -&gt; Text
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#%24sel%3AprimaryReplicationGroupId%3AFailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-var hs-var">primaryReplicationGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414744"><span id="local-6989586621679414746"><span class="annot"><span class="annottext">FailoverGlobalReplicationGroup
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414753"><span id="local-6989586621679414755"><span class="annot"><span class="annottext">FailoverGlobalReplicationGroup
 -&gt; FailoverGlobalReplicationGroup -&gt; Bool
 (FailoverGlobalReplicationGroup
  -&gt; FailoverGlobalReplicationGroup -&gt; Bool)
@@ -78,7 +78,7 @@ $c/= :: FailoverGlobalReplicationGroup
 -&gt; FailoverGlobalReplicationGroup -&gt; Bool
 $c== :: FailoverGlobalReplicationGroup
 -&gt; FailoverGlobalReplicationGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414735"><span id="local-6989586621679414737"><span id="local-6989586621679414739"><span id="local-6989586621679414741"><span class="annot"><span class="annottext">ReadPrec [FailoverGlobalReplicationGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414744"><span id="local-6989586621679414746"><span id="local-6989586621679414748"><span id="local-6989586621679414750"><span class="annot"><span class="annottext">ReadPrec [FailoverGlobalReplicationGroup]
 ReadPrec FailoverGlobalReplicationGroup
 Int -&gt; ReadS FailoverGlobalReplicationGroup
 ReadS [FailoverGlobalReplicationGroup]
@@ -98,7 +98,7 @@ readList :: ReadS [FailoverGlobalReplicationGroup]
 $creadList :: ReadS [FailoverGlobalReplicationGroup]
 readsPrec :: Int -&gt; ReadS FailoverGlobalReplicationGroup
 $creadsPrec :: Int -&gt; ReadS FailoverGlobalReplicationGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414728"><span id="local-6989586621679414730"><span id="local-6989586621679414732"><span class="annot"><span class="annottext">Int -&gt; FailoverGlobalReplicationGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414737"><span id="local-6989586621679414739"><span id="local-6989586621679414741"><span class="annot"><span class="annottext">Int -&gt; FailoverGlobalReplicationGroup -&gt; ShowS
 [FailoverGlobalReplicationGroup] -&gt; ShowS
 FailoverGlobalReplicationGroup -&gt; String
 (Int -&gt; FailoverGlobalReplicationGroup -&gt; ShowS)
@@ -159,25 +159,25 @@ FailoverGlobalReplicationGroup
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup</span></a></span><span>
 </span><span id="line-85"></span><span id="newFailoverGlobalReplicationGroup"><span class="annot"><span class="annottext">newFailoverGlobalReplicationGroup :: Text -&gt; Text -&gt; Text -&gt; FailoverGlobalReplicationGroup
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#newFailoverGlobalReplicationGroup"><span class="hs-identifier hs-var hs-var">newFailoverGlobalReplicationGroup</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679414723"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414723"><span class="hs-identifier hs-var">pGlobalReplicationGroupId_</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679414722"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414722"><span class="hs-identifier hs-var">pPrimaryRegion_</span></a></span></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679414721"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414721"><span class="hs-identifier hs-var">pPrimaryReplicationGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679414732"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414732"><span class="hs-identifier hs-var">pGlobalReplicationGroupId_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679414731"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414731"><span class="hs-identifier hs-var">pPrimaryRegion_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679414730"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414730"><span class="hs-identifier hs-var">pPrimaryReplicationGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">FailoverGlobalReplicationGroup' :: Text -&gt; Text -&gt; Text -&gt; FailoverGlobalReplicationGroup
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup'</span></a></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalReplicationGroupId:FailoverGlobalReplicationGroup' :: Text
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#%24sel%3AglobalReplicationGroupId%3AFailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-var">globalReplicationGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414723"><span class="hs-identifier hs-var">pGlobalReplicationGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679414732"><span class="hs-identifier hs-var">pGlobalReplicationGroupId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:primaryRegion:FailoverGlobalReplicationGroup' :: Text
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#%24sel%3AprimaryRegion%3AFailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-var">primaryRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414722"><span class="hs-identifier hs-var">pPrimaryRegion_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679414731"><span class="hs-identifier hs-var">pPrimaryRegion_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:primaryReplicationGroupId:FailoverGlobalReplicationGroup' :: Text
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#%24sel%3AprimaryReplicationGroupId%3AFailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-var">primaryReplicationGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414721"><span class="hs-identifier hs-var">pPrimaryReplicationGroupId_</span></a></span><span>
+</span><a href="#local-6989586621679414730"><span class="hs-identifier hs-var">pPrimaryReplicationGroupId_</span></a></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The name of the Global datastore</span><span>
@@ -194,16 +194,16 @@ FailoverGlobalReplicationGroup
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414718"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414727"><span class="annot"><span class="annottext">Text
 globalReplicationGroupId :: Text
 $sel:globalReplicationGroupId:FailoverGlobalReplicationGroup' :: FailoverGlobalReplicationGroup -&gt; Text
-</span><a href="#local-6989586621679414718"><span class="hs-identifier hs-var hs-var">globalReplicationGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414718"><span class="hs-identifier hs-var">globalReplicationGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414717"><span class="annot"><span class="annottext">s :: FailoverGlobalReplicationGroup
-</span><a href="#local-6989586621679414717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414716"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalReplicationGroup
-</span><a href="#local-6989586621679414717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalReplicationGroupId:FailoverGlobalReplicationGroup' :: Text
+</span><a href="#local-6989586621679414727"><span class="hs-identifier hs-var hs-var">globalReplicationGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414727"><span class="hs-identifier hs-var">globalReplicationGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414726"><span class="annot"><span class="annottext">s :: FailoverGlobalReplicationGroup
+</span><a href="#local-6989586621679414726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414725"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalReplicationGroup
+</span><a href="#local-6989586621679414726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalReplicationGroupId:FailoverGlobalReplicationGroup' :: Text
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#%24sel%3AglobalReplicationGroupId%3AFailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-var">globalReplicationGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The Amazon region of the primary cluster of the Global datastore</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#failoverGlobalReplicationGroup_primaryRegion"><span class="hs-identifier hs-type">failoverGlobalReplicationGroup_primaryRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -219,16 +219,16 @@ $sel:globalReplicationGroupId:FailoverGlobalReplicationGroup' :: FailoverGlobalR
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414715"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414724"><span class="annot"><span class="annottext">Text
 primaryRegion :: Text
 $sel:primaryRegion:FailoverGlobalReplicationGroup' :: FailoverGlobalReplicationGroup -&gt; Text
-</span><a href="#local-6989586621679414715"><span class="hs-identifier hs-var hs-var">primaryRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414715"><span class="hs-identifier hs-var">primaryRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414714"><span class="annot"><span class="annottext">s :: FailoverGlobalReplicationGroup
-</span><a href="#local-6989586621679414714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414713"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalReplicationGroup
-</span><a href="#local-6989586621679414714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryRegion:FailoverGlobalReplicationGroup' :: Text
+</span><a href="#local-6989586621679414724"><span class="hs-identifier hs-var hs-var">primaryRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414724"><span class="hs-identifier hs-var">primaryRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414723"><span class="annot"><span class="annottext">s :: FailoverGlobalReplicationGroup
+</span><a href="#local-6989586621679414723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414722"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalReplicationGroup
+</span><a href="#local-6989586621679414723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryRegion:FailoverGlobalReplicationGroup' :: Text
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#%24sel%3AprimaryRegion%3AFailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-var">primaryRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The name of the primary replication group</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#failoverGlobalReplicationGroup_primaryReplicationGroupId"><span class="hs-identifier hs-type">failoverGlobalReplicationGroup_primaryReplicationGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -244,16 +244,16 @@ $sel:primaryRegion:FailoverGlobalReplicationGroup' :: FailoverGlobalReplicationG
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414712"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414721"><span class="annot"><span class="annottext">Text
 primaryReplicationGroupId :: Text
 $sel:primaryReplicationGroupId:FailoverGlobalReplicationGroup' :: FailoverGlobalReplicationGroup -&gt; Text
-</span><a href="#local-6989586621679414712"><span class="hs-identifier hs-var hs-var">primaryReplicationGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414712"><span class="hs-identifier hs-var">primaryReplicationGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414711"><span class="annot"><span class="annottext">s :: FailoverGlobalReplicationGroup
-</span><a href="#local-6989586621679414711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414710"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalReplicationGroup
-</span><a href="#local-6989586621679414711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryReplicationGroupId:FailoverGlobalReplicationGroup' :: Text
+</span><a href="#local-6989586621679414721"><span class="hs-identifier hs-var hs-var">primaryReplicationGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414721"><span class="hs-identifier hs-var">primaryReplicationGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414720"><span class="annot"><span class="annottext">s :: FailoverGlobalReplicationGroup
+</span><a href="#local-6989586621679414720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414719"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679414719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalReplicationGroup
+</span><a href="#local-6989586621679414720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryReplicationGroupId:FailoverGlobalReplicationGroup' :: Text
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#%24sel%3AprimaryReplicationGroupId%3AFailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-var">primaryReplicationGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -262,7 +262,7 @@ $sel:primaryReplicationGroupId:FailoverGlobalReplicationGroup' :: FailoverGlobal
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-114"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroupResponse</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679414706"><span class="annot"><span class="annottext">request :: FailoverGlobalReplicationGroup
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679414715"><span class="annot"><span class="annottext">request :: FailoverGlobalReplicationGroup
 -&gt; Request FailoverGlobalReplicationGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; FailoverGlobalReplicationGroup
@@ -270,7 +270,7 @@ $sel:primaryReplicationGroupId:FailoverGlobalReplicationGroup' :: FailoverGlobal
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679414702"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679414711"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy FailoverGlobalReplicationGroup
 -&gt; ClientResponse ClientBody
@@ -303,10 +303,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FailoverGlobalReplicationGroupResult&quot;</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679414699"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414699"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679414698"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679414698"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679414697"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679414697"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679414708"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414708"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679414707"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679414707"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679414706"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679414706"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe GlobalReplicationGroup
 -&gt; Int -&gt; FailoverGlobalReplicationGroupResponse
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-var">FailoverGlobalReplicationGroupResponse'</span></a></span><span>
@@ -316,7 +316,7 @@ Text
 -&gt; Either String (Int -&gt; FailoverGlobalReplicationGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679414697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe GlobalReplicationGroup)
+</span><a href="#local-6989586621679414706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe GlobalReplicationGroup)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GlobalReplicationGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -329,22 +329,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414699"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414708"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679414689"><span id="local-6989586621679414691"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679414698"><span id="local-6989586621679414700"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679414686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679414695"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup</span></a></span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup</span></a></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679414682"><span class="annot"><span class="annottext">toHeaders :: FailoverGlobalReplicationGroup -&gt; ResponseHeaders
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679414691"><span class="annot"><span class="annottext">toHeaders :: FailoverGlobalReplicationGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; FailoverGlobalReplicationGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -353,22 +353,22 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679414677"><span class="annot"><span class="annottext">toPath :: FailoverGlobalReplicationGroup -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679414686"><span class="annot"><span class="annottext">toPath :: FailoverGlobalReplicationGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; FailoverGlobalReplicationGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679414673"><span class="annot"><span class="annottext">toQuery :: FailoverGlobalReplicationGroup -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414669"><span id="local-6989586621679414670"><span id="local-6989586621679414671"><span class="annot"><span class="annottext">Text
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679414682"><span class="annot"><span class="annottext">toQuery :: FailoverGlobalReplicationGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroup%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414678"><span id="local-6989586621679414679"><span id="local-6989586621679414680"><span class="annot"><span class="annottext">Text
 primaryReplicationGroupId :: Text
 primaryRegion :: Text
 globalReplicationGroupId :: Text
 $sel:primaryReplicationGroupId:FailoverGlobalReplicationGroup' :: FailoverGlobalReplicationGroup -&gt; Text
 $sel:primaryRegion:FailoverGlobalReplicationGroup' :: FailoverGlobalReplicationGroup -&gt; Text
 $sel:globalReplicationGroupId:FailoverGlobalReplicationGroup' :: FailoverGlobalReplicationGroup -&gt; Text
-</span><a href="#local-6989586621679414669"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679414678"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -391,22 +391,22 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414671"><span class="hs-identifier hs-var">globalReplicationGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679414680"><span class="hs-identifier hs-var">globalReplicationGroupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PrimaryRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414670"><span class="hs-identifier hs-var">primaryRegion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679414679"><span class="hs-identifier hs-var">primaryRegion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PrimaryReplicationGroupId&quot;</span></span><span>
 </span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414669"><span class="hs-identifier hs-var">primaryReplicationGroupId</span></a></span><span>
+</span><a href="#local-6989586621679414678"><span class="hs-identifier hs-var">primaryReplicationGroupId</span></a></span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newFailoverGlobalReplicationGroupResponse' smart constructor.</span><span>
-</span><span id="line-160"></span><span id="local-6989586621679414666"><span id="local-6989586621679414667"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverGlobalReplicationGroupResponse"><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse"><span class="hs-identifier hs-var">FailoverGlobalReplicationGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverGlobalReplicationGroupResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-var">FailoverGlobalReplicationGroupResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span id="local-6989586621679414675"><span id="local-6989586621679414676"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverGlobalReplicationGroupResponse"><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse"><span class="hs-identifier hs-var">FailoverGlobalReplicationGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverGlobalReplicationGroupResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-var">FailoverGlobalReplicationGroupResponse'</span></a></span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AglobalReplicationGroup%3AFailoverGlobalReplicationGroupResponse%27"><span class="annot"><span class="annottext">FailoverGlobalReplicationGroupResponse
 -&gt; Maybe GlobalReplicationGroup
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#%24sel%3AglobalReplicationGroup%3AFailoverGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-var hs-var">globalReplicationGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalReplicationGroup.html#GlobalReplicationGroup"><span class="hs-identifier hs-type">GlobalReplicationGroup</span></a></span><span class="hs-special">,</span><span>
@@ -414,7 +414,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3AFailoverGlobalReplicationGroupResponse%27"><span class="annot"><span class="annottext">FailoverGlobalReplicationGroupResponse -&gt; Int
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#%24sel%3AhttpStatus%3AFailoverGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414660"><span id="local-6989586621679414662"><span class="annot"><span class="annottext">FailoverGlobalReplicationGroupResponse
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414669"><span id="local-6989586621679414671"><span class="annot"><span class="annottext">FailoverGlobalReplicationGroupResponse
 -&gt; FailoverGlobalReplicationGroupResponse -&gt; Bool
 (FailoverGlobalReplicationGroupResponse
  -&gt; FailoverGlobalReplicationGroupResponse -&gt; Bool)
@@ -430,7 +430,7 @@ $c/= :: FailoverGlobalReplicationGroupResponse
 -&gt; FailoverGlobalReplicationGroupResponse -&gt; Bool
 $c== :: FailoverGlobalReplicationGroupResponse
 -&gt; FailoverGlobalReplicationGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414652"><span id="local-6989586621679414654"><span id="local-6989586621679414656"><span id="local-6989586621679414658"><span class="annot"><span class="annottext">ReadPrec [FailoverGlobalReplicationGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414661"><span id="local-6989586621679414663"><span id="local-6989586621679414665"><span id="local-6989586621679414667"><span class="annot"><span class="annottext">ReadPrec [FailoverGlobalReplicationGroupResponse]
 ReadPrec FailoverGlobalReplicationGroupResponse
 Int -&gt; ReadS FailoverGlobalReplicationGroupResponse
 ReadS [FailoverGlobalReplicationGroupResponse]
@@ -450,7 +450,7 @@ readList :: ReadS [FailoverGlobalReplicationGroupResponse]
 $creadList :: ReadS [FailoverGlobalReplicationGroupResponse]
 readsPrec :: Int -&gt; ReadS FailoverGlobalReplicationGroupResponse
 $creadsPrec :: Int -&gt; ReadS FailoverGlobalReplicationGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414646"><span id="local-6989586621679414648"><span id="local-6989586621679414650"><span class="annot"><span class="annottext">Int -&gt; FailoverGlobalReplicationGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414655"><span id="local-6989586621679414657"><span id="local-6989586621679414659"><span class="annot"><span class="annottext">Int -&gt; FailoverGlobalReplicationGroupResponse -&gt; ShowS
 [FailoverGlobalReplicationGroupResponse] -&gt; ShowS
 FailoverGlobalReplicationGroupResponse -&gt; String
 (Int -&gt; FailoverGlobalReplicationGroupResponse -&gt; ShowS)
@@ -505,8 +505,8 @@ FailoverGlobalReplicationGroupResponse
 </span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroupResponse</span></a></span><span>
 </span><span id="line-182"></span><span id="newFailoverGlobalReplicationGroupResponse"><span class="annot"><span class="annottext">newFailoverGlobalReplicationGroupResponse :: Int -&gt; FailoverGlobalReplicationGroupResponse
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#newFailoverGlobalReplicationGroupResponse"><span class="hs-identifier hs-var hs-var">newFailoverGlobalReplicationGroupResponse</span></a></span></span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679414643"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414643"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679414652"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414652"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">FailoverGlobalReplicationGroupResponse' :: Maybe GlobalReplicationGroup
 -&gt; Int -&gt; FailoverGlobalReplicationGroupResponse
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroupResponse'</span></a></span><span>
@@ -517,7 +517,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:FailoverGlobalReplicationGroupResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#%24sel%3AhttpStatus%3AFailoverGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414643"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679414652"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -536,17 +536,17 @@ forall a. Maybe a
      (Maybe GlobalReplicationGroup)
      (Maybe GlobalReplicationGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414642"><span class="annot"><span class="annottext">Maybe GlobalReplicationGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414651"><span class="annot"><span class="annottext">Maybe GlobalReplicationGroup
 globalReplicationGroup :: Maybe GlobalReplicationGroup
 $sel:globalReplicationGroup:FailoverGlobalReplicationGroupResponse' :: FailoverGlobalReplicationGroupResponse
 -&gt; Maybe GlobalReplicationGroup
-</span><a href="#local-6989586621679414642"><span class="hs-identifier hs-var hs-var">globalReplicationGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalReplicationGroup
-</span><a href="#local-6989586621679414642"><span class="hs-identifier hs-var">globalReplicationGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414641"><span class="annot"><span class="annottext">s :: FailoverGlobalReplicationGroupResponse
-</span><a href="#local-6989586621679414641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414640"><span class="annot"><span class="annottext">Maybe GlobalReplicationGroup
-</span><a href="#local-6989586621679414640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalReplicationGroupResponse
-</span><a href="#local-6989586621679414641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalReplicationGroup:FailoverGlobalReplicationGroupResponse' :: Maybe GlobalReplicationGroup
+</span><a href="#local-6989586621679414651"><span class="hs-identifier hs-var hs-var">globalReplicationGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalReplicationGroup
+</span><a href="#local-6989586621679414651"><span class="hs-identifier hs-var">globalReplicationGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414650"><span class="annot"><span class="annottext">s :: FailoverGlobalReplicationGroupResponse
+</span><a href="#local-6989586621679414650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414649"><span class="annot"><span class="annottext">Maybe GlobalReplicationGroup
+</span><a href="#local-6989586621679414649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalReplicationGroupResponse
+</span><a href="#local-6989586621679414650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalReplicationGroup:FailoverGlobalReplicationGroupResponse' :: Maybe GlobalReplicationGroup
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#%24sel%3AglobalReplicationGroup%3AFailoverGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-var">globalReplicationGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalReplicationGroup
-</span><a href="#local-6989586621679414640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-195"></span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#failoverGlobalReplicationGroupResponse_httpStatus"><span class="hs-identifier hs-type">failoverGlobalReplicationGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -562,18 +562,18 @@ $sel:globalReplicationGroup:FailoverGlobalReplicationGroupResponse' :: FailoverG
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414639"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414648"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:FailoverGlobalReplicationGroupResponse' :: FailoverGlobalReplicationGroupResponse -&gt; Int
-</span><a href="#local-6989586621679414639"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414639"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414638"><span class="annot"><span class="annottext">s :: FailoverGlobalReplicationGroupResponse
-</span><a href="#local-6989586621679414638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414637"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalReplicationGroupResponse
-</span><a href="#local-6989586621679414638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:FailoverGlobalReplicationGroupResponse' :: Int
+</span><a href="#local-6989586621679414648"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414648"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414647"><span class="annot"><span class="annottext">s :: FailoverGlobalReplicationGroupResponse
+</span><a href="#local-6989586621679414647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414646"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalReplicationGroupResponse
+</span><a href="#local-6989586621679414647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:FailoverGlobalReplicationGroupResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#%24sel%3AhttpStatus%3AFailoverGlobalReplicationGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679414635"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679414644"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.FailoverGlobalReplicationGroup.html#FailoverGlobalReplicationGroupResponse"><span class="hs-identifier hs-type">FailoverGlobalReplicationGroupResponse</span></a></span></span><span>
 </span><span id="line-201"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes a data processing configuration.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newProcessingConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679275148"><span id="local-6989586621679275149"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProcessingConfiguration"><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-var">ProcessingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessingConfiguration%27"><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration%27"><span class="hs-identifier hs-var">ProcessingConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679275157"><span id="local-6989586621679275158"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProcessingConfiguration"><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-var">ProcessingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessingConfiguration%27"><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration%27"><span class="hs-identifier hs-var">ProcessingConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Enables or disables data processing.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aenabled%3AProcessingConfiguration%27"><span class="annot"><span class="annottext">ProcessingConfiguration -&gt; Maybe Bool
 </span><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#%24sel%3Aenabled%3AProcessingConfiguration%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aprocessors%3AProcessingConfiguration%27"><span class="annot"><span class="annottext">ProcessingConfiguration -&gt; Maybe [Processor]
 </span><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#%24sel%3Aprocessors%3AProcessingConfiguration%27"><span class="hs-identifier hs-var hs-var">processors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor"><span class="hs-identifier hs-type">Processor</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275141"><span id="local-6989586621679275143"><span class="annot"><span class="annottext">ProcessingConfiguration -&gt; ProcessingConfiguration -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275150"><span id="local-6989586621679275152"><span class="annot"><span class="annottext">ProcessingConfiguration -&gt; ProcessingConfiguration -&gt; Bool
 (ProcessingConfiguration -&gt; ProcessingConfiguration -&gt; Bool)
 -&gt; (ProcessingConfiguration -&gt; ProcessingConfiguration -&gt; Bool)
 -&gt; Eq ProcessingConfiguration
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProcessingConfiguration -&gt; ProcessingConfiguration -&gt; Bool
 == :: ProcessingConfiguration -&gt; ProcessingConfiguration -&gt; Bool
 $c== :: ProcessingConfiguration -&gt; ProcessingConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275132"><span id="local-6989586621679275134"><span id="local-6989586621679275136"><span id="local-6989586621679275138"><span class="annot"><span class="annottext">ReadPrec [ProcessingConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275141"><span id="local-6989586621679275143"><span id="local-6989586621679275145"><span id="local-6989586621679275147"><span class="annot"><span class="annottext">ReadPrec [ProcessingConfiguration]
 ReadPrec ProcessingConfiguration
 Int -&gt; ReadS ProcessingConfiguration
 ReadS [ProcessingConfiguration]
@@ -64,7 +64,7 @@ readList :: ReadS [ProcessingConfiguration]
 $creadList :: ReadS [ProcessingConfiguration]
 readsPrec :: Int -&gt; ReadS ProcessingConfiguration
 $creadsPrec :: Int -&gt; ReadS ProcessingConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275125"><span id="local-6989586621679275127"><span id="local-6989586621679275129"><span class="annot"><span class="annottext">Int -&gt; ProcessingConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275134"><span id="local-6989586621679275136"><span id="local-6989586621679275138"><span class="annot"><span class="annottext">Int -&gt; ProcessingConfiguration -&gt; ShowS
 [ProcessingConfiguration] -&gt; ShowS
 ProcessingConfiguration -&gt; String
 (Int -&gt; ProcessingConfiguration -&gt; ShowS)
@@ -132,16 +132,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration%27"><span class="hs-identifier hs-type">ProcessingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275116"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration%27"><span class="hs-identifier hs-type">ProcessingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275125"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:ProcessingConfiguration' :: ProcessingConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679275116"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679275116"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275115"><span class="annot"><span class="annottext">s :: ProcessingConfiguration
-</span><a href="#local-6989586621679275115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration%27"><span class="hs-identifier hs-type">ProcessingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275114"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679275114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessingConfiguration
-</span><a href="#local-6989586621679275115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:ProcessingConfiguration' :: Maybe Bool
+</span><a href="#local-6989586621679275125"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275125"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275124"><span class="annot"><span class="annottext">s :: ProcessingConfiguration
+</span><a href="#local-6989586621679275124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration%27"><span class="hs-identifier hs-type">ProcessingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275123"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessingConfiguration
+</span><a href="#local-6989586621679275124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:ProcessingConfiguration' :: Maybe Bool
 </span><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#%24sel%3Aenabled%3AProcessingConfiguration%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679275114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The data processors.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#processingConfiguration_processors"><span class="hs-identifier hs-type">processingConfiguration_processors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Firehose.Types.Processor.html#Processor"><span class="hs-identifier hs-type">Processor</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -156,16 +156,16 @@ $sel:enabled:ProcessingConfiguration' :: ProcessingConfiguration -&gt; Maybe Boo
      (Maybe [Processor])
      (Maybe [Processor])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration%27"><span class="hs-identifier hs-type">ProcessingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275112"><span class="annot"><span class="annottext">Maybe [Processor]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration%27"><span class="hs-identifier hs-type">ProcessingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275121"><span class="annot"><span class="annottext">Maybe [Processor]
 processors :: Maybe [Processor]
 $sel:processors:ProcessingConfiguration' :: ProcessingConfiguration -&gt; Maybe [Processor]
-</span><a href="#local-6989586621679275112"><span class="hs-identifier hs-var hs-var">processors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Processor]
-</span><a href="#local-6989586621679275112"><span class="hs-identifier hs-var">processors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275111"><span class="annot"><span class="annottext">s :: ProcessingConfiguration
-</span><a href="#local-6989586621679275111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration%27"><span class="hs-identifier hs-type">ProcessingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275110"><span class="annot"><span class="annottext">Maybe [Processor]
-</span><a href="#local-6989586621679275110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessingConfiguration
-</span><a href="#local-6989586621679275111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processors:ProcessingConfiguration' :: Maybe [Processor]
+</span><a href="#local-6989586621679275121"><span class="hs-identifier hs-var hs-var">processors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Processor]
+</span><a href="#local-6989586621679275121"><span class="hs-identifier hs-var">processors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275120"><span class="annot"><span class="annottext">s :: ProcessingConfiguration
+</span><a href="#local-6989586621679275120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration%27"><span class="hs-identifier hs-type">ProcessingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275119"><span class="annot"><span class="annottext">Maybe [Processor]
+</span><a href="#local-6989586621679275119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessingConfiguration
+</span><a href="#local-6989586621679275120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processors:ProcessingConfiguration' :: Maybe [Processor]
 </span><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#%24sel%3Aprocessors%3AProcessingConfiguration%27"><span class="hs-identifier hs-var">processors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Processor]
-</span><a href="#local-6989586621679275110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Processor] -&gt; f (Maybe [Processor]))
+</span><a href="#local-6989586621679275119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Processor] -&gt; f (Maybe [Processor]))
  -&gt; ProcessingConfiguration -&gt; f ProcessingConfiguration)
 -&gt; ((Maybe [Processor] -&gt; f (Maybe [Processor]))
     -&gt; Maybe [Processor] -&gt; f (Maybe [Processor]))
@@ -186,8 +186,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275104"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679275102"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProcessingConfiguration
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275113"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679275111"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProcessingConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProcessingConfiguration)
@@ -197,8 +197,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProcessingConfiguration&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275099"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275099"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275108"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275108"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe [Processor] -&gt; ProcessingConfiguration
 </span><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration%27"><span class="hs-identifier hs-var">ProcessingConfiguration'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe [Processor] -&gt; ProcessingConfiguration)
@@ -206,7 +206,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [Processor] -&gt; ProcessingConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679275108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -214,7 +214,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Processor]) -&gt; Parser ProcessingConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Processor]))
+</span><a href="#local-6989586621679275108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Processor]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Processors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Processor]))
@@ -225,19 +225,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275092"><span id="local-6989586621679275094"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275101"><span id="local-6989586621679275103"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275089"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275081"><span id="local-6989586621679275083"><span id="local-6989586621679275085"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679275079"><span class="annot"><span class="annottext">toJSON :: ProcessingConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration%27"><span class="hs-identifier hs-type">ProcessingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275076"><span id="local-6989586621679275077"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275090"><span id="local-6989586621679275092"><span id="local-6989586621679275094"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679275088"><span class="annot"><span class="annottext">toJSON :: ProcessingConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration%27"><span class="hs-identifier hs-type">ProcessingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275085"><span id="local-6989586621679275086"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Processor]
 processors :: Maybe [Processor]
 enabled :: Maybe Bool
 $sel:processors:ProcessingConfiguration' :: ProcessingConfiguration -&gt; Maybe [Processor]
 $sel:enabled:ProcessingConfiguration' :: ProcessingConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679275076"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679275085"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -249,14 +249,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679275077"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679275086"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Processors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Processor] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Processor] -&gt; Pair) -&gt; Maybe [Processor] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Processor]
-</span><a href="#local-6989586621679275076"><span class="hs-identifier hs-var">processors</span></a></span><span>
+</span><a href="#local-6989586621679275085"><span class="hs-identifier hs-var">processors</span></a></span><span>
 </span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span></pre></body></html>

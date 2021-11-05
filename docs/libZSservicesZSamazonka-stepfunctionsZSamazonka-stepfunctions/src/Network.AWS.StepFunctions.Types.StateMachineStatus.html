@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679226582"><span id="local-6989586621679226583"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StateMachineStatus"><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineStatus.html#StateMachineStatus"><span class="hs-identifier hs-var">StateMachineStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StateMachineStatus%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineStatus.html#StateMachineStatus%27"><span class="hs-identifier hs-var">StateMachineStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679226591"><span id="local-6989586621679226592"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StateMachineStatus"><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineStatus.html#StateMachineStatus"><span class="hs-identifier hs-var">StateMachineStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StateMachineStatus%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineStatus.html#StateMachineStatus%27"><span class="hs-identifier hs-var">StateMachineStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStateMachineStatus"><span class="annot"><span class="annottext">StateMachineStatus -&gt; Text
 </span><a href="Network.AWS.StepFunctions.Types.StateMachineStatus.html#fromStateMachineStatus"><span class="hs-identifier hs-var hs-var">fromStateMachineStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679226574"><span id="local-6989586621679226576"><span id="local-6989586621679226578"><span class="annot"><span class="annottext">Int -&gt; StateMachineStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679226583"><span id="local-6989586621679226585"><span id="local-6989586621679226587"><span class="annot"><span class="annottext">Int -&gt; StateMachineStatus -&gt; ShowS
 [StateMachineStatus] -&gt; ShowS
 StateMachineStatus -&gt; String
 (Int -&gt; StateMachineStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: StateMachineStatus -&gt; String
 showsPrec :: Int -&gt; StateMachineStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; StateMachineStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679226565"><span id="local-6989586621679226567"><span id="local-6989586621679226569"><span id="local-6989586621679226571"><span class="annot"><span class="annottext">ReadPrec [StateMachineStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679226574"><span id="local-6989586621679226576"><span id="local-6989586621679226578"><span id="local-6989586621679226580"><span class="annot"><span class="annottext">ReadPrec [StateMachineStatus]
 ReadPrec StateMachineStatus
 Int -&gt; ReadS StateMachineStatus
 ReadS [StateMachineStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [StateMachineStatus]
 readsPrec :: Int -&gt; ReadS StateMachineStatus
 $creadsPrec :: Int -&gt; ReadS StateMachineStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679226560"><span id="local-6989586621679226562"><span class="annot"><span class="annottext">StateMachineStatus -&gt; StateMachineStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679226569"><span id="local-6989586621679226571"><span class="annot"><span class="annottext">StateMachineStatus -&gt; StateMachineStatus -&gt; Bool
 (StateMachineStatus -&gt; StateMachineStatus -&gt; Bool)
 -&gt; (StateMachineStatus -&gt; StateMachineStatus -&gt; Bool)
 -&gt; Eq StateMachineStatus
@@ -82,7 +82,7 @@ $c/= :: StateMachineStatus -&gt; StateMachineStatus -&gt; Bool
 == :: StateMachineStatus -&gt; StateMachineStatus -&gt; Bool
 $c== :: StateMachineStatus -&gt; StateMachineStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679226544"><span id="local-6989586621679226546"><span id="local-6989586621679226548"><span id="local-6989586621679226550"><span id="local-6989586621679226552"><span id="local-6989586621679226554"><span id="local-6989586621679226556"><span class="annot"><span class="annottext">Eq StateMachineStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679226553"><span id="local-6989586621679226555"><span id="local-6989586621679226557"><span id="local-6989586621679226559"><span id="local-6989586621679226561"><span id="local-6989586621679226563"><span id="local-6989586621679226565"><span class="annot"><span class="annottext">Eq StateMachineStatus
 Eq StateMachineStatus
 -&gt; (StateMachineStatus -&gt; StateMachineStatus -&gt; Ordering)
 -&gt; (StateMachineStatus -&gt; StateMachineStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. StateMachineStatus -&gt; Rep StateMachineStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679226536"><span id="local-6989586621679226538"><span class="annot"><span class="annottext">Int -&gt; StateMachineStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679226545"><span id="local-6989586621679226547"><span class="annot"><span class="annottext">Int -&gt; StateMachineStatus -&gt; Int
 StateMachineStatus -&gt; Int
 (Int -&gt; StateMachineStatus -&gt; Int)
 -&gt; (StateMachineStatus -&gt; Int) -&gt; Hashable StateMachineStatus
@@ -143,53 +143,53 @@ $chash :: StateMachineStatus -&gt; Int
 hashWithSalt :: Int -&gt; StateMachineStatus -&gt; Int
 $chashWithSalt :: Int -&gt; StateMachineStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679226533"><span class="annot"><span class="annottext">StateMachineStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679226542"><span class="annot"><span class="annottext">StateMachineStatus -&gt; ()
 (StateMachineStatus -&gt; ()) -&gt; NFData StateMachineStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StateMachineStatus -&gt; ()
 $crnf :: StateMachineStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679226530"><span class="annot"><span class="annottext">Text -&gt; Either String StateMachineStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679226539"><span class="annot"><span class="annottext">Text -&gt; Either String StateMachineStatus
 (Text -&gt; Either String StateMachineStatus)
 -&gt; FromText StateMachineStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StateMachineStatus
 $cfromText :: Text -&gt; Either String StateMachineStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679226527"><span class="annot"><span class="annottext">StateMachineStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679226536"><span class="annot"><span class="annottext">StateMachineStatus -&gt; Text
 (StateMachineStatus -&gt; Text) -&gt; ToText StateMachineStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StateMachineStatus -&gt; Text
 $ctoText :: StateMachineStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679226524"><span class="annot"><span class="annottext">StateMachineStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679226533"><span class="annot"><span class="annottext">StateMachineStatus -&gt; ByteString
 (StateMachineStatus -&gt; ByteString)
 -&gt; ToByteString StateMachineStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StateMachineStatus -&gt; ByteString
 $ctoBS :: StateMachineStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679226521"><span class="annot"><span class="annottext">StateMachineStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679226530"><span class="annot"><span class="annottext">StateMachineStatus -&gt; ByteStringBuilder
 (StateMachineStatus -&gt; ByteStringBuilder)
 -&gt; ToLog StateMachineStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StateMachineStatus -&gt; ByteStringBuilder
 $cbuild :: StateMachineStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679226518"><span class="annot"><span class="annottext">HeaderName -&gt; StateMachineStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679226527"><span class="annot"><span class="annottext">HeaderName -&gt; StateMachineStatus -&gt; [Header]
 (HeaderName -&gt; StateMachineStatus -&gt; [Header])
 -&gt; ToHeader StateMachineStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StateMachineStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StateMachineStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679226515"><span class="annot"><span class="annottext">StateMachineStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679226524"><span class="annot"><span class="annottext">StateMachineStatus -&gt; QueryString
 (StateMachineStatus -&gt; QueryString) -&gt; ToQuery StateMachineStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StateMachineStatus -&gt; QueryString
 $ctoQuery :: StateMachineStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679226510"><span id="local-6989586621679226512"><span class="annot"><span class="annottext">Value -&gt; Parser [StateMachineStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679226519"><span id="local-6989586621679226521"><span class="annot"><span class="annottext">Value -&gt; Parser [StateMachineStatus]
 Value -&gt; Parser StateMachineStatus
 (Value -&gt; Parser StateMachineStatus)
 -&gt; (Value -&gt; Parser [StateMachineStatus])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [StateMachineStatus]
 parseJSON :: Value -&gt; Parser StateMachineStatus
 $cparseJSON :: Value -&gt; Parser StateMachineStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679226505"><span id="local-6989586621679226507"><span class="annot"><span class="annottext">FromJSONKeyFunction [StateMachineStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679226514"><span id="local-6989586621679226516"><span class="annot"><span class="annottext">FromJSONKeyFunction [StateMachineStatus]
 FromJSONKeyFunction StateMachineStatus
 FromJSONKeyFunction StateMachineStatus
 -&gt; FromJSONKeyFunction [StateMachineStatus]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StateMachineStatus]
 fromJSONKey :: FromJSONKeyFunction StateMachineStatus
 $cfromJSONKey :: FromJSONKeyFunction StateMachineStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679226496"><span id="local-6989586621679226498"><span id="local-6989586621679226500"><span id="local-6989586621679226502"><span class="annot"><span class="annottext">[StateMachineStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679226505"><span id="local-6989586621679226507"><span id="local-6989586621679226509"><span id="local-6989586621679226511"><span class="annot"><span class="annottext">[StateMachineStatus] -&gt; Encoding
 [StateMachineStatus] -&gt; Value
 StateMachineStatus -&gt; Encoding
 StateMachineStatus -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: StateMachineStatus -&gt; Encoding
 toJSON :: StateMachineStatus -&gt; Value
 $ctoJSON :: StateMachineStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679226491"><span id="local-6989586621679226493"><span class="annot"><span class="annottext">ToJSONKeyFunction [StateMachineStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679226500"><span id="local-6989586621679226502"><span class="annot"><span class="annottext">ToJSONKeyFunction [StateMachineStatus]
 ToJSONKeyFunction StateMachineStatus
 ToJSONKeyFunction StateMachineStatus
 -&gt; ToJSONKeyFunction [StateMachineStatus]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StateMachineStatus]
 toJSONKey :: ToJSONKeyFunction StateMachineStatus
 $ctoJSONKey :: ToJSONKeyFunction StateMachineStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679226488"><span class="annot"><span class="annottext">[Node] -&gt; Either String StateMachineStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679226497"><span class="annot"><span class="annottext">[Node] -&gt; Either String StateMachineStatus
 ([Node] -&gt; Either String StateMachineStatus)
 -&gt; FromXML StateMachineStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StateMachineStatus
 $cparseXML :: [Node] -&gt; Either String StateMachineStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679226485"><span class="annot"><span class="annottext">StateMachineStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679226494"><span class="annot"><span class="annottext">StateMachineStatus -&gt; XML
 (StateMachineStatus -&gt; XML) -&gt; ToXML StateMachineStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StateMachineStatus -&gt; XML

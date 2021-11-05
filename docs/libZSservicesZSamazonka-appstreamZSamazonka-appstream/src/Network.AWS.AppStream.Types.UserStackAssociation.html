@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes a user in the user pool and the associated stack.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newUserStackAssociation' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679291275"><span id="local-6989586621679291276"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserStackAssociation"><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-var">UserStackAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserStackAssociation%27"><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-var">UserStackAssociation'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679291284"><span id="local-6989586621679291285"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserStackAssociation"><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-var">UserStackAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserStackAssociation%27"><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-var">UserStackAssociation'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether a welcome email is sent to a user after the user is</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- created in the user pool.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AsendEmailNotification%3AUserStackAssociation%27"><span class="annot"><span class="annottext">UserStackAssociation -&gt; Maybe Bool
@@ -44,7 +44,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AauthenticationType%3AUserStackAssociation%27"><span class="annot"><span class="annottext">UserStackAssociation -&gt; AuthenticationType
 </span><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#%24sel%3AauthenticationType%3AUserStackAssociation%27"><span class="hs-identifier hs-var hs-var">authenticationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.AuthenticationType.html#AuthenticationType"><span class="hs-identifier hs-type">AuthenticationType</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291266"><span id="local-6989586621679291268"><span class="annot"><span class="annottext">UserStackAssociation -&gt; UserStackAssociation -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291275"><span id="local-6989586621679291277"><span class="annot"><span class="annottext">UserStackAssociation -&gt; UserStackAssociation -&gt; Bool
 (UserStackAssociation -&gt; UserStackAssociation -&gt; Bool)
 -&gt; (UserStackAssociation -&gt; UserStackAssociation -&gt; Bool)
 -&gt; Eq UserStackAssociation
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UserStackAssociation -&gt; UserStackAssociation -&gt; Bool
 == :: UserStackAssociation -&gt; UserStackAssociation -&gt; Bool
 $c== :: UserStackAssociation -&gt; UserStackAssociation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291259"><span id="local-6989586621679291261"><span id="local-6989586621679291263"><span class="annot"><span class="annottext">Int -&gt; UserStackAssociation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291268"><span id="local-6989586621679291270"><span id="local-6989586621679291272"><span class="annot"><span class="annottext">Int -&gt; UserStackAssociation -&gt; ShowS
 [UserStackAssociation] -&gt; ShowS
 UserStackAssociation -&gt; String
 (Int -&gt; UserStackAssociation -&gt; ShowS)
@@ -107,12 +107,12 @@ $cfrom :: forall x. UserStackAssociation -&gt; Rep UserStackAssociation x
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span><span>
 </span><span id="line-71"></span><span id="newUserStackAssociation"><span class="annot"><span class="annottext">newUserStackAssociation :: Text -&gt; Text -&gt; AuthenticationType -&gt; UserStackAssociation
 </span><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#newUserStackAssociation"><span class="hs-identifier hs-var hs-var">newUserStackAssociation</span></a></span></span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679291253"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291253"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679291252"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291252"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679291251"><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679291251"><span class="hs-identifier hs-var">pAuthenticationType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679291262"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291262"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679291261"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291261"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679291260"><span class="annot"><span class="annottext">AuthenticationType
+</span><a href="#local-6989586621679291260"><span class="hs-identifier hs-var">pAuthenticationType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">UserStackAssociation' :: Maybe Bool
 -&gt; Text
 -&gt; Sensitive Text
@@ -126,7 +126,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">$sel:stackName:UserStackAssociation' :: Text
 </span><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#%24sel%3AstackName%3AUserStackAssociation%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291253"><span class="hs-identifier hs-var">pStackName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679291262"><span class="hs-identifier hs-var">pStackName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">$sel:userName:UserStackAssociation' :: Sensitive Text
 </span><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#%24sel%3AuserName%3AUserStackAssociation%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -136,10 +136,10 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291252"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679291261"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:authenticationType:UserStackAssociation' :: AuthenticationType
 </span><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#%24sel%3AauthenticationType%3AUserStackAssociation%27"><span class="hs-identifier hs-var">authenticationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679291251"><span class="hs-identifier hs-var">pAuthenticationType_</span></a></span><span>
+</span><a href="#local-6989586621679291260"><span class="hs-identifier hs-var">pAuthenticationType_</span></a></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | Specifies whether a welcome email is sent to a user after the user is</span><span>
@@ -152,16 +152,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      UserStackAssociation UserStackAssociation (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291245"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291254"><span class="annot"><span class="annottext">Maybe Bool
 sendEmailNotification :: Maybe Bool
 $sel:sendEmailNotification:UserStackAssociation' :: UserStackAssociation -&gt; Maybe Bool
-</span><a href="#local-6989586621679291245"><span class="hs-identifier hs-var hs-var">sendEmailNotification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679291245"><span class="hs-identifier hs-var">sendEmailNotification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291244"><span class="annot"><span class="annottext">s :: UserStackAssociation
-</span><a href="#local-6989586621679291244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291243"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679291243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserStackAssociation
-</span><a href="#local-6989586621679291244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sendEmailNotification:UserStackAssociation' :: Maybe Bool
+</span><a href="#local-6989586621679291254"><span class="hs-identifier hs-var hs-var">sendEmailNotification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679291254"><span class="hs-identifier hs-var">sendEmailNotification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291253"><span class="annot"><span class="annottext">s :: UserStackAssociation
+</span><a href="#local-6989586621679291253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291252"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679291252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserStackAssociation
+</span><a href="#local-6989586621679291253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sendEmailNotification:UserStackAssociation' :: Maybe Bool
 </span><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#%24sel%3AsendEmailNotification%3AUserStackAssociation%27"><span class="hs-identifier hs-var">sendEmailNotification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679291243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The name of the stack that is associated with the user.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#userStackAssociation_stackName"><span class="hs-identifier hs-type">userStackAssociation_stackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -170,16 +170,16 @@ $sel:sendEmailNotification:UserStackAssociation' :: UserStackAssociation -&gt; M
 -&gt; (UserStackAssociation -&gt; Text -&gt; UserStackAssociation)
 -&gt; Lens UserStackAssociation UserStackAssociation Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291241"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291250"><span class="annot"><span class="annottext">Text
 stackName :: Text
 $sel:stackName:UserStackAssociation' :: UserStackAssociation -&gt; Text
-</span><a href="#local-6989586621679291241"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291241"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291240"><span class="annot"><span class="annottext">s :: UserStackAssociation
-</span><a href="#local-6989586621679291240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291239"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserStackAssociation
-</span><a href="#local-6989586621679291240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:UserStackAssociation' :: Text
+</span><a href="#local-6989586621679291250"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291250"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291249"><span class="annot"><span class="annottext">s :: UserStackAssociation
+</span><a href="#local-6989586621679291249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291248"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserStackAssociation
+</span><a href="#local-6989586621679291249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:UserStackAssociation' :: Text
 </span><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#%24sel%3AstackName%3AUserStackAssociation%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The email address of the user who is associated with the stack.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
@@ -194,16 +194,16 @@ $sel:stackName:UserStackAssociation' :: UserStackAssociation -&gt; Text
      (Sensitive Text)
      (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291237"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291246"><span class="annot"><span class="annottext">Sensitive Text
 userName :: Sensitive Text
 $sel:userName:UserStackAssociation' :: UserStackAssociation -&gt; Sensitive Text
-</span><a href="#local-6989586621679291237"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679291237"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291236"><span class="annot"><span class="annottext">s :: UserStackAssociation
-</span><a href="#local-6989586621679291236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291235"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679291235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserStackAssociation
-</span><a href="#local-6989586621679291236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:UserStackAssociation' :: Sensitive Text
+</span><a href="#local-6989586621679291246"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679291246"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291245"><span class="annot"><span class="annottext">s :: UserStackAssociation
+</span><a href="#local-6989586621679291245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291244"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679291244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserStackAssociation
+</span><a href="#local-6989586621679291245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:UserStackAssociation' :: Sensitive Text
 </span><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#%24sel%3AuserName%3AUserStackAssociation%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679291235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679291244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; UserStackAssociation -&gt; f UserStackAssociation)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -227,19 +227,19 @@ forall a. Iso' (Sensitive a) a
      AuthenticationType
      AuthenticationType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291232"><span class="annot"><span class="annottext">AuthenticationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291241"><span class="annot"><span class="annottext">AuthenticationType
 authenticationType :: AuthenticationType
 $sel:authenticationType:UserStackAssociation' :: UserStackAssociation -&gt; AuthenticationType
-</span><a href="#local-6989586621679291232"><span class="hs-identifier hs-var hs-var">authenticationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679291232"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291231"><span class="annot"><span class="annottext">s :: UserStackAssociation
-</span><a href="#local-6989586621679291231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291230"><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679291230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserStackAssociation
-</span><a href="#local-6989586621679291231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationType:UserStackAssociation' :: AuthenticationType
+</span><a href="#local-6989586621679291241"><span class="hs-identifier hs-var hs-var">authenticationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthenticationType
+</span><a href="#local-6989586621679291241"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291240"><span class="annot"><span class="annottext">s :: UserStackAssociation
+</span><a href="#local-6989586621679291240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291239"><span class="annot"><span class="annottext">AuthenticationType
+</span><a href="#local-6989586621679291239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserStackAssociation
+</span><a href="#local-6989586621679291240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationType:UserStackAssociation' :: AuthenticationType
 </span><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#%24sel%3AauthenticationType%3AUserStackAssociation%27"><span class="hs-identifier hs-var">authenticationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679291230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291227"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679291225"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserStackAssociation
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291236"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679291234"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserStackAssociation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UserStackAssociation)
@@ -249,8 +249,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UserStackAssociation&quot;</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679291222"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679291222"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679291231"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291231"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Text
 -&gt; Sensitive Text
@@ -268,7 +268,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Sensitive Text -&gt; AuthenticationType -&gt; UserStackAssociation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679291222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679291231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SendEmailNotification&quot;</span></span><span class="hs-special">)</span><span>
@@ -280,7 +280,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Sensitive Text -&gt; AuthenticationType -&gt; UserStackAssociation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679291222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679291231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackName&quot;</span></span><span class="hs-special">)</span><span>
@@ -290,7 +290,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (AuthenticationType -&gt; UserStackAssociation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679291222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive Text)
+</span><a href="#local-6989586621679291231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span class="hs-special">)</span><span>
@@ -298,19 +298,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser AuthenticationType -&gt; Parser UserStackAssociation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679291222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AuthenticationType
+</span><a href="#local-6989586621679291231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AuthenticationType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AuthenticationType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291215"><span id="local-6989586621679291217"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291224"><span id="local-6989586621679291226"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291221"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291204"><span id="local-6989586621679291206"><span id="local-6989586621679291208"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679291202"><span class="annot"><span class="annottext">toJSON :: UserStackAssociation -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291197"><span id="local-6989586621679291198"><span id="local-6989586621679291199"><span id="local-6989586621679291200"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291213"><span id="local-6989586621679291215"><span id="local-6989586621679291217"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679291211"><span class="annot"><span class="annottext">toJSON :: UserStackAssociation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation%27"><span class="hs-identifier hs-type">UserStackAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291206"><span id="local-6989586621679291207"><span id="local-6989586621679291208"><span id="local-6989586621679291209"><span class="annot"><span class="annottext">Maybe Bool
 Text
 Sensitive Text
 AuthenticationType
@@ -322,7 +322,7 @@ $sel:authenticationType:UserStackAssociation' :: UserStackAssociation -&gt; Auth
 $sel:userName:UserStackAssociation' :: UserStackAssociation -&gt; Sensitive Text
 $sel:stackName:UserStackAssociation' :: UserStackAssociation -&gt; Text
 $sel:sendEmailNotification:UserStackAssociation' :: UserStackAssociation -&gt; Maybe Bool
-</span><a href="#local-6989586621679291197"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679291206"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -335,21 +335,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679291200"><span class="hs-identifier hs-var">sendEmailNotification</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679291209"><span class="hs-identifier hs-var">sendEmailNotification</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291199"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679291208"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679291198"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679291207"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -357,7 +357,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AuthenticationType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AuthenticationType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AuthenticationType
-</span><a href="#local-6989586621679291197"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291206"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span></pre></body></html>

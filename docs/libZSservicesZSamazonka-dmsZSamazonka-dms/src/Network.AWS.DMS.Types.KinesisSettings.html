@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- information.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newKinesisSettings' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679433174"><span id="local-6989586621679433175"></span></span><span class="hs-keyword">data</span><span> </span><span id="KinesisSettings"><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-var">KinesisSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KinesisSettings%27"><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-var">KinesisSettings'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679433183"><span id="local-6989586621679433184"></span></span><span class="hs-keyword">data</span><span> </span><span id="KinesisSettings"><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-var">KinesisSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KinesisSettings%27"><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-var">KinesisSettings'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Provides detailed transaction information from the source database. This</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- information includes a commit timestamp, a log position, and values for</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @transaction_id@, previous @transaction_id@, and @transaction_record_id@</span><span>
@@ -87,7 +87,7 @@
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3AincludeNullAndEmpty%3AKinesisSettings%27"><span class="annot"><span class="annottext">KinesisSettings -&gt; Maybe Bool
 </span><a href="Network.AWS.DMS.Types.KinesisSettings.html#%24sel%3AincludeNullAndEmpty%3AKinesisSettings%27"><span class="hs-identifier hs-var hs-var">includeNullAndEmpty</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433159"><span id="local-6989586621679433161"><span class="annot"><span class="annottext">KinesisSettings -&gt; KinesisSettings -&gt; Bool
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433168"><span id="local-6989586621679433170"><span class="annot"><span class="annottext">KinesisSettings -&gt; KinesisSettings -&gt; Bool
 (KinesisSettings -&gt; KinesisSettings -&gt; Bool)
 -&gt; (KinesisSettings -&gt; KinesisSettings -&gt; Bool)
 -&gt; Eq KinesisSettings
@@ -96,7 +96,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KinesisSettings -&gt; KinesisSettings -&gt; Bool
 == :: KinesisSettings -&gt; KinesisSettings -&gt; Bool
 $c== :: KinesisSettings -&gt; KinesisSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433150"><span id="local-6989586621679433152"><span id="local-6989586621679433154"><span id="local-6989586621679433156"><span class="annot"><span class="annottext">ReadPrec [KinesisSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433159"><span id="local-6989586621679433161"><span id="local-6989586621679433163"><span id="local-6989586621679433165"><span class="annot"><span class="annottext">ReadPrec [KinesisSettings]
 ReadPrec KinesisSettings
 Int -&gt; ReadS KinesisSettings
 ReadS [KinesisSettings]
@@ -116,7 +116,7 @@ readList :: ReadS [KinesisSettings]
 $creadList :: ReadS [KinesisSettings]
 readsPrec :: Int -&gt; ReadS KinesisSettings
 $creadsPrec :: Int -&gt; ReadS KinesisSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433143"><span id="local-6989586621679433145"><span id="local-6989586621679433147"><span class="annot"><span class="annottext">Int -&gt; KinesisSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433152"><span id="local-6989586621679433154"><span id="local-6989586621679433156"><span class="annot"><span class="annottext">Int -&gt; KinesisSettings -&gt; ShowS
 [KinesisSettings] -&gt; ShowS
 KinesisSettings -&gt; String
 (Int -&gt; KinesisSettings -&gt; ShowS)
@@ -264,16 +264,16 @@ forall a. Maybe a
 -&gt; (KinesisSettings -&gt; Maybe Bool -&gt; KinesisSettings)
 -&gt; Lens KinesisSettings KinesisSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433134"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433143"><span class="annot"><span class="annottext">Maybe Bool
 includeTransactionDetails :: Maybe Bool
 $sel:includeTransactionDetails:KinesisSettings' :: KinesisSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679433134"><span class="hs-identifier hs-var hs-var">includeTransactionDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433134"><span class="hs-identifier hs-var">includeTransactionDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433133"><span class="annot"><span class="annottext">s :: KinesisSettings
-</span><a href="#local-6989586621679433133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433132"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
-</span><a href="#local-6989586621679433133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeTransactionDetails:KinesisSettings' :: Maybe Bool
+</span><a href="#local-6989586621679433143"><span class="hs-identifier hs-var hs-var">includeTransactionDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433143"><span class="hs-identifier hs-var">includeTransactionDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433142"><span class="annot"><span class="annottext">s :: KinesisSettings
+</span><a href="#local-6989586621679433142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433141"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
+</span><a href="#local-6989586621679433142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeTransactionDetails:KinesisSettings' :: Maybe Bool
 </span><a href="Network.AWS.DMS.Types.KinesisSettings.html#%24sel%3AincludeTransactionDetails%3AKinesisSettings%27"><span class="hs-identifier hs-var">includeTransactionDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | Includes any data definition language (DDL) operations that change the</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- table in the control data, such as @rename-table@, @drop-table@,</span><span>
@@ -286,16 +286,16 @@ $sel:includeTransactionDetails:KinesisSettings' :: KinesisSettings -&gt; Maybe B
 -&gt; (KinesisSettings -&gt; Maybe Bool -&gt; KinesisSettings)
 -&gt; Lens KinesisSettings KinesisSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433130"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433139"><span class="annot"><span class="annottext">Maybe Bool
 includeTableAlterOperations :: Maybe Bool
 $sel:includeTableAlterOperations:KinesisSettings' :: KinesisSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679433130"><span class="hs-identifier hs-var hs-var">includeTableAlterOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433130"><span class="hs-identifier hs-var">includeTableAlterOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433129"><span class="annot"><span class="annottext">s :: KinesisSettings
-</span><a href="#local-6989586621679433129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433128"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
-</span><a href="#local-6989586621679433129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeTableAlterOperations:KinesisSettings' :: Maybe Bool
+</span><a href="#local-6989586621679433139"><span class="hs-identifier hs-var hs-var">includeTableAlterOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433139"><span class="hs-identifier hs-var">includeTableAlterOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433138"><span class="annot"><span class="annottext">s :: KinesisSettings
+</span><a href="#local-6989586621679433138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433137"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
+</span><a href="#local-6989586621679433138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeTableAlterOperations:KinesisSettings' :: Maybe Bool
 </span><a href="Network.AWS.DMS.Types.KinesisSettings.html#%24sel%3AincludeTableAlterOperations%3AKinesisSettings%27"><span class="hs-identifier hs-var">includeTableAlterOperations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the IAM role that DMS uses to write</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- to the Kinesis data stream. The role must allow the @iam:PassRole@</span><span>
@@ -307,16 +307,16 @@ $sel:includeTableAlterOperations:KinesisSettings' :: KinesisSettings -&gt; Maybe
 -&gt; (KinesisSettings -&gt; Maybe Text -&gt; KinesisSettings)
 -&gt; Lens KinesisSettings KinesisSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433126"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433135"><span class="annot"><span class="annottext">Maybe Text
 serviceAccessRoleArn :: Maybe Text
 $sel:serviceAccessRoleArn:KinesisSettings' :: KinesisSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679433126"><span class="hs-identifier hs-var hs-var">serviceAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433126"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433125"><span class="annot"><span class="annottext">s :: KinesisSettings
-</span><a href="#local-6989586621679433125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433124"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
-</span><a href="#local-6989586621679433125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccessRoleArn:KinesisSettings' :: Maybe Text
+</span><a href="#local-6989586621679433135"><span class="hs-identifier hs-var hs-var">serviceAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433135"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433134"><span class="annot"><span class="annottext">s :: KinesisSettings
+</span><a href="#local-6989586621679433134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433133"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
+</span><a href="#local-6989586621679433134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccessRoleArn:KinesisSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.KinesisSettings.html#%24sel%3AserviceAccessRoleArn%3AKinesisSettings%27"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | Prefixes schema and table names to partition values, when the partition</span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- type is @primary-key-type@. Doing this increases data distribution among</span><span>
@@ -331,16 +331,16 @@ $sel:serviceAccessRoleArn:KinesisSettings' :: KinesisSettings -&gt; Maybe Text
 -&gt; (KinesisSettings -&gt; Maybe Bool -&gt; KinesisSettings)
 -&gt; Lens KinesisSettings KinesisSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433122"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433131"><span class="annot"><span class="annottext">Maybe Bool
 partitionIncludeSchemaTable :: Maybe Bool
 $sel:partitionIncludeSchemaTable:KinesisSettings' :: KinesisSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679433122"><span class="hs-identifier hs-var hs-var">partitionIncludeSchemaTable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433122"><span class="hs-identifier hs-var">partitionIncludeSchemaTable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433121"><span class="annot"><span class="annottext">s :: KinesisSettings
-</span><a href="#local-6989586621679433121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433120"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
-</span><a href="#local-6989586621679433121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionIncludeSchemaTable:KinesisSettings' :: Maybe Bool
+</span><a href="#local-6989586621679433131"><span class="hs-identifier hs-var hs-var">partitionIncludeSchemaTable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433131"><span class="hs-identifier hs-var">partitionIncludeSchemaTable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433130"><span class="annot"><span class="annottext">s :: KinesisSettings
+</span><a href="#local-6989586621679433130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433129"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
+</span><a href="#local-6989586621679433130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionIncludeSchemaTable:KinesisSettings' :: Maybe Bool
 </span><a href="Network.AWS.DMS.Types.KinesisSettings.html#%24sel%3ApartitionIncludeSchemaTable%3AKinesisSettings%27"><span class="hs-identifier hs-var">partitionIncludeSchemaTable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams</span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- endpoint.</span><span>
@@ -351,16 +351,16 @@ $sel:partitionIncludeSchemaTable:KinesisSettings' :: KinesisSettings -&gt; Maybe
 -&gt; (KinesisSettings -&gt; Maybe Text -&gt; KinesisSettings)
 -&gt; Lens KinesisSettings KinesisSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433118"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433127"><span class="annot"><span class="annottext">Maybe Text
 streamArn :: Maybe Text
 $sel:streamArn:KinesisSettings' :: KinesisSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679433118"><span class="hs-identifier hs-var hs-var">streamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433118"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433117"><span class="annot"><span class="annottext">s :: KinesisSettings
-</span><a href="#local-6989586621679433117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433116"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
-</span><a href="#local-6989586621679433117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamArn:KinesisSettings' :: Maybe Text
+</span><a href="#local-6989586621679433127"><span class="hs-identifier hs-var hs-var">streamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433127"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433126"><span class="annot"><span class="annottext">s :: KinesisSettings
+</span><a href="#local-6989586621679433126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433125"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
+</span><a href="#local-6989586621679433126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamArn:KinesisSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.KinesisSettings.html#%24sel%3AstreamArn%3AKinesisSettings%27"><span class="hs-identifier hs-var">streamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | Shows detailed control information for table definition, column</span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- definition, and table and column changes in the Kinesis message output.</span><span>
@@ -372,16 +372,16 @@ $sel:streamArn:KinesisSettings' :: KinesisSettings -&gt; Maybe Text
 -&gt; (KinesisSettings -&gt; Maybe Bool -&gt; KinesisSettings)
 -&gt; Lens KinesisSettings KinesisSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433114"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433123"><span class="annot"><span class="annottext">Maybe Bool
 includeControlDetails :: Maybe Bool
 $sel:includeControlDetails:KinesisSettings' :: KinesisSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679433114"><span class="hs-identifier hs-var hs-var">includeControlDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433114"><span class="hs-identifier hs-var">includeControlDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433113"><span class="annot"><span class="annottext">s :: KinesisSettings
-</span><a href="#local-6989586621679433113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433112"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
-</span><a href="#local-6989586621679433113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeControlDetails:KinesisSettings' :: Maybe Bool
+</span><a href="#local-6989586621679433123"><span class="hs-identifier hs-var hs-var">includeControlDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433123"><span class="hs-identifier hs-var">includeControlDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433122"><span class="annot"><span class="annottext">s :: KinesisSettings
+</span><a href="#local-6989586621679433122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433121"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
+</span><a href="#local-6989586621679433122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeControlDetails:KinesisSettings' :: Maybe Bool
 </span><a href="Network.AWS.DMS.Types.KinesisSettings.html#%24sel%3AincludeControlDetails%3AKinesisSettings%27"><span class="hs-identifier hs-var">includeControlDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | Set this optional parameter to @true@ to avoid adding a \'0x\' prefix to</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- raw data in hexadecimal format. For example, by default, DMS adds a</span><span>
@@ -396,16 +396,16 @@ $sel:includeControlDetails:KinesisSettings' :: KinesisSettings -&gt; Maybe Bool
 -&gt; (KinesisSettings -&gt; Maybe Bool -&gt; KinesisSettings)
 -&gt; Lens KinesisSettings KinesisSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433110"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433119"><span class="annot"><span class="annottext">Maybe Bool
 noHexPrefix :: Maybe Bool
 $sel:noHexPrefix:KinesisSettings' :: KinesisSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679433110"><span class="hs-identifier hs-var hs-var">noHexPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433110"><span class="hs-identifier hs-var">noHexPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433109"><span class="annot"><span class="annottext">s :: KinesisSettings
-</span><a href="#local-6989586621679433109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433108"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
-</span><a href="#local-6989586621679433109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noHexPrefix:KinesisSettings' :: Maybe Bool
+</span><a href="#local-6989586621679433119"><span class="hs-identifier hs-var hs-var">noHexPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433119"><span class="hs-identifier hs-var">noHexPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433118"><span class="annot"><span class="annottext">s :: KinesisSettings
+</span><a href="#local-6989586621679433118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433117"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
+</span><a href="#local-6989586621679433118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noHexPrefix:KinesisSettings' :: Maybe Bool
 </span><a href="Network.AWS.DMS.Types.KinesisSettings.html#%24sel%3AnoHexPrefix%3AKinesisSettings%27"><span class="hs-identifier hs-var">noHexPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | Shows the partition value within the Kinesis message output, unless the</span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- partition type is @schema-table-type@. The default is @false@.</span><span>
@@ -416,16 +416,16 @@ $sel:noHexPrefix:KinesisSettings' :: KinesisSettings -&gt; Maybe Bool
 -&gt; (KinesisSettings -&gt; Maybe Bool -&gt; KinesisSettings)
 -&gt; Lens KinesisSettings KinesisSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433106"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433115"><span class="annot"><span class="annottext">Maybe Bool
 includePartitionValue :: Maybe Bool
 $sel:includePartitionValue:KinesisSettings' :: KinesisSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679433106"><span class="hs-identifier hs-var hs-var">includePartitionValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433106"><span class="hs-identifier hs-var">includePartitionValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433105"><span class="annot"><span class="annottext">s :: KinesisSettings
-</span><a href="#local-6989586621679433105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433104"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
-</span><a href="#local-6989586621679433105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includePartitionValue:KinesisSettings' :: Maybe Bool
+</span><a href="#local-6989586621679433115"><span class="hs-identifier hs-var hs-var">includePartitionValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433115"><span class="hs-identifier hs-var">includePartitionValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433114"><span class="annot"><span class="annottext">s :: KinesisSettings
+</span><a href="#local-6989586621679433114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433113"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
+</span><a href="#local-6989586621679433114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includePartitionValue:KinesisSettings' :: Maybe Bool
 </span><a href="Network.AWS.DMS.Types.KinesisSettings.html#%24sel%3AincludePartitionValue%3AKinesisSettings%27"><span class="hs-identifier hs-var">includePartitionValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | The output format for the records created on the endpoint. The message</span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- format is @JSON@ (default) or @JSON_UNFORMATTED@ (a single line with no</span><span>
@@ -441,16 +441,16 @@ $sel:includePartitionValue:KinesisSettings' :: KinesisSettings -&gt; Maybe Bool
      (Maybe MessageFormatValue)
      (Maybe MessageFormatValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433102"><span class="annot"><span class="annottext">Maybe MessageFormatValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433111"><span class="annot"><span class="annottext">Maybe MessageFormatValue
 messageFormat :: Maybe MessageFormatValue
 $sel:messageFormat:KinesisSettings' :: KinesisSettings -&gt; Maybe MessageFormatValue
-</span><a href="#local-6989586621679433102"><span class="hs-identifier hs-var hs-var">messageFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessageFormatValue
-</span><a href="#local-6989586621679433102"><span class="hs-identifier hs-var">messageFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433101"><span class="annot"><span class="annottext">s :: KinesisSettings
-</span><a href="#local-6989586621679433101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433100"><span class="annot"><span class="annottext">Maybe MessageFormatValue
-</span><a href="#local-6989586621679433100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
-</span><a href="#local-6989586621679433101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageFormat:KinesisSettings' :: Maybe MessageFormatValue
+</span><a href="#local-6989586621679433111"><span class="hs-identifier hs-var hs-var">messageFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessageFormatValue
+</span><a href="#local-6989586621679433111"><span class="hs-identifier hs-var">messageFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433110"><span class="annot"><span class="annottext">s :: KinesisSettings
+</span><a href="#local-6989586621679433110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433109"><span class="annot"><span class="annottext">Maybe MessageFormatValue
+</span><a href="#local-6989586621679433109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
+</span><a href="#local-6989586621679433110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageFormat:KinesisSettings' :: Maybe MessageFormatValue
 </span><a href="Network.AWS.DMS.Types.KinesisSettings.html#%24sel%3AmessageFormat%3AKinesisSettings%27"><span class="hs-identifier hs-var">messageFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageFormatValue
-</span><a href="#local-6989586621679433100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | Include NULL and empty columns for records migrated to the endpoint. The</span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- default is @false@.</span><span>
@@ -461,19 +461,19 @@ $sel:messageFormat:KinesisSettings' :: KinesisSettings -&gt; Maybe MessageFormat
 -&gt; (KinesisSettings -&gt; Maybe Bool -&gt; KinesisSettings)
 -&gt; Lens KinesisSettings KinesisSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433098"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433107"><span class="annot"><span class="annottext">Maybe Bool
 includeNullAndEmpty :: Maybe Bool
 $sel:includeNullAndEmpty:KinesisSettings' :: KinesisSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679433098"><span class="hs-identifier hs-var hs-var">includeNullAndEmpty</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433098"><span class="hs-identifier hs-var">includeNullAndEmpty</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433097"><span class="annot"><span class="annottext">s :: KinesisSettings
-</span><a href="#local-6989586621679433097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433096"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
-</span><a href="#local-6989586621679433097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeNullAndEmpty:KinesisSettings' :: Maybe Bool
+</span><a href="#local-6989586621679433107"><span class="hs-identifier hs-var hs-var">includeNullAndEmpty</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433107"><span class="hs-identifier hs-var">includeNullAndEmpty</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433106"><span class="annot"><span class="annottext">s :: KinesisSettings
+</span><a href="#local-6989586621679433106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433105"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisSettings
+</span><a href="#local-6989586621679433106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeNullAndEmpty:KinesisSettings' :: Maybe Bool
 </span><a href="Network.AWS.DMS.Types.KinesisSettings.html#%24sel%3AincludeNullAndEmpty%3AKinesisSettings%27"><span class="hs-identifier hs-var">includeNullAndEmpty</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433093"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679433091"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KinesisSettings
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433102"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679433100"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KinesisSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KinesisSettings)
@@ -483,8 +483,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KinesisSettings&quot;</span></span><span>
-</span><span id="line-220"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679433088"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433088"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679433097"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433097"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-221"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe Bool
 -&gt; Maybe Text
@@ -522,7 +522,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; KinesisSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679433097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeTransactionDetails&quot;</span></span><span class="hs-special">)</span><span>
@@ -550,7 +550,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KinesisSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679433097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeTableAlterOperations&quot;</span></span><span class="hs-special">)</span><span>
@@ -576,7 +576,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KinesisSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679433097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceAccessRoleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -600,7 +600,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KinesisSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679433097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PartitionIncludeSchemaTable&quot;</span></span><span class="hs-special">)</span><span>
@@ -622,7 +622,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KinesisSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679433097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -642,7 +642,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KinesisSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679433097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeControlDetails&quot;</span></span><span class="hs-special">)</span><span>
@@ -658,7 +658,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe MessageFormatValue -&gt; Maybe Bool -&gt; KinesisSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679433097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NoHexPrefix&quot;</span></span><span class="hs-special">)</span><span>
@@ -670,7 +670,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe MessageFormatValue -&gt; Maybe Bool -&gt; KinesisSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679433097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludePartitionValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -679,7 +679,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool -&gt; KinesisSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MessageFormatValue)
+</span><a href="#local-6989586621679433097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MessageFormatValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageFormat&quot;</span></span><span class="hs-special">)</span><span>
@@ -687,19 +687,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser KinesisSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679433097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeNullAndEmpty&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433082"><span id="local-6989586621679433084"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span></span></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433091"><span id="local-6989586621679433093"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span></span></span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433088"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span></span><span>
 </span><span id="line-237"></span><span>
-</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433071"><span id="local-6989586621679433073"><span id="local-6989586621679433075"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-239"></span><span>  </span><span id="local-6989586621679433069"><span class="annot"><span class="annottext">toJSON :: KinesisSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433058"><span id="local-6989586621679433059"><span id="local-6989586621679433060"><span id="local-6989586621679433061"><span id="local-6989586621679433062"><span id="local-6989586621679433063"><span id="local-6989586621679433064"><span id="local-6989586621679433065"><span id="local-6989586621679433066"><span id="local-6989586621679433067"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433080"><span id="local-6989586621679433082"><span id="local-6989586621679433084"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings"><span class="hs-identifier hs-type">KinesisSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679433078"><span class="annot"><span class="annottext">toJSON :: KinesisSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KinesisSettings.html#KinesisSettings%27"><span class="hs-identifier hs-type">KinesisSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433067"><span id="local-6989586621679433068"><span id="local-6989586621679433069"><span id="local-6989586621679433070"><span id="local-6989586621679433071"><span id="local-6989586621679433072"><span id="local-6989586621679433073"><span id="local-6989586621679433074"><span id="local-6989586621679433075"><span id="local-6989586621679433076"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe MessageFormatValue
 includeNullAndEmpty :: Maybe Bool
@@ -722,7 +722,7 @@ $sel:partitionIncludeSchemaTable:KinesisSettings' :: KinesisSettings -&gt; Maybe
 $sel:serviceAccessRoleArn:KinesisSettings' :: KinesisSettings -&gt; Maybe Text
 $sel:includeTableAlterOperations:KinesisSettings' :: KinesisSettings -&gt; Maybe Bool
 $sel:includeTransactionDetails:KinesisSettings' :: KinesisSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679433058"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679433067"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-240"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-241"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -735,7 +735,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-243"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433067"><span class="hs-identifier hs-var">includeTransactionDetails</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433076"><span class="hs-identifier hs-var">includeTransactionDetails</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-244"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeTableAlterOperations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -743,7 +743,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-245"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433066"><span class="hs-identifier hs-var">includeTableAlterOperations</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433075"><span class="hs-identifier hs-var">includeTableAlterOperations</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-246"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceAccessRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -751,7 +751,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-247"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433065"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433074"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-248"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PartitionIncludeSchemaTable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -759,14 +759,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-249"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433064"><span class="hs-identifier hs-var">partitionIncludeSchemaTable</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433073"><span class="hs-identifier hs-var">partitionIncludeSchemaTable</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433063"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433072"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeControlDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -774,14 +774,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-252"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433062"><span class="hs-identifier hs-var">includeControlDetails</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433071"><span class="hs-identifier hs-var">includeControlDetails</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-253"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NoHexPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433061"><span class="hs-identifier hs-var">noHexPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433070"><span class="hs-identifier hs-var">noHexPrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-254"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludePartitionValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -789,7 +789,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-255"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433060"><span class="hs-identifier hs-var">includePartitionValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433069"><span class="hs-identifier hs-var">includePartitionValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MessageFormatValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -797,7 +797,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MessageFormatValue -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MessageFormatValue
-</span><a href="#local-6989586621679433059"><span class="hs-identifier hs-var">messageFormat</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433068"><span class="hs-identifier hs-var">messageFormat</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-257"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeNullAndEmpty&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -805,7 +805,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-258"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433058"><span class="hs-identifier hs-var">includeNullAndEmpty</span></a></span><span>
+</span><a href="#local-6989586621679433067"><span class="hs-identifier hs-var">includeNullAndEmpty</span></a></span><span>
 </span><span id="line-259"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-260"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679273712"><span id="local-6989586621679273713"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OrcFormatVersion"><span class="annot"><a href="Network.AWS.Firehose.Types.OrcFormatVersion.html#OrcFormatVersion"><span class="hs-identifier hs-var">OrcFormatVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrcFormatVersion%27"><span class="annot"><a href="Network.AWS.Firehose.Types.OrcFormatVersion.html#OrcFormatVersion%27"><span class="hs-identifier hs-var">OrcFormatVersion'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679273721"><span id="local-6989586621679273722"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OrcFormatVersion"><span class="annot"><a href="Network.AWS.Firehose.Types.OrcFormatVersion.html#OrcFormatVersion"><span class="hs-identifier hs-var">OrcFormatVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrcFormatVersion%27"><span class="annot"><a href="Network.AWS.Firehose.Types.OrcFormatVersion.html#OrcFormatVersion%27"><span class="hs-identifier hs-var">OrcFormatVersion'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOrcFormatVersion"><span class="annot"><span class="annottext">OrcFormatVersion -&gt; Text
 </span><a href="Network.AWS.Firehose.Types.OrcFormatVersion.html#fromOrcFormatVersion"><span class="hs-identifier hs-var hs-var">fromOrcFormatVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273704"><span id="local-6989586621679273706"><span id="local-6989586621679273708"><span class="annot"><span class="annottext">Int -&gt; OrcFormatVersion -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273713"><span id="local-6989586621679273715"><span id="local-6989586621679273717"><span class="annot"><span class="annottext">Int -&gt; OrcFormatVersion -&gt; ShowS
 [OrcFormatVersion] -&gt; ShowS
 OrcFormatVersion -&gt; String
 (Int -&gt; OrcFormatVersion -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: OrcFormatVersion -&gt; String
 showsPrec :: Int -&gt; OrcFormatVersion -&gt; ShowS
 $cshowsPrec :: Int -&gt; OrcFormatVersion -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679273695"><span id="local-6989586621679273697"><span id="local-6989586621679273699"><span id="local-6989586621679273701"><span class="annot"><span class="annottext">ReadPrec [OrcFormatVersion]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679273704"><span id="local-6989586621679273706"><span id="local-6989586621679273708"><span id="local-6989586621679273710"><span class="annot"><span class="annottext">ReadPrec [OrcFormatVersion]
 ReadPrec OrcFormatVersion
 Int -&gt; ReadS OrcFormatVersion
 ReadS [OrcFormatVersion]
@@ -72,7 +72,7 @@ $creadList :: ReadS [OrcFormatVersion]
 readsPrec :: Int -&gt; ReadS OrcFormatVersion
 $creadsPrec :: Int -&gt; ReadS OrcFormatVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679273690"><span id="local-6989586621679273692"><span class="annot"><span class="annottext">OrcFormatVersion -&gt; OrcFormatVersion -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679273699"><span id="local-6989586621679273701"><span class="annot"><span class="annottext">OrcFormatVersion -&gt; OrcFormatVersion -&gt; Bool
 (OrcFormatVersion -&gt; OrcFormatVersion -&gt; Bool)
 -&gt; (OrcFormatVersion -&gt; OrcFormatVersion -&gt; Bool)
 -&gt; Eq OrcFormatVersion
@@ -82,7 +82,7 @@ $c/= :: OrcFormatVersion -&gt; OrcFormatVersion -&gt; Bool
 == :: OrcFormatVersion -&gt; OrcFormatVersion -&gt; Bool
 $c== :: OrcFormatVersion -&gt; OrcFormatVersion -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679273674"><span id="local-6989586621679273676"><span id="local-6989586621679273678"><span id="local-6989586621679273680"><span id="local-6989586621679273682"><span id="local-6989586621679273684"><span id="local-6989586621679273686"><span class="annot"><span class="annottext">Eq OrcFormatVersion
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679273683"><span id="local-6989586621679273685"><span id="local-6989586621679273687"><span id="local-6989586621679273689"><span id="local-6989586621679273691"><span id="local-6989586621679273693"><span id="local-6989586621679273695"><span class="annot"><span class="annottext">Eq OrcFormatVersion
 Eq OrcFormatVersion
 -&gt; (OrcFormatVersion -&gt; OrcFormatVersion -&gt; Ordering)
 -&gt; (OrcFormatVersion -&gt; OrcFormatVersion -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. OrcFormatVersion -&gt; Rep OrcFormatVersion x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273666"><span id="local-6989586621679273668"><span class="annot"><span class="annottext">Int -&gt; OrcFormatVersion -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273675"><span id="local-6989586621679273677"><span class="annot"><span class="annottext">Int -&gt; OrcFormatVersion -&gt; Int
 OrcFormatVersion -&gt; Int
 (Int -&gt; OrcFormatVersion -&gt; Int)
 -&gt; (OrcFormatVersion -&gt; Int) -&gt; Hashable OrcFormatVersion
@@ -143,51 +143,51 @@ $chash :: OrcFormatVersion -&gt; Int
 hashWithSalt :: Int -&gt; OrcFormatVersion -&gt; Int
 $chashWithSalt :: Int -&gt; OrcFormatVersion -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679273663"><span class="annot"><span class="annottext">OrcFormatVersion -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679273672"><span class="annot"><span class="annottext">OrcFormatVersion -&gt; ()
 (OrcFormatVersion -&gt; ()) -&gt; NFData OrcFormatVersion
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OrcFormatVersion -&gt; ()
 $crnf :: OrcFormatVersion -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679273660"><span class="annot"><span class="annottext">Text -&gt; Either String OrcFormatVersion
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679273669"><span class="annot"><span class="annottext">Text -&gt; Either String OrcFormatVersion
 (Text -&gt; Either String OrcFormatVersion)
 -&gt; FromText OrcFormatVersion
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OrcFormatVersion
 $cfromText :: Text -&gt; Either String OrcFormatVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679273657"><span class="annot"><span class="annottext">OrcFormatVersion -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679273666"><span class="annot"><span class="annottext">OrcFormatVersion -&gt; Text
 (OrcFormatVersion -&gt; Text) -&gt; ToText OrcFormatVersion
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OrcFormatVersion -&gt; Text
 $ctoText :: OrcFormatVersion -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679273654"><span class="annot"><span class="annottext">OrcFormatVersion -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679273663"><span class="annot"><span class="annottext">OrcFormatVersion -&gt; ByteString
 (OrcFormatVersion -&gt; ByteString) -&gt; ToByteString OrcFormatVersion
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OrcFormatVersion -&gt; ByteString
 $ctoBS :: OrcFormatVersion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679273651"><span class="annot"><span class="annottext">OrcFormatVersion -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679273660"><span class="annot"><span class="annottext">OrcFormatVersion -&gt; ByteStringBuilder
 (OrcFormatVersion -&gt; ByteStringBuilder) -&gt; ToLog OrcFormatVersion
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OrcFormatVersion -&gt; ByteStringBuilder
 $cbuild :: OrcFormatVersion -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679273648"><span class="annot"><span class="annottext">HeaderName -&gt; OrcFormatVersion -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679273657"><span class="annot"><span class="annottext">HeaderName -&gt; OrcFormatVersion -&gt; [Header]
 (HeaderName -&gt; OrcFormatVersion -&gt; [Header])
 -&gt; ToHeader OrcFormatVersion
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OrcFormatVersion -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OrcFormatVersion -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679273645"><span class="annot"><span class="annottext">OrcFormatVersion -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679273654"><span class="annot"><span class="annottext">OrcFormatVersion -&gt; QueryString
 (OrcFormatVersion -&gt; QueryString) -&gt; ToQuery OrcFormatVersion
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OrcFormatVersion -&gt; QueryString
 $ctoQuery :: OrcFormatVersion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679273640"><span id="local-6989586621679273642"><span class="annot"><span class="annottext">Value -&gt; Parser [OrcFormatVersion]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679273649"><span id="local-6989586621679273651"><span class="annot"><span class="annottext">Value -&gt; Parser [OrcFormatVersion]
 Value -&gt; Parser OrcFormatVersion
 (Value -&gt; Parser OrcFormatVersion)
 -&gt; (Value -&gt; Parser [OrcFormatVersion])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [OrcFormatVersion]
 parseJSON :: Value -&gt; Parser OrcFormatVersion
 $cparseJSON :: Value -&gt; Parser OrcFormatVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679273635"><span id="local-6989586621679273637"><span class="annot"><span class="annottext">FromJSONKeyFunction [OrcFormatVersion]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679273644"><span id="local-6989586621679273646"><span class="annot"><span class="annottext">FromJSONKeyFunction [OrcFormatVersion]
 FromJSONKeyFunction OrcFormatVersion
 FromJSONKeyFunction OrcFormatVersion
 -&gt; FromJSONKeyFunction [OrcFormatVersion]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OrcFormatVersion]
 fromJSONKey :: FromJSONKeyFunction OrcFormatVersion
 $cfromJSONKey :: FromJSONKeyFunction OrcFormatVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679273626"><span id="local-6989586621679273628"><span id="local-6989586621679273630"><span id="local-6989586621679273632"><span class="annot"><span class="annottext">[OrcFormatVersion] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679273635"><span id="local-6989586621679273637"><span id="local-6989586621679273639"><span id="local-6989586621679273641"><span class="annot"><span class="annottext">[OrcFormatVersion] -&gt; Encoding
 [OrcFormatVersion] -&gt; Value
 OrcFormatVersion -&gt; Encoding
 OrcFormatVersion -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: OrcFormatVersion -&gt; Encoding
 toJSON :: OrcFormatVersion -&gt; Value
 $ctoJSON :: OrcFormatVersion -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273621"><span id="local-6989586621679273623"><span class="annot"><span class="annottext">ToJSONKeyFunction [OrcFormatVersion]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273630"><span id="local-6989586621679273632"><span class="annot"><span class="annottext">ToJSONKeyFunction [OrcFormatVersion]
 ToJSONKeyFunction OrcFormatVersion
 ToJSONKeyFunction OrcFormatVersion
 -&gt; ToJSONKeyFunction [OrcFormatVersion]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OrcFormatVersion]
 toJSONKey :: ToJSONKeyFunction OrcFormatVersion
 $ctoJSONKey :: ToJSONKeyFunction OrcFormatVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273618"><span class="annot"><span class="annottext">[Node] -&gt; Either String OrcFormatVersion
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273627"><span class="annot"><span class="annottext">[Node] -&gt; Either String OrcFormatVersion
 ([Node] -&gt; Either String OrcFormatVersion)
 -&gt; FromXML OrcFormatVersion
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OrcFormatVersion
 $cparseXML :: [Node] -&gt; Either String OrcFormatVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679273615"><span class="annot"><span class="annottext">OrcFormatVersion -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679273624"><span class="annot"><span class="annottext">OrcFormatVersion -&gt; XML
 (OrcFormatVersion -&gt; XML) -&gt; ToXML OrcFormatVersion
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: OrcFormatVersion -&gt; XML

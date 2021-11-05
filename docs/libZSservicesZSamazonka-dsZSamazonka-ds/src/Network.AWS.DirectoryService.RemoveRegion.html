@@ -48,13 +48,13 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newRemoveRegion' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679304318"><span id="local-6989586621679304319"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveRegion"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion"><span class="hs-identifier hs-var">RemoveRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveRegion%27"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion%27"><span class="hs-identifier hs-var">RemoveRegion'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679304327"><span id="local-6989586621679304328"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveRegion"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion"><span class="hs-identifier hs-var">RemoveRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveRegion%27"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion%27"><span class="hs-identifier hs-var">RemoveRegion'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the directory for which you want to remove Region</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- replication.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AdirectoryId%3ARemoveRegion%27"><span class="annot"><span class="annottext">RemoveRegion -&gt; Text
 </span><a href="Network.AWS.DirectoryService.RemoveRegion.html#%24sel%3AdirectoryId%3ARemoveRegion%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304312"><span id="local-6989586621679304314"><span class="annot"><span class="annottext">RemoveRegion -&gt; RemoveRegion -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304321"><span id="local-6989586621679304323"><span class="annot"><span class="annottext">RemoveRegion -&gt; RemoveRegion -&gt; Bool
 (RemoveRegion -&gt; RemoveRegion -&gt; Bool)
 -&gt; (RemoveRegion -&gt; RemoveRegion -&gt; Bool) -&gt; Eq RemoveRegion
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoveRegion -&gt; RemoveRegion -&gt; Bool
 == :: RemoveRegion -&gt; RemoveRegion -&gt; Bool
 $c== :: RemoveRegion -&gt; RemoveRegion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304303"><span id="local-6989586621679304305"><span id="local-6989586621679304307"><span id="local-6989586621679304309"><span class="annot"><span class="annottext">ReadPrec [RemoveRegion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304312"><span id="local-6989586621679304314"><span id="local-6989586621679304316"><span id="local-6989586621679304318"><span class="annot"><span class="annottext">ReadPrec [RemoveRegion]
 ReadPrec RemoveRegion
 Int -&gt; ReadS RemoveRegion
 ReadS [RemoveRegion]
@@ -82,7 +82,7 @@ readList :: ReadS [RemoveRegion]
 $creadList :: ReadS [RemoveRegion]
 readsPrec :: Int -&gt; ReadS RemoveRegion
 $creadsPrec :: Int -&gt; ReadS RemoveRegion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304296"><span id="local-6989586621679304298"><span id="local-6989586621679304300"><span class="annot"><span class="annottext">Int -&gt; RemoveRegion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304305"><span id="local-6989586621679304307"><span id="local-6989586621679304309"><span class="annot"><span class="annottext">Int -&gt; RemoveRegion -&gt; ShowS
 [RemoveRegion] -&gt; ShowS
 RemoveRegion -&gt; String
 (Int -&gt; RemoveRegion -&gt; ShowS)
@@ -123,12 +123,12 @@ $cfrom :: forall x. RemoveRegion -&gt; Rep RemoveRegion x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion"><span class="hs-identifier hs-type">RemoveRegion</span></a></span><span>
 </span><span id="line-72"></span><span id="newRemoveRegion"><span class="annot"><span class="annottext">newRemoveRegion :: Text -&gt; RemoveRegion
-</span><a href="Network.AWS.DirectoryService.RemoveRegion.html#newRemoveRegion"><span class="hs-identifier hs-var hs-var">newRemoveRegion</span></a></span></span><span> </span><span id="local-6989586621679304291"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304291"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.RemoveRegion.html#newRemoveRegion"><span class="hs-identifier hs-var hs-var">newRemoveRegion</span></a></span></span><span> </span><span id="local-6989586621679304300"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304300"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">RemoveRegion' :: Text -&gt; RemoveRegion
 </span><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion%27"><span class="hs-identifier hs-type">RemoveRegion'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:RemoveRegion' :: Text
 </span><a href="Network.AWS.DirectoryService.RemoveRegion.html#%24sel%3AdirectoryId%3ARemoveRegion%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304291"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679304300"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The identifier of the directory for which you want to remove Region</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- replication.</span><span>
@@ -138,25 +138,25 @@ $cfrom :: forall x. RemoveRegion -&gt; Rep RemoveRegion x
 -&gt; (RemoveRegion -&gt; Text -&gt; RemoveRegion)
 -&gt; Lens RemoveRegion RemoveRegion Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion%27"><span class="hs-identifier hs-type">RemoveRegion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304288"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion%27"><span class="hs-identifier hs-type">RemoveRegion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304297"><span class="annot"><span class="annottext">Text
 directoryId :: Text
 $sel:directoryId:RemoveRegion' :: RemoveRegion -&gt; Text
-</span><a href="#local-6989586621679304288"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304288"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304287"><span class="annot"><span class="annottext">s :: RemoveRegion
-</span><a href="#local-6989586621679304287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion%27"><span class="hs-identifier hs-type">RemoveRegion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304286"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveRegion
-</span><a href="#local-6989586621679304287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:RemoveRegion' :: Text
+</span><a href="#local-6989586621679304297"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304297"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304296"><span class="annot"><span class="annottext">s :: RemoveRegion
+</span><a href="#local-6989586621679304296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion%27"><span class="hs-identifier hs-type">RemoveRegion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304295"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveRegion
+</span><a href="#local-6989586621679304296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:RemoveRegion' :: Text
 </span><a href="Network.AWS.DirectoryService.RemoveRegion.html#%24sel%3AdirectoryId%3ARemoveRegion%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion"><span class="hs-identifier hs-type">RemoveRegion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion"><span class="hs-identifier hs-type">RemoveRegion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion"><span class="hs-identifier hs-type">RemoveRegion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion"><span class="hs-identifier hs-type">RemoveRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegionResponse"><span class="hs-identifier hs-type">RemoveRegionResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679304282"><span class="annot"><span class="annottext">request :: RemoveRegion -&gt; Request RemoveRegion
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679304291"><span class="annot"><span class="annottext">request :: RemoveRegion -&gt; Request RemoveRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RemoveRegion -&gt; Request RemoveRegion
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679304278"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679304287"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RemoveRegion
 -&gt; ClientResponse ClientBody
@@ -180,10 +180,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304275"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304275"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304274"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679304274"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304273"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679304273"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304284"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304284"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304283"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679304283"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304282"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679304282"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RemoveRegionResponse
 </span><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegionResponse%27"><span class="hs-identifier hs-var">RemoveRegionResponse'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RemoveRegionResponse)
@@ -194,15 +194,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304275"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304284"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304266"><span id="local-6989586621679304268"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion"><span class="hs-identifier hs-type">RemoveRegion</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304275"><span id="local-6989586621679304277"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion"><span class="hs-identifier hs-type">RemoveRegion</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304263"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion"><span class="hs-identifier hs-type">RemoveRegion</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304272"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion"><span class="hs-identifier hs-type">RemoveRegion</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion"><span class="hs-identifier hs-type">RemoveRegion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679304259"><span class="annot"><span class="annottext">toHeaders :: RemoveRegion -&gt; ResponseHeaders
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679304268"><span class="annot"><span class="annottext">toHeaders :: RemoveRegion -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RemoveRegion -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -229,12 +229,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304249"><span id="local-6989586621679304251"><span id="local-6989586621679304253"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion"><span class="hs-identifier hs-type">RemoveRegion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679304247"><span class="annot"><span class="annottext">toJSON :: RemoveRegion -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion%27"><span class="hs-identifier hs-type">RemoveRegion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304245"><span class="annot"><span class="annottext">Text
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304258"><span id="local-6989586621679304260"><span id="local-6989586621679304262"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion"><span class="hs-identifier hs-type">RemoveRegion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679304256"><span class="annot"><span class="annottext">toJSON :: RemoveRegion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion%27"><span class="hs-identifier hs-type">RemoveRegion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304254"><span class="annot"><span class="annottext">Text
 directoryId :: Text
 $sel:directoryId:RemoveRegion' :: RemoveRegion -&gt; Text
-</span><a href="#local-6989586621679304245"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679304254"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -246,18 +246,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304245"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679304254"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion"><span class="hs-identifier hs-type">RemoveRegion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679304239"><span class="annot"><span class="annottext">toPath :: RemoveRegion -&gt; ByteString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679304248"><span class="annot"><span class="annottext">toPath :: RemoveRegion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RemoveRegion -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegion"><span class="hs-identifier hs-type">RemoveRegion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679304235"><span class="annot"><span class="annottext">toQuery :: RemoveRegion -&gt; QueryString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679304244"><span class="annot"><span class="annottext">toQuery :: RemoveRegion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RemoveRegion -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -265,12 +265,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newRemoveRegionResponse' smart constructor.</span><span>
-</span><span id="line-123"></span><span id="local-6989586621679304232"><span id="local-6989586621679304233"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveRegionResponse"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegionResponse"><span class="hs-identifier hs-var">RemoveRegionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveRegionResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegionResponse%27"><span class="hs-identifier hs-var">RemoveRegionResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span id="local-6989586621679304241"><span id="local-6989586621679304242"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveRegionResponse"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegionResponse"><span class="hs-identifier hs-var">RemoveRegionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveRegionResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegionResponse%27"><span class="hs-identifier hs-var">RemoveRegionResponse'</span></a></span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARemoveRegionResponse%27"><span class="annot"><span class="annottext">RemoveRegionResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.RemoveRegion.html#%24sel%3AhttpStatus%3ARemoveRegionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304227"><span id="local-6989586621679304229"><span class="annot"><span class="annottext">RemoveRegionResponse -&gt; RemoveRegionResponse -&gt; Bool
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304236"><span id="local-6989586621679304238"><span class="annot"><span class="annottext">RemoveRegionResponse -&gt; RemoveRegionResponse -&gt; Bool
 (RemoveRegionResponse -&gt; RemoveRegionResponse -&gt; Bool)
 -&gt; (RemoveRegionResponse -&gt; RemoveRegionResponse -&gt; Bool)
 -&gt; Eq RemoveRegionResponse
@@ -279,7 +279,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoveRegionResponse -&gt; RemoveRegionResponse -&gt; Bool
 == :: RemoveRegionResponse -&gt; RemoveRegionResponse -&gt; Bool
 $c== :: RemoveRegionResponse -&gt; RemoveRegionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304219"><span id="local-6989586621679304221"><span id="local-6989586621679304223"><span id="local-6989586621679304225"><span class="annot"><span class="annottext">ReadPrec [RemoveRegionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304228"><span id="local-6989586621679304230"><span id="local-6989586621679304232"><span id="local-6989586621679304234"><span class="annot"><span class="annottext">ReadPrec [RemoveRegionResponse]
 ReadPrec RemoveRegionResponse
 Int -&gt; ReadS RemoveRegionResponse
 ReadS [RemoveRegionResponse]
@@ -299,7 +299,7 @@ readList :: ReadS [RemoveRegionResponse]
 $creadList :: ReadS [RemoveRegionResponse]
 readsPrec :: Int -&gt; ReadS RemoveRegionResponse
 $creadsPrec :: Int -&gt; ReadS RemoveRegionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304213"><span id="local-6989586621679304215"><span id="local-6989586621679304217"><span class="annot"><span class="annottext">Int -&gt; RemoveRegionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304222"><span id="local-6989586621679304224"><span id="local-6989586621679304226"><span class="annot"><span class="annottext">Int -&gt; RemoveRegionResponse -&gt; ShowS
 [RemoveRegionResponse] -&gt; ShowS
 RemoveRegionResponse -&gt; String
 (Int -&gt; RemoveRegionResponse -&gt; ShowS)
@@ -339,12 +339,12 @@ $cfrom :: forall x. RemoveRegionResponse -&gt; Rep RemoveRegionResponse x
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegionResponse"><span class="hs-identifier hs-type">RemoveRegionResponse</span></a></span><span>
 </span><span id="line-142"></span><span id="newRemoveRegionResponse"><span class="annot"><span class="annottext">newRemoveRegionResponse :: Int -&gt; RemoveRegionResponse
-</span><a href="Network.AWS.DirectoryService.RemoveRegion.html#newRemoveRegionResponse"><span class="hs-identifier hs-var hs-var">newRemoveRegionResponse</span></a></span></span><span> </span><span id="local-6989586621679304210"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304210"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.RemoveRegion.html#newRemoveRegionResponse"><span class="hs-identifier hs-var hs-var">newRemoveRegionResponse</span></a></span></span><span> </span><span id="local-6989586621679304219"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304219"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">RemoveRegionResponse' :: Int -&gt; RemoveRegionResponse
 </span><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegionResponse%27"><span class="hs-identifier hs-type">RemoveRegionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveRegionResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.RemoveRegion.html#%24sel%3AhttpStatus%3ARemoveRegionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304210"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679304219"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-146"></span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#removeRegionResponse_httpStatus"><span class="hs-identifier hs-type">removeRegionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegionResponse"><span class="hs-identifier hs-type">RemoveRegionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -353,16 +353,16 @@ $cfrom :: forall x. RemoveRegionResponse -&gt; Rep RemoveRegionResponse x
 -&gt; (RemoveRegionResponse -&gt; Int -&gt; RemoveRegionResponse)
 -&gt; Lens RemoveRegionResponse RemoveRegionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegionResponse%27"><span class="hs-identifier hs-type">RemoveRegionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304209"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegionResponse%27"><span class="hs-identifier hs-type">RemoveRegionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304218"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RemoveRegionResponse' :: RemoveRegionResponse -&gt; Int
-</span><a href="#local-6989586621679304209"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304209"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304208"><span class="annot"><span class="annottext">s :: RemoveRegionResponse
-</span><a href="#local-6989586621679304208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegionResponse%27"><span class="hs-identifier hs-type">RemoveRegionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304207"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveRegionResponse
-</span><a href="#local-6989586621679304208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveRegionResponse' :: Int
+</span><a href="#local-6989586621679304218"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304218"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304217"><span class="annot"><span class="annottext">s :: RemoveRegionResponse
+</span><a href="#local-6989586621679304217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegionResponse%27"><span class="hs-identifier hs-type">RemoveRegionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304216"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveRegionResponse
+</span><a href="#local-6989586621679304217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveRegionResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.RemoveRegion.html#%24sel%3AhttpStatus%3ARemoveRegionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegionResponse"><span class="hs-identifier hs-type">RemoveRegionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegionResponse"><span class="hs-identifier hs-type">RemoveRegionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegionResponse"><span class="hs-identifier hs-type">RemoveRegionResponse</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304214"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveRegion.html#RemoveRegionResponse"><span class="hs-identifier hs-type">RemoveRegionResponse</span></a></span></span><span>
 </span><span id="line-150"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- deactivated.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newPendingCloudwatchLogsExports' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679764089"><span id="local-6989586621679764090"></span></span><span class="hs-keyword">data</span><span> </span><span id="PendingCloudwatchLogsExports"><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-var">PendingCloudwatchLogsExports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PendingCloudwatchLogsExports%27"><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-var">PendingCloudwatchLogsExports'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679764098"><span id="local-6989586621679764099"></span></span><span class="hs-keyword">data</span><span> </span><span id="PendingCloudwatchLogsExports"><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-var">PendingCloudwatchLogsExports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PendingCloudwatchLogsExports%27"><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-var">PendingCloudwatchLogsExports'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Log types that are in the process of being deactivated. After they are</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- deactivated, these log types aren\'t exported to CloudWatch Logs.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AlogTypesToEnable%3APendingCloudwatchLogsExports%27"><span class="annot"><span class="annottext">PendingCloudwatchLogsExports -&gt; Maybe [Text]
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AlogTypesToDisable%3APendingCloudwatchLogsExports%27"><span class="annot"><span class="annottext">PendingCloudwatchLogsExports -&gt; Maybe [Text]
 </span><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#%24sel%3AlogTypesToDisable%3APendingCloudwatchLogsExports%27"><span class="hs-identifier hs-var hs-var">logTypesToDisable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679764082"><span id="local-6989586621679764084"><span class="annot"><span class="annottext">PendingCloudwatchLogsExports
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679764091"><span id="local-6989586621679764093"><span class="annot"><span class="annottext">PendingCloudwatchLogsExports
 -&gt; PendingCloudwatchLogsExports -&gt; Bool
 (PendingCloudwatchLogsExports
  -&gt; PendingCloudwatchLogsExports -&gt; Bool)
@@ -54,7 +54,7 @@ $c/= :: PendingCloudwatchLogsExports
 -&gt; PendingCloudwatchLogsExports -&gt; Bool
 $c== :: PendingCloudwatchLogsExports
 -&gt; PendingCloudwatchLogsExports -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679764073"><span id="local-6989586621679764075"><span id="local-6989586621679764077"><span id="local-6989586621679764079"><span class="annot"><span class="annottext">ReadPrec [PendingCloudwatchLogsExports]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679764082"><span id="local-6989586621679764084"><span id="local-6989586621679764086"><span id="local-6989586621679764088"><span class="annot"><span class="annottext">ReadPrec [PendingCloudwatchLogsExports]
 ReadPrec PendingCloudwatchLogsExports
 Int -&gt; ReadS PendingCloudwatchLogsExports
 ReadS [PendingCloudwatchLogsExports]
@@ -74,7 +74,7 @@ readList :: ReadS [PendingCloudwatchLogsExports]
 $creadList :: ReadS [PendingCloudwatchLogsExports]
 readsPrec :: Int -&gt; ReadS PendingCloudwatchLogsExports
 $creadsPrec :: Int -&gt; ReadS PendingCloudwatchLogsExports
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679764066"><span id="local-6989586621679764068"><span id="local-6989586621679764070"><span class="annot"><span class="annottext">Int -&gt; PendingCloudwatchLogsExports -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679764075"><span id="local-6989586621679764077"><span id="local-6989586621679764079"><span class="annot"><span class="annottext">Int -&gt; PendingCloudwatchLogsExports -&gt; ShowS
 [PendingCloudwatchLogsExports] -&gt; ShowS
 PendingCloudwatchLogsExports -&gt; String
 (Int -&gt; PendingCloudwatchLogsExports -&gt; ShowS)
@@ -150,16 +150,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679764057"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679764066"><span class="annot"><span class="annottext">Maybe [Text]
 logTypesToEnable :: Maybe [Text]
 $sel:logTypesToEnable:PendingCloudwatchLogsExports' :: PendingCloudwatchLogsExports -&gt; Maybe [Text]
-</span><a href="#local-6989586621679764057"><span class="hs-identifier hs-var hs-var">logTypesToEnable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679764057"><span class="hs-identifier hs-var">logTypesToEnable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679764056"><span class="annot"><span class="annottext">s :: PendingCloudwatchLogsExports
-</span><a href="#local-6989586621679764056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679764055"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679764055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingCloudwatchLogsExports
-</span><a href="#local-6989586621679764056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logTypesToEnable:PendingCloudwatchLogsExports' :: Maybe [Text]
+</span><a href="#local-6989586621679764066"><span class="hs-identifier hs-var hs-var">logTypesToEnable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679764066"><span class="hs-identifier hs-var">logTypesToEnable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679764065"><span class="annot"><span class="annottext">s :: PendingCloudwatchLogsExports
+</span><a href="#local-6989586621679764065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679764064"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679764064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingCloudwatchLogsExports
+</span><a href="#local-6989586621679764065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logTypesToEnable:PendingCloudwatchLogsExports' :: Maybe [Text]
 </span><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#%24sel%3AlogTypesToEnable%3APendingCloudwatchLogsExports%27"><span class="hs-identifier hs-var">logTypesToEnable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679764055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679764064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; PendingCloudwatchLogsExports -&gt; f PendingCloudwatchLogsExports)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -190,16 +190,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679764050"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679764059"><span class="annot"><span class="annottext">Maybe [Text]
 logTypesToDisable :: Maybe [Text]
 $sel:logTypesToDisable:PendingCloudwatchLogsExports' :: PendingCloudwatchLogsExports -&gt; Maybe [Text]
-</span><a href="#local-6989586621679764050"><span class="hs-identifier hs-var hs-var">logTypesToDisable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679764050"><span class="hs-identifier hs-var">logTypesToDisable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679764049"><span class="annot"><span class="annottext">s :: PendingCloudwatchLogsExports
-</span><a href="#local-6989586621679764049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679764048"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679764048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingCloudwatchLogsExports
-</span><a href="#local-6989586621679764049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logTypesToDisable:PendingCloudwatchLogsExports' :: Maybe [Text]
+</span><a href="#local-6989586621679764059"><span class="hs-identifier hs-var hs-var">logTypesToDisable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679764059"><span class="hs-identifier hs-var">logTypesToDisable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679764058"><span class="annot"><span class="annottext">s :: PendingCloudwatchLogsExports
+</span><a href="#local-6989586621679764058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679764057"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679764057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingCloudwatchLogsExports
+</span><a href="#local-6989586621679764058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logTypesToDisable:PendingCloudwatchLogsExports' :: Maybe [Text]
 </span><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#%24sel%3AlogTypesToDisable%3APendingCloudwatchLogsExports%27"><span class="hs-identifier hs-var">logTypesToDisable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679764048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679764057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; PendingCloudwatchLogsExports -&gt; f PendingCloudwatchLogsExports)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -217,9 +217,9 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679764045"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PendingCloudwatchLogsExports
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679764043"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679764043"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679764054"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PendingCloudwatchLogsExports
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679764052"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679764052"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe [Text] -&gt; PendingCloudwatchLogsExports
 </span><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-var">PendingCloudwatchLogsExports'</span></a></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe [Text] -&gt; PendingCloudwatchLogsExports)
@@ -227,7 +227,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Either String (Maybe [Text] -&gt; PendingCloudwatchLogsExports)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679764043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679764052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LogTypesToEnable&quot;</span></span><span>
@@ -255,7 +255,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String PendingCloudwatchLogsExports
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679764043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679764052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LogTypesToDisable&quot;</span></span><span>
@@ -280,8 +280,8 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span id="line-83"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679764034"><span id="local-6989586621679764036"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679764043"><span id="local-6989586621679764045"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679764031"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679764040"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports</span></a></span></span><span>
 </span><span id="line-90"></span></pre></body></html>

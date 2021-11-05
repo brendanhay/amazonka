@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Types of broker engines.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newBrokerEngineType' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679223852"><span id="local-6989586621679223853"></span></span><span class="hs-keyword">data</span><span> </span><span id="BrokerEngineType"><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType"><span class="hs-identifier hs-var">BrokerEngineType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BrokerEngineType%27"><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType%27"><span class="hs-identifier hs-var">BrokerEngineType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679223861"><span id="local-6989586621679223862"></span></span><span class="hs-keyword">data</span><span> </span><span id="BrokerEngineType"><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType"><span class="hs-identifier hs-var">BrokerEngineType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BrokerEngineType%27"><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType%27"><span class="hs-identifier hs-var">BrokerEngineType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of engine versions.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AengineVersions%3ABrokerEngineType%27"><span class="annot"><span class="annottext">BrokerEngineType -&gt; Maybe [EngineVersion]
 </span><a href="Network.AWS.MQ.Types.BrokerEngineType.html#%24sel%3AengineVersions%3ABrokerEngineType%27"><span class="hs-identifier hs-var hs-var">engineVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MQ.Types.EngineVersion.html#EngineVersion"><span class="hs-identifier hs-type">EngineVersion</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AengineType%3ABrokerEngineType%27"><span class="annot"><span class="annottext">BrokerEngineType -&gt; Maybe EngineType
 </span><a href="Network.AWS.MQ.Types.BrokerEngineType.html#%24sel%3AengineType%3ABrokerEngineType%27"><span class="hs-identifier hs-var hs-var">engineType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.EngineType.html#EngineType"><span class="hs-identifier hs-type">EngineType</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223845"><span id="local-6989586621679223847"><span class="annot"><span class="annottext">BrokerEngineType -&gt; BrokerEngineType -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223854"><span id="local-6989586621679223856"><span class="annot"><span class="annottext">BrokerEngineType -&gt; BrokerEngineType -&gt; Bool
 (BrokerEngineType -&gt; BrokerEngineType -&gt; Bool)
 -&gt; (BrokerEngineType -&gt; BrokerEngineType -&gt; Bool)
 -&gt; Eq BrokerEngineType
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BrokerEngineType -&gt; BrokerEngineType -&gt; Bool
 == :: BrokerEngineType -&gt; BrokerEngineType -&gt; Bool
 $c== :: BrokerEngineType -&gt; BrokerEngineType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223836"><span id="local-6989586621679223838"><span id="local-6989586621679223840"><span id="local-6989586621679223842"><span class="annot"><span class="annottext">ReadPrec [BrokerEngineType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223845"><span id="local-6989586621679223847"><span id="local-6989586621679223849"><span id="local-6989586621679223851"><span class="annot"><span class="annottext">ReadPrec [BrokerEngineType]
 ReadPrec BrokerEngineType
 Int -&gt; ReadS BrokerEngineType
 ReadS [BrokerEngineType]
@@ -65,7 +65,7 @@ readList :: ReadS [BrokerEngineType]
 $creadList :: ReadS [BrokerEngineType]
 readsPrec :: Int -&gt; ReadS BrokerEngineType
 $creadsPrec :: Int -&gt; ReadS BrokerEngineType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223829"><span id="local-6989586621679223831"><span id="local-6989586621679223833"><span class="annot"><span class="annottext">Int -&gt; BrokerEngineType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223838"><span id="local-6989586621679223840"><span id="local-6989586621679223842"><span class="annot"><span class="annottext">Int -&gt; BrokerEngineType -&gt; ShowS
 [BrokerEngineType] -&gt; ShowS
 BrokerEngineType -&gt; String
 (Int -&gt; BrokerEngineType -&gt; ShowS)
@@ -130,16 +130,16 @@ forall a. Maybe a
      (Maybe [EngineVersion])
      (Maybe [EngineVersion])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType%27"><span class="hs-identifier hs-type">BrokerEngineType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223820"><span class="annot"><span class="annottext">Maybe [EngineVersion]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType%27"><span class="hs-identifier hs-type">BrokerEngineType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223829"><span class="annot"><span class="annottext">Maybe [EngineVersion]
 engineVersions :: Maybe [EngineVersion]
 $sel:engineVersions:BrokerEngineType' :: BrokerEngineType -&gt; Maybe [EngineVersion]
-</span><a href="#local-6989586621679223820"><span class="hs-identifier hs-var hs-var">engineVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EngineVersion]
-</span><a href="#local-6989586621679223820"><span class="hs-identifier hs-var">engineVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223819"><span class="annot"><span class="annottext">s :: BrokerEngineType
-</span><a href="#local-6989586621679223819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType%27"><span class="hs-identifier hs-type">BrokerEngineType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223818"><span class="annot"><span class="annottext">Maybe [EngineVersion]
-</span><a href="#local-6989586621679223818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerEngineType
-</span><a href="#local-6989586621679223819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersions:BrokerEngineType' :: Maybe [EngineVersion]
+</span><a href="#local-6989586621679223829"><span class="hs-identifier hs-var hs-var">engineVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EngineVersion]
+</span><a href="#local-6989586621679223829"><span class="hs-identifier hs-var">engineVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223828"><span class="annot"><span class="annottext">s :: BrokerEngineType
+</span><a href="#local-6989586621679223828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType%27"><span class="hs-identifier hs-type">BrokerEngineType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223827"><span class="annot"><span class="annottext">Maybe [EngineVersion]
+</span><a href="#local-6989586621679223827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerEngineType
+</span><a href="#local-6989586621679223828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersions:BrokerEngineType' :: Maybe [EngineVersion]
 </span><a href="Network.AWS.MQ.Types.BrokerEngineType.html#%24sel%3AengineVersions%3ABrokerEngineType%27"><span class="hs-identifier hs-var">engineVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EngineVersion]
-</span><a href="#local-6989586621679223818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType"><span class="hs-identifier hs-type">BrokerEngineType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EngineVersion] -&gt; f (Maybe [EngineVersion]))
+</span><a href="#local-6989586621679223827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType"><span class="hs-identifier hs-type">BrokerEngineType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EngineVersion] -&gt; f (Maybe [EngineVersion]))
  -&gt; BrokerEngineType -&gt; f BrokerEngineType)
 -&gt; ((Maybe [EngineVersion] -&gt; f (Maybe [EngineVersion]))
     -&gt; Maybe [EngineVersion] -&gt; f (Maybe [EngineVersion]))
@@ -174,19 +174,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe EngineType)
      (Maybe EngineType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType%27"><span class="hs-identifier hs-type">BrokerEngineType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223813"><span class="annot"><span class="annottext">Maybe EngineType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType%27"><span class="hs-identifier hs-type">BrokerEngineType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223822"><span class="annot"><span class="annottext">Maybe EngineType
 engineType :: Maybe EngineType
 $sel:engineType:BrokerEngineType' :: BrokerEngineType -&gt; Maybe EngineType
-</span><a href="#local-6989586621679223813"><span class="hs-identifier hs-var hs-var">engineType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EngineType
-</span><a href="#local-6989586621679223813"><span class="hs-identifier hs-var">engineType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223812"><span class="annot"><span class="annottext">s :: BrokerEngineType
-</span><a href="#local-6989586621679223812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType%27"><span class="hs-identifier hs-type">BrokerEngineType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223811"><span class="annot"><span class="annottext">Maybe EngineType
-</span><a href="#local-6989586621679223811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerEngineType
-</span><a href="#local-6989586621679223812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineType:BrokerEngineType' :: Maybe EngineType
+</span><a href="#local-6989586621679223822"><span class="hs-identifier hs-var hs-var">engineType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EngineType
+</span><a href="#local-6989586621679223822"><span class="hs-identifier hs-var">engineType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223821"><span class="annot"><span class="annottext">s :: BrokerEngineType
+</span><a href="#local-6989586621679223821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType%27"><span class="hs-identifier hs-type">BrokerEngineType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223820"><span class="annot"><span class="annottext">Maybe EngineType
+</span><a href="#local-6989586621679223820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BrokerEngineType
+</span><a href="#local-6989586621679223821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineType:BrokerEngineType' :: Maybe EngineType
 </span><a href="Network.AWS.MQ.Types.BrokerEngineType.html#%24sel%3AengineType%3ABrokerEngineType%27"><span class="hs-identifier hs-var">engineType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EngineType
-</span><a href="#local-6989586621679223811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType"><span class="hs-identifier hs-type">BrokerEngineType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType"><span class="hs-identifier hs-type">BrokerEngineType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223808"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType"><span class="hs-identifier hs-type">BrokerEngineType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679223806"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BrokerEngineType
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223817"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType"><span class="hs-identifier hs-type">BrokerEngineType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679223815"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BrokerEngineType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BrokerEngineType)
@@ -196,8 +196,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BrokerEngineType&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223803"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223803"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223812"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223812"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe [EngineVersion] -&gt; Maybe EngineType -&gt; BrokerEngineType
 </span><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType%27"><span class="hs-identifier hs-var">BrokerEngineType'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [EngineVersion] -&gt; Maybe EngineType -&gt; BrokerEngineType)
@@ -205,7 +205,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe EngineType -&gt; BrokerEngineType)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [EngineVersion]))
+</span><a href="#local-6989586621679223812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [EngineVersion]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;engineVersions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [EngineVersion]))
@@ -218,13 +218,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe EngineType) -&gt; Parser BrokerEngineType
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EngineType)
+</span><a href="#local-6989586621679223812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EngineType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;engineType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223796"><span id="local-6989586621679223798"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType"><span class="hs-identifier hs-type">BrokerEngineType</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223805"><span id="local-6989586621679223807"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType"><span class="hs-identifier hs-type">BrokerEngineType</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223793"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType"><span class="hs-identifier hs-type">BrokerEngineType</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223802"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerEngineType.html#BrokerEngineType"><span class="hs-identifier hs-type">BrokerEngineType</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

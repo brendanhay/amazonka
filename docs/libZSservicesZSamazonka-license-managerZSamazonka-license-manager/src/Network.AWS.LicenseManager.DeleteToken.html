@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.LicenseManager.DeleteToken</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified token. Must be called in the license home Region.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LicenseManager.DeleteToken</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken"><span class="hs-identifier">DeleteToken</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#newDeleteToken"><span class="hs-identifier">newDeleteToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#deleteToken_tokenId"><span class="hs-identifier">deleteToken_tokenId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteTokenResponse"><span class="hs-identifier">DeleteTokenResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#newDeleteTokenResponse"><span class="hs-identifier">newDeleteTokenResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#deleteTokenResponse_httpStatus"><span class="hs-identifier">deleteTokenResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.html"><span class="hs-identifier">Network.AWS.LicenseManager.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteToken' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679310757"><span id="local-6989586621679310758"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteToken"><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken"><span class="hs-identifier hs-var">DeleteToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteToken%27"><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken%27"><span class="hs-identifier hs-var">DeleteToken'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Token ID.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AtokenId%3ADeleteToken%27"><span class="annot"><span class="annottext">DeleteToken -&gt; Text
+</span><a href="Network.AWS.LicenseManager.DeleteToken.html#%24sel%3AtokenId%3ADeleteToken%27"><span class="hs-identifier hs-var hs-var">tokenId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310751"><span id="local-6989586621679310753"><span class="annot"><span class="annottext">DeleteToken -&gt; DeleteToken -&gt; Bool
+(DeleteToken -&gt; DeleteToken -&gt; Bool)
+-&gt; (DeleteToken -&gt; DeleteToken -&gt; Bool) -&gt; Eq DeleteToken
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteToken -&gt; DeleteToken -&gt; Bool
+$c/= :: DeleteToken -&gt; DeleteToken -&gt; Bool
+== :: DeleteToken -&gt; DeleteToken -&gt; Bool
+$c== :: DeleteToken -&gt; DeleteToken -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310742"><span id="local-6989586621679310744"><span id="local-6989586621679310746"><span id="local-6989586621679310748"><span class="annot"><span class="annottext">ReadPrec [DeleteToken]
+ReadPrec DeleteToken
+Int -&gt; ReadS DeleteToken
+ReadS [DeleteToken]
+(Int -&gt; ReadS DeleteToken)
+-&gt; ReadS [DeleteToken]
+-&gt; ReadPrec DeleteToken
+-&gt; ReadPrec [DeleteToken]
+-&gt; Read DeleteToken
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteToken]
+$creadListPrec :: ReadPrec [DeleteToken]
+readPrec :: ReadPrec DeleteToken
+$creadPrec :: ReadPrec DeleteToken
+readList :: ReadS [DeleteToken]
+$creadList :: ReadS [DeleteToken]
+readsPrec :: Int -&gt; ReadS DeleteToken
+$creadsPrec :: Int -&gt; ReadS DeleteToken
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310735"><span id="local-6989586621679310737"><span id="local-6989586621679310739"><span class="annot"><span class="annottext">Int -&gt; DeleteToken -&gt; ShowS
+[DeleteToken] -&gt; ShowS
+DeleteToken -&gt; String
+(Int -&gt; DeleteToken -&gt; ShowS)
+-&gt; (DeleteToken -&gt; String)
+-&gt; ([DeleteToken] -&gt; ShowS)
+-&gt; Show DeleteToken
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteToken] -&gt; ShowS
+$cshowList :: [DeleteToken] -&gt; ShowS
+show :: DeleteToken -&gt; String
+$cshow :: DeleteToken -&gt; String
+showsPrec :: Int -&gt; DeleteToken -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteToken -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteToken -&gt; Rep DeleteToken x)
+-&gt; (forall x. Rep DeleteToken x -&gt; DeleteToken)
+-&gt; Generic DeleteToken
+forall x. Rep DeleteToken x -&gt; DeleteToken
+forall x. DeleteToken -&gt; Rep DeleteToken x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteToken x -&gt; DeleteToken
+$cfrom :: forall x. DeleteToken -&gt; Rep DeleteToken x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'DeleteToken' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'tokenId', 'deleteToken_tokenId' - Token ID.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#newDeleteToken"><span class="hs-identifier hs-type">newDeleteToken</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'tokenId'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken"><span class="hs-identifier hs-type">DeleteToken</span></a></span><span>
+</span><span id="line-68"></span><span id="newDeleteToken"><span class="annot"><span class="annottext">newDeleteToken :: Text -&gt; DeleteToken
+</span><a href="Network.AWS.LicenseManager.DeleteToken.html#newDeleteToken"><span class="hs-identifier hs-var hs-var">newDeleteToken</span></a></span></span><span> </span><span id="local-6989586621679310730"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310730"><span class="hs-identifier hs-var">pTokenId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteToken' :: Text -&gt; DeleteToken
+</span><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken%27"><span class="hs-identifier hs-type">DeleteToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenId:DeleteToken' :: Text
+</span><a href="Network.AWS.LicenseManager.DeleteToken.html#%24sel%3AtokenId%3ADeleteToken%27"><span class="hs-identifier hs-var">tokenId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310730"><span class="hs-identifier hs-var">pTokenId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | Token ID.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#deleteToken_tokenId"><span class="hs-identifier hs-type">deleteToken_tokenId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken"><span class="hs-identifier hs-type">DeleteToken</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="deleteToken_tokenId"><span class="annot"><span class="annottext">deleteToken_tokenId :: (Text -&gt; f Text) -&gt; DeleteToken -&gt; f DeleteToken
+</span><a href="Network.AWS.LicenseManager.DeleteToken.html#deleteToken_tokenId"><span class="hs-identifier hs-var hs-var">deleteToken_tokenId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteToken -&gt; Text)
+-&gt; (DeleteToken -&gt; Text -&gt; DeleteToken)
+-&gt; Lens DeleteToken DeleteToken Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken%27"><span class="hs-identifier hs-type">DeleteToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310727"><span class="annot"><span class="annottext">Text
+tokenId :: Text
+$sel:tokenId:DeleteToken' :: DeleteToken -&gt; Text
+</span><a href="#local-6989586621679310727"><span class="hs-identifier hs-var hs-var">tokenId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310727"><span class="hs-identifier hs-var">tokenId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310726"><span class="annot"><span class="annottext">s :: DeleteToken
+</span><a href="#local-6989586621679310726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken%27"><span class="hs-identifier hs-type">DeleteToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310725"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteToken
+</span><a href="#local-6989586621679310726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenId:DeleteToken' :: Text
+</span><a href="Network.AWS.LicenseManager.DeleteToken.html#%24sel%3AtokenId%3ADeleteToken%27"><span class="hs-identifier hs-var">tokenId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken"><span class="hs-identifier hs-type">DeleteToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken"><span class="hs-identifier hs-type">DeleteToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken"><span class="hs-identifier hs-type">DeleteToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteTokenResponse"><span class="hs-identifier hs-type">DeleteTokenResponse</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679310721"><span class="annot"><span class="annottext">request :: DeleteToken -&gt; Request DeleteToken
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteToken -&gt; Request DeleteToken
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LicenseManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679310717"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteToken
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteToken)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteToken))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteToken
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteToken)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310714"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310714"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679310713"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679310713"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679310712"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679310712"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteTokenResponse
+</span><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteTokenResponse%27"><span class="hs-identifier hs-var">DeleteTokenResponse'</span></a></span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteTokenResponse)
+-&gt; Either String Int -&gt; Either String DeleteTokenResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310714"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310705"><span id="local-6989586621679310707"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken"><span class="hs-identifier hs-type">DeleteToken</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310702"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken"><span class="hs-identifier hs-type">DeleteToken</span></a></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken"><span class="hs-identifier hs-type">DeleteToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679310698"><span class="annot"><span class="annottext">toHeaders :: DeleteToken -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteToken -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-93"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-94"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSLicenseManager.DeleteToken&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-96"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-100"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310688"><span id="local-6989586621679310690"><span id="local-6989586621679310692"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken"><span class="hs-identifier hs-type">DeleteToken</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679310686"><span class="annot"><span class="annottext">toJSON :: DeleteToken -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken%27"><span class="hs-identifier hs-type">DeleteToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310684"><span class="annot"><span class="annottext">Text
+tokenId :: Text
+$sel:tokenId:DeleteToken' :: DeleteToken -&gt; Text
+</span><a href="#local-6989586621679310684"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TokenId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310684"><span class="hs-identifier hs-var">tokenId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken"><span class="hs-identifier hs-type">DeleteToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679310678"><span class="annot"><span class="annottext">toPath :: DeleteToken -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteToken -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteToken"><span class="hs-identifier hs-type">DeleteToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679310674"><span class="annot"><span class="annottext">toQuery :: DeleteToken -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteToken -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | /See:/ 'newDeleteTokenResponse' smart constructor.</span><span>
+</span><span id="line-118"></span><span id="local-6989586621679310671"><span id="local-6989586621679310672"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTokenResponse"><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteTokenResponse"><span class="hs-identifier hs-var">DeleteTokenResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTokenResponse%27"><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteTokenResponse%27"><span class="hs-identifier hs-var">DeleteTokenResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteTokenResponse%27"><span class="annot"><span class="annottext">DeleteTokenResponse -&gt; Int
+</span><a href="Network.AWS.LicenseManager.DeleteToken.html#%24sel%3AhttpStatus%3ADeleteTokenResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310666"><span id="local-6989586621679310668"><span class="annot"><span class="annottext">DeleteTokenResponse -&gt; DeleteTokenResponse -&gt; Bool
+(DeleteTokenResponse -&gt; DeleteTokenResponse -&gt; Bool)
+-&gt; (DeleteTokenResponse -&gt; DeleteTokenResponse -&gt; Bool)
+-&gt; Eq DeleteTokenResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteTokenResponse -&gt; DeleteTokenResponse -&gt; Bool
+$c/= :: DeleteTokenResponse -&gt; DeleteTokenResponse -&gt; Bool
+== :: DeleteTokenResponse -&gt; DeleteTokenResponse -&gt; Bool
+$c== :: DeleteTokenResponse -&gt; DeleteTokenResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310658"><span id="local-6989586621679310660"><span id="local-6989586621679310662"><span id="local-6989586621679310664"><span class="annot"><span class="annottext">ReadPrec [DeleteTokenResponse]
+ReadPrec DeleteTokenResponse
+Int -&gt; ReadS DeleteTokenResponse
+ReadS [DeleteTokenResponse]
+(Int -&gt; ReadS DeleteTokenResponse)
+-&gt; ReadS [DeleteTokenResponse]
+-&gt; ReadPrec DeleteTokenResponse
+-&gt; ReadPrec [DeleteTokenResponse]
+-&gt; Read DeleteTokenResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteTokenResponse]
+$creadListPrec :: ReadPrec [DeleteTokenResponse]
+readPrec :: ReadPrec DeleteTokenResponse
+$creadPrec :: ReadPrec DeleteTokenResponse
+readList :: ReadS [DeleteTokenResponse]
+$creadList :: ReadS [DeleteTokenResponse]
+readsPrec :: Int -&gt; ReadS DeleteTokenResponse
+$creadsPrec :: Int -&gt; ReadS DeleteTokenResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310652"><span id="local-6989586621679310654"><span id="local-6989586621679310656"><span class="annot"><span class="annottext">Int -&gt; DeleteTokenResponse -&gt; ShowS
+[DeleteTokenResponse] -&gt; ShowS
+DeleteTokenResponse -&gt; String
+(Int -&gt; DeleteTokenResponse -&gt; ShowS)
+-&gt; (DeleteTokenResponse -&gt; String)
+-&gt; ([DeleteTokenResponse] -&gt; ShowS)
+-&gt; Show DeleteTokenResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteTokenResponse] -&gt; ShowS
+$cshowList :: [DeleteTokenResponse] -&gt; ShowS
+show :: DeleteTokenResponse -&gt; String
+$cshow :: DeleteTokenResponse -&gt; String
+showsPrec :: Int -&gt; DeleteTokenResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteTokenResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteTokenResponse -&gt; Rep DeleteTokenResponse x)
+-&gt; (forall x. Rep DeleteTokenResponse x -&gt; DeleteTokenResponse)
+-&gt; Generic DeleteTokenResponse
+forall x. Rep DeleteTokenResponse x -&gt; DeleteTokenResponse
+forall x. DeleteTokenResponse -&gt; Rep DeleteTokenResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteTokenResponse x -&gt; DeleteTokenResponse
+$cfrom :: forall x. DeleteTokenResponse -&gt; Rep DeleteTokenResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Create a value of 'DeleteTokenResponse' with all optional fields omitted.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'httpStatus', 'deleteTokenResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#newDeleteTokenResponse"><span class="hs-identifier hs-type">newDeleteTokenResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteTokenResponse"><span class="hs-identifier hs-type">DeleteTokenResponse</span></a></span><span>
+</span><span id="line-137"></span><span id="newDeleteTokenResponse"><span class="annot"><span class="annottext">newDeleteTokenResponse :: Int -&gt; DeleteTokenResponse
+</span><a href="Network.AWS.LicenseManager.DeleteToken.html#newDeleteTokenResponse"><span class="hs-identifier hs-var hs-var">newDeleteTokenResponse</span></a></span></span><span> </span><span id="local-6989586621679310649"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310649"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">DeleteTokenResponse' :: Int -&gt; DeleteTokenResponse
+</span><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteTokenResponse%27"><span class="hs-identifier hs-type">DeleteTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTokenResponse' :: Int
+</span><a href="Network.AWS.LicenseManager.DeleteToken.html#%24sel%3AhttpStatus%3ADeleteTokenResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310649"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#deleteTokenResponse_httpStatus"><span class="hs-identifier hs-type">deleteTokenResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteTokenResponse"><span class="hs-identifier hs-type">DeleteTokenResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-142"></span><span id="deleteTokenResponse_httpStatus"><span class="annot"><span class="annottext">deleteTokenResponse_httpStatus :: (Int -&gt; f Int) -&gt; DeleteTokenResponse -&gt; f DeleteTokenResponse
+</span><a href="Network.AWS.LicenseManager.DeleteToken.html#deleteTokenResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteTokenResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTokenResponse -&gt; Int)
+-&gt; (DeleteTokenResponse -&gt; Int -&gt; DeleteTokenResponse)
+-&gt; Lens DeleteTokenResponse DeleteTokenResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteTokenResponse%27"><span class="hs-identifier hs-type">DeleteTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310648"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteTokenResponse' :: DeleteTokenResponse -&gt; Int
+</span><a href="#local-6989586621679310648"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310648"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310647"><span class="annot"><span class="annottext">s :: DeleteTokenResponse
+</span><a href="#local-6989586621679310647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteTokenResponse%27"><span class="hs-identifier hs-type">DeleteTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310646"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTokenResponse
+</span><a href="#local-6989586621679310647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTokenResponse' :: Int
+</span><a href="Network.AWS.LicenseManager.DeleteToken.html#%24sel%3AhttpStatus%3ADeleteTokenResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteTokenResponse"><span class="hs-identifier hs-type">DeleteTokenResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310644"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.DeleteToken.html#DeleteTokenResponse"><span class="hs-identifier hs-type">DeleteTokenResponse</span></a></span></span><span>
+</span><span id="line-145"></span></pre></body></html>

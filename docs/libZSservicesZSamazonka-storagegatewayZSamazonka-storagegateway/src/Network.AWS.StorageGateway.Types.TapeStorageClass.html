@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679375279"><span id="local-6989586621679375280"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TapeStorageClass"><span class="annot"><a href="Network.AWS.StorageGateway.Types.TapeStorageClass.html#TapeStorageClass"><span class="hs-identifier hs-var">TapeStorageClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TapeStorageClass%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.TapeStorageClass.html#TapeStorageClass%27"><span class="hs-identifier hs-var">TapeStorageClass'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679375288"><span id="local-6989586621679375289"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TapeStorageClass"><span class="annot"><a href="Network.AWS.StorageGateway.Types.TapeStorageClass.html#TapeStorageClass"><span class="hs-identifier hs-var">TapeStorageClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TapeStorageClass%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.TapeStorageClass.html#TapeStorageClass%27"><span class="hs-identifier hs-var">TapeStorageClass'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTapeStorageClass"><span class="annot"><span class="annottext">TapeStorageClass -&gt; Text
 </span><a href="Network.AWS.StorageGateway.Types.TapeStorageClass.html#fromTapeStorageClass"><span class="hs-identifier hs-var hs-var">fromTapeStorageClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679375271"><span id="local-6989586621679375273"><span id="local-6989586621679375275"><span class="annot"><span class="annottext">Int -&gt; TapeStorageClass -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679375280"><span id="local-6989586621679375282"><span id="local-6989586621679375284"><span class="annot"><span class="annottext">Int -&gt; TapeStorageClass -&gt; ShowS
 [TapeStorageClass] -&gt; ShowS
 TapeStorageClass -&gt; String
 (Int -&gt; TapeStorageClass -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: TapeStorageClass -&gt; String
 showsPrec :: Int -&gt; TapeStorageClass -&gt; ShowS
 $cshowsPrec :: Int -&gt; TapeStorageClass -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679375262"><span id="local-6989586621679375264"><span id="local-6989586621679375266"><span id="local-6989586621679375268"><span class="annot"><span class="annottext">ReadPrec [TapeStorageClass]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679375271"><span id="local-6989586621679375273"><span id="local-6989586621679375275"><span id="local-6989586621679375277"><span class="annot"><span class="annottext">ReadPrec [TapeStorageClass]
 ReadPrec TapeStorageClass
 Int -&gt; ReadS TapeStorageClass
 ReadS [TapeStorageClass]
@@ -72,7 +72,7 @@ $creadList :: ReadS [TapeStorageClass]
 readsPrec :: Int -&gt; ReadS TapeStorageClass
 $creadsPrec :: Int -&gt; ReadS TapeStorageClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679375257"><span id="local-6989586621679375259"><span class="annot"><span class="annottext">TapeStorageClass -&gt; TapeStorageClass -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679375266"><span id="local-6989586621679375268"><span class="annot"><span class="annottext">TapeStorageClass -&gt; TapeStorageClass -&gt; Bool
 (TapeStorageClass -&gt; TapeStorageClass -&gt; Bool)
 -&gt; (TapeStorageClass -&gt; TapeStorageClass -&gt; Bool)
 -&gt; Eq TapeStorageClass
@@ -82,7 +82,7 @@ $c/= :: TapeStorageClass -&gt; TapeStorageClass -&gt; Bool
 == :: TapeStorageClass -&gt; TapeStorageClass -&gt; Bool
 $c== :: TapeStorageClass -&gt; TapeStorageClass -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679375241"><span id="local-6989586621679375243"><span id="local-6989586621679375245"><span id="local-6989586621679375247"><span id="local-6989586621679375249"><span id="local-6989586621679375251"><span id="local-6989586621679375253"><span class="annot"><span class="annottext">Eq TapeStorageClass
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679375250"><span id="local-6989586621679375252"><span id="local-6989586621679375254"><span id="local-6989586621679375256"><span id="local-6989586621679375258"><span id="local-6989586621679375260"><span id="local-6989586621679375262"><span class="annot"><span class="annottext">Eq TapeStorageClass
 Eq TapeStorageClass
 -&gt; (TapeStorageClass -&gt; TapeStorageClass -&gt; Ordering)
 -&gt; (TapeStorageClass -&gt; TapeStorageClass -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. TapeStorageClass -&gt; Rep TapeStorageClass x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679375233"><span id="local-6989586621679375235"><span class="annot"><span class="annottext">Int -&gt; TapeStorageClass -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679375242"><span id="local-6989586621679375244"><span class="annot"><span class="annottext">Int -&gt; TapeStorageClass -&gt; Int
 TapeStorageClass -&gt; Int
 (Int -&gt; TapeStorageClass -&gt; Int)
 -&gt; (TapeStorageClass -&gt; Int) -&gt; Hashable TapeStorageClass
@@ -143,51 +143,51 @@ $chash :: TapeStorageClass -&gt; Int
 hashWithSalt :: Int -&gt; TapeStorageClass -&gt; Int
 $chashWithSalt :: Int -&gt; TapeStorageClass -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679375230"><span class="annot"><span class="annottext">TapeStorageClass -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679375239"><span class="annot"><span class="annottext">TapeStorageClass -&gt; ()
 (TapeStorageClass -&gt; ()) -&gt; NFData TapeStorageClass
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TapeStorageClass -&gt; ()
 $crnf :: TapeStorageClass -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679375227"><span class="annot"><span class="annottext">Text -&gt; Either String TapeStorageClass
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679375236"><span class="annot"><span class="annottext">Text -&gt; Either String TapeStorageClass
 (Text -&gt; Either String TapeStorageClass)
 -&gt; FromText TapeStorageClass
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TapeStorageClass
 $cfromText :: Text -&gt; Either String TapeStorageClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679375224"><span class="annot"><span class="annottext">TapeStorageClass -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679375233"><span class="annot"><span class="annottext">TapeStorageClass -&gt; Text
 (TapeStorageClass -&gt; Text) -&gt; ToText TapeStorageClass
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TapeStorageClass -&gt; Text
 $ctoText :: TapeStorageClass -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679375221"><span class="annot"><span class="annottext">TapeStorageClass -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679375230"><span class="annot"><span class="annottext">TapeStorageClass -&gt; ByteString
 (TapeStorageClass -&gt; ByteString) -&gt; ToByteString TapeStorageClass
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TapeStorageClass -&gt; ByteString
 $ctoBS :: TapeStorageClass -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679375218"><span class="annot"><span class="annottext">TapeStorageClass -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679375227"><span class="annot"><span class="annottext">TapeStorageClass -&gt; ByteStringBuilder
 (TapeStorageClass -&gt; ByteStringBuilder) -&gt; ToLog TapeStorageClass
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TapeStorageClass -&gt; ByteStringBuilder
 $cbuild :: TapeStorageClass -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679375215"><span class="annot"><span class="annottext">HeaderName -&gt; TapeStorageClass -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679375224"><span class="annot"><span class="annottext">HeaderName -&gt; TapeStorageClass -&gt; [Header]
 (HeaderName -&gt; TapeStorageClass -&gt; [Header])
 -&gt; ToHeader TapeStorageClass
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TapeStorageClass -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TapeStorageClass -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679375212"><span class="annot"><span class="annottext">TapeStorageClass -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679375221"><span class="annot"><span class="annottext">TapeStorageClass -&gt; QueryString
 (TapeStorageClass -&gt; QueryString) -&gt; ToQuery TapeStorageClass
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TapeStorageClass -&gt; QueryString
 $ctoQuery :: TapeStorageClass -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679375207"><span id="local-6989586621679375209"><span class="annot"><span class="annottext">Value -&gt; Parser [TapeStorageClass]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679375216"><span id="local-6989586621679375218"><span class="annot"><span class="annottext">Value -&gt; Parser [TapeStorageClass]
 Value -&gt; Parser TapeStorageClass
 (Value -&gt; Parser TapeStorageClass)
 -&gt; (Value -&gt; Parser [TapeStorageClass])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [TapeStorageClass]
 parseJSON :: Value -&gt; Parser TapeStorageClass
 $cparseJSON :: Value -&gt; Parser TapeStorageClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679375202"><span id="local-6989586621679375204"><span class="annot"><span class="annottext">FromJSONKeyFunction [TapeStorageClass]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679375211"><span id="local-6989586621679375213"><span class="annot"><span class="annottext">FromJSONKeyFunction [TapeStorageClass]
 FromJSONKeyFunction TapeStorageClass
 FromJSONKeyFunction TapeStorageClass
 -&gt; FromJSONKeyFunction [TapeStorageClass]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TapeStorageClass]
 fromJSONKey :: FromJSONKeyFunction TapeStorageClass
 $cfromJSONKey :: FromJSONKeyFunction TapeStorageClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679375193"><span id="local-6989586621679375195"><span id="local-6989586621679375197"><span id="local-6989586621679375199"><span class="annot"><span class="annottext">[TapeStorageClass] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679375202"><span id="local-6989586621679375204"><span id="local-6989586621679375206"><span id="local-6989586621679375208"><span class="annot"><span class="annottext">[TapeStorageClass] -&gt; Encoding
 [TapeStorageClass] -&gt; Value
 TapeStorageClass -&gt; Encoding
 TapeStorageClass -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: TapeStorageClass -&gt; Encoding
 toJSON :: TapeStorageClass -&gt; Value
 $ctoJSON :: TapeStorageClass -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679375188"><span id="local-6989586621679375190"><span class="annot"><span class="annottext">ToJSONKeyFunction [TapeStorageClass]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679375197"><span id="local-6989586621679375199"><span class="annot"><span class="annottext">ToJSONKeyFunction [TapeStorageClass]
 ToJSONKeyFunction TapeStorageClass
 ToJSONKeyFunction TapeStorageClass
 -&gt; ToJSONKeyFunction [TapeStorageClass]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TapeStorageClass]
 toJSONKey :: ToJSONKeyFunction TapeStorageClass
 $ctoJSONKey :: ToJSONKeyFunction TapeStorageClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679375185"><span class="annot"><span class="annottext">[Node] -&gt; Either String TapeStorageClass
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679375194"><span class="annot"><span class="annottext">[Node] -&gt; Either String TapeStorageClass
 ([Node] -&gt; Either String TapeStorageClass)
 -&gt; FromXML TapeStorageClass
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TapeStorageClass
 $cparseXML :: [Node] -&gt; Either String TapeStorageClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679375182"><span class="annot"><span class="annottext">TapeStorageClass -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679375191"><span class="annot"><span class="annottext">TapeStorageClass -&gt; XML
 (TapeStorageClass -&gt; XML) -&gt; ToXML TapeStorageClass
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TapeStorageClass -&gt; XML

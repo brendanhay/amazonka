@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span class="hs-comment">-- to the value AC3.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newAc3Settings' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679939236"><span id="local-6989586621679939237"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ac3Settings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-var">Ac3Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ac3Settings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-var">Ac3Settings'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679939245"><span id="local-6989586621679939246"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ac3Settings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-var">Ac3Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ac3Settings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-var">Ac3Settings'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Applies a 120Hz lowpass filter to the LFE channel prior to encoding.</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Only valid with 3_2_LFE coding mode.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AlfeFilter%3AAc3Settings%27"><span class="annot"><span class="annottext">Ac3Settings -&gt; Maybe Ac3LfeFilter
@@ -99,7 +99,7 @@
 </span><span id="line-90"></span><span>    </span><span id="%24sel%3Adialnorm%3AAc3Settings%27"><span class="annot"><span class="annottext">Ac3Settings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#%24sel%3Adialnorm%3AAc3Settings%27"><span class="hs-identifier hs-var hs-var">dialnorm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679939221"><span id="local-6989586621679939223"><span class="annot"><span class="annottext">Ac3Settings -&gt; Ac3Settings -&gt; Bool
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679939230"><span id="local-6989586621679939232"><span class="annot"><span class="annottext">Ac3Settings -&gt; Ac3Settings -&gt; Bool
 (Ac3Settings -&gt; Ac3Settings -&gt; Bool)
 -&gt; (Ac3Settings -&gt; Ac3Settings -&gt; Bool) -&gt; Eq Ac3Settings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -107,7 +107,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Ac3Settings -&gt; Ac3Settings -&gt; Bool
 == :: Ac3Settings -&gt; Ac3Settings -&gt; Bool
 $c== :: Ac3Settings -&gt; Ac3Settings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679939212"><span id="local-6989586621679939214"><span id="local-6989586621679939216"><span id="local-6989586621679939218"><span class="annot"><span class="annottext">ReadPrec [Ac3Settings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679939221"><span id="local-6989586621679939223"><span id="local-6989586621679939225"><span id="local-6989586621679939227"><span class="annot"><span class="annottext">ReadPrec [Ac3Settings]
 ReadPrec Ac3Settings
 Int -&gt; ReadS Ac3Settings
 ReadS [Ac3Settings]
@@ -127,7 +127,7 @@ readList :: ReadS [Ac3Settings]
 $creadList :: ReadS [Ac3Settings]
 readsPrec :: Int -&gt; ReadS Ac3Settings
 $creadsPrec :: Int -&gt; ReadS Ac3Settings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679939205"><span id="local-6989586621679939207"><span id="local-6989586621679939209"><span class="annot"><span class="annottext">Int -&gt; Ac3Settings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679939214"><span id="local-6989586621679939216"><span id="local-6989586621679939218"><span class="annot"><span class="annottext">Int -&gt; Ac3Settings -&gt; ShowS
 [Ac3Settings] -&gt; ShowS
 Ac3Settings -&gt; String
 (Int -&gt; Ac3Settings -&gt; ShowS)
@@ -281,16 +281,16 @@ forall a. Maybe a
 -&gt; Lens
      Ac3Settings Ac3Settings (Maybe Ac3LfeFilter) (Maybe Ac3LfeFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939196"><span class="annot"><span class="annottext">Maybe Ac3LfeFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939205"><span class="annot"><span class="annottext">Maybe Ac3LfeFilter
 lfeFilter :: Maybe Ac3LfeFilter
 $sel:lfeFilter:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3LfeFilter
-</span><a href="#local-6989586621679939196"><span class="hs-identifier hs-var hs-var">lfeFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3LfeFilter
-</span><a href="#local-6989586621679939196"><span class="hs-identifier hs-var">lfeFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939195"><span class="annot"><span class="annottext">s :: Ac3Settings
-</span><a href="#local-6989586621679939195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939194"><span class="annot"><span class="annottext">Maybe Ac3LfeFilter
-</span><a href="#local-6989586621679939194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
-</span><a href="#local-6989586621679939195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lfeFilter:Ac3Settings' :: Maybe Ac3LfeFilter
+</span><a href="#local-6989586621679939205"><span class="hs-identifier hs-var hs-var">lfeFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3LfeFilter
+</span><a href="#local-6989586621679939205"><span class="hs-identifier hs-var">lfeFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939204"><span class="annot"><span class="annottext">s :: Ac3Settings
+</span><a href="#local-6989586621679939204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939203"><span class="annot"><span class="annottext">Maybe Ac3LfeFilter
+</span><a href="#local-6989586621679939203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
+</span><a href="#local-6989586621679939204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lfeFilter:Ac3Settings' :: Maybe Ac3LfeFilter
 </span><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#%24sel%3AlfeFilter%3AAc3Settings%27"><span class="hs-identifier hs-var">lfeFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3LfeFilter
-</span><a href="#local-6989586621679939194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679939203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | Choose the Dolby Digital dynamic range control (DRC) profile that</span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- MediaConvert uses when encoding the metadata in the Dolby Digital stream</span><span>
@@ -313,16 +313,16 @@ $sel:lfeFilter:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3LfeFilter
      (Maybe Ac3DynamicRangeCompressionLine)
      (Maybe Ac3DynamicRangeCompressionLine)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939192"><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionLine
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939201"><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionLine
 dynamicRangeCompressionLine :: Maybe Ac3DynamicRangeCompressionLine
 $sel:dynamicRangeCompressionLine:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3DynamicRangeCompressionLine
-</span><a href="#local-6989586621679939192"><span class="hs-identifier hs-var hs-var">dynamicRangeCompressionLine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionLine
-</span><a href="#local-6989586621679939192"><span class="hs-identifier hs-var">dynamicRangeCompressionLine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939191"><span class="annot"><span class="annottext">s :: Ac3Settings
-</span><a href="#local-6989586621679939191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939190"><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionLine
-</span><a href="#local-6989586621679939190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
-</span><a href="#local-6989586621679939191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamicRangeCompressionLine:Ac3Settings' :: Maybe Ac3DynamicRangeCompressionLine
+</span><a href="#local-6989586621679939201"><span class="hs-identifier hs-var hs-var">dynamicRangeCompressionLine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionLine
+</span><a href="#local-6989586621679939201"><span class="hs-identifier hs-var">dynamicRangeCompressionLine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939200"><span class="annot"><span class="annottext">s :: Ac3Settings
+</span><a href="#local-6989586621679939200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939199"><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionLine
+</span><a href="#local-6989586621679939199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
+</span><a href="#local-6989586621679939200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamicRangeCompressionLine:Ac3Settings' :: Maybe Ac3DynamicRangeCompressionLine
 </span><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#%24sel%3AdynamicRangeCompressionLine%3AAc3Settings%27"><span class="hs-identifier hs-var">dynamicRangeCompressionLine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionLine
-</span><a href="#local-6989586621679939190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679939199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD,</span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- DD+, or DolbyE decoder that supplied this audio data. If audio was not</span><span>
@@ -339,16 +339,16 @@ $sel:dynamicRangeCompressionLine:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3Dyna
      (Maybe Ac3MetadataControl)
      (Maybe Ac3MetadataControl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939188"><span class="annot"><span class="annottext">Maybe Ac3MetadataControl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939197"><span class="annot"><span class="annottext">Maybe Ac3MetadataControl
 metadataControl :: Maybe Ac3MetadataControl
 $sel:metadataControl:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3MetadataControl
-</span><a href="#local-6989586621679939188"><span class="hs-identifier hs-var hs-var">metadataControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3MetadataControl
-</span><a href="#local-6989586621679939188"><span class="hs-identifier hs-var">metadataControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939187"><span class="annot"><span class="annottext">s :: Ac3Settings
-</span><a href="#local-6989586621679939187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939186"><span class="annot"><span class="annottext">Maybe Ac3MetadataControl
-</span><a href="#local-6989586621679939186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
-</span><a href="#local-6989586621679939187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadataControl:Ac3Settings' :: Maybe Ac3MetadataControl
+</span><a href="#local-6989586621679939197"><span class="hs-identifier hs-var hs-var">metadataControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3MetadataControl
+</span><a href="#local-6989586621679939197"><span class="hs-identifier hs-var">metadataControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939196"><span class="annot"><span class="annottext">s :: Ac3Settings
+</span><a href="#local-6989586621679939196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939195"><span class="annot"><span class="annottext">Maybe Ac3MetadataControl
+</span><a href="#local-6989586621679939195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
+</span><a href="#local-6989586621679939196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadataControl:Ac3Settings' :: Maybe Ac3MetadataControl
 </span><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#%24sel%3AmetadataControl%3AAc3Settings%27"><span class="hs-identifier hs-var">metadataControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3MetadataControl
-</span><a href="#local-6989586621679939186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679939195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | Specify the bitstream mode for the AC-3 stream that the encoder emits.</span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- For more information about the AC3 bitstream mode, see ATSC A\/52-2012</span><span>
@@ -364,16 +364,16 @@ $sel:metadataControl:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3MetadataControl
      (Maybe Ac3BitstreamMode)
      (Maybe Ac3BitstreamMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939184"><span class="annot"><span class="annottext">Maybe Ac3BitstreamMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939193"><span class="annot"><span class="annottext">Maybe Ac3BitstreamMode
 bitstreamMode :: Maybe Ac3BitstreamMode
 $sel:bitstreamMode:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3BitstreamMode
-</span><a href="#local-6989586621679939184"><span class="hs-identifier hs-var hs-var">bitstreamMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3BitstreamMode
-</span><a href="#local-6989586621679939184"><span class="hs-identifier hs-var">bitstreamMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939183"><span class="annot"><span class="annottext">s :: Ac3Settings
-</span><a href="#local-6989586621679939183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939182"><span class="annot"><span class="annottext">Maybe Ac3BitstreamMode
-</span><a href="#local-6989586621679939182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
-</span><a href="#local-6989586621679939183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitstreamMode:Ac3Settings' :: Maybe Ac3BitstreamMode
+</span><a href="#local-6989586621679939193"><span class="hs-identifier hs-var hs-var">bitstreamMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3BitstreamMode
+</span><a href="#local-6989586621679939193"><span class="hs-identifier hs-var">bitstreamMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939192"><span class="annot"><span class="annottext">s :: Ac3Settings
+</span><a href="#local-6989586621679939192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939191"><span class="annot"><span class="annottext">Maybe Ac3BitstreamMode
+</span><a href="#local-6989586621679939191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
+</span><a href="#local-6989586621679939192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitstreamMode:Ac3Settings' :: Maybe Ac3BitstreamMode
 </span><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#%24sel%3AbitstreamMode%3AAc3Settings%27"><span class="hs-identifier hs-var">bitstreamMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3BitstreamMode
-</span><a href="#local-6989586621679939182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679939191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | Choose the Dolby Digital dynamic range control (DRC) profile that</span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- MediaConvert uses when encoding the metadata in the Dolby Digital stream</span><span>
@@ -396,16 +396,16 @@ $sel:bitstreamMode:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3BitstreamMode
      (Maybe Ac3DynamicRangeCompressionRf)
      (Maybe Ac3DynamicRangeCompressionRf)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939180"><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionRf
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939189"><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionRf
 dynamicRangeCompressionRf :: Maybe Ac3DynamicRangeCompressionRf
 $sel:dynamicRangeCompressionRf:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3DynamicRangeCompressionRf
-</span><a href="#local-6989586621679939180"><span class="hs-identifier hs-var hs-var">dynamicRangeCompressionRf</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionRf
-</span><a href="#local-6989586621679939180"><span class="hs-identifier hs-var">dynamicRangeCompressionRf</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939179"><span class="annot"><span class="annottext">s :: Ac3Settings
-</span><a href="#local-6989586621679939179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939178"><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionRf
-</span><a href="#local-6989586621679939178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
-</span><a href="#local-6989586621679939179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamicRangeCompressionRf:Ac3Settings' :: Maybe Ac3DynamicRangeCompressionRf
+</span><a href="#local-6989586621679939189"><span class="hs-identifier hs-var hs-var">dynamicRangeCompressionRf</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionRf
+</span><a href="#local-6989586621679939189"><span class="hs-identifier hs-var">dynamicRangeCompressionRf</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939188"><span class="annot"><span class="annottext">s :: Ac3Settings
+</span><a href="#local-6989586621679939188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939187"><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionRf
+</span><a href="#local-6989586621679939187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
+</span><a href="#local-6989586621679939188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamicRangeCompressionRf:Ac3Settings' :: Maybe Ac3DynamicRangeCompressionRf
 </span><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#%24sel%3AdynamicRangeCompressionRf%3AAc3Settings%27"><span class="hs-identifier hs-var">dynamicRangeCompressionRf</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionRf
-</span><a href="#local-6989586621679939178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679939187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | Dolby Digital coding mode. Determines number of channels.</span><span>
 </span><span id="line-211"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#ac3Settings_codingMode"><span class="hs-identifier hs-type">ac3Settings_codingMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3CodingMode.html#Ac3CodingMode"><span class="hs-identifier hs-type">Ac3CodingMode</span></a></span><span class="hs-special">)</span><span>
@@ -416,16 +416,16 @@ $sel:dynamicRangeCompressionRf:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3Dynami
 -&gt; Lens
      Ac3Settings Ac3Settings (Maybe Ac3CodingMode) (Maybe Ac3CodingMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939176"><span class="annot"><span class="annottext">Maybe Ac3CodingMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939185"><span class="annot"><span class="annottext">Maybe Ac3CodingMode
 codingMode :: Maybe Ac3CodingMode
 $sel:codingMode:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3CodingMode
-</span><a href="#local-6989586621679939176"><span class="hs-identifier hs-var hs-var">codingMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3CodingMode
-</span><a href="#local-6989586621679939176"><span class="hs-identifier hs-var">codingMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939175"><span class="annot"><span class="annottext">s :: Ac3Settings
-</span><a href="#local-6989586621679939175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939174"><span class="annot"><span class="annottext">Maybe Ac3CodingMode
-</span><a href="#local-6989586621679939174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
-</span><a href="#local-6989586621679939175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codingMode:Ac3Settings' :: Maybe Ac3CodingMode
+</span><a href="#local-6989586621679939185"><span class="hs-identifier hs-var hs-var">codingMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3CodingMode
+</span><a href="#local-6989586621679939185"><span class="hs-identifier hs-var">codingMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939184"><span class="annot"><span class="annottext">s :: Ac3Settings
+</span><a href="#local-6989586621679939184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939183"><span class="annot"><span class="annottext">Maybe Ac3CodingMode
+</span><a href="#local-6989586621679939183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
+</span><a href="#local-6989586621679939184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codingMode:Ac3Settings' :: Maybe Ac3CodingMode
 </span><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#%24sel%3AcodingMode%3AAc3Settings%27"><span class="hs-identifier hs-var">codingMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3CodingMode
-</span><a href="#local-6989586621679939174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679939183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | This value is always 48000. It represents the sample rate in Hz.</span><span>
 </span><span id="line-215"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#ac3Settings_sampleRate"><span class="hs-identifier hs-type">ac3Settings_sampleRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -435,16 +435,16 @@ $sel:codingMode:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3CodingMode
 -&gt; (Ac3Settings -&gt; Maybe Natural -&gt; Ac3Settings)
 -&gt; Lens Ac3Settings Ac3Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939172"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939181"><span class="annot"><span class="annottext">Maybe Natural
 sampleRate :: Maybe Natural
 $sel:sampleRate:Ac3Settings' :: Ac3Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679939172"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679939172"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939171"><span class="annot"><span class="annottext">s :: Ac3Settings
-</span><a href="#local-6989586621679939171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939170"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679939170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
-</span><a href="#local-6989586621679939171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRate:Ac3Settings' :: Maybe Natural
+</span><a href="#local-6989586621679939181"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679939181"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939180"><span class="annot"><span class="annottext">s :: Ac3Settings
+</span><a href="#local-6989586621679939180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939179"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679939179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
+</span><a href="#local-6989586621679939180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRate:Ac3Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#%24sel%3AsampleRate%3AAc3Settings%27"><span class="hs-identifier hs-var">sampleRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679939170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679939179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | When you want to add Dolby dynamic range compression (DRC) signaling to</span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- your output stream, we recommend that you use the mode-specific settings</span><span>
@@ -471,16 +471,16 @@ $sel:sampleRate:Ac3Settings' :: Ac3Settings -&gt; Maybe Natural
      (Maybe Ac3DynamicRangeCompressionProfile)
      (Maybe Ac3DynamicRangeCompressionProfile)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939168"><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionProfile
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939177"><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionProfile
 dynamicRangeCompressionProfile :: Maybe Ac3DynamicRangeCompressionProfile
 $sel:dynamicRangeCompressionProfile:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3DynamicRangeCompressionProfile
-</span><a href="#local-6989586621679939168"><span class="hs-identifier hs-var hs-var">dynamicRangeCompressionProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionProfile
-</span><a href="#local-6989586621679939168"><span class="hs-identifier hs-var">dynamicRangeCompressionProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939167"><span class="annot"><span class="annottext">s :: Ac3Settings
-</span><a href="#local-6989586621679939167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939166"><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionProfile
-</span><a href="#local-6989586621679939166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
-</span><a href="#local-6989586621679939167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamicRangeCompressionProfile:Ac3Settings' :: Maybe Ac3DynamicRangeCompressionProfile
+</span><a href="#local-6989586621679939177"><span class="hs-identifier hs-var hs-var">dynamicRangeCompressionProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionProfile
+</span><a href="#local-6989586621679939177"><span class="hs-identifier hs-var">dynamicRangeCompressionProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939176"><span class="annot"><span class="annottext">s :: Ac3Settings
+</span><a href="#local-6989586621679939176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939175"><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionProfile
+</span><a href="#local-6989586621679939175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
+</span><a href="#local-6989586621679939176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamicRangeCompressionProfile:Ac3Settings' :: Maybe Ac3DynamicRangeCompressionProfile
 </span><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#%24sel%3AdynamicRangeCompressionProfile%3AAc3Settings%27"><span class="hs-identifier hs-var">dynamicRangeCompressionProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionProfile
-</span><a href="#local-6989586621679939166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679939175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | Specify the average bitrate in bits per second. Valid bitrates depend on</span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- the coding mode.</span><span>
@@ -491,16 +491,16 @@ $sel:dynamicRangeCompressionProfile:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3D
 -&gt; (Ac3Settings -&gt; Maybe Natural -&gt; Ac3Settings)
 -&gt; Lens Ac3Settings Ac3Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939164"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939173"><span class="annot"><span class="annottext">Maybe Natural
 bitrate :: Maybe Natural
 $sel:bitrate:Ac3Settings' :: Ac3Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679939164"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679939164"><span class="hs-identifier hs-var">bitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939163"><span class="annot"><span class="annottext">s :: Ac3Settings
-</span><a href="#local-6989586621679939163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939162"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679939162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
-</span><a href="#local-6989586621679939163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitrate:Ac3Settings' :: Maybe Natural
+</span><a href="#local-6989586621679939173"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679939173"><span class="hs-identifier hs-var">bitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939172"><span class="annot"><span class="annottext">s :: Ac3Settings
+</span><a href="#local-6989586621679939172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939171"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679939171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
+</span><a href="#local-6989586621679939172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitrate:Ac3Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#%24sel%3Abitrate%3AAc3Settings%27"><span class="hs-identifier hs-var">bitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679939162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679939171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- | Sets the dialnorm for the output. If blank and input audio is Dolby</span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- Digital, dialnorm will be passed through.</span><span>
@@ -511,19 +511,19 @@ $sel:bitrate:Ac3Settings' :: Ac3Settings -&gt; Maybe Natural
 -&gt; (Ac3Settings -&gt; Maybe Natural -&gt; Ac3Settings)
 -&gt; Lens Ac3Settings Ac3Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939160"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939169"><span class="annot"><span class="annottext">Maybe Natural
 dialnorm :: Maybe Natural
 $sel:dialnorm:Ac3Settings' :: Ac3Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679939160"><span class="hs-identifier hs-var hs-var">dialnorm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679939160"><span class="hs-identifier hs-var">dialnorm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939159"><span class="annot"><span class="annottext">s :: Ac3Settings
-</span><a href="#local-6989586621679939159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939158"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679939158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
-</span><a href="#local-6989586621679939159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dialnorm:Ac3Settings' :: Maybe Natural
+</span><a href="#local-6989586621679939169"><span class="hs-identifier hs-var hs-var">dialnorm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679939169"><span class="hs-identifier hs-var">dialnorm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679939168"><span class="annot"><span class="annottext">s :: Ac3Settings
+</span><a href="#local-6989586621679939168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679939167"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679939167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ac3Settings
+</span><a href="#local-6989586621679939168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dialnorm:Ac3Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#%24sel%3Adialnorm%3AAc3Settings%27"><span class="hs-identifier hs-var">dialnorm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679939158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679939167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679939155"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621679939153"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Ac3Settings
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679939164"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679939162"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Ac3Settings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-245"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Ac3Settings) -&gt; Value -&gt; Parser Ac3Settings
@@ -531,8 +531,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Ac3Settings&quot;</span></span><span>
-</span><span id="line-247"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679939150"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679939150"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-247"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679939159"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679939159"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-248"></span><span>          </span><span class="annot"><span class="annottext">Maybe Ac3LfeFilter
 -&gt; Maybe Ac3DynamicRangeCompressionLine
 -&gt; Maybe Ac3MetadataControl
@@ -570,7 +570,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Ac3Settings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679939150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Ac3LfeFilter)
+</span><a href="#local-6989586621679939159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Ac3LfeFilter)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lfeFilter&quot;</span></span><span class="hs-special">)</span><span>
@@ -598,7 +598,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Ac3Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679939150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Ac3DynamicRangeCompressionLine)
+</span><a href="#local-6989586621679939159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Ac3DynamicRangeCompressionLine)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dynamicRangeCompressionLine&quot;</span></span><span class="hs-special">)</span><span>
@@ -624,7 +624,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Ac3Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679939150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Ac3MetadataControl)
+</span><a href="#local-6989586621679939159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Ac3MetadataControl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metadataControl&quot;</span></span><span class="hs-special">)</span><span>
@@ -648,7 +648,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Ac3Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679939150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Ac3BitstreamMode)
+</span><a href="#local-6989586621679939159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Ac3BitstreamMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bitstreamMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -670,7 +670,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Ac3Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679939150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Ac3DynamicRangeCompressionRf)
+</span><a href="#local-6989586621679939159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Ac3DynamicRangeCompressionRf)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dynamicRangeCompressionRf&quot;</span></span><span class="hs-special">)</span><span>
@@ -690,7 +690,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Ac3Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679939150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Ac3CodingMode)
+</span><a href="#local-6989586621679939159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Ac3CodingMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;codingMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -706,7 +706,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Ac3Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679939150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679939159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleRate&quot;</span></span><span class="hs-special">)</span><span>
@@ -717,7 +717,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; Ac3Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679939150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Ac3DynamicRangeCompressionProfile)
+</span><a href="#local-6989586621679939159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Ac3DynamicRangeCompressionProfile)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dynamicRangeCompressionProfile&quot;</span></span><span class="hs-special">)</span><span>
@@ -725,7 +725,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser (Maybe Natural -&gt; Ac3Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679939150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679939159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bitrate&quot;</span></span><span class="hs-special">)</span><span>
@@ -733,19 +733,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser Ac3Settings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679939150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679939159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dialnorm&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>
-</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679939144"><span id="local-6989586621679939146"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span></span></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679939153"><span id="local-6989586621679939155"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span></span></span><span>
 </span><span id="line-262"></span><span>
-</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679939141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679939150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span></span><span>
 </span><span id="line-264"></span><span>
-</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679939133"><span id="local-6989586621679939135"><span id="local-6989586621679939137"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-266"></span><span>  </span><span id="local-6989586621679939131"><span class="annot"><span class="annottext">toJSON :: Ac3Settings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939120"><span id="local-6989586621679939121"><span id="local-6989586621679939122"><span id="local-6989586621679939123"><span id="local-6989586621679939124"><span id="local-6989586621679939125"><span id="local-6989586621679939126"><span id="local-6989586621679939127"><span id="local-6989586621679939128"><span id="local-6989586621679939129"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679939142"><span id="local-6989586621679939144"><span id="local-6989586621679939146"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings"><span class="hs-identifier hs-type">Ac3Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679939140"><span class="annot"><span class="annottext">toJSON :: Ac3Settings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Ac3Settings.html#Ac3Settings%27"><span class="hs-identifier hs-type">Ac3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679939129"><span id="local-6989586621679939130"><span id="local-6989586621679939131"><span id="local-6989586621679939132"><span id="local-6989586621679939133"><span id="local-6989586621679939134"><span id="local-6989586621679939135"><span id="local-6989586621679939136"><span id="local-6989586621679939137"><span id="local-6989586621679939138"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Ac3BitstreamMode
 Maybe Ac3CodingMode
 Maybe Ac3DynamicRangeCompressionLine
@@ -773,7 +773,7 @@ $sel:bitstreamMode:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3BitstreamMode
 $sel:metadataControl:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3MetadataControl
 $sel:dynamicRangeCompressionLine:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3DynamicRangeCompressionLine
 $sel:lfeFilter:Ac3Settings' :: Ac3Settings -&gt; Maybe Ac3LfeFilter
-</span><a href="#local-6989586621679939120"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679939129"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-267"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-268"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -785,7 +785,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Ac3LfeFilter -&gt; Pair) -&gt; Maybe Ac3LfeFilter -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Ac3LfeFilter
-</span><a href="#local-6989586621679939129"><span class="hs-identifier hs-var">lfeFilter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679939138"><span class="hs-identifier hs-var">lfeFilter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-270"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dynamicRangeCompressionLine&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Ac3DynamicRangeCompressionLine -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -794,7 +794,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Ac3DynamicRangeCompressionLine -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionLine
-</span><a href="#local-6989586621679939128"><span class="hs-identifier hs-var">dynamicRangeCompressionLine</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679939137"><span class="hs-identifier hs-var">dynamicRangeCompressionLine</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-272"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metadataControl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Ac3MetadataControl -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -803,14 +803,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Ac3MetadataControl -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Ac3MetadataControl
-</span><a href="#local-6989586621679939127"><span class="hs-identifier hs-var">metadataControl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679939136"><span class="hs-identifier hs-var">metadataControl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-274"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bitstreamMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Ac3BitstreamMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Ac3BitstreamMode -&gt; Pair) -&gt; Maybe Ac3BitstreamMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Ac3BitstreamMode
-</span><a href="#local-6989586621679939126"><span class="hs-identifier hs-var">bitstreamMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679939135"><span class="hs-identifier hs-var">bitstreamMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dynamicRangeCompressionRf&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Ac3DynamicRangeCompressionRf -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -819,21 +819,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Ac3DynamicRangeCompressionRf -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionRf
-</span><a href="#local-6989586621679939125"><span class="hs-identifier hs-var">dynamicRangeCompressionRf</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679939134"><span class="hs-identifier hs-var">dynamicRangeCompressionRf</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-277"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;codingMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Ac3CodingMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Ac3CodingMode -&gt; Pair) -&gt; Maybe Ac3CodingMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Ac3CodingMode
-</span><a href="#local-6989586621679939124"><span class="hs-identifier hs-var">codingMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679939133"><span class="hs-identifier hs-var">codingMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-278"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679939123"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679939132"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-279"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dynamicRangeCompressionProfile&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Ac3DynamicRangeCompressionProfile -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -842,21 +842,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Ac3DynamicRangeCompressionProfile -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Ac3DynamicRangeCompressionProfile
-</span><a href="#local-6989586621679939122"><span class="hs-identifier hs-var">dynamicRangeCompressionProfile</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679939131"><span class="hs-identifier hs-var">dynamicRangeCompressionProfile</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-281"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679939121"><span class="hs-identifier hs-var">bitrate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679939130"><span class="hs-identifier hs-var">bitrate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-282"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dialnorm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679939120"><span class="hs-identifier hs-var">dialnorm</span></a></span><span>
+</span><a href="#local-6989586621679939129"><span class="hs-identifier hs-var">dialnorm</span></a></span><span>
 </span><span id="line-283"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-284"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-285"></span></pre></body></html>

@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- stored.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newOutputLocation' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679218574"><span id="local-6989586621679218575"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputLocation"><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-var">OutputLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputLocation%27"><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation%27"><span class="hs-identifier hs-var">OutputLocation'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679218583"><span id="local-6989586621679218584"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputLocation"><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-var">OutputLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputLocation%27"><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation%27"><span class="hs-identifier hs-var">OutputLocation'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes an S3 location that will receive the results of the job</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- request.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3As3%3AOutputLocation%27"><span class="annot"><span class="annottext">OutputLocation -&gt; Maybe S3Location
 </span><a href="Network.AWS.Glacier.Types.OutputLocation.html#%24sel%3As3%3AOutputLocation%27"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218568"><span id="local-6989586621679218570"><span class="annot"><span class="annottext">OutputLocation -&gt; OutputLocation -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218577"><span id="local-6989586621679218579"><span class="annot"><span class="annottext">OutputLocation -&gt; OutputLocation -&gt; Bool
 (OutputLocation -&gt; OutputLocation -&gt; Bool)
 -&gt; (OutputLocation -&gt; OutputLocation -&gt; Bool) -&gt; Eq OutputLocation
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OutputLocation -&gt; OutputLocation -&gt; Bool
 == :: OutputLocation -&gt; OutputLocation -&gt; Bool
 $c== :: OutputLocation -&gt; OutputLocation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218559"><span id="local-6989586621679218561"><span id="local-6989586621679218563"><span id="local-6989586621679218565"><span class="annot"><span class="annottext">ReadPrec [OutputLocation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218568"><span id="local-6989586621679218570"><span id="local-6989586621679218572"><span id="local-6989586621679218574"><span class="annot"><span class="annottext">ReadPrec [OutputLocation]
 ReadPrec OutputLocation
 Int -&gt; ReadS OutputLocation
 ReadS [OutputLocation]
@@ -62,7 +62,7 @@ readList :: ReadS [OutputLocation]
 $creadList :: ReadS [OutputLocation]
 readsPrec :: Int -&gt; ReadS OutputLocation
 $creadsPrec :: Int -&gt; ReadS OutputLocation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218552"><span id="local-6989586621679218554"><span id="local-6989586621679218556"><span class="annot"><span class="annottext">Int -&gt; OutputLocation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218561"><span id="local-6989586621679218563"><span id="local-6989586621679218565"><span class="annot"><span class="annottext">Int -&gt; OutputLocation -&gt; ShowS
 [OutputLocation] -&gt; ShowS
 OutputLocation -&gt; String
 (Int -&gt; OutputLocation -&gt; ShowS)
@@ -118,19 +118,19 @@ forall a. Maybe a
 -&gt; Lens
      OutputLocation OutputLocation (Maybe S3Location) (Maybe S3Location)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation%27"><span class="hs-identifier hs-type">OutputLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218543"><span class="annot"><span class="annottext">Maybe S3Location
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation%27"><span class="hs-identifier hs-type">OutputLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218552"><span class="annot"><span class="annottext">Maybe S3Location
 s3 :: Maybe S3Location
 $sel:s3:OutputLocation' :: OutputLocation -&gt; Maybe S3Location
-</span><a href="#local-6989586621679218543"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679218543"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218542"><span class="annot"><span class="annottext">s :: OutputLocation
-</span><a href="#local-6989586621679218542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation%27"><span class="hs-identifier hs-type">OutputLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218541"><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679218541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputLocation
-</span><a href="#local-6989586621679218542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3:OutputLocation' :: Maybe S3Location
+</span><a href="#local-6989586621679218552"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679218552"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218551"><span class="annot"><span class="annottext">s :: OutputLocation
+</span><a href="#local-6989586621679218551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation%27"><span class="hs-identifier hs-type">OutputLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218550"><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679218550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputLocation
+</span><a href="#local-6989586621679218551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3:OutputLocation' :: Maybe S3Location
 </span><a href="Network.AWS.Glacier.Types.OutputLocation.html#%24sel%3As3%3AOutputLocation%27"><span class="hs-identifier hs-var">s3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679218541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-type">OutputLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679218550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-type">OutputLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218538"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-type">OutputLocation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679218536"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputLocation
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218547"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-type">OutputLocation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679218545"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputLocation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OutputLocation)
@@ -140,29 +140,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OutputLocation&quot;</span></span><span>
-</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679218533"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218533"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679218542"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218542"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">Maybe S3Location -&gt; OutputLocation
 </span><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation%27"><span class="hs-identifier hs-var">OutputLocation'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe S3Location -&gt; OutputLocation)
 -&gt; Parser (Maybe S3Location) -&gt; Parser OutputLocation
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218533"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Location)
+</span><a href="#local-6989586621679218542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Location)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218527"><span id="local-6989586621679218529"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-type">OutputLocation</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218536"><span id="local-6989586621679218538"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-type">OutputLocation</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218524"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-type">OutputLocation</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218533"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-type">OutputLocation</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218516"><span id="local-6989586621679218518"><span id="local-6989586621679218520"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-type">OutputLocation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679218514"><span class="annot"><span class="annottext">toJSON :: OutputLocation -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation%27"><span class="hs-identifier hs-type">OutputLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218512"><span class="annot"><span class="annottext">Maybe S3Location
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218525"><span id="local-6989586621679218527"><span id="local-6989586621679218529"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-type">OutputLocation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679218523"><span class="annot"><span class="annottext">toJSON :: OutputLocation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.OutputLocation.html#OutputLocation%27"><span class="hs-identifier hs-type">OutputLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218521"><span class="annot"><span class="annottext">Maybe S3Location
 s3 :: Maybe S3Location
 $sel:s3:OutputLocation' :: OutputLocation -&gt; Maybe S3Location
-</span><a href="#local-6989586621679218512"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679218521"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -173,5 +173,5 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3Location -&gt; Pair) -&gt; Maybe S3Location -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679218512"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679218521"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span></pre></body></html>

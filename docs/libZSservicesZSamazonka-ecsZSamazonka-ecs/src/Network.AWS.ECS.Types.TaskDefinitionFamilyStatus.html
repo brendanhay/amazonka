@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679462724"><span id="local-6989586621679462725"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaskDefinitionFamilyStatus"><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionFamilyStatus.html#TaskDefinitionFamilyStatus"><span class="hs-identifier hs-var">TaskDefinitionFamilyStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskDefinitionFamilyStatus%27"><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionFamilyStatus.html#TaskDefinitionFamilyStatus%27"><span class="hs-identifier hs-var">TaskDefinitionFamilyStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679462733"><span id="local-6989586621679462734"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaskDefinitionFamilyStatus"><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionFamilyStatus.html#TaskDefinitionFamilyStatus"><span class="hs-identifier hs-var">TaskDefinitionFamilyStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskDefinitionFamilyStatus%27"><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionFamilyStatus.html#TaskDefinitionFamilyStatus%27"><span class="hs-identifier hs-var">TaskDefinitionFamilyStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTaskDefinitionFamilyStatus"><span class="annot"><span class="annottext">TaskDefinitionFamilyStatus -&gt; Text
 </span><a href="Network.AWS.ECS.Types.TaskDefinitionFamilyStatus.html#fromTaskDefinitionFamilyStatus"><span class="hs-identifier hs-var hs-var">fromTaskDefinitionFamilyStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679462716"><span id="local-6989586621679462718"><span id="local-6989586621679462720"><span class="annot"><span class="annottext">Int -&gt; TaskDefinitionFamilyStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679462725"><span id="local-6989586621679462727"><span id="local-6989586621679462729"><span class="annot"><span class="annottext">Int -&gt; TaskDefinitionFamilyStatus -&gt; ShowS
 [TaskDefinitionFamilyStatus] -&gt; ShowS
 TaskDefinitionFamilyStatus -&gt; String
 (Int -&gt; TaskDefinitionFamilyStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: TaskDefinitionFamilyStatus -&gt; String
 showsPrec :: Int -&gt; TaskDefinitionFamilyStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; TaskDefinitionFamilyStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679462707"><span id="local-6989586621679462709"><span id="local-6989586621679462711"><span id="local-6989586621679462713"><span class="annot"><span class="annottext">ReadPrec [TaskDefinitionFamilyStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679462716"><span id="local-6989586621679462718"><span id="local-6989586621679462720"><span id="local-6989586621679462722"><span class="annot"><span class="annottext">ReadPrec [TaskDefinitionFamilyStatus]
 ReadPrec TaskDefinitionFamilyStatus
 Int -&gt; ReadS TaskDefinitionFamilyStatus
 ReadS [TaskDefinitionFamilyStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [TaskDefinitionFamilyStatus]
 readsPrec :: Int -&gt; ReadS TaskDefinitionFamilyStatus
 $creadsPrec :: Int -&gt; ReadS TaskDefinitionFamilyStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679462702"><span id="local-6989586621679462704"><span class="annot"><span class="annottext">TaskDefinitionFamilyStatus -&gt; TaskDefinitionFamilyStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679462711"><span id="local-6989586621679462713"><span class="annot"><span class="annottext">TaskDefinitionFamilyStatus -&gt; TaskDefinitionFamilyStatus -&gt; Bool
 (TaskDefinitionFamilyStatus -&gt; TaskDefinitionFamilyStatus -&gt; Bool)
 -&gt; (TaskDefinitionFamilyStatus
     -&gt; TaskDefinitionFamilyStatus -&gt; Bool)
@@ -84,7 +84,7 @@ $c/= :: TaskDefinitionFamilyStatus -&gt; TaskDefinitionFamilyStatus -&gt; Bool
 == :: TaskDefinitionFamilyStatus -&gt; TaskDefinitionFamilyStatus -&gt; Bool
 $c== :: TaskDefinitionFamilyStatus -&gt; TaskDefinitionFamilyStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679462686"><span id="local-6989586621679462688"><span id="local-6989586621679462690"><span id="local-6989586621679462692"><span id="local-6989586621679462694"><span id="local-6989586621679462696"><span id="local-6989586621679462698"><span class="annot"><span class="annottext">Eq TaskDefinitionFamilyStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679462695"><span id="local-6989586621679462697"><span id="local-6989586621679462699"><span id="local-6989586621679462701"><span id="local-6989586621679462703"><span id="local-6989586621679462705"><span id="local-6989586621679462707"><span class="annot"><span class="annottext">Eq TaskDefinitionFamilyStatus
 Eq TaskDefinitionFamilyStatus
 -&gt; (TaskDefinitionFamilyStatus
     -&gt; TaskDefinitionFamilyStatus -&gt; Ordering)
@@ -156,7 +156,7 @@ TaskDefinitionFamilyStatus -&gt; Rep TaskDefinitionFamilyStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679462678"><span id="local-6989586621679462680"><span class="annot"><span class="annottext">Int -&gt; TaskDefinitionFamilyStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679462687"><span id="local-6989586621679462689"><span class="annot"><span class="annottext">Int -&gt; TaskDefinitionFamilyStatus -&gt; Int
 TaskDefinitionFamilyStatus -&gt; Int
 (Int -&gt; TaskDefinitionFamilyStatus -&gt; Int)
 -&gt; (TaskDefinitionFamilyStatus -&gt; Int)
@@ -167,56 +167,56 @@ $chash :: TaskDefinitionFamilyStatus -&gt; Int
 hashWithSalt :: Int -&gt; TaskDefinitionFamilyStatus -&gt; Int
 $chashWithSalt :: Int -&gt; TaskDefinitionFamilyStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679462675"><span class="annot"><span class="annottext">TaskDefinitionFamilyStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679462684"><span class="annot"><span class="annottext">TaskDefinitionFamilyStatus -&gt; ()
 (TaskDefinitionFamilyStatus -&gt; ())
 -&gt; NFData TaskDefinitionFamilyStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TaskDefinitionFamilyStatus -&gt; ()
 $crnf :: TaskDefinitionFamilyStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679462672"><span class="annot"><span class="annottext">Text -&gt; Either String TaskDefinitionFamilyStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679462681"><span class="annot"><span class="annottext">Text -&gt; Either String TaskDefinitionFamilyStatus
 (Text -&gt; Either String TaskDefinitionFamilyStatus)
 -&gt; FromText TaskDefinitionFamilyStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TaskDefinitionFamilyStatus
 $cfromText :: Text -&gt; Either String TaskDefinitionFamilyStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679462669"><span class="annot"><span class="annottext">TaskDefinitionFamilyStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679462678"><span class="annot"><span class="annottext">TaskDefinitionFamilyStatus -&gt; Text
 (TaskDefinitionFamilyStatus -&gt; Text)
 -&gt; ToText TaskDefinitionFamilyStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TaskDefinitionFamilyStatus -&gt; Text
 $ctoText :: TaskDefinitionFamilyStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679462666"><span class="annot"><span class="annottext">TaskDefinitionFamilyStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679462675"><span class="annot"><span class="annottext">TaskDefinitionFamilyStatus -&gt; ByteString
 (TaskDefinitionFamilyStatus -&gt; ByteString)
 -&gt; ToByteString TaskDefinitionFamilyStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TaskDefinitionFamilyStatus -&gt; ByteString
 $ctoBS :: TaskDefinitionFamilyStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679462663"><span class="annot"><span class="annottext">TaskDefinitionFamilyStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679462672"><span class="annot"><span class="annottext">TaskDefinitionFamilyStatus -&gt; ByteStringBuilder
 (TaskDefinitionFamilyStatus -&gt; ByteStringBuilder)
 -&gt; ToLog TaskDefinitionFamilyStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TaskDefinitionFamilyStatus -&gt; ByteStringBuilder
 $cbuild :: TaskDefinitionFamilyStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679462660"><span class="annot"><span class="annottext">HeaderName -&gt; TaskDefinitionFamilyStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679462669"><span class="annot"><span class="annottext">HeaderName -&gt; TaskDefinitionFamilyStatus -&gt; [Header]
 (HeaderName -&gt; TaskDefinitionFamilyStatus -&gt; [Header])
 -&gt; ToHeader TaskDefinitionFamilyStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TaskDefinitionFamilyStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TaskDefinitionFamilyStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679462657"><span class="annot"><span class="annottext">TaskDefinitionFamilyStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679462666"><span class="annot"><span class="annottext">TaskDefinitionFamilyStatus -&gt; QueryString
 (TaskDefinitionFamilyStatus -&gt; QueryString)
 -&gt; ToQuery TaskDefinitionFamilyStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TaskDefinitionFamilyStatus -&gt; QueryString
 $ctoQuery :: TaskDefinitionFamilyStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679462652"><span id="local-6989586621679462654"><span class="annot"><span class="annottext">Value -&gt; Parser [TaskDefinitionFamilyStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679462661"><span id="local-6989586621679462663"><span class="annot"><span class="annottext">Value -&gt; Parser [TaskDefinitionFamilyStatus]
 Value -&gt; Parser TaskDefinitionFamilyStatus
 (Value -&gt; Parser TaskDefinitionFamilyStatus)
 -&gt; (Value -&gt; Parser [TaskDefinitionFamilyStatus])
@@ -228,7 +228,7 @@ $cparseJSONList :: Value -&gt; Parser [TaskDefinitionFamilyStatus]
 parseJSON :: Value -&gt; Parser TaskDefinitionFamilyStatus
 $cparseJSON :: Value -&gt; Parser TaskDefinitionFamilyStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679462647"><span id="local-6989586621679462649"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaskDefinitionFamilyStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679462656"><span id="local-6989586621679462658"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaskDefinitionFamilyStatus]
 FromJSONKeyFunction TaskDefinitionFamilyStatus
 FromJSONKeyFunction TaskDefinitionFamilyStatus
 -&gt; FromJSONKeyFunction [TaskDefinitionFamilyStatus]
@@ -240,7 +240,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TaskDefinitionFamilyStatus]
 fromJSONKey :: FromJSONKeyFunction TaskDefinitionFamilyStatus
 $cfromJSONKey :: FromJSONKeyFunction TaskDefinitionFamilyStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679462638"><span id="local-6989586621679462640"><span id="local-6989586621679462642"><span id="local-6989586621679462644"><span class="annot"><span class="annottext">[TaskDefinitionFamilyStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679462647"><span id="local-6989586621679462649"><span id="local-6989586621679462651"><span id="local-6989586621679462653"><span class="annot"><span class="annottext">[TaskDefinitionFamilyStatus] -&gt; Encoding
 [TaskDefinitionFamilyStatus] -&gt; Value
 TaskDefinitionFamilyStatus -&gt; Encoding
 TaskDefinitionFamilyStatus -&gt; Value
@@ -264,7 +264,7 @@ $ctoEncoding :: TaskDefinitionFamilyStatus -&gt; Encoding
 toJSON :: TaskDefinitionFamilyStatus -&gt; Value
 $ctoJSON :: TaskDefinitionFamilyStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679462633"><span id="local-6989586621679462635"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaskDefinitionFamilyStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679462642"><span id="local-6989586621679462644"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaskDefinitionFamilyStatus]
 ToJSONKeyFunction TaskDefinitionFamilyStatus
 ToJSONKeyFunction TaskDefinitionFamilyStatus
 -&gt; ToJSONKeyFunction [TaskDefinitionFamilyStatus]
@@ -276,14 +276,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TaskDefinitionFamilyStatus]
 toJSONKey :: ToJSONKeyFunction TaskDefinitionFamilyStatus
 $ctoJSONKey :: ToJSONKeyFunction TaskDefinitionFamilyStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679462630"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaskDefinitionFamilyStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679462639"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaskDefinitionFamilyStatus
 ([Node] -&gt; Either String TaskDefinitionFamilyStatus)
 -&gt; FromXML TaskDefinitionFamilyStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TaskDefinitionFamilyStatus
 $cparseXML :: [Node] -&gt; Either String TaskDefinitionFamilyStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679462627"><span class="annot"><span class="annottext">TaskDefinitionFamilyStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679462636"><span class="annot"><span class="annottext">TaskDefinitionFamilyStatus -&gt; XML
 (TaskDefinitionFamilyStatus -&gt; XML)
 -&gt; ToXML TaskDefinitionFamilyStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

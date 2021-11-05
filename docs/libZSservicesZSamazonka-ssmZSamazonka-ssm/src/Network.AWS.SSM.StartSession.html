@@ -63,7 +63,7 @@
 </span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newStartSession' smart constructor.</span><span>
-</span><span id="line-66"></span><span id="local-6989586621679824758"><span id="local-6989586621679824759"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartSession"><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-var">StartSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartSession%27"><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-var">StartSession'</span></a></span></span><span>
+</span><span id="line-66"></span><span id="local-6989586621679824767"><span id="local-6989586621679824768"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartSession"><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-var">StartSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartSession%27"><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-var">StartSession'</span></a></span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the SSM document to define the parameters and plugin</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- settings for the session. For example, @SSM-SessionManagerRunShell@. You</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- can call the GetDocument API to verify the document exists before</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3Atarget%3AStartSession%27"><span class="annot"><span class="annottext">StartSession -&gt; Text
 </span><a href="Network.AWS.SSM.StartSession.html#%24sel%3Atarget%3AStartSession%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679824750"><span id="local-6989586621679824752"><span class="annot"><span class="annottext">StartSession -&gt; StartSession -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679824759"><span id="local-6989586621679824761"><span class="annot"><span class="annottext">StartSession -&gt; StartSession -&gt; Bool
 (StartSession -&gt; StartSession -&gt; Bool)
 -&gt; (StartSession -&gt; StartSession -&gt; Bool) -&gt; Eq StartSession
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartSession -&gt; StartSession -&gt; Bool
 == :: StartSession -&gt; StartSession -&gt; Bool
 $c== :: StartSession -&gt; StartSession -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824741"><span id="local-6989586621679824743"><span id="local-6989586621679824745"><span id="local-6989586621679824747"><span class="annot"><span class="annottext">ReadPrec [StartSession]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824750"><span id="local-6989586621679824752"><span id="local-6989586621679824754"><span id="local-6989586621679824756"><span class="annot"><span class="annottext">ReadPrec [StartSession]
 ReadPrec StartSession
 Int -&gt; ReadS StartSession
 ReadS [StartSession]
@@ -106,7 +106,7 @@ readList :: ReadS [StartSession]
 $creadList :: ReadS [StartSession]
 readsPrec :: Int -&gt; ReadS StartSession
 $creadsPrec :: Int -&gt; ReadS StartSession
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824734"><span id="local-6989586621679824736"><span id="local-6989586621679824738"><span class="annot"><span class="annottext">Int -&gt; StartSession -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824743"><span id="local-6989586621679824745"><span id="local-6989586621679824747"><span class="annot"><span class="annottext">Int -&gt; StartSession -&gt; ShowS
 [StartSession] -&gt; ShowS
 StartSession -&gt; String
 (Int -&gt; StartSession -&gt; ShowS)
@@ -154,8 +154,8 @@ $cfrom :: forall x. StartSession -&gt; Rep StartSession x
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span>
 </span><span id="line-101"></span><span id="newStartSession"><span class="annot"><span class="annottext">newStartSession :: Text -&gt; StartSession
-</span><a href="Network.AWS.SSM.StartSession.html#newStartSession"><span class="hs-identifier hs-var hs-var">newStartSession</span></a></span></span><span> </span><span id="local-6989586621679824729"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679824729"><span class="hs-identifier hs-var">pTarget_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.StartSession.html#newStartSession"><span class="hs-identifier hs-var hs-var">newStartSession</span></a></span></span><span> </span><span id="local-6989586621679824738"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679824738"><span class="hs-identifier hs-var">pTarget_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">StartSession' :: Maybe Text -&gt; Maybe (HashMap Text [Text]) -&gt; Text -&gt; StartSession
 </span><a href="Network.AWS.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:documentName:StartSession' :: Maybe Text
@@ -168,7 +168,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:StartSession' :: Text
 </span><a href="Network.AWS.SSM.StartSession.html#%24sel%3Atarget%3AStartSession%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679824729"><span class="hs-identifier hs-var">pTarget_</span></a></span><span>
+</span><a href="#local-6989586621679824738"><span class="hs-identifier hs-var">pTarget_</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The name of the SSM document to define the parameters and plugin</span><span>
@@ -182,16 +182,16 @@ forall a. Maybe a
 -&gt; (StartSession -&gt; Maybe Text -&gt; StartSession)
 -&gt; Lens StartSession StartSession (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824726"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824735"><span class="annot"><span class="annottext">Maybe Text
 documentName :: Maybe Text
 $sel:documentName:StartSession' :: StartSession -&gt; Maybe Text
-</span><a href="#local-6989586621679824726"><span class="hs-identifier hs-var hs-var">documentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824726"><span class="hs-identifier hs-var">documentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824725"><span class="annot"><span class="annottext">s :: StartSession
-</span><a href="#local-6989586621679824725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824724"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSession
-</span><a href="#local-6989586621679824725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentName:StartSession' :: Maybe Text
+</span><a href="#local-6989586621679824735"><span class="hs-identifier hs-var hs-var">documentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824735"><span class="hs-identifier hs-var">documentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824734"><span class="annot"><span class="annottext">s :: StartSession
+</span><a href="#local-6989586621679824734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824733"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSession
+</span><a href="#local-6989586621679824734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentName:StartSession' :: Maybe Text
 </span><a href="Network.AWS.SSM.StartSession.html#%24sel%3AdocumentName%3AStartSession%27"><span class="hs-identifier hs-var">documentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679824733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | Reserved for future use.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#startSession_parameters"><span class="hs-identifier hs-type">startSession_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -205,16 +205,16 @@ $sel:documentName:StartSession' :: StartSession -&gt; Maybe Text
      (Maybe (HashMap Text [Text]))
      (Maybe (HashMap Text [Text]))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824723"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824732"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
 parameters :: Maybe (HashMap Text [Text])
 $sel:parameters:StartSession' :: StartSession -&gt; Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679824723"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679824723"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824722"><span class="annot"><span class="annottext">s :: StartSession
-</span><a href="#local-6989586621679824722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824721"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679824721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSession
-</span><a href="#local-6989586621679824722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:StartSession' :: Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679824732"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679824732"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824731"><span class="annot"><span class="annottext">s :: StartSession
+</span><a href="#local-6989586621679824731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824730"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679824730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSession
+</span><a href="#local-6989586621679824731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:StartSession' :: Maybe (HashMap Text [Text])
 </span><a href="Network.AWS.SSM.StartSession.html#%24sel%3Aparameters%3AStartSession%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679824721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+</span><a href="#local-6989586621679824730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
  -&gt; StartSession -&gt; f StartSession)
 -&gt; ((Maybe (HashMap Text [Text])
      -&gt; f (Maybe (HashMap Text [Text])))
@@ -251,25 +251,25 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (StartSession -&gt; Text -&gt; StartSession)
 -&gt; Lens StartSession StartSession Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824717"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824726"><span class="annot"><span class="annottext">Text
 target :: Text
 $sel:target:StartSession' :: StartSession -&gt; Text
-</span><a href="#local-6989586621679824717"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679824717"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824716"><span class="annot"><span class="annottext">s :: StartSession
-</span><a href="#local-6989586621679824716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824715"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679824715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSession
-</span><a href="#local-6989586621679824716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:StartSession' :: Text
+</span><a href="#local-6989586621679824726"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679824726"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824725"><span class="annot"><span class="annottext">s :: StartSession
+</span><a href="#local-6989586621679824725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824724"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679824724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSession
+</span><a href="#local-6989586621679824725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:StartSession' :: Text
 </span><a href="Network.AWS.SSM.StartSession.html#%24sel%3Atarget%3AStartSession%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679824715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679824724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679824711"><span class="annot"><span class="annottext">request :: StartSession -&gt; Request StartSession
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679824720"><span class="annot"><span class="annottext">request :: StartSession -&gt; Request StartSession
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartSession -&gt; Request StartSession
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679824707"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679824716"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartSession
 -&gt; ClientResponse ClientBody
@@ -293,10 +293,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679824704"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824704"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679824703"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679824703"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679824702"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679824702"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679824713"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824713"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679824712"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679824712"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679824711"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679824711"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartSessionResponse
 </span><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-var">StartSessionResponse'</span></a></span><span>
@@ -307,7 +307,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartSessionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679824702"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679824711"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamUrl&quot;</span></span><span class="hs-special">)</span><span>
@@ -317,7 +317,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; StartSessionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679824702"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679824711"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TokenValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -326,7 +326,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; StartSessionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679824702"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679824711"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SessionId&quot;</span></span><span class="hs-special">)</span><span>
@@ -338,15 +338,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824704"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679824713"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824694"><span id="local-6989586621679824696"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824703"><span id="local-6989586621679824705"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824691"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679824687"><span class="annot"><span class="annottext">toHeaders :: StartSession -&gt; ResponseHeaders
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679824696"><span class="annot"><span class="annottext">toHeaders :: StartSession -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartSession -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -371,9 +371,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824677"><span id="local-6989586621679824679"><span id="local-6989586621679824681"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679824675"><span class="annot"><span class="annottext">toJSON :: StartSession -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824671"><span id="local-6989586621679824672"><span id="local-6989586621679824673"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824686"><span id="local-6989586621679824688"><span id="local-6989586621679824690"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679824684"><span class="annot"><span class="annottext">toJSON :: StartSession -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession%27"><span class="hs-identifier hs-type">StartSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824680"><span id="local-6989586621679824681"><span id="local-6989586621679824682"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text [Text])
 Text
 target :: Text
@@ -382,7 +382,7 @@ documentName :: Maybe Text
 $sel:target:StartSession' :: StartSession -&gt; Text
 $sel:parameters:StartSession' :: StartSession -&gt; Maybe (HashMap Text [Text])
 $sel:documentName:StartSession' :: StartSession -&gt; Maybe Text
-</span><a href="#local-6989586621679824671"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679824680"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -394,7 +394,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824673"><span class="hs-identifier hs-var">documentName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679824682"><span class="hs-identifier hs-var">documentName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -402,26 +402,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text [Text]) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679824672"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679824681"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Target&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679824671"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679824680"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679824665"><span class="annot"><span class="annottext">toPath :: StartSession -&gt; ByteString
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679824674"><span class="annot"><span class="annottext">toPath :: StartSession -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartSession -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSession"><span class="hs-identifier hs-type">StartSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679824661"><span class="annot"><span class="annottext">toQuery :: StartSession -&gt; QueryString
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679824670"><span class="annot"><span class="annottext">toQuery :: StartSession -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartSession -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -429,7 +429,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | /See:/ 'newStartSessionResponse' smart constructor.</span><span>
-</span><span id="line-171"></span><span id="local-6989586621679824658"><span id="local-6989586621679824659"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartSessionResponse"><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-var">StartSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartSessionResponse%27"><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-var">StartSessionResponse'</span></a></span></span><span>
+</span><span id="line-171"></span><span id="local-6989586621679824667"><span id="local-6989586621679824668"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartSessionResponse"><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-var">StartSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartSessionResponse%27"><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-var">StartSessionResponse'</span></a></span></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A URL back to SSM Agent on the instance that the Session Manager client</span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-comment">-- uses to send commands and receive output from the instance. Format:</span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-comment">-- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@</span><span>
@@ -456,7 +456,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-192"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartSessionResponse%27"><span class="annot"><span class="annottext">StartSessionResponse -&gt; Int
 </span><a href="Network.AWS.SSM.StartSession.html#%24sel%3AhttpStatus%3AStartSessionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679824650"><span id="local-6989586621679824652"><span class="annot"><span class="annottext">StartSessionResponse -&gt; StartSessionResponse -&gt; Bool
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679824659"><span id="local-6989586621679824661"><span class="annot"><span class="annottext">StartSessionResponse -&gt; StartSessionResponse -&gt; Bool
 (StartSessionResponse -&gt; StartSessionResponse -&gt; Bool)
 -&gt; (StartSessionResponse -&gt; StartSessionResponse -&gt; Bool)
 -&gt; Eq StartSessionResponse
@@ -465,7 +465,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartSessionResponse -&gt; StartSessionResponse -&gt; Bool
 == :: StartSessionResponse -&gt; StartSessionResponse -&gt; Bool
 $c== :: StartSessionResponse -&gt; StartSessionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824642"><span id="local-6989586621679824644"><span id="local-6989586621679824646"><span id="local-6989586621679824648"><span class="annot"><span class="annottext">ReadPrec [StartSessionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824651"><span id="local-6989586621679824653"><span id="local-6989586621679824655"><span id="local-6989586621679824657"><span class="annot"><span class="annottext">ReadPrec [StartSessionResponse]
 ReadPrec StartSessionResponse
 Int -&gt; ReadS StartSessionResponse
 ReadS [StartSessionResponse]
@@ -485,7 +485,7 @@ readList :: ReadS [StartSessionResponse]
 $creadList :: ReadS [StartSessionResponse]
 readsPrec :: Int -&gt; ReadS StartSessionResponse
 $creadsPrec :: Int -&gt; ReadS StartSessionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824636"><span id="local-6989586621679824638"><span id="local-6989586621679824640"><span class="annot"><span class="annottext">Int -&gt; StartSessionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824645"><span id="local-6989586621679824647"><span id="local-6989586621679824649"><span class="annot"><span class="annottext">Int -&gt; StartSessionResponse -&gt; ShowS
 [StartSessionResponse] -&gt; ShowS
 StartSessionResponse -&gt; String
 (Int -&gt; StartSessionResponse -&gt; ShowS)
@@ -544,8 +544,8 @@ $cfrom :: forall x. StartSessionResponse -&gt; Rep StartSessionResponse x
 </span><span id="line-226"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-227"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span>
 </span><span id="line-228"></span><span id="newStartSessionResponse"><span class="annot"><span class="annottext">newStartSessionResponse :: Int -&gt; StartSessionResponse
-</span><a href="Network.AWS.SSM.StartSession.html#newStartSessionResponse"><span class="hs-identifier hs-var hs-var">newStartSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679824633"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824633"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.StartSession.html#newStartSessionResponse"><span class="hs-identifier hs-var hs-var">newStartSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679824642"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824642"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-229"></span><span>  </span><span class="annot"><span class="annottext">StartSessionResponse' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartSessionResponse
 </span><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span>
@@ -563,7 +563,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartSessionResponse' :: Int
 </span><a href="Network.AWS.SSM.StartSession.html#%24sel%3AhttpStatus%3AStartSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824633"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679824642"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-234"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | A URL back to SSM Agent on the instance that the Session Manager client</span><span>
@@ -587,16 +587,16 @@ forall a. Maybe a
 -&gt; Lens
      StartSessionResponse StartSessionResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824632"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824641"><span class="annot"><span class="annottext">Maybe Text
 streamUrl :: Maybe Text
 $sel:streamUrl:StartSessionResponse' :: StartSessionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679824632"><span class="hs-identifier hs-var hs-var">streamUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824632"><span class="hs-identifier hs-var">streamUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824631"><span class="annot"><span class="annottext">s :: StartSessionResponse
-</span><a href="#local-6989586621679824631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824630"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSessionResponse
-</span><a href="#local-6989586621679824631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamUrl:StartSessionResponse' :: Maybe Text
+</span><a href="#local-6989586621679824641"><span class="hs-identifier hs-var hs-var">streamUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824641"><span class="hs-identifier hs-var">streamUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824640"><span class="annot"><span class="annottext">s :: StartSessionResponse
+</span><a href="#local-6989586621679824640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824639"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSessionResponse
+</span><a href="#local-6989586621679824640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamUrl:StartSessionResponse' :: Maybe Text
 </span><a href="Network.AWS.SSM.StartSession.html#%24sel%3AstreamUrl%3AStartSessionResponse%27"><span class="hs-identifier hs-var">streamUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679824639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | An encrypted token value containing session and caller information. Used</span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- to authenticate the connection to the instance.</span><span>
@@ -608,16 +608,16 @@ $sel:streamUrl:StartSessionResponse' :: StartSessionResponse -&gt; Maybe Text
 -&gt; Lens
      StartSessionResponse StartSessionResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824629"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824638"><span class="annot"><span class="annottext">Maybe Text
 tokenValue :: Maybe Text
 $sel:tokenValue:StartSessionResponse' :: StartSessionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679824629"><span class="hs-identifier hs-var hs-var">tokenValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824629"><span class="hs-identifier hs-var">tokenValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824628"><span class="annot"><span class="annottext">s :: StartSessionResponse
-</span><a href="#local-6989586621679824628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824627"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSessionResponse
-</span><a href="#local-6989586621679824628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenValue:StartSessionResponse' :: Maybe Text
+</span><a href="#local-6989586621679824638"><span class="hs-identifier hs-var hs-var">tokenValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824638"><span class="hs-identifier hs-var">tokenValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824637"><span class="annot"><span class="annottext">s :: StartSessionResponse
+</span><a href="#local-6989586621679824637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824636"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSessionResponse
+</span><a href="#local-6989586621679824637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenValue:StartSessionResponse' :: Maybe Text
 </span><a href="Network.AWS.SSM.StartSession.html#%24sel%3AtokenValue%3AStartSessionResponse%27"><span class="hs-identifier hs-var">tokenValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679824636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-comment">-- | The ID of the session.</span><span>
 </span><span id="line-258"></span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#startSessionResponse_sessionId"><span class="hs-identifier hs-type">startSessionResponse_sessionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -628,16 +628,16 @@ $sel:tokenValue:StartSessionResponse' :: StartSessionResponse -&gt; Maybe Text
 -&gt; Lens
      StartSessionResponse StartSessionResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824626"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824635"><span class="annot"><span class="annottext">Maybe Text
 sessionId :: Maybe Text
 $sel:sessionId:StartSessionResponse' :: StartSessionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679824626"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824626"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824625"><span class="annot"><span class="annottext">s :: StartSessionResponse
-</span><a href="#local-6989586621679824625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824624"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSessionResponse
-</span><a href="#local-6989586621679824625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionId:StartSessionResponse' :: Maybe Text
+</span><a href="#local-6989586621679824635"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824635"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824634"><span class="annot"><span class="annottext">s :: StartSessionResponse
+</span><a href="#local-6989586621679824634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824633"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSessionResponse
+</span><a href="#local-6989586621679824634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionId:StartSessionResponse' :: Maybe Text
 </span><a href="Network.AWS.SSM.StartSession.html#%24sel%3AsessionId%3AStartSessionResponse%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679824633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-262"></span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#startSessionResponse_httpStatus"><span class="hs-identifier hs-type">startSessionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -646,16 +646,16 @@ $sel:sessionId:StartSessionResponse' :: StartSessionResponse -&gt; Maybe Text
 -&gt; (StartSessionResponse -&gt; Int -&gt; StartSessionResponse)
 -&gt; Lens StartSessionResponse StartSessionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824623"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824632"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StartSessionResponse' :: StartSessionResponse -&gt; Int
-</span><a href="#local-6989586621679824623"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824623"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824622"><span class="annot"><span class="annottext">s :: StartSessionResponse
-</span><a href="#local-6989586621679824622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824621"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSessionResponse
-</span><a href="#local-6989586621679824622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartSessionResponse' :: Int
+</span><a href="#local-6989586621679824632"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824632"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824631"><span class="annot"><span class="annottext">s :: StartSessionResponse
+</span><a href="#local-6989586621679824631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse%27"><span class="hs-identifier hs-type">StartSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824630"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSessionResponse
+</span><a href="#local-6989586621679824631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartSessionResponse' :: Int
 </span><a href="Network.AWS.SSM.StartSession.html#%24sel%3AhttpStatus%3AStartSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679824630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
-</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824628"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.StartSession.html#StartSessionResponse"><span class="hs-identifier hs-type">StartSessionResponse</span></a></span></span><span>
 </span><span id="line-266"></span></pre></body></html>

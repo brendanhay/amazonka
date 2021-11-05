@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-comment">-- | Describes a modify cluster parameter group operation.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newModifyClusterParameterGroup' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679509628"><span id="local-6989586621679509629"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyClusterParameterGroup"><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup"><span class="hs-identifier hs-var">ModifyClusterParameterGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyClusterParameterGroup%27"><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup%27"><span class="hs-identifier hs-var">ModifyClusterParameterGroup'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679509637"><span id="local-6989586621679509638"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyClusterParameterGroup"><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup"><span class="hs-identifier hs-var">ModifyClusterParameterGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyClusterParameterGroup%27"><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup%27"><span class="hs-identifier hs-var">ModifyClusterParameterGroup'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the parameter group to be modified.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AparameterGroupName%3AModifyClusterParameterGroup%27"><span class="annot"><span class="annottext">ModifyClusterParameterGroup -&gt; Text
 </span><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#%24sel%3AparameterGroupName%3AModifyClusterParameterGroup%27"><span class="hs-identifier hs-var hs-var">parameterGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3Aparameters%3AModifyClusterParameterGroup%27"><span class="annot"><span class="annottext">ModifyClusterParameterGroup -&gt; [Parameter]
 </span><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#%24sel%3Aparameters%3AModifyClusterParameterGroup%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679509621"><span id="local-6989586621679509623"><span class="annot"><span class="annottext">ModifyClusterParameterGroup -&gt; ModifyClusterParameterGroup -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679509630"><span id="local-6989586621679509632"><span class="annot"><span class="annottext">ModifyClusterParameterGroup -&gt; ModifyClusterParameterGroup -&gt; Bool
 (ModifyClusterParameterGroup
  -&gt; ModifyClusterParameterGroup -&gt; Bool)
 -&gt; (ModifyClusterParameterGroup
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyClusterParameterGroup -&gt; ModifyClusterParameterGroup -&gt; Bool
 == :: ModifyClusterParameterGroup -&gt; ModifyClusterParameterGroup -&gt; Bool
 $c== :: ModifyClusterParameterGroup -&gt; ModifyClusterParameterGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679509612"><span id="local-6989586621679509614"><span id="local-6989586621679509616"><span id="local-6989586621679509618"><span class="annot"><span class="annottext">ReadPrec [ModifyClusterParameterGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679509621"><span id="local-6989586621679509623"><span id="local-6989586621679509625"><span id="local-6989586621679509627"><span class="annot"><span class="annottext">ReadPrec [ModifyClusterParameterGroup]
 ReadPrec ModifyClusterParameterGroup
 Int -&gt; ReadS ModifyClusterParameterGroup
 ReadS [ModifyClusterParameterGroup]
@@ -102,7 +102,7 @@ readList :: ReadS [ModifyClusterParameterGroup]
 $creadList :: ReadS [ModifyClusterParameterGroup]
 readsPrec :: Int -&gt; ReadS ModifyClusterParameterGroup
 $creadsPrec :: Int -&gt; ReadS ModifyClusterParameterGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679509605"><span id="local-6989586621679509607"><span id="local-6989586621679509609"><span class="annot"><span class="annottext">Int -&gt; ModifyClusterParameterGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679509614"><span id="local-6989586621679509616"><span id="local-6989586621679509618"><span class="annot"><span class="annottext">Int -&gt; ModifyClusterParameterGroup -&gt; ShowS
 [ModifyClusterParameterGroup] -&gt; ShowS
 ModifyClusterParameterGroup -&gt; String
 (Int -&gt; ModifyClusterParameterGroup -&gt; ShowS)
@@ -158,14 +158,14 @@ ModifyClusterParameterGroup -&gt; Rep ModifyClusterParameterGroup x
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup"><span class="hs-identifier hs-type">ModifyClusterParameterGroup</span></a></span><span>
 </span><span id="line-97"></span><span id="newModifyClusterParameterGroup"><span class="annot"><span class="annottext">newModifyClusterParameterGroup :: Text -&gt; ModifyClusterParameterGroup
-</span><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#newModifyClusterParameterGroup"><span class="hs-identifier hs-var hs-var">newModifyClusterParameterGroup</span></a></span></span><span> </span><span id="local-6989586621679509600"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679509600"><span class="hs-identifier hs-var">pParameterGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#newModifyClusterParameterGroup"><span class="hs-identifier hs-var hs-var">newModifyClusterParameterGroup</span></a></span></span><span> </span><span id="local-6989586621679509609"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679509609"><span class="hs-identifier hs-var">pParameterGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">ModifyClusterParameterGroup' :: Text -&gt; [Parameter] -&gt; ModifyClusterParameterGroup
 </span><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup%27"><span class="hs-identifier hs-type">ModifyClusterParameterGroup'</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameterGroupName:ModifyClusterParameterGroup' :: Text
 </span><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#%24sel%3AparameterGroupName%3AModifyClusterParameterGroup%27"><span class="hs-identifier hs-var">parameterGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679509600"><span class="hs-identifier hs-var">pParameterGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679509609"><span class="hs-identifier hs-var">pParameterGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameters:ModifyClusterParameterGroup' :: [Parameter]
 </span><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#%24sel%3Aparameters%3AModifyClusterParameterGroup%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Parameter]
 forall a. Monoid a =&gt; a
@@ -182,16 +182,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      ModifyClusterParameterGroup ModifyClusterParameterGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup%27"><span class="hs-identifier hs-type">ModifyClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679509597"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup%27"><span class="hs-identifier hs-type">ModifyClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679509606"><span class="annot"><span class="annottext">Text
 parameterGroupName :: Text
 $sel:parameterGroupName:ModifyClusterParameterGroup' :: ModifyClusterParameterGroup -&gt; Text
-</span><a href="#local-6989586621679509597"><span class="hs-identifier hs-var hs-var">parameterGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679509597"><span class="hs-identifier hs-var">parameterGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679509596"><span class="annot"><span class="annottext">s :: ModifyClusterParameterGroup
-</span><a href="#local-6989586621679509596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup%27"><span class="hs-identifier hs-type">ModifyClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679509595"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679509595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyClusterParameterGroup
-</span><a href="#local-6989586621679509596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterGroupName:ModifyClusterParameterGroup' :: Text
+</span><a href="#local-6989586621679509606"><span class="hs-identifier hs-var hs-var">parameterGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679509606"><span class="hs-identifier hs-var">parameterGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679509605"><span class="annot"><span class="annottext">s :: ModifyClusterParameterGroup
+</span><a href="#local-6989586621679509605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup%27"><span class="hs-identifier hs-type">ModifyClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679509604"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679509604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyClusterParameterGroup
+</span><a href="#local-6989586621679509605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterGroupName:ModifyClusterParameterGroup' :: Text
 </span><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#%24sel%3AparameterGroupName%3AModifyClusterParameterGroup%27"><span class="hs-identifier hs-var">parameterGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679509595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup"><span class="hs-identifier hs-type">ModifyClusterParameterGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679509604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup"><span class="hs-identifier hs-type">ModifyClusterParameterGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | An array of parameters to be modified. A maximum of 20 parameters can be</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- modified in a single request.</span><span>
@@ -214,16 +214,16 @@ $sel:parameterGroupName:ModifyClusterParameterGroup' :: ModifyClusterParameterGr
      [Parameter]
      [Parameter]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup%27"><span class="hs-identifier hs-type">ModifyClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679509594"><span class="annot"><span class="annottext">[Parameter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup%27"><span class="hs-identifier hs-type">ModifyClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679509603"><span class="annot"><span class="annottext">[Parameter]
 parameters :: [Parameter]
 $sel:parameters:ModifyClusterParameterGroup' :: ModifyClusterParameterGroup -&gt; [Parameter]
-</span><a href="#local-6989586621679509594"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Parameter]
-</span><a href="#local-6989586621679509594"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679509593"><span class="annot"><span class="annottext">s :: ModifyClusterParameterGroup
-</span><a href="#local-6989586621679509593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup%27"><span class="hs-identifier hs-type">ModifyClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679509592"><span class="annot"><span class="annottext">[Parameter]
-</span><a href="#local-6989586621679509592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyClusterParameterGroup
-</span><a href="#local-6989586621679509593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:ModifyClusterParameterGroup' :: [Parameter]
+</span><a href="#local-6989586621679509603"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Parameter]
+</span><a href="#local-6989586621679509603"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679509602"><span class="annot"><span class="annottext">s :: ModifyClusterParameterGroup
+</span><a href="#local-6989586621679509602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup%27"><span class="hs-identifier hs-type">ModifyClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679509601"><span class="annot"><span class="annottext">[Parameter]
+</span><a href="#local-6989586621679509601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyClusterParameterGroup
+</span><a href="#local-6989586621679509602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:ModifyClusterParameterGroup' :: [Parameter]
 </span><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#%24sel%3Aparameters%3AModifyClusterParameterGroup%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Parameter]
-</span><a href="#local-6989586621679509592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup"><span class="hs-identifier hs-type">ModifyClusterParameterGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Parameter] -&gt; f [Parameter])
+</span><a href="#local-6989586621679509601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup"><span class="hs-identifier hs-type">ModifyClusterParameterGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Parameter] -&gt; f [Parameter])
  -&gt; ModifyClusterParameterGroup -&gt; f ModifyClusterParameterGroup)
 -&gt; (([Parameter] -&gt; f [Parameter]) -&gt; [Parameter] -&gt; f [Parameter])
 -&gt; ([Parameter] -&gt; f [Parameter])
@@ -238,14 +238,14 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup"><span class="hs-identifier hs-type">ModifyClusterParameterGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterGroupNameMessage.html#ClusterParameterGroupNameMessage"><span class="hs-identifier hs-type">ClusterParameterGroupNameMessage</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679509586"><span class="annot"><span class="annottext">request :: ModifyClusterParameterGroup -&gt; Request ModifyClusterParameterGroup
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679509595"><span class="annot"><span class="annottext">request :: ModifyClusterParameterGroup -&gt; Request ModifyClusterParameterGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ModifyClusterParameterGroup
 -&gt; Request ModifyClusterParameterGroup
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679509582"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679509591"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyClusterParameterGroup
 -&gt; ClientResponse ClientBody
@@ -276,20 +276,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModifyClusterParameterGroupResult&quot;</span></span><span>
-</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679509579"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679509579"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679509578"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679509578"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679509577"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679509577"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String ClusterParameterGroupNameMessage
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679509588"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679509588"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679509587"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679509587"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679509586"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679509586"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String ClusterParameterGroupNameMessage
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679509577"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679509586"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679509572"><span id="local-6989586621679509574"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup"><span class="hs-identifier hs-type">ModifyClusterParameterGroup</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679509581"><span id="local-6989586621679509583"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup"><span class="hs-identifier hs-type">ModifyClusterParameterGroup</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679509569"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup"><span class="hs-identifier hs-type">ModifyClusterParameterGroup</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679509578"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup"><span class="hs-identifier hs-type">ModifyClusterParameterGroup</span></a></span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup"><span class="hs-identifier hs-type">ModifyClusterParameterGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679509565"><span class="annot"><span class="annottext">toHeaders :: ModifyClusterParameterGroup -&gt; ResponseHeaders
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679509574"><span class="annot"><span class="annottext">toHeaders :: ModifyClusterParameterGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyClusterParameterGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -297,21 +297,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup"><span class="hs-identifier hs-type">ModifyClusterParameterGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679509560"><span class="annot"><span class="annottext">toPath :: ModifyClusterParameterGroup -&gt; ByteString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679509569"><span class="annot"><span class="annottext">toPath :: ModifyClusterParameterGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyClusterParameterGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup"><span class="hs-identifier hs-type">ModifyClusterParameterGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679509556"><span class="annot"><span class="annottext">toQuery :: ModifyClusterParameterGroup -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup%27"><span class="hs-identifier hs-type">ModifyClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679509553"><span id="local-6989586621679509554"><span class="annot"><span class="annottext">[Parameter]
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679509565"><span class="annot"><span class="annottext">toQuery :: ModifyClusterParameterGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ModifyClusterParameterGroup.html#ModifyClusterParameterGroup%27"><span class="hs-identifier hs-type">ModifyClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679509562"><span id="local-6989586621679509563"><span class="annot"><span class="annottext">[Parameter]
 Text
 parameters :: [Parameter]
 parameterGroupName :: Text
 $sel:parameters:ModifyClusterParameterGroup' :: ModifyClusterParameterGroup -&gt; [Parameter]
 $sel:parameterGroupName:ModifyClusterParameterGroup' :: ModifyClusterParameterGroup -&gt; Text
-</span><a href="#local-6989586621679509553"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679509562"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -333,7 +333,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ParameterGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679509554"><span class="hs-identifier hs-var">parameterGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679509563"><span class="hs-identifier hs-var">parameterGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Parameters&quot;</span></span><span>
 </span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -344,6 +344,6 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Parameter&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Parameter]
-</span><a href="#local-6989586621679509553"><span class="hs-identifier hs-var">parameters</span></a></span><span>
+</span><a href="#local-6989586621679509562"><span class="hs-identifier hs-var">parameters</span></a></span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span></pre></body></html>

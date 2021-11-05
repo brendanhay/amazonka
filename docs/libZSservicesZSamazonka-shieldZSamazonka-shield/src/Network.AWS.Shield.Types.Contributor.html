@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A contributor to the attack and their contribution.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newContributor' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679201959"><span id="local-6989586621679201960"></span></span><span class="hs-keyword">data</span><span> </span><span id="Contributor"><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor"><span class="hs-identifier hs-var">Contributor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Contributor%27"><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor%27"><span class="hs-identifier hs-var">Contributor'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679201968"><span id="local-6989586621679201969"></span></span><span class="hs-keyword">data</span><span> </span><span id="Contributor"><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor"><span class="hs-identifier hs-var">Contributor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Contributor%27"><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor%27"><span class="hs-identifier hs-var">Contributor'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The contribution of this contributor expressed in Protection units. For</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- example @10,000@.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalue%3AContributor%27"><span class="annot"><span class="annottext">Contributor -&gt; Maybe Integer
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Aname%3AContributor%27"><span class="annot"><span class="annottext">Contributor -&gt; Maybe Text
 </span><a href="Network.AWS.Shield.Types.Contributor.html#%24sel%3Aname%3AContributor%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201952"><span id="local-6989586621679201954"><span class="annot"><span class="annottext">Contributor -&gt; Contributor -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201961"><span id="local-6989586621679201963"><span class="annot"><span class="annottext">Contributor -&gt; Contributor -&gt; Bool
 (Contributor -&gt; Contributor -&gt; Bool)
 -&gt; (Contributor -&gt; Contributor -&gt; Bool) -&gt; Eq Contributor
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Contributor -&gt; Contributor -&gt; Bool
 == :: Contributor -&gt; Contributor -&gt; Bool
 $c== :: Contributor -&gt; Contributor -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201943"><span id="local-6989586621679201945"><span id="local-6989586621679201947"><span id="local-6989586621679201949"><span class="annot"><span class="annottext">ReadPrec [Contributor]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201952"><span id="local-6989586621679201954"><span id="local-6989586621679201956"><span id="local-6989586621679201958"><span class="annot"><span class="annottext">ReadPrec [Contributor]
 ReadPrec Contributor
 Int -&gt; ReadS Contributor
 ReadS [Contributor]
@@ -66,7 +66,7 @@ readList :: ReadS [Contributor]
 $creadList :: ReadS [Contributor]
 readsPrec :: Int -&gt; ReadS Contributor
 $creadsPrec :: Int -&gt; ReadS Contributor
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201936"><span id="local-6989586621679201938"><span id="local-6989586621679201940"><span class="annot"><span class="annottext">Int -&gt; Contributor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201945"><span id="local-6989586621679201947"><span id="local-6989586621679201949"><span class="annot"><span class="annottext">Int -&gt; Contributor -&gt; ShowS
 [Contributor] -&gt; ShowS
 Contributor -&gt; String
 (Int -&gt; Contributor -&gt; ShowS)
@@ -132,16 +132,16 @@ forall a. Maybe a
 -&gt; (Contributor -&gt; Maybe Integer -&gt; Contributor)
 -&gt; Lens Contributor Contributor (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor%27"><span class="hs-identifier hs-type">Contributor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201927"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor%27"><span class="hs-identifier hs-type">Contributor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201936"><span class="annot"><span class="annottext">Maybe Integer
 value :: Maybe Integer
 $sel:value:Contributor' :: Contributor -&gt; Maybe Integer
-</span><a href="#local-6989586621679201927"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679201927"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201926"><span class="annot"><span class="annottext">s :: Contributor
-</span><a href="#local-6989586621679201926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor%27"><span class="hs-identifier hs-type">Contributor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201925"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679201925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Contributor
-</span><a href="#local-6989586621679201926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Contributor' :: Maybe Integer
+</span><a href="#local-6989586621679201936"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679201936"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201935"><span class="annot"><span class="annottext">s :: Contributor
+</span><a href="#local-6989586621679201935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor%27"><span class="hs-identifier hs-type">Contributor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201934"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679201934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Contributor
+</span><a href="#local-6989586621679201935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Contributor' :: Maybe Integer
 </span><a href="Network.AWS.Shield.Types.Contributor.html#%24sel%3Avalue%3AContributor%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679201925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor"><span class="hs-identifier hs-type">Contributor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor"><span class="hs-identifier hs-type">Contributor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The name of the contributor. This is dependent on the</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- @AttackPropertyIdentifier@. For example, if the</span><span>
@@ -153,19 +153,19 @@ $sel:value:Contributor' :: Contributor -&gt; Maybe Integer
 -&gt; (Contributor -&gt; Maybe Text -&gt; Contributor)
 -&gt; Lens Contributor Contributor (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor%27"><span class="hs-identifier hs-type">Contributor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201923"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor%27"><span class="hs-identifier hs-type">Contributor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201932"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Contributor' :: Contributor -&gt; Maybe Text
-</span><a href="#local-6989586621679201923"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201923"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201922"><span class="annot"><span class="annottext">s :: Contributor
-</span><a href="#local-6989586621679201922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor%27"><span class="hs-identifier hs-type">Contributor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201921"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Contributor
-</span><a href="#local-6989586621679201922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Contributor' :: Maybe Text
+</span><a href="#local-6989586621679201932"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201932"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201931"><span class="annot"><span class="annottext">s :: Contributor
+</span><a href="#local-6989586621679201931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor%27"><span class="hs-identifier hs-type">Contributor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201930"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Contributor
+</span><a href="#local-6989586621679201931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Contributor' :: Maybe Text
 </span><a href="Network.AWS.Shield.Types.Contributor.html#%24sel%3Aname%3AContributor%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor"><span class="hs-identifier hs-type">Contributor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor"><span class="hs-identifier hs-type">Contributor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201918"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor"><span class="hs-identifier hs-type">Contributor</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679201916"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Contributor
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201927"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor"><span class="hs-identifier hs-type">Contributor</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679201925"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Contributor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Contributor) -&gt; Value -&gt; Parser Contributor
@@ -173,28 +173,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Contributor&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201913"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201913"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201922"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201922"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer -&gt; Maybe Text -&gt; Contributor
 </span><a href="Network.AWS.Shield.Types.Contributor.html#Contributor%27"><span class="hs-identifier hs-var">Contributor'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer -&gt; Maybe Text -&gt; Contributor)
 -&gt; Parser (Maybe Integer) -&gt; Parser (Maybe Text -&gt; Contributor)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679201922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Contributor)
 -&gt; Parser (Maybe Text) -&gt; Parser Contributor
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679201922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201907"><span id="local-6989586621679201909"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor"><span class="hs-identifier hs-type">Contributor</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201916"><span id="local-6989586621679201918"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor"><span class="hs-identifier hs-type">Contributor</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201904"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor"><span class="hs-identifier hs-type">Contributor</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201913"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Contributor.html#Contributor"><span class="hs-identifier hs-type">Contributor</span></a></span></span><span>
 </span><span id="line-88"></span></pre></body></html>

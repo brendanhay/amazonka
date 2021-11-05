@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The encryption configuration for the cluster.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEncryptionConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679268725"><span id="local-6989586621679268726"></span></span><span class="hs-keyword">data</span><span> </span><span id="EncryptionConfig"><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-var">EncryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionConfig%27"><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-var">EncryptionConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679268734"><span id="local-6989586621679268735"></span></span><span class="hs-keyword">data</span><span> </span><span id="EncryptionConfig"><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-var">EncryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionConfig%27"><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-var">EncryptionConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the resources to be encrypted. The only supported value is</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- \&quot;secrets\&quot;.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aresources%3AEncryptionConfig%27"><span class="annot"><span class="annottext">EncryptionConfig -&gt; Maybe [Text]
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aprovider%3AEncryptionConfig%27"><span class="annot"><span class="annottext">EncryptionConfig -&gt; Maybe Provider
 </span><a href="Network.AWS.EKS.Types.EncryptionConfig.html#%24sel%3Aprovider%3AEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">provider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider"><span class="hs-identifier hs-type">Provider</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268718"><span id="local-6989586621679268720"><span class="annot"><span class="annottext">EncryptionConfig -&gt; EncryptionConfig -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268727"><span id="local-6989586621679268729"><span class="annot"><span class="annottext">EncryptionConfig -&gt; EncryptionConfig -&gt; Bool
 (EncryptionConfig -&gt; EncryptionConfig -&gt; Bool)
 -&gt; (EncryptionConfig -&gt; EncryptionConfig -&gt; Bool)
 -&gt; Eq EncryptionConfig
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EncryptionConfig -&gt; EncryptionConfig -&gt; Bool
 == :: EncryptionConfig -&gt; EncryptionConfig -&gt; Bool
 $c== :: EncryptionConfig -&gt; EncryptionConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268709"><span id="local-6989586621679268711"><span id="local-6989586621679268713"><span id="local-6989586621679268715"><span class="annot"><span class="annottext">ReadPrec [EncryptionConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268718"><span id="local-6989586621679268720"><span id="local-6989586621679268722"><span id="local-6989586621679268724"><span class="annot"><span class="annottext">ReadPrec [EncryptionConfig]
 ReadPrec EncryptionConfig
 Int -&gt; ReadS EncryptionConfig
 ReadS [EncryptionConfig]
@@ -66,7 +66,7 @@ readList :: ReadS [EncryptionConfig]
 $creadList :: ReadS [EncryptionConfig]
 readsPrec :: Int -&gt; ReadS EncryptionConfig
 $creadsPrec :: Int -&gt; ReadS EncryptionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268702"><span id="local-6989586621679268704"><span id="local-6989586621679268706"><span class="annot"><span class="annottext">Int -&gt; EncryptionConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268711"><span id="local-6989586621679268713"><span id="local-6989586621679268715"><span class="annot"><span class="annottext">Int -&gt; EncryptionConfig -&gt; ShowS
 [EncryptionConfig] -&gt; ShowS
 EncryptionConfig -&gt; String
 (Int -&gt; EncryptionConfig -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
 -&gt; Lens
      EncryptionConfig EncryptionConfig (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268693"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268702"><span class="annot"><span class="annottext">Maybe [Text]
 resources :: Maybe [Text]
 $sel:resources:EncryptionConfig' :: EncryptionConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679268693"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679268693"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268692"><span class="annot"><span class="annottext">s :: EncryptionConfig
-</span><a href="#local-6989586621679268692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268691"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679268691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
-</span><a href="#local-6989586621679268692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:EncryptionConfig' :: Maybe [Text]
+</span><a href="#local-6989586621679268702"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679268702"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268701"><span class="annot"><span class="annottext">s :: EncryptionConfig
+</span><a href="#local-6989586621679268701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268700"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679268700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
+</span><a href="#local-6989586621679268701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:EncryptionConfig' :: Maybe [Text]
 </span><a href="Network.AWS.EKS.Types.EncryptionConfig.html#%24sel%3Aresources%3AEncryptionConfig%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679268691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679268700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; EncryptionConfig -&gt; f EncryptionConfig)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -167,19 +167,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      EncryptionConfig EncryptionConfig (Maybe Provider) (Maybe Provider)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268686"><span class="annot"><span class="annottext">Maybe Provider
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268695"><span class="annot"><span class="annottext">Maybe Provider
 provider :: Maybe Provider
 $sel:provider:EncryptionConfig' :: EncryptionConfig -&gt; Maybe Provider
-</span><a href="#local-6989586621679268686"><span class="hs-identifier hs-var hs-var">provider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Provider
-</span><a href="#local-6989586621679268686"><span class="hs-identifier hs-var">provider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268685"><span class="annot"><span class="annottext">s :: EncryptionConfig
-</span><a href="#local-6989586621679268685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268684"><span class="annot"><span class="annottext">Maybe Provider
-</span><a href="#local-6989586621679268684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
-</span><a href="#local-6989586621679268685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provider:EncryptionConfig' :: Maybe Provider
+</span><a href="#local-6989586621679268695"><span class="hs-identifier hs-var hs-var">provider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Provider
+</span><a href="#local-6989586621679268695"><span class="hs-identifier hs-var">provider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268694"><span class="annot"><span class="annottext">s :: EncryptionConfig
+</span><a href="#local-6989586621679268694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268693"><span class="annot"><span class="annottext">Maybe Provider
+</span><a href="#local-6989586621679268693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
+</span><a href="#local-6989586621679268694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provider:EncryptionConfig' :: Maybe Provider
 </span><a href="Network.AWS.EKS.Types.EncryptionConfig.html#%24sel%3Aprovider%3AEncryptionConfig%27"><span class="hs-identifier hs-var">provider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Provider
-</span><a href="#local-6989586621679268684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679268693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268681"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679268679"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EncryptionConfig
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268690"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679268688"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EncryptionConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EncryptionConfig)
@@ -189,8 +189,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EncryptionConfig&quot;</span></span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679268676"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268676"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679268685"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268685"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Provider -&gt; EncryptionConfig
 </span><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-var">EncryptionConfig'</span></a></span><span>
 </span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Provider -&gt; EncryptionConfig)
@@ -198,7 +198,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Provider -&gt; EncryptionConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679268685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -211,25 +211,25 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Provider) -&gt; Parser EncryptionConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Provider)
+</span><a href="#local-6989586621679268685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Provider)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;provider&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268669"><span id="local-6989586621679268671"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268678"><span id="local-6989586621679268680"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268666"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268675"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268658"><span id="local-6989586621679268660"><span id="local-6989586621679268662"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679268656"><span class="annot"><span class="annottext">toJSON :: EncryptionConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268653"><span id="local-6989586621679268654"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268667"><span id="local-6989586621679268669"><span id="local-6989586621679268671"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679268665"><span class="annot"><span class="annottext">toJSON :: EncryptionConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268662"><span id="local-6989586621679268663"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Provider
 provider :: Maybe Provider
 resources :: Maybe [Text]
 $sel:provider:EncryptionConfig' :: EncryptionConfig -&gt; Maybe Provider
 $sel:resources:EncryptionConfig' :: EncryptionConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679268653"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679268662"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -241,14 +241,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679268654"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679268663"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;provider&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Provider -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Provider -&gt; Pair) -&gt; Maybe Provider -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Provider
-</span><a href="#local-6989586621679268653"><span class="hs-identifier hs-var">provider</span></a></span><span>
+</span><a href="#local-6989586621679268662"><span class="hs-identifier hs-var">provider</span></a></span><span>
 </span><span id="line-91"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span></pre></body></html>

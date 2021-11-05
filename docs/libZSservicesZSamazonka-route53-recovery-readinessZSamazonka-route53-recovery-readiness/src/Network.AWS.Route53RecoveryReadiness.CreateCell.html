@@ -1,0 +1,811 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Route53RecoveryReadiness.CreateCell</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new Cell.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53RecoveryReadiness.CreateCell</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell"><span class="hs-identifier">CreateCell</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#newCreateCell"><span class="hs-identifier">newCreateCell</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCell_cells"><span class="hs-identifier">createCell_cells</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCell_tags"><span class="hs-identifier">createCell_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCell_cellName"><span class="hs-identifier">createCell_cellName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse"><span class="hs-identifier">CreateCellResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#newCreateCellResponse"><span class="hs-identifier">newCreateCellResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_cells"><span class="hs-identifier">createCellResponse_cells</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_parentReadinessScopes"><span class="hs-identifier">createCellResponse_parentReadinessScopes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_cellName"><span class="hs-identifier">createCellResponse_cellName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_cellArn"><span class="hs-identifier">createCellResponse_cellArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_tags"><span class="hs-identifier">createCellResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_httpStatus"><span class="hs-identifier">createCellResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.html"><span class="hs-identifier">Network.AWS.Route53RecoveryReadiness.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | The Cell to create</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newCreateCell' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679207296"><span id="local-6989586621679207297"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCell"><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell"><span class="hs-identifier hs-var">CreateCell</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCell%27"><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell%27"><span class="hs-identifier hs-var">CreateCell'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of Cell arns contained within this Cell (for use in nested Cells,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- e.g. regions within which AZs)</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Acells%3ACreateCell%27"><span class="annot"><span class="annottext">CreateCell -&gt; Maybe [Text]
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3Acells%3ACreateCell%27"><span class="hs-identifier hs-var hs-var">cells</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Atags%3ACreateCell%27"><span class="annot"><span class="annottext">CreateCell -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3Atags%3ACreateCell%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The name of the Cell to create</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AcellName%3ACreateCell%27"><span class="annot"><span class="annottext">CreateCell -&gt; Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3AcellName%3ACreateCell%27"><span class="hs-identifier hs-var hs-var">cellName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207288"><span id="local-6989586621679207290"><span class="annot"><span class="annottext">CreateCell -&gt; CreateCell -&gt; Bool
+(CreateCell -&gt; CreateCell -&gt; Bool)
+-&gt; (CreateCell -&gt; CreateCell -&gt; Bool) -&gt; Eq CreateCell
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCell -&gt; CreateCell -&gt; Bool
+$c/= :: CreateCell -&gt; CreateCell -&gt; Bool
+== :: CreateCell -&gt; CreateCell -&gt; Bool
+$c== :: CreateCell -&gt; CreateCell -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207279"><span id="local-6989586621679207281"><span id="local-6989586621679207283"><span id="local-6989586621679207285"><span class="annot"><span class="annottext">ReadPrec [CreateCell]
+ReadPrec CreateCell
+Int -&gt; ReadS CreateCell
+ReadS [CreateCell]
+(Int -&gt; ReadS CreateCell)
+-&gt; ReadS [CreateCell]
+-&gt; ReadPrec CreateCell
+-&gt; ReadPrec [CreateCell]
+-&gt; Read CreateCell
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCell]
+$creadListPrec :: ReadPrec [CreateCell]
+readPrec :: ReadPrec CreateCell
+$creadPrec :: ReadPrec CreateCell
+readList :: ReadS [CreateCell]
+$creadList :: ReadS [CreateCell]
+readsPrec :: Int -&gt; ReadS CreateCell
+$creadsPrec :: Int -&gt; ReadS CreateCell
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207272"><span id="local-6989586621679207274"><span id="local-6989586621679207276"><span class="annot"><span class="annottext">Int -&gt; CreateCell -&gt; ShowS
+[CreateCell] -&gt; ShowS
+CreateCell -&gt; String
+(Int -&gt; CreateCell -&gt; ShowS)
+-&gt; (CreateCell -&gt; String)
+-&gt; ([CreateCell] -&gt; ShowS)
+-&gt; Show CreateCell
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCell] -&gt; ShowS
+$cshowList :: [CreateCell] -&gt; ShowS
+show :: CreateCell -&gt; String
+$cshow :: CreateCell -&gt; String
+showsPrec :: Int -&gt; CreateCell -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCell -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateCell -&gt; Rep CreateCell x)
+-&gt; (forall x. Rep CreateCell x -&gt; CreateCell) -&gt; Generic CreateCell
+forall x. Rep CreateCell x -&gt; CreateCell
+forall x. CreateCell -&gt; Rep CreateCell x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateCell x -&gt; CreateCell
+$cfrom :: forall x. CreateCell -&gt; Rep CreateCell x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'CreateCell' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'cells', 'createCell_cells' - A list of Cell arns contained within this Cell (for use in nested Cells,</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- e.g. regions within which AZs)</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'tags', 'createCell_tags' - Undocumented member.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'cellName', 'createCell_cellName' - The name of the Cell to create</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#newCreateCell"><span class="hs-identifier hs-type">newCreateCell</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'cellName'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell"><span class="hs-identifier hs-type">CreateCell</span></a></span><span>
+</span><span id="line-86"></span><span id="newCreateCell"><span class="annot"><span class="annottext">newCreateCell :: Text -&gt; CreateCell
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#newCreateCell"><span class="hs-identifier hs-var hs-var">newCreateCell</span></a></span></span><span> </span><span id="local-6989586621679207267"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207267"><span class="hs-identifier hs-var">pCellName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">CreateCell' :: Maybe [Text] -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; CreateCell
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell%27"><span class="hs-identifier hs-type">CreateCell'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cells:CreateCell' :: Maybe [Text]
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3Acells%3ACreateCell%27"><span class="hs-identifier hs-var">cells</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateCell' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3Atags%3ACreateCell%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:cellName:CreateCell' :: Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3AcellName%3ACreateCell%27"><span class="hs-identifier hs-var">cellName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207267"><span class="hs-identifier hs-var">pCellName_</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | A list of Cell arns contained within this Cell (for use in nested Cells,</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- e.g. regions within which AZs)</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCell_cells"><span class="hs-identifier hs-type">createCell_cells</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell"><span class="hs-identifier hs-type">CreateCell</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="createCell_cells"><span class="annot"><span class="annottext">createCell_cells :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CreateCell -&gt; f CreateCell
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCell_cells"><span class="hs-identifier hs-var hs-var">createCell_cells</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCell -&gt; Maybe [Text])
+-&gt; (CreateCell -&gt; Maybe [Text] -&gt; CreateCell)
+-&gt; Lens CreateCell CreateCell (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell%27"><span class="hs-identifier hs-type">CreateCell'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207264"><span class="annot"><span class="annottext">Maybe [Text]
+cells :: Maybe [Text]
+$sel:cells:CreateCell' :: CreateCell -&gt; Maybe [Text]
+</span><a href="#local-6989586621679207264"><span class="hs-identifier hs-var hs-var">cells</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679207264"><span class="hs-identifier hs-var">cells</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207263"><span class="annot"><span class="annottext">s :: CreateCell
+</span><a href="#local-6989586621679207263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell%27"><span class="hs-identifier hs-type">CreateCell'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207262"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679207262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCell
+</span><a href="#local-6989586621679207263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cells:CreateCell' :: Maybe [Text]
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3Acells%3ACreateCell%27"><span class="hs-identifier hs-var">cells</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679207262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell"><span class="hs-identifier hs-type">CreateCell</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CreateCell -&gt; f CreateCell)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateCell
+-&gt; f CreateCell
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCell_tags"><span class="hs-identifier hs-type">createCell_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell"><span class="hs-identifier hs-type">CreateCell</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="createCell_tags"><span class="annot"><span class="annottext">createCell_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateCell -&gt; f CreateCell
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCell_tags"><span class="hs-identifier hs-var hs-var">createCell_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCell -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateCell -&gt; Maybe (HashMap Text Text) -&gt; CreateCell)
+-&gt; Lens
+     CreateCell
+     CreateCell
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell%27"><span class="hs-identifier hs-type">CreateCell'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207258"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateCell' :: CreateCell -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679207258"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679207258"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207257"><span class="annot"><span class="annottext">s :: CreateCell
+</span><a href="#local-6989586621679207257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell%27"><span class="hs-identifier hs-type">CreateCell'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207256"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679207256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCell
+</span><a href="#local-6989586621679207257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateCell' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3Atags%3ACreateCell%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679207256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell"><span class="hs-identifier hs-type">CreateCell</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateCell -&gt; f CreateCell)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateCell
+-&gt; f CreateCell
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The name of the Cell to create</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCell_cellName"><span class="hs-identifier hs-type">createCell_cellName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell"><span class="hs-identifier hs-type">CreateCell</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span id="createCell_cellName"><span class="annot"><span class="annottext">createCell_cellName :: (Text -&gt; f Text) -&gt; CreateCell -&gt; f CreateCell
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCell_cellName"><span class="hs-identifier hs-var hs-var">createCell_cellName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCell -&gt; Text)
+-&gt; (CreateCell -&gt; Text -&gt; CreateCell)
+-&gt; Lens CreateCell CreateCell Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell%27"><span class="hs-identifier hs-type">CreateCell'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207255"><span class="annot"><span class="annottext">Text
+cellName :: Text
+$sel:cellName:CreateCell' :: CreateCell -&gt; Text
+</span><a href="#local-6989586621679207255"><span class="hs-identifier hs-var hs-var">cellName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207255"><span class="hs-identifier hs-var">cellName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207254"><span class="annot"><span class="annottext">s :: CreateCell
+</span><a href="#local-6989586621679207254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell%27"><span class="hs-identifier hs-type">CreateCell'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207253"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCell
+</span><a href="#local-6989586621679207254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cellName:CreateCell' :: Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3AcellName%3ACreateCell%27"><span class="hs-identifier hs-var">cellName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell"><span class="hs-identifier hs-type">CreateCell</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell"><span class="hs-identifier hs-type">CreateCell</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell"><span class="hs-identifier hs-type">CreateCell</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse"><span class="hs-identifier hs-type">CreateCellResponse</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679207249"><span class="annot"><span class="annottext">request :: CreateCell -&gt; Request CreateCell
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateCell -&gt; Request CreateCell
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679207245"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateCell
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateCell)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateCell))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateCell
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateCell)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679207242"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207242"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679207241"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679207241"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679207240"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207240"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; CreateCellResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse%27"><span class="hs-identifier hs-var">CreateCellResponse'</span></a></span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; CreateCellResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreateCellResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cells&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreateCellResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreateCellResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parentReadinessScopes&quot;</span></span><span>
+</span><span id="line-115"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-116"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreateCellResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; CreateCellResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cellName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; CreateCellResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe (HashMap Text Text) -&gt; Int -&gt; CreateCellResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cellArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe (HashMap Text Text) -&gt; Int -&gt; CreateCellResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; CreateCellResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateCellResponse)
+-&gt; Either String Int -&gt; Either String CreateCellResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207242"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207231"><span id="local-6989586621679207233"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell"><span class="hs-identifier hs-type">CreateCell</span></a></span></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207228"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell"><span class="hs-identifier hs-type">CreateCell</span></a></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell"><span class="hs-identifier hs-type">CreateCell</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679207224"><span class="annot"><span class="annottext">toHeaders :: CreateCell -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateCell -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-134"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207214"><span id="local-6989586621679207216"><span id="local-6989586621679207218"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell"><span class="hs-identifier hs-type">CreateCell</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679207212"><span class="annot"><span class="annottext">toJSON :: CreateCell -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell%27"><span class="hs-identifier hs-type">CreateCell'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207208"><span id="local-6989586621679207209"><span id="local-6989586621679207210"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe (HashMap Text Text)
+Text
+cellName :: Text
+tags :: Maybe (HashMap Text Text)
+cells :: Maybe [Text]
+$sel:cellName:CreateCell' :: CreateCell -&gt; Text
+$sel:tags:CreateCell' :: CreateCell -&gt; Maybe (HashMap Text Text)
+$sel:cells:CreateCell' :: CreateCell -&gt; Maybe [Text]
+</span><a href="#local-6989586621679207208"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cells&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679207210"><span class="hs-identifier hs-var">cells</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679207209"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cellName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207208"><span class="hs-identifier hs-var">cellName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell"><span class="hs-identifier hs-type">CreateCell</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679207202"><span class="annot"><span class="annottext">toPath :: CreateCell -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateCell -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/cells&quot;</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCell"><span class="hs-identifier hs-type">CreateCell</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679207198"><span class="annot"><span class="annottext">toQuery :: CreateCell -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateCell -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newCreateCellResponse' smart constructor.</span><span>
+</span><span id="line-155"></span><span id="local-6989586621679207195"><span id="local-6989586621679207196"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCellResponse"><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse"><span class="hs-identifier hs-var">CreateCellResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCellResponse%27"><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse%27"><span class="hs-identifier hs-var">CreateCellResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of Cell arns</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3Acells%3ACreateCellResponse%27"><span class="annot"><span class="annottext">CreateCellResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3Acells%3ACreateCellResponse%27"><span class="hs-identifier hs-var hs-var">cells</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | A list of Cell ARNs and\/or RecoveryGroup ARNs</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AparentReadinessScopes%3ACreateCellResponse%27"><span class="annot"><span class="annottext">CreateCellResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3AparentReadinessScopes%3ACreateCellResponse%27"><span class="hs-identifier hs-var hs-var">parentReadinessScopes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | The name of the Cell</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AcellName%3ACreateCellResponse%27"><span class="annot"><span class="annottext">CreateCellResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3AcellName%3ACreateCellResponse%27"><span class="hs-identifier hs-var hs-var">cellName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The arn for the Cell</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AcellArn%3ACreateCellResponse%27"><span class="annot"><span class="annottext">CreateCellResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3AcellArn%3ACreateCellResponse%27"><span class="hs-identifier hs-var hs-var">cellArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3Atags%3ACreateCellResponse%27"><span class="annot"><span class="annottext">CreateCellResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3Atags%3ACreateCellResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateCellResponse%27"><span class="annot"><span class="annottext">CreateCellResponse -&gt; Int
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3AhttpStatus%3ACreateCellResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207185"><span id="local-6989586621679207187"><span class="annot"><span class="annottext">CreateCellResponse -&gt; CreateCellResponse -&gt; Bool
+(CreateCellResponse -&gt; CreateCellResponse -&gt; Bool)
+-&gt; (CreateCellResponse -&gt; CreateCellResponse -&gt; Bool)
+-&gt; Eq CreateCellResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCellResponse -&gt; CreateCellResponse -&gt; Bool
+$c/= :: CreateCellResponse -&gt; CreateCellResponse -&gt; Bool
+== :: CreateCellResponse -&gt; CreateCellResponse -&gt; Bool
+$c== :: CreateCellResponse -&gt; CreateCellResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207177"><span id="local-6989586621679207179"><span id="local-6989586621679207181"><span id="local-6989586621679207183"><span class="annot"><span class="annottext">ReadPrec [CreateCellResponse]
+ReadPrec CreateCellResponse
+Int -&gt; ReadS CreateCellResponse
+ReadS [CreateCellResponse]
+(Int -&gt; ReadS CreateCellResponse)
+-&gt; ReadS [CreateCellResponse]
+-&gt; ReadPrec CreateCellResponse
+-&gt; ReadPrec [CreateCellResponse]
+-&gt; Read CreateCellResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCellResponse]
+$creadListPrec :: ReadPrec [CreateCellResponse]
+readPrec :: ReadPrec CreateCellResponse
+$creadPrec :: ReadPrec CreateCellResponse
+readList :: ReadS [CreateCellResponse]
+$creadList :: ReadS [CreateCellResponse]
+readsPrec :: Int -&gt; ReadS CreateCellResponse
+$creadsPrec :: Int -&gt; ReadS CreateCellResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207171"><span id="local-6989586621679207173"><span id="local-6989586621679207175"><span class="annot"><span class="annottext">Int -&gt; CreateCellResponse -&gt; ShowS
+[CreateCellResponse] -&gt; ShowS
+CreateCellResponse -&gt; String
+(Int -&gt; CreateCellResponse -&gt; ShowS)
+-&gt; (CreateCellResponse -&gt; String)
+-&gt; ([CreateCellResponse] -&gt; ShowS)
+-&gt; Show CreateCellResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCellResponse] -&gt; ShowS
+$cshowList :: [CreateCellResponse] -&gt; ShowS
+show :: CreateCellResponse -&gt; String
+$cshow :: CreateCellResponse -&gt; String
+showsPrec :: Int -&gt; CreateCellResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCellResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateCellResponse -&gt; Rep CreateCellResponse x)
+-&gt; (forall x. Rep CreateCellResponse x -&gt; CreateCellResponse)
+-&gt; Generic CreateCellResponse
+forall x. Rep CreateCellResponse x -&gt; CreateCellResponse
+forall x. CreateCellResponse -&gt; Rep CreateCellResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateCellResponse x -&gt; CreateCellResponse
+$cfrom :: forall x. CreateCellResponse -&gt; Rep CreateCellResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Create a value of 'CreateCellResponse' with all optional fields omitted.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'cells', 'createCellResponse_cells' - A list of Cell arns</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'parentReadinessScopes', 'createCellResponse_parentReadinessScopes' - A list of Cell ARNs and\/or RecoveryGroup ARNs</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'cellName', 'createCellResponse_cellName' - The name of the Cell</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'cellArn', 'createCellResponse_cellArn' - The arn for the Cell</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'tags', 'createCellResponse_tags' - Undocumented member.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'httpStatus', 'createCellResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#newCreateCellResponse"><span class="hs-identifier hs-type">newCreateCellResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse"><span class="hs-identifier hs-type">CreateCellResponse</span></a></span><span>
+</span><span id="line-193"></span><span id="newCreateCellResponse"><span class="annot"><span class="annottext">newCreateCellResponse :: Int -&gt; CreateCellResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#newCreateCellResponse"><span class="hs-identifier hs-var hs-var">newCreateCellResponse</span></a></span></span><span> </span><span id="local-6989586621679207168"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207168"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">CreateCellResponse' :: Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; CreateCellResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse%27"><span class="hs-identifier hs-type">CreateCellResponse'</span></a></span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cells:CreateCellResponse' :: Maybe [Text]
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3Acells%3ACreateCellResponse%27"><span class="hs-identifier hs-var">cells</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:parentReadinessScopes:CreateCellResponse' :: Maybe [Text]
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3AparentReadinessScopes%3ACreateCellResponse%27"><span class="hs-identifier hs-var">parentReadinessScopes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:cellName:CreateCellResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3AcellName%3ACreateCellResponse%27"><span class="hs-identifier hs-var">cellName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:cellArn:CreateCellResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3AcellArn%3ACreateCellResponse%27"><span class="hs-identifier hs-var">cellArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateCellResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3Atags%3ACreateCellResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCellResponse' :: Int
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3AhttpStatus%3ACreateCellResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207168"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | A list of Cell arns</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_cells"><span class="hs-identifier hs-type">createCellResponse_cells</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse"><span class="hs-identifier hs-type">CreateCellResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="createCellResponse_cells"><span class="annot"><span class="annottext">createCellResponse_cells :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateCellResponse -&gt; f CreateCellResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_cells"><span class="hs-identifier hs-var hs-var">createCellResponse_cells</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCellResponse -&gt; Maybe [Text])
+-&gt; (CreateCellResponse -&gt; Maybe [Text] -&gt; CreateCellResponse)
+-&gt; Lens
+     CreateCellResponse CreateCellResponse (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse%27"><span class="hs-identifier hs-type">CreateCellResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207167"><span class="annot"><span class="annottext">Maybe [Text]
+cells :: Maybe [Text]
+$sel:cells:CreateCellResponse' :: CreateCellResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679207167"><span class="hs-identifier hs-var hs-var">cells</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679207167"><span class="hs-identifier hs-var">cells</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207166"><span class="annot"><span class="annottext">s :: CreateCellResponse
+</span><a href="#local-6989586621679207166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse%27"><span class="hs-identifier hs-type">CreateCellResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207165"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679207165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCellResponse
+</span><a href="#local-6989586621679207166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cells:CreateCellResponse' :: Maybe [Text]
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3Acells%3ACreateCellResponse%27"><span class="hs-identifier hs-var">cells</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679207165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse"><span class="hs-identifier hs-type">CreateCellResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateCellResponse -&gt; f CreateCellResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateCellResponse
+-&gt; f CreateCellResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | A list of Cell ARNs and\/or RecoveryGroup ARNs</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_parentReadinessScopes"><span class="hs-identifier hs-type">createCellResponse_parentReadinessScopes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse"><span class="hs-identifier hs-type">CreateCellResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="createCellResponse_parentReadinessScopes"><span class="annot"><span class="annottext">createCellResponse_parentReadinessScopes :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateCellResponse -&gt; f CreateCellResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_parentReadinessScopes"><span class="hs-identifier hs-var hs-var">createCellResponse_parentReadinessScopes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCellResponse -&gt; Maybe [Text])
+-&gt; (CreateCellResponse -&gt; Maybe [Text] -&gt; CreateCellResponse)
+-&gt; Lens
+     CreateCellResponse CreateCellResponse (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse%27"><span class="hs-identifier hs-type">CreateCellResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207164"><span class="annot"><span class="annottext">Maybe [Text]
+parentReadinessScopes :: Maybe [Text]
+$sel:parentReadinessScopes:CreateCellResponse' :: CreateCellResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679207164"><span class="hs-identifier hs-var hs-var">parentReadinessScopes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679207164"><span class="hs-identifier hs-var">parentReadinessScopes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207163"><span class="annot"><span class="annottext">s :: CreateCellResponse
+</span><a href="#local-6989586621679207163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse%27"><span class="hs-identifier hs-type">CreateCellResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207162"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679207162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCellResponse
+</span><a href="#local-6989586621679207163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentReadinessScopes:CreateCellResponse' :: Maybe [Text]
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3AparentReadinessScopes%3ACreateCellResponse%27"><span class="hs-identifier hs-var">parentReadinessScopes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679207162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse"><span class="hs-identifier hs-type">CreateCellResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; CreateCellResponse -&gt; f CreateCellResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; CreateCellResponse
+-&gt; f CreateCellResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The name of the Cell</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_cellName"><span class="hs-identifier hs-type">createCellResponse_cellName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse"><span class="hs-identifier hs-type">CreateCellResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="createCellResponse_cellName"><span class="annot"><span class="annottext">createCellResponse_cellName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateCellResponse -&gt; f CreateCellResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_cellName"><span class="hs-identifier hs-var hs-var">createCellResponse_cellName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCellResponse -&gt; Maybe Text)
+-&gt; (CreateCellResponse -&gt; Maybe Text -&gt; CreateCellResponse)
+-&gt; Lens
+     CreateCellResponse CreateCellResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse%27"><span class="hs-identifier hs-type">CreateCellResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207161"><span class="annot"><span class="annottext">Maybe Text
+cellName :: Maybe Text
+$sel:cellName:CreateCellResponse' :: CreateCellResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679207161"><span class="hs-identifier hs-var hs-var">cellName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207161"><span class="hs-identifier hs-var">cellName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207160"><span class="annot"><span class="annottext">s :: CreateCellResponse
+</span><a href="#local-6989586621679207160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse%27"><span class="hs-identifier hs-type">CreateCellResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207159"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCellResponse
+</span><a href="#local-6989586621679207160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cellName:CreateCellResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3AcellName%3ACreateCellResponse%27"><span class="hs-identifier hs-var">cellName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse"><span class="hs-identifier hs-type">CreateCellResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The arn for the Cell</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_cellArn"><span class="hs-identifier hs-type">createCellResponse_cellArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse"><span class="hs-identifier hs-type">CreateCellResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="createCellResponse_cellArn"><span class="annot"><span class="annottext">createCellResponse_cellArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateCellResponse -&gt; f CreateCellResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_cellArn"><span class="hs-identifier hs-var hs-var">createCellResponse_cellArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCellResponse -&gt; Maybe Text)
+-&gt; (CreateCellResponse -&gt; Maybe Text -&gt; CreateCellResponse)
+-&gt; Lens
+     CreateCellResponse CreateCellResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse%27"><span class="hs-identifier hs-type">CreateCellResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207158"><span class="annot"><span class="annottext">Maybe Text
+cellArn :: Maybe Text
+$sel:cellArn:CreateCellResponse' :: CreateCellResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679207158"><span class="hs-identifier hs-var hs-var">cellArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207158"><span class="hs-identifier hs-var">cellArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207157"><span class="annot"><span class="annottext">s :: CreateCellResponse
+</span><a href="#local-6989586621679207157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse%27"><span class="hs-identifier hs-type">CreateCellResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207156"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCellResponse
+</span><a href="#local-6989586621679207157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cellArn:CreateCellResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3AcellArn%3ACreateCellResponse%27"><span class="hs-identifier hs-var">cellArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse"><span class="hs-identifier hs-type">CreateCellResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_tags"><span class="hs-identifier hs-type">createCellResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse"><span class="hs-identifier hs-type">CreateCellResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="createCellResponse_tags"><span class="annot"><span class="annottext">createCellResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateCellResponse -&gt; f CreateCellResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_tags"><span class="hs-identifier hs-var hs-var">createCellResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCellResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateCellResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateCellResponse)
+-&gt; Lens
+     CreateCellResponse
+     CreateCellResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse%27"><span class="hs-identifier hs-type">CreateCellResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207155"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateCellResponse' :: CreateCellResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679207155"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679207155"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207154"><span class="annot"><span class="annottext">s :: CreateCellResponse
+</span><a href="#local-6989586621679207154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse%27"><span class="hs-identifier hs-type">CreateCellResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207153"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679207153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCellResponse
+</span><a href="#local-6989586621679207154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateCellResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3Atags%3ACreateCellResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679207153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse"><span class="hs-identifier hs-type">CreateCellResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateCellResponse -&gt; f CreateCellResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateCellResponse
+-&gt; f CreateCellResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_httpStatus"><span class="hs-identifier hs-type">createCellResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse"><span class="hs-identifier hs-type">CreateCellResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-225"></span><span id="createCellResponse_httpStatus"><span class="annot"><span class="annottext">createCellResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateCellResponse -&gt; f CreateCellResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#createCellResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createCellResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCellResponse -&gt; Int)
+-&gt; (CreateCellResponse -&gt; Int -&gt; CreateCellResponse)
+-&gt; Lens CreateCellResponse CreateCellResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse%27"><span class="hs-identifier hs-type">CreateCellResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207152"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateCellResponse' :: CreateCellResponse -&gt; Int
+</span><a href="#local-6989586621679207152"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207152"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207151"><span class="annot"><span class="annottext">s :: CreateCellResponse
+</span><a href="#local-6989586621679207151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse%27"><span class="hs-identifier hs-type">CreateCellResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207150"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCellResponse
+</span><a href="#local-6989586621679207151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCellResponse' :: Int
+</span><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#%24sel%3AhttpStatus%3ACreateCellResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679207150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse"><span class="hs-identifier hs-type">CreateCellResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.CreateCell.html#CreateCellResponse"><span class="hs-identifier hs-type">CreateCellResponse</span></a></span></span><span>
+</span><span id="line-228"></span></pre></body></html>

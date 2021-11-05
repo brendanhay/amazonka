@@ -44,10 +44,10 @@
 </span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newGetConferencePreference' smart constructor.</span><span>
-</span><span id="line-47"></span><span id="local-6989586621679386218"><span id="local-6989586621679386219"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetConferencePreference"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreference"><span class="hs-identifier hs-var">GetConferencePreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetConferencePreference%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreference%27"><span class="hs-identifier hs-var">GetConferencePreference'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679386227"><span id="local-6989586621679386228"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetConferencePreference"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreference"><span class="hs-identifier hs-var">GetConferencePreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetConferencePreference%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreference%27"><span class="hs-identifier hs-var">GetConferencePreference'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386213"><span id="local-6989586621679386215"><span class="annot"><span class="annottext">GetConferencePreference -&gt; GetConferencePreference -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386222"><span id="local-6989586621679386224"><span class="annot"><span class="annottext">GetConferencePreference -&gt; GetConferencePreference -&gt; Bool
 (GetConferencePreference -&gt; GetConferencePreference -&gt; Bool)
 -&gt; (GetConferencePreference -&gt; GetConferencePreference -&gt; Bool)
 -&gt; Eq GetConferencePreference
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetConferencePreference -&gt; GetConferencePreference -&gt; Bool
 == :: GetConferencePreference -&gt; GetConferencePreference -&gt; Bool
 $c== :: GetConferencePreference -&gt; GetConferencePreference -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386204"><span id="local-6989586621679386206"><span id="local-6989586621679386208"><span id="local-6989586621679386210"><span class="annot"><span class="annottext">ReadPrec [GetConferencePreference]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386213"><span id="local-6989586621679386215"><span id="local-6989586621679386217"><span id="local-6989586621679386219"><span class="annot"><span class="annottext">ReadPrec [GetConferencePreference]
 ReadPrec GetConferencePreference
 Int -&gt; ReadS GetConferencePreference
 ReadS [GetConferencePreference]
@@ -76,7 +76,7 @@ readList :: ReadS [GetConferencePreference]
 $creadList :: ReadS [GetConferencePreference]
 readsPrec :: Int -&gt; ReadS GetConferencePreference
 $creadsPrec :: Int -&gt; ReadS GetConferencePreference
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386197"><span id="local-6989586621679386199"><span id="local-6989586621679386201"><span class="annot"><span class="annottext">Int -&gt; GetConferencePreference -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386206"><span id="local-6989586621679386208"><span id="local-6989586621679386210"><span class="annot"><span class="annottext">Int -&gt; GetConferencePreference -&gt; ShowS
 [GetConferencePreference] -&gt; ShowS
 GetConferencePreference -&gt; String
 (Int -&gt; GetConferencePreference -&gt; ShowS)
@@ -118,13 +118,13 @@ $cfrom :: forall x. GetConferencePreference -&gt; Rep GetConferencePreference x
 </span><span id="line-61"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-62"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreference"><span class="hs-identifier hs-type">GetConferencePreference</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse"><span class="hs-identifier hs-type">GetConferencePreferenceResponse</span></a></span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679386189"><span class="annot"><span class="annottext">request :: GetConferencePreference -&gt; Request GetConferencePreference
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679386198"><span class="annot"><span class="annottext">request :: GetConferencePreference -&gt; Request GetConferencePreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetConferencePreference -&gt; Request GetConferencePreference
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679386185"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679386194"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetConferencePreference
 -&gt; ClientResponse ClientBody
@@ -150,10 +150,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386182"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386182"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386181"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679386181"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386180"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386180"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386191"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386191"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386190"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679386190"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386189"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679386189"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConferencePreference
 -&gt; Int -&gt; GetConferencePreferenceResponse
 </span><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse%27"><span class="hs-identifier hs-var">GetConferencePreferenceResponse'</span></a></span><span>
@@ -163,7 +163,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetConferencePreferenceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386180"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConferencePreference)
+</span><a href="#local-6989586621679386189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConferencePreference)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Preference&quot;</span></span><span class="hs-special">)</span><span>
@@ -176,15 +176,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386182"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386191"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386172"><span id="local-6989586621679386174"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreference"><span class="hs-identifier hs-type">GetConferencePreference</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386181"><span id="local-6989586621679386183"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreference"><span class="hs-identifier hs-type">GetConferencePreference</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386169"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreference"><span class="hs-identifier hs-type">GetConferencePreference</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386178"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreference"><span class="hs-identifier hs-type">GetConferencePreference</span></a></span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreference"><span class="hs-identifier hs-type">GetConferencePreference</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679386165"><span class="annot"><span class="annottext">toHeaders :: GetConferencePreference -&gt; ResponseHeaders
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679386174"><span class="annot"><span class="annottext">toHeaders :: GetConferencePreference -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetConferencePreference -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -211,8 +211,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386155"><span id="local-6989586621679386157"><span id="local-6989586621679386159"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreference"><span class="hs-identifier hs-type">GetConferencePreference</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679386153"><span class="annot"><span class="annottext">toJSON :: GetConferencePreference -&gt; Value
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386164"><span id="local-6989586621679386166"><span id="local-6989586621679386168"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreference"><span class="hs-identifier hs-type">GetConferencePreference</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679386162"><span class="annot"><span class="annottext">toJSON :: GetConferencePreference -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; GetConferencePreference -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -221,14 +221,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreference"><span class="hs-identifier hs-type">GetConferencePreference</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679386148"><span class="annot"><span class="annottext">toPath :: GetConferencePreference -&gt; ByteString
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679386157"><span class="annot"><span class="annottext">toPath :: GetConferencePreference -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetConferencePreference -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreference"><span class="hs-identifier hs-type">GetConferencePreference</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679386144"><span class="annot"><span class="annottext">toQuery :: GetConferencePreference -&gt; QueryString
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679386153"><span class="annot"><span class="annottext">toQuery :: GetConferencePreference -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetConferencePreference -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -236,7 +236,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | /See:/ 'newGetConferencePreferenceResponse' smart constructor.</span><span>
-</span><span id="line-102"></span><span id="local-6989586621679386141"><span id="local-6989586621679386142"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetConferencePreferenceResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse"><span class="hs-identifier hs-var">GetConferencePreferenceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetConferencePreferenceResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse%27"><span class="hs-identifier hs-var">GetConferencePreferenceResponse'</span></a></span></span><span>
+</span><span id="line-102"></span><span id="local-6989586621679386150"><span id="local-6989586621679386151"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetConferencePreferenceResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse"><span class="hs-identifier hs-var">GetConferencePreferenceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetConferencePreferenceResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse%27"><span class="hs-identifier hs-var">GetConferencePreferenceResponse'</span></a></span></span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The conference preference.</span><span>
 </span><span id="line-104"></span><span>    </span><span id="%24sel%3Apreference%3AGetConferencePreferenceResponse%27"><span class="annot"><span class="annottext">GetConferencePreferenceResponse -&gt; Maybe ConferencePreference
 </span><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#%24sel%3Apreference%3AGetConferencePreferenceResponse%27"><span class="hs-identifier hs-var hs-var">preference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.ConferencePreference.html#ConferencePreference"><span class="hs-identifier hs-type">ConferencePreference</span></a></span><span class="hs-special">,</span><span>
@@ -244,7 +244,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-106"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetConferencePreferenceResponse%27"><span class="annot"><span class="annottext">GetConferencePreferenceResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#%24sel%3AhttpStatus%3AGetConferencePreferenceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386135"><span id="local-6989586621679386137"><span class="annot"><span class="annottext">GetConferencePreferenceResponse
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386144"><span id="local-6989586621679386146"><span class="annot"><span class="annottext">GetConferencePreferenceResponse
 -&gt; GetConferencePreferenceResponse -&gt; Bool
 (GetConferencePreferenceResponse
  -&gt; GetConferencePreferenceResponse -&gt; Bool)
@@ -260,7 +260,7 @@ $c/= :: GetConferencePreferenceResponse
 -&gt; GetConferencePreferenceResponse -&gt; Bool
 $c== :: GetConferencePreferenceResponse
 -&gt; GetConferencePreferenceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386127"><span id="local-6989586621679386129"><span id="local-6989586621679386131"><span id="local-6989586621679386133"><span class="annot"><span class="annottext">ReadPrec [GetConferencePreferenceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386136"><span id="local-6989586621679386138"><span id="local-6989586621679386140"><span id="local-6989586621679386142"><span class="annot"><span class="annottext">ReadPrec [GetConferencePreferenceResponse]
 ReadPrec GetConferencePreferenceResponse
 Int -&gt; ReadS GetConferencePreferenceResponse
 ReadS [GetConferencePreferenceResponse]
@@ -280,7 +280,7 @@ readList :: ReadS [GetConferencePreferenceResponse]
 $creadList :: ReadS [GetConferencePreferenceResponse]
 readsPrec :: Int -&gt; ReadS GetConferencePreferenceResponse
 $creadsPrec :: Int -&gt; ReadS GetConferencePreferenceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386121"><span id="local-6989586621679386123"><span id="local-6989586621679386125"><span class="annot"><span class="annottext">Int -&gt; GetConferencePreferenceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386130"><span id="local-6989586621679386132"><span id="local-6989586621679386134"><span class="annot"><span class="annottext">Int -&gt; GetConferencePreferenceResponse -&gt; ShowS
 [GetConferencePreferenceResponse] -&gt; ShowS
 GetConferencePreferenceResponse -&gt; String
 (Int -&gt; GetConferencePreferenceResponse -&gt; ShowS)
@@ -334,8 +334,8 @@ GetConferencePreferenceResponse
 </span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse"><span class="hs-identifier hs-type">GetConferencePreferenceResponse</span></a></span><span>
 </span><span id="line-125"></span><span id="newGetConferencePreferenceResponse"><span class="annot"><span class="annottext">newGetConferencePreferenceResponse :: Int -&gt; GetConferencePreferenceResponse
-</span><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#newGetConferencePreferenceResponse"><span class="hs-identifier hs-var hs-var">newGetConferencePreferenceResponse</span></a></span></span><span> </span><span id="local-6989586621679386118"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386118"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#newGetConferencePreferenceResponse"><span class="hs-identifier hs-var hs-var">newGetConferencePreferenceResponse</span></a></span></span><span> </span><span id="local-6989586621679386127"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386127"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><span class="annottext">GetConferencePreferenceResponse' :: Maybe ConferencePreference
 -&gt; Int -&gt; GetConferencePreferenceResponse
 </span><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse%27"><span class="hs-identifier hs-type">GetConferencePreferenceResponse'</span></a></span><span>
@@ -346,7 +346,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetConferencePreferenceResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#%24sel%3AhttpStatus%3AGetConferencePreferenceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386118"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679386127"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | The conference preference.</span><span>
@@ -363,16 +363,16 @@ forall a. Maybe a
      (Maybe ConferencePreference)
      (Maybe ConferencePreference)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse%27"><span class="hs-identifier hs-type">GetConferencePreferenceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386115"><span class="annot"><span class="annottext">Maybe ConferencePreference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse%27"><span class="hs-identifier hs-type">GetConferencePreferenceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386124"><span class="annot"><span class="annottext">Maybe ConferencePreference
 preference :: Maybe ConferencePreference
 $sel:preference:GetConferencePreferenceResponse' :: GetConferencePreferenceResponse -&gt; Maybe ConferencePreference
-</span><a href="#local-6989586621679386115"><span class="hs-identifier hs-var hs-var">preference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConferencePreference
-</span><a href="#local-6989586621679386115"><span class="hs-identifier hs-var">preference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386114"><span class="annot"><span class="annottext">s :: GetConferencePreferenceResponse
-</span><a href="#local-6989586621679386114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse%27"><span class="hs-identifier hs-type">GetConferencePreferenceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386113"><span class="annot"><span class="annottext">Maybe ConferencePreference
-</span><a href="#local-6989586621679386113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConferencePreferenceResponse
-</span><a href="#local-6989586621679386114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preference:GetConferencePreferenceResponse' :: Maybe ConferencePreference
+</span><a href="#local-6989586621679386124"><span class="hs-identifier hs-var hs-var">preference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConferencePreference
+</span><a href="#local-6989586621679386124"><span class="hs-identifier hs-var">preference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386123"><span class="annot"><span class="annottext">s :: GetConferencePreferenceResponse
+</span><a href="#local-6989586621679386123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse%27"><span class="hs-identifier hs-type">GetConferencePreferenceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386122"><span class="annot"><span class="annottext">Maybe ConferencePreference
+</span><a href="#local-6989586621679386122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConferencePreferenceResponse
+</span><a href="#local-6989586621679386123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preference:GetConferencePreferenceResponse' :: Maybe ConferencePreference
 </span><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#%24sel%3Apreference%3AGetConferencePreferenceResponse%27"><span class="hs-identifier hs-var">preference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConferencePreference
-</span><a href="#local-6989586621679386113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse"><span class="hs-identifier hs-type">GetConferencePreferenceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse"><span class="hs-identifier hs-type">GetConferencePreferenceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-137"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#getConferencePreferenceResponse_httpStatus"><span class="hs-identifier hs-type">getConferencePreferenceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse"><span class="hs-identifier hs-type">GetConferencePreferenceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -388,18 +388,18 @@ $sel:preference:GetConferencePreferenceResponse' :: GetConferencePreferenceRespo
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse%27"><span class="hs-identifier hs-type">GetConferencePreferenceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386112"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse%27"><span class="hs-identifier hs-type">GetConferencePreferenceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386121"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetConferencePreferenceResponse' :: GetConferencePreferenceResponse -&gt; Int
-</span><a href="#local-6989586621679386112"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386112"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386111"><span class="annot"><span class="annottext">s :: GetConferencePreferenceResponse
-</span><a href="#local-6989586621679386111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse%27"><span class="hs-identifier hs-type">GetConferencePreferenceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386110"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConferencePreferenceResponse
-</span><a href="#local-6989586621679386111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetConferencePreferenceResponse' :: Int
+</span><a href="#local-6989586621679386121"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386121"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386120"><span class="annot"><span class="annottext">s :: GetConferencePreferenceResponse
+</span><a href="#local-6989586621679386120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse%27"><span class="hs-identifier hs-type">GetConferencePreferenceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386119"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConferencePreferenceResponse
+</span><a href="#local-6989586621679386120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetConferencePreferenceResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#%24sel%3AhttpStatus%3AGetConferencePreferenceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse"><span class="hs-identifier hs-type">GetConferencePreferenceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse"><span class="hs-identifier hs-type">GetConferencePreferenceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679386108"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679386117"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetConferencePreference.html#GetConferencePreferenceResponse"><span class="hs-identifier hs-type">GetConferencePreferenceResponse</span></a></span></span><span>
 </span><span id="line-143"></span></pre></body></html>

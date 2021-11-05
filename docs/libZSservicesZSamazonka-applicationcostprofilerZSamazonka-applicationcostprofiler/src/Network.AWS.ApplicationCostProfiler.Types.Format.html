@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ApplicationCostProfiler.Types.Format</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ApplicationCostProfiler.Types.Format</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationCostProfiler.Types.Format.html#Format"><span class="hs-identifier">Format</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ApplicationCostProfiler.Types.Format.html#Format_CSV"><span class="hs-identifier">Format_CSV</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ApplicationCostProfiler.Types.Format.html#Format_PARQUET"><span class="hs-identifier">Format_PARQUET</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679149812"><span id="local-6989586621679149813"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Format"><span class="annot"><a href="Network.AWS.ApplicationCostProfiler.Types.Format.html#Format"><span class="hs-identifier hs-var">Format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Format%27"><span class="annot"><a href="Network.AWS.ApplicationCostProfiler.Types.Format.html#Format%27"><span class="hs-identifier hs-var">Format'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromFormat"><span class="annot"><span class="annottext">Format -&gt; Text
+</span><a href="Network.AWS.ApplicationCostProfiler.Types.Format.html#fromFormat"><span class="hs-identifier hs-var hs-var">fromFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679149804"><span id="local-6989586621679149806"><span id="local-6989586621679149808"><span class="annot"><span class="annottext">Int -&gt; Format -&gt; ShowS
+[Format] -&gt; ShowS
+Format -&gt; String
+(Int -&gt; Format -&gt; ShowS)
+-&gt; (Format -&gt; String) -&gt; ([Format] -&gt; ShowS) -&gt; Show Format
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Format] -&gt; ShowS
+$cshowList :: [Format] -&gt; ShowS
+show :: Format -&gt; String
+$cshow :: Format -&gt; String
+showsPrec :: Int -&gt; Format -&gt; ShowS
+$cshowsPrec :: Int -&gt; Format -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679149795"><span id="local-6989586621679149797"><span id="local-6989586621679149799"><span id="local-6989586621679149801"><span class="annot"><span class="annottext">ReadPrec [Format]
+ReadPrec Format
+Int -&gt; ReadS Format
+ReadS [Format]
+(Int -&gt; ReadS Format)
+-&gt; ReadS [Format]
+-&gt; ReadPrec Format
+-&gt; ReadPrec [Format]
+-&gt; Read Format
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Format]
+$creadListPrec :: ReadPrec [Format]
+readPrec :: ReadPrec Format
+$creadPrec :: ReadPrec Format
+readList :: ReadS [Format]
+$creadList :: ReadS [Format]
+readsPrec :: Int -&gt; ReadS Format
+$creadsPrec :: Int -&gt; ReadS Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679149790"><span id="local-6989586621679149792"><span class="annot"><span class="annottext">Format -&gt; Format -&gt; Bool
+(Format -&gt; Format -&gt; Bool)
+-&gt; (Format -&gt; Format -&gt; Bool) -&gt; Eq Format
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Format -&gt; Format -&gt; Bool
+$c/= :: Format -&gt; Format -&gt; Bool
+== :: Format -&gt; Format -&gt; Bool
+$c== :: Format -&gt; Format -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679149774"><span id="local-6989586621679149776"><span id="local-6989586621679149778"><span id="local-6989586621679149780"><span id="local-6989586621679149782"><span id="local-6989586621679149784"><span id="local-6989586621679149786"><span class="annot"><span class="annottext">Eq Format
+Eq Format
+-&gt; (Format -&gt; Format -&gt; Ordering)
+-&gt; (Format -&gt; Format -&gt; Bool)
+-&gt; (Format -&gt; Format -&gt; Bool)
+-&gt; (Format -&gt; Format -&gt; Bool)
+-&gt; (Format -&gt; Format -&gt; Bool)
+-&gt; (Format -&gt; Format -&gt; Format)
+-&gt; (Format -&gt; Format -&gt; Format)
+-&gt; Ord Format
+Format -&gt; Format -&gt; Bool
+Format -&gt; Format -&gt; Ordering
+Format -&gt; Format -&gt; Format
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Format -&gt; Format -&gt; Format
+$cmin :: Format -&gt; Format -&gt; Format
+max :: Format -&gt; Format -&gt; Format
+$cmax :: Format -&gt; Format -&gt; Format
+&gt;= :: Format -&gt; Format -&gt; Bool
+$c&gt;= :: Format -&gt; Format -&gt; Bool
+&gt; :: Format -&gt; Format -&gt; Bool
+$c&gt; :: Format -&gt; Format -&gt; Bool
+&lt;= :: Format -&gt; Format -&gt; Bool
+$c&lt;= :: Format -&gt; Format -&gt; Bool
+&lt; :: Format -&gt; Format -&gt; Bool
+$c&lt; :: Format -&gt; Format -&gt; Bool
+compare :: Format -&gt; Format -&gt; Ordering
+$ccompare :: Format -&gt; Format -&gt; Ordering
+$cp1Ord :: Eq Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Format -&gt; Rep Format x)
+-&gt; (forall x. Rep Format x -&gt; Format) -&gt; Generic Format
+forall x. Rep Format x -&gt; Format
+forall x. Format -&gt; Rep Format x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Format x -&gt; Format
+$cfrom :: forall x. Format -&gt; Rep Format x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679149766"><span id="local-6989586621679149768"><span class="annot"><span class="annottext">Int -&gt; Format -&gt; Int
+Format -&gt; Int
+(Int -&gt; Format -&gt; Int) -&gt; (Format -&gt; Int) -&gt; Hashable Format
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Format -&gt; Int
+$chash :: Format -&gt; Int
+hashWithSalt :: Int -&gt; Format -&gt; Int
+$chashWithSalt :: Int -&gt; Format -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679149763"><span class="annot"><span class="annottext">Format -&gt; ()
+(Format -&gt; ()) -&gt; NFData Format
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Format -&gt; ()
+$crnf :: Format -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679149760"><span class="annot"><span class="annottext">Text -&gt; Either String Format
+(Text -&gt; Either String Format) -&gt; FromText Format
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Format
+$cfromText :: Text -&gt; Either String Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679149757"><span class="annot"><span class="annottext">Format -&gt; Text
+(Format -&gt; Text) -&gt; ToText Format
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Format -&gt; Text
+$ctoText :: Format -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679149754"><span class="annot"><span class="annottext">Format -&gt; ByteString
+(Format -&gt; ByteString) -&gt; ToByteString Format
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Format -&gt; ByteString
+$ctoBS :: Format -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679149751"><span class="annot"><span class="annottext">Format -&gt; ByteStringBuilder
+(Format -&gt; ByteStringBuilder) -&gt; ToLog Format
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Format -&gt; ByteStringBuilder
+$cbuild :: Format -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679149748"><span class="annot"><span class="annottext">HeaderName -&gt; Format -&gt; [Header]
+(HeaderName -&gt; Format -&gt; [Header]) -&gt; ToHeader Format
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Format -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Format -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679149745"><span class="annot"><span class="annottext">Format -&gt; QueryString
+(Format -&gt; QueryString) -&gt; ToQuery Format
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Format -&gt; QueryString
+$ctoQuery :: Format -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679149740"><span id="local-6989586621679149742"><span class="annot"><span class="annottext">Value -&gt; Parser [Format]
+Value -&gt; Parser Format
+(Value -&gt; Parser Format)
+-&gt; (Value -&gt; Parser [Format]) -&gt; FromJSON Format
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Format]
+$cparseJSONList :: Value -&gt; Parser [Format]
+parseJSON :: Value -&gt; Parser Format
+$cparseJSON :: Value -&gt; Parser Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679149735"><span id="local-6989586621679149737"><span class="annot"><span class="annottext">FromJSONKeyFunction [Format]
+FromJSONKeyFunction Format
+FromJSONKeyFunction Format
+-&gt; FromJSONKeyFunction [Format] -&gt; FromJSONKey Format
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Format]
+$cfromJSONKeyList :: FromJSONKeyFunction [Format]
+fromJSONKey :: FromJSONKeyFunction Format
+$cfromJSONKey :: FromJSONKeyFunction Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679149726"><span id="local-6989586621679149728"><span id="local-6989586621679149730"><span id="local-6989586621679149732"><span class="annot"><span class="annottext">[Format] -&gt; Encoding
+[Format] -&gt; Value
+Format -&gt; Encoding
+Format -&gt; Value
+(Format -&gt; Value)
+-&gt; (Format -&gt; Encoding)
+-&gt; ([Format] -&gt; Value)
+-&gt; ([Format] -&gt; Encoding)
+-&gt; ToJSON Format
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Format] -&gt; Encoding
+$ctoEncodingList :: [Format] -&gt; Encoding
+toJSONList :: [Format] -&gt; Value
+$ctoJSONList :: [Format] -&gt; Value
+toEncoding :: Format -&gt; Encoding
+$ctoEncoding :: Format -&gt; Encoding
+toJSON :: Format -&gt; Value
+$ctoJSON :: Format -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679149721"><span id="local-6989586621679149723"><span class="annot"><span class="annottext">ToJSONKeyFunction [Format]
+ToJSONKeyFunction Format
+ToJSONKeyFunction Format
+-&gt; ToJSONKeyFunction [Format] -&gt; ToJSONKey Format
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Format]
+$ctoJSONKeyList :: ToJSONKeyFunction [Format]
+toJSONKey :: ToJSONKeyFunction Format
+$ctoJSONKey :: ToJSONKeyFunction Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679149718"><span class="annot"><span class="annottext">[Node] -&gt; Either String Format
+([Node] -&gt; Either String Format) -&gt; FromXML Format
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Format
+$cparseXML :: [Node] -&gt; Either String Format
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679149715"><span class="annot"><span class="annottext">Format -&gt; XML
+(Format -&gt; XML) -&gt; ToXML Format
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Format -&gt; XML
+$ctoXML :: Format -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationCostProfiler.Types.Format.html#Format_CSV"><span class="hs-identifier hs-type">Format_CSV</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationCostProfiler.Types.Format.html#Format"><span class="hs-identifier hs-type">Format</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFormat_CSV"><span id="%24mFormat_CSV"><span id="Format_CSV"><span class="annot"><span class="annottext">$bFormat_CSV :: Format
+$mFormat_CSV :: forall r. Format -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ApplicationCostProfiler.Types.Format.html#%24bFormat_CSV"><span class="hs-identifier hs-var hs-var hs-var">Format_CSV</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationCostProfiler.Types.Format.html#Format%27"><span class="hs-identifier hs-type">Format'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CSV&quot;</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationCostProfiler.Types.Format.html#Format_PARQUET"><span class="hs-identifier hs-type">Format_PARQUET</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationCostProfiler.Types.Format.html#Format"><span class="hs-identifier hs-type">Format</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFormat_PARQUET"><span id="%24mFormat_PARQUET"><span id="Format_PARQUET"><span class="annot"><span class="annottext">$bFormat_PARQUET :: Format
+$mFormat_PARQUET :: forall r. Format -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ApplicationCostProfiler.Types.Format.html#%24bFormat_PARQUET"><span class="hs-identifier hs-var hs-var hs-var">Format_PARQUET</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationCostProfiler.Types.Format.html#Format%27"><span class="hs-identifier hs-type">Format'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PARQUET&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationCostProfiler.Types.Format.html#Format_CSV"><span class="hs-pragma hs-type">Format_CSV</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationCostProfiler.Types.Format.html#Format_PARQUET"><span class="hs-pragma hs-type">Format_PARQUET</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationCostProfiler.Types.Format.html#Format%27"><span class="hs-pragma hs-type">Format'</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-68"></span></pre></body></html>

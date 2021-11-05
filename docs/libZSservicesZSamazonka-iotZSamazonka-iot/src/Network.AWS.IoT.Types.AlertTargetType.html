@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- | The type of alert target: one of \&quot;SNS\&quot;.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679773977"><span id="local-6989586621679773978"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AlertTargetType"><span class="annot"><a href="Network.AWS.IoT.Types.AlertTargetType.html#AlertTargetType"><span class="hs-identifier hs-var">AlertTargetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlertTargetType%27"><span class="annot"><a href="Network.AWS.IoT.Types.AlertTargetType.html#AlertTargetType%27"><span class="hs-identifier hs-var">AlertTargetType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679773986"><span id="local-6989586621679773987"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AlertTargetType"><span class="annot"><a href="Network.AWS.IoT.Types.AlertTargetType.html#AlertTargetType"><span class="hs-identifier hs-var">AlertTargetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlertTargetType%27"><span class="annot"><a href="Network.AWS.IoT.Types.AlertTargetType.html#AlertTargetType%27"><span class="hs-identifier hs-var">AlertTargetType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAlertTargetType"><span class="annot"><span class="annottext">AlertTargetType -&gt; Text
 </span><a href="Network.AWS.IoT.Types.AlertTargetType.html#fromAlertTargetType"><span class="hs-identifier hs-var hs-var">fromAlertTargetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679773969"><span id="local-6989586621679773971"><span id="local-6989586621679773973"><span class="annot"><span class="annottext">Int -&gt; AlertTargetType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679773978"><span id="local-6989586621679773980"><span id="local-6989586621679773982"><span class="annot"><span class="annottext">Int -&gt; AlertTargetType -&gt; ShowS
 [AlertTargetType] -&gt; ShowS
 AlertTargetType -&gt; String
 (Int -&gt; AlertTargetType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: AlertTargetType -&gt; String
 showsPrec :: Int -&gt; AlertTargetType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AlertTargetType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679773960"><span id="local-6989586621679773962"><span id="local-6989586621679773964"><span id="local-6989586621679773966"><span class="annot"><span class="annottext">ReadPrec [AlertTargetType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679773969"><span id="local-6989586621679773971"><span id="local-6989586621679773973"><span id="local-6989586621679773975"><span class="annot"><span class="annottext">ReadPrec [AlertTargetType]
 ReadPrec AlertTargetType
 Int -&gt; ReadS AlertTargetType
 ReadS [AlertTargetType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [AlertTargetType]
 readsPrec :: Int -&gt; ReadS AlertTargetType
 $creadsPrec :: Int -&gt; ReadS AlertTargetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679773955"><span id="local-6989586621679773957"><span class="annot"><span class="annottext">AlertTargetType -&gt; AlertTargetType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679773964"><span id="local-6989586621679773966"><span class="annot"><span class="annottext">AlertTargetType -&gt; AlertTargetType -&gt; Bool
 (AlertTargetType -&gt; AlertTargetType -&gt; Bool)
 -&gt; (AlertTargetType -&gt; AlertTargetType -&gt; Bool)
 -&gt; Eq AlertTargetType
@@ -82,7 +82,7 @@ $c/= :: AlertTargetType -&gt; AlertTargetType -&gt; Bool
 == :: AlertTargetType -&gt; AlertTargetType -&gt; Bool
 $c== :: AlertTargetType -&gt; AlertTargetType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679773939"><span id="local-6989586621679773941"><span id="local-6989586621679773943"><span id="local-6989586621679773945"><span id="local-6989586621679773947"><span id="local-6989586621679773949"><span id="local-6989586621679773951"><span class="annot"><span class="annottext">Eq AlertTargetType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679773948"><span id="local-6989586621679773950"><span id="local-6989586621679773952"><span id="local-6989586621679773954"><span id="local-6989586621679773956"><span id="local-6989586621679773958"><span id="local-6989586621679773960"><span class="annot"><span class="annottext">Eq AlertTargetType
 Eq AlertTargetType
 -&gt; (AlertTargetType -&gt; AlertTargetType -&gt; Ordering)
 -&gt; (AlertTargetType -&gt; AlertTargetType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. AlertTargetType -&gt; Rep AlertTargetType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679773931"><span id="local-6989586621679773933"><span class="annot"><span class="annottext">Int -&gt; AlertTargetType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679773940"><span id="local-6989586621679773942"><span class="annot"><span class="annottext">Int -&gt; AlertTargetType -&gt; Int
 AlertTargetType -&gt; Int
 (Int -&gt; AlertTargetType -&gt; Int)
 -&gt; (AlertTargetType -&gt; Int) -&gt; Hashable AlertTargetType
@@ -143,50 +143,50 @@ $chash :: AlertTargetType -&gt; Int
 hashWithSalt :: Int -&gt; AlertTargetType -&gt; Int
 $chashWithSalt :: Int -&gt; AlertTargetType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679773928"><span class="annot"><span class="annottext">AlertTargetType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679773937"><span class="annot"><span class="annottext">AlertTargetType -&gt; ()
 (AlertTargetType -&gt; ()) -&gt; NFData AlertTargetType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AlertTargetType -&gt; ()
 $crnf :: AlertTargetType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679773925"><span class="annot"><span class="annottext">Text -&gt; Either String AlertTargetType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679773934"><span class="annot"><span class="annottext">Text -&gt; Either String AlertTargetType
 (Text -&gt; Either String AlertTargetType) -&gt; FromText AlertTargetType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AlertTargetType
 $cfromText :: Text -&gt; Either String AlertTargetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679773922"><span class="annot"><span class="annottext">AlertTargetType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679773931"><span class="annot"><span class="annottext">AlertTargetType -&gt; Text
 (AlertTargetType -&gt; Text) -&gt; ToText AlertTargetType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AlertTargetType -&gt; Text
 $ctoText :: AlertTargetType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679773919"><span class="annot"><span class="annottext">AlertTargetType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679773928"><span class="annot"><span class="annottext">AlertTargetType -&gt; ByteString
 (AlertTargetType -&gt; ByteString) -&gt; ToByteString AlertTargetType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AlertTargetType -&gt; ByteString
 $ctoBS :: AlertTargetType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679773916"><span class="annot"><span class="annottext">AlertTargetType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679773925"><span class="annot"><span class="annottext">AlertTargetType -&gt; ByteStringBuilder
 (AlertTargetType -&gt; ByteStringBuilder) -&gt; ToLog AlertTargetType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AlertTargetType -&gt; ByteStringBuilder
 $cbuild :: AlertTargetType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679773913"><span class="annot"><span class="annottext">HeaderName -&gt; AlertTargetType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679773922"><span class="annot"><span class="annottext">HeaderName -&gt; AlertTargetType -&gt; [Header]
 (HeaderName -&gt; AlertTargetType -&gt; [Header])
 -&gt; ToHeader AlertTargetType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AlertTargetType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AlertTargetType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679773910"><span class="annot"><span class="annottext">AlertTargetType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679773919"><span class="annot"><span class="annottext">AlertTargetType -&gt; QueryString
 (AlertTargetType -&gt; QueryString) -&gt; ToQuery AlertTargetType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AlertTargetType -&gt; QueryString
 $ctoQuery :: AlertTargetType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679773905"><span id="local-6989586621679773907"><span class="annot"><span class="annottext">Value -&gt; Parser [AlertTargetType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679773914"><span id="local-6989586621679773916"><span class="annot"><span class="annottext">Value -&gt; Parser [AlertTargetType]
 Value -&gt; Parser AlertTargetType
 (Value -&gt; Parser AlertTargetType)
 -&gt; (Value -&gt; Parser [AlertTargetType]) -&gt; FromJSON AlertTargetType
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [AlertTargetType]
 parseJSON :: Value -&gt; Parser AlertTargetType
 $cparseJSON :: Value -&gt; Parser AlertTargetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679773900"><span id="local-6989586621679773902"><span class="annot"><span class="annottext">FromJSONKeyFunction [AlertTargetType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679773909"><span id="local-6989586621679773911"><span class="annot"><span class="annottext">FromJSONKeyFunction [AlertTargetType]
 FromJSONKeyFunction AlertTargetType
 FromJSONKeyFunction AlertTargetType
 -&gt; FromJSONKeyFunction [AlertTargetType]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AlertTargetType]
 fromJSONKey :: FromJSONKeyFunction AlertTargetType
 $cfromJSONKey :: FromJSONKeyFunction AlertTargetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679773891"><span id="local-6989586621679773893"><span id="local-6989586621679773895"><span id="local-6989586621679773897"><span class="annot"><span class="annottext">[AlertTargetType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679773900"><span id="local-6989586621679773902"><span id="local-6989586621679773904"><span id="local-6989586621679773906"><span class="annot"><span class="annottext">[AlertTargetType] -&gt; Encoding
 [AlertTargetType] -&gt; Value
 AlertTargetType -&gt; Encoding
 AlertTargetType -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: AlertTargetType -&gt; Encoding
 toJSON :: AlertTargetType -&gt; Value
 $ctoJSON :: AlertTargetType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679773886"><span id="local-6989586621679773888"><span class="annot"><span class="annottext">ToJSONKeyFunction [AlertTargetType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679773895"><span id="local-6989586621679773897"><span class="annot"><span class="annottext">ToJSONKeyFunction [AlertTargetType]
 ToJSONKeyFunction AlertTargetType
 ToJSONKeyFunction AlertTargetType
 -&gt; ToJSONKeyFunction [AlertTargetType] -&gt; ToJSONKey AlertTargetType
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AlertTargetType]
 toJSONKey :: ToJSONKeyFunction AlertTargetType
 $ctoJSONKey :: ToJSONKeyFunction AlertTargetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679773883"><span class="annot"><span class="annottext">[Node] -&gt; Either String AlertTargetType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679773892"><span class="annot"><span class="annottext">[Node] -&gt; Either String AlertTargetType
 ([Node] -&gt; Either String AlertTargetType)
 -&gt; FromXML AlertTargetType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AlertTargetType
 $cparseXML :: [Node] -&gt; Either String AlertTargetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679773880"><span class="annot"><span class="annottext">AlertTargetType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679773889"><span class="annot"><span class="annottext">AlertTargetType -&gt; XML
 (AlertTargetType -&gt; XML) -&gt; ToXML AlertTargetType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AlertTargetType -&gt; XML

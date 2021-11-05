@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newPostCommentReply' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679358491"><span id="local-6989586621679358492"></span></span><span class="hs-keyword">data</span><span> </span><span id="PostCommentReply"><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-var">PostCommentReply</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PostCommentReply%27"><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply%27"><span class="hs-identifier hs-var">PostCommentReply'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679358500"><span id="local-6989586621679358501"></span></span><span class="hs-keyword">data</span><span> </span><span id="PostCommentReply"><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-var">PostCommentReply</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PostCommentReply%27"><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply%27"><span class="hs-identifier hs-var">PostCommentReply'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique, client-generated idempotency token that, when provided in a</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- request, ensures the request cannot be repeated with a changed</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- parameter. If a request is received with the same parameters and a token</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3Acontent%3APostCommentReply%27"><span class="annot"><span class="annottext">PostCommentReply -&gt; Text
 </span><a href="Network.AWS.CodeCommit.PostCommentReply.html#%24sel%3Acontent%3APostCommentReply%27"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358483"><span id="local-6989586621679358485"><span class="annot"><span class="annottext">PostCommentReply -&gt; PostCommentReply -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358492"><span id="local-6989586621679358494"><span class="annot"><span class="annottext">PostCommentReply -&gt; PostCommentReply -&gt; Bool
 (PostCommentReply -&gt; PostCommentReply -&gt; Bool)
 -&gt; (PostCommentReply -&gt; PostCommentReply -&gt; Bool)
 -&gt; Eq PostCommentReply
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PostCommentReply -&gt; PostCommentReply -&gt; Bool
 == :: PostCommentReply -&gt; PostCommentReply -&gt; Bool
 $c== :: PostCommentReply -&gt; PostCommentReply -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358474"><span id="local-6989586621679358476"><span id="local-6989586621679358478"><span id="local-6989586621679358480"><span class="annot"><span class="annottext">ReadPrec [PostCommentReply]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358483"><span id="local-6989586621679358485"><span id="local-6989586621679358487"><span id="local-6989586621679358489"><span class="annot"><span class="annottext">ReadPrec [PostCommentReply]
 ReadPrec PostCommentReply
 Int -&gt; ReadS PostCommentReply
 ReadS [PostCommentReply]
@@ -96,7 +96,7 @@ readList :: ReadS [PostCommentReply]
 $creadList :: ReadS [PostCommentReply]
 readsPrec :: Int -&gt; ReadS PostCommentReply
 $creadsPrec :: Int -&gt; ReadS PostCommentReply
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358467"><span id="local-6989586621679358469"><span id="local-6989586621679358471"><span class="annot"><span class="annottext">Int -&gt; PostCommentReply -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358476"><span id="local-6989586621679358478"><span id="local-6989586621679358480"><span class="annot"><span class="annottext">Int -&gt; PostCommentReply -&gt; ShowS
 [PostCommentReply] -&gt; ShowS
 PostCommentReply -&gt; String
 (Int -&gt; PostCommentReply -&gt; ShowS)
@@ -148,9 +148,9 @@ $cfrom :: forall x. PostCommentReply -&gt; Rep PostCommentReply x
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span><span>
 </span><span id="line-94"></span><span id="newPostCommentReply"><span class="annot"><span class="annottext">newPostCommentReply :: Text -&gt; Text -&gt; PostCommentReply
-</span><a href="Network.AWS.CodeCommit.PostCommentReply.html#newPostCommentReply"><span class="hs-identifier hs-var hs-var">newPostCommentReply</span></a></span></span><span> </span><span id="local-6989586621679358462"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358462"><span class="hs-identifier hs-var">pInReplyTo_</span></a></span></span><span> </span><span id="local-6989586621679358461"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358461"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.PostCommentReply.html#newPostCommentReply"><span class="hs-identifier hs-var hs-var">newPostCommentReply</span></a></span></span><span> </span><span id="local-6989586621679358471"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358471"><span class="hs-identifier hs-var">pInReplyTo_</span></a></span></span><span> </span><span id="local-6989586621679358470"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358470"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">PostCommentReply' :: Maybe Text -&gt; Text -&gt; Text -&gt; PostCommentReply
 </span><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply%27"><span class="hs-identifier hs-type">PostCommentReply'</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientRequestToken:PostCommentReply' :: Maybe Text
@@ -160,10 +160,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:inReplyTo:PostCommentReply' :: Text
 </span><a href="Network.AWS.CodeCommit.PostCommentReply.html#%24sel%3AinReplyTo%3APostCommentReply%27"><span class="hs-identifier hs-var">inReplyTo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358462"><span class="hs-identifier hs-var">pInReplyTo_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679358471"><span class="hs-identifier hs-var">pInReplyTo_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:content:PostCommentReply' :: Text
 </span><a href="Network.AWS.CodeCommit.PostCommentReply.html#%24sel%3Acontent%3APostCommentReply%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358461"><span class="hs-identifier hs-var">pContent_</span></a></span><span>
+</span><a href="#local-6989586621679358470"><span class="hs-identifier hs-var">pContent_</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | A unique, client-generated idempotency token that, when provided in a</span><span>
@@ -178,16 +178,16 @@ forall a. Maybe a
 -&gt; (PostCommentReply -&gt; Maybe Text -&gt; PostCommentReply)
 -&gt; Lens PostCommentReply PostCommentReply (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply%27"><span class="hs-identifier hs-type">PostCommentReply'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358458"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply%27"><span class="hs-identifier hs-type">PostCommentReply'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358467"><span class="annot"><span class="annottext">Maybe Text
 clientRequestToken :: Maybe Text
 $sel:clientRequestToken:PostCommentReply' :: PostCommentReply -&gt; Maybe Text
-</span><a href="#local-6989586621679358458"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358458"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358457"><span class="annot"><span class="annottext">s :: PostCommentReply
-</span><a href="#local-6989586621679358457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply%27"><span class="hs-identifier hs-type">PostCommentReply'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358456"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PostCommentReply
-</span><a href="#local-6989586621679358457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:PostCommentReply' :: Maybe Text
+</span><a href="#local-6989586621679358467"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358467"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358466"><span class="annot"><span class="annottext">s :: PostCommentReply
+</span><a href="#local-6989586621679358466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply%27"><span class="hs-identifier hs-type">PostCommentReply'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358465"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679358465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PostCommentReply
+</span><a href="#local-6989586621679358466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:PostCommentReply' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.PostCommentReply.html#%24sel%3AclientRequestToken%3APostCommentReply%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The system-generated ID of the comment to which you want to reply. To</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- get this ID, use GetCommentsForComparedCommit or</span><span>
@@ -198,16 +198,16 @@ $sel:clientRequestToken:PostCommentReply' :: PostCommentReply -&gt; Maybe Text
 -&gt; (PostCommentReply -&gt; Text -&gt; PostCommentReply)
 -&gt; Lens PostCommentReply PostCommentReply Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply%27"><span class="hs-identifier hs-type">PostCommentReply'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358455"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply%27"><span class="hs-identifier hs-type">PostCommentReply'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358464"><span class="annot"><span class="annottext">Text
 inReplyTo :: Text
 $sel:inReplyTo:PostCommentReply' :: PostCommentReply -&gt; Text
-</span><a href="#local-6989586621679358455"><span class="hs-identifier hs-var hs-var">inReplyTo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358455"><span class="hs-identifier hs-var">inReplyTo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358454"><span class="annot"><span class="annottext">s :: PostCommentReply
-</span><a href="#local-6989586621679358454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply%27"><span class="hs-identifier hs-type">PostCommentReply'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358453"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PostCommentReply
-</span><a href="#local-6989586621679358454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inReplyTo:PostCommentReply' :: Text
+</span><a href="#local-6989586621679358464"><span class="hs-identifier hs-var hs-var">inReplyTo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358464"><span class="hs-identifier hs-var">inReplyTo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358463"><span class="annot"><span class="annottext">s :: PostCommentReply
+</span><a href="#local-6989586621679358463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply%27"><span class="hs-identifier hs-type">PostCommentReply'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358462"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PostCommentReply
+</span><a href="#local-6989586621679358463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inReplyTo:PostCommentReply' :: Text
 </span><a href="Network.AWS.CodeCommit.PostCommentReply.html#%24sel%3AinReplyTo%3APostCommentReply%27"><span class="hs-identifier hs-var">inReplyTo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The contents of your reply to a comment.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#postCommentReply_content"><span class="hs-identifier hs-type">postCommentReply_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -216,27 +216,27 @@ $sel:inReplyTo:PostCommentReply' :: PostCommentReply -&gt; Text
 -&gt; (PostCommentReply -&gt; Text -&gt; PostCommentReply)
 -&gt; Lens PostCommentReply PostCommentReply Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply%27"><span class="hs-identifier hs-type">PostCommentReply'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358452"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply%27"><span class="hs-identifier hs-type">PostCommentReply'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358461"><span class="annot"><span class="annottext">Text
 content :: Text
 $sel:content:PostCommentReply' :: PostCommentReply -&gt; Text
-</span><a href="#local-6989586621679358452"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358452"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358451"><span class="annot"><span class="annottext">s :: PostCommentReply
-</span><a href="#local-6989586621679358451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply%27"><span class="hs-identifier hs-type">PostCommentReply'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358450"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PostCommentReply
-</span><a href="#local-6989586621679358451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:PostCommentReply' :: Text
+</span><a href="#local-6989586621679358461"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358461"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358460"><span class="annot"><span class="annottext">s :: PostCommentReply
+</span><a href="#local-6989586621679358460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply%27"><span class="hs-identifier hs-type">PostCommentReply'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358459"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679358459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PostCommentReply
+</span><a href="#local-6989586621679358460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:PostCommentReply' :: Text
 </span><a href="Network.AWS.CodeCommit.PostCommentReply.html#%24sel%3Acontent%3APostCommentReply%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse"><span class="hs-identifier hs-type">PostCommentReplyResponse</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679358446"><span class="annot"><span class="annottext">request :: PostCommentReply -&gt; Request PostCommentReply
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679358455"><span class="annot"><span class="annottext">request :: PostCommentReply -&gt; Request PostCommentReply
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PostCommentReply -&gt; Request PostCommentReply
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679358442"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679358451"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PostCommentReply
 -&gt; ClientResponse ClientBody
@@ -260,10 +260,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679358439"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358439"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679358438"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679358438"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679358437"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679358437"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679358448"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358448"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679358447"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679358447"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679358446"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679358446"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Comment -&gt; Int -&gt; PostCommentReplyResponse
 </span><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse%27"><span class="hs-identifier hs-var">PostCommentReplyResponse'</span></a></span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Comment -&gt; Int -&gt; PostCommentReplyResponse)
@@ -271,7 +271,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; PostCommentReplyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679358437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Comment)
+</span><a href="#local-6989586621679358446"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Comment)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;comment&quot;</span></span><span class="hs-special">)</span><span>
@@ -283,15 +283,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358439"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358448"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358429"><span id="local-6989586621679358431"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358438"><span id="local-6989586621679358440"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358426"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358435"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679358422"><span class="annot"><span class="annottext">toHeaders :: PostCommentReply -&gt; ResponseHeaders
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679358431"><span class="annot"><span class="annottext">toHeaders :: PostCommentReply -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PostCommentReply -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -318,9 +318,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358412"><span id="local-6989586621679358414"><span id="local-6989586621679358416"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679358410"><span class="annot"><span class="annottext">toJSON :: PostCommentReply -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply%27"><span class="hs-identifier hs-type">PostCommentReply'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358406"><span id="local-6989586621679358407"><span id="local-6989586621679358408"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358421"><span id="local-6989586621679358423"><span id="local-6989586621679358425"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679358419"><span class="annot"><span class="annottext">toJSON :: PostCommentReply -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply%27"><span class="hs-identifier hs-type">PostCommentReply'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358415"><span id="local-6989586621679358416"><span id="local-6989586621679358417"><span class="annot"><span class="annottext">Maybe Text
 Text
 content :: Text
 inReplyTo :: Text
@@ -328,7 +328,7 @@ clientRequestToken :: Maybe Text
 $sel:content:PostCommentReply' :: PostCommentReply -&gt; Text
 $sel:inReplyTo:PostCommentReply' :: PostCommentReply -&gt; Text
 $sel:clientRequestToken:PostCommentReply' :: PostCommentReply -&gt; Maybe Text
-</span><a href="#local-6989586621679358406"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679358415"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -341,33 +341,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679358408"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679358417"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inReplyTo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358407"><span class="hs-identifier hs-var">inReplyTo</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679358416"><span class="hs-identifier hs-var">inReplyTo</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;content&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679358406"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358415"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679358400"><span class="annot"><span class="annottext">toPath :: PostCommentReply -&gt; ByteString
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679358409"><span class="annot"><span class="annottext">toPath :: PostCommentReply -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PostCommentReply -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReply"><span class="hs-identifier hs-type">PostCommentReply</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679358396"><span class="annot"><span class="annottext">toQuery :: PostCommentReply -&gt; QueryString
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679358405"><span class="annot"><span class="annottext">toQuery :: PostCommentReply -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PostCommentReply -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -375,7 +375,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | /See:/ 'newPostCommentReplyResponse' smart constructor.</span><span>
-</span><span id="line-170"></span><span id="local-6989586621679358393"><span id="local-6989586621679358394"></span></span><span class="hs-keyword">data</span><span> </span><span id="PostCommentReplyResponse"><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse"><span class="hs-identifier hs-var">PostCommentReplyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PostCommentReplyResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse%27"><span class="hs-identifier hs-var">PostCommentReplyResponse'</span></a></span></span><span>
+</span><span id="line-170"></span><span id="local-6989586621679358402"><span id="local-6989586621679358403"></span></span><span class="hs-keyword">data</span><span> </span><span id="PostCommentReplyResponse"><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse"><span class="hs-identifier hs-var">PostCommentReplyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PostCommentReplyResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse%27"><span class="hs-identifier hs-var">PostCommentReplyResponse'</span></a></span></span><span>
 </span><span id="line-171"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the reply to a comment.</span><span>
 </span><span id="line-172"></span><span>    </span><span id="%24sel%3Acomment%3APostCommentReplyResponse%27"><span class="annot"><span class="annottext">PostCommentReplyResponse -&gt; Maybe Comment
 </span><a href="Network.AWS.CodeCommit.PostCommentReply.html#%24sel%3Acomment%3APostCommentReplyResponse%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Comment.html#Comment"><span class="hs-identifier hs-type">Comment</span></a></span><span class="hs-special">,</span><span>
@@ -383,7 +383,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3APostCommentReplyResponse%27"><span class="annot"><span class="annottext">PostCommentReplyResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.PostCommentReply.html#%24sel%3AhttpStatus%3APostCommentReplyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358387"><span id="local-6989586621679358389"><span class="annot"><span class="annottext">PostCommentReplyResponse -&gt; PostCommentReplyResponse -&gt; Bool
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679358396"><span id="local-6989586621679358398"><span class="annot"><span class="annottext">PostCommentReplyResponse -&gt; PostCommentReplyResponse -&gt; Bool
 (PostCommentReplyResponse -&gt; PostCommentReplyResponse -&gt; Bool)
 -&gt; (PostCommentReplyResponse -&gt; PostCommentReplyResponse -&gt; Bool)
 -&gt; Eq PostCommentReplyResponse
@@ -392,7 +392,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PostCommentReplyResponse -&gt; PostCommentReplyResponse -&gt; Bool
 == :: PostCommentReplyResponse -&gt; PostCommentReplyResponse -&gt; Bool
 $c== :: PostCommentReplyResponse -&gt; PostCommentReplyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358379"><span id="local-6989586621679358381"><span id="local-6989586621679358383"><span id="local-6989586621679358385"><span class="annot"><span class="annottext">ReadPrec [PostCommentReplyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358388"><span id="local-6989586621679358390"><span id="local-6989586621679358392"><span id="local-6989586621679358394"><span class="annot"><span class="annottext">ReadPrec [PostCommentReplyResponse]
 ReadPrec PostCommentReplyResponse
 Int -&gt; ReadS PostCommentReplyResponse
 ReadS [PostCommentReplyResponse]
@@ -412,7 +412,7 @@ readList :: ReadS [PostCommentReplyResponse]
 $creadList :: ReadS [PostCommentReplyResponse]
 readsPrec :: Int -&gt; ReadS PostCommentReplyResponse
 $creadsPrec :: Int -&gt; ReadS PostCommentReplyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358373"><span id="local-6989586621679358375"><span id="local-6989586621679358377"><span class="annot"><span class="annottext">Int -&gt; PostCommentReplyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679358382"><span id="local-6989586621679358384"><span id="local-6989586621679358386"><span class="annot"><span class="annottext">Int -&gt; PostCommentReplyResponse -&gt; ShowS
 [PostCommentReplyResponse] -&gt; ShowS
 PostCommentReplyResponse -&gt; String
 (Int -&gt; PostCommentReplyResponse -&gt; ShowS)
@@ -460,8 +460,8 @@ PostCommentReplyResponse -&gt; Rep PostCommentReplyResponse x
 </span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse"><span class="hs-identifier hs-type">PostCommentReplyResponse</span></a></span><span>
 </span><span id="line-193"></span><span id="newPostCommentReplyResponse"><span class="annot"><span class="annottext">newPostCommentReplyResponse :: Int -&gt; PostCommentReplyResponse
-</span><a href="Network.AWS.CodeCommit.PostCommentReply.html#newPostCommentReplyResponse"><span class="hs-identifier hs-var hs-var">newPostCommentReplyResponse</span></a></span></span><span> </span><span id="local-6989586621679358370"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358370"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.PostCommentReply.html#newPostCommentReplyResponse"><span class="hs-identifier hs-var hs-var">newPostCommentReplyResponse</span></a></span></span><span> </span><span id="local-6989586621679358379"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358379"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">PostCommentReplyResponse' :: Maybe Comment -&gt; Int -&gt; PostCommentReplyResponse
 </span><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse%27"><span class="hs-identifier hs-type">PostCommentReplyResponse'</span></a></span><span>
 </span><span id="line-195"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:comment:PostCommentReplyResponse' :: Maybe Comment
@@ -471,7 +471,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PostCommentReplyResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.PostCommentReply.html#%24sel%3AhttpStatus%3APostCommentReplyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358370"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679358379"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-198"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | Information about the reply to a comment.</span><span>
@@ -487,16 +487,16 @@ forall a. Maybe a
      (Maybe Comment)
      (Maybe Comment)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse%27"><span class="hs-identifier hs-type">PostCommentReplyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358369"><span class="annot"><span class="annottext">Maybe Comment
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse%27"><span class="hs-identifier hs-type">PostCommentReplyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358378"><span class="annot"><span class="annottext">Maybe Comment
 comment :: Maybe Comment
 $sel:comment:PostCommentReplyResponse' :: PostCommentReplyResponse -&gt; Maybe Comment
-</span><a href="#local-6989586621679358369"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Comment
-</span><a href="#local-6989586621679358369"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358368"><span class="annot"><span class="annottext">s :: PostCommentReplyResponse
-</span><a href="#local-6989586621679358368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse%27"><span class="hs-identifier hs-type">PostCommentReplyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358367"><span class="annot"><span class="annottext">Maybe Comment
-</span><a href="#local-6989586621679358367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PostCommentReplyResponse
-</span><a href="#local-6989586621679358368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:PostCommentReplyResponse' :: Maybe Comment
+</span><a href="#local-6989586621679358378"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Comment
+</span><a href="#local-6989586621679358378"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358377"><span class="annot"><span class="annottext">s :: PostCommentReplyResponse
+</span><a href="#local-6989586621679358377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse%27"><span class="hs-identifier hs-type">PostCommentReplyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358376"><span class="annot"><span class="annottext">Maybe Comment
+</span><a href="#local-6989586621679358376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PostCommentReplyResponse
+</span><a href="#local-6989586621679358377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:PostCommentReplyResponse' :: Maybe Comment
 </span><a href="Network.AWS.CodeCommit.PostCommentReply.html#%24sel%3Acomment%3APostCommentReplyResponse%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Comment
-</span><a href="#local-6989586621679358367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse"><span class="hs-identifier hs-type">PostCommentReplyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse"><span class="hs-identifier hs-type">PostCommentReplyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-205"></span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#postCommentReplyResponse_httpStatus"><span class="hs-identifier hs-type">postCommentReplyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse"><span class="hs-identifier hs-type">PostCommentReplyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -506,16 +506,16 @@ $sel:comment:PostCommentReplyResponse' :: PostCommentReplyResponse -&gt; Maybe C
 -&gt; (PostCommentReplyResponse -&gt; Int -&gt; PostCommentReplyResponse)
 -&gt; Lens PostCommentReplyResponse PostCommentReplyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse%27"><span class="hs-identifier hs-type">PostCommentReplyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358366"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse%27"><span class="hs-identifier hs-type">PostCommentReplyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679358375"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PostCommentReplyResponse' :: PostCommentReplyResponse -&gt; Int
-</span><a href="#local-6989586621679358366"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358366"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358365"><span class="annot"><span class="annottext">s :: PostCommentReplyResponse
-</span><a href="#local-6989586621679358365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse%27"><span class="hs-identifier hs-type">PostCommentReplyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358364"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PostCommentReplyResponse
-</span><a href="#local-6989586621679358365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PostCommentReplyResponse' :: Int
+</span><a href="#local-6989586621679358375"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358375"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679358374"><span class="annot"><span class="annottext">s :: PostCommentReplyResponse
+</span><a href="#local-6989586621679358374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse%27"><span class="hs-identifier hs-type">PostCommentReplyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679358373"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679358373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PostCommentReplyResponse
+</span><a href="#local-6989586621679358374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PostCommentReplyResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.PostCommentReply.html#%24sel%3AhttpStatus%3APostCommentReplyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679358364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse"><span class="hs-identifier hs-type">PostCommentReplyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679358373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse"><span class="hs-identifier hs-type">PostCommentReplyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse"><span class="hs-identifier hs-type">PostCommentReplyResponse</span></a></span></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679358371"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.PostCommentReply.html#PostCommentReplyResponse"><span class="hs-identifier hs-type">PostCommentReplyResponse</span></a></span></span><span>
 </span><span id="line-209"></span></pre></body></html>

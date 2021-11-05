@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Amplify.DeleteBranch</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a branch for an Amplify app.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Amplify.DeleteBranch</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch"><span class="hs-identifier">DeleteBranch</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#newDeleteBranch"><span class="hs-identifier">newDeleteBranch</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#deleteBranch_appId"><span class="hs-identifier">deleteBranch_appId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#deleteBranch_branchName"><span class="hs-identifier">deleteBranch_branchName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier">DeleteBranchResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#newDeleteBranchResponse"><span class="hs-identifier">newDeleteBranchResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#deleteBranchResponse_httpStatus"><span class="hs-identifier">deleteBranchResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#deleteBranchResponse_branch"><span class="hs-identifier">deleteBranchResponse_branch</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.html"><span class="hs-identifier">Network.AWS.Amplify.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | The request structure for the delete branch request.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newDeleteBranch' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679252015"><span id="local-6989586621679252016"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBranch"><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-var">DeleteBranch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBranch%27"><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-var">DeleteBranch'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID for an Amplify app.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AappId%3ADeleteBranch%27"><span class="annot"><span class="annottext">DeleteBranch -&gt; Text
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#%24sel%3AappId%3ADeleteBranch%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The name for the branch.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AbranchName%3ADeleteBranch%27"><span class="annot"><span class="annottext">DeleteBranch -&gt; Text
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#%24sel%3AbranchName%3ADeleteBranch%27"><span class="hs-identifier hs-var hs-var">branchName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252008"><span id="local-6989586621679252010"><span class="annot"><span class="annottext">DeleteBranch -&gt; DeleteBranch -&gt; Bool
+(DeleteBranch -&gt; DeleteBranch -&gt; Bool)
+-&gt; (DeleteBranch -&gt; DeleteBranch -&gt; Bool) -&gt; Eq DeleteBranch
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteBranch -&gt; DeleteBranch -&gt; Bool
+$c/= :: DeleteBranch -&gt; DeleteBranch -&gt; Bool
+== :: DeleteBranch -&gt; DeleteBranch -&gt; Bool
+$c== :: DeleteBranch -&gt; DeleteBranch -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251999"><span id="local-6989586621679252001"><span id="local-6989586621679252003"><span id="local-6989586621679252005"><span class="annot"><span class="annottext">ReadPrec [DeleteBranch]
+ReadPrec DeleteBranch
+Int -&gt; ReadS DeleteBranch
+ReadS [DeleteBranch]
+(Int -&gt; ReadS DeleteBranch)
+-&gt; ReadS [DeleteBranch]
+-&gt; ReadPrec DeleteBranch
+-&gt; ReadPrec [DeleteBranch]
+-&gt; Read DeleteBranch
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteBranch]
+$creadListPrec :: ReadPrec [DeleteBranch]
+readPrec :: ReadPrec DeleteBranch
+$creadPrec :: ReadPrec DeleteBranch
+readList :: ReadS [DeleteBranch]
+$creadList :: ReadS [DeleteBranch]
+readsPrec :: Int -&gt; ReadS DeleteBranch
+$creadsPrec :: Int -&gt; ReadS DeleteBranch
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251992"><span id="local-6989586621679251994"><span id="local-6989586621679251996"><span class="annot"><span class="annottext">Int -&gt; DeleteBranch -&gt; ShowS
+[DeleteBranch] -&gt; ShowS
+DeleteBranch -&gt; String
+(Int -&gt; DeleteBranch -&gt; ShowS)
+-&gt; (DeleteBranch -&gt; String)
+-&gt; ([DeleteBranch] -&gt; ShowS)
+-&gt; Show DeleteBranch
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteBranch] -&gt; ShowS
+$cshowList :: [DeleteBranch] -&gt; ShowS
+show :: DeleteBranch -&gt; String
+$cshow :: DeleteBranch -&gt; String
+showsPrec :: Int -&gt; DeleteBranch -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteBranch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteBranch -&gt; Rep DeleteBranch x)
+-&gt; (forall x. Rep DeleteBranch x -&gt; DeleteBranch)
+-&gt; Generic DeleteBranch
+forall x. Rep DeleteBranch x -&gt; DeleteBranch
+forall x. DeleteBranch -&gt; Rep DeleteBranch x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteBranch x -&gt; DeleteBranch
+$cfrom :: forall x. DeleteBranch -&gt; Rep DeleteBranch x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'DeleteBranch' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'appId', 'deleteBranch_appId' - The unique ID for an Amplify app.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'branchName', 'deleteBranch_branchName' - The name for the branch.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#newDeleteBranch"><span class="hs-identifier hs-type">newDeleteBranch</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'appId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'branchName'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span>
+</span><span id="line-78"></span><span id="newDeleteBranch"><span class="annot"><span class="annottext">newDeleteBranch :: Text -&gt; Text -&gt; DeleteBranch
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#newDeleteBranch"><span class="hs-identifier hs-var hs-var">newDeleteBranch</span></a></span></span><span> </span><span id="local-6989586621679251987"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251987"><span class="hs-identifier hs-var">pAppId_</span></a></span></span><span> </span><span id="local-6989586621679251986"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251986"><span class="hs-identifier hs-var">pBranchName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DeleteBranch' :: Text -&gt; Text -&gt; DeleteBranch
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-type">DeleteBranch'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appId:DeleteBranch' :: Text
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#%24sel%3AappId%3ADeleteBranch%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251987"><span class="hs-identifier hs-var">pAppId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:branchName:DeleteBranch' :: Text
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#%24sel%3AbranchName%3ADeleteBranch%27"><span class="hs-identifier hs-var">branchName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251986"><span class="hs-identifier hs-var">pBranchName_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The unique ID for an Amplify app.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#deleteBranch_appId"><span class="hs-identifier hs-type">deleteBranch_appId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="deleteBranch_appId"><span class="annot"><span class="annottext">deleteBranch_appId :: (Text -&gt; f Text) -&gt; DeleteBranch -&gt; f DeleteBranch
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#deleteBranch_appId"><span class="hs-identifier hs-var hs-var">deleteBranch_appId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBranch -&gt; Text)
+-&gt; (DeleteBranch -&gt; Text -&gt; DeleteBranch)
+-&gt; Lens DeleteBranch DeleteBranch Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-type">DeleteBranch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251983"><span class="annot"><span class="annottext">Text
+appId :: Text
+$sel:appId:DeleteBranch' :: DeleteBranch -&gt; Text
+</span><a href="#local-6989586621679251983"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251983"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251982"><span class="annot"><span class="annottext">s :: DeleteBranch
+</span><a href="#local-6989586621679251982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-type">DeleteBranch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251981"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBranch
+</span><a href="#local-6989586621679251982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:DeleteBranch' :: Text
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#%24sel%3AappId%3ADeleteBranch%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The name for the branch.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#deleteBranch_branchName"><span class="hs-identifier hs-type">deleteBranch_branchName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="deleteBranch_branchName"><span class="annot"><span class="annottext">deleteBranch_branchName :: (Text -&gt; f Text) -&gt; DeleteBranch -&gt; f DeleteBranch
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#deleteBranch_branchName"><span class="hs-identifier hs-var hs-var">deleteBranch_branchName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBranch -&gt; Text)
+-&gt; (DeleteBranch -&gt; Text -&gt; DeleteBranch)
+-&gt; Lens DeleteBranch DeleteBranch Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-type">DeleteBranch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251980"><span class="annot"><span class="annottext">Text
+branchName :: Text
+$sel:branchName:DeleteBranch' :: DeleteBranch -&gt; Text
+</span><a href="#local-6989586621679251980"><span class="hs-identifier hs-var hs-var">branchName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251980"><span class="hs-identifier hs-var">branchName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251979"><span class="annot"><span class="annottext">s :: DeleteBranch
+</span><a href="#local-6989586621679251979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-type">DeleteBranch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251978"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBranch
+</span><a href="#local-6989586621679251979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchName:DeleteBranch' :: Text
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#%24sel%3AbranchName%3ADeleteBranch%27"><span class="hs-identifier hs-var">branchName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-type">DeleteBranchResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679251974"><span class="annot"><span class="annottext">request :: DeleteBranch -&gt; Request DeleteBranch
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteBranch -&gt; Request DeleteBranch
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Amplify.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679251970"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteBranch
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteBranch)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteBranch))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteBranch
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteBranch)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251967"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251967"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679251966"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679251966"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679251965"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251965"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Branch -&gt; DeleteBranchResponse
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-var">DeleteBranchResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Branch -&gt; DeleteBranchResponse)
+-&gt; Either String Int
+-&gt; Either String (Branch -&gt; DeleteBranchResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251967"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Branch -&gt; DeleteBranchResponse)
+-&gt; Either String Branch -&gt; Either String DeleteBranchResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251965"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Branch
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;branch&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251957"><span id="local-6989586621679251959"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251954"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679251950"><span class="annot"><span class="annottext">toHeaders :: DeleteBranch -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteBranch -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679251944"><span class="annot"><span class="annottext">toPath :: DeleteBranch -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch%27"><span class="hs-identifier hs-type">DeleteBranch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251941"><span id="local-6989586621679251942"><span class="annot"><span class="annottext">Text
+branchName :: Text
+appId :: Text
+$sel:branchName:DeleteBranch' :: DeleteBranch -&gt; Text
+$sel:appId:DeleteBranch' :: DeleteBranch -&gt; Text
+</span><a href="#local-6989586621679251941"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/apps/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251942"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/branches/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251941"><span class="hs-identifier hs-var">branchName</span></a></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranch"><span class="hs-identifier hs-type">DeleteBranch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679251937"><span class="annot"><span class="annottext">toQuery :: DeleteBranch -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteBranch -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The result structure for the delete branch request.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- /See:/ 'newDeleteBranchResponse' smart constructor.</span><span>
+</span><span id="line-133"></span><span id="local-6989586621679251934"><span id="local-6989586621679251935"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBranchResponse"><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-var">DeleteBranchResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBranchResponse%27"><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-var">DeleteBranchResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteBranchResponse%27"><span class="annot"><span class="annottext">DeleteBranchResponse -&gt; Int
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#%24sel%3AhttpStatus%3ADeleteBranchResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The branch for an Amplify app, which maps to a third-party repository</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- branch.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3Abranch%3ADeleteBranchResponse%27"><span class="annot"><span class="annottext">DeleteBranchResponse -&gt; Branch
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#%24sel%3Abranch%3ADeleteBranchResponse%27"><span class="hs-identifier hs-var hs-var">branch</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.Branch.html#Branch"><span class="hs-identifier hs-type">Branch</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251928"><span id="local-6989586621679251930"><span class="annot"><span class="annottext">DeleteBranchResponse -&gt; DeleteBranchResponse -&gt; Bool
+(DeleteBranchResponse -&gt; DeleteBranchResponse -&gt; Bool)
+-&gt; (DeleteBranchResponse -&gt; DeleteBranchResponse -&gt; Bool)
+-&gt; Eq DeleteBranchResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteBranchResponse -&gt; DeleteBranchResponse -&gt; Bool
+$c/= :: DeleteBranchResponse -&gt; DeleteBranchResponse -&gt; Bool
+== :: DeleteBranchResponse -&gt; DeleteBranchResponse -&gt; Bool
+$c== :: DeleteBranchResponse -&gt; DeleteBranchResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251922"><span id="local-6989586621679251924"><span id="local-6989586621679251926"><span class="annot"><span class="annottext">Int -&gt; DeleteBranchResponse -&gt; ShowS
+[DeleteBranchResponse] -&gt; ShowS
+DeleteBranchResponse -&gt; String
+(Int -&gt; DeleteBranchResponse -&gt; ShowS)
+-&gt; (DeleteBranchResponse -&gt; String)
+-&gt; ([DeleteBranchResponse] -&gt; ShowS)
+-&gt; Show DeleteBranchResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteBranchResponse] -&gt; ShowS
+$cshowList :: [DeleteBranchResponse] -&gt; ShowS
+show :: DeleteBranchResponse -&gt; String
+$cshow :: DeleteBranchResponse -&gt; String
+showsPrec :: Int -&gt; DeleteBranchResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteBranchResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteBranchResponse -&gt; Rep DeleteBranchResponse x)
+-&gt; (forall x. Rep DeleteBranchResponse x -&gt; DeleteBranchResponse)
+-&gt; Generic DeleteBranchResponse
+forall x. Rep DeleteBranchResponse x -&gt; DeleteBranchResponse
+forall x. DeleteBranchResponse -&gt; Rep DeleteBranchResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteBranchResponse x -&gt; DeleteBranchResponse
+$cfrom :: forall x. DeleteBranchResponse -&gt; Rep DeleteBranchResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'DeleteBranchResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'httpStatus', 'deleteBranchResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'branch', 'deleteBranchResponse_branch' - The branch for an Amplify app, which maps to a third-party repository</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- branch.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#newDeleteBranchResponse"><span class="hs-identifier hs-type">newDeleteBranchResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-comment">-- | 'branch'</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.Amplify.Types.Branch.html#Branch"><span class="hs-identifier hs-type">Branch</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-type">DeleteBranchResponse</span></a></span><span>
+</span><span id="line-160"></span><span id="newDeleteBranchResponse"><span class="annot"><span class="annottext">newDeleteBranchResponse :: Int -&gt; Branch -&gt; DeleteBranchResponse
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#newDeleteBranchResponse"><span class="hs-identifier hs-var hs-var">newDeleteBranchResponse</span></a></span></span><span> </span><span id="local-6989586621679251919"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251919"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679251918"><span class="annot"><span class="annottext">Branch
+</span><a href="#local-6989586621679251918"><span class="hs-identifier hs-var">pBranch_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">DeleteBranchResponse' :: Int -&gt; Branch -&gt; DeleteBranchResponse
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-type">DeleteBranchResponse'</span></a></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBranchResponse' :: Int
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#%24sel%3AhttpStatus%3ADeleteBranchResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251919"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:branch:DeleteBranchResponse' :: Branch
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#%24sel%3Abranch%3ADeleteBranchResponse%27"><span class="hs-identifier hs-var">branch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Branch
+</span><a href="#local-6989586621679251918"><span class="hs-identifier hs-var">pBranch_</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#deleteBranchResponse_httpStatus"><span class="hs-identifier hs-type">deleteBranchResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-type">DeleteBranchResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-168"></span><span id="deleteBranchResponse_httpStatus"><span class="annot"><span class="annottext">deleteBranchResponse_httpStatus :: (Int -&gt; f Int) -&gt; DeleteBranchResponse -&gt; f DeleteBranchResponse
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#deleteBranchResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteBranchResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBranchResponse -&gt; Int)
+-&gt; (DeleteBranchResponse -&gt; Int -&gt; DeleteBranchResponse)
+-&gt; Lens DeleteBranchResponse DeleteBranchResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-type">DeleteBranchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251917"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteBranchResponse' :: DeleteBranchResponse -&gt; Int
+</span><a href="#local-6989586621679251917"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251917"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251916"><span class="annot"><span class="annottext">s :: DeleteBranchResponse
+</span><a href="#local-6989586621679251916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-type">DeleteBranchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251915"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBranchResponse
+</span><a href="#local-6989586621679251916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBranchResponse' :: Int
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#%24sel%3AhttpStatus%3ADeleteBranchResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-type">DeleteBranchResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The branch for an Amplify app, which maps to a third-party repository</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- branch.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#deleteBranchResponse_branch"><span class="hs-identifier hs-type">deleteBranchResponse_branch</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-type">DeleteBranchResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.Branch.html#Branch"><span class="hs-identifier hs-type">Branch</span></a></span><span>
+</span><span id="line-173"></span><span id="deleteBranchResponse_branch"><span class="annot"><span class="annottext">deleteBranchResponse_branch :: (Branch -&gt; f Branch)
+-&gt; DeleteBranchResponse -&gt; f DeleteBranchResponse
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#deleteBranchResponse_branch"><span class="hs-identifier hs-var hs-var">deleteBranchResponse_branch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBranchResponse -&gt; Branch)
+-&gt; (DeleteBranchResponse -&gt; Branch -&gt; DeleteBranchResponse)
+-&gt; Lens DeleteBranchResponse DeleteBranchResponse Branch Branch
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-type">DeleteBranchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251914"><span class="annot"><span class="annottext">Branch
+branch :: Branch
+$sel:branch:DeleteBranchResponse' :: DeleteBranchResponse -&gt; Branch
+</span><a href="#local-6989586621679251914"><span class="hs-identifier hs-var hs-var">branch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Branch
+</span><a href="#local-6989586621679251914"><span class="hs-identifier hs-var">branch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251913"><span class="annot"><span class="annottext">s :: DeleteBranchResponse
+</span><a href="#local-6989586621679251913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranchResponse%27"><span class="hs-identifier hs-type">DeleteBranchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251912"><span class="annot"><span class="annottext">Branch
+</span><a href="#local-6989586621679251912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBranchResponse
+</span><a href="#local-6989586621679251913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branch:DeleteBranchResponse' :: Branch
+</span><a href="Network.AWS.Amplify.DeleteBranch.html#%24sel%3Abranch%3ADeleteBranchResponse%27"><span class="hs-identifier hs-var">branch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Branch
+</span><a href="#local-6989586621679251912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-type">DeleteBranchResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251910"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.DeleteBranch.html#DeleteBranchResponse"><span class="hs-identifier hs-type">DeleteBranchResponse</span></a></span></span><span>
+</span><span id="line-176"></span></pre></body></html>

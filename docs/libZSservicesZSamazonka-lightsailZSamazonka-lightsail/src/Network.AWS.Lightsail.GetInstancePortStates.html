@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetInstancePortStates' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679641492"><span id="local-6989586621679641493"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstancePortStates"><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates"><span class="hs-identifier hs-var">GetInstancePortStates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstancePortStates%27"><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates%27"><span class="hs-identifier hs-var">GetInstancePortStates'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679641501"><span id="local-6989586621679641502"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstancePortStates"><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates"><span class="hs-identifier hs-var">GetInstancePortStates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstancePortStates%27"><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates%27"><span class="hs-identifier hs-var">GetInstancePortStates'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the instance for which to return firewall port states.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AinstanceName%3AGetInstancePortStates%27"><span class="annot"><span class="annottext">GetInstancePortStates -&gt; Text
 </span><a href="Network.AWS.Lightsail.GetInstancePortStates.html#%24sel%3AinstanceName%3AGetInstancePortStates%27"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679641486"><span id="local-6989586621679641488"><span class="annot"><span class="annottext">GetInstancePortStates -&gt; GetInstancePortStates -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679641495"><span id="local-6989586621679641497"><span class="annot"><span class="annottext">GetInstancePortStates -&gt; GetInstancePortStates -&gt; Bool
 (GetInstancePortStates -&gt; GetInstancePortStates -&gt; Bool)
 -&gt; (GetInstancePortStates -&gt; GetInstancePortStates -&gt; Bool)
 -&gt; Eq GetInstancePortStates
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetInstancePortStates -&gt; GetInstancePortStates -&gt; Bool
 == :: GetInstancePortStates -&gt; GetInstancePortStates -&gt; Bool
 $c== :: GetInstancePortStates -&gt; GetInstancePortStates -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641477"><span id="local-6989586621679641479"><span id="local-6989586621679641481"><span id="local-6989586621679641483"><span class="annot"><span class="annottext">ReadPrec [GetInstancePortStates]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641486"><span id="local-6989586621679641488"><span id="local-6989586621679641490"><span id="local-6989586621679641492"><span class="annot"><span class="annottext">ReadPrec [GetInstancePortStates]
 ReadPrec GetInstancePortStates
 Int -&gt; ReadS GetInstancePortStates
 ReadS [GetInstancePortStates]
@@ -83,7 +83,7 @@ readList :: ReadS [GetInstancePortStates]
 $creadList :: ReadS [GetInstancePortStates]
 readsPrec :: Int -&gt; ReadS GetInstancePortStates
 $creadsPrec :: Int -&gt; ReadS GetInstancePortStates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641470"><span id="local-6989586621679641472"><span id="local-6989586621679641474"><span class="annot"><span class="annottext">Int -&gt; GetInstancePortStates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641479"><span id="local-6989586621679641481"><span id="local-6989586621679641483"><span class="annot"><span class="annottext">Int -&gt; GetInstancePortStates -&gt; ShowS
 [GetInstancePortStates] -&gt; ShowS
 GetInstancePortStates -&gt; String
 (Int -&gt; GetInstancePortStates -&gt; ShowS)
@@ -123,14 +123,14 @@ $cfrom :: forall x. GetInstancePortStates -&gt; Rep GetInstancePortStates x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates"><span class="hs-identifier hs-type">GetInstancePortStates</span></a></span><span>
 </span><span id="line-71"></span><span id="newGetInstancePortStates"><span class="annot"><span class="annottext">newGetInstancePortStates :: Text -&gt; GetInstancePortStates
-</span><a href="Network.AWS.Lightsail.GetInstancePortStates.html#newGetInstancePortStates"><span class="hs-identifier hs-var hs-var">newGetInstancePortStates</span></a></span></span><span> </span><span id="local-6989586621679641465"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679641465"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetInstancePortStates.html#newGetInstancePortStates"><span class="hs-identifier hs-var hs-var">newGetInstancePortStates</span></a></span></span><span> </span><span id="local-6989586621679641474"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679641474"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">GetInstancePortStates' :: Text -&gt; GetInstancePortStates
 </span><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates%27"><span class="hs-identifier hs-type">GetInstancePortStates'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceName:GetInstancePortStates' :: Text
 </span><a href="Network.AWS.Lightsail.GetInstancePortStates.html#%24sel%3AinstanceName%3AGetInstancePortStates%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679641465"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span>
+</span><a href="#local-6989586621679641474"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The name of the instance for which to return firewall port states.</span><span>
@@ -141,27 +141,27 @@ $cfrom :: forall x. GetInstancePortStates -&gt; Rep GetInstancePortStates x
 -&gt; (GetInstancePortStates -&gt; Text -&gt; GetInstancePortStates)
 -&gt; Lens GetInstancePortStates GetInstancePortStates Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates%27"><span class="hs-identifier hs-type">GetInstancePortStates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641462"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates%27"><span class="hs-identifier hs-type">GetInstancePortStates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641471"><span class="annot"><span class="annottext">Text
 instanceName :: Text
 $sel:instanceName:GetInstancePortStates' :: GetInstancePortStates -&gt; Text
-</span><a href="#local-6989586621679641462"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679641462"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641461"><span class="annot"><span class="annottext">s :: GetInstancePortStates
-</span><a href="#local-6989586621679641461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates%27"><span class="hs-identifier hs-type">GetInstancePortStates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641460"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679641460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancePortStates
-</span><a href="#local-6989586621679641461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:GetInstancePortStates' :: Text
+</span><a href="#local-6989586621679641471"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679641471"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641470"><span class="annot"><span class="annottext">s :: GetInstancePortStates
+</span><a href="#local-6989586621679641470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates%27"><span class="hs-identifier hs-type">GetInstancePortStates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641469"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679641469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancePortStates
+</span><a href="#local-6989586621679641470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:GetInstancePortStates' :: Text
 </span><a href="Network.AWS.Lightsail.GetInstancePortStates.html#%24sel%3AinstanceName%3AGetInstancePortStates%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679641460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates"><span class="hs-identifier hs-type">GetInstancePortStates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679641469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates"><span class="hs-identifier hs-type">GetInstancePortStates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates"><span class="hs-identifier hs-type">GetInstancePortStates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates"><span class="hs-identifier hs-type">GetInstancePortStates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse"><span class="hs-identifier hs-type">GetInstancePortStatesResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679641456"><span class="annot"><span class="annottext">request :: GetInstancePortStates -&gt; Request GetInstancePortStates
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679641465"><span class="annot"><span class="annottext">request :: GetInstancePortStates -&gt; Request GetInstancePortStates
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetInstancePortStates -&gt; Request GetInstancePortStates
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679641452"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679641461"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetInstancePortStates
 -&gt; ClientResponse ClientBody
@@ -187,10 +187,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679641449"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679641449"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679641448"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679641448"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679641447"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679641447"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679641458"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679641458"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679641457"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679641457"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679641456"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679641456"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe [InstancePortState] -&gt; Int -&gt; GetInstancePortStatesResponse
 </span><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse%27"><span class="hs-identifier hs-var">GetInstancePortStatesResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [InstancePortState] -&gt; Int -&gt; GetInstancePortStatesResponse)
@@ -198,7 +198,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetInstancePortStatesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679641447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [InstancePortState]))
+</span><a href="#local-6989586621679641456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [InstancePortState]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;portStates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [InstancePortState]))
@@ -216,15 +216,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679641449"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679641458"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641438"><span id="local-6989586621679641440"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates"><span class="hs-identifier hs-type">GetInstancePortStates</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641447"><span id="local-6989586621679641449"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates"><span class="hs-identifier hs-type">GetInstancePortStates</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641435"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates"><span class="hs-identifier hs-type">GetInstancePortStates</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates"><span class="hs-identifier hs-type">GetInstancePortStates</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates"><span class="hs-identifier hs-type">GetInstancePortStates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679641431"><span class="annot"><span class="annottext">toHeaders :: GetInstancePortStates -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679641440"><span class="annot"><span class="annottext">toHeaders :: GetInstancePortStates -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetInstancePortStates -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -251,12 +251,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641421"><span id="local-6989586621679641423"><span id="local-6989586621679641425"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates"><span class="hs-identifier hs-type">GetInstancePortStates</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679641419"><span class="annot"><span class="annottext">toJSON :: GetInstancePortStates -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates%27"><span class="hs-identifier hs-type">GetInstancePortStates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641417"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641430"><span id="local-6989586621679641432"><span id="local-6989586621679641434"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates"><span class="hs-identifier hs-type">GetInstancePortStates</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679641428"><span class="annot"><span class="annottext">toJSON :: GetInstancePortStates -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates%27"><span class="hs-identifier hs-type">GetInstancePortStates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641426"><span class="annot"><span class="annottext">Text
 instanceName :: Text
 $sel:instanceName:GetInstancePortStates' :: GetInstancePortStates -&gt; Text
-</span><a href="#local-6989586621679641417"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679641426"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -268,18 +268,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;instanceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679641417"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679641426"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates"><span class="hs-identifier hs-type">GetInstancePortStates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679641411"><span class="annot"><span class="annottext">toPath :: GetInstancePortStates -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679641420"><span class="annot"><span class="annottext">toPath :: GetInstancePortStates -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetInstancePortStates -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStates"><span class="hs-identifier hs-type">GetInstancePortStates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679641407"><span class="annot"><span class="annottext">toQuery :: GetInstancePortStates -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679641416"><span class="annot"><span class="annottext">toQuery :: GetInstancePortStates -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetInstancePortStates -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -287,7 +287,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newGetInstancePortStatesResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679641404"><span id="local-6989586621679641405"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstancePortStatesResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse"><span class="hs-identifier hs-var">GetInstancePortStatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstancePortStatesResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse%27"><span class="hs-identifier hs-var">GetInstancePortStatesResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679641413"><span id="local-6989586621679641414"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstancePortStatesResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse"><span class="hs-identifier hs-var">GetInstancePortStatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstancePortStatesResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse%27"><span class="hs-identifier hs-var">GetInstancePortStatesResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the firewall port states for the</span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-comment">-- specified instance.</span><span>
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3AportStates%3AGetInstancePortStatesResponse%27"><span class="annot"><span class="annottext">GetInstancePortStatesResponse -&gt; Maybe [InstancePortState]
@@ -296,7 +296,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetInstancePortStatesResponse%27"><span class="annot"><span class="annottext">GetInstancePortStatesResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetInstancePortStates.html#%24sel%3AhttpStatus%3AGetInstancePortStatesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679641398"><span id="local-6989586621679641400"><span class="annot"><span class="annottext">GetInstancePortStatesResponse
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679641407"><span id="local-6989586621679641409"><span class="annot"><span class="annottext">GetInstancePortStatesResponse
 -&gt; GetInstancePortStatesResponse -&gt; Bool
 (GetInstancePortStatesResponse
  -&gt; GetInstancePortStatesResponse -&gt; Bool)
@@ -312,7 +312,7 @@ $c/= :: GetInstancePortStatesResponse
 -&gt; GetInstancePortStatesResponse -&gt; Bool
 $c== :: GetInstancePortStatesResponse
 -&gt; GetInstancePortStatesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641390"><span id="local-6989586621679641392"><span id="local-6989586621679641394"><span id="local-6989586621679641396"><span class="annot"><span class="annottext">ReadPrec [GetInstancePortStatesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641399"><span id="local-6989586621679641401"><span id="local-6989586621679641403"><span id="local-6989586621679641405"><span class="annot"><span class="annottext">ReadPrec [GetInstancePortStatesResponse]
 ReadPrec GetInstancePortStatesResponse
 Int -&gt; ReadS GetInstancePortStatesResponse
 ReadS [GetInstancePortStatesResponse]
@@ -332,7 +332,7 @@ readList :: ReadS [GetInstancePortStatesResponse]
 $creadList :: ReadS [GetInstancePortStatesResponse]
 readsPrec :: Int -&gt; ReadS GetInstancePortStatesResponse
 $creadsPrec :: Int -&gt; ReadS GetInstancePortStatesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641384"><span id="local-6989586621679641386"><span id="local-6989586621679641388"><span class="annot"><span class="annottext">Int -&gt; GetInstancePortStatesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679641393"><span id="local-6989586621679641395"><span id="local-6989586621679641397"><span class="annot"><span class="annottext">Int -&gt; GetInstancePortStatesResponse -&gt; ShowS
 [GetInstancePortStatesResponse] -&gt; ShowS
 GetInstancePortStatesResponse -&gt; String
 (Int -&gt; GetInstancePortStatesResponse -&gt; ShowS)
@@ -387,8 +387,8 @@ GetInstancePortStatesResponse
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse"><span class="hs-identifier hs-type">GetInstancePortStatesResponse</span></a></span><span>
 </span><span id="line-152"></span><span id="newGetInstancePortStatesResponse"><span class="annot"><span class="annottext">newGetInstancePortStatesResponse :: Int -&gt; GetInstancePortStatesResponse
-</span><a href="Network.AWS.Lightsail.GetInstancePortStates.html#newGetInstancePortStatesResponse"><span class="hs-identifier hs-var hs-var">newGetInstancePortStatesResponse</span></a></span></span><span> </span><span id="local-6989586621679641381"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679641381"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetInstancePortStates.html#newGetInstancePortStatesResponse"><span class="hs-identifier hs-var hs-var">newGetInstancePortStatesResponse</span></a></span></span><span> </span><span id="local-6989586621679641390"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679641390"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">GetInstancePortStatesResponse' :: Maybe [InstancePortState] -&gt; Int -&gt; GetInstancePortStatesResponse
 </span><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse%27"><span class="hs-identifier hs-type">GetInstancePortStatesResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:portStates:GetInstancePortStatesResponse' :: Maybe [InstancePortState]
@@ -398,7 +398,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstancePortStatesResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetInstancePortStates.html#%24sel%3AhttpStatus%3AGetInstancePortStatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679641381"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679641390"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | An array of objects that describe the firewall port states for the</span><span>
@@ -415,16 +415,16 @@ forall a. Maybe a
      (Maybe [InstancePortState])
      (Maybe [InstancePortState])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse%27"><span class="hs-identifier hs-type">GetInstancePortStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641380"><span class="annot"><span class="annottext">Maybe [InstancePortState]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse%27"><span class="hs-identifier hs-type">GetInstancePortStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641389"><span class="annot"><span class="annottext">Maybe [InstancePortState]
 portStates :: Maybe [InstancePortState]
 $sel:portStates:GetInstancePortStatesResponse' :: GetInstancePortStatesResponse -&gt; Maybe [InstancePortState]
-</span><a href="#local-6989586621679641380"><span class="hs-identifier hs-var hs-var">portStates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePortState]
-</span><a href="#local-6989586621679641380"><span class="hs-identifier hs-var">portStates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641379"><span class="annot"><span class="annottext">s :: GetInstancePortStatesResponse
-</span><a href="#local-6989586621679641379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse%27"><span class="hs-identifier hs-type">GetInstancePortStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641378"><span class="annot"><span class="annottext">Maybe [InstancePortState]
-</span><a href="#local-6989586621679641378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancePortStatesResponse
-</span><a href="#local-6989586621679641379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portStates:GetInstancePortStatesResponse' :: Maybe [InstancePortState]
+</span><a href="#local-6989586621679641389"><span class="hs-identifier hs-var hs-var">portStates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePortState]
+</span><a href="#local-6989586621679641389"><span class="hs-identifier hs-var">portStates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641388"><span class="annot"><span class="annottext">s :: GetInstancePortStatesResponse
+</span><a href="#local-6989586621679641388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse%27"><span class="hs-identifier hs-type">GetInstancePortStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641387"><span class="annot"><span class="annottext">Maybe [InstancePortState]
+</span><a href="#local-6989586621679641387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancePortStatesResponse
+</span><a href="#local-6989586621679641388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portStates:GetInstancePortStatesResponse' :: Maybe [InstancePortState]
 </span><a href="Network.AWS.Lightsail.GetInstancePortStates.html#%24sel%3AportStates%3AGetInstancePortStatesResponse%27"><span class="hs-identifier hs-var">portStates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePortState]
-</span><a href="#local-6989586621679641378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse"><span class="hs-identifier hs-type">GetInstancePortStatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstancePortState] -&gt; f (Maybe [InstancePortState]))
+</span><a href="#local-6989586621679641387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse"><span class="hs-identifier hs-type">GetInstancePortStatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstancePortState] -&gt; f (Maybe [InstancePortState]))
  -&gt; GetInstancePortStatesResponse
  -&gt; f GetInstancePortStatesResponse)
 -&gt; ((Maybe [InstancePortState] -&gt; f (Maybe [InstancePortState]))
@@ -464,16 +464,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      GetInstancePortStatesResponse GetInstancePortStatesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse%27"><span class="hs-identifier hs-type">GetInstancePortStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641374"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse%27"><span class="hs-identifier hs-type">GetInstancePortStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679641383"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetInstancePortStatesResponse' :: GetInstancePortStatesResponse -&gt; Int
-</span><a href="#local-6989586621679641374"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679641374"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641373"><span class="annot"><span class="annottext">s :: GetInstancePortStatesResponse
-</span><a href="#local-6989586621679641373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse%27"><span class="hs-identifier hs-type">GetInstancePortStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641372"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679641372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancePortStatesResponse
-</span><a href="#local-6989586621679641373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstancePortStatesResponse' :: Int
+</span><a href="#local-6989586621679641383"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679641383"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679641382"><span class="annot"><span class="annottext">s :: GetInstancePortStatesResponse
+</span><a href="#local-6989586621679641382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse%27"><span class="hs-identifier hs-type">GetInstancePortStatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679641381"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679641381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancePortStatesResponse
+</span><a href="#local-6989586621679641382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstancePortStatesResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetInstancePortStates.html#%24sel%3AhttpStatus%3AGetInstancePortStatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679641372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse"><span class="hs-identifier hs-type">GetInstancePortStatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679641381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse"><span class="hs-identifier hs-type">GetInstancePortStatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse"><span class="hs-identifier hs-type">GetInstancePortStatesResponse</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679641379"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetInstancePortStates.html#GetInstancePortStatesResponse"><span class="hs-identifier hs-type">GetInstancePortStatesResponse</span></a></span></span><span>
 </span><span id="line-169"></span></pre></body></html>

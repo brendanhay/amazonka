@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Provides information about an API request or response.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMessageBody' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679603398"><span id="local-6989586621679603399"></span></span><span class="hs-keyword">data</span><span> </span><span id="MessageBody"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody"><span class="hs-identifier hs-var">MessageBody</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MessageBody%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody%27"><span class="hs-identifier hs-var">MessageBody'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679603407"><span id="local-6989586621679603408"></span></span><span class="hs-keyword">data</span><span> </span><span id="MessageBody"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody"><span class="hs-identifier hs-var">MessageBody</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MessageBody%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody%27"><span class="hs-identifier hs-var">MessageBody'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the request or response.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3ArequestID%3AMessageBody%27"><span class="annot"><span class="annottext">MessageBody -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.MessageBody.html#%24sel%3ArequestID%3AMessageBody%27"><span class="hs-identifier hs-var hs-var">requestID</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Amessage%3AMessageBody%27"><span class="annot"><span class="annottext">MessageBody -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.MessageBody.html#%24sel%3Amessage%3AMessageBody%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679603391"><span id="local-6989586621679603393"><span class="annot"><span class="annottext">MessageBody -&gt; MessageBody -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679603400"><span id="local-6989586621679603402"><span class="annot"><span class="annottext">MessageBody -&gt; MessageBody -&gt; Bool
 (MessageBody -&gt; MessageBody -&gt; Bool)
 -&gt; (MessageBody -&gt; MessageBody -&gt; Bool) -&gt; Eq MessageBody
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MessageBody -&gt; MessageBody -&gt; Bool
 == :: MessageBody -&gt; MessageBody -&gt; Bool
 $c== :: MessageBody -&gt; MessageBody -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603382"><span id="local-6989586621679603384"><span id="local-6989586621679603386"><span id="local-6989586621679603388"><span class="annot"><span class="annottext">ReadPrec [MessageBody]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603391"><span id="local-6989586621679603393"><span id="local-6989586621679603395"><span id="local-6989586621679603397"><span class="annot"><span class="annottext">ReadPrec [MessageBody]
 ReadPrec MessageBody
 Int -&gt; ReadS MessageBody
 ReadS [MessageBody]
@@ -62,7 +62,7 @@ readList :: ReadS [MessageBody]
 $creadList :: ReadS [MessageBody]
 readsPrec :: Int -&gt; ReadS MessageBody
 $creadsPrec :: Int -&gt; ReadS MessageBody
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603375"><span id="local-6989586621679603377"><span id="local-6989586621679603379"><span class="annot"><span class="annottext">Int -&gt; MessageBody -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603384"><span id="local-6989586621679603386"><span id="local-6989586621679603388"><span class="annot"><span class="annottext">Int -&gt; MessageBody -&gt; ShowS
 [MessageBody] -&gt; ShowS
 MessageBody -&gt; String
 (Int -&gt; MessageBody -&gt; ShowS)
@@ -122,16 +122,16 @@ forall a. Maybe a
 -&gt; (MessageBody -&gt; Maybe Text -&gt; MessageBody)
 -&gt; Lens MessageBody MessageBody (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody%27"><span class="hs-identifier hs-type">MessageBody'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603366"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody%27"><span class="hs-identifier hs-type">MessageBody'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603375"><span class="annot"><span class="annottext">Maybe Text
 requestID :: Maybe Text
 $sel:requestID:MessageBody' :: MessageBody -&gt; Maybe Text
-</span><a href="#local-6989586621679603366"><span class="hs-identifier hs-var hs-var">requestID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603366"><span class="hs-identifier hs-var">requestID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603365"><span class="annot"><span class="annottext">s :: MessageBody
-</span><a href="#local-6989586621679603365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody%27"><span class="hs-identifier hs-type">MessageBody'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603364"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageBody
-</span><a href="#local-6989586621679603365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestID:MessageBody' :: Maybe Text
+</span><a href="#local-6989586621679603375"><span class="hs-identifier hs-var hs-var">requestID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603375"><span class="hs-identifier hs-var">requestID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603374"><span class="annot"><span class="annottext">s :: MessageBody
+</span><a href="#local-6989586621679603374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody%27"><span class="hs-identifier hs-type">MessageBody'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603373"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageBody
+</span><a href="#local-6989586621679603374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestID:MessageBody' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.MessageBody.html#%24sel%3ArequestID%3AMessageBody%27"><span class="hs-identifier hs-var">requestID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody"><span class="hs-identifier hs-type">MessageBody</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679603373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody"><span class="hs-identifier hs-type">MessageBody</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The message that\'s returned from the API.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#messageBody_message"><span class="hs-identifier hs-type">messageBody_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody"><span class="hs-identifier hs-type">MessageBody</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -140,19 +140,19 @@ $sel:requestID:MessageBody' :: MessageBody -&gt; Maybe Text
 -&gt; (MessageBody -&gt; Maybe Text -&gt; MessageBody)
 -&gt; Lens MessageBody MessageBody (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody%27"><span class="hs-identifier hs-type">MessageBody'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603362"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody%27"><span class="hs-identifier hs-type">MessageBody'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603371"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:MessageBody' :: MessageBody -&gt; Maybe Text
-</span><a href="#local-6989586621679603362"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603362"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603361"><span class="annot"><span class="annottext">s :: MessageBody
-</span><a href="#local-6989586621679603361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody%27"><span class="hs-identifier hs-type">MessageBody'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603360"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageBody
-</span><a href="#local-6989586621679603361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:MessageBody' :: Maybe Text
+</span><a href="#local-6989586621679603371"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603371"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603370"><span class="annot"><span class="annottext">s :: MessageBody
+</span><a href="#local-6989586621679603370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody%27"><span class="hs-identifier hs-type">MessageBody'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603369"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageBody
+</span><a href="#local-6989586621679603370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:MessageBody' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.MessageBody.html#%24sel%3Amessage%3AMessageBody%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody"><span class="hs-identifier hs-type">MessageBody</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679603369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody"><span class="hs-identifier hs-type">MessageBody</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603357"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody"><span class="hs-identifier hs-type">MessageBody</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679603355"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MessageBody
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603366"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody"><span class="hs-identifier hs-type">MessageBody</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679603364"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MessageBody
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MessageBody) -&gt; Value -&gt; Parser MessageBody
@@ -160,15 +160,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MessageBody&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679603352"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603352"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679603361"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679603361"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; MessageBody
 </span><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody%27"><span class="hs-identifier hs-var">MessageBody'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; MessageBody)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; MessageBody)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603352"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679603361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RequestID&quot;</span></span><span class="hs-special">)</span><span>
@@ -176,13 +176,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser MessageBody
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603352"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679603361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603346"><span id="local-6989586621679603348"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody"><span class="hs-identifier hs-type">MessageBody</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603355"><span id="local-6989586621679603357"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody"><span class="hs-identifier hs-type">MessageBody</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603343"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody"><span class="hs-identifier hs-type">MessageBody</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603352"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MessageBody.html#MessageBody"><span class="hs-identifier hs-type">MessageBody</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

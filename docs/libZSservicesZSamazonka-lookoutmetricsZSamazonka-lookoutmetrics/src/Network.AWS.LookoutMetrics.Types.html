@@ -1,0 +1,866 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Network.AWS.LookoutMetrics.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LookoutMetrics.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html#_ValidationException"><span class="hs-identifier">_ValidationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html#_AccessDeniedException"><span class="hs-identifier">_AccessDeniedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html#_ConflictException"><span class="hs-identifier">_ConflictException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html#_ServiceQuotaExceededException"><span class="hs-identifier">_ServiceQuotaExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html#_TooManyRequestsException"><span class="hs-identifier">_TooManyRequestsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html#_InternalServerException"><span class="hs-identifier">_InternalServerException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AggregationFunction</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AggregationFunction.html#AggregationFunction"><span class="hs-identifier">AggregationFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AlertStatus</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AlertStatus.html#AlertStatus"><span class="hs-identifier">AlertStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AlertType</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AlertType.html#AlertType"><span class="hs-identifier">AlertType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AnomalyDetectionTaskStatus</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.html#AnomalyDetectionTaskStatus"><span class="hs-identifier">AnomalyDetectionTaskStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AnomalyDetectorStatus</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.html#AnomalyDetectorStatus"><span class="hs-identifier">AnomalyDetectorStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CSVFileCompression</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.CSVFileCompression.html#CSVFileCompression"><span class="hs-identifier">CSVFileCompression</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Frequency</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Frequency.html#Frequency"><span class="hs-identifier">Frequency</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * JsonFileCompression</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.JsonFileCompression.html#JsonFileCompression"><span class="hs-identifier">JsonFileCompression</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Action</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Action.html#Action"><span class="hs-identifier">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Action.html#newAction"><span class="hs-identifier">newAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Action.html#action_lambdaConfiguration"><span class="hs-identifier">action_lambdaConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Action.html#action_sNSConfiguration"><span class="hs-identifier">action_sNSConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Alert</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Alert.html#Alert"><span class="hs-identifier">Alert</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Alert.html#newAlert"><span class="hs-identifier">newAlert</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Alert.html#alert_creationTime"><span class="hs-identifier">alert_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Alert.html#alert_action"><span class="hs-identifier">alert_action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Alert.html#alert_anomalyDetectorArn"><span class="hs-identifier">alert_anomalyDetectorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Alert.html#alert_alertName"><span class="hs-identifier">alert_alertName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Alert.html#alert_alertSensitivityThreshold"><span class="hs-identifier">alert_alertSensitivityThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Alert.html#alert_alertStatus"><span class="hs-identifier">alert_alertStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Alert.html#alert_alertDescription"><span class="hs-identifier">alert_alertDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Alert.html#alert_alertArn"><span class="hs-identifier">alert_alertArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Alert.html#alert_alertType"><span class="hs-identifier">alert_alertType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Alert.html#alert_lastModificationTime"><span class="hs-identifier">alert_lastModificationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AlertSummary</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AlertSummary.html#AlertSummary"><span class="hs-identifier">AlertSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AlertSummary.html#newAlertSummary"><span class="hs-identifier">newAlertSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AlertSummary.html#alertSummary_creationTime"><span class="hs-identifier">alertSummary_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AlertSummary.html#alertSummary_anomalyDetectorArn"><span class="hs-identifier">alertSummary_anomalyDetectorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AlertSummary.html#alertSummary_alertName"><span class="hs-identifier">alertSummary_alertName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AlertSummary.html#alertSummary_alertSensitivityThreshold"><span class="hs-identifier">alertSummary_alertSensitivityThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AlertSummary.html#alertSummary_alertStatus"><span class="hs-identifier">alertSummary_alertStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AlertSummary.html#alertSummary_alertArn"><span class="hs-identifier">alertSummary_alertArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AlertSummary.html#alertSummary_alertType"><span class="hs-identifier">alertSummary_alertType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AlertSummary.html#alertSummary_tags"><span class="hs-identifier">alertSummary_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AlertSummary.html#alertSummary_lastModificationTime"><span class="hs-identifier">alertSummary_lastModificationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AnomalyDetectorConfig</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfig.html#AnomalyDetectorConfig"><span class="hs-identifier">AnomalyDetectorConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfig.html#newAnomalyDetectorConfig"><span class="hs-identifier">newAnomalyDetectorConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfig.html#anomalyDetectorConfig_anomalyDetectorFrequency"><span class="hs-identifier">anomalyDetectorConfig_anomalyDetectorFrequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AnomalyDetectorConfigSummary</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary.html#AnomalyDetectorConfigSummary"><span class="hs-identifier">AnomalyDetectorConfigSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary.html#newAnomalyDetectorConfigSummary"><span class="hs-identifier">newAnomalyDetectorConfigSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary.html#anomalyDetectorConfigSummary_anomalyDetectorFrequency"><span class="hs-identifier">anomalyDetectorConfigSummary_anomalyDetectorFrequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AnomalyDetectorSummary</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary.html#AnomalyDetectorSummary"><span class="hs-identifier">AnomalyDetectorSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary.html#newAnomalyDetectorSummary"><span class="hs-identifier">newAnomalyDetectorSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary.html#anomalyDetectorSummary_creationTime"><span class="hs-identifier">anomalyDetectorSummary_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary.html#anomalyDetectorSummary_status"><span class="hs-identifier">anomalyDetectorSummary_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary.html#anomalyDetectorSummary_anomalyDetectorArn"><span class="hs-identifier">anomalyDetectorSummary_anomalyDetectorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary.html#anomalyDetectorSummary_anomalyDetectorName"><span class="hs-identifier">anomalyDetectorSummary_anomalyDetectorName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary.html#anomalyDetectorSummary_anomalyDetectorDescription"><span class="hs-identifier">anomalyDetectorSummary_anomalyDetectorDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary.html#anomalyDetectorSummary_tags"><span class="hs-identifier">anomalyDetectorSummary_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary.html#anomalyDetectorSummary_lastModificationTime"><span class="hs-identifier">anomalyDetectorSummary_lastModificationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AnomalyGroup</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroup.html#AnomalyGroup"><span class="hs-identifier">AnomalyGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroup.html#newAnomalyGroup"><span class="hs-identifier">newAnomalyGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroup.html#anomalyGroup_metricLevelImpactList"><span class="hs-identifier">anomalyGroup_metricLevelImpactList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroup.html#anomalyGroup_startTime"><span class="hs-identifier">anomalyGroup_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroup.html#anomalyGroup_anomalyGroupId"><span class="hs-identifier">anomalyGroup_anomalyGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroup.html#anomalyGroup_anomalyGroupScore"><span class="hs-identifier">anomalyGroup_anomalyGroupScore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroup.html#anomalyGroup_primaryMetricName"><span class="hs-identifier">anomalyGroup_primaryMetricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroup.html#anomalyGroup_endTime"><span class="hs-identifier">anomalyGroup_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AnomalyGroupStatistics</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics.html#AnomalyGroupStatistics"><span class="hs-identifier">AnomalyGroupStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics.html#newAnomalyGroupStatistics"><span class="hs-identifier">newAnomalyGroupStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics.html#anomalyGroupStatistics_itemizedMetricStatsList"><span class="hs-identifier">anomalyGroupStatistics_itemizedMetricStatsList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics.html#anomalyGroupStatistics_evaluationStartDate"><span class="hs-identifier">anomalyGroupStatistics_evaluationStartDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics.html#anomalyGroupStatistics_totalCount"><span class="hs-identifier">anomalyGroupStatistics_totalCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AnomalyGroupSummary</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary.html#AnomalyGroupSummary"><span class="hs-identifier">AnomalyGroupSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary.html#newAnomalyGroupSummary"><span class="hs-identifier">newAnomalyGroupSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary.html#anomalyGroupSummary_startTime"><span class="hs-identifier">anomalyGroupSummary_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary.html#anomalyGroupSummary_anomalyGroupId"><span class="hs-identifier">anomalyGroupSummary_anomalyGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary.html#anomalyGroupSummary_anomalyGroupScore"><span class="hs-identifier">anomalyGroupSummary_anomalyGroupScore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary.html#anomalyGroupSummary_primaryMetricName"><span class="hs-identifier">anomalyGroupSummary_primaryMetricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary.html#anomalyGroupSummary_endTime"><span class="hs-identifier">anomalyGroupSummary_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AnomalyGroupTimeSeries</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeries.html#AnomalyGroupTimeSeries"><span class="hs-identifier">AnomalyGroupTimeSeries</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeries.html#newAnomalyGroupTimeSeries"><span class="hs-identifier">newAnomalyGroupTimeSeries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeries.html#anomalyGroupTimeSeries_timeSeriesId"><span class="hs-identifier">anomalyGroupTimeSeries_timeSeriesId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeries.html#anomalyGroupTimeSeries_anomalyGroupId"><span class="hs-identifier">anomalyGroupTimeSeries_anomalyGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AnomalyGroupTimeSeriesFeedback</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.html#AnomalyGroupTimeSeriesFeedback"><span class="hs-identifier">AnomalyGroupTimeSeriesFeedback</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.html#newAnomalyGroupTimeSeriesFeedback"><span class="hs-identifier">newAnomalyGroupTimeSeriesFeedback</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.html#anomalyGroupTimeSeriesFeedback_anomalyGroupId"><span class="hs-identifier">anomalyGroupTimeSeriesFeedback_anomalyGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.html#anomalyGroupTimeSeriesFeedback_timeSeriesId"><span class="hs-identifier">anomalyGroupTimeSeriesFeedback_timeSeriesId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.html#anomalyGroupTimeSeriesFeedback_isAnomaly"><span class="hs-identifier">anomalyGroupTimeSeriesFeedback_isAnomaly</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AppFlowConfig</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AppFlowConfig.html#AppFlowConfig"><span class="hs-identifier">AppFlowConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AppFlowConfig.html#newAppFlowConfig"><span class="hs-identifier">newAppFlowConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AppFlowConfig.html#appFlowConfig_roleArn"><span class="hs-identifier">appFlowConfig_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AppFlowConfig.html#appFlowConfig_flowName"><span class="hs-identifier">appFlowConfig_flowName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CloudWatchConfig</span></span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.CloudWatchConfig.html#CloudWatchConfig"><span class="hs-identifier">CloudWatchConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.CloudWatchConfig.html#newCloudWatchConfig"><span class="hs-identifier">newCloudWatchConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.CloudWatchConfig.html#cloudWatchConfig_roleArn"><span class="hs-identifier">cloudWatchConfig_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ContributionMatrix</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.ContributionMatrix.html#ContributionMatrix"><span class="hs-identifier">ContributionMatrix</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.ContributionMatrix.html#newContributionMatrix"><span class="hs-identifier">newContributionMatrix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.ContributionMatrix.html#contributionMatrix_dimensionContributionList"><span class="hs-identifier">contributionMatrix_dimensionContributionList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CsvFormatDescriptor</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor.html#CsvFormatDescriptor"><span class="hs-identifier">CsvFormatDescriptor</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor.html#newCsvFormatDescriptor"><span class="hs-identifier">newCsvFormatDescriptor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_quoteSymbol"><span class="hs-identifier">csvFormatDescriptor_quoteSymbol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_containsHeader"><span class="hs-identifier">csvFormatDescriptor_containsHeader</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_charset"><span class="hs-identifier">csvFormatDescriptor_charset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_headerList"><span class="hs-identifier">csvFormatDescriptor_headerList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_fileCompression"><span class="hs-identifier">csvFormatDescriptor_fileCompression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor.html#csvFormatDescriptor_delimiter"><span class="hs-identifier">csvFormatDescriptor_delimiter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DimensionContribution</span></span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionContribution.html#DimensionContribution"><span class="hs-identifier">DimensionContribution</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionContribution.html#newDimensionContribution"><span class="hs-identifier">newDimensionContribution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionContribution.html#dimensionContribution_dimensionValueContributionList"><span class="hs-identifier">dimensionContribution_dimensionValueContributionList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionContribution.html#dimensionContribution_dimensionName"><span class="hs-identifier">dimensionContribution_dimensionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DimensionNameValue</span></span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionNameValue.html#DimensionNameValue"><span class="hs-identifier">DimensionNameValue</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionNameValue.html#newDimensionNameValue"><span class="hs-identifier">newDimensionNameValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionNameValue.html#dimensionNameValue_dimensionName"><span class="hs-identifier">dimensionNameValue_dimensionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionNameValue.html#dimensionNameValue_dimensionValue"><span class="hs-identifier">dimensionNameValue_dimensionValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DimensionValueContribution</span></span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionValueContribution.html#DimensionValueContribution"><span class="hs-identifier">DimensionValueContribution</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionValueContribution.html#newDimensionValueContribution"><span class="hs-identifier">newDimensionValueContribution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionValueContribution.html#dimensionValueContribution_dimensionValue"><span class="hs-identifier">dimensionValueContribution_dimensionValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionValueContribution.html#dimensionValueContribution_contributionScore"><span class="hs-identifier">dimensionValueContribution_contributionScore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExecutionStatus</span></span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier">ExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.ExecutionStatus.html#newExecutionStatus"><span class="hs-identifier">newExecutionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.ExecutionStatus.html#executionStatus_status"><span class="hs-identifier">executionStatus_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.ExecutionStatus.html#executionStatus_failureReason"><span class="hs-identifier">executionStatus_failureReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.ExecutionStatus.html#executionStatus_timestamp"><span class="hs-identifier">executionStatus_timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FileFormatDescriptor</span></span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.FileFormatDescriptor.html#FileFormatDescriptor"><span class="hs-identifier">FileFormatDescriptor</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.FileFormatDescriptor.html#newFileFormatDescriptor"><span class="hs-identifier">newFileFormatDescriptor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.FileFormatDescriptor.html#fileFormatDescriptor_jsonFormatDescriptor"><span class="hs-identifier">fileFormatDescriptor_jsonFormatDescriptor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.FileFormatDescriptor.html#fileFormatDescriptor_csvFormatDescriptor"><span class="hs-identifier">fileFormatDescriptor_csvFormatDescriptor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ItemizedMetricStats</span></span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.ItemizedMetricStats.html#ItemizedMetricStats"><span class="hs-identifier">ItemizedMetricStats</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.ItemizedMetricStats.html#newItemizedMetricStats"><span class="hs-identifier">newItemizedMetricStats</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.ItemizedMetricStats.html#itemizedMetricStats_metricName"><span class="hs-identifier">itemizedMetricStats_metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.ItemizedMetricStats.html#itemizedMetricStats_occurrenceCount"><span class="hs-identifier">itemizedMetricStats_occurrenceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="hs-comment">-- * JsonFormatDescriptor</span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor.html#JsonFormatDescriptor"><span class="hs-identifier">JsonFormatDescriptor</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor.html#newJsonFormatDescriptor"><span class="hs-identifier">newJsonFormatDescriptor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor.html#jsonFormatDescriptor_charset"><span class="hs-identifier">jsonFormatDescriptor_charset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor.html#jsonFormatDescriptor_fileCompression"><span class="hs-identifier">jsonFormatDescriptor_fileCompression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LambdaConfiguration</span></span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.LambdaConfiguration.html#LambdaConfiguration"><span class="hs-identifier">LambdaConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.LambdaConfiguration.html#newLambdaConfiguration"><span class="hs-identifier">newLambdaConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.LambdaConfiguration.html#lambdaConfiguration_roleArn"><span class="hs-identifier">lambdaConfiguration_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.LambdaConfiguration.html#lambdaConfiguration_lambdaArn"><span class="hs-identifier">lambdaConfiguration_lambdaArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Metric</span></span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Metric.html#Metric"><span class="hs-identifier">Metric</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Metric.html#newMetric"><span class="hs-identifier">newMetric</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Metric.html#metric_namespace"><span class="hs-identifier">metric_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Metric.html#metric_metricName"><span class="hs-identifier">metric_metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Metric.html#metric_aggregationFunction"><span class="hs-identifier">metric_aggregationFunction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MetricLevelImpact</span></span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricLevelImpact.html#MetricLevelImpact"><span class="hs-identifier">MetricLevelImpact</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricLevelImpact.html#newMetricLevelImpact"><span class="hs-identifier">newMetricLevelImpact</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricLevelImpact.html#metricLevelImpact_contributionMatrix"><span class="hs-identifier">metricLevelImpact_contributionMatrix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricLevelImpact.html#metricLevelImpact_metricName"><span class="hs-identifier">metricLevelImpact_metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricLevelImpact.html#metricLevelImpact_numTimeSeries"><span class="hs-identifier">metricLevelImpact_numTimeSeries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MetricSetSummary</span></span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSetSummary.html#MetricSetSummary"><span class="hs-identifier">MetricSetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSetSummary.html#newMetricSetSummary"><span class="hs-identifier">newMetricSetSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSetSummary.html#metricSetSummary_creationTime"><span class="hs-identifier">metricSetSummary_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSetSummary.html#metricSetSummary_anomalyDetectorArn"><span class="hs-identifier">metricSetSummary_anomalyDetectorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSetSummary.html#metricSetSummary_metricSetName"><span class="hs-identifier">metricSetSummary_metricSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSetSummary.html#metricSetSummary_metricSetDescription"><span class="hs-identifier">metricSetSummary_metricSetDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSetSummary.html#metricSetSummary_metricSetArn"><span class="hs-identifier">metricSetSummary_metricSetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSetSummary.html#metricSetSummary_tags"><span class="hs-identifier">metricSetSummary_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSetSummary.html#metricSetSummary_lastModificationTime"><span class="hs-identifier">metricSetSummary_lastModificationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MetricSource</span></span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSource.html#MetricSource"><span class="hs-identifier">MetricSource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSource.html#newMetricSource"><span class="hs-identifier">newMetricSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSource.html#metricSource_redshiftSourceConfig"><span class="hs-identifier">metricSource_redshiftSourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSource.html#metricSource_s3SourceConfig"><span class="hs-identifier">metricSource_s3SourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSource.html#metricSource_rDSSourceConfig"><span class="hs-identifier">metricSource_rDSSourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSource.html#metricSource_appFlowConfig"><span class="hs-identifier">metricSource_appFlowConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSource.html#metricSource_cloudWatchConfig"><span class="hs-identifier">metricSource_cloudWatchConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RDSSourceConfig</span></span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RDSSourceConfig.html#RDSSourceConfig"><span class="hs-identifier">RDSSourceConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RDSSourceConfig.html#newRDSSourceConfig"><span class="hs-identifier">newRDSSourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_dbInstanceIdentifier"><span class="hs-identifier">rDSSourceConfig_dbInstanceIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_databaseHost"><span class="hs-identifier">rDSSourceConfig_databaseHost</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_databasePort"><span class="hs-identifier">rDSSourceConfig_databasePort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_secretManagerArn"><span class="hs-identifier">rDSSourceConfig_secretManagerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_databaseName"><span class="hs-identifier">rDSSourceConfig_databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_tableName"><span class="hs-identifier">rDSSourceConfig_tableName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_roleArn"><span class="hs-identifier">rDSSourceConfig_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RDSSourceConfig.html#rDSSourceConfig_vpcConfiguration"><span class="hs-identifier">rDSSourceConfig_vpcConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RedshiftSourceConfig</span></span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.html#RedshiftSourceConfig"><span class="hs-identifier">RedshiftSourceConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.html#newRedshiftSourceConfig"><span class="hs-identifier">newRedshiftSourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.html#redshiftSourceConfig_clusterIdentifier"><span class="hs-identifier">redshiftSourceConfig_clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.html#redshiftSourceConfig_databaseHost"><span class="hs-identifier">redshiftSourceConfig_databaseHost</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.html#redshiftSourceConfig_databasePort"><span class="hs-identifier">redshiftSourceConfig_databasePort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.html#redshiftSourceConfig_secretManagerArn"><span class="hs-identifier">redshiftSourceConfig_secretManagerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.html#redshiftSourceConfig_databaseName"><span class="hs-identifier">redshiftSourceConfig_databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.html#redshiftSourceConfig_tableName"><span class="hs-identifier">redshiftSourceConfig_tableName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.html#redshiftSourceConfig_roleArn"><span class="hs-identifier">redshiftSourceConfig_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.html#redshiftSourceConfig_vpcConfiguration"><span class="hs-identifier">redshiftSourceConfig_vpcConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><span class="hs-comment">-- * S3SourceConfig</span></span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.S3SourceConfig.html#S3SourceConfig"><span class="hs-identifier">S3SourceConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.S3SourceConfig.html#newS3SourceConfig"><span class="hs-identifier">newS3SourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.S3SourceConfig.html#s3SourceConfig_templatedPathList"><span class="hs-identifier">s3SourceConfig_templatedPathList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.S3SourceConfig.html#s3SourceConfig_historicalDataPathList"><span class="hs-identifier">s3SourceConfig_historicalDataPathList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.S3SourceConfig.html#s3SourceConfig_fileFormatDescriptor"><span class="hs-identifier">s3SourceConfig_fileFormatDescriptor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.S3SourceConfig.html#s3SourceConfig_roleArn"><span class="hs-identifier">s3SourceConfig_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SNSConfiguration</span></span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.SNSConfiguration.html#SNSConfiguration"><span class="hs-identifier">SNSConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.SNSConfiguration.html#newSNSConfiguration"><span class="hs-identifier">newSNSConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.SNSConfiguration.html#sNSConfiguration_roleArn"><span class="hs-identifier">sNSConfiguration_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.SNSConfiguration.html#sNSConfiguration_snsTopicArn"><span class="hs-identifier">sNSConfiguration_snsTopicArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SampleDataS3SourceConfig</span></span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig.html#SampleDataS3SourceConfig"><span class="hs-identifier">SampleDataS3SourceConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig.html#newSampleDataS3SourceConfig"><span class="hs-identifier">newSampleDataS3SourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig.html#sampleDataS3SourceConfig_templatedPathList"><span class="hs-identifier">sampleDataS3SourceConfig_templatedPathList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig.html#sampleDataS3SourceConfig_historicalDataPathList"><span class="hs-identifier">sampleDataS3SourceConfig_historicalDataPathList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig.html#sampleDataS3SourceConfig_roleArn"><span class="hs-identifier">sampleDataS3SourceConfig_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig.html#sampleDataS3SourceConfig_fileFormatDescriptor"><span class="hs-identifier">sampleDataS3SourceConfig_fileFormatDescriptor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TimeSeries</span></span><span>
+</span><span id="line-301"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries"><span class="hs-identifier">TimeSeries</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#newTimeSeries"><span class="hs-identifier">newTimeSeries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#timeSeries_timeSeriesId"><span class="hs-identifier">timeSeries_timeSeriesId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#timeSeries_dimensionList"><span class="hs-identifier">timeSeries_dimensionList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#timeSeries_metricValueList"><span class="hs-identifier">timeSeries_metricValueList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TimeSeriesFeedback</span></span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeriesFeedback.html#TimeSeriesFeedback"><span class="hs-identifier">TimeSeriesFeedback</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeriesFeedback.html#newTimeSeriesFeedback"><span class="hs-identifier">newTimeSeriesFeedback</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeriesFeedback.html#timeSeriesFeedback_isAnomaly"><span class="hs-identifier">timeSeriesFeedback_isAnomaly</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeriesFeedback.html#timeSeriesFeedback_timeSeriesId"><span class="hs-identifier">timeSeriesFeedback_timeSeriesId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TimestampColumn</span></span><span>
+</span><span id="line-314"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimestampColumn.html#TimestampColumn"><span class="hs-identifier">TimestampColumn</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimestampColumn.html#newTimestampColumn"><span class="hs-identifier">newTimestampColumn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimestampColumn.html#timestampColumn_columnFormat"><span class="hs-identifier">timestampColumn_columnFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimestampColumn.html#timestampColumn_columnName"><span class="hs-identifier">timestampColumn_columnName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span>    </span><span class="annot"><span class="hs-comment">-- * VpcConfiguration</span></span><span>
+</span><span id="line-320"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.VpcConfiguration.html#VpcConfiguration"><span class="hs-identifier">VpcConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.VpcConfiguration.html#newVpcConfiguration"><span class="hs-identifier">newVpcConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.VpcConfiguration.html#vpcConfiguration_subnetIdList"><span class="hs-identifier">vpcConfiguration_subnetIdList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.VpcConfiguration.html#vpcConfiguration_securityGroupIdList"><span class="hs-identifier">vpcConfiguration_securityGroupIdList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-326"></span><span>
+</span><span id="line-327"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-328"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-329"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Action.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.Action</span></a></span><span>
+</span><span id="line-330"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AggregationFunction.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.AggregationFunction</span></a></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Alert.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.Alert</span></a></span><span>
+</span><span id="line-332"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AlertStatus.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.AlertStatus</span></a></span><span>
+</span><span id="line-333"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AlertSummary.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.AlertSummary</span></a></span><span>
+</span><span id="line-334"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AlertType.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.AlertType</span></a></span><span>
+</span><span id="line-335"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus</span></a></span><span>
+</span><span id="line-336"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfig.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfig</span></a></span><span>
+</span><span id="line-337"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary</span></a></span><span>
+</span><span id="line-338"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus</span></a></span><span>
+</span><span id="line-339"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary</span></a></span><span>
+</span><span id="line-340"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroup.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.AnomalyGroup</span></a></span><span>
+</span><span id="line-341"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics</span></a></span><span>
+</span><span id="line-342"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary</span></a></span><span>
+</span><span id="line-343"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeries.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeries</span></a></span><span>
+</span><span id="line-344"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback</span></a></span><span>
+</span><span id="line-345"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AppFlowConfig.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.AppFlowConfig</span></a></span><span>
+</span><span id="line-346"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.CSVFileCompression.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.CSVFileCompression</span></a></span><span>
+</span><span id="line-347"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.CloudWatchConfig.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.CloudWatchConfig</span></a></span><span>
+</span><span id="line-348"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.ContributionMatrix.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.ContributionMatrix</span></a></span><span>
+</span><span id="line-349"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor</span></a></span><span>
+</span><span id="line-350"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionContribution.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.DimensionContribution</span></a></span><span>
+</span><span id="line-351"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionNameValue.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.DimensionNameValue</span></a></span><span>
+</span><span id="line-352"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionValueContribution.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.DimensionValueContribution</span></a></span><span>
+</span><span id="line-353"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.ExecutionStatus.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.ExecutionStatus</span></a></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.FileFormatDescriptor.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.FileFormatDescriptor</span></a></span><span>
+</span><span id="line-355"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Frequency.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.Frequency</span></a></span><span>
+</span><span id="line-356"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.ItemizedMetricStats.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.ItemizedMetricStats</span></a></span><span>
+</span><span id="line-357"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.JsonFileCompression.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.JsonFileCompression</span></a></span><span>
+</span><span id="line-358"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor</span></a></span><span>
+</span><span id="line-359"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.LambdaConfiguration.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.LambdaConfiguration</span></a></span><span>
+</span><span id="line-360"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Metric.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.Metric</span></a></span><span>
+</span><span id="line-361"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricLevelImpact.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.MetricLevelImpact</span></a></span><span>
+</span><span id="line-362"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSetSummary.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.MetricSetSummary</span></a></span><span>
+</span><span id="line-363"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSource.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.MetricSource</span></a></span><span>
+</span><span id="line-364"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RDSSourceConfig.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.RDSSourceConfig</span></a></span><span>
+</span><span id="line-365"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig</span></a></span><span>
+</span><span id="line-366"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.S3SourceConfig.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.S3SourceConfig</span></a></span><span>
+</span><span id="line-367"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.SNSConfiguration.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.SNSConfiguration</span></a></span><span>
+</span><span id="line-368"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig</span></a></span><span>
+</span><span id="line-369"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.TimeSeries</span></a></span><span>
+</span><span id="line-370"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeriesFeedback.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.TimeSeriesFeedback</span></a></span><span>
+</span><span id="line-371"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimestampColumn.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.TimestampColumn</span></a></span><span>
+</span><span id="line-372"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.VpcConfiguration.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.VpcConfiguration</span></a></span><span>
+</span><span id="line-373"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-374"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-375"></span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- | API version @2017-07-25@ of the Amazon Lookout for Metrics SDK configuration.</span><span>
+</span><span id="line-377"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-378"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Network.AWS.LookoutMetrics.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-379"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-380"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-381"></span><span>        </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;LookoutMetrics&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-382"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-383"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;lookoutmetrics&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-384"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;lookoutmetrics&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-385"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2017-07-25&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-386"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-387"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutMetrics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-388"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-389"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-390"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-391"></span><span>        </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;LookoutMetrics&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-392"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679226467"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-393"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-394"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-395"></span><span>    </span><span id="local-6989586621679226467"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679226467"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-396"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-397"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-398"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-399"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-400"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679226461"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-401"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-402"></span><span>    </span><span id="local-6989586621679226461"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679226461"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679226460"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679226460"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-403"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-404"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-405"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-406"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-407"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679226460"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-408"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-409"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679226460"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-410"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-411"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-412"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-413"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-414"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-415"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679226460"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-416"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-417"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-418"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-419"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-420"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-421"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679226460"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-422"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-423"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-424"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-425"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-426"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-427"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-428"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679226460"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-429"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-430"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679226460"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-431"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-432"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-433"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-434"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-435"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-436"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679226460"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-437"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-438"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679226460"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-439"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-440"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679226460"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-441"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-442"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679226460"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-443"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-444"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679226460"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-445"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-446"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-447"></span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- | The input fails to satisfy the constraints specified by the AWS service.</span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- Check your input values and try again.</span><span>
+</span><span id="line-450"></span><span id="local-6989586621679226455"><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html#_ValidationException"><span class="hs-identifier hs-type">_ValidationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679226455"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679226455"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-451"></span><span id="_ValidationException"><span class="annot"><span class="annottext">_ValidationException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.LookoutMetrics.Types.html#_ValidationException"><span class="hs-identifier hs-var hs-var">_ValidationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-452"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-453"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutMetrics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-454"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ValidationException&quot;</span></span><span>
+</span><span id="line-455"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-456"></span><span>
+</span><span id="line-457"></span><span class="hs-comment">-- | You do not have sufficient permissions to perform this action.</span><span>
+</span><span id="line-458"></span><span id="local-6989586621679226453"><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html#_AccessDeniedException"><span class="hs-identifier hs-type">_AccessDeniedException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679226453"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679226453"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-459"></span><span id="_AccessDeniedException"><span class="annot"><span class="annottext">_AccessDeniedException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.LookoutMetrics.Types.html#_AccessDeniedException"><span class="hs-identifier hs-var hs-var">_AccessDeniedException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-460"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-461"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutMetrics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-462"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;AccessDeniedException&quot;</span></span><span>
+</span><span id="line-463"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">403</span></span><span>
+</span><span id="line-464"></span><span>
+</span><span id="line-465"></span><span class="hs-comment">-- | There was a conflict processing the request. Try your request again.</span><span>
+</span><span id="line-466"></span><span id="local-6989586621679226452"><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html#_ConflictException"><span class="hs-identifier hs-type">_ConflictException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679226452"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679226452"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-467"></span><span id="_ConflictException"><span class="annot"><span class="annottext">_ConflictException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.LookoutMetrics.Types.html#_ConflictException"><span class="hs-identifier hs-var hs-var">_ConflictException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-468"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-469"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutMetrics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-470"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ConflictException&quot;</span></span><span>
+</span><span id="line-471"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">409</span></span><span>
+</span><span id="line-472"></span><span>
+</span><span id="line-473"></span><span class="hs-comment">-- | The request exceeded the service\'s quotas. Check the service quotas and</span><span>
+</span><span id="line-474"></span><span class="hs-comment">-- try again.</span><span>
+</span><span id="line-475"></span><span id="local-6989586621679226451"><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html#_ServiceQuotaExceededException"><span class="hs-identifier hs-type">_ServiceQuotaExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679226451"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679226451"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-476"></span><span id="_ServiceQuotaExceededException"><span class="annot"><span class="annottext">_ServiceQuotaExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.LookoutMetrics.Types.html#_ServiceQuotaExceededException"><span class="hs-identifier hs-var hs-var">_ServiceQuotaExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-477"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-478"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutMetrics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-479"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ServiceQuotaExceededException&quot;</span></span><span>
+</span><span id="line-480"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">402</span></span><span>
+</span><span id="line-481"></span><span>
+</span><span id="line-482"></span><span class="hs-comment">-- | The request was denied due to too many requests being submitted at the</span><span>
+</span><span id="line-483"></span><span class="hs-comment">-- same time.</span><span>
+</span><span id="line-484"></span><span id="local-6989586621679226450"><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html#_TooManyRequestsException"><span class="hs-identifier hs-type">_TooManyRequestsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679226450"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679226450"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-485"></span><span id="_TooManyRequestsException"><span class="annot"><span class="annottext">_TooManyRequestsException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.LookoutMetrics.Types.html#_TooManyRequestsException"><span class="hs-identifier hs-var hs-var">_TooManyRequestsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-486"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-487"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutMetrics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-488"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;TooManyRequestsException&quot;</span></span><span>
+</span><span id="line-489"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span>
+</span><span id="line-490"></span><span>
+</span><span id="line-491"></span><span class="hs-comment">-- | The request processing has failed because of an unknown error,</span><span>
+</span><span id="line-492"></span><span class="hs-comment">-- exception, or failure.</span><span>
+</span><span id="line-493"></span><span id="local-6989586621679226449"><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html#_InternalServerException"><span class="hs-identifier hs-type">_InternalServerException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679226449"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679226449"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-494"></span><span id="_InternalServerException"><span class="annot"><span class="annottext">_InternalServerException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.LookoutMetrics.Types.html#_InternalServerException"><span class="hs-identifier hs-var hs-var">_InternalServerException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-495"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-496"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutMetrics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-497"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InternalServerException&quot;</span></span><span>
+</span><span id="line-498"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span>
+</span><span id="line-499"></span><span>
+</span><span id="line-500"></span><span class="hs-comment">-- | The specified resource cannot be found. Check the ARN of the resource</span><span>
+</span><span id="line-501"></span><span class="hs-comment">-- and try again.</span><span>
+</span><span id="line-502"></span><span id="local-6989586621679226448"><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679226448"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679226448"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-503"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.LookoutMetrics.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-504"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-505"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutMetrics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-506"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span id="line-507"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-508"></span></pre></body></html>

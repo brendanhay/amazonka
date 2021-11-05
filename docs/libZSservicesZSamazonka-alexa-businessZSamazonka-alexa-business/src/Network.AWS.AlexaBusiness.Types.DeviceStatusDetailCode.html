@@ -44,13 +44,13 @@
 </span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-46"></span><span>
-</span><span id="line-47"></span><span id="local-6989586621679366163"><span id="local-6989586621679366164"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeviceStatusDetailCode"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceStatusDetailCode.html#DeviceStatusDetailCode"><span class="hs-identifier hs-var">DeviceStatusDetailCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceStatusDetailCode%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceStatusDetailCode.html#DeviceStatusDetailCode%27"><span class="hs-identifier hs-var">DeviceStatusDetailCode'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679366172"><span id="local-6989586621679366173"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeviceStatusDetailCode"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceStatusDetailCode.html#DeviceStatusDetailCode"><span class="hs-identifier hs-var">DeviceStatusDetailCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceStatusDetailCode%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceStatusDetailCode.html#DeviceStatusDetailCode%27"><span class="hs-identifier hs-var">DeviceStatusDetailCode'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeviceStatusDetailCode"><span class="annot"><span class="annottext">DeviceStatusDetailCode -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.Types.DeviceStatusDetailCode.html#fromDeviceStatusDetailCode"><span class="hs-identifier hs-var hs-var">fromDeviceStatusDetailCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366155"><span id="local-6989586621679366157"><span id="local-6989586621679366159"><span class="annot"><span class="annottext">Int -&gt; DeviceStatusDetailCode -&gt; ShowS
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366164"><span id="local-6989586621679366166"><span id="local-6989586621679366168"><span class="annot"><span class="annottext">Int -&gt; DeviceStatusDetailCode -&gt; ShowS
 [DeviceStatusDetailCode] -&gt; ShowS
 DeviceStatusDetailCode -&gt; String
 (Int -&gt; DeviceStatusDetailCode -&gt; ShowS)
@@ -66,7 +66,7 @@ $cshow :: DeviceStatusDetailCode -&gt; String
 showsPrec :: Int -&gt; DeviceStatusDetailCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeviceStatusDetailCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679366146"><span id="local-6989586621679366148"><span id="local-6989586621679366150"><span id="local-6989586621679366152"><span class="annot"><span class="annottext">ReadPrec [DeviceStatusDetailCode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679366155"><span id="local-6989586621679366157"><span id="local-6989586621679366159"><span id="local-6989586621679366161"><span class="annot"><span class="annottext">ReadPrec [DeviceStatusDetailCode]
 ReadPrec DeviceStatusDetailCode
 Int -&gt; ReadS DeviceStatusDetailCode
 ReadS [DeviceStatusDetailCode]
@@ -87,7 +87,7 @@ $creadList :: ReadS [DeviceStatusDetailCode]
 readsPrec :: Int -&gt; ReadS DeviceStatusDetailCode
 $creadsPrec :: Int -&gt; ReadS DeviceStatusDetailCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679366141"><span id="local-6989586621679366143"><span class="annot"><span class="annottext">DeviceStatusDetailCode -&gt; DeviceStatusDetailCode -&gt; Bool
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679366150"><span id="local-6989586621679366152"><span class="annot"><span class="annottext">DeviceStatusDetailCode -&gt; DeviceStatusDetailCode -&gt; Bool
 (DeviceStatusDetailCode -&gt; DeviceStatusDetailCode -&gt; Bool)
 -&gt; (DeviceStatusDetailCode -&gt; DeviceStatusDetailCode -&gt; Bool)
 -&gt; Eq DeviceStatusDetailCode
@@ -97,7 +97,7 @@ $c/= :: DeviceStatusDetailCode -&gt; DeviceStatusDetailCode -&gt; Bool
 == :: DeviceStatusDetailCode -&gt; DeviceStatusDetailCode -&gt; Bool
 $c== :: DeviceStatusDetailCode -&gt; DeviceStatusDetailCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679366125"><span id="local-6989586621679366127"><span id="local-6989586621679366129"><span id="local-6989586621679366131"><span id="local-6989586621679366133"><span id="local-6989586621679366135"><span id="local-6989586621679366137"><span class="annot"><span class="annottext">Eq DeviceStatusDetailCode
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679366134"><span id="local-6989586621679366136"><span id="local-6989586621679366138"><span id="local-6989586621679366140"><span id="local-6989586621679366142"><span id="local-6989586621679366144"><span id="local-6989586621679366146"><span class="annot"><span class="annottext">Eq DeviceStatusDetailCode
 Eq DeviceStatusDetailCode
 -&gt; (DeviceStatusDetailCode -&gt; DeviceStatusDetailCode -&gt; Ordering)
 -&gt; (DeviceStatusDetailCode -&gt; DeviceStatusDetailCode -&gt; Bool)
@@ -156,7 +156,7 @@ $cfrom :: forall x. DeviceStatusDetailCode -&gt; Rep DeviceStatusDetailCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366117"><span id="local-6989586621679366119"><span class="annot"><span class="annottext">Int -&gt; DeviceStatusDetailCode -&gt; Int
+</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366126"><span id="local-6989586621679366128"><span class="annot"><span class="annottext">Int -&gt; DeviceStatusDetailCode -&gt; Int
 DeviceStatusDetailCode -&gt; Int
 (Int -&gt; DeviceStatusDetailCode -&gt; Int)
 -&gt; (DeviceStatusDetailCode -&gt; Int)
@@ -167,54 +167,54 @@ $chash :: DeviceStatusDetailCode -&gt; Int
 hashWithSalt :: Int -&gt; DeviceStatusDetailCode -&gt; Int
 $chashWithSalt :: Int -&gt; DeviceStatusDetailCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679366114"><span class="annot"><span class="annottext">DeviceStatusDetailCode -&gt; ()
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679366123"><span class="annot"><span class="annottext">DeviceStatusDetailCode -&gt; ()
 (DeviceStatusDetailCode -&gt; ()) -&gt; NFData DeviceStatusDetailCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeviceStatusDetailCode -&gt; ()
 $crnf :: DeviceStatusDetailCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679366111"><span class="annot"><span class="annottext">Text -&gt; Either String DeviceStatusDetailCode
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679366120"><span class="annot"><span class="annottext">Text -&gt; Either String DeviceStatusDetailCode
 (Text -&gt; Either String DeviceStatusDetailCode)
 -&gt; FromText DeviceStatusDetailCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeviceStatusDetailCode
 $cfromText :: Text -&gt; Either String DeviceStatusDetailCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679366108"><span class="annot"><span class="annottext">DeviceStatusDetailCode -&gt; Text
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679366117"><span class="annot"><span class="annottext">DeviceStatusDetailCode -&gt; Text
 (DeviceStatusDetailCode -&gt; Text) -&gt; ToText DeviceStatusDetailCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeviceStatusDetailCode -&gt; Text
 $ctoText :: DeviceStatusDetailCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679366105"><span class="annot"><span class="annottext">DeviceStatusDetailCode -&gt; ByteString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679366114"><span class="annot"><span class="annottext">DeviceStatusDetailCode -&gt; ByteString
 (DeviceStatusDetailCode -&gt; ByteString)
 -&gt; ToByteString DeviceStatusDetailCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeviceStatusDetailCode -&gt; ByteString
 $ctoBS :: DeviceStatusDetailCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679366102"><span class="annot"><span class="annottext">DeviceStatusDetailCode -&gt; ByteStringBuilder
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679366111"><span class="annot"><span class="annottext">DeviceStatusDetailCode -&gt; ByteStringBuilder
 (DeviceStatusDetailCode -&gt; ByteStringBuilder)
 -&gt; ToLog DeviceStatusDetailCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeviceStatusDetailCode -&gt; ByteStringBuilder
 $cbuild :: DeviceStatusDetailCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679366099"><span class="annot"><span class="annottext">HeaderName -&gt; DeviceStatusDetailCode -&gt; [Header]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679366108"><span class="annot"><span class="annottext">HeaderName -&gt; DeviceStatusDetailCode -&gt; [Header]
 (HeaderName -&gt; DeviceStatusDetailCode -&gt; [Header])
 -&gt; ToHeader DeviceStatusDetailCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeviceStatusDetailCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeviceStatusDetailCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679366096"><span class="annot"><span class="annottext">DeviceStatusDetailCode -&gt; QueryString
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679366105"><span class="annot"><span class="annottext">DeviceStatusDetailCode -&gt; QueryString
 (DeviceStatusDetailCode -&gt; QueryString)
 -&gt; ToQuery DeviceStatusDetailCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeviceStatusDetailCode -&gt; QueryString
 $ctoQuery :: DeviceStatusDetailCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679366091"><span id="local-6989586621679366093"><span class="annot"><span class="annottext">Value -&gt; Parser [DeviceStatusDetailCode]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679366100"><span id="local-6989586621679366102"><span class="annot"><span class="annottext">Value -&gt; Parser [DeviceStatusDetailCode]
 Value -&gt; Parser DeviceStatusDetailCode
 (Value -&gt; Parser DeviceStatusDetailCode)
 -&gt; (Value -&gt; Parser [DeviceStatusDetailCode])
@@ -226,7 +226,7 @@ $cparseJSONList :: Value -&gt; Parser [DeviceStatusDetailCode]
 parseJSON :: Value -&gt; Parser DeviceStatusDetailCode
 $cparseJSON :: Value -&gt; Parser DeviceStatusDetailCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679366086"><span id="local-6989586621679366088"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeviceStatusDetailCode]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679366095"><span id="local-6989586621679366097"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeviceStatusDetailCode]
 FromJSONKeyFunction DeviceStatusDetailCode
 FromJSONKeyFunction DeviceStatusDetailCode
 -&gt; FromJSONKeyFunction [DeviceStatusDetailCode]
@@ -238,7 +238,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeviceStatusDetailCode]
 fromJSONKey :: FromJSONKeyFunction DeviceStatusDetailCode
 $cfromJSONKey :: FromJSONKeyFunction DeviceStatusDetailCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679366077"><span id="local-6989586621679366079"><span id="local-6989586621679366081"><span id="local-6989586621679366083"><span class="annot"><span class="annottext">[DeviceStatusDetailCode] -&gt; Encoding
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679366086"><span id="local-6989586621679366088"><span id="local-6989586621679366090"><span id="local-6989586621679366092"><span class="annot"><span class="annottext">[DeviceStatusDetailCode] -&gt; Encoding
 [DeviceStatusDetailCode] -&gt; Value
 DeviceStatusDetailCode -&gt; Encoding
 DeviceStatusDetailCode -&gt; Value
@@ -262,7 +262,7 @@ $ctoEncoding :: DeviceStatusDetailCode -&gt; Encoding
 toJSON :: DeviceStatusDetailCode -&gt; Value
 $ctoJSON :: DeviceStatusDetailCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679366072"><span id="local-6989586621679366074"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeviceStatusDetailCode]
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679366081"><span id="local-6989586621679366083"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeviceStatusDetailCode]
 ToJSONKeyFunction DeviceStatusDetailCode
 ToJSONKeyFunction DeviceStatusDetailCode
 -&gt; ToJSONKeyFunction [DeviceStatusDetailCode]
@@ -274,14 +274,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeviceStatusDetailCode]
 toJSONKey :: ToJSONKeyFunction DeviceStatusDetailCode
 $ctoJSONKey :: ToJSONKeyFunction DeviceStatusDetailCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679366069"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeviceStatusDetailCode
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679366078"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeviceStatusDetailCode
 ([Node] -&gt; Either String DeviceStatusDetailCode)
 -&gt; FromXML DeviceStatusDetailCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeviceStatusDetailCode
 $cparseXML :: [Node] -&gt; Either String DeviceStatusDetailCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679366066"><span class="annot"><span class="annottext">DeviceStatusDetailCode -&gt; XML
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679366075"><span class="annot"><span class="annottext">DeviceStatusDetailCode -&gt; XML
 (DeviceStatusDetailCode -&gt; XML) -&gt; ToXML DeviceStatusDetailCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeviceStatusDetailCode -&gt; XML

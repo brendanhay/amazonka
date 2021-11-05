@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- relative time ranges across all calls.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newRelativeTimeRange' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679274358"><span id="local-6989586621679274359"></span></span><span class="hs-keyword">data</span><span> </span><span id="RelativeTimeRange"><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-var">RelativeTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RelativeTimeRange%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-var">RelativeTimeRange'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679274367"><span id="local-6989586621679274368"></span></span><span class="hs-keyword">data</span><span> </span><span id="RelativeTimeRange"><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-var">RelativeTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RelativeTimeRange%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-var">RelativeTimeRange'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value that indicates the percentage of the end of the time range. To</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- set a relative time range, you must specify a start percentage and an</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- end percentage. For example, if you specify the following values:</span><span>
@@ -73,7 +73,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AstartPercentage%3ARelativeTimeRange%27"><span class="annot"><span class="annottext">RelativeTimeRange -&gt; Maybe Natural
 </span><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#%24sel%3AstartPercentage%3ARelativeTimeRange%27"><span class="hs-identifier hs-var hs-var">startPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274349"><span id="local-6989586621679274351"><span class="annot"><span class="annottext">RelativeTimeRange -&gt; RelativeTimeRange -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274358"><span id="local-6989586621679274360"><span class="annot"><span class="annottext">RelativeTimeRange -&gt; RelativeTimeRange -&gt; Bool
 (RelativeTimeRange -&gt; RelativeTimeRange -&gt; Bool)
 -&gt; (RelativeTimeRange -&gt; RelativeTimeRange -&gt; Bool)
 -&gt; Eq RelativeTimeRange
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RelativeTimeRange -&gt; RelativeTimeRange -&gt; Bool
 == :: RelativeTimeRange -&gt; RelativeTimeRange -&gt; Bool
 $c== :: RelativeTimeRange -&gt; RelativeTimeRange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274340"><span id="local-6989586621679274342"><span id="local-6989586621679274344"><span id="local-6989586621679274346"><span class="annot"><span class="annottext">ReadPrec [RelativeTimeRange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274349"><span id="local-6989586621679274351"><span id="local-6989586621679274353"><span id="local-6989586621679274355"><span class="annot"><span class="annottext">ReadPrec [RelativeTimeRange]
 ReadPrec RelativeTimeRange
 Int -&gt; ReadS RelativeTimeRange
 ReadS [RelativeTimeRange]
@@ -102,7 +102,7 @@ readList :: ReadS [RelativeTimeRange]
 $creadList :: ReadS [RelativeTimeRange]
 readsPrec :: Int -&gt; ReadS RelativeTimeRange
 $creadsPrec :: Int -&gt; ReadS RelativeTimeRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274333"><span id="local-6989586621679274335"><span id="local-6989586621679274337"><span class="annot"><span class="annottext">Int -&gt; RelativeTimeRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274342"><span id="local-6989586621679274344"><span id="local-6989586621679274346"><span class="annot"><span class="annottext">Int -&gt; RelativeTimeRange -&gt; ShowS
 [RelativeTimeRange] -&gt; ShowS
 RelativeTimeRange -&gt; String
 (Int -&gt; RelativeTimeRange -&gt; ShowS)
@@ -219,16 +219,16 @@ forall a. Maybe a
 -&gt; Lens
      RelativeTimeRange RelativeTimeRange (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274324"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274333"><span class="annot"><span class="annottext">Maybe Natural
 endPercentage :: Maybe Natural
 $sel:endPercentage:RelativeTimeRange' :: RelativeTimeRange -&gt; Maybe Natural
-</span><a href="#local-6989586621679274324"><span class="hs-identifier hs-var hs-var">endPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274324"><span class="hs-identifier hs-var">endPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274323"><span class="annot"><span class="annottext">s :: RelativeTimeRange
-</span><a href="#local-6989586621679274323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274322"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelativeTimeRange
-</span><a href="#local-6989586621679274323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endPercentage:RelativeTimeRange' :: Maybe Natural
+</span><a href="#local-6989586621679274333"><span class="hs-identifier hs-var hs-var">endPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274333"><span class="hs-identifier hs-var">endPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274332"><span class="annot"><span class="annottext">s :: RelativeTimeRange
+</span><a href="#local-6989586621679274332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274331"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelativeTimeRange
+</span><a href="#local-6989586621679274332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endPercentage:RelativeTimeRange' :: Maybe Natural
 </span><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#%24sel%3AendPercentage%3ARelativeTimeRange%27"><span class="hs-identifier hs-var">endPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | A range that takes the portion of the call up to the time in</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- milliseconds set by the value that you\'ve specified. For example, if</span><span>
@@ -242,16 +242,16 @@ $sel:endPercentage:RelativeTimeRange' :: RelativeTimeRange -&gt; Maybe Natural
 -&gt; Lens
      RelativeTimeRange RelativeTimeRange (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274320"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274329"><span class="annot"><span class="annottext">Maybe Natural
 first :: Maybe Natural
 $sel:first:RelativeTimeRange' :: RelativeTimeRange -&gt; Maybe Natural
-</span><a href="#local-6989586621679274320"><span class="hs-identifier hs-var hs-var">first</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274320"><span class="hs-identifier hs-var">first</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274319"><span class="annot"><span class="annottext">s :: RelativeTimeRange
-</span><a href="#local-6989586621679274319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274318"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelativeTimeRange
-</span><a href="#local-6989586621679274319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:first:RelativeTimeRange' :: Maybe Natural
+</span><a href="#local-6989586621679274329"><span class="hs-identifier hs-var hs-var">first</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274329"><span class="hs-identifier hs-var">first</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274328"><span class="annot"><span class="annottext">s :: RelativeTimeRange
+</span><a href="#local-6989586621679274328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274327"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelativeTimeRange
+</span><a href="#local-6989586621679274328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:first:RelativeTimeRange' :: Maybe Natural
 </span><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#%24sel%3Afirst%3ARelativeTimeRange%27"><span class="hs-identifier hs-var">first</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | A range that takes the portion of the call from the time in milliseconds</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- set by the value that you\'ve specified to the end of the call. For</span><span>
@@ -265,16 +265,16 @@ $sel:first:RelativeTimeRange' :: RelativeTimeRange -&gt; Maybe Natural
 -&gt; Lens
      RelativeTimeRange RelativeTimeRange (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274316"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274325"><span class="annot"><span class="annottext">Maybe Natural
 last :: Maybe Natural
 $sel:last:RelativeTimeRange' :: RelativeTimeRange -&gt; Maybe Natural
-</span><a href="#local-6989586621679274316"><span class="hs-identifier hs-var hs-var">last</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274316"><span class="hs-identifier hs-var">last</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274315"><span class="annot"><span class="annottext">s :: RelativeTimeRange
-</span><a href="#local-6989586621679274315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274314"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelativeTimeRange
-</span><a href="#local-6989586621679274315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:last:RelativeTimeRange' :: Maybe Natural
+</span><a href="#local-6989586621679274325"><span class="hs-identifier hs-var hs-var">last</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274325"><span class="hs-identifier hs-var">last</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274324"><span class="annot"><span class="annottext">s :: RelativeTimeRange
+</span><a href="#local-6989586621679274324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274323"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelativeTimeRange
+</span><a href="#local-6989586621679274324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:last:RelativeTimeRange' :: Maybe Natural
 </span><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#%24sel%3Alast%3ARelativeTimeRange%27"><span class="hs-identifier hs-var">last</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | A value that indicates the percentage of the beginning of the time</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- range. To set a relative time range, you must specify a start percentage</span><span>
@@ -296,19 +296,19 @@ $sel:last:RelativeTimeRange' :: RelativeTimeRange -&gt; Maybe Natural
 -&gt; Lens
      RelativeTimeRange RelativeTimeRange (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274312"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274321"><span class="annot"><span class="annottext">Maybe Natural
 startPercentage :: Maybe Natural
 $sel:startPercentage:RelativeTimeRange' :: RelativeTimeRange -&gt; Maybe Natural
-</span><a href="#local-6989586621679274312"><span class="hs-identifier hs-var hs-var">startPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274312"><span class="hs-identifier hs-var">startPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274311"><span class="annot"><span class="annottext">s :: RelativeTimeRange
-</span><a href="#local-6989586621679274311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274310"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelativeTimeRange
-</span><a href="#local-6989586621679274311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startPercentage:RelativeTimeRange' :: Maybe Natural
+</span><a href="#local-6989586621679274321"><span class="hs-identifier hs-var hs-var">startPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274321"><span class="hs-identifier hs-var">startPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274320"><span class="annot"><span class="annottext">s :: RelativeTimeRange
+</span><a href="#local-6989586621679274320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274319"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelativeTimeRange
+</span><a href="#local-6989586621679274320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startPercentage:RelativeTimeRange' :: Maybe Natural
 </span><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#%24sel%3AstartPercentage%3ARelativeTimeRange%27"><span class="hs-identifier hs-var">startPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274307"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679274305"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RelativeTimeRange
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274316"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679274314"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RelativeTimeRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RelativeTimeRange)
@@ -318,8 +318,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RelativeTimeRange&quot;</span></span><span>
-</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274302"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274302"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274311"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274311"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe Natural
@@ -337,7 +337,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Natural -&gt; Maybe Natural -&gt; RelativeTimeRange)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679274311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndPercentage&quot;</span></span><span class="hs-special">)</span><span>
@@ -348,7 +348,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; RelativeTimeRange)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679274311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;First&quot;</span></span><span class="hs-special">)</span><span>
@@ -357,7 +357,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; RelativeTimeRange)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679274311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Last&quot;</span></span><span class="hs-special">)</span><span>
@@ -365,19 +365,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser RelativeTimeRange
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679274311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartPercentage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274296"><span id="local-6989586621679274298"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274305"><span id="local-6989586621679274307"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span></span></span><span>
 </span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274302"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span></span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274285"><span id="local-6989586621679274287"><span id="local-6989586621679274289"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679274283"><span class="annot"><span class="annottext">toJSON :: RelativeTimeRange -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274278"><span id="local-6989586621679274279"><span id="local-6989586621679274280"><span id="local-6989586621679274281"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274294"><span id="local-6989586621679274296"><span id="local-6989586621679274298"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange"><span class="hs-identifier hs-type">RelativeTimeRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679274292"><span class="annot"><span class="annottext">toJSON :: RelativeTimeRange -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RelativeTimeRange.html#RelativeTimeRange%27"><span class="hs-identifier hs-type">RelativeTimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274287"><span id="local-6989586621679274288"><span id="local-6989586621679274289"><span id="local-6989586621679274290"><span class="annot"><span class="annottext">Maybe Natural
 startPercentage :: Maybe Natural
 last :: Maybe Natural
 first :: Maybe Natural
@@ -386,7 +386,7 @@ $sel:startPercentage:RelativeTimeRange' :: RelativeTimeRange -&gt; Maybe Natural
 $sel:last:RelativeTimeRange' :: RelativeTimeRange -&gt; Maybe Natural
 $sel:first:RelativeTimeRange' :: RelativeTimeRange -&gt; Maybe Natural
 $sel:endPercentage:RelativeTimeRange' :: RelativeTimeRange -&gt; Maybe Natural
-</span><a href="#local-6989586621679274278"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679274287"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -398,21 +398,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274281"><span class="hs-identifier hs-var">endPercentage</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274290"><span class="hs-identifier hs-var">endPercentage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;First&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274280"><span class="hs-identifier hs-var">first</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274289"><span class="hs-identifier hs-var">first</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Last&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274279"><span class="hs-identifier hs-var">last</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274288"><span class="hs-identifier hs-var">last</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartPercentage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -420,7 +420,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-195"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274278"><span class="hs-identifier hs-var">startPercentage</span></a></span><span>
+</span><a href="#local-6989586621679274287"><span class="hs-identifier hs-var">startPercentage</span></a></span><span>
 </span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span></pre></body></html>

@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679433769"><span id="local-6989586621679433770"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameSessionStatus"><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionStatus.html#GameSessionStatus"><span class="hs-identifier hs-var">GameSessionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameSessionStatus%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionStatus.html#GameSessionStatus%27"><span class="hs-identifier hs-var">GameSessionStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679433778"><span id="local-6989586621679433779"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameSessionStatus"><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionStatus.html#GameSessionStatus"><span class="hs-identifier hs-var">GameSessionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameSessionStatus%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionStatus.html#GameSessionStatus%27"><span class="hs-identifier hs-var">GameSessionStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGameSessionStatus"><span class="annot"><span class="annottext">GameSessionStatus -&gt; Text
 </span><a href="Network.AWS.GameLift.Types.GameSessionStatus.html#fromGameSessionStatus"><span class="hs-identifier hs-var hs-var">fromGameSessionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679433761"><span id="local-6989586621679433763"><span id="local-6989586621679433765"><span class="annot"><span class="annottext">Int -&gt; GameSessionStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679433770"><span id="local-6989586621679433772"><span id="local-6989586621679433774"><span class="annot"><span class="annottext">Int -&gt; GameSessionStatus -&gt; ShowS
 [GameSessionStatus] -&gt; ShowS
 GameSessionStatus -&gt; String
 (Int -&gt; GameSessionStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: GameSessionStatus -&gt; String
 showsPrec :: Int -&gt; GameSessionStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; GameSessionStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679433752"><span id="local-6989586621679433754"><span id="local-6989586621679433756"><span id="local-6989586621679433758"><span class="annot"><span class="annottext">ReadPrec [GameSessionStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679433761"><span id="local-6989586621679433763"><span id="local-6989586621679433765"><span id="local-6989586621679433767"><span class="annot"><span class="annottext">ReadPrec [GameSessionStatus]
 ReadPrec GameSessionStatus
 Int -&gt; ReadS GameSessionStatus
 ReadS [GameSessionStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [GameSessionStatus]
 readsPrec :: Int -&gt; ReadS GameSessionStatus
 $creadsPrec :: Int -&gt; ReadS GameSessionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679433747"><span id="local-6989586621679433749"><span class="annot"><span class="annottext">GameSessionStatus -&gt; GameSessionStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679433756"><span id="local-6989586621679433758"><span class="annot"><span class="annottext">GameSessionStatus -&gt; GameSessionStatus -&gt; Bool
 (GameSessionStatus -&gt; GameSessionStatus -&gt; Bool)
 -&gt; (GameSessionStatus -&gt; GameSessionStatus -&gt; Bool)
 -&gt; Eq GameSessionStatus
@@ -85,7 +85,7 @@ $c/= :: GameSessionStatus -&gt; GameSessionStatus -&gt; Bool
 == :: GameSessionStatus -&gt; GameSessionStatus -&gt; Bool
 $c== :: GameSessionStatus -&gt; GameSessionStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679433731"><span id="local-6989586621679433733"><span id="local-6989586621679433735"><span id="local-6989586621679433737"><span id="local-6989586621679433739"><span id="local-6989586621679433741"><span id="local-6989586621679433743"><span class="annot"><span class="annottext">Eq GameSessionStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679433740"><span id="local-6989586621679433742"><span id="local-6989586621679433744"><span id="local-6989586621679433746"><span id="local-6989586621679433748"><span id="local-6989586621679433750"><span id="local-6989586621679433752"><span class="annot"><span class="annottext">Eq GameSessionStatus
 Eq GameSessionStatus
 -&gt; (GameSessionStatus -&gt; GameSessionStatus -&gt; Ordering)
 -&gt; (GameSessionStatus -&gt; GameSessionStatus -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. GameSessionStatus -&gt; Rep GameSessionStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679433723"><span id="local-6989586621679433725"><span class="annot"><span class="annottext">Int -&gt; GameSessionStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679433732"><span id="local-6989586621679433734"><span class="annot"><span class="annottext">Int -&gt; GameSessionStatus -&gt; Int
 GameSessionStatus -&gt; Int
 (Int -&gt; GameSessionStatus -&gt; Int)
 -&gt; (GameSessionStatus -&gt; Int) -&gt; Hashable GameSessionStatus
@@ -146,51 +146,51 @@ $chash :: GameSessionStatus -&gt; Int
 hashWithSalt :: Int -&gt; GameSessionStatus -&gt; Int
 $chashWithSalt :: Int -&gt; GameSessionStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679433720"><span class="annot"><span class="annottext">GameSessionStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679433729"><span class="annot"><span class="annottext">GameSessionStatus -&gt; ()
 (GameSessionStatus -&gt; ()) -&gt; NFData GameSessionStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: GameSessionStatus -&gt; ()
 $crnf :: GameSessionStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679433717"><span class="annot"><span class="annottext">Text -&gt; Either String GameSessionStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679433726"><span class="annot"><span class="annottext">Text -&gt; Either String GameSessionStatus
 (Text -&gt; Either String GameSessionStatus)
 -&gt; FromText GameSessionStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String GameSessionStatus
 $cfromText :: Text -&gt; Either String GameSessionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679433714"><span class="annot"><span class="annottext">GameSessionStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679433723"><span class="annot"><span class="annottext">GameSessionStatus -&gt; Text
 (GameSessionStatus -&gt; Text) -&gt; ToText GameSessionStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: GameSessionStatus -&gt; Text
 $ctoText :: GameSessionStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679433711"><span class="annot"><span class="annottext">GameSessionStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679433720"><span class="annot"><span class="annottext">GameSessionStatus -&gt; ByteString
 (GameSessionStatus -&gt; ByteString) -&gt; ToByteString GameSessionStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: GameSessionStatus -&gt; ByteString
 $ctoBS :: GameSessionStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679433708"><span class="annot"><span class="annottext">GameSessionStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679433717"><span class="annot"><span class="annottext">GameSessionStatus -&gt; ByteStringBuilder
 (GameSessionStatus -&gt; ByteStringBuilder) -&gt; ToLog GameSessionStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: GameSessionStatus -&gt; ByteStringBuilder
 $cbuild :: GameSessionStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679433705"><span class="annot"><span class="annottext">HeaderName -&gt; GameSessionStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679433714"><span class="annot"><span class="annottext">HeaderName -&gt; GameSessionStatus -&gt; [Header]
 (HeaderName -&gt; GameSessionStatus -&gt; [Header])
 -&gt; ToHeader GameSessionStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; GameSessionStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; GameSessionStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679433702"><span class="annot"><span class="annottext">GameSessionStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679433711"><span class="annot"><span class="annottext">GameSessionStatus -&gt; QueryString
 (GameSessionStatus -&gt; QueryString) -&gt; ToQuery GameSessionStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: GameSessionStatus -&gt; QueryString
 $ctoQuery :: GameSessionStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679433697"><span id="local-6989586621679433699"><span class="annot"><span class="annottext">Value -&gt; Parser [GameSessionStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679433706"><span id="local-6989586621679433708"><span class="annot"><span class="annottext">Value -&gt; Parser [GameSessionStatus]
 Value -&gt; Parser GameSessionStatus
 (Value -&gt; Parser GameSessionStatus)
 -&gt; (Value -&gt; Parser [GameSessionStatus])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [GameSessionStatus]
 parseJSON :: Value -&gt; Parser GameSessionStatus
 $cparseJSON :: Value -&gt; Parser GameSessionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679433692"><span id="local-6989586621679433694"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameSessionStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679433701"><span id="local-6989586621679433703"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameSessionStatus]
 FromJSONKeyFunction GameSessionStatus
 FromJSONKeyFunction GameSessionStatus
 -&gt; FromJSONKeyFunction [GameSessionStatus]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [GameSessionStatus]
 fromJSONKey :: FromJSONKeyFunction GameSessionStatus
 $cfromJSONKey :: FromJSONKeyFunction GameSessionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679433683"><span id="local-6989586621679433685"><span id="local-6989586621679433687"><span id="local-6989586621679433689"><span class="annot"><span class="annottext">[GameSessionStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679433692"><span id="local-6989586621679433694"><span id="local-6989586621679433696"><span id="local-6989586621679433698"><span class="annot"><span class="annottext">[GameSessionStatus] -&gt; Encoding
 [GameSessionStatus] -&gt; Value
 GameSessionStatus -&gt; Encoding
 GameSessionStatus -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: GameSessionStatus -&gt; Encoding
 toJSON :: GameSessionStatus -&gt; Value
 $ctoJSON :: GameSessionStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679433678"><span id="local-6989586621679433680"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameSessionStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679433687"><span id="local-6989586621679433689"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameSessionStatus]
 ToJSONKeyFunction GameSessionStatus
 ToJSONKeyFunction GameSessionStatus
 -&gt; ToJSONKeyFunction [GameSessionStatus]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [GameSessionStatus]
 toJSONKey :: ToJSONKeyFunction GameSessionStatus
 $ctoJSONKey :: ToJSONKeyFunction GameSessionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679433675"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameSessionStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679433684"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameSessionStatus
 ([Node] -&gt; Either String GameSessionStatus)
 -&gt; FromXML GameSessionStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String GameSessionStatus
 $cparseXML :: [Node] -&gt; Either String GameSessionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679433672"><span class="annot"><span class="annottext">GameSessionStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679433681"><span class="annot"><span class="annottext">GameSessionStatus -&gt; XML
 (GameSessionStatus -&gt; XML) -&gt; ToXML GameSessionStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: GameSessionStatus -&gt; XML

@@ -36,7 +36,7 @@
 </span><span id="line-36"></span><span class="hs-comment">-- uses the @connectionId@ property to identify the VpcLink used.</span><span>
 </span><span id="line-37"></span><span class="hs-comment">--</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newVpcLink' smart constructor.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679372398"><span id="local-6989586621679372399"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcLink"><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-var">VpcLink</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcLink%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-var">VpcLink'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679372407"><span id="local-6989586621679372408"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcLink"><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-var">VpcLink</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcLink%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-var">VpcLink'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the VPC link. The valid values are @AVAILABLE@, @PENDING@,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @DELETING@, or @FAILED@. Deploying an API will wait if the status is</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- @PENDING@ and will fail if the status is @DELETING@.</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3Atags%3AVpcLink%27"><span class="annot"><span class="annottext">VpcLink -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.APIGateway.Types.VpcLink.html#%24sel%3Atags%3AVpcLink%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679372386"><span id="local-6989586621679372388"><span class="annot"><span class="annottext">VpcLink -&gt; VpcLink -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679372395"><span id="local-6989586621679372397"><span class="annot"><span class="annottext">VpcLink -&gt; VpcLink -&gt; Bool
 (VpcLink -&gt; VpcLink -&gt; Bool)
 -&gt; (VpcLink -&gt; VpcLink -&gt; Bool) -&gt; Eq VpcLink
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VpcLink -&gt; VpcLink -&gt; Bool
 == :: VpcLink -&gt; VpcLink -&gt; Bool
 $c== :: VpcLink -&gt; VpcLink -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372377"><span id="local-6989586621679372379"><span id="local-6989586621679372381"><span id="local-6989586621679372383"><span class="annot"><span class="annottext">ReadPrec [VpcLink]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372386"><span id="local-6989586621679372388"><span id="local-6989586621679372390"><span id="local-6989586621679372392"><span class="annot"><span class="annottext">ReadPrec [VpcLink]
 ReadPrec VpcLink
 Int -&gt; ReadS VpcLink
 ReadS [VpcLink]
@@ -93,7 +93,7 @@ readList :: ReadS [VpcLink]
 $creadList :: ReadS [VpcLink]
 readsPrec :: Int -&gt; ReadS VpcLink
 $creadsPrec :: Int -&gt; ReadS VpcLink
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372370"><span id="local-6989586621679372372"><span id="local-6989586621679372374"><span class="annot"><span class="annottext">Int -&gt; VpcLink -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372379"><span id="local-6989586621679372381"><span id="local-6989586621679372383"><span class="annot"><span class="annottext">Int -&gt; VpcLink -&gt; ShowS
 [VpcLink] -&gt; ShowS
 VpcLink -&gt; String
 (Int -&gt; VpcLink -&gt; ShowS)
@@ -196,16 +196,16 @@ forall a. Maybe a
 -&gt; (VpcLink -&gt; Maybe VpcLinkStatus -&gt; VpcLink)
 -&gt; Lens VpcLink VpcLink (Maybe VpcLinkStatus) (Maybe VpcLinkStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372361"><span class="annot"><span class="annottext">Maybe VpcLinkStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372370"><span class="annot"><span class="annottext">Maybe VpcLinkStatus
 status :: Maybe VpcLinkStatus
 $sel:status:VpcLink' :: VpcLink -&gt; Maybe VpcLinkStatus
-</span><a href="#local-6989586621679372361"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcLinkStatus
-</span><a href="#local-6989586621679372361"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372360"><span class="annot"><span class="annottext">s :: VpcLink
-</span><a href="#local-6989586621679372360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372359"><span class="annot"><span class="annottext">Maybe VpcLinkStatus
-</span><a href="#local-6989586621679372359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcLink
-</span><a href="#local-6989586621679372360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:VpcLink' :: Maybe VpcLinkStatus
+</span><a href="#local-6989586621679372370"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcLinkStatus
+</span><a href="#local-6989586621679372370"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372369"><span class="annot"><span class="annottext">s :: VpcLink
+</span><a href="#local-6989586621679372369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372368"><span class="annot"><span class="annottext">Maybe VpcLinkStatus
+</span><a href="#local-6989586621679372368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcLink
+</span><a href="#local-6989586621679372369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:VpcLink' :: Maybe VpcLinkStatus
 </span><a href="Network.AWS.APIGateway.Types.VpcLink.html#%24sel%3Astatus%3AVpcLink%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcLinkStatus
-</span><a href="#local-6989586621679372359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The ARN of the network load balancer of the VPC targeted by the VPC</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- link. The network load balancer must be owned by the same AWS account of</span><span>
@@ -216,16 +216,16 @@ $sel:status:VpcLink' :: VpcLink -&gt; Maybe VpcLinkStatus
 -&gt; (VpcLink -&gt; Maybe [Text] -&gt; VpcLink)
 -&gt; Lens VpcLink VpcLink (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372357"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372366"><span class="annot"><span class="annottext">Maybe [Text]
 targetArns :: Maybe [Text]
 $sel:targetArns:VpcLink' :: VpcLink -&gt; Maybe [Text]
-</span><a href="#local-6989586621679372357"><span class="hs-identifier hs-var hs-var">targetArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679372357"><span class="hs-identifier hs-var">targetArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372356"><span class="annot"><span class="annottext">s :: VpcLink
-</span><a href="#local-6989586621679372356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372355"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679372355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcLink
-</span><a href="#local-6989586621679372356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetArns:VpcLink' :: Maybe [Text]
+</span><a href="#local-6989586621679372366"><span class="hs-identifier hs-var hs-var">targetArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679372366"><span class="hs-identifier hs-var">targetArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372365"><span class="annot"><span class="annottext">s :: VpcLink
+</span><a href="#local-6989586621679372365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372364"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679372364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcLink
+</span><a href="#local-6989586621679372365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetArns:VpcLink' :: Maybe [Text]
 </span><a href="Network.AWS.APIGateway.Types.VpcLink.html#%24sel%3AtargetArns%3AVpcLink%27"><span class="hs-identifier hs-var">targetArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679372355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; VpcLink -&gt; f VpcLink)
+</span><a href="#local-6989586621679372364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; VpcLink -&gt; f VpcLink)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -248,16 +248,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (VpcLink -&gt; Maybe Text -&gt; VpcLink)
 -&gt; Lens VpcLink VpcLink (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372350"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372359"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:VpcLink' :: VpcLink -&gt; Maybe Text
-</span><a href="#local-6989586621679372350"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372350"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372349"><span class="annot"><span class="annottext">s :: VpcLink
-</span><a href="#local-6989586621679372349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372348"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcLink
-</span><a href="#local-6989586621679372349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:VpcLink' :: Maybe Text
+</span><a href="#local-6989586621679372359"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372359"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372358"><span class="annot"><span class="annottext">s :: VpcLink
+</span><a href="#local-6989586621679372358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372357"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcLink
+</span><a href="#local-6989586621679372358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:VpcLink' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.VpcLink.html#%24sel%3Aname%3AVpcLink%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | A description about the VPC link status.</span><span>
 </span><span id="line-120"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#vpcLink_statusMessage"><span class="hs-identifier hs-type">vpcLink_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -266,16 +266,16 @@ $sel:name:VpcLink' :: VpcLink -&gt; Maybe Text
 -&gt; (VpcLink -&gt; Maybe Text -&gt; VpcLink)
 -&gt; Lens VpcLink VpcLink (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372346"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372355"><span class="annot"><span class="annottext">Maybe Text
 statusMessage :: Maybe Text
 $sel:statusMessage:VpcLink' :: VpcLink -&gt; Maybe Text
-</span><a href="#local-6989586621679372346"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372346"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372345"><span class="annot"><span class="annottext">s :: VpcLink
-</span><a href="#local-6989586621679372345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372344"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcLink
-</span><a href="#local-6989586621679372345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:VpcLink' :: Maybe Text
+</span><a href="#local-6989586621679372355"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372355"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372354"><span class="annot"><span class="annottext">s :: VpcLink
+</span><a href="#local-6989586621679372354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372353"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcLink
+</span><a href="#local-6989586621679372354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:VpcLink' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.VpcLink.html#%24sel%3AstatusMessage%3AVpcLink%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The identifier of the VpcLink. It is used in an Integration to reference</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- this VpcLink.</span><span>
@@ -285,16 +285,16 @@ $sel:statusMessage:VpcLink' :: VpcLink -&gt; Maybe Text
 -&gt; (VpcLink -&gt; Maybe Text -&gt; VpcLink)
 -&gt; Lens VpcLink VpcLink (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372342"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372351"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:VpcLink' :: VpcLink -&gt; Maybe Text
-</span><a href="#local-6989586621679372342"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372342"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372341"><span class="annot"><span class="annottext">s :: VpcLink
-</span><a href="#local-6989586621679372341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372340"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcLink
-</span><a href="#local-6989586621679372341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:VpcLink' :: Maybe Text
+</span><a href="#local-6989586621679372351"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372351"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372350"><span class="annot"><span class="annottext">s :: VpcLink
+</span><a href="#local-6989586621679372350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372349"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcLink
+</span><a href="#local-6989586621679372350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:VpcLink' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.VpcLink.html#%24sel%3Aid%3AVpcLink%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The description of the VPC link.</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#vpcLink_description"><span class="hs-identifier hs-type">vpcLink_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -303,16 +303,16 @@ $sel:id:VpcLink' :: VpcLink -&gt; Maybe Text
 -&gt; (VpcLink -&gt; Maybe Text -&gt; VpcLink)
 -&gt; Lens VpcLink VpcLink (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372338"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372347"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:VpcLink' :: VpcLink -&gt; Maybe Text
-</span><a href="#local-6989586621679372338"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372338"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372337"><span class="annot"><span class="annottext">s :: VpcLink
-</span><a href="#local-6989586621679372337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372336"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcLink
-</span><a href="#local-6989586621679372337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:VpcLink' :: Maybe Text
+</span><a href="#local-6989586621679372347"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372347"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372346"><span class="annot"><span class="annottext">s :: VpcLink
+</span><a href="#local-6989586621679372346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372345"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcLink
+</span><a href="#local-6989586621679372346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:VpcLink' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.VpcLink.html#%24sel%3Adescription%3AVpcLink%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | The collection of tags. Each tag element is associated with a given</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- resource.</span><span>
@@ -327,16 +327,16 @@ $sel:description:VpcLink' :: VpcLink -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372334"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372343"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:VpcLink' :: VpcLink -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679372334"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679372334"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372333"><span class="annot"><span class="annottext">s :: VpcLink
-</span><a href="#local-6989586621679372333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372332"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679372332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcLink
-</span><a href="#local-6989586621679372333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:VpcLink' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679372343"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679372343"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372342"><span class="annot"><span class="annottext">s :: VpcLink
+</span><a href="#local-6989586621679372342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink%27"><span class="hs-identifier hs-type">VpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372341"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679372341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcLink
+</span><a href="#local-6989586621679372342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:VpcLink' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.APIGateway.Types.VpcLink.html#%24sel%3Atags%3AVpcLink%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679372332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679372341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; VpcLink -&gt; f VpcLink)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -365,16 +365,16 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372329"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679372327"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VpcLink
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372338"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679372336"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VpcLink
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser VpcLink) -&gt; Value -&gt; Parser VpcLink
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;VpcLink&quot;</span></span><span>
-</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679372324"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372324"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679372333"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679372333"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe VpcLinkStatus
 -&gt; Maybe [Text]
 -&gt; Maybe Text
@@ -403,7 +403,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; VpcLink)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VpcLinkStatus)
+</span><a href="#local-6989586621679372333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VpcLinkStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
@@ -425,7 +425,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; VpcLink)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679372333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -450,7 +450,7 @@ forall a. Monoid a =&gt; a
       -&gt; VpcLink)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679372333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -465,7 +465,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; VpcLink)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679372333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statusMessage&quot;</span></span><span class="hs-special">)</span><span>
@@ -475,7 +475,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; VpcLink)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679372333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
@@ -484,7 +484,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Text) -&gt; VpcLink)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679372333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
@@ -492,7 +492,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser VpcLink
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679372333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -503,7 +503,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372317"><span id="local-6989586621679372319"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372326"><span id="local-6989586621679372328"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span></span></span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372314"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372323"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span></span><span>
 </span><span id="line-155"></span></pre></body></html>

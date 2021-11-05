@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Route53RecoveryControlConfig.ListSafetyRules</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- List the safety rules (the assertion rules and gating rules) that</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- you\'ve defined for the routing controls in a control panel.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53RecoveryControlConfig.ListSafetyRules</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules"><span class="hs-identifier">ListSafetyRules</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#newListSafetyRules"><span class="hs-identifier">newListSafetyRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRules_nextToken"><span class="hs-identifier">listSafetyRules_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRules_maxResults"><span class="hs-identifier">listSafetyRules_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRules_controlPanelArn"><span class="hs-identifier">listSafetyRules_controlPanelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse"><span class="hs-identifier">ListSafetyRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#newListSafetyRulesResponse"><span class="hs-identifier">newListSafetyRulesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRulesResponse_nextToken"><span class="hs-identifier">listSafetyRulesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRulesResponse_safetyRules"><span class="hs-identifier">listSafetyRulesResponse_safetyRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRulesResponse_httpStatus"><span class="hs-identifier">listSafetyRulesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.html"><span class="hs-identifier">Network.AWS.Route53RecoveryControlConfig.Types</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListSafetyRules' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679176439"><span id="local-6989586621679176440"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSafetyRules"><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules"><span class="hs-identifier hs-var">ListSafetyRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSafetyRules%27"><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules%27"><span class="hs-identifier hs-var">ListSafetyRules'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token that identifies which batch of results you want to see.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AListSafetyRules%27"><span class="annot"><span class="annottext">ListSafetyRules -&gt; Maybe Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AnextToken%3AListSafetyRules%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The number of objects that you want to return with this call.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AmaxResults%3AListSafetyRules%27"><span class="annot"><span class="annottext">ListSafetyRules -&gt; Maybe Natural
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AmaxResults%3AListSafetyRules%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the control panel that you\'re getting</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- details for.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AcontrolPanelArn%3AListSafetyRules%27"><span class="annot"><span class="annottext">ListSafetyRules -&gt; Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AcontrolPanelArn%3AListSafetyRules%27"><span class="hs-identifier hs-var hs-var">controlPanelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176431"><span id="local-6989586621679176433"><span class="annot"><span class="annottext">ListSafetyRules -&gt; ListSafetyRules -&gt; Bool
+(ListSafetyRules -&gt; ListSafetyRules -&gt; Bool)
+-&gt; (ListSafetyRules -&gt; ListSafetyRules -&gt; Bool)
+-&gt; Eq ListSafetyRules
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListSafetyRules -&gt; ListSafetyRules -&gt; Bool
+$c/= :: ListSafetyRules -&gt; ListSafetyRules -&gt; Bool
+== :: ListSafetyRules -&gt; ListSafetyRules -&gt; Bool
+$c== :: ListSafetyRules -&gt; ListSafetyRules -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176422"><span id="local-6989586621679176424"><span id="local-6989586621679176426"><span id="local-6989586621679176428"><span class="annot"><span class="annottext">ReadPrec [ListSafetyRules]
+ReadPrec ListSafetyRules
+Int -&gt; ReadS ListSafetyRules
+ReadS [ListSafetyRules]
+(Int -&gt; ReadS ListSafetyRules)
+-&gt; ReadS [ListSafetyRules]
+-&gt; ReadPrec ListSafetyRules
+-&gt; ReadPrec [ListSafetyRules]
+-&gt; Read ListSafetyRules
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListSafetyRules]
+$creadListPrec :: ReadPrec [ListSafetyRules]
+readPrec :: ReadPrec ListSafetyRules
+$creadPrec :: ReadPrec ListSafetyRules
+readList :: ReadS [ListSafetyRules]
+$creadList :: ReadS [ListSafetyRules]
+readsPrec :: Int -&gt; ReadS ListSafetyRules
+$creadsPrec :: Int -&gt; ReadS ListSafetyRules
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176415"><span id="local-6989586621679176417"><span id="local-6989586621679176419"><span class="annot"><span class="annottext">Int -&gt; ListSafetyRules -&gt; ShowS
+[ListSafetyRules] -&gt; ShowS
+ListSafetyRules -&gt; String
+(Int -&gt; ListSafetyRules -&gt; ShowS)
+-&gt; (ListSafetyRules -&gt; String)
+-&gt; ([ListSafetyRules] -&gt; ShowS)
+-&gt; Show ListSafetyRules
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListSafetyRules] -&gt; ShowS
+$cshowList :: [ListSafetyRules] -&gt; ShowS
+show :: ListSafetyRules -&gt; String
+$cshow :: ListSafetyRules -&gt; String
+showsPrec :: Int -&gt; ListSafetyRules -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListSafetyRules -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListSafetyRules -&gt; Rep ListSafetyRules x)
+-&gt; (forall x. Rep ListSafetyRules x -&gt; ListSafetyRules)
+-&gt; Generic ListSafetyRules
+forall x. Rep ListSafetyRules x -&gt; ListSafetyRules
+forall x. ListSafetyRules -&gt; Rep ListSafetyRules x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListSafetyRules x -&gt; ListSafetyRules
+$cfrom :: forall x. ListSafetyRules -&gt; Rep ListSafetyRules x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'ListSafetyRules' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'nextToken', 'listSafetyRules_nextToken' - The token that identifies which batch of results you want to see.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'maxResults', 'listSafetyRules_maxResults' - The number of objects that you want to return with this call.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'controlPanelArn', 'listSafetyRules_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel that you\'re getting</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- details for.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#newListSafetyRules"><span class="hs-identifier hs-type">newListSafetyRules</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'controlPanelArn'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules"><span class="hs-identifier hs-type">ListSafetyRules</span></a></span><span>
+</span><span id="line-83"></span><span id="newListSafetyRules"><span class="annot"><span class="annottext">newListSafetyRules :: Text -&gt; ListSafetyRules
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#newListSafetyRules"><span class="hs-identifier hs-var hs-var">newListSafetyRules</span></a></span></span><span> </span><span id="local-6989586621679176410"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176410"><span class="hs-identifier hs-var">pControlPanelArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">ListSafetyRules' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListSafetyRules
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules%27"><span class="hs-identifier hs-type">ListSafetyRules'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListSafetyRules' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AnextToken%3AListSafetyRules%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListSafetyRules' :: Maybe Natural
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AmaxResults%3AListSafetyRules%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:controlPanelArn:ListSafetyRules' :: Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AcontrolPanelArn%3AListSafetyRules%27"><span class="hs-identifier hs-var">controlPanelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176410"><span class="hs-identifier hs-var">pControlPanelArn_</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The token that identifies which batch of results you want to see.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRules_nextToken"><span class="hs-identifier hs-type">listSafetyRules_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules"><span class="hs-identifier hs-type">ListSafetyRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="listSafetyRules_nextToken"><span class="annot"><span class="annottext">listSafetyRules_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListSafetyRules -&gt; f ListSafetyRules
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRules_nextToken"><span class="hs-identifier hs-var hs-var">listSafetyRules_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSafetyRules -&gt; Maybe Text)
+-&gt; (ListSafetyRules -&gt; Maybe Text -&gt; ListSafetyRules)
+-&gt; Lens ListSafetyRules ListSafetyRules (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules%27"><span class="hs-identifier hs-type">ListSafetyRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176407"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListSafetyRules' :: ListSafetyRules -&gt; Maybe Text
+</span><a href="#local-6989586621679176407"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176407"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176406"><span class="annot"><span class="annottext">s :: ListSafetyRules
+</span><a href="#local-6989586621679176406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules%27"><span class="hs-identifier hs-type">ListSafetyRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176405"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSafetyRules
+</span><a href="#local-6989586621679176406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSafetyRules' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AnextToken%3AListSafetyRules%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules"><span class="hs-identifier hs-type">ListSafetyRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The number of objects that you want to return with this call.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRules_maxResults"><span class="hs-identifier hs-type">listSafetyRules_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules"><span class="hs-identifier hs-type">ListSafetyRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="listSafetyRules_maxResults"><span class="annot"><span class="annottext">listSafetyRules_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListSafetyRules -&gt; f ListSafetyRules
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRules_maxResults"><span class="hs-identifier hs-var hs-var">listSafetyRules_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSafetyRules -&gt; Maybe Natural)
+-&gt; (ListSafetyRules -&gt; Maybe Natural -&gt; ListSafetyRules)
+-&gt; Lens
+     ListSafetyRules ListSafetyRules (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules%27"><span class="hs-identifier hs-type">ListSafetyRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176404"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListSafetyRules' :: ListSafetyRules -&gt; Maybe Natural
+</span><a href="#local-6989586621679176404"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679176404"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176403"><span class="annot"><span class="annottext">s :: ListSafetyRules
+</span><a href="#local-6989586621679176403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules%27"><span class="hs-identifier hs-type">ListSafetyRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176402"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679176402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSafetyRules
+</span><a href="#local-6989586621679176403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListSafetyRules' :: Maybe Natural
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AmaxResults%3AListSafetyRules%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679176402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules"><span class="hs-identifier hs-type">ListSafetyRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the control panel that you\'re getting</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- details for.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRules_controlPanelArn"><span class="hs-identifier hs-type">listSafetyRules_controlPanelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules"><span class="hs-identifier hs-type">ListSafetyRules</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="listSafetyRules_controlPanelArn"><span class="annot"><span class="annottext">listSafetyRules_controlPanelArn :: (Text -&gt; f Text) -&gt; ListSafetyRules -&gt; f ListSafetyRules
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRules_controlPanelArn"><span class="hs-identifier hs-var hs-var">listSafetyRules_controlPanelArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSafetyRules -&gt; Text)
+-&gt; (ListSafetyRules -&gt; Text -&gt; ListSafetyRules)
+-&gt; Lens ListSafetyRules ListSafetyRules Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules%27"><span class="hs-identifier hs-type">ListSafetyRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176401"><span class="annot"><span class="annottext">Text
+controlPanelArn :: Text
+$sel:controlPanelArn:ListSafetyRules' :: ListSafetyRules -&gt; Text
+</span><a href="#local-6989586621679176401"><span class="hs-identifier hs-var hs-var">controlPanelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176401"><span class="hs-identifier hs-var">controlPanelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176400"><span class="annot"><span class="annottext">s :: ListSafetyRules
+</span><a href="#local-6989586621679176400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules%27"><span class="hs-identifier hs-type">ListSafetyRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176399"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSafetyRules
+</span><a href="#local-6989586621679176400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlPanelArn:ListSafetyRules' :: Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AcontrolPanelArn%3AListSafetyRules%27"><span class="hs-identifier hs-var">controlPanelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules"><span class="hs-identifier hs-type">ListSafetyRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules"><span class="hs-identifier hs-type">ListSafetyRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules"><span class="hs-identifier hs-type">ListSafetyRules</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse"><span class="hs-identifier hs-type">ListSafetyRulesResponse</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679176395"><span class="annot"><span class="annottext">request :: ListSafetyRules -&gt; Request ListSafetyRules
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListSafetyRules -&gt; Request ListSafetyRules
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679176391"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListSafetyRules
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListSafetyRules)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListSafetyRules))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListSafetyRules
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListSafetyRules)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176388"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176388"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679176387"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679176387"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679176386"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176386"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Rule] -&gt; Int -&gt; ListSafetyRulesResponse
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse%27"><span class="hs-identifier hs-var">ListSafetyRulesResponse'</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Rule] -&gt; Int -&gt; ListSafetyRulesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Rule] -&gt; Int -&gt; ListSafetyRulesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Rule] -&gt; Int -&gt; ListSafetyRulesResponse)
+-&gt; Either String (Maybe [Rule])
+-&gt; Either String (Int -&gt; ListSafetyRulesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Rule]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SafetyRules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Rule]))
+-&gt; Maybe [Rule] -&gt; Either String (Maybe [Rule])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListSafetyRulesResponse)
+-&gt; Either String Int -&gt; Either String ListSafetyRulesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176388"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176377"><span id="local-6989586621679176379"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules"><span class="hs-identifier hs-type">ListSafetyRules</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176374"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules"><span class="hs-identifier hs-type">ListSafetyRules</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules"><span class="hs-identifier hs-type">ListSafetyRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679176370"><span class="annot"><span class="annottext">toHeaders :: ListSafetyRules -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListSafetyRules -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules"><span class="hs-identifier hs-type">ListSafetyRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679176364"><span class="annot"><span class="annottext">toPath :: ListSafetyRules -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules%27"><span class="hs-identifier hs-type">ListSafetyRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176360"><span id="local-6989586621679176361"><span id="local-6989586621679176362"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+controlPanelArn :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:controlPanelArn:ListSafetyRules' :: ListSafetyRules -&gt; Text
+$sel:maxResults:ListSafetyRules' :: ListSafetyRules -&gt; Maybe Natural
+$sel:nextToken:ListSafetyRules' :: ListSafetyRules -&gt; Maybe Text
+</span><a href="#local-6989586621679176360"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/controlpanel/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176360"><span class="hs-identifier hs-var">controlPanelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/safetyrules&quot;</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules"><span class="hs-identifier hs-type">ListSafetyRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679176356"><span class="annot"><span class="annottext">toQuery :: ListSafetyRules -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRules%27"><span class="hs-identifier hs-type">ListSafetyRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176352"><span id="local-6989586621679176353"><span id="local-6989586621679176354"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+controlPanelArn :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:controlPanelArn:ListSafetyRules' :: ListSafetyRules -&gt; Text
+$sel:maxResults:ListSafetyRules' :: ListSafetyRules -&gt; Maybe Natural
+$sel:nextToken:ListSafetyRules' :: ListSafetyRules -&gt; Maybe Text
+</span><a href="#local-6989586621679176352"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176354"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679176353"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newListSafetyRulesResponse' smart constructor.</span><span>
+</span><span id="line-148"></span><span id="local-6989586621679176349"><span id="local-6989586621679176350"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSafetyRulesResponse"><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse"><span class="hs-identifier hs-var">ListSafetyRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSafetyRulesResponse%27"><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse%27"><span class="hs-identifier hs-var">ListSafetyRulesResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token that identifies which batch of results you want to see.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AnextToken%3AListSafetyRulesResponse%27"><span class="annot"><span class="annottext">ListSafetyRulesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AnextToken%3AListSafetyRulesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The list of safety rules in a control panel.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AsafetyRules%3AListSafetyRulesResponse%27"><span class="annot"><span class="annottext">ListSafetyRulesResponse -&gt; Maybe [Rule]
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AsafetyRules%3AListSafetyRulesResponse%27"><span class="hs-identifier hs-var hs-var">safetyRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListSafetyRulesResponse%27"><span class="annot"><span class="annottext">ListSafetyRulesResponse -&gt; Int
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AhttpStatus%3AListSafetyRulesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176342"><span id="local-6989586621679176344"><span class="annot"><span class="annottext">ListSafetyRulesResponse -&gt; ListSafetyRulesResponse -&gt; Bool
+(ListSafetyRulesResponse -&gt; ListSafetyRulesResponse -&gt; Bool)
+-&gt; (ListSafetyRulesResponse -&gt; ListSafetyRulesResponse -&gt; Bool)
+-&gt; Eq ListSafetyRulesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListSafetyRulesResponse -&gt; ListSafetyRulesResponse -&gt; Bool
+$c/= :: ListSafetyRulesResponse -&gt; ListSafetyRulesResponse -&gt; Bool
+== :: ListSafetyRulesResponse -&gt; ListSafetyRulesResponse -&gt; Bool
+$c== :: ListSafetyRulesResponse -&gt; ListSafetyRulesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176334"><span id="local-6989586621679176336"><span id="local-6989586621679176338"><span id="local-6989586621679176340"><span class="annot"><span class="annottext">ReadPrec [ListSafetyRulesResponse]
+ReadPrec ListSafetyRulesResponse
+Int -&gt; ReadS ListSafetyRulesResponse
+ReadS [ListSafetyRulesResponse]
+(Int -&gt; ReadS ListSafetyRulesResponse)
+-&gt; ReadS [ListSafetyRulesResponse]
+-&gt; ReadPrec ListSafetyRulesResponse
+-&gt; ReadPrec [ListSafetyRulesResponse]
+-&gt; Read ListSafetyRulesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListSafetyRulesResponse]
+$creadListPrec :: ReadPrec [ListSafetyRulesResponse]
+readPrec :: ReadPrec ListSafetyRulesResponse
+$creadPrec :: ReadPrec ListSafetyRulesResponse
+readList :: ReadS [ListSafetyRulesResponse]
+$creadList :: ReadS [ListSafetyRulesResponse]
+readsPrec :: Int -&gt; ReadS ListSafetyRulesResponse
+$creadsPrec :: Int -&gt; ReadS ListSafetyRulesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176328"><span id="local-6989586621679176330"><span id="local-6989586621679176332"><span class="annot"><span class="annottext">Int -&gt; ListSafetyRulesResponse -&gt; ShowS
+[ListSafetyRulesResponse] -&gt; ShowS
+ListSafetyRulesResponse -&gt; String
+(Int -&gt; ListSafetyRulesResponse -&gt; ShowS)
+-&gt; (ListSafetyRulesResponse -&gt; String)
+-&gt; ([ListSafetyRulesResponse] -&gt; ShowS)
+-&gt; Show ListSafetyRulesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListSafetyRulesResponse] -&gt; ShowS
+$cshowList :: [ListSafetyRulesResponse] -&gt; ShowS
+show :: ListSafetyRulesResponse -&gt; String
+$cshow :: ListSafetyRulesResponse -&gt; String
+showsPrec :: Int -&gt; ListSafetyRulesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListSafetyRulesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListSafetyRulesResponse -&gt; Rep ListSafetyRulesResponse x)
+-&gt; (forall x.
+    Rep ListSafetyRulesResponse x -&gt; ListSafetyRulesResponse)
+-&gt; Generic ListSafetyRulesResponse
+forall x. Rep ListSafetyRulesResponse x -&gt; ListSafetyRulesResponse
+forall x. ListSafetyRulesResponse -&gt; Rep ListSafetyRulesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListSafetyRulesResponse x -&gt; ListSafetyRulesResponse
+$cfrom :: forall x. ListSafetyRulesResponse -&gt; Rep ListSafetyRulesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'ListSafetyRulesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'nextToken', 'listSafetyRulesResponse_nextToken' - The token that identifies which batch of results you want to see.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'safetyRules', 'listSafetyRulesResponse_safetyRules' - The list of safety rules in a control panel.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'httpStatus', 'listSafetyRulesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#newListSafetyRulesResponse"><span class="hs-identifier hs-type">newListSafetyRulesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse"><span class="hs-identifier hs-type">ListSafetyRulesResponse</span></a></span><span>
+</span><span id="line-175"></span><span id="newListSafetyRulesResponse"><span class="annot"><span class="annottext">newListSafetyRulesResponse :: Int -&gt; ListSafetyRulesResponse
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#newListSafetyRulesResponse"><span class="hs-identifier hs-var hs-var">newListSafetyRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679176325"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">ListSafetyRulesResponse' :: Maybe Text -&gt; Maybe [Rule] -&gt; Int -&gt; ListSafetyRulesResponse
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse%27"><span class="hs-identifier hs-type">ListSafetyRulesResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListSafetyRulesResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AnextToken%3AListSafetyRulesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:safetyRules:ListSafetyRulesResponse' :: Maybe [Rule]
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AsafetyRules%3AListSafetyRulesResponse%27"><span class="hs-identifier hs-var">safetyRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListSafetyRulesResponse' :: Int
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AhttpStatus%3AListSafetyRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The token that identifies which batch of results you want to see.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRulesResponse_nextToken"><span class="hs-identifier hs-type">listSafetyRulesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse"><span class="hs-identifier hs-type">ListSafetyRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="listSafetyRulesResponse_nextToken"><span class="annot"><span class="annottext">listSafetyRulesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListSafetyRulesResponse -&gt; f ListSafetyRulesResponse
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRulesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listSafetyRulesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSafetyRulesResponse -&gt; Maybe Text)
+-&gt; (ListSafetyRulesResponse
+    -&gt; Maybe Text -&gt; ListSafetyRulesResponse)
+-&gt; Lens
+     ListSafetyRulesResponse
+     ListSafetyRulesResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse%27"><span class="hs-identifier hs-type">ListSafetyRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176324"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListSafetyRulesResponse' :: ListSafetyRulesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679176324"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176324"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176323"><span class="annot"><span class="annottext">s :: ListSafetyRulesResponse
+</span><a href="#local-6989586621679176323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse%27"><span class="hs-identifier hs-type">ListSafetyRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176322"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSafetyRulesResponse
+</span><a href="#local-6989586621679176323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSafetyRulesResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AnextToken%3AListSafetyRulesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse"><span class="hs-identifier hs-type">ListSafetyRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The list of safety rules in a control panel.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRulesResponse_safetyRules"><span class="hs-identifier hs-type">listSafetyRulesResponse_safetyRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse"><span class="hs-identifier hs-type">ListSafetyRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="listSafetyRulesResponse_safetyRules"><span class="annot"><span class="annottext">listSafetyRulesResponse_safetyRules :: (Maybe [Rule] -&gt; f (Maybe [Rule]))
+-&gt; ListSafetyRulesResponse -&gt; f ListSafetyRulesResponse
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRulesResponse_safetyRules"><span class="hs-identifier hs-var hs-var">listSafetyRulesResponse_safetyRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSafetyRulesResponse -&gt; Maybe [Rule])
+-&gt; (ListSafetyRulesResponse
+    -&gt; Maybe [Rule] -&gt; ListSafetyRulesResponse)
+-&gt; Lens
+     ListSafetyRulesResponse
+     ListSafetyRulesResponse
+     (Maybe [Rule])
+     (Maybe [Rule])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse%27"><span class="hs-identifier hs-type">ListSafetyRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176321"><span class="annot"><span class="annottext">Maybe [Rule]
+safetyRules :: Maybe [Rule]
+$sel:safetyRules:ListSafetyRulesResponse' :: ListSafetyRulesResponse -&gt; Maybe [Rule]
+</span><a href="#local-6989586621679176321"><span class="hs-identifier hs-var hs-var">safetyRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679176321"><span class="hs-identifier hs-var">safetyRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176320"><span class="annot"><span class="annottext">s :: ListSafetyRulesResponse
+</span><a href="#local-6989586621679176320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse%27"><span class="hs-identifier hs-type">ListSafetyRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176319"><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679176319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSafetyRulesResponse
+</span><a href="#local-6989586621679176320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:safetyRules:ListSafetyRulesResponse' :: Maybe [Rule]
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AsafetyRules%3AListSafetyRulesResponse%27"><span class="hs-identifier hs-var">safetyRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Rule]
+</span><a href="#local-6989586621679176319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse"><span class="hs-identifier hs-type">ListSafetyRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Rule] -&gt; f (Maybe [Rule]))
+ -&gt; ListSafetyRulesResponse -&gt; f ListSafetyRulesResponse)
+-&gt; ((Maybe [Rule] -&gt; f (Maybe [Rule]))
+    -&gt; Maybe [Rule] -&gt; f (Maybe [Rule]))
+-&gt; (Maybe [Rule] -&gt; f (Maybe [Rule]))
+-&gt; ListSafetyRulesResponse
+-&gt; f ListSafetyRulesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Rule] [Rule] [Rule] [Rule]
+-&gt; Iso (Maybe [Rule]) (Maybe [Rule]) (Maybe [Rule]) (Maybe [Rule])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Rule] [Rule] [Rule] [Rule]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRulesResponse_httpStatus"><span class="hs-identifier hs-type">listSafetyRulesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse"><span class="hs-identifier hs-type">ListSafetyRulesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-193"></span><span id="listSafetyRulesResponse_httpStatus"><span class="annot"><span class="annottext">listSafetyRulesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListSafetyRulesResponse -&gt; f ListSafetyRulesResponse
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#listSafetyRulesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listSafetyRulesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSafetyRulesResponse -&gt; Int)
+-&gt; (ListSafetyRulesResponse -&gt; Int -&gt; ListSafetyRulesResponse)
+-&gt; Lens ListSafetyRulesResponse ListSafetyRulesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse%27"><span class="hs-identifier hs-type">ListSafetyRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176315"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListSafetyRulesResponse' :: ListSafetyRulesResponse -&gt; Int
+</span><a href="#local-6989586621679176315"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176315"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176314"><span class="annot"><span class="annottext">s :: ListSafetyRulesResponse
+</span><a href="#local-6989586621679176314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse%27"><span class="hs-identifier hs-type">ListSafetyRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176313"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSafetyRulesResponse
+</span><a href="#local-6989586621679176314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSafetyRulesResponse' :: Int
+</span><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#%24sel%3AhttpStatus%3AListSafetyRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse"><span class="hs-identifier hs-type">ListSafetyRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176311"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.ListSafetyRules.html#ListSafetyRulesResponse"><span class="hs-identifier hs-type">ListSafetyRulesResponse</span></a></span></span><span>
+</span><span id="line-196"></span></pre></body></html>

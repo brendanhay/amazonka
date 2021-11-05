@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679182729"><span id="local-6989586621679182730"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PermissionsMode"><span class="annot"><a href="Network.AWS.QLDB.Types.PermissionsMode.html#PermissionsMode"><span class="hs-identifier hs-var">PermissionsMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PermissionsMode%27"><span class="annot"><a href="Network.AWS.QLDB.Types.PermissionsMode.html#PermissionsMode%27"><span class="hs-identifier hs-var">PermissionsMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679182738"><span id="local-6989586621679182739"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PermissionsMode"><span class="annot"><a href="Network.AWS.QLDB.Types.PermissionsMode.html#PermissionsMode"><span class="hs-identifier hs-var">PermissionsMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PermissionsMode%27"><span class="annot"><a href="Network.AWS.QLDB.Types.PermissionsMode.html#PermissionsMode%27"><span class="hs-identifier hs-var">PermissionsMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPermissionsMode"><span class="annot"><span class="annottext">PermissionsMode -&gt; Text
 </span><a href="Network.AWS.QLDB.Types.PermissionsMode.html#fromPermissionsMode"><span class="hs-identifier hs-var hs-var">fromPermissionsMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182721"><span id="local-6989586621679182723"><span id="local-6989586621679182725"><span class="annot"><span class="annottext">Int -&gt; PermissionsMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182730"><span id="local-6989586621679182732"><span id="local-6989586621679182734"><span class="annot"><span class="annottext">Int -&gt; PermissionsMode -&gt; ShowS
 [PermissionsMode] -&gt; ShowS
 PermissionsMode -&gt; String
 (Int -&gt; PermissionsMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: PermissionsMode -&gt; String
 showsPrec :: Int -&gt; PermissionsMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; PermissionsMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679182712"><span id="local-6989586621679182714"><span id="local-6989586621679182716"><span id="local-6989586621679182718"><span class="annot"><span class="annottext">ReadPrec [PermissionsMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679182721"><span id="local-6989586621679182723"><span id="local-6989586621679182725"><span id="local-6989586621679182727"><span class="annot"><span class="annottext">ReadPrec [PermissionsMode]
 ReadPrec PermissionsMode
 Int -&gt; ReadS PermissionsMode
 ReadS [PermissionsMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [PermissionsMode]
 readsPrec :: Int -&gt; ReadS PermissionsMode
 $creadsPrec :: Int -&gt; ReadS PermissionsMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679182707"><span id="local-6989586621679182709"><span class="annot"><span class="annottext">PermissionsMode -&gt; PermissionsMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679182716"><span id="local-6989586621679182718"><span class="annot"><span class="annottext">PermissionsMode -&gt; PermissionsMode -&gt; Bool
 (PermissionsMode -&gt; PermissionsMode -&gt; Bool)
 -&gt; (PermissionsMode -&gt; PermissionsMode -&gt; Bool)
 -&gt; Eq PermissionsMode
@@ -82,7 +82,7 @@ $c/= :: PermissionsMode -&gt; PermissionsMode -&gt; Bool
 == :: PermissionsMode -&gt; PermissionsMode -&gt; Bool
 $c== :: PermissionsMode -&gt; PermissionsMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679182691"><span id="local-6989586621679182693"><span id="local-6989586621679182695"><span id="local-6989586621679182697"><span id="local-6989586621679182699"><span id="local-6989586621679182701"><span id="local-6989586621679182703"><span class="annot"><span class="annottext">Eq PermissionsMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679182700"><span id="local-6989586621679182702"><span id="local-6989586621679182704"><span id="local-6989586621679182706"><span id="local-6989586621679182708"><span id="local-6989586621679182710"><span id="local-6989586621679182712"><span class="annot"><span class="annottext">Eq PermissionsMode
 Eq PermissionsMode
 -&gt; (PermissionsMode -&gt; PermissionsMode -&gt; Ordering)
 -&gt; (PermissionsMode -&gt; PermissionsMode -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. PermissionsMode -&gt; Rep PermissionsMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182683"><span id="local-6989586621679182685"><span class="annot"><span class="annottext">Int -&gt; PermissionsMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182692"><span id="local-6989586621679182694"><span class="annot"><span class="annottext">Int -&gt; PermissionsMode -&gt; Int
 PermissionsMode -&gt; Int
 (Int -&gt; PermissionsMode -&gt; Int)
 -&gt; (PermissionsMode -&gt; Int) -&gt; Hashable PermissionsMode
@@ -143,50 +143,50 @@ $chash :: PermissionsMode -&gt; Int
 hashWithSalt :: Int -&gt; PermissionsMode -&gt; Int
 $chashWithSalt :: Int -&gt; PermissionsMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679182680"><span class="annot"><span class="annottext">PermissionsMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679182689"><span class="annot"><span class="annottext">PermissionsMode -&gt; ()
 (PermissionsMode -&gt; ()) -&gt; NFData PermissionsMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PermissionsMode -&gt; ()
 $crnf :: PermissionsMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679182677"><span class="annot"><span class="annottext">Text -&gt; Either String PermissionsMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679182686"><span class="annot"><span class="annottext">Text -&gt; Either String PermissionsMode
 (Text -&gt; Either String PermissionsMode) -&gt; FromText PermissionsMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PermissionsMode
 $cfromText :: Text -&gt; Either String PermissionsMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679182674"><span class="annot"><span class="annottext">PermissionsMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679182683"><span class="annot"><span class="annottext">PermissionsMode -&gt; Text
 (PermissionsMode -&gt; Text) -&gt; ToText PermissionsMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PermissionsMode -&gt; Text
 $ctoText :: PermissionsMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679182671"><span class="annot"><span class="annottext">PermissionsMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679182680"><span class="annot"><span class="annottext">PermissionsMode -&gt; ByteString
 (PermissionsMode -&gt; ByteString) -&gt; ToByteString PermissionsMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PermissionsMode -&gt; ByteString
 $ctoBS :: PermissionsMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679182668"><span class="annot"><span class="annottext">PermissionsMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679182677"><span class="annot"><span class="annottext">PermissionsMode -&gt; ByteStringBuilder
 (PermissionsMode -&gt; ByteStringBuilder) -&gt; ToLog PermissionsMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PermissionsMode -&gt; ByteStringBuilder
 $cbuild :: PermissionsMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679182665"><span class="annot"><span class="annottext">HeaderName -&gt; PermissionsMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679182674"><span class="annot"><span class="annottext">HeaderName -&gt; PermissionsMode -&gt; [Header]
 (HeaderName -&gt; PermissionsMode -&gt; [Header])
 -&gt; ToHeader PermissionsMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PermissionsMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PermissionsMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679182662"><span class="annot"><span class="annottext">PermissionsMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679182671"><span class="annot"><span class="annottext">PermissionsMode -&gt; QueryString
 (PermissionsMode -&gt; QueryString) -&gt; ToQuery PermissionsMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PermissionsMode -&gt; QueryString
 $ctoQuery :: PermissionsMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679182657"><span id="local-6989586621679182659"><span class="annot"><span class="annottext">Value -&gt; Parser [PermissionsMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679182666"><span id="local-6989586621679182668"><span class="annot"><span class="annottext">Value -&gt; Parser [PermissionsMode]
 Value -&gt; Parser PermissionsMode
 (Value -&gt; Parser PermissionsMode)
 -&gt; (Value -&gt; Parser [PermissionsMode]) -&gt; FromJSON PermissionsMode
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [PermissionsMode]
 parseJSON :: Value -&gt; Parser PermissionsMode
 $cparseJSON :: Value -&gt; Parser PermissionsMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679182652"><span id="local-6989586621679182654"><span class="annot"><span class="annottext">FromJSONKeyFunction [PermissionsMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679182661"><span id="local-6989586621679182663"><span class="annot"><span class="annottext">FromJSONKeyFunction [PermissionsMode]
 FromJSONKeyFunction PermissionsMode
 FromJSONKeyFunction PermissionsMode
 -&gt; FromJSONKeyFunction [PermissionsMode]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PermissionsMode]
 fromJSONKey :: FromJSONKeyFunction PermissionsMode
 $cfromJSONKey :: FromJSONKeyFunction PermissionsMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679182643"><span id="local-6989586621679182645"><span id="local-6989586621679182647"><span id="local-6989586621679182649"><span class="annot"><span class="annottext">[PermissionsMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679182652"><span id="local-6989586621679182654"><span id="local-6989586621679182656"><span id="local-6989586621679182658"><span class="annot"><span class="annottext">[PermissionsMode] -&gt; Encoding
 [PermissionsMode] -&gt; Value
 PermissionsMode -&gt; Encoding
 PermissionsMode -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: PermissionsMode -&gt; Encoding
 toJSON :: PermissionsMode -&gt; Value
 $ctoJSON :: PermissionsMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679182638"><span id="local-6989586621679182640"><span class="annot"><span class="annottext">ToJSONKeyFunction [PermissionsMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679182647"><span id="local-6989586621679182649"><span class="annot"><span class="annottext">ToJSONKeyFunction [PermissionsMode]
 ToJSONKeyFunction PermissionsMode
 ToJSONKeyFunction PermissionsMode
 -&gt; ToJSONKeyFunction [PermissionsMode] -&gt; ToJSONKey PermissionsMode
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PermissionsMode]
 toJSONKey :: ToJSONKeyFunction PermissionsMode
 $ctoJSONKey :: ToJSONKeyFunction PermissionsMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679182635"><span class="annot"><span class="annottext">[Node] -&gt; Either String PermissionsMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679182644"><span class="annot"><span class="annottext">[Node] -&gt; Either String PermissionsMode
 ([Node] -&gt; Either String PermissionsMode)
 -&gt; FromXML PermissionsMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PermissionsMode
 $cparseXML :: [Node] -&gt; Either String PermissionsMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679182632"><span class="annot"><span class="annottext">PermissionsMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679182641"><span class="annot"><span class="annottext">PermissionsMode -&gt; XML
 (PermissionsMode -&gt; XML) -&gt; ToXML PermissionsMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PermissionsMode -&gt; XML

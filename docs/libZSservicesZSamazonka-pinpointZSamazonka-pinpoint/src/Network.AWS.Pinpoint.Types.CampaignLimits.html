@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- campaigns in the application can send.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCampaignLimits' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679593240"><span id="local-6989586621679593241"></span></span><span class="hs-keyword">data</span><span> </span><span id="CampaignLimits"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-var">CampaignLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CampaignLimits%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-var">CampaignLimits'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679593249"><span id="local-6989586621679593250"></span></span><span class="hs-keyword">data</span><span> </span><span id="CampaignLimits"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-var">CampaignLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CampaignLimits%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-var">CampaignLimits'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of messages that a campaign can send each second. For</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- an application, this value specifies the default limit for the number of</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- messages that campaigns can send each second. The minimum value is 50.</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AmaximumDuration%3ACampaignLimits%27"><span class="annot"><span class="annottext">CampaignLimits -&gt; Maybe Int
 </span><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#%24sel%3AmaximumDuration%3ACampaignLimits%27"><span class="hs-identifier hs-var hs-var">maximumDuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679593230"><span id="local-6989586621679593232"><span class="annot"><span class="annottext">CampaignLimits -&gt; CampaignLimits -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679593239"><span id="local-6989586621679593241"><span class="annot"><span class="annottext">CampaignLimits -&gt; CampaignLimits -&gt; Bool
 (CampaignLimits -&gt; CampaignLimits -&gt; Bool)
 -&gt; (CampaignLimits -&gt; CampaignLimits -&gt; Bool) -&gt; Eq CampaignLimits
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CampaignLimits -&gt; CampaignLimits -&gt; Bool
 == :: CampaignLimits -&gt; CampaignLimits -&gt; Bool
 $c== :: CampaignLimits -&gt; CampaignLimits -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593221"><span id="local-6989586621679593223"><span id="local-6989586621679593225"><span id="local-6989586621679593227"><span class="annot"><span class="annottext">ReadPrec [CampaignLimits]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593230"><span id="local-6989586621679593232"><span id="local-6989586621679593234"><span id="local-6989586621679593236"><span class="annot"><span class="annottext">ReadPrec [CampaignLimits]
 ReadPrec CampaignLimits
 Int -&gt; ReadS CampaignLimits
 ReadS [CampaignLimits]
@@ -85,7 +85,7 @@ readList :: ReadS [CampaignLimits]
 $creadList :: ReadS [CampaignLimits]
 readsPrec :: Int -&gt; ReadS CampaignLimits
 $creadsPrec :: Int -&gt; ReadS CampaignLimits
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593214"><span id="local-6989586621679593216"><span id="local-6989586621679593218"><span class="annot"><span class="annottext">Int -&gt; CampaignLimits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593223"><span id="local-6989586621679593225"><span id="local-6989586621679593227"><span class="annot"><span class="annottext">Int -&gt; CampaignLimits -&gt; ShowS
 [CampaignLimits] -&gt; ShowS
 CampaignLimits -&gt; String
 (Int -&gt; CampaignLimits -&gt; ShowS)
@@ -184,16 +184,16 @@ forall a. Maybe a
 -&gt; (CampaignLimits -&gt; Maybe Int -&gt; CampaignLimits)
 -&gt; Lens CampaignLimits CampaignLimits (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593205"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593214"><span class="annot"><span class="annottext">Maybe Int
 messagesPerSecond :: Maybe Int
 $sel:messagesPerSecond:CampaignLimits' :: CampaignLimits -&gt; Maybe Int
-</span><a href="#local-6989586621679593205"><span class="hs-identifier hs-var hs-var">messagesPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593205"><span class="hs-identifier hs-var">messagesPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593204"><span class="annot"><span class="annottext">s :: CampaignLimits
-</span><a href="#local-6989586621679593204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593203"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignLimits
-</span><a href="#local-6989586621679593204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messagesPerSecond:CampaignLimits' :: Maybe Int
+</span><a href="#local-6989586621679593214"><span class="hs-identifier hs-var hs-var">messagesPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679593214"><span class="hs-identifier hs-var">messagesPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593213"><span class="annot"><span class="annottext">s :: CampaignLimits
+</span><a href="#local-6989586621679593213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593212"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679593212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignLimits
+</span><a href="#local-6989586621679593213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messagesPerSecond:CampaignLimits' :: Maybe Int
 </span><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#%24sel%3AmessagesPerSecond%3ACampaignLimits%27"><span class="hs-identifier hs-var">messagesPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679593212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The maximum number of messages that a campaign can send to a single</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- endpoint during a 24-hour period. For an application, this value</span><span>
@@ -206,16 +206,16 @@ $sel:messagesPerSecond:CampaignLimits' :: CampaignLimits -&gt; Maybe Int
 -&gt; (CampaignLimits -&gt; Maybe Int -&gt; CampaignLimits)
 -&gt; Lens CampaignLimits CampaignLimits (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593201"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593210"><span class="annot"><span class="annottext">Maybe Int
 daily :: Maybe Int
 $sel:daily:CampaignLimits' :: CampaignLimits -&gt; Maybe Int
-</span><a href="#local-6989586621679593201"><span class="hs-identifier hs-var hs-var">daily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593201"><span class="hs-identifier hs-var">daily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593200"><span class="annot"><span class="annottext">s :: CampaignLimits
-</span><a href="#local-6989586621679593200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593199"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignLimits
-</span><a href="#local-6989586621679593200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:daily:CampaignLimits' :: Maybe Int
+</span><a href="#local-6989586621679593210"><span class="hs-identifier hs-var hs-var">daily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679593210"><span class="hs-identifier hs-var">daily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593209"><span class="annot"><span class="annottext">s :: CampaignLimits
+</span><a href="#local-6989586621679593209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593208"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679593208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignLimits
+</span><a href="#local-6989586621679593209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:daily:CampaignLimits' :: Maybe Int
 </span><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#%24sel%3Adaily%3ACampaignLimits%27"><span class="hs-identifier hs-var">daily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679593208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The maximum number of messages that a campaign can send to a single</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- endpoint during the course of the campaign. If a campaign recurs, this</span><span>
@@ -226,16 +226,16 @@ $sel:daily:CampaignLimits' :: CampaignLimits -&gt; Maybe Int
 -&gt; (CampaignLimits -&gt; Maybe Int -&gt; CampaignLimits)
 -&gt; Lens CampaignLimits CampaignLimits (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593197"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593206"><span class="annot"><span class="annottext">Maybe Int
 total :: Maybe Int
 $sel:total:CampaignLimits' :: CampaignLimits -&gt; Maybe Int
-</span><a href="#local-6989586621679593197"><span class="hs-identifier hs-var hs-var">total</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593197"><span class="hs-identifier hs-var">total</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593196"><span class="annot"><span class="annottext">s :: CampaignLimits
-</span><a href="#local-6989586621679593196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593195"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignLimits
-</span><a href="#local-6989586621679593196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:total:CampaignLimits' :: Maybe Int
+</span><a href="#local-6989586621679593206"><span class="hs-identifier hs-var hs-var">total</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679593206"><span class="hs-identifier hs-var">total</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593205"><span class="annot"><span class="annottext">s :: CampaignLimits
+</span><a href="#local-6989586621679593205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593204"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679593204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignLimits
+</span><a href="#local-6989586621679593205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:total:CampaignLimits' :: Maybe Int
 </span><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#%24sel%3Atotal%3ACampaignLimits%27"><span class="hs-identifier hs-var">total</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679593204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The maximum total number of messages that the campaign can send per user</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- session.</span><span>
@@ -245,16 +245,16 @@ $sel:total:CampaignLimits' :: CampaignLimits -&gt; Maybe Int
 -&gt; (CampaignLimits -&gt; Maybe Int -&gt; CampaignLimits)
 -&gt; Lens CampaignLimits CampaignLimits (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593193"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593202"><span class="annot"><span class="annottext">Maybe Int
 session :: Maybe Int
 $sel:session:CampaignLimits' :: CampaignLimits -&gt; Maybe Int
-</span><a href="#local-6989586621679593193"><span class="hs-identifier hs-var hs-var">session</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593193"><span class="hs-identifier hs-var">session</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593192"><span class="annot"><span class="annottext">s :: CampaignLimits
-</span><a href="#local-6989586621679593192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593191"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignLimits
-</span><a href="#local-6989586621679593192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:session:CampaignLimits' :: Maybe Int
+</span><a href="#local-6989586621679593202"><span class="hs-identifier hs-var hs-var">session</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679593202"><span class="hs-identifier hs-var">session</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593201"><span class="annot"><span class="annottext">s :: CampaignLimits
+</span><a href="#local-6989586621679593201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593200"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679593200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignLimits
+</span><a href="#local-6989586621679593201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:session:CampaignLimits' :: Maybe Int
 </span><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#%24sel%3Asession%3ACampaignLimits%27"><span class="hs-identifier hs-var">session</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679593200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The maximum amount of time, in seconds, that a campaign can attempt to</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- deliver a message after the scheduled start time for the campaign. The</span><span>
@@ -265,19 +265,19 @@ $sel:session:CampaignLimits' :: CampaignLimits -&gt; Maybe Int
 -&gt; (CampaignLimits -&gt; Maybe Int -&gt; CampaignLimits)
 -&gt; Lens CampaignLimits CampaignLimits (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593189"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593198"><span class="annot"><span class="annottext">Maybe Int
 maximumDuration :: Maybe Int
 $sel:maximumDuration:CampaignLimits' :: CampaignLimits -&gt; Maybe Int
-</span><a href="#local-6989586621679593189"><span class="hs-identifier hs-var hs-var">maximumDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593189"><span class="hs-identifier hs-var">maximumDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593188"><span class="annot"><span class="annottext">s :: CampaignLimits
-</span><a href="#local-6989586621679593188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593187"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignLimits
-</span><a href="#local-6989586621679593188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumDuration:CampaignLimits' :: Maybe Int
+</span><a href="#local-6989586621679593198"><span class="hs-identifier hs-var hs-var">maximumDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679593198"><span class="hs-identifier hs-var">maximumDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593197"><span class="annot"><span class="annottext">s :: CampaignLimits
+</span><a href="#local-6989586621679593197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593196"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679593196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignLimits
+</span><a href="#local-6989586621679593197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumDuration:CampaignLimits' :: Maybe Int
 </span><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#%24sel%3AmaximumDuration%3ACampaignLimits%27"><span class="hs-identifier hs-var">maximumDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679593196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593184"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679593182"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CampaignLimits
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593193"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679593191"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CampaignLimits
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CampaignLimits)
@@ -287,8 +287,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CampaignLimits&quot;</span></span><span>
-</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679593179"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593179"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679593188"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593188"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe Int
 -&gt; Maybe Int
@@ -308,7 +308,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; CampaignLimits)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679593188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessagesPerSecond&quot;</span></span><span class="hs-special">)</span><span>
@@ -319,7 +319,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; CampaignLimits)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679593188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Daily&quot;</span></span><span class="hs-special">)</span><span>
@@ -328,7 +328,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; CampaignLimits)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679593188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Total&quot;</span></span><span class="hs-special">)</span><span>
@@ -336,7 +336,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser (Maybe Int -&gt; CampaignLimits)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679593188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Session&quot;</span></span><span class="hs-special">)</span><span>
@@ -344,19 +344,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser CampaignLimits
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679593188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaximumDuration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593173"><span id="local-6989586621679593175"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593182"><span id="local-6989586621679593184"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span></span></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593170"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593179"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593162"><span id="local-6989586621679593164"><span id="local-6989586621679593166"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679593160"><span class="annot"><span class="annottext">toJSON :: CampaignLimits -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593154"><span id="local-6989586621679593155"><span id="local-6989586621679593156"><span id="local-6989586621679593157"><span id="local-6989586621679593158"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593171"><span id="local-6989586621679593173"><span id="local-6989586621679593175"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits"><span class="hs-identifier hs-type">CampaignLimits</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679593169"><span class="annot"><span class="annottext">toJSON :: CampaignLimits -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignLimits.html#CampaignLimits%27"><span class="hs-identifier hs-type">CampaignLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593163"><span id="local-6989586621679593164"><span id="local-6989586621679593165"><span id="local-6989586621679593166"><span id="local-6989586621679593167"><span class="annot"><span class="annottext">Maybe Int
 maximumDuration :: Maybe Int
 session :: Maybe Int
 total :: Maybe Int
@@ -367,7 +367,7 @@ $sel:session:CampaignLimits' :: CampaignLimits -&gt; Maybe Int
 $sel:total:CampaignLimits' :: CampaignLimits -&gt; Maybe Int
 $sel:daily:CampaignLimits' :: CampaignLimits -&gt; Maybe Int
 $sel:messagesPerSecond:CampaignLimits' :: CampaignLimits -&gt; Maybe Int
-</span><a href="#local-6989586621679593154"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679593163"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -380,28 +380,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593158"><span class="hs-identifier hs-var">messagesPerSecond</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679593167"><span class="hs-identifier hs-var">messagesPerSecond</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Daily&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593157"><span class="hs-identifier hs-var">daily</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679593166"><span class="hs-identifier hs-var">daily</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Total&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593156"><span class="hs-identifier hs-var">total</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679593165"><span class="hs-identifier hs-var">total</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Session&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593155"><span class="hs-identifier hs-var">session</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679593164"><span class="hs-identifier hs-var">session</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaximumDuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -409,7 +409,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593154"><span class="hs-identifier hs-var">maximumDuration</span></a></span><span>
+</span><a href="#local-6989586621679593163"><span class="hs-identifier hs-var">maximumDuration</span></a></span><span>
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span></pre></body></html>

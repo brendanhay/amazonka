@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679680241"><span id="local-6989586621679680242"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CloudWatchEncryptionMode"><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryptionMode.html#CloudWatchEncryptionMode"><span class="hs-identifier hs-var">CloudWatchEncryptionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchEncryptionMode%27"><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryptionMode.html#CloudWatchEncryptionMode%27"><span class="hs-identifier hs-var">CloudWatchEncryptionMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679680250"><span id="local-6989586621679680251"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CloudWatchEncryptionMode"><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryptionMode.html#CloudWatchEncryptionMode"><span class="hs-identifier hs-var">CloudWatchEncryptionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchEncryptionMode%27"><span class="annot"><a href="Network.AWS.Glue.Types.CloudWatchEncryptionMode.html#CloudWatchEncryptionMode%27"><span class="hs-identifier hs-var">CloudWatchEncryptionMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCloudWatchEncryptionMode"><span class="annot"><span class="annottext">CloudWatchEncryptionMode -&gt; Text
 </span><a href="Network.AWS.Glue.Types.CloudWatchEncryptionMode.html#fromCloudWatchEncryptionMode"><span class="hs-identifier hs-var hs-var">fromCloudWatchEncryptionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679680233"><span id="local-6989586621679680235"><span id="local-6989586621679680237"><span class="annot"><span class="annottext">Int -&gt; CloudWatchEncryptionMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679680242"><span id="local-6989586621679680244"><span id="local-6989586621679680246"><span class="annot"><span class="annottext">Int -&gt; CloudWatchEncryptionMode -&gt; ShowS
 [CloudWatchEncryptionMode] -&gt; ShowS
 CloudWatchEncryptionMode -&gt; String
 (Int -&gt; CloudWatchEncryptionMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CloudWatchEncryptionMode -&gt; String
 showsPrec :: Int -&gt; CloudWatchEncryptionMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; CloudWatchEncryptionMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679680224"><span id="local-6989586621679680226"><span id="local-6989586621679680228"><span id="local-6989586621679680230"><span class="annot"><span class="annottext">ReadPrec [CloudWatchEncryptionMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679680233"><span id="local-6989586621679680235"><span id="local-6989586621679680237"><span id="local-6989586621679680239"><span class="annot"><span class="annottext">ReadPrec [CloudWatchEncryptionMode]
 ReadPrec CloudWatchEncryptionMode
 Int -&gt; ReadS CloudWatchEncryptionMode
 ReadS [CloudWatchEncryptionMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CloudWatchEncryptionMode]
 readsPrec :: Int -&gt; ReadS CloudWatchEncryptionMode
 $creadsPrec :: Int -&gt; ReadS CloudWatchEncryptionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679680219"><span id="local-6989586621679680221"><span class="annot"><span class="annottext">CloudWatchEncryptionMode -&gt; CloudWatchEncryptionMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679680228"><span id="local-6989586621679680230"><span class="annot"><span class="annottext">CloudWatchEncryptionMode -&gt; CloudWatchEncryptionMode -&gt; Bool
 (CloudWatchEncryptionMode -&gt; CloudWatchEncryptionMode -&gt; Bool)
 -&gt; (CloudWatchEncryptionMode -&gt; CloudWatchEncryptionMode -&gt; Bool)
 -&gt; Eq CloudWatchEncryptionMode
@@ -82,7 +82,7 @@ $c/= :: CloudWatchEncryptionMode -&gt; CloudWatchEncryptionMode -&gt; Bool
 == :: CloudWatchEncryptionMode -&gt; CloudWatchEncryptionMode -&gt; Bool
 $c== :: CloudWatchEncryptionMode -&gt; CloudWatchEncryptionMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679680203"><span id="local-6989586621679680205"><span id="local-6989586621679680207"><span id="local-6989586621679680209"><span id="local-6989586621679680211"><span id="local-6989586621679680213"><span id="local-6989586621679680215"><span class="annot"><span class="annottext">Eq CloudWatchEncryptionMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679680212"><span id="local-6989586621679680214"><span id="local-6989586621679680216"><span id="local-6989586621679680218"><span id="local-6989586621679680220"><span id="local-6989586621679680222"><span id="local-6989586621679680224"><span class="annot"><span class="annottext">Eq CloudWatchEncryptionMode
 Eq CloudWatchEncryptionMode
 -&gt; (CloudWatchEncryptionMode
     -&gt; CloudWatchEncryptionMode -&gt; Ordering)
@@ -147,7 +147,7 @@ CloudWatchEncryptionMode -&gt; Rep CloudWatchEncryptionMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679680195"><span id="local-6989586621679680197"><span class="annot"><span class="annottext">Int -&gt; CloudWatchEncryptionMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679680204"><span id="local-6989586621679680206"><span class="annot"><span class="annottext">Int -&gt; CloudWatchEncryptionMode -&gt; Int
 CloudWatchEncryptionMode -&gt; Int
 (Int -&gt; CloudWatchEncryptionMode -&gt; Int)
 -&gt; (CloudWatchEncryptionMode -&gt; Int)
@@ -158,55 +158,55 @@ $chash :: CloudWatchEncryptionMode -&gt; Int
 hashWithSalt :: Int -&gt; CloudWatchEncryptionMode -&gt; Int
 $chashWithSalt :: Int -&gt; CloudWatchEncryptionMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679680192"><span class="annot"><span class="annottext">CloudWatchEncryptionMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679680201"><span class="annot"><span class="annottext">CloudWatchEncryptionMode -&gt; ()
 (CloudWatchEncryptionMode -&gt; ()) -&gt; NFData CloudWatchEncryptionMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CloudWatchEncryptionMode -&gt; ()
 $crnf :: CloudWatchEncryptionMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679680189"><span class="annot"><span class="annottext">Text -&gt; Either String CloudWatchEncryptionMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679680198"><span class="annot"><span class="annottext">Text -&gt; Either String CloudWatchEncryptionMode
 (Text -&gt; Either String CloudWatchEncryptionMode)
 -&gt; FromText CloudWatchEncryptionMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CloudWatchEncryptionMode
 $cfromText :: Text -&gt; Either String CloudWatchEncryptionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679680186"><span class="annot"><span class="annottext">CloudWatchEncryptionMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679680195"><span class="annot"><span class="annottext">CloudWatchEncryptionMode -&gt; Text
 (CloudWatchEncryptionMode -&gt; Text)
 -&gt; ToText CloudWatchEncryptionMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CloudWatchEncryptionMode -&gt; Text
 $ctoText :: CloudWatchEncryptionMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679680183"><span class="annot"><span class="annottext">CloudWatchEncryptionMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679680192"><span class="annot"><span class="annottext">CloudWatchEncryptionMode -&gt; ByteString
 (CloudWatchEncryptionMode -&gt; ByteString)
 -&gt; ToByteString CloudWatchEncryptionMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CloudWatchEncryptionMode -&gt; ByteString
 $ctoBS :: CloudWatchEncryptionMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679680180"><span class="annot"><span class="annottext">CloudWatchEncryptionMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679680189"><span class="annot"><span class="annottext">CloudWatchEncryptionMode -&gt; ByteStringBuilder
 (CloudWatchEncryptionMode -&gt; ByteStringBuilder)
 -&gt; ToLog CloudWatchEncryptionMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CloudWatchEncryptionMode -&gt; ByteStringBuilder
 $cbuild :: CloudWatchEncryptionMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679680177"><span class="annot"><span class="annottext">HeaderName -&gt; CloudWatchEncryptionMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679680186"><span class="annot"><span class="annottext">HeaderName -&gt; CloudWatchEncryptionMode -&gt; [Header]
 (HeaderName -&gt; CloudWatchEncryptionMode -&gt; [Header])
 -&gt; ToHeader CloudWatchEncryptionMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CloudWatchEncryptionMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CloudWatchEncryptionMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679680174"><span class="annot"><span class="annottext">CloudWatchEncryptionMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679680183"><span class="annot"><span class="annottext">CloudWatchEncryptionMode -&gt; QueryString
 (CloudWatchEncryptionMode -&gt; QueryString)
 -&gt; ToQuery CloudWatchEncryptionMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CloudWatchEncryptionMode -&gt; QueryString
 $ctoQuery :: CloudWatchEncryptionMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679680169"><span id="local-6989586621679680171"><span class="annot"><span class="annottext">Value -&gt; Parser [CloudWatchEncryptionMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679680178"><span id="local-6989586621679680180"><span class="annot"><span class="annottext">Value -&gt; Parser [CloudWatchEncryptionMode]
 Value -&gt; Parser CloudWatchEncryptionMode
 (Value -&gt; Parser CloudWatchEncryptionMode)
 -&gt; (Value -&gt; Parser [CloudWatchEncryptionMode])
@@ -218,7 +218,7 @@ $cparseJSONList :: Value -&gt; Parser [CloudWatchEncryptionMode]
 parseJSON :: Value -&gt; Parser CloudWatchEncryptionMode
 $cparseJSON :: Value -&gt; Parser CloudWatchEncryptionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679680164"><span id="local-6989586621679680166"><span class="annot"><span class="annottext">FromJSONKeyFunction [CloudWatchEncryptionMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679680173"><span id="local-6989586621679680175"><span class="annot"><span class="annottext">FromJSONKeyFunction [CloudWatchEncryptionMode]
 FromJSONKeyFunction CloudWatchEncryptionMode
 FromJSONKeyFunction CloudWatchEncryptionMode
 -&gt; FromJSONKeyFunction [CloudWatchEncryptionMode]
@@ -230,7 +230,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CloudWatchEncryptionMode]
 fromJSONKey :: FromJSONKeyFunction CloudWatchEncryptionMode
 $cfromJSONKey :: FromJSONKeyFunction CloudWatchEncryptionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679680155"><span id="local-6989586621679680157"><span id="local-6989586621679680159"><span id="local-6989586621679680161"><span class="annot"><span class="annottext">[CloudWatchEncryptionMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679680164"><span id="local-6989586621679680166"><span id="local-6989586621679680168"><span id="local-6989586621679680170"><span class="annot"><span class="annottext">[CloudWatchEncryptionMode] -&gt; Encoding
 [CloudWatchEncryptionMode] -&gt; Value
 CloudWatchEncryptionMode -&gt; Encoding
 CloudWatchEncryptionMode -&gt; Value
@@ -254,7 +254,7 @@ $ctoEncoding :: CloudWatchEncryptionMode -&gt; Encoding
 toJSON :: CloudWatchEncryptionMode -&gt; Value
 $ctoJSON :: CloudWatchEncryptionMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679680150"><span id="local-6989586621679680152"><span class="annot"><span class="annottext">ToJSONKeyFunction [CloudWatchEncryptionMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679680159"><span id="local-6989586621679680161"><span class="annot"><span class="annottext">ToJSONKeyFunction [CloudWatchEncryptionMode]
 ToJSONKeyFunction CloudWatchEncryptionMode
 ToJSONKeyFunction CloudWatchEncryptionMode
 -&gt; ToJSONKeyFunction [CloudWatchEncryptionMode]
@@ -266,14 +266,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CloudWatchEncryptionMode]
 toJSONKey :: ToJSONKeyFunction CloudWatchEncryptionMode
 $ctoJSONKey :: ToJSONKeyFunction CloudWatchEncryptionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679680147"><span class="annot"><span class="annottext">[Node] -&gt; Either String CloudWatchEncryptionMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679680156"><span class="annot"><span class="annottext">[Node] -&gt; Either String CloudWatchEncryptionMode
 ([Node] -&gt; Either String CloudWatchEncryptionMode)
 -&gt; FromXML CloudWatchEncryptionMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CloudWatchEncryptionMode
 $cparseXML :: [Node] -&gt; Either String CloudWatchEncryptionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679680144"><span class="annot"><span class="annottext">CloudWatchEncryptionMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679680153"><span class="annot"><span class="annottext">CloudWatchEncryptionMode -&gt; XML
 (CloudWatchEncryptionMode -&gt; XML) -&gt; ToXML CloudWatchEncryptionMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CloudWatchEncryptionMode -&gt; XML

@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListOriginEndpoints' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679241871"><span id="local-6989586621679241872"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOriginEndpoints"><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-var">ListOriginEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOriginEndpoints%27"><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints%27"><span class="hs-identifier hs-var">ListOriginEndpoints'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679241880"><span id="local-6989586621679241881"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOriginEndpoints"><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-var">ListOriginEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOriginEndpoints%27"><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints%27"><span class="hs-identifier hs-var">ListOriginEndpoints'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When specified, the request will return only OriginEndpoints associated</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- with the given Channel ID.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AchannelId%3AListOriginEndpoints%27"><span class="annot"><span class="annottext">ListOriginEndpoints -&gt; Maybe Text
@@ -64,7 +64,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxResults%3AListOriginEndpoints%27"><span class="annot"><span class="annottext">ListOriginEndpoints -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#%24sel%3AmaxResults%3AListOriginEndpoints%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241863"><span id="local-6989586621679241865"><span class="annot"><span class="annottext">ListOriginEndpoints -&gt; ListOriginEndpoints -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241872"><span id="local-6989586621679241874"><span class="annot"><span class="annottext">ListOriginEndpoints -&gt; ListOriginEndpoints -&gt; Bool
 (ListOriginEndpoints -&gt; ListOriginEndpoints -&gt; Bool)
 -&gt; (ListOriginEndpoints -&gt; ListOriginEndpoints -&gt; Bool)
 -&gt; Eq ListOriginEndpoints
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListOriginEndpoints -&gt; ListOriginEndpoints -&gt; Bool
 == :: ListOriginEndpoints -&gt; ListOriginEndpoints -&gt; Bool
 $c== :: ListOriginEndpoints -&gt; ListOriginEndpoints -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241854"><span id="local-6989586621679241856"><span id="local-6989586621679241858"><span id="local-6989586621679241860"><span class="annot"><span class="annottext">ReadPrec [ListOriginEndpoints]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241863"><span id="local-6989586621679241865"><span id="local-6989586621679241867"><span id="local-6989586621679241869"><span class="annot"><span class="annottext">ReadPrec [ListOriginEndpoints]
 ReadPrec ListOriginEndpoints
 Int -&gt; ReadS ListOriginEndpoints
 ReadS [ListOriginEndpoints]
@@ -93,7 +93,7 @@ readList :: ReadS [ListOriginEndpoints]
 $creadList :: ReadS [ListOriginEndpoints]
 readsPrec :: Int -&gt; ReadS ListOriginEndpoints
 $creadsPrec :: Int -&gt; ReadS ListOriginEndpoints
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241847"><span id="local-6989586621679241849"><span id="local-6989586621679241851"><span class="annot"><span class="annottext">Int -&gt; ListOriginEndpoints -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241856"><span id="local-6989586621679241858"><span id="local-6989586621679241860"><span class="annot"><span class="annottext">Int -&gt; ListOriginEndpoints -&gt; ShowS
 [ListOriginEndpoints] -&gt; ShowS
 ListOriginEndpoints -&gt; String
 (Int -&gt; ListOriginEndpoints -&gt; ShowS)
@@ -163,16 +163,16 @@ forall a. Maybe a
 -&gt; Lens
      ListOriginEndpoints ListOriginEndpoints (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints%27"><span class="hs-identifier hs-type">ListOriginEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241841"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints%27"><span class="hs-identifier hs-type">ListOriginEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241850"><span class="annot"><span class="annottext">Maybe Text
 channelId :: Maybe Text
 $sel:channelId:ListOriginEndpoints' :: ListOriginEndpoints -&gt; Maybe Text
-</span><a href="#local-6989586621679241841"><span class="hs-identifier hs-var hs-var">channelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241841"><span class="hs-identifier hs-var">channelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241840"><span class="annot"><span class="annottext">s :: ListOriginEndpoints
-</span><a href="#local-6989586621679241840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints%27"><span class="hs-identifier hs-type">ListOriginEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241839"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOriginEndpoints
-</span><a href="#local-6989586621679241840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelId:ListOriginEndpoints' :: Maybe Text
+</span><a href="#local-6989586621679241850"><span class="hs-identifier hs-var hs-var">channelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241850"><span class="hs-identifier hs-var">channelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241849"><span class="annot"><span class="annottext">s :: ListOriginEndpoints
+</span><a href="#local-6989586621679241849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints%27"><span class="hs-identifier hs-type">ListOriginEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241848"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOriginEndpoints
+</span><a href="#local-6989586621679241849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelId:ListOriginEndpoints' :: Maybe Text
 </span><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#%24sel%3AchannelId%3AListOriginEndpoints%27"><span class="hs-identifier hs-var">channelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-type">ListOriginEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679241848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-type">ListOriginEndpoints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | A token used to resume pagination from the end of a previous request.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#listOriginEndpoints_nextToken"><span class="hs-identifier hs-type">listOriginEndpoints_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-type">ListOriginEndpoints</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -183,16 +183,16 @@ $sel:channelId:ListOriginEndpoints' :: ListOriginEndpoints -&gt; Maybe Text
 -&gt; Lens
      ListOriginEndpoints ListOriginEndpoints (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints%27"><span class="hs-identifier hs-type">ListOriginEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241838"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints%27"><span class="hs-identifier hs-type">ListOriginEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241847"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListOriginEndpoints' :: ListOriginEndpoints -&gt; Maybe Text
-</span><a href="#local-6989586621679241838"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241838"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241837"><span class="annot"><span class="annottext">s :: ListOriginEndpoints
-</span><a href="#local-6989586621679241837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints%27"><span class="hs-identifier hs-type">ListOriginEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241836"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOriginEndpoints
-</span><a href="#local-6989586621679241837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOriginEndpoints' :: Maybe Text
+</span><a href="#local-6989586621679241847"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241847"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241846"><span class="annot"><span class="annottext">s :: ListOriginEndpoints
+</span><a href="#local-6989586621679241846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints%27"><span class="hs-identifier hs-type">ListOriginEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241845"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOriginEndpoints
+</span><a href="#local-6989586621679241846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOriginEndpoints' :: Maybe Text
 </span><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#%24sel%3AnextToken%3AListOriginEndpoints%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-type">ListOriginEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679241845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-type">ListOriginEndpoints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The upper bound on the number of records to return.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#listOriginEndpoints_maxResults"><span class="hs-identifier hs-type">listOriginEndpoints_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-type">ListOriginEndpoints</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -206,29 +206,29 @@ $sel:nextToken:ListOriginEndpoints' :: ListOriginEndpoints -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints%27"><span class="hs-identifier hs-type">ListOriginEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241835"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints%27"><span class="hs-identifier hs-type">ListOriginEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241844"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListOriginEndpoints' :: ListOriginEndpoints -&gt; Maybe Natural
-</span><a href="#local-6989586621679241835"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679241835"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241834"><span class="annot"><span class="annottext">s :: ListOriginEndpoints
-</span><a href="#local-6989586621679241834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints%27"><span class="hs-identifier hs-type">ListOriginEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241833"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679241833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOriginEndpoints
-</span><a href="#local-6989586621679241834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListOriginEndpoints' :: Maybe Natural
+</span><a href="#local-6989586621679241844"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679241844"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241843"><span class="annot"><span class="annottext">s :: ListOriginEndpoints
+</span><a href="#local-6989586621679241843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints%27"><span class="hs-identifier hs-type">ListOriginEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241842"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679241842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOriginEndpoints
+</span><a href="#local-6989586621679241843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListOriginEndpoints' :: Maybe Natural
 </span><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#%24sel%3AmaxResults%3AListOriginEndpoints%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679241833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-type">ListOriginEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679241842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-type">ListOriginEndpoints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-type">ListOriginEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679241829"><span class="annot"><span class="annottext">page :: ListOriginEndpoints
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679241838"><span class="annot"><span class="annottext">page :: ListOriginEndpoints
 -&gt; AWSResponse ListOriginEndpoints -&gt; Maybe ListOriginEndpoints
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679241827"><span class="annot"><span class="annottext">ListOriginEndpoints
-</span><a href="#local-6989586621679241827"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679241826"><span class="annot"><span class="annottext">AWSResponse ListOriginEndpoints
-</span><a href="#local-6989586621679241826"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679241836"><span class="annot"><span class="annottext">ListOriginEndpoints
+</span><a href="#local-6989586621679241836"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679241835"><span class="annot"><span class="annottext">AWSResponse ListOriginEndpoints
+</span><a href="#local-6989586621679241835"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-105"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOriginEndpoints
 ListOriginEndpointsResponse
-</span><a href="#local-6989586621679241826"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679241835"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">ListOriginEndpointsResponse
 -&gt; Getting (First Text) ListOriginEndpointsResponse Text
 -&gt; Maybe Text
@@ -258,7 +258,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-111"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOriginEndpoints
 ListOriginEndpointsResponse
-</span><a href="#local-6989586621679241826"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679241835"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">ListOriginEndpointsResponse
 -&gt; Getting
      (First [OriginEndpoint])
@@ -304,7 +304,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">ListOriginEndpoints
-</span><a href="#local-6989586621679241827"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679241836"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">ListOriginEndpoints
 -&gt; (ListOriginEndpoints -&gt; ListOriginEndpoints)
 -&gt; ListOriginEndpoints
@@ -320,7 +320,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOriginEndpoints
 ListOriginEndpointsResponse
-</span><a href="#local-6989586621679241826"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679241835"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">ListOriginEndpointsResponse
 -&gt; Getting (First Text) ListOriginEndpointsResponse Text
 -&gt; Maybe Text
@@ -346,12 +346,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-type">ListOriginEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse"><span class="hs-identifier hs-type">ListOriginEndpointsResponse</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679241816"><span class="annot"><span class="annottext">request :: ListOriginEndpoints -&gt; Request ListOriginEndpoints
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679241825"><span class="annot"><span class="annottext">request :: ListOriginEndpoints -&gt; Request ListOriginEndpoints
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListOriginEndpoints -&gt; Request ListOriginEndpoints
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaPackage.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679241812"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679241821"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListOriginEndpoints
 -&gt; ClientResponse ClientBody
@@ -377,10 +377,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679241809"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241809"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679241808"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679241808"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679241807"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679241807"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679241818"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241818"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679241817"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679241817"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679241816"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241816"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe [OriginEndpoint]
 -&gt; Maybe Text -&gt; Int -&gt; ListOriginEndpointsResponse
 </span><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse%27"><span class="hs-identifier hs-var">ListOriginEndpointsResponse'</span></a></span><span>
@@ -390,7 +390,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListOriginEndpointsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679241807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [OriginEndpoint]))
+</span><a href="#local-6989586621679241816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [OriginEndpoint]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;originEndpoints&quot;</span></span><span>
@@ -406,7 +406,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListOriginEndpointsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679241807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679241816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -418,15 +418,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241809"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679241818"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241798"><span id="local-6989586621679241800"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-type">ListOriginEndpoints</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241807"><span id="local-6989586621679241809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-type">ListOriginEndpoints</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-type">ListOriginEndpoints</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-type">ListOriginEndpoints</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-type">ListOriginEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679241791"><span class="annot"><span class="annottext">toHeaders :: ListOriginEndpoints -&gt; ResponseHeaders
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679241800"><span class="annot"><span class="annottext">toHeaders :: ListOriginEndpoints -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListOriginEndpoints -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -446,15 +446,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-type">ListOriginEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679241785"><span class="annot"><span class="annottext">toPath :: ListOriginEndpoints -&gt; ByteString
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679241794"><span class="annot"><span class="annottext">toPath :: ListOriginEndpoints -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListOriginEndpoints -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/origin_endpoints&quot;</span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints"><span class="hs-identifier hs-type">ListOriginEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679241781"><span class="annot"><span class="annottext">toQuery :: ListOriginEndpoints -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints%27"><span class="hs-identifier hs-type">ListOriginEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241777"><span id="local-6989586621679241778"><span id="local-6989586621679241779"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679241790"><span class="annot"><span class="annottext">toQuery :: ListOriginEndpoints -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpoints%27"><span class="hs-identifier hs-type">ListOriginEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241786"><span id="local-6989586621679241787"><span id="local-6989586621679241788"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
@@ -462,7 +462,7 @@ channelId :: Maybe Text
 $sel:maxResults:ListOriginEndpoints' :: ListOriginEndpoints -&gt; Maybe Natural
 $sel:nextToken:ListOriginEndpoints' :: ListOriginEndpoints -&gt; Maybe Text
 $sel:channelId:ListOriginEndpoints' :: ListOriginEndpoints -&gt; Maybe Text
-</span><a href="#local-6989586621679241777"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679241786"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -470,21 +470,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;channelId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241779"><span class="hs-identifier hs-var">channelId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679241788"><span class="hs-identifier hs-var">channelId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241778"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679241787"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679241777"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679241786"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | /See:/ 'newListOriginEndpointsResponse' smart constructor.</span><span>
-</span><span id="line-167"></span><span id="local-6989586621679241774"><span id="local-6989586621679241775"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOriginEndpointsResponse"><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse"><span class="hs-identifier hs-var">ListOriginEndpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOriginEndpointsResponse%27"><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse%27"><span class="hs-identifier hs-var">ListOriginEndpointsResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span id="local-6989586621679241783"><span id="local-6989586621679241784"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOriginEndpointsResponse"><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse"><span class="hs-identifier hs-var">ListOriginEndpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOriginEndpointsResponse%27"><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse%27"><span class="hs-identifier hs-var">ListOriginEndpointsResponse'</span></a></span></span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of OriginEndpoint records.</span><span>
 </span><span id="line-169"></span><span>    </span><span id="%24sel%3AoriginEndpoints%3AListOriginEndpointsResponse%27"><span class="annot"><span class="annottext">ListOriginEndpointsResponse -&gt; Maybe [OriginEndpoint]
 </span><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#%24sel%3AoriginEndpoints%3AListOriginEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">originEndpoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaPackage.Types.OriginEndpoint.html#OriginEndpoint"><span class="hs-identifier hs-type">OriginEndpoint</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -496,7 +496,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListOriginEndpointsResponse%27"><span class="annot"><span class="annottext">ListOriginEndpointsResponse -&gt; Int
 </span><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#%24sel%3AhttpStatus%3AListOriginEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241767"><span id="local-6989586621679241769"><span class="annot"><span class="annottext">ListOriginEndpointsResponse -&gt; ListOriginEndpointsResponse -&gt; Bool
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241776"><span id="local-6989586621679241778"><span class="annot"><span class="annottext">ListOriginEndpointsResponse -&gt; ListOriginEndpointsResponse -&gt; Bool
 (ListOriginEndpointsResponse
  -&gt; ListOriginEndpointsResponse -&gt; Bool)
 -&gt; (ListOriginEndpointsResponse
@@ -507,7 +507,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListOriginEndpointsResponse -&gt; ListOriginEndpointsResponse -&gt; Bool
 == :: ListOriginEndpointsResponse -&gt; ListOriginEndpointsResponse -&gt; Bool
 $c== :: ListOriginEndpointsResponse -&gt; ListOriginEndpointsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241759"><span id="local-6989586621679241761"><span id="local-6989586621679241763"><span id="local-6989586621679241765"><span class="annot"><span class="annottext">ReadPrec [ListOriginEndpointsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241768"><span id="local-6989586621679241770"><span id="local-6989586621679241772"><span id="local-6989586621679241774"><span class="annot"><span class="annottext">ReadPrec [ListOriginEndpointsResponse]
 ReadPrec ListOriginEndpointsResponse
 Int -&gt; ReadS ListOriginEndpointsResponse
 ReadS [ListOriginEndpointsResponse]
@@ -527,7 +527,7 @@ readList :: ReadS [ListOriginEndpointsResponse]
 $creadList :: ReadS [ListOriginEndpointsResponse]
 readsPrec :: Int -&gt; ReadS ListOriginEndpointsResponse
 $creadsPrec :: Int -&gt; ReadS ListOriginEndpointsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241753"><span id="local-6989586621679241755"><span id="local-6989586621679241757"><span class="annot"><span class="annottext">Int -&gt; ListOriginEndpointsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241762"><span id="local-6989586621679241764"><span id="local-6989586621679241766"><span class="annot"><span class="annottext">Int -&gt; ListOriginEndpointsResponse -&gt; ShowS
 [ListOriginEndpointsResponse] -&gt; ShowS
 ListOriginEndpointsResponse -&gt; String
 (Int -&gt; ListOriginEndpointsResponse -&gt; ShowS)
@@ -578,8 +578,8 @@ ListOriginEndpointsResponse -&gt; Rep ListOriginEndpointsResponse x
 </span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-195"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse"><span class="hs-identifier hs-type">ListOriginEndpointsResponse</span></a></span><span>
 </span><span id="line-196"></span><span id="newListOriginEndpointsResponse"><span class="annot"><span class="annottext">newListOriginEndpointsResponse :: Int -&gt; ListOriginEndpointsResponse
-</span><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#newListOriginEndpointsResponse"><span class="hs-identifier hs-var hs-var">newListOriginEndpointsResponse</span></a></span></span><span> </span><span id="local-6989586621679241750"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241750"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#newListOriginEndpointsResponse"><span class="hs-identifier hs-var hs-var">newListOriginEndpointsResponse</span></a></span></span><span> </span><span id="local-6989586621679241759"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241759"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>  </span><span class="annot"><span class="annottext">ListOriginEndpointsResponse' :: Maybe [OriginEndpoint]
 -&gt; Maybe Text -&gt; Int -&gt; ListOriginEndpointsResponse
 </span><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse%27"><span class="hs-identifier hs-type">ListOriginEndpointsResponse'</span></a></span><span>
@@ -594,7 +594,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListOriginEndpointsResponse' :: Int
 </span><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#%24sel%3AhttpStatus%3AListOriginEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241750"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679241759"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-202"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- | A list of OriginEndpoint records.</span><span>
@@ -606,16 +606,16 @@ forall a. Maybe a
     -&gt; Maybe [OriginEndpoint] -&gt; ListOriginEndpointsResponse)
 -&gt; Lens' ListOriginEndpointsResponse (Maybe [OriginEndpoint])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse%27"><span class="hs-identifier hs-type">ListOriginEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241749"><span class="annot"><span class="annottext">Maybe [OriginEndpoint]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse%27"><span class="hs-identifier hs-type">ListOriginEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241758"><span class="annot"><span class="annottext">Maybe [OriginEndpoint]
 originEndpoints :: Maybe [OriginEndpoint]
 $sel:originEndpoints:ListOriginEndpointsResponse' :: ListOriginEndpointsResponse -&gt; Maybe [OriginEndpoint]
-</span><a href="#local-6989586621679241749"><span class="hs-identifier hs-var hs-var">originEndpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OriginEndpoint]
-</span><a href="#local-6989586621679241749"><span class="hs-identifier hs-var">originEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241748"><span class="annot"><span class="annottext">s :: ListOriginEndpointsResponse
-</span><a href="#local-6989586621679241748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse%27"><span class="hs-identifier hs-type">ListOriginEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241747"><span class="annot"><span class="annottext">Maybe [OriginEndpoint]
-</span><a href="#local-6989586621679241747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOriginEndpointsResponse
-</span><a href="#local-6989586621679241748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originEndpoints:ListOriginEndpointsResponse' :: Maybe [OriginEndpoint]
+</span><a href="#local-6989586621679241758"><span class="hs-identifier hs-var hs-var">originEndpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OriginEndpoint]
+</span><a href="#local-6989586621679241758"><span class="hs-identifier hs-var">originEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241757"><span class="annot"><span class="annottext">s :: ListOriginEndpointsResponse
+</span><a href="#local-6989586621679241757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse%27"><span class="hs-identifier hs-type">ListOriginEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241756"><span class="annot"><span class="annottext">Maybe [OriginEndpoint]
+</span><a href="#local-6989586621679241756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOriginEndpointsResponse
+</span><a href="#local-6989586621679241757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originEndpoints:ListOriginEndpointsResponse' :: Maybe [OriginEndpoint]
 </span><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#%24sel%3AoriginEndpoints%3AListOriginEndpointsResponse%27"><span class="hs-identifier hs-var">originEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OriginEndpoint]
-</span><a href="#local-6989586621679241747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse"><span class="hs-identifier hs-type">ListOriginEndpointsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OriginEndpoint] -&gt; f (Maybe [OriginEndpoint]))
+</span><a href="#local-6989586621679241756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse"><span class="hs-identifier hs-type">ListOriginEndpointsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OriginEndpoint] -&gt; f (Maybe [OriginEndpoint]))
  -&gt; ListOriginEndpointsResponse -&gt; f ListOriginEndpointsResponse)
 -&gt; ((Maybe [OriginEndpoint] -&gt; f (Maybe [OriginEndpoint]))
     -&gt; Maybe [OriginEndpoint] -&gt; f (Maybe [OriginEndpoint]))
@@ -648,16 +648,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListOriginEndpointsResponse)
 -&gt; Lens' ListOriginEndpointsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse%27"><span class="hs-identifier hs-type">ListOriginEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241744"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse%27"><span class="hs-identifier hs-type">ListOriginEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241753"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListOriginEndpointsResponse' :: ListOriginEndpointsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679241744"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241744"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241743"><span class="annot"><span class="annottext">s :: ListOriginEndpointsResponse
-</span><a href="#local-6989586621679241743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse%27"><span class="hs-identifier hs-type">ListOriginEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241742"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOriginEndpointsResponse
-</span><a href="#local-6989586621679241743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOriginEndpointsResponse' :: Maybe Text
+</span><a href="#local-6989586621679241753"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241753"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241752"><span class="annot"><span class="annottext">s :: ListOriginEndpointsResponse
+</span><a href="#local-6989586621679241752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse%27"><span class="hs-identifier hs-type">ListOriginEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241751"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679241751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOriginEndpointsResponse
+</span><a href="#local-6989586621679241752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOriginEndpointsResponse' :: Maybe Text
 </span><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#%24sel%3AnextToken%3AListOriginEndpointsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679241742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse"><span class="hs-identifier hs-type">ListOriginEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679241751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse"><span class="hs-identifier hs-type">ListOriginEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-214"></span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#listOriginEndpointsResponse_httpStatus"><span class="hs-identifier hs-type">listOriginEndpointsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse"><span class="hs-identifier hs-type">ListOriginEndpointsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -669,16 +669,16 @@ $sel:nextToken:ListOriginEndpointsResponse' :: ListOriginEndpointsResponse -&gt;
 -&gt; Lens
      ListOriginEndpointsResponse ListOriginEndpointsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse%27"><span class="hs-identifier hs-type">ListOriginEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241741"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse%27"><span class="hs-identifier hs-type">ListOriginEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241750"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListOriginEndpointsResponse' :: ListOriginEndpointsResponse -&gt; Int
-</span><a href="#local-6989586621679241741"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241741"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241740"><span class="annot"><span class="annottext">s :: ListOriginEndpointsResponse
-</span><a href="#local-6989586621679241740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse%27"><span class="hs-identifier hs-type">ListOriginEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241739"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOriginEndpointsResponse
-</span><a href="#local-6989586621679241740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListOriginEndpointsResponse' :: Int
+</span><a href="#local-6989586621679241750"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241750"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241749"><span class="annot"><span class="annottext">s :: ListOriginEndpointsResponse
+</span><a href="#local-6989586621679241749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse%27"><span class="hs-identifier hs-type">ListOriginEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241748"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679241748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOriginEndpointsResponse
+</span><a href="#local-6989586621679241749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListOriginEndpointsResponse' :: Int
 </span><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#%24sel%3AhttpStatus%3AListOriginEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679241739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse"><span class="hs-identifier hs-type">ListOriginEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679241748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse"><span class="hs-identifier hs-type">ListOriginEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse"><span class="hs-identifier hs-type">ListOriginEndpointsResponse</span></a></span></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241746"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.ListOriginEndpoints.html#ListOriginEndpointsResponse"><span class="hs-identifier hs-type">ListOriginEndpointsResponse</span></a></span></span><span>
 </span><span id="line-218"></span></pre></body></html>

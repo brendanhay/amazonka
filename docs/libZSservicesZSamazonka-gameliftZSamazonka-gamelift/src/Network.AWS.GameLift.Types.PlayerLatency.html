@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- are best suited to place a new game session for the player.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newPlayerLatency' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679437524"><span id="local-6989586621679437525"></span></span><span class="hs-keyword">data</span><span> </span><span id="PlayerLatency"><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-var">PlayerLatency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlayerLatency%27"><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency%27"><span class="hs-identifier hs-var">PlayerLatency'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679437533"><span id="local-6989586621679437534"></span></span><span class="hs-keyword">data</span><span> </span><span id="PlayerLatency"><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-var">PlayerLatency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlayerLatency%27"><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency%27"><span class="hs-identifier hs-var">PlayerLatency'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amount of time that represents the time lag experienced by the player</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- when connected to the specified Region.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AlatencyInMilliseconds%3APlayerLatency%27"><span class="annot"><span class="annottext">PlayerLatency -&gt; Maybe Double
@@ -43,7 +43,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AplayerId%3APlayerLatency%27"><span class="annot"><span class="annottext">PlayerLatency -&gt; Maybe Text
 </span><a href="Network.AWS.GameLift.Types.PlayerLatency.html#%24sel%3AplayerId%3APlayerLatency%27"><span class="hs-identifier hs-var hs-var">playerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679437516"><span id="local-6989586621679437518"><span class="annot"><span class="annottext">PlayerLatency -&gt; PlayerLatency -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679437525"><span id="local-6989586621679437527"><span class="annot"><span class="annottext">PlayerLatency -&gt; PlayerLatency -&gt; Bool
 (PlayerLatency -&gt; PlayerLatency -&gt; Bool)
 -&gt; (PlayerLatency -&gt; PlayerLatency -&gt; Bool) -&gt; Eq PlayerLatency
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PlayerLatency -&gt; PlayerLatency -&gt; Bool
 == :: PlayerLatency -&gt; PlayerLatency -&gt; Bool
 $c== :: PlayerLatency -&gt; PlayerLatency -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437507"><span id="local-6989586621679437509"><span id="local-6989586621679437511"><span id="local-6989586621679437513"><span class="annot"><span class="annottext">ReadPrec [PlayerLatency]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437516"><span id="local-6989586621679437518"><span id="local-6989586621679437520"><span id="local-6989586621679437522"><span class="annot"><span class="annottext">ReadPrec [PlayerLatency]
 ReadPrec PlayerLatency
 Int -&gt; ReadS PlayerLatency
 ReadS [PlayerLatency]
@@ -71,7 +71,7 @@ readList :: ReadS [PlayerLatency]
 $creadList :: ReadS [PlayerLatency]
 readsPrec :: Int -&gt; ReadS PlayerLatency
 $creadsPrec :: Int -&gt; ReadS PlayerLatency
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437500"><span id="local-6989586621679437502"><span id="local-6989586621679437504"><span class="annot"><span class="annottext">Int -&gt; PlayerLatency -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437509"><span id="local-6989586621679437511"><span id="local-6989586621679437513"><span class="annot"><span class="annottext">Int -&gt; PlayerLatency -&gt; ShowS
 [PlayerLatency] -&gt; ShowS
 PlayerLatency -&gt; String
 (Int -&gt; PlayerLatency -&gt; ShowS)
@@ -141,16 +141,16 @@ forall a. Maybe a
 -&gt; (PlayerLatency -&gt; Maybe Double -&gt; PlayerLatency)
 -&gt; Lens PlayerLatency PlayerLatency (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency%27"><span class="hs-identifier hs-type">PlayerLatency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437491"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency%27"><span class="hs-identifier hs-type">PlayerLatency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437500"><span class="annot"><span class="annottext">Maybe Double
 latencyInMilliseconds :: Maybe Double
 $sel:latencyInMilliseconds:PlayerLatency' :: PlayerLatency -&gt; Maybe Double
-</span><a href="#local-6989586621679437491"><span class="hs-identifier hs-var hs-var">latencyInMilliseconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679437491"><span class="hs-identifier hs-var">latencyInMilliseconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437490"><span class="annot"><span class="annottext">s :: PlayerLatency
-</span><a href="#local-6989586621679437490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency%27"><span class="hs-identifier hs-type">PlayerLatency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437489"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679437489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlayerLatency
-</span><a href="#local-6989586621679437490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latencyInMilliseconds:PlayerLatency' :: Maybe Double
+</span><a href="#local-6989586621679437500"><span class="hs-identifier hs-var hs-var">latencyInMilliseconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679437500"><span class="hs-identifier hs-var">latencyInMilliseconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437499"><span class="annot"><span class="annottext">s :: PlayerLatency
+</span><a href="#local-6989586621679437499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency%27"><span class="hs-identifier hs-type">PlayerLatency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437498"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679437498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlayerLatency
+</span><a href="#local-6989586621679437499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latencyInMilliseconds:PlayerLatency' :: Maybe Double
 </span><a href="Network.AWS.GameLift.Types.PlayerLatency.html#%24sel%3AlatencyInMilliseconds%3APlayerLatency%27"><span class="hs-identifier hs-var">latencyInMilliseconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679437489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679437498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | Name of the Region that is associated with the latency value.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#playerLatency_regionIdentifier"><span class="hs-identifier hs-type">playerLatency_regionIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -159,16 +159,16 @@ $sel:latencyInMilliseconds:PlayerLatency' :: PlayerLatency -&gt; Maybe Double
 -&gt; (PlayerLatency -&gt; Maybe Text -&gt; PlayerLatency)
 -&gt; Lens PlayerLatency PlayerLatency (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency%27"><span class="hs-identifier hs-type">PlayerLatency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437487"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency%27"><span class="hs-identifier hs-type">PlayerLatency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437496"><span class="annot"><span class="annottext">Maybe Text
 regionIdentifier :: Maybe Text
 $sel:regionIdentifier:PlayerLatency' :: PlayerLatency -&gt; Maybe Text
-</span><a href="#local-6989586621679437487"><span class="hs-identifier hs-var hs-var">regionIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437487"><span class="hs-identifier hs-var">regionIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437486"><span class="annot"><span class="annottext">s :: PlayerLatency
-</span><a href="#local-6989586621679437486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency%27"><span class="hs-identifier hs-type">PlayerLatency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437485"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlayerLatency
-</span><a href="#local-6989586621679437486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionIdentifier:PlayerLatency' :: Maybe Text
+</span><a href="#local-6989586621679437496"><span class="hs-identifier hs-var hs-var">regionIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437496"><span class="hs-identifier hs-var">regionIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437495"><span class="annot"><span class="annottext">s :: PlayerLatency
+</span><a href="#local-6989586621679437495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency%27"><span class="hs-identifier hs-type">PlayerLatency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437494"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlayerLatency
+</span><a href="#local-6989586621679437495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionIdentifier:PlayerLatency' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.PlayerLatency.html#%24sel%3AregionIdentifier%3APlayerLatency%27"><span class="hs-identifier hs-var">regionIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679437494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | A unique identifier for a player associated with the latency data.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#playerLatency_playerId"><span class="hs-identifier hs-type">playerLatency_playerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -177,19 +177,19 @@ $sel:regionIdentifier:PlayerLatency' :: PlayerLatency -&gt; Maybe Text
 -&gt; (PlayerLatency -&gt; Maybe Text -&gt; PlayerLatency)
 -&gt; Lens PlayerLatency PlayerLatency (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency%27"><span class="hs-identifier hs-type">PlayerLatency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437483"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency%27"><span class="hs-identifier hs-type">PlayerLatency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437492"><span class="annot"><span class="annottext">Maybe Text
 playerId :: Maybe Text
 $sel:playerId:PlayerLatency' :: PlayerLatency -&gt; Maybe Text
-</span><a href="#local-6989586621679437483"><span class="hs-identifier hs-var hs-var">playerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437483"><span class="hs-identifier hs-var">playerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437482"><span class="annot"><span class="annottext">s :: PlayerLatency
-</span><a href="#local-6989586621679437482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency%27"><span class="hs-identifier hs-type">PlayerLatency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437481"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlayerLatency
-</span><a href="#local-6989586621679437482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerId:PlayerLatency' :: Maybe Text
+</span><a href="#local-6989586621679437492"><span class="hs-identifier hs-var hs-var">playerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437492"><span class="hs-identifier hs-var">playerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437491"><span class="annot"><span class="annottext">s :: PlayerLatency
+</span><a href="#local-6989586621679437491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency%27"><span class="hs-identifier hs-type">PlayerLatency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437490"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlayerLatency
+</span><a href="#local-6989586621679437491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerId:PlayerLatency' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.PlayerLatency.html#%24sel%3AplayerId%3APlayerLatency%27"><span class="hs-identifier hs-var">playerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679437490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437478"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679437476"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PlayerLatency
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437487"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679437485"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PlayerLatency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PlayerLatency)
@@ -199,8 +199,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PlayerLatency&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679437473"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437473"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679437482"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437482"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Text -&gt; Maybe Text -&gt; PlayerLatency
 </span><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency%27"><span class="hs-identifier hs-var">PlayerLatency'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe Text -&gt; Maybe Text -&gt; PlayerLatency)
@@ -208,7 +208,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; PlayerLatency)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437473"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679437482"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LatencyInMilliseconds&quot;</span></span><span class="hs-special">)</span><span>
@@ -216,7 +216,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; PlayerLatency)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437473"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679437482"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegionIdentifier&quot;</span></span><span class="hs-special">)</span><span>
@@ -224,19 +224,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser PlayerLatency
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437473"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679437482"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlayerId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437467"><span id="local-6989586621679437469"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437476"><span id="local-6989586621679437478"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437464"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437473"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437456"><span id="local-6989586621679437458"><span id="local-6989586621679437460"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679437454"><span class="annot"><span class="annottext">toJSON :: PlayerLatency -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency%27"><span class="hs-identifier hs-type">PlayerLatency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437450"><span id="local-6989586621679437451"><span id="local-6989586621679437452"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437465"><span id="local-6989586621679437467"><span id="local-6989586621679437469"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679437463"><span class="annot"><span class="annottext">toJSON :: PlayerLatency -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency%27"><span class="hs-identifier hs-type">PlayerLatency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437459"><span id="local-6989586621679437460"><span id="local-6989586621679437461"><span class="annot"><span class="annottext">Maybe Double
 Maybe Text
 playerId :: Maybe Text
 regionIdentifier :: Maybe Text
@@ -244,7 +244,7 @@ latencyInMilliseconds :: Maybe Double
 $sel:playerId:PlayerLatency' :: PlayerLatency -&gt; Maybe Text
 $sel:regionIdentifier:PlayerLatency' :: PlayerLatency -&gt; Maybe Text
 $sel:latencyInMilliseconds:PlayerLatency' :: PlayerLatency -&gt; Maybe Double
-</span><a href="#local-6989586621679437450"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679437459"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -257,7 +257,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679437452"><span class="hs-identifier hs-var">latencyInMilliseconds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679437461"><span class="hs-identifier hs-var">latencyInMilliseconds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegionIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -265,14 +265,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437451"><span class="hs-identifier hs-var">regionIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679437460"><span class="hs-identifier hs-var">regionIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlayerId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437450"><span class="hs-identifier hs-var">playerId</span></a></span><span>
+</span><a href="#local-6989586621679437459"><span class="hs-identifier hs-var">playerId</span></a></span><span>
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span></pre></body></html>

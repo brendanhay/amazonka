@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- | These settings relate to your QuickTime MOV output container.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newMovSettings' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679990103"><span id="local-6989586621679990104"></span></span><span class="hs-keyword">data</span><span> </span><span id="MovSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-var">MovSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MovSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-var">MovSettings'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679990112"><span id="local-6989586621679990113"></span></span><span class="hs-keyword">data</span><span> </span><span id="MovSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-var">MovSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MovSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-var">MovSettings'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Always keep the default value (SELF_CONTAINED) for this setting.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Areference%3AMovSettings%27"><span class="annot"><span class="annottext">MovSettings -&gt; Maybe MovReference
 </span><a href="Network.AWS.MediaConvert.Types.MovSettings.html#%24sel%3Areference%3AMovSettings%27"><span class="hs-identifier hs-var hs-var">reference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovReference.html#MovReference"><span class="hs-identifier hs-type">MovReference</span></a></span><span class="hs-special">,</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AclapAtom%3AMovSettings%27"><span class="annot"><span class="annottext">MovSettings -&gt; Maybe MovClapAtom
 </span><a href="Network.AWS.MediaConvert.Types.MovSettings.html#%24sel%3AclapAtom%3AMovSettings%27"><span class="hs-identifier hs-var hs-var">clapAtom</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovClapAtom.html#MovClapAtom"><span class="hs-identifier hs-type">MovClapAtom</span></a></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679990093"><span id="local-6989586621679990095"><span class="annot"><span class="annottext">MovSettings -&gt; MovSettings -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679990102"><span id="local-6989586621679990104"><span class="annot"><span class="annottext">MovSettings -&gt; MovSettings -&gt; Bool
 (MovSettings -&gt; MovSettings -&gt; Bool)
 -&gt; (MovSettings -&gt; MovSettings -&gt; Bool) -&gt; Eq MovSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MovSettings -&gt; MovSettings -&gt; Bool
 == :: MovSettings -&gt; MovSettings -&gt; Bool
 $c== :: MovSettings -&gt; MovSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679990084"><span id="local-6989586621679990086"><span id="local-6989586621679990088"><span id="local-6989586621679990090"><span class="annot"><span class="annottext">ReadPrec [MovSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679990093"><span id="local-6989586621679990095"><span id="local-6989586621679990097"><span id="local-6989586621679990099"><span class="annot"><span class="annottext">ReadPrec [MovSettings]
 ReadPrec MovSettings
 Int -&gt; ReadS MovSettings
 ReadS [MovSettings]
@@ -88,7 +88,7 @@ readList :: ReadS [MovSettings]
 $creadList :: ReadS [MovSettings]
 readsPrec :: Int -&gt; ReadS MovSettings
 $creadsPrec :: Int -&gt; ReadS MovSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679990077"><span id="local-6989586621679990079"><span id="local-6989586621679990081"><span class="annot"><span class="annottext">Int -&gt; MovSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679990086"><span id="local-6989586621679990088"><span id="local-6989586621679990090"><span class="annot"><span class="annottext">Int -&gt; MovSettings -&gt; ShowS
 [MovSettings] -&gt; ShowS
 MovSettings -&gt; String
 (Int -&gt; MovSettings -&gt; ShowS)
@@ -185,16 +185,16 @@ forall a. Maybe a
 -&gt; Lens
      MovSettings MovSettings (Maybe MovReference) (Maybe MovReference)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990068"><span class="annot"><span class="annottext">Maybe MovReference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990077"><span class="annot"><span class="annottext">Maybe MovReference
 reference :: Maybe MovReference
 $sel:reference:MovSettings' :: MovSettings -&gt; Maybe MovReference
-</span><a href="#local-6989586621679990068"><span class="hs-identifier hs-var hs-var">reference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MovReference
-</span><a href="#local-6989586621679990068"><span class="hs-identifier hs-var">reference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990067"><span class="annot"><span class="annottext">s :: MovSettings
-</span><a href="#local-6989586621679990067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990066"><span class="annot"><span class="annottext">Maybe MovReference
-</span><a href="#local-6989586621679990066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MovSettings
-</span><a href="#local-6989586621679990067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reference:MovSettings' :: Maybe MovReference
+</span><a href="#local-6989586621679990077"><span class="hs-identifier hs-var hs-var">reference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MovReference
+</span><a href="#local-6989586621679990077"><span class="hs-identifier hs-var">reference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990076"><span class="annot"><span class="annottext">s :: MovSettings
+</span><a href="#local-6989586621679990076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990075"><span class="annot"><span class="annottext">Maybe MovReference
+</span><a href="#local-6989586621679990075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MovSettings
+</span><a href="#local-6989586621679990076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reference:MovSettings' :: Maybe MovReference
 </span><a href="Network.AWS.MediaConvert.Types.MovSettings.html#%24sel%3Areference%3AMovSettings%27"><span class="hs-identifier hs-var">reference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MovReference
-</span><a href="#local-6989586621679990066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679990075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | When enabled, file composition times will start at zero, composition</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- times in the \'ctts\' (composition time to sample) box for B-frames will</span><span>
@@ -209,16 +209,16 @@ $sel:reference:MovSettings' :: MovSettings -&gt; Maybe MovReference
 -&gt; Lens
      MovSettings MovSettings (Maybe MovCslgAtom) (Maybe MovCslgAtom)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990064"><span class="annot"><span class="annottext">Maybe MovCslgAtom
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990073"><span class="annot"><span class="annottext">Maybe MovCslgAtom
 cslgAtom :: Maybe MovCslgAtom
 $sel:cslgAtom:MovSettings' :: MovSettings -&gt; Maybe MovCslgAtom
-</span><a href="#local-6989586621679990064"><span class="hs-identifier hs-var hs-var">cslgAtom</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MovCslgAtom
-</span><a href="#local-6989586621679990064"><span class="hs-identifier hs-var">cslgAtom</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990063"><span class="annot"><span class="annottext">s :: MovSettings
-</span><a href="#local-6989586621679990063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990062"><span class="annot"><span class="annottext">Maybe MovCslgAtom
-</span><a href="#local-6989586621679990062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MovSettings
-</span><a href="#local-6989586621679990063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cslgAtom:MovSettings' :: Maybe MovCslgAtom
+</span><a href="#local-6989586621679990073"><span class="hs-identifier hs-var hs-var">cslgAtom</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MovCslgAtom
+</span><a href="#local-6989586621679990073"><span class="hs-identifier hs-var">cslgAtom</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990072"><span class="annot"><span class="annottext">s :: MovSettings
+</span><a href="#local-6989586621679990072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990071"><span class="annot"><span class="annottext">Maybe MovCslgAtom
+</span><a href="#local-6989586621679990071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MovSettings
+</span><a href="#local-6989586621679990072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cslgAtom:MovSettings' :: Maybe MovCslgAtom
 </span><a href="Network.AWS.MediaConvert.Types.MovSettings.html#%24sel%3AcslgAtom%3AMovSettings%27"><span class="hs-identifier hs-var">cslgAtom</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MovCslgAtom
-</span><a href="#local-6989586621679990062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679990071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | When set to XDCAM, writes MPEG2 video streams into the QuickTime file</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- using XDCAM fourcc codes. This increases compatibility with Apple</span><span>
@@ -235,16 +235,16 @@ $sel:cslgAtom:MovSettings' :: MovSettings -&gt; Maybe MovCslgAtom
      (Maybe MovMpeg2FourCCControl)
      (Maybe MovMpeg2FourCCControl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990060"><span class="annot"><span class="annottext">Maybe MovMpeg2FourCCControl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990069"><span class="annot"><span class="annottext">Maybe MovMpeg2FourCCControl
 mpeg2FourCCControl :: Maybe MovMpeg2FourCCControl
 $sel:mpeg2FourCCControl:MovSettings' :: MovSettings -&gt; Maybe MovMpeg2FourCCControl
-</span><a href="#local-6989586621679990060"><span class="hs-identifier hs-var hs-var">mpeg2FourCCControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MovMpeg2FourCCControl
-</span><a href="#local-6989586621679990060"><span class="hs-identifier hs-var">mpeg2FourCCControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990059"><span class="annot"><span class="annottext">s :: MovSettings
-</span><a href="#local-6989586621679990059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990058"><span class="annot"><span class="annottext">Maybe MovMpeg2FourCCControl
-</span><a href="#local-6989586621679990058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MovSettings
-</span><a href="#local-6989586621679990059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mpeg2FourCCControl:MovSettings' :: Maybe MovMpeg2FourCCControl
+</span><a href="#local-6989586621679990069"><span class="hs-identifier hs-var hs-var">mpeg2FourCCControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MovMpeg2FourCCControl
+</span><a href="#local-6989586621679990069"><span class="hs-identifier hs-var">mpeg2FourCCControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990068"><span class="annot"><span class="annottext">s :: MovSettings
+</span><a href="#local-6989586621679990068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990067"><span class="annot"><span class="annottext">Maybe MovMpeg2FourCCControl
+</span><a href="#local-6989586621679990067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MovSettings
+</span><a href="#local-6989586621679990068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mpeg2FourCCControl:MovSettings' :: Maybe MovMpeg2FourCCControl
 </span><a href="Network.AWS.MediaConvert.Types.MovSettings.html#%24sel%3Ampeg2FourCCControl%3AMovSettings%27"><span class="hs-identifier hs-var">mpeg2FourCCControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MovMpeg2FourCCControl
-</span><a href="#local-6989586621679990058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679990067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | To make this output compatible with Omenon, keep the default value,</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- OMNEON. Unless you need Omneon compatibility, set this value to NONE.</span><span>
@@ -262,16 +262,16 @@ $sel:mpeg2FourCCControl:MovSettings' :: MovSettings -&gt; Maybe MovMpeg2FourCCCo
      (Maybe MovPaddingControl)
      (Maybe MovPaddingControl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990056"><span class="annot"><span class="annottext">Maybe MovPaddingControl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990065"><span class="annot"><span class="annottext">Maybe MovPaddingControl
 paddingControl :: Maybe MovPaddingControl
 $sel:paddingControl:MovSettings' :: MovSettings -&gt; Maybe MovPaddingControl
-</span><a href="#local-6989586621679990056"><span class="hs-identifier hs-var hs-var">paddingControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MovPaddingControl
-</span><a href="#local-6989586621679990056"><span class="hs-identifier hs-var">paddingControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990055"><span class="annot"><span class="annottext">s :: MovSettings
-</span><a href="#local-6989586621679990055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990054"><span class="annot"><span class="annottext">Maybe MovPaddingControl
-</span><a href="#local-6989586621679990054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MovSettings
-</span><a href="#local-6989586621679990055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paddingControl:MovSettings' :: Maybe MovPaddingControl
+</span><a href="#local-6989586621679990065"><span class="hs-identifier hs-var hs-var">paddingControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MovPaddingControl
+</span><a href="#local-6989586621679990065"><span class="hs-identifier hs-var">paddingControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990064"><span class="annot"><span class="annottext">s :: MovSettings
+</span><a href="#local-6989586621679990064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990063"><span class="annot"><span class="annottext">Maybe MovPaddingControl
+</span><a href="#local-6989586621679990063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MovSettings
+</span><a href="#local-6989586621679990064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paddingControl:MovSettings' :: Maybe MovPaddingControl
 </span><a href="Network.AWS.MediaConvert.Types.MovSettings.html#%24sel%3ApaddingControl%3AMovSettings%27"><span class="hs-identifier hs-var">paddingControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MovPaddingControl
-</span><a href="#local-6989586621679990054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679990063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | When enabled, include \'clap\' atom if appropriate for the video output</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- settings.</span><span>
@@ -283,19 +283,19 @@ $sel:paddingControl:MovSettings' :: MovSettings -&gt; Maybe MovPaddingControl
 -&gt; Lens
      MovSettings MovSettings (Maybe MovClapAtom) (Maybe MovClapAtom)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990052"><span class="annot"><span class="annottext">Maybe MovClapAtom
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990061"><span class="annot"><span class="annottext">Maybe MovClapAtom
 clapAtom :: Maybe MovClapAtom
 $sel:clapAtom:MovSettings' :: MovSettings -&gt; Maybe MovClapAtom
-</span><a href="#local-6989586621679990052"><span class="hs-identifier hs-var hs-var">clapAtom</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MovClapAtom
-</span><a href="#local-6989586621679990052"><span class="hs-identifier hs-var">clapAtom</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990051"><span class="annot"><span class="annottext">s :: MovSettings
-</span><a href="#local-6989586621679990051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990050"><span class="annot"><span class="annottext">Maybe MovClapAtom
-</span><a href="#local-6989586621679990050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MovSettings
-</span><a href="#local-6989586621679990051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clapAtom:MovSettings' :: Maybe MovClapAtom
+</span><a href="#local-6989586621679990061"><span class="hs-identifier hs-var hs-var">clapAtom</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MovClapAtom
+</span><a href="#local-6989586621679990061"><span class="hs-identifier hs-var">clapAtom</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679990060"><span class="annot"><span class="annottext">s :: MovSettings
+</span><a href="#local-6989586621679990060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679990059"><span class="annot"><span class="annottext">Maybe MovClapAtom
+</span><a href="#local-6989586621679990059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MovSettings
+</span><a href="#local-6989586621679990060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clapAtom:MovSettings' :: Maybe MovClapAtom
 </span><a href="Network.AWS.MediaConvert.Types.MovSettings.html#%24sel%3AclapAtom%3AMovSettings%27"><span class="hs-identifier hs-var">clapAtom</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MovClapAtom
-</span><a href="#local-6989586621679990050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679990059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679990047"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679990045"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MovSettings
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679990056"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679990054"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MovSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MovSettings) -&gt; Value -&gt; Parser MovSettings
@@ -303,8 +303,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MovSettings&quot;</span></span><span>
-</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679990042"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679990042"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679990051"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679990051"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe MovReference
 -&gt; Maybe MovCslgAtom
 -&gt; Maybe MovMpeg2FourCCControl
@@ -327,7 +327,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; MovSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679990042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MovReference)
+</span><a href="#local-6989586621679990051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MovReference)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;reference&quot;</span></span><span class="hs-special">)</span><span>
@@ -343,7 +343,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe MovPaddingControl -&gt; Maybe MovClapAtom -&gt; MovSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679990042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MovCslgAtom)
+</span><a href="#local-6989586621679990051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MovCslgAtom)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cslgAtom&quot;</span></span><span class="hs-special">)</span><span>
@@ -355,7 +355,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe MovPaddingControl -&gt; Maybe MovClapAtom -&gt; MovSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679990042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MovMpeg2FourCCControl)
+</span><a href="#local-6989586621679990051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MovMpeg2FourCCControl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mpeg2FourCCControl&quot;</span></span><span class="hs-special">)</span><span>
@@ -365,7 +365,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe MovClapAtom -&gt; MovSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679990042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MovPaddingControl)
+</span><a href="#local-6989586621679990051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MovPaddingControl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;paddingControl&quot;</span></span><span class="hs-special">)</span><span>
@@ -373,19 +373,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe MovClapAtom) -&gt; Parser MovSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679990042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MovClapAtom)
+</span><a href="#local-6989586621679990051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MovClapAtom)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;clapAtom&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679990036"><span id="local-6989586621679990038"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679990045"><span id="local-6989586621679990047"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679990033"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679990042"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679990025"><span id="local-6989586621679990027"><span id="local-6989586621679990029"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679990023"><span class="annot"><span class="annottext">toJSON :: MovSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990017"><span id="local-6989586621679990018"><span id="local-6989586621679990019"><span id="local-6989586621679990020"><span id="local-6989586621679990021"><span class="annot"><span class="annottext">Maybe MovClapAtom
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679990034"><span id="local-6989586621679990036"><span id="local-6989586621679990038"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings"><span class="hs-identifier hs-type">MovSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679990032"><span class="annot"><span class="annottext">toJSON :: MovSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MovSettings.html#MovSettings%27"><span class="hs-identifier hs-type">MovSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679990026"><span id="local-6989586621679990027"><span id="local-6989586621679990028"><span id="local-6989586621679990029"><span id="local-6989586621679990030"><span class="annot"><span class="annottext">Maybe MovClapAtom
 Maybe MovCslgAtom
 Maybe MovMpeg2FourCCControl
 Maybe MovPaddingControl
@@ -400,7 +400,7 @@ $sel:paddingControl:MovSettings' :: MovSettings -&gt; Maybe MovPaddingControl
 $sel:mpeg2FourCCControl:MovSettings' :: MovSettings -&gt; Maybe MovMpeg2FourCCControl
 $sel:cslgAtom:MovSettings' :: MovSettings -&gt; Maybe MovCslgAtom
 $sel:reference:MovSettings' :: MovSettings -&gt; Maybe MovReference
-</span><a href="#local-6989586621679990017"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679990026"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -412,14 +412,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MovReference -&gt; Pair) -&gt; Maybe MovReference -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MovReference
-</span><a href="#local-6989586621679990021"><span class="hs-identifier hs-var">reference</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679990030"><span class="hs-identifier hs-var">reference</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cslgAtom&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MovCslgAtom -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MovCslgAtom -&gt; Pair) -&gt; Maybe MovCslgAtom -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MovCslgAtom
-</span><a href="#local-6989586621679990020"><span class="hs-identifier hs-var">cslgAtom</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679990029"><span class="hs-identifier hs-var">cslgAtom</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mpeg2FourCCControl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MovMpeg2FourCCControl -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -428,7 +428,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MovMpeg2FourCCControl -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MovMpeg2FourCCControl
-</span><a href="#local-6989586621679990019"><span class="hs-identifier hs-var">mpeg2FourCCControl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679990028"><span class="hs-identifier hs-var">mpeg2FourCCControl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;paddingControl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MovPaddingControl -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -437,14 +437,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MovPaddingControl -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MovPaddingControl
-</span><a href="#local-6989586621679990018"><span class="hs-identifier hs-var">paddingControl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679990027"><span class="hs-identifier hs-var">paddingControl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;clapAtom&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MovClapAtom -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MovClapAtom -&gt; Pair) -&gt; Maybe MovClapAtom -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MovClapAtom
-</span><a href="#local-6989586621679990017"><span class="hs-identifier hs-var">clapAtom</span></a></span><span>
+</span><a href="#local-6989586621679990026"><span class="hs-identifier hs-var">clapAtom</span></a></span><span>
 </span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span></pre></body></html>

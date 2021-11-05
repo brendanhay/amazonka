@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newDescribeServers' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679193346"><span id="local-6989586621679193347"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeServers"><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-var">DescribeServers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeServers%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers%27"><span class="hs-identifier hs-var">DescribeServers'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679193355"><span id="local-6989586621679193356"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeServers"><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-var">DescribeServers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeServers%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers%27"><span class="hs-identifier hs-var">DescribeServers'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the server with the specified ServerName.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AserverName%3ADescribeServers%27"><span class="annot"><span class="annottext">DescribeServers -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorksCM.DescribeServers.html#%24sel%3AserverName%3ADescribeServers%27"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeServers%27"><span class="annot"><span class="annottext">DescribeServers -&gt; Maybe Natural
 </span><a href="Network.AWS.OpsWorksCM.DescribeServers.html#%24sel%3AmaxResults%3ADescribeServers%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679193338"><span id="local-6989586621679193340"><span class="annot"><span class="annottext">DescribeServers -&gt; DescribeServers -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679193347"><span id="local-6989586621679193349"><span class="annot"><span class="annottext">DescribeServers -&gt; DescribeServers -&gt; Bool
 (DescribeServers -&gt; DescribeServers -&gt; Bool)
 -&gt; (DescribeServers -&gt; DescribeServers -&gt; Bool)
 -&gt; Eq DescribeServers
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeServers -&gt; DescribeServers -&gt; Bool
 == :: DescribeServers -&gt; DescribeServers -&gt; Bool
 $c== :: DescribeServers -&gt; DescribeServers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193329"><span id="local-6989586621679193331"><span id="local-6989586621679193333"><span id="local-6989586621679193335"><span class="annot"><span class="annottext">ReadPrec [DescribeServers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193338"><span id="local-6989586621679193340"><span id="local-6989586621679193342"><span id="local-6989586621679193344"><span class="annot"><span class="annottext">ReadPrec [DescribeServers]
 ReadPrec DescribeServers
 Int -&gt; ReadS DescribeServers
 ReadS [DescribeServers]
@@ -100,7 +100,7 @@ readList :: ReadS [DescribeServers]
 $creadList :: ReadS [DescribeServers]
 readsPrec :: Int -&gt; ReadS DescribeServers
 $creadsPrec :: Int -&gt; ReadS DescribeServers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193322"><span id="local-6989586621679193324"><span id="local-6989586621679193326"><span class="annot"><span class="annottext">Int -&gt; DescribeServers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193331"><span id="local-6989586621679193333"><span id="local-6989586621679193335"><span class="annot"><span class="annottext">Int -&gt; DescribeServers -&gt; ShowS
 [DescribeServers] -&gt; ShowS
 DescribeServers -&gt; String
 (Int -&gt; DescribeServers -&gt; ShowS)
@@ -167,16 +167,16 @@ forall a. Maybe a
 -&gt; (DescribeServers -&gt; Maybe Text -&gt; DescribeServers)
 -&gt; Lens DescribeServers DescribeServers (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers%27"><span class="hs-identifier hs-type">DescribeServers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193316"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers%27"><span class="hs-identifier hs-type">DescribeServers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193325"><span class="annot"><span class="annottext">Maybe Text
 serverName :: Maybe Text
 $sel:serverName:DescribeServers' :: DescribeServers -&gt; Maybe Text
-</span><a href="#local-6989586621679193316"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193316"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193315"><span class="annot"><span class="annottext">s :: DescribeServers
-</span><a href="#local-6989586621679193315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers%27"><span class="hs-identifier hs-type">DescribeServers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193314"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServers
-</span><a href="#local-6989586621679193315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverName:DescribeServers' :: Maybe Text
+</span><a href="#local-6989586621679193325"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193325"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193324"><span class="annot"><span class="annottext">s :: DescribeServers
+</span><a href="#local-6989586621679193324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers%27"><span class="hs-identifier hs-type">DescribeServers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193323"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServers
+</span><a href="#local-6989586621679193324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverName:DescribeServers' :: Maybe Text
 </span><a href="Network.AWS.OpsWorksCM.DescribeServers.html#%24sel%3AserverName%3ADescribeServers%27"><span class="hs-identifier hs-var">serverName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679193323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | This is not currently implemented for @DescribeServers@ requests.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#describeServers_nextToken"><span class="hs-identifier hs-type">describeServers_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -186,16 +186,16 @@ $sel:serverName:DescribeServers' :: DescribeServers -&gt; Maybe Text
 -&gt; (DescribeServers -&gt; Maybe Text -&gt; DescribeServers)
 -&gt; Lens DescribeServers DescribeServers (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers%27"><span class="hs-identifier hs-type">DescribeServers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193313"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers%27"><span class="hs-identifier hs-type">DescribeServers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193322"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeServers' :: DescribeServers -&gt; Maybe Text
-</span><a href="#local-6989586621679193313"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193313"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193312"><span class="annot"><span class="annottext">s :: DescribeServers
-</span><a href="#local-6989586621679193312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers%27"><span class="hs-identifier hs-type">DescribeServers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193311"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServers
-</span><a href="#local-6989586621679193312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeServers' :: Maybe Text
+</span><a href="#local-6989586621679193322"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193322"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193321"><span class="annot"><span class="annottext">s :: DescribeServers
+</span><a href="#local-6989586621679193321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers%27"><span class="hs-identifier hs-type">DescribeServers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193320"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServers
+</span><a href="#local-6989586621679193321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeServers' :: Maybe Text
 </span><a href="Network.AWS.OpsWorksCM.DescribeServers.html#%24sel%3AnextToken%3ADescribeServers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679193320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | This is not currently implemented for @DescribeServers@ requests.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#describeServers_maxResults"><span class="hs-identifier hs-type">describeServers_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -206,29 +206,29 @@ $sel:nextToken:DescribeServers' :: DescribeServers -&gt; Maybe Text
 -&gt; Lens
      DescribeServers DescribeServers (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers%27"><span class="hs-identifier hs-type">DescribeServers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193310"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers%27"><span class="hs-identifier hs-type">DescribeServers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193319"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:DescribeServers' :: DescribeServers -&gt; Maybe Natural
-</span><a href="#local-6989586621679193310"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679193310"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193309"><span class="annot"><span class="annottext">s :: DescribeServers
-</span><a href="#local-6989586621679193309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers%27"><span class="hs-identifier hs-type">DescribeServers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193308"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679193308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServers
-</span><a href="#local-6989586621679193309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeServers' :: Maybe Natural
+</span><a href="#local-6989586621679193319"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679193319"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193318"><span class="annot"><span class="annottext">s :: DescribeServers
+</span><a href="#local-6989586621679193318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers%27"><span class="hs-identifier hs-type">DescribeServers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193317"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679193317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServers
+</span><a href="#local-6989586621679193318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeServers' :: Maybe Natural
 </span><a href="Network.AWS.OpsWorksCM.DescribeServers.html#%24sel%3AmaxResults%3ADescribeServers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679193308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679193317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679193304"><span class="annot"><span class="annottext">page :: DescribeServers
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679193313"><span class="annot"><span class="annottext">page :: DescribeServers
 -&gt; AWSResponse DescribeServers -&gt; Maybe DescribeServers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679193302"><span class="annot"><span class="annottext">DescribeServers
-</span><a href="#local-6989586621679193302"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679193301"><span class="annot"><span class="annottext">AWSResponse DescribeServers
-</span><a href="#local-6989586621679193301"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679193311"><span class="annot"><span class="annottext">DescribeServers
+</span><a href="#local-6989586621679193311"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679193310"><span class="annot"><span class="annottext">AWSResponse DescribeServers
+</span><a href="#local-6989586621679193310"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-110"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeServers
 DescribeServersResponse
-</span><a href="#local-6989586621679193301"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679193310"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">DescribeServersResponse
 -&gt; Getting (First Text) DescribeServersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -257,7 +257,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-116"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeServers
 DescribeServersResponse
-</span><a href="#local-6989586621679193301"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679193310"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">DescribeServersResponse
 -&gt; Getting (First [Server]) DescribeServersResponse [Server]
 -&gt; Maybe [Server]
@@ -290,7 +290,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">DescribeServers
-</span><a href="#local-6989586621679193302"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679193311"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">DescribeServers
 -&gt; (DescribeServers -&gt; DescribeServers) -&gt; DescribeServers
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -304,7 +304,7 @@ Lens DescribeServers DescribeServers (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeServers
 DescribeServersResponse
-</span><a href="#local-6989586621679193301"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679193310"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">DescribeServersResponse
 -&gt; Getting (First Text) DescribeServersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -329,12 +329,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-129"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-130"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse"><span class="hs-identifier hs-type">DescribeServersResponse</span></a></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679193291"><span class="annot"><span class="annottext">request :: DescribeServers -&gt; Request DescribeServers
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679193300"><span class="annot"><span class="annottext">request :: DescribeServers -&gt; Request DescribeServers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeServers -&gt; Request DescribeServers
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorksCM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679193287"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679193296"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeServers
 -&gt; ClientResponse ClientBody
@@ -358,10 +358,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679193284"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679193284"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679193283"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679193283"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679193282"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679193282"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679193293"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679193293"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679193292"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679193292"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679193291"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679193291"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Server] -&gt; Maybe Text -&gt; Int -&gt; DescribeServersResponse
 </span><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse%27"><span class="hs-identifier hs-var">DescribeServersResponse'</span></a></span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Server] -&gt; Maybe Text -&gt; Int -&gt; DescribeServersResponse)
@@ -369,7 +369,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeServersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679193282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Server]))
+</span><a href="#local-6989586621679193291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Server]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Servers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Server]))
@@ -383,7 +383,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; DescribeServersResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679193282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679193291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -395,15 +395,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679193284"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679193293"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193273"><span id="local-6989586621679193275"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193282"><span id="local-6989586621679193284"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193270"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193279"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679193266"><span class="annot"><span class="annottext">toHeaders :: DescribeServers -&gt; ResponseHeaders
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679193275"><span class="annot"><span class="annottext">toHeaders :: DescribeServers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeServers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -430,9 +430,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193256"><span id="local-6989586621679193258"><span id="local-6989586621679193260"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679193254"><span class="annot"><span class="annottext">toJSON :: DescribeServers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers%27"><span class="hs-identifier hs-type">DescribeServers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193250"><span id="local-6989586621679193251"><span id="local-6989586621679193252"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193265"><span id="local-6989586621679193267"><span id="local-6989586621679193269"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679193263"><span class="annot"><span class="annottext">toJSON :: DescribeServers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers%27"><span class="hs-identifier hs-type">DescribeServers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193259"><span id="local-6989586621679193260"><span id="local-6989586621679193261"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
@@ -440,7 +440,7 @@ serverName :: Maybe Text
 $sel:maxResults:DescribeServers' :: DescribeServers -&gt; Maybe Natural
 $sel:nextToken:DescribeServers' :: DescribeServers -&gt; Maybe Text
 $sel:serverName:DescribeServers' :: DescribeServers -&gt; Maybe Text
-</span><a href="#local-6989586621679193250"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679193259"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -452,33 +452,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193252"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679193261"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193251"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679193260"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679193250"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679193259"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679193244"><span class="annot"><span class="annottext">toPath :: DescribeServers -&gt; ByteString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679193253"><span class="annot"><span class="annottext">toPath :: DescribeServers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeServers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServers"><span class="hs-identifier hs-type">DescribeServers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679193240"><span class="annot"><span class="annottext">toQuery :: DescribeServers -&gt; QueryString
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679193249"><span class="annot"><span class="annottext">toQuery :: DescribeServers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeServers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -486,7 +486,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | /See:/ 'newDescribeServersResponse' smart constructor.</span><span>
-</span><span id="line-178"></span><span id="local-6989586621679193237"><span id="local-6989586621679193238"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeServersResponse"><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse"><span class="hs-identifier hs-var">DescribeServersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeServersResponse%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse%27"><span class="hs-identifier hs-var">DescribeServersResponse'</span></a></span></span><span>
+</span><span id="line-178"></span><span id="local-6989586621679193246"><span id="local-6989586621679193247"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeServersResponse"><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse"><span class="hs-identifier hs-var">DescribeServersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeServersResponse%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse%27"><span class="hs-identifier hs-var">DescribeServersResponse'</span></a></span></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the response to a @DescribeServers@ request.</span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-comment">-- /For Chef Automate servers:/ If</span><span>
@@ -517,7 +517,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-204"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeServersResponse%27"><span class="annot"><span class="annottext">DescribeServersResponse -&gt; Int
 </span><a href="Network.AWS.OpsWorksCM.DescribeServers.html#%24sel%3AhttpStatus%3ADescribeServersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-205"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-206"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679193230"><span id="local-6989586621679193232"><span class="annot"><span class="annottext">DescribeServersResponse -&gt; DescribeServersResponse -&gt; Bool
+</span><span id="line-206"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679193239"><span id="local-6989586621679193241"><span class="annot"><span class="annottext">DescribeServersResponse -&gt; DescribeServersResponse -&gt; Bool
 (DescribeServersResponse -&gt; DescribeServersResponse -&gt; Bool)
 -&gt; (DescribeServersResponse -&gt; DescribeServersResponse -&gt; Bool)
 -&gt; Eq DescribeServersResponse
@@ -526,7 +526,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeServersResponse -&gt; DescribeServersResponse -&gt; Bool
 == :: DescribeServersResponse -&gt; DescribeServersResponse -&gt; Bool
 $c== :: DescribeServersResponse -&gt; DescribeServersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193224"><span id="local-6989586621679193226"><span id="local-6989586621679193228"><span class="annot"><span class="annottext">Int -&gt; DescribeServersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193233"><span id="local-6989586621679193235"><span id="local-6989586621679193237"><span class="annot"><span class="annottext">Int -&gt; DescribeServersResponse -&gt; ShowS
 [DescribeServersResponse] -&gt; ShowS
 DescribeServersResponse -&gt; String
 (Int -&gt; DescribeServersResponse -&gt; ShowS)
@@ -592,8 +592,8 @@ $cfrom :: forall x. DescribeServersResponse -&gt; Rep DescribeServersResponse x
 </span><span id="line-243"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-244"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse"><span class="hs-identifier hs-type">DescribeServersResponse</span></a></span><span>
 </span><span id="line-245"></span><span id="newDescribeServersResponse"><span class="annot"><span class="annottext">newDescribeServersResponse :: Int -&gt; DescribeServersResponse
-</span><a href="Network.AWS.OpsWorksCM.DescribeServers.html#newDescribeServersResponse"><span class="hs-identifier hs-var hs-var">newDescribeServersResponse</span></a></span></span><span> </span><span id="local-6989586621679193221"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679193221"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorksCM.DescribeServers.html#newDescribeServersResponse"><span class="hs-identifier hs-var hs-var">newDescribeServersResponse</span></a></span></span><span> </span><span id="local-6989586621679193230"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679193230"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-246"></span><span>  </span><span class="annot"><span class="annottext">DescribeServersResponse' :: Maybe [Server] -&gt; Maybe Text -&gt; Int -&gt; DescribeServersResponse
 </span><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse%27"><span class="hs-identifier hs-type">DescribeServersResponse'</span></a></span><span>
 </span><span id="line-247"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:servers:DescribeServersResponse' :: Maybe [Server]
@@ -606,7 +606,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeServersResponse' :: Int
 </span><a href="Network.AWS.OpsWorksCM.DescribeServers.html#%24sel%3AhttpStatus%3ADescribeServersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679193221"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679193230"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-250"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | Contains the response to a @DescribeServers@ request.</span><span>
@@ -638,16 +638,16 @@ forall a. Maybe a
     -&gt; Maybe [Server] -&gt; DescribeServersResponse)
 -&gt; Lens' DescribeServersResponse (Maybe [Server])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse%27"><span class="hs-identifier hs-type">DescribeServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193220"><span class="annot"><span class="annottext">Maybe [Server]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse%27"><span class="hs-identifier hs-type">DescribeServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193229"><span class="annot"><span class="annottext">Maybe [Server]
 servers :: Maybe [Server]
 $sel:servers:DescribeServersResponse' :: DescribeServersResponse -&gt; Maybe [Server]
-</span><a href="#local-6989586621679193220"><span class="hs-identifier hs-var hs-var">servers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Server]
-</span><a href="#local-6989586621679193220"><span class="hs-identifier hs-var">servers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193219"><span class="annot"><span class="annottext">s :: DescribeServersResponse
-</span><a href="#local-6989586621679193219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse%27"><span class="hs-identifier hs-type">DescribeServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193218"><span class="annot"><span class="annottext">Maybe [Server]
-</span><a href="#local-6989586621679193218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServersResponse
-</span><a href="#local-6989586621679193219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:servers:DescribeServersResponse' :: Maybe [Server]
+</span><a href="#local-6989586621679193229"><span class="hs-identifier hs-var hs-var">servers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Server]
+</span><a href="#local-6989586621679193229"><span class="hs-identifier hs-var">servers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193228"><span class="annot"><span class="annottext">s :: DescribeServersResponse
+</span><a href="#local-6989586621679193228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse%27"><span class="hs-identifier hs-type">DescribeServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193227"><span class="annot"><span class="annottext">Maybe [Server]
+</span><a href="#local-6989586621679193227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServersResponse
+</span><a href="#local-6989586621679193228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:servers:DescribeServersResponse' :: Maybe [Server]
 </span><a href="Network.AWS.OpsWorksCM.DescribeServers.html#%24sel%3Aservers%3ADescribeServersResponse%27"><span class="hs-identifier hs-var">servers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Server]
-</span><a href="#local-6989586621679193218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse"><span class="hs-identifier hs-type">DescribeServersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Server] -&gt; f (Maybe [Server]))
+</span><a href="#local-6989586621679193227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse"><span class="hs-identifier hs-type">DescribeServersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Server] -&gt; f (Maybe [Server]))
  -&gt; DescribeServersResponse -&gt; f DescribeServersResponse)
 -&gt; ((Maybe [Server] -&gt; f (Maybe [Server]))
     -&gt; Maybe [Server] -&gt; f (Maybe [Server]))
@@ -674,16 +674,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; DescribeServersResponse)
 -&gt; Lens' DescribeServersResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse%27"><span class="hs-identifier hs-type">DescribeServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193215"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse%27"><span class="hs-identifier hs-type">DescribeServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193224"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeServersResponse' :: DescribeServersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679193215"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193215"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193214"><span class="annot"><span class="annottext">s :: DescribeServersResponse
-</span><a href="#local-6989586621679193214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse%27"><span class="hs-identifier hs-type">DescribeServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193213"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServersResponse
-</span><a href="#local-6989586621679193214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeServersResponse' :: Maybe Text
+</span><a href="#local-6989586621679193224"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193224"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193223"><span class="annot"><span class="annottext">s :: DescribeServersResponse
+</span><a href="#local-6989586621679193223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse%27"><span class="hs-identifier hs-type">DescribeServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193222"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServersResponse
+</span><a href="#local-6989586621679193223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeServersResponse' :: Maybe Text
 </span><a href="Network.AWS.OpsWorksCM.DescribeServers.html#%24sel%3AnextToken%3ADescribeServersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse"><span class="hs-identifier hs-type">DescribeServersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679193222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse"><span class="hs-identifier hs-type">DescribeServersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-279"></span><span>
 </span><span id="line-280"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-281"></span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#describeServersResponse_httpStatus"><span class="hs-identifier hs-type">describeServersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse"><span class="hs-identifier hs-type">DescribeServersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -693,16 +693,16 @@ $sel:nextToken:DescribeServersResponse' :: DescribeServersResponse -&gt; Maybe T
 -&gt; (DescribeServersResponse -&gt; Int -&gt; DescribeServersResponse)
 -&gt; Lens DescribeServersResponse DescribeServersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse%27"><span class="hs-identifier hs-type">DescribeServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193212"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse%27"><span class="hs-identifier hs-type">DescribeServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193221"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeServersResponse' :: DescribeServersResponse -&gt; Int
-</span><a href="#local-6989586621679193212"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679193212"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193211"><span class="annot"><span class="annottext">s :: DescribeServersResponse
-</span><a href="#local-6989586621679193211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse%27"><span class="hs-identifier hs-type">DescribeServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193210"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679193210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServersResponse
-</span><a href="#local-6989586621679193211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeServersResponse' :: Int
+</span><a href="#local-6989586621679193221"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679193221"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193220"><span class="annot"><span class="annottext">s :: DescribeServersResponse
+</span><a href="#local-6989586621679193220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse%27"><span class="hs-identifier hs-type">DescribeServersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193219"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679193219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServersResponse
+</span><a href="#local-6989586621679193220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeServersResponse' :: Int
 </span><a href="Network.AWS.OpsWorksCM.DescribeServers.html#%24sel%3AhttpStatus%3ADescribeServersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679193210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse"><span class="hs-identifier hs-type">DescribeServersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679193219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse"><span class="hs-identifier hs-type">DescribeServersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>
-</span><span id="line-284"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193208"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse"><span class="hs-identifier hs-type">DescribeServersResponse</span></a></span></span><span>
+</span><span id="line-284"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193217"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DescribeServers.html#DescribeServersResponse"><span class="hs-identifier hs-type">DescribeServersResponse</span></a></span></span><span>
 </span><span id="line-285"></span></pre></body></html>

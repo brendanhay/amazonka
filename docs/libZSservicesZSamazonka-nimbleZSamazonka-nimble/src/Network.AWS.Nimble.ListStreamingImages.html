@@ -1,0 +1,696 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Nimble.ListStreamingImages</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- List the streaming image resources available to this studio.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This list will contain both images provided by Amazon Web Services, as</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- well as streaming images that you have created in your studio.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Nimble.ListStreamingImages</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages"><span class="hs-identifier">ListStreamingImages</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#newListStreamingImages"><span class="hs-identifier">newListStreamingImages</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImages_owner"><span class="hs-identifier">listStreamingImages_owner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImages_nextToken"><span class="hs-identifier">listStreamingImages_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImages_studioId"><span class="hs-identifier">listStreamingImages_studioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse"><span class="hs-identifier">ListStreamingImagesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#newListStreamingImagesResponse"><span class="hs-identifier">newListStreamingImagesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImagesResponse_streamingImages"><span class="hs-identifier">listStreamingImagesResponse_streamingImages</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImagesResponse_nextToken"><span class="hs-identifier">listStreamingImagesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImagesResponse_httpStatus"><span class="hs-identifier">listStreamingImagesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.html"><span class="hs-identifier">Network.AWS.Nimble.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListStreamingImages' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679292303"><span id="local-6989586621679292304"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreamingImages"><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages"><span class="hs-identifier hs-var">ListStreamingImages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreamingImages%27"><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages%27"><span class="hs-identifier hs-var">ListStreamingImages'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The owner.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Aowner%3AListStreamingImages%27"><span class="annot"><span class="annottext">ListStreamingImages -&gt; Maybe Text
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3Aowner%3AListStreamingImages%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3AListStreamingImages%27"><span class="annot"><span class="annottext">ListStreamingImages -&gt; Maybe Text
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3AnextToken%3AListStreamingImages%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The studio ID.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AstudioId%3AListStreamingImages%27"><span class="annot"><span class="annottext">ListStreamingImages -&gt; Text
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3AstudioId%3AListStreamingImages%27"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292295"><span id="local-6989586621679292297"><span class="annot"><span class="annottext">ListStreamingImages -&gt; ListStreamingImages -&gt; Bool
+(ListStreamingImages -&gt; ListStreamingImages -&gt; Bool)
+-&gt; (ListStreamingImages -&gt; ListStreamingImages -&gt; Bool)
+-&gt; Eq ListStreamingImages
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListStreamingImages -&gt; ListStreamingImages -&gt; Bool
+$c/= :: ListStreamingImages -&gt; ListStreamingImages -&gt; Bool
+== :: ListStreamingImages -&gt; ListStreamingImages -&gt; Bool
+$c== :: ListStreamingImages -&gt; ListStreamingImages -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292286"><span id="local-6989586621679292288"><span id="local-6989586621679292290"><span id="local-6989586621679292292"><span class="annot"><span class="annottext">ReadPrec [ListStreamingImages]
+ReadPrec ListStreamingImages
+Int -&gt; ReadS ListStreamingImages
+ReadS [ListStreamingImages]
+(Int -&gt; ReadS ListStreamingImages)
+-&gt; ReadS [ListStreamingImages]
+-&gt; ReadPrec ListStreamingImages
+-&gt; ReadPrec [ListStreamingImages]
+-&gt; Read ListStreamingImages
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListStreamingImages]
+$creadListPrec :: ReadPrec [ListStreamingImages]
+readPrec :: ReadPrec ListStreamingImages
+$creadPrec :: ReadPrec ListStreamingImages
+readList :: ReadS [ListStreamingImages]
+$creadList :: ReadS [ListStreamingImages]
+readsPrec :: Int -&gt; ReadS ListStreamingImages
+$creadsPrec :: Int -&gt; ReadS ListStreamingImages
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292279"><span id="local-6989586621679292281"><span id="local-6989586621679292283"><span class="annot"><span class="annottext">Int -&gt; ListStreamingImages -&gt; ShowS
+[ListStreamingImages] -&gt; ShowS
+ListStreamingImages -&gt; String
+(Int -&gt; ListStreamingImages -&gt; ShowS)
+-&gt; (ListStreamingImages -&gt; String)
+-&gt; ([ListStreamingImages] -&gt; ShowS)
+-&gt; Show ListStreamingImages
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListStreamingImages] -&gt; ShowS
+$cshowList :: [ListStreamingImages] -&gt; ShowS
+show :: ListStreamingImages -&gt; String
+$cshow :: ListStreamingImages -&gt; String
+showsPrec :: Int -&gt; ListStreamingImages -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListStreamingImages -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListStreamingImages -&gt; Rep ListStreamingImages x)
+-&gt; (forall x. Rep ListStreamingImages x -&gt; ListStreamingImages)
+-&gt; Generic ListStreamingImages
+forall x. Rep ListStreamingImages x -&gt; ListStreamingImages
+forall x. ListStreamingImages -&gt; Rep ListStreamingImages x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListStreamingImages x -&gt; ListStreamingImages
+$cfrom :: forall x. ListStreamingImages -&gt; Rep ListStreamingImages x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'ListStreamingImages' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'owner', 'listStreamingImages_owner' - The owner.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'nextToken', 'listStreamingImages_nextToken' - The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'studioId', 'listStreamingImages_studioId' - The studio ID.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#newListStreamingImages"><span class="hs-identifier hs-type">newListStreamingImages</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'studioId'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages"><span class="hs-identifier hs-type">ListStreamingImages</span></a></span><span>
+</span><span id="line-87"></span><span id="newListStreamingImages"><span class="annot"><span class="annottext">newListStreamingImages :: Text -&gt; ListStreamingImages
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#newListStreamingImages"><span class="hs-identifier hs-var hs-var">newListStreamingImages</span></a></span></span><span> </span><span id="local-6989586621679292274"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292274"><span class="hs-identifier hs-var">pStudioId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">ListStreamingImages' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ListStreamingImages
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages%27"><span class="hs-identifier hs-type">ListStreamingImages'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:owner:ListStreamingImages' :: Maybe Text
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3Aowner%3AListStreamingImages%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListStreamingImages' :: Maybe Text
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3AnextToken%3AListStreamingImages%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:studioId:ListStreamingImages' :: Text
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3AstudioId%3AListStreamingImages%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292274"><span class="hs-identifier hs-var">pStudioId_</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The owner.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImages_owner"><span class="hs-identifier hs-type">listStreamingImages_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages"><span class="hs-identifier hs-type">ListStreamingImages</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="listStreamingImages_owner"><span class="annot"><span class="annottext">listStreamingImages_owner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListStreamingImages -&gt; f ListStreamingImages
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImages_owner"><span class="hs-identifier hs-var hs-var">listStreamingImages_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStreamingImages -&gt; Maybe Text)
+-&gt; (ListStreamingImages -&gt; Maybe Text -&gt; ListStreamingImages)
+-&gt; Lens
+     ListStreamingImages ListStreamingImages (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages%27"><span class="hs-identifier hs-type">ListStreamingImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292272"><span class="annot"><span class="annottext">Maybe Text
+owner :: Maybe Text
+$sel:owner:ListStreamingImages' :: ListStreamingImages -&gt; Maybe Text
+</span><a href="#local-6989586621679292272"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292272"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292271"><span class="annot"><span class="annottext">s :: ListStreamingImages
+</span><a href="#local-6989586621679292271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages%27"><span class="hs-identifier hs-type">ListStreamingImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292270"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamingImages
+</span><a href="#local-6989586621679292271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:ListStreamingImages' :: Maybe Text
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3Aowner%3AListStreamingImages%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages"><span class="hs-identifier hs-type">ListStreamingImages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImages_nextToken"><span class="hs-identifier hs-type">listStreamingImages_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages"><span class="hs-identifier hs-type">ListStreamingImages</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="listStreamingImages_nextToken"><span class="annot"><span class="annottext">listStreamingImages_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListStreamingImages -&gt; f ListStreamingImages
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImages_nextToken"><span class="hs-identifier hs-var hs-var">listStreamingImages_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStreamingImages -&gt; Maybe Text)
+-&gt; (ListStreamingImages -&gt; Maybe Text -&gt; ListStreamingImages)
+-&gt; Lens
+     ListStreamingImages ListStreamingImages (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages%27"><span class="hs-identifier hs-type">ListStreamingImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292269"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListStreamingImages' :: ListStreamingImages -&gt; Maybe Text
+</span><a href="#local-6989586621679292269"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292269"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292268"><span class="annot"><span class="annottext">s :: ListStreamingImages
+</span><a href="#local-6989586621679292268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages%27"><span class="hs-identifier hs-type">ListStreamingImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292267"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamingImages
+</span><a href="#local-6989586621679292268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListStreamingImages' :: Maybe Text
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3AnextToken%3AListStreamingImages%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages"><span class="hs-identifier hs-type">ListStreamingImages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The studio ID.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImages_studioId"><span class="hs-identifier hs-type">listStreamingImages_studioId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages"><span class="hs-identifier hs-type">ListStreamingImages</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="listStreamingImages_studioId"><span class="annot"><span class="annottext">listStreamingImages_studioId :: (Text -&gt; f Text) -&gt; ListStreamingImages -&gt; f ListStreamingImages
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImages_studioId"><span class="hs-identifier hs-var hs-var">listStreamingImages_studioId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStreamingImages -&gt; Text)
+-&gt; (ListStreamingImages -&gt; Text -&gt; ListStreamingImages)
+-&gt; Lens ListStreamingImages ListStreamingImages Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages%27"><span class="hs-identifier hs-type">ListStreamingImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292266"><span class="annot"><span class="annottext">Text
+studioId :: Text
+$sel:studioId:ListStreamingImages' :: ListStreamingImages -&gt; Text
+</span><a href="#local-6989586621679292266"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292266"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292265"><span class="annot"><span class="annottext">s :: ListStreamingImages
+</span><a href="#local-6989586621679292265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages%27"><span class="hs-identifier hs-type">ListStreamingImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292264"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamingImages
+</span><a href="#local-6989586621679292265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioId:ListStreamingImages' :: Text
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3AstudioId%3AListStreamingImages%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages"><span class="hs-identifier hs-type">ListStreamingImages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages"><span class="hs-identifier hs-type">ListStreamingImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679292260"><span class="annot"><span class="annottext">page :: ListStreamingImages
+-&gt; AWSResponse ListStreamingImages -&gt; Maybe ListStreamingImages
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679292258"><span class="annot"><span class="annottext">ListStreamingImages
+</span><a href="#local-6989586621679292258"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679292257"><span class="annot"><span class="annottext">AWSResponse ListStreamingImages
+</span><a href="#local-6989586621679292257"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-110"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStreamingImages
+ListStreamingImagesResponse
+</span><a href="#local-6989586621679292257"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">ListStreamingImagesResponse
+-&gt; Getting (First Text) ListStreamingImagesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListStreamingImagesResponse
+-&gt; Const (First Text) ListStreamingImagesResponse
+Lens' ListStreamingImagesResponse (Maybe Text)
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImagesResponse_nextToken"><span class="hs-identifier hs-var">listStreamingImagesResponse_nextToken</span></a></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListStreamingImagesResponse
+ -&gt; Const (First Text) ListStreamingImagesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListStreamingImagesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-113"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListStreamingImages
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [StreamingImage] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-116"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStreamingImages
+ListStreamingImagesResponse
+</span><a href="#local-6989586621679292257"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">ListStreamingImagesResponse
+-&gt; Getting
+     (First [StreamingImage])
+     ListStreamingImagesResponse
+     [StreamingImage]
+-&gt; Maybe [StreamingImage]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [StreamingImage]
+ -&gt; Const (First [StreamingImage]) (Maybe [StreamingImage]))
+-&gt; ListStreamingImagesResponse
+-&gt; Const (First [StreamingImage]) ListStreamingImagesResponse
+Lens' ListStreamingImagesResponse (Maybe [StreamingImage])
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImagesResponse_streamingImages"><span class="hs-identifier hs-var">listStreamingImagesResponse_streamingImages</span></a></span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [StreamingImage]
+  -&gt; Const (First [StreamingImage]) (Maybe [StreamingImage]))
+ -&gt; ListStreamingImagesResponse
+ -&gt; Const (First [StreamingImage]) ListStreamingImagesResponse)
+-&gt; (([StreamingImage]
+     -&gt; Const (First [StreamingImage]) [StreamingImage])
+    -&gt; Maybe [StreamingImage]
+    -&gt; Const (First [StreamingImage]) (Maybe [StreamingImage]))
+-&gt; Getting
+     (First [StreamingImage])
+     ListStreamingImagesResponse
+     [StreamingImage]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([StreamingImage]
+ -&gt; Const (First [StreamingImage]) [StreamingImage])
+-&gt; Maybe [StreamingImage]
+-&gt; Const (First [StreamingImage]) (Maybe [StreamingImage])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-119"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListStreamingImages
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">ListStreamingImages -&gt; Maybe ListStreamingImages
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListStreamingImages -&gt; Maybe ListStreamingImages)
+-&gt; ListStreamingImages -&gt; Maybe ListStreamingImages
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">ListStreamingImages
+</span><a href="#local-6989586621679292258"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">ListStreamingImages
+-&gt; (ListStreamingImages -&gt; ListStreamingImages)
+-&gt; ListStreamingImages
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListStreamingImages -&gt; Identity ListStreamingImages
+Lens
+  ListStreamingImages ListStreamingImages (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImages_nextToken"><span class="hs-identifier hs-var">listStreamingImages_nextToken</span></a></span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListStreamingImages -&gt; Identity ListStreamingImages)
+-&gt; Maybe Text -&gt; ListStreamingImages -&gt; ListStreamingImages
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStreamingImages
+ListStreamingImagesResponse
+</span><a href="#local-6989586621679292257"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">ListStreamingImagesResponse
+-&gt; Getting (First Text) ListStreamingImagesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListStreamingImagesResponse
+-&gt; Const (First Text) ListStreamingImagesResponse
+Lens' ListStreamingImagesResponse (Maybe Text)
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImagesResponse_nextToken"><span class="hs-identifier hs-var">listStreamingImagesResponse_nextToken</span></a></span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListStreamingImagesResponse
+ -&gt; Const (First Text) ListStreamingImagesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListStreamingImagesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages"><span class="hs-identifier hs-type">ListStreamingImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages"><span class="hs-identifier hs-type">ListStreamingImages</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse"><span class="hs-identifier hs-type">ListStreamingImagesResponse</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679292247"><span class="annot"><span class="annottext">request :: ListStreamingImages -&gt; Request ListStreamingImages
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListStreamingImages -&gt; Request ListStreamingImages
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Nimble.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679292243"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListStreamingImages
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListStreamingImages)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListStreamingImages))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListStreamingImages
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListStreamingImages)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679292240"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292240"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679292239"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679292239"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679292238"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292238"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe [StreamingImage]
+-&gt; Maybe Text -&gt; Int -&gt; ListStreamingImagesResponse
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse%27"><span class="hs-identifier hs-var">ListStreamingImagesResponse'</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [StreamingImage]
+ -&gt; Maybe Text -&gt; Int -&gt; ListStreamingImagesResponse)
+-&gt; Either String (Maybe [StreamingImage])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListStreamingImagesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [StreamingImage]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;streamingImages&quot;</span></span><span>
+</span><span id="line-139"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [StreamingImage]))
+-&gt; Maybe [StreamingImage] -&gt; Either String (Maybe [StreamingImage])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [StreamingImage]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-140"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListStreamingImagesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListStreamingImagesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListStreamingImagesResponse)
+-&gt; Either String Int -&gt; Either String ListStreamingImagesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292240"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292229"><span id="local-6989586621679292231"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages"><span class="hs-identifier hs-type">ListStreamingImages</span></a></span></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292226"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages"><span class="hs-identifier hs-type">ListStreamingImages</span></a></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages"><span class="hs-identifier hs-type">ListStreamingImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679292222"><span class="annot"><span class="annottext">toHeaders :: ListStreamingImages -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListStreamingImages -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-156"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages"><span class="hs-identifier hs-type">ListStreamingImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679292216"><span class="annot"><span class="annottext">toPath :: ListStreamingImages -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages%27"><span class="hs-identifier hs-type">ListStreamingImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292212"><span id="local-6989586621679292213"><span id="local-6989586621679292214"><span class="annot"><span class="annottext">Maybe Text
+Text
+studioId :: Text
+nextToken :: Maybe Text
+owner :: Maybe Text
+$sel:studioId:ListStreamingImages' :: ListStreamingImages -&gt; Text
+$sel:nextToken:ListStreamingImages' :: ListStreamingImages -&gt; Maybe Text
+$sel:owner:ListStreamingImages' :: ListStreamingImages -&gt; Maybe Text
+</span><a href="#local-6989586621679292212"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-08-01/studios/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292212"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/streaming-images&quot;</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages"><span class="hs-identifier hs-type">ListStreamingImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679292208"><span class="annot"><span class="annottext">toQuery :: ListStreamingImages -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImages%27"><span class="hs-identifier hs-type">ListStreamingImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292204"><span id="local-6989586621679292205"><span id="local-6989586621679292206"><span class="annot"><span class="annottext">Maybe Text
+Text
+studioId :: Text
+nextToken :: Maybe Text
+owner :: Maybe Text
+$sel:studioId:ListStreamingImages' :: ListStreamingImages -&gt; Text
+$sel:nextToken:ListStreamingImages' :: ListStreamingImages -&gt; Maybe Text
+$sel:owner:ListStreamingImages' :: ListStreamingImages -&gt; Maybe Text
+</span><a href="#local-6989586621679292204"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;owner&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292206"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292205"><span class="hs-identifier hs-var">nextToken</span></a></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newListStreamingImagesResponse' smart constructor.</span><span>
+</span><span id="line-176"></span><span id="local-6989586621679292201"><span id="local-6989586621679292202"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreamingImagesResponse"><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse"><span class="hs-identifier hs-var">ListStreamingImagesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreamingImagesResponse%27"><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse%27"><span class="hs-identifier hs-var">ListStreamingImagesResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A collection of streaming images.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AstreamingImages%3AListStreamingImagesResponse%27"><span class="annot"><span class="annottext">ListStreamingImagesResponse -&gt; Maybe [StreamingImage]
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3AstreamingImages%3AListStreamingImagesResponse%27"><span class="hs-identifier hs-var hs-var">streamingImages</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Nimble.Types.StreamingImage.html#StreamingImage"><span class="hs-identifier hs-type">StreamingImage</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AnextToken%3AListStreamingImagesResponse%27"><span class="annot"><span class="annottext">ListStreamingImagesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3AnextToken%3AListStreamingImagesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListStreamingImagesResponse%27"><span class="annot"><span class="annottext">ListStreamingImagesResponse -&gt; Int
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3AhttpStatus%3AListStreamingImagesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292194"><span id="local-6989586621679292196"><span class="annot"><span class="annottext">ListStreamingImagesResponse -&gt; ListStreamingImagesResponse -&gt; Bool
+(ListStreamingImagesResponse
+ -&gt; ListStreamingImagesResponse -&gt; Bool)
+-&gt; (ListStreamingImagesResponse
+    -&gt; ListStreamingImagesResponse -&gt; Bool)
+-&gt; Eq ListStreamingImagesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListStreamingImagesResponse -&gt; ListStreamingImagesResponse -&gt; Bool
+$c/= :: ListStreamingImagesResponse -&gt; ListStreamingImagesResponse -&gt; Bool
+== :: ListStreamingImagesResponse -&gt; ListStreamingImagesResponse -&gt; Bool
+$c== :: ListStreamingImagesResponse -&gt; ListStreamingImagesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292186"><span id="local-6989586621679292188"><span id="local-6989586621679292190"><span id="local-6989586621679292192"><span class="annot"><span class="annottext">ReadPrec [ListStreamingImagesResponse]
+ReadPrec ListStreamingImagesResponse
+Int -&gt; ReadS ListStreamingImagesResponse
+ReadS [ListStreamingImagesResponse]
+(Int -&gt; ReadS ListStreamingImagesResponse)
+-&gt; ReadS [ListStreamingImagesResponse]
+-&gt; ReadPrec ListStreamingImagesResponse
+-&gt; ReadPrec [ListStreamingImagesResponse]
+-&gt; Read ListStreamingImagesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListStreamingImagesResponse]
+$creadListPrec :: ReadPrec [ListStreamingImagesResponse]
+readPrec :: ReadPrec ListStreamingImagesResponse
+$creadPrec :: ReadPrec ListStreamingImagesResponse
+readList :: ReadS [ListStreamingImagesResponse]
+$creadList :: ReadS [ListStreamingImagesResponse]
+readsPrec :: Int -&gt; ReadS ListStreamingImagesResponse
+$creadsPrec :: Int -&gt; ReadS ListStreamingImagesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292180"><span id="local-6989586621679292182"><span id="local-6989586621679292184"><span class="annot"><span class="annottext">Int -&gt; ListStreamingImagesResponse -&gt; ShowS
+[ListStreamingImagesResponse] -&gt; ShowS
+ListStreamingImagesResponse -&gt; String
+(Int -&gt; ListStreamingImagesResponse -&gt; ShowS)
+-&gt; (ListStreamingImagesResponse -&gt; String)
+-&gt; ([ListStreamingImagesResponse] -&gt; ShowS)
+-&gt; Show ListStreamingImagesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListStreamingImagesResponse] -&gt; ShowS
+$cshowList :: [ListStreamingImagesResponse] -&gt; ShowS
+show :: ListStreamingImagesResponse -&gt; String
+$cshow :: ListStreamingImagesResponse -&gt; String
+showsPrec :: Int -&gt; ListStreamingImagesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListStreamingImagesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListStreamingImagesResponse -&gt; Rep ListStreamingImagesResponse x)
+-&gt; (forall x.
+    Rep ListStreamingImagesResponse x -&gt; ListStreamingImagesResponse)
+-&gt; Generic ListStreamingImagesResponse
+forall x.
+Rep ListStreamingImagesResponse x -&gt; ListStreamingImagesResponse
+forall x.
+ListStreamingImagesResponse -&gt; Rep ListStreamingImagesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListStreamingImagesResponse x -&gt; ListStreamingImagesResponse
+$cfrom :: forall x.
+ListStreamingImagesResponse -&gt; Rep ListStreamingImagesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Create a value of 'ListStreamingImagesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'streamingImages', 'listStreamingImagesResponse_streamingImages' - A collection of streaming images.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'nextToken', 'listStreamingImagesResponse_nextToken' - The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'httpStatus', 'listStreamingImagesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#newListStreamingImagesResponse"><span class="hs-identifier hs-type">newListStreamingImagesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse"><span class="hs-identifier hs-type">ListStreamingImagesResponse</span></a></span><span>
+</span><span id="line-205"></span><span id="newListStreamingImagesResponse"><span class="annot"><span class="annottext">newListStreamingImagesResponse :: Int -&gt; ListStreamingImagesResponse
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#newListStreamingImagesResponse"><span class="hs-identifier hs-var hs-var">newListStreamingImagesResponse</span></a></span></span><span> </span><span id="local-6989586621679292177"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292177"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">ListStreamingImagesResponse' :: Maybe [StreamingImage]
+-&gt; Maybe Text -&gt; Int -&gt; ListStreamingImagesResponse
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse%27"><span class="hs-identifier hs-type">ListStreamingImagesResponse'</span></a></span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamingImages:ListStreamingImagesResponse' :: Maybe [StreamingImage]
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3AstreamingImages%3AListStreamingImagesResponse%27"><span class="hs-identifier hs-var">streamingImages</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">Maybe [StreamingImage]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListStreamingImagesResponse' :: Maybe Text
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3AnextToken%3AListStreamingImagesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListStreamingImagesResponse' :: Int
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3AhttpStatus%3AListStreamingImagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292177"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | A collection of streaming images.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImagesResponse_streamingImages"><span class="hs-identifier hs-type">listStreamingImagesResponse_streamingImages</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse"><span class="hs-identifier hs-type">ListStreamingImagesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Nimble.Types.StreamingImage.html#StreamingImage"><span class="hs-identifier hs-type">StreamingImage</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="listStreamingImagesResponse_streamingImages"><span class="annot"><span class="annottext">listStreamingImagesResponse_streamingImages :: (Maybe [StreamingImage] -&gt; f (Maybe [StreamingImage]))
+-&gt; ListStreamingImagesResponse -&gt; f ListStreamingImagesResponse
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImagesResponse_streamingImages"><span class="hs-identifier hs-var hs-var">listStreamingImagesResponse_streamingImages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStreamingImagesResponse -&gt; Maybe [StreamingImage])
+-&gt; (ListStreamingImagesResponse
+    -&gt; Maybe [StreamingImage] -&gt; ListStreamingImagesResponse)
+-&gt; Lens' ListStreamingImagesResponse (Maybe [StreamingImage])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse%27"><span class="hs-identifier hs-type">ListStreamingImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292176"><span class="annot"><span class="annottext">Maybe [StreamingImage]
+streamingImages :: Maybe [StreamingImage]
+$sel:streamingImages:ListStreamingImagesResponse' :: ListStreamingImagesResponse -&gt; Maybe [StreamingImage]
+</span><a href="#local-6989586621679292176"><span class="hs-identifier hs-var hs-var">streamingImages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [StreamingImage]
+</span><a href="#local-6989586621679292176"><span class="hs-identifier hs-var">streamingImages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292175"><span class="annot"><span class="annottext">s :: ListStreamingImagesResponse
+</span><a href="#local-6989586621679292175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse%27"><span class="hs-identifier hs-type">ListStreamingImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292174"><span class="annot"><span class="annottext">Maybe [StreamingImage]
+</span><a href="#local-6989586621679292174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamingImagesResponse
+</span><a href="#local-6989586621679292175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamingImages:ListStreamingImagesResponse' :: Maybe [StreamingImage]
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3AstreamingImages%3AListStreamingImagesResponse%27"><span class="hs-identifier hs-var">streamingImages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StreamingImage]
+</span><a href="#local-6989586621679292174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse"><span class="hs-identifier hs-type">ListStreamingImagesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [StreamingImage] -&gt; f (Maybe [StreamingImage]))
+ -&gt; ListStreamingImagesResponse -&gt; f ListStreamingImagesResponse)
+-&gt; ((Maybe [StreamingImage] -&gt; f (Maybe [StreamingImage]))
+    -&gt; Maybe [StreamingImage] -&gt; f (Maybe [StreamingImage]))
+-&gt; (Maybe [StreamingImage] -&gt; f (Maybe [StreamingImage]))
+-&gt; ListStreamingImagesResponse
+-&gt; f ListStreamingImagesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [StreamingImage] [StreamingImage] [StreamingImage] [StreamingImage]
+-&gt; Iso
+     (Maybe [StreamingImage])
+     (Maybe [StreamingImage])
+     (Maybe [StreamingImage])
+     (Maybe [StreamingImage])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [StreamingImage] [StreamingImage] [StreamingImage] [StreamingImage]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImagesResponse_nextToken"><span class="hs-identifier hs-type">listStreamingImagesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse"><span class="hs-identifier hs-type">ListStreamingImagesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="listStreamingImagesResponse_nextToken"><span class="annot"><span class="annottext">listStreamingImagesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListStreamingImagesResponse -&gt; f ListStreamingImagesResponse
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImagesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listStreamingImagesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStreamingImagesResponse -&gt; Maybe Text)
+-&gt; (ListStreamingImagesResponse
+    -&gt; Maybe Text -&gt; ListStreamingImagesResponse)
+-&gt; Lens' ListStreamingImagesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse%27"><span class="hs-identifier hs-type">ListStreamingImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292171"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListStreamingImagesResponse' :: ListStreamingImagesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679292171"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292171"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292170"><span class="annot"><span class="annottext">s :: ListStreamingImagesResponse
+</span><a href="#local-6989586621679292170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse%27"><span class="hs-identifier hs-type">ListStreamingImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292169"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamingImagesResponse
+</span><a href="#local-6989586621679292170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListStreamingImagesResponse' :: Maybe Text
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3AnextToken%3AListStreamingImagesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679292169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse"><span class="hs-identifier hs-type">ListStreamingImagesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImagesResponse_httpStatus"><span class="hs-identifier hs-type">listStreamingImagesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse"><span class="hs-identifier hs-type">ListStreamingImagesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-224"></span><span id="listStreamingImagesResponse_httpStatus"><span class="annot"><span class="annottext">listStreamingImagesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListStreamingImagesResponse -&gt; f ListStreamingImagesResponse
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#listStreamingImagesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listStreamingImagesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStreamingImagesResponse -&gt; Int)
+-&gt; (ListStreamingImagesResponse
+    -&gt; Int -&gt; ListStreamingImagesResponse)
+-&gt; Lens
+     ListStreamingImagesResponse ListStreamingImagesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse%27"><span class="hs-identifier hs-type">ListStreamingImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292168"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListStreamingImagesResponse' :: ListStreamingImagesResponse -&gt; Int
+</span><a href="#local-6989586621679292168"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292168"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292167"><span class="annot"><span class="annottext">s :: ListStreamingImagesResponse
+</span><a href="#local-6989586621679292167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse%27"><span class="hs-identifier hs-type">ListStreamingImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292166"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamingImagesResponse
+</span><a href="#local-6989586621679292167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListStreamingImagesResponse' :: Int
+</span><a href="Network.AWS.Nimble.ListStreamingImages.html#%24sel%3AhttpStatus%3AListStreamingImagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679292166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse"><span class="hs-identifier hs-type">ListStreamingImagesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292164"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.ListStreamingImages.html#ListStreamingImagesResponse"><span class="hs-identifier hs-type">ListStreamingImagesResponse</span></a></span></span><span>
+</span><span id="line-227"></span></pre></body></html>

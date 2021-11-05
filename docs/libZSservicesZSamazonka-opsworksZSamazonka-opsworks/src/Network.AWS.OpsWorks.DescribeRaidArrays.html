@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newDescribeRaidArrays' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679387722"><span id="local-6989586621679387723"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRaidArrays"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-var">DescribeRaidArrays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRaidArrays%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays%27"><span class="hs-identifier hs-var">DescribeRaidArrays'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679387731"><span id="local-6989586621679387732"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRaidArrays"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-var">DescribeRaidArrays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRaidArrays%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays%27"><span class="hs-identifier hs-var">DescribeRaidArrays'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The instance ID. If you use this parameter, @DescribeRaidArrays@ returns</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- descriptions of the RAID arrays associated with the specified instance.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AinstanceId%3ADescribeRaidArrays%27"><span class="annot"><span class="annottext">DescribeRaidArrays -&gt; Maybe Text
@@ -71,7 +71,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AstackId%3ADescribeRaidArrays%27"><span class="annot"><span class="annottext">DescribeRaidArrays -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#%24sel%3AstackId%3ADescribeRaidArrays%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387714"><span id="local-6989586621679387716"><span class="annot"><span class="annottext">DescribeRaidArrays -&gt; DescribeRaidArrays -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387723"><span id="local-6989586621679387725"><span class="annot"><span class="annottext">DescribeRaidArrays -&gt; DescribeRaidArrays -&gt; Bool
 (DescribeRaidArrays -&gt; DescribeRaidArrays -&gt; Bool)
 -&gt; (DescribeRaidArrays -&gt; DescribeRaidArrays -&gt; Bool)
 -&gt; Eq DescribeRaidArrays
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeRaidArrays -&gt; DescribeRaidArrays -&gt; Bool
 == :: DescribeRaidArrays -&gt; DescribeRaidArrays -&gt; Bool
 $c== :: DescribeRaidArrays -&gt; DescribeRaidArrays -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387705"><span id="local-6989586621679387707"><span id="local-6989586621679387709"><span id="local-6989586621679387711"><span class="annot"><span class="annottext">ReadPrec [DescribeRaidArrays]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387714"><span id="local-6989586621679387716"><span id="local-6989586621679387718"><span id="local-6989586621679387720"><span class="annot"><span class="annottext">ReadPrec [DescribeRaidArrays]
 ReadPrec DescribeRaidArrays
 Int -&gt; ReadS DescribeRaidArrays
 ReadS [DescribeRaidArrays]
@@ -100,7 +100,7 @@ readList :: ReadS [DescribeRaidArrays]
 $creadList :: ReadS [DescribeRaidArrays]
 readsPrec :: Int -&gt; ReadS DescribeRaidArrays
 $creadsPrec :: Int -&gt; ReadS DescribeRaidArrays
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387698"><span id="local-6989586621679387700"><span id="local-6989586621679387702"><span class="annot"><span class="annottext">Int -&gt; DescribeRaidArrays -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387707"><span id="local-6989586621679387709"><span id="local-6989586621679387711"><span class="annot"><span class="annottext">Int -&gt; DescribeRaidArrays -&gt; ShowS
 [DescribeRaidArrays] -&gt; ShowS
 DescribeRaidArrays -&gt; String
 (Int -&gt; DescribeRaidArrays -&gt; ShowS)
@@ -172,16 +172,16 @@ forall a. Maybe a
 -&gt; Lens
      DescribeRaidArrays DescribeRaidArrays (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays%27"><span class="hs-identifier hs-type">DescribeRaidArrays'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387691"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays%27"><span class="hs-identifier hs-type">DescribeRaidArrays'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387700"><span class="annot"><span class="annottext">Maybe Text
 instanceId :: Maybe Text
 $sel:instanceId:DescribeRaidArrays' :: DescribeRaidArrays -&gt; Maybe Text
-</span><a href="#local-6989586621679387691"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387691"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387690"><span class="annot"><span class="annottext">s :: DescribeRaidArrays
-</span><a href="#local-6989586621679387690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays%27"><span class="hs-identifier hs-type">DescribeRaidArrays'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387689"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRaidArrays
-</span><a href="#local-6989586621679387690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DescribeRaidArrays' :: Maybe Text
+</span><a href="#local-6989586621679387700"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387700"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387699"><span class="annot"><span class="annottext">s :: DescribeRaidArrays
+</span><a href="#local-6989586621679387699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays%27"><span class="hs-identifier hs-type">DescribeRaidArrays'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387698"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRaidArrays
+</span><a href="#local-6989586621679387699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DescribeRaidArrays' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#%24sel%3AinstanceId%3ADescribeRaidArrays%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-type">DescribeRaidArrays</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-type">DescribeRaidArrays</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | An array of RAID array IDs. If you use this parameter,</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- @DescribeRaidArrays@ returns descriptions of the specified arrays.</span><span>
@@ -194,16 +194,16 @@ $sel:instanceId:DescribeRaidArrays' :: DescribeRaidArrays -&gt; Maybe Text
 -&gt; Lens
      DescribeRaidArrays DescribeRaidArrays (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays%27"><span class="hs-identifier hs-type">DescribeRaidArrays'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387688"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays%27"><span class="hs-identifier hs-type">DescribeRaidArrays'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387697"><span class="annot"><span class="annottext">Maybe [Text]
 raidArrayIds :: Maybe [Text]
 $sel:raidArrayIds:DescribeRaidArrays' :: DescribeRaidArrays -&gt; Maybe [Text]
-</span><a href="#local-6989586621679387688"><span class="hs-identifier hs-var hs-var">raidArrayIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679387688"><span class="hs-identifier hs-var">raidArrayIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387687"><span class="annot"><span class="annottext">s :: DescribeRaidArrays
-</span><a href="#local-6989586621679387687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays%27"><span class="hs-identifier hs-type">DescribeRaidArrays'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387686"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679387686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRaidArrays
-</span><a href="#local-6989586621679387687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:raidArrayIds:DescribeRaidArrays' :: Maybe [Text]
+</span><a href="#local-6989586621679387697"><span class="hs-identifier hs-var hs-var">raidArrayIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679387697"><span class="hs-identifier hs-var">raidArrayIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387696"><span class="annot"><span class="annottext">s :: DescribeRaidArrays
+</span><a href="#local-6989586621679387696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays%27"><span class="hs-identifier hs-type">DescribeRaidArrays'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387695"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679387695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRaidArrays
+</span><a href="#local-6989586621679387696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:raidArrayIds:DescribeRaidArrays' :: Maybe [Text]
 </span><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#%24sel%3AraidArrayIds%3ADescribeRaidArrays%27"><span class="hs-identifier hs-var">raidArrayIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679387686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-type">DescribeRaidArrays</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679387695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-type">DescribeRaidArrays</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeRaidArrays -&gt; f DescribeRaidArrays)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -229,27 +229,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DescribeRaidArrays DescribeRaidArrays (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays%27"><span class="hs-identifier hs-type">DescribeRaidArrays'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387682"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays%27"><span class="hs-identifier hs-type">DescribeRaidArrays'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387691"><span class="annot"><span class="annottext">Maybe Text
 stackId :: Maybe Text
 $sel:stackId:DescribeRaidArrays' :: DescribeRaidArrays -&gt; Maybe Text
-</span><a href="#local-6989586621679387682"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387682"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387681"><span class="annot"><span class="annottext">s :: DescribeRaidArrays
-</span><a href="#local-6989586621679387681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays%27"><span class="hs-identifier hs-type">DescribeRaidArrays'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387680"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRaidArrays
-</span><a href="#local-6989586621679387681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:DescribeRaidArrays' :: Maybe Text
+</span><a href="#local-6989586621679387691"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387691"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387690"><span class="annot"><span class="annottext">s :: DescribeRaidArrays
+</span><a href="#local-6989586621679387690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays%27"><span class="hs-identifier hs-type">DescribeRaidArrays'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387689"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRaidArrays
+</span><a href="#local-6989586621679387690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:DescribeRaidArrays' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#%24sel%3AstackId%3ADescribeRaidArrays%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-type">DescribeRaidArrays</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-type">DescribeRaidArrays</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-type">DescribeRaidArrays</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-type">DescribeRaidArrays</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse"><span class="hs-identifier hs-type">DescribeRaidArraysResponse</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679387676"><span class="annot"><span class="annottext">request :: DescribeRaidArrays -&gt; Request DescribeRaidArrays
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679387685"><span class="annot"><span class="annottext">request :: DescribeRaidArrays -&gt; Request DescribeRaidArrays
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeRaidArrays -&gt; Request DescribeRaidArrays
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679387672"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679387681"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeRaidArrays
 -&gt; ClientResponse ClientBody
@@ -275,10 +275,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387669"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387669"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387668"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679387668"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387667"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387667"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387678"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387678"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387677"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679387677"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387676"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387676"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RaidArray] -&gt; Int -&gt; DescribeRaidArraysResponse
 </span><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse%27"><span class="hs-identifier hs-var">DescribeRaidArraysResponse'</span></a></span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [RaidArray] -&gt; Int -&gt; DescribeRaidArraysResponse)
@@ -286,7 +286,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeRaidArraysResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [RaidArray]))
+</span><a href="#local-6989586621679387676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [RaidArray]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RaidArrays&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [RaidArray]))
@@ -303,15 +303,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387669"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387678"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387658"><span id="local-6989586621679387660"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-type">DescribeRaidArrays</span></a></span></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387667"><span id="local-6989586621679387669"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-type">DescribeRaidArrays</span></a></span></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387655"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-type">DescribeRaidArrays</span></a></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387664"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-type">DescribeRaidArrays</span></a></span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-type">DescribeRaidArrays</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679387651"><span class="annot"><span class="annottext">toHeaders :: DescribeRaidArrays -&gt; ResponseHeaders
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679387660"><span class="annot"><span class="annottext">toHeaders :: DescribeRaidArrays -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeRaidArrays -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -338,9 +338,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387641"><span id="local-6989586621679387643"><span id="local-6989586621679387645"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-type">DescribeRaidArrays</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679387639"><span class="annot"><span class="annottext">toJSON :: DescribeRaidArrays -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays%27"><span class="hs-identifier hs-type">DescribeRaidArrays'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387635"><span id="local-6989586621679387636"><span id="local-6989586621679387637"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387650"><span id="local-6989586621679387652"><span id="local-6989586621679387654"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-type">DescribeRaidArrays</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679387648"><span class="annot"><span class="annottext">toJSON :: DescribeRaidArrays -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays%27"><span class="hs-identifier hs-type">DescribeRaidArrays'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387644"><span id="local-6989586621679387645"><span id="local-6989586621679387646"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 stackId :: Maybe Text
 raidArrayIds :: Maybe [Text]
@@ -348,7 +348,7 @@ instanceId :: Maybe Text
 $sel:stackId:DescribeRaidArrays' :: DescribeRaidArrays -&gt; Maybe Text
 $sel:raidArrayIds:DescribeRaidArrays' :: DescribeRaidArrays -&gt; Maybe [Text]
 $sel:instanceId:DescribeRaidArrays' :: DescribeRaidArrays -&gt; Maybe Text
-</span><a href="#local-6989586621679387635"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679387644"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -360,33 +360,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387637"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387646"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RaidArrayIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679387636"><span class="hs-identifier hs-var">raidArrayIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387645"><span class="hs-identifier hs-var">raidArrayIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387635"><span class="hs-identifier hs-var">stackId</span></a></span><span>
+</span><a href="#local-6989586621679387644"><span class="hs-identifier hs-var">stackId</span></a></span><span>
 </span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-type">DescribeRaidArrays</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679387629"><span class="annot"><span class="annottext">toPath :: DescribeRaidArrays -&gt; ByteString
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679387638"><span class="annot"><span class="annottext">toPath :: DescribeRaidArrays -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeRaidArrays -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArrays"><span class="hs-identifier hs-type">DescribeRaidArrays</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679387625"><span class="annot"><span class="annottext">toQuery :: DescribeRaidArrays -&gt; QueryString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679387634"><span class="annot"><span class="annottext">toQuery :: DescribeRaidArrays -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeRaidArrays -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -396,7 +396,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-161"></span><span class="hs-comment">-- | Contains the response to a @DescribeRaidArrays@ request.</span><span>
 </span><span id="line-162"></span><span class="hs-comment">--</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- /See:/ 'newDescribeRaidArraysResponse' smart constructor.</span><span>
-</span><span id="line-164"></span><span id="local-6989586621679387622"><span id="local-6989586621679387623"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRaidArraysResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse"><span class="hs-identifier hs-var">DescribeRaidArraysResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRaidArraysResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse%27"><span class="hs-identifier hs-var">DescribeRaidArraysResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span id="local-6989586621679387631"><span id="local-6989586621679387632"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRaidArraysResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse"><span class="hs-identifier hs-var">DescribeRaidArraysResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRaidArraysResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse%27"><span class="hs-identifier hs-var">DescribeRaidArraysResponse'</span></a></span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A @RaidArrays@ object that describes the specified RAID arrays.</span><span>
 </span><span id="line-166"></span><span>    </span><span id="%24sel%3AraidArrays%3ADescribeRaidArraysResponse%27"><span class="annot"><span class="annottext">DescribeRaidArraysResponse -&gt; Maybe [RaidArray]
 </span><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#%24sel%3AraidArrays%3ADescribeRaidArraysResponse%27"><span class="hs-identifier hs-var hs-var">raidArrays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.RaidArray.html#RaidArray"><span class="hs-identifier hs-type">RaidArray</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -404,7 +404,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeRaidArraysResponse%27"><span class="annot"><span class="annottext">DescribeRaidArraysResponse -&gt; Int
 </span><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#%24sel%3AhttpStatus%3ADescribeRaidArraysResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387616"><span id="local-6989586621679387618"><span class="annot"><span class="annottext">DescribeRaidArraysResponse -&gt; DescribeRaidArraysResponse -&gt; Bool
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387625"><span id="local-6989586621679387627"><span class="annot"><span class="annottext">DescribeRaidArraysResponse -&gt; DescribeRaidArraysResponse -&gt; Bool
 (DescribeRaidArraysResponse -&gt; DescribeRaidArraysResponse -&gt; Bool)
 -&gt; (DescribeRaidArraysResponse
     -&gt; DescribeRaidArraysResponse -&gt; Bool)
@@ -414,7 +414,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeRaidArraysResponse -&gt; DescribeRaidArraysResponse -&gt; Bool
 == :: DescribeRaidArraysResponse -&gt; DescribeRaidArraysResponse -&gt; Bool
 $c== :: DescribeRaidArraysResponse -&gt; DescribeRaidArraysResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387608"><span id="local-6989586621679387610"><span id="local-6989586621679387612"><span id="local-6989586621679387614"><span class="annot"><span class="annottext">ReadPrec [DescribeRaidArraysResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387617"><span id="local-6989586621679387619"><span id="local-6989586621679387621"><span id="local-6989586621679387623"><span class="annot"><span class="annottext">ReadPrec [DescribeRaidArraysResponse]
 ReadPrec DescribeRaidArraysResponse
 Int -&gt; ReadS DescribeRaidArraysResponse
 ReadS [DescribeRaidArraysResponse]
@@ -434,7 +434,7 @@ readList :: ReadS [DescribeRaidArraysResponse]
 $creadList :: ReadS [DescribeRaidArraysResponse]
 readsPrec :: Int -&gt; ReadS DescribeRaidArraysResponse
 $creadsPrec :: Int -&gt; ReadS DescribeRaidArraysResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387602"><span id="local-6989586621679387604"><span id="local-6989586621679387606"><span class="annot"><span class="annottext">Int -&gt; DescribeRaidArraysResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387611"><span id="local-6989586621679387613"><span id="local-6989586621679387615"><span class="annot"><span class="annottext">Int -&gt; DescribeRaidArraysResponse -&gt; ShowS
 [DescribeRaidArraysResponse] -&gt; ShowS
 DescribeRaidArraysResponse -&gt; String
 (Int -&gt; DescribeRaidArraysResponse -&gt; ShowS)
@@ -482,8 +482,8 @@ DescribeRaidArraysResponse -&gt; Rep DescribeRaidArraysResponse x
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse"><span class="hs-identifier hs-type">DescribeRaidArraysResponse</span></a></span><span>
 </span><span id="line-187"></span><span id="newDescribeRaidArraysResponse"><span class="annot"><span class="annottext">newDescribeRaidArraysResponse :: Int -&gt; DescribeRaidArraysResponse
-</span><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#newDescribeRaidArraysResponse"><span class="hs-identifier hs-var hs-var">newDescribeRaidArraysResponse</span></a></span></span><span> </span><span id="local-6989586621679387599"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387599"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#newDescribeRaidArraysResponse"><span class="hs-identifier hs-var hs-var">newDescribeRaidArraysResponse</span></a></span></span><span> </span><span id="local-6989586621679387608"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387608"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="annottext">DescribeRaidArraysResponse' :: Maybe [RaidArray] -&gt; Int -&gt; DescribeRaidArraysResponse
 </span><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse%27"><span class="hs-identifier hs-type">DescribeRaidArraysResponse'</span></a></span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:raidArrays:DescribeRaidArraysResponse' :: Maybe [RaidArray]
@@ -493,7 +493,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRaidArraysResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#%24sel%3AhttpStatus%3ADescribeRaidArraysResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387599"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679387608"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | A @RaidArrays@ object that describes the specified RAID arrays.</span><span>
@@ -509,16 +509,16 @@ forall a. Maybe a
      (Maybe [RaidArray])
      (Maybe [RaidArray])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse%27"><span class="hs-identifier hs-type">DescribeRaidArraysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387598"><span class="annot"><span class="annottext">Maybe [RaidArray]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse%27"><span class="hs-identifier hs-type">DescribeRaidArraysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387607"><span class="annot"><span class="annottext">Maybe [RaidArray]
 raidArrays :: Maybe [RaidArray]
 $sel:raidArrays:DescribeRaidArraysResponse' :: DescribeRaidArraysResponse -&gt; Maybe [RaidArray]
-</span><a href="#local-6989586621679387598"><span class="hs-identifier hs-var hs-var">raidArrays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RaidArray]
-</span><a href="#local-6989586621679387598"><span class="hs-identifier hs-var">raidArrays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387597"><span class="annot"><span class="annottext">s :: DescribeRaidArraysResponse
-</span><a href="#local-6989586621679387597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse%27"><span class="hs-identifier hs-type">DescribeRaidArraysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387596"><span class="annot"><span class="annottext">Maybe [RaidArray]
-</span><a href="#local-6989586621679387596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRaidArraysResponse
-</span><a href="#local-6989586621679387597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:raidArrays:DescribeRaidArraysResponse' :: Maybe [RaidArray]
+</span><a href="#local-6989586621679387607"><span class="hs-identifier hs-var hs-var">raidArrays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RaidArray]
+</span><a href="#local-6989586621679387607"><span class="hs-identifier hs-var">raidArrays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387606"><span class="annot"><span class="annottext">s :: DescribeRaidArraysResponse
+</span><a href="#local-6989586621679387606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse%27"><span class="hs-identifier hs-type">DescribeRaidArraysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387605"><span class="annot"><span class="annottext">Maybe [RaidArray]
+</span><a href="#local-6989586621679387605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRaidArraysResponse
+</span><a href="#local-6989586621679387606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:raidArrays:DescribeRaidArraysResponse' :: Maybe [RaidArray]
 </span><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#%24sel%3AraidArrays%3ADescribeRaidArraysResponse%27"><span class="hs-identifier hs-var">raidArrays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RaidArray]
-</span><a href="#local-6989586621679387596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse"><span class="hs-identifier hs-type">DescribeRaidArraysResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RaidArray] -&gt; f (Maybe [RaidArray]))
+</span><a href="#local-6989586621679387605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse"><span class="hs-identifier hs-type">DescribeRaidArraysResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RaidArray] -&gt; f (Maybe [RaidArray]))
  -&gt; DescribeRaidArraysResponse -&gt; f DescribeRaidArraysResponse)
 -&gt; ((Maybe [RaidArray] -&gt; f (Maybe [RaidArray]))
     -&gt; Maybe [RaidArray] -&gt; f (Maybe [RaidArray]))
@@ -549,16 +549,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DescribeRaidArraysResponse DescribeRaidArraysResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse%27"><span class="hs-identifier hs-type">DescribeRaidArraysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387595"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse%27"><span class="hs-identifier hs-type">DescribeRaidArraysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387604"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeRaidArraysResponse' :: DescribeRaidArraysResponse -&gt; Int
-</span><a href="#local-6989586621679387595"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387595"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387594"><span class="annot"><span class="annottext">s :: DescribeRaidArraysResponse
-</span><a href="#local-6989586621679387594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse%27"><span class="hs-identifier hs-type">DescribeRaidArraysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387593"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRaidArraysResponse
-</span><a href="#local-6989586621679387594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRaidArraysResponse' :: Int
+</span><a href="#local-6989586621679387604"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387604"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387603"><span class="annot"><span class="annottext">s :: DescribeRaidArraysResponse
+</span><a href="#local-6989586621679387603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse%27"><span class="hs-identifier hs-type">DescribeRaidArraysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387602"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRaidArraysResponse
+</span><a href="#local-6989586621679387603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRaidArraysResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#%24sel%3AhttpStatus%3ADescribeRaidArraysResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse"><span class="hs-identifier hs-type">DescribeRaidArraysResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse"><span class="hs-identifier hs-type">DescribeRaidArraysResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387591"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse"><span class="hs-identifier hs-type">DescribeRaidArraysResponse</span></a></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387600"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeRaidArrays.html#DescribeRaidArraysResponse"><span class="hs-identifier hs-type">DescribeRaidArraysResponse</span></a></span></span><span>
 </span><span id="line-203"></span></pre></body></html>

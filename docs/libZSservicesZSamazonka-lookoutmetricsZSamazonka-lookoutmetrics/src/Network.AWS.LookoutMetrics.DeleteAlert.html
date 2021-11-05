@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.LookoutMetrics.DeleteAlert</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an alert.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LookoutMetrics.DeleteAlert</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert"><span class="hs-identifier">DeleteAlert</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#newDeleteAlert"><span class="hs-identifier">newDeleteAlert</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#deleteAlert_alertArn"><span class="hs-identifier">deleteAlert_alertArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlertResponse"><span class="hs-identifier">DeleteAlertResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#newDeleteAlertResponse"><span class="hs-identifier">newDeleteAlertResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#deleteAlertResponse_httpStatus"><span class="hs-identifier">deleteAlertResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteAlert' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679230723"><span id="local-6989586621679230724"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlert"><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert"><span class="hs-identifier hs-var">DeleteAlert</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlert%27"><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert%27"><span class="hs-identifier hs-var">DeleteAlert'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the alert to delete.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AalertArn%3ADeleteAlert%27"><span class="annot"><span class="annottext">DeleteAlert -&gt; Text
+</span><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#%24sel%3AalertArn%3ADeleteAlert%27"><span class="hs-identifier hs-var hs-var">alertArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230717"><span id="local-6989586621679230719"><span class="annot"><span class="annottext">DeleteAlert -&gt; DeleteAlert -&gt; Bool
+(DeleteAlert -&gt; DeleteAlert -&gt; Bool)
+-&gt; (DeleteAlert -&gt; DeleteAlert -&gt; Bool) -&gt; Eq DeleteAlert
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAlert -&gt; DeleteAlert -&gt; Bool
+$c/= :: DeleteAlert -&gt; DeleteAlert -&gt; Bool
+== :: DeleteAlert -&gt; DeleteAlert -&gt; Bool
+$c== :: DeleteAlert -&gt; DeleteAlert -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230708"><span id="local-6989586621679230710"><span id="local-6989586621679230712"><span id="local-6989586621679230714"><span class="annot"><span class="annottext">ReadPrec [DeleteAlert]
+ReadPrec DeleteAlert
+Int -&gt; ReadS DeleteAlert
+ReadS [DeleteAlert]
+(Int -&gt; ReadS DeleteAlert)
+-&gt; ReadS [DeleteAlert]
+-&gt; ReadPrec DeleteAlert
+-&gt; ReadPrec [DeleteAlert]
+-&gt; Read DeleteAlert
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAlert]
+$creadListPrec :: ReadPrec [DeleteAlert]
+readPrec :: ReadPrec DeleteAlert
+$creadPrec :: ReadPrec DeleteAlert
+readList :: ReadS [DeleteAlert]
+$creadList :: ReadS [DeleteAlert]
+readsPrec :: Int -&gt; ReadS DeleteAlert
+$creadsPrec :: Int -&gt; ReadS DeleteAlert
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230701"><span id="local-6989586621679230703"><span id="local-6989586621679230705"><span class="annot"><span class="annottext">Int -&gt; DeleteAlert -&gt; ShowS
+[DeleteAlert] -&gt; ShowS
+DeleteAlert -&gt; String
+(Int -&gt; DeleteAlert -&gt; ShowS)
+-&gt; (DeleteAlert -&gt; String)
+-&gt; ([DeleteAlert] -&gt; ShowS)
+-&gt; Show DeleteAlert
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAlert] -&gt; ShowS
+$cshowList :: [DeleteAlert] -&gt; ShowS
+show :: DeleteAlert -&gt; String
+$cshow :: DeleteAlert -&gt; String
+showsPrec :: Int -&gt; DeleteAlert -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAlert -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteAlert -&gt; Rep DeleteAlert x)
+-&gt; (forall x. Rep DeleteAlert x -&gt; DeleteAlert)
+-&gt; Generic DeleteAlert
+forall x. Rep DeleteAlert x -&gt; DeleteAlert
+forall x. DeleteAlert -&gt; Rep DeleteAlert x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteAlert x -&gt; DeleteAlert
+$cfrom :: forall x. DeleteAlert -&gt; Rep DeleteAlert x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'DeleteAlert' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'alertArn', 'deleteAlert_alertArn' - The ARN of the alert to delete.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#newDeleteAlert"><span class="hs-identifier hs-type">newDeleteAlert</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'alertArn'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert"><span class="hs-identifier hs-type">DeleteAlert</span></a></span><span>
+</span><span id="line-68"></span><span id="newDeleteAlert"><span class="annot"><span class="annottext">newDeleteAlert :: Text -&gt; DeleteAlert
+</span><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#newDeleteAlert"><span class="hs-identifier hs-var hs-var">newDeleteAlert</span></a></span></span><span> </span><span id="local-6989586621679230696"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230696"><span class="hs-identifier hs-var">pAlertArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteAlert' :: Text -&gt; DeleteAlert
+</span><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert%27"><span class="hs-identifier hs-type">DeleteAlert'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alertArn:DeleteAlert' :: Text
+</span><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#%24sel%3AalertArn%3ADeleteAlert%27"><span class="hs-identifier hs-var">alertArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230696"><span class="hs-identifier hs-var">pAlertArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The ARN of the alert to delete.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#deleteAlert_alertArn"><span class="hs-identifier hs-type">deleteAlert_alertArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert"><span class="hs-identifier hs-type">DeleteAlert</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="deleteAlert_alertArn"><span class="annot"><span class="annottext">deleteAlert_alertArn :: (Text -&gt; f Text) -&gt; DeleteAlert -&gt; f DeleteAlert
+</span><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#deleteAlert_alertArn"><span class="hs-identifier hs-var hs-var">deleteAlert_alertArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAlert -&gt; Text)
+-&gt; (DeleteAlert -&gt; Text -&gt; DeleteAlert)
+-&gt; Lens DeleteAlert DeleteAlert Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert%27"><span class="hs-identifier hs-type">DeleteAlert'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230693"><span class="annot"><span class="annottext">Text
+alertArn :: Text
+$sel:alertArn:DeleteAlert' :: DeleteAlert -&gt; Text
+</span><a href="#local-6989586621679230693"><span class="hs-identifier hs-var hs-var">alertArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230693"><span class="hs-identifier hs-var">alertArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230692"><span class="annot"><span class="annottext">s :: DeleteAlert
+</span><a href="#local-6989586621679230692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert%27"><span class="hs-identifier hs-type">DeleteAlert'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230691"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlert
+</span><a href="#local-6989586621679230692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alertArn:DeleteAlert' :: Text
+</span><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#%24sel%3AalertArn%3ADeleteAlert%27"><span class="hs-identifier hs-var">alertArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert"><span class="hs-identifier hs-type">DeleteAlert</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert"><span class="hs-identifier hs-type">DeleteAlert</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert"><span class="hs-identifier hs-type">DeleteAlert</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlertResponse"><span class="hs-identifier hs-type">DeleteAlertResponse</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679230687"><span class="annot"><span class="annottext">request :: DeleteAlert -&gt; Request DeleteAlert
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAlert -&gt; Request DeleteAlert
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutMetrics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679230683"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteAlert
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteAlert)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteAlert))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteAlert
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteAlert)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679230680"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230680"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679230679"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679230679"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679230678"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679230678"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteAlertResponse
+</span><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlertResponse%27"><span class="hs-identifier hs-var">DeleteAlertResponse'</span></a></span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteAlertResponse)
+-&gt; Either String Int -&gt; Either String DeleteAlertResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230680"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230671"><span id="local-6989586621679230673"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert"><span class="hs-identifier hs-type">DeleteAlert</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230668"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert"><span class="hs-identifier hs-type">DeleteAlert</span></a></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert"><span class="hs-identifier hs-type">DeleteAlert</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679230664"><span class="annot"><span class="annottext">toHeaders :: DeleteAlert -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteAlert -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-93"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-94"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-96"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230654"><span id="local-6989586621679230656"><span id="local-6989586621679230658"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert"><span class="hs-identifier hs-type">DeleteAlert</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679230652"><span class="annot"><span class="annottext">toJSON :: DeleteAlert -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert%27"><span class="hs-identifier hs-type">DeleteAlert'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230650"><span class="annot"><span class="annottext">Text
+alertArn :: Text
+$sel:alertArn:DeleteAlert' :: DeleteAlert -&gt; Text
+</span><a href="#local-6989586621679230650"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AlertArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230650"><span class="hs-identifier hs-var">alertArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert"><span class="hs-identifier hs-type">DeleteAlert</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679230644"><span class="annot"><span class="annottext">toPath :: DeleteAlert -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteAlert -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/DeleteAlert&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlert"><span class="hs-identifier hs-type">DeleteAlert</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679230640"><span class="annot"><span class="annottext">toQuery :: DeleteAlert -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteAlert -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | /See:/ 'newDeleteAlertResponse' smart constructor.</span><span>
+</span><span id="line-114"></span><span id="local-6989586621679230637"><span id="local-6989586621679230638"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlertResponse"><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlertResponse"><span class="hs-identifier hs-var">DeleteAlertResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlertResponse%27"><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlertResponse%27"><span class="hs-identifier hs-var">DeleteAlertResponse'</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteAlertResponse%27"><span class="annot"><span class="annottext">DeleteAlertResponse -&gt; Int
+</span><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#%24sel%3AhttpStatus%3ADeleteAlertResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230632"><span id="local-6989586621679230634"><span class="annot"><span class="annottext">DeleteAlertResponse -&gt; DeleteAlertResponse -&gt; Bool
+(DeleteAlertResponse -&gt; DeleteAlertResponse -&gt; Bool)
+-&gt; (DeleteAlertResponse -&gt; DeleteAlertResponse -&gt; Bool)
+-&gt; Eq DeleteAlertResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAlertResponse -&gt; DeleteAlertResponse -&gt; Bool
+$c/= :: DeleteAlertResponse -&gt; DeleteAlertResponse -&gt; Bool
+== :: DeleteAlertResponse -&gt; DeleteAlertResponse -&gt; Bool
+$c== :: DeleteAlertResponse -&gt; DeleteAlertResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230624"><span id="local-6989586621679230626"><span id="local-6989586621679230628"><span id="local-6989586621679230630"><span class="annot"><span class="annottext">ReadPrec [DeleteAlertResponse]
+ReadPrec DeleteAlertResponse
+Int -&gt; ReadS DeleteAlertResponse
+ReadS [DeleteAlertResponse]
+(Int -&gt; ReadS DeleteAlertResponse)
+-&gt; ReadS [DeleteAlertResponse]
+-&gt; ReadPrec DeleteAlertResponse
+-&gt; ReadPrec [DeleteAlertResponse]
+-&gt; Read DeleteAlertResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAlertResponse]
+$creadListPrec :: ReadPrec [DeleteAlertResponse]
+readPrec :: ReadPrec DeleteAlertResponse
+$creadPrec :: ReadPrec DeleteAlertResponse
+readList :: ReadS [DeleteAlertResponse]
+$creadList :: ReadS [DeleteAlertResponse]
+readsPrec :: Int -&gt; ReadS DeleteAlertResponse
+$creadsPrec :: Int -&gt; ReadS DeleteAlertResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230618"><span id="local-6989586621679230620"><span id="local-6989586621679230622"><span class="annot"><span class="annottext">Int -&gt; DeleteAlertResponse -&gt; ShowS
+[DeleteAlertResponse] -&gt; ShowS
+DeleteAlertResponse -&gt; String
+(Int -&gt; DeleteAlertResponse -&gt; ShowS)
+-&gt; (DeleteAlertResponse -&gt; String)
+-&gt; ([DeleteAlertResponse] -&gt; ShowS)
+-&gt; Show DeleteAlertResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAlertResponse] -&gt; ShowS
+$cshowList :: [DeleteAlertResponse] -&gt; ShowS
+show :: DeleteAlertResponse -&gt; String
+$cshow :: DeleteAlertResponse -&gt; String
+showsPrec :: Int -&gt; DeleteAlertResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAlertResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteAlertResponse -&gt; Rep DeleteAlertResponse x)
+-&gt; (forall x. Rep DeleteAlertResponse x -&gt; DeleteAlertResponse)
+-&gt; Generic DeleteAlertResponse
+forall x. Rep DeleteAlertResponse x -&gt; DeleteAlertResponse
+forall x. DeleteAlertResponse -&gt; Rep DeleteAlertResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteAlertResponse x -&gt; DeleteAlertResponse
+$cfrom :: forall x. DeleteAlertResponse -&gt; Rep DeleteAlertResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Create a value of 'DeleteAlertResponse' with all optional fields omitted.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'httpStatus', 'deleteAlertResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#newDeleteAlertResponse"><span class="hs-identifier hs-type">newDeleteAlertResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlertResponse"><span class="hs-identifier hs-type">DeleteAlertResponse</span></a></span><span>
+</span><span id="line-133"></span><span id="newDeleteAlertResponse"><span class="annot"><span class="annottext">newDeleteAlertResponse :: Int -&gt; DeleteAlertResponse
+</span><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#newDeleteAlertResponse"><span class="hs-identifier hs-var hs-var">newDeleteAlertResponse</span></a></span></span><span> </span><span id="local-6989586621679230615"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230615"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">DeleteAlertResponse' :: Int -&gt; DeleteAlertResponse
+</span><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlertResponse%27"><span class="hs-identifier hs-type">DeleteAlertResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAlertResponse' :: Int
+</span><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#%24sel%3AhttpStatus%3ADeleteAlertResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230615"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#deleteAlertResponse_httpStatus"><span class="hs-identifier hs-type">deleteAlertResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlertResponse"><span class="hs-identifier hs-type">DeleteAlertResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-138"></span><span id="deleteAlertResponse_httpStatus"><span class="annot"><span class="annottext">deleteAlertResponse_httpStatus :: (Int -&gt; f Int) -&gt; DeleteAlertResponse -&gt; f DeleteAlertResponse
+</span><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#deleteAlertResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteAlertResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAlertResponse -&gt; Int)
+-&gt; (DeleteAlertResponse -&gt; Int -&gt; DeleteAlertResponse)
+-&gt; Lens DeleteAlertResponse DeleteAlertResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlertResponse%27"><span class="hs-identifier hs-type">DeleteAlertResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230614"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteAlertResponse' :: DeleteAlertResponse -&gt; Int
+</span><a href="#local-6989586621679230614"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230614"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230613"><span class="annot"><span class="annottext">s :: DeleteAlertResponse
+</span><a href="#local-6989586621679230613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlertResponse%27"><span class="hs-identifier hs-type">DeleteAlertResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230612"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlertResponse
+</span><a href="#local-6989586621679230613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAlertResponse' :: Int
+</span><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#%24sel%3AhttpStatus%3ADeleteAlertResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlertResponse"><span class="hs-identifier hs-type">DeleteAlertResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230610"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.DeleteAlert.html#DeleteAlertResponse"><span class="hs-identifier hs-type">DeleteAlertResponse</span></a></span></span><span>
+</span><span id="line-141"></span></pre></body></html>

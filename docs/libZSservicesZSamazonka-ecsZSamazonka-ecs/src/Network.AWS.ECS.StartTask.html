@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newStartTask' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679470636"><span id="local-6989586621679470637"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartTask"><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-var">StartTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartTask%27"><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-var">StartTask'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679470645"><span id="local-6989586621679470646"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartTask"><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-var">StartTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartTask%27"><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-var">StartTask'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of container overrides in JSON format that specify the name of a</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- container in the specified task definition and the overrides it should</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- receive. You can override the default command for a container (that is</span><span>
@@ -165,7 +165,7 @@
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AtaskDefinition%3AStartTask%27"><span class="annot"><span class="annottext">StartTask -&gt; Text
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3AtaskDefinition%3AStartTask%27"><span class="hs-identifier hs-var hs-var">taskDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679470619"><span id="local-6989586621679470621"><span class="annot"><span class="annottext">StartTask -&gt; StartTask -&gt; Bool
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679470628"><span id="local-6989586621679470630"><span class="annot"><span class="annottext">StartTask -&gt; StartTask -&gt; Bool
 (StartTask -&gt; StartTask -&gt; Bool)
 -&gt; (StartTask -&gt; StartTask -&gt; Bool) -&gt; Eq StartTask
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -173,7 +173,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartTask -&gt; StartTask -&gt; Bool
 == :: StartTask -&gt; StartTask -&gt; Bool
 $c== :: StartTask -&gt; StartTask -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470610"><span id="local-6989586621679470612"><span id="local-6989586621679470614"><span id="local-6989586621679470616"><span class="annot"><span class="annottext">ReadPrec [StartTask]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470619"><span id="local-6989586621679470621"><span id="local-6989586621679470623"><span id="local-6989586621679470625"><span class="annot"><span class="annottext">ReadPrec [StartTask]
 ReadPrec StartTask
 Int -&gt; ReadS StartTask
 ReadS [StartTask]
@@ -193,7 +193,7 @@ readList :: ReadS [StartTask]
 $creadList :: ReadS [StartTask]
 readsPrec :: Int -&gt; ReadS StartTask
 $creadsPrec :: Int -&gt; ReadS StartTask
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470603"><span id="local-6989586621679470605"><span id="local-6989586621679470607"><span class="annot"><span class="annottext">Int -&gt; StartTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470612"><span id="local-6989586621679470614"><span id="local-6989586621679470616"><span class="annot"><span class="annottext">Int -&gt; StartTask -&gt; ShowS
 [StartTask] -&gt; ShowS
 StartTask -&gt; String
 (Int -&gt; StartTask -&gt; ShowS)
@@ -316,8 +316,8 @@ $cfrom :: forall x. StartTask -&gt; Rep StartTask x
 </span><span id="line-253"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-254"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span>
 </span><span id="line-255"></span><span id="newStartTask"><span class="annot"><span class="annottext">newStartTask :: Text -&gt; StartTask
-</span><a href="Network.AWS.ECS.StartTask.html#newStartTask"><span class="hs-identifier hs-var hs-var">newStartTask</span></a></span></span><span> </span><span id="local-6989586621679470598"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470598"><span class="hs-identifier hs-var">pTaskDefinition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.StartTask.html#newStartTask"><span class="hs-identifier hs-var hs-var">newStartTask</span></a></span></span><span> </span><span id="local-6989586621679470607"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679470607"><span class="hs-identifier hs-var">pTaskDefinition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-256"></span><span>  </span><span class="annot"><span class="annottext">StartTask' :: Maybe TaskOverride
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -378,7 +378,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskDefinition:StartTask' :: Text
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3AtaskDefinition%3AStartTask%27"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470598"><span class="hs-identifier hs-var">pTaskDefinition_</span></a></span><span>
+</span><a href="#local-6989586621679470607"><span class="hs-identifier hs-var">pTaskDefinition_</span></a></span><span>
 </span><span id="line-269"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-270"></span><span>
 </span><span id="line-271"></span><span class="hs-comment">-- | A list of container overrides in JSON format that specify the name of a</span><span>
@@ -399,16 +399,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      StartTask StartTask (Maybe TaskOverride) (Maybe TaskOverride)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470595"><span class="annot"><span class="annottext">Maybe TaskOverride
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470604"><span class="annot"><span class="annottext">Maybe TaskOverride
 overrides :: Maybe TaskOverride
 $sel:overrides:StartTask' :: StartTask -&gt; Maybe TaskOverride
-</span><a href="#local-6989586621679470595"><span class="hs-identifier hs-var hs-var">overrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskOverride
-</span><a href="#local-6989586621679470595"><span class="hs-identifier hs-var">overrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470594"><span class="annot"><span class="annottext">s :: StartTask
-</span><a href="#local-6989586621679470594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470593"><span class="annot"><span class="annottext">Maybe TaskOverride
-</span><a href="#local-6989586621679470593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
-</span><a href="#local-6989586621679470594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overrides:StartTask' :: Maybe TaskOverride
+</span><a href="#local-6989586621679470604"><span class="hs-identifier hs-var hs-var">overrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskOverride
+</span><a href="#local-6989586621679470604"><span class="hs-identifier hs-var">overrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470603"><span class="annot"><span class="annottext">s :: StartTask
+</span><a href="#local-6989586621679470603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470602"><span class="annot"><span class="annottext">Maybe TaskOverride
+</span><a href="#local-6989586621679470602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
+</span><a href="#local-6989586621679470603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overrides:StartTask' :: Maybe TaskOverride
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3Aoverrides%3AStartTask%27"><span class="hs-identifier hs-var">overrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskOverride
-</span><a href="#local-6989586621679470593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>
 </span><span id="line-284"></span><span class="hs-comment">-- | The name of the task group to associate with the task. The default value</span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- is the family name of the task definition (for example,</span><span>
@@ -419,16 +419,16 @@ $sel:overrides:StartTask' :: StartTask -&gt; Maybe TaskOverride
 -&gt; (StartTask -&gt; Maybe Text -&gt; StartTask)
 -&gt; Lens StartTask StartTask (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470592"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470601"><span class="annot"><span class="annottext">Maybe Text
 group' :: Maybe Text
 $sel:group':StartTask' :: StartTask -&gt; Maybe Text
-</span><a href="#local-6989586621679470592"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470592"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470591"><span class="annot"><span class="annottext">s :: StartTask
-</span><a href="#local-6989586621679470591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470590"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
-</span><a href="#local-6989586621679470591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':StartTask' :: Maybe Text
+</span><a href="#local-6989586621679470601"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470601"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470600"><span class="annot"><span class="annottext">s :: StartTask
+</span><a href="#local-6989586621679470600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470599"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
+</span><a href="#local-6989586621679470600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':StartTask' :: Maybe Text
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3Agroup%27%3AStartTask%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-289"></span><span>
 </span><span id="line-290"></span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the cluster on</span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- which to start your task. If you do not specify a cluster, the default</span><span>
@@ -439,16 +439,16 @@ $sel:group':StartTask' :: StartTask -&gt; Maybe Text
 -&gt; (StartTask -&gt; Maybe Text -&gt; StartTask)
 -&gt; Lens StartTask StartTask (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470589"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470598"><span class="annot"><span class="annottext">Maybe Text
 cluster :: Maybe Text
 $sel:cluster:StartTask' :: StartTask -&gt; Maybe Text
-</span><a href="#local-6989586621679470589"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470589"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470588"><span class="annot"><span class="annottext">s :: StartTask
-</span><a href="#local-6989586621679470588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470587"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
-</span><a href="#local-6989586621679470588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:StartTask' :: Maybe Text
+</span><a href="#local-6989586621679470598"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470598"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470597"><span class="annot"><span class="annottext">s :: StartTask
+</span><a href="#local-6989586621679470597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470596"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
+</span><a href="#local-6989586621679470597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:StartTask' :: Maybe Text
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3Acluster%3AStartTask%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-295"></span><span>
 </span><span id="line-296"></span><span class="hs-comment">-- | Specifies whether to propagate the tags from the task definition or the</span><span>
 </span><span id="line-297"></span><span class="hs-comment">-- service to the task. If no value is specified, the tags are not</span><span>
@@ -461,16 +461,16 @@ $sel:cluster:StartTask' :: StartTask -&gt; Maybe Text
 -&gt; Lens
      StartTask StartTask (Maybe PropagateTags) (Maybe PropagateTags)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470586"><span class="annot"><span class="annottext">Maybe PropagateTags
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470595"><span class="annot"><span class="annottext">Maybe PropagateTags
 propagateTags :: Maybe PropagateTags
 $sel:propagateTags:StartTask' :: StartTask -&gt; Maybe PropagateTags
-</span><a href="#local-6989586621679470586"><span class="hs-identifier hs-var hs-var">propagateTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PropagateTags
-</span><a href="#local-6989586621679470586"><span class="hs-identifier hs-var">propagateTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470585"><span class="annot"><span class="annottext">s :: StartTask
-</span><a href="#local-6989586621679470585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470584"><span class="annot"><span class="annottext">Maybe PropagateTags
-</span><a href="#local-6989586621679470584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
-</span><a href="#local-6989586621679470585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propagateTags:StartTask' :: Maybe PropagateTags
+</span><a href="#local-6989586621679470595"><span class="hs-identifier hs-var hs-var">propagateTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PropagateTags
+</span><a href="#local-6989586621679470595"><span class="hs-identifier hs-var">propagateTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470594"><span class="annot"><span class="annottext">s :: StartTask
+</span><a href="#local-6989586621679470594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470593"><span class="annot"><span class="annottext">Maybe PropagateTags
+</span><a href="#local-6989586621679470593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
+</span><a href="#local-6989586621679470594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propagateTags:StartTask' :: Maybe PropagateTags
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3ApropagateTags%3AStartTask%27"><span class="hs-identifier hs-var">propagateTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PropagateTags
-</span><a href="#local-6989586621679470584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-301"></span><span>
 </span><span id="line-302"></span><span class="hs-comment">-- | Specifies whether to enable Amazon ECS managed tags for the task. For</span><span>
 </span><span id="line-303"></span><span class="hs-comment">-- more information, see</span><span>
@@ -482,16 +482,16 @@ $sel:propagateTags:StartTask' :: StartTask -&gt; Maybe PropagateTags
 -&gt; (StartTask -&gt; Maybe Bool -&gt; StartTask)
 -&gt; Lens StartTask StartTask (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470583"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470592"><span class="annot"><span class="annottext">Maybe Bool
 enableECSManagedTags :: Maybe Bool
 $sel:enableECSManagedTags:StartTask' :: StartTask -&gt; Maybe Bool
-</span><a href="#local-6989586621679470583"><span class="hs-identifier hs-var hs-var">enableECSManagedTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679470583"><span class="hs-identifier hs-var">enableECSManagedTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470582"><span class="annot"><span class="annottext">s :: StartTask
-</span><a href="#local-6989586621679470582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470581"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679470581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
-</span><a href="#local-6989586621679470582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableECSManagedTags:StartTask' :: Maybe Bool
+</span><a href="#local-6989586621679470592"><span class="hs-identifier hs-var hs-var">enableECSManagedTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679470592"><span class="hs-identifier hs-var">enableECSManagedTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470591"><span class="annot"><span class="annottext">s :: StartTask
+</span><a href="#local-6989586621679470591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470590"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679470590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
+</span><a href="#local-6989586621679470591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableECSManagedTags:StartTask' :: Maybe Bool
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3AenableECSManagedTags%3AStartTask%27"><span class="hs-identifier hs-var">enableECSManagedTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679470581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-308"></span><span>
 </span><span id="line-309"></span><span class="hs-comment">-- | The reference ID to use for the task.</span><span>
 </span><span id="line-310"></span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#startTask_referenceId"><span class="hs-identifier hs-type">startTask_referenceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -500,16 +500,16 @@ $sel:enableECSManagedTags:StartTask' :: StartTask -&gt; Maybe Bool
 -&gt; (StartTask -&gt; Maybe Text -&gt; StartTask)
 -&gt; Lens StartTask StartTask (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470580"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470589"><span class="annot"><span class="annottext">Maybe Text
 referenceId :: Maybe Text
 $sel:referenceId:StartTask' :: StartTask -&gt; Maybe Text
-</span><a href="#local-6989586621679470580"><span class="hs-identifier hs-var hs-var">referenceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470580"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470579"><span class="annot"><span class="annottext">s :: StartTask
-</span><a href="#local-6989586621679470579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470578"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
-</span><a href="#local-6989586621679470579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceId:StartTask' :: Maybe Text
+</span><a href="#local-6989586621679470589"><span class="hs-identifier hs-var hs-var">referenceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470589"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470588"><span class="annot"><span class="annottext">s :: StartTask
+</span><a href="#local-6989586621679470588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470587"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
+</span><a href="#local-6989586621679470588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceId:StartTask' :: Maybe Text
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3AreferenceId%3AStartTask%27"><span class="hs-identifier hs-var">referenceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-312"></span><span>
 </span><span id="line-313"></span><span class="hs-comment">-- | An optional tag specified when a task is started. For example, if you</span><span>
 </span><span id="line-314"></span><span class="hs-comment">-- automatically trigger a task to run a batch process job, you could apply</span><span>
@@ -527,16 +527,16 @@ $sel:referenceId:StartTask' :: StartTask -&gt; Maybe Text
 -&gt; (StartTask -&gt; Maybe Text -&gt; StartTask)
 -&gt; Lens StartTask StartTask (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470577"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470586"><span class="annot"><span class="annottext">Maybe Text
 startedBy :: Maybe Text
 $sel:startedBy:StartTask' :: StartTask -&gt; Maybe Text
-</span><a href="#local-6989586621679470577"><span class="hs-identifier hs-var hs-var">startedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470577"><span class="hs-identifier hs-var">startedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470576"><span class="annot"><span class="annottext">s :: StartTask
-</span><a href="#local-6989586621679470576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470575"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
-</span><a href="#local-6989586621679470576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedBy:StartTask' :: Maybe Text
+</span><a href="#local-6989586621679470586"><span class="hs-identifier hs-var hs-var">startedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470586"><span class="hs-identifier hs-var">startedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470585"><span class="annot"><span class="annottext">s :: StartTask
+</span><a href="#local-6989586621679470585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470584"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
+</span><a href="#local-6989586621679470585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedBy:StartTask' :: Maybe Text
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3AstartedBy%3AStartTask%27"><span class="hs-identifier hs-var">startedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-325"></span><span>
 </span><span id="line-326"></span><span class="hs-comment">-- | The VPC subnet and security group configuration for tasks that receive</span><span>
 </span><span id="line-327"></span><span class="hs-comment">-- their own elastic network interface by using the @awsvpc@ networking</span><span>
@@ -552,16 +552,16 @@ $sel:startedBy:StartTask' :: StartTask -&gt; Maybe Text
      (Maybe NetworkConfiguration)
      (Maybe NetworkConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470574"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470583"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
 networkConfiguration :: Maybe NetworkConfiguration
 $sel:networkConfiguration:StartTask' :: StartTask -&gt; Maybe NetworkConfiguration
-</span><a href="#local-6989586621679470574"><span class="hs-identifier hs-var hs-var">networkConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
-</span><a href="#local-6989586621679470574"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470573"><span class="annot"><span class="annottext">s :: StartTask
-</span><a href="#local-6989586621679470573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470572"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
-</span><a href="#local-6989586621679470572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
-</span><a href="#local-6989586621679470573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkConfiguration:StartTask' :: Maybe NetworkConfiguration
+</span><a href="#local-6989586621679470583"><span class="hs-identifier hs-var hs-var">networkConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+</span><a href="#local-6989586621679470583"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470582"><span class="annot"><span class="annottext">s :: StartTask
+</span><a href="#local-6989586621679470582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470581"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+</span><a href="#local-6989586621679470581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
+</span><a href="#local-6989586621679470582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkConfiguration:StartTask' :: Maybe NetworkConfiguration
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3AnetworkConfiguration%3AStartTask%27"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
-</span><a href="#local-6989586621679470572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-331"></span><span>
 </span><span id="line-332"></span><span class="hs-comment">-- | Whether or not the execute command functionality is enabled for the</span><span>
 </span><span id="line-333"></span><span class="hs-comment">-- task. If @true@, this enables execute command functionality on all</span><span>
@@ -572,16 +572,16 @@ $sel:networkConfiguration:StartTask' :: StartTask -&gt; Maybe NetworkConfigurati
 -&gt; (StartTask -&gt; Maybe Bool -&gt; StartTask)
 -&gt; Lens StartTask StartTask (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470571"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470580"><span class="annot"><span class="annottext">Maybe Bool
 enableExecuteCommand :: Maybe Bool
 $sel:enableExecuteCommand:StartTask' :: StartTask -&gt; Maybe Bool
-</span><a href="#local-6989586621679470571"><span class="hs-identifier hs-var hs-var">enableExecuteCommand</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679470571"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470570"><span class="annot"><span class="annottext">s :: StartTask
-</span><a href="#local-6989586621679470570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470569"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679470569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
-</span><a href="#local-6989586621679470570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableExecuteCommand:StartTask' :: Maybe Bool
+</span><a href="#local-6989586621679470580"><span class="hs-identifier hs-var hs-var">enableExecuteCommand</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679470580"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470579"><span class="annot"><span class="annottext">s :: StartTask
+</span><a href="#local-6989586621679470579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470578"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679470578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
+</span><a href="#local-6989586621679470579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableExecuteCommand:StartTask' :: Maybe Bool
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3AenableExecuteCommand%3AStartTask%27"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679470569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-337"></span><span>
 </span><span id="line-338"></span><span class="hs-comment">-- | The metadata that you apply to the task to help you categorize and</span><span>
 </span><span id="line-339"></span><span class="hs-comment">-- organize them. Each tag consists of a key and an optional value, both of</span><span>
@@ -617,16 +617,16 @@ $sel:enableExecuteCommand:StartTask' :: StartTask -&gt; Maybe Bool
 -&gt; (StartTask -&gt; Maybe [Tag] -&gt; StartTask)
 -&gt; Lens StartTask StartTask (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470568"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470577"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:StartTask' :: StartTask -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679470568"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679470568"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470567"><span class="annot"><span class="annottext">s :: StartTask
-</span><a href="#local-6989586621679470567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470566"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679470566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
-</span><a href="#local-6989586621679470567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:StartTask' :: Maybe [Tag]
+</span><a href="#local-6989586621679470577"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679470577"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470576"><span class="annot"><span class="annottext">s :: StartTask
+</span><a href="#local-6989586621679470576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470575"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679470575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
+</span><a href="#local-6989586621679470576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:StartTask' :: Maybe [Tag]
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3Atags%3AStartTask%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679470566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; StartTask -&gt; f StartTask)
+</span><a href="#local-6989586621679470575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; StartTask -&gt; f StartTask)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -651,16 +651,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (StartTask -&gt; [Text] -&gt; StartTask)
 -&gt; Lens StartTask StartTask [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470562"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470571"><span class="annot"><span class="annottext">[Text]
 containerInstances :: [Text]
 $sel:containerInstances:StartTask' :: StartTask -&gt; [Text]
-</span><a href="#local-6989586621679470562"><span class="hs-identifier hs-var hs-var">containerInstances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679470562"><span class="hs-identifier hs-var">containerInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470561"><span class="annot"><span class="annottext">s :: StartTask
-</span><a href="#local-6989586621679470561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470560"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679470560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
-</span><a href="#local-6989586621679470561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerInstances:StartTask' :: [Text]
+</span><a href="#local-6989586621679470571"><span class="hs-identifier hs-var hs-var">containerInstances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679470571"><span class="hs-identifier hs-var">containerInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470570"><span class="annot"><span class="annottext">s :: StartTask
+</span><a href="#local-6989586621679470570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470569"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679470569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
+</span><a href="#local-6989586621679470570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerInstances:StartTask' :: [Text]
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3AcontainerInstances%3AStartTask%27"><span class="hs-identifier hs-var">containerInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679470560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; StartTask -&gt; f StartTask)
+</span><a href="#local-6989586621679470569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; StartTask -&gt; f StartTask)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; StartTask
@@ -679,25 +679,25 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (StartTask -&gt; Text -&gt; StartTask)
 -&gt; Lens StartTask StartTask Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470559"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470568"><span class="annot"><span class="annottext">Text
 taskDefinition :: Text
 $sel:taskDefinition:StartTask' :: StartTask -&gt; Text
-</span><a href="#local-6989586621679470559"><span class="hs-identifier hs-var hs-var">taskDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470559"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470558"><span class="annot"><span class="annottext">s :: StartTask
-</span><a href="#local-6989586621679470558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470557"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
-</span><a href="#local-6989586621679470558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskDefinition:StartTask' :: Text
+</span><a href="#local-6989586621679470568"><span class="hs-identifier hs-var hs-var">taskDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679470568"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470567"><span class="annot"><span class="annottext">s :: StartTask
+</span><a href="#local-6989586621679470567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470566"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679470566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTask
+</span><a href="#local-6989586621679470567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskDefinition:StartTask' :: Text
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3AtaskDefinition%3AStartTask%27"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-380"></span><span>
 </span><span id="line-381"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-382"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse"><span class="hs-identifier hs-type">StartTaskResponse</span></a></span><span>
-</span><span id="line-383"></span><span>  </span><span id="local-6989586621679470553"><span class="annot"><span class="annottext">request :: StartTask -&gt; Request StartTask
+</span><span id="line-383"></span><span>  </span><span id="local-6989586621679470562"><span class="annot"><span class="annottext">request :: StartTask -&gt; Request StartTask
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartTask -&gt; Request StartTask
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-384"></span><span>  </span><span id="local-6989586621679470549"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-384"></span><span>  </span><span id="local-6989586621679470558"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartTask
 -&gt; ClientResponse ClientBody
@@ -721,10 +721,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-386"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679470546"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470546"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679470545"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679470545"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679470544"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679470544"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-386"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679470555"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679470555"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679470554"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679470554"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679470553"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679470553"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-387"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Failure] -&gt; Maybe [Task] -&gt; Int -&gt; StartTaskResponse
 </span><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse%27"><span class="hs-identifier hs-var">StartTaskResponse'</span></a></span><span>
 </span><span id="line-388"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Failure] -&gt; Maybe [Task] -&gt; Int -&gt; StartTaskResponse)
@@ -732,7 +732,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Task] -&gt; Int -&gt; StartTaskResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679470544"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Failure]))
+</span><a href="#local-6989586621679470553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Failure]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;failures&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Failure]))
@@ -746,7 +746,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; StartTaskResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679470544"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Task]))
+</span><a href="#local-6989586621679470553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Task]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tasks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Task]))
@@ -763,15 +763,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470546"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470555"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-391"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-392"></span><span>
-</span><span id="line-393"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470535"><span id="local-6989586621679470537"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span></span></span><span>
+</span><span id="line-393"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470544"><span id="local-6989586621679470546"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span></span></span><span>
 </span><span id="line-394"></span><span>
-</span><span id="line-395"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470532"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span></span><span>
+</span><span id="line-395"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470541"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span></span><span>
 </span><span id="line-396"></span><span>
 </span><span id="line-397"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-398"></span><span>  </span><span id="local-6989586621679470528"><span class="annot"><span class="annottext">toHeaders :: StartTask -&gt; ResponseHeaders
+</span><span id="line-398"></span><span>  </span><span id="local-6989586621679470537"><span class="annot"><span class="annottext">toHeaders :: StartTask -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-399"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartTask -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -798,9 +798,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-409"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-410"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-411"></span><span>
-</span><span id="line-412"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470518"><span id="local-6989586621679470520"><span id="local-6989586621679470522"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-413"></span><span>  </span><span id="local-6989586621679470516"><span class="annot"><span class="annottext">toJSON :: StartTask -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470503"><span id="local-6989586621679470504"><span id="local-6989586621679470505"><span id="local-6989586621679470506"><span id="local-6989586621679470507"><span id="local-6989586621679470508"><span id="local-6989586621679470509"><span id="local-6989586621679470510"><span id="local-6989586621679470511"><span id="local-6989586621679470512"><span id="local-6989586621679470513"><span id="local-6989586621679470514"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-412"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470527"><span id="local-6989586621679470529"><span id="local-6989586621679470531"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-413"></span><span>  </span><span id="local-6989586621679470525"><span class="annot"><span class="annottext">toJSON :: StartTask -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask%27"><span class="hs-identifier hs-type">StartTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470512"><span id="local-6989586621679470513"><span id="local-6989586621679470514"><span id="local-6989586621679470515"><span id="local-6989586621679470516"><span id="local-6989586621679470517"><span id="local-6989586621679470518"><span id="local-6989586621679470519"><span id="local-6989586621679470520"><span id="local-6989586621679470521"><span id="local-6989586621679470522"><span id="local-6989586621679470523"><span class="annot"><span class="annottext">[Text]
 Maybe Bool
 Maybe [Tag]
 Maybe Text
@@ -832,7 +832,7 @@ $sel:propagateTags:StartTask' :: StartTask -&gt; Maybe PropagateTags
 $sel:cluster:StartTask' :: StartTask -&gt; Maybe Text
 $sel:group':StartTask' :: StartTask -&gt; Maybe Text
 $sel:overrides:StartTask' :: StartTask -&gt; Maybe TaskOverride
-</span><a href="#local-6989586621679470503"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679470512"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-414"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-415"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -844,28 +844,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TaskOverride -&gt; Pair) -&gt; Maybe TaskOverride -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TaskOverride
-</span><a href="#local-6989586621679470514"><span class="hs-identifier hs-var">overrides</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470523"><span class="hs-identifier hs-var">overrides</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-417"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;group&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470513"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470522"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-418"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cluster&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470512"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470521"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-419"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;propagateTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PropagateTags -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(PropagateTags -&gt; Pair) -&gt; Maybe PropagateTags -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PropagateTags
-</span><a href="#local-6989586621679470511"><span class="hs-identifier hs-var">propagateTags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470520"><span class="hs-identifier hs-var">propagateTags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-420"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;enableECSManagedTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -873,21 +873,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-421"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679470510"><span class="hs-identifier hs-var">enableECSManagedTags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470519"><span class="hs-identifier hs-var">enableECSManagedTags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-422"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;referenceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470509"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470518"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-423"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startedBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470508"><span class="hs-identifier hs-var">startedBy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470517"><span class="hs-identifier hs-var">startedBy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-424"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;networkConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NetworkConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -896,7 +896,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe NetworkConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
-</span><a href="#local-6989586621679470507"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470516"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-426"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;enableExecuteCommand&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -904,14 +904,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-427"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679470506"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470515"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-428"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679470505"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470514"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-429"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -919,7 +919,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;containerInstances&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679470504"><span class="hs-identifier hs-var">containerInstances</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470513"><span class="hs-identifier hs-var">containerInstances</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-431"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -927,19 +927,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;taskDefinition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470503"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470512"><span class="hs-identifier hs-var">taskDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-433"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-434"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-435"></span><span>
 </span><span id="line-436"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-437"></span><span>  </span><span id="local-6989586621679470497"><span class="annot"><span class="annottext">toPath :: StartTask -&gt; ByteString
+</span><span id="line-437"></span><span>  </span><span id="local-6989586621679470506"><span class="annot"><span class="annottext">toPath :: StartTask -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartTask -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-438"></span><span>
 </span><span id="line-439"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTask"><span class="hs-identifier hs-type">StartTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-440"></span><span>  </span><span id="local-6989586621679470493"><span class="annot"><span class="annottext">toQuery :: StartTask -&gt; QueryString
+</span><span id="line-440"></span><span>  </span><span id="local-6989586621679470502"><span class="annot"><span class="annottext">toQuery :: StartTask -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartTask -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -947,7 +947,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-441"></span><span>
 </span><span id="line-442"></span><span class="hs-comment">-- | /See:/ 'newStartTaskResponse' smart constructor.</span><span>
-</span><span id="line-443"></span><span id="local-6989586621679470490"><span id="local-6989586621679470491"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartTaskResponse"><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse"><span class="hs-identifier hs-var">StartTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartTaskResponse%27"><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse%27"><span class="hs-identifier hs-var">StartTaskResponse'</span></a></span></span><span>
+</span><span id="line-443"></span><span id="local-6989586621679470499"><span id="local-6989586621679470500"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartTaskResponse"><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse"><span class="hs-identifier hs-var">StartTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartTaskResponse%27"><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse%27"><span class="hs-identifier hs-var">StartTaskResponse'</span></a></span></span><span>
 </span><span id="line-444"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
 </span><span id="line-445"></span><span>    </span><span id="%24sel%3Afailures%3AStartTaskResponse%27"><span class="annot"><span class="annottext">StartTaskResponse -&gt; Maybe [Failure]
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3Afailures%3AStartTaskResponse%27"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.Failure.html#Failure"><span class="hs-identifier hs-type">Failure</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -959,7 +959,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-450"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartTaskResponse%27"><span class="annot"><span class="annottext">StartTaskResponse -&gt; Int
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3AhttpStatus%3AStartTaskResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-451"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-452"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679470483"><span id="local-6989586621679470485"><span class="annot"><span class="annottext">StartTaskResponse -&gt; StartTaskResponse -&gt; Bool
+</span><span id="line-452"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679470492"><span id="local-6989586621679470494"><span class="annot"><span class="annottext">StartTaskResponse -&gt; StartTaskResponse -&gt; Bool
 (StartTaskResponse -&gt; StartTaskResponse -&gt; Bool)
 -&gt; (StartTaskResponse -&gt; StartTaskResponse -&gt; Bool)
 -&gt; Eq StartTaskResponse
@@ -968,7 +968,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartTaskResponse -&gt; StartTaskResponse -&gt; Bool
 == :: StartTaskResponse -&gt; StartTaskResponse -&gt; Bool
 $c== :: StartTaskResponse -&gt; StartTaskResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470475"><span id="local-6989586621679470477"><span id="local-6989586621679470479"><span id="local-6989586621679470481"><span class="annot"><span class="annottext">ReadPrec [StartTaskResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470484"><span id="local-6989586621679470486"><span id="local-6989586621679470488"><span id="local-6989586621679470490"><span class="annot"><span class="annottext">ReadPrec [StartTaskResponse]
 ReadPrec StartTaskResponse
 Int -&gt; ReadS StartTaskResponse
 ReadS [StartTaskResponse]
@@ -988,7 +988,7 @@ readList :: ReadS [StartTaskResponse]
 $creadList :: ReadS [StartTaskResponse]
 readsPrec :: Int -&gt; ReadS StartTaskResponse
 $creadsPrec :: Int -&gt; ReadS StartTaskResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470469"><span id="local-6989586621679470471"><span id="local-6989586621679470473"><span class="annot"><span class="annottext">Int -&gt; StartTaskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470478"><span id="local-6989586621679470480"><span id="local-6989586621679470482"><span class="annot"><span class="annottext">Int -&gt; StartTaskResponse -&gt; ShowS
 [StartTaskResponse] -&gt; ShowS
 StartTaskResponse -&gt; String
 (Int -&gt; StartTaskResponse -&gt; ShowS)
@@ -1033,8 +1033,8 @@ $cfrom :: forall x. StartTaskResponse -&gt; Rep StartTaskResponse x
 </span><span id="line-470"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-471"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse"><span class="hs-identifier hs-type">StartTaskResponse</span></a></span><span>
 </span><span id="line-472"></span><span id="newStartTaskResponse"><span class="annot"><span class="annottext">newStartTaskResponse :: Int -&gt; StartTaskResponse
-</span><a href="Network.AWS.ECS.StartTask.html#newStartTaskResponse"><span class="hs-identifier hs-var hs-var">newStartTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679470466"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470466"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.StartTask.html#newStartTaskResponse"><span class="hs-identifier hs-var hs-var">newStartTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679470475"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679470475"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-473"></span><span>  </span><span class="annot"><span class="annottext">StartTaskResponse' :: Maybe [Failure] -&gt; Maybe [Task] -&gt; Int -&gt; StartTaskResponse
 </span><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse%27"><span class="hs-identifier hs-type">StartTaskResponse'</span></a></span><span>
 </span><span id="line-474"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failures:StartTaskResponse' :: Maybe [Failure]
@@ -1047,7 +1047,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-476"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartTaskResponse' :: Int
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3AhttpStatus%3AStartTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470466"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679470475"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-477"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-478"></span><span>
 </span><span id="line-479"></span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
@@ -1062,16 +1062,16 @@ forall a. Maybe a
      (Maybe [Failure])
      (Maybe [Failure])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse%27"><span class="hs-identifier hs-type">StartTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470465"><span class="annot"><span class="annottext">Maybe [Failure]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse%27"><span class="hs-identifier hs-type">StartTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470474"><span class="annot"><span class="annottext">Maybe [Failure]
 failures :: Maybe [Failure]
 $sel:failures:StartTaskResponse' :: StartTaskResponse -&gt; Maybe [Failure]
-</span><a href="#local-6989586621679470465"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Failure]
-</span><a href="#local-6989586621679470465"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470464"><span class="annot"><span class="annottext">s :: StartTaskResponse
-</span><a href="#local-6989586621679470464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse%27"><span class="hs-identifier hs-type">StartTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470463"><span class="annot"><span class="annottext">Maybe [Failure]
-</span><a href="#local-6989586621679470463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTaskResponse
-</span><a href="#local-6989586621679470464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:StartTaskResponse' :: Maybe [Failure]
+</span><a href="#local-6989586621679470474"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Failure]
+</span><a href="#local-6989586621679470474"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470473"><span class="annot"><span class="annottext">s :: StartTaskResponse
+</span><a href="#local-6989586621679470473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse%27"><span class="hs-identifier hs-type">StartTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470472"><span class="annot"><span class="annottext">Maybe [Failure]
+</span><a href="#local-6989586621679470472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTaskResponse
+</span><a href="#local-6989586621679470473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:StartTaskResponse' :: Maybe [Failure]
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3Afailures%3AStartTaskResponse%27"><span class="hs-identifier hs-var">failures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Failure]
-</span><a href="#local-6989586621679470463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse"><span class="hs-identifier hs-type">StartTaskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Failure] -&gt; f (Maybe [Failure]))
+</span><a href="#local-6989586621679470472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse"><span class="hs-identifier hs-type">StartTaskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Failure] -&gt; f (Maybe [Failure]))
  -&gt; StartTaskResponse -&gt; f StartTaskResponse)
 -&gt; ((Maybe [Failure] -&gt; f (Maybe [Failure]))
     -&gt; Maybe [Failure] -&gt; f (Maybe [Failure]))
@@ -1102,16 +1102,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      StartTaskResponse StartTaskResponse (Maybe [Task]) (Maybe [Task])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse%27"><span class="hs-identifier hs-type">StartTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470462"><span class="annot"><span class="annottext">Maybe [Task]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse%27"><span class="hs-identifier hs-type">StartTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470471"><span class="annot"><span class="annottext">Maybe [Task]
 tasks :: Maybe [Task]
 $sel:tasks:StartTaskResponse' :: StartTaskResponse -&gt; Maybe [Task]
-</span><a href="#local-6989586621679470462"><span class="hs-identifier hs-var hs-var">tasks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Task]
-</span><a href="#local-6989586621679470462"><span class="hs-identifier hs-var">tasks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470461"><span class="annot"><span class="annottext">s :: StartTaskResponse
-</span><a href="#local-6989586621679470461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse%27"><span class="hs-identifier hs-type">StartTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470460"><span class="annot"><span class="annottext">Maybe [Task]
-</span><a href="#local-6989586621679470460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTaskResponse
-</span><a href="#local-6989586621679470461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tasks:StartTaskResponse' :: Maybe [Task]
+</span><a href="#local-6989586621679470471"><span class="hs-identifier hs-var hs-var">tasks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Task]
+</span><a href="#local-6989586621679470471"><span class="hs-identifier hs-var">tasks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470470"><span class="annot"><span class="annottext">s :: StartTaskResponse
+</span><a href="#local-6989586621679470470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse%27"><span class="hs-identifier hs-type">StartTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470469"><span class="annot"><span class="annottext">Maybe [Task]
+</span><a href="#local-6989586621679470469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTaskResponse
+</span><a href="#local-6989586621679470470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tasks:StartTaskResponse' :: Maybe [Task]
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3Atasks%3AStartTaskResponse%27"><span class="hs-identifier hs-var">tasks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Task]
-</span><a href="#local-6989586621679470460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse"><span class="hs-identifier hs-type">StartTaskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Task] -&gt; f (Maybe [Task]))
+</span><a href="#local-6989586621679470469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse"><span class="hs-identifier hs-type">StartTaskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Task] -&gt; f (Maybe [Task]))
  -&gt; StartTaskResponse -&gt; f StartTaskResponse)
 -&gt; ((Maybe [Task] -&gt; f (Maybe [Task]))
     -&gt; Maybe [Task] -&gt; f (Maybe [Task]))
@@ -1135,16 +1135,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (StartTaskResponse -&gt; Int -&gt; StartTaskResponse)
 -&gt; Lens StartTaskResponse StartTaskResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse%27"><span class="hs-identifier hs-type">StartTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470459"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse%27"><span class="hs-identifier hs-type">StartTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470468"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StartTaskResponse' :: StartTaskResponse -&gt; Int
-</span><a href="#local-6989586621679470459"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470459"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470458"><span class="annot"><span class="annottext">s :: StartTaskResponse
-</span><a href="#local-6989586621679470458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse%27"><span class="hs-identifier hs-type">StartTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470457"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTaskResponse
-</span><a href="#local-6989586621679470458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartTaskResponse' :: Int
+</span><a href="#local-6989586621679470468"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679470468"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470467"><span class="annot"><span class="annottext">s :: StartTaskResponse
+</span><a href="#local-6989586621679470467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse%27"><span class="hs-identifier hs-type">StartTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470466"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679470466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTaskResponse
+</span><a href="#local-6989586621679470467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartTaskResponse' :: Int
 </span><a href="Network.AWS.ECS.StartTask.html#%24sel%3AhttpStatus%3AStartTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse"><span class="hs-identifier hs-type">StartTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse"><span class="hs-identifier hs-type">StartTaskResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-491"></span><span>
-</span><span id="line-492"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470455"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse"><span class="hs-identifier hs-type">StartTaskResponse</span></a></span></span><span>
+</span><span id="line-492"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470464"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StartTask.html#StartTaskResponse"><span class="hs-identifier hs-type">StartTaskResponse</span></a></span></span><span>
 </span><span id="line-493"></span></pre></body></html>

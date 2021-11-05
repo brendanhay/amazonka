@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.Types.S3JobDefinition</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.Types.S3JobDefinition</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3BucketCriteriaForJob.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.S3BucketCriteriaForJob</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3BucketDefinitionForJob.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.S3BucketDefinitionForJob</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.Scoping.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.Scoping</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Specifies which S3 buckets contain the objects that a classification job</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- analyzes, and the scope of that analysis. The bucket specification can</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- be static (bucketDefinitions) or dynamic (bucketCriteria). If it\'s</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- static, the job analyzes objects in the same predefined set of buckets</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- each time the job runs. If it\'s dynamic, the job analyzes objects in</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- any buckets that match the specified criteria each time the job starts</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- to run.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newS3JobDefinition' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679400300"><span id="local-6989586621679400301"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3JobDefinition"><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition"><span class="hs-identifier hs-var">S3JobDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3JobDefinition%27"><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition%27"><span class="hs-identifier hs-var">S3JobDefinition'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The property- and tag-based conditions that determine which S3 objects</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- to include or exclude from the analysis. Each time the job runs, the job</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- uses these criteria to determine which objects to analyze.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Ascoping%3AS3JobDefinition%27"><span class="annot"><span class="annottext">S3JobDefinition -&gt; Maybe Scoping
+</span><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#%24sel%3Ascoping%3AS3JobDefinition%27"><span class="hs-identifier hs-var hs-var">scoping</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.Scoping.html#Scoping"><span class="hs-identifier hs-type">Scoping</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The property- and tag-based conditions that determine which S3 buckets</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- to include or exclude from the analysis. Each time the job runs, the job</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- uses these criteria to determine which buckets contain objects to</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- analyze. A job\'s definition can contain a bucketCriteria object or a</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- bucketDefinitions array, not both.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AbucketCriteria%3AS3JobDefinition%27"><span class="annot"><span class="annottext">S3JobDefinition -&gt; Maybe S3BucketCriteriaForJob
+</span><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#%24sel%3AbucketCriteria%3AS3JobDefinition%27"><span class="hs-identifier hs-var hs-var">bucketCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3BucketCriteriaForJob.html#S3BucketCriteriaForJob"><span class="hs-identifier hs-type">S3BucketCriteriaForJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | An array of objects, one for each Amazon Web Services account that owns</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- specific S3 buckets to analyze. Each object specifies the account ID for</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- an account and one or more buckets to analyze for that account. A job\'s</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- definition can contain a bucketDefinitions array or a bucketCriteria</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- object, not both.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AbucketDefinitions%3AS3JobDefinition%27"><span class="annot"><span class="annottext">S3JobDefinition -&gt; Maybe [S3BucketDefinitionForJob]
+</span><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#%24sel%3AbucketDefinitions%3AS3JobDefinition%27"><span class="hs-identifier hs-var hs-var">bucketDefinitions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3BucketDefinitionForJob.html#S3BucketDefinitionForJob"><span class="hs-identifier hs-type">S3BucketDefinitionForJob</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679400292"><span id="local-6989586621679400294"><span class="annot"><span class="annottext">S3JobDefinition -&gt; S3JobDefinition -&gt; Bool
+(S3JobDefinition -&gt; S3JobDefinition -&gt; Bool)
+-&gt; (S3JobDefinition -&gt; S3JobDefinition -&gt; Bool)
+-&gt; Eq S3JobDefinition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: S3JobDefinition -&gt; S3JobDefinition -&gt; Bool
+$c/= :: S3JobDefinition -&gt; S3JobDefinition -&gt; Bool
+== :: S3JobDefinition -&gt; S3JobDefinition -&gt; Bool
+$c== :: S3JobDefinition -&gt; S3JobDefinition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400283"><span id="local-6989586621679400285"><span id="local-6989586621679400287"><span id="local-6989586621679400289"><span class="annot"><span class="annottext">ReadPrec [S3JobDefinition]
+ReadPrec S3JobDefinition
+Int -&gt; ReadS S3JobDefinition
+ReadS [S3JobDefinition]
+(Int -&gt; ReadS S3JobDefinition)
+-&gt; ReadS [S3JobDefinition]
+-&gt; ReadPrec S3JobDefinition
+-&gt; ReadPrec [S3JobDefinition]
+-&gt; Read S3JobDefinition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [S3JobDefinition]
+$creadListPrec :: ReadPrec [S3JobDefinition]
+readPrec :: ReadPrec S3JobDefinition
+$creadPrec :: ReadPrec S3JobDefinition
+readList :: ReadS [S3JobDefinition]
+$creadList :: ReadS [S3JobDefinition]
+readsPrec :: Int -&gt; ReadS S3JobDefinition
+$creadsPrec :: Int -&gt; ReadS S3JobDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400276"><span id="local-6989586621679400278"><span id="local-6989586621679400280"><span class="annot"><span class="annottext">Int -&gt; S3JobDefinition -&gt; ShowS
+[S3JobDefinition] -&gt; ShowS
+S3JobDefinition -&gt; String
+(Int -&gt; S3JobDefinition -&gt; ShowS)
+-&gt; (S3JobDefinition -&gt; String)
+-&gt; ([S3JobDefinition] -&gt; ShowS)
+-&gt; Show S3JobDefinition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [S3JobDefinition] -&gt; ShowS
+$cshowList :: [S3JobDefinition] -&gt; ShowS
+show :: S3JobDefinition -&gt; String
+$cshow :: S3JobDefinition -&gt; String
+showsPrec :: Int -&gt; S3JobDefinition -&gt; ShowS
+$cshowsPrec :: Int -&gt; S3JobDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. S3JobDefinition -&gt; Rep S3JobDefinition x)
+-&gt; (forall x. Rep S3JobDefinition x -&gt; S3JobDefinition)
+-&gt; Generic S3JobDefinition
+forall x. Rep S3JobDefinition x -&gt; S3JobDefinition
+forall x. S3JobDefinition -&gt; Rep S3JobDefinition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep S3JobDefinition x -&gt; S3JobDefinition
+$cfrom :: forall x. S3JobDefinition -&gt; Rep S3JobDefinition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'S3JobDefinition' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'scoping', 's3JobDefinition_scoping' - The property- and tag-based conditions that determine which S3 objects</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- to include or exclude from the analysis. Each time the job runs, the job</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- uses these criteria to determine which objects to analyze.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'bucketCriteria', 's3JobDefinition_bucketCriteria' - The property- and tag-based conditions that determine which S3 buckets</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- to include or exclude from the analysis. Each time the job runs, the job</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- uses these criteria to determine which buckets contain objects to</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- analyze. A job\'s definition can contain a bucketCriteria object or a</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- bucketDefinitions array, not both.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'bucketDefinitions', 's3JobDefinition_bucketDefinitions' - An array of objects, one for each Amazon Web Services account that owns</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- specific S3 buckets to analyze. Each object specifies the account ID for</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- an account and one or more buckets to analyze for that account. A job\'s</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- definition can contain a bucketDefinitions array or a bucketCriteria</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- object, not both.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#newS3JobDefinition"><span class="hs-identifier hs-type">newS3JobDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition"><span class="hs-identifier hs-type">S3JobDefinition</span></a></span><span>
+</span><span id="line-83"></span><span id="newS3JobDefinition"><span class="annot"><span class="annottext">newS3JobDefinition :: S3JobDefinition
+</span><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#newS3JobDefinition"><span class="hs-identifier hs-var hs-var">newS3JobDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">S3JobDefinition' :: Maybe Scoping
+-&gt; Maybe S3BucketCriteriaForJob
+-&gt; Maybe [S3BucketDefinitionForJob]
+-&gt; S3JobDefinition
+</span><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition%27"><span class="hs-identifier hs-type">S3JobDefinition'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scoping:S3JobDefinition' :: Maybe Scoping
+</span><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#%24sel%3Ascoping%3AS3JobDefinition%27"><span class="hs-identifier hs-var">scoping</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scoping
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketCriteria:S3JobDefinition' :: Maybe S3BucketCriteriaForJob
+</span><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#%24sel%3AbucketCriteria%3AS3JobDefinition%27"><span class="hs-identifier hs-var">bucketCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3BucketCriteriaForJob
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketDefinitions:S3JobDefinition' :: Maybe [S3BucketDefinitionForJob]
+</span><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#%24sel%3AbucketDefinitions%3AS3JobDefinition%27"><span class="hs-identifier hs-var">bucketDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [S3BucketDefinitionForJob]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The property- and tag-based conditions that determine which S3 objects</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- to include or exclude from the analysis. Each time the job runs, the job</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- uses these criteria to determine which objects to analyze.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#s3JobDefinition_scoping"><span class="hs-identifier hs-type">s3JobDefinition_scoping</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition"><span class="hs-identifier hs-type">S3JobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.Scoping.html#Scoping"><span class="hs-identifier hs-type">Scoping</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="s3JobDefinition_scoping"><span class="annot"><span class="annottext">s3JobDefinition_scoping :: (Maybe Scoping -&gt; f (Maybe Scoping))
+-&gt; S3JobDefinition -&gt; f S3JobDefinition
+</span><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#s3JobDefinition_scoping"><span class="hs-identifier hs-var hs-var">s3JobDefinition_scoping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3JobDefinition -&gt; Maybe Scoping)
+-&gt; (S3JobDefinition -&gt; Maybe Scoping -&gt; S3JobDefinition)
+-&gt; Lens
+     S3JobDefinition S3JobDefinition (Maybe Scoping) (Maybe Scoping)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition%27"><span class="hs-identifier hs-type">S3JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400267"><span class="annot"><span class="annottext">Maybe Scoping
+scoping :: Maybe Scoping
+$sel:scoping:S3JobDefinition' :: S3JobDefinition -&gt; Maybe Scoping
+</span><a href="#local-6989586621679400267"><span class="hs-identifier hs-var hs-var">scoping</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scoping
+</span><a href="#local-6989586621679400267"><span class="hs-identifier hs-var">scoping</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400266"><span class="annot"><span class="annottext">s :: S3JobDefinition
+</span><a href="#local-6989586621679400266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition%27"><span class="hs-identifier hs-type">S3JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400265"><span class="annot"><span class="annottext">Maybe Scoping
+</span><a href="#local-6989586621679400265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3JobDefinition
+</span><a href="#local-6989586621679400266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scoping:S3JobDefinition' :: Maybe Scoping
+</span><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#%24sel%3Ascoping%3AS3JobDefinition%27"><span class="hs-identifier hs-var">scoping</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scoping
+</span><a href="#local-6989586621679400265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition"><span class="hs-identifier hs-type">S3JobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The property- and tag-based conditions that determine which S3 buckets</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- to include or exclude from the analysis. Each time the job runs, the job</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- uses these criteria to determine which buckets contain objects to</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- analyze. A job\'s definition can contain a bucketCriteria object or a</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- bucketDefinitions array, not both.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#s3JobDefinition_bucketCriteria"><span class="hs-identifier hs-type">s3JobDefinition_bucketCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition"><span class="hs-identifier hs-type">S3JobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3BucketCriteriaForJob.html#S3BucketCriteriaForJob"><span class="hs-identifier hs-type">S3BucketCriteriaForJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="s3JobDefinition_bucketCriteria"><span class="annot"><span class="annottext">s3JobDefinition_bucketCriteria :: (Maybe S3BucketCriteriaForJob -&gt; f (Maybe S3BucketCriteriaForJob))
+-&gt; S3JobDefinition -&gt; f S3JobDefinition
+</span><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#s3JobDefinition_bucketCriteria"><span class="hs-identifier hs-var hs-var">s3JobDefinition_bucketCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3JobDefinition -&gt; Maybe S3BucketCriteriaForJob)
+-&gt; (S3JobDefinition
+    -&gt; Maybe S3BucketCriteriaForJob -&gt; S3JobDefinition)
+-&gt; Lens
+     S3JobDefinition
+     S3JobDefinition
+     (Maybe S3BucketCriteriaForJob)
+     (Maybe S3BucketCriteriaForJob)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition%27"><span class="hs-identifier hs-type">S3JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400263"><span class="annot"><span class="annottext">Maybe S3BucketCriteriaForJob
+bucketCriteria :: Maybe S3BucketCriteriaForJob
+$sel:bucketCriteria:S3JobDefinition' :: S3JobDefinition -&gt; Maybe S3BucketCriteriaForJob
+</span><a href="#local-6989586621679400263"><span class="hs-identifier hs-var hs-var">bucketCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3BucketCriteriaForJob
+</span><a href="#local-6989586621679400263"><span class="hs-identifier hs-var">bucketCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400262"><span class="annot"><span class="annottext">s :: S3JobDefinition
+</span><a href="#local-6989586621679400262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition%27"><span class="hs-identifier hs-type">S3JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400261"><span class="annot"><span class="annottext">Maybe S3BucketCriteriaForJob
+</span><a href="#local-6989586621679400261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3JobDefinition
+</span><a href="#local-6989586621679400262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketCriteria:S3JobDefinition' :: Maybe S3BucketCriteriaForJob
+</span><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#%24sel%3AbucketCriteria%3AS3JobDefinition%27"><span class="hs-identifier hs-var">bucketCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3BucketCriteriaForJob
+</span><a href="#local-6989586621679400261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition"><span class="hs-identifier hs-type">S3JobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | An array of objects, one for each Amazon Web Services account that owns</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- specific S3 buckets to analyze. Each object specifies the account ID for</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- an account and one or more buckets to analyze for that account. A job\'s</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- definition can contain a bucketDefinitions array or a bucketCriteria</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- object, not both.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#s3JobDefinition_bucketDefinitions"><span class="hs-identifier hs-type">s3JobDefinition_bucketDefinitions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition"><span class="hs-identifier hs-type">S3JobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3BucketDefinitionForJob.html#S3BucketDefinitionForJob"><span class="hs-identifier hs-type">S3BucketDefinitionForJob</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="s3JobDefinition_bucketDefinitions"><span class="annot"><span class="annottext">s3JobDefinition_bucketDefinitions :: (Maybe [S3BucketDefinitionForJob]
+ -&gt; f (Maybe [S3BucketDefinitionForJob]))
+-&gt; S3JobDefinition -&gt; f S3JobDefinition
+</span><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#s3JobDefinition_bucketDefinitions"><span class="hs-identifier hs-var hs-var">s3JobDefinition_bucketDefinitions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3JobDefinition -&gt; Maybe [S3BucketDefinitionForJob])
+-&gt; (S3JobDefinition
+    -&gt; Maybe [S3BucketDefinitionForJob] -&gt; S3JobDefinition)
+-&gt; Lens
+     S3JobDefinition
+     S3JobDefinition
+     (Maybe [S3BucketDefinitionForJob])
+     (Maybe [S3BucketDefinitionForJob])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition%27"><span class="hs-identifier hs-type">S3JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400259"><span class="annot"><span class="annottext">Maybe [S3BucketDefinitionForJob]
+bucketDefinitions :: Maybe [S3BucketDefinitionForJob]
+$sel:bucketDefinitions:S3JobDefinition' :: S3JobDefinition -&gt; Maybe [S3BucketDefinitionForJob]
+</span><a href="#local-6989586621679400259"><span class="hs-identifier hs-var hs-var">bucketDefinitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [S3BucketDefinitionForJob]
+</span><a href="#local-6989586621679400259"><span class="hs-identifier hs-var">bucketDefinitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400258"><span class="annot"><span class="annottext">s :: S3JobDefinition
+</span><a href="#local-6989586621679400258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition%27"><span class="hs-identifier hs-type">S3JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400257"><span class="annot"><span class="annottext">Maybe [S3BucketDefinitionForJob]
+</span><a href="#local-6989586621679400257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3JobDefinition
+</span><a href="#local-6989586621679400258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketDefinitions:S3JobDefinition' :: Maybe [S3BucketDefinitionForJob]
+</span><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#%24sel%3AbucketDefinitions%3AS3JobDefinition%27"><span class="hs-identifier hs-var">bucketDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [S3BucketDefinitionForJob]
+</span><a href="#local-6989586621679400257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition"><span class="hs-identifier hs-type">S3JobDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [S3BucketDefinitionForJob]
+  -&gt; f (Maybe [S3BucketDefinitionForJob]))
+ -&gt; S3JobDefinition -&gt; f S3JobDefinition)
+-&gt; ((Maybe [S3BucketDefinitionForJob]
+     -&gt; f (Maybe [S3BucketDefinitionForJob]))
+    -&gt; Maybe [S3BucketDefinitionForJob]
+    -&gt; f (Maybe [S3BucketDefinitionForJob]))
+-&gt; (Maybe [S3BucketDefinitionForJob]
+    -&gt; f (Maybe [S3BucketDefinitionForJob]))
+-&gt; S3JobDefinition
+-&gt; f S3JobDefinition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [S3BucketDefinitionForJob]
+  [S3BucketDefinitionForJob]
+  [S3BucketDefinitionForJob]
+  [S3BucketDefinitionForJob]
+-&gt; Iso
+     (Maybe [S3BucketDefinitionForJob])
+     (Maybe [S3BucketDefinitionForJob])
+     (Maybe [S3BucketDefinitionForJob])
+     (Maybe [S3BucketDefinitionForJob])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [S3BucketDefinitionForJob]
+  [S3BucketDefinitionForJob]
+  [S3BucketDefinitionForJob]
+  [S3BucketDefinitionForJob]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400251"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition"><span class="hs-identifier hs-type">S3JobDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679400249"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3JobDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser S3JobDefinition)
+-&gt; Value
+-&gt; Parser S3JobDefinition
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;S3JobDefinition&quot;</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679400246"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679400246"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe Scoping
+-&gt; Maybe S3BucketCriteriaForJob
+-&gt; Maybe [S3BucketDefinitionForJob]
+-&gt; S3JobDefinition
+</span><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition%27"><span class="hs-identifier hs-var">S3JobDefinition'</span></a></span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Scoping
+ -&gt; Maybe S3BucketCriteriaForJob
+ -&gt; Maybe [S3BucketDefinitionForJob]
+ -&gt; S3JobDefinition)
+-&gt; Parser (Maybe Scoping)
+-&gt; Parser
+     (Maybe S3BucketCriteriaForJob
+      -&gt; Maybe [S3BucketDefinitionForJob] -&gt; S3JobDefinition)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679400246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Scoping)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scoping&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe S3BucketCriteriaForJob
+   -&gt; Maybe [S3BucketDefinitionForJob] -&gt; S3JobDefinition)
+-&gt; Parser (Maybe S3BucketCriteriaForJob)
+-&gt; Parser (Maybe [S3BucketDefinitionForJob] -&gt; S3JobDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679400246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3BucketCriteriaForJob)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bucketCriteria&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [S3BucketDefinitionForJob] -&gt; S3JobDefinition)
+-&gt; Parser (Maybe [S3BucketDefinitionForJob])
+-&gt; Parser S3JobDefinition
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679400246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [S3BucketDefinitionForJob]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bucketDefinitions&quot;</span></span><span>
+</span><span id="line-121"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [S3BucketDefinitionForJob]))
+-&gt; Maybe [S3BucketDefinitionForJob]
+-&gt; Parser (Maybe [S3BucketDefinitionForJob])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [S3BucketDefinitionForJob]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-122"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400239"><span id="local-6989586621679400241"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition"><span class="hs-identifier hs-type">S3JobDefinition</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400236"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition"><span class="hs-identifier hs-type">S3JobDefinition</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400228"><span id="local-6989586621679400230"><span id="local-6989586621679400232"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition"><span class="hs-identifier hs-type">S3JobDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679400226"><span class="annot"><span class="annottext">toJSON :: S3JobDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3JobDefinition.html#S3JobDefinition%27"><span class="hs-identifier hs-type">S3JobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400222"><span id="local-6989586621679400223"><span id="local-6989586621679400224"><span class="annot"><span class="annottext">Maybe [S3BucketDefinitionForJob]
+Maybe S3BucketCriteriaForJob
+Maybe Scoping
+bucketDefinitions :: Maybe [S3BucketDefinitionForJob]
+bucketCriteria :: Maybe S3BucketCriteriaForJob
+scoping :: Maybe Scoping
+$sel:bucketDefinitions:S3JobDefinition' :: S3JobDefinition -&gt; Maybe [S3BucketDefinitionForJob]
+$sel:bucketCriteria:S3JobDefinition' :: S3JobDefinition -&gt; Maybe S3BucketCriteriaForJob
+$sel:scoping:S3JobDefinition' :: S3JobDefinition -&gt; Maybe Scoping
+</span><a href="#local-6989586621679400222"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scoping&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Scoping -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Scoping -&gt; Pair) -&gt; Maybe Scoping -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Scoping
+</span><a href="#local-6989586621679400224"><span class="hs-identifier hs-var">scoping</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bucketCriteria&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3BucketCriteriaForJob -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">(S3BucketCriteriaForJob -&gt; Pair)
+-&gt; Maybe S3BucketCriteriaForJob -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3BucketCriteriaForJob
+</span><a href="#local-6989586621679400223"><span class="hs-identifier hs-var">bucketCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bucketDefinitions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [S3BucketDefinitionForJob] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">([S3BucketDefinitionForJob] -&gt; Pair)
+-&gt; Maybe [S3BucketDefinitionForJob] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [S3BucketDefinitionForJob]
+</span><a href="#local-6989586621679400222"><span class="hs-identifier hs-var">bucketDefinitions</span></a></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span></pre></body></html>

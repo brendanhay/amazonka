@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679793323"><span id="local-6989586621679793324"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentMetadataEnum"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataEnum.html#DocumentMetadataEnum"><span class="hs-identifier hs-var">DocumentMetadataEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentMetadataEnum%27"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataEnum.html#DocumentMetadataEnum%27"><span class="hs-identifier hs-var">DocumentMetadataEnum'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679793332"><span id="local-6989586621679793333"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentMetadataEnum"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataEnum.html#DocumentMetadataEnum"><span class="hs-identifier hs-var">DocumentMetadataEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentMetadataEnum%27"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentMetadataEnum.html#DocumentMetadataEnum%27"><span class="hs-identifier hs-var">DocumentMetadataEnum'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDocumentMetadataEnum"><span class="annot"><span class="annottext">DocumentMetadataEnum -&gt; Text
 </span><a href="Network.AWS.SSM.Types.DocumentMetadataEnum.html#fromDocumentMetadataEnum"><span class="hs-identifier hs-var hs-var">fromDocumentMetadataEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679793315"><span id="local-6989586621679793317"><span id="local-6989586621679793319"><span class="annot"><span class="annottext">Int -&gt; DocumentMetadataEnum -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679793324"><span id="local-6989586621679793326"><span id="local-6989586621679793328"><span class="annot"><span class="annottext">Int -&gt; DocumentMetadataEnum -&gt; ShowS
 [DocumentMetadataEnum] -&gt; ShowS
 DocumentMetadataEnum -&gt; String
 (Int -&gt; DocumentMetadataEnum -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: DocumentMetadataEnum -&gt; String
 showsPrec :: Int -&gt; DocumentMetadataEnum -&gt; ShowS
 $cshowsPrec :: Int -&gt; DocumentMetadataEnum -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679793306"><span id="local-6989586621679793308"><span id="local-6989586621679793310"><span id="local-6989586621679793312"><span class="annot"><span class="annottext">ReadPrec [DocumentMetadataEnum]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679793315"><span id="local-6989586621679793317"><span id="local-6989586621679793319"><span id="local-6989586621679793321"><span class="annot"><span class="annottext">ReadPrec [DocumentMetadataEnum]
 ReadPrec DocumentMetadataEnum
 Int -&gt; ReadS DocumentMetadataEnum
 ReadS [DocumentMetadataEnum]
@@ -71,7 +71,7 @@ $creadList :: ReadS [DocumentMetadataEnum]
 readsPrec :: Int -&gt; ReadS DocumentMetadataEnum
 $creadsPrec :: Int -&gt; ReadS DocumentMetadataEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679793301"><span id="local-6989586621679793303"><span class="annot"><span class="annottext">DocumentMetadataEnum -&gt; DocumentMetadataEnum -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679793310"><span id="local-6989586621679793312"><span class="annot"><span class="annottext">DocumentMetadataEnum -&gt; DocumentMetadataEnum -&gt; Bool
 (DocumentMetadataEnum -&gt; DocumentMetadataEnum -&gt; Bool)
 -&gt; (DocumentMetadataEnum -&gt; DocumentMetadataEnum -&gt; Bool)
 -&gt; Eq DocumentMetadataEnum
@@ -81,7 +81,7 @@ $c/= :: DocumentMetadataEnum -&gt; DocumentMetadataEnum -&gt; Bool
 == :: DocumentMetadataEnum -&gt; DocumentMetadataEnum -&gt; Bool
 $c== :: DocumentMetadataEnum -&gt; DocumentMetadataEnum -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679793285"><span id="local-6989586621679793287"><span id="local-6989586621679793289"><span id="local-6989586621679793291"><span id="local-6989586621679793293"><span id="local-6989586621679793295"><span id="local-6989586621679793297"><span class="annot"><span class="annottext">Eq DocumentMetadataEnum
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679793294"><span id="local-6989586621679793296"><span id="local-6989586621679793298"><span id="local-6989586621679793300"><span id="local-6989586621679793302"><span id="local-6989586621679793304"><span id="local-6989586621679793306"><span class="annot"><span class="annottext">Eq DocumentMetadataEnum
 Eq DocumentMetadataEnum
 -&gt; (DocumentMetadataEnum -&gt; DocumentMetadataEnum -&gt; Ordering)
 -&gt; (DocumentMetadataEnum -&gt; DocumentMetadataEnum -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. DocumentMetadataEnum -&gt; Rep DocumentMetadataEnum x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679793277"><span id="local-6989586621679793279"><span class="annot"><span class="annottext">Int -&gt; DocumentMetadataEnum -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679793286"><span id="local-6989586621679793288"><span class="annot"><span class="annottext">Int -&gt; DocumentMetadataEnum -&gt; Int
 DocumentMetadataEnum -&gt; Int
 (Int -&gt; DocumentMetadataEnum -&gt; Int)
 -&gt; (DocumentMetadataEnum -&gt; Int) -&gt; Hashable DocumentMetadataEnum
@@ -149,54 +149,54 @@ $chash :: DocumentMetadataEnum -&gt; Int
 hashWithSalt :: Int -&gt; DocumentMetadataEnum -&gt; Int
 $chashWithSalt :: Int -&gt; DocumentMetadataEnum -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679793274"><span class="annot"><span class="annottext">DocumentMetadataEnum -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679793283"><span class="annot"><span class="annottext">DocumentMetadataEnum -&gt; ()
 (DocumentMetadataEnum -&gt; ()) -&gt; NFData DocumentMetadataEnum
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DocumentMetadataEnum -&gt; ()
 $crnf :: DocumentMetadataEnum -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679793271"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentMetadataEnum
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679793280"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentMetadataEnum
 (Text -&gt; Either String DocumentMetadataEnum)
 -&gt; FromText DocumentMetadataEnum
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DocumentMetadataEnum
 $cfromText :: Text -&gt; Either String DocumentMetadataEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679793268"><span class="annot"><span class="annottext">DocumentMetadataEnum -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679793277"><span class="annot"><span class="annottext">DocumentMetadataEnum -&gt; Text
 (DocumentMetadataEnum -&gt; Text) -&gt; ToText DocumentMetadataEnum
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DocumentMetadataEnum -&gt; Text
 $ctoText :: DocumentMetadataEnum -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679793265"><span class="annot"><span class="annottext">DocumentMetadataEnum -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679793274"><span class="annot"><span class="annottext">DocumentMetadataEnum -&gt; ByteString
 (DocumentMetadataEnum -&gt; ByteString)
 -&gt; ToByteString DocumentMetadataEnum
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DocumentMetadataEnum -&gt; ByteString
 $ctoBS :: DocumentMetadataEnum -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679793262"><span class="annot"><span class="annottext">DocumentMetadataEnum -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679793271"><span class="annot"><span class="annottext">DocumentMetadataEnum -&gt; ByteStringBuilder
 (DocumentMetadataEnum -&gt; ByteStringBuilder)
 -&gt; ToLog DocumentMetadataEnum
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DocumentMetadataEnum -&gt; ByteStringBuilder
 $cbuild :: DocumentMetadataEnum -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679793259"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentMetadataEnum -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679793268"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentMetadataEnum -&gt; [Header]
 (HeaderName -&gt; DocumentMetadataEnum -&gt; [Header])
 -&gt; ToHeader DocumentMetadataEnum
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DocumentMetadataEnum -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DocumentMetadataEnum -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679793256"><span class="annot"><span class="annottext">DocumentMetadataEnum -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679793265"><span class="annot"><span class="annottext">DocumentMetadataEnum -&gt; QueryString
 (DocumentMetadataEnum -&gt; QueryString)
 -&gt; ToQuery DocumentMetadataEnum
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DocumentMetadataEnum -&gt; QueryString
 $ctoQuery :: DocumentMetadataEnum -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679793251"><span id="local-6989586621679793253"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentMetadataEnum]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679793260"><span id="local-6989586621679793262"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentMetadataEnum]
 Value -&gt; Parser DocumentMetadataEnum
 (Value -&gt; Parser DocumentMetadataEnum)
 -&gt; (Value -&gt; Parser [DocumentMetadataEnum])
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [DocumentMetadataEnum]
 parseJSON :: Value -&gt; Parser DocumentMetadataEnum
 $cparseJSON :: Value -&gt; Parser DocumentMetadataEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679793246"><span id="local-6989586621679793248"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentMetadataEnum]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679793255"><span id="local-6989586621679793257"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentMetadataEnum]
 FromJSONKeyFunction DocumentMetadataEnum
 FromJSONKeyFunction DocumentMetadataEnum
 -&gt; FromJSONKeyFunction [DocumentMetadataEnum]
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DocumentMetadataEnum]
 fromJSONKey :: FromJSONKeyFunction DocumentMetadataEnum
 $cfromJSONKey :: FromJSONKeyFunction DocumentMetadataEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679793237"><span id="local-6989586621679793239"><span id="local-6989586621679793241"><span id="local-6989586621679793243"><span class="annot"><span class="annottext">[DocumentMetadataEnum] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679793246"><span id="local-6989586621679793248"><span id="local-6989586621679793250"><span id="local-6989586621679793252"><span class="annot"><span class="annottext">[DocumentMetadataEnum] -&gt; Encoding
 [DocumentMetadataEnum] -&gt; Value
 DocumentMetadataEnum -&gt; Encoding
 DocumentMetadataEnum -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: DocumentMetadataEnum -&gt; Encoding
 toJSON :: DocumentMetadataEnum -&gt; Value
 $ctoJSON :: DocumentMetadataEnum -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679793232"><span id="local-6989586621679793234"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentMetadataEnum]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679793241"><span id="local-6989586621679793243"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentMetadataEnum]
 ToJSONKeyFunction DocumentMetadataEnum
 ToJSONKeyFunction DocumentMetadataEnum
 -&gt; ToJSONKeyFunction [DocumentMetadataEnum]
@@ -256,14 +256,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DocumentMetadataEnum]
 toJSONKey :: ToJSONKeyFunction DocumentMetadataEnum
 $ctoJSONKey :: ToJSONKeyFunction DocumentMetadataEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679793229"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentMetadataEnum
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679793238"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentMetadataEnum
 ([Node] -&gt; Either String DocumentMetadataEnum)
 -&gt; FromXML DocumentMetadataEnum
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DocumentMetadataEnum
 $cparseXML :: [Node] -&gt; Either String DocumentMetadataEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679793226"><span class="annot"><span class="annottext">DocumentMetadataEnum -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679793235"><span class="annot"><span class="annottext">DocumentMetadataEnum -&gt; XML
 (DocumentMetadataEnum -&gt; XML) -&gt; ToXML DocumentMetadataEnum
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DocumentMetadataEnum -&gt; XML

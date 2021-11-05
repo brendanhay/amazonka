@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDescribeOrganizationalUnit' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679247765"><span id="local-6989586621679247766"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOrganizationalUnit"><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit"><span class="hs-identifier hs-var">DescribeOrganizationalUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOrganizationalUnit%27"><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit%27"><span class="hs-identifier hs-var">DescribeOrganizationalUnit'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679247774"><span id="local-6989586621679247775"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOrganizationalUnit"><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit"><span class="hs-identifier hs-var">DescribeOrganizationalUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOrganizationalUnit%27"><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit%27"><span class="hs-identifier hs-var">DescribeOrganizationalUnit'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier (ID) of the organizational unit that you want</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- details about. You can get the ID from the</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- ListOrganizationalUnitsForParent operation.</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AorganizationalUnitId%3ADescribeOrganizationalUnit%27"><span class="annot"><span class="annottext">DescribeOrganizationalUnit -&gt; Text
 </span><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#%24sel%3AorganizationalUnitId%3ADescribeOrganizationalUnit%27"><span class="hs-identifier hs-var hs-var">organizationalUnitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247759"><span id="local-6989586621679247761"><span class="annot"><span class="annottext">DescribeOrganizationalUnit -&gt; DescribeOrganizationalUnit -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247768"><span id="local-6989586621679247770"><span class="annot"><span class="annottext">DescribeOrganizationalUnit -&gt; DescribeOrganizationalUnit -&gt; Bool
 (DescribeOrganizationalUnit -&gt; DescribeOrganizationalUnit -&gt; Bool)
 -&gt; (DescribeOrganizationalUnit
     -&gt; DescribeOrganizationalUnit -&gt; Bool)
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeOrganizationalUnit -&gt; DescribeOrganizationalUnit -&gt; Bool
 == :: DescribeOrganizationalUnit -&gt; DescribeOrganizationalUnit -&gt; Bool
 $c== :: DescribeOrganizationalUnit -&gt; DescribeOrganizationalUnit -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247750"><span id="local-6989586621679247752"><span id="local-6989586621679247754"><span id="local-6989586621679247756"><span class="annot"><span class="annottext">ReadPrec [DescribeOrganizationalUnit]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247759"><span id="local-6989586621679247761"><span id="local-6989586621679247763"><span id="local-6989586621679247765"><span class="annot"><span class="annottext">ReadPrec [DescribeOrganizationalUnit]
 ReadPrec DescribeOrganizationalUnit
 Int -&gt; ReadS DescribeOrganizationalUnit
 ReadS [DescribeOrganizationalUnit]
@@ -94,7 +94,7 @@ readList :: ReadS [DescribeOrganizationalUnit]
 $creadList :: ReadS [DescribeOrganizationalUnit]
 readsPrec :: Int -&gt; ReadS DescribeOrganizationalUnit
 $creadsPrec :: Int -&gt; ReadS DescribeOrganizationalUnit
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247743"><span id="local-6989586621679247745"><span id="local-6989586621679247747"><span class="annot"><span class="annottext">Int -&gt; DescribeOrganizationalUnit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247752"><span id="local-6989586621679247754"><span id="local-6989586621679247756"><span class="annot"><span class="annottext">Int -&gt; DescribeOrganizationalUnit -&gt; ShowS
 [DescribeOrganizationalUnit] -&gt; ShowS
 DescribeOrganizationalUnit -&gt; String
 (Int -&gt; DescribeOrganizationalUnit -&gt; ShowS)
@@ -148,14 +148,14 @@ DescribeOrganizationalUnit -&gt; Rep DescribeOrganizationalUnit x
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit"><span class="hs-identifier hs-type">DescribeOrganizationalUnit</span></a></span><span>
 </span><span id="line-89"></span><span id="newDescribeOrganizationalUnit"><span class="annot"><span class="annottext">newDescribeOrganizationalUnit :: Text -&gt; DescribeOrganizationalUnit
-</span><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#newDescribeOrganizationalUnit"><span class="hs-identifier hs-var hs-var">newDescribeOrganizationalUnit</span></a></span></span><span> </span><span id="local-6989586621679247738"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247738"><span class="hs-identifier hs-var">pOrganizationalUnitId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#newDescribeOrganizationalUnit"><span class="hs-identifier hs-var hs-var">newDescribeOrganizationalUnit</span></a></span></span><span> </span><span id="local-6989586621679247747"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247747"><span class="hs-identifier hs-var">pOrganizationalUnitId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">DescribeOrganizationalUnit' :: Text -&gt; DescribeOrganizationalUnit
 </span><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit%27"><span class="hs-identifier hs-type">DescribeOrganizationalUnit'</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:organizationalUnitId:DescribeOrganizationalUnit' :: Text
 </span><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#%24sel%3AorganizationalUnitId%3ADescribeOrganizationalUnit%27"><span class="hs-identifier hs-var">organizationalUnitId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247738"><span class="hs-identifier hs-var">pOrganizationalUnitId_</span></a></span><span>
+</span><a href="#local-6989586621679247747"><span class="hs-identifier hs-var">pOrganizationalUnitId_</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The unique identifier (ID) of the organizational unit that you want</span><span>
@@ -176,28 +176,28 @@ DescribeOrganizationalUnit -&gt; Rep DescribeOrganizationalUnit x
 -&gt; Lens
      DescribeOrganizationalUnit DescribeOrganizationalUnit Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit%27"><span class="hs-identifier hs-type">DescribeOrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247735"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit%27"><span class="hs-identifier hs-type">DescribeOrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247744"><span class="annot"><span class="annottext">Text
 organizationalUnitId :: Text
 $sel:organizationalUnitId:DescribeOrganizationalUnit' :: DescribeOrganizationalUnit -&gt; Text
-</span><a href="#local-6989586621679247735"><span class="hs-identifier hs-var hs-var">organizationalUnitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247735"><span class="hs-identifier hs-var">organizationalUnitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247734"><span class="annot"><span class="annottext">s :: DescribeOrganizationalUnit
-</span><a href="#local-6989586621679247734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit%27"><span class="hs-identifier hs-type">DescribeOrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247733"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationalUnit
-</span><a href="#local-6989586621679247734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnitId:DescribeOrganizationalUnit' :: Text
+</span><a href="#local-6989586621679247744"><span class="hs-identifier hs-var hs-var">organizationalUnitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247744"><span class="hs-identifier hs-var">organizationalUnitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247743"><span class="annot"><span class="annottext">s :: DescribeOrganizationalUnit
+</span><a href="#local-6989586621679247743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit%27"><span class="hs-identifier hs-type">DescribeOrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247742"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationalUnit
+</span><a href="#local-6989586621679247743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnitId:DescribeOrganizationalUnit' :: Text
 </span><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#%24sel%3AorganizationalUnitId%3ADescribeOrganizationalUnit%27"><span class="hs-identifier hs-var">organizationalUnitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit"><span class="hs-identifier hs-type">DescribeOrganizationalUnit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit"><span class="hs-identifier hs-type">DescribeOrganizationalUnit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit"><span class="hs-identifier hs-type">DescribeOrganizationalUnit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit"><span class="hs-identifier hs-type">DescribeOrganizationalUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse"><span class="hs-identifier hs-type">DescribeOrganizationalUnitResponse</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679247729"><span class="annot"><span class="annottext">request :: DescribeOrganizationalUnit -&gt; Request DescribeOrganizationalUnit
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679247738"><span class="annot"><span class="annottext">request :: DescribeOrganizationalUnit -&gt; Request DescribeOrganizationalUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeOrganizationalUnit -&gt; Request DescribeOrganizationalUnit
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Organizations.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679247725"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679247734"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeOrganizationalUnit
 -&gt; ClientResponse ClientBody
@@ -223,10 +223,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247722"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679247722"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679247721"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679247721"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679247720"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247720"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247731"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247731"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679247730"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679247730"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679247729"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247729"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe OrganizationalUnit
 -&gt; Int -&gt; DescribeOrganizationalUnitResponse
 </span><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse%27"><span class="hs-identifier hs-var">DescribeOrganizationalUnitResponse'</span></a></span><span>
@@ -236,7 +236,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeOrganizationalUnitResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OrganizationalUnit)
+</span><a href="#local-6989586621679247729"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OrganizationalUnit)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OrganizationalUnit&quot;</span></span><span class="hs-special">)</span><span>
@@ -249,15 +249,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679247722"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247731"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247712"><span id="local-6989586621679247714"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit"><span class="hs-identifier hs-type">DescribeOrganizationalUnit</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247721"><span id="local-6989586621679247723"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit"><span class="hs-identifier hs-type">DescribeOrganizationalUnit</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247709"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit"><span class="hs-identifier hs-type">DescribeOrganizationalUnit</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247718"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit"><span class="hs-identifier hs-type">DescribeOrganizationalUnit</span></a></span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit"><span class="hs-identifier hs-type">DescribeOrganizationalUnit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679247705"><span class="annot"><span class="annottext">toHeaders :: DescribeOrganizationalUnit -&gt; ResponseHeaders
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679247714"><span class="annot"><span class="annottext">toHeaders :: DescribeOrganizationalUnit -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeOrganizationalUnit -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -284,12 +284,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247695"><span id="local-6989586621679247697"><span id="local-6989586621679247699"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit"><span class="hs-identifier hs-type">DescribeOrganizationalUnit</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679247693"><span class="annot"><span class="annottext">toJSON :: DescribeOrganizationalUnit -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit%27"><span class="hs-identifier hs-type">DescribeOrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247691"><span class="annot"><span class="annottext">Text
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247704"><span id="local-6989586621679247706"><span id="local-6989586621679247708"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit"><span class="hs-identifier hs-type">DescribeOrganizationalUnit</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679247702"><span class="annot"><span class="annottext">toJSON :: DescribeOrganizationalUnit -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit%27"><span class="hs-identifier hs-type">DescribeOrganizationalUnit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247700"><span class="annot"><span class="annottext">Text
 organizationalUnitId :: Text
 $sel:organizationalUnitId:DescribeOrganizationalUnit' :: DescribeOrganizationalUnit -&gt; Text
-</span><a href="#local-6989586621679247691"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679247700"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -303,20 +303,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-145"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247691"><span class="hs-identifier hs-var">organizationalUnitId</span></a></span><span>
+</span><a href="#local-6989586621679247700"><span class="hs-identifier hs-var">organizationalUnitId</span></a></span><span>
 </span><span id="line-146"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit"><span class="hs-identifier hs-type">DescribeOrganizationalUnit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679247685"><span class="annot"><span class="annottext">toPath :: DescribeOrganizationalUnit -&gt; ByteString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679247694"><span class="annot"><span class="annottext">toPath :: DescribeOrganizationalUnit -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeOrganizationalUnit -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnit"><span class="hs-identifier hs-type">DescribeOrganizationalUnit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679247681"><span class="annot"><span class="annottext">toQuery :: DescribeOrganizationalUnit -&gt; QueryString
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679247690"><span class="annot"><span class="annottext">toQuery :: DescribeOrganizationalUnit -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeOrganizationalUnit -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -324,7 +324,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | /See:/ 'newDescribeOrganizationalUnitResponse' smart constructor.</span><span>
-</span><span id="line-157"></span><span id="local-6989586621679247678"><span id="local-6989586621679247679"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOrganizationalUnitResponse"><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse"><span class="hs-identifier hs-var">DescribeOrganizationalUnitResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOrganizationalUnitResponse%27"><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse%27"><span class="hs-identifier hs-var">DescribeOrganizationalUnitResponse'</span></a></span></span><span>
+</span><span id="line-157"></span><span id="local-6989586621679247687"><span id="local-6989586621679247688"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOrganizationalUnitResponse"><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse"><span class="hs-identifier hs-var">DescribeOrganizationalUnitResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOrganizationalUnitResponse%27"><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse%27"><span class="hs-identifier hs-var">DescribeOrganizationalUnitResponse'</span></a></span></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A structure that contains details about the specified OU.</span><span>
 </span><span id="line-159"></span><span>    </span><span id="%24sel%3AorganizationalUnit%3ADescribeOrganizationalUnitResponse%27"><span class="annot"><span class="annottext">DescribeOrganizationalUnitResponse -&gt; Maybe OrganizationalUnit
 </span><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#%24sel%3AorganizationalUnit%3ADescribeOrganizationalUnitResponse%27"><span class="hs-identifier hs-var hs-var">organizationalUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.OrganizationalUnit.html#OrganizationalUnit"><span class="hs-identifier hs-type">OrganizationalUnit</span></a></span><span class="hs-special">,</span><span>
@@ -332,7 +332,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-161"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeOrganizationalUnitResponse%27"><span class="annot"><span class="annottext">DescribeOrganizationalUnitResponse -&gt; Int
 </span><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#%24sel%3AhttpStatus%3ADescribeOrganizationalUnitResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247672"><span id="local-6989586621679247674"><span class="annot"><span class="annottext">DescribeOrganizationalUnitResponse
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247681"><span id="local-6989586621679247683"><span class="annot"><span class="annottext">DescribeOrganizationalUnitResponse
 -&gt; DescribeOrganizationalUnitResponse -&gt; Bool
 (DescribeOrganizationalUnitResponse
  -&gt; DescribeOrganizationalUnitResponse -&gt; Bool)
@@ -348,7 +348,7 @@ $c/= :: DescribeOrganizationalUnitResponse
 -&gt; DescribeOrganizationalUnitResponse -&gt; Bool
 $c== :: DescribeOrganizationalUnitResponse
 -&gt; DescribeOrganizationalUnitResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247664"><span id="local-6989586621679247666"><span id="local-6989586621679247668"><span id="local-6989586621679247670"><span class="annot"><span class="annottext">ReadPrec [DescribeOrganizationalUnitResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247673"><span id="local-6989586621679247675"><span id="local-6989586621679247677"><span id="local-6989586621679247679"><span class="annot"><span class="annottext">ReadPrec [DescribeOrganizationalUnitResponse]
 ReadPrec DescribeOrganizationalUnitResponse
 Int -&gt; ReadS DescribeOrganizationalUnitResponse
 ReadS [DescribeOrganizationalUnitResponse]
@@ -368,7 +368,7 @@ readList :: ReadS [DescribeOrganizationalUnitResponse]
 $creadList :: ReadS [DescribeOrganizationalUnitResponse]
 readsPrec :: Int -&gt; ReadS DescribeOrganizationalUnitResponse
 $creadsPrec :: Int -&gt; ReadS DescribeOrganizationalUnitResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247658"><span id="local-6989586621679247660"><span id="local-6989586621679247662"><span class="annot"><span class="annottext">Int -&gt; DescribeOrganizationalUnitResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247667"><span id="local-6989586621679247669"><span id="local-6989586621679247671"><span class="annot"><span class="annottext">Int -&gt; DescribeOrganizationalUnitResponse -&gt; ShowS
 [DescribeOrganizationalUnitResponse] -&gt; ShowS
 DescribeOrganizationalUnitResponse -&gt; String
 (Int -&gt; DescribeOrganizationalUnitResponse -&gt; ShowS)
@@ -422,8 +422,8 @@ DescribeOrganizationalUnitResponse
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse"><span class="hs-identifier hs-type">DescribeOrganizationalUnitResponse</span></a></span><span>
 </span><span id="line-180"></span><span id="newDescribeOrganizationalUnitResponse"><span class="annot"><span class="annottext">newDescribeOrganizationalUnitResponse :: Int -&gt; DescribeOrganizationalUnitResponse
-</span><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#newDescribeOrganizationalUnitResponse"><span class="hs-identifier hs-var hs-var">newDescribeOrganizationalUnitResponse</span></a></span></span><span> </span><span id="local-6989586621679247655"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679247655"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#newDescribeOrganizationalUnitResponse"><span class="hs-identifier hs-var hs-var">newDescribeOrganizationalUnitResponse</span></a></span></span><span> </span><span id="local-6989586621679247664"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247664"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">DescribeOrganizationalUnitResponse' :: Maybe OrganizationalUnit
 -&gt; Int -&gt; DescribeOrganizationalUnitResponse
 </span><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationalUnitResponse'</span></a></span><span>
@@ -434,7 +434,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOrganizationalUnitResponse' :: Int
 </span><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#%24sel%3AhttpStatus%3ADescribeOrganizationalUnitResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679247655"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679247664"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | A structure that contains details about the specified OU.</span><span>
@@ -451,16 +451,16 @@ forall a. Maybe a
      (Maybe OrganizationalUnit)
      (Maybe OrganizationalUnit)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationalUnitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247654"><span class="annot"><span class="annottext">Maybe OrganizationalUnit
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationalUnitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247663"><span class="annot"><span class="annottext">Maybe OrganizationalUnit
 organizationalUnit :: Maybe OrganizationalUnit
 $sel:organizationalUnit:DescribeOrganizationalUnitResponse' :: DescribeOrganizationalUnitResponse -&gt; Maybe OrganizationalUnit
-</span><a href="#local-6989586621679247654"><span class="hs-identifier hs-var hs-var">organizationalUnit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationalUnit
-</span><a href="#local-6989586621679247654"><span class="hs-identifier hs-var">organizationalUnit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247653"><span class="annot"><span class="annottext">s :: DescribeOrganizationalUnitResponse
-</span><a href="#local-6989586621679247653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationalUnitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247652"><span class="annot"><span class="annottext">Maybe OrganizationalUnit
-</span><a href="#local-6989586621679247652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationalUnitResponse
-</span><a href="#local-6989586621679247653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnit:DescribeOrganizationalUnitResponse' :: Maybe OrganizationalUnit
+</span><a href="#local-6989586621679247663"><span class="hs-identifier hs-var hs-var">organizationalUnit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationalUnit
+</span><a href="#local-6989586621679247663"><span class="hs-identifier hs-var">organizationalUnit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247662"><span class="annot"><span class="annottext">s :: DescribeOrganizationalUnitResponse
+</span><a href="#local-6989586621679247662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationalUnitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247661"><span class="annot"><span class="annottext">Maybe OrganizationalUnit
+</span><a href="#local-6989586621679247661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationalUnitResponse
+</span><a href="#local-6989586621679247662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnit:DescribeOrganizationalUnitResponse' :: Maybe OrganizationalUnit
 </span><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#%24sel%3AorganizationalUnit%3ADescribeOrganizationalUnitResponse%27"><span class="hs-identifier hs-var">organizationalUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationalUnit
-</span><a href="#local-6989586621679247652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse"><span class="hs-identifier hs-type">DescribeOrganizationalUnitResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse"><span class="hs-identifier hs-type">DescribeOrganizationalUnitResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#describeOrganizationalUnitResponse_httpStatus"><span class="hs-identifier hs-type">describeOrganizationalUnitResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse"><span class="hs-identifier hs-type">DescribeOrganizationalUnitResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -476,18 +476,18 @@ $sel:organizationalUnit:DescribeOrganizationalUnitResponse' :: DescribeOrganizat
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationalUnitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247651"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationalUnitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247660"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeOrganizationalUnitResponse' :: DescribeOrganizationalUnitResponse -&gt; Int
-</span><a href="#local-6989586621679247651"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679247651"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247650"><span class="annot"><span class="annottext">s :: DescribeOrganizationalUnitResponse
-</span><a href="#local-6989586621679247650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationalUnitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247649"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679247649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationalUnitResponse
-</span><a href="#local-6989586621679247650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOrganizationalUnitResponse' :: Int
+</span><a href="#local-6989586621679247660"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247660"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247659"><span class="annot"><span class="annottext">s :: DescribeOrganizationalUnitResponse
+</span><a href="#local-6989586621679247659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationalUnitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247658"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationalUnitResponse
+</span><a href="#local-6989586621679247659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOrganizationalUnitResponse' :: Int
 </span><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#%24sel%3AhttpStatus%3ADescribeOrganizationalUnitResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679247649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse"><span class="hs-identifier hs-type">DescribeOrganizationalUnitResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse"><span class="hs-identifier hs-type">DescribeOrganizationalUnitResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679247647"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679247656"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.DescribeOrganizationalUnit.html#DescribeOrganizationalUnitResponse"><span class="hs-identifier hs-type">DescribeOrganizationalUnitResponse</span></a></span></span><span>
 </span><span id="line-198"></span></pre></body></html>

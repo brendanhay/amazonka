@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SSOAdmin.DescribePermissionSet</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the details of the permission set.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSOAdmin.DescribePermissionSet</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet"><span class="hs-identifier">DescribePermissionSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#newDescribePermissionSet"><span class="hs-identifier">newDescribePermissionSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#describePermissionSet_instanceArn"><span class="hs-identifier">describePermissionSet_instanceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#describePermissionSet_permissionSetArn"><span class="hs-identifier">describePermissionSet_permissionSetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSetResponse"><span class="hs-identifier">DescribePermissionSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#newDescribePermissionSetResponse"><span class="hs-identifier">newDescribePermissionSetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#describePermissionSetResponse_permissionSet"><span class="hs-identifier">describePermissionSetResponse_permissionSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#describePermissionSetResponse_httpStatus"><span class="hs-identifier">describePermissionSetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.Types.html"><span class="hs-identifier">Network.AWS.SSOAdmin.Types</span></a></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribePermissionSet' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679205057"><span id="local-6989586621679205058"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePermissionSet"><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet"><span class="hs-identifier hs-var">DescribePermissionSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePermissionSet%27"><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet%27"><span class="hs-identifier hs-var">DescribePermissionSet'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AinstanceArn%3ADescribePermissionSet%27"><span class="annot"><span class="annottext">DescribePermissionSet -&gt; Text
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#%24sel%3AinstanceArn%3ADescribePermissionSet%27"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The ARN of the permission set.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3ApermissionSetArn%3ADescribePermissionSet%27"><span class="annot"><span class="annottext">DescribePermissionSet -&gt; Text
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#%24sel%3ApermissionSetArn%3ADescribePermissionSet%27"><span class="hs-identifier hs-var hs-var">permissionSetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205050"><span id="local-6989586621679205052"><span class="annot"><span class="annottext">DescribePermissionSet -&gt; DescribePermissionSet -&gt; Bool
+(DescribePermissionSet -&gt; DescribePermissionSet -&gt; Bool)
+-&gt; (DescribePermissionSet -&gt; DescribePermissionSet -&gt; Bool)
+-&gt; Eq DescribePermissionSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePermissionSet -&gt; DescribePermissionSet -&gt; Bool
+$c/= :: DescribePermissionSet -&gt; DescribePermissionSet -&gt; Bool
+== :: DescribePermissionSet -&gt; DescribePermissionSet -&gt; Bool
+$c== :: DescribePermissionSet -&gt; DescribePermissionSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205041"><span id="local-6989586621679205043"><span id="local-6989586621679205045"><span id="local-6989586621679205047"><span class="annot"><span class="annottext">ReadPrec [DescribePermissionSet]
+ReadPrec DescribePermissionSet
+Int -&gt; ReadS DescribePermissionSet
+ReadS [DescribePermissionSet]
+(Int -&gt; ReadS DescribePermissionSet)
+-&gt; ReadS [DescribePermissionSet]
+-&gt; ReadPrec DescribePermissionSet
+-&gt; ReadPrec [DescribePermissionSet]
+-&gt; Read DescribePermissionSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePermissionSet]
+$creadListPrec :: ReadPrec [DescribePermissionSet]
+readPrec :: ReadPrec DescribePermissionSet
+$creadPrec :: ReadPrec DescribePermissionSet
+readList :: ReadS [DescribePermissionSet]
+$creadList :: ReadS [DescribePermissionSet]
+readsPrec :: Int -&gt; ReadS DescribePermissionSet
+$creadsPrec :: Int -&gt; ReadS DescribePermissionSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205034"><span id="local-6989586621679205036"><span id="local-6989586621679205038"><span class="annot"><span class="annottext">Int -&gt; DescribePermissionSet -&gt; ShowS
+[DescribePermissionSet] -&gt; ShowS
+DescribePermissionSet -&gt; String
+(Int -&gt; DescribePermissionSet -&gt; ShowS)
+-&gt; (DescribePermissionSet -&gt; String)
+-&gt; ([DescribePermissionSet] -&gt; ShowS)
+-&gt; Show DescribePermissionSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePermissionSet] -&gt; ShowS
+$cshowList :: [DescribePermissionSet] -&gt; ShowS
+show :: DescribePermissionSet -&gt; String
+$cshow :: DescribePermissionSet -&gt; String
+showsPrec :: Int -&gt; DescribePermissionSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePermissionSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribePermissionSet -&gt; Rep DescribePermissionSet x)
+-&gt; (forall x. Rep DescribePermissionSet x -&gt; DescribePermissionSet)
+-&gt; Generic DescribePermissionSet
+forall x. Rep DescribePermissionSet x -&gt; DescribePermissionSet
+forall x. DescribePermissionSet -&gt; Rep DescribePermissionSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribePermissionSet x -&gt; DescribePermissionSet
+$cfrom :: forall x. DescribePermissionSet -&gt; Rep DescribePermissionSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'DescribePermissionSet' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'instanceArn', 'describePermissionSet_instanceArn' - The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'permissionSetArn', 'describePermissionSet_permissionSetArn' - The ARN of the permission set.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#newDescribePermissionSet"><span class="hs-identifier hs-type">newDescribePermissionSet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'instanceArn'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'permissionSetArn'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet"><span class="hs-identifier hs-type">DescribePermissionSet</span></a></span><span>
+</span><span id="line-82"></span><span id="newDescribePermissionSet"><span class="annot"><span class="annottext">newDescribePermissionSet :: Text -&gt; Text -&gt; DescribePermissionSet
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#newDescribePermissionSet"><span class="hs-identifier hs-var hs-var">newDescribePermissionSet</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679205029"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205029"><span class="hs-identifier hs-var">pInstanceArn_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679205028"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205028"><span class="hs-identifier hs-var">pPermissionSetArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">DescribePermissionSet' :: Text -&gt; Text -&gt; DescribePermissionSet
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet%27"><span class="hs-identifier hs-type">DescribePermissionSet'</span></a></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceArn:DescribePermissionSet' :: Text
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#%24sel%3AinstanceArn%3ADescribePermissionSet%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205029"><span class="hs-identifier hs-var">pInstanceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:permissionSetArn:DescribePermissionSet' :: Text
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#%24sel%3ApermissionSetArn%3ADescribePermissionSet%27"><span class="hs-identifier hs-var">permissionSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205028"><span class="hs-identifier hs-var">pPermissionSetArn_</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The ARN of the SSO instance under which the operation will be executed.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- For more information about ARNs, see</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- &lt;/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces&gt;</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#describePermissionSet_instanceArn"><span class="hs-identifier hs-type">describePermissionSet_instanceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet"><span class="hs-identifier hs-type">DescribePermissionSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="describePermissionSet_instanceArn"><span class="annot"><span class="annottext">describePermissionSet_instanceArn :: (Text -&gt; f Text)
+-&gt; DescribePermissionSet -&gt; f DescribePermissionSet
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#describePermissionSet_instanceArn"><span class="hs-identifier hs-var hs-var">describePermissionSet_instanceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePermissionSet -&gt; Text)
+-&gt; (DescribePermissionSet -&gt; Text -&gt; DescribePermissionSet)
+-&gt; Lens DescribePermissionSet DescribePermissionSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet%27"><span class="hs-identifier hs-type">DescribePermissionSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205025"><span class="annot"><span class="annottext">Text
+instanceArn :: Text
+$sel:instanceArn:DescribePermissionSet' :: DescribePermissionSet -&gt; Text
+</span><a href="#local-6989586621679205025"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205025"><span class="hs-identifier hs-var">instanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205024"><span class="annot"><span class="annottext">s :: DescribePermissionSet
+</span><a href="#local-6989586621679205024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet%27"><span class="hs-identifier hs-type">DescribePermissionSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205023"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePermissionSet
+</span><a href="#local-6989586621679205024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceArn:DescribePermissionSet' :: Text
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#%24sel%3AinstanceArn%3ADescribePermissionSet%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet"><span class="hs-identifier hs-type">DescribePermissionSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The ARN of the permission set.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#describePermissionSet_permissionSetArn"><span class="hs-identifier hs-type">describePermissionSet_permissionSetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet"><span class="hs-identifier hs-type">DescribePermissionSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="describePermissionSet_permissionSetArn"><span class="annot"><span class="annottext">describePermissionSet_permissionSetArn :: (Text -&gt; f Text)
+-&gt; DescribePermissionSet -&gt; f DescribePermissionSet
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#describePermissionSet_permissionSetArn"><span class="hs-identifier hs-var hs-var">describePermissionSet_permissionSetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePermissionSet -&gt; Text)
+-&gt; (DescribePermissionSet -&gt; Text -&gt; DescribePermissionSet)
+-&gt; Lens DescribePermissionSet DescribePermissionSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet%27"><span class="hs-identifier hs-type">DescribePermissionSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205022"><span class="annot"><span class="annottext">Text
+permissionSetArn :: Text
+$sel:permissionSetArn:DescribePermissionSet' :: DescribePermissionSet -&gt; Text
+</span><a href="#local-6989586621679205022"><span class="hs-identifier hs-var hs-var">permissionSetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205022"><span class="hs-identifier hs-var">permissionSetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205021"><span class="annot"><span class="annottext">s :: DescribePermissionSet
+</span><a href="#local-6989586621679205021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet%27"><span class="hs-identifier hs-type">DescribePermissionSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205020"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePermissionSet
+</span><a href="#local-6989586621679205021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionSetArn:DescribePermissionSet' :: Text
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#%24sel%3ApermissionSetArn%3ADescribePermissionSet%27"><span class="hs-identifier hs-var">permissionSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet"><span class="hs-identifier hs-type">DescribePermissionSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet"><span class="hs-identifier hs-type">DescribePermissionSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet"><span class="hs-identifier hs-type">DescribePermissionSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSetResponse"><span class="hs-identifier hs-type">DescribePermissionSetResponse</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679205016"><span class="annot"><span class="annottext">request :: DescribePermissionSet -&gt; Request DescribePermissionSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribePermissionSet -&gt; Request DescribePermissionSet
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SSOAdmin.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679205012"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribePermissionSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribePermissionSet)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribePermissionSet))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribePermissionSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribePermissionSet)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205009"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205009"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679205008"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679205008"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679205007"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205007"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe PermissionSet -&gt; Int -&gt; DescribePermissionSetResponse
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSetResponse%27"><span class="hs-identifier hs-var">DescribePermissionSetResponse'</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PermissionSet -&gt; Int -&gt; DescribePermissionSetResponse)
+-&gt; Either String (Maybe PermissionSet)
+-&gt; Either String (Int -&gt; DescribePermissionSetResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe PermissionSet)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PermissionSet&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribePermissionSetResponse)
+-&gt; Either String Int -&gt; Either String DescribePermissionSetResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205009"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204999"><span id="local-6989586621679205001"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet"><span class="hs-identifier hs-type">DescribePermissionSet</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204996"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet"><span class="hs-identifier hs-type">DescribePermissionSet</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet"><span class="hs-identifier hs-type">DescribePermissionSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679204992"><span class="annot"><span class="annottext">toHeaders :: DescribePermissionSet -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribePermissionSet -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SWBExternalService.DescribePermissionSet&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-129"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204982"><span id="local-6989586621679204984"><span id="local-6989586621679204986"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet"><span class="hs-identifier hs-type">DescribePermissionSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679204980"><span class="annot"><span class="annottext">toJSON :: DescribePermissionSet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet%27"><span class="hs-identifier hs-type">DescribePermissionSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204977"><span id="local-6989586621679204978"><span class="annot"><span class="annottext">Text
+permissionSetArn :: Text
+instanceArn :: Text
+$sel:permissionSetArn:DescribePermissionSet' :: DescribePermissionSet -&gt; Text
+$sel:instanceArn:DescribePermissionSet' :: DescribePermissionSet -&gt; Text
+</span><a href="#local-6989586621679204977"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204978"><span class="hs-identifier hs-var">instanceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-139"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PermissionSetArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679204977"><span class="hs-identifier hs-var">permissionSetArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet"><span class="hs-identifier hs-type">DescribePermissionSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679204971"><span class="annot"><span class="annottext">toPath :: DescribePermissionSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribePermissionSet -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSet"><span class="hs-identifier hs-type">DescribePermissionSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679204967"><span class="annot"><span class="annottext">toQuery :: DescribePermissionSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribePermissionSet -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newDescribePermissionSetResponse' smart constructor.</span><span>
+</span><span id="line-150"></span><span id="local-6989586621679204964"><span id="local-6989586621679204965"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePermissionSetResponse"><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSetResponse"><span class="hs-identifier hs-var">DescribePermissionSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePermissionSetResponse%27"><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSetResponse%27"><span class="hs-identifier hs-var">DescribePermissionSetResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the level of access on an Amazon Web Services account.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3ApermissionSet%3ADescribePermissionSetResponse%27"><span class="annot"><span class="annottext">DescribePermissionSetResponse -&gt; Maybe PermissionSet
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#%24sel%3ApermissionSet%3ADescribePermissionSetResponse%27"><span class="hs-identifier hs-var hs-var">permissionSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.Types.PermissionSet.html#PermissionSet"><span class="hs-identifier hs-type">PermissionSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribePermissionSetResponse%27"><span class="annot"><span class="annottext">DescribePermissionSetResponse -&gt; Int
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#%24sel%3AhttpStatus%3ADescribePermissionSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204958"><span id="local-6989586621679204960"><span class="annot"><span class="annottext">DescribePermissionSetResponse
+-&gt; DescribePermissionSetResponse -&gt; Bool
+(DescribePermissionSetResponse
+ -&gt; DescribePermissionSetResponse -&gt; Bool)
+-&gt; (DescribePermissionSetResponse
+    -&gt; DescribePermissionSetResponse -&gt; Bool)
+-&gt; Eq DescribePermissionSetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePermissionSetResponse
+-&gt; DescribePermissionSetResponse -&gt; Bool
+$c/= :: DescribePermissionSetResponse
+-&gt; DescribePermissionSetResponse -&gt; Bool
+== :: DescribePermissionSetResponse
+-&gt; DescribePermissionSetResponse -&gt; Bool
+$c== :: DescribePermissionSetResponse
+-&gt; DescribePermissionSetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204950"><span id="local-6989586621679204952"><span id="local-6989586621679204954"><span id="local-6989586621679204956"><span class="annot"><span class="annottext">ReadPrec [DescribePermissionSetResponse]
+ReadPrec DescribePermissionSetResponse
+Int -&gt; ReadS DescribePermissionSetResponse
+ReadS [DescribePermissionSetResponse]
+(Int -&gt; ReadS DescribePermissionSetResponse)
+-&gt; ReadS [DescribePermissionSetResponse]
+-&gt; ReadPrec DescribePermissionSetResponse
+-&gt; ReadPrec [DescribePermissionSetResponse]
+-&gt; Read DescribePermissionSetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePermissionSetResponse]
+$creadListPrec :: ReadPrec [DescribePermissionSetResponse]
+readPrec :: ReadPrec DescribePermissionSetResponse
+$creadPrec :: ReadPrec DescribePermissionSetResponse
+readList :: ReadS [DescribePermissionSetResponse]
+$creadList :: ReadS [DescribePermissionSetResponse]
+readsPrec :: Int -&gt; ReadS DescribePermissionSetResponse
+$creadsPrec :: Int -&gt; ReadS DescribePermissionSetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204944"><span id="local-6989586621679204946"><span id="local-6989586621679204948"><span class="annot"><span class="annottext">Int -&gt; DescribePermissionSetResponse -&gt; ShowS
+[DescribePermissionSetResponse] -&gt; ShowS
+DescribePermissionSetResponse -&gt; String
+(Int -&gt; DescribePermissionSetResponse -&gt; ShowS)
+-&gt; (DescribePermissionSetResponse -&gt; String)
+-&gt; ([DescribePermissionSetResponse] -&gt; ShowS)
+-&gt; Show DescribePermissionSetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePermissionSetResponse] -&gt; ShowS
+$cshowList :: [DescribePermissionSetResponse] -&gt; ShowS
+show :: DescribePermissionSetResponse -&gt; String
+$cshow :: DescribePermissionSetResponse -&gt; String
+showsPrec :: Int -&gt; DescribePermissionSetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePermissionSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribePermissionSetResponse
+ -&gt; Rep DescribePermissionSetResponse x)
+-&gt; (forall x.
+    Rep DescribePermissionSetResponse x
+    -&gt; DescribePermissionSetResponse)
+-&gt; Generic DescribePermissionSetResponse
+forall x.
+Rep DescribePermissionSetResponse x
+-&gt; DescribePermissionSetResponse
+forall x.
+DescribePermissionSetResponse
+-&gt; Rep DescribePermissionSetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribePermissionSetResponse x
+-&gt; DescribePermissionSetResponse
+$cfrom :: forall x.
+DescribePermissionSetResponse
+-&gt; Rep DescribePermissionSetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'DescribePermissionSetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'permissionSet', 'describePermissionSetResponse_permissionSet' - Describes the level of access on an Amazon Web Services account.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'httpStatus', 'describePermissionSetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#newDescribePermissionSetResponse"><span class="hs-identifier hs-type">newDescribePermissionSetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSetResponse"><span class="hs-identifier hs-type">DescribePermissionSetResponse</span></a></span><span>
+</span><span id="line-173"></span><span id="newDescribePermissionSetResponse"><span class="annot"><span class="annottext">newDescribePermissionSetResponse :: Int -&gt; DescribePermissionSetResponse
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#newDescribePermissionSetResponse"><span class="hs-identifier hs-var hs-var">newDescribePermissionSetResponse</span></a></span></span><span> </span><span id="local-6989586621679204941"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204941"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">DescribePermissionSetResponse' :: Maybe PermissionSet -&gt; Int -&gt; DescribePermissionSetResponse
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSetResponse%27"><span class="hs-identifier hs-type">DescribePermissionSetResponse'</span></a></span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:permissionSet:DescribePermissionSetResponse' :: Maybe PermissionSet
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#%24sel%3ApermissionSet%3ADescribePermissionSetResponse%27"><span class="hs-identifier hs-var">permissionSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">Maybe PermissionSet
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePermissionSetResponse' :: Int
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#%24sel%3AhttpStatus%3ADescribePermissionSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204941"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | Describes the level of access on an Amazon Web Services account.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#describePermissionSetResponse_permissionSet"><span class="hs-identifier hs-type">describePermissionSetResponse_permissionSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSetResponse"><span class="hs-identifier hs-type">DescribePermissionSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.Types.PermissionSet.html#PermissionSet"><span class="hs-identifier hs-type">PermissionSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="describePermissionSetResponse_permissionSet"><span class="annot"><span class="annottext">describePermissionSetResponse_permissionSet :: (Maybe PermissionSet -&gt; f (Maybe PermissionSet))
+-&gt; DescribePermissionSetResponse -&gt; f DescribePermissionSetResponse
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#describePermissionSetResponse_permissionSet"><span class="hs-identifier hs-var hs-var">describePermissionSetResponse_permissionSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePermissionSetResponse -&gt; Maybe PermissionSet)
+-&gt; (DescribePermissionSetResponse
+    -&gt; Maybe PermissionSet -&gt; DescribePermissionSetResponse)
+-&gt; Lens
+     DescribePermissionSetResponse
+     DescribePermissionSetResponse
+     (Maybe PermissionSet)
+     (Maybe PermissionSet)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSetResponse%27"><span class="hs-identifier hs-type">DescribePermissionSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204940"><span class="annot"><span class="annottext">Maybe PermissionSet
+permissionSet :: Maybe PermissionSet
+$sel:permissionSet:DescribePermissionSetResponse' :: DescribePermissionSetResponse -&gt; Maybe PermissionSet
+</span><a href="#local-6989586621679204940"><span class="hs-identifier hs-var hs-var">permissionSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionSet
+</span><a href="#local-6989586621679204940"><span class="hs-identifier hs-var">permissionSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204939"><span class="annot"><span class="annottext">s :: DescribePermissionSetResponse
+</span><a href="#local-6989586621679204939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSetResponse%27"><span class="hs-identifier hs-type">DescribePermissionSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204938"><span class="annot"><span class="annottext">Maybe PermissionSet
+</span><a href="#local-6989586621679204938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePermissionSetResponse
+</span><a href="#local-6989586621679204939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionSet:DescribePermissionSetResponse' :: Maybe PermissionSet
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#%24sel%3ApermissionSet%3ADescribePermissionSetResponse%27"><span class="hs-identifier hs-var">permissionSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionSet
+</span><a href="#local-6989586621679204938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSetResponse"><span class="hs-identifier hs-type">DescribePermissionSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#describePermissionSetResponse_httpStatus"><span class="hs-identifier hs-type">describePermissionSetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSetResponse"><span class="hs-identifier hs-type">DescribePermissionSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-186"></span><span id="describePermissionSetResponse_httpStatus"><span class="annot"><span class="annottext">describePermissionSetResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribePermissionSetResponse -&gt; f DescribePermissionSetResponse
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#describePermissionSetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describePermissionSetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePermissionSetResponse -&gt; Int)
+-&gt; (DescribePermissionSetResponse
+    -&gt; Int -&gt; DescribePermissionSetResponse)
+-&gt; Lens
+     DescribePermissionSetResponse DescribePermissionSetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSetResponse%27"><span class="hs-identifier hs-type">DescribePermissionSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204937"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribePermissionSetResponse' :: DescribePermissionSetResponse -&gt; Int
+</span><a href="#local-6989586621679204937"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204937"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204936"><span class="annot"><span class="annottext">s :: DescribePermissionSetResponse
+</span><a href="#local-6989586621679204936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSetResponse%27"><span class="hs-identifier hs-type">DescribePermissionSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204935"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePermissionSetResponse
+</span><a href="#local-6989586621679204936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePermissionSetResponse' :: Int
+</span><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#%24sel%3AhttpStatus%3ADescribePermissionSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679204935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSetResponse"><span class="hs-identifier hs-type">DescribePermissionSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204933"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.DescribePermissionSet.html#DescribePermissionSetResponse"><span class="hs-identifier hs-type">DescribePermissionSetResponse</span></a></span></span><span>
+</span><span id="line-189"></span></pre></body></html>

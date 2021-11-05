@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetAddressBook' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679386419"><span id="local-6989586621679386420"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAddressBook"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook"><span class="hs-identifier hs-var">GetAddressBook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAddressBook%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook%27"><span class="hs-identifier hs-var">GetAddressBook'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679386428"><span id="local-6989586621679386429"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAddressBook"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook"><span class="hs-identifier hs-var">GetAddressBook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAddressBook%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook%27"><span class="hs-identifier hs-var">GetAddressBook'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the address book for which to request details.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AaddressBookArn%3AGetAddressBook%27"><span class="annot"><span class="annottext">GetAddressBook -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#%24sel%3AaddressBookArn%3AGetAddressBook%27"><span class="hs-identifier hs-var hs-var">addressBookArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386413"><span id="local-6989586621679386415"><span class="annot"><span class="annottext">GetAddressBook -&gt; GetAddressBook -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386422"><span id="local-6989586621679386424"><span class="annot"><span class="annottext">GetAddressBook -&gt; GetAddressBook -&gt; Bool
 (GetAddressBook -&gt; GetAddressBook -&gt; Bool)
 -&gt; (GetAddressBook -&gt; GetAddressBook -&gt; Bool) -&gt; Eq GetAddressBook
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetAddressBook -&gt; GetAddressBook -&gt; Bool
 == :: GetAddressBook -&gt; GetAddressBook -&gt; Bool
 $c== :: GetAddressBook -&gt; GetAddressBook -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386404"><span id="local-6989586621679386406"><span id="local-6989586621679386408"><span id="local-6989586621679386410"><span class="annot"><span class="annottext">ReadPrec [GetAddressBook]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386413"><span id="local-6989586621679386415"><span id="local-6989586621679386417"><span id="local-6989586621679386419"><span class="annot"><span class="annottext">ReadPrec [GetAddressBook]
 ReadPrec GetAddressBook
 Int -&gt; ReadS GetAddressBook
 ReadS [GetAddressBook]
@@ -80,7 +80,7 @@ readList :: ReadS [GetAddressBook]
 $creadList :: ReadS [GetAddressBook]
 readsPrec :: Int -&gt; ReadS GetAddressBook
 $creadsPrec :: Int -&gt; ReadS GetAddressBook
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386397"><span id="local-6989586621679386399"><span id="local-6989586621679386401"><span class="annot"><span class="annottext">Int -&gt; GetAddressBook -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386406"><span id="local-6989586621679386408"><span id="local-6989586621679386410"><span class="annot"><span class="annottext">Int -&gt; GetAddressBook -&gt; ShowS
 [GetAddressBook] -&gt; ShowS
 GetAddressBook -&gt; String
 (Int -&gt; GetAddressBook -&gt; ShowS)
@@ -120,12 +120,12 @@ $cfrom :: forall x. GetAddressBook -&gt; Rep GetAddressBook x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook"><span class="hs-identifier hs-type">GetAddressBook</span></a></span><span>
 </span><span id="line-69"></span><span id="newGetAddressBook"><span class="annot"><span class="annottext">newGetAddressBook :: Text -&gt; GetAddressBook
-</span><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#newGetAddressBook"><span class="hs-identifier hs-var hs-var">newGetAddressBook</span></a></span></span><span> </span><span id="local-6989586621679386392"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386392"><span class="hs-identifier hs-var">pAddressBookArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#newGetAddressBook"><span class="hs-identifier hs-var hs-var">newGetAddressBook</span></a></span></span><span> </span><span id="local-6989586621679386401"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386401"><span class="hs-identifier hs-var">pAddressBookArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetAddressBook' :: Text -&gt; GetAddressBook
 </span><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook%27"><span class="hs-identifier hs-type">GetAddressBook'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressBookArn:GetAddressBook' :: Text
 </span><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#%24sel%3AaddressBookArn%3AGetAddressBook%27"><span class="hs-identifier hs-var">addressBookArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386392"><span class="hs-identifier hs-var">pAddressBookArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679386401"><span class="hs-identifier hs-var">pAddressBookArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The ARN of the address book for which to request details.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#getAddressBook_addressBookArn"><span class="hs-identifier hs-type">getAddressBook_addressBookArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook"><span class="hs-identifier hs-type">GetAddressBook</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -134,27 +134,27 @@ $cfrom :: forall x. GetAddressBook -&gt; Rep GetAddressBook x
 -&gt; (GetAddressBook -&gt; Text -&gt; GetAddressBook)
 -&gt; Lens GetAddressBook GetAddressBook Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook%27"><span class="hs-identifier hs-type">GetAddressBook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386389"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook%27"><span class="hs-identifier hs-type">GetAddressBook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386398"><span class="annot"><span class="annottext">Text
 addressBookArn :: Text
 $sel:addressBookArn:GetAddressBook' :: GetAddressBook -&gt; Text
-</span><a href="#local-6989586621679386389"><span class="hs-identifier hs-var hs-var">addressBookArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386389"><span class="hs-identifier hs-var">addressBookArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386388"><span class="annot"><span class="annottext">s :: GetAddressBook
-</span><a href="#local-6989586621679386388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook%27"><span class="hs-identifier hs-type">GetAddressBook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386387"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAddressBook
-</span><a href="#local-6989586621679386388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressBookArn:GetAddressBook' :: Text
+</span><a href="#local-6989586621679386398"><span class="hs-identifier hs-var hs-var">addressBookArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386398"><span class="hs-identifier hs-var">addressBookArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386397"><span class="annot"><span class="annottext">s :: GetAddressBook
+</span><a href="#local-6989586621679386397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook%27"><span class="hs-identifier hs-type">GetAddressBook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386396"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAddressBook
+</span><a href="#local-6989586621679386397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressBookArn:GetAddressBook' :: Text
 </span><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#%24sel%3AaddressBookArn%3AGetAddressBook%27"><span class="hs-identifier hs-var">addressBookArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook"><span class="hs-identifier hs-type">GetAddressBook</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook"><span class="hs-identifier hs-type">GetAddressBook</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook"><span class="hs-identifier hs-type">GetAddressBook</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook"><span class="hs-identifier hs-type">GetAddressBook</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse"><span class="hs-identifier hs-type">GetAddressBookResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679386383"><span class="annot"><span class="annottext">request :: GetAddressBook -&gt; Request GetAddressBook
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679386392"><span class="annot"><span class="annottext">request :: GetAddressBook -&gt; Request GetAddressBook
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetAddressBook -&gt; Request GetAddressBook
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679386379"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679386388"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetAddressBook
 -&gt; ClientResponse ClientBody
@@ -178,10 +178,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386376"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386376"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386375"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679386375"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386374"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386374"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386385"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386385"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386384"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679386384"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386383"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679386383"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe AddressBook -&gt; Int -&gt; GetAddressBookResponse
 </span><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse%27"><span class="hs-identifier hs-var">GetAddressBookResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AddressBook -&gt; Int -&gt; GetAddressBookResponse)
@@ -189,7 +189,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetAddressBookResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AddressBook)
+</span><a href="#local-6989586621679386383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AddressBook)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AddressBook&quot;</span></span><span class="hs-special">)</span><span>
@@ -201,15 +201,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386376"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386385"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386366"><span id="local-6989586621679386368"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook"><span class="hs-identifier hs-type">GetAddressBook</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386375"><span id="local-6989586621679386377"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook"><span class="hs-identifier hs-type">GetAddressBook</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386363"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook"><span class="hs-identifier hs-type">GetAddressBook</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386372"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook"><span class="hs-identifier hs-type">GetAddressBook</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook"><span class="hs-identifier hs-type">GetAddressBook</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679386359"><span class="annot"><span class="annottext">toHeaders :: GetAddressBook -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679386368"><span class="annot"><span class="annottext">toHeaders :: GetAddressBook -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetAddressBook -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -236,12 +236,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386349"><span id="local-6989586621679386351"><span id="local-6989586621679386353"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook"><span class="hs-identifier hs-type">GetAddressBook</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679386347"><span class="annot"><span class="annottext">toJSON :: GetAddressBook -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook%27"><span class="hs-identifier hs-type">GetAddressBook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386345"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386358"><span id="local-6989586621679386360"><span id="local-6989586621679386362"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook"><span class="hs-identifier hs-type">GetAddressBook</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679386356"><span class="annot"><span class="annottext">toJSON :: GetAddressBook -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook%27"><span class="hs-identifier hs-type">GetAddressBook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386354"><span class="annot"><span class="annottext">Text
 addressBookArn :: Text
 $sel:addressBookArn:GetAddressBook' :: GetAddressBook -&gt; Text
-</span><a href="#local-6989586621679386345"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679386354"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -254,19 +254,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AddressBookArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386345"><span class="hs-identifier hs-var">addressBookArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386354"><span class="hs-identifier hs-var">addressBookArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook"><span class="hs-identifier hs-type">GetAddressBook</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679386339"><span class="annot"><span class="annottext">toPath :: GetAddressBook -&gt; ByteString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679386348"><span class="annot"><span class="annottext">toPath :: GetAddressBook -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetAddressBook -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBook"><span class="hs-identifier hs-type">GetAddressBook</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679386335"><span class="annot"><span class="annottext">toQuery :: GetAddressBook -&gt; QueryString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679386344"><span class="annot"><span class="annottext">toQuery :: GetAddressBook -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetAddressBook -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -274,7 +274,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | /See:/ 'newGetAddressBookResponse' smart constructor.</span><span>
-</span><span id="line-124"></span><span id="local-6989586621679386332"><span id="local-6989586621679386333"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAddressBookResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse"><span class="hs-identifier hs-var">GetAddressBookResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAddressBookResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse%27"><span class="hs-identifier hs-var">GetAddressBookResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span id="local-6989586621679386341"><span id="local-6989586621679386342"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAddressBookResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse"><span class="hs-identifier hs-var">GetAddressBookResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAddressBookResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse%27"><span class="hs-identifier hs-var">GetAddressBookResponse'</span></a></span></span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The details of the requested address book.</span><span>
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AaddressBook%3AGetAddressBookResponse%27"><span class="annot"><span class="annottext">GetAddressBookResponse -&gt; Maybe AddressBook
 </span><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#%24sel%3AaddressBook%3AGetAddressBookResponse%27"><span class="hs-identifier hs-var hs-var">addressBook</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.AddressBook.html#AddressBook"><span class="hs-identifier hs-type">AddressBook</span></a></span><span class="hs-special">,</span><span>
@@ -282,7 +282,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAddressBookResponse%27"><span class="annot"><span class="annottext">GetAddressBookResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#%24sel%3AhttpStatus%3AGetAddressBookResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386326"><span id="local-6989586621679386328"><span class="annot"><span class="annottext">GetAddressBookResponse -&gt; GetAddressBookResponse -&gt; Bool
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386335"><span id="local-6989586621679386337"><span class="annot"><span class="annottext">GetAddressBookResponse -&gt; GetAddressBookResponse -&gt; Bool
 (GetAddressBookResponse -&gt; GetAddressBookResponse -&gt; Bool)
 -&gt; (GetAddressBookResponse -&gt; GetAddressBookResponse -&gt; Bool)
 -&gt; Eq GetAddressBookResponse
@@ -291,7 +291,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetAddressBookResponse -&gt; GetAddressBookResponse -&gt; Bool
 == :: GetAddressBookResponse -&gt; GetAddressBookResponse -&gt; Bool
 $c== :: GetAddressBookResponse -&gt; GetAddressBookResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386318"><span id="local-6989586621679386320"><span id="local-6989586621679386322"><span id="local-6989586621679386324"><span class="annot"><span class="annottext">ReadPrec [GetAddressBookResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386327"><span id="local-6989586621679386329"><span id="local-6989586621679386331"><span id="local-6989586621679386333"><span class="annot"><span class="annottext">ReadPrec [GetAddressBookResponse]
 ReadPrec GetAddressBookResponse
 Int -&gt; ReadS GetAddressBookResponse
 ReadS [GetAddressBookResponse]
@@ -311,7 +311,7 @@ readList :: ReadS [GetAddressBookResponse]
 $creadList :: ReadS [GetAddressBookResponse]
 readsPrec :: Int -&gt; ReadS GetAddressBookResponse
 $creadsPrec :: Int -&gt; ReadS GetAddressBookResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386312"><span id="local-6989586621679386314"><span id="local-6989586621679386316"><span class="annot"><span class="annottext">Int -&gt; GetAddressBookResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386321"><span id="local-6989586621679386323"><span id="local-6989586621679386325"><span class="annot"><span class="annottext">Int -&gt; GetAddressBookResponse -&gt; ShowS
 [GetAddressBookResponse] -&gt; ShowS
 GetAddressBookResponse -&gt; String
 (Int -&gt; GetAddressBookResponse -&gt; ShowS)
@@ -354,8 +354,8 @@ $cfrom :: forall x. GetAddressBookResponse -&gt; Rep GetAddressBookResponse x
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse"><span class="hs-identifier hs-type">GetAddressBookResponse</span></a></span><span>
 </span><span id="line-147"></span><span id="newGetAddressBookResponse"><span class="annot"><span class="annottext">newGetAddressBookResponse :: Int -&gt; GetAddressBookResponse
-</span><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#newGetAddressBookResponse"><span class="hs-identifier hs-var hs-var">newGetAddressBookResponse</span></a></span></span><span> </span><span id="local-6989586621679386309"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386309"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#newGetAddressBookResponse"><span class="hs-identifier hs-var hs-var">newGetAddressBookResponse</span></a></span></span><span> </span><span id="local-6989586621679386318"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386318"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">GetAddressBookResponse' :: Maybe AddressBook -&gt; Int -&gt; GetAddressBookResponse
 </span><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse%27"><span class="hs-identifier hs-type">GetAddressBookResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:addressBook:GetAddressBookResponse' :: Maybe AddressBook
@@ -365,7 +365,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAddressBookResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#%24sel%3AhttpStatus%3AGetAddressBookResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386309"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679386318"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The details of the requested address book.</span><span>
@@ -381,16 +381,16 @@ forall a. Maybe a
      (Maybe AddressBook)
      (Maybe AddressBook)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse%27"><span class="hs-identifier hs-type">GetAddressBookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386308"><span class="annot"><span class="annottext">Maybe AddressBook
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse%27"><span class="hs-identifier hs-type">GetAddressBookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386317"><span class="annot"><span class="annottext">Maybe AddressBook
 addressBook :: Maybe AddressBook
 $sel:addressBook:GetAddressBookResponse' :: GetAddressBookResponse -&gt; Maybe AddressBook
-</span><a href="#local-6989586621679386308"><span class="hs-identifier hs-var hs-var">addressBook</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AddressBook
-</span><a href="#local-6989586621679386308"><span class="hs-identifier hs-var">addressBook</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386307"><span class="annot"><span class="annottext">s :: GetAddressBookResponse
-</span><a href="#local-6989586621679386307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse%27"><span class="hs-identifier hs-type">GetAddressBookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386306"><span class="annot"><span class="annottext">Maybe AddressBook
-</span><a href="#local-6989586621679386306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAddressBookResponse
-</span><a href="#local-6989586621679386307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressBook:GetAddressBookResponse' :: Maybe AddressBook
+</span><a href="#local-6989586621679386317"><span class="hs-identifier hs-var hs-var">addressBook</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AddressBook
+</span><a href="#local-6989586621679386317"><span class="hs-identifier hs-var">addressBook</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386316"><span class="annot"><span class="annottext">s :: GetAddressBookResponse
+</span><a href="#local-6989586621679386316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse%27"><span class="hs-identifier hs-type">GetAddressBookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386315"><span class="annot"><span class="annottext">Maybe AddressBook
+</span><a href="#local-6989586621679386315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAddressBookResponse
+</span><a href="#local-6989586621679386316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressBook:GetAddressBookResponse' :: Maybe AddressBook
 </span><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#%24sel%3AaddressBook%3AGetAddressBookResponse%27"><span class="hs-identifier hs-var">addressBook</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AddressBook
-</span><a href="#local-6989586621679386306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse"><span class="hs-identifier hs-type">GetAddressBookResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse"><span class="hs-identifier hs-type">GetAddressBookResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-159"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#getAddressBookResponse_httpStatus"><span class="hs-identifier hs-type">getAddressBookResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse"><span class="hs-identifier hs-type">GetAddressBookResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -400,16 +400,16 @@ $sel:addressBook:GetAddressBookResponse' :: GetAddressBookResponse -&gt; Maybe A
 -&gt; (GetAddressBookResponse -&gt; Int -&gt; GetAddressBookResponse)
 -&gt; Lens GetAddressBookResponse GetAddressBookResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse%27"><span class="hs-identifier hs-type">GetAddressBookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386305"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse%27"><span class="hs-identifier hs-type">GetAddressBookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386314"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetAddressBookResponse' :: GetAddressBookResponse -&gt; Int
-</span><a href="#local-6989586621679386305"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386305"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386304"><span class="annot"><span class="annottext">s :: GetAddressBookResponse
-</span><a href="#local-6989586621679386304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse%27"><span class="hs-identifier hs-type">GetAddressBookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386303"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAddressBookResponse
-</span><a href="#local-6989586621679386304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAddressBookResponse' :: Int
+</span><a href="#local-6989586621679386314"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386314"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386313"><span class="annot"><span class="annottext">s :: GetAddressBookResponse
+</span><a href="#local-6989586621679386313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse%27"><span class="hs-identifier hs-type">GetAddressBookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386312"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAddressBookResponse
+</span><a href="#local-6989586621679386313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAddressBookResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#%24sel%3AhttpStatus%3AGetAddressBookResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse"><span class="hs-identifier hs-type">GetAddressBookResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse"><span class="hs-identifier hs-type">GetAddressBookResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386301"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse"><span class="hs-identifier hs-type">GetAddressBookResponse</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386310"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetAddressBook.html#GetAddressBookResponse"><span class="hs-identifier hs-type">GetAddressBookResponse</span></a></span></span><span>
 </span><span id="line-163"></span></pre></body></html>

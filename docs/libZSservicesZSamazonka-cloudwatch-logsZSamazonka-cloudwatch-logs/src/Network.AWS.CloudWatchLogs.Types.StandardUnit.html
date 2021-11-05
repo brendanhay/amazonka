@@ -54,13 +54,13 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span id="local-6989586621679223042"><span id="local-6989586621679223043"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StandardUnit"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.StandardUnit.html#StandardUnit"><span class="hs-identifier hs-var">StandardUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StandardUnit%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.StandardUnit.html#StandardUnit%27"><span class="hs-identifier hs-var">StandardUnit'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679223051"><span id="local-6989586621679223052"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StandardUnit"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.StandardUnit.html#StandardUnit"><span class="hs-identifier hs-var">StandardUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StandardUnit%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.StandardUnit.html#StandardUnit%27"><span class="hs-identifier hs-var">StandardUnit'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStandardUnit"><span class="annot"><span class="annottext">StandardUnit -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.StandardUnit.html#fromStandardUnit"><span class="hs-identifier hs-var hs-var">fromStandardUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679223034"><span id="local-6989586621679223036"><span id="local-6989586621679223038"><span class="annot"><span class="annottext">Int -&gt; StandardUnit -&gt; ShowS
+</span><span id="line-62"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679223043"><span id="local-6989586621679223045"><span id="local-6989586621679223047"><span class="annot"><span class="annottext">Int -&gt; StandardUnit -&gt; ShowS
 [StandardUnit] -&gt; ShowS
 StandardUnit -&gt; String
 (Int -&gt; StandardUnit -&gt; ShowS)
@@ -76,7 +76,7 @@ $cshow :: StandardUnit -&gt; String
 showsPrec :: Int -&gt; StandardUnit -&gt; ShowS
 $cshowsPrec :: Int -&gt; StandardUnit -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679223025"><span id="local-6989586621679223027"><span id="local-6989586621679223029"><span id="local-6989586621679223031"><span class="annot"><span class="annottext">ReadPrec [StandardUnit]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679223034"><span id="local-6989586621679223036"><span id="local-6989586621679223038"><span id="local-6989586621679223040"><span class="annot"><span class="annottext">ReadPrec [StandardUnit]
 ReadPrec StandardUnit
 Int -&gt; ReadS StandardUnit
 ReadS [StandardUnit]
@@ -97,7 +97,7 @@ $creadList :: ReadS [StandardUnit]
 readsPrec :: Int -&gt; ReadS StandardUnit
 $creadsPrec :: Int -&gt; ReadS StandardUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679223020"><span id="local-6989586621679223022"><span class="annot"><span class="annottext">StandardUnit -&gt; StandardUnit -&gt; Bool
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679223029"><span id="local-6989586621679223031"><span class="annot"><span class="annottext">StandardUnit -&gt; StandardUnit -&gt; Bool
 (StandardUnit -&gt; StandardUnit -&gt; Bool)
 -&gt; (StandardUnit -&gt; StandardUnit -&gt; Bool) -&gt; Eq StandardUnit
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -106,7 +106,7 @@ $c/= :: StandardUnit -&gt; StandardUnit -&gt; Bool
 == :: StandardUnit -&gt; StandardUnit -&gt; Bool
 $c== :: StandardUnit -&gt; StandardUnit -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679223004"><span id="local-6989586621679223006"><span id="local-6989586621679223008"><span id="local-6989586621679223010"><span id="local-6989586621679223012"><span id="local-6989586621679223014"><span id="local-6989586621679223016"><span class="annot"><span class="annottext">Eq StandardUnit
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679223013"><span id="local-6989586621679223015"><span id="local-6989586621679223017"><span id="local-6989586621679223019"><span id="local-6989586621679223021"><span id="local-6989586621679223023"><span id="local-6989586621679223025"><span class="annot"><span class="annottext">Eq StandardUnit
 Eq StandardUnit
 -&gt; (StandardUnit -&gt; StandardUnit -&gt; Ordering)
 -&gt; (StandardUnit -&gt; StandardUnit -&gt; Bool)
@@ -157,7 +157,7 @@ $cfrom :: forall x. StandardUnit -&gt; Rep StandardUnit x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679222996"><span id="local-6989586621679222998"><span class="annot"><span class="annottext">Int -&gt; StandardUnit -&gt; Int
+</span><span id="line-69"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679223005"><span id="local-6989586621679223007"><span class="annot"><span class="annottext">Int -&gt; StandardUnit -&gt; Int
 StandardUnit -&gt; Int
 (Int -&gt; StandardUnit -&gt; Int)
 -&gt; (StandardUnit -&gt; Int) -&gt; Hashable StandardUnit
@@ -167,49 +167,49 @@ $chash :: StandardUnit -&gt; Int
 hashWithSalt :: Int -&gt; StandardUnit -&gt; Int
 $chashWithSalt :: Int -&gt; StandardUnit -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679222993"><span class="annot"><span class="annottext">StandardUnit -&gt; ()
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679223002"><span class="annot"><span class="annottext">StandardUnit -&gt; ()
 (StandardUnit -&gt; ()) -&gt; NFData StandardUnit
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StandardUnit -&gt; ()
 $crnf :: StandardUnit -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679222990"><span class="annot"><span class="annottext">Text -&gt; Either String StandardUnit
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679222999"><span class="annot"><span class="annottext">Text -&gt; Either String StandardUnit
 (Text -&gt; Either String StandardUnit) -&gt; FromText StandardUnit
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StandardUnit
 $cfromText :: Text -&gt; Either String StandardUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679222987"><span class="annot"><span class="annottext">StandardUnit -&gt; Text
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679222996"><span class="annot"><span class="annottext">StandardUnit -&gt; Text
 (StandardUnit -&gt; Text) -&gt; ToText StandardUnit
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StandardUnit -&gt; Text
 $ctoText :: StandardUnit -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679222984"><span class="annot"><span class="annottext">StandardUnit -&gt; ByteString
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679222993"><span class="annot"><span class="annottext">StandardUnit -&gt; ByteString
 (StandardUnit -&gt; ByteString) -&gt; ToByteString StandardUnit
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StandardUnit -&gt; ByteString
 $ctoBS :: StandardUnit -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679222981"><span class="annot"><span class="annottext">StandardUnit -&gt; ByteStringBuilder
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679222990"><span class="annot"><span class="annottext">StandardUnit -&gt; ByteStringBuilder
 (StandardUnit -&gt; ByteStringBuilder) -&gt; ToLog StandardUnit
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StandardUnit -&gt; ByteStringBuilder
 $cbuild :: StandardUnit -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679222978"><span class="annot"><span class="annottext">HeaderName -&gt; StandardUnit -&gt; [Header]
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679222987"><span class="annot"><span class="annottext">HeaderName -&gt; StandardUnit -&gt; [Header]
 (HeaderName -&gt; StandardUnit -&gt; [Header]) -&gt; ToHeader StandardUnit
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StandardUnit -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StandardUnit -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679222975"><span class="annot"><span class="annottext">StandardUnit -&gt; QueryString
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679222984"><span class="annot"><span class="annottext">StandardUnit -&gt; QueryString
 (StandardUnit -&gt; QueryString) -&gt; ToQuery StandardUnit
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StandardUnit -&gt; QueryString
 $ctoQuery :: StandardUnit -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679222970"><span id="local-6989586621679222972"><span class="annot"><span class="annottext">Value -&gt; Parser [StandardUnit]
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679222979"><span id="local-6989586621679222981"><span class="annot"><span class="annottext">Value -&gt; Parser [StandardUnit]
 Value -&gt; Parser StandardUnit
 (Value -&gt; Parser StandardUnit)
 -&gt; (Value -&gt; Parser [StandardUnit]) -&gt; FromJSON StandardUnit
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [StandardUnit]
 parseJSON :: Value -&gt; Parser StandardUnit
 $cparseJSON :: Value -&gt; Parser StandardUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621679222965"><span id="local-6989586621679222967"><span class="annot"><span class="annottext">FromJSONKeyFunction [StandardUnit]
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679222974"><span id="local-6989586621679222976"><span class="annot"><span class="annottext">FromJSONKeyFunction [StandardUnit]
 FromJSONKeyFunction StandardUnit
 FromJSONKeyFunction StandardUnit
 -&gt; FromJSONKeyFunction [StandardUnit] -&gt; FromJSONKey StandardUnit
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StandardUnit]
 fromJSONKey :: FromJSONKeyFunction StandardUnit
 $cfromJSONKey :: FromJSONKeyFunction StandardUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span id="local-6989586621679222956"><span id="local-6989586621679222958"><span id="local-6989586621679222960"><span id="local-6989586621679222962"><span class="annot"><span class="annottext">[StandardUnit] -&gt; Encoding
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679222965"><span id="local-6989586621679222967"><span id="local-6989586621679222969"><span id="local-6989586621679222971"><span class="annot"><span class="annottext">[StandardUnit] -&gt; Encoding
 [StandardUnit] -&gt; Value
 StandardUnit -&gt; Encoding
 StandardUnit -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: StandardUnit -&gt; Encoding
 toJSON :: StandardUnit -&gt; Value
 $ctoJSON :: StandardUnit -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621679222951"><span id="local-6989586621679222953"><span class="annot"><span class="annottext">ToJSONKeyFunction [StandardUnit]
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679222960"><span id="local-6989586621679222962"><span class="annot"><span class="annottext">ToJSONKeyFunction [StandardUnit]
 ToJSONKeyFunction StandardUnit
 ToJSONKeyFunction StandardUnit
 -&gt; ToJSONKeyFunction [StandardUnit] -&gt; ToJSONKey StandardUnit
@@ -266,13 +266,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StandardUnit]
 toJSONKey :: ToJSONKeyFunction StandardUnit
 $ctoJSONKey :: ToJSONKeyFunction StandardUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span id="local-6989586621679222948"><span class="annot"><span class="annottext">[Node] -&gt; Either String StandardUnit
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679222957"><span class="annot"><span class="annottext">[Node] -&gt; Either String StandardUnit
 ([Node] -&gt; Either String StandardUnit) -&gt; FromXML StandardUnit
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StandardUnit
 $cparseXML :: [Node] -&gt; Either String StandardUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span id="local-6989586621679222945"><span class="annot"><span class="annottext">StandardUnit -&gt; XML
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679222954"><span class="annot"><span class="annottext">StandardUnit -&gt; XML
 (StandardUnit -&gt; XML) -&gt; ToXML StandardUnit
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StandardUnit -&gt; XML

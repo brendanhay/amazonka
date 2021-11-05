@@ -1,0 +1,777 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EBS.PutSnapshotBlock</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Writes a block of data to a snapshot. If the specified block contains</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- data, the existing data is overwritten. The target snapshot must be in</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- the @pending@ state.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Data written to a snapshot must be aligned with 512-KiB sectors.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EBS.PutSnapshotBlock</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier">PutSnapshotBlock</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#newPutSnapshotBlock"><span class="hs-identifier">newPutSnapshotBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_progress"><span class="hs-identifier">putSnapshotBlock_progress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_snapshotId"><span class="hs-identifier">putSnapshotBlock_snapshotId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_blockIndex"><span class="hs-identifier">putSnapshotBlock_blockIndex</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_dataLength"><span class="hs-identifier">putSnapshotBlock_dataLength</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_checksum"><span class="hs-identifier">putSnapshotBlock_checksum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_checksumAlgorithm"><span class="hs-identifier">putSnapshotBlock_checksumAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_blockData"><span class="hs-identifier">putSnapshotBlock_blockData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse"><span class="hs-identifier">PutSnapshotBlockResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#newPutSnapshotBlockResponse"><span class="hs-identifier">newPutSnapshotBlockResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlockResponse_checksumAlgorithm"><span class="hs-identifier">putSnapshotBlockResponse_checksumAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlockResponse_checksum"><span class="hs-identifier">putSnapshotBlockResponse_checksum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlockResponse_httpStatus"><span class="hs-identifier">putSnapshotBlockResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EBS.Types.html"><span class="hs-identifier">Network.AWS.EBS.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newPutSnapshotBlock' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679155210"><span id="local-6989586621679155211"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutSnapshotBlock"><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-var">PutSnapshotBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutSnapshotBlock%27"><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-var">PutSnapshotBlock'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The progress of the write process, as a percentage.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Aprogress%3APutSnapshotBlock%27"><span class="annot"><span class="annottext">PutSnapshotBlock -&gt; Maybe Natural
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3Aprogress%3APutSnapshotBlock%27"><span class="hs-identifier hs-var hs-var">progress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ID of the snapshot.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AsnapshotId%3APutSnapshotBlock%27"><span class="annot"><span class="annottext">PutSnapshotBlock -&gt; Text
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AsnapshotId%3APutSnapshotBlock%27"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The block index of the block in which to write the data. A block index</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- is a logical index in units of @512@ KiB blocks. To identify the block</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- index, divide the logical offset of the data in the logical volume by</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- the block size (logical offset of data\/@524288@). The logical offset of</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- the data must be @512@ KiB aligned.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AblockIndex%3APutSnapshotBlock%27"><span class="annot"><span class="annottext">PutSnapshotBlock -&gt; Natural
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AblockIndex%3APutSnapshotBlock%27"><span class="hs-identifier hs-var hs-var">blockIndex</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The size of the data to write to the block, in bytes. Currently, the</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- only supported size is @524288@ bytes.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- Valid values: @524288@</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AdataLength%3APutSnapshotBlock%27"><span class="annot"><span class="annottext">PutSnapshotBlock -&gt; Int
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AdataLength%3APutSnapshotBlock%27"><span class="hs-identifier hs-var hs-var">dataLength</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- supported.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Achecksum%3APutSnapshotBlock%27"><span class="annot"><span class="annottext">PutSnapshotBlock -&gt; Text
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3Achecksum%3APutSnapshotBlock%27"><span class="hs-identifier hs-var hs-var">checksum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The algorithm used to generate the checksum. Currently, the only</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- supported algorithm is @SHA256@.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AchecksumAlgorithm%3APutSnapshotBlock%27"><span class="annot"><span class="annottext">PutSnapshotBlock -&gt; ChecksumAlgorithm
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AchecksumAlgorithm%3APutSnapshotBlock%27"><span class="hs-identifier hs-var hs-var">checksumAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.Types.ChecksumAlgorithm.html#ChecksumAlgorithm"><span class="hs-identifier hs-type">ChecksumAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The data to write to the block.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- The block data is not signed as part of the Signature Version 4 signing</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- process. As a result, you must generate and provide a Base64-encoded</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- SHA256 checksum for the block data using the __x-amz-Checksum__ header.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- Also, you must specify the checksum algorithm using the</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- __x-amz-Checksum-Algorithm__ header. The checksum that you provide is</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- part of the Signature Version 4 signing process. It is validated against</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- a checksum generated by Amazon EBS to ensure the validity and</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- authenticity of the data. If the checksums do not correspond, the</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- request fails. For more information, see</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-checksums Using checksums with the EBS direct APIs&gt;</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AblockData%3APutSnapshotBlock%27"><span class="annot"><span class="annottext">PutSnapshotBlock -&gt; HashedBody
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AblockData%3APutSnapshotBlock%27"><span class="hs-identifier hs-var hs-var">blockData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.HashedBody</span></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679155196"><span id="local-6989586621679155198"><span id="local-6989586621679155200"><span class="annot"><span class="annottext">Int -&gt; PutSnapshotBlock -&gt; ShowS
+[PutSnapshotBlock] -&gt; ShowS
+PutSnapshotBlock -&gt; String
+(Int -&gt; PutSnapshotBlock -&gt; ShowS)
+-&gt; (PutSnapshotBlock -&gt; String)
+-&gt; ([PutSnapshotBlock] -&gt; ShowS)
+-&gt; Show PutSnapshotBlock
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutSnapshotBlock] -&gt; ShowS
+$cshowList :: [PutSnapshotBlock] -&gt; ShowS
+show :: PutSnapshotBlock -&gt; String
+$cshow :: PutSnapshotBlock -&gt; String
+showsPrec :: Int -&gt; PutSnapshotBlock -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutSnapshotBlock -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutSnapshotBlock -&gt; Rep PutSnapshotBlock x)
+-&gt; (forall x. Rep PutSnapshotBlock x -&gt; PutSnapshotBlock)
+-&gt; Generic PutSnapshotBlock
+forall x. Rep PutSnapshotBlock x -&gt; PutSnapshotBlock
+forall x. PutSnapshotBlock -&gt; Rep PutSnapshotBlock x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutSnapshotBlock x -&gt; PutSnapshotBlock
+$cfrom :: forall x. PutSnapshotBlock -&gt; Rep PutSnapshotBlock x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Create a value of 'PutSnapshotBlock' with all optional fields omitted.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'progress', 'putSnapshotBlock_progress' - The progress of the write process, as a percentage.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'snapshotId', 'putSnapshotBlock_snapshotId' - The ID of the snapshot.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'blockIndex', 'putSnapshotBlock_blockIndex' - The block index of the block in which to write the data. A block index</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- is a logical index in units of @512@ KiB blocks. To identify the block</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- index, divide the logical offset of the data in the logical volume by</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- the block size (logical offset of data\/@524288@). The logical offset of</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- the data must be @512@ KiB aligned.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'dataLength', 'putSnapshotBlock_dataLength' - The size of the data to write to the block, in bytes. Currently, the</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- only supported size is @524288@ bytes.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Valid values: @524288@</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'checksum', 'putSnapshotBlock_checksum' - A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- supported.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'checksumAlgorithm', 'putSnapshotBlock_checksumAlgorithm' - The algorithm used to generate the checksum. Currently, the only</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- supported algorithm is @SHA256@.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'blockData', 'putSnapshotBlock_blockData' - The data to write to the block.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- The block data is not signed as part of the Signature Version 4 signing</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- process. As a result, you must generate and provide a Base64-encoded</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- SHA256 checksum for the block data using the __x-amz-Checksum__ header.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Also, you must specify the checksum algorithm using the</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- __x-amz-Checksum-Algorithm__ header. The checksum that you provide is</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- part of the Signature Version 4 signing process. It is validated against</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- a checksum generated by Amazon EBS to ensure the validity and</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- authenticity of the data. If the checksums do not correspond, the</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- request fails. For more information, see</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-checksums Using checksums with the EBS direct APIs&gt;</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#newPutSnapshotBlock"><span class="hs-identifier hs-type">newPutSnapshotBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-comment">-- | 'snapshotId'</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-comment">-- | 'blockIndex'</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-comment">-- | 'dataLength'</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'checksum'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'checksumAlgorithm'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.EBS.Types.ChecksumAlgorithm.html#ChecksumAlgorithm"><span class="hs-identifier hs-type">ChecksumAlgorithm</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-comment">-- | 'blockData'</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.HashedBody</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span>
+</span><span id="line-156"></span><span id="newPutSnapshotBlock"><span class="annot"><span class="annottext">newPutSnapshotBlock :: Text
+-&gt; Natural
+-&gt; Int
+-&gt; Text
+-&gt; ChecksumAlgorithm
+-&gt; HashedBody
+-&gt; PutSnapshotBlock
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#newPutSnapshotBlock"><span class="hs-identifier hs-var hs-var">newPutSnapshotBlock</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679155191"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155191"><span class="hs-identifier hs-var">pSnapshotId_</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679155190"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679155190"><span class="hs-identifier hs-var">pBlockIndex_</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679155189"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155189"><span class="hs-identifier hs-var">pDataLength_</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679155188"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155188"><span class="hs-identifier hs-var">pChecksum_</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679155187"><span class="annot"><span class="annottext">ChecksumAlgorithm
+</span><a href="#local-6989586621679155187"><span class="hs-identifier hs-var">pChecksumAlgorithm_</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679155186"><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679155186"><span class="hs-identifier hs-var">pBlockData_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">PutSnapshotBlock' :: Maybe Natural
+-&gt; Text
+-&gt; Natural
+-&gt; Int
+-&gt; Text
+-&gt; ChecksumAlgorithm
+-&gt; HashedBody
+-&gt; PutSnapshotBlock
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:progress:PutSnapshotBlock' :: Maybe Natural
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3Aprogress%3APutSnapshotBlock%27"><span class="hs-identifier hs-var">progress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:snapshotId:PutSnapshotBlock' :: Text
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AsnapshotId%3APutSnapshotBlock%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155191"><span class="hs-identifier hs-var">pSnapshotId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:blockIndex:PutSnapshotBlock' :: Natural
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AblockIndex%3APutSnapshotBlock%27"><span class="hs-identifier hs-var">blockIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679155190"><span class="hs-identifier hs-var">pBlockIndex_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataLength:PutSnapshotBlock' :: Int
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AdataLength%3APutSnapshotBlock%27"><span class="hs-identifier hs-var">dataLength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155189"><span class="hs-identifier hs-var">pDataLength_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:checksum:PutSnapshotBlock' :: Text
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3Achecksum%3APutSnapshotBlock%27"><span class="hs-identifier hs-var">checksum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155188"><span class="hs-identifier hs-var">pChecksum_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">$sel:checksumAlgorithm:PutSnapshotBlock' :: ChecksumAlgorithm
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AchecksumAlgorithm%3APutSnapshotBlock%27"><span class="hs-identifier hs-var">checksumAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChecksumAlgorithm
+</span><a href="#local-6989586621679155187"><span class="hs-identifier hs-var">pChecksumAlgorithm_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">$sel:blockData:PutSnapshotBlock' :: HashedBody
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AblockData%3APutSnapshotBlock%27"><span class="hs-identifier hs-var">blockData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679155186"><span class="hs-identifier hs-var">pBlockData_</span></a></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The progress of the write process, as a percentage.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_progress"><span class="hs-identifier hs-type">putSnapshotBlock_progress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="putSnapshotBlock_progress"><span class="annot"><span class="annottext">putSnapshotBlock_progress :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; PutSnapshotBlock -&gt; f PutSnapshotBlock
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_progress"><span class="hs-identifier hs-var hs-var">putSnapshotBlock_progress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutSnapshotBlock -&gt; Maybe Natural)
+-&gt; (PutSnapshotBlock -&gt; Maybe Natural -&gt; PutSnapshotBlock)
+-&gt; Lens
+     PutSnapshotBlock PutSnapshotBlock (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155183"><span class="annot"><span class="annottext">Maybe Natural
+progress :: Maybe Natural
+$sel:progress:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Maybe Natural
+</span><a href="#local-6989586621679155183"><span class="hs-identifier hs-var hs-var">progress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679155183"><span class="hs-identifier hs-var">progress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155182"><span class="annot"><span class="annottext">s :: PutSnapshotBlock
+</span><a href="#local-6989586621679155182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155181"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679155181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSnapshotBlock
+</span><a href="#local-6989586621679155182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progress:PutSnapshotBlock' :: Maybe Natural
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3Aprogress%3APutSnapshotBlock%27"><span class="hs-identifier hs-var">progress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679155181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The ID of the snapshot.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_snapshotId"><span class="hs-identifier hs-type">putSnapshotBlock_snapshotId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-179"></span><span id="putSnapshotBlock_snapshotId"><span class="annot"><span class="annottext">putSnapshotBlock_snapshotId :: (Text -&gt; f Text) -&gt; PutSnapshotBlock -&gt; f PutSnapshotBlock
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_snapshotId"><span class="hs-identifier hs-var hs-var">putSnapshotBlock_snapshotId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutSnapshotBlock -&gt; Text)
+-&gt; (PutSnapshotBlock -&gt; Text -&gt; PutSnapshotBlock)
+-&gt; Lens PutSnapshotBlock PutSnapshotBlock Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155180"><span class="annot"><span class="annottext">Text
+snapshotId :: Text
+$sel:snapshotId:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Text
+</span><a href="#local-6989586621679155180"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155180"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155179"><span class="annot"><span class="annottext">s :: PutSnapshotBlock
+</span><a href="#local-6989586621679155179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155178"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSnapshotBlock
+</span><a href="#local-6989586621679155179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotId:PutSnapshotBlock' :: Text
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AsnapshotId%3APutSnapshotBlock%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The block index of the block in which to write the data. A block index</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- is a logical index in units of @512@ KiB blocks. To identify the block</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- index, divide the logical offset of the data in the logical volume by</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- the block size (logical offset of data\/@524288@). The logical offset of</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- the data must be @512@ KiB aligned.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_blockIndex"><span class="hs-identifier hs-type">putSnapshotBlock_blockIndex</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-187"></span><span id="putSnapshotBlock_blockIndex"><span class="annot"><span class="annottext">putSnapshotBlock_blockIndex :: (Natural -&gt; f Natural) -&gt; PutSnapshotBlock -&gt; f PutSnapshotBlock
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_blockIndex"><span class="hs-identifier hs-var hs-var">putSnapshotBlock_blockIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutSnapshotBlock -&gt; Natural)
+-&gt; (PutSnapshotBlock -&gt; Natural -&gt; PutSnapshotBlock)
+-&gt; Lens PutSnapshotBlock PutSnapshotBlock Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155177"><span class="annot"><span class="annottext">Natural
+blockIndex :: Natural
+$sel:blockIndex:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Natural
+</span><a href="#local-6989586621679155177"><span class="hs-identifier hs-var hs-var">blockIndex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679155177"><span class="hs-identifier hs-var">blockIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155176"><span class="annot"><span class="annottext">s :: PutSnapshotBlock
+</span><a href="#local-6989586621679155176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155175"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679155175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSnapshotBlock
+</span><a href="#local-6989586621679155176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockIndex:PutSnapshotBlock' :: Natural
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AblockIndex%3APutSnapshotBlock%27"><span class="hs-identifier hs-var">blockIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679155175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The size of the data to write to the block, in bytes. Currently, the</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- only supported size is @524288@ bytes.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Valid values: @524288@</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_dataLength"><span class="hs-identifier hs-type">putSnapshotBlock_dataLength</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span id="putSnapshotBlock_dataLength"><span class="annot"><span class="annottext">putSnapshotBlock_dataLength :: (Int -&gt; f Int) -&gt; PutSnapshotBlock -&gt; f PutSnapshotBlock
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_dataLength"><span class="hs-identifier hs-var hs-var">putSnapshotBlock_dataLength</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutSnapshotBlock -&gt; Int)
+-&gt; (PutSnapshotBlock -&gt; Int -&gt; PutSnapshotBlock)
+-&gt; Lens PutSnapshotBlock PutSnapshotBlock Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155174"><span class="annot"><span class="annottext">Int
+dataLength :: Int
+$sel:dataLength:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Int
+</span><a href="#local-6989586621679155174"><span class="hs-identifier hs-var hs-var">dataLength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155174"><span class="hs-identifier hs-var">dataLength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155173"><span class="annot"><span class="annottext">s :: PutSnapshotBlock
+</span><a href="#local-6989586621679155173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155172"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSnapshotBlock
+</span><a href="#local-6989586621679155173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataLength:PutSnapshotBlock' :: Int
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AdataLength%3APutSnapshotBlock%27"><span class="hs-identifier hs-var">dataLength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- supported.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_checksum"><span class="hs-identifier hs-type">putSnapshotBlock_checksum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-199"></span><span id="putSnapshotBlock_checksum"><span class="annot"><span class="annottext">putSnapshotBlock_checksum :: (Text -&gt; f Text) -&gt; PutSnapshotBlock -&gt; f PutSnapshotBlock
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_checksum"><span class="hs-identifier hs-var hs-var">putSnapshotBlock_checksum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutSnapshotBlock -&gt; Text)
+-&gt; (PutSnapshotBlock -&gt; Text -&gt; PutSnapshotBlock)
+-&gt; Lens PutSnapshotBlock PutSnapshotBlock Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155171"><span class="annot"><span class="annottext">Text
+checksum :: Text
+$sel:checksum:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Text
+</span><a href="#local-6989586621679155171"><span class="hs-identifier hs-var hs-var">checksum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155171"><span class="hs-identifier hs-var">checksum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155170"><span class="annot"><span class="annottext">s :: PutSnapshotBlock
+</span><a href="#local-6989586621679155170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155169"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSnapshotBlock
+</span><a href="#local-6989586621679155170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checksum:PutSnapshotBlock' :: Text
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3Achecksum%3APutSnapshotBlock%27"><span class="hs-identifier hs-var">checksum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The algorithm used to generate the checksum. Currently, the only</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- supported algorithm is @SHA256@.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_checksumAlgorithm"><span class="hs-identifier hs-type">putSnapshotBlock_checksumAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EBS.Types.ChecksumAlgorithm.html#ChecksumAlgorithm"><span class="hs-identifier hs-type">ChecksumAlgorithm</span></a></span><span>
+</span><span id="line-204"></span><span id="putSnapshotBlock_checksumAlgorithm"><span class="annot"><span class="annottext">putSnapshotBlock_checksumAlgorithm :: (ChecksumAlgorithm -&gt; f ChecksumAlgorithm)
+-&gt; PutSnapshotBlock -&gt; f PutSnapshotBlock
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_checksumAlgorithm"><span class="hs-identifier hs-var hs-var">putSnapshotBlock_checksumAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutSnapshotBlock -&gt; ChecksumAlgorithm)
+-&gt; (PutSnapshotBlock -&gt; ChecksumAlgorithm -&gt; PutSnapshotBlock)
+-&gt; Lens
+     PutSnapshotBlock
+     PutSnapshotBlock
+     ChecksumAlgorithm
+     ChecksumAlgorithm
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155168"><span class="annot"><span class="annottext">ChecksumAlgorithm
+checksumAlgorithm :: ChecksumAlgorithm
+$sel:checksumAlgorithm:PutSnapshotBlock' :: PutSnapshotBlock -&gt; ChecksumAlgorithm
+</span><a href="#local-6989586621679155168"><span class="hs-identifier hs-var hs-var">checksumAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChecksumAlgorithm
+</span><a href="#local-6989586621679155168"><span class="hs-identifier hs-var">checksumAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155167"><span class="annot"><span class="annottext">s :: PutSnapshotBlock
+</span><a href="#local-6989586621679155167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155166"><span class="annot"><span class="annottext">ChecksumAlgorithm
+</span><a href="#local-6989586621679155166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSnapshotBlock
+</span><a href="#local-6989586621679155167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checksumAlgorithm:PutSnapshotBlock' :: ChecksumAlgorithm
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AchecksumAlgorithm%3APutSnapshotBlock%27"><span class="hs-identifier hs-var">checksumAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChecksumAlgorithm
+</span><a href="#local-6989586621679155166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The data to write to the block.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- The block data is not signed as part of the Signature Version 4 signing</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- process. As a result, you must generate and provide a Base64-encoded</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- SHA256 checksum for the block data using the __x-amz-Checksum__ header.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- Also, you must specify the checksum algorithm using the</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- __x-amz-Checksum-Algorithm__ header. The checksum that you provide is</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- part of the Signature Version 4 signing process. It is validated against</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- a checksum generated by Amazon EBS to ensure the validity and</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- authenticity of the data. If the checksums do not correspond, the</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- request fails. For more information, see</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-checksums Using checksums with the EBS direct APIs&gt;</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_blockData"><span class="hs-identifier hs-type">putSnapshotBlock_blockData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.HashedBody</span></span><span>
+</span><span id="line-220"></span><span id="putSnapshotBlock_blockData"><span class="annot"><span class="annottext">putSnapshotBlock_blockData :: (HashedBody -&gt; f HashedBody)
+-&gt; PutSnapshotBlock -&gt; f PutSnapshotBlock
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlock_blockData"><span class="hs-identifier hs-var hs-var">putSnapshotBlock_blockData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutSnapshotBlock -&gt; HashedBody)
+-&gt; (PutSnapshotBlock -&gt; HashedBody -&gt; PutSnapshotBlock)
+-&gt; Lens PutSnapshotBlock PutSnapshotBlock HashedBody HashedBody
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155165"><span class="annot"><span class="annottext">HashedBody
+blockData :: HashedBody
+$sel:blockData:PutSnapshotBlock' :: PutSnapshotBlock -&gt; HashedBody
+</span><a href="#local-6989586621679155165"><span class="hs-identifier hs-var hs-var">blockData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679155165"><span class="hs-identifier hs-var">blockData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155164"><span class="annot"><span class="annottext">s :: PutSnapshotBlock
+</span><a href="#local-6989586621679155164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155163"><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679155163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSnapshotBlock
+</span><a href="#local-6989586621679155164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockData:PutSnapshotBlock' :: HashedBody
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AblockData%3APutSnapshotBlock%27"><span class="hs-identifier hs-var">blockData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679155163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-224"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse"><span class="hs-identifier hs-type">PutSnapshotBlockResponse</span></a></span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679155159"><span class="annot"><span class="annottext">request :: PutSnapshotBlock -&gt; Request PutSnapshotBlock
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutSnapshotBlock -&gt; Request PutSnapshotBlock
+forall a. (ToRequest a, ToBody a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putBody</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EBS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679155155"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutSnapshotBlock
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutSnapshotBlock)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse PutSnapshotBlock))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutSnapshotBlock
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutSnapshotBlock)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679155152"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155152"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679155151"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679155151"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679155150"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679155150"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-230"></span><span>          </span><span class="annot"><span class="annottext">Maybe ChecksumAlgorithm
+-&gt; Maybe Text -&gt; Int -&gt; PutSnapshotBlockResponse
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse%27"><span class="hs-identifier hs-var">PutSnapshotBlockResponse'</span></a></span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ChecksumAlgorithm
+ -&gt; Maybe Text -&gt; Int -&gt; PutSnapshotBlockResponse)
+-&gt; Either String (Maybe ChecksumAlgorithm)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; PutSnapshotBlockResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679155151"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; HeaderName -&gt; Either String (Maybe ChecksumAlgorithm)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-Checksum-Algorithm&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; PutSnapshotBlockResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; PutSnapshotBlockResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679155151"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-Checksum&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; PutSnapshotBlockResponse)
+-&gt; Either String Int -&gt; Either String PutSnapshotBlockResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155152"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToBody</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679155143"><span class="annot"><span class="annottext">toBody :: PutSnapshotBlock -&gt; RequestBody
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toBody</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155135"><span id="local-6989586621679155136"><span id="local-6989586621679155137"><span id="local-6989586621679155138"><span id="local-6989586621679155139"><span id="local-6989586621679155140"><span id="local-6989586621679155141"><span class="annot"><span class="annottext">Int
+Natural
+Maybe Natural
+Text
+HashedBody
+ChecksumAlgorithm
+blockData :: HashedBody
+checksumAlgorithm :: ChecksumAlgorithm
+checksum :: Text
+dataLength :: Int
+blockIndex :: Natural
+snapshotId :: Text
+progress :: Maybe Natural
+$sel:blockData:PutSnapshotBlock' :: PutSnapshotBlock -&gt; HashedBody
+$sel:checksumAlgorithm:PutSnapshotBlock' :: PutSnapshotBlock -&gt; ChecksumAlgorithm
+$sel:checksum:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Text
+$sel:dataLength:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Int
+$sel:blockIndex:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Natural
+$sel:snapshotId:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Text
+$sel:progress:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Maybe Natural
+</span><a href="#local-6989586621679155135"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashedBody -&gt; RequestBody
+forall a. ToBody a =&gt; a -&gt; RequestBody
+</span><span class="hs-identifier hs-var">Core.toBody</span></span><span> </span><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679155135"><span class="hs-identifier hs-var">blockData</span></a></span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679155132"><span class="annot"><span class="annottext">toHeaders :: PutSnapshotBlock -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155124"><span id="local-6989586621679155125"><span id="local-6989586621679155126"><span id="local-6989586621679155127"><span id="local-6989586621679155128"><span id="local-6989586621679155129"><span id="local-6989586621679155130"><span class="annot"><span class="annottext">Int
+Natural
+Maybe Natural
+Text
+HashedBody
+ChecksumAlgorithm
+blockData :: HashedBody
+checksumAlgorithm :: ChecksumAlgorithm
+checksum :: Text
+dataLength :: Int
+blockIndex :: Natural
+snapshotId :: Text
+progress :: Maybe Natural
+$sel:blockData:PutSnapshotBlock' :: PutSnapshotBlock -&gt; HashedBody
+$sel:checksumAlgorithm:PutSnapshotBlock' :: PutSnapshotBlock -&gt; ChecksumAlgorithm
+$sel:checksum:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Text
+$sel:dataLength:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Int
+$sel:blockIndex:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Natural
+$sel:snapshotId:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Text
+$sel:progress:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Maybe Natural
+</span><a href="#local-6989586621679155124"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-242"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-Progress&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Natural -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679155130"><span class="hs-identifier hs-var">progress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-Data-Length&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Int -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155127"><span class="hs-identifier hs-var">dataLength</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-Checksum&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155126"><span class="hs-identifier hs-var">checksum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-Checksum-Algorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; ChecksumAlgorithm -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">ChecksumAlgorithm
+</span><a href="#local-6989586621679155125"><span class="hs-identifier hs-var">checksumAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-247"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679155120"><span class="annot"><span class="annottext">toPath :: PutSnapshotBlock -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock%27"><span class="hs-identifier hs-type">PutSnapshotBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155112"><span id="local-6989586621679155113"><span id="local-6989586621679155114"><span id="local-6989586621679155115"><span id="local-6989586621679155116"><span id="local-6989586621679155117"><span id="local-6989586621679155118"><span class="annot"><span class="annottext">Int
+Natural
+Maybe Natural
+Text
+HashedBody
+ChecksumAlgorithm
+blockData :: HashedBody
+checksumAlgorithm :: ChecksumAlgorithm
+checksum :: Text
+dataLength :: Int
+blockIndex :: Natural
+snapshotId :: Text
+progress :: Maybe Natural
+$sel:blockData:PutSnapshotBlock' :: PutSnapshotBlock -&gt; HashedBody
+$sel:checksumAlgorithm:PutSnapshotBlock' :: PutSnapshotBlock -&gt; ChecksumAlgorithm
+$sel:checksum:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Text
+$sel:dataLength:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Int
+$sel:blockIndex:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Natural
+$sel:snapshotId:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Text
+$sel:progress:PutSnapshotBlock' :: PutSnapshotBlock -&gt; Maybe Natural
+</span><a href="#local-6989586621679155112"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-253"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/snapshots/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155117"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/blocks/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">Natural -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679155116"><span class="hs-identifier hs-var">blockIndex</span></a></span><span>
+</span><span id="line-257"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlock"><span class="hs-identifier hs-type">PutSnapshotBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679155108"><span class="annot"><span class="annottext">toQuery :: PutSnapshotBlock -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutSnapshotBlock -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | /See:/ 'newPutSnapshotBlockResponse' smart constructor.</span><span>
+</span><span id="line-263"></span><span id="local-6989586621679155104"><span id="local-6989586621679155105"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutSnapshotBlockResponse"><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse"><span class="hs-identifier hs-var">PutSnapshotBlockResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutSnapshotBlockResponse%27"><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse%27"><span class="hs-identifier hs-var">PutSnapshotBlockResponse'</span></a></span></span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The algorithm used by Amazon EBS to generate the checksum.</span><span>
+</span><span id="line-265"></span><span>    </span><span id="%24sel%3AchecksumAlgorithm%3APutSnapshotBlockResponse%27"><span class="annot"><span class="annottext">PutSnapshotBlockResponse -&gt; Maybe ChecksumAlgorithm
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AchecksumAlgorithm%3APutSnapshotBlockResponse%27"><span class="hs-identifier hs-var hs-var">checksumAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.Types.ChecksumAlgorithm.html#ChecksumAlgorithm"><span class="hs-identifier hs-type">ChecksumAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-comment">-- | The SHA256 checksum generated for the block data by Amazon EBS.</span><span>
+</span><span id="line-267"></span><span>    </span><span id="%24sel%3Achecksum%3APutSnapshotBlockResponse%27"><span class="annot"><span class="annottext">PutSnapshotBlockResponse -&gt; Maybe Text
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3Achecksum%3APutSnapshotBlockResponse%27"><span class="hs-identifier hs-var hs-var">checksum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-269"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutSnapshotBlockResponse%27"><span class="annot"><span class="annottext">PutSnapshotBlockResponse -&gt; Int
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AhttpStatus%3APutSnapshotBlockResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-270"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-271"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679155097"><span id="local-6989586621679155099"><span class="annot"><span class="annottext">PutSnapshotBlockResponse -&gt; PutSnapshotBlockResponse -&gt; Bool
+(PutSnapshotBlockResponse -&gt; PutSnapshotBlockResponse -&gt; Bool)
+-&gt; (PutSnapshotBlockResponse -&gt; PutSnapshotBlockResponse -&gt; Bool)
+-&gt; Eq PutSnapshotBlockResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutSnapshotBlockResponse -&gt; PutSnapshotBlockResponse -&gt; Bool
+$c/= :: PutSnapshotBlockResponse -&gt; PutSnapshotBlockResponse -&gt; Bool
+== :: PutSnapshotBlockResponse -&gt; PutSnapshotBlockResponse -&gt; Bool
+$c== :: PutSnapshotBlockResponse -&gt; PutSnapshotBlockResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155088"><span id="local-6989586621679155090"><span id="local-6989586621679155092"><span id="local-6989586621679155094"><span class="annot"><span class="annottext">ReadPrec [PutSnapshotBlockResponse]
+ReadPrec PutSnapshotBlockResponse
+Int -&gt; ReadS PutSnapshotBlockResponse
+ReadS [PutSnapshotBlockResponse]
+(Int -&gt; ReadS PutSnapshotBlockResponse)
+-&gt; ReadS [PutSnapshotBlockResponse]
+-&gt; ReadPrec PutSnapshotBlockResponse
+-&gt; ReadPrec [PutSnapshotBlockResponse]
+-&gt; Read PutSnapshotBlockResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutSnapshotBlockResponse]
+$creadListPrec :: ReadPrec [PutSnapshotBlockResponse]
+readPrec :: ReadPrec PutSnapshotBlockResponse
+$creadPrec :: ReadPrec PutSnapshotBlockResponse
+readList :: ReadS [PutSnapshotBlockResponse]
+$creadList :: ReadS [PutSnapshotBlockResponse]
+readsPrec :: Int -&gt; ReadS PutSnapshotBlockResponse
+$creadsPrec :: Int -&gt; ReadS PutSnapshotBlockResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155081"><span id="local-6989586621679155083"><span id="local-6989586621679155085"><span class="annot"><span class="annottext">Int -&gt; PutSnapshotBlockResponse -&gt; ShowS
+[PutSnapshotBlockResponse] -&gt; ShowS
+PutSnapshotBlockResponse -&gt; String
+(Int -&gt; PutSnapshotBlockResponse -&gt; ShowS)
+-&gt; (PutSnapshotBlockResponse -&gt; String)
+-&gt; ([PutSnapshotBlockResponse] -&gt; ShowS)
+-&gt; Show PutSnapshotBlockResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutSnapshotBlockResponse] -&gt; ShowS
+$cshowList :: [PutSnapshotBlockResponse] -&gt; ShowS
+show :: PutSnapshotBlockResponse -&gt; String
+$cshow :: PutSnapshotBlockResponse -&gt; String
+showsPrec :: Int -&gt; PutSnapshotBlockResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutSnapshotBlockResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutSnapshotBlockResponse -&gt; Rep PutSnapshotBlockResponse x)
+-&gt; (forall x.
+    Rep PutSnapshotBlockResponse x -&gt; PutSnapshotBlockResponse)
+-&gt; Generic PutSnapshotBlockResponse
+forall x.
+Rep PutSnapshotBlockResponse x -&gt; PutSnapshotBlockResponse
+forall x.
+PutSnapshotBlockResponse -&gt; Rep PutSnapshotBlockResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutSnapshotBlockResponse x -&gt; PutSnapshotBlockResponse
+$cfrom :: forall x.
+PutSnapshotBlockResponse -&gt; Rep PutSnapshotBlockResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- Create a value of 'PutSnapshotBlockResponse' with all optional fields omitted.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- 'checksumAlgorithm', 'putSnapshotBlockResponse_checksumAlgorithm' - The algorithm used by Amazon EBS to generate the checksum.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- 'checksum', 'putSnapshotBlockResponse_checksum' - The SHA256 checksum generated for the block data by Amazon EBS.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- 'httpStatus', 'putSnapshotBlockResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#newPutSnapshotBlockResponse"><span class="hs-identifier hs-type">newPutSnapshotBlockResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-287"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-288"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-289"></span><span>  </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse"><span class="hs-identifier hs-type">PutSnapshotBlockResponse</span></a></span><span>
+</span><span id="line-290"></span><span id="newPutSnapshotBlockResponse"><span class="annot"><span class="annottext">newPutSnapshotBlockResponse :: Int -&gt; PutSnapshotBlockResponse
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#newPutSnapshotBlockResponse"><span class="hs-identifier hs-var hs-var">newPutSnapshotBlockResponse</span></a></span></span><span> </span><span id="local-6989586621679155078"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155078"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-291"></span><span>  </span><span class="annot"><span class="annottext">PutSnapshotBlockResponse' :: Maybe ChecksumAlgorithm
+-&gt; Maybe Text -&gt; Int -&gt; PutSnapshotBlockResponse
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse%27"><span class="hs-identifier hs-type">PutSnapshotBlockResponse'</span></a></span><span>
+</span><span id="line-292"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:checksumAlgorithm:PutSnapshotBlockResponse' :: Maybe ChecksumAlgorithm
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AchecksumAlgorithm%3APutSnapshotBlockResponse%27"><span class="hs-identifier hs-var">checksumAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-293"></span><span>        </span><span class="annot"><span class="annottext">Maybe ChecksumAlgorithm
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">$sel:checksum:PutSnapshotBlockResponse' :: Maybe Text
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3Achecksum%3APutSnapshotBlockResponse%27"><span class="hs-identifier hs-var">checksum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutSnapshotBlockResponse' :: Int
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AhttpStatus%3APutSnapshotBlockResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155078"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-296"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | The algorithm used by Amazon EBS to generate the checksum.</span><span>
+</span><span id="line-299"></span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlockResponse_checksumAlgorithm"><span class="hs-identifier hs-type">putSnapshotBlockResponse_checksumAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse"><span class="hs-identifier hs-type">PutSnapshotBlockResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.Types.ChecksumAlgorithm.html#ChecksumAlgorithm"><span class="hs-identifier hs-type">ChecksumAlgorithm</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span id="putSnapshotBlockResponse_checksumAlgorithm"><span class="annot"><span class="annottext">putSnapshotBlockResponse_checksumAlgorithm :: (Maybe ChecksumAlgorithm -&gt; f (Maybe ChecksumAlgorithm))
+-&gt; PutSnapshotBlockResponse -&gt; f PutSnapshotBlockResponse
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlockResponse_checksumAlgorithm"><span class="hs-identifier hs-var hs-var">putSnapshotBlockResponse_checksumAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutSnapshotBlockResponse -&gt; Maybe ChecksumAlgorithm)
+-&gt; (PutSnapshotBlockResponse
+    -&gt; Maybe ChecksumAlgorithm -&gt; PutSnapshotBlockResponse)
+-&gt; Lens
+     PutSnapshotBlockResponse
+     PutSnapshotBlockResponse
+     (Maybe ChecksumAlgorithm)
+     (Maybe ChecksumAlgorithm)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse%27"><span class="hs-identifier hs-type">PutSnapshotBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155077"><span class="annot"><span class="annottext">Maybe ChecksumAlgorithm
+checksumAlgorithm :: Maybe ChecksumAlgorithm
+$sel:checksumAlgorithm:PutSnapshotBlockResponse' :: PutSnapshotBlockResponse -&gt; Maybe ChecksumAlgorithm
+</span><a href="#local-6989586621679155077"><span class="hs-identifier hs-var hs-var">checksumAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChecksumAlgorithm
+</span><a href="#local-6989586621679155077"><span class="hs-identifier hs-var">checksumAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155076"><span class="annot"><span class="annottext">s :: PutSnapshotBlockResponse
+</span><a href="#local-6989586621679155076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse%27"><span class="hs-identifier hs-type">PutSnapshotBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155075"><span class="annot"><span class="annottext">Maybe ChecksumAlgorithm
+</span><a href="#local-6989586621679155075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSnapshotBlockResponse
+</span><a href="#local-6989586621679155076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checksumAlgorithm:PutSnapshotBlockResponse' :: Maybe ChecksumAlgorithm
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AchecksumAlgorithm%3APutSnapshotBlockResponse%27"><span class="hs-identifier hs-var">checksumAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChecksumAlgorithm
+</span><a href="#local-6989586621679155075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse"><span class="hs-identifier hs-type">PutSnapshotBlockResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- | The SHA256 checksum generated for the block data by Amazon EBS.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlockResponse_checksum"><span class="hs-identifier hs-type">putSnapshotBlockResponse_checksum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse"><span class="hs-identifier hs-type">PutSnapshotBlockResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span id="putSnapshotBlockResponse_checksum"><span class="annot"><span class="annottext">putSnapshotBlockResponse_checksum :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutSnapshotBlockResponse -&gt; f PutSnapshotBlockResponse
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlockResponse_checksum"><span class="hs-identifier hs-var hs-var">putSnapshotBlockResponse_checksum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutSnapshotBlockResponse -&gt; Maybe Text)
+-&gt; (PutSnapshotBlockResponse
+    -&gt; Maybe Text -&gt; PutSnapshotBlockResponse)
+-&gt; Lens
+     PutSnapshotBlockResponse
+     PutSnapshotBlockResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse%27"><span class="hs-identifier hs-type">PutSnapshotBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155074"><span class="annot"><span class="annottext">Maybe Text
+checksum :: Maybe Text
+$sel:checksum:PutSnapshotBlockResponse' :: PutSnapshotBlockResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679155074"><span class="hs-identifier hs-var hs-var">checksum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155074"><span class="hs-identifier hs-var">checksum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155073"><span class="annot"><span class="annottext">s :: PutSnapshotBlockResponse
+</span><a href="#local-6989586621679155073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse%27"><span class="hs-identifier hs-type">PutSnapshotBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155072"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSnapshotBlockResponse
+</span><a href="#local-6989586621679155073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checksum:PutSnapshotBlockResponse' :: Maybe Text
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3Achecksum%3APutSnapshotBlockResponse%27"><span class="hs-identifier hs-var">checksum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse"><span class="hs-identifier hs-type">PutSnapshotBlockResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-307"></span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlockResponse_httpStatus"><span class="hs-identifier hs-type">putSnapshotBlockResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse"><span class="hs-identifier hs-type">PutSnapshotBlockResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-308"></span><span id="putSnapshotBlockResponse_httpStatus"><span class="annot"><span class="annottext">putSnapshotBlockResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutSnapshotBlockResponse -&gt; f PutSnapshotBlockResponse
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#putSnapshotBlockResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putSnapshotBlockResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutSnapshotBlockResponse -&gt; Int)
+-&gt; (PutSnapshotBlockResponse -&gt; Int -&gt; PutSnapshotBlockResponse)
+-&gt; Lens PutSnapshotBlockResponse PutSnapshotBlockResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse%27"><span class="hs-identifier hs-type">PutSnapshotBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155071"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutSnapshotBlockResponse' :: PutSnapshotBlockResponse -&gt; Int
+</span><a href="#local-6989586621679155071"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155071"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155070"><span class="annot"><span class="annottext">s :: PutSnapshotBlockResponse
+</span><a href="#local-6989586621679155070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse%27"><span class="hs-identifier hs-type">PutSnapshotBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155069"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSnapshotBlockResponse
+</span><a href="#local-6989586621679155070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutSnapshotBlockResponse' :: Int
+</span><a href="Network.AWS.EBS.PutSnapshotBlock.html#%24sel%3AhttpStatus%3APutSnapshotBlockResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse"><span class="hs-identifier hs-type">PutSnapshotBlockResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155067"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EBS.PutSnapshotBlock.html#PutSnapshotBlockResponse"><span class="hs-identifier hs-type">PutSnapshotBlockResponse</span></a></span></span><span>
+</span><span id="line-311"></span></pre></body></html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.Types.IdentityStore</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.Types.IdentityStore</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IdentityStore.html#IdentityStore"><span class="hs-identifier">IdentityStore</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IdentityStore.html#IdentityStore_QUICKSIGHT"><span class="hs-identifier">IdentityStore_QUICKSIGHT</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679557632"><span id="local-6989586621679557633"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IdentityStore"><span class="annot"><a href="Network.AWS.QuickSight.Types.IdentityStore.html#IdentityStore"><span class="hs-identifier hs-var">IdentityStore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IdentityStore%27"><span class="annot"><a href="Network.AWS.QuickSight.Types.IdentityStore.html#IdentityStore%27"><span class="hs-identifier hs-var">IdentityStore'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromIdentityStore"><span class="annot"><span class="annottext">IdentityStore -&gt; Text
+</span><a href="Network.AWS.QuickSight.Types.IdentityStore.html#fromIdentityStore"><span class="hs-identifier hs-var hs-var">fromIdentityStore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679557624"><span id="local-6989586621679557626"><span id="local-6989586621679557628"><span class="annot"><span class="annottext">Int -&gt; IdentityStore -&gt; ShowS
+[IdentityStore] -&gt; ShowS
+IdentityStore -&gt; String
+(Int -&gt; IdentityStore -&gt; ShowS)
+-&gt; (IdentityStore -&gt; String)
+-&gt; ([IdentityStore] -&gt; ShowS)
+-&gt; Show IdentityStore
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [IdentityStore] -&gt; ShowS
+$cshowList :: [IdentityStore] -&gt; ShowS
+show :: IdentityStore -&gt; String
+$cshow :: IdentityStore -&gt; String
+showsPrec :: Int -&gt; IdentityStore -&gt; ShowS
+$cshowsPrec :: Int -&gt; IdentityStore -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679557615"><span id="local-6989586621679557617"><span id="local-6989586621679557619"><span id="local-6989586621679557621"><span class="annot"><span class="annottext">ReadPrec [IdentityStore]
+ReadPrec IdentityStore
+Int -&gt; ReadS IdentityStore
+ReadS [IdentityStore]
+(Int -&gt; ReadS IdentityStore)
+-&gt; ReadS [IdentityStore]
+-&gt; ReadPrec IdentityStore
+-&gt; ReadPrec [IdentityStore]
+-&gt; Read IdentityStore
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [IdentityStore]
+$creadListPrec :: ReadPrec [IdentityStore]
+readPrec :: ReadPrec IdentityStore
+$creadPrec :: ReadPrec IdentityStore
+readList :: ReadS [IdentityStore]
+$creadList :: ReadS [IdentityStore]
+readsPrec :: Int -&gt; ReadS IdentityStore
+$creadsPrec :: Int -&gt; ReadS IdentityStore
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679557610"><span id="local-6989586621679557612"><span class="annot"><span class="annottext">IdentityStore -&gt; IdentityStore -&gt; Bool
+(IdentityStore -&gt; IdentityStore -&gt; Bool)
+-&gt; (IdentityStore -&gt; IdentityStore -&gt; Bool) -&gt; Eq IdentityStore
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: IdentityStore -&gt; IdentityStore -&gt; Bool
+$c/= :: IdentityStore -&gt; IdentityStore -&gt; Bool
+== :: IdentityStore -&gt; IdentityStore -&gt; Bool
+$c== :: IdentityStore -&gt; IdentityStore -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679557594"><span id="local-6989586621679557596"><span id="local-6989586621679557598"><span id="local-6989586621679557600"><span id="local-6989586621679557602"><span id="local-6989586621679557604"><span id="local-6989586621679557606"><span class="annot"><span class="annottext">Eq IdentityStore
+Eq IdentityStore
+-&gt; (IdentityStore -&gt; IdentityStore -&gt; Ordering)
+-&gt; (IdentityStore -&gt; IdentityStore -&gt; Bool)
+-&gt; (IdentityStore -&gt; IdentityStore -&gt; Bool)
+-&gt; (IdentityStore -&gt; IdentityStore -&gt; Bool)
+-&gt; (IdentityStore -&gt; IdentityStore -&gt; Bool)
+-&gt; (IdentityStore -&gt; IdentityStore -&gt; IdentityStore)
+-&gt; (IdentityStore -&gt; IdentityStore -&gt; IdentityStore)
+-&gt; Ord IdentityStore
+IdentityStore -&gt; IdentityStore -&gt; Bool
+IdentityStore -&gt; IdentityStore -&gt; Ordering
+IdentityStore -&gt; IdentityStore -&gt; IdentityStore
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: IdentityStore -&gt; IdentityStore -&gt; IdentityStore
+$cmin :: IdentityStore -&gt; IdentityStore -&gt; IdentityStore
+max :: IdentityStore -&gt; IdentityStore -&gt; IdentityStore
+$cmax :: IdentityStore -&gt; IdentityStore -&gt; IdentityStore
+&gt;= :: IdentityStore -&gt; IdentityStore -&gt; Bool
+$c&gt;= :: IdentityStore -&gt; IdentityStore -&gt; Bool
+&gt; :: IdentityStore -&gt; IdentityStore -&gt; Bool
+$c&gt; :: IdentityStore -&gt; IdentityStore -&gt; Bool
+&lt;= :: IdentityStore -&gt; IdentityStore -&gt; Bool
+$c&lt;= :: IdentityStore -&gt; IdentityStore -&gt; Bool
+&lt; :: IdentityStore -&gt; IdentityStore -&gt; Bool
+$c&lt; :: IdentityStore -&gt; IdentityStore -&gt; Bool
+compare :: IdentityStore -&gt; IdentityStore -&gt; Ordering
+$ccompare :: IdentityStore -&gt; IdentityStore -&gt; Ordering
+$cp1Ord :: Eq IdentityStore
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. IdentityStore -&gt; Rep IdentityStore x)
+-&gt; (forall x. Rep IdentityStore x -&gt; IdentityStore)
+-&gt; Generic IdentityStore
+forall x. Rep IdentityStore x -&gt; IdentityStore
+forall x. IdentityStore -&gt; Rep IdentityStore x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep IdentityStore x -&gt; IdentityStore
+$cfrom :: forall x. IdentityStore -&gt; Rep IdentityStore x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679557586"><span id="local-6989586621679557588"><span class="annot"><span class="annottext">Int -&gt; IdentityStore -&gt; Int
+IdentityStore -&gt; Int
+(Int -&gt; IdentityStore -&gt; Int)
+-&gt; (IdentityStore -&gt; Int) -&gt; Hashable IdentityStore
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: IdentityStore -&gt; Int
+$chash :: IdentityStore -&gt; Int
+hashWithSalt :: Int -&gt; IdentityStore -&gt; Int
+$chashWithSalt :: Int -&gt; IdentityStore -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679557583"><span class="annot"><span class="annottext">IdentityStore -&gt; ()
+(IdentityStore -&gt; ()) -&gt; NFData IdentityStore
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: IdentityStore -&gt; ()
+$crnf :: IdentityStore -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679557580"><span class="annot"><span class="annottext">Text -&gt; Either String IdentityStore
+(Text -&gt; Either String IdentityStore) -&gt; FromText IdentityStore
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String IdentityStore
+$cfromText :: Text -&gt; Either String IdentityStore
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679557577"><span class="annot"><span class="annottext">IdentityStore -&gt; Text
+(IdentityStore -&gt; Text) -&gt; ToText IdentityStore
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: IdentityStore -&gt; Text
+$ctoText :: IdentityStore -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679557574"><span class="annot"><span class="annottext">IdentityStore -&gt; ByteString
+(IdentityStore -&gt; ByteString) -&gt; ToByteString IdentityStore
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: IdentityStore -&gt; ByteString
+$ctoBS :: IdentityStore -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679557571"><span class="annot"><span class="annottext">IdentityStore -&gt; ByteStringBuilder
+(IdentityStore -&gt; ByteStringBuilder) -&gt; ToLog IdentityStore
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: IdentityStore -&gt; ByteStringBuilder
+$cbuild :: IdentityStore -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679557568"><span class="annot"><span class="annottext">HeaderName -&gt; IdentityStore -&gt; [Header]
+(HeaderName -&gt; IdentityStore -&gt; [Header]) -&gt; ToHeader IdentityStore
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; IdentityStore -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; IdentityStore -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679557565"><span class="annot"><span class="annottext">IdentityStore -&gt; QueryString
+(IdentityStore -&gt; QueryString) -&gt; ToQuery IdentityStore
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: IdentityStore -&gt; QueryString
+$ctoQuery :: IdentityStore -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679557560"><span id="local-6989586621679557562"><span class="annot"><span class="annottext">Value -&gt; Parser [IdentityStore]
+Value -&gt; Parser IdentityStore
+(Value -&gt; Parser IdentityStore)
+-&gt; (Value -&gt; Parser [IdentityStore]) -&gt; FromJSON IdentityStore
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [IdentityStore]
+$cparseJSONList :: Value -&gt; Parser [IdentityStore]
+parseJSON :: Value -&gt; Parser IdentityStore
+$cparseJSON :: Value -&gt; Parser IdentityStore
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679557555"><span id="local-6989586621679557557"><span class="annot"><span class="annottext">FromJSONKeyFunction [IdentityStore]
+FromJSONKeyFunction IdentityStore
+FromJSONKeyFunction IdentityStore
+-&gt; FromJSONKeyFunction [IdentityStore] -&gt; FromJSONKey IdentityStore
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [IdentityStore]
+$cfromJSONKeyList :: FromJSONKeyFunction [IdentityStore]
+fromJSONKey :: FromJSONKeyFunction IdentityStore
+$cfromJSONKey :: FromJSONKeyFunction IdentityStore
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679557546"><span id="local-6989586621679557548"><span id="local-6989586621679557550"><span id="local-6989586621679557552"><span class="annot"><span class="annottext">[IdentityStore] -&gt; Encoding
+[IdentityStore] -&gt; Value
+IdentityStore -&gt; Encoding
+IdentityStore -&gt; Value
+(IdentityStore -&gt; Value)
+-&gt; (IdentityStore -&gt; Encoding)
+-&gt; ([IdentityStore] -&gt; Value)
+-&gt; ([IdentityStore] -&gt; Encoding)
+-&gt; ToJSON IdentityStore
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [IdentityStore] -&gt; Encoding
+$ctoEncodingList :: [IdentityStore] -&gt; Encoding
+toJSONList :: [IdentityStore] -&gt; Value
+$ctoJSONList :: [IdentityStore] -&gt; Value
+toEncoding :: IdentityStore -&gt; Encoding
+$ctoEncoding :: IdentityStore -&gt; Encoding
+toJSON :: IdentityStore -&gt; Value
+$ctoJSON :: IdentityStore -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679557541"><span id="local-6989586621679557543"><span class="annot"><span class="annottext">ToJSONKeyFunction [IdentityStore]
+ToJSONKeyFunction IdentityStore
+ToJSONKeyFunction IdentityStore
+-&gt; ToJSONKeyFunction [IdentityStore] -&gt; ToJSONKey IdentityStore
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [IdentityStore]
+$ctoJSONKeyList :: ToJSONKeyFunction [IdentityStore]
+toJSONKey :: ToJSONKeyFunction IdentityStore
+$ctoJSONKey :: ToJSONKeyFunction IdentityStore
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679557538"><span class="annot"><span class="annottext">[Node] -&gt; Either String IdentityStore
+([Node] -&gt; Either String IdentityStore) -&gt; FromXML IdentityStore
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String IdentityStore
+$cparseXML :: [Node] -&gt; Either String IdentityStore
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679557535"><span class="annot"><span class="annottext">IdentityStore -&gt; XML
+(IdentityStore -&gt; XML) -&gt; ToXML IdentityStore
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: IdentityStore -&gt; XML
+$ctoXML :: IdentityStore -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IdentityStore.html#IdentityStore_QUICKSIGHT"><span class="hs-identifier hs-type">IdentityStore_QUICKSIGHT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IdentityStore.html#IdentityStore"><span class="hs-identifier hs-type">IdentityStore</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bIdentityStore_QUICKSIGHT"><span id="%24mIdentityStore_QUICKSIGHT"><span id="IdentityStore_QUICKSIGHT"><span class="annot"><span class="annottext">$bIdentityStore_QUICKSIGHT :: IdentityStore
+$mIdentityStore_QUICKSIGHT :: forall r. IdentityStore -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.IdentityStore.html#%24bIdentityStore_QUICKSIGHT"><span class="hs-identifier hs-var hs-var hs-var">IdentityStore_QUICKSIGHT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IdentityStore.html#IdentityStore%27"><span class="hs-identifier hs-type">IdentityStore'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;QUICKSIGHT&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IdentityStore.html#IdentityStore_QUICKSIGHT"><span class="hs-pragma hs-type">IdentityStore_QUICKSIGHT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IdentityStore.html#IdentityStore%27"><span class="hs-pragma hs-type">IdentityStore'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

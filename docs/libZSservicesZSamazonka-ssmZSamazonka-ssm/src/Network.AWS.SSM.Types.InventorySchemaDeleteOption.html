@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679798261"><span id="local-6989586621679798262"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InventorySchemaDeleteOption"><span class="annot"><a href="Network.AWS.SSM.Types.InventorySchemaDeleteOption.html#InventorySchemaDeleteOption"><span class="hs-identifier hs-var">InventorySchemaDeleteOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventorySchemaDeleteOption%27"><span class="annot"><a href="Network.AWS.SSM.Types.InventorySchemaDeleteOption.html#InventorySchemaDeleteOption%27"><span class="hs-identifier hs-var">InventorySchemaDeleteOption'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679798270"><span id="local-6989586621679798271"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InventorySchemaDeleteOption"><span class="annot"><a href="Network.AWS.SSM.Types.InventorySchemaDeleteOption.html#InventorySchemaDeleteOption"><span class="hs-identifier hs-var">InventorySchemaDeleteOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventorySchemaDeleteOption%27"><span class="annot"><a href="Network.AWS.SSM.Types.InventorySchemaDeleteOption.html#InventorySchemaDeleteOption%27"><span class="hs-identifier hs-var">InventorySchemaDeleteOption'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInventorySchemaDeleteOption"><span class="annot"><span class="annottext">InventorySchemaDeleteOption -&gt; Text
 </span><a href="Network.AWS.SSM.Types.InventorySchemaDeleteOption.html#fromInventorySchemaDeleteOption"><span class="hs-identifier hs-var hs-var">fromInventorySchemaDeleteOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679798253"><span id="local-6989586621679798255"><span id="local-6989586621679798257"><span class="annot"><span class="annottext">Int -&gt; InventorySchemaDeleteOption -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679798262"><span id="local-6989586621679798264"><span id="local-6989586621679798266"><span class="annot"><span class="annottext">Int -&gt; InventorySchemaDeleteOption -&gt; ShowS
 [InventorySchemaDeleteOption] -&gt; ShowS
 InventorySchemaDeleteOption -&gt; String
 (Int -&gt; InventorySchemaDeleteOption -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: InventorySchemaDeleteOption -&gt; String
 showsPrec :: Int -&gt; InventorySchemaDeleteOption -&gt; ShowS
 $cshowsPrec :: Int -&gt; InventorySchemaDeleteOption -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679798244"><span id="local-6989586621679798246"><span id="local-6989586621679798248"><span id="local-6989586621679798250"><span class="annot"><span class="annottext">ReadPrec [InventorySchemaDeleteOption]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679798253"><span id="local-6989586621679798255"><span id="local-6989586621679798257"><span id="local-6989586621679798259"><span class="annot"><span class="annottext">ReadPrec [InventorySchemaDeleteOption]
 ReadPrec InventorySchemaDeleteOption
 Int -&gt; ReadS InventorySchemaDeleteOption
 ReadS [InventorySchemaDeleteOption]
@@ -72,7 +72,7 @@ $creadList :: ReadS [InventorySchemaDeleteOption]
 readsPrec :: Int -&gt; ReadS InventorySchemaDeleteOption
 $creadsPrec :: Int -&gt; ReadS InventorySchemaDeleteOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679798239"><span id="local-6989586621679798241"><span class="annot"><span class="annottext">InventorySchemaDeleteOption -&gt; InventorySchemaDeleteOption -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679798248"><span id="local-6989586621679798250"><span class="annot"><span class="annottext">InventorySchemaDeleteOption -&gt; InventorySchemaDeleteOption -&gt; Bool
 (InventorySchemaDeleteOption
  -&gt; InventorySchemaDeleteOption -&gt; Bool)
 -&gt; (InventorySchemaDeleteOption
@@ -84,7 +84,7 @@ $c/= :: InventorySchemaDeleteOption -&gt; InventorySchemaDeleteOption -&gt; Bool
 == :: InventorySchemaDeleteOption -&gt; InventorySchemaDeleteOption -&gt; Bool
 $c== :: InventorySchemaDeleteOption -&gt; InventorySchemaDeleteOption -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679798223"><span id="local-6989586621679798225"><span id="local-6989586621679798227"><span id="local-6989586621679798229"><span id="local-6989586621679798231"><span id="local-6989586621679798233"><span id="local-6989586621679798235"><span class="annot"><span class="annottext">Eq InventorySchemaDeleteOption
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679798232"><span id="local-6989586621679798234"><span id="local-6989586621679798236"><span id="local-6989586621679798238"><span id="local-6989586621679798240"><span id="local-6989586621679798242"><span id="local-6989586621679798244"><span class="annot"><span class="annottext">Eq InventorySchemaDeleteOption
 Eq InventorySchemaDeleteOption
 -&gt; (InventorySchemaDeleteOption
     -&gt; InventorySchemaDeleteOption -&gt; Ordering)
@@ -156,7 +156,7 @@ InventorySchemaDeleteOption -&gt; Rep InventorySchemaDeleteOption x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679798215"><span id="local-6989586621679798217"><span class="annot"><span class="annottext">Int -&gt; InventorySchemaDeleteOption -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679798224"><span id="local-6989586621679798226"><span class="annot"><span class="annottext">Int -&gt; InventorySchemaDeleteOption -&gt; Int
 InventorySchemaDeleteOption -&gt; Int
 (Int -&gt; InventorySchemaDeleteOption -&gt; Int)
 -&gt; (InventorySchemaDeleteOption -&gt; Int)
@@ -167,56 +167,56 @@ $chash :: InventorySchemaDeleteOption -&gt; Int
 hashWithSalt :: Int -&gt; InventorySchemaDeleteOption -&gt; Int
 $chashWithSalt :: Int -&gt; InventorySchemaDeleteOption -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679798212"><span class="annot"><span class="annottext">InventorySchemaDeleteOption -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679798221"><span class="annot"><span class="annottext">InventorySchemaDeleteOption -&gt; ()
 (InventorySchemaDeleteOption -&gt; ())
 -&gt; NFData InventorySchemaDeleteOption
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InventorySchemaDeleteOption -&gt; ()
 $crnf :: InventorySchemaDeleteOption -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679798209"><span class="annot"><span class="annottext">Text -&gt; Either String InventorySchemaDeleteOption
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679798218"><span class="annot"><span class="annottext">Text -&gt; Either String InventorySchemaDeleteOption
 (Text -&gt; Either String InventorySchemaDeleteOption)
 -&gt; FromText InventorySchemaDeleteOption
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InventorySchemaDeleteOption
 $cfromText :: Text -&gt; Either String InventorySchemaDeleteOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679798206"><span class="annot"><span class="annottext">InventorySchemaDeleteOption -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679798215"><span class="annot"><span class="annottext">InventorySchemaDeleteOption -&gt; Text
 (InventorySchemaDeleteOption -&gt; Text)
 -&gt; ToText InventorySchemaDeleteOption
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InventorySchemaDeleteOption -&gt; Text
 $ctoText :: InventorySchemaDeleteOption -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679798203"><span class="annot"><span class="annottext">InventorySchemaDeleteOption -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679798212"><span class="annot"><span class="annottext">InventorySchemaDeleteOption -&gt; ByteString
 (InventorySchemaDeleteOption -&gt; ByteString)
 -&gt; ToByteString InventorySchemaDeleteOption
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InventorySchemaDeleteOption -&gt; ByteString
 $ctoBS :: InventorySchemaDeleteOption -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679798200"><span class="annot"><span class="annottext">InventorySchemaDeleteOption -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679798209"><span class="annot"><span class="annottext">InventorySchemaDeleteOption -&gt; ByteStringBuilder
 (InventorySchemaDeleteOption -&gt; ByteStringBuilder)
 -&gt; ToLog InventorySchemaDeleteOption
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InventorySchemaDeleteOption -&gt; ByteStringBuilder
 $cbuild :: InventorySchemaDeleteOption -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679798197"><span class="annot"><span class="annottext">HeaderName -&gt; InventorySchemaDeleteOption -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679798206"><span class="annot"><span class="annottext">HeaderName -&gt; InventorySchemaDeleteOption -&gt; [Header]
 (HeaderName -&gt; InventorySchemaDeleteOption -&gt; [Header])
 -&gt; ToHeader InventorySchemaDeleteOption
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InventorySchemaDeleteOption -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InventorySchemaDeleteOption -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679798194"><span class="annot"><span class="annottext">InventorySchemaDeleteOption -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679798203"><span class="annot"><span class="annottext">InventorySchemaDeleteOption -&gt; QueryString
 (InventorySchemaDeleteOption -&gt; QueryString)
 -&gt; ToQuery InventorySchemaDeleteOption
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InventorySchemaDeleteOption -&gt; QueryString
 $ctoQuery :: InventorySchemaDeleteOption -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679798189"><span id="local-6989586621679798191"><span class="annot"><span class="annottext">Value -&gt; Parser [InventorySchemaDeleteOption]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679798198"><span id="local-6989586621679798200"><span class="annot"><span class="annottext">Value -&gt; Parser [InventorySchemaDeleteOption]
 Value -&gt; Parser InventorySchemaDeleteOption
 (Value -&gt; Parser InventorySchemaDeleteOption)
 -&gt; (Value -&gt; Parser [InventorySchemaDeleteOption])
@@ -228,7 +228,7 @@ $cparseJSONList :: Value -&gt; Parser [InventorySchemaDeleteOption]
 parseJSON :: Value -&gt; Parser InventorySchemaDeleteOption
 $cparseJSON :: Value -&gt; Parser InventorySchemaDeleteOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679798184"><span id="local-6989586621679798186"><span class="annot"><span class="annottext">FromJSONKeyFunction [InventorySchemaDeleteOption]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679798193"><span id="local-6989586621679798195"><span class="annot"><span class="annottext">FromJSONKeyFunction [InventorySchemaDeleteOption]
 FromJSONKeyFunction InventorySchemaDeleteOption
 FromJSONKeyFunction InventorySchemaDeleteOption
 -&gt; FromJSONKeyFunction [InventorySchemaDeleteOption]
@@ -240,7 +240,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InventorySchemaDeleteOption]
 fromJSONKey :: FromJSONKeyFunction InventorySchemaDeleteOption
 $cfromJSONKey :: FromJSONKeyFunction InventorySchemaDeleteOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679798175"><span id="local-6989586621679798177"><span id="local-6989586621679798179"><span id="local-6989586621679798181"><span class="annot"><span class="annottext">[InventorySchemaDeleteOption] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679798184"><span id="local-6989586621679798186"><span id="local-6989586621679798188"><span id="local-6989586621679798190"><span class="annot"><span class="annottext">[InventorySchemaDeleteOption] -&gt; Encoding
 [InventorySchemaDeleteOption] -&gt; Value
 InventorySchemaDeleteOption -&gt; Encoding
 InventorySchemaDeleteOption -&gt; Value
@@ -264,7 +264,7 @@ $ctoEncoding :: InventorySchemaDeleteOption -&gt; Encoding
 toJSON :: InventorySchemaDeleteOption -&gt; Value
 $ctoJSON :: InventorySchemaDeleteOption -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679798170"><span id="local-6989586621679798172"><span class="annot"><span class="annottext">ToJSONKeyFunction [InventorySchemaDeleteOption]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679798179"><span id="local-6989586621679798181"><span class="annot"><span class="annottext">ToJSONKeyFunction [InventorySchemaDeleteOption]
 ToJSONKeyFunction InventorySchemaDeleteOption
 ToJSONKeyFunction InventorySchemaDeleteOption
 -&gt; ToJSONKeyFunction [InventorySchemaDeleteOption]
@@ -276,14 +276,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InventorySchemaDeleteOption]
 toJSONKey :: ToJSONKeyFunction InventorySchemaDeleteOption
 $ctoJSONKey :: ToJSONKeyFunction InventorySchemaDeleteOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679798167"><span class="annot"><span class="annottext">[Node] -&gt; Either String InventorySchemaDeleteOption
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679798176"><span class="annot"><span class="annottext">[Node] -&gt; Either String InventorySchemaDeleteOption
 ([Node] -&gt; Either String InventorySchemaDeleteOption)
 -&gt; FromXML InventorySchemaDeleteOption
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InventorySchemaDeleteOption
 $cparseXML :: [Node] -&gt; Either String InventorySchemaDeleteOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679798164"><span class="annot"><span class="annottext">InventorySchemaDeleteOption -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679798173"><span class="annot"><span class="annottext">InventorySchemaDeleteOption -&gt; XML
 (InventorySchemaDeleteOption -&gt; XML)
 -&gt; ToXML InventorySchemaDeleteOption
 forall a. (a -&gt; XML) -&gt; ToXML a

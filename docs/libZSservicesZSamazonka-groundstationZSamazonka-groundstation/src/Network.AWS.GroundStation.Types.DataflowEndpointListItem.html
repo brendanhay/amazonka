@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GroundStation.Types.DataflowEndpointListItem</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GroundStation.Types.DataflowEndpointListItem</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Item in a list of @DataflowEndpoint@ groups.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDataflowEndpointListItem' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679213086"><span id="local-6989586621679213087"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataflowEndpointListItem"><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#DataflowEndpointListItem"><span class="hs-identifier hs-var">DataflowEndpointListItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataflowEndpointListItem%27"><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#DataflowEndpointListItem%27"><span class="hs-identifier hs-var">DataflowEndpointListItem'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | ARN of a dataflow endpoint group.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AdataflowEndpointGroupArn%3ADataflowEndpointListItem%27"><span class="annot"><span class="annottext">DataflowEndpointListItem -&gt; Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#%24sel%3AdataflowEndpointGroupArn%3ADataflowEndpointListItem%27"><span class="hs-identifier hs-var hs-var">dataflowEndpointGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | UUID of a dataflow endpoint group.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AdataflowEndpointGroupId%3ADataflowEndpointListItem%27"><span class="annot"><span class="annottext">DataflowEndpointListItem -&gt; Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#%24sel%3AdataflowEndpointGroupId%3ADataflowEndpointListItem%27"><span class="hs-identifier hs-var hs-var">dataflowEndpointGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213079"><span id="local-6989586621679213081"><span class="annot"><span class="annottext">DataflowEndpointListItem -&gt; DataflowEndpointListItem -&gt; Bool
+(DataflowEndpointListItem -&gt; DataflowEndpointListItem -&gt; Bool)
+-&gt; (DataflowEndpointListItem -&gt; DataflowEndpointListItem -&gt; Bool)
+-&gt; Eq DataflowEndpointListItem
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataflowEndpointListItem -&gt; DataflowEndpointListItem -&gt; Bool
+$c/= :: DataflowEndpointListItem -&gt; DataflowEndpointListItem -&gt; Bool
+== :: DataflowEndpointListItem -&gt; DataflowEndpointListItem -&gt; Bool
+$c== :: DataflowEndpointListItem -&gt; DataflowEndpointListItem -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213070"><span id="local-6989586621679213072"><span id="local-6989586621679213074"><span id="local-6989586621679213076"><span class="annot"><span class="annottext">ReadPrec [DataflowEndpointListItem]
+ReadPrec DataflowEndpointListItem
+Int -&gt; ReadS DataflowEndpointListItem
+ReadS [DataflowEndpointListItem]
+(Int -&gt; ReadS DataflowEndpointListItem)
+-&gt; ReadS [DataflowEndpointListItem]
+-&gt; ReadPrec DataflowEndpointListItem
+-&gt; ReadPrec [DataflowEndpointListItem]
+-&gt; Read DataflowEndpointListItem
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataflowEndpointListItem]
+$creadListPrec :: ReadPrec [DataflowEndpointListItem]
+readPrec :: ReadPrec DataflowEndpointListItem
+$creadPrec :: ReadPrec DataflowEndpointListItem
+readList :: ReadS [DataflowEndpointListItem]
+$creadList :: ReadS [DataflowEndpointListItem]
+readsPrec :: Int -&gt; ReadS DataflowEndpointListItem
+$creadsPrec :: Int -&gt; ReadS DataflowEndpointListItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213063"><span id="local-6989586621679213065"><span id="local-6989586621679213067"><span class="annot"><span class="annottext">Int -&gt; DataflowEndpointListItem -&gt; ShowS
+[DataflowEndpointListItem] -&gt; ShowS
+DataflowEndpointListItem -&gt; String
+(Int -&gt; DataflowEndpointListItem -&gt; ShowS)
+-&gt; (DataflowEndpointListItem -&gt; String)
+-&gt; ([DataflowEndpointListItem] -&gt; ShowS)
+-&gt; Show DataflowEndpointListItem
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataflowEndpointListItem] -&gt; ShowS
+$cshowList :: [DataflowEndpointListItem] -&gt; ShowS
+show :: DataflowEndpointListItem -&gt; String
+$cshow :: DataflowEndpointListItem -&gt; String
+showsPrec :: Int -&gt; DataflowEndpointListItem -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataflowEndpointListItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DataflowEndpointListItem -&gt; Rep DataflowEndpointListItem x)
+-&gt; (forall x.
+    Rep DataflowEndpointListItem x -&gt; DataflowEndpointListItem)
+-&gt; Generic DataflowEndpointListItem
+forall x.
+Rep DataflowEndpointListItem x -&gt; DataflowEndpointListItem
+forall x.
+DataflowEndpointListItem -&gt; Rep DataflowEndpointListItem x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DataflowEndpointListItem x -&gt; DataflowEndpointListItem
+$cfrom :: forall x.
+DataflowEndpointListItem -&gt; Rep DataflowEndpointListItem x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'DataflowEndpointListItem' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'dataflowEndpointGroupArn', 'dataflowEndpointListItem_dataflowEndpointGroupArn' - ARN of a dataflow endpoint group.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'dataflowEndpointGroupId', 'dataflowEndpointListItem_dataflowEndpointGroupId' - UUID of a dataflow endpoint group.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#newDataflowEndpointListItem"><span class="hs-identifier hs-type">newDataflowEndpointListItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#DataflowEndpointListItem"><span class="hs-identifier hs-type">DataflowEndpointListItem</span></a></span><span>
+</span><span id="line-50"></span><span id="newDataflowEndpointListItem"><span class="annot"><span class="annottext">newDataflowEndpointListItem :: DataflowEndpointListItem
+</span><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#newDataflowEndpointListItem"><span class="hs-identifier hs-var hs-var">newDataflowEndpointListItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">DataflowEndpointListItem' :: Maybe Text -&gt; Maybe Text -&gt; DataflowEndpointListItem
+</span><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#DataflowEndpointListItem%27"><span class="hs-identifier hs-type">DataflowEndpointListItem'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataflowEndpointGroupArn:DataflowEndpointListItem' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#%24sel%3AdataflowEndpointGroupArn%3ADataflowEndpointListItem%27"><span class="hs-identifier hs-var">dataflowEndpointGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataflowEndpointGroupId:DataflowEndpointListItem' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#%24sel%3AdataflowEndpointGroupId%3ADataflowEndpointListItem%27"><span class="hs-identifier hs-var">dataflowEndpointGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | ARN of a dataflow endpoint group.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#dataflowEndpointListItem_dataflowEndpointGroupArn"><span class="hs-identifier hs-type">dataflowEndpointListItem_dataflowEndpointGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#DataflowEndpointListItem"><span class="hs-identifier hs-type">DataflowEndpointListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="dataflowEndpointListItem_dataflowEndpointGroupArn"><span class="annot"><span class="annottext">dataflowEndpointListItem_dataflowEndpointGroupArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DataflowEndpointListItem -&gt; f DataflowEndpointListItem
+</span><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#dataflowEndpointListItem_dataflowEndpointGroupArn"><span class="hs-identifier hs-var hs-var">dataflowEndpointListItem_dataflowEndpointGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataflowEndpointListItem -&gt; Maybe Text)
+-&gt; (DataflowEndpointListItem
+    -&gt; Maybe Text -&gt; DataflowEndpointListItem)
+-&gt; Lens
+     DataflowEndpointListItem
+     DataflowEndpointListItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#DataflowEndpointListItem%27"><span class="hs-identifier hs-type">DataflowEndpointListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213054"><span class="annot"><span class="annottext">Maybe Text
+dataflowEndpointGroupArn :: Maybe Text
+$sel:dataflowEndpointGroupArn:DataflowEndpointListItem' :: DataflowEndpointListItem -&gt; Maybe Text
+</span><a href="#local-6989586621679213054"><span class="hs-identifier hs-var hs-var">dataflowEndpointGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213054"><span class="hs-identifier hs-var">dataflowEndpointGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213053"><span class="annot"><span class="annottext">s :: DataflowEndpointListItem
+</span><a href="#local-6989586621679213053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#DataflowEndpointListItem%27"><span class="hs-identifier hs-type">DataflowEndpointListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213052"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataflowEndpointListItem
+</span><a href="#local-6989586621679213053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataflowEndpointGroupArn:DataflowEndpointListItem' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#%24sel%3AdataflowEndpointGroupArn%3ADataflowEndpointListItem%27"><span class="hs-identifier hs-var">dataflowEndpointGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#DataflowEndpointListItem"><span class="hs-identifier hs-type">DataflowEndpointListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | UUID of a dataflow endpoint group.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#dataflowEndpointListItem_dataflowEndpointGroupId"><span class="hs-identifier hs-type">dataflowEndpointListItem_dataflowEndpointGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#DataflowEndpointListItem"><span class="hs-identifier hs-type">DataflowEndpointListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="dataflowEndpointListItem_dataflowEndpointGroupId"><span class="annot"><span class="annottext">dataflowEndpointListItem_dataflowEndpointGroupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DataflowEndpointListItem -&gt; f DataflowEndpointListItem
+</span><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#dataflowEndpointListItem_dataflowEndpointGroupId"><span class="hs-identifier hs-var hs-var">dataflowEndpointListItem_dataflowEndpointGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataflowEndpointListItem -&gt; Maybe Text)
+-&gt; (DataflowEndpointListItem
+    -&gt; Maybe Text -&gt; DataflowEndpointListItem)
+-&gt; Lens
+     DataflowEndpointListItem
+     DataflowEndpointListItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#DataflowEndpointListItem%27"><span class="hs-identifier hs-type">DataflowEndpointListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213050"><span class="annot"><span class="annottext">Maybe Text
+dataflowEndpointGroupId :: Maybe Text
+$sel:dataflowEndpointGroupId:DataflowEndpointListItem' :: DataflowEndpointListItem -&gt; Maybe Text
+</span><a href="#local-6989586621679213050"><span class="hs-identifier hs-var hs-var">dataflowEndpointGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213050"><span class="hs-identifier hs-var">dataflowEndpointGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213049"><span class="annot"><span class="annottext">s :: DataflowEndpointListItem
+</span><a href="#local-6989586621679213049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#DataflowEndpointListItem%27"><span class="hs-identifier hs-type">DataflowEndpointListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213048"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataflowEndpointListItem
+</span><a href="#local-6989586621679213049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataflowEndpointGroupId:DataflowEndpointListItem' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#%24sel%3AdataflowEndpointGroupId%3ADataflowEndpointListItem%27"><span class="hs-identifier hs-var">dataflowEndpointGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#DataflowEndpointListItem"><span class="hs-identifier hs-type">DataflowEndpointListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213045"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#DataflowEndpointListItem"><span class="hs-identifier hs-type">DataflowEndpointListItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679213043"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataflowEndpointListItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DataflowEndpointListItem)
+-&gt; Value
+-&gt; Parser DataflowEndpointListItem
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DataflowEndpointListItem&quot;</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679213040"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213040"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; DataflowEndpointListItem
+</span><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#DataflowEndpointListItem%27"><span class="hs-identifier hs-var">DataflowEndpointListItem'</span></a></span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; DataflowEndpointListItem)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; DataflowEndpointListItem)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataflowEndpointGroupArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DataflowEndpointListItem)
+-&gt; Parser (Maybe Text) -&gt; Parser DataflowEndpointListItem
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataflowEndpointGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213034"><span id="local-6989586621679213036"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#DataflowEndpointListItem"><span class="hs-identifier hs-type">DataflowEndpointListItem</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213031"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointListItem.html#DataflowEndpointListItem"><span class="hs-identifier hs-type">DataflowEndpointListItem</span></a></span></span><span>
+</span><span id="line-78"></span></pre></body></html>

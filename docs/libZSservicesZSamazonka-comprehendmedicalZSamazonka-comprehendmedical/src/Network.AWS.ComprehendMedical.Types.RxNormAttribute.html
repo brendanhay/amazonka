@@ -1,0 +1,564 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ComprehendMedical.Types.RxNormAttribute</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ComprehendMedical.Types.RxNormAttribute</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttributeType.html"><span class="hs-identifier">Network.AWS.ComprehendMedical.Types.RxNormAttributeType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormTrait.html"><span class="hs-identifier">Network.AWS.ComprehendMedical.Types.RxNormTrait</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The extracted attributes that relate to this entity. The attributes</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- recognized by InferRxNorm are @DOSAGE@, @DURATION@, @FORM@, @FREQUENCY@,</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- @RATE@, @ROUTE_OR_MODE@.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newRxNormAttribute' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679210386"><span id="local-6989586621679210387"></span></span><span class="hs-keyword">data</span><span> </span><span id="RxNormAttribute"><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-var">RxNormAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RxNormAttribute%27"><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-var">RxNormAttribute'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The level of confidence that Amazon Comprehend Medical has that the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- attribute is accurately linked to an entity.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3ArelationshipScore%3ARxNormAttribute%27"><span class="annot"><span class="annottext">RxNormAttribute -&gt; Maybe Double
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3ArelationshipScore%3ARxNormAttribute%27"><span class="hs-identifier hs-var hs-var">relationshipScore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The 0-based character offset in the input text that shows where the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- attribute begins. The offset returns the UTF-8 code point in the string.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AbeginOffset%3ARxNormAttribute%27"><span class="annot"><span class="annottext">RxNormAttribute -&gt; Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3AbeginOffset%3ARxNormAttribute%27"><span class="hs-identifier hs-var hs-var">beginOffset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The segment of input text which corresponds to the detected attribute.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Atext%3ARxNormAttribute%27"><span class="annot"><span class="annottext">RxNormAttribute -&gt; Maybe Text
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3Atext%3ARxNormAttribute%27"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The level of confidence that Comprehend Medical has that the segment of</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- text is correctly recognized as an attribute.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Ascore%3ARxNormAttribute%27"><span class="annot"><span class="annottext">RxNormAttribute -&gt; Maybe Double
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3Ascore%3ARxNormAttribute%27"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Contextual information for the attribute. InferRxNorm recognizes the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- trait @NEGATION@ for attributes, i.e. that the patient is not taking a</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- specific dose or form of a medication.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Atraits%3ARxNormAttribute%27"><span class="annot"><span class="annottext">RxNormAttribute -&gt; Maybe [RxNormTrait]
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3Atraits%3ARxNormAttribute%27"><span class="hs-identifier hs-var hs-var">traits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormTrait.html#RxNormTrait"><span class="hs-identifier hs-type">RxNormTrait</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The 0-based character offset in the input text that shows where the</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- attribute ends. The offset returns the UTF-8 code point in the string.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AendOffset%3ARxNormAttribute%27"><span class="annot"><span class="annottext">RxNormAttribute -&gt; Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3AendOffset%3ARxNormAttribute%27"><span class="hs-identifier hs-var hs-var">endOffset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The numeric identifier for this attribute. This is a monotonically</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- increasing id unique within this response rather than a global unique</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- identifier.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Aid%3ARxNormAttribute%27"><span class="annot"><span class="annottext">RxNormAttribute -&gt; Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3Aid%3ARxNormAttribute%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The type of attribute. The types of attributes recognized by InferRxNorm</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- are @BRAND_NAME@ and @GENERIC_NAME@.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Atype%27%3ARxNormAttribute%27"><span class="annot"><span class="annottext">RxNormAttribute -&gt; Maybe RxNormAttributeType
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3Atype%27%3ARxNormAttribute%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttributeType.html#RxNormAttributeType"><span class="hs-identifier hs-type">RxNormAttributeType</span></a></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210373"><span id="local-6989586621679210375"><span class="annot"><span class="annottext">RxNormAttribute -&gt; RxNormAttribute -&gt; Bool
+(RxNormAttribute -&gt; RxNormAttribute -&gt; Bool)
+-&gt; (RxNormAttribute -&gt; RxNormAttribute -&gt; Bool)
+-&gt; Eq RxNormAttribute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RxNormAttribute -&gt; RxNormAttribute -&gt; Bool
+$c/= :: RxNormAttribute -&gt; RxNormAttribute -&gt; Bool
+== :: RxNormAttribute -&gt; RxNormAttribute -&gt; Bool
+$c== :: RxNormAttribute -&gt; RxNormAttribute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210364"><span id="local-6989586621679210366"><span id="local-6989586621679210368"><span id="local-6989586621679210370"><span class="annot"><span class="annottext">ReadPrec [RxNormAttribute]
+ReadPrec RxNormAttribute
+Int -&gt; ReadS RxNormAttribute
+ReadS [RxNormAttribute]
+(Int -&gt; ReadS RxNormAttribute)
+-&gt; ReadS [RxNormAttribute]
+-&gt; ReadPrec RxNormAttribute
+-&gt; ReadPrec [RxNormAttribute]
+-&gt; Read RxNormAttribute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RxNormAttribute]
+$creadListPrec :: ReadPrec [RxNormAttribute]
+readPrec :: ReadPrec RxNormAttribute
+$creadPrec :: ReadPrec RxNormAttribute
+readList :: ReadS [RxNormAttribute]
+$creadList :: ReadS [RxNormAttribute]
+readsPrec :: Int -&gt; ReadS RxNormAttribute
+$creadsPrec :: Int -&gt; ReadS RxNormAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210357"><span id="local-6989586621679210359"><span id="local-6989586621679210361"><span class="annot"><span class="annottext">Int -&gt; RxNormAttribute -&gt; ShowS
+[RxNormAttribute] -&gt; ShowS
+RxNormAttribute -&gt; String
+(Int -&gt; RxNormAttribute -&gt; ShowS)
+-&gt; (RxNormAttribute -&gt; String)
+-&gt; ([RxNormAttribute] -&gt; ShowS)
+-&gt; Show RxNormAttribute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RxNormAttribute] -&gt; ShowS
+$cshowList :: [RxNormAttribute] -&gt; ShowS
+show :: RxNormAttribute -&gt; String
+$cshow :: RxNormAttribute -&gt; String
+showsPrec :: Int -&gt; RxNormAttribute -&gt; ShowS
+$cshowsPrec :: Int -&gt; RxNormAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RxNormAttribute -&gt; Rep RxNormAttribute x)
+-&gt; (forall x. Rep RxNormAttribute x -&gt; RxNormAttribute)
+-&gt; Generic RxNormAttribute
+forall x. Rep RxNormAttribute x -&gt; RxNormAttribute
+forall x. RxNormAttribute -&gt; Rep RxNormAttribute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RxNormAttribute x -&gt; RxNormAttribute
+$cfrom :: forall x. RxNormAttribute -&gt; Rep RxNormAttribute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'RxNormAttribute' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'relationshipScore', 'rxNormAttribute_relationshipScore' - The level of confidence that Amazon Comprehend Medical has that the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- attribute is accurately linked to an entity.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'beginOffset', 'rxNormAttribute_beginOffset' - The 0-based character offset in the input text that shows where the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- attribute begins. The offset returns the UTF-8 code point in the string.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'text', 'rxNormAttribute_text' - The segment of input text which corresponds to the detected attribute.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'score', 'rxNormAttribute_score' - The level of confidence that Comprehend Medical has that the segment of</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- text is correctly recognized as an attribute.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'traits', 'rxNormAttribute_traits' - Contextual information for the attribute. InferRxNorm recognizes the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- trait @NEGATION@ for attributes, i.e. that the patient is not taking a</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- specific dose or form of a medication.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'endOffset', 'rxNormAttribute_endOffset' - The 0-based character offset in the input text that shows where the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- attribute ends. The offset returns the UTF-8 code point in the string.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'id', 'rxNormAttribute_id' - The numeric identifier for this attribute. This is a monotonically</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- increasing id unique within this response rather than a global unique</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- identifier.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'type'', 'rxNormAttribute_type' - The type of attribute. The types of attributes recognized by InferRxNorm</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- are @BRAND_NAME@ and @GENERIC_NAME@.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#newRxNormAttribute"><span class="hs-identifier hs-type">newRxNormAttribute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span><span>
+</span><span id="line-96"></span><span id="newRxNormAttribute"><span class="annot"><span class="annottext">newRxNormAttribute :: RxNormAttribute
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#newRxNormAttribute"><span class="hs-identifier hs-var hs-var">newRxNormAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">RxNormAttribute' :: Maybe Double
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe [RxNormTrait]
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe RxNormAttributeType
+-&gt; RxNormAttribute
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-type">RxNormAttribute'</span></a></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:relationshipScore:RxNormAttribute' :: Maybe Double
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3ArelationshipScore%3ARxNormAttribute%27"><span class="hs-identifier hs-var">relationshipScore</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:beginOffset:RxNormAttribute' :: Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3AbeginOffset%3ARxNormAttribute%27"><span class="hs-identifier hs-var">beginOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:text:RxNormAttribute' :: Maybe Text
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3Atext%3ARxNormAttribute%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:score:RxNormAttribute' :: Maybe Double
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3Ascore%3ARxNormAttribute%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:traits:RxNormAttribute' :: Maybe [RxNormTrait]
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3Atraits%3ARxNormAttribute%27"><span class="hs-identifier hs-var">traits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RxNormTrait]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:endOffset:RxNormAttribute' :: Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3AendOffset%3ARxNormAttribute%27"><span class="hs-identifier hs-var">endOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:RxNormAttribute' :: Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3Aid%3ARxNormAttribute%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':RxNormAttribute' :: Maybe RxNormAttributeType
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3Atype%27%3ARxNormAttribute%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RxNormAttributeType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The level of confidence that Amazon Comprehend Medical has that the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- attribute is accurately linked to an entity.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#rxNormAttribute_relationshipScore"><span class="hs-identifier hs-type">rxNormAttribute_relationshipScore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="rxNormAttribute_relationshipScore"><span class="annot"><span class="annottext">rxNormAttribute_relationshipScore :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; RxNormAttribute -&gt; f RxNormAttribute
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#rxNormAttribute_relationshipScore"><span class="hs-identifier hs-var hs-var">rxNormAttribute_relationshipScore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RxNormAttribute -&gt; Maybe Double)
+-&gt; (RxNormAttribute -&gt; Maybe Double -&gt; RxNormAttribute)
+-&gt; Lens
+     RxNormAttribute RxNormAttribute (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-type">RxNormAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210348"><span class="annot"><span class="annottext">Maybe Double
+relationshipScore :: Maybe Double
+$sel:relationshipScore:RxNormAttribute' :: RxNormAttribute -&gt; Maybe Double
+</span><a href="#local-6989586621679210348"><span class="hs-identifier hs-var hs-var">relationshipScore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679210348"><span class="hs-identifier hs-var">relationshipScore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210347"><span class="annot"><span class="annottext">s :: RxNormAttribute
+</span><a href="#local-6989586621679210347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-type">RxNormAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210346"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679210346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RxNormAttribute
+</span><a href="#local-6989586621679210347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationshipScore:RxNormAttribute' :: Maybe Double
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3ArelationshipScore%3ARxNormAttribute%27"><span class="hs-identifier hs-var">relationshipScore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679210346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The 0-based character offset in the input text that shows where the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- attribute begins. The offset returns the UTF-8 code point in the string.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#rxNormAttribute_beginOffset"><span class="hs-identifier hs-type">rxNormAttribute_beginOffset</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="rxNormAttribute_beginOffset"><span class="annot"><span class="annottext">rxNormAttribute_beginOffset :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; RxNormAttribute -&gt; f RxNormAttribute
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#rxNormAttribute_beginOffset"><span class="hs-identifier hs-var hs-var">rxNormAttribute_beginOffset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RxNormAttribute -&gt; Maybe Int)
+-&gt; (RxNormAttribute -&gt; Maybe Int -&gt; RxNormAttribute)
+-&gt; Lens RxNormAttribute RxNormAttribute (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-type">RxNormAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210344"><span class="annot"><span class="annottext">Maybe Int
+beginOffset :: Maybe Int
+$sel:beginOffset:RxNormAttribute' :: RxNormAttribute -&gt; Maybe Int
+</span><a href="#local-6989586621679210344"><span class="hs-identifier hs-var hs-var">beginOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210344"><span class="hs-identifier hs-var">beginOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210343"><span class="annot"><span class="annottext">s :: RxNormAttribute
+</span><a href="#local-6989586621679210343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-type">RxNormAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210342"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RxNormAttribute
+</span><a href="#local-6989586621679210343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beginOffset:RxNormAttribute' :: Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3AbeginOffset%3ARxNormAttribute%27"><span class="hs-identifier hs-var">beginOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The segment of input text which corresponds to the detected attribute.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#rxNormAttribute_text"><span class="hs-identifier hs-type">rxNormAttribute_text</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="rxNormAttribute_text"><span class="annot"><span class="annottext">rxNormAttribute_text :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RxNormAttribute -&gt; f RxNormAttribute
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#rxNormAttribute_text"><span class="hs-identifier hs-var hs-var">rxNormAttribute_text</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RxNormAttribute -&gt; Maybe Text)
+-&gt; (RxNormAttribute -&gt; Maybe Text -&gt; RxNormAttribute)
+-&gt; Lens RxNormAttribute RxNormAttribute (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-type">RxNormAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210340"><span class="annot"><span class="annottext">Maybe Text
+text :: Maybe Text
+$sel:text:RxNormAttribute' :: RxNormAttribute -&gt; Maybe Text
+</span><a href="#local-6989586621679210340"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210340"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210339"><span class="annot"><span class="annottext">s :: RxNormAttribute
+</span><a href="#local-6989586621679210339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-type">RxNormAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210338"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RxNormAttribute
+</span><a href="#local-6989586621679210339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:RxNormAttribute' :: Maybe Text
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3Atext%3ARxNormAttribute%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The level of confidence that Comprehend Medical has that the segment of</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- text is correctly recognized as an attribute.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#rxNormAttribute_score"><span class="hs-identifier hs-type">rxNormAttribute_score</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="rxNormAttribute_score"><span class="annot"><span class="annottext">rxNormAttribute_score :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; RxNormAttribute -&gt; f RxNormAttribute
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#rxNormAttribute_score"><span class="hs-identifier hs-var hs-var">rxNormAttribute_score</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RxNormAttribute -&gt; Maybe Double)
+-&gt; (RxNormAttribute -&gt; Maybe Double -&gt; RxNormAttribute)
+-&gt; Lens
+     RxNormAttribute RxNormAttribute (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-type">RxNormAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210336"><span class="annot"><span class="annottext">Maybe Double
+score :: Maybe Double
+$sel:score:RxNormAttribute' :: RxNormAttribute -&gt; Maybe Double
+</span><a href="#local-6989586621679210336"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679210336"><span class="hs-identifier hs-var">score</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210335"><span class="annot"><span class="annottext">s :: RxNormAttribute
+</span><a href="#local-6989586621679210335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-type">RxNormAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210334"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679210334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RxNormAttribute
+</span><a href="#local-6989586621679210335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:score:RxNormAttribute' :: Maybe Double
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3Ascore%3ARxNormAttribute%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679210334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Contextual information for the attribute. InferRxNorm recognizes the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- trait @NEGATION@ for attributes, i.e. that the patient is not taking a</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- specific dose or form of a medication.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#rxNormAttribute_traits"><span class="hs-identifier hs-type">rxNormAttribute_traits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormTrait.html#RxNormTrait"><span class="hs-identifier hs-type">RxNormTrait</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="rxNormAttribute_traits"><span class="annot"><span class="annottext">rxNormAttribute_traits :: (Maybe [RxNormTrait] -&gt; f (Maybe [RxNormTrait]))
+-&gt; RxNormAttribute -&gt; f RxNormAttribute
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#rxNormAttribute_traits"><span class="hs-identifier hs-var hs-var">rxNormAttribute_traits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RxNormAttribute -&gt; Maybe [RxNormTrait])
+-&gt; (RxNormAttribute -&gt; Maybe [RxNormTrait] -&gt; RxNormAttribute)
+-&gt; Lens
+     RxNormAttribute
+     RxNormAttribute
+     (Maybe [RxNormTrait])
+     (Maybe [RxNormTrait])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-type">RxNormAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210332"><span class="annot"><span class="annottext">Maybe [RxNormTrait]
+traits :: Maybe [RxNormTrait]
+$sel:traits:RxNormAttribute' :: RxNormAttribute -&gt; Maybe [RxNormTrait]
+</span><a href="#local-6989586621679210332"><span class="hs-identifier hs-var hs-var">traits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RxNormTrait]
+</span><a href="#local-6989586621679210332"><span class="hs-identifier hs-var">traits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210331"><span class="annot"><span class="annottext">s :: RxNormAttribute
+</span><a href="#local-6989586621679210331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-type">RxNormAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210330"><span class="annot"><span class="annottext">Maybe [RxNormTrait]
+</span><a href="#local-6989586621679210330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RxNormAttribute
+</span><a href="#local-6989586621679210331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:traits:RxNormAttribute' :: Maybe [RxNormTrait]
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3Atraits%3ARxNormAttribute%27"><span class="hs-identifier hs-var">traits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RxNormTrait]
+</span><a href="#local-6989586621679210330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RxNormTrait] -&gt; f (Maybe [RxNormTrait]))
+ -&gt; RxNormAttribute -&gt; f RxNormAttribute)
+-&gt; ((Maybe [RxNormTrait] -&gt; f (Maybe [RxNormTrait]))
+    -&gt; Maybe [RxNormTrait] -&gt; f (Maybe [RxNormTrait]))
+-&gt; (Maybe [RxNormTrait] -&gt; f (Maybe [RxNormTrait]))
+-&gt; RxNormAttribute
+-&gt; f RxNormAttribute
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RxNormTrait] [RxNormTrait] [RxNormTrait] [RxNormTrait]
+-&gt; Iso
+     (Maybe [RxNormTrait])
+     (Maybe [RxNormTrait])
+     (Maybe [RxNormTrait])
+     (Maybe [RxNormTrait])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RxNormTrait] [RxNormTrait] [RxNormTrait] [RxNormTrait]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The 0-based character offset in the input text that shows where the</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- attribute ends. The offset returns the UTF-8 code point in the string.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#rxNormAttribute_endOffset"><span class="hs-identifier hs-type">rxNormAttribute_endOffset</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="rxNormAttribute_endOffset"><span class="annot"><span class="annottext">rxNormAttribute_endOffset :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; RxNormAttribute -&gt; f RxNormAttribute
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#rxNormAttribute_endOffset"><span class="hs-identifier hs-var hs-var">rxNormAttribute_endOffset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RxNormAttribute -&gt; Maybe Int)
+-&gt; (RxNormAttribute -&gt; Maybe Int -&gt; RxNormAttribute)
+-&gt; Lens RxNormAttribute RxNormAttribute (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-type">RxNormAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210325"><span class="annot"><span class="annottext">Maybe Int
+endOffset :: Maybe Int
+$sel:endOffset:RxNormAttribute' :: RxNormAttribute -&gt; Maybe Int
+</span><a href="#local-6989586621679210325"><span class="hs-identifier hs-var hs-var">endOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210325"><span class="hs-identifier hs-var">endOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210324"><span class="annot"><span class="annottext">s :: RxNormAttribute
+</span><a href="#local-6989586621679210324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-type">RxNormAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210323"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RxNormAttribute
+</span><a href="#local-6989586621679210324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endOffset:RxNormAttribute' :: Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3AendOffset%3ARxNormAttribute%27"><span class="hs-identifier hs-var">endOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The numeric identifier for this attribute. This is a monotonically</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- increasing id unique within this response rather than a global unique</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- identifier.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#rxNormAttribute_id"><span class="hs-identifier hs-type">rxNormAttribute_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="rxNormAttribute_id"><span class="annot"><span class="annottext">rxNormAttribute_id :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; RxNormAttribute -&gt; f RxNormAttribute
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#rxNormAttribute_id"><span class="hs-identifier hs-var hs-var">rxNormAttribute_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RxNormAttribute -&gt; Maybe Int)
+-&gt; (RxNormAttribute -&gt; Maybe Int -&gt; RxNormAttribute)
+-&gt; Lens RxNormAttribute RxNormAttribute (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-type">RxNormAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210321"><span class="annot"><span class="annottext">Maybe Int
+id :: Maybe Int
+$sel:id:RxNormAttribute' :: RxNormAttribute -&gt; Maybe Int
+</span><a href="#local-6989586621679210321"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210321"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210320"><span class="annot"><span class="annottext">s :: RxNormAttribute
+</span><a href="#local-6989586621679210320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-type">RxNormAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210319"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RxNormAttribute
+</span><a href="#local-6989586621679210320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:RxNormAttribute' :: Maybe Int
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3Aid%3ARxNormAttribute%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679210319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The type of attribute. The types of attributes recognized by InferRxNorm</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- are @BRAND_NAME@ and @GENERIC_NAME@.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#rxNormAttribute_type"><span class="hs-identifier hs-type">rxNormAttribute_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttributeType.html#RxNormAttributeType"><span class="hs-identifier hs-type">RxNormAttributeType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="rxNormAttribute_type"><span class="annot"><span class="annottext">rxNormAttribute_type :: (Maybe RxNormAttributeType -&gt; f (Maybe RxNormAttributeType))
+-&gt; RxNormAttribute -&gt; f RxNormAttribute
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#rxNormAttribute_type"><span class="hs-identifier hs-var hs-var">rxNormAttribute_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RxNormAttribute -&gt; Maybe RxNormAttributeType)
+-&gt; (RxNormAttribute
+    -&gt; Maybe RxNormAttributeType -&gt; RxNormAttribute)
+-&gt; Lens
+     RxNormAttribute
+     RxNormAttribute
+     (Maybe RxNormAttributeType)
+     (Maybe RxNormAttributeType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-type">RxNormAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210317"><span class="annot"><span class="annottext">Maybe RxNormAttributeType
+type' :: Maybe RxNormAttributeType
+$sel:type':RxNormAttribute' :: RxNormAttribute -&gt; Maybe RxNormAttributeType
+</span><a href="#local-6989586621679210317"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RxNormAttributeType
+</span><a href="#local-6989586621679210317"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210316"><span class="annot"><span class="annottext">s :: RxNormAttribute
+</span><a href="#local-6989586621679210316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-type">RxNormAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210315"><span class="annot"><span class="annottext">Maybe RxNormAttributeType
+</span><a href="#local-6989586621679210315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RxNormAttribute
+</span><a href="#local-6989586621679210316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':RxNormAttribute' :: Maybe RxNormAttributeType
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#%24sel%3Atype%27%3ARxNormAttribute%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RxNormAttributeType
+</span><a href="#local-6989586621679210315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210312"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679210310"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RxNormAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RxNormAttribute)
+-&gt; Value
+-&gt; Parser RxNormAttribute
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RxNormAttribute&quot;</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210307"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210307"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe [RxNormTrait]
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe RxNormAttributeType
+-&gt; RxNormAttribute
+</span><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute%27"><span class="hs-identifier hs-var">RxNormAttribute'</span></a></span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Double
+ -&gt; Maybe [RxNormTrait]
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe RxNormAttributeType
+ -&gt; RxNormAttribute)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe [RxNormTrait]
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe RxNormAttributeType
+      -&gt; RxNormAttribute)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210307"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RelationshipScore&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe [RxNormTrait]
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe RxNormAttributeType
+   -&gt; RxNormAttribute)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe [RxNormTrait]
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe RxNormAttributeType
+      -&gt; RxNormAttribute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210307"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BeginOffset&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe [RxNormTrait]
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe RxNormAttributeType
+   -&gt; RxNormAttribute)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe [RxNormTrait]
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe RxNormAttributeType
+      -&gt; RxNormAttribute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210307"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Text&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe [RxNormTrait]
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe RxNormAttributeType
+   -&gt; RxNormAttribute)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe [RxNormTrait]
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe RxNormAttributeType
+      -&gt; RxNormAttribute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210307"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Score&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [RxNormTrait]
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe RxNormAttributeType
+   -&gt; RxNormAttribute)
+-&gt; Parser (Maybe [RxNormTrait])
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int -&gt; Maybe RxNormAttributeType -&gt; RxNormAttribute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210307"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [RxNormTrait]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Traits&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [RxNormTrait]))
+-&gt; Maybe [RxNormTrait] -&gt; Parser (Maybe [RxNormTrait])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RxNormTrait]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int -&gt; Maybe RxNormAttributeType -&gt; RxNormAttribute)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int -&gt; Maybe RxNormAttributeType -&gt; RxNormAttribute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210307"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndOffset&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe RxNormAttributeType -&gt; RxNormAttribute)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe RxNormAttributeType -&gt; RxNormAttribute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210307"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe RxNormAttributeType -&gt; RxNormAttribute)
+-&gt; Parser (Maybe RxNormAttributeType) -&gt; Parser RxNormAttribute
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210307"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RxNormAttributeType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210300"><span id="local-6989586621679210302"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210297"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ComprehendMedical.Types.RxNormAttribute.html#RxNormAttribute"><span class="hs-identifier hs-type">RxNormAttribute</span></a></span></span><span>
+</span><span id="line-169"></span></pre></body></html>

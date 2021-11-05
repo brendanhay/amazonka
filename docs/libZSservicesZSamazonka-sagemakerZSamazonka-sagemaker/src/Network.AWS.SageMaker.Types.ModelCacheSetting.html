@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680317306"><span id="local-6989586621680317307"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModelCacheSetting"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelCacheSetting.html#ModelCacheSetting"><span class="hs-identifier hs-var">ModelCacheSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelCacheSetting%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelCacheSetting.html#ModelCacheSetting%27"><span class="hs-identifier hs-var">ModelCacheSetting'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680317315"><span id="local-6989586621680317316"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModelCacheSetting"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelCacheSetting.html#ModelCacheSetting"><span class="hs-identifier hs-var">ModelCacheSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelCacheSetting%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelCacheSetting.html#ModelCacheSetting%27"><span class="hs-identifier hs-var">ModelCacheSetting'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromModelCacheSetting"><span class="annot"><span class="annottext">ModelCacheSetting -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ModelCacheSetting.html#fromModelCacheSetting"><span class="hs-identifier hs-var hs-var">fromModelCacheSetting</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680317298"><span id="local-6989586621680317300"><span id="local-6989586621680317302"><span class="annot"><span class="annottext">Int -&gt; ModelCacheSetting -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680317307"><span id="local-6989586621680317309"><span id="local-6989586621680317311"><span class="annot"><span class="annottext">Int -&gt; ModelCacheSetting -&gt; ShowS
 [ModelCacheSetting] -&gt; ShowS
 ModelCacheSetting -&gt; String
 (Int -&gt; ModelCacheSetting -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ModelCacheSetting -&gt; String
 showsPrec :: Int -&gt; ModelCacheSetting -&gt; ShowS
 $cshowsPrec :: Int -&gt; ModelCacheSetting -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680317289"><span id="local-6989586621680317291"><span id="local-6989586621680317293"><span id="local-6989586621680317295"><span class="annot"><span class="annottext">ReadPrec [ModelCacheSetting]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680317298"><span id="local-6989586621680317300"><span id="local-6989586621680317302"><span id="local-6989586621680317304"><span class="annot"><span class="annottext">ReadPrec [ModelCacheSetting]
 ReadPrec ModelCacheSetting
 Int -&gt; ReadS ModelCacheSetting
 ReadS [ModelCacheSetting]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ModelCacheSetting]
 readsPrec :: Int -&gt; ReadS ModelCacheSetting
 $creadsPrec :: Int -&gt; ReadS ModelCacheSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680317284"><span id="local-6989586621680317286"><span class="annot"><span class="annottext">ModelCacheSetting -&gt; ModelCacheSetting -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680317293"><span id="local-6989586621680317295"><span class="annot"><span class="annottext">ModelCacheSetting -&gt; ModelCacheSetting -&gt; Bool
 (ModelCacheSetting -&gt; ModelCacheSetting -&gt; Bool)
 -&gt; (ModelCacheSetting -&gt; ModelCacheSetting -&gt; Bool)
 -&gt; Eq ModelCacheSetting
@@ -82,7 +82,7 @@ $c/= :: ModelCacheSetting -&gt; ModelCacheSetting -&gt; Bool
 == :: ModelCacheSetting -&gt; ModelCacheSetting -&gt; Bool
 $c== :: ModelCacheSetting -&gt; ModelCacheSetting -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680317268"><span id="local-6989586621680317270"><span id="local-6989586621680317272"><span id="local-6989586621680317274"><span id="local-6989586621680317276"><span id="local-6989586621680317278"><span id="local-6989586621680317280"><span class="annot"><span class="annottext">Eq ModelCacheSetting
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680317277"><span id="local-6989586621680317279"><span id="local-6989586621680317281"><span id="local-6989586621680317283"><span id="local-6989586621680317285"><span id="local-6989586621680317287"><span id="local-6989586621680317289"><span class="annot"><span class="annottext">Eq ModelCacheSetting
 Eq ModelCacheSetting
 -&gt; (ModelCacheSetting -&gt; ModelCacheSetting -&gt; Ordering)
 -&gt; (ModelCacheSetting -&gt; ModelCacheSetting -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ModelCacheSetting -&gt; Rep ModelCacheSetting x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680317260"><span id="local-6989586621680317262"><span class="annot"><span class="annottext">Int -&gt; ModelCacheSetting -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680317269"><span id="local-6989586621680317271"><span class="annot"><span class="annottext">Int -&gt; ModelCacheSetting -&gt; Int
 ModelCacheSetting -&gt; Int
 (Int -&gt; ModelCacheSetting -&gt; Int)
 -&gt; (ModelCacheSetting -&gt; Int) -&gt; Hashable ModelCacheSetting
@@ -143,51 +143,51 @@ $chash :: ModelCacheSetting -&gt; Int
 hashWithSalt :: Int -&gt; ModelCacheSetting -&gt; Int
 $chashWithSalt :: Int -&gt; ModelCacheSetting -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680317257"><span class="annot"><span class="annottext">ModelCacheSetting -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680317266"><span class="annot"><span class="annottext">ModelCacheSetting -&gt; ()
 (ModelCacheSetting -&gt; ()) -&gt; NFData ModelCacheSetting
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ModelCacheSetting -&gt; ()
 $crnf :: ModelCacheSetting -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680317254"><span class="annot"><span class="annottext">Text -&gt; Either String ModelCacheSetting
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680317263"><span class="annot"><span class="annottext">Text -&gt; Either String ModelCacheSetting
 (Text -&gt; Either String ModelCacheSetting)
 -&gt; FromText ModelCacheSetting
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ModelCacheSetting
 $cfromText :: Text -&gt; Either String ModelCacheSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680317251"><span class="annot"><span class="annottext">ModelCacheSetting -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680317260"><span class="annot"><span class="annottext">ModelCacheSetting -&gt; Text
 (ModelCacheSetting -&gt; Text) -&gt; ToText ModelCacheSetting
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ModelCacheSetting -&gt; Text
 $ctoText :: ModelCacheSetting -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680317248"><span class="annot"><span class="annottext">ModelCacheSetting -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680317257"><span class="annot"><span class="annottext">ModelCacheSetting -&gt; ByteString
 (ModelCacheSetting -&gt; ByteString) -&gt; ToByteString ModelCacheSetting
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ModelCacheSetting -&gt; ByteString
 $ctoBS :: ModelCacheSetting -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680317245"><span class="annot"><span class="annottext">ModelCacheSetting -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680317254"><span class="annot"><span class="annottext">ModelCacheSetting -&gt; ByteStringBuilder
 (ModelCacheSetting -&gt; ByteStringBuilder) -&gt; ToLog ModelCacheSetting
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ModelCacheSetting -&gt; ByteStringBuilder
 $cbuild :: ModelCacheSetting -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680317242"><span class="annot"><span class="annottext">HeaderName -&gt; ModelCacheSetting -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680317251"><span class="annot"><span class="annottext">HeaderName -&gt; ModelCacheSetting -&gt; [Header]
 (HeaderName -&gt; ModelCacheSetting -&gt; [Header])
 -&gt; ToHeader ModelCacheSetting
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ModelCacheSetting -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ModelCacheSetting -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680317239"><span class="annot"><span class="annottext">ModelCacheSetting -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680317248"><span class="annot"><span class="annottext">ModelCacheSetting -&gt; QueryString
 (ModelCacheSetting -&gt; QueryString) -&gt; ToQuery ModelCacheSetting
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ModelCacheSetting -&gt; QueryString
 $ctoQuery :: ModelCacheSetting -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680317234"><span id="local-6989586621680317236"><span class="annot"><span class="annottext">Value -&gt; Parser [ModelCacheSetting]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680317243"><span id="local-6989586621680317245"><span class="annot"><span class="annottext">Value -&gt; Parser [ModelCacheSetting]
 Value -&gt; Parser ModelCacheSetting
 (Value -&gt; Parser ModelCacheSetting)
 -&gt; (Value -&gt; Parser [ModelCacheSetting])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ModelCacheSetting]
 parseJSON :: Value -&gt; Parser ModelCacheSetting
 $cparseJSON :: Value -&gt; Parser ModelCacheSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680317229"><span id="local-6989586621680317231"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModelCacheSetting]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680317238"><span id="local-6989586621680317240"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModelCacheSetting]
 FromJSONKeyFunction ModelCacheSetting
 FromJSONKeyFunction ModelCacheSetting
 -&gt; FromJSONKeyFunction [ModelCacheSetting]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ModelCacheSetting]
 fromJSONKey :: FromJSONKeyFunction ModelCacheSetting
 $cfromJSONKey :: FromJSONKeyFunction ModelCacheSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680317220"><span id="local-6989586621680317222"><span id="local-6989586621680317224"><span id="local-6989586621680317226"><span class="annot"><span class="annottext">[ModelCacheSetting] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680317229"><span id="local-6989586621680317231"><span id="local-6989586621680317233"><span id="local-6989586621680317235"><span class="annot"><span class="annottext">[ModelCacheSetting] -&gt; Encoding
 [ModelCacheSetting] -&gt; Value
 ModelCacheSetting -&gt; Encoding
 ModelCacheSetting -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: ModelCacheSetting -&gt; Encoding
 toJSON :: ModelCacheSetting -&gt; Value
 $ctoJSON :: ModelCacheSetting -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680317215"><span id="local-6989586621680317217"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModelCacheSetting]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680317224"><span id="local-6989586621680317226"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModelCacheSetting]
 ToJSONKeyFunction ModelCacheSetting
 ToJSONKeyFunction ModelCacheSetting
 -&gt; ToJSONKeyFunction [ModelCacheSetting]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ModelCacheSetting]
 toJSONKey :: ToJSONKeyFunction ModelCacheSetting
 $ctoJSONKey :: ToJSONKeyFunction ModelCacheSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680317212"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModelCacheSetting
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680317221"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModelCacheSetting
 ([Node] -&gt; Either String ModelCacheSetting)
 -&gt; FromXML ModelCacheSetting
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ModelCacheSetting
 $cparseXML :: [Node] -&gt; Either String ModelCacheSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680317209"><span class="annot"><span class="annottext">ModelCacheSetting -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680317218"><span class="annot"><span class="annottext">ModelCacheSetting -&gt; XML
 (ModelCacheSetting -&gt; XML) -&gt; ToXML ModelCacheSetting
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ModelCacheSetting -&gt; XML

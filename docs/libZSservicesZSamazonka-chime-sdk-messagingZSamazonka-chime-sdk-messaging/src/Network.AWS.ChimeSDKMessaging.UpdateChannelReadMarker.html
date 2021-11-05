@@ -1,0 +1,474 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- The details of the time when a user last read messages in a channel.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- The @x-amz-chime-bearer@ request header is mandatory. Use the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- @AppInstanceUserArn@ of the user that makes the API call as the value in</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- the header.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker"><span class="hs-identifier">UpdateChannelReadMarker</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#newUpdateChannelReadMarker"><span class="hs-identifier">newUpdateChannelReadMarker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#updateChannelReadMarker_channelArn"><span class="hs-identifier">updateChannelReadMarker_channelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#updateChannelReadMarker_chimeBearer"><span class="hs-identifier">updateChannelReadMarker_chimeBearer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarkerResponse"><span class="hs-identifier">UpdateChannelReadMarkerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#newUpdateChannelReadMarkerResponse"><span class="hs-identifier">newUpdateChannelReadMarkerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#updateChannelReadMarkerResponse_channelArn"><span class="hs-identifier">updateChannelReadMarkerResponse_channelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#updateChannelReadMarkerResponse_httpStatus"><span class="hs-identifier">updateChannelReadMarkerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdateChannelReadMarker' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679243116"><span id="local-6989586621679243117"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateChannelReadMarker"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker"><span class="hs-identifier hs-var">UpdateChannelReadMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateChannelReadMarker%27"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker%27"><span class="hs-identifier hs-var">UpdateChannelReadMarker'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the channel.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AchannelArn%3AUpdateChannelReadMarker%27"><span class="annot"><span class="annottext">UpdateChannelReadMarker -&gt; Text
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#%24sel%3AchannelArn%3AUpdateChannelReadMarker%27"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The @AppInstanceUserArn@ of the user that makes the API call.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AchimeBearer%3AUpdateChannelReadMarker%27"><span class="annot"><span class="annottext">UpdateChannelReadMarker -&gt; Text
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#%24sel%3AchimeBearer%3AUpdateChannelReadMarker%27"><span class="hs-identifier hs-var hs-var">chimeBearer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243109"><span id="local-6989586621679243111"><span class="annot"><span class="annottext">UpdateChannelReadMarker -&gt; UpdateChannelReadMarker -&gt; Bool
+(UpdateChannelReadMarker -&gt; UpdateChannelReadMarker -&gt; Bool)
+-&gt; (UpdateChannelReadMarker -&gt; UpdateChannelReadMarker -&gt; Bool)
+-&gt; Eq UpdateChannelReadMarker
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateChannelReadMarker -&gt; UpdateChannelReadMarker -&gt; Bool
+$c/= :: UpdateChannelReadMarker -&gt; UpdateChannelReadMarker -&gt; Bool
+== :: UpdateChannelReadMarker -&gt; UpdateChannelReadMarker -&gt; Bool
+$c== :: UpdateChannelReadMarker -&gt; UpdateChannelReadMarker -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243100"><span id="local-6989586621679243102"><span id="local-6989586621679243104"><span id="local-6989586621679243106"><span class="annot"><span class="annottext">ReadPrec [UpdateChannelReadMarker]
+ReadPrec UpdateChannelReadMarker
+Int -&gt; ReadS UpdateChannelReadMarker
+ReadS [UpdateChannelReadMarker]
+(Int -&gt; ReadS UpdateChannelReadMarker)
+-&gt; ReadS [UpdateChannelReadMarker]
+-&gt; ReadPrec UpdateChannelReadMarker
+-&gt; ReadPrec [UpdateChannelReadMarker]
+-&gt; Read UpdateChannelReadMarker
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateChannelReadMarker]
+$creadListPrec :: ReadPrec [UpdateChannelReadMarker]
+readPrec :: ReadPrec UpdateChannelReadMarker
+$creadPrec :: ReadPrec UpdateChannelReadMarker
+readList :: ReadS [UpdateChannelReadMarker]
+$creadList :: ReadS [UpdateChannelReadMarker]
+readsPrec :: Int -&gt; ReadS UpdateChannelReadMarker
+$creadsPrec :: Int -&gt; ReadS UpdateChannelReadMarker
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243093"><span id="local-6989586621679243095"><span id="local-6989586621679243097"><span class="annot"><span class="annottext">Int -&gt; UpdateChannelReadMarker -&gt; ShowS
+[UpdateChannelReadMarker] -&gt; ShowS
+UpdateChannelReadMarker -&gt; String
+(Int -&gt; UpdateChannelReadMarker -&gt; ShowS)
+-&gt; (UpdateChannelReadMarker -&gt; String)
+-&gt; ([UpdateChannelReadMarker] -&gt; ShowS)
+-&gt; Show UpdateChannelReadMarker
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateChannelReadMarker] -&gt; ShowS
+$cshowList :: [UpdateChannelReadMarker] -&gt; ShowS
+show :: UpdateChannelReadMarker -&gt; String
+$cshow :: UpdateChannelReadMarker -&gt; String
+showsPrec :: Int -&gt; UpdateChannelReadMarker -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateChannelReadMarker -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateChannelReadMarker -&gt; Rep UpdateChannelReadMarker x)
+-&gt; (forall x.
+    Rep UpdateChannelReadMarker x -&gt; UpdateChannelReadMarker)
+-&gt; Generic UpdateChannelReadMarker
+forall x. Rep UpdateChannelReadMarker x -&gt; UpdateChannelReadMarker
+forall x. UpdateChannelReadMarker -&gt; Rep UpdateChannelReadMarker x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateChannelReadMarker x -&gt; UpdateChannelReadMarker
+$cfrom :: forall x. UpdateChannelReadMarker -&gt; Rep UpdateChannelReadMarker x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'UpdateChannelReadMarker' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'channelArn', 'updateChannelReadMarker_channelArn' - The ARN of the channel.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'chimeBearer', 'updateChannelReadMarker_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#newUpdateChannelReadMarker"><span class="hs-identifier hs-type">newUpdateChannelReadMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'channelArn'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'chimeBearer'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker"><span class="hs-identifier hs-type">UpdateChannelReadMarker</span></a></span><span>
+</span><span id="line-80"></span><span id="newUpdateChannelReadMarker"><span class="annot"><span class="annottext">newUpdateChannelReadMarker :: Text -&gt; Text -&gt; UpdateChannelReadMarker
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#newUpdateChannelReadMarker"><span class="hs-identifier hs-var hs-var">newUpdateChannelReadMarker</span></a></span></span><span> </span><span id="local-6989586621679243088"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243088"><span class="hs-identifier hs-var">pChannelArn_</span></a></span></span><span> </span><span id="local-6989586621679243087"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243087"><span class="hs-identifier hs-var">pChimeBearer_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">UpdateChannelReadMarker' :: Text -&gt; Text -&gt; UpdateChannelReadMarker
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker%27"><span class="hs-identifier hs-type">UpdateChannelReadMarker'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:channelArn:UpdateChannelReadMarker' :: Text
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#%24sel%3AchannelArn%3AUpdateChannelReadMarker%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243088"><span class="hs-identifier hs-var">pChannelArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:chimeBearer:UpdateChannelReadMarker' :: Text
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#%24sel%3AchimeBearer%3AUpdateChannelReadMarker%27"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243087"><span class="hs-identifier hs-var">pChimeBearer_</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The ARN of the channel.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#updateChannelReadMarker_channelArn"><span class="hs-identifier hs-type">updateChannelReadMarker_channelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker"><span class="hs-identifier hs-type">UpdateChannelReadMarker</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="updateChannelReadMarker_channelArn"><span class="annot"><span class="annottext">updateChannelReadMarker_channelArn :: (Text -&gt; f Text)
+-&gt; UpdateChannelReadMarker -&gt; f UpdateChannelReadMarker
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#updateChannelReadMarker_channelArn"><span class="hs-identifier hs-var hs-var">updateChannelReadMarker_channelArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateChannelReadMarker -&gt; Text)
+-&gt; (UpdateChannelReadMarker -&gt; Text -&gt; UpdateChannelReadMarker)
+-&gt; Lens UpdateChannelReadMarker UpdateChannelReadMarker Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker%27"><span class="hs-identifier hs-type">UpdateChannelReadMarker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243084"><span class="annot"><span class="annottext">Text
+channelArn :: Text
+$sel:channelArn:UpdateChannelReadMarker' :: UpdateChannelReadMarker -&gt; Text
+</span><a href="#local-6989586621679243084"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243084"><span class="hs-identifier hs-var">channelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243083"><span class="annot"><span class="annottext">s :: UpdateChannelReadMarker
+</span><a href="#local-6989586621679243083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker%27"><span class="hs-identifier hs-type">UpdateChannelReadMarker'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243082"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateChannelReadMarker
+</span><a href="#local-6989586621679243083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelArn:UpdateChannelReadMarker' :: Text
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#%24sel%3AchannelArn%3AUpdateChannelReadMarker%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker"><span class="hs-identifier hs-type">UpdateChannelReadMarker</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The @AppInstanceUserArn@ of the user that makes the API call.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#updateChannelReadMarker_chimeBearer"><span class="hs-identifier hs-type">updateChannelReadMarker_chimeBearer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker"><span class="hs-identifier hs-type">UpdateChannelReadMarker</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="updateChannelReadMarker_chimeBearer"><span class="annot"><span class="annottext">updateChannelReadMarker_chimeBearer :: (Text -&gt; f Text)
+-&gt; UpdateChannelReadMarker -&gt; f UpdateChannelReadMarker
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#updateChannelReadMarker_chimeBearer"><span class="hs-identifier hs-var hs-var">updateChannelReadMarker_chimeBearer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateChannelReadMarker -&gt; Text)
+-&gt; (UpdateChannelReadMarker -&gt; Text -&gt; UpdateChannelReadMarker)
+-&gt; Lens UpdateChannelReadMarker UpdateChannelReadMarker Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker%27"><span class="hs-identifier hs-type">UpdateChannelReadMarker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243081"><span class="annot"><span class="annottext">Text
+chimeBearer :: Text
+$sel:chimeBearer:UpdateChannelReadMarker' :: UpdateChannelReadMarker -&gt; Text
+</span><a href="#local-6989586621679243081"><span class="hs-identifier hs-var hs-var">chimeBearer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243081"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243080"><span class="annot"><span class="annottext">s :: UpdateChannelReadMarker
+</span><a href="#local-6989586621679243080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker%27"><span class="hs-identifier hs-type">UpdateChannelReadMarker'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243079"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateChannelReadMarker
+</span><a href="#local-6989586621679243080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:chimeBearer:UpdateChannelReadMarker' :: Text
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#%24sel%3AchimeBearer%3AUpdateChannelReadMarker%27"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker"><span class="hs-identifier hs-type">UpdateChannelReadMarker</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker"><span class="hs-identifier hs-type">UpdateChannelReadMarker</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker"><span class="hs-identifier hs-type">UpdateChannelReadMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarkerResponse"><span class="hs-identifier hs-type">UpdateChannelReadMarkerResponse</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679243075"><span class="annot"><span class="annottext">request :: UpdateChannelReadMarker -&gt; Request UpdateChannelReadMarker
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateChannelReadMarker -&gt; Request UpdateChannelReadMarker
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679243071"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateChannelReadMarker
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateChannelReadMarker)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateChannelReadMarker))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateChannelReadMarker
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateChannelReadMarker)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243068"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243068"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679243067"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679243067"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679243066"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243066"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; UpdateChannelReadMarkerResponse
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarkerResponse%27"><span class="hs-identifier hs-var">UpdateChannelReadMarkerResponse'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; UpdateChannelReadMarkerResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateChannelReadMarkerResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243066"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChannelArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateChannelReadMarkerResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateChannelReadMarkerResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243068"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243058"><span id="local-6989586621679243060"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker"><span class="hs-identifier hs-type">UpdateChannelReadMarker</span></a></span></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243055"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker"><span class="hs-identifier hs-type">UpdateChannelReadMarker</span></a></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker"><span class="hs-identifier hs-type">UpdateChannelReadMarker</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679243051"><span class="annot"><span class="annottext">toHeaders :: UpdateChannelReadMarker -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker%27"><span class="hs-identifier hs-type">UpdateChannelReadMarker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243048"><span id="local-6989586621679243049"><span class="annot"><span class="annottext">Text
+chimeBearer :: Text
+channelArn :: Text
+$sel:chimeBearer:UpdateChannelReadMarker' :: UpdateChannelReadMarker -&gt; Text
+$sel:channelArn:UpdateChannelReadMarker' :: UpdateChannelReadMarker -&gt; Text
+</span><a href="#local-6989586621679243048"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-chime-bearer&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243048"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243040"><span id="local-6989586621679243042"><span id="local-6989586621679243044"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker"><span class="hs-identifier hs-type">UpdateChannelReadMarker</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679243038"><span class="annot"><span class="annottext">toJSON :: UpdateChannelReadMarker -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; UpdateChannelReadMarker -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker"><span class="hs-identifier hs-type">UpdateChannelReadMarker</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679243032"><span class="annot"><span class="annottext">toPath :: UpdateChannelReadMarker -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker%27"><span class="hs-identifier hs-type">UpdateChannelReadMarker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243029"><span id="local-6989586621679243030"><span class="annot"><span class="annottext">Text
+chimeBearer :: Text
+channelArn :: Text
+$sel:chimeBearer:UpdateChannelReadMarker' :: UpdateChannelReadMarker -&gt; Text
+$sel:channelArn:UpdateChannelReadMarker' :: UpdateChannelReadMarker -&gt; Text
+</span><a href="#local-6989586621679243029"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/channels/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243030"><span class="hs-identifier hs-var">channelArn</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/readMarker&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarker"><span class="hs-identifier hs-type">UpdateChannelReadMarker</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679243025"><span class="annot"><span class="annottext">toQuery :: UpdateChannelReadMarker -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateChannelReadMarker -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newUpdateChannelReadMarkerResponse' smart constructor.</span><span>
+</span><span id="line-128"></span><span id="local-6989586621679243022"><span id="local-6989586621679243023"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateChannelReadMarkerResponse"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarkerResponse"><span class="hs-identifier hs-var">UpdateChannelReadMarkerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateChannelReadMarkerResponse%27"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarkerResponse%27"><span class="hs-identifier hs-var">UpdateChannelReadMarkerResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the channel.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AchannelArn%3AUpdateChannelReadMarkerResponse%27"><span class="annot"><span class="annottext">UpdateChannelReadMarkerResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#%24sel%3AchannelArn%3AUpdateChannelReadMarkerResponse%27"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateChannelReadMarkerResponse%27"><span class="annot"><span class="annottext">UpdateChannelReadMarkerResponse -&gt; Int
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#%24sel%3AhttpStatus%3AUpdateChannelReadMarkerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243016"><span id="local-6989586621679243018"><span class="annot"><span class="annottext">UpdateChannelReadMarkerResponse
+-&gt; UpdateChannelReadMarkerResponse -&gt; Bool
+(UpdateChannelReadMarkerResponse
+ -&gt; UpdateChannelReadMarkerResponse -&gt; Bool)
+-&gt; (UpdateChannelReadMarkerResponse
+    -&gt; UpdateChannelReadMarkerResponse -&gt; Bool)
+-&gt; Eq UpdateChannelReadMarkerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateChannelReadMarkerResponse
+-&gt; UpdateChannelReadMarkerResponse -&gt; Bool
+$c/= :: UpdateChannelReadMarkerResponse
+-&gt; UpdateChannelReadMarkerResponse -&gt; Bool
+== :: UpdateChannelReadMarkerResponse
+-&gt; UpdateChannelReadMarkerResponse -&gt; Bool
+$c== :: UpdateChannelReadMarkerResponse
+-&gt; UpdateChannelReadMarkerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243008"><span id="local-6989586621679243010"><span id="local-6989586621679243012"><span id="local-6989586621679243014"><span class="annot"><span class="annottext">ReadPrec [UpdateChannelReadMarkerResponse]
+ReadPrec UpdateChannelReadMarkerResponse
+Int -&gt; ReadS UpdateChannelReadMarkerResponse
+ReadS [UpdateChannelReadMarkerResponse]
+(Int -&gt; ReadS UpdateChannelReadMarkerResponse)
+-&gt; ReadS [UpdateChannelReadMarkerResponse]
+-&gt; ReadPrec UpdateChannelReadMarkerResponse
+-&gt; ReadPrec [UpdateChannelReadMarkerResponse]
+-&gt; Read UpdateChannelReadMarkerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateChannelReadMarkerResponse]
+$creadListPrec :: ReadPrec [UpdateChannelReadMarkerResponse]
+readPrec :: ReadPrec UpdateChannelReadMarkerResponse
+$creadPrec :: ReadPrec UpdateChannelReadMarkerResponse
+readList :: ReadS [UpdateChannelReadMarkerResponse]
+$creadList :: ReadS [UpdateChannelReadMarkerResponse]
+readsPrec :: Int -&gt; ReadS UpdateChannelReadMarkerResponse
+$creadsPrec :: Int -&gt; ReadS UpdateChannelReadMarkerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243002"><span id="local-6989586621679243004"><span id="local-6989586621679243006"><span class="annot"><span class="annottext">Int -&gt; UpdateChannelReadMarkerResponse -&gt; ShowS
+[UpdateChannelReadMarkerResponse] -&gt; ShowS
+UpdateChannelReadMarkerResponse -&gt; String
+(Int -&gt; UpdateChannelReadMarkerResponse -&gt; ShowS)
+-&gt; (UpdateChannelReadMarkerResponse -&gt; String)
+-&gt; ([UpdateChannelReadMarkerResponse] -&gt; ShowS)
+-&gt; Show UpdateChannelReadMarkerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateChannelReadMarkerResponse] -&gt; ShowS
+$cshowList :: [UpdateChannelReadMarkerResponse] -&gt; ShowS
+show :: UpdateChannelReadMarkerResponse -&gt; String
+$cshow :: UpdateChannelReadMarkerResponse -&gt; String
+showsPrec :: Int -&gt; UpdateChannelReadMarkerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateChannelReadMarkerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateChannelReadMarkerResponse
+ -&gt; Rep UpdateChannelReadMarkerResponse x)
+-&gt; (forall x.
+    Rep UpdateChannelReadMarkerResponse x
+    -&gt; UpdateChannelReadMarkerResponse)
+-&gt; Generic UpdateChannelReadMarkerResponse
+forall x.
+Rep UpdateChannelReadMarkerResponse x
+-&gt; UpdateChannelReadMarkerResponse
+forall x.
+UpdateChannelReadMarkerResponse
+-&gt; Rep UpdateChannelReadMarkerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateChannelReadMarkerResponse x
+-&gt; UpdateChannelReadMarkerResponse
+$cfrom :: forall x.
+UpdateChannelReadMarkerResponse
+-&gt; Rep UpdateChannelReadMarkerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Create a value of 'UpdateChannelReadMarkerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'channelArn', 'updateChannelReadMarkerResponse_channelArn' - The ARN of the channel.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'httpStatus', 'updateChannelReadMarkerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#newUpdateChannelReadMarkerResponse"><span class="hs-identifier hs-type">newUpdateChannelReadMarkerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarkerResponse"><span class="hs-identifier hs-type">UpdateChannelReadMarkerResponse</span></a></span><span>
+</span><span id="line-151"></span><span id="newUpdateChannelReadMarkerResponse"><span class="annot"><span class="annottext">newUpdateChannelReadMarkerResponse :: Int -&gt; UpdateChannelReadMarkerResponse
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#newUpdateChannelReadMarkerResponse"><span class="hs-identifier hs-var hs-var">newUpdateChannelReadMarkerResponse</span></a></span></span><span> </span><span id="local-6989586621679242999"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242999"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">UpdateChannelReadMarkerResponse' :: Maybe Text -&gt; Int -&gt; UpdateChannelReadMarkerResponse
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarkerResponse%27"><span class="hs-identifier hs-type">UpdateChannelReadMarkerResponse'</span></a></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:channelArn:UpdateChannelReadMarkerResponse' :: Maybe Text
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#%24sel%3AchannelArn%3AUpdateChannelReadMarkerResponse%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateChannelReadMarkerResponse' :: Int
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#%24sel%3AhttpStatus%3AUpdateChannelReadMarkerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242999"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The ARN of the channel.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#updateChannelReadMarkerResponse_channelArn"><span class="hs-identifier hs-type">updateChannelReadMarkerResponse_channelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarkerResponse"><span class="hs-identifier hs-type">UpdateChannelReadMarkerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="updateChannelReadMarkerResponse_channelArn"><span class="annot"><span class="annottext">updateChannelReadMarkerResponse_channelArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateChannelReadMarkerResponse
+-&gt; f UpdateChannelReadMarkerResponse
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#updateChannelReadMarkerResponse_channelArn"><span class="hs-identifier hs-var hs-var">updateChannelReadMarkerResponse_channelArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateChannelReadMarkerResponse -&gt; Maybe Text)
+-&gt; (UpdateChannelReadMarkerResponse
+    -&gt; Maybe Text -&gt; UpdateChannelReadMarkerResponse)
+-&gt; Lens
+     UpdateChannelReadMarkerResponse
+     UpdateChannelReadMarkerResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarkerResponse%27"><span class="hs-identifier hs-type">UpdateChannelReadMarkerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242998"><span class="annot"><span class="annottext">Maybe Text
+channelArn :: Maybe Text
+$sel:channelArn:UpdateChannelReadMarkerResponse' :: UpdateChannelReadMarkerResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679242998"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242998"><span class="hs-identifier hs-var">channelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242997"><span class="annot"><span class="annottext">s :: UpdateChannelReadMarkerResponse
+</span><a href="#local-6989586621679242997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarkerResponse%27"><span class="hs-identifier hs-type">UpdateChannelReadMarkerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242996"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateChannelReadMarkerResponse
+</span><a href="#local-6989586621679242997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelArn:UpdateChannelReadMarkerResponse' :: Maybe Text
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#%24sel%3AchannelArn%3AUpdateChannelReadMarkerResponse%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarkerResponse"><span class="hs-identifier hs-type">UpdateChannelReadMarkerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#updateChannelReadMarkerResponse_httpStatus"><span class="hs-identifier hs-type">updateChannelReadMarkerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarkerResponse"><span class="hs-identifier hs-type">UpdateChannelReadMarkerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-164"></span><span id="updateChannelReadMarkerResponse_httpStatus"><span class="annot"><span class="annottext">updateChannelReadMarkerResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateChannelReadMarkerResponse
+-&gt; f UpdateChannelReadMarkerResponse
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#updateChannelReadMarkerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateChannelReadMarkerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateChannelReadMarkerResponse -&gt; Int)
+-&gt; (UpdateChannelReadMarkerResponse
+    -&gt; Int -&gt; UpdateChannelReadMarkerResponse)
+-&gt; Lens
+     UpdateChannelReadMarkerResponse
+     UpdateChannelReadMarkerResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarkerResponse%27"><span class="hs-identifier hs-type">UpdateChannelReadMarkerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242995"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateChannelReadMarkerResponse' :: UpdateChannelReadMarkerResponse -&gt; Int
+</span><a href="#local-6989586621679242995"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242995"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242994"><span class="annot"><span class="annottext">s :: UpdateChannelReadMarkerResponse
+</span><a href="#local-6989586621679242994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarkerResponse%27"><span class="hs-identifier hs-type">UpdateChannelReadMarkerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242993"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateChannelReadMarkerResponse
+</span><a href="#local-6989586621679242994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateChannelReadMarkerResponse' :: Int
+</span><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#%24sel%3AhttpStatus%3AUpdateChannelReadMarkerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarkerResponse"><span class="hs-identifier hs-type">UpdateChannelReadMarkerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679242991"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker.html#UpdateChannelReadMarkerResponse"><span class="hs-identifier hs-type">UpdateChannelReadMarkerResponse</span></a></span></span><span>
+</span><span id="line-169"></span></pre></body></html>

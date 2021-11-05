@@ -49,14 +49,14 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newPutPolicy' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621680030737"><span id="local-6989586621680030738"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutPolicy"><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-var">PutPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutPolicy%27"><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-var">PutPolicy'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621680030746"><span id="local-6989586621680030747"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutPolicy"><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-var">PutPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutPolicy%27"><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-var">PutPolicy'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A policy configures behavior that you allow or disallow for your</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- account. For information about MediaConvert policies, see the user guide</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- at http:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/what-is.html</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3Apolicy%3APutPolicy%27"><span class="annot"><span class="annottext">PutPolicy -&gt; Policy
 </span><a href="Network.AWS.MediaConvert.PutPolicy.html#%24sel%3Apolicy%3APutPolicy%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680030731"><span id="local-6989586621680030733"><span class="annot"><span class="annottext">PutPolicy -&gt; PutPolicy -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680030740"><span id="local-6989586621680030742"><span class="annot"><span class="annottext">PutPolicy -&gt; PutPolicy -&gt; Bool
 (PutPolicy -&gt; PutPolicy -&gt; Bool)
 -&gt; (PutPolicy -&gt; PutPolicy -&gt; Bool) -&gt; Eq PutPolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutPolicy -&gt; PutPolicy -&gt; Bool
 == :: PutPolicy -&gt; PutPolicy -&gt; Bool
 $c== :: PutPolicy -&gt; PutPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680030722"><span id="local-6989586621680030724"><span id="local-6989586621680030726"><span id="local-6989586621680030728"><span class="annot"><span class="annottext">ReadPrec [PutPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680030731"><span id="local-6989586621680030733"><span id="local-6989586621680030735"><span id="local-6989586621680030737"><span class="annot"><span class="annottext">ReadPrec [PutPolicy]
 ReadPrec PutPolicy
 Int -&gt; ReadS PutPolicy
 ReadS [PutPolicy]
@@ -84,7 +84,7 @@ readList :: ReadS [PutPolicy]
 $creadList :: ReadS [PutPolicy]
 readsPrec :: Int -&gt; ReadS PutPolicy
 $creadsPrec :: Int -&gt; ReadS PutPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680030715"><span id="local-6989586621680030717"><span id="local-6989586621680030719"><span class="annot"><span class="annottext">Int -&gt; PutPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680030724"><span id="local-6989586621680030726"><span id="local-6989586621680030728"><span class="annot"><span class="annottext">Int -&gt; PutPolicy -&gt; ShowS
 [PutPolicy] -&gt; ShowS
 PutPolicy -&gt; String
 (Int -&gt; PutPolicy -&gt; ShowS)
@@ -125,11 +125,11 @@ $cfrom :: forall x. PutPolicy -&gt; Rep PutPolicy x
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span>
 </span><span id="line-75"></span><span id="newPutPolicy"><span class="annot"><span class="annottext">newPutPolicy :: Policy -&gt; PutPolicy
-</span><a href="Network.AWS.MediaConvert.PutPolicy.html#newPutPolicy"><span class="hs-identifier hs-var hs-var">newPutPolicy</span></a></span></span><span> </span><span id="local-6989586621680030710"><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621680030710"><span class="hs-identifier hs-var">pPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutPolicy' :: Policy -&gt; PutPolicy
+</span><a href="Network.AWS.MediaConvert.PutPolicy.html#newPutPolicy"><span class="hs-identifier hs-var hs-var">newPutPolicy</span></a></span></span><span> </span><span id="local-6989586621680030719"><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621680030719"><span class="hs-identifier hs-var">pPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutPolicy' :: Policy -&gt; PutPolicy
 </span><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:PutPolicy' :: Policy
 </span><a href="Network.AWS.MediaConvert.PutPolicy.html#%24sel%3Apolicy%3APutPolicy%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621680030710"><span class="hs-identifier hs-var">pPolicy_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680030719"><span class="hs-identifier hs-var">pPolicy_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | A policy configures behavior that you allow or disallow for your</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- account. For information about MediaConvert policies, see the user guide</span><span>
@@ -140,25 +140,25 @@ $cfrom :: forall x. PutPolicy -&gt; Rep PutPolicy x
 -&gt; (PutPolicy -&gt; Policy -&gt; PutPolicy)
 -&gt; Lens PutPolicy PutPolicy Policy Policy
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680030707"><span class="annot"><span class="annottext">Policy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680030716"><span class="annot"><span class="annottext">Policy
 policy :: Policy
 $sel:policy:PutPolicy' :: PutPolicy -&gt; Policy
-</span><a href="#local-6989586621680030707"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621680030707"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680030706"><span class="annot"><span class="annottext">s :: PutPolicy
-</span><a href="#local-6989586621680030706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680030705"><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621680030705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPolicy
-</span><a href="#local-6989586621680030706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:PutPolicy' :: Policy
+</span><a href="#local-6989586621680030716"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621680030716"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680030715"><span class="annot"><span class="annottext">s :: PutPolicy
+</span><a href="#local-6989586621680030715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680030714"><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621680030714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPolicy
+</span><a href="#local-6989586621680030715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:PutPolicy' :: Policy
 </span><a href="Network.AWS.MediaConvert.PutPolicy.html#%24sel%3Apolicy%3APutPolicy%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621680030705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680030714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse"><span class="hs-identifier hs-type">PutPolicyResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621680030701"><span class="annot"><span class="annottext">request :: PutPolicy -&gt; Request PutPolicy
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621680030710"><span class="annot"><span class="annottext">request :: PutPolicy -&gt; Request PutPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutPolicy -&gt; Request PutPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaConvert.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621680030697"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621680030706"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutPolicy
 -&gt; ClientResponse ClientBody
@@ -182,10 +182,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680030694"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680030694"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680030693"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680030693"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680030692"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680030692"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680030703"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680030703"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680030702"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680030702"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680030701"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680030701"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Policy -&gt; Int -&gt; PutPolicyResponse
 </span><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse%27"><span class="hs-identifier hs-var">PutPolicyResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Policy -&gt; Int -&gt; PutPolicyResponse)
@@ -193,7 +193,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; PutPolicyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680030692"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Policy)
+</span><a href="#local-6989586621680030701"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Policy)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;policy&quot;</span></span><span class="hs-special">)</span><span>
@@ -205,15 +205,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680030694"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680030703"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680030684"><span id="local-6989586621680030686"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680030693"><span id="local-6989586621680030695"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680030681"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680030690"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621680030677"><span class="annot"><span class="annottext">toHeaders :: PutPolicy -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621680030686"><span class="annot"><span class="annottext">toHeaders :: PutPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -232,12 +232,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680030667"><span id="local-6989586621680030669"><span id="local-6989586621680030671"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621680030665"><span class="annot"><span class="annottext">toJSON :: PutPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680030663"><span class="annot"><span class="annottext">Policy
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680030676"><span id="local-6989586621680030678"><span id="local-6989586621680030680"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621680030674"><span class="annot"><span class="annottext">toJSON :: PutPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680030672"><span class="annot"><span class="annottext">Policy
 policy :: Policy
 $sel:policy:PutPolicy' :: PutPolicy -&gt; Policy
-</span><a href="#local-6989586621680030663"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680030672"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -249,18 +249,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;policy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Policy -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621680030663"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680030672"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621680030657"><span class="annot"><span class="annottext">toPath :: PutPolicy -&gt; ByteString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621680030666"><span class="annot"><span class="annottext">toPath :: PutPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/2017-08-29/policy&quot;</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621680030653"><span class="annot"><span class="annottext">toQuery :: PutPolicy -&gt; QueryString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621680030662"><span class="annot"><span class="annottext">toQuery :: PutPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -268,7 +268,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newPutPolicyResponse' smart constructor.</span><span>
-</span><span id="line-123"></span><span id="local-6989586621680030650"><span id="local-6989586621680030651"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutPolicyResponse"><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse"><span class="hs-identifier hs-var">PutPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutPolicyResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse%27"><span class="hs-identifier hs-var">PutPolicyResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span id="local-6989586621680030659"><span id="local-6989586621680030660"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutPolicyResponse"><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse"><span class="hs-identifier hs-var">PutPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutPolicyResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse%27"><span class="hs-identifier hs-var">PutPolicyResponse'</span></a></span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A policy configures behavior that you allow or disallow for your</span><span>
 </span><span id="line-125"></span><span>    </span><span class="hs-comment">-- account. For information about MediaConvert policies, see the user guide</span><span>
 </span><span id="line-126"></span><span>    </span><span class="hs-comment">-- at http:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/what-is.html</span><span>
@@ -278,7 +278,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutPolicyResponse%27"><span class="annot"><span class="annottext">PutPolicyResponse -&gt; Int
 </span><a href="Network.AWS.MediaConvert.PutPolicy.html#%24sel%3AhttpStatus%3APutPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680030644"><span id="local-6989586621680030646"><span class="annot"><span class="annottext">PutPolicyResponse -&gt; PutPolicyResponse -&gt; Bool
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680030653"><span id="local-6989586621680030655"><span class="annot"><span class="annottext">PutPolicyResponse -&gt; PutPolicyResponse -&gt; Bool
 (PutPolicyResponse -&gt; PutPolicyResponse -&gt; Bool)
 -&gt; (PutPolicyResponse -&gt; PutPolicyResponse -&gt; Bool)
 -&gt; Eq PutPolicyResponse
@@ -287,7 +287,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutPolicyResponse -&gt; PutPolicyResponse -&gt; Bool
 == :: PutPolicyResponse -&gt; PutPolicyResponse -&gt; Bool
 $c== :: PutPolicyResponse -&gt; PutPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680030636"><span id="local-6989586621680030638"><span id="local-6989586621680030640"><span id="local-6989586621680030642"><span class="annot"><span class="annottext">ReadPrec [PutPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680030645"><span id="local-6989586621680030647"><span id="local-6989586621680030649"><span id="local-6989586621680030651"><span class="annot"><span class="annottext">ReadPrec [PutPolicyResponse]
 ReadPrec PutPolicyResponse
 Int -&gt; ReadS PutPolicyResponse
 ReadS [PutPolicyResponse]
@@ -307,7 +307,7 @@ readList :: ReadS [PutPolicyResponse]
 $creadList :: ReadS [PutPolicyResponse]
 readsPrec :: Int -&gt; ReadS PutPolicyResponse
 $creadsPrec :: Int -&gt; ReadS PutPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680030630"><span id="local-6989586621680030632"><span id="local-6989586621680030634"><span class="annot"><span class="annottext">Int -&gt; PutPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680030639"><span id="local-6989586621680030641"><span id="local-6989586621680030643"><span class="annot"><span class="annottext">Int -&gt; PutPolicyResponse -&gt; ShowS
 [PutPolicyResponse] -&gt; ShowS
 PutPolicyResponse -&gt; String
 (Int -&gt; PutPolicyResponse -&gt; ShowS)
@@ -351,8 +351,8 @@ $cfrom :: forall x. PutPolicyResponse -&gt; Rep PutPolicyResponse x
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse"><span class="hs-identifier hs-type">PutPolicyResponse</span></a></span><span>
 </span><span id="line-150"></span><span id="newPutPolicyResponse"><span class="annot"><span class="annottext">newPutPolicyResponse :: Int -&gt; PutPolicyResponse
-</span><a href="Network.AWS.MediaConvert.PutPolicy.html#newPutPolicyResponse"><span class="hs-identifier hs-var hs-var">newPutPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621680030627"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680030627"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaConvert.PutPolicy.html#newPutPolicyResponse"><span class="hs-identifier hs-var hs-var">newPutPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621680030636"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680030636"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">PutPolicyResponse' :: Maybe Policy -&gt; Int -&gt; PutPolicyResponse
 </span><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse%27"><span class="hs-identifier hs-type">PutPolicyResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policy:PutPolicyResponse' :: Maybe Policy
@@ -361,7 +361,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutPolicyResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.PutPolicy.html#%24sel%3AhttpStatus%3APutPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680030627"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621680030636"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | A policy configures behavior that you allow or disallow for your</span><span>
@@ -375,16 +375,16 @@ forall a. Maybe a
 -&gt; Lens
      PutPolicyResponse PutPolicyResponse (Maybe Policy) (Maybe Policy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse%27"><span class="hs-identifier hs-type">PutPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680030626"><span class="annot"><span class="annottext">Maybe Policy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse%27"><span class="hs-identifier hs-type">PutPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680030635"><span class="annot"><span class="annottext">Maybe Policy
 policy :: Maybe Policy
 $sel:policy:PutPolicyResponse' :: PutPolicyResponse -&gt; Maybe Policy
-</span><a href="#local-6989586621680030626"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Policy
-</span><a href="#local-6989586621680030626"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680030625"><span class="annot"><span class="annottext">s :: PutPolicyResponse
-</span><a href="#local-6989586621680030625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse%27"><span class="hs-identifier hs-type">PutPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680030624"><span class="annot"><span class="annottext">Maybe Policy
-</span><a href="#local-6989586621680030624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPolicyResponse
-</span><a href="#local-6989586621680030625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:PutPolicyResponse' :: Maybe Policy
+</span><a href="#local-6989586621680030635"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Policy
+</span><a href="#local-6989586621680030635"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680030634"><span class="annot"><span class="annottext">s :: PutPolicyResponse
+</span><a href="#local-6989586621680030634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse%27"><span class="hs-identifier hs-type">PutPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680030633"><span class="annot"><span class="annottext">Maybe Policy
+</span><a href="#local-6989586621680030633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPolicyResponse
+</span><a href="#local-6989586621680030634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:PutPolicyResponse' :: Maybe Policy
 </span><a href="Network.AWS.MediaConvert.PutPolicy.html#%24sel%3Apolicy%3APutPolicyResponse%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Policy
-</span><a href="#local-6989586621680030624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse"><span class="hs-identifier hs-type">PutPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680030633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse"><span class="hs-identifier hs-type">PutPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-163"></span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#putPolicyResponse_httpStatus"><span class="hs-identifier hs-type">putPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse"><span class="hs-identifier hs-type">PutPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -393,16 +393,16 @@ $sel:policy:PutPolicyResponse' :: PutPolicyResponse -&gt; Maybe Policy
 -&gt; (PutPolicyResponse -&gt; Int -&gt; PutPolicyResponse)
 -&gt; Lens PutPolicyResponse PutPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse%27"><span class="hs-identifier hs-type">PutPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680030623"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse%27"><span class="hs-identifier hs-type">PutPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680030632"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutPolicyResponse' :: PutPolicyResponse -&gt; Int
-</span><a href="#local-6989586621680030623"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680030623"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680030622"><span class="annot"><span class="annottext">s :: PutPolicyResponse
-</span><a href="#local-6989586621680030622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse%27"><span class="hs-identifier hs-type">PutPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680030621"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680030621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPolicyResponse
-</span><a href="#local-6989586621680030622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutPolicyResponse' :: Int
+</span><a href="#local-6989586621680030632"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680030632"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680030631"><span class="annot"><span class="annottext">s :: PutPolicyResponse
+</span><a href="#local-6989586621680030631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse%27"><span class="hs-identifier hs-type">PutPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680030630"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680030630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPolicyResponse
+</span><a href="#local-6989586621680030631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutPolicyResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.PutPolicy.html#%24sel%3AhttpStatus%3APutPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680030621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse"><span class="hs-identifier hs-type">PutPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680030630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse"><span class="hs-identifier hs-type">PutPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680030619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse"><span class="hs-identifier hs-type">PutPolicyResponse</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680030628"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.PutPolicy.html#PutPolicyResponse"><span class="hs-identifier hs-type">PutPolicyResponse</span></a></span></span><span>
 </span><span id="line-167"></span></pre></body></html>

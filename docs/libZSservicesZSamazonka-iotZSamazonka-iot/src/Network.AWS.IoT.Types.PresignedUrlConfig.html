@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Configuration for pre-signed S3 URLs.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPresignedUrlConfig' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679793090"><span id="local-6989586621679793091"></span></span><span class="hs-keyword">data</span><span> </span><span id="PresignedUrlConfig"><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig"><span class="hs-identifier hs-var">PresignedUrlConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PresignedUrlConfig%27"><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig%27"><span class="hs-identifier hs-var">PresignedUrlConfig'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679793099"><span id="local-6989586621679793100"></span></span><span class="hs-keyword">data</span><span> </span><span id="PresignedUrlConfig"><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig"><span class="hs-identifier hs-var">PresignedUrlConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PresignedUrlConfig%27"><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig%27"><span class="hs-identifier hs-var">PresignedUrlConfig'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | How long (in seconds) pre-signed URLs are valid. Valid values are 60 -</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- 3600, the default value is 3600 seconds. Pre-signed URLs are generated</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- when Jobs receives an MQTT request for the job document.</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AroleArn%3APresignedUrlConfig%27"><span class="annot"><span class="annottext">PresignedUrlConfig -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#%24sel%3AroleArn%3APresignedUrlConfig%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679793083"><span id="local-6989586621679793085"><span class="annot"><span class="annottext">PresignedUrlConfig -&gt; PresignedUrlConfig -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679793092"><span id="local-6989586621679793094"><span class="annot"><span class="annottext">PresignedUrlConfig -&gt; PresignedUrlConfig -&gt; Bool
 (PresignedUrlConfig -&gt; PresignedUrlConfig -&gt; Bool)
 -&gt; (PresignedUrlConfig -&gt; PresignedUrlConfig -&gt; Bool)
 -&gt; Eq PresignedUrlConfig
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PresignedUrlConfig -&gt; PresignedUrlConfig -&gt; Bool
 == :: PresignedUrlConfig -&gt; PresignedUrlConfig -&gt; Bool
 $c== :: PresignedUrlConfig -&gt; PresignedUrlConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679793074"><span id="local-6989586621679793076"><span id="local-6989586621679793078"><span id="local-6989586621679793080"><span class="annot"><span class="annottext">ReadPrec [PresignedUrlConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679793083"><span id="local-6989586621679793085"><span id="local-6989586621679793087"><span id="local-6989586621679793089"><span class="annot"><span class="annottext">ReadPrec [PresignedUrlConfig]
 ReadPrec PresignedUrlConfig
 Int -&gt; ReadS PresignedUrlConfig
 ReadS [PresignedUrlConfig]
@@ -67,7 +67,7 @@ readList :: ReadS [PresignedUrlConfig]
 $creadList :: ReadS [PresignedUrlConfig]
 readsPrec :: Int -&gt; ReadS PresignedUrlConfig
 $creadsPrec :: Int -&gt; ReadS PresignedUrlConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679793067"><span id="local-6989586621679793069"><span id="local-6989586621679793071"><span class="annot"><span class="annottext">Int -&gt; PresignedUrlConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679793076"><span id="local-6989586621679793078"><span id="local-6989586621679793080"><span class="annot"><span class="annottext">Int -&gt; PresignedUrlConfig -&gt; ShowS
 [PresignedUrlConfig] -&gt; ShowS
 PresignedUrlConfig -&gt; String
 (Int -&gt; PresignedUrlConfig -&gt; ShowS)
@@ -138,16 +138,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig%27"><span class="hs-identifier hs-type">PresignedUrlConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679793058"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig%27"><span class="hs-identifier hs-type">PresignedUrlConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679793067"><span class="annot"><span class="annottext">Maybe Natural
 expiresInSec :: Maybe Natural
 $sel:expiresInSec:PresignedUrlConfig' :: PresignedUrlConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621679793058"><span class="hs-identifier hs-var hs-var">expiresInSec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679793058"><span class="hs-identifier hs-var">expiresInSec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679793057"><span class="annot"><span class="annottext">s :: PresignedUrlConfig
-</span><a href="#local-6989586621679793057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig%27"><span class="hs-identifier hs-type">PresignedUrlConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679793056"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679793056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresignedUrlConfig
-</span><a href="#local-6989586621679793057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expiresInSec:PresignedUrlConfig' :: Maybe Natural
+</span><a href="#local-6989586621679793067"><span class="hs-identifier hs-var hs-var">expiresInSec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679793067"><span class="hs-identifier hs-var">expiresInSec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679793066"><span class="annot"><span class="annottext">s :: PresignedUrlConfig
+</span><a href="#local-6989586621679793066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig%27"><span class="hs-identifier hs-type">PresignedUrlConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679793065"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679793065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresignedUrlConfig
+</span><a href="#local-6989586621679793066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expiresInSec:PresignedUrlConfig' :: Maybe Natural
 </span><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#%24sel%3AexpiresInSec%3APresignedUrlConfig%27"><span class="hs-identifier hs-var">expiresInSec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679793056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig"><span class="hs-identifier hs-type">PresignedUrlConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679793065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig"><span class="hs-identifier hs-type">PresignedUrlConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The ARN of an IAM role that grants grants permission to download files</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- from the S3 bucket where the job data\/updates are stored. The role must</span><span>
@@ -160,19 +160,19 @@ $sel:expiresInSec:PresignedUrlConfig' :: PresignedUrlConfig -&gt; Maybe Natural
 -&gt; Lens
      PresignedUrlConfig PresignedUrlConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig%27"><span class="hs-identifier hs-type">PresignedUrlConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679793054"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig%27"><span class="hs-identifier hs-type">PresignedUrlConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679793063"><span class="annot"><span class="annottext">Maybe Text
 roleArn :: Maybe Text
 $sel:roleArn:PresignedUrlConfig' :: PresignedUrlConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679793054"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679793054"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679793053"><span class="annot"><span class="annottext">s :: PresignedUrlConfig
-</span><a href="#local-6989586621679793053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig%27"><span class="hs-identifier hs-type">PresignedUrlConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679793052"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679793052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresignedUrlConfig
-</span><a href="#local-6989586621679793053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:PresignedUrlConfig' :: Maybe Text
+</span><a href="#local-6989586621679793063"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679793063"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679793062"><span class="annot"><span class="annottext">s :: PresignedUrlConfig
+</span><a href="#local-6989586621679793062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig%27"><span class="hs-identifier hs-type">PresignedUrlConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679793061"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679793061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresignedUrlConfig
+</span><a href="#local-6989586621679793062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:PresignedUrlConfig' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#%24sel%3AroleArn%3APresignedUrlConfig%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679793052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig"><span class="hs-identifier hs-type">PresignedUrlConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679793061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig"><span class="hs-identifier hs-type">PresignedUrlConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793049"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig"><span class="hs-identifier hs-type">PresignedUrlConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679793047"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PresignedUrlConfig
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793058"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig"><span class="hs-identifier hs-type">PresignedUrlConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679793056"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PresignedUrlConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PresignedUrlConfig)
@@ -182,8 +182,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PresignedUrlConfig&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679793044"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679793044"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679793053"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679793053"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Text -&gt; PresignedUrlConfig
 </span><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig%27"><span class="hs-identifier hs-var">PresignedUrlConfig'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Text -&gt; PresignedUrlConfig)
@@ -191,7 +191,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; PresignedUrlConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679793044"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679793053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;expiresInSec&quot;</span></span><span class="hs-special">)</span><span>
@@ -199,25 +199,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser PresignedUrlConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679793044"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679793053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793038"><span id="local-6989586621679793040"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig"><span class="hs-identifier hs-type">PresignedUrlConfig</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793047"><span id="local-6989586621679793049"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig"><span class="hs-identifier hs-type">PresignedUrlConfig</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793035"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig"><span class="hs-identifier hs-type">PresignedUrlConfig</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig"><span class="hs-identifier hs-type">PresignedUrlConfig</span></a></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793027"><span id="local-6989586621679793029"><span id="local-6989586621679793031"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig"><span class="hs-identifier hs-type">PresignedUrlConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679793025"><span class="annot"><span class="annottext">toJSON :: PresignedUrlConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig%27"><span class="hs-identifier hs-type">PresignedUrlConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679793022"><span id="local-6989586621679793023"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793036"><span id="local-6989586621679793038"><span id="local-6989586621679793040"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig"><span class="hs-identifier hs-type">PresignedUrlConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679793034"><span class="annot"><span class="annottext">toJSON :: PresignedUrlConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig%27"><span class="hs-identifier hs-type">PresignedUrlConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679793031"><span id="local-6989586621679793032"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 roleArn :: Maybe Text
 expiresInSec :: Maybe Natural
 $sel:roleArn:PresignedUrlConfig' :: PresignedUrlConfig -&gt; Maybe Text
 $sel:expiresInSec:PresignedUrlConfig' :: PresignedUrlConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621679793022"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679793031"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -229,14 +229,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679793023"><span class="hs-identifier hs-var">expiresInSec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679793032"><span class="hs-identifier hs-var">expiresInSec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679793022"><span class="hs-identifier hs-var">roleArn</span></a></span><span>
+</span><a href="#local-6989586621679793031"><span class="hs-identifier hs-var">roleArn</span></a></span><span>
 </span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains information about conversation log settings.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newConversationLogsResponse' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679312647"><span id="local-6989586621679312648"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConversationLogsResponse"><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse"><span class="hs-identifier hs-var">ConversationLogsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConversationLogsResponse%27"><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse%27"><span class="hs-identifier hs-var">ConversationLogsResponse'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679312656"><span id="local-6989586621679312657"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConversationLogsResponse"><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse"><span class="hs-identifier hs-var">ConversationLogsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConversationLogsResponse%27"><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse%27"><span class="hs-identifier hs-var">ConversationLogsResponse'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role used to write your logs</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- to CloudWatch Logs or an S3 bucket.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AiamRoleArn%3AConversationLogsResponse%27"><span class="annot"><span class="annottext">ConversationLogsResponse -&gt; Maybe Text
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AlogSettings%3AConversationLogsResponse%27"><span class="annot"><span class="annottext">ConversationLogsResponse -&gt; Maybe [LogSettingsResponse]
 </span><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#%24sel%3AlogSettings%3AConversationLogsResponse%27"><span class="hs-identifier hs-var hs-var">logSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexModels.Types.LogSettingsResponse.html#LogSettingsResponse"><span class="hs-identifier hs-type">LogSettingsResponse</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312640"><span id="local-6989586621679312642"><span class="annot"><span class="annottext">ConversationLogsResponse -&gt; ConversationLogsResponse -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312649"><span id="local-6989586621679312651"><span class="annot"><span class="annottext">ConversationLogsResponse -&gt; ConversationLogsResponse -&gt; Bool
 (ConversationLogsResponse -&gt; ConversationLogsResponse -&gt; Bool)
 -&gt; (ConversationLogsResponse -&gt; ConversationLogsResponse -&gt; Bool)
 -&gt; Eq ConversationLogsResponse
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConversationLogsResponse -&gt; ConversationLogsResponse -&gt; Bool
 == :: ConversationLogsResponse -&gt; ConversationLogsResponse -&gt; Bool
 $c== :: ConversationLogsResponse -&gt; ConversationLogsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312631"><span id="local-6989586621679312633"><span id="local-6989586621679312635"><span id="local-6989586621679312637"><span class="annot"><span class="annottext">ReadPrec [ConversationLogsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312640"><span id="local-6989586621679312642"><span id="local-6989586621679312644"><span id="local-6989586621679312646"><span class="annot"><span class="annottext">ReadPrec [ConversationLogsResponse]
 ReadPrec ConversationLogsResponse
 Int -&gt; ReadS ConversationLogsResponse
 ReadS [ConversationLogsResponse]
@@ -66,7 +66,7 @@ readList :: ReadS [ConversationLogsResponse]
 $creadList :: ReadS [ConversationLogsResponse]
 readsPrec :: Int -&gt; ReadS ConversationLogsResponse
 $creadsPrec :: Int -&gt; ReadS ConversationLogsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312624"><span id="local-6989586621679312626"><span id="local-6989586621679312628"><span class="annot"><span class="annottext">Int -&gt; ConversationLogsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312633"><span id="local-6989586621679312635"><span id="local-6989586621679312637"><span class="annot"><span class="annottext">Int -&gt; ConversationLogsResponse -&gt; ShowS
 [ConversationLogsResponse] -&gt; ShowS
 ConversationLogsResponse -&gt; String
 (Int -&gt; ConversationLogsResponse -&gt; ShowS)
@@ -143,16 +143,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse%27"><span class="hs-identifier hs-type">ConversationLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312615"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse%27"><span class="hs-identifier hs-type">ConversationLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312624"><span class="annot"><span class="annottext">Maybe Text
 iamRoleArn :: Maybe Text
 $sel:iamRoleArn:ConversationLogsResponse' :: ConversationLogsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679312615"><span class="hs-identifier hs-var hs-var">iamRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312615"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312614"><span class="annot"><span class="annottext">s :: ConversationLogsResponse
-</span><a href="#local-6989586621679312614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse%27"><span class="hs-identifier hs-type">ConversationLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312613"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConversationLogsResponse
-</span><a href="#local-6989586621679312614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRoleArn:ConversationLogsResponse' :: Maybe Text
+</span><a href="#local-6989586621679312624"><span class="hs-identifier hs-var hs-var">iamRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312624"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312623"><span class="annot"><span class="annottext">s :: ConversationLogsResponse
+</span><a href="#local-6989586621679312623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse%27"><span class="hs-identifier hs-type">ConversationLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312622"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConversationLogsResponse
+</span><a href="#local-6989586621679312623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRoleArn:ConversationLogsResponse' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#%24sel%3AiamRoleArn%3AConversationLogsResponse%27"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse"><span class="hs-identifier hs-type">ConversationLogsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse"><span class="hs-identifier hs-type">ConversationLogsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The settings for your conversation logs. You can log text, audio, or</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- both.</span><span>
@@ -168,16 +168,16 @@ $sel:iamRoleArn:ConversationLogsResponse' :: ConversationLogsResponse -&gt; Mayb
      (Maybe [LogSettingsResponse])
      (Maybe [LogSettingsResponse])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse%27"><span class="hs-identifier hs-type">ConversationLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312611"><span class="annot"><span class="annottext">Maybe [LogSettingsResponse]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse%27"><span class="hs-identifier hs-type">ConversationLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312620"><span class="annot"><span class="annottext">Maybe [LogSettingsResponse]
 logSettings :: Maybe [LogSettingsResponse]
 $sel:logSettings:ConversationLogsResponse' :: ConversationLogsResponse -&gt; Maybe [LogSettingsResponse]
-</span><a href="#local-6989586621679312611"><span class="hs-identifier hs-var hs-var">logSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LogSettingsResponse]
-</span><a href="#local-6989586621679312611"><span class="hs-identifier hs-var">logSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312610"><span class="annot"><span class="annottext">s :: ConversationLogsResponse
-</span><a href="#local-6989586621679312610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse%27"><span class="hs-identifier hs-type">ConversationLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312609"><span class="annot"><span class="annottext">Maybe [LogSettingsResponse]
-</span><a href="#local-6989586621679312609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConversationLogsResponse
-</span><a href="#local-6989586621679312610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logSettings:ConversationLogsResponse' :: Maybe [LogSettingsResponse]
+</span><a href="#local-6989586621679312620"><span class="hs-identifier hs-var hs-var">logSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LogSettingsResponse]
+</span><a href="#local-6989586621679312620"><span class="hs-identifier hs-var">logSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312619"><span class="annot"><span class="annottext">s :: ConversationLogsResponse
+</span><a href="#local-6989586621679312619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse%27"><span class="hs-identifier hs-type">ConversationLogsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312618"><span class="annot"><span class="annottext">Maybe [LogSettingsResponse]
+</span><a href="#local-6989586621679312618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConversationLogsResponse
+</span><a href="#local-6989586621679312619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logSettings:ConversationLogsResponse' :: Maybe [LogSettingsResponse]
 </span><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#%24sel%3AlogSettings%3AConversationLogsResponse%27"><span class="hs-identifier hs-var">logSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LogSettingsResponse]
-</span><a href="#local-6989586621679312609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse"><span class="hs-identifier hs-type">ConversationLogsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LogSettingsResponse] -&gt; f (Maybe [LogSettingsResponse]))
+</span><a href="#local-6989586621679312618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse"><span class="hs-identifier hs-type">ConversationLogsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LogSettingsResponse] -&gt; f (Maybe [LogSettingsResponse]))
  -&gt; ConversationLogsResponse -&gt; f ConversationLogsResponse)
 -&gt; ((Maybe [LogSettingsResponse]
      -&gt; f (Maybe [LogSettingsResponse]))
@@ -207,8 +207,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312603"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse"><span class="hs-identifier hs-type">ConversationLogsResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679312601"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConversationLogsResponse
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312612"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse"><span class="hs-identifier hs-type">ConversationLogsResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679312610"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConversationLogsResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ConversationLogsResponse)
@@ -218,8 +218,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ConversationLogsResponse&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312598"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679312598"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312607"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312607"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [LogSettingsResponse] -&gt; ConversationLogsResponse
 </span><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse%27"><span class="hs-identifier hs-var">ConversationLogsResponse'</span></a></span><span>
@@ -229,7 +229,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [LogSettingsResponse] -&gt; ConversationLogsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679312598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679312607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iamRoleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -238,7 +238,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser ConversationLogsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679312598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [LogSettingsResponse]))
+</span><a href="#local-6989586621679312607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [LogSettingsResponse]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [LogSettingsResponse]))
@@ -250,7 +250,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312591"><span id="local-6989586621679312593"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse"><span class="hs-identifier hs-type">ConversationLogsResponse</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312600"><span id="local-6989586621679312602"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse"><span class="hs-identifier hs-type">ConversationLogsResponse</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse"><span class="hs-identifier hs-type">ConversationLogsResponse</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312597"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.ConversationLogsResponse.html#ConversationLogsResponse"><span class="hs-identifier hs-type">ConversationLogsResponse</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

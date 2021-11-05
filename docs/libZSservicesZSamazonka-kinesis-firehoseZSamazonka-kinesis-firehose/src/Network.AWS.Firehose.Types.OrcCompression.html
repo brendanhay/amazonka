@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679273548"><span id="local-6989586621679273549"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OrcCompression"><span class="annot"><a href="Network.AWS.Firehose.Types.OrcCompression.html#OrcCompression"><span class="hs-identifier hs-var">OrcCompression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrcCompression%27"><span class="annot"><a href="Network.AWS.Firehose.Types.OrcCompression.html#OrcCompression%27"><span class="hs-identifier hs-var">OrcCompression'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679273557"><span id="local-6989586621679273558"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OrcCompression"><span class="annot"><a href="Network.AWS.Firehose.Types.OrcCompression.html#OrcCompression"><span class="hs-identifier hs-var">OrcCompression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrcCompression%27"><span class="annot"><a href="Network.AWS.Firehose.Types.OrcCompression.html#OrcCompression%27"><span class="hs-identifier hs-var">OrcCompression'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOrcCompression"><span class="annot"><span class="annottext">OrcCompression -&gt; Text
 </span><a href="Network.AWS.Firehose.Types.OrcCompression.html#fromOrcCompression"><span class="hs-identifier hs-var hs-var">fromOrcCompression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273540"><span id="local-6989586621679273542"><span id="local-6989586621679273544"><span class="annot"><span class="annottext">Int -&gt; OrcCompression -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273549"><span id="local-6989586621679273551"><span id="local-6989586621679273553"><span class="annot"><span class="annottext">Int -&gt; OrcCompression -&gt; ShowS
 [OrcCompression] -&gt; ShowS
 OrcCompression -&gt; String
 (Int -&gt; OrcCompression -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: OrcCompression -&gt; String
 showsPrec :: Int -&gt; OrcCompression -&gt; ShowS
 $cshowsPrec :: Int -&gt; OrcCompression -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679273531"><span id="local-6989586621679273533"><span id="local-6989586621679273535"><span id="local-6989586621679273537"><span class="annot"><span class="annottext">ReadPrec [OrcCompression]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679273540"><span id="local-6989586621679273542"><span id="local-6989586621679273544"><span id="local-6989586621679273546"><span class="annot"><span class="annottext">ReadPrec [OrcCompression]
 ReadPrec OrcCompression
 Int -&gt; ReadS OrcCompression
 ReadS [OrcCompression]
@@ -73,7 +73,7 @@ $creadList :: ReadS [OrcCompression]
 readsPrec :: Int -&gt; ReadS OrcCompression
 $creadsPrec :: Int -&gt; ReadS OrcCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679273526"><span id="local-6989586621679273528"><span class="annot"><span class="annottext">OrcCompression -&gt; OrcCompression -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679273535"><span id="local-6989586621679273537"><span class="annot"><span class="annottext">OrcCompression -&gt; OrcCompression -&gt; Bool
 (OrcCompression -&gt; OrcCompression -&gt; Bool)
 -&gt; (OrcCompression -&gt; OrcCompression -&gt; Bool) -&gt; Eq OrcCompression
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: OrcCompression -&gt; OrcCompression -&gt; Bool
 == :: OrcCompression -&gt; OrcCompression -&gt; Bool
 $c== :: OrcCompression -&gt; OrcCompression -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679273510"><span id="local-6989586621679273512"><span id="local-6989586621679273514"><span id="local-6989586621679273516"><span id="local-6989586621679273518"><span id="local-6989586621679273520"><span id="local-6989586621679273522"><span class="annot"><span class="annottext">Eq OrcCompression
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679273519"><span id="local-6989586621679273521"><span id="local-6989586621679273523"><span id="local-6989586621679273525"><span id="local-6989586621679273527"><span id="local-6989586621679273529"><span id="local-6989586621679273531"><span class="annot"><span class="annottext">Eq OrcCompression
 Eq OrcCompression
 -&gt; (OrcCompression -&gt; OrcCompression -&gt; Ordering)
 -&gt; (OrcCompression -&gt; OrcCompression -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. OrcCompression -&gt; Rep OrcCompression x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273502"><span id="local-6989586621679273504"><span class="annot"><span class="annottext">Int -&gt; OrcCompression -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273511"><span id="local-6989586621679273513"><span class="annot"><span class="annottext">Int -&gt; OrcCompression -&gt; Int
 OrcCompression -&gt; Int
 (Int -&gt; OrcCompression -&gt; Int)
 -&gt; (OrcCompression -&gt; Int) -&gt; Hashable OrcCompression
@@ -143,50 +143,50 @@ $chash :: OrcCompression -&gt; Int
 hashWithSalt :: Int -&gt; OrcCompression -&gt; Int
 $chashWithSalt :: Int -&gt; OrcCompression -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679273499"><span class="annot"><span class="annottext">OrcCompression -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679273508"><span class="annot"><span class="annottext">OrcCompression -&gt; ()
 (OrcCompression -&gt; ()) -&gt; NFData OrcCompression
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OrcCompression -&gt; ()
 $crnf :: OrcCompression -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679273496"><span class="annot"><span class="annottext">Text -&gt; Either String OrcCompression
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679273505"><span class="annot"><span class="annottext">Text -&gt; Either String OrcCompression
 (Text -&gt; Either String OrcCompression) -&gt; FromText OrcCompression
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OrcCompression
 $cfromText :: Text -&gt; Either String OrcCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679273493"><span class="annot"><span class="annottext">OrcCompression -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679273502"><span class="annot"><span class="annottext">OrcCompression -&gt; Text
 (OrcCompression -&gt; Text) -&gt; ToText OrcCompression
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OrcCompression -&gt; Text
 $ctoText :: OrcCompression -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679273490"><span class="annot"><span class="annottext">OrcCompression -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679273499"><span class="annot"><span class="annottext">OrcCompression -&gt; ByteString
 (OrcCompression -&gt; ByteString) -&gt; ToByteString OrcCompression
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OrcCompression -&gt; ByteString
 $ctoBS :: OrcCompression -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679273487"><span class="annot"><span class="annottext">OrcCompression -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679273496"><span class="annot"><span class="annottext">OrcCompression -&gt; ByteStringBuilder
 (OrcCompression -&gt; ByteStringBuilder) -&gt; ToLog OrcCompression
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OrcCompression -&gt; ByteStringBuilder
 $cbuild :: OrcCompression -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679273484"><span class="annot"><span class="annottext">HeaderName -&gt; OrcCompression -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679273493"><span class="annot"><span class="annottext">HeaderName -&gt; OrcCompression -&gt; [Header]
 (HeaderName -&gt; OrcCompression -&gt; [Header])
 -&gt; ToHeader OrcCompression
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OrcCompression -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OrcCompression -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679273481"><span class="annot"><span class="annottext">OrcCompression -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679273490"><span class="annot"><span class="annottext">OrcCompression -&gt; QueryString
 (OrcCompression -&gt; QueryString) -&gt; ToQuery OrcCompression
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OrcCompression -&gt; QueryString
 $ctoQuery :: OrcCompression -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679273476"><span id="local-6989586621679273478"><span class="annot"><span class="annottext">Value -&gt; Parser [OrcCompression]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679273485"><span id="local-6989586621679273487"><span class="annot"><span class="annottext">Value -&gt; Parser [OrcCompression]
 Value -&gt; Parser OrcCompression
 (Value -&gt; Parser OrcCompression)
 -&gt; (Value -&gt; Parser [OrcCompression]) -&gt; FromJSON OrcCompression
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [OrcCompression]
 parseJSON :: Value -&gt; Parser OrcCompression
 $cparseJSON :: Value -&gt; Parser OrcCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679273471"><span id="local-6989586621679273473"><span class="annot"><span class="annottext">FromJSONKeyFunction [OrcCompression]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679273480"><span id="local-6989586621679273482"><span class="annot"><span class="annottext">FromJSONKeyFunction [OrcCompression]
 FromJSONKeyFunction OrcCompression
 FromJSONKeyFunction OrcCompression
 -&gt; FromJSONKeyFunction [OrcCompression]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OrcCompression]
 fromJSONKey :: FromJSONKeyFunction OrcCompression
 $cfromJSONKey :: FromJSONKeyFunction OrcCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273462"><span id="local-6989586621679273464"><span id="local-6989586621679273466"><span id="local-6989586621679273468"><span class="annot"><span class="annottext">[OrcCompression] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273471"><span id="local-6989586621679273473"><span id="local-6989586621679273475"><span id="local-6989586621679273477"><span class="annot"><span class="annottext">[OrcCompression] -&gt; Encoding
 [OrcCompression] -&gt; Value
 OrcCompression -&gt; Encoding
 OrcCompression -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: OrcCompression -&gt; Encoding
 toJSON :: OrcCompression -&gt; Value
 $ctoJSON :: OrcCompression -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273457"><span id="local-6989586621679273459"><span class="annot"><span class="annottext">ToJSONKeyFunction [OrcCompression]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273466"><span id="local-6989586621679273468"><span class="annot"><span class="annottext">ToJSONKeyFunction [OrcCompression]
 ToJSONKeyFunction OrcCompression
 ToJSONKeyFunction OrcCompression
 -&gt; ToJSONKeyFunction [OrcCompression] -&gt; ToJSONKey OrcCompression
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OrcCompression]
 toJSONKey :: ToJSONKeyFunction OrcCompression
 $ctoJSONKey :: ToJSONKeyFunction OrcCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679273454"><span class="annot"><span class="annottext">[Node] -&gt; Either String OrcCompression
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679273463"><span class="annot"><span class="annottext">[Node] -&gt; Either String OrcCompression
 ([Node] -&gt; Either String OrcCompression) -&gt; FromXML OrcCompression
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OrcCompression
 $cparseXML :: [Node] -&gt; Either String OrcCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679273451"><span class="annot"><span class="annottext">OrcCompression -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679273460"><span class="annot"><span class="annottext">OrcCompression -&gt; XML
 (OrcCompression -&gt; XML) -&gt; ToXML OrcCompression
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: OrcCompression -&gt; XML

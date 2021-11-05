@@ -1,0 +1,513 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoT1ClickDevices.InvokeDeviceMethod</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Given a device ID, issues a request to invoke a named device method</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- (with possible parameters). See the \&quot;Example POST\&quot; code snippet below.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT1ClickDevices.InvokeDeviceMethod</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod"><span class="hs-identifier">InvokeDeviceMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#newInvokeDeviceMethod"><span class="hs-identifier">newInvokeDeviceMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#invokeDeviceMethod_deviceMethodParameters"><span class="hs-identifier">invokeDeviceMethod_deviceMethodParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#invokeDeviceMethod_deviceMethod"><span class="hs-identifier">invokeDeviceMethod_deviceMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#invokeDeviceMethod_deviceId"><span class="hs-identifier">invokeDeviceMethod_deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethodResponse"><span class="hs-identifier">InvokeDeviceMethodResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#newInvokeDeviceMethodResponse"><span class="hs-identifier">newInvokeDeviceMethodResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#invokeDeviceMethodResponse_deviceMethodResponse"><span class="hs-identifier">invokeDeviceMethodResponse_deviceMethodResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#invokeDeviceMethodResponse_httpStatus"><span class="hs-identifier">invokeDeviceMethodResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.Types.html"><span class="hs-identifier">Network.AWS.IoT1ClickDevices.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newInvokeDeviceMethod' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679154809"><span id="local-6989586621679154810"></span></span><span class="hs-keyword">data</span><span> </span><span id="InvokeDeviceMethod"><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod"><span class="hs-identifier hs-var">InvokeDeviceMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InvokeDeviceMethod%27"><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod%27"><span class="hs-identifier hs-var">InvokeDeviceMethod'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A JSON encoded string containing the device method request parameters.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AdeviceMethodParameters%3AInvokeDeviceMethod%27"><span class="annot"><span class="annottext">InvokeDeviceMethod -&gt; Maybe Text
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#%24sel%3AdeviceMethodParameters%3AInvokeDeviceMethod%27"><span class="hs-identifier hs-var hs-var">deviceMethodParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The device method to invoke.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdeviceMethod%3AInvokeDeviceMethod%27"><span class="annot"><span class="annottext">InvokeDeviceMethod -&gt; Maybe DeviceMethod
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#%24sel%3AdeviceMethod%3AInvokeDeviceMethod%27"><span class="hs-identifier hs-var hs-var">deviceMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.Types.DeviceMethod.html#DeviceMethod"><span class="hs-identifier hs-type">DeviceMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the device.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdeviceId%3AInvokeDeviceMethod%27"><span class="annot"><span class="annottext">InvokeDeviceMethod -&gt; Text
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#%24sel%3AdeviceId%3AInvokeDeviceMethod%27"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679154801"><span id="local-6989586621679154803"><span class="annot"><span class="annottext">InvokeDeviceMethod -&gt; InvokeDeviceMethod -&gt; Bool
+(InvokeDeviceMethod -&gt; InvokeDeviceMethod -&gt; Bool)
+-&gt; (InvokeDeviceMethod -&gt; InvokeDeviceMethod -&gt; Bool)
+-&gt; Eq InvokeDeviceMethod
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InvokeDeviceMethod -&gt; InvokeDeviceMethod -&gt; Bool
+$c/= :: InvokeDeviceMethod -&gt; InvokeDeviceMethod -&gt; Bool
+== :: InvokeDeviceMethod -&gt; InvokeDeviceMethod -&gt; Bool
+$c== :: InvokeDeviceMethod -&gt; InvokeDeviceMethod -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154792"><span id="local-6989586621679154794"><span id="local-6989586621679154796"><span id="local-6989586621679154798"><span class="annot"><span class="annottext">ReadPrec [InvokeDeviceMethod]
+ReadPrec InvokeDeviceMethod
+Int -&gt; ReadS InvokeDeviceMethod
+ReadS [InvokeDeviceMethod]
+(Int -&gt; ReadS InvokeDeviceMethod)
+-&gt; ReadS [InvokeDeviceMethod]
+-&gt; ReadPrec InvokeDeviceMethod
+-&gt; ReadPrec [InvokeDeviceMethod]
+-&gt; Read InvokeDeviceMethod
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InvokeDeviceMethod]
+$creadListPrec :: ReadPrec [InvokeDeviceMethod]
+readPrec :: ReadPrec InvokeDeviceMethod
+$creadPrec :: ReadPrec InvokeDeviceMethod
+readList :: ReadS [InvokeDeviceMethod]
+$creadList :: ReadS [InvokeDeviceMethod]
+readsPrec :: Int -&gt; ReadS InvokeDeviceMethod
+$creadsPrec :: Int -&gt; ReadS InvokeDeviceMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154785"><span id="local-6989586621679154787"><span id="local-6989586621679154789"><span class="annot"><span class="annottext">Int -&gt; InvokeDeviceMethod -&gt; ShowS
+[InvokeDeviceMethod] -&gt; ShowS
+InvokeDeviceMethod -&gt; String
+(Int -&gt; InvokeDeviceMethod -&gt; ShowS)
+-&gt; (InvokeDeviceMethod -&gt; String)
+-&gt; ([InvokeDeviceMethod] -&gt; ShowS)
+-&gt; Show InvokeDeviceMethod
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InvokeDeviceMethod] -&gt; ShowS
+$cshowList :: [InvokeDeviceMethod] -&gt; ShowS
+show :: InvokeDeviceMethod -&gt; String
+$cshow :: InvokeDeviceMethod -&gt; String
+showsPrec :: Int -&gt; InvokeDeviceMethod -&gt; ShowS
+$cshowsPrec :: Int -&gt; InvokeDeviceMethod -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InvokeDeviceMethod -&gt; Rep InvokeDeviceMethod x)
+-&gt; (forall x. Rep InvokeDeviceMethod x -&gt; InvokeDeviceMethod)
+-&gt; Generic InvokeDeviceMethod
+forall x. Rep InvokeDeviceMethod x -&gt; InvokeDeviceMethod
+forall x. InvokeDeviceMethod -&gt; Rep InvokeDeviceMethod x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InvokeDeviceMethod x -&gt; InvokeDeviceMethod
+$cfrom :: forall x. InvokeDeviceMethod -&gt; Rep InvokeDeviceMethod x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'InvokeDeviceMethod' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'deviceMethodParameters', 'invokeDeviceMethod_deviceMethodParameters' - A JSON encoded string containing the device method request parameters.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'deviceMethod', 'invokeDeviceMethod_deviceMethod' - The device method to invoke.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'deviceId', 'invokeDeviceMethod_deviceId' - The unique identifier of the device.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#newInvokeDeviceMethod"><span class="hs-identifier hs-type">newInvokeDeviceMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'deviceId'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod"><span class="hs-identifier hs-type">InvokeDeviceMethod</span></a></span><span>
+</span><span id="line-80"></span><span id="newInvokeDeviceMethod"><span class="annot"><span class="annottext">newInvokeDeviceMethod :: Text -&gt; InvokeDeviceMethod
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#newInvokeDeviceMethod"><span class="hs-identifier hs-var hs-var">newInvokeDeviceMethod</span></a></span></span><span> </span><span id="local-6989586621679154780"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679154780"><span class="hs-identifier hs-var">pDeviceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">InvokeDeviceMethod' :: Maybe Text -&gt; Maybe DeviceMethod -&gt; Text -&gt; InvokeDeviceMethod
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod%27"><span class="hs-identifier hs-type">InvokeDeviceMethod'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceMethodParameters:InvokeDeviceMethod' :: Maybe Text
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#%24sel%3AdeviceMethodParameters%3AInvokeDeviceMethod%27"><span class="hs-identifier hs-var">deviceMethodParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceMethod:InvokeDeviceMethod' :: Maybe DeviceMethod
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#%24sel%3AdeviceMethod%3AInvokeDeviceMethod%27"><span class="hs-identifier hs-var">deviceMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceMethod
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceId:InvokeDeviceMethod' :: Text
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#%24sel%3AdeviceId%3AInvokeDeviceMethod%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679154780"><span class="hs-identifier hs-var">pDeviceId_</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | A JSON encoded string containing the device method request parameters.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#invokeDeviceMethod_deviceMethodParameters"><span class="hs-identifier hs-type">invokeDeviceMethod_deviceMethodParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod"><span class="hs-identifier hs-type">InvokeDeviceMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="invokeDeviceMethod_deviceMethodParameters"><span class="annot"><span class="annottext">invokeDeviceMethod_deviceMethodParameters :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InvokeDeviceMethod -&gt; f InvokeDeviceMethod
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#invokeDeviceMethod_deviceMethodParameters"><span class="hs-identifier hs-var hs-var">invokeDeviceMethod_deviceMethodParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeDeviceMethod -&gt; Maybe Text)
+-&gt; (InvokeDeviceMethod -&gt; Maybe Text -&gt; InvokeDeviceMethod)
+-&gt; Lens
+     InvokeDeviceMethod InvokeDeviceMethod (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod%27"><span class="hs-identifier hs-type">InvokeDeviceMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154777"><span class="annot"><span class="annottext">Maybe Text
+deviceMethodParameters :: Maybe Text
+$sel:deviceMethodParameters:InvokeDeviceMethod' :: InvokeDeviceMethod -&gt; Maybe Text
+</span><a href="#local-6989586621679154777"><span class="hs-identifier hs-var hs-var">deviceMethodParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154777"><span class="hs-identifier hs-var">deviceMethodParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154776"><span class="annot"><span class="annottext">s :: InvokeDeviceMethod
+</span><a href="#local-6989586621679154776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod%27"><span class="hs-identifier hs-type">InvokeDeviceMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154775"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeDeviceMethod
+</span><a href="#local-6989586621679154776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceMethodParameters:InvokeDeviceMethod' :: Maybe Text
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#%24sel%3AdeviceMethodParameters%3AInvokeDeviceMethod%27"><span class="hs-identifier hs-var">deviceMethodParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod"><span class="hs-identifier hs-type">InvokeDeviceMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The device method to invoke.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#invokeDeviceMethod_deviceMethod"><span class="hs-identifier hs-type">invokeDeviceMethod_deviceMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod"><span class="hs-identifier hs-type">InvokeDeviceMethod</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.Types.DeviceMethod.html#DeviceMethod"><span class="hs-identifier hs-type">DeviceMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="invokeDeviceMethod_deviceMethod"><span class="annot"><span class="annottext">invokeDeviceMethod_deviceMethod :: (Maybe DeviceMethod -&gt; f (Maybe DeviceMethod))
+-&gt; InvokeDeviceMethod -&gt; f InvokeDeviceMethod
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#invokeDeviceMethod_deviceMethod"><span class="hs-identifier hs-var hs-var">invokeDeviceMethod_deviceMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeDeviceMethod -&gt; Maybe DeviceMethod)
+-&gt; (InvokeDeviceMethod -&gt; Maybe DeviceMethod -&gt; InvokeDeviceMethod)
+-&gt; Lens
+     InvokeDeviceMethod
+     InvokeDeviceMethod
+     (Maybe DeviceMethod)
+     (Maybe DeviceMethod)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod%27"><span class="hs-identifier hs-type">InvokeDeviceMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154774"><span class="annot"><span class="annottext">Maybe DeviceMethod
+deviceMethod :: Maybe DeviceMethod
+$sel:deviceMethod:InvokeDeviceMethod' :: InvokeDeviceMethod -&gt; Maybe DeviceMethod
+</span><a href="#local-6989586621679154774"><span class="hs-identifier hs-var hs-var">deviceMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceMethod
+</span><a href="#local-6989586621679154774"><span class="hs-identifier hs-var">deviceMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154773"><span class="annot"><span class="annottext">s :: InvokeDeviceMethod
+</span><a href="#local-6989586621679154773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod%27"><span class="hs-identifier hs-type">InvokeDeviceMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154772"><span class="annot"><span class="annottext">Maybe DeviceMethod
+</span><a href="#local-6989586621679154772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeDeviceMethod
+</span><a href="#local-6989586621679154773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceMethod:InvokeDeviceMethod' :: Maybe DeviceMethod
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#%24sel%3AdeviceMethod%3AInvokeDeviceMethod%27"><span class="hs-identifier hs-var">deviceMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceMethod
+</span><a href="#local-6989586621679154772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod"><span class="hs-identifier hs-type">InvokeDeviceMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The unique identifier of the device.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#invokeDeviceMethod_deviceId"><span class="hs-identifier hs-type">invokeDeviceMethod_deviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod"><span class="hs-identifier hs-type">InvokeDeviceMethod</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span id="invokeDeviceMethod_deviceId"><span class="annot"><span class="annottext">invokeDeviceMethod_deviceId :: (Text -&gt; f Text) -&gt; InvokeDeviceMethod -&gt; f InvokeDeviceMethod
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#invokeDeviceMethod_deviceId"><span class="hs-identifier hs-var hs-var">invokeDeviceMethod_deviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeDeviceMethod -&gt; Text)
+-&gt; (InvokeDeviceMethod -&gt; Text -&gt; InvokeDeviceMethod)
+-&gt; Lens InvokeDeviceMethod InvokeDeviceMethod Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod%27"><span class="hs-identifier hs-type">InvokeDeviceMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154771"><span class="annot"><span class="annottext">Text
+deviceId :: Text
+$sel:deviceId:InvokeDeviceMethod' :: InvokeDeviceMethod -&gt; Text
+</span><a href="#local-6989586621679154771"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679154771"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154770"><span class="annot"><span class="annottext">s :: InvokeDeviceMethod
+</span><a href="#local-6989586621679154770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod%27"><span class="hs-identifier hs-type">InvokeDeviceMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154769"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679154769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeDeviceMethod
+</span><a href="#local-6989586621679154770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceId:InvokeDeviceMethod' :: Text
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#%24sel%3AdeviceId%3AInvokeDeviceMethod%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679154769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod"><span class="hs-identifier hs-type">InvokeDeviceMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod"><span class="hs-identifier hs-type">InvokeDeviceMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod"><span class="hs-identifier hs-type">InvokeDeviceMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethodResponse"><span class="hs-identifier hs-type">InvokeDeviceMethodResponse</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679154765"><span class="annot"><span class="annottext">request :: InvokeDeviceMethod -&gt; Request InvokeDeviceMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; InvokeDeviceMethod -&gt; Request InvokeDeviceMethod
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoT1ClickDevices.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679154761"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy InvokeDeviceMethod
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse InvokeDeviceMethod)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse InvokeDeviceMethod))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy InvokeDeviceMethod
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse InvokeDeviceMethod)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679154758"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154758"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679154757"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679154757"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679154756"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679154756"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; InvokeDeviceMethodResponse
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethodResponse%27"><span class="hs-identifier hs-var">InvokeDeviceMethodResponse'</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; InvokeDeviceMethodResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; InvokeDeviceMethodResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679154756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceMethodResponse&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; InvokeDeviceMethodResponse)
+-&gt; Either String Int -&gt; Either String InvokeDeviceMethodResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154758"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154748"><span id="local-6989586621679154750"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod"><span class="hs-identifier hs-type">InvokeDeviceMethod</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154745"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod"><span class="hs-identifier hs-type">InvokeDeviceMethod</span></a></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod"><span class="hs-identifier hs-type">InvokeDeviceMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679154741"><span class="annot"><span class="annottext">toHeaders :: InvokeDeviceMethod -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; InvokeDeviceMethod -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154731"><span id="local-6989586621679154733"><span id="local-6989586621679154735"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod"><span class="hs-identifier hs-type">InvokeDeviceMethod</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679154729"><span class="annot"><span class="annottext">toJSON :: InvokeDeviceMethod -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod%27"><span class="hs-identifier hs-type">InvokeDeviceMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154725"><span id="local-6989586621679154726"><span id="local-6989586621679154727"><span class="annot"><span class="annottext">Maybe Text
+Maybe DeviceMethod
+Text
+deviceId :: Text
+deviceMethod :: Maybe DeviceMethod
+deviceMethodParameters :: Maybe Text
+$sel:deviceId:InvokeDeviceMethod' :: InvokeDeviceMethod -&gt; Text
+$sel:deviceMethod:InvokeDeviceMethod' :: InvokeDeviceMethod -&gt; Maybe DeviceMethod
+$sel:deviceMethodParameters:InvokeDeviceMethod' :: InvokeDeviceMethod -&gt; Maybe Text
+</span><a href="#local-6989586621679154725"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceMethodParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154727"><span class="hs-identifier hs-var">deviceMethodParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceMethod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeviceMethod -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DeviceMethod -&gt; Pair) -&gt; Maybe DeviceMethod -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeviceMethod
+</span><a href="#local-6989586621679154726"><span class="hs-identifier hs-var">deviceMethod</span></a></span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod"><span class="hs-identifier hs-type">InvokeDeviceMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679154719"><span class="annot"><span class="annottext">toPath :: InvokeDeviceMethod -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod%27"><span class="hs-identifier hs-type">InvokeDeviceMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154715"><span id="local-6989586621679154716"><span id="local-6989586621679154717"><span class="annot"><span class="annottext">Maybe Text
+Maybe DeviceMethod
+Text
+deviceId :: Text
+deviceMethod :: Maybe DeviceMethod
+deviceMethodParameters :: Maybe Text
+$sel:deviceId:InvokeDeviceMethod' :: InvokeDeviceMethod -&gt; Text
+$sel:deviceMethod:InvokeDeviceMethod' :: InvokeDeviceMethod -&gt; Maybe DeviceMethod
+$sel:deviceMethodParameters:InvokeDeviceMethod' :: InvokeDeviceMethod -&gt; Maybe Text
+</span><a href="#local-6989586621679154715"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/devices/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679154715"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/methods&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethod"><span class="hs-identifier hs-type">InvokeDeviceMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679154711"><span class="annot"><span class="annottext">toQuery :: InvokeDeviceMethod -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; InvokeDeviceMethod -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | /See:/ 'newInvokeDeviceMethodResponse' smart constructor.</span><span>
+</span><span id="line-147"></span><span id="local-6989586621679154708"><span id="local-6989586621679154709"></span></span><span class="hs-keyword">data</span><span> </span><span id="InvokeDeviceMethodResponse"><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethodResponse"><span class="hs-identifier hs-var">InvokeDeviceMethodResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InvokeDeviceMethodResponse%27"><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethodResponse%27"><span class="hs-identifier hs-var">InvokeDeviceMethodResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A JSON encoded string containing the device method response.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AdeviceMethodResponse%3AInvokeDeviceMethodResponse%27"><span class="annot"><span class="annottext">InvokeDeviceMethodResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#%24sel%3AdeviceMethodResponse%3AInvokeDeviceMethodResponse%27"><span class="hs-identifier hs-var hs-var">deviceMethodResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3AInvokeDeviceMethodResponse%27"><span class="annot"><span class="annottext">InvokeDeviceMethodResponse -&gt; Int
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#%24sel%3AhttpStatus%3AInvokeDeviceMethodResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679154702"><span id="local-6989586621679154704"><span class="annot"><span class="annottext">InvokeDeviceMethodResponse -&gt; InvokeDeviceMethodResponse -&gt; Bool
+(InvokeDeviceMethodResponse -&gt; InvokeDeviceMethodResponse -&gt; Bool)
+-&gt; (InvokeDeviceMethodResponse
+    -&gt; InvokeDeviceMethodResponse -&gt; Bool)
+-&gt; Eq InvokeDeviceMethodResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InvokeDeviceMethodResponse -&gt; InvokeDeviceMethodResponse -&gt; Bool
+$c/= :: InvokeDeviceMethodResponse -&gt; InvokeDeviceMethodResponse -&gt; Bool
+== :: InvokeDeviceMethodResponse -&gt; InvokeDeviceMethodResponse -&gt; Bool
+$c== :: InvokeDeviceMethodResponse -&gt; InvokeDeviceMethodResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154694"><span id="local-6989586621679154696"><span id="local-6989586621679154698"><span id="local-6989586621679154700"><span class="annot"><span class="annottext">ReadPrec [InvokeDeviceMethodResponse]
+ReadPrec InvokeDeviceMethodResponse
+Int -&gt; ReadS InvokeDeviceMethodResponse
+ReadS [InvokeDeviceMethodResponse]
+(Int -&gt; ReadS InvokeDeviceMethodResponse)
+-&gt; ReadS [InvokeDeviceMethodResponse]
+-&gt; ReadPrec InvokeDeviceMethodResponse
+-&gt; ReadPrec [InvokeDeviceMethodResponse]
+-&gt; Read InvokeDeviceMethodResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InvokeDeviceMethodResponse]
+$creadListPrec :: ReadPrec [InvokeDeviceMethodResponse]
+readPrec :: ReadPrec InvokeDeviceMethodResponse
+$creadPrec :: ReadPrec InvokeDeviceMethodResponse
+readList :: ReadS [InvokeDeviceMethodResponse]
+$creadList :: ReadS [InvokeDeviceMethodResponse]
+readsPrec :: Int -&gt; ReadS InvokeDeviceMethodResponse
+$creadsPrec :: Int -&gt; ReadS InvokeDeviceMethodResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154688"><span id="local-6989586621679154690"><span id="local-6989586621679154692"><span class="annot"><span class="annottext">Int -&gt; InvokeDeviceMethodResponse -&gt; ShowS
+[InvokeDeviceMethodResponse] -&gt; ShowS
+InvokeDeviceMethodResponse -&gt; String
+(Int -&gt; InvokeDeviceMethodResponse -&gt; ShowS)
+-&gt; (InvokeDeviceMethodResponse -&gt; String)
+-&gt; ([InvokeDeviceMethodResponse] -&gt; ShowS)
+-&gt; Show InvokeDeviceMethodResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InvokeDeviceMethodResponse] -&gt; ShowS
+$cshowList :: [InvokeDeviceMethodResponse] -&gt; ShowS
+show :: InvokeDeviceMethodResponse -&gt; String
+$cshow :: InvokeDeviceMethodResponse -&gt; String
+showsPrec :: Int -&gt; InvokeDeviceMethodResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; InvokeDeviceMethodResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ InvokeDeviceMethodResponse -&gt; Rep InvokeDeviceMethodResponse x)
+-&gt; (forall x.
+    Rep InvokeDeviceMethodResponse x -&gt; InvokeDeviceMethodResponse)
+-&gt; Generic InvokeDeviceMethodResponse
+forall x.
+Rep InvokeDeviceMethodResponse x -&gt; InvokeDeviceMethodResponse
+forall x.
+InvokeDeviceMethodResponse -&gt; Rep InvokeDeviceMethodResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep InvokeDeviceMethodResponse x -&gt; InvokeDeviceMethodResponse
+$cfrom :: forall x.
+InvokeDeviceMethodResponse -&gt; Rep InvokeDeviceMethodResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Create a value of 'InvokeDeviceMethodResponse' with all optional fields omitted.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'deviceMethodResponse', 'invokeDeviceMethodResponse_deviceMethodResponse' - A JSON encoded string containing the device method response.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'httpStatus', 'invokeDeviceMethodResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#newInvokeDeviceMethodResponse"><span class="hs-identifier hs-type">newInvokeDeviceMethodResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethodResponse"><span class="hs-identifier hs-type">InvokeDeviceMethodResponse</span></a></span><span>
+</span><span id="line-170"></span><span id="newInvokeDeviceMethodResponse"><span class="annot"><span class="annottext">newInvokeDeviceMethodResponse :: Int -&gt; InvokeDeviceMethodResponse
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#newInvokeDeviceMethodResponse"><span class="hs-identifier hs-var hs-var">newInvokeDeviceMethodResponse</span></a></span></span><span> </span><span id="local-6989586621679154685"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154685"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">InvokeDeviceMethodResponse' :: Maybe Text -&gt; Int -&gt; InvokeDeviceMethodResponse
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethodResponse%27"><span class="hs-identifier hs-type">InvokeDeviceMethodResponse'</span></a></span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceMethodResponse:InvokeDeviceMethodResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#%24sel%3AdeviceMethodResponse%3AInvokeDeviceMethodResponse%27"><span class="hs-identifier hs-var">deviceMethodResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:InvokeDeviceMethodResponse' :: Int
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#%24sel%3AhttpStatus%3AInvokeDeviceMethodResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154685"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | A JSON encoded string containing the device method response.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#invokeDeviceMethodResponse_deviceMethodResponse"><span class="hs-identifier hs-type">invokeDeviceMethodResponse_deviceMethodResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethodResponse"><span class="hs-identifier hs-type">InvokeDeviceMethodResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="invokeDeviceMethodResponse_deviceMethodResponse"><span class="annot"><span class="annottext">invokeDeviceMethodResponse_deviceMethodResponse :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InvokeDeviceMethodResponse -&gt; f InvokeDeviceMethodResponse
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#invokeDeviceMethodResponse_deviceMethodResponse"><span class="hs-identifier hs-var hs-var">invokeDeviceMethodResponse_deviceMethodResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeDeviceMethodResponse -&gt; Maybe Text)
+-&gt; (InvokeDeviceMethodResponse
+    -&gt; Maybe Text -&gt; InvokeDeviceMethodResponse)
+-&gt; Lens
+     InvokeDeviceMethodResponse
+     InvokeDeviceMethodResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethodResponse%27"><span class="hs-identifier hs-type">InvokeDeviceMethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154684"><span class="annot"><span class="annottext">Maybe Text
+deviceMethodResponse :: Maybe Text
+$sel:deviceMethodResponse:InvokeDeviceMethodResponse' :: InvokeDeviceMethodResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679154684"><span class="hs-identifier hs-var hs-var">deviceMethodResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154684"><span class="hs-identifier hs-var">deviceMethodResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154683"><span class="annot"><span class="annottext">s :: InvokeDeviceMethodResponse
+</span><a href="#local-6989586621679154683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethodResponse%27"><span class="hs-identifier hs-type">InvokeDeviceMethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154682"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeDeviceMethodResponse
+</span><a href="#local-6989586621679154683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceMethodResponse:InvokeDeviceMethodResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#%24sel%3AdeviceMethodResponse%3AInvokeDeviceMethodResponse%27"><span class="hs-identifier hs-var">deviceMethodResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethodResponse"><span class="hs-identifier hs-type">InvokeDeviceMethodResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#invokeDeviceMethodResponse_httpStatus"><span class="hs-identifier hs-type">invokeDeviceMethodResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethodResponse"><span class="hs-identifier hs-type">InvokeDeviceMethodResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-183"></span><span id="invokeDeviceMethodResponse_httpStatus"><span class="annot"><span class="annottext">invokeDeviceMethodResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; InvokeDeviceMethodResponse -&gt; f InvokeDeviceMethodResponse
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#invokeDeviceMethodResponse_httpStatus"><span class="hs-identifier hs-var hs-var">invokeDeviceMethodResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InvokeDeviceMethodResponse -&gt; Int)
+-&gt; (InvokeDeviceMethodResponse
+    -&gt; Int -&gt; InvokeDeviceMethodResponse)
+-&gt; Lens
+     InvokeDeviceMethodResponse InvokeDeviceMethodResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethodResponse%27"><span class="hs-identifier hs-type">InvokeDeviceMethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154681"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:InvokeDeviceMethodResponse' :: InvokeDeviceMethodResponse -&gt; Int
+</span><a href="#local-6989586621679154681"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154681"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154680"><span class="annot"><span class="annottext">s :: InvokeDeviceMethodResponse
+</span><a href="#local-6989586621679154680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethodResponse%27"><span class="hs-identifier hs-type">InvokeDeviceMethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154679"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvokeDeviceMethodResponse
+</span><a href="#local-6989586621679154680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:InvokeDeviceMethodResponse' :: Int
+</span><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#%24sel%3AhttpStatus%3AInvokeDeviceMethodResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethodResponse"><span class="hs-identifier hs-type">InvokeDeviceMethodResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154677"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.InvokeDeviceMethod.html#InvokeDeviceMethodResponse"><span class="hs-identifier hs-type">InvokeDeviceMethodResponse</span></a></span></span><span>
+</span><span id="line-186"></span></pre></body></html>

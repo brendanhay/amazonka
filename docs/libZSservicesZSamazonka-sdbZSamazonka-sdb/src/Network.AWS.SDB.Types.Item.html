@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newItem' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679149379"><span id="local-6989586621679149380"></span></span><span class="hs-keyword">data</span><span> </span><span id="Item"><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item"><span class="hs-identifier hs-var">Item</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Item%27"><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item%27"><span class="hs-identifier hs-var">Item'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679149388"><span id="local-6989586621679149389"></span></span><span class="hs-keyword">data</span><span> </span><span id="Item"><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item"><span class="hs-identifier hs-var">Item</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Item%27"><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item%27"><span class="hs-identifier hs-var">Item'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AalternateNameEncoding%3AItem%27"><span class="annot"><span class="annottext">Item -&gt; Maybe Text
 </span><a href="Network.AWS.SDB.Types.Item.html#%24sel%3AalternateNameEncoding%3AItem%27"><span class="hs-identifier hs-var hs-var">alternateNameEncoding</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The name of the item.</span><span>
@@ -37,14 +37,14 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aattributes%3AItem%27"><span class="annot"><span class="annottext">Item -&gt; [Attribute]
 </span><a href="Network.AWS.SDB.Types.Item.html#%24sel%3Aattributes%3AItem%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679149371"><span id="local-6989586621679149373"><span class="annot"><span class="annottext">Item -&gt; Item -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679149380"><span id="local-6989586621679149382"><span class="annot"><span class="annottext">Item -&gt; Item -&gt; Bool
 (Item -&gt; Item -&gt; Bool) -&gt; (Item -&gt; Item -&gt; Bool) -&gt; Eq Item
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Item -&gt; Item -&gt; Bool
 $c/= :: Item -&gt; Item -&gt; Bool
 == :: Item -&gt; Item -&gt; Bool
 $c== :: Item -&gt; Item -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149362"><span id="local-6989586621679149364"><span id="local-6989586621679149366"><span id="local-6989586621679149368"><span class="annot"><span class="annottext">ReadPrec [Item]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149371"><span id="local-6989586621679149373"><span id="local-6989586621679149375"><span id="local-6989586621679149377"><span class="annot"><span class="annottext">ReadPrec [Item]
 ReadPrec Item
 Int -&gt; ReadS Item
 ReadS [Item]
@@ -61,7 +61,7 @@ readList :: ReadS [Item]
 $creadList :: ReadS [Item]
 readsPrec :: Int -&gt; ReadS Item
 $creadsPrec :: Int -&gt; ReadS Item
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149355"><span id="local-6989586621679149357"><span id="local-6989586621679149359"><span class="annot"><span class="annottext">Int -&gt; Item -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149364"><span id="local-6989586621679149366"><span id="local-6989586621679149368"><span class="annot"><span class="annottext">Int -&gt; Item -&gt; ShowS
 [Item] -&gt; ShowS
 Item -&gt; String
 (Int -&gt; Item -&gt; ShowS)
@@ -102,8 +102,8 @@ $cfrom :: forall x. Item -&gt; Rep Item x
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span>
 </span><span id="line-56"></span><span id="newItem"><span class="annot"><span class="annottext">newItem :: Text -&gt; Item
-</span><a href="Network.AWS.SDB.Types.Item.html#newItem"><span class="hs-identifier hs-var hs-var">newItem</span></a></span></span><span> </span><span id="local-6989586621679149349"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149349"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SDB.Types.Item.html#newItem"><span class="hs-identifier hs-var hs-var">newItem</span></a></span></span><span> </span><span id="local-6989586621679149358"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149358"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">Item' :: Maybe Text -&gt; Text -&gt; [Attribute] -&gt; Item
 </span><a href="Network.AWS.SDB.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:alternateNameEncoding:Item' :: Maybe Text
@@ -112,7 +112,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Item' :: Text
 </span><a href="Network.AWS.SDB.Types.Item.html#%24sel%3Aname%3AItem%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149349"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679149358"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:Item' :: [Attribute]
 </span><a href="Network.AWS.SDB.Types.Item.html#%24sel%3Aattributes%3AItem%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Attribute]
 forall a. Monoid a =&gt; a
@@ -126,16 +126,16 @@ forall a. Monoid a =&gt; a
 -&gt; (Item -&gt; Maybe Text -&gt; Item)
 -&gt; Lens Item Item (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149345"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149354"><span class="annot"><span class="annottext">Maybe Text
 alternateNameEncoding :: Maybe Text
 $sel:alternateNameEncoding:Item' :: Item -&gt; Maybe Text
-</span><a href="#local-6989586621679149345"><span class="hs-identifier hs-var hs-var">alternateNameEncoding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149345"><span class="hs-identifier hs-var">alternateNameEncoding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149344"><span class="annot"><span class="annottext">s :: Item
-</span><a href="#local-6989586621679149344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149343"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
-</span><a href="#local-6989586621679149344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alternateNameEncoding:Item' :: Maybe Text
+</span><a href="#local-6989586621679149354"><span class="hs-identifier hs-var hs-var">alternateNameEncoding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149354"><span class="hs-identifier hs-var">alternateNameEncoding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149353"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679149353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149352"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679149353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alternateNameEncoding:Item' :: Maybe Text
 </span><a href="Network.AWS.SDB.Types.Item.html#%24sel%3AalternateNameEncoding%3AItem%27"><span class="hs-identifier hs-var">alternateNameEncoding</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679149352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The name of the item.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#item_name"><span class="hs-identifier hs-type">item_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -143,16 +143,16 @@ $sel:alternateNameEncoding:Item' :: Item -&gt; Maybe Text
 </span><a href="Network.AWS.SDB.Types.Item.html#item_name"><span class="hs-identifier hs-var hs-var">item_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Item -&gt; Text)
 -&gt; (Item -&gt; Text -&gt; Item) -&gt; Lens Item Item Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149341"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149350"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:Item' :: Item -&gt; Text
-</span><a href="#local-6989586621679149341"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149341"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149340"><span class="annot"><span class="annottext">s :: Item
-</span><a href="#local-6989586621679149340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149339"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
-</span><a href="#local-6989586621679149340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Item' :: Text
+</span><a href="#local-6989586621679149350"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149350"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149349"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679149349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149348"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679149349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Item' :: Text
 </span><a href="Network.AWS.SDB.Types.Item.html#%24sel%3Aname%3AItem%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679149348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | A list of attributes.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#item_attributes"><span class="hs-identifier hs-type">item_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span>
@@ -161,16 +161,16 @@ $sel:name:Item' :: Item -&gt; Text
 -&gt; (Item -&gt; [Attribute] -&gt; Item)
 -&gt; Lens Item Item [Attribute] [Attribute]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149337"><span class="annot"><span class="annottext">[Attribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149346"><span class="annot"><span class="annottext">[Attribute]
 attributes :: [Attribute]
 $sel:attributes:Item' :: Item -&gt; [Attribute]
-</span><a href="#local-6989586621679149337"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Attribute]
-</span><a href="#local-6989586621679149337"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149336"><span class="annot"><span class="annottext">s :: Item
-</span><a href="#local-6989586621679149336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149335"><span class="annot"><span class="annottext">[Attribute]
-</span><a href="#local-6989586621679149335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
-</span><a href="#local-6989586621679149336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:Item' :: [Attribute]
+</span><a href="#local-6989586621679149346"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Attribute]
+</span><a href="#local-6989586621679149346"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149345"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679149345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149344"><span class="annot"><span class="annottext">[Attribute]
+</span><a href="#local-6989586621679149344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679149345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:Item' :: [Attribute]
 </span><a href="Network.AWS.SDB.Types.Item.html#%24sel%3Aattributes%3AItem%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Attribute]
-</span><a href="#local-6989586621679149335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Attribute] -&gt; f [Attribute]) -&gt; Item -&gt; f Item)
+</span><a href="#local-6989586621679149344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Attribute] -&gt; f [Attribute]) -&gt; Item -&gt; f Item)
 -&gt; (([Attribute] -&gt; f [Attribute]) -&gt; [Attribute] -&gt; f [Attribute])
 -&gt; ([Attribute] -&gt; f [Attribute])
 -&gt; Item
@@ -181,9 +181,9 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679149330"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Item
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679149328"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679149328"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679149339"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Item
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679149337"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679149337"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; [Attribute] -&gt; Item
 </span><a href="Network.AWS.SDB.Types.Item.html#Item%27"><span class="hs-identifier hs-var">Item'</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; [Attribute] -&gt; Item)
@@ -191,7 +191,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Either String (Text -&gt; [Attribute] -&gt; Item)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679149328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679149337"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlternateNameEncoding&quot;</span></span><span class="hs-special">)</span><span>
@@ -199,7 +199,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Text -&gt; Either String ([Attribute] -&gt; Item)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679149328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679149337"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -210,9 +210,9 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attribute&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679149328"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679149337"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149320"><span id="local-6989586621679149322"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149329"><span id="local-6989586621679149331"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149326"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

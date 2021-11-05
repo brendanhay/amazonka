@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-comment">-- Related settings: You must also set Frame rate to 25. In your JSON job</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- specification, set (framerateControl) to (SPECIFIED),</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- (framerateNumerator) to 25 and (framerateDenominator) to 1.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621680022623"><span id="local-6989586621680022624"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="XavcSlowPal"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcSlowPal.html#XavcSlowPal"><span class="hs-identifier hs-var">XavcSlowPal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="XavcSlowPal%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcSlowPal.html#XavcSlowPal%27"><span class="hs-identifier hs-var">XavcSlowPal'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621680022632"><span id="local-6989586621680022633"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="XavcSlowPal"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcSlowPal.html#XavcSlowPal"><span class="hs-identifier hs-var">XavcSlowPal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="XavcSlowPal%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcSlowPal.html#XavcSlowPal%27"><span class="hs-identifier hs-var">XavcSlowPal'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromXavcSlowPal"><span class="annot"><span class="annottext">XavcSlowPal -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.XavcSlowPal.html#fromXavcSlowPal"><span class="hs-identifier hs-var hs-var">fromXavcSlowPal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680022615"><span id="local-6989586621680022617"><span id="local-6989586621680022619"><span class="annot"><span class="annottext">Int -&gt; XavcSlowPal -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680022624"><span id="local-6989586621680022626"><span id="local-6989586621680022628"><span class="annot"><span class="annottext">Int -&gt; XavcSlowPal -&gt; ShowS
 [XavcSlowPal] -&gt; ShowS
 XavcSlowPal -&gt; String
 (Int -&gt; XavcSlowPal -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: XavcSlowPal -&gt; String
 showsPrec :: Int -&gt; XavcSlowPal -&gt; ShowS
 $cshowsPrec :: Int -&gt; XavcSlowPal -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680022606"><span id="local-6989586621680022608"><span id="local-6989586621680022610"><span id="local-6989586621680022612"><span class="annot"><span class="annottext">ReadPrec [XavcSlowPal]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680022615"><span id="local-6989586621680022617"><span id="local-6989586621680022619"><span id="local-6989586621680022621"><span class="annot"><span class="annottext">ReadPrec [XavcSlowPal]
 ReadPrec XavcSlowPal
 Int -&gt; ReadS XavcSlowPal
 ReadS [XavcSlowPal]
@@ -79,7 +79,7 @@ $creadList :: ReadS [XavcSlowPal]
 readsPrec :: Int -&gt; ReadS XavcSlowPal
 $creadsPrec :: Int -&gt; ReadS XavcSlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680022601"><span id="local-6989586621680022603"><span class="annot"><span class="annottext">XavcSlowPal -&gt; XavcSlowPal -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680022610"><span id="local-6989586621680022612"><span class="annot"><span class="annottext">XavcSlowPal -&gt; XavcSlowPal -&gt; Bool
 (XavcSlowPal -&gt; XavcSlowPal -&gt; Bool)
 -&gt; (XavcSlowPal -&gt; XavcSlowPal -&gt; Bool) -&gt; Eq XavcSlowPal
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -88,7 +88,7 @@ $c/= :: XavcSlowPal -&gt; XavcSlowPal -&gt; Bool
 == :: XavcSlowPal -&gt; XavcSlowPal -&gt; Bool
 $c== :: XavcSlowPal -&gt; XavcSlowPal -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680022585"><span id="local-6989586621680022587"><span id="local-6989586621680022589"><span id="local-6989586621680022591"><span id="local-6989586621680022593"><span id="local-6989586621680022595"><span id="local-6989586621680022597"><span class="annot"><span class="annottext">Eq XavcSlowPal
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680022594"><span id="local-6989586621680022596"><span id="local-6989586621680022598"><span id="local-6989586621680022600"><span id="local-6989586621680022602"><span id="local-6989586621680022604"><span id="local-6989586621680022606"><span class="annot"><span class="annottext">Eq XavcSlowPal
 Eq XavcSlowPal
 -&gt; (XavcSlowPal -&gt; XavcSlowPal -&gt; Ordering)
 -&gt; (XavcSlowPal -&gt; XavcSlowPal -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. XavcSlowPal -&gt; Rep XavcSlowPal x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680022577"><span id="local-6989586621680022579"><span class="annot"><span class="annottext">Int -&gt; XavcSlowPal -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680022586"><span id="local-6989586621680022588"><span class="annot"><span class="annottext">Int -&gt; XavcSlowPal -&gt; Int
 XavcSlowPal -&gt; Int
 (Int -&gt; XavcSlowPal -&gt; Int)
 -&gt; (XavcSlowPal -&gt; Int) -&gt; Hashable XavcSlowPal
@@ -149,49 +149,49 @@ $chash :: XavcSlowPal -&gt; Int
 hashWithSalt :: Int -&gt; XavcSlowPal -&gt; Int
 $chashWithSalt :: Int -&gt; XavcSlowPal -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680022574"><span class="annot"><span class="annottext">XavcSlowPal -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680022583"><span class="annot"><span class="annottext">XavcSlowPal -&gt; ()
 (XavcSlowPal -&gt; ()) -&gt; NFData XavcSlowPal
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: XavcSlowPal -&gt; ()
 $crnf :: XavcSlowPal -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680022571"><span class="annot"><span class="annottext">Text -&gt; Either String XavcSlowPal
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680022580"><span class="annot"><span class="annottext">Text -&gt; Either String XavcSlowPal
 (Text -&gt; Either String XavcSlowPal) -&gt; FromText XavcSlowPal
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String XavcSlowPal
 $cfromText :: Text -&gt; Either String XavcSlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680022568"><span class="annot"><span class="annottext">XavcSlowPal -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680022577"><span class="annot"><span class="annottext">XavcSlowPal -&gt; Text
 (XavcSlowPal -&gt; Text) -&gt; ToText XavcSlowPal
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: XavcSlowPal -&gt; Text
 $ctoText :: XavcSlowPal -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680022565"><span class="annot"><span class="annottext">XavcSlowPal -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680022574"><span class="annot"><span class="annottext">XavcSlowPal -&gt; ByteString
 (XavcSlowPal -&gt; ByteString) -&gt; ToByteString XavcSlowPal
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: XavcSlowPal -&gt; ByteString
 $ctoBS :: XavcSlowPal -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680022562"><span class="annot"><span class="annottext">XavcSlowPal -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680022571"><span class="annot"><span class="annottext">XavcSlowPal -&gt; ByteStringBuilder
 (XavcSlowPal -&gt; ByteStringBuilder) -&gt; ToLog XavcSlowPal
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: XavcSlowPal -&gt; ByteStringBuilder
 $cbuild :: XavcSlowPal -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680022559"><span class="annot"><span class="annottext">HeaderName -&gt; XavcSlowPal -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680022568"><span class="annot"><span class="annottext">HeaderName -&gt; XavcSlowPal -&gt; [Header]
 (HeaderName -&gt; XavcSlowPal -&gt; [Header]) -&gt; ToHeader XavcSlowPal
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; XavcSlowPal -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; XavcSlowPal -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680022556"><span class="annot"><span class="annottext">XavcSlowPal -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680022565"><span class="annot"><span class="annottext">XavcSlowPal -&gt; QueryString
 (XavcSlowPal -&gt; QueryString) -&gt; ToQuery XavcSlowPal
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: XavcSlowPal -&gt; QueryString
 $ctoQuery :: XavcSlowPal -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680022551"><span id="local-6989586621680022553"><span class="annot"><span class="annottext">Value -&gt; Parser [XavcSlowPal]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680022560"><span id="local-6989586621680022562"><span class="annot"><span class="annottext">Value -&gt; Parser [XavcSlowPal]
 Value -&gt; Parser XavcSlowPal
 (Value -&gt; Parser XavcSlowPal)
 -&gt; (Value -&gt; Parser [XavcSlowPal]) -&gt; FromJSON XavcSlowPal
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [XavcSlowPal]
 parseJSON :: Value -&gt; Parser XavcSlowPal
 $cparseJSON :: Value -&gt; Parser XavcSlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680022546"><span id="local-6989586621680022548"><span class="annot"><span class="annottext">FromJSONKeyFunction [XavcSlowPal]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680022555"><span id="local-6989586621680022557"><span class="annot"><span class="annottext">FromJSONKeyFunction [XavcSlowPal]
 FromJSONKeyFunction XavcSlowPal
 FromJSONKeyFunction XavcSlowPal
 -&gt; FromJSONKeyFunction [XavcSlowPal] -&gt; FromJSONKey XavcSlowPal
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [XavcSlowPal]
 fromJSONKey :: FromJSONKeyFunction XavcSlowPal
 $cfromJSONKey :: FromJSONKeyFunction XavcSlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680022537"><span id="local-6989586621680022539"><span id="local-6989586621680022541"><span id="local-6989586621680022543"><span class="annot"><span class="annottext">[XavcSlowPal] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680022546"><span id="local-6989586621680022548"><span id="local-6989586621680022550"><span id="local-6989586621680022552"><span class="annot"><span class="annottext">[XavcSlowPal] -&gt; Encoding
 [XavcSlowPal] -&gt; Value
 XavcSlowPal -&gt; Encoding
 XavcSlowPal -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: XavcSlowPal -&gt; Encoding
 toJSON :: XavcSlowPal -&gt; Value
 $ctoJSON :: XavcSlowPal -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680022532"><span id="local-6989586621680022534"><span class="annot"><span class="annottext">ToJSONKeyFunction [XavcSlowPal]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680022541"><span id="local-6989586621680022543"><span class="annot"><span class="annottext">ToJSONKeyFunction [XavcSlowPal]
 ToJSONKeyFunction XavcSlowPal
 ToJSONKeyFunction XavcSlowPal
 -&gt; ToJSONKeyFunction [XavcSlowPal] -&gt; ToJSONKey XavcSlowPal
@@ -248,13 +248,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [XavcSlowPal]
 toJSONKey :: ToJSONKeyFunction XavcSlowPal
 $ctoJSONKey :: ToJSONKeyFunction XavcSlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680022529"><span class="annot"><span class="annottext">[Node] -&gt; Either String XavcSlowPal
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680022538"><span class="annot"><span class="annottext">[Node] -&gt; Either String XavcSlowPal
 ([Node] -&gt; Either String XavcSlowPal) -&gt; FromXML XavcSlowPal
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String XavcSlowPal
 $cparseXML :: [Node] -&gt; Either String XavcSlowPal
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680022526"><span class="annot"><span class="annottext">XavcSlowPal -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680022535"><span class="annot"><span class="annottext">XavcSlowPal -&gt; XML
 (XavcSlowPal -&gt; XML) -&gt; ToXML XavcSlowPal
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: XavcSlowPal -&gt; XML

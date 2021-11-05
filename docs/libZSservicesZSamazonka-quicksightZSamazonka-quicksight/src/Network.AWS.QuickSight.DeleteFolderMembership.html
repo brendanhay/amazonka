@@ -1,0 +1,606 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.DeleteFolderMembership</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Removes an asset, such as a dashboard, analysis, or dataset, from a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- folder.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.DeleteFolderMembership</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier">DeleteFolderMembership</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#newDeleteFolderMembership"><span class="hs-identifier">newDeleteFolderMembership</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembership_awsAccountId"><span class="hs-identifier">deleteFolderMembership_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembership_folderId"><span class="hs-identifier">deleteFolderMembership_folderId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembership_memberId"><span class="hs-identifier">deleteFolderMembership_memberId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembership_memberType"><span class="hs-identifier">deleteFolderMembership_memberType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse"><span class="hs-identifier">DeleteFolderMembershipResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#newDeleteFolderMembershipResponse"><span class="hs-identifier">newDeleteFolderMembershipResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembershipResponse_requestId"><span class="hs-identifier">deleteFolderMembershipResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembershipResponse_status"><span class="hs-identifier">deleteFolderMembershipResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembershipResponse_httpStatus"><span class="hs-identifier">deleteFolderMembershipResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.html"><span class="hs-identifier">Network.AWS.QuickSight.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDeleteFolderMembership' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679591146"><span id="local-6989586621679591147"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFolderMembership"><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier hs-var">DeleteFolderMembership</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFolderMembership%27"><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership%27"><span class="hs-identifier hs-var">DeleteFolderMembership'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS Account ID.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AawsAccountId%3ADeleteFolderMembership%27"><span class="annot"><span class="annottext">DeleteFolderMembership -&gt; Text
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3AawsAccountId%3ADeleteFolderMembership%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The Folder ID.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AfolderId%3ADeleteFolderMembership%27"><span class="annot"><span class="annottext">DeleteFolderMembership -&gt; Text
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3AfolderId%3ADeleteFolderMembership%27"><span class="hs-identifier hs-var hs-var">folderId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The ID of the asset (the dashboard, analysis, or dataset) that you want</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- to delete.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmemberId%3ADeleteFolderMembership%27"><span class="annot"><span class="annottext">DeleteFolderMembership -&gt; Text
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3AmemberId%3ADeleteFolderMembership%27"><span class="hs-identifier hs-var hs-var">memberId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The type of the member, including @DASHBOARD@, @ANALYSIS@, and @DATASET@</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmemberType%3ADeleteFolderMembership%27"><span class="annot"><span class="annottext">DeleteFolderMembership -&gt; MemberType
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3AmemberType%3ADeleteFolderMembership%27"><span class="hs-identifier hs-var hs-var">memberType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.MemberType.html#MemberType"><span class="hs-identifier hs-type">MemberType</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679591137"><span id="local-6989586621679591139"><span class="annot"><span class="annottext">DeleteFolderMembership -&gt; DeleteFolderMembership -&gt; Bool
+(DeleteFolderMembership -&gt; DeleteFolderMembership -&gt; Bool)
+-&gt; (DeleteFolderMembership -&gt; DeleteFolderMembership -&gt; Bool)
+-&gt; Eq DeleteFolderMembership
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteFolderMembership -&gt; DeleteFolderMembership -&gt; Bool
+$c/= :: DeleteFolderMembership -&gt; DeleteFolderMembership -&gt; Bool
+== :: DeleteFolderMembership -&gt; DeleteFolderMembership -&gt; Bool
+$c== :: DeleteFolderMembership -&gt; DeleteFolderMembership -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591128"><span id="local-6989586621679591130"><span id="local-6989586621679591132"><span id="local-6989586621679591134"><span class="annot"><span class="annottext">ReadPrec [DeleteFolderMembership]
+ReadPrec DeleteFolderMembership
+Int -&gt; ReadS DeleteFolderMembership
+ReadS [DeleteFolderMembership]
+(Int -&gt; ReadS DeleteFolderMembership)
+-&gt; ReadS [DeleteFolderMembership]
+-&gt; ReadPrec DeleteFolderMembership
+-&gt; ReadPrec [DeleteFolderMembership]
+-&gt; Read DeleteFolderMembership
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteFolderMembership]
+$creadListPrec :: ReadPrec [DeleteFolderMembership]
+readPrec :: ReadPrec DeleteFolderMembership
+$creadPrec :: ReadPrec DeleteFolderMembership
+readList :: ReadS [DeleteFolderMembership]
+$creadList :: ReadS [DeleteFolderMembership]
+readsPrec :: Int -&gt; ReadS DeleteFolderMembership
+$creadsPrec :: Int -&gt; ReadS DeleteFolderMembership
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591121"><span id="local-6989586621679591123"><span id="local-6989586621679591125"><span class="annot"><span class="annottext">Int -&gt; DeleteFolderMembership -&gt; ShowS
+[DeleteFolderMembership] -&gt; ShowS
+DeleteFolderMembership -&gt; String
+(Int -&gt; DeleteFolderMembership -&gt; ShowS)
+-&gt; (DeleteFolderMembership -&gt; String)
+-&gt; ([DeleteFolderMembership] -&gt; ShowS)
+-&gt; Show DeleteFolderMembership
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteFolderMembership] -&gt; ShowS
+$cshowList :: [DeleteFolderMembership] -&gt; ShowS
+show :: DeleteFolderMembership -&gt; String
+$cshow :: DeleteFolderMembership -&gt; String
+showsPrec :: Int -&gt; DeleteFolderMembership -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteFolderMembership -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteFolderMembership -&gt; Rep DeleteFolderMembership x)
+-&gt; (forall x.
+    Rep DeleteFolderMembership x -&gt; DeleteFolderMembership)
+-&gt; Generic DeleteFolderMembership
+forall x. Rep DeleteFolderMembership x -&gt; DeleteFolderMembership
+forall x. DeleteFolderMembership -&gt; Rep DeleteFolderMembership x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteFolderMembership x -&gt; DeleteFolderMembership
+$cfrom :: forall x. DeleteFolderMembership -&gt; Rep DeleteFolderMembership x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'DeleteFolderMembership' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'awsAccountId', 'deleteFolderMembership_awsAccountId' - The AWS Account ID.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'folderId', 'deleteFolderMembership_folderId' - The Folder ID.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'memberId', 'deleteFolderMembership_memberId' - The ID of the asset (the dashboard, analysis, or dataset) that you want</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- to delete.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'memberType', 'deleteFolderMembership_memberType' - The type of the member, including @DASHBOARD@, @ANALYSIS@, and @DATASET@</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#newDeleteFolderMembership"><span class="hs-identifier hs-type">newDeleteFolderMembership</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'folderId'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'memberId'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'memberType'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.MemberType.html#MemberType"><span class="hs-identifier hs-type">MemberType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier hs-type">DeleteFolderMembership</span></a></span><span>
+</span><span id="line-94"></span><span id="newDeleteFolderMembership"><span class="annot"><span class="annottext">newDeleteFolderMembership :: Text -&gt; Text -&gt; Text -&gt; MemberType -&gt; DeleteFolderMembership
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#newDeleteFolderMembership"><span class="hs-identifier hs-var hs-var">newDeleteFolderMembership</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679591116"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591116"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679591115"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591115"><span class="hs-identifier hs-var">pFolderId_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679591114"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591114"><span class="hs-identifier hs-var">pMemberId_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679591113"><span class="annot"><span class="annottext">MemberType
+</span><a href="#local-6989586621679591113"><span class="hs-identifier hs-var">pMemberType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">DeleteFolderMembership' :: Text -&gt; Text -&gt; Text -&gt; MemberType -&gt; DeleteFolderMembership
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership%27"><span class="hs-identifier hs-type">DeleteFolderMembership'</span></a></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:awsAccountId:DeleteFolderMembership' :: Text
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3AawsAccountId%3ADeleteFolderMembership%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591116"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:folderId:DeleteFolderMembership' :: Text
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3AfolderId%3ADeleteFolderMembership%27"><span class="hs-identifier hs-var">folderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591115"><span class="hs-identifier hs-var">pFolderId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:memberId:DeleteFolderMembership' :: Text
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3AmemberId%3ADeleteFolderMembership%27"><span class="hs-identifier hs-var">memberId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591114"><span class="hs-identifier hs-var">pMemberId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:memberType:DeleteFolderMembership' :: MemberType
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3AmemberType%3ADeleteFolderMembership%27"><span class="hs-identifier hs-var">memberType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MemberType
+</span><a href="#local-6989586621679591113"><span class="hs-identifier hs-var">pMemberType_</span></a></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The AWS Account ID.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembership_awsAccountId"><span class="hs-identifier hs-type">deleteFolderMembership_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier hs-type">DeleteFolderMembership</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="deleteFolderMembership_awsAccountId"><span class="annot"><span class="annottext">deleteFolderMembership_awsAccountId :: (Text -&gt; f Text)
+-&gt; DeleteFolderMembership -&gt; f DeleteFolderMembership
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembership_awsAccountId"><span class="hs-identifier hs-var hs-var">deleteFolderMembership_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFolderMembership -&gt; Text)
+-&gt; (DeleteFolderMembership -&gt; Text -&gt; DeleteFolderMembership)
+-&gt; Lens DeleteFolderMembership DeleteFolderMembership Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership%27"><span class="hs-identifier hs-type">DeleteFolderMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591110"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:DeleteFolderMembership' :: DeleteFolderMembership -&gt; Text
+</span><a href="#local-6989586621679591110"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591110"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591109"><span class="annot"><span class="annottext">s :: DeleteFolderMembership
+</span><a href="#local-6989586621679591109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership%27"><span class="hs-identifier hs-type">DeleteFolderMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591108"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFolderMembership
+</span><a href="#local-6989586621679591109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:DeleteFolderMembership' :: Text
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3AawsAccountId%3ADeleteFolderMembership%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier hs-type">DeleteFolderMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The Folder ID.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembership_folderId"><span class="hs-identifier hs-type">deleteFolderMembership_folderId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier hs-type">DeleteFolderMembership</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="deleteFolderMembership_folderId"><span class="annot"><span class="annottext">deleteFolderMembership_folderId :: (Text -&gt; f Text)
+-&gt; DeleteFolderMembership -&gt; f DeleteFolderMembership
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembership_folderId"><span class="hs-identifier hs-var hs-var">deleteFolderMembership_folderId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFolderMembership -&gt; Text)
+-&gt; (DeleteFolderMembership -&gt; Text -&gt; DeleteFolderMembership)
+-&gt; Lens DeleteFolderMembership DeleteFolderMembership Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership%27"><span class="hs-identifier hs-type">DeleteFolderMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591107"><span class="annot"><span class="annottext">Text
+folderId :: Text
+$sel:folderId:DeleteFolderMembership' :: DeleteFolderMembership -&gt; Text
+</span><a href="#local-6989586621679591107"><span class="hs-identifier hs-var hs-var">folderId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591107"><span class="hs-identifier hs-var">folderId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591106"><span class="annot"><span class="annottext">s :: DeleteFolderMembership
+</span><a href="#local-6989586621679591106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership%27"><span class="hs-identifier hs-type">DeleteFolderMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591105"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFolderMembership
+</span><a href="#local-6989586621679591106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:folderId:DeleteFolderMembership' :: Text
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3AfolderId%3ADeleteFolderMembership%27"><span class="hs-identifier hs-var">folderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier hs-type">DeleteFolderMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The ID of the asset (the dashboard, analysis, or dataset) that you want</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- to delete.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembership_memberId"><span class="hs-identifier hs-type">deleteFolderMembership_memberId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier hs-type">DeleteFolderMembership</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="deleteFolderMembership_memberId"><span class="annot"><span class="annottext">deleteFolderMembership_memberId :: (Text -&gt; f Text)
+-&gt; DeleteFolderMembership -&gt; f DeleteFolderMembership
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembership_memberId"><span class="hs-identifier hs-var hs-var">deleteFolderMembership_memberId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFolderMembership -&gt; Text)
+-&gt; (DeleteFolderMembership -&gt; Text -&gt; DeleteFolderMembership)
+-&gt; Lens DeleteFolderMembership DeleteFolderMembership Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership%27"><span class="hs-identifier hs-type">DeleteFolderMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591104"><span class="annot"><span class="annottext">Text
+memberId :: Text
+$sel:memberId:DeleteFolderMembership' :: DeleteFolderMembership -&gt; Text
+</span><a href="#local-6989586621679591104"><span class="hs-identifier hs-var hs-var">memberId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591104"><span class="hs-identifier hs-var">memberId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591103"><span class="annot"><span class="annottext">s :: DeleteFolderMembership
+</span><a href="#local-6989586621679591103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership%27"><span class="hs-identifier hs-type">DeleteFolderMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591102"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFolderMembership
+</span><a href="#local-6989586621679591103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberId:DeleteFolderMembership' :: Text
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3AmemberId%3ADeleteFolderMembership%27"><span class="hs-identifier hs-var">memberId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier hs-type">DeleteFolderMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The type of the member, including @DASHBOARD@, @ANALYSIS@, and @DATASET@</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembership_memberType"><span class="hs-identifier hs-type">deleteFolderMembership_memberType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier hs-type">DeleteFolderMembership</span></a></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.MemberType.html#MemberType"><span class="hs-identifier hs-type">MemberType</span></a></span><span>
+</span><span id="line-122"></span><span id="deleteFolderMembership_memberType"><span class="annot"><span class="annottext">deleteFolderMembership_memberType :: (MemberType -&gt; f MemberType)
+-&gt; DeleteFolderMembership -&gt; f DeleteFolderMembership
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembership_memberType"><span class="hs-identifier hs-var hs-var">deleteFolderMembership_memberType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFolderMembership -&gt; MemberType)
+-&gt; (DeleteFolderMembership -&gt; MemberType -&gt; DeleteFolderMembership)
+-&gt; Lens
+     DeleteFolderMembership DeleteFolderMembership MemberType MemberType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership%27"><span class="hs-identifier hs-type">DeleteFolderMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591101"><span class="annot"><span class="annottext">MemberType
+memberType :: MemberType
+$sel:memberType:DeleteFolderMembership' :: DeleteFolderMembership -&gt; MemberType
+</span><a href="#local-6989586621679591101"><span class="hs-identifier hs-var hs-var">memberType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MemberType
+</span><a href="#local-6989586621679591101"><span class="hs-identifier hs-var">memberType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591100"><span class="annot"><span class="annottext">s :: DeleteFolderMembership
+</span><a href="#local-6989586621679591100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership%27"><span class="hs-identifier hs-type">DeleteFolderMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591099"><span class="annot"><span class="annottext">MemberType
+</span><a href="#local-6989586621679591099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFolderMembership
+</span><a href="#local-6989586621679591100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberType:DeleteFolderMembership' :: MemberType
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3AmemberType%3ADeleteFolderMembership%27"><span class="hs-identifier hs-var">memberType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MemberType
+</span><a href="#local-6989586621679591099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier hs-type">DeleteFolderMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier hs-type">DeleteFolderMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier hs-type">DeleteFolderMembership</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse"><span class="hs-identifier hs-type">DeleteFolderMembershipResponse</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679591095"><span class="annot"><span class="annottext">request :: DeleteFolderMembership -&gt; Request DeleteFolderMembership
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteFolderMembership -&gt; Request DeleteFolderMembership
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679591091"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteFolderMembership
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteFolderMembership)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteFolderMembership))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteFolderMembership
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteFolderMembership)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679591088"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591088"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679591087"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679591087"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679591086"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679591086"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Int -&gt; Int -&gt; DeleteFolderMembershipResponse
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse%27"><span class="hs-identifier hs-var">DeleteFolderMembershipResponse'</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Int -&gt; Int -&gt; DeleteFolderMembershipResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Int -&gt; Int -&gt; DeleteFolderMembershipResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679591086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Int -&gt; DeleteFolderMembershipResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either String (Int -&gt; DeleteFolderMembershipResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679591086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteFolderMembershipResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteFolderMembershipResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591088"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591078"><span id="local-6989586621679591080"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier hs-type">DeleteFolderMembership</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591075"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier hs-type">DeleteFolderMembership</span></a></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier hs-type">DeleteFolderMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679591071"><span class="annot"><span class="annottext">toHeaders :: DeleteFolderMembership -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteFolderMembership -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-149"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier hs-type">DeleteFolderMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679591065"><span class="annot"><span class="annottext">toPath :: DeleteFolderMembership -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership%27"><span class="hs-identifier hs-type">DeleteFolderMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591060"><span id="local-6989586621679591061"><span id="local-6989586621679591062"><span id="local-6989586621679591063"><span class="annot"><span class="annottext">Text
+MemberType
+memberType :: MemberType
+memberId :: Text
+folderId :: Text
+awsAccountId :: Text
+$sel:memberType:DeleteFolderMembership' :: DeleteFolderMembership -&gt; MemberType
+$sel:memberId:DeleteFolderMembership' :: DeleteFolderMembership -&gt; Text
+$sel:folderId:DeleteFolderMembership' :: DeleteFolderMembership -&gt; Text
+$sel:awsAccountId:DeleteFolderMembership' :: DeleteFolderMembership -&gt; Text
+</span><a href="#local-6989586621679591060"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591063"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/folders/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591062"><span class="hs-identifier hs-var">folderId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/members/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">MemberType -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">MemberType
+</span><a href="#local-6989586621679591060"><span class="hs-identifier hs-var">memberType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679591061"><span class="hs-identifier hs-var">memberId</span></a></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembership"><span class="hs-identifier hs-type">DeleteFolderMembership</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679591056"><span class="annot"><span class="annottext">toQuery :: DeleteFolderMembership -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteFolderMembership -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | /See:/ 'newDeleteFolderMembershipResponse' smart constructor.</span><span>
+</span><span id="line-170"></span><span id="local-6989586621679591053"><span id="local-6989586621679591054"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFolderMembershipResponse"><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse"><span class="hs-identifier hs-var">DeleteFolderMembershipResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFolderMembershipResponse%27"><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse%27"><span class="hs-identifier hs-var">DeleteFolderMembershipResponse'</span></a></span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The request ID.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3ArequestId%3ADeleteFolderMembershipResponse%27"><span class="annot"><span class="annottext">DeleteFolderMembershipResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3ArequestId%3ADeleteFolderMembershipResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The status of deleting the asset. If succeeded, the status is</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- @SC_OK (200)@.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3Astatus%3ADeleteFolderMembershipResponse%27"><span class="annot"><span class="annottext">DeleteFolderMembershipResponse -&gt; Maybe Int
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3Astatus%3ADeleteFolderMembershipResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteFolderMembershipResponse%27"><span class="annot"><span class="annottext">DeleteFolderMembershipResponse -&gt; Int
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3AhttpStatus%3ADeleteFolderMembershipResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679591046"><span id="local-6989586621679591048"><span class="annot"><span class="annottext">DeleteFolderMembershipResponse
+-&gt; DeleteFolderMembershipResponse -&gt; Bool
+(DeleteFolderMembershipResponse
+ -&gt; DeleteFolderMembershipResponse -&gt; Bool)
+-&gt; (DeleteFolderMembershipResponse
+    -&gt; DeleteFolderMembershipResponse -&gt; Bool)
+-&gt; Eq DeleteFolderMembershipResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteFolderMembershipResponse
+-&gt; DeleteFolderMembershipResponse -&gt; Bool
+$c/= :: DeleteFolderMembershipResponse
+-&gt; DeleteFolderMembershipResponse -&gt; Bool
+== :: DeleteFolderMembershipResponse
+-&gt; DeleteFolderMembershipResponse -&gt; Bool
+$c== :: DeleteFolderMembershipResponse
+-&gt; DeleteFolderMembershipResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591038"><span id="local-6989586621679591040"><span id="local-6989586621679591042"><span id="local-6989586621679591044"><span class="annot"><span class="annottext">ReadPrec [DeleteFolderMembershipResponse]
+ReadPrec DeleteFolderMembershipResponse
+Int -&gt; ReadS DeleteFolderMembershipResponse
+ReadS [DeleteFolderMembershipResponse]
+(Int -&gt; ReadS DeleteFolderMembershipResponse)
+-&gt; ReadS [DeleteFolderMembershipResponse]
+-&gt; ReadPrec DeleteFolderMembershipResponse
+-&gt; ReadPrec [DeleteFolderMembershipResponse]
+-&gt; Read DeleteFolderMembershipResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteFolderMembershipResponse]
+$creadListPrec :: ReadPrec [DeleteFolderMembershipResponse]
+readPrec :: ReadPrec DeleteFolderMembershipResponse
+$creadPrec :: ReadPrec DeleteFolderMembershipResponse
+readList :: ReadS [DeleteFolderMembershipResponse]
+$creadList :: ReadS [DeleteFolderMembershipResponse]
+readsPrec :: Int -&gt; ReadS DeleteFolderMembershipResponse
+$creadsPrec :: Int -&gt; ReadS DeleteFolderMembershipResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591032"><span id="local-6989586621679591034"><span id="local-6989586621679591036"><span class="annot"><span class="annottext">Int -&gt; DeleteFolderMembershipResponse -&gt; ShowS
+[DeleteFolderMembershipResponse] -&gt; ShowS
+DeleteFolderMembershipResponse -&gt; String
+(Int -&gt; DeleteFolderMembershipResponse -&gt; ShowS)
+-&gt; (DeleteFolderMembershipResponse -&gt; String)
+-&gt; ([DeleteFolderMembershipResponse] -&gt; ShowS)
+-&gt; Show DeleteFolderMembershipResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteFolderMembershipResponse] -&gt; ShowS
+$cshowList :: [DeleteFolderMembershipResponse] -&gt; ShowS
+show :: DeleteFolderMembershipResponse -&gt; String
+$cshow :: DeleteFolderMembershipResponse -&gt; String
+showsPrec :: Int -&gt; DeleteFolderMembershipResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteFolderMembershipResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteFolderMembershipResponse
+ -&gt; Rep DeleteFolderMembershipResponse x)
+-&gt; (forall x.
+    Rep DeleteFolderMembershipResponse x
+    -&gt; DeleteFolderMembershipResponse)
+-&gt; Generic DeleteFolderMembershipResponse
+forall x.
+Rep DeleteFolderMembershipResponse x
+-&gt; DeleteFolderMembershipResponse
+forall x.
+DeleteFolderMembershipResponse
+-&gt; Rep DeleteFolderMembershipResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteFolderMembershipResponse x
+-&gt; DeleteFolderMembershipResponse
+$cfrom :: forall x.
+DeleteFolderMembershipResponse
+-&gt; Rep DeleteFolderMembershipResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- Create a value of 'DeleteFolderMembershipResponse' with all optional fields omitted.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'requestId', 'deleteFolderMembershipResponse_requestId' - The request ID.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'status', 'deleteFolderMembershipResponse_status' - The status of deleting the asset. If succeeded, the status is</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- @SC_OK (200)@.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'httpStatus', 'deleteFolderMembershipResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#newDeleteFolderMembershipResponse"><span class="hs-identifier hs-type">newDeleteFolderMembershipResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse"><span class="hs-identifier hs-type">DeleteFolderMembershipResponse</span></a></span><span>
+</span><span id="line-199"></span><span id="newDeleteFolderMembershipResponse"><span class="annot"><span class="annottext">newDeleteFolderMembershipResponse :: Int -&gt; DeleteFolderMembershipResponse
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#newDeleteFolderMembershipResponse"><span class="hs-identifier hs-var hs-var">newDeleteFolderMembershipResponse</span></a></span></span><span> </span><span id="local-6989586621679591029"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591029"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="annottext">DeleteFolderMembershipResponse' :: Maybe Text -&gt; Maybe Int -&gt; Int -&gt; DeleteFolderMembershipResponse
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse%27"><span class="hs-identifier hs-type">DeleteFolderMembershipResponse'</span></a></span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:DeleteFolderMembershipResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3ArequestId%3ADeleteFolderMembershipResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DeleteFolderMembershipResponse' :: Maybe Int
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3Astatus%3ADeleteFolderMembershipResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteFolderMembershipResponse' :: Int
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3AhttpStatus%3ADeleteFolderMembershipResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591029"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The request ID.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembershipResponse_requestId"><span class="hs-identifier hs-type">deleteFolderMembershipResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse"><span class="hs-identifier hs-type">DeleteFolderMembershipResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="deleteFolderMembershipResponse_requestId"><span class="annot"><span class="annottext">deleteFolderMembershipResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteFolderMembershipResponse
+-&gt; f DeleteFolderMembershipResponse
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembershipResponse_requestId"><span class="hs-identifier hs-var hs-var">deleteFolderMembershipResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFolderMembershipResponse -&gt; Maybe Text)
+-&gt; (DeleteFolderMembershipResponse
+    -&gt; Maybe Text -&gt; DeleteFolderMembershipResponse)
+-&gt; Lens
+     DeleteFolderMembershipResponse
+     DeleteFolderMembershipResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse%27"><span class="hs-identifier hs-type">DeleteFolderMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591028"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:DeleteFolderMembershipResponse' :: DeleteFolderMembershipResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679591028"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591028"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591027"><span class="annot"><span class="annottext">s :: DeleteFolderMembershipResponse
+</span><a href="#local-6989586621679591027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse%27"><span class="hs-identifier hs-type">DeleteFolderMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591026"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFolderMembershipResponse
+</span><a href="#local-6989586621679591027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:DeleteFolderMembershipResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3ArequestId%3ADeleteFolderMembershipResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse"><span class="hs-identifier hs-type">DeleteFolderMembershipResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The status of deleting the asset. If succeeded, the status is</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- @SC_OK (200)@.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembershipResponse_status"><span class="hs-identifier hs-type">deleteFolderMembershipResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse"><span class="hs-identifier hs-type">DeleteFolderMembershipResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="deleteFolderMembershipResponse_status"><span class="annot"><span class="annottext">deleteFolderMembershipResponse_status :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DeleteFolderMembershipResponse
+-&gt; f DeleteFolderMembershipResponse
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembershipResponse_status"><span class="hs-identifier hs-var hs-var">deleteFolderMembershipResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFolderMembershipResponse -&gt; Maybe Int)
+-&gt; (DeleteFolderMembershipResponse
+    -&gt; Maybe Int -&gt; DeleteFolderMembershipResponse)
+-&gt; Lens
+     DeleteFolderMembershipResponse
+     DeleteFolderMembershipResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse%27"><span class="hs-identifier hs-type">DeleteFolderMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591025"><span class="annot"><span class="annottext">Maybe Int
+status :: Maybe Int
+$sel:status:DeleteFolderMembershipResponse' :: DeleteFolderMembershipResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679591025"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679591025"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591024"><span class="annot"><span class="annottext">s :: DeleteFolderMembershipResponse
+</span><a href="#local-6989586621679591024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse%27"><span class="hs-identifier hs-type">DeleteFolderMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591023"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679591023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFolderMembershipResponse
+</span><a href="#local-6989586621679591024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DeleteFolderMembershipResponse' :: Maybe Int
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3Astatus%3ADeleteFolderMembershipResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679591023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse"><span class="hs-identifier hs-type">DeleteFolderMembershipResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembershipResponse_httpStatus"><span class="hs-identifier hs-type">deleteFolderMembershipResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse"><span class="hs-identifier hs-type">DeleteFolderMembershipResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-218"></span><span id="deleteFolderMembershipResponse_httpStatus"><span class="annot"><span class="annottext">deleteFolderMembershipResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteFolderMembershipResponse
+-&gt; f DeleteFolderMembershipResponse
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#deleteFolderMembershipResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteFolderMembershipResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFolderMembershipResponse -&gt; Int)
+-&gt; (DeleteFolderMembershipResponse
+    -&gt; Int -&gt; DeleteFolderMembershipResponse)
+-&gt; Lens
+     DeleteFolderMembershipResponse
+     DeleteFolderMembershipResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse%27"><span class="hs-identifier hs-type">DeleteFolderMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591022"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteFolderMembershipResponse' :: DeleteFolderMembershipResponse -&gt; Int
+</span><a href="#local-6989586621679591022"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591022"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591021"><span class="annot"><span class="annottext">s :: DeleteFolderMembershipResponse
+</span><a href="#local-6989586621679591021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse%27"><span class="hs-identifier hs-type">DeleteFolderMembershipResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591020"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFolderMembershipResponse
+</span><a href="#local-6989586621679591021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteFolderMembershipResponse' :: Int
+</span><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#%24sel%3AhttpStatus%3ADeleteFolderMembershipResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679591020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse"><span class="hs-identifier hs-type">DeleteFolderMembershipResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679591018"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteFolderMembership.html#DeleteFolderMembershipResponse"><span class="hs-identifier hs-type">DeleteFolderMembershipResponse</span></a></span></span><span>
+</span><span id="line-223"></span></pre></body></html>

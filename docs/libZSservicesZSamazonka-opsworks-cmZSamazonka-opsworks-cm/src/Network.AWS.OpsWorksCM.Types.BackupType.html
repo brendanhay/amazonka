@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679190091"><span id="local-6989586621679190092"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BackupType"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.BackupType.html#BackupType"><span class="hs-identifier hs-var">BackupType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BackupType%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.BackupType.html#BackupType%27"><span class="hs-identifier hs-var">BackupType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679190100"><span id="local-6989586621679190101"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BackupType"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.BackupType.html#BackupType"><span class="hs-identifier hs-var">BackupType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BackupType%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.BackupType.html#BackupType%27"><span class="hs-identifier hs-var">BackupType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBackupType"><span class="annot"><span class="annottext">BackupType -&gt; Text
 </span><a href="Network.AWS.OpsWorksCM.Types.BackupType.html#fromBackupType"><span class="hs-identifier hs-var hs-var">fromBackupType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679190083"><span id="local-6989586621679190085"><span id="local-6989586621679190087"><span class="annot"><span class="annottext">Int -&gt; BackupType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679190092"><span id="local-6989586621679190094"><span id="local-6989586621679190096"><span class="annot"><span class="annottext">Int -&gt; BackupType -&gt; ShowS
 [BackupType] -&gt; ShowS
 BackupType -&gt; String
 (Int -&gt; BackupType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: BackupType -&gt; String
 showsPrec :: Int -&gt; BackupType -&gt; ShowS
 $cshowsPrec :: Int -&gt; BackupType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679190074"><span id="local-6989586621679190076"><span id="local-6989586621679190078"><span id="local-6989586621679190080"><span class="annot"><span class="annottext">ReadPrec [BackupType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679190083"><span id="local-6989586621679190085"><span id="local-6989586621679190087"><span id="local-6989586621679190089"><span class="annot"><span class="annottext">ReadPrec [BackupType]
 ReadPrec BackupType
 Int -&gt; ReadS BackupType
 ReadS [BackupType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [BackupType]
 readsPrec :: Int -&gt; ReadS BackupType
 $creadsPrec :: Int -&gt; ReadS BackupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679190069"><span id="local-6989586621679190071"><span class="annot"><span class="annottext">BackupType -&gt; BackupType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679190078"><span id="local-6989586621679190080"><span class="annot"><span class="annottext">BackupType -&gt; BackupType -&gt; Bool
 (BackupType -&gt; BackupType -&gt; Bool)
 -&gt; (BackupType -&gt; BackupType -&gt; Bool) -&gt; Eq BackupType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: BackupType -&gt; BackupType -&gt; Bool
 == :: BackupType -&gt; BackupType -&gt; Bool
 $c== :: BackupType -&gt; BackupType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679190053"><span id="local-6989586621679190055"><span id="local-6989586621679190057"><span id="local-6989586621679190059"><span id="local-6989586621679190061"><span id="local-6989586621679190063"><span id="local-6989586621679190065"><span class="annot"><span class="annottext">Eq BackupType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679190062"><span id="local-6989586621679190064"><span id="local-6989586621679190066"><span id="local-6989586621679190068"><span id="local-6989586621679190070"><span id="local-6989586621679190072"><span id="local-6989586621679190074"><span class="annot"><span class="annottext">Eq BackupType
 Eq BackupType
 -&gt; (BackupType -&gt; BackupType -&gt; Ordering)
 -&gt; (BackupType -&gt; BackupType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. BackupType -&gt; Rep BackupType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679190045"><span id="local-6989586621679190047"><span class="annot"><span class="annottext">Int -&gt; BackupType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679190054"><span id="local-6989586621679190056"><span class="annot"><span class="annottext">Int -&gt; BackupType -&gt; Int
 BackupType -&gt; Int
 (Int -&gt; BackupType -&gt; Int)
 -&gt; (BackupType -&gt; Int) -&gt; Hashable BackupType
@@ -141,49 +141,49 @@ $chash :: BackupType -&gt; Int
 hashWithSalt :: Int -&gt; BackupType -&gt; Int
 $chashWithSalt :: Int -&gt; BackupType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679190042"><span class="annot"><span class="annottext">BackupType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679190051"><span class="annot"><span class="annottext">BackupType -&gt; ()
 (BackupType -&gt; ()) -&gt; NFData BackupType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BackupType -&gt; ()
 $crnf :: BackupType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679190039"><span class="annot"><span class="annottext">Text -&gt; Either String BackupType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679190048"><span class="annot"><span class="annottext">Text -&gt; Either String BackupType
 (Text -&gt; Either String BackupType) -&gt; FromText BackupType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BackupType
 $cfromText :: Text -&gt; Either String BackupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679190036"><span class="annot"><span class="annottext">BackupType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679190045"><span class="annot"><span class="annottext">BackupType -&gt; Text
 (BackupType -&gt; Text) -&gt; ToText BackupType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BackupType -&gt; Text
 $ctoText :: BackupType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679190033"><span class="annot"><span class="annottext">BackupType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679190042"><span class="annot"><span class="annottext">BackupType -&gt; ByteString
 (BackupType -&gt; ByteString) -&gt; ToByteString BackupType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BackupType -&gt; ByteString
 $ctoBS :: BackupType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679190030"><span class="annot"><span class="annottext">BackupType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679190039"><span class="annot"><span class="annottext">BackupType -&gt; ByteStringBuilder
 (BackupType -&gt; ByteStringBuilder) -&gt; ToLog BackupType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BackupType -&gt; ByteStringBuilder
 $cbuild :: BackupType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679190027"><span class="annot"><span class="annottext">HeaderName -&gt; BackupType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679190036"><span class="annot"><span class="annottext">HeaderName -&gt; BackupType -&gt; [Header]
 (HeaderName -&gt; BackupType -&gt; [Header]) -&gt; ToHeader BackupType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BackupType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BackupType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679190024"><span class="annot"><span class="annottext">BackupType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679190033"><span class="annot"><span class="annottext">BackupType -&gt; QueryString
 (BackupType -&gt; QueryString) -&gt; ToQuery BackupType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BackupType -&gt; QueryString
 $ctoQuery :: BackupType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679190019"><span id="local-6989586621679190021"><span class="annot"><span class="annottext">Value -&gt; Parser [BackupType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679190028"><span id="local-6989586621679190030"><span class="annot"><span class="annottext">Value -&gt; Parser [BackupType]
 Value -&gt; Parser BackupType
 (Value -&gt; Parser BackupType)
 -&gt; (Value -&gt; Parser [BackupType]) -&gt; FromJSON BackupType
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [BackupType]
 parseJSON :: Value -&gt; Parser BackupType
 $cparseJSON :: Value -&gt; Parser BackupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679190014"><span id="local-6989586621679190016"><span class="annot"><span class="annottext">FromJSONKeyFunction [BackupType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679190023"><span id="local-6989586621679190025"><span class="annot"><span class="annottext">FromJSONKeyFunction [BackupType]
 FromJSONKeyFunction BackupType
 FromJSONKeyFunction BackupType
 -&gt; FromJSONKeyFunction [BackupType] -&gt; FromJSONKey BackupType
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BackupType]
 fromJSONKey :: FromJSONKeyFunction BackupType
 $cfromJSONKey :: FromJSONKeyFunction BackupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679190005"><span id="local-6989586621679190007"><span id="local-6989586621679190009"><span id="local-6989586621679190011"><span class="annot"><span class="annottext">[BackupType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679190014"><span id="local-6989586621679190016"><span id="local-6989586621679190018"><span id="local-6989586621679190020"><span class="annot"><span class="annottext">[BackupType] -&gt; Encoding
 [BackupType] -&gt; Value
 BackupType -&gt; Encoding
 BackupType -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: BackupType -&gt; Encoding
 toJSON :: BackupType -&gt; Value
 $ctoJSON :: BackupType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679190000"><span id="local-6989586621679190002"><span class="annot"><span class="annottext">ToJSONKeyFunction [BackupType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679190009"><span id="local-6989586621679190011"><span class="annot"><span class="annottext">ToJSONKeyFunction [BackupType]
 ToJSONKeyFunction BackupType
 ToJSONKeyFunction BackupType
 -&gt; ToJSONKeyFunction [BackupType] -&gt; ToJSONKey BackupType
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BackupType]
 toJSONKey :: ToJSONKeyFunction BackupType
 $ctoJSONKey :: ToJSONKeyFunction BackupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679189997"><span class="annot"><span class="annottext">[Node] -&gt; Either String BackupType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679190006"><span class="annot"><span class="annottext">[Node] -&gt; Either String BackupType
 ([Node] -&gt; Either String BackupType) -&gt; FromXML BackupType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BackupType
 $cparseXML :: [Node] -&gt; Either String BackupType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679189994"><span class="annot"><span class="annottext">BackupType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679190003"><span class="annot"><span class="annottext">BackupType -&gt; XML
 (BackupType -&gt; XML) -&gt; ToXML BackupType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BackupType -&gt; XML

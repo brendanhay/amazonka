@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Connectivity information.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newUpdateConnectivityInfo' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679368668"><span id="local-6989586621679368669"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateConnectivityInfo"><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-var">UpdateConnectivityInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateConnectivityInfo%27"><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo%27"><span class="hs-identifier hs-var">UpdateConnectivityInfo'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679368677"><span id="local-6989586621679368678"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateConnectivityInfo"><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-var">UpdateConnectivityInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateConnectivityInfo%27"><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo%27"><span class="hs-identifier hs-var">UpdateConnectivityInfo'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of connectivity info.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AconnectivityInfo%3AUpdateConnectivityInfo%27"><span class="annot"><span class="annottext">UpdateConnectivityInfo -&gt; Maybe [ConnectivityInfo]
 </span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#%24sel%3AconnectivityInfo%3AUpdateConnectivityInfo%27"><span class="hs-identifier hs-var hs-var">connectivityInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AthingName%3AUpdateConnectivityInfo%27"><span class="annot"><span class="annottext">UpdateConnectivityInfo -&gt; Text
 </span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#%24sel%3AthingName%3AUpdateConnectivityInfo%27"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368661"><span id="local-6989586621679368663"><span class="annot"><span class="annottext">UpdateConnectivityInfo -&gt; UpdateConnectivityInfo -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368670"><span id="local-6989586621679368672"><span class="annot"><span class="annottext">UpdateConnectivityInfo -&gt; UpdateConnectivityInfo -&gt; Bool
 (UpdateConnectivityInfo -&gt; UpdateConnectivityInfo -&gt; Bool)
 -&gt; (UpdateConnectivityInfo -&gt; UpdateConnectivityInfo -&gt; Bool)
 -&gt; Eq UpdateConnectivityInfo
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateConnectivityInfo -&gt; UpdateConnectivityInfo -&gt; Bool
 == :: UpdateConnectivityInfo -&gt; UpdateConnectivityInfo -&gt; Bool
 $c== :: UpdateConnectivityInfo -&gt; UpdateConnectivityInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368652"><span id="local-6989586621679368654"><span id="local-6989586621679368656"><span id="local-6989586621679368658"><span class="annot"><span class="annottext">ReadPrec [UpdateConnectivityInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368661"><span id="local-6989586621679368663"><span id="local-6989586621679368665"><span id="local-6989586621679368667"><span class="annot"><span class="annottext">ReadPrec [UpdateConnectivityInfo]
 ReadPrec UpdateConnectivityInfo
 Int -&gt; ReadS UpdateConnectivityInfo
 ReadS [UpdateConnectivityInfo]
@@ -90,7 +90,7 @@ readList :: ReadS [UpdateConnectivityInfo]
 $creadList :: ReadS [UpdateConnectivityInfo]
 readsPrec :: Int -&gt; ReadS UpdateConnectivityInfo
 $creadsPrec :: Int -&gt; ReadS UpdateConnectivityInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368645"><span id="local-6989586621679368647"><span id="local-6989586621679368649"><span class="annot"><span class="annottext">Int -&gt; UpdateConnectivityInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368654"><span id="local-6989586621679368656"><span id="local-6989586621679368658"><span class="annot"><span class="annottext">Int -&gt; UpdateConnectivityInfo -&gt; ShowS
 [UpdateConnectivityInfo] -&gt; ShowS
 UpdateConnectivityInfo -&gt; String
 (Int -&gt; UpdateConnectivityInfo -&gt; ShowS)
@@ -133,8 +133,8 @@ $cfrom :: forall x. UpdateConnectivityInfo -&gt; Rep UpdateConnectivityInfo x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-type">UpdateConnectivityInfo</span></a></span><span>
 </span><span id="line-79"></span><span id="newUpdateConnectivityInfo"><span class="annot"><span class="annottext">newUpdateConnectivityInfo :: Text -&gt; UpdateConnectivityInfo
-</span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#newUpdateConnectivityInfo"><span class="hs-identifier hs-var hs-var">newUpdateConnectivityInfo</span></a></span></span><span> </span><span id="local-6989586621679368640"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368640"><span class="hs-identifier hs-var">pThingName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#newUpdateConnectivityInfo"><span class="hs-identifier hs-var hs-var">newUpdateConnectivityInfo</span></a></span></span><span> </span><span id="local-6989586621679368649"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368649"><span class="hs-identifier hs-var">pThingName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">UpdateConnectivityInfo' :: Maybe [ConnectivityInfo] -&gt; Text -&gt; UpdateConnectivityInfo
 </span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo%27"><span class="hs-identifier hs-type">UpdateConnectivityInfo'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connectivityInfo:UpdateConnectivityInfo' :: Maybe [ConnectivityInfo]
@@ -144,7 +144,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingName:UpdateConnectivityInfo' :: Text
 </span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#%24sel%3AthingName%3AUpdateConnectivityInfo%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368640"><span class="hs-identifier hs-var">pThingName_</span></a></span><span>
+</span><a href="#local-6989586621679368649"><span class="hs-identifier hs-var">pThingName_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | A list of connectivity info.</span><span>
@@ -160,16 +160,16 @@ forall a. Maybe a
      (Maybe [ConnectivityInfo])
      (Maybe [ConnectivityInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo%27"><span class="hs-identifier hs-type">UpdateConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368637"><span class="annot"><span class="annottext">Maybe [ConnectivityInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo%27"><span class="hs-identifier hs-type">UpdateConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368646"><span class="annot"><span class="annottext">Maybe [ConnectivityInfo]
 connectivityInfo :: Maybe [ConnectivityInfo]
 $sel:connectivityInfo:UpdateConnectivityInfo' :: UpdateConnectivityInfo -&gt; Maybe [ConnectivityInfo]
-</span><a href="#local-6989586621679368637"><span class="hs-identifier hs-var hs-var">connectivityInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectivityInfo]
-</span><a href="#local-6989586621679368637"><span class="hs-identifier hs-var">connectivityInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368636"><span class="annot"><span class="annottext">s :: UpdateConnectivityInfo
-</span><a href="#local-6989586621679368636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo%27"><span class="hs-identifier hs-type">UpdateConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368635"><span class="annot"><span class="annottext">Maybe [ConnectivityInfo]
-</span><a href="#local-6989586621679368635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConnectivityInfo
-</span><a href="#local-6989586621679368636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectivityInfo:UpdateConnectivityInfo' :: Maybe [ConnectivityInfo]
+</span><a href="#local-6989586621679368646"><span class="hs-identifier hs-var hs-var">connectivityInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectivityInfo]
+</span><a href="#local-6989586621679368646"><span class="hs-identifier hs-var">connectivityInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368645"><span class="annot"><span class="annottext">s :: UpdateConnectivityInfo
+</span><a href="#local-6989586621679368645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo%27"><span class="hs-identifier hs-type">UpdateConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368644"><span class="annot"><span class="annottext">Maybe [ConnectivityInfo]
+</span><a href="#local-6989586621679368644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConnectivityInfo
+</span><a href="#local-6989586621679368645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectivityInfo:UpdateConnectivityInfo' :: Maybe [ConnectivityInfo]
 </span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#%24sel%3AconnectivityInfo%3AUpdateConnectivityInfo%27"><span class="hs-identifier hs-var">connectivityInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectivityInfo]
-</span><a href="#local-6989586621679368635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-type">UpdateConnectivityInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConnectivityInfo] -&gt; f (Maybe [ConnectivityInfo]))
+</span><a href="#local-6989586621679368644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-type">UpdateConnectivityInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConnectivityInfo] -&gt; f (Maybe [ConnectivityInfo]))
  -&gt; UpdateConnectivityInfo -&gt; f UpdateConnectivityInfo)
 -&gt; ((Maybe [ConnectivityInfo] -&gt; f (Maybe [ConnectivityInfo]))
     -&gt; Maybe [ConnectivityInfo] -&gt; f (Maybe [ConnectivityInfo]))
@@ -206,27 +206,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UpdateConnectivityInfo -&gt; Text -&gt; UpdateConnectivityInfo)
 -&gt; Lens UpdateConnectivityInfo UpdateConnectivityInfo Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo%27"><span class="hs-identifier hs-type">UpdateConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368631"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo%27"><span class="hs-identifier hs-type">UpdateConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368640"><span class="annot"><span class="annottext">Text
 thingName :: Text
 $sel:thingName:UpdateConnectivityInfo' :: UpdateConnectivityInfo -&gt; Text
-</span><a href="#local-6989586621679368631"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368631"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368630"><span class="annot"><span class="annottext">s :: UpdateConnectivityInfo
-</span><a href="#local-6989586621679368630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo%27"><span class="hs-identifier hs-type">UpdateConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368629"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConnectivityInfo
-</span><a href="#local-6989586621679368630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:UpdateConnectivityInfo' :: Text
+</span><a href="#local-6989586621679368640"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368640"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368639"><span class="annot"><span class="annottext">s :: UpdateConnectivityInfo
+</span><a href="#local-6989586621679368639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo%27"><span class="hs-identifier hs-type">UpdateConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368638"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConnectivityInfo
+</span><a href="#local-6989586621679368639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:UpdateConnectivityInfo' :: Text
 </span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#%24sel%3AthingName%3AUpdateConnectivityInfo%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-type">UpdateConnectivityInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-type">UpdateConnectivityInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-type">UpdateConnectivityInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-type">UpdateConnectivityInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679368625"><span class="annot"><span class="annottext">request :: UpdateConnectivityInfo -&gt; Request UpdateConnectivityInfo
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679368634"><span class="annot"><span class="annottext">request :: UpdateConnectivityInfo -&gt; Request UpdateConnectivityInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateConnectivityInfo -&gt; Request UpdateConnectivityInfo
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679368621"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679368630"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateConnectivityInfo
 -&gt; ClientResponse ClientBody
@@ -252,10 +252,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368618"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368618"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679368617"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679368617"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679368616"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368616"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368627"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368627"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679368626"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679368626"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679368625"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368625"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateConnectivityInfoResponse
 </span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-var">UpdateConnectivityInfoResponse'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateConnectivityInfoResponse)
@@ -264,7 +264,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; UpdateConnectivityInfoResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679368625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
@@ -273,7 +273,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; UpdateConnectivityInfoResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679368625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
@@ -286,15 +286,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368618"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368627"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368608"><span id="local-6989586621679368610"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-type">UpdateConnectivityInfo</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368617"><span id="local-6989586621679368619"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-type">UpdateConnectivityInfo</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368605"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-type">UpdateConnectivityInfo</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368614"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-type">UpdateConnectivityInfo</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-type">UpdateConnectivityInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679368601"><span class="annot"><span class="annottext">toHeaders :: UpdateConnectivityInfo -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679368610"><span class="annot"><span class="annottext">toHeaders :: UpdateConnectivityInfo -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateConnectivityInfo -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -313,15 +313,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368591"><span id="local-6989586621679368593"><span id="local-6989586621679368595"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-type">UpdateConnectivityInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679368589"><span class="annot"><span class="annottext">toJSON :: UpdateConnectivityInfo -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo%27"><span class="hs-identifier hs-type">UpdateConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368586"><span id="local-6989586621679368587"><span class="annot"><span class="annottext">Maybe [ConnectivityInfo]
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368600"><span id="local-6989586621679368602"><span id="local-6989586621679368604"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-type">UpdateConnectivityInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679368598"><span class="annot"><span class="annottext">toJSON :: UpdateConnectivityInfo -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo%27"><span class="hs-identifier hs-type">UpdateConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368595"><span id="local-6989586621679368596"><span class="annot"><span class="annottext">Maybe [ConnectivityInfo]
 Text
 thingName :: Text
 connectivityInfo :: Maybe [ConnectivityInfo]
 $sel:thingName:UpdateConnectivityInfo' :: UpdateConnectivityInfo -&gt; Text
 $sel:connectivityInfo:UpdateConnectivityInfo' :: UpdateConnectivityInfo -&gt; Maybe [ConnectivityInfo]
-</span><a href="#local-6989586621679368586"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679368595"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -335,19 +335,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [ConnectivityInfo] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectivityInfo]
-</span><a href="#local-6989586621679368587"><span class="hs-identifier hs-var">connectivityInfo</span></a></span><span>
+</span><a href="#local-6989586621679368596"><span class="hs-identifier hs-var">connectivityInfo</span></a></span><span>
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-type">UpdateConnectivityInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679368580"><span class="annot"><span class="annottext">toPath :: UpdateConnectivityInfo -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo%27"><span class="hs-identifier hs-type">UpdateConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368577"><span id="local-6989586621679368578"><span class="annot"><span class="annottext">Maybe [ConnectivityInfo]
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679368589"><span class="annot"><span class="annottext">toPath :: UpdateConnectivityInfo -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo%27"><span class="hs-identifier hs-type">UpdateConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368586"><span id="local-6989586621679368587"><span class="annot"><span class="annottext">Maybe [ConnectivityInfo]
 Text
 thingName :: Text
 connectivityInfo :: Maybe [ConnectivityInfo]
 $sel:thingName:UpdateConnectivityInfo' :: UpdateConnectivityInfo -&gt; Text
 $sel:connectivityInfo:UpdateConnectivityInfo' :: UpdateConnectivityInfo -&gt; Maybe [ConnectivityInfo]
-</span><a href="#local-6989586621679368577"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679368586"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -356,13 +356,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368577"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679368586"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/connectivityInfo&quot;</span></span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfo"><span class="hs-identifier hs-type">UpdateConnectivityInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679368573"><span class="annot"><span class="annottext">toQuery :: UpdateConnectivityInfo -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679368582"><span class="annot"><span class="annottext">toQuery :: UpdateConnectivityInfo -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateConnectivityInfo -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -370,7 +370,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newUpdateConnectivityInfoResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679368570"><span id="local-6989586621679368571"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateConnectivityInfoResponse"><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse"><span class="hs-identifier hs-var">UpdateConnectivityInfoResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateConnectivityInfoResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-var">UpdateConnectivityInfoResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679368579"><span id="local-6989586621679368580"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateConnectivityInfoResponse"><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse"><span class="hs-identifier hs-var">UpdateConnectivityInfoResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateConnectivityInfoResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-var">UpdateConnectivityInfoResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new version of the connectivity info.</span><span>
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3Aversion%3AUpdateConnectivityInfoResponse%27"><span class="annot"><span class="annottext">UpdateConnectivityInfoResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#%24sel%3Aversion%3AUpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -381,7 +381,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateConnectivityInfoResponse%27"><span class="annot"><span class="annottext">UpdateConnectivityInfoResponse -&gt; Int
 </span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#%24sel%3AhttpStatus%3AUpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368563"><span id="local-6989586621679368565"><span class="annot"><span class="annottext">UpdateConnectivityInfoResponse
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368572"><span id="local-6989586621679368574"><span class="annot"><span class="annottext">UpdateConnectivityInfoResponse
 -&gt; UpdateConnectivityInfoResponse -&gt; Bool
 (UpdateConnectivityInfoResponse
  -&gt; UpdateConnectivityInfoResponse -&gt; Bool)
@@ -397,7 +397,7 @@ $c/= :: UpdateConnectivityInfoResponse
 -&gt; UpdateConnectivityInfoResponse -&gt; Bool
 $c== :: UpdateConnectivityInfoResponse
 -&gt; UpdateConnectivityInfoResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368555"><span id="local-6989586621679368557"><span id="local-6989586621679368559"><span id="local-6989586621679368561"><span class="annot"><span class="annottext">ReadPrec [UpdateConnectivityInfoResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368564"><span id="local-6989586621679368566"><span id="local-6989586621679368568"><span id="local-6989586621679368570"><span class="annot"><span class="annottext">ReadPrec [UpdateConnectivityInfoResponse]
 ReadPrec UpdateConnectivityInfoResponse
 Int -&gt; ReadS UpdateConnectivityInfoResponse
 ReadS [UpdateConnectivityInfoResponse]
@@ -417,7 +417,7 @@ readList :: ReadS [UpdateConnectivityInfoResponse]
 $creadList :: ReadS [UpdateConnectivityInfoResponse]
 readsPrec :: Int -&gt; ReadS UpdateConnectivityInfoResponse
 $creadsPrec :: Int -&gt; ReadS UpdateConnectivityInfoResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368549"><span id="local-6989586621679368551"><span id="local-6989586621679368553"><span class="annot"><span class="annottext">Int -&gt; UpdateConnectivityInfoResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368558"><span id="local-6989586621679368560"><span id="local-6989586621679368562"><span class="annot"><span class="annottext">Int -&gt; UpdateConnectivityInfoResponse -&gt; ShowS
 [UpdateConnectivityInfoResponse] -&gt; ShowS
 UpdateConnectivityInfoResponse -&gt; String
 (Int -&gt; UpdateConnectivityInfoResponse -&gt; ShowS)
@@ -473,8 +473,8 @@ UpdateConnectivityInfoResponse
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse</span></a></span><span>
 </span><span id="line-171"></span><span id="newUpdateConnectivityInfoResponse"><span class="annot"><span class="annottext">newUpdateConnectivityInfoResponse :: Int -&gt; UpdateConnectivityInfoResponse
-</span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#newUpdateConnectivityInfoResponse"><span class="hs-identifier hs-var hs-var">newUpdateConnectivityInfoResponse</span></a></span></span><span> </span><span id="local-6989586621679368546"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368546"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#newUpdateConnectivityInfoResponse"><span class="hs-identifier hs-var hs-var">newUpdateConnectivityInfoResponse</span></a></span></span><span> </span><span id="local-6989586621679368555"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368555"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">UpdateConnectivityInfoResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateConnectivityInfoResponse
 </span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse'</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:version:UpdateConnectivityInfoResponse' :: Maybe Text
@@ -488,7 +488,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateConnectivityInfoResponse' :: Int
 </span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#%24sel%3AhttpStatus%3AUpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368546"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679368555"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The new version of the connectivity info.</span><span>
@@ -505,16 +505,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368545"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368554"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 $sel:version:UpdateConnectivityInfoResponse' :: UpdateConnectivityInfoResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679368545"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368545"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368544"><span class="annot"><span class="annottext">s :: UpdateConnectivityInfoResponse
-</span><a href="#local-6989586621679368544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368543"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConnectivityInfoResponse
-</span><a href="#local-6989586621679368544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:UpdateConnectivityInfoResponse' :: Maybe Text
+</span><a href="#local-6989586621679368554"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368554"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368553"><span class="annot"><span class="annottext">s :: UpdateConnectivityInfoResponse
+</span><a href="#local-6989586621679368553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368552"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConnectivityInfoResponse
+</span><a href="#local-6989586621679368553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:UpdateConnectivityInfoResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#%24sel%3Aversion%3AUpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | A message about the connectivity info update request.</span><span>
 </span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#updateConnectivityInfoResponse_message"><span class="hs-identifier hs-type">updateConnectivityInfoResponse_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -530,16 +530,16 @@ $sel:version:UpdateConnectivityInfoResponse' :: UpdateConnectivityInfoResponse -
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368542"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368551"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:UpdateConnectivityInfoResponse' :: UpdateConnectivityInfoResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679368542"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368542"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368541"><span class="annot"><span class="annottext">s :: UpdateConnectivityInfoResponse
-</span><a href="#local-6989586621679368541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368540"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConnectivityInfoResponse
-</span><a href="#local-6989586621679368541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:UpdateConnectivityInfoResponse' :: Maybe Text
+</span><a href="#local-6989586621679368551"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368551"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368550"><span class="annot"><span class="annottext">s :: UpdateConnectivityInfoResponse
+</span><a href="#local-6989586621679368550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368549"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConnectivityInfoResponse
+</span><a href="#local-6989586621679368550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:UpdateConnectivityInfoResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#%24sel%3Amessage%3AUpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-188"></span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#updateConnectivityInfoResponse_httpStatus"><span class="hs-identifier hs-type">updateConnectivityInfoResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -555,18 +555,18 @@ $sel:message:UpdateConnectivityInfoResponse' :: UpdateConnectivityInfoResponse -
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368539"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368548"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateConnectivityInfoResponse' :: UpdateConnectivityInfoResponse -&gt; Int
-</span><a href="#local-6989586621679368539"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368539"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368538"><span class="annot"><span class="annottext">s :: UpdateConnectivityInfoResponse
-</span><a href="#local-6989586621679368538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368537"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConnectivityInfoResponse
-</span><a href="#local-6989586621679368538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateConnectivityInfoResponse' :: Int
+</span><a href="#local-6989586621679368548"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368548"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368547"><span class="annot"><span class="annottext">s :: UpdateConnectivityInfoResponse
+</span><a href="#local-6989586621679368547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368546"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConnectivityInfoResponse
+</span><a href="#local-6989586621679368547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateConnectivityInfoResponse' :: Int
 </span><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#%24sel%3AhttpStatus%3AUpdateConnectivityInfoResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679368535"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679368544"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-193"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.UpdateConnectivityInfo.html#UpdateConnectivityInfoResponse"><span class="hs-identifier hs-type">UpdateConnectivityInfoResponse</span></a></span></span><span>
 </span><span id="line-194"></span></pre></body></html>

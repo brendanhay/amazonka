@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListQuickConnects' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679413479"><span id="local-6989586621679413480"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListQuickConnects"><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-var">ListQuickConnects</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListQuickConnects%27"><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-var">ListQuickConnects'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679413488"><span id="local-6989586621679413489"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListQuickConnects"><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-var">ListQuickConnects</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListQuickConnects%27"><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-var">ListQuickConnects'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of quick connect. In the Amazon Connect console, when you</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- create a quick connect, you are prompted to assign one of the following</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</span><span>
@@ -73,7 +73,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AinstanceId%3AListQuickConnects%27"><span class="annot"><span class="annottext">ListQuickConnects -&gt; Text
 </span><a href="Network.AWS.Connect.ListQuickConnects.html#%24sel%3AinstanceId%3AListQuickConnects%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413470"><span id="local-6989586621679413472"><span class="annot"><span class="annottext">ListQuickConnects -&gt; ListQuickConnects -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413479"><span id="local-6989586621679413481"><span class="annot"><span class="annottext">ListQuickConnects -&gt; ListQuickConnects -&gt; Bool
 (ListQuickConnects -&gt; ListQuickConnects -&gt; Bool)
 -&gt; (ListQuickConnects -&gt; ListQuickConnects -&gt; Bool)
 -&gt; Eq ListQuickConnects
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListQuickConnects -&gt; ListQuickConnects -&gt; Bool
 == :: ListQuickConnects -&gt; ListQuickConnects -&gt; Bool
 $c== :: ListQuickConnects -&gt; ListQuickConnects -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413461"><span id="local-6989586621679413463"><span id="local-6989586621679413465"><span id="local-6989586621679413467"><span class="annot"><span class="annottext">ReadPrec [ListQuickConnects]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413470"><span id="local-6989586621679413472"><span id="local-6989586621679413474"><span id="local-6989586621679413476"><span class="annot"><span class="annottext">ReadPrec [ListQuickConnects]
 ReadPrec ListQuickConnects
 Int -&gt; ReadS ListQuickConnects
 ReadS [ListQuickConnects]
@@ -102,7 +102,7 @@ readList :: ReadS [ListQuickConnects]
 $creadList :: ReadS [ListQuickConnects]
 readsPrec :: Int -&gt; ReadS ListQuickConnects
 $creadsPrec :: Int -&gt; ReadS ListQuickConnects
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413454"><span id="local-6989586621679413456"><span id="local-6989586621679413458"><span class="annot"><span class="annottext">Int -&gt; ListQuickConnects -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413463"><span id="local-6989586621679413465"><span id="local-6989586621679413467"><span class="annot"><span class="annottext">Int -&gt; ListQuickConnects -&gt; ShowS
 [ListQuickConnects] -&gt; ShowS
 ListQuickConnects -&gt; String
 (Int -&gt; ListQuickConnects -&gt; ShowS)
@@ -153,8 +153,8 @@ $cfrom :: forall x. ListQuickConnects -&gt; Rep ListQuickConnects x
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span><span>
 </span><span id="line-98"></span><span id="newListQuickConnects"><span class="annot"><span class="annottext">newListQuickConnects :: Text -&gt; ListQuickConnects
-</span><a href="Network.AWS.Connect.ListQuickConnects.html#newListQuickConnects"><span class="hs-identifier hs-var hs-var">newListQuickConnects</span></a></span></span><span> </span><span id="local-6989586621679413449"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679413449"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.ListQuickConnects.html#newListQuickConnects"><span class="hs-identifier hs-var hs-var">newListQuickConnects</span></a></span></span><span> </span><span id="local-6989586621679413458"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413458"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">ListQuickConnects' :: Maybe [QuickConnectType]
 -&gt; Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListQuickConnects
 </span><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span>
@@ -173,7 +173,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:ListQuickConnects' :: Text
 </span><a href="Network.AWS.Connect.ListQuickConnects.html#%24sel%3AinstanceId%3AListQuickConnects%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679413449"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><a href="#local-6989586621679413458"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The type of quick connect. In the Amazon Connect console, when you</span><span>
@@ -191,16 +191,16 @@ forall a. Maybe a
      (Maybe [QuickConnectType])
      (Maybe [QuickConnectType])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413447"><span class="annot"><span class="annottext">Maybe [QuickConnectType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413456"><span class="annot"><span class="annottext">Maybe [QuickConnectType]
 quickConnectTypes :: Maybe [QuickConnectType]
 $sel:quickConnectTypes:ListQuickConnects' :: ListQuickConnects -&gt; Maybe [QuickConnectType]
-</span><a href="#local-6989586621679413447"><span class="hs-identifier hs-var hs-var">quickConnectTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [QuickConnectType]
-</span><a href="#local-6989586621679413447"><span class="hs-identifier hs-var">quickConnectTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413446"><span class="annot"><span class="annottext">s :: ListQuickConnects
-</span><a href="#local-6989586621679413446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413445"><span class="annot"><span class="annottext">Maybe [QuickConnectType]
-</span><a href="#local-6989586621679413445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQuickConnects
-</span><a href="#local-6989586621679413446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quickConnectTypes:ListQuickConnects' :: Maybe [QuickConnectType]
+</span><a href="#local-6989586621679413456"><span class="hs-identifier hs-var hs-var">quickConnectTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [QuickConnectType]
+</span><a href="#local-6989586621679413456"><span class="hs-identifier hs-var">quickConnectTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413455"><span class="annot"><span class="annottext">s :: ListQuickConnects
+</span><a href="#local-6989586621679413455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413454"><span class="annot"><span class="annottext">Maybe [QuickConnectType]
+</span><a href="#local-6989586621679413454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQuickConnects
+</span><a href="#local-6989586621679413455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quickConnectTypes:ListQuickConnects' :: Maybe [QuickConnectType]
 </span><a href="Network.AWS.Connect.ListQuickConnects.html#%24sel%3AquickConnectTypes%3AListQuickConnects%27"><span class="hs-identifier hs-var">quickConnectTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [QuickConnectType]
-</span><a href="#local-6989586621679413445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [QuickConnectType] -&gt; f (Maybe [QuickConnectType]))
+</span><a href="#local-6989586621679413454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [QuickConnectType] -&gt; f (Maybe [QuickConnectType]))
  -&gt; ListQuickConnects -&gt; f ListQuickConnects)
 -&gt; ((Maybe [QuickConnectType] -&gt; f (Maybe [QuickConnectType]))
     -&gt; Maybe [QuickConnectType] -&gt; f (Maybe [QuickConnectType]))
@@ -240,16 +240,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ListQuickConnects ListQuickConnects (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413441"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413450"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListQuickConnects' :: ListQuickConnects -&gt; Maybe Text
-</span><a href="#local-6989586621679413441"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413441"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413440"><span class="annot"><span class="annottext">s :: ListQuickConnects
-</span><a href="#local-6989586621679413440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413439"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQuickConnects
-</span><a href="#local-6989586621679413440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListQuickConnects' :: Maybe Text
+</span><a href="#local-6989586621679413450"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413450"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413449"><span class="annot"><span class="annottext">s :: ListQuickConnects
+</span><a href="#local-6989586621679413449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413448"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQuickConnects
+</span><a href="#local-6989586621679413449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListQuickConnects' :: Maybe Text
 </span><a href="Network.AWS.Connect.ListQuickConnects.html#%24sel%3AnextToken%3AListQuickConnects%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The maximum number of results to return per page.</span><span>
 </span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#listQuickConnects_maxResults"><span class="hs-identifier hs-type">listQuickConnects_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -260,16 +260,16 @@ $sel:nextToken:ListQuickConnects' :: ListQuickConnects -&gt; Maybe Text
 -&gt; Lens
      ListQuickConnects ListQuickConnects (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413438"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413447"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListQuickConnects' :: ListQuickConnects -&gt; Maybe Natural
-</span><a href="#local-6989586621679413438"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679413438"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413437"><span class="annot"><span class="annottext">s :: ListQuickConnects
-</span><a href="#local-6989586621679413437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413436"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679413436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQuickConnects
-</span><a href="#local-6989586621679413437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListQuickConnects' :: Maybe Natural
+</span><a href="#local-6989586621679413447"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679413447"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413446"><span class="annot"><span class="annottext">s :: ListQuickConnects
+</span><a href="#local-6989586621679413446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413445"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679413445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQuickConnects
+</span><a href="#local-6989586621679413446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListQuickConnects' :: Maybe Natural
 </span><a href="Network.AWS.Connect.ListQuickConnects.html#%24sel%3AmaxResults%3AListQuickConnects%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679413436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
@@ -279,29 +279,29 @@ $sel:maxResults:ListQuickConnects' :: ListQuickConnects -&gt; Maybe Natural
 -&gt; (ListQuickConnects -&gt; Text -&gt; ListQuickConnects)
 -&gt; Lens ListQuickConnects ListQuickConnects Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413435"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413444"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:ListQuickConnects' :: ListQuickConnects -&gt; Text
-</span><a href="#local-6989586621679413435"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679413435"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413434"><span class="annot"><span class="annottext">s :: ListQuickConnects
-</span><a href="#local-6989586621679413434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413433"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679413433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQuickConnects
-</span><a href="#local-6989586621679413434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ListQuickConnects' :: Text
+</span><a href="#local-6989586621679413444"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413444"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413443"><span class="annot"><span class="annottext">s :: ListQuickConnects
+</span><a href="#local-6989586621679413443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413442"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQuickConnects
+</span><a href="#local-6989586621679413443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ListQuickConnects' :: Text
 </span><a href="Network.AWS.Connect.ListQuickConnects.html#%24sel%3AinstanceId%3AListQuickConnects%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679413433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679413429"><span class="annot"><span class="annottext">page :: ListQuickConnects
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679413438"><span class="annot"><span class="annottext">page :: ListQuickConnects
 -&gt; AWSResponse ListQuickConnects -&gt; Maybe ListQuickConnects
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679413427"><span class="annot"><span class="annottext">ListQuickConnects
-</span><a href="#local-6989586621679413427"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679413426"><span class="annot"><span class="annottext">AWSResponse ListQuickConnects
-</span><a href="#local-6989586621679413426"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679413436"><span class="annot"><span class="annottext">ListQuickConnects
+</span><a href="#local-6989586621679413436"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679413435"><span class="annot"><span class="annottext">AWSResponse ListQuickConnects
+</span><a href="#local-6989586621679413435"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-131"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListQuickConnects
 ListQuickConnectsResponse
-</span><a href="#local-6989586621679413426"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679413435"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">ListQuickConnectsResponse
 -&gt; Getting (First Text) ListQuickConnectsResponse Text
 -&gt; Maybe Text
@@ -331,7 +331,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-137"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListQuickConnects
 ListQuickConnectsResponse
-</span><a href="#local-6989586621679413426"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679413435"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">ListQuickConnectsResponse
 -&gt; Getting
      (First [QuickConnectSummary])
@@ -381,7 +381,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">ListQuickConnects
-</span><a href="#local-6989586621679413427"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679413436"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">ListQuickConnects
 -&gt; (ListQuickConnects -&gt; ListQuickConnects) -&gt; ListQuickConnects
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -395,7 +395,7 @@ Lens ListQuickConnects ListQuickConnects (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListQuickConnects
 ListQuickConnectsResponse
-</span><a href="#local-6989586621679413426"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679413435"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">ListQuickConnectsResponse
 -&gt; Getting (First Text) ListQuickConnectsResponse Text
 -&gt; Maybe Text
@@ -421,12 +421,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-151"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-152"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse"><span class="hs-identifier hs-type">ListQuickConnectsResponse</span></a></span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679413417"><span class="annot"><span class="annottext">request :: ListQuickConnects -&gt; Request ListQuickConnects
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679413426"><span class="annot"><span class="annottext">request :: ListQuickConnects -&gt; Request ListQuickConnects
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListQuickConnects -&gt; Request ListQuickConnects
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679413413"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679413422"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListQuickConnects
 -&gt; ClientResponse ClientBody
@@ -452,10 +452,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679413410"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413410"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679413409"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679413409"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679413408"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679413408"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679413419"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413419"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679413418"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679413418"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679413417"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679413417"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe [QuickConnectSummary]
 -&gt; Maybe Text -&gt; Int -&gt; ListQuickConnectsResponse
 </span><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse%27"><span class="hs-identifier hs-var">ListQuickConnectsResponse'</span></a></span><span>
@@ -465,7 +465,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListQuickConnectsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679413408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679413417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [QuickConnectSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -483,7 +483,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListQuickConnectsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679413408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679413417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -495,15 +495,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413410"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413419"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413399"><span id="local-6989586621679413401"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413408"><span id="local-6989586621679413410"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span></span></span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413396"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413405"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679413392"><span class="annot"><span class="annottext">toHeaders :: ListQuickConnects -&gt; ResponseHeaders
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679413401"><span class="annot"><span class="annottext">toHeaders :: ListQuickConnects -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListQuickConnects -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -523,8 +523,32 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679413386"><span class="annot"><span class="annottext">toPath :: ListQuickConnects -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413381"><span id="local-6989586621679413382"><span id="local-6989586621679413383"><span id="local-6989586621679413384"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679413395"><span class="annot"><span class="annottext">toPath :: ListQuickConnects -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413390"><span id="local-6989586621679413391"><span id="local-6989586621679413392"><span id="local-6989586621679413393"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [QuickConnectType]
+Maybe Text
+Text
+instanceId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+quickConnectTypes :: Maybe [QuickConnectType]
+$sel:instanceId:ListQuickConnects' :: ListQuickConnects -&gt; Text
+$sel:maxResults:ListQuickConnects' :: ListQuickConnects -&gt; Maybe Natural
+$sel:nextToken:ListQuickConnects' :: ListQuickConnects -&gt; Maybe Text
+$sel:quickConnectTypes:ListQuickConnects' :: ListQuickConnects -&gt; Maybe [QuickConnectType]
+</span><a href="#local-6989586621679413390"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/quick-connects/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679413390"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679413386"><span class="annot"><span class="annottext">toQuery :: ListQuickConnects -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413381"><span id="local-6989586621679413382"><span id="local-6989586621679413383"><span id="local-6989586621679413384"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [QuickConnectType]
 Maybe Text
 Text
@@ -537,30 +561,6 @@ $sel:maxResults:ListQuickConnects' :: ListQuickConnects -&gt; Maybe Natural
 $sel:nextToken:ListQuickConnects' :: ListQuickConnects -&gt; Maybe Text
 $sel:quickConnectTypes:ListQuickConnects' :: ListQuickConnects -&gt; Maybe [QuickConnectType]
 </span><a href="#local-6989586621679413381"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
-forall a. Monoid a =&gt; [a] -&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-184"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;/quick-connects/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
-forall a. ToByteString a =&gt; a -&gt; ByteString
-</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679413381"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">]</span><span>
-</span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects"><span class="hs-identifier hs-type">ListQuickConnects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679413377"><span class="annot"><span class="annottext">toQuery :: ListQuickConnects -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnects%27"><span class="hs-identifier hs-type">ListQuickConnects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413372"><span id="local-6989586621679413373"><span id="local-6989586621679413374"><span id="local-6989586621679413375"><span class="annot"><span class="annottext">Maybe Natural
-Maybe [QuickConnectType]
-Maybe Text
-Text
-instanceId :: Text
-maxResults :: Maybe Natural
-nextToken :: Maybe Text
-quickConnectTypes :: Maybe [QuickConnectType]
-$sel:instanceId:ListQuickConnects' :: ListQuickConnects -&gt; Text
-$sel:maxResults:ListQuickConnects' :: ListQuickConnects -&gt; Maybe Natural
-$sel:nextToken:ListQuickConnects' :: ListQuickConnects -&gt; Maybe Text
-$sel:quickConnectTypes:ListQuickConnects' :: ListQuickConnects -&gt; Maybe [QuickConnectType]
-</span><a href="#local-6989586621679413372"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -581,22 +581,22 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [QuickConnectType] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [QuickConnectType]
-</span><a href="#local-6989586621679413375"><span class="hs-identifier hs-var">quickConnectTypes</span></a></span><span>
+</span><a href="#local-6989586621679413384"><span class="hs-identifier hs-var">quickConnectTypes</span></a></span><span>
 </span><span id="line-193"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413374"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679413383"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679413373"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679413382"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | /See:/ 'newListQuickConnectsResponse' smart constructor.</span><span>
-</span><span id="line-199"></span><span id="local-6989586621679413368"><span id="local-6989586621679413369"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListQuickConnectsResponse"><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse"><span class="hs-identifier hs-var">ListQuickConnectsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListQuickConnectsResponse%27"><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse%27"><span class="hs-identifier hs-var">ListQuickConnectsResponse'</span></a></span></span><span>
+</span><span id="line-199"></span><span id="local-6989586621679413377"><span id="local-6989586621679413378"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListQuickConnectsResponse"><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse"><span class="hs-identifier hs-var">ListQuickConnectsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListQuickConnectsResponse%27"><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse%27"><span class="hs-identifier hs-var">ListQuickConnectsResponse'</span></a></span></span><span>
 </span><span id="line-200"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the quick connects.</span><span>
 </span><span id="line-201"></span><span>    </span><span id="%24sel%3AquickConnectSummaryList%3AListQuickConnectsResponse%27"><span class="annot"><span class="annottext">ListQuickConnectsResponse -&gt; Maybe [QuickConnectSummary]
 </span><a href="Network.AWS.Connect.ListQuickConnects.html#%24sel%3AquickConnectSummaryList%3AListQuickConnectsResponse%27"><span class="hs-identifier hs-var hs-var">quickConnectSummaryList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Connect.Types.QuickConnectSummary.html#QuickConnectSummary"><span class="hs-identifier hs-type">QuickConnectSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -608,7 +608,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-206"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListQuickConnectsResponse%27"><span class="annot"><span class="annottext">ListQuickConnectsResponse -&gt; Int
 </span><a href="Network.AWS.Connect.ListQuickConnects.html#%24sel%3AhttpStatus%3AListQuickConnectsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-207"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413361"><span id="local-6989586621679413363"><span class="annot"><span class="annottext">ListQuickConnectsResponse -&gt; ListQuickConnectsResponse -&gt; Bool
+</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413370"><span id="local-6989586621679413372"><span class="annot"><span class="annottext">ListQuickConnectsResponse -&gt; ListQuickConnectsResponse -&gt; Bool
 (ListQuickConnectsResponse -&gt; ListQuickConnectsResponse -&gt; Bool)
 -&gt; (ListQuickConnectsResponse -&gt; ListQuickConnectsResponse -&gt; Bool)
 -&gt; Eq ListQuickConnectsResponse
@@ -617,7 +617,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListQuickConnectsResponse -&gt; ListQuickConnectsResponse -&gt; Bool
 == :: ListQuickConnectsResponse -&gt; ListQuickConnectsResponse -&gt; Bool
 $c== :: ListQuickConnectsResponse -&gt; ListQuickConnectsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413353"><span id="local-6989586621679413355"><span id="local-6989586621679413357"><span id="local-6989586621679413359"><span class="annot"><span class="annottext">ReadPrec [ListQuickConnectsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413362"><span id="local-6989586621679413364"><span id="local-6989586621679413366"><span id="local-6989586621679413368"><span class="annot"><span class="annottext">ReadPrec [ListQuickConnectsResponse]
 ReadPrec ListQuickConnectsResponse
 Int -&gt; ReadS ListQuickConnectsResponse
 ReadS [ListQuickConnectsResponse]
@@ -637,7 +637,7 @@ readList :: ReadS [ListQuickConnectsResponse]
 $creadList :: ReadS [ListQuickConnectsResponse]
 readsPrec :: Int -&gt; ReadS ListQuickConnectsResponse
 $creadsPrec :: Int -&gt; ReadS ListQuickConnectsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413347"><span id="local-6989586621679413349"><span id="local-6989586621679413351"><span class="annot"><span class="annottext">Int -&gt; ListQuickConnectsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413356"><span id="local-6989586621679413358"><span id="local-6989586621679413360"><span class="annot"><span class="annottext">Int -&gt; ListQuickConnectsResponse -&gt; ShowS
 [ListQuickConnectsResponse] -&gt; ShowS
 ListQuickConnectsResponse -&gt; String
 (Int -&gt; ListQuickConnectsResponse -&gt; ShowS)
@@ -688,8 +688,8 @@ ListQuickConnectsResponse -&gt; Rep ListQuickConnectsResponse x
 </span><span id="line-226"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-227"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse"><span class="hs-identifier hs-type">ListQuickConnectsResponse</span></a></span><span>
 </span><span id="line-228"></span><span id="newListQuickConnectsResponse"><span class="annot"><span class="annottext">newListQuickConnectsResponse :: Int -&gt; ListQuickConnectsResponse
-</span><a href="Network.AWS.Connect.ListQuickConnects.html#newListQuickConnectsResponse"><span class="hs-identifier hs-var hs-var">newListQuickConnectsResponse</span></a></span></span><span> </span><span id="local-6989586621679413344"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413344"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.ListQuickConnects.html#newListQuickConnectsResponse"><span class="hs-identifier hs-var hs-var">newListQuickConnectsResponse</span></a></span></span><span> </span><span id="local-6989586621679413353"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413353"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-229"></span><span>  </span><span class="annot"><span class="annottext">ListQuickConnectsResponse' :: Maybe [QuickConnectSummary]
 -&gt; Maybe Text -&gt; Int -&gt; ListQuickConnectsResponse
 </span><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse%27"><span class="hs-identifier hs-type">ListQuickConnectsResponse'</span></a></span><span>
@@ -704,7 +704,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListQuickConnectsResponse' :: Int
 </span><a href="Network.AWS.Connect.ListQuickConnects.html#%24sel%3AhttpStatus%3AListQuickConnectsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413344"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679413353"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-234"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | Information about the quick connects.</span><span>
@@ -716,16 +716,16 @@ forall a. Maybe a
     -&gt; Maybe [QuickConnectSummary] -&gt; ListQuickConnectsResponse)
 -&gt; Lens' ListQuickConnectsResponse (Maybe [QuickConnectSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse%27"><span class="hs-identifier hs-type">ListQuickConnectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413343"><span class="annot"><span class="annottext">Maybe [QuickConnectSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse%27"><span class="hs-identifier hs-type">ListQuickConnectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413352"><span class="annot"><span class="annottext">Maybe [QuickConnectSummary]
 quickConnectSummaryList :: Maybe [QuickConnectSummary]
 $sel:quickConnectSummaryList:ListQuickConnectsResponse' :: ListQuickConnectsResponse -&gt; Maybe [QuickConnectSummary]
-</span><a href="#local-6989586621679413343"><span class="hs-identifier hs-var hs-var">quickConnectSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [QuickConnectSummary]
-</span><a href="#local-6989586621679413343"><span class="hs-identifier hs-var">quickConnectSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413342"><span class="annot"><span class="annottext">s :: ListQuickConnectsResponse
-</span><a href="#local-6989586621679413342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse%27"><span class="hs-identifier hs-type">ListQuickConnectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413341"><span class="annot"><span class="annottext">Maybe [QuickConnectSummary]
-</span><a href="#local-6989586621679413341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQuickConnectsResponse
-</span><a href="#local-6989586621679413342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quickConnectSummaryList:ListQuickConnectsResponse' :: Maybe [QuickConnectSummary]
+</span><a href="#local-6989586621679413352"><span class="hs-identifier hs-var hs-var">quickConnectSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [QuickConnectSummary]
+</span><a href="#local-6989586621679413352"><span class="hs-identifier hs-var">quickConnectSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413351"><span class="annot"><span class="annottext">s :: ListQuickConnectsResponse
+</span><a href="#local-6989586621679413351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse%27"><span class="hs-identifier hs-type">ListQuickConnectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413350"><span class="annot"><span class="annottext">Maybe [QuickConnectSummary]
+</span><a href="#local-6989586621679413350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQuickConnectsResponse
+</span><a href="#local-6989586621679413351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quickConnectSummaryList:ListQuickConnectsResponse' :: Maybe [QuickConnectSummary]
 </span><a href="Network.AWS.Connect.ListQuickConnects.html#%24sel%3AquickConnectSummaryList%3AListQuickConnectsResponse%27"><span class="hs-identifier hs-var">quickConnectSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [QuickConnectSummary]
-</span><a href="#local-6989586621679413341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse"><span class="hs-identifier hs-type">ListQuickConnectsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [QuickConnectSummary] -&gt; f (Maybe [QuickConnectSummary]))
+</span><a href="#local-6989586621679413350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse"><span class="hs-identifier hs-type">ListQuickConnectsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [QuickConnectSummary] -&gt; f (Maybe [QuickConnectSummary]))
  -&gt; ListQuickConnectsResponse -&gt; f ListQuickConnectsResponse)
 -&gt; ((Maybe [QuickConnectSummary]
      -&gt; f (Maybe [QuickConnectSummary]))
@@ -765,16 +765,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListQuickConnectsResponse)
 -&gt; Lens' ListQuickConnectsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse%27"><span class="hs-identifier hs-type">ListQuickConnectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413340"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse%27"><span class="hs-identifier hs-type">ListQuickConnectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413349"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListQuickConnectsResponse' :: ListQuickConnectsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679413340"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413340"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413339"><span class="annot"><span class="annottext">s :: ListQuickConnectsResponse
-</span><a href="#local-6989586621679413339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse%27"><span class="hs-identifier hs-type">ListQuickConnectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413338"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQuickConnectsResponse
-</span><a href="#local-6989586621679413339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListQuickConnectsResponse' :: Maybe Text
+</span><a href="#local-6989586621679413349"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413349"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413348"><span class="annot"><span class="annottext">s :: ListQuickConnectsResponse
+</span><a href="#local-6989586621679413348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse%27"><span class="hs-identifier hs-type">ListQuickConnectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413347"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQuickConnectsResponse
+</span><a href="#local-6989586621679413348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListQuickConnectsResponse' :: Maybe Text
 </span><a href="Network.AWS.Connect.ListQuickConnects.html#%24sel%3AnextToken%3AListQuickConnectsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse"><span class="hs-identifier hs-type">ListQuickConnectsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse"><span class="hs-identifier hs-type">ListQuickConnectsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-246"></span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#listQuickConnectsResponse_httpStatus"><span class="hs-identifier hs-type">listQuickConnectsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse"><span class="hs-identifier hs-type">ListQuickConnectsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -784,16 +784,16 @@ $sel:nextToken:ListQuickConnectsResponse' :: ListQuickConnectsResponse -&gt; May
 -&gt; (ListQuickConnectsResponse -&gt; Int -&gt; ListQuickConnectsResponse)
 -&gt; Lens ListQuickConnectsResponse ListQuickConnectsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse%27"><span class="hs-identifier hs-type">ListQuickConnectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413337"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse%27"><span class="hs-identifier hs-type">ListQuickConnectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413346"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListQuickConnectsResponse' :: ListQuickConnectsResponse -&gt; Int
-</span><a href="#local-6989586621679413337"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413337"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413336"><span class="annot"><span class="annottext">s :: ListQuickConnectsResponse
-</span><a href="#local-6989586621679413336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse%27"><span class="hs-identifier hs-type">ListQuickConnectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413335"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQuickConnectsResponse
-</span><a href="#local-6989586621679413336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListQuickConnectsResponse' :: Int
+</span><a href="#local-6989586621679413346"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413346"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413345"><span class="annot"><span class="annottext">s :: ListQuickConnectsResponse
+</span><a href="#local-6989586621679413345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse%27"><span class="hs-identifier hs-type">ListQuickConnectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413344"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQuickConnectsResponse
+</span><a href="#local-6989586621679413345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListQuickConnectsResponse' :: Int
 </span><a href="Network.AWS.Connect.ListQuickConnects.html#%24sel%3AhttpStatus%3AListQuickConnectsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse"><span class="hs-identifier hs-type">ListQuickConnectsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse"><span class="hs-identifier hs-type">ListQuickConnectsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413333"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse"><span class="hs-identifier hs-type">ListQuickConnectsResponse</span></a></span></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413342"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListQuickConnects.html#ListQuickConnectsResponse"><span class="hs-identifier hs-type">ListQuickConnectsResponse</span></a></span></span><span>
 </span><span id="line-250"></span></pre></body></html>

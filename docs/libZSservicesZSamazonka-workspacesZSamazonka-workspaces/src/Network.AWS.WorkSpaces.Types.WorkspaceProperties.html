@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a WorkSpace.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newWorkspaceProperties' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679276581"><span id="local-6989586621679276582"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkspaceProperties"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-var">WorkspaceProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceProperties%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-var">WorkspaceProperties'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679276590"><span id="local-6989586621679276591"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkspaceProperties"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-var">WorkspaceProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceProperties%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-var">WorkspaceProperties'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The compute type. For more information, see</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- &lt;http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles&gt;.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AcomputeTypeName%3AWorkspaceProperties%27"><span class="annot"><span class="annottext">WorkspaceProperties -&gt; Maybe Compute
@@ -52,7 +52,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AuserVolumeSizeGib%3AWorkspaceProperties%27"><span class="annot"><span class="annottext">WorkspaceProperties -&gt; Maybe Int
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#%24sel%3AuserVolumeSizeGib%3AWorkspaceProperties%27"><span class="hs-identifier hs-var hs-var">userVolumeSizeGib</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276571"><span id="local-6989586621679276573"><span class="annot"><span class="annottext">WorkspaceProperties -&gt; WorkspaceProperties -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276580"><span id="local-6989586621679276582"><span class="annot"><span class="annottext">WorkspaceProperties -&gt; WorkspaceProperties -&gt; Bool
 (WorkspaceProperties -&gt; WorkspaceProperties -&gt; Bool)
 -&gt; (WorkspaceProperties -&gt; WorkspaceProperties -&gt; Bool)
 -&gt; Eq WorkspaceProperties
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WorkspaceProperties -&gt; WorkspaceProperties -&gt; Bool
 == :: WorkspaceProperties -&gt; WorkspaceProperties -&gt; Bool
 $c== :: WorkspaceProperties -&gt; WorkspaceProperties -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276562"><span id="local-6989586621679276564"><span id="local-6989586621679276566"><span id="local-6989586621679276568"><span class="annot"><span class="annottext">ReadPrec [WorkspaceProperties]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276571"><span id="local-6989586621679276573"><span id="local-6989586621679276575"><span id="local-6989586621679276577"><span class="annot"><span class="annottext">ReadPrec [WorkspaceProperties]
 ReadPrec WorkspaceProperties
 Int -&gt; ReadS WorkspaceProperties
 ReadS [WorkspaceProperties]
@@ -81,7 +81,7 @@ readList :: ReadS [WorkspaceProperties]
 $creadList :: ReadS [WorkspaceProperties]
 readsPrec :: Int -&gt; ReadS WorkspaceProperties
 $creadsPrec :: Int -&gt; ReadS WorkspaceProperties
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276555"><span id="local-6989586621679276557"><span id="local-6989586621679276559"><span class="annot"><span class="annottext">Int -&gt; WorkspaceProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276564"><span id="local-6989586621679276566"><span id="local-6989586621679276568"><span class="annot"><span class="annottext">Int -&gt; WorkspaceProperties -&gt; ShowS
 [WorkspaceProperties] -&gt; ShowS
 WorkspaceProperties -&gt; String
 (Int -&gt; WorkspaceProperties -&gt; ShowS)
@@ -179,16 +179,16 @@ forall a. Maybe a
      (Maybe Compute)
      (Maybe Compute)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276546"><span class="annot"><span class="annottext">Maybe Compute
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276555"><span class="annot"><span class="annottext">Maybe Compute
 computeTypeName :: Maybe Compute
 $sel:computeTypeName:WorkspaceProperties' :: WorkspaceProperties -&gt; Maybe Compute
-</span><a href="#local-6989586621679276546"><span class="hs-identifier hs-var hs-var">computeTypeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Compute
-</span><a href="#local-6989586621679276546"><span class="hs-identifier hs-var">computeTypeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276545"><span class="annot"><span class="annottext">s :: WorkspaceProperties
-</span><a href="#local-6989586621679276545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276544"><span class="annot"><span class="annottext">Maybe Compute
-</span><a href="#local-6989586621679276544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceProperties
-</span><a href="#local-6989586621679276545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeTypeName:WorkspaceProperties' :: Maybe Compute
+</span><a href="#local-6989586621679276555"><span class="hs-identifier hs-var hs-var">computeTypeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Compute
+</span><a href="#local-6989586621679276555"><span class="hs-identifier hs-var">computeTypeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276554"><span class="annot"><span class="annottext">s :: WorkspaceProperties
+</span><a href="#local-6989586621679276554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276553"><span class="annot"><span class="annottext">Maybe Compute
+</span><a href="#local-6989586621679276553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceProperties
+</span><a href="#local-6989586621679276554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeTypeName:WorkspaceProperties' :: Maybe Compute
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#%24sel%3AcomputeTypeName%3AWorkspaceProperties%27"><span class="hs-identifier hs-var">computeTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Compute
-</span><a href="#local-6989586621679276544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The running mode. For more information, see</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html Manage the WorkSpace Running Mode&gt;.</span><span>
@@ -204,16 +204,16 @@ $sel:computeTypeName:WorkspaceProperties' :: WorkspaceProperties -&gt; Maybe Com
      (Maybe RunningMode)
      (Maybe RunningMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276542"><span class="annot"><span class="annottext">Maybe RunningMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276551"><span class="annot"><span class="annottext">Maybe RunningMode
 runningMode :: Maybe RunningMode
 $sel:runningMode:WorkspaceProperties' :: WorkspaceProperties -&gt; Maybe RunningMode
-</span><a href="#local-6989586621679276542"><span class="hs-identifier hs-var hs-var">runningMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RunningMode
-</span><a href="#local-6989586621679276542"><span class="hs-identifier hs-var">runningMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276541"><span class="annot"><span class="annottext">s :: WorkspaceProperties
-</span><a href="#local-6989586621679276541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276540"><span class="annot"><span class="annottext">Maybe RunningMode
-</span><a href="#local-6989586621679276540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceProperties
-</span><a href="#local-6989586621679276541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runningMode:WorkspaceProperties' :: Maybe RunningMode
+</span><a href="#local-6989586621679276551"><span class="hs-identifier hs-var hs-var">runningMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RunningMode
+</span><a href="#local-6989586621679276551"><span class="hs-identifier hs-var">runningMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276550"><span class="annot"><span class="annottext">s :: WorkspaceProperties
+</span><a href="#local-6989586621679276550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276549"><span class="annot"><span class="annottext">Maybe RunningMode
+</span><a href="#local-6989586621679276549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceProperties
+</span><a href="#local-6989586621679276550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runningMode:WorkspaceProperties' :: Maybe RunningMode
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#%24sel%3ArunningMode%3AWorkspaceProperties%27"><span class="hs-identifier hs-var">runningMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RunningMode
-</span><a href="#local-6989586621679276540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The size of the root volume. For important information about how to</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- modify the size of the root and user volumes, see</span><span>
@@ -226,16 +226,16 @@ $sel:runningMode:WorkspaceProperties' :: WorkspaceProperties -&gt; Maybe Running
 -&gt; Lens
      WorkspaceProperties WorkspaceProperties (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276538"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276547"><span class="annot"><span class="annottext">Maybe Int
 rootVolumeSizeGib :: Maybe Int
 $sel:rootVolumeSizeGib:WorkspaceProperties' :: WorkspaceProperties -&gt; Maybe Int
-</span><a href="#local-6989586621679276538"><span class="hs-identifier hs-var hs-var">rootVolumeSizeGib</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679276538"><span class="hs-identifier hs-var">rootVolumeSizeGib</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276537"><span class="annot"><span class="annottext">s :: WorkspaceProperties
-</span><a href="#local-6989586621679276537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276536"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679276536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceProperties
-</span><a href="#local-6989586621679276537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rootVolumeSizeGib:WorkspaceProperties' :: Maybe Int
+</span><a href="#local-6989586621679276547"><span class="hs-identifier hs-var hs-var">rootVolumeSizeGib</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679276547"><span class="hs-identifier hs-var">rootVolumeSizeGib</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276546"><span class="annot"><span class="annottext">s :: WorkspaceProperties
+</span><a href="#local-6989586621679276546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276545"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679276545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceProperties
+</span><a href="#local-6989586621679276546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rootVolumeSizeGib:WorkspaceProperties' :: Maybe Int
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#%24sel%3ArootVolumeSizeGib%3AWorkspaceProperties%27"><span class="hs-identifier hs-var">rootVolumeSizeGib</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679276536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The time after a user logs off when WorkSpaces are automatically</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- stopped. Configured in 60-minute intervals.</span><span>
@@ -247,16 +247,16 @@ $sel:rootVolumeSizeGib:WorkspaceProperties' :: WorkspaceProperties -&gt; Maybe I
 -&gt; Lens
      WorkspaceProperties WorkspaceProperties (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276534"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276543"><span class="annot"><span class="annottext">Maybe Int
 runningModeAutoStopTimeoutInMinutes :: Maybe Int
 $sel:runningModeAutoStopTimeoutInMinutes:WorkspaceProperties' :: WorkspaceProperties -&gt; Maybe Int
-</span><a href="#local-6989586621679276534"><span class="hs-identifier hs-var hs-var">runningModeAutoStopTimeoutInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679276534"><span class="hs-identifier hs-var">runningModeAutoStopTimeoutInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276533"><span class="annot"><span class="annottext">s :: WorkspaceProperties
-</span><a href="#local-6989586621679276533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276532"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679276532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceProperties
-</span><a href="#local-6989586621679276533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runningModeAutoStopTimeoutInMinutes:WorkspaceProperties' :: Maybe Int
+</span><a href="#local-6989586621679276543"><span class="hs-identifier hs-var hs-var">runningModeAutoStopTimeoutInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679276543"><span class="hs-identifier hs-var">runningModeAutoStopTimeoutInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276542"><span class="annot"><span class="annottext">s :: WorkspaceProperties
+</span><a href="#local-6989586621679276542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276541"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679276541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceProperties
+</span><a href="#local-6989586621679276542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runningModeAutoStopTimeoutInMinutes:WorkspaceProperties' :: Maybe Int
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#%24sel%3ArunningModeAutoStopTimeoutInMinutes%3AWorkspaceProperties%27"><span class="hs-identifier hs-var">runningModeAutoStopTimeoutInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679276532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The size of the user storage. For important information about how to</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- modify the size of the root and user volumes, see</span><span>
@@ -269,19 +269,19 @@ $sel:runningModeAutoStopTimeoutInMinutes:WorkspaceProperties' :: WorkspaceProper
 -&gt; Lens
      WorkspaceProperties WorkspaceProperties (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276530"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276539"><span class="annot"><span class="annottext">Maybe Int
 userVolumeSizeGib :: Maybe Int
 $sel:userVolumeSizeGib:WorkspaceProperties' :: WorkspaceProperties -&gt; Maybe Int
-</span><a href="#local-6989586621679276530"><span class="hs-identifier hs-var hs-var">userVolumeSizeGib</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679276530"><span class="hs-identifier hs-var">userVolumeSizeGib</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276529"><span class="annot"><span class="annottext">s :: WorkspaceProperties
-</span><a href="#local-6989586621679276529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276528"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679276528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceProperties
-</span><a href="#local-6989586621679276529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userVolumeSizeGib:WorkspaceProperties' :: Maybe Int
+</span><a href="#local-6989586621679276539"><span class="hs-identifier hs-var hs-var">userVolumeSizeGib</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679276539"><span class="hs-identifier hs-var">userVolumeSizeGib</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276538"><span class="annot"><span class="annottext">s :: WorkspaceProperties
+</span><a href="#local-6989586621679276538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276537"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679276537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceProperties
+</span><a href="#local-6989586621679276538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userVolumeSizeGib:WorkspaceProperties' :: Maybe Int
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#%24sel%3AuserVolumeSizeGib%3AWorkspaceProperties%27"><span class="hs-identifier hs-var">userVolumeSizeGib</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679276528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276525"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679276523"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkspaceProperties
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276534"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679276532"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkspaceProperties
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser WorkspaceProperties)
@@ -291,8 +291,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WorkspaceProperties&quot;</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276520"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276520"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276529"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276529"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Compute
 -&gt; Maybe RunningMode
 -&gt; Maybe Int
@@ -312,7 +312,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; WorkspaceProperties)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Compute)
+</span><a href="#local-6989586621679276529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Compute)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComputeTypeName&quot;</span></span><span class="hs-special">)</span><span>
@@ -324,7 +324,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; WorkspaceProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RunningMode)
+</span><a href="#local-6989586621679276529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RunningMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RunningMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -333,7 +333,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; WorkspaceProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679276529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RootVolumeSizeGib&quot;</span></span><span class="hs-special">)</span><span>
@@ -341,7 +341,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser (Maybe Int -&gt; WorkspaceProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679276529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RunningModeAutoStopTimeoutInMinutes&quot;</span></span><span class="hs-special">)</span><span>
@@ -349,19 +349,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser WorkspaceProperties
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679276529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserVolumeSizeGib&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276514"><span id="local-6989586621679276516"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276523"><span id="local-6989586621679276525"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276511"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276503"><span id="local-6989586621679276505"><span id="local-6989586621679276507"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679276501"><span class="annot"><span class="annottext">toJSON :: WorkspaceProperties -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276495"><span id="local-6989586621679276496"><span id="local-6989586621679276497"><span id="local-6989586621679276498"><span id="local-6989586621679276499"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276512"><span id="local-6989586621679276514"><span id="local-6989586621679276516"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties"><span class="hs-identifier hs-type">WorkspaceProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679276510"><span class="annot"><span class="annottext">toJSON :: WorkspaceProperties -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceProperties.html#WorkspaceProperties%27"><span class="hs-identifier hs-type">WorkspaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276504"><span id="local-6989586621679276505"><span id="local-6989586621679276506"><span id="local-6989586621679276507"><span id="local-6989586621679276508"><span class="annot"><span class="annottext">Maybe Int
 Maybe Compute
 Maybe RunningMode
 userVolumeSizeGib :: Maybe Int
@@ -374,7 +374,7 @@ $sel:runningModeAutoStopTimeoutInMinutes:WorkspaceProperties' :: WorkspaceProper
 $sel:rootVolumeSizeGib:WorkspaceProperties' :: WorkspaceProperties -&gt; Maybe Int
 $sel:runningMode:WorkspaceProperties' :: WorkspaceProperties -&gt; Maybe RunningMode
 $sel:computeTypeName:WorkspaceProperties' :: WorkspaceProperties -&gt; Maybe Compute
-</span><a href="#local-6989586621679276495"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679276504"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -387,14 +387,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(Compute -&gt; Pair) -&gt; Maybe Compute -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Compute
-</span><a href="#local-6989586621679276499"><span class="hs-identifier hs-var">computeTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276508"><span class="hs-identifier hs-var">computeTypeName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RunningMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RunningMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RunningMode -&gt; Pair) -&gt; Maybe RunningMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RunningMode
-</span><a href="#local-6989586621679276498"><span class="hs-identifier hs-var">runningMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276507"><span class="hs-identifier hs-var">runningMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RootVolumeSizeGib&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -402,7 +402,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679276497"><span class="hs-identifier hs-var">rootVolumeSizeGib</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276506"><span class="hs-identifier hs-var">rootVolumeSizeGib</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RunningModeAutoStopTimeoutInMinutes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -410,7 +410,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679276496"><span class="hs-identifier hs-var">runningModeAutoStopTimeoutInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276505"><span class="hs-identifier hs-var">runningModeAutoStopTimeoutInMinutes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserVolumeSizeGib&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -418,7 +418,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679276495"><span class="hs-identifier hs-var">userVolumeSizeGib</span></a></span><span>
+</span><a href="#local-6989586621679276504"><span class="hs-identifier hs-var">userVolumeSizeGib</span></a></span><span>
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span></pre></body></html>

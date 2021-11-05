@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Details of the job execution status.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newJobExecutionStatusDetails' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679787544"><span id="local-6989586621679787545"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobExecutionStatusDetails"><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#JobExecutionStatusDetails"><span class="hs-identifier hs-var">JobExecutionStatusDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobExecutionStatusDetails%27"><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#JobExecutionStatusDetails%27"><span class="hs-identifier hs-var">JobExecutionStatusDetails'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679787553"><span id="local-6989586621679787554"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobExecutionStatusDetails"><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#JobExecutionStatusDetails"><span class="hs-identifier hs-var">JobExecutionStatusDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobExecutionStatusDetails%27"><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#JobExecutionStatusDetails%27"><span class="hs-identifier hs-var">JobExecutionStatusDetails'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The job execution status.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AdetailsMap%3AJobExecutionStatusDetails%27"><span class="annot"><span class="annottext">JobExecutionStatusDetails -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#%24sel%3AdetailsMap%3AJobExecutionStatusDetails%27"><span class="hs-identifier hs-var hs-var">detailsMap</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679787538"><span id="local-6989586621679787540"><span class="annot"><span class="annottext">JobExecutionStatusDetails -&gt; JobExecutionStatusDetails -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679787547"><span id="local-6989586621679787549"><span class="annot"><span class="annottext">JobExecutionStatusDetails -&gt; JobExecutionStatusDetails -&gt; Bool
 (JobExecutionStatusDetails -&gt; JobExecutionStatusDetails -&gt; Bool)
 -&gt; (JobExecutionStatusDetails -&gt; JobExecutionStatusDetails -&gt; Bool)
 -&gt; Eq JobExecutionStatusDetails
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JobExecutionStatusDetails -&gt; JobExecutionStatusDetails -&gt; Bool
 == :: JobExecutionStatusDetails -&gt; JobExecutionStatusDetails -&gt; Bool
 $c== :: JobExecutionStatusDetails -&gt; JobExecutionStatusDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679787529"><span id="local-6989586621679787531"><span id="local-6989586621679787533"><span id="local-6989586621679787535"><span class="annot"><span class="annottext">ReadPrec [JobExecutionStatusDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679787538"><span id="local-6989586621679787540"><span id="local-6989586621679787542"><span id="local-6989586621679787544"><span class="annot"><span class="annottext">ReadPrec [JobExecutionStatusDetails]
 ReadPrec JobExecutionStatusDetails
 Int -&gt; ReadS JobExecutionStatusDetails
 ReadS [JobExecutionStatusDetails]
@@ -60,7 +60,7 @@ readList :: ReadS [JobExecutionStatusDetails]
 $creadList :: ReadS [JobExecutionStatusDetails]
 readsPrec :: Int -&gt; ReadS JobExecutionStatusDetails
 $creadsPrec :: Int -&gt; ReadS JobExecutionStatusDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679787522"><span id="local-6989586621679787524"><span id="local-6989586621679787526"><span class="annot"><span class="annottext">Int -&gt; JobExecutionStatusDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679787531"><span id="local-6989586621679787533"><span id="local-6989586621679787535"><span class="annot"><span class="annottext">Int -&gt; JobExecutionStatusDetails -&gt; ShowS
 [JobExecutionStatusDetails] -&gt; ShowS
 JobExecutionStatusDetails -&gt; String
 (Int -&gt; JobExecutionStatusDetails -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#JobExecutionStatusDetails%27"><span class="hs-identifier hs-type">JobExecutionStatusDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679787513"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#JobExecutionStatusDetails%27"><span class="hs-identifier hs-type">JobExecutionStatusDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679787522"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 detailsMap :: Maybe (HashMap Text Text)
 $sel:detailsMap:JobExecutionStatusDetails' :: JobExecutionStatusDetails -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679787513"><span class="hs-identifier hs-var hs-var">detailsMap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679787513"><span class="hs-identifier hs-var">detailsMap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679787512"><span class="annot"><span class="annottext">s :: JobExecutionStatusDetails
-</span><a href="#local-6989586621679787512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#JobExecutionStatusDetails%27"><span class="hs-identifier hs-type">JobExecutionStatusDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679787511"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679787511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobExecutionStatusDetails
-</span><a href="#local-6989586621679787512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detailsMap:JobExecutionStatusDetails' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679787522"><span class="hs-identifier hs-var hs-var">detailsMap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679787522"><span class="hs-identifier hs-var">detailsMap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679787521"><span class="annot"><span class="annottext">s :: JobExecutionStatusDetails
+</span><a href="#local-6989586621679787521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#JobExecutionStatusDetails%27"><span class="hs-identifier hs-type">JobExecutionStatusDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679787520"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679787520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobExecutionStatusDetails
+</span><a href="#local-6989586621679787521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detailsMap:JobExecutionStatusDetails' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#%24sel%3AdetailsMap%3AJobExecutionStatusDetails%27"><span class="hs-identifier hs-var">detailsMap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679787511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#JobExecutionStatusDetails"><span class="hs-identifier hs-type">JobExecutionStatusDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679787520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#JobExecutionStatusDetails"><span class="hs-identifier hs-type">JobExecutionStatusDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; JobExecutionStatusDetails -&gt; f JobExecutionStatusDetails)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -165,8 +165,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787505"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#JobExecutionStatusDetails"><span class="hs-identifier hs-type">JobExecutionStatusDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679787503"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobExecutionStatusDetails
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787514"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#JobExecutionStatusDetails"><span class="hs-identifier hs-type">JobExecutionStatusDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679787512"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobExecutionStatusDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JobExecutionStatusDetails)
@@ -176,8 +176,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JobExecutionStatusDetails&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679787500"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679787500"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679787509"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679787509"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; JobExecutionStatusDetails
 </span><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#JobExecutionStatusDetails%27"><span class="hs-identifier hs-var">JobExecutionStatusDetails'</span></a></span><span>
 </span><span id="line-62"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text) -&gt; JobExecutionStatusDetails)
@@ -185,7 +185,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser JobExecutionStatusDetails
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679787500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679787509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;detailsMap&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -196,7 +196,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787493"><span id="local-6989586621679787495"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#JobExecutionStatusDetails"><span class="hs-identifier hs-type">JobExecutionStatusDetails</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787502"><span id="local-6989586621679787504"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#JobExecutionStatusDetails"><span class="hs-identifier hs-type">JobExecutionStatusDetails</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787490"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#JobExecutionStatusDetails"><span class="hs-identifier hs-type">JobExecutionStatusDetails</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatusDetails.html#JobExecutionStatusDetails"><span class="hs-identifier hs-type">JobExecutionStatusDetails</span></a></span></span><span>
 </span><span id="line-68"></span></pre></body></html>

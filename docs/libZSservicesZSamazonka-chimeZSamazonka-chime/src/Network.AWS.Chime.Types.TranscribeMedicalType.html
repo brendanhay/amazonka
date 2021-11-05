@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.Types.TranscribeMedicalType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.Types.TranscribeMedicalType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#TranscribeMedicalType"><span class="hs-identifier">TranscribeMedicalType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#TranscribeMedicalType_CONVERSATION"><span class="hs-identifier">TranscribeMedicalType_CONVERSATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#TranscribeMedicalType_DICTATION"><span class="hs-identifier">TranscribeMedicalType_DICTATION</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679520717"><span id="local-6989586621679520718"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TranscribeMedicalType"><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#TranscribeMedicalType"><span class="hs-identifier hs-var">TranscribeMedicalType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TranscribeMedicalType%27"><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#TranscribeMedicalType%27"><span class="hs-identifier hs-var">TranscribeMedicalType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTranscribeMedicalType"><span class="annot"><span class="annottext">TranscribeMedicalType -&gt; Text
+</span><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#fromTranscribeMedicalType"><span class="hs-identifier hs-var hs-var">fromTranscribeMedicalType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679520709"><span id="local-6989586621679520711"><span id="local-6989586621679520713"><span class="annot"><span class="annottext">Int -&gt; TranscribeMedicalType -&gt; ShowS
+[TranscribeMedicalType] -&gt; ShowS
+TranscribeMedicalType -&gt; String
+(Int -&gt; TranscribeMedicalType -&gt; ShowS)
+-&gt; (TranscribeMedicalType -&gt; String)
+-&gt; ([TranscribeMedicalType] -&gt; ShowS)
+-&gt; Show TranscribeMedicalType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TranscribeMedicalType] -&gt; ShowS
+$cshowList :: [TranscribeMedicalType] -&gt; ShowS
+show :: TranscribeMedicalType -&gt; String
+$cshow :: TranscribeMedicalType -&gt; String
+showsPrec :: Int -&gt; TranscribeMedicalType -&gt; ShowS
+$cshowsPrec :: Int -&gt; TranscribeMedicalType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679520700"><span id="local-6989586621679520702"><span id="local-6989586621679520704"><span id="local-6989586621679520706"><span class="annot"><span class="annottext">ReadPrec [TranscribeMedicalType]
+ReadPrec TranscribeMedicalType
+Int -&gt; ReadS TranscribeMedicalType
+ReadS [TranscribeMedicalType]
+(Int -&gt; ReadS TranscribeMedicalType)
+-&gt; ReadS [TranscribeMedicalType]
+-&gt; ReadPrec TranscribeMedicalType
+-&gt; ReadPrec [TranscribeMedicalType]
+-&gt; Read TranscribeMedicalType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TranscribeMedicalType]
+$creadListPrec :: ReadPrec [TranscribeMedicalType]
+readPrec :: ReadPrec TranscribeMedicalType
+$creadPrec :: ReadPrec TranscribeMedicalType
+readList :: ReadS [TranscribeMedicalType]
+$creadList :: ReadS [TranscribeMedicalType]
+readsPrec :: Int -&gt; ReadS TranscribeMedicalType
+$creadsPrec :: Int -&gt; ReadS TranscribeMedicalType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679520695"><span id="local-6989586621679520697"><span class="annot"><span class="annottext">TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool
+(TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool)
+-&gt; (TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool)
+-&gt; Eq TranscribeMedicalType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool
+$c/= :: TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool
+== :: TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool
+$c== :: TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679520679"><span id="local-6989586621679520681"><span id="local-6989586621679520683"><span id="local-6989586621679520685"><span id="local-6989586621679520687"><span id="local-6989586621679520689"><span id="local-6989586621679520691"><span class="annot"><span class="annottext">Eq TranscribeMedicalType
+Eq TranscribeMedicalType
+-&gt; (TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Ordering)
+-&gt; (TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool)
+-&gt; (TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool)
+-&gt; (TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool)
+-&gt; (TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool)
+-&gt; (TranscribeMedicalType
+    -&gt; TranscribeMedicalType -&gt; TranscribeMedicalType)
+-&gt; (TranscribeMedicalType
+    -&gt; TranscribeMedicalType -&gt; TranscribeMedicalType)
+-&gt; Ord TranscribeMedicalType
+TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool
+TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Ordering
+TranscribeMedicalType
+-&gt; TranscribeMedicalType -&gt; TranscribeMedicalType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TranscribeMedicalType
+-&gt; TranscribeMedicalType -&gt; TranscribeMedicalType
+$cmin :: TranscribeMedicalType
+-&gt; TranscribeMedicalType -&gt; TranscribeMedicalType
+max :: TranscribeMedicalType
+-&gt; TranscribeMedicalType -&gt; TranscribeMedicalType
+$cmax :: TranscribeMedicalType
+-&gt; TranscribeMedicalType -&gt; TranscribeMedicalType
+&gt;= :: TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool
+$c&gt;= :: TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool
+&gt; :: TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool
+$c&gt; :: TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool
+&lt;= :: TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool
+$c&lt;= :: TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool
+&lt; :: TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool
+$c&lt; :: TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Bool
+compare :: TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Ordering
+$ccompare :: TranscribeMedicalType -&gt; TranscribeMedicalType -&gt; Ordering
+$cp1Ord :: Eq TranscribeMedicalType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TranscribeMedicalType -&gt; Rep TranscribeMedicalType x)
+-&gt; (forall x. Rep TranscribeMedicalType x -&gt; TranscribeMedicalType)
+-&gt; Generic TranscribeMedicalType
+forall x. Rep TranscribeMedicalType x -&gt; TranscribeMedicalType
+forall x. TranscribeMedicalType -&gt; Rep TranscribeMedicalType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TranscribeMedicalType x -&gt; TranscribeMedicalType
+$cfrom :: forall x. TranscribeMedicalType -&gt; Rep TranscribeMedicalType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679520671"><span id="local-6989586621679520673"><span class="annot"><span class="annottext">Int -&gt; TranscribeMedicalType -&gt; Int
+TranscribeMedicalType -&gt; Int
+(Int -&gt; TranscribeMedicalType -&gt; Int)
+-&gt; (TranscribeMedicalType -&gt; Int) -&gt; Hashable TranscribeMedicalType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TranscribeMedicalType -&gt; Int
+$chash :: TranscribeMedicalType -&gt; Int
+hashWithSalt :: Int -&gt; TranscribeMedicalType -&gt; Int
+$chashWithSalt :: Int -&gt; TranscribeMedicalType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679520668"><span class="annot"><span class="annottext">TranscribeMedicalType -&gt; ()
+(TranscribeMedicalType -&gt; ()) -&gt; NFData TranscribeMedicalType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TranscribeMedicalType -&gt; ()
+$crnf :: TranscribeMedicalType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679520665"><span class="annot"><span class="annottext">Text -&gt; Either String TranscribeMedicalType
+(Text -&gt; Either String TranscribeMedicalType)
+-&gt; FromText TranscribeMedicalType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TranscribeMedicalType
+$cfromText :: Text -&gt; Either String TranscribeMedicalType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679520662"><span class="annot"><span class="annottext">TranscribeMedicalType -&gt; Text
+(TranscribeMedicalType -&gt; Text) -&gt; ToText TranscribeMedicalType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TranscribeMedicalType -&gt; Text
+$ctoText :: TranscribeMedicalType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679520659"><span class="annot"><span class="annottext">TranscribeMedicalType -&gt; ByteString
+(TranscribeMedicalType -&gt; ByteString)
+-&gt; ToByteString TranscribeMedicalType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TranscribeMedicalType -&gt; ByteString
+$ctoBS :: TranscribeMedicalType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679520656"><span class="annot"><span class="annottext">TranscribeMedicalType -&gt; ByteStringBuilder
+(TranscribeMedicalType -&gt; ByteStringBuilder)
+-&gt; ToLog TranscribeMedicalType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TranscribeMedicalType -&gt; ByteStringBuilder
+$cbuild :: TranscribeMedicalType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679520653"><span class="annot"><span class="annottext">HeaderName -&gt; TranscribeMedicalType -&gt; [Header]
+(HeaderName -&gt; TranscribeMedicalType -&gt; [Header])
+-&gt; ToHeader TranscribeMedicalType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TranscribeMedicalType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TranscribeMedicalType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679520650"><span class="annot"><span class="annottext">TranscribeMedicalType -&gt; QueryString
+(TranscribeMedicalType -&gt; QueryString)
+-&gt; ToQuery TranscribeMedicalType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TranscribeMedicalType -&gt; QueryString
+$ctoQuery :: TranscribeMedicalType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679520645"><span id="local-6989586621679520647"><span class="annot"><span class="annottext">Value -&gt; Parser [TranscribeMedicalType]
+Value -&gt; Parser TranscribeMedicalType
+(Value -&gt; Parser TranscribeMedicalType)
+-&gt; (Value -&gt; Parser [TranscribeMedicalType])
+-&gt; FromJSON TranscribeMedicalType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TranscribeMedicalType]
+$cparseJSONList :: Value -&gt; Parser [TranscribeMedicalType]
+parseJSON :: Value -&gt; Parser TranscribeMedicalType
+$cparseJSON :: Value -&gt; Parser TranscribeMedicalType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679520640"><span id="local-6989586621679520642"><span class="annot"><span class="annottext">FromJSONKeyFunction [TranscribeMedicalType]
+FromJSONKeyFunction TranscribeMedicalType
+FromJSONKeyFunction TranscribeMedicalType
+-&gt; FromJSONKeyFunction [TranscribeMedicalType]
+-&gt; FromJSONKey TranscribeMedicalType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TranscribeMedicalType]
+$cfromJSONKeyList :: FromJSONKeyFunction [TranscribeMedicalType]
+fromJSONKey :: FromJSONKeyFunction TranscribeMedicalType
+$cfromJSONKey :: FromJSONKeyFunction TranscribeMedicalType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679520631"><span id="local-6989586621679520633"><span id="local-6989586621679520635"><span id="local-6989586621679520637"><span class="annot"><span class="annottext">[TranscribeMedicalType] -&gt; Encoding
+[TranscribeMedicalType] -&gt; Value
+TranscribeMedicalType -&gt; Encoding
+TranscribeMedicalType -&gt; Value
+(TranscribeMedicalType -&gt; Value)
+-&gt; (TranscribeMedicalType -&gt; Encoding)
+-&gt; ([TranscribeMedicalType] -&gt; Value)
+-&gt; ([TranscribeMedicalType] -&gt; Encoding)
+-&gt; ToJSON TranscribeMedicalType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TranscribeMedicalType] -&gt; Encoding
+$ctoEncodingList :: [TranscribeMedicalType] -&gt; Encoding
+toJSONList :: [TranscribeMedicalType] -&gt; Value
+$ctoJSONList :: [TranscribeMedicalType] -&gt; Value
+toEncoding :: TranscribeMedicalType -&gt; Encoding
+$ctoEncoding :: TranscribeMedicalType -&gt; Encoding
+toJSON :: TranscribeMedicalType -&gt; Value
+$ctoJSON :: TranscribeMedicalType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679520626"><span id="local-6989586621679520628"><span class="annot"><span class="annottext">ToJSONKeyFunction [TranscribeMedicalType]
+ToJSONKeyFunction TranscribeMedicalType
+ToJSONKeyFunction TranscribeMedicalType
+-&gt; ToJSONKeyFunction [TranscribeMedicalType]
+-&gt; ToJSONKey TranscribeMedicalType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TranscribeMedicalType]
+$ctoJSONKeyList :: ToJSONKeyFunction [TranscribeMedicalType]
+toJSONKey :: ToJSONKeyFunction TranscribeMedicalType
+$ctoJSONKey :: ToJSONKeyFunction TranscribeMedicalType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679520623"><span class="annot"><span class="annottext">[Node] -&gt; Either String TranscribeMedicalType
+([Node] -&gt; Either String TranscribeMedicalType)
+-&gt; FromXML TranscribeMedicalType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TranscribeMedicalType
+$cparseXML :: [Node] -&gt; Either String TranscribeMedicalType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679520620"><span class="annot"><span class="annottext">TranscribeMedicalType -&gt; XML
+(TranscribeMedicalType -&gt; XML) -&gt; ToXML TranscribeMedicalType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TranscribeMedicalType -&gt; XML
+$ctoXML :: TranscribeMedicalType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#TranscribeMedicalType_CONVERSATION"><span class="hs-identifier hs-type">TranscribeMedicalType_CONVERSATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#TranscribeMedicalType"><span class="hs-identifier hs-type">TranscribeMedicalType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTranscribeMedicalType_CONVERSATION"><span id="%24mTranscribeMedicalType_CONVERSATION"><span id="TranscribeMedicalType_CONVERSATION"><span class="annot"><span class="annottext">$bTranscribeMedicalType_CONVERSATION :: TranscribeMedicalType
+$mTranscribeMedicalType_CONVERSATION :: forall r.
+TranscribeMedicalType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#%24bTranscribeMedicalType_CONVERSATION"><span class="hs-identifier hs-var hs-var hs-var">TranscribeMedicalType_CONVERSATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#TranscribeMedicalType%27"><span class="hs-identifier hs-type">TranscribeMedicalType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONVERSATION&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#TranscribeMedicalType_DICTATION"><span class="hs-identifier hs-type">TranscribeMedicalType_DICTATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#TranscribeMedicalType"><span class="hs-identifier hs-type">TranscribeMedicalType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTranscribeMedicalType_DICTATION"><span id="%24mTranscribeMedicalType_DICTATION"><span id="TranscribeMedicalType_DICTATION"><span class="annot"><span class="annottext">$bTranscribeMedicalType_DICTATION :: TranscribeMedicalType
+$mTranscribeMedicalType_DICTATION :: forall r.
+TranscribeMedicalType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#%24bTranscribeMedicalType_DICTATION"><span class="hs-identifier hs-var hs-var hs-var">TranscribeMedicalType_DICTATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#TranscribeMedicalType%27"><span class="hs-identifier hs-type">TranscribeMedicalType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DICTATION&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#TranscribeMedicalType_CONVERSATION"><span class="hs-pragma hs-type">TranscribeMedicalType_CONVERSATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#TranscribeMedicalType_DICTATION"><span class="hs-pragma hs-type">TranscribeMedicalType_DICTATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.TranscribeMedicalType.html#TranscribeMedicalType%27"><span class="hs-pragma hs-type">TranscribeMedicalType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

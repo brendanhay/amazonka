@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Settings for pausing a pipeline.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPipelinePauseStateSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679910961"><span id="local-6989586621679910962"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelinePauseStateSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings"><span class="hs-identifier hs-var">PipelinePauseStateSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelinePauseStateSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings%27"><span class="hs-identifier hs-var">PipelinePauseStateSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679910970"><span id="local-6989586621679910971"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelinePauseStateSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings"><span class="hs-identifier hs-var">PipelinePauseStateSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelinePauseStateSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings%27"><span class="hs-identifier hs-var">PipelinePauseStateSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Pipeline ID to pause (\&quot;PIPELINE_0\&quot; or \&quot;PIPELINE_1\&quot;).</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3ApipelineId%3APipelinePauseStateSettings%27"><span class="annot"><span class="annottext">PipelinePauseStateSettings -&gt; PipelineId
 </span><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#%24sel%3ApipelineId%3APipelinePauseStateSettings%27"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelineId.html#PipelineId"><span class="hs-identifier hs-type">PipelineId</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679910955"><span id="local-6989586621679910957"><span class="annot"><span class="annottext">PipelinePauseStateSettings -&gt; PipelinePauseStateSettings -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679910964"><span id="local-6989586621679910966"><span class="annot"><span class="annottext">PipelinePauseStateSettings -&gt; PipelinePauseStateSettings -&gt; Bool
 (PipelinePauseStateSettings -&gt; PipelinePauseStateSettings -&gt; Bool)
 -&gt; (PipelinePauseStateSettings
     -&gt; PipelinePauseStateSettings -&gt; Bool)
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PipelinePauseStateSettings -&gt; PipelinePauseStateSettings -&gt; Bool
 == :: PipelinePauseStateSettings -&gt; PipelinePauseStateSettings -&gt; Bool
 $c== :: PipelinePauseStateSettings -&gt; PipelinePauseStateSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910946"><span id="local-6989586621679910948"><span id="local-6989586621679910950"><span id="local-6989586621679910952"><span class="annot"><span class="annottext">ReadPrec [PipelinePauseStateSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910955"><span id="local-6989586621679910957"><span id="local-6989586621679910959"><span id="local-6989586621679910961"><span class="annot"><span class="annottext">ReadPrec [PipelinePauseStateSettings]
 ReadPrec PipelinePauseStateSettings
 Int -&gt; ReadS PipelinePauseStateSettings
 ReadS [PipelinePauseStateSettings]
@@ -62,7 +62,7 @@ readList :: ReadS [PipelinePauseStateSettings]
 $creadList :: ReadS [PipelinePauseStateSettings]
 readsPrec :: Int -&gt; ReadS PipelinePauseStateSettings
 $creadsPrec :: Int -&gt; ReadS PipelinePauseStateSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910939"><span id="local-6989586621679910941"><span id="local-6989586621679910943"><span class="annot"><span class="annottext">Int -&gt; PipelinePauseStateSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910948"><span id="local-6989586621679910950"><span id="local-6989586621679910952"><span class="annot"><span class="annottext">Int -&gt; PipelinePauseStateSettings -&gt; ShowS
 [PipelinePauseStateSettings] -&gt; ShowS
 PipelinePauseStateSettings -&gt; String
 (Int -&gt; PipelinePauseStateSettings -&gt; ShowS)
@@ -108,14 +108,14 @@ PipelinePauseStateSettings -&gt; Rep PipelinePauseStateSettings x
 </span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelineId.html#PipelineId"><span class="hs-identifier hs-type">PipelineId</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings"><span class="hs-identifier hs-type">PipelinePauseStateSettings</span></a></span><span>
 </span><span id="line-49"></span><span id="newPipelinePauseStateSettings"><span class="annot"><span class="annottext">newPipelinePauseStateSettings :: PipelineId -&gt; PipelinePauseStateSettings
-</span><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#newPipelinePauseStateSettings"><span class="hs-identifier hs-var hs-var">newPipelinePauseStateSettings</span></a></span></span><span> </span><span id="local-6989586621679910933"><span class="annot"><span class="annottext">PipelineId
-</span><a href="#local-6989586621679910933"><span class="hs-identifier hs-var">pPipelineId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#newPipelinePauseStateSettings"><span class="hs-identifier hs-var hs-var">newPipelinePauseStateSettings</span></a></span></span><span> </span><span id="local-6989586621679910942"><span class="annot"><span class="annottext">PipelineId
+</span><a href="#local-6989586621679910942"><span class="hs-identifier hs-var">pPipelineId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">PipelinePauseStateSettings' :: PipelineId -&gt; PipelinePauseStateSettings
 </span><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings%27"><span class="hs-identifier hs-type">PipelinePauseStateSettings'</span></a></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pipelineId:PipelinePauseStateSettings' :: PipelineId
 </span><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#%24sel%3ApipelineId%3APipelinePauseStateSettings%27"><span class="hs-identifier hs-var">pipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>        </span><span class="annot"><span class="annottext">PipelineId
-</span><a href="#local-6989586621679910933"><span class="hs-identifier hs-var">pPipelineId_</span></a></span><span>
+</span><a href="#local-6989586621679910942"><span class="hs-identifier hs-var">pPipelineId_</span></a></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | Pipeline ID to pause (\&quot;PIPELINE_0\&quot; or \&quot;PIPELINE_1\&quot;).</span><span>
@@ -131,19 +131,19 @@ PipelinePauseStateSettings -&gt; Rep PipelinePauseStateSettings x
      PipelineId
      PipelineId
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings%27"><span class="hs-identifier hs-type">PipelinePauseStateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910929"><span class="annot"><span class="annottext">PipelineId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings%27"><span class="hs-identifier hs-type">PipelinePauseStateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910938"><span class="annot"><span class="annottext">PipelineId
 pipelineId :: PipelineId
 $sel:pipelineId:PipelinePauseStateSettings' :: PipelinePauseStateSettings -&gt; PipelineId
-</span><a href="#local-6989586621679910929"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineId
-</span><a href="#local-6989586621679910929"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679910928"><span class="annot"><span class="annottext">s :: PipelinePauseStateSettings
-</span><a href="#local-6989586621679910928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings%27"><span class="hs-identifier hs-type">PipelinePauseStateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679910927"><span class="annot"><span class="annottext">PipelineId
-</span><a href="#local-6989586621679910927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelinePauseStateSettings
-</span><a href="#local-6989586621679910928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineId:PipelinePauseStateSettings' :: PipelineId
+</span><a href="#local-6989586621679910938"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineId
+</span><a href="#local-6989586621679910938"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679910937"><span class="annot"><span class="annottext">s :: PipelinePauseStateSettings
+</span><a href="#local-6989586621679910937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings%27"><span class="hs-identifier hs-type">PipelinePauseStateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679910936"><span class="annot"><span class="annottext">PipelineId
+</span><a href="#local-6989586621679910936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelinePauseStateSettings
+</span><a href="#local-6989586621679910937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineId:PipelinePauseStateSettings' :: PipelineId
 </span><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#%24sel%3ApipelineId%3APipelinePauseStateSettings%27"><span class="hs-identifier hs-var">pipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PipelineId
-</span><a href="#local-6989586621679910927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings"><span class="hs-identifier hs-type">PipelinePauseStateSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679910936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings"><span class="hs-identifier hs-type">PipelinePauseStateSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910924"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings"><span class="hs-identifier hs-type">PipelinePauseStateSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679910922"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelinePauseStateSettings
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910933"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings"><span class="hs-identifier hs-type">PipelinePauseStateSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679910931"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelinePauseStateSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PipelinePauseStateSettings)
@@ -153,30 +153,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PipelinePauseStateSettings&quot;</span></span><span>
-</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679910919"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679910919"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679910928"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679910928"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">PipelineId -&gt; PipelinePauseStateSettings
 </span><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings%27"><span class="hs-identifier hs-var">PipelinePauseStateSettings'</span></a></span><span>
 </span><span id="line-65"></span><span>            </span><span class="annot"><span class="annottext">(PipelineId -&gt; PipelinePauseStateSettings)
 -&gt; Parser PipelineId -&gt; Parser PipelinePauseStateSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679910919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser PipelineId
+</span><a href="#local-6989586621679910928"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser PipelineId
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pipelineId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910913"><span id="local-6989586621679910915"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings"><span class="hs-identifier hs-type">PipelinePauseStateSettings</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910922"><span id="local-6989586621679910924"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings"><span class="hs-identifier hs-type">PipelinePauseStateSettings</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910910"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings"><span class="hs-identifier hs-type">PipelinePauseStateSettings</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings"><span class="hs-identifier hs-type">PipelinePauseStateSettings</span></a></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910902"><span id="local-6989586621679910904"><span id="local-6989586621679910906"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings"><span class="hs-identifier hs-type">PipelinePauseStateSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679910900"><span class="annot"><span class="annottext">toJSON :: PipelinePauseStateSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings%27"><span class="hs-identifier hs-type">PipelinePauseStateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910898"><span class="annot"><span class="annottext">PipelineId
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910911"><span id="local-6989586621679910913"><span id="local-6989586621679910915"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings"><span class="hs-identifier hs-type">PipelinePauseStateSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679910909"><span class="annot"><span class="annottext">toJSON :: PipelinePauseStateSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings%27"><span class="hs-identifier hs-type">PipelinePauseStateSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910907"><span class="annot"><span class="annottext">PipelineId
 pipelineId :: PipelineId
 $sel:pipelineId:PipelinePauseStateSettings' :: PipelinePauseStateSettings -&gt; PipelineId
-</span><a href="#local-6989586621679910898"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679910907"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -188,6 +188,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;pipelineId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PipelineId -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PipelineId
-</span><a href="#local-6989586621679910898"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679910907"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span></pre></body></html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AuditManager.Types.SourceFrequency</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AuditManager.Types.SourceFrequency</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency"><span class="hs-identifier">SourceFrequency</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency_DAILY"><span class="hs-identifier">SourceFrequency_DAILY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency_MONTHLY"><span class="hs-identifier">SourceFrequency_MONTHLY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency_WEEKLY"><span class="hs-identifier">SourceFrequency_WEEKLY</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679296373"><span id="local-6989586621679296374"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SourceFrequency"><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency"><span class="hs-identifier hs-var">SourceFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceFrequency%27"><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency%27"><span class="hs-identifier hs-var">SourceFrequency'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSourceFrequency"><span class="annot"><span class="annottext">SourceFrequency -&gt; Text
+</span><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#fromSourceFrequency"><span class="hs-identifier hs-var hs-var">fromSourceFrequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679296365"><span id="local-6989586621679296367"><span id="local-6989586621679296369"><span class="annot"><span class="annottext">Int -&gt; SourceFrequency -&gt; ShowS
+[SourceFrequency] -&gt; ShowS
+SourceFrequency -&gt; String
+(Int -&gt; SourceFrequency -&gt; ShowS)
+-&gt; (SourceFrequency -&gt; String)
+-&gt; ([SourceFrequency] -&gt; ShowS)
+-&gt; Show SourceFrequency
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SourceFrequency] -&gt; ShowS
+$cshowList :: [SourceFrequency] -&gt; ShowS
+show :: SourceFrequency -&gt; String
+$cshow :: SourceFrequency -&gt; String
+showsPrec :: Int -&gt; SourceFrequency -&gt; ShowS
+$cshowsPrec :: Int -&gt; SourceFrequency -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679296356"><span id="local-6989586621679296358"><span id="local-6989586621679296360"><span id="local-6989586621679296362"><span class="annot"><span class="annottext">ReadPrec [SourceFrequency]
+ReadPrec SourceFrequency
+Int -&gt; ReadS SourceFrequency
+ReadS [SourceFrequency]
+(Int -&gt; ReadS SourceFrequency)
+-&gt; ReadS [SourceFrequency]
+-&gt; ReadPrec SourceFrequency
+-&gt; ReadPrec [SourceFrequency]
+-&gt; Read SourceFrequency
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SourceFrequency]
+$creadListPrec :: ReadPrec [SourceFrequency]
+readPrec :: ReadPrec SourceFrequency
+$creadPrec :: ReadPrec SourceFrequency
+readList :: ReadS [SourceFrequency]
+$creadList :: ReadS [SourceFrequency]
+readsPrec :: Int -&gt; ReadS SourceFrequency
+$creadsPrec :: Int -&gt; ReadS SourceFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679296351"><span id="local-6989586621679296353"><span class="annot"><span class="annottext">SourceFrequency -&gt; SourceFrequency -&gt; Bool
+(SourceFrequency -&gt; SourceFrequency -&gt; Bool)
+-&gt; (SourceFrequency -&gt; SourceFrequency -&gt; Bool)
+-&gt; Eq SourceFrequency
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SourceFrequency -&gt; SourceFrequency -&gt; Bool
+$c/= :: SourceFrequency -&gt; SourceFrequency -&gt; Bool
+== :: SourceFrequency -&gt; SourceFrequency -&gt; Bool
+$c== :: SourceFrequency -&gt; SourceFrequency -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679296335"><span id="local-6989586621679296337"><span id="local-6989586621679296339"><span id="local-6989586621679296341"><span id="local-6989586621679296343"><span id="local-6989586621679296345"><span id="local-6989586621679296347"><span class="annot"><span class="annottext">Eq SourceFrequency
+Eq SourceFrequency
+-&gt; (SourceFrequency -&gt; SourceFrequency -&gt; Ordering)
+-&gt; (SourceFrequency -&gt; SourceFrequency -&gt; Bool)
+-&gt; (SourceFrequency -&gt; SourceFrequency -&gt; Bool)
+-&gt; (SourceFrequency -&gt; SourceFrequency -&gt; Bool)
+-&gt; (SourceFrequency -&gt; SourceFrequency -&gt; Bool)
+-&gt; (SourceFrequency -&gt; SourceFrequency -&gt; SourceFrequency)
+-&gt; (SourceFrequency -&gt; SourceFrequency -&gt; SourceFrequency)
+-&gt; Ord SourceFrequency
+SourceFrequency -&gt; SourceFrequency -&gt; Bool
+SourceFrequency -&gt; SourceFrequency -&gt; Ordering
+SourceFrequency -&gt; SourceFrequency -&gt; SourceFrequency
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SourceFrequency -&gt; SourceFrequency -&gt; SourceFrequency
+$cmin :: SourceFrequency -&gt; SourceFrequency -&gt; SourceFrequency
+max :: SourceFrequency -&gt; SourceFrequency -&gt; SourceFrequency
+$cmax :: SourceFrequency -&gt; SourceFrequency -&gt; SourceFrequency
+&gt;= :: SourceFrequency -&gt; SourceFrequency -&gt; Bool
+$c&gt;= :: SourceFrequency -&gt; SourceFrequency -&gt; Bool
+&gt; :: SourceFrequency -&gt; SourceFrequency -&gt; Bool
+$c&gt; :: SourceFrequency -&gt; SourceFrequency -&gt; Bool
+&lt;= :: SourceFrequency -&gt; SourceFrequency -&gt; Bool
+$c&lt;= :: SourceFrequency -&gt; SourceFrequency -&gt; Bool
+&lt; :: SourceFrequency -&gt; SourceFrequency -&gt; Bool
+$c&lt; :: SourceFrequency -&gt; SourceFrequency -&gt; Bool
+compare :: SourceFrequency -&gt; SourceFrequency -&gt; Ordering
+$ccompare :: SourceFrequency -&gt; SourceFrequency -&gt; Ordering
+$cp1Ord :: Eq SourceFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SourceFrequency -&gt; Rep SourceFrequency x)
+-&gt; (forall x. Rep SourceFrequency x -&gt; SourceFrequency)
+-&gt; Generic SourceFrequency
+forall x. Rep SourceFrequency x -&gt; SourceFrequency
+forall x. SourceFrequency -&gt; Rep SourceFrequency x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SourceFrequency x -&gt; SourceFrequency
+$cfrom :: forall x. SourceFrequency -&gt; Rep SourceFrequency x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679296327"><span id="local-6989586621679296329"><span class="annot"><span class="annottext">Int -&gt; SourceFrequency -&gt; Int
+SourceFrequency -&gt; Int
+(Int -&gt; SourceFrequency -&gt; Int)
+-&gt; (SourceFrequency -&gt; Int) -&gt; Hashable SourceFrequency
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SourceFrequency -&gt; Int
+$chash :: SourceFrequency -&gt; Int
+hashWithSalt :: Int -&gt; SourceFrequency -&gt; Int
+$chashWithSalt :: Int -&gt; SourceFrequency -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679296324"><span class="annot"><span class="annottext">SourceFrequency -&gt; ()
+(SourceFrequency -&gt; ()) -&gt; NFData SourceFrequency
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SourceFrequency -&gt; ()
+$crnf :: SourceFrequency -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679296321"><span class="annot"><span class="annottext">Text -&gt; Either String SourceFrequency
+(Text -&gt; Either String SourceFrequency) -&gt; FromText SourceFrequency
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SourceFrequency
+$cfromText :: Text -&gt; Either String SourceFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679296318"><span class="annot"><span class="annottext">SourceFrequency -&gt; Text
+(SourceFrequency -&gt; Text) -&gt; ToText SourceFrequency
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SourceFrequency -&gt; Text
+$ctoText :: SourceFrequency -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679296315"><span class="annot"><span class="annottext">SourceFrequency -&gt; ByteString
+(SourceFrequency -&gt; ByteString) -&gt; ToByteString SourceFrequency
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SourceFrequency -&gt; ByteString
+$ctoBS :: SourceFrequency -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679296312"><span class="annot"><span class="annottext">SourceFrequency -&gt; ByteStringBuilder
+(SourceFrequency -&gt; ByteStringBuilder) -&gt; ToLog SourceFrequency
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SourceFrequency -&gt; ByteStringBuilder
+$cbuild :: SourceFrequency -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679296309"><span class="annot"><span class="annottext">HeaderName -&gt; SourceFrequency -&gt; [Header]
+(HeaderName -&gt; SourceFrequency -&gt; [Header])
+-&gt; ToHeader SourceFrequency
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SourceFrequency -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SourceFrequency -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679296306"><span class="annot"><span class="annottext">SourceFrequency -&gt; QueryString
+(SourceFrequency -&gt; QueryString) -&gt; ToQuery SourceFrequency
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SourceFrequency -&gt; QueryString
+$ctoQuery :: SourceFrequency -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679296301"><span id="local-6989586621679296303"><span class="annot"><span class="annottext">Value -&gt; Parser [SourceFrequency]
+Value -&gt; Parser SourceFrequency
+(Value -&gt; Parser SourceFrequency)
+-&gt; (Value -&gt; Parser [SourceFrequency]) -&gt; FromJSON SourceFrequency
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SourceFrequency]
+$cparseJSONList :: Value -&gt; Parser [SourceFrequency]
+parseJSON :: Value -&gt; Parser SourceFrequency
+$cparseJSON :: Value -&gt; Parser SourceFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679296296"><span id="local-6989586621679296298"><span class="annot"><span class="annottext">FromJSONKeyFunction [SourceFrequency]
+FromJSONKeyFunction SourceFrequency
+FromJSONKeyFunction SourceFrequency
+-&gt; FromJSONKeyFunction [SourceFrequency]
+-&gt; FromJSONKey SourceFrequency
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SourceFrequency]
+$cfromJSONKeyList :: FromJSONKeyFunction [SourceFrequency]
+fromJSONKey :: FromJSONKeyFunction SourceFrequency
+$cfromJSONKey :: FromJSONKeyFunction SourceFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679296287"><span id="local-6989586621679296289"><span id="local-6989586621679296291"><span id="local-6989586621679296293"><span class="annot"><span class="annottext">[SourceFrequency] -&gt; Encoding
+[SourceFrequency] -&gt; Value
+SourceFrequency -&gt; Encoding
+SourceFrequency -&gt; Value
+(SourceFrequency -&gt; Value)
+-&gt; (SourceFrequency -&gt; Encoding)
+-&gt; ([SourceFrequency] -&gt; Value)
+-&gt; ([SourceFrequency] -&gt; Encoding)
+-&gt; ToJSON SourceFrequency
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SourceFrequency] -&gt; Encoding
+$ctoEncodingList :: [SourceFrequency] -&gt; Encoding
+toJSONList :: [SourceFrequency] -&gt; Value
+$ctoJSONList :: [SourceFrequency] -&gt; Value
+toEncoding :: SourceFrequency -&gt; Encoding
+$ctoEncoding :: SourceFrequency -&gt; Encoding
+toJSON :: SourceFrequency -&gt; Value
+$ctoJSON :: SourceFrequency -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679296282"><span id="local-6989586621679296284"><span class="annot"><span class="annottext">ToJSONKeyFunction [SourceFrequency]
+ToJSONKeyFunction SourceFrequency
+ToJSONKeyFunction SourceFrequency
+-&gt; ToJSONKeyFunction [SourceFrequency] -&gt; ToJSONKey SourceFrequency
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SourceFrequency]
+$ctoJSONKeyList :: ToJSONKeyFunction [SourceFrequency]
+toJSONKey :: ToJSONKeyFunction SourceFrequency
+$ctoJSONKey :: ToJSONKeyFunction SourceFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679296279"><span class="annot"><span class="annottext">[Node] -&gt; Either String SourceFrequency
+([Node] -&gt; Either String SourceFrequency)
+-&gt; FromXML SourceFrequency
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SourceFrequency
+$cparseXML :: [Node] -&gt; Either String SourceFrequency
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679296276"><span class="annot"><span class="annottext">SourceFrequency -&gt; XML
+(SourceFrequency -&gt; XML) -&gt; ToXML SourceFrequency
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SourceFrequency -&gt; XML
+$ctoXML :: SourceFrequency -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency_DAILY"><span class="hs-identifier hs-type">SourceFrequency_DAILY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency"><span class="hs-identifier hs-type">SourceFrequency</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSourceFrequency_DAILY"><span id="%24mSourceFrequency_DAILY"><span id="SourceFrequency_DAILY"><span class="annot"><span class="annottext">$bSourceFrequency_DAILY :: SourceFrequency
+$mSourceFrequency_DAILY :: forall r. SourceFrequency -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#%24bSourceFrequency_DAILY"><span class="hs-identifier hs-var hs-var hs-var">SourceFrequency_DAILY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency%27"><span class="hs-identifier hs-type">SourceFrequency'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DAILY&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency_MONTHLY"><span class="hs-identifier hs-type">SourceFrequency_MONTHLY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency"><span class="hs-identifier hs-type">SourceFrequency</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSourceFrequency_MONTHLY"><span id="%24mSourceFrequency_MONTHLY"><span id="SourceFrequency_MONTHLY"><span class="annot"><span class="annottext">$bSourceFrequency_MONTHLY :: SourceFrequency
+$mSourceFrequency_MONTHLY :: forall r. SourceFrequency -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#%24bSourceFrequency_MONTHLY"><span class="hs-identifier hs-var hs-var hs-var">SourceFrequency_MONTHLY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency%27"><span class="hs-identifier hs-type">SourceFrequency'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MONTHLY&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency_WEEKLY"><span class="hs-identifier hs-type">SourceFrequency_WEEKLY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency"><span class="hs-identifier hs-type">SourceFrequency</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSourceFrequency_WEEKLY"><span id="%24mSourceFrequency_WEEKLY"><span id="SourceFrequency_WEEKLY"><span class="annot"><span class="annottext">$bSourceFrequency_WEEKLY :: SourceFrequency
+$mSourceFrequency_WEEKLY :: forall r. SourceFrequency -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#%24bSourceFrequency_WEEKLY"><span class="hs-identifier hs-var hs-var hs-var">SourceFrequency_WEEKLY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency%27"><span class="hs-identifier hs-type">SourceFrequency'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WEEKLY&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency_DAILY"><span class="hs-pragma hs-type">SourceFrequency_DAILY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency_MONTHLY"><span class="hs-pragma hs-type">SourceFrequency_MONTHLY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency_WEEKLY"><span class="hs-pragma hs-type">SourceFrequency_WEEKLY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceFrequency.html#SourceFrequency%27"><span class="hs-pragma hs-type">SourceFrequency'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

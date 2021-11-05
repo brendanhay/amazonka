@@ -60,13 +60,13 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newDescribeScript' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679450225"><span id="local-6989586621679450226"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeScript"><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript"><span class="hs-identifier hs-var">DescribeScript</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeScript%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript%27"><span class="hs-identifier hs-var">DescribeScript'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679450234"><span id="local-6989586621679450235"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeScript"><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript"><span class="hs-identifier hs-var">DescribeScript</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeScript%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript%27"><span class="hs-identifier hs-var">DescribeScript'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the Realtime script to retrieve properties for.</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- You can use either the script ID or ARN value.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AscriptId%3ADescribeScript%27"><span class="annot"><span class="annottext">DescribeScript -&gt; Text
 </span><a href="Network.AWS.GameLift.DescribeScript.html#%24sel%3AscriptId%3ADescribeScript%27"><span class="hs-identifier hs-var hs-var">scriptId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450219"><span id="local-6989586621679450221"><span class="annot"><span class="annottext">DescribeScript -&gt; DescribeScript -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450228"><span id="local-6989586621679450230"><span class="annot"><span class="annottext">DescribeScript -&gt; DescribeScript -&gt; Bool
 (DescribeScript -&gt; DescribeScript -&gt; Bool)
 -&gt; (DescribeScript -&gt; DescribeScript -&gt; Bool) -&gt; Eq DescribeScript
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeScript -&gt; DescribeScript -&gt; Bool
 == :: DescribeScript -&gt; DescribeScript -&gt; Bool
 $c== :: DescribeScript -&gt; DescribeScript -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450210"><span id="local-6989586621679450212"><span id="local-6989586621679450214"><span id="local-6989586621679450216"><span class="annot"><span class="annottext">ReadPrec [DescribeScript]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450219"><span id="local-6989586621679450221"><span id="local-6989586621679450223"><span id="local-6989586621679450225"><span class="annot"><span class="annottext">ReadPrec [DescribeScript]
 ReadPrec DescribeScript
 Int -&gt; ReadS DescribeScript
 ReadS [DescribeScript]
@@ -94,7 +94,7 @@ readList :: ReadS [DescribeScript]
 $creadList :: ReadS [DescribeScript]
 readsPrec :: Int -&gt; ReadS DescribeScript
 $creadsPrec :: Int -&gt; ReadS DescribeScript
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450203"><span id="local-6989586621679450205"><span id="local-6989586621679450207"><span class="annot"><span class="annottext">Int -&gt; DescribeScript -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450212"><span id="local-6989586621679450214"><span id="local-6989586621679450216"><span class="annot"><span class="annottext">Int -&gt; DescribeScript -&gt; ShowS
 [DescribeScript] -&gt; ShowS
 DescribeScript -&gt; String
 (Int -&gt; DescribeScript -&gt; ShowS)
@@ -135,12 +135,12 @@ $cfrom :: forall x. DescribeScript -&gt; Rep DescribeScript x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript"><span class="hs-identifier hs-type">DescribeScript</span></a></span><span>
 </span><span id="line-84"></span><span id="newDescribeScript"><span class="annot"><span class="annottext">newDescribeScript :: Text -&gt; DescribeScript
-</span><a href="Network.AWS.GameLift.DescribeScript.html#newDescribeScript"><span class="hs-identifier hs-var hs-var">newDescribeScript</span></a></span></span><span> </span><span id="local-6989586621679450198"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450198"><span class="hs-identifier hs-var">pScriptId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.DescribeScript.html#newDescribeScript"><span class="hs-identifier hs-var hs-var">newDescribeScript</span></a></span></span><span> </span><span id="local-6989586621679450207"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450207"><span class="hs-identifier hs-var">pScriptId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DescribeScript' :: Text -&gt; DescribeScript
 </span><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript%27"><span class="hs-identifier hs-type">DescribeScript'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scriptId:DescribeScript' :: Text
 </span><a href="Network.AWS.GameLift.DescribeScript.html#%24sel%3AscriptId%3ADescribeScript%27"><span class="hs-identifier hs-var">scriptId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450198"><span class="hs-identifier hs-var">pScriptId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679450207"><span class="hs-identifier hs-var">pScriptId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | A unique identifier for the Realtime script to retrieve properties for.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- You can use either the script ID or ARN value.</span><span>
@@ -150,27 +150,27 @@ $cfrom :: forall x. DescribeScript -&gt; Rep DescribeScript x
 -&gt; (DescribeScript -&gt; Text -&gt; DescribeScript)
 -&gt; Lens DescribeScript DescribeScript Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript%27"><span class="hs-identifier hs-type">DescribeScript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450195"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript%27"><span class="hs-identifier hs-type">DescribeScript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450204"><span class="annot"><span class="annottext">Text
 scriptId :: Text
 $sel:scriptId:DescribeScript' :: DescribeScript -&gt; Text
-</span><a href="#local-6989586621679450195"><span class="hs-identifier hs-var hs-var">scriptId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450195"><span class="hs-identifier hs-var">scriptId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450194"><span class="annot"><span class="annottext">s :: DescribeScript
-</span><a href="#local-6989586621679450194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript%27"><span class="hs-identifier hs-type">DescribeScript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450193"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScript
-</span><a href="#local-6989586621679450194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scriptId:DescribeScript' :: Text
+</span><a href="#local-6989586621679450204"><span class="hs-identifier hs-var hs-var">scriptId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450204"><span class="hs-identifier hs-var">scriptId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450203"><span class="annot"><span class="annottext">s :: DescribeScript
+</span><a href="#local-6989586621679450203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript%27"><span class="hs-identifier hs-type">DescribeScript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450202"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScript
+</span><a href="#local-6989586621679450203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scriptId:DescribeScript' :: Text
 </span><a href="Network.AWS.GameLift.DescribeScript.html#%24sel%3AscriptId%3ADescribeScript%27"><span class="hs-identifier hs-var">scriptId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript"><span class="hs-identifier hs-type">DescribeScript</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript"><span class="hs-identifier hs-type">DescribeScript</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript"><span class="hs-identifier hs-type">DescribeScript</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript"><span class="hs-identifier hs-type">DescribeScript</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse"><span class="hs-identifier hs-type">DescribeScriptResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679450189"><span class="annot"><span class="annottext">request :: DescribeScript -&gt; Request DescribeScript
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679450198"><span class="annot"><span class="annottext">request :: DescribeScript -&gt; Request DescribeScript
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeScript -&gt; Request DescribeScript
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679450185"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679450194"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeScript
 -&gt; ClientResponse ClientBody
@@ -194,10 +194,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679450182"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450182"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679450181"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679450181"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679450180"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679450180"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679450191"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450191"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679450190"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679450190"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679450189"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679450189"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Script -&gt; Int -&gt; DescribeScriptResponse
 </span><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse%27"><span class="hs-identifier hs-var">DescribeScriptResponse'</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Script -&gt; Int -&gt; DescribeScriptResponse)
@@ -205,7 +205,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeScriptResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679450180"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Script)
+</span><a href="#local-6989586621679450189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Script)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Script&quot;</span></span><span class="hs-special">)</span><span>
@@ -217,15 +217,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450182"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450191"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450172"><span id="local-6989586621679450174"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript"><span class="hs-identifier hs-type">DescribeScript</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450181"><span id="local-6989586621679450183"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript"><span class="hs-identifier hs-type">DescribeScript</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450169"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript"><span class="hs-identifier hs-type">DescribeScript</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450178"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript"><span class="hs-identifier hs-type">DescribeScript</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript"><span class="hs-identifier hs-type">DescribeScript</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679450165"><span class="annot"><span class="annottext">toHeaders :: DescribeScript -&gt; ResponseHeaders
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679450174"><span class="annot"><span class="annottext">toHeaders :: DescribeScript -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeScript -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -250,12 +250,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450155"><span id="local-6989586621679450157"><span id="local-6989586621679450159"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript"><span class="hs-identifier hs-type">DescribeScript</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679450153"><span class="annot"><span class="annottext">toJSON :: DescribeScript -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript%27"><span class="hs-identifier hs-type">DescribeScript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450151"><span class="annot"><span class="annottext">Text
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450164"><span id="local-6989586621679450166"><span id="local-6989586621679450168"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript"><span class="hs-identifier hs-type">DescribeScript</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679450162"><span class="annot"><span class="annottext">toJSON :: DescribeScript -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript%27"><span class="hs-identifier hs-type">DescribeScript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450160"><span class="annot"><span class="annottext">Text
 scriptId :: Text
 $sel:scriptId:DescribeScript' :: DescribeScript -&gt; Text
-</span><a href="#local-6989586621679450151"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679450160"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -267,18 +267,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ScriptId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450151"><span class="hs-identifier hs-var">scriptId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679450160"><span class="hs-identifier hs-var">scriptId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript"><span class="hs-identifier hs-type">DescribeScript</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679450145"><span class="annot"><span class="annottext">toPath :: DescribeScript -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679450154"><span class="annot"><span class="annottext">toPath :: DescribeScript -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeScript -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScript"><span class="hs-identifier hs-type">DescribeScript</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679450141"><span class="annot"><span class="annottext">toQuery :: DescribeScript -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679450150"><span class="annot"><span class="annottext">toQuery :: DescribeScript -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeScript -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -286,7 +286,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newDescribeScriptResponse' smart constructor.</span><span>
-</span><span id="line-136"></span><span id="local-6989586621679450138"><span id="local-6989586621679450139"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeScriptResponse"><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse"><span class="hs-identifier hs-var">DescribeScriptResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeScriptResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse%27"><span class="hs-identifier hs-var">DescribeScriptResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span id="local-6989586621679450147"><span id="local-6989586621679450148"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeScriptResponse"><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse"><span class="hs-identifier hs-var">DescribeScriptResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeScriptResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse%27"><span class="hs-identifier hs-var">DescribeScriptResponse'</span></a></span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A set of properties describing the requested script.</span><span>
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3Ascript%3ADescribeScriptResponse%27"><span class="annot"><span class="annottext">DescribeScriptResponse -&gt; Maybe Script
 </span><a href="Network.AWS.GameLift.DescribeScript.html#%24sel%3Ascript%3ADescribeScriptResponse%27"><span class="hs-identifier hs-var hs-var">script</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Script.html#Script"><span class="hs-identifier hs-type">Script</span></a></span><span class="hs-special">,</span><span>
@@ -294,7 +294,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeScriptResponse%27"><span class="annot"><span class="annottext">DescribeScriptResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.DescribeScript.html#%24sel%3AhttpStatus%3ADescribeScriptResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450132"><span id="local-6989586621679450134"><span class="annot"><span class="annottext">DescribeScriptResponse -&gt; DescribeScriptResponse -&gt; Bool
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450141"><span id="local-6989586621679450143"><span class="annot"><span class="annottext">DescribeScriptResponse -&gt; DescribeScriptResponse -&gt; Bool
 (DescribeScriptResponse -&gt; DescribeScriptResponse -&gt; Bool)
 -&gt; (DescribeScriptResponse -&gt; DescribeScriptResponse -&gt; Bool)
 -&gt; Eq DescribeScriptResponse
@@ -303,7 +303,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeScriptResponse -&gt; DescribeScriptResponse -&gt; Bool
 == :: DescribeScriptResponse -&gt; DescribeScriptResponse -&gt; Bool
 $c== :: DescribeScriptResponse -&gt; DescribeScriptResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450124"><span id="local-6989586621679450126"><span id="local-6989586621679450128"><span id="local-6989586621679450130"><span class="annot"><span class="annottext">ReadPrec [DescribeScriptResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450133"><span id="local-6989586621679450135"><span id="local-6989586621679450137"><span id="local-6989586621679450139"><span class="annot"><span class="annottext">ReadPrec [DescribeScriptResponse]
 ReadPrec DescribeScriptResponse
 Int -&gt; ReadS DescribeScriptResponse
 ReadS [DescribeScriptResponse]
@@ -323,7 +323,7 @@ readList :: ReadS [DescribeScriptResponse]
 $creadList :: ReadS [DescribeScriptResponse]
 readsPrec :: Int -&gt; ReadS DescribeScriptResponse
 $creadsPrec :: Int -&gt; ReadS DescribeScriptResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450118"><span id="local-6989586621679450120"><span id="local-6989586621679450122"><span class="annot"><span class="annottext">Int -&gt; DescribeScriptResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450127"><span id="local-6989586621679450129"><span id="local-6989586621679450131"><span class="annot"><span class="annottext">Int -&gt; DescribeScriptResponse -&gt; ShowS
 [DescribeScriptResponse] -&gt; ShowS
 DescribeScriptResponse -&gt; String
 (Int -&gt; DescribeScriptResponse -&gt; ShowS)
@@ -366,8 +366,8 @@ $cfrom :: forall x. DescribeScriptResponse -&gt; Rep DescribeScriptResponse x
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse"><span class="hs-identifier hs-type">DescribeScriptResponse</span></a></span><span>
 </span><span id="line-159"></span><span id="newDescribeScriptResponse"><span class="annot"><span class="annottext">newDescribeScriptResponse :: Int -&gt; DescribeScriptResponse
-</span><a href="Network.AWS.GameLift.DescribeScript.html#newDescribeScriptResponse"><span class="hs-identifier hs-var hs-var">newDescribeScriptResponse</span></a></span></span><span> </span><span id="local-6989586621679450115"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450115"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.DescribeScript.html#newDescribeScriptResponse"><span class="hs-identifier hs-var hs-var">newDescribeScriptResponse</span></a></span></span><span> </span><span id="local-6989586621679450124"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450124"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">DescribeScriptResponse' :: Maybe Script -&gt; Int -&gt; DescribeScriptResponse
 </span><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse%27"><span class="hs-identifier hs-type">DescribeScriptResponse'</span></a></span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:script:DescribeScriptResponse' :: Maybe Script
@@ -376,7 +376,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeScriptResponse' :: Int
 </span><a href="Network.AWS.GameLift.DescribeScript.html#%24sel%3AhttpStatus%3ADescribeScriptResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450115"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679450124"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | A set of properties describing the requested script.</span><span>
@@ -392,16 +392,16 @@ forall a. Maybe a
      (Maybe Script)
      (Maybe Script)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse%27"><span class="hs-identifier hs-type">DescribeScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450114"><span class="annot"><span class="annottext">Maybe Script
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse%27"><span class="hs-identifier hs-type">DescribeScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450123"><span class="annot"><span class="annottext">Maybe Script
 script :: Maybe Script
 $sel:script:DescribeScriptResponse' :: DescribeScriptResponse -&gt; Maybe Script
-</span><a href="#local-6989586621679450114"><span class="hs-identifier hs-var hs-var">script</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Script
-</span><a href="#local-6989586621679450114"><span class="hs-identifier hs-var">script</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450113"><span class="annot"><span class="annottext">s :: DescribeScriptResponse
-</span><a href="#local-6989586621679450113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse%27"><span class="hs-identifier hs-type">DescribeScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450112"><span class="annot"><span class="annottext">Maybe Script
-</span><a href="#local-6989586621679450112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScriptResponse
-</span><a href="#local-6989586621679450113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:script:DescribeScriptResponse' :: Maybe Script
+</span><a href="#local-6989586621679450123"><span class="hs-identifier hs-var hs-var">script</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Script
+</span><a href="#local-6989586621679450123"><span class="hs-identifier hs-var">script</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450122"><span class="annot"><span class="annottext">s :: DescribeScriptResponse
+</span><a href="#local-6989586621679450122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse%27"><span class="hs-identifier hs-type">DescribeScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450121"><span class="annot"><span class="annottext">Maybe Script
+</span><a href="#local-6989586621679450121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScriptResponse
+</span><a href="#local-6989586621679450122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:script:DescribeScriptResponse' :: Maybe Script
 </span><a href="Network.AWS.GameLift.DescribeScript.html#%24sel%3Ascript%3ADescribeScriptResponse%27"><span class="hs-identifier hs-var">script</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Script
-</span><a href="#local-6989586621679450112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse"><span class="hs-identifier hs-type">DescribeScriptResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse"><span class="hs-identifier hs-type">DescribeScriptResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-170"></span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#describeScriptResponse_httpStatus"><span class="hs-identifier hs-type">describeScriptResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse"><span class="hs-identifier hs-type">DescribeScriptResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -411,16 +411,16 @@ $sel:script:DescribeScriptResponse' :: DescribeScriptResponse -&gt; Maybe Script
 -&gt; (DescribeScriptResponse -&gt; Int -&gt; DescribeScriptResponse)
 -&gt; Lens DescribeScriptResponse DescribeScriptResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse%27"><span class="hs-identifier hs-type">DescribeScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450111"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse%27"><span class="hs-identifier hs-type">DescribeScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450120"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeScriptResponse' :: DescribeScriptResponse -&gt; Int
-</span><a href="#local-6989586621679450111"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450111"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450110"><span class="annot"><span class="annottext">s :: DescribeScriptResponse
-</span><a href="#local-6989586621679450110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse%27"><span class="hs-identifier hs-type">DescribeScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450109"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScriptResponse
-</span><a href="#local-6989586621679450110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeScriptResponse' :: Int
+</span><a href="#local-6989586621679450120"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450120"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450119"><span class="annot"><span class="annottext">s :: DescribeScriptResponse
+</span><a href="#local-6989586621679450119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse%27"><span class="hs-identifier hs-type">DescribeScriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450118"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScriptResponse
+</span><a href="#local-6989586621679450119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeScriptResponse' :: Int
 </span><a href="Network.AWS.GameLift.DescribeScript.html#%24sel%3AhttpStatus%3ADescribeScriptResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse"><span class="hs-identifier hs-type">DescribeScriptResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse"><span class="hs-identifier hs-type">DescribeScriptResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450107"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse"><span class="hs-identifier hs-type">DescribeScriptResponse</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450116"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeScript.html#DescribeScriptResponse"><span class="hs-identifier hs-type">DescribeScriptResponse</span></a></span></span><span>
 </span><span id="line-174"></span></pre></body></html>

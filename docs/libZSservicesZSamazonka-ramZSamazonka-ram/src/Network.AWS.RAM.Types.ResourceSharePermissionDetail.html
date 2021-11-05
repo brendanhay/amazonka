@@ -1,0 +1,666 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RAM.Types.ResourceSharePermissionDetail</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RAM.Types.ResourceSharePermissionDetail</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Information about an RAM permission.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newResourceSharePermissionDetail' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679202618"><span id="local-6989586621679202619"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceSharePermissionDetail"><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-var">ResourceSharePermissionDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceSharePermissionDetail%27"><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">ResourceSharePermissionDetail'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time when the permission was created.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AcreationTime%3AResourceSharePermissionDetail%27"><span class="annot"><span class="annottext">ResourceSharePermissionDetail -&gt; Maybe POSIX
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3AcreationTime%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The resource type to which the permission applies.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AresourceType%3AResourceSharePermissionDetail%27"><span class="annot"><span class="annottext">ResourceSharePermissionDetail -&gt; Maybe Text
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3AresourceType%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The date and time when the permission was last updated.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlastUpdatedTime%3AResourceSharePermissionDetail%27"><span class="annot"><span class="annottext">ResourceSharePermissionDetail -&gt; Maybe POSIX
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3AlastUpdatedTime%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the permission.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aarn%3AResourceSharePermissionDetail%27"><span class="annot"><span class="annottext">ResourceSharePermissionDetail -&gt; Maybe Text
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3Aarn%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Specifies whether the version of the permission is set to the default</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- version for this permission.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdefaultVersion%3AResourceSharePermissionDetail%27"><span class="annot"><span class="annottext">ResourceSharePermissionDetail -&gt; Maybe Bool
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3AdefaultVersion%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var hs-var">defaultVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the permission.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aname%3AResourceSharePermissionDetail%27"><span class="annot"><span class="annottext">ResourceSharePermissionDetail -&gt; Maybe Text
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3Aname%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The identifier for the version of the permission.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aversion%3AResourceSharePermissionDetail%27"><span class="annot"><span class="annottext">ResourceSharePermissionDetail -&gt; Maybe Text
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3Aversion%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Specifies whether the version of the permission is set to the default</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- version for this resource type.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AisResourceTypeDefault%3AResourceSharePermissionDetail%27"><span class="annot"><span class="annottext">ResourceSharePermissionDetail -&gt; Maybe Bool
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3AisResourceTypeDefault%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var hs-var">isResourceTypeDefault</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The permission\'s effect and actions in JSON format. The @effect@</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- indicates whether the actions are allowed or denied. The @actions@ list</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- the API actions to which the principal is granted or denied access.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Apermission%3AResourceSharePermissionDetail%27"><span class="annot"><span class="annottext">ResourceSharePermissionDetail -&gt; Maybe Text
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3Apermission%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var hs-var">permission</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202604"><span id="local-6989586621679202606"><span class="annot"><span class="annottext">ResourceSharePermissionDetail
+-&gt; ResourceSharePermissionDetail -&gt; Bool
+(ResourceSharePermissionDetail
+ -&gt; ResourceSharePermissionDetail -&gt; Bool)
+-&gt; (ResourceSharePermissionDetail
+    -&gt; ResourceSharePermissionDetail -&gt; Bool)
+-&gt; Eq ResourceSharePermissionDetail
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResourceSharePermissionDetail
+-&gt; ResourceSharePermissionDetail -&gt; Bool
+$c/= :: ResourceSharePermissionDetail
+-&gt; ResourceSharePermissionDetail -&gt; Bool
+== :: ResourceSharePermissionDetail
+-&gt; ResourceSharePermissionDetail -&gt; Bool
+$c== :: ResourceSharePermissionDetail
+-&gt; ResourceSharePermissionDetail -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202595"><span id="local-6989586621679202597"><span id="local-6989586621679202599"><span id="local-6989586621679202601"><span class="annot"><span class="annottext">ReadPrec [ResourceSharePermissionDetail]
+ReadPrec ResourceSharePermissionDetail
+Int -&gt; ReadS ResourceSharePermissionDetail
+ReadS [ResourceSharePermissionDetail]
+(Int -&gt; ReadS ResourceSharePermissionDetail)
+-&gt; ReadS [ResourceSharePermissionDetail]
+-&gt; ReadPrec ResourceSharePermissionDetail
+-&gt; ReadPrec [ResourceSharePermissionDetail]
+-&gt; Read ResourceSharePermissionDetail
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResourceSharePermissionDetail]
+$creadListPrec :: ReadPrec [ResourceSharePermissionDetail]
+readPrec :: ReadPrec ResourceSharePermissionDetail
+$creadPrec :: ReadPrec ResourceSharePermissionDetail
+readList :: ReadS [ResourceSharePermissionDetail]
+$creadList :: ReadS [ResourceSharePermissionDetail]
+readsPrec :: Int -&gt; ReadS ResourceSharePermissionDetail
+$creadsPrec :: Int -&gt; ReadS ResourceSharePermissionDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202588"><span id="local-6989586621679202590"><span id="local-6989586621679202592"><span class="annot"><span class="annottext">Int -&gt; ResourceSharePermissionDetail -&gt; ShowS
+[ResourceSharePermissionDetail] -&gt; ShowS
+ResourceSharePermissionDetail -&gt; String
+(Int -&gt; ResourceSharePermissionDetail -&gt; ShowS)
+-&gt; (ResourceSharePermissionDetail -&gt; String)
+-&gt; ([ResourceSharePermissionDetail] -&gt; ShowS)
+-&gt; Show ResourceSharePermissionDetail
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResourceSharePermissionDetail] -&gt; ShowS
+$cshowList :: [ResourceSharePermissionDetail] -&gt; ShowS
+show :: ResourceSharePermissionDetail -&gt; String
+$cshow :: ResourceSharePermissionDetail -&gt; String
+showsPrec :: Int -&gt; ResourceSharePermissionDetail -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResourceSharePermissionDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ResourceSharePermissionDetail
+ -&gt; Rep ResourceSharePermissionDetail x)
+-&gt; (forall x.
+    Rep ResourceSharePermissionDetail x
+    -&gt; ResourceSharePermissionDetail)
+-&gt; Generic ResourceSharePermissionDetail
+forall x.
+Rep ResourceSharePermissionDetail x
+-&gt; ResourceSharePermissionDetail
+forall x.
+ResourceSharePermissionDetail
+-&gt; Rep ResourceSharePermissionDetail x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ResourceSharePermissionDetail x
+-&gt; ResourceSharePermissionDetail
+$cfrom :: forall x.
+ResourceSharePermissionDetail
+-&gt; Rep ResourceSharePermissionDetail x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'ResourceSharePermissionDetail' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'creationTime', 'resourceSharePermissionDetail_creationTime' - The date and time when the permission was created.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'resourceType', 'resourceSharePermissionDetail_resourceType' - The resource type to which the permission applies.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'lastUpdatedTime', 'resourceSharePermissionDetail_lastUpdatedTime' - The date and time when the permission was last updated.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'arn', 'resourceSharePermissionDetail_arn' - The Amazon Resource Name (ARN) of the permission.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'defaultVersion', 'resourceSharePermissionDetail_defaultVersion' - Specifies whether the version of the permission is set to the default</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- version for this permission.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'name', 'resourceSharePermissionDetail_name' - The name of the permission.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'version', 'resourceSharePermissionDetail_version' - The identifier for the version of the permission.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'isResourceTypeDefault', 'resourceSharePermissionDetail_isResourceTypeDefault' - Specifies whether the version of the permission is set to the default</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- version for this resource type.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'permission', 'resourceSharePermissionDetail_permission' - The permission\'s effect and actions in JSON format. The @effect@</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- indicates whether the actions are allowed or denied. The @actions@ list</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- the API actions to which the principal is granted or denied access.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#newResourceSharePermissionDetail"><span class="hs-identifier hs-type">newResourceSharePermissionDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span>
+</span><span id="line-86"></span><span id="newResourceSharePermissionDetail"><span class="annot"><span class="annottext">newResourceSharePermissionDetail :: ResourceSharePermissionDetail
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#newResourceSharePermissionDetail"><span class="hs-identifier hs-var hs-var">newResourceSharePermissionDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">ResourceSharePermissionDetail' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; ResourceSharePermissionDetail
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:ResourceSharePermissionDetail' :: Maybe POSIX
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3AcreationTime%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:ResourceSharePermissionDetail' :: Maybe Text
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3AresourceType%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:ResourceSharePermissionDetail' :: Maybe POSIX
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3AlastUpdatedTime%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:ResourceSharePermissionDetail' :: Maybe Text
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3Aarn%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultVersion:ResourceSharePermissionDetail' :: Maybe Bool
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3AdefaultVersion%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">defaultVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ResourceSharePermissionDetail' :: Maybe Text
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3Aname%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:ResourceSharePermissionDetail' :: Maybe Text
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3Aversion%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:isResourceTypeDefault:ResourceSharePermissionDetail' :: Maybe Bool
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3AisResourceTypeDefault%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">isResourceTypeDefault</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:permission:ResourceSharePermissionDetail' :: Maybe Text
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3Apermission%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">permission</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The date and time when the permission was created.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_creationTime"><span class="hs-identifier hs-type">resourceSharePermissionDetail_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="resourceSharePermissionDetail_creationTime"><span class="annot"><span class="annottext">resourceSharePermissionDetail_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ResourceSharePermissionDetail -&gt; f ResourceSharePermissionDetail
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_creationTime"><span class="hs-identifier hs-var hs-var">resourceSharePermissionDetail_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceSharePermissionDetail -&gt; Maybe POSIX)
+-&gt; (ResourceSharePermissionDetail
+    -&gt; Maybe POSIX -&gt; ResourceSharePermissionDetail)
+-&gt; Lens
+     ResourceSharePermissionDetail
+     ResourceSharePermissionDetail
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202579"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:ResourceSharePermissionDetail' :: ResourceSharePermissionDetail -&gt; Maybe POSIX
+</span><a href="#local-6989586621679202579"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202579"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202578"><span class="annot"><span class="annottext">s :: ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202577"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ResourceSharePermissionDetail' :: Maybe POSIX
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3AcreationTime%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ResourceSharePermissionDetail
+ -&gt; f ResourceSharePermissionDetail)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ResourceSharePermissionDetail
+-&gt; f ResourceSharePermissionDetail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The resource type to which the permission applies.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_resourceType"><span class="hs-identifier hs-type">resourceSharePermissionDetail_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="resourceSharePermissionDetail_resourceType"><span class="annot"><span class="annottext">resourceSharePermissionDetail_resourceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResourceSharePermissionDetail -&gt; f ResourceSharePermissionDetail
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_resourceType"><span class="hs-identifier hs-var hs-var">resourceSharePermissionDetail_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceSharePermissionDetail -&gt; Maybe Text)
+-&gt; (ResourceSharePermissionDetail
+    -&gt; Maybe Text -&gt; ResourceSharePermissionDetail)
+-&gt; Lens
+     ResourceSharePermissionDetail
+     ResourceSharePermissionDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202572"><span class="annot"><span class="annottext">Maybe Text
+resourceType :: Maybe Text
+$sel:resourceType:ResourceSharePermissionDetail' :: ResourceSharePermissionDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679202572"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202572"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202571"><span class="annot"><span class="annottext">s :: ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202570"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:ResourceSharePermissionDetail' :: Maybe Text
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3AresourceType%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The date and time when the permission was last updated.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_lastUpdatedTime"><span class="hs-identifier hs-type">resourceSharePermissionDetail_lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="resourceSharePermissionDetail_lastUpdatedTime"><span class="annot"><span class="annottext">resourceSharePermissionDetail_lastUpdatedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ResourceSharePermissionDetail -&gt; f ResourceSharePermissionDetail
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_lastUpdatedTime"><span class="hs-identifier hs-var hs-var">resourceSharePermissionDetail_lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceSharePermissionDetail -&gt; Maybe POSIX)
+-&gt; (ResourceSharePermissionDetail
+    -&gt; Maybe POSIX -&gt; ResourceSharePermissionDetail)
+-&gt; Lens
+     ResourceSharePermissionDetail
+     ResourceSharePermissionDetail
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202568"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedTime :: Maybe POSIX
+$sel:lastUpdatedTime:ResourceSharePermissionDetail' :: ResourceSharePermissionDetail -&gt; Maybe POSIX
+</span><a href="#local-6989586621679202568"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202568"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202567"><span class="annot"><span class="annottext">s :: ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202566"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:ResourceSharePermissionDetail' :: Maybe POSIX
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3AlastUpdatedTime%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ResourceSharePermissionDetail
+ -&gt; f ResourceSharePermissionDetail)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ResourceSharePermissionDetail
+-&gt; f ResourceSharePermissionDetail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the permission.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_arn"><span class="hs-identifier hs-type">resourceSharePermissionDetail_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="resourceSharePermissionDetail_arn"><span class="annot"><span class="annottext">resourceSharePermissionDetail_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResourceSharePermissionDetail -&gt; f ResourceSharePermissionDetail
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_arn"><span class="hs-identifier hs-var hs-var">resourceSharePermissionDetail_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceSharePermissionDetail -&gt; Maybe Text)
+-&gt; (ResourceSharePermissionDetail
+    -&gt; Maybe Text -&gt; ResourceSharePermissionDetail)
+-&gt; Lens
+     ResourceSharePermissionDetail
+     ResourceSharePermissionDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202564"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:ResourceSharePermissionDetail' :: ResourceSharePermissionDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679202564"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202564"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202563"><span class="annot"><span class="annottext">s :: ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202562"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ResourceSharePermissionDetail' :: Maybe Text
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3Aarn%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Specifies whether the version of the permission is set to the default</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- version for this permission.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_defaultVersion"><span class="hs-identifier hs-type">resourceSharePermissionDetail_defaultVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="resourceSharePermissionDetail_defaultVersion"><span class="annot"><span class="annottext">resourceSharePermissionDetail_defaultVersion :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ResourceSharePermissionDetail -&gt; f ResourceSharePermissionDetail
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_defaultVersion"><span class="hs-identifier hs-var hs-var">resourceSharePermissionDetail_defaultVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceSharePermissionDetail -&gt; Maybe Bool)
+-&gt; (ResourceSharePermissionDetail
+    -&gt; Maybe Bool -&gt; ResourceSharePermissionDetail)
+-&gt; Lens
+     ResourceSharePermissionDetail
+     ResourceSharePermissionDetail
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202560"><span class="annot"><span class="annottext">Maybe Bool
+defaultVersion :: Maybe Bool
+$sel:defaultVersion:ResourceSharePermissionDetail' :: ResourceSharePermissionDetail -&gt; Maybe Bool
+</span><a href="#local-6989586621679202560"><span class="hs-identifier hs-var hs-var">defaultVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679202560"><span class="hs-identifier hs-var">defaultVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202559"><span class="annot"><span class="annottext">s :: ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202558"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679202558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultVersion:ResourceSharePermissionDetail' :: Maybe Bool
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3AdefaultVersion%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">defaultVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679202558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The name of the permission.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_name"><span class="hs-identifier hs-type">resourceSharePermissionDetail_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="resourceSharePermissionDetail_name"><span class="annot"><span class="annottext">resourceSharePermissionDetail_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResourceSharePermissionDetail -&gt; f ResourceSharePermissionDetail
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_name"><span class="hs-identifier hs-var hs-var">resourceSharePermissionDetail_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceSharePermissionDetail -&gt; Maybe Text)
+-&gt; (ResourceSharePermissionDetail
+    -&gt; Maybe Text -&gt; ResourceSharePermissionDetail)
+-&gt; Lens
+     ResourceSharePermissionDetail
+     ResourceSharePermissionDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202556"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ResourceSharePermissionDetail' :: ResourceSharePermissionDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679202556"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202556"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202555"><span class="annot"><span class="annottext">s :: ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202554"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ResourceSharePermissionDetail' :: Maybe Text
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3Aname%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The identifier for the version of the permission.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_version"><span class="hs-identifier hs-type">resourceSharePermissionDetail_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="resourceSharePermissionDetail_version"><span class="annot"><span class="annottext">resourceSharePermissionDetail_version :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResourceSharePermissionDetail -&gt; f ResourceSharePermissionDetail
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_version"><span class="hs-identifier hs-var hs-var">resourceSharePermissionDetail_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceSharePermissionDetail -&gt; Maybe Text)
+-&gt; (ResourceSharePermissionDetail
+    -&gt; Maybe Text -&gt; ResourceSharePermissionDetail)
+-&gt; Lens
+     ResourceSharePermissionDetail
+     ResourceSharePermissionDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202552"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:ResourceSharePermissionDetail' :: ResourceSharePermissionDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679202552"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202552"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202551"><span class="annot"><span class="annottext">s :: ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202550"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:ResourceSharePermissionDetail' :: Maybe Text
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3Aversion%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | Specifies whether the version of the permission is set to the default</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- version for this resource type.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_isResourceTypeDefault"><span class="hs-identifier hs-type">resourceSharePermissionDetail_isResourceTypeDefault</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="resourceSharePermissionDetail_isResourceTypeDefault"><span class="annot"><span class="annottext">resourceSharePermissionDetail_isResourceTypeDefault :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ResourceSharePermissionDetail -&gt; f ResourceSharePermissionDetail
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_isResourceTypeDefault"><span class="hs-identifier hs-var hs-var">resourceSharePermissionDetail_isResourceTypeDefault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceSharePermissionDetail -&gt; Maybe Bool)
+-&gt; (ResourceSharePermissionDetail
+    -&gt; Maybe Bool -&gt; ResourceSharePermissionDetail)
+-&gt; Lens
+     ResourceSharePermissionDetail
+     ResourceSharePermissionDetail
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202548"><span class="annot"><span class="annottext">Maybe Bool
+isResourceTypeDefault :: Maybe Bool
+$sel:isResourceTypeDefault:ResourceSharePermissionDetail' :: ResourceSharePermissionDetail -&gt; Maybe Bool
+</span><a href="#local-6989586621679202548"><span class="hs-identifier hs-var hs-var">isResourceTypeDefault</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679202548"><span class="hs-identifier hs-var">isResourceTypeDefault</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202547"><span class="annot"><span class="annottext">s :: ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202546"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679202546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isResourceTypeDefault:ResourceSharePermissionDetail' :: Maybe Bool
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3AisResourceTypeDefault%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">isResourceTypeDefault</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679202546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The permission\'s effect and actions in JSON format. The @effect@</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- indicates whether the actions are allowed or denied. The @actions@ list</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- the API actions to which the principal is granted or denied access.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_permission"><span class="hs-identifier hs-type">resourceSharePermissionDetail_permission</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="resourceSharePermissionDetail_permission"><span class="annot"><span class="annottext">resourceSharePermissionDetail_permission :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResourceSharePermissionDetail -&gt; f ResourceSharePermissionDetail
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#resourceSharePermissionDetail_permission"><span class="hs-identifier hs-var hs-var">resourceSharePermissionDetail_permission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceSharePermissionDetail -&gt; Maybe Text)
+-&gt; (ResourceSharePermissionDetail
+    -&gt; Maybe Text -&gt; ResourceSharePermissionDetail)
+-&gt; Lens
+     ResourceSharePermissionDetail
+     ResourceSharePermissionDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202544"><span class="annot"><span class="annottext">Maybe Text
+permission :: Maybe Text
+$sel:permission:ResourceSharePermissionDetail' :: ResourceSharePermissionDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679202544"><span class="hs-identifier hs-var hs-var">permission</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202544"><span class="hs-identifier hs-var">permission</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202543"><span class="annot"><span class="annottext">s :: ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-type">ResourceSharePermissionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202542"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSharePermissionDetail
+</span><a href="#local-6989586621679202543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permission:ResourceSharePermissionDetail' :: Maybe Text
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#%24sel%3Apermission%3AResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">permission</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202539"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679202537"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceSharePermissionDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ResourceSharePermissionDetail)
+-&gt; Value
+-&gt; Parser ResourceSharePermissionDetail
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ResourceSharePermissionDetail&quot;</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202534"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202534"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; ResourceSharePermissionDetail
+</span><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail%27"><span class="hs-identifier hs-var">ResourceSharePermissionDetail'</span></a></span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; ResourceSharePermissionDetail)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; ResourceSharePermissionDetail)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; ResourceSharePermissionDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; ResourceSharePermissionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; ResourceSharePermissionDetail)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; ResourceSharePermissionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; ResourceSharePermissionDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; ResourceSharePermissionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; ResourceSharePermissionDetail)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; ResourceSharePermissionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; ResourceSharePermissionDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool -&gt; Maybe Text -&gt; ResourceSharePermissionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool -&gt; Maybe Text -&gt; ResourceSharePermissionDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool -&gt; Maybe Text -&gt; ResourceSharePermissionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Text -&gt; ResourceSharePermissionDetail)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Text -&gt; ResourceSharePermissionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isResourceTypeDefault&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ResourceSharePermissionDetail)
+-&gt; Parser (Maybe Text) -&gt; Parser ResourceSharePermissionDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;permission&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679202528"><span id="local-6989586621679202530"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202525"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceSharePermissionDetail.html#ResourceSharePermissionDetail"><span class="hs-identifier hs-type">ResourceSharePermissionDetail</span></a></span></span><span>
+</span><span id="line-162"></span></pre></body></html>

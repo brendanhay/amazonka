@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621680322528"><span id="local-6989586621680322529"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MonitoringType"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType"><span class="hs-identifier hs-var">MonitoringType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType%27"><span class="hs-identifier hs-var">MonitoringType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680322537"><span id="local-6989586621680322538"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MonitoringType"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType"><span class="hs-identifier hs-var">MonitoringType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringType.html#MonitoringType%27"><span class="hs-identifier hs-var">MonitoringType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMonitoringType"><span class="annot"><span class="annottext">MonitoringType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringType.html#fromMonitoringType"><span class="hs-identifier hs-var hs-var">fromMonitoringType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680322520"><span id="local-6989586621680322522"><span id="local-6989586621680322524"><span class="annot"><span class="annottext">Int -&gt; MonitoringType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680322529"><span id="local-6989586621680322531"><span id="local-6989586621680322533"><span class="annot"><span class="annottext">Int -&gt; MonitoringType -&gt; ShowS
 [MonitoringType] -&gt; ShowS
 MonitoringType -&gt; String
 (Int -&gt; MonitoringType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: MonitoringType -&gt; String
 showsPrec :: Int -&gt; MonitoringType -&gt; ShowS
 $cshowsPrec :: Int -&gt; MonitoringType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680322511"><span id="local-6989586621680322513"><span id="local-6989586621680322515"><span id="local-6989586621680322517"><span class="annot"><span class="annottext">ReadPrec [MonitoringType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680322520"><span id="local-6989586621680322522"><span id="local-6989586621680322524"><span id="local-6989586621680322526"><span class="annot"><span class="annottext">ReadPrec [MonitoringType]
 ReadPrec MonitoringType
 Int -&gt; ReadS MonitoringType
 ReadS [MonitoringType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [MonitoringType]
 readsPrec :: Int -&gt; ReadS MonitoringType
 $creadsPrec :: Int -&gt; ReadS MonitoringType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680322506"><span id="local-6989586621680322508"><span class="annot"><span class="annottext">MonitoringType -&gt; MonitoringType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680322515"><span id="local-6989586621680322517"><span class="annot"><span class="annottext">MonitoringType -&gt; MonitoringType -&gt; Bool
 (MonitoringType -&gt; MonitoringType -&gt; Bool)
 -&gt; (MonitoringType -&gt; MonitoringType -&gt; Bool) -&gt; Eq MonitoringType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: MonitoringType -&gt; MonitoringType -&gt; Bool
 == :: MonitoringType -&gt; MonitoringType -&gt; Bool
 $c== :: MonitoringType -&gt; MonitoringType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680322490"><span id="local-6989586621680322492"><span id="local-6989586621680322494"><span id="local-6989586621680322496"><span id="local-6989586621680322498"><span id="local-6989586621680322500"><span id="local-6989586621680322502"><span class="annot"><span class="annottext">Eq MonitoringType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680322499"><span id="local-6989586621680322501"><span id="local-6989586621680322503"><span id="local-6989586621680322505"><span id="local-6989586621680322507"><span id="local-6989586621680322509"><span id="local-6989586621680322511"><span class="annot"><span class="annottext">Eq MonitoringType
 Eq MonitoringType
 -&gt; (MonitoringType -&gt; MonitoringType -&gt; Ordering)
 -&gt; (MonitoringType -&gt; MonitoringType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. MonitoringType -&gt; Rep MonitoringType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680322482"><span id="local-6989586621680322484"><span class="annot"><span class="annottext">Int -&gt; MonitoringType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680322491"><span id="local-6989586621680322493"><span class="annot"><span class="annottext">Int -&gt; MonitoringType -&gt; Int
 MonitoringType -&gt; Int
 (Int -&gt; MonitoringType -&gt; Int)
 -&gt; (MonitoringType -&gt; Int) -&gt; Hashable MonitoringType
@@ -144,50 +144,50 @@ $chash :: MonitoringType -&gt; Int
 hashWithSalt :: Int -&gt; MonitoringType -&gt; Int
 $chashWithSalt :: Int -&gt; MonitoringType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680322479"><span class="annot"><span class="annottext">MonitoringType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680322488"><span class="annot"><span class="annottext">MonitoringType -&gt; ()
 (MonitoringType -&gt; ()) -&gt; NFData MonitoringType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MonitoringType -&gt; ()
 $crnf :: MonitoringType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680322476"><span class="annot"><span class="annottext">Text -&gt; Either String MonitoringType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680322485"><span class="annot"><span class="annottext">Text -&gt; Either String MonitoringType
 (Text -&gt; Either String MonitoringType) -&gt; FromText MonitoringType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MonitoringType
 $cfromText :: Text -&gt; Either String MonitoringType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680322473"><span class="annot"><span class="annottext">MonitoringType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680322482"><span class="annot"><span class="annottext">MonitoringType -&gt; Text
 (MonitoringType -&gt; Text) -&gt; ToText MonitoringType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MonitoringType -&gt; Text
 $ctoText :: MonitoringType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680322470"><span class="annot"><span class="annottext">MonitoringType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680322479"><span class="annot"><span class="annottext">MonitoringType -&gt; ByteString
 (MonitoringType -&gt; ByteString) -&gt; ToByteString MonitoringType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MonitoringType -&gt; ByteString
 $ctoBS :: MonitoringType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680322467"><span class="annot"><span class="annottext">MonitoringType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680322476"><span class="annot"><span class="annottext">MonitoringType -&gt; ByteStringBuilder
 (MonitoringType -&gt; ByteStringBuilder) -&gt; ToLog MonitoringType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MonitoringType -&gt; ByteStringBuilder
 $cbuild :: MonitoringType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680322464"><span class="annot"><span class="annottext">HeaderName -&gt; MonitoringType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680322473"><span class="annot"><span class="annottext">HeaderName -&gt; MonitoringType -&gt; [Header]
 (HeaderName -&gt; MonitoringType -&gt; [Header])
 -&gt; ToHeader MonitoringType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MonitoringType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MonitoringType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680322461"><span class="annot"><span class="annottext">MonitoringType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680322470"><span class="annot"><span class="annottext">MonitoringType -&gt; QueryString
 (MonitoringType -&gt; QueryString) -&gt; ToQuery MonitoringType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MonitoringType -&gt; QueryString
 $ctoQuery :: MonitoringType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680322456"><span id="local-6989586621680322458"><span class="annot"><span class="annottext">Value -&gt; Parser [MonitoringType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680322465"><span id="local-6989586621680322467"><span class="annot"><span class="annottext">Value -&gt; Parser [MonitoringType]
 Value -&gt; Parser MonitoringType
 (Value -&gt; Parser MonitoringType)
 -&gt; (Value -&gt; Parser [MonitoringType]) -&gt; FromJSON MonitoringType
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [MonitoringType]
 parseJSON :: Value -&gt; Parser MonitoringType
 $cparseJSON :: Value -&gt; Parser MonitoringType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680322451"><span id="local-6989586621680322453"><span class="annot"><span class="annottext">FromJSONKeyFunction [MonitoringType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680322460"><span id="local-6989586621680322462"><span class="annot"><span class="annottext">FromJSONKeyFunction [MonitoringType]
 FromJSONKeyFunction MonitoringType
 FromJSONKeyFunction MonitoringType
 -&gt; FromJSONKeyFunction [MonitoringType]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MonitoringType]
 fromJSONKey :: FromJSONKeyFunction MonitoringType
 $cfromJSONKey :: FromJSONKeyFunction MonitoringType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680322442"><span id="local-6989586621680322444"><span id="local-6989586621680322446"><span id="local-6989586621680322448"><span class="annot"><span class="annottext">[MonitoringType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680322451"><span id="local-6989586621680322453"><span id="local-6989586621680322455"><span id="local-6989586621680322457"><span class="annot"><span class="annottext">[MonitoringType] -&gt; Encoding
 [MonitoringType] -&gt; Value
 MonitoringType -&gt; Encoding
 MonitoringType -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: MonitoringType -&gt; Encoding
 toJSON :: MonitoringType -&gt; Value
 $ctoJSON :: MonitoringType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680322437"><span id="local-6989586621680322439"><span class="annot"><span class="annottext">ToJSONKeyFunction [MonitoringType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680322446"><span id="local-6989586621680322448"><span class="annot"><span class="annottext">ToJSONKeyFunction [MonitoringType]
 ToJSONKeyFunction MonitoringType
 ToJSONKeyFunction MonitoringType
 -&gt; ToJSONKeyFunction [MonitoringType] -&gt; ToJSONKey MonitoringType
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MonitoringType]
 toJSONKey :: ToJSONKeyFunction MonitoringType
 $ctoJSONKey :: ToJSONKeyFunction MonitoringType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680322434"><span class="annot"><span class="annottext">[Node] -&gt; Either String MonitoringType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680322443"><span class="annot"><span class="annottext">[Node] -&gt; Either String MonitoringType
 ([Node] -&gt; Either String MonitoringType) -&gt; FromXML MonitoringType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MonitoringType
 $cparseXML :: [Node] -&gt; Either String MonitoringType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680322431"><span class="annot"><span class="annottext">MonitoringType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680322440"><span class="annot"><span class="annottext">MonitoringType -&gt; XML
 (MonitoringType -&gt; XML) -&gt; ToXML MonitoringType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MonitoringType -&gt; XML

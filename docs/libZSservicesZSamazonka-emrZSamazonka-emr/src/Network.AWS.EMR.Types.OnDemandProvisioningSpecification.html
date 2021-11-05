@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- allocation strategy is available in Amazon EMR version 5.12.1 and later.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newOnDemandProvisioningSpecification' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679373618"><span id="local-6989586621679373619"></span></span><span class="hs-keyword">data</span><span> </span><span id="OnDemandProvisioningSpecification"><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification"><span class="hs-identifier hs-var">OnDemandProvisioningSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OnDemandProvisioningSpecification%27"><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification%27"><span class="hs-identifier hs-var">OnDemandProvisioningSpecification'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679373627"><span id="local-6989586621679373628"></span></span><span class="hs-keyword">data</span><span> </span><span id="OnDemandProvisioningSpecification"><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification"><span class="hs-identifier hs-var">OnDemandProvisioningSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OnDemandProvisioningSpecification%27"><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification%27"><span class="hs-identifier hs-var">OnDemandProvisioningSpecification'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The launch specification for On-Demand instances in the instance fleet,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- which determines the allocation strategy.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AcapacityReservationOptions%3AOnDemandProvisioningSpecification%27"><span class="annot"><span class="annottext">OnDemandProvisioningSpecification
@@ -46,7 +46,7 @@
 -&gt; OnDemandProvisioningAllocationStrategy
 </span><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#%24sel%3AallocationStrategy%3AOnDemandProvisioningSpecification%27"><span class="hs-identifier hs-var hs-var">allocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningAllocationStrategy.html#OnDemandProvisioningAllocationStrategy"><span class="hs-identifier hs-type">OnDemandProvisioningAllocationStrategy</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373611"><span id="local-6989586621679373613"><span class="annot"><span class="annottext">OnDemandProvisioningSpecification
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373620"><span id="local-6989586621679373622"><span class="annot"><span class="annottext">OnDemandProvisioningSpecification
 -&gt; OnDemandProvisioningSpecification -&gt; Bool
 (OnDemandProvisioningSpecification
  -&gt; OnDemandProvisioningSpecification -&gt; Bool)
@@ -62,7 +62,7 @@ $c/= :: OnDemandProvisioningSpecification
 -&gt; OnDemandProvisioningSpecification -&gt; Bool
 $c== :: OnDemandProvisioningSpecification
 -&gt; OnDemandProvisioningSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373602"><span id="local-6989586621679373604"><span id="local-6989586621679373606"><span id="local-6989586621679373608"><span class="annot"><span class="annottext">ReadPrec [OnDemandProvisioningSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373611"><span id="local-6989586621679373613"><span id="local-6989586621679373615"><span id="local-6989586621679373617"><span class="annot"><span class="annottext">ReadPrec [OnDemandProvisioningSpecification]
 ReadPrec OnDemandProvisioningSpecification
 Int -&gt; ReadS OnDemandProvisioningSpecification
 ReadS [OnDemandProvisioningSpecification]
@@ -82,7 +82,7 @@ readList :: ReadS [OnDemandProvisioningSpecification]
 $creadList :: ReadS [OnDemandProvisioningSpecification]
 readsPrec :: Int -&gt; ReadS OnDemandProvisioningSpecification
 $creadsPrec :: Int -&gt; ReadS OnDemandProvisioningSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373595"><span id="local-6989586621679373597"><span id="local-6989586621679373599"><span class="annot"><span class="annottext">Int -&gt; OnDemandProvisioningSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373604"><span id="local-6989586621679373606"><span id="local-6989586621679373608"><span class="annot"><span class="annottext">Int -&gt; OnDemandProvisioningSpecification -&gt; ShowS
 [OnDemandProvisioningSpecification] -&gt; ShowS
 OnDemandProvisioningSpecification -&gt; String
 (Int -&gt; OnDemandProvisioningSpecification -&gt; ShowS)
@@ -141,8 +141,8 @@ OnDemandProvisioningSpecification
 </span><span id="line-65"></span><span id="newOnDemandProvisioningSpecification"><span class="annot"><span class="annottext">newOnDemandProvisioningSpecification :: OnDemandProvisioningAllocationStrategy
 -&gt; OnDemandProvisioningSpecification
 </span><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#newOnDemandProvisioningSpecification"><span class="hs-identifier hs-var hs-var">newOnDemandProvisioningSpecification</span></a></span></span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679373589"><span class="annot"><span class="annottext">OnDemandProvisioningAllocationStrategy
-</span><a href="#local-6989586621679373589"><span class="hs-identifier hs-var">pAllocationStrategy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679373598"><span class="annot"><span class="annottext">OnDemandProvisioningAllocationStrategy
+</span><a href="#local-6989586621679373598"><span class="hs-identifier hs-var">pAllocationStrategy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">OnDemandProvisioningSpecification' :: Maybe OnDemandCapacityReservationOptions
 -&gt; OnDemandProvisioningAllocationStrategy
 -&gt; OnDemandProvisioningSpecification
@@ -155,7 +155,7 @@ forall a. Maybe a
 </span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">$sel:allocationStrategy:OnDemandProvisioningSpecification' :: OnDemandProvisioningAllocationStrategy
 </span><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#%24sel%3AallocationStrategy%3AOnDemandProvisioningSpecification%27"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">OnDemandProvisioningAllocationStrategy
-</span><a href="#local-6989586621679373589"><span class="hs-identifier hs-var">pAllocationStrategy_</span></a></span><span>
+</span><a href="#local-6989586621679373598"><span class="hs-identifier hs-var">pAllocationStrategy_</span></a></span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The launch specification for On-Demand instances in the instance fleet,</span><span>
@@ -176,17 +176,17 @@ forall a. Maybe a
      (Maybe OnDemandCapacityReservationOptions)
      (Maybe OnDemandCapacityReservationOptions)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification%27"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373585"><span class="annot"><span class="annottext">Maybe OnDemandCapacityReservationOptions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification%27"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373594"><span class="annot"><span class="annottext">Maybe OnDemandCapacityReservationOptions
 capacityReservationOptions :: Maybe OnDemandCapacityReservationOptions
 $sel:capacityReservationOptions:OnDemandProvisioningSpecification' :: OnDemandProvisioningSpecification
 -&gt; Maybe OnDemandCapacityReservationOptions
-</span><a href="#local-6989586621679373585"><span class="hs-identifier hs-var hs-var">capacityReservationOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OnDemandCapacityReservationOptions
-</span><a href="#local-6989586621679373585"><span class="hs-identifier hs-var">capacityReservationOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373584"><span class="annot"><span class="annottext">s :: OnDemandProvisioningSpecification
-</span><a href="#local-6989586621679373584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification%27"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373583"><span class="annot"><span class="annottext">Maybe OnDemandCapacityReservationOptions
-</span><a href="#local-6989586621679373583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandProvisioningSpecification
-</span><a href="#local-6989586621679373584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityReservationOptions:OnDemandProvisioningSpecification' :: Maybe OnDemandCapacityReservationOptions
+</span><a href="#local-6989586621679373594"><span class="hs-identifier hs-var hs-var">capacityReservationOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OnDemandCapacityReservationOptions
+</span><a href="#local-6989586621679373594"><span class="hs-identifier hs-var">capacityReservationOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373593"><span class="annot"><span class="annottext">s :: OnDemandProvisioningSpecification
+</span><a href="#local-6989586621679373593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification%27"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373592"><span class="annot"><span class="annottext">Maybe OnDemandCapacityReservationOptions
+</span><a href="#local-6989586621679373592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandProvisioningSpecification
+</span><a href="#local-6989586621679373593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityReservationOptions:OnDemandProvisioningSpecification' :: Maybe OnDemandCapacityReservationOptions
 </span><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#%24sel%3AcapacityReservationOptions%3AOnDemandProvisioningSpecification%27"><span class="hs-identifier hs-var">capacityReservationOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OnDemandCapacityReservationOptions
-</span><a href="#local-6989586621679373583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | Specifies the strategy to use in launching On-Demand instance fleets.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- Currently, the only option is @lowest-price@ (the default), which</span><span>
@@ -207,23 +207,23 @@ $sel:capacityReservationOptions:OnDemandProvisioningSpecification' :: OnDemandPr
      OnDemandProvisioningAllocationStrategy
      OnDemandProvisioningAllocationStrategy
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification%27"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373581"><span class="annot"><span class="annottext">OnDemandProvisioningAllocationStrategy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification%27"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373590"><span class="annot"><span class="annottext">OnDemandProvisioningAllocationStrategy
 allocationStrategy :: OnDemandProvisioningAllocationStrategy
 $sel:allocationStrategy:OnDemandProvisioningSpecification' :: OnDemandProvisioningSpecification
 -&gt; OnDemandProvisioningAllocationStrategy
-</span><a href="#local-6989586621679373581"><span class="hs-identifier hs-var hs-var">allocationStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandProvisioningAllocationStrategy
-</span><a href="#local-6989586621679373581"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373580"><span class="annot"><span class="annottext">s :: OnDemandProvisioningSpecification
-</span><a href="#local-6989586621679373580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification%27"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373579"><span class="annot"><span class="annottext">OnDemandProvisioningAllocationStrategy
-</span><a href="#local-6989586621679373579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandProvisioningSpecification
-</span><a href="#local-6989586621679373580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allocationStrategy:OnDemandProvisioningSpecification' :: OnDemandProvisioningAllocationStrategy
+</span><a href="#local-6989586621679373590"><span class="hs-identifier hs-var hs-var">allocationStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandProvisioningAllocationStrategy
+</span><a href="#local-6989586621679373590"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373589"><span class="annot"><span class="annottext">s :: OnDemandProvisioningSpecification
+</span><a href="#local-6989586621679373589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification%27"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373588"><span class="annot"><span class="annottext">OnDemandProvisioningAllocationStrategy
+</span><a href="#local-6989586621679373588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnDemandProvisioningSpecification
+</span><a href="#local-6989586621679373589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allocationStrategy:OnDemandProvisioningSpecification' :: OnDemandProvisioningAllocationStrategy
 </span><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#%24sel%3AallocationStrategy%3AOnDemandProvisioningSpecification%27"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OnDemandProvisioningAllocationStrategy
-</span><a href="#local-6989586621679373579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679373576"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679373585"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification</span></a></span></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679373574"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OnDemandProvisioningSpecification
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679373583"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OnDemandProvisioningSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OnDemandProvisioningSpecification)
@@ -233,8 +233,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OnDemandProvisioningSpecification&quot;</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373571"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373571"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373580"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373580"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe OnDemandCapacityReservationOptions
 -&gt; OnDemandProvisioningAllocationStrategy
 -&gt; OnDemandProvisioningSpecification
@@ -248,7 +248,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; OnDemandProvisioningSpecification)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OnDemandCapacityReservationOptions)
+</span><a href="#local-6989586621679373580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OnDemandCapacityReservationOptions)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CapacityReservationOptions&quot;</span></span><span class="hs-special">)</span><span>
@@ -259,26 +259,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser OnDemandProvisioningSpecification
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OnDemandProvisioningAllocationStrategy
+</span><a href="#local-6989586621679373580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OnDemandProvisioningAllocationStrategy
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllocationStrategy&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679373564"><span id="local-6989586621679373566"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679373573"><span id="local-6989586621679373575"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679373561"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679373570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679373553"><span id="local-6989586621679373555"><span id="local-6989586621679373557"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679373562"><span id="local-6989586621679373564"><span id="local-6989586621679373566"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification</span></a></span></span></span></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679373551"><span class="annot"><span class="annottext">toJSON :: OnDemandProvisioningSpecification -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification%27"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373548"><span id="local-6989586621679373549"><span class="annot"><span class="annottext">Maybe OnDemandCapacityReservationOptions
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679373560"><span class="annot"><span class="annottext">toJSON :: OnDemandProvisioningSpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandProvisioningSpecification.html#OnDemandProvisioningSpecification%27"><span class="hs-identifier hs-type">OnDemandProvisioningSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373557"><span id="local-6989586621679373558"><span class="annot"><span class="annottext">Maybe OnDemandCapacityReservationOptions
 OnDemandProvisioningAllocationStrategy
 allocationStrategy :: OnDemandProvisioningAllocationStrategy
 capacityReservationOptions :: Maybe OnDemandCapacityReservationOptions
@@ -286,7 +286,7 @@ $sel:allocationStrategy:OnDemandProvisioningSpecification' :: OnDemandProvisioni
 -&gt; OnDemandProvisioningAllocationStrategy
 $sel:capacityReservationOptions:OnDemandProvisioningSpecification' :: OnDemandProvisioningSpecification
 -&gt; Maybe OnDemandCapacityReservationOptions
-</span><a href="#local-6989586621679373548"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679373557"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -300,7 +300,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe OnDemandCapacityReservationOptions -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OnDemandCapacityReservationOptions
-</span><a href="#local-6989586621679373549"><span class="hs-identifier hs-var">capacityReservationOptions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373558"><span class="hs-identifier hs-var">capacityReservationOptions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -308,7 +308,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AllocationStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OnDemandProvisioningAllocationStrategy -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OnDemandProvisioningAllocationStrategy
-</span><a href="#local-6989586621679373548"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373557"><span class="hs-identifier hs-var">allocationStrategy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span></pre></body></html>

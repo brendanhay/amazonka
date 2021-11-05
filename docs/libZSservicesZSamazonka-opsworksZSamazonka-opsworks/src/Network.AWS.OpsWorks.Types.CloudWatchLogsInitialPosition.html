@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | Specifies where to start to read data (start_of_file or end_of_file).</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- The default is start_of_file. It\'s only used if there is no state</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- persisted for that log stream.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679373176"><span id="local-6989586621679373177"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CloudWatchLogsInitialPosition"><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsInitialPosition.html#CloudWatchLogsInitialPosition"><span class="hs-identifier hs-var">CloudWatchLogsInitialPosition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchLogsInitialPosition%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsInitialPosition.html#CloudWatchLogsInitialPosition%27"><span class="hs-identifier hs-var">CloudWatchLogsInitialPosition'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679373185"><span id="local-6989586621679373186"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CloudWatchLogsInitialPosition"><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsInitialPosition.html#CloudWatchLogsInitialPosition"><span class="hs-identifier hs-var">CloudWatchLogsInitialPosition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchLogsInitialPosition%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsInitialPosition.html#CloudWatchLogsInitialPosition%27"><span class="hs-identifier hs-var">CloudWatchLogsInitialPosition'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCloudWatchLogsInitialPosition"><span class="annot"><span class="annottext">CloudWatchLogsInitialPosition -&gt; Text
 </span><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsInitialPosition.html#fromCloudWatchLogsInitialPosition"><span class="hs-identifier hs-var hs-var">fromCloudWatchLogsInitialPosition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679373168"><span id="local-6989586621679373170"><span id="local-6989586621679373172"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLogsInitialPosition -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679373177"><span id="local-6989586621679373179"><span id="local-6989586621679373181"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLogsInitialPosition -&gt; ShowS
 [CloudWatchLogsInitialPosition] -&gt; ShowS
 CloudWatchLogsInitialPosition -&gt; String
 (Int -&gt; CloudWatchLogsInitialPosition -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: CloudWatchLogsInitialPosition -&gt; String
 showsPrec :: Int -&gt; CloudWatchLogsInitialPosition -&gt; ShowS
 $cshowsPrec :: Int -&gt; CloudWatchLogsInitialPosition -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679373159"><span id="local-6989586621679373161"><span id="local-6989586621679373163"><span id="local-6989586621679373165"><span class="annot"><span class="annottext">ReadPrec [CloudWatchLogsInitialPosition]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679373168"><span id="local-6989586621679373170"><span id="local-6989586621679373172"><span id="local-6989586621679373174"><span class="annot"><span class="annottext">ReadPrec [CloudWatchLogsInitialPosition]
 ReadPrec CloudWatchLogsInitialPosition
 Int -&gt; ReadS CloudWatchLogsInitialPosition
 ReadS [CloudWatchLogsInitialPosition]
@@ -75,7 +75,7 @@ $creadList :: ReadS [CloudWatchLogsInitialPosition]
 readsPrec :: Int -&gt; ReadS CloudWatchLogsInitialPosition
 $creadsPrec :: Int -&gt; ReadS CloudWatchLogsInitialPosition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679373154"><span id="local-6989586621679373156"><span class="annot"><span class="annottext">CloudWatchLogsInitialPosition
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679373163"><span id="local-6989586621679373165"><span class="annot"><span class="annottext">CloudWatchLogsInitialPosition
 -&gt; CloudWatchLogsInitialPosition -&gt; Bool
 (CloudWatchLogsInitialPosition
  -&gt; CloudWatchLogsInitialPosition -&gt; Bool)
@@ -92,7 +92,7 @@ $c/= :: CloudWatchLogsInitialPosition
 $c== :: CloudWatchLogsInitialPosition
 -&gt; CloudWatchLogsInitialPosition -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679373138"><span id="local-6989586621679373140"><span id="local-6989586621679373142"><span id="local-6989586621679373144"><span id="local-6989586621679373146"><span id="local-6989586621679373148"><span id="local-6989586621679373150"><span class="annot"><span class="annottext">Eq CloudWatchLogsInitialPosition
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679373147"><span id="local-6989586621679373149"><span id="local-6989586621679373151"><span id="local-6989586621679373153"><span id="local-6989586621679373155"><span id="local-6989586621679373157"><span id="local-6989586621679373159"><span class="annot"><span class="annottext">Eq CloudWatchLogsInitialPosition
 Eq CloudWatchLogsInitialPosition
 -&gt; (CloudWatchLogsInitialPosition
     -&gt; CloudWatchLogsInitialPosition -&gt; Ordering)
@@ -179,7 +179,7 @@ CloudWatchLogsInitialPosition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679373130"><span id="local-6989586621679373132"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLogsInitialPosition -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679373139"><span id="local-6989586621679373141"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLogsInitialPosition -&gt; Int
 CloudWatchLogsInitialPosition -&gt; Int
 (Int -&gt; CloudWatchLogsInitialPosition -&gt; Int)
 -&gt; (CloudWatchLogsInitialPosition -&gt; Int)
@@ -190,56 +190,56 @@ $chash :: CloudWatchLogsInitialPosition -&gt; Int
 hashWithSalt :: Int -&gt; CloudWatchLogsInitialPosition -&gt; Int
 $chashWithSalt :: Int -&gt; CloudWatchLogsInitialPosition -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679373127"><span class="annot"><span class="annottext">CloudWatchLogsInitialPosition -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679373136"><span class="annot"><span class="annottext">CloudWatchLogsInitialPosition -&gt; ()
 (CloudWatchLogsInitialPosition -&gt; ())
 -&gt; NFData CloudWatchLogsInitialPosition
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CloudWatchLogsInitialPosition -&gt; ()
 $crnf :: CloudWatchLogsInitialPosition -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679373124"><span class="annot"><span class="annottext">Text -&gt; Either String CloudWatchLogsInitialPosition
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679373133"><span class="annot"><span class="annottext">Text -&gt; Either String CloudWatchLogsInitialPosition
 (Text -&gt; Either String CloudWatchLogsInitialPosition)
 -&gt; FromText CloudWatchLogsInitialPosition
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CloudWatchLogsInitialPosition
 $cfromText :: Text -&gt; Either String CloudWatchLogsInitialPosition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679373121"><span class="annot"><span class="annottext">CloudWatchLogsInitialPosition -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679373130"><span class="annot"><span class="annottext">CloudWatchLogsInitialPosition -&gt; Text
 (CloudWatchLogsInitialPosition -&gt; Text)
 -&gt; ToText CloudWatchLogsInitialPosition
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CloudWatchLogsInitialPosition -&gt; Text
 $ctoText :: CloudWatchLogsInitialPosition -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679373118"><span class="annot"><span class="annottext">CloudWatchLogsInitialPosition -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679373127"><span class="annot"><span class="annottext">CloudWatchLogsInitialPosition -&gt; ByteString
 (CloudWatchLogsInitialPosition -&gt; ByteString)
 -&gt; ToByteString CloudWatchLogsInitialPosition
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CloudWatchLogsInitialPosition -&gt; ByteString
 $ctoBS :: CloudWatchLogsInitialPosition -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679373115"><span class="annot"><span class="annottext">CloudWatchLogsInitialPosition -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679373124"><span class="annot"><span class="annottext">CloudWatchLogsInitialPosition -&gt; ByteStringBuilder
 (CloudWatchLogsInitialPosition -&gt; ByteStringBuilder)
 -&gt; ToLog CloudWatchLogsInitialPosition
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CloudWatchLogsInitialPosition -&gt; ByteStringBuilder
 $cbuild :: CloudWatchLogsInitialPosition -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679373112"><span class="annot"><span class="annottext">HeaderName -&gt; CloudWatchLogsInitialPosition -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679373121"><span class="annot"><span class="annottext">HeaderName -&gt; CloudWatchLogsInitialPosition -&gt; [Header]
 (HeaderName -&gt; CloudWatchLogsInitialPosition -&gt; [Header])
 -&gt; ToHeader CloudWatchLogsInitialPosition
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CloudWatchLogsInitialPosition -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CloudWatchLogsInitialPosition -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679373109"><span class="annot"><span class="annottext">CloudWatchLogsInitialPosition -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679373118"><span class="annot"><span class="annottext">CloudWatchLogsInitialPosition -&gt; QueryString
 (CloudWatchLogsInitialPosition -&gt; QueryString)
 -&gt; ToQuery CloudWatchLogsInitialPosition
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CloudWatchLogsInitialPosition -&gt; QueryString
 $ctoQuery :: CloudWatchLogsInitialPosition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679373104"><span id="local-6989586621679373106"><span class="annot"><span class="annottext">Value -&gt; Parser [CloudWatchLogsInitialPosition]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679373113"><span id="local-6989586621679373115"><span class="annot"><span class="annottext">Value -&gt; Parser [CloudWatchLogsInitialPosition]
 Value -&gt; Parser CloudWatchLogsInitialPosition
 (Value -&gt; Parser CloudWatchLogsInitialPosition)
 -&gt; (Value -&gt; Parser [CloudWatchLogsInitialPosition])
@@ -251,7 +251,7 @@ $cparseJSONList :: Value -&gt; Parser [CloudWatchLogsInitialPosition]
 parseJSON :: Value -&gt; Parser CloudWatchLogsInitialPosition
 $cparseJSON :: Value -&gt; Parser CloudWatchLogsInitialPosition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679373099"><span id="local-6989586621679373101"><span class="annot"><span class="annottext">FromJSONKeyFunction [CloudWatchLogsInitialPosition]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679373108"><span id="local-6989586621679373110"><span class="annot"><span class="annottext">FromJSONKeyFunction [CloudWatchLogsInitialPosition]
 FromJSONKeyFunction CloudWatchLogsInitialPosition
 FromJSONKeyFunction CloudWatchLogsInitialPosition
 -&gt; FromJSONKeyFunction [CloudWatchLogsInitialPosition]
@@ -263,7 +263,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CloudWatchLogsInitialPosition]
 fromJSONKey :: FromJSONKeyFunction CloudWatchLogsInitialPosition
 $cfromJSONKey :: FromJSONKeyFunction CloudWatchLogsInitialPosition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679373090"><span id="local-6989586621679373092"><span id="local-6989586621679373094"><span id="local-6989586621679373096"><span class="annot"><span class="annottext">[CloudWatchLogsInitialPosition] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679373099"><span id="local-6989586621679373101"><span id="local-6989586621679373103"><span id="local-6989586621679373105"><span class="annot"><span class="annottext">[CloudWatchLogsInitialPosition] -&gt; Encoding
 [CloudWatchLogsInitialPosition] -&gt; Value
 CloudWatchLogsInitialPosition -&gt; Encoding
 CloudWatchLogsInitialPosition -&gt; Value
@@ -287,7 +287,7 @@ $ctoEncoding :: CloudWatchLogsInitialPosition -&gt; Encoding
 toJSON :: CloudWatchLogsInitialPosition -&gt; Value
 $ctoJSON :: CloudWatchLogsInitialPosition -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679373085"><span id="local-6989586621679373087"><span class="annot"><span class="annottext">ToJSONKeyFunction [CloudWatchLogsInitialPosition]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679373094"><span id="local-6989586621679373096"><span class="annot"><span class="annottext">ToJSONKeyFunction [CloudWatchLogsInitialPosition]
 ToJSONKeyFunction CloudWatchLogsInitialPosition
 ToJSONKeyFunction CloudWatchLogsInitialPosition
 -&gt; ToJSONKeyFunction [CloudWatchLogsInitialPosition]
@@ -299,14 +299,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CloudWatchLogsInitialPosition]
 toJSONKey :: ToJSONKeyFunction CloudWatchLogsInitialPosition
 $ctoJSONKey :: ToJSONKeyFunction CloudWatchLogsInitialPosition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679373082"><span class="annot"><span class="annottext">[Node] -&gt; Either String CloudWatchLogsInitialPosition
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679373091"><span class="annot"><span class="annottext">[Node] -&gt; Either String CloudWatchLogsInitialPosition
 ([Node] -&gt; Either String CloudWatchLogsInitialPosition)
 -&gt; FromXML CloudWatchLogsInitialPosition
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CloudWatchLogsInitialPosition
 $cparseXML :: [Node] -&gt; Either String CloudWatchLogsInitialPosition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679373079"><span class="annot"><span class="annottext">CloudWatchLogsInitialPosition -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679373088"><span class="annot"><span class="annottext">CloudWatchLogsInitialPosition -&gt; XML
 (CloudWatchLogsInitialPosition -&gt; XML)
 -&gt; ToXML CloudWatchLogsInitialPosition
 forall a. (a -&gt; XML) -&gt; ToXML a

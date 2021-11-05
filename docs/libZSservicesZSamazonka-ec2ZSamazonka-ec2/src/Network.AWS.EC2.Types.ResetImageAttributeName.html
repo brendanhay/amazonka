@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621681144490"><span id="local-6989586621681144491"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResetImageAttributeName"><span class="annot"><a href="Network.AWS.EC2.Types.ResetImageAttributeName.html#ResetImageAttributeName"><span class="hs-identifier hs-var">ResetImageAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetImageAttributeName%27"><span class="annot"><a href="Network.AWS.EC2.Types.ResetImageAttributeName.html#ResetImageAttributeName%27"><span class="hs-identifier hs-var">ResetImageAttributeName'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681144499"><span id="local-6989586621681144500"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResetImageAttributeName"><span class="annot"><a href="Network.AWS.EC2.Types.ResetImageAttributeName.html#ResetImageAttributeName"><span class="hs-identifier hs-var">ResetImageAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetImageAttributeName%27"><span class="annot"><a href="Network.AWS.EC2.Types.ResetImageAttributeName.html#ResetImageAttributeName%27"><span class="hs-identifier hs-var">ResetImageAttributeName'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResetImageAttributeName"><span class="annot"><span class="annottext">ResetImageAttributeName -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ResetImageAttributeName.html#fromResetImageAttributeName"><span class="hs-identifier hs-var hs-var">fromResetImageAttributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681144482"><span id="local-6989586621681144484"><span id="local-6989586621681144486"><span class="annot"><span class="annottext">Int -&gt; ResetImageAttributeName -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681144491"><span id="local-6989586621681144493"><span id="local-6989586621681144495"><span class="annot"><span class="annottext">Int -&gt; ResetImageAttributeName -&gt; ShowS
 [ResetImageAttributeName] -&gt; ShowS
 ResetImageAttributeName -&gt; String
 (Int -&gt; ResetImageAttributeName -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ResetImageAttributeName -&gt; String
 showsPrec :: Int -&gt; ResetImageAttributeName -&gt; ShowS
 $cshowsPrec :: Int -&gt; ResetImageAttributeName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621681144473"><span id="local-6989586621681144475"><span id="local-6989586621681144477"><span id="local-6989586621681144479"><span class="annot"><span class="annottext">ReadPrec [ResetImageAttributeName]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681144482"><span id="local-6989586621681144484"><span id="local-6989586621681144486"><span id="local-6989586621681144488"><span class="annot"><span class="annottext">ReadPrec [ResetImageAttributeName]
 ReadPrec ResetImageAttributeName
 Int -&gt; ReadS ResetImageAttributeName
 ReadS [ResetImageAttributeName]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ResetImageAttributeName]
 readsPrec :: Int -&gt; ReadS ResetImageAttributeName
 $creadsPrec :: Int -&gt; ReadS ResetImageAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681144468"><span id="local-6989586621681144470"><span class="annot"><span class="annottext">ResetImageAttributeName -&gt; ResetImageAttributeName -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681144477"><span id="local-6989586621681144479"><span class="annot"><span class="annottext">ResetImageAttributeName -&gt; ResetImageAttributeName -&gt; Bool
 (ResetImageAttributeName -&gt; ResetImageAttributeName -&gt; Bool)
 -&gt; (ResetImageAttributeName -&gt; ResetImageAttributeName -&gt; Bool)
 -&gt; Eq ResetImageAttributeName
@@ -82,7 +82,7 @@ $c/= :: ResetImageAttributeName -&gt; ResetImageAttributeName -&gt; Bool
 == :: ResetImageAttributeName -&gt; ResetImageAttributeName -&gt; Bool
 $c== :: ResetImageAttributeName -&gt; ResetImageAttributeName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681144452"><span id="local-6989586621681144454"><span id="local-6989586621681144456"><span id="local-6989586621681144458"><span id="local-6989586621681144460"><span id="local-6989586621681144462"><span id="local-6989586621681144464"><span class="annot"><span class="annottext">Eq ResetImageAttributeName
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681144461"><span id="local-6989586621681144463"><span id="local-6989586621681144465"><span id="local-6989586621681144467"><span id="local-6989586621681144469"><span id="local-6989586621681144471"><span id="local-6989586621681144473"><span class="annot"><span class="annottext">Eq ResetImageAttributeName
 Eq ResetImageAttributeName
 -&gt; (ResetImageAttributeName -&gt; ResetImageAttributeName -&gt; Ordering)
 -&gt; (ResetImageAttributeName -&gt; ResetImageAttributeName -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. ResetImageAttributeName -&gt; Rep ResetImageAttributeName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681144444"><span id="local-6989586621681144446"><span class="annot"><span class="annottext">Int -&gt; ResetImageAttributeName -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681144453"><span id="local-6989586621681144455"><span class="annot"><span class="annottext">Int -&gt; ResetImageAttributeName -&gt; Int
 ResetImageAttributeName -&gt; Int
 (Int -&gt; ResetImageAttributeName -&gt; Int)
 -&gt; (ResetImageAttributeName -&gt; Int)
@@ -153,54 +153,54 @@ $chash :: ResetImageAttributeName -&gt; Int
 hashWithSalt :: Int -&gt; ResetImageAttributeName -&gt; Int
 $chashWithSalt :: Int -&gt; ResetImageAttributeName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681144441"><span class="annot"><span class="annottext">ResetImageAttributeName -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681144450"><span class="annot"><span class="annottext">ResetImageAttributeName -&gt; ()
 (ResetImageAttributeName -&gt; ()) -&gt; NFData ResetImageAttributeName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ResetImageAttributeName -&gt; ()
 $crnf :: ResetImageAttributeName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681144438"><span class="annot"><span class="annottext">Text -&gt; Either String ResetImageAttributeName
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681144447"><span class="annot"><span class="annottext">Text -&gt; Either String ResetImageAttributeName
 (Text -&gt; Either String ResetImageAttributeName)
 -&gt; FromText ResetImageAttributeName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ResetImageAttributeName
 $cfromText :: Text -&gt; Either String ResetImageAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681144435"><span class="annot"><span class="annottext">ResetImageAttributeName -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681144444"><span class="annot"><span class="annottext">ResetImageAttributeName -&gt; Text
 (ResetImageAttributeName -&gt; Text) -&gt; ToText ResetImageAttributeName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ResetImageAttributeName -&gt; Text
 $ctoText :: ResetImageAttributeName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681144432"><span class="annot"><span class="annottext">ResetImageAttributeName -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681144441"><span class="annot"><span class="annottext">ResetImageAttributeName -&gt; ByteString
 (ResetImageAttributeName -&gt; ByteString)
 -&gt; ToByteString ResetImageAttributeName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ResetImageAttributeName -&gt; ByteString
 $ctoBS :: ResetImageAttributeName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681144429"><span class="annot"><span class="annottext">ResetImageAttributeName -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681144438"><span class="annot"><span class="annottext">ResetImageAttributeName -&gt; ByteStringBuilder
 (ResetImageAttributeName -&gt; ByteStringBuilder)
 -&gt; ToLog ResetImageAttributeName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ResetImageAttributeName -&gt; ByteStringBuilder
 $cbuild :: ResetImageAttributeName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681144426"><span class="annot"><span class="annottext">HeaderName -&gt; ResetImageAttributeName -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681144435"><span class="annot"><span class="annottext">HeaderName -&gt; ResetImageAttributeName -&gt; [Header]
 (HeaderName -&gt; ResetImageAttributeName -&gt; [Header])
 -&gt; ToHeader ResetImageAttributeName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ResetImageAttributeName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ResetImageAttributeName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681144423"><span class="annot"><span class="annottext">ResetImageAttributeName -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681144432"><span class="annot"><span class="annottext">ResetImageAttributeName -&gt; QueryString
 (ResetImageAttributeName -&gt; QueryString)
 -&gt; ToQuery ResetImageAttributeName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ResetImageAttributeName -&gt; QueryString
 $ctoQuery :: ResetImageAttributeName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681144418"><span id="local-6989586621681144420"><span class="annot"><span class="annottext">Value -&gt; Parser [ResetImageAttributeName]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681144427"><span id="local-6989586621681144429"><span class="annot"><span class="annottext">Value -&gt; Parser [ResetImageAttributeName]
 Value -&gt; Parser ResetImageAttributeName
 (Value -&gt; Parser ResetImageAttributeName)
 -&gt; (Value -&gt; Parser [ResetImageAttributeName])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [ResetImageAttributeName]
 parseJSON :: Value -&gt; Parser ResetImageAttributeName
 $cparseJSON :: Value -&gt; Parser ResetImageAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681144413"><span id="local-6989586621681144415"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResetImageAttributeName]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681144422"><span id="local-6989586621681144424"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResetImageAttributeName]
 FromJSONKeyFunction ResetImageAttributeName
 FromJSONKeyFunction ResetImageAttributeName
 -&gt; FromJSONKeyFunction [ResetImageAttributeName]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ResetImageAttributeName]
 fromJSONKey :: FromJSONKeyFunction ResetImageAttributeName
 $cfromJSONKey :: FromJSONKeyFunction ResetImageAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681144404"><span id="local-6989586621681144406"><span id="local-6989586621681144408"><span id="local-6989586621681144410"><span class="annot"><span class="annottext">[ResetImageAttributeName] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681144413"><span id="local-6989586621681144415"><span id="local-6989586621681144417"><span id="local-6989586621681144419"><span class="annot"><span class="annottext">[ResetImageAttributeName] -&gt; Encoding
 [ResetImageAttributeName] -&gt; Value
 ResetImageAttributeName -&gt; Encoding
 ResetImageAttributeName -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: ResetImageAttributeName -&gt; Encoding
 toJSON :: ResetImageAttributeName -&gt; Value
 $ctoJSON :: ResetImageAttributeName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681144399"><span id="local-6989586621681144401"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResetImageAttributeName]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681144408"><span id="local-6989586621681144410"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResetImageAttributeName]
 ToJSONKeyFunction ResetImageAttributeName
 ToJSONKeyFunction ResetImageAttributeName
 -&gt; ToJSONKeyFunction [ResetImageAttributeName]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ResetImageAttributeName]
 toJSONKey :: ToJSONKeyFunction ResetImageAttributeName
 $ctoJSONKey :: ToJSONKeyFunction ResetImageAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681144396"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResetImageAttributeName
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681144405"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResetImageAttributeName
 ([Node] -&gt; Either String ResetImageAttributeName)
 -&gt; FromXML ResetImageAttributeName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ResetImageAttributeName
 $cparseXML :: [Node] -&gt; Either String ResetImageAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681144393"><span class="annot"><span class="annottext">ResetImageAttributeName -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681144402"><span class="annot"><span class="annottext">ResetImageAttributeName -&gt; XML
 (ResetImageAttributeName -&gt; XML) -&gt; ToXML ResetImageAttributeName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ResetImageAttributeName -&gt; XML

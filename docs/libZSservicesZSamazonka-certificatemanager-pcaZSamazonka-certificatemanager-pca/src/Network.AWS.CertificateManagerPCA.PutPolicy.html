@@ -74,7 +74,7 @@
 </span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | /See:/ 'newPutPolicy' smart constructor.</span><span>
-</span><span id="line-77"></span><span id="local-6989586621679214347"><span id="local-6989586621679214348"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutPolicy"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-var">PutPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutPolicy%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-var">PutPolicy'</span></a></span></span><span>
+</span><span id="line-77"></span><span id="local-6989586621679214356"><span id="local-6989586621679214357"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutPolicy"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-var">PutPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutPolicy%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-var">PutPolicy'</span></a></span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the private CA to associate with the</span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-comment">-- policy. The ARN of the CA can be found by calling the</span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities&gt;</span><span>
@@ -90,7 +90,7 @@
 </span><span id="line-89"></span><span>    </span><span id="%24sel%3Apolicy%3APutPolicy%27"><span class="annot"><span class="annottext">PutPolicy -&gt; Text
 </span><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#%24sel%3Apolicy%3APutPolicy%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214340"><span id="local-6989586621679214342"><span class="annot"><span class="annottext">PutPolicy -&gt; PutPolicy -&gt; Bool
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214349"><span id="local-6989586621679214351"><span class="annot"><span class="annottext">PutPolicy -&gt; PutPolicy -&gt; Bool
 (PutPolicy -&gt; PutPolicy -&gt; Bool)
 -&gt; (PutPolicy -&gt; PutPolicy -&gt; Bool) -&gt; Eq PutPolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -98,7 +98,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutPolicy -&gt; PutPolicy -&gt; Bool
 == :: PutPolicy -&gt; PutPolicy -&gt; Bool
 $c== :: PutPolicy -&gt; PutPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214331"><span id="local-6989586621679214333"><span id="local-6989586621679214335"><span id="local-6989586621679214337"><span class="annot"><span class="annottext">ReadPrec [PutPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214340"><span id="local-6989586621679214342"><span id="local-6989586621679214344"><span id="local-6989586621679214346"><span class="annot"><span class="annottext">ReadPrec [PutPolicy]
 ReadPrec PutPolicy
 Int -&gt; ReadS PutPolicy
 ReadS [PutPolicy]
@@ -118,7 +118,7 @@ readList :: ReadS [PutPolicy]
 $creadList :: ReadS [PutPolicy]
 readsPrec :: Int -&gt; ReadS PutPolicy
 $creadsPrec :: Int -&gt; ReadS PutPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214324"><span id="local-6989586621679214326"><span id="local-6989586621679214328"><span class="annot"><span class="annottext">Int -&gt; PutPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214333"><span id="local-6989586621679214335"><span id="local-6989586621679214337"><span class="annot"><span class="annottext">Int -&gt; PutPolicy -&gt; ShowS
 [PutPolicy] -&gt; ShowS
 PutPolicy -&gt; String
 (Int -&gt; PutPolicy -&gt; ShowS)
@@ -169,17 +169,17 @@ $cfrom :: forall x. PutPolicy -&gt; Rep PutPolicy x
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span>
 </span><span id="line-118"></span><span id="newPutPolicy"><span class="annot"><span class="annottext">newPutPolicy :: Text -&gt; Text -&gt; PutPolicy
-</span><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#newPutPolicy"><span class="hs-identifier hs-var hs-var">newPutPolicy</span></a></span></span><span> </span><span id="local-6989586621679214319"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214319"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span id="local-6989586621679214318"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214318"><span class="hs-identifier hs-var">pPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#newPutPolicy"><span class="hs-identifier hs-var hs-var">newPutPolicy</span></a></span></span><span> </span><span id="local-6989586621679214328"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214328"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span id="local-6989586621679214327"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214327"><span class="hs-identifier hs-var">pPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>  </span><span class="annot"><span class="annottext">PutPolicy' :: Text -&gt; Text -&gt; PutPolicy
 </span><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceArn:PutPolicy' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#%24sel%3AresourceArn%3APutPolicy%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214319"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679214328"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:policy:PutPolicy' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#%24sel%3Apolicy%3APutPolicy%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214318"><span class="hs-identifier hs-var">pPolicy_</span></a></span><span>
+</span><a href="#local-6989586621679214327"><span class="hs-identifier hs-var">pPolicy_</span></a></span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the private CA to associate with the</span><span>
@@ -192,16 +192,16 @@ $cfrom :: forall x. PutPolicy -&gt; Rep PutPolicy x
 -&gt; (PutPolicy -&gt; Text -&gt; PutPolicy)
 -&gt; Lens PutPolicy PutPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214315"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214324"><span class="annot"><span class="annottext">Text
 resourceArn :: Text
 $sel:resourceArn:PutPolicy' :: PutPolicy -&gt; Text
-</span><a href="#local-6989586621679214315"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214315"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214314"><span class="annot"><span class="annottext">s :: PutPolicy
-</span><a href="#local-6989586621679214314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214313"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPolicy
-</span><a href="#local-6989586621679214314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:PutPolicy' :: Text
+</span><a href="#local-6989586621679214324"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214324"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214323"><span class="annot"><span class="annottext">s :: PutPolicy
+</span><a href="#local-6989586621679214323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214322"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPolicy
+</span><a href="#local-6989586621679214323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:PutPolicy' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#%24sel%3AresourceArn%3APutPolicy%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | The path and file name of a JSON-formatted IAM policy to attach to the</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- specified private CA resource. If this policy does not contain all</span><span>
@@ -215,25 +215,25 @@ $sel:resourceArn:PutPolicy' :: PutPolicy -&gt; Text
 -&gt; (PutPolicy -&gt; Text -&gt; PutPolicy)
 -&gt; Lens PutPolicy PutPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214312"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214321"><span class="annot"><span class="annottext">Text
 policy :: Text
 $sel:policy:PutPolicy' :: PutPolicy -&gt; Text
-</span><a href="#local-6989586621679214312"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214312"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214311"><span class="annot"><span class="annottext">s :: PutPolicy
-</span><a href="#local-6989586621679214311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214310"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPolicy
-</span><a href="#local-6989586621679214311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:PutPolicy' :: Text
+</span><a href="#local-6989586621679214321"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214321"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214320"><span class="annot"><span class="annottext">s :: PutPolicy
+</span><a href="#local-6989586621679214320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214319"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPolicy
+</span><a href="#local-6989586621679214320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:PutPolicy' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#%24sel%3Apolicy%3APutPolicy%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicyResponse"><span class="hs-identifier hs-type">PutPolicyResponse</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679214306"><span class="annot"><span class="annottext">request :: PutPolicy -&gt; Request PutPolicy
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679214315"><span class="annot"><span class="annottext">request :: PutPolicy -&gt; Request PutPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutPolicy -&gt; Request PutPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CertificateManagerPCA.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679214302"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679214311"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutPolicy
 -&gt; ClientResponse ClientBody
@@ -256,12 +256,12 @@ AWSResponse a
 PutPolicyResponse
 </span><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicyResponse%27"><span class="hs-identifier hs-var">PutPolicyResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214295"><span id="local-6989586621679214297"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214304"><span id="local-6989586621679214306"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214292"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214301"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679214288"><span class="annot"><span class="annottext">toHeaders :: PutPolicy -&gt; [Header]
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679214297"><span class="annot"><span class="annottext">toHeaders :: PutPolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; PutPolicy -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -286,14 +286,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214278"><span id="local-6989586621679214280"><span id="local-6989586621679214282"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679214276"><span class="annot"><span class="annottext">toJSON :: PutPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214273"><span id="local-6989586621679214274"><span class="annot"><span class="annottext">Text
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214287"><span id="local-6989586621679214289"><span id="local-6989586621679214291"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679214285"><span class="annot"><span class="annottext">toJSON :: PutPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy%27"><span class="hs-identifier hs-type">PutPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214282"><span id="local-6989586621679214283"><span class="annot"><span class="annottext">Text
 policy :: Text
 resourceArn :: Text
 $sel:policy:PutPolicy' :: PutPolicy -&gt; Text
 $sel:resourceArn:PutPolicy' :: PutPolicy -&gt; Text
-</span><a href="#local-6989586621679214273"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679214282"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -305,26 +305,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214274"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679214283"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Policy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214273"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214282"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679214267"><span class="annot"><span class="annottext">toPath :: PutPolicy -&gt; ByteString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679214276"><span class="annot"><span class="annottext">toPath :: PutPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicy"><span class="hs-identifier hs-type">PutPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679214263"><span class="annot"><span class="annottext">toQuery :: PutPolicy -&gt; QueryString
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679214272"><span class="annot"><span class="annottext">toQuery :: PutPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -332,10 +332,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | /See:/ 'newPutPolicyResponse' smart constructor.</span><span>
-</span><span id="line-178"></span><span id="local-6989586621679214260"><span id="local-6989586621679214261"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutPolicyResponse"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicyResponse"><span class="hs-identifier hs-var">PutPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutPolicyResponse%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicyResponse%27"><span class="hs-identifier hs-var">PutPolicyResponse'</span></a></span></span><span>
+</span><span id="line-178"></span><span id="local-6989586621679214269"><span id="local-6989586621679214270"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutPolicyResponse"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicyResponse"><span class="hs-identifier hs-var">PutPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutPolicyResponse%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicyResponse%27"><span class="hs-identifier hs-var">PutPolicyResponse'</span></a></span></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214256"><span id="local-6989586621679214258"><span class="annot"><span class="annottext">PutPolicyResponse -&gt; PutPolicyResponse -&gt; Bool
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214265"><span id="local-6989586621679214267"><span class="annot"><span class="annottext">PutPolicyResponse -&gt; PutPolicyResponse -&gt; Bool
 (PutPolicyResponse -&gt; PutPolicyResponse -&gt; Bool)
 -&gt; (PutPolicyResponse -&gt; PutPolicyResponse -&gt; Bool)
 -&gt; Eq PutPolicyResponse
@@ -344,7 +344,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutPolicyResponse -&gt; PutPolicyResponse -&gt; Bool
 == :: PutPolicyResponse -&gt; PutPolicyResponse -&gt; Bool
 $c== :: PutPolicyResponse -&gt; PutPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214248"><span id="local-6989586621679214250"><span id="local-6989586621679214252"><span id="local-6989586621679214254"><span class="annot"><span class="annottext">ReadPrec [PutPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214257"><span id="local-6989586621679214259"><span id="local-6989586621679214261"><span id="local-6989586621679214263"><span class="annot"><span class="annottext">ReadPrec [PutPolicyResponse]
 ReadPrec PutPolicyResponse
 Int -&gt; ReadS PutPolicyResponse
 ReadS [PutPolicyResponse]
@@ -364,7 +364,7 @@ readList :: ReadS [PutPolicyResponse]
 $creadList :: ReadS [PutPolicyResponse]
 readsPrec :: Int -&gt; ReadS PutPolicyResponse
 $creadsPrec :: Int -&gt; ReadS PutPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214242"><span id="local-6989586621679214244"><span id="local-6989586621679214246"><span class="annot"><span class="annottext">Int -&gt; PutPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214251"><span id="local-6989586621679214253"><span id="local-6989586621679214255"><span class="annot"><span class="annottext">Int -&gt; PutPolicyResponse -&gt; ShowS
 [PutPolicyResponse] -&gt; ShowS
 PutPolicyResponse -&gt; String
 (Int -&gt; PutPolicyResponse -&gt; ShowS)
@@ -400,5 +400,5 @@ $cfrom :: forall x. PutPolicyResponse -&gt; Rep PutPolicyResponse x
 </span><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#newPutPolicyResponse"><span class="hs-identifier hs-var hs-var">newPutPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutPolicyResponse
 </span><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicyResponse%27"><span class="hs-identifier hs-var">PutPolicyResponse'</span></a></span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214238"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicyResponse"><span class="hs-identifier hs-type">PutPolicyResponse</span></a></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214247"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.PutPolicy.html#PutPolicyResponse"><span class="hs-identifier hs-type">PutPolicyResponse</span></a></span></span><span>
 </span><span id="line-192"></span></pre></body></html>

@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- requests that CloudFront sends to the origin.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newCachePolicyHeadersConfig' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679392519"><span id="local-6989586621679392520"></span></span><span class="hs-keyword">data</span><span> </span><span id="CachePolicyHeadersConfig"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig"><span class="hs-identifier hs-var">CachePolicyHeadersConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CachePolicyHeadersConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig%27"><span class="hs-identifier hs-var">CachePolicyHeadersConfig'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679392528"><span id="local-6989586621679392529"></span></span><span class="hs-keyword">data</span><span> </span><span id="CachePolicyHeadersConfig"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig"><span class="hs-identifier hs-var">CachePolicyHeadersConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CachePolicyHeadersConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig%27"><span class="hs-identifier hs-var">CachePolicyHeadersConfig'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Aheaders%3ACachePolicyHeadersConfig%27"><span class="annot"><span class="annottext">CachePolicyHeadersConfig -&gt; Maybe Headers
 </span><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#%24sel%3Aheaders%3ACachePolicyHeadersConfig%27"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers"><span class="hs-identifier hs-type">Headers</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Determines whether any HTTP headers are included in the cache key and</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AheaderBehavior%3ACachePolicyHeadersConfig%27"><span class="annot"><span class="annottext">CachePolicyHeadersConfig -&gt; CachePolicyHeaderBehavior
 </span><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#%24sel%3AheaderBehavior%3ACachePolicyHeadersConfig%27"><span class="hs-identifier hs-var hs-var">headerBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeaderBehavior.html#CachePolicyHeaderBehavior"><span class="hs-identifier hs-type">CachePolicyHeaderBehavior</span></a></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392512"><span id="local-6989586621679392514"><span class="annot"><span class="annottext">CachePolicyHeadersConfig -&gt; CachePolicyHeadersConfig -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392521"><span id="local-6989586621679392523"><span class="annot"><span class="annottext">CachePolicyHeadersConfig -&gt; CachePolicyHeadersConfig -&gt; Bool
 (CachePolicyHeadersConfig -&gt; CachePolicyHeadersConfig -&gt; Bool)
 -&gt; (CachePolicyHeadersConfig -&gt; CachePolicyHeadersConfig -&gt; Bool)
 -&gt; Eq CachePolicyHeadersConfig
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CachePolicyHeadersConfig -&gt; CachePolicyHeadersConfig -&gt; Bool
 == :: CachePolicyHeadersConfig -&gt; CachePolicyHeadersConfig -&gt; Bool
 $c== :: CachePolicyHeadersConfig -&gt; CachePolicyHeadersConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392503"><span id="local-6989586621679392505"><span id="local-6989586621679392507"><span id="local-6989586621679392509"><span class="annot"><span class="annottext">ReadPrec [CachePolicyHeadersConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392512"><span id="local-6989586621679392514"><span id="local-6989586621679392516"><span id="local-6989586621679392518"><span class="annot"><span class="annottext">ReadPrec [CachePolicyHeadersConfig]
 ReadPrec CachePolicyHeadersConfig
 Int -&gt; ReadS CachePolicyHeadersConfig
 ReadS [CachePolicyHeadersConfig]
@@ -78,7 +78,7 @@ readList :: ReadS [CachePolicyHeadersConfig]
 $creadList :: ReadS [CachePolicyHeadersConfig]
 readsPrec :: Int -&gt; ReadS CachePolicyHeadersConfig
 $creadsPrec :: Int -&gt; ReadS CachePolicyHeadersConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392496"><span id="local-6989586621679392498"><span id="local-6989586621679392500"><span class="annot"><span class="annottext">Int -&gt; CachePolicyHeadersConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392505"><span id="local-6989586621679392507"><span id="local-6989586621679392509"><span class="annot"><span class="annottext">Int -&gt; CachePolicyHeadersConfig -&gt; ShowS
 [CachePolicyHeadersConfig] -&gt; ShowS
 CachePolicyHeadersConfig -&gt; String
 (Int -&gt; CachePolicyHeadersConfig -&gt; ShowS)
@@ -138,8 +138,8 @@ CachePolicyHeadersConfig -&gt; Rep CachePolicyHeadersConfig x
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeaderBehavior.html#CachePolicyHeaderBehavior"><span class="hs-identifier hs-type">CachePolicyHeaderBehavior</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig"><span class="hs-identifier hs-type">CachePolicyHeadersConfig</span></a></span><span>
 </span><span id="line-79"></span><span id="newCachePolicyHeadersConfig"><span class="annot"><span class="annottext">newCachePolicyHeadersConfig :: CachePolicyHeaderBehavior -&gt; CachePolicyHeadersConfig
-</span><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#newCachePolicyHeadersConfig"><span class="hs-identifier hs-var hs-var">newCachePolicyHeadersConfig</span></a></span></span><span> </span><span id="local-6989586621679392490"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior
-</span><a href="#local-6989586621679392490"><span class="hs-identifier hs-var">pHeaderBehavior_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#newCachePolicyHeadersConfig"><span class="hs-identifier hs-var hs-var">newCachePolicyHeadersConfig</span></a></span></span><span> </span><span id="local-6989586621679392499"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior
+</span><a href="#local-6989586621679392499"><span class="hs-identifier hs-var">pHeaderBehavior_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">CachePolicyHeadersConfig' :: Maybe Headers
 -&gt; CachePolicyHeaderBehavior -&gt; CachePolicyHeadersConfig
 </span><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig%27"><span class="hs-identifier hs-type">CachePolicyHeadersConfig'</span></a></span><span>
@@ -150,7 +150,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:headerBehavior:CachePolicyHeadersConfig' :: CachePolicyHeaderBehavior
 </span><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#%24sel%3AheaderBehavior%3ACachePolicyHeadersConfig%27"><span class="hs-identifier hs-var">headerBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CachePolicyHeaderBehavior
-</span><a href="#local-6989586621679392490"><span class="hs-identifier hs-var">pHeaderBehavior_</span></a></span><span>
+</span><a href="#local-6989586621679392499"><span class="hs-identifier hs-var">pHeaderBehavior_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -166,16 +166,16 @@ forall a. Maybe a
      (Maybe Headers)
      (Maybe Headers)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig%27"><span class="hs-identifier hs-type">CachePolicyHeadersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392486"><span class="annot"><span class="annottext">Maybe Headers
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig%27"><span class="hs-identifier hs-type">CachePolicyHeadersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392495"><span class="annot"><span class="annottext">Maybe Headers
 headers :: Maybe Headers
 $sel:headers:CachePolicyHeadersConfig' :: CachePolicyHeadersConfig -&gt; Maybe Headers
-</span><a href="#local-6989586621679392486"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Headers
-</span><a href="#local-6989586621679392486"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392485"><span class="annot"><span class="annottext">s :: CachePolicyHeadersConfig
-</span><a href="#local-6989586621679392485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig%27"><span class="hs-identifier hs-type">CachePolicyHeadersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392484"><span class="annot"><span class="annottext">Maybe Headers
-</span><a href="#local-6989586621679392484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyHeadersConfig
-</span><a href="#local-6989586621679392485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headers:CachePolicyHeadersConfig' :: Maybe Headers
+</span><a href="#local-6989586621679392495"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Headers
+</span><a href="#local-6989586621679392495"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392494"><span class="annot"><span class="annottext">s :: CachePolicyHeadersConfig
+</span><a href="#local-6989586621679392494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig%27"><span class="hs-identifier hs-type">CachePolicyHeadersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392493"><span class="annot"><span class="annottext">Maybe Headers
+</span><a href="#local-6989586621679392493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyHeadersConfig
+</span><a href="#local-6989586621679392494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headers:CachePolicyHeadersConfig' :: Maybe Headers
 </span><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#%24sel%3Aheaders%3ACachePolicyHeadersConfig%27"><span class="hs-identifier hs-var">headers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Headers
-</span><a href="#local-6989586621679392484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig"><span class="hs-identifier hs-type">CachePolicyHeadersConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig"><span class="hs-identifier hs-type">CachePolicyHeadersConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | Determines whether any HTTP headers are included in the cache key and</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- automatically included in requests that CloudFront sends to the origin.</span><span>
@@ -202,21 +202,21 @@ $sel:headers:CachePolicyHeadersConfig' :: CachePolicyHeadersConfig -&gt; Maybe H
      CachePolicyHeaderBehavior
      CachePolicyHeaderBehavior
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig%27"><span class="hs-identifier hs-type">CachePolicyHeadersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392482"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig%27"><span class="hs-identifier hs-type">CachePolicyHeadersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392491"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior
 headerBehavior :: CachePolicyHeaderBehavior
 $sel:headerBehavior:CachePolicyHeadersConfig' :: CachePolicyHeadersConfig -&gt; CachePolicyHeaderBehavior
-</span><a href="#local-6989586621679392482"><span class="hs-identifier hs-var hs-var">headerBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyHeaderBehavior
-</span><a href="#local-6989586621679392482"><span class="hs-identifier hs-var">headerBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392481"><span class="annot"><span class="annottext">s :: CachePolicyHeadersConfig
-</span><a href="#local-6989586621679392481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig%27"><span class="hs-identifier hs-type">CachePolicyHeadersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392480"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior
-</span><a href="#local-6989586621679392480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyHeadersConfig
-</span><a href="#local-6989586621679392481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headerBehavior:CachePolicyHeadersConfig' :: CachePolicyHeaderBehavior
+</span><a href="#local-6989586621679392491"><span class="hs-identifier hs-var hs-var">headerBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyHeaderBehavior
+</span><a href="#local-6989586621679392491"><span class="hs-identifier hs-var">headerBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392490"><span class="annot"><span class="annottext">s :: CachePolicyHeadersConfig
+</span><a href="#local-6989586621679392490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig%27"><span class="hs-identifier hs-type">CachePolicyHeadersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392489"><span class="annot"><span class="annottext">CachePolicyHeaderBehavior
+</span><a href="#local-6989586621679392489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyHeadersConfig
+</span><a href="#local-6989586621679392490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headerBehavior:CachePolicyHeadersConfig' :: CachePolicyHeaderBehavior
 </span><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#%24sel%3AheaderBehavior%3ACachePolicyHeadersConfig%27"><span class="hs-identifier hs-var">headerBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CachePolicyHeaderBehavior
-</span><a href="#local-6989586621679392480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig"><span class="hs-identifier hs-type">CachePolicyHeadersConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig"><span class="hs-identifier hs-type">CachePolicyHeadersConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig"><span class="hs-identifier hs-type">CachePolicyHeadersConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679392477"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CachePolicyHeadersConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679392475"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679392475"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679392486"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CachePolicyHeadersConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679392484"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679392484"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">Maybe Headers
 -&gt; CachePolicyHeaderBehavior -&gt; CachePolicyHeadersConfig
 </span><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig%27"><span class="hs-identifier hs-var">CachePolicyHeadersConfig'</span></a></span><span>
@@ -227,7 +227,7 @@ $sel:headerBehavior:CachePolicyHeadersConfig' :: CachePolicyHeadersConfig -&gt; 
      String (CachePolicyHeaderBehavior -&gt; CachePolicyHeadersConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679392475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Headers)
+</span><a href="#local-6989586621679392484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Headers)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Headers&quot;</span></span><span class="hs-special">)</span><span>
@@ -237,24 +237,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String CachePolicyHeadersConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679392475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String CachePolicyHeaderBehavior
+</span><a href="#local-6989586621679392484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String CachePolicyHeaderBehavior
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HeaderBehavior&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392468"><span id="local-6989586621679392470"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig"><span class="hs-identifier hs-type">CachePolicyHeadersConfig</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392477"><span id="local-6989586621679392479"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig"><span class="hs-identifier hs-type">CachePolicyHeadersConfig</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig"><span class="hs-identifier hs-type">CachePolicyHeadersConfig</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392474"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig"><span class="hs-identifier hs-type">CachePolicyHeadersConfig</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig"><span class="hs-identifier hs-type">CachePolicyHeadersConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679392461"><span class="annot"><span class="annottext">toXML :: CachePolicyHeadersConfig -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig%27"><span class="hs-identifier hs-type">CachePolicyHeadersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392458"><span id="local-6989586621679392459"><span class="annot"><span class="annottext">Maybe Headers
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679392470"><span class="annot"><span class="annottext">toXML :: CachePolicyHeadersConfig -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig%27"><span class="hs-identifier hs-type">CachePolicyHeadersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392467"><span id="local-6989586621679392468"><span class="annot"><span class="annottext">Maybe Headers
 CachePolicyHeaderBehavior
 headerBehavior :: CachePolicyHeaderBehavior
 headers :: Maybe Headers
 $sel:headerBehavior:CachePolicyHeadersConfig' :: CachePolicyHeadersConfig -&gt; CachePolicyHeaderBehavior
 $sel:headers:CachePolicyHeadersConfig' :: CachePolicyHeadersConfig -&gt; Maybe Headers
-</span><a href="#local-6989586621679392458"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679392467"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -262,11 +262,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Headers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Headers -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Headers
-</span><a href="#local-6989586621679392459"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679392468"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;HeaderBehavior&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; CachePolicyHeaderBehavior -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">CachePolicyHeaderBehavior
-</span><a href="#local-6989586621679392458"><span class="hs-identifier hs-var">headerBehavior</span></a></span><span>
+</span><a href="#local-6989586621679392467"><span class="hs-identifier hs-var">headerBehavior</span></a></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span></pre></body></html>

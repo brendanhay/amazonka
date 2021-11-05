@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the memory for the instance type.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMemoryInfo' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681127202"><span id="local-6989586621681127203"></span></span><span class="hs-keyword">data</span><span> </span><span id="MemoryInfo"><span class="annot"><a href="Network.AWS.EC2.Types.MemoryInfo.html#MemoryInfo"><span class="hs-identifier hs-var">MemoryInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MemoryInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.MemoryInfo.html#MemoryInfo%27"><span class="hs-identifier hs-var">MemoryInfo'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681127211"><span id="local-6989586621681127212"></span></span><span class="hs-keyword">data</span><span> </span><span id="MemoryInfo"><span class="annot"><a href="Network.AWS.EC2.Types.MemoryInfo.html#MemoryInfo"><span class="hs-identifier hs-var">MemoryInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MemoryInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.MemoryInfo.html#MemoryInfo%27"><span class="hs-identifier hs-var">MemoryInfo'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The size of the memory, in MiB.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AsizeInMiB%3AMemoryInfo%27"><span class="annot"><span class="annottext">MemoryInfo -&gt; Maybe Integer
 </span><a href="Network.AWS.EC2.Types.MemoryInfo.html#%24sel%3AsizeInMiB%3AMemoryInfo%27"><span class="hs-identifier hs-var hs-var">sizeInMiB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681127196"><span id="local-6989586621681127198"><span class="annot"><span class="annottext">MemoryInfo -&gt; MemoryInfo -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681127205"><span id="local-6989586621681127207"><span class="annot"><span class="annottext">MemoryInfo -&gt; MemoryInfo -&gt; Bool
 (MemoryInfo -&gt; MemoryInfo -&gt; Bool)
 -&gt; (MemoryInfo -&gt; MemoryInfo -&gt; Bool) -&gt; Eq MemoryInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MemoryInfo -&gt; MemoryInfo -&gt; Bool
 == :: MemoryInfo -&gt; MemoryInfo -&gt; Bool
 $c== :: MemoryInfo -&gt; MemoryInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681127187"><span id="local-6989586621681127189"><span id="local-6989586621681127191"><span id="local-6989586621681127193"><span class="annot"><span class="annottext">ReadPrec [MemoryInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681127196"><span id="local-6989586621681127198"><span id="local-6989586621681127200"><span id="local-6989586621681127202"><span class="annot"><span class="annottext">ReadPrec [MemoryInfo]
 ReadPrec MemoryInfo
 Int -&gt; ReadS MemoryInfo
 ReadS [MemoryInfo]
@@ -60,7 +60,7 @@ readList :: ReadS [MemoryInfo]
 $creadList :: ReadS [MemoryInfo]
 readsPrec :: Int -&gt; ReadS MemoryInfo
 $creadsPrec :: Int -&gt; ReadS MemoryInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681127180"><span id="local-6989586621681127182"><span id="local-6989586621681127184"><span class="annot"><span class="annottext">Int -&gt; MemoryInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681127189"><span id="local-6989586621681127191"><span id="local-6989586621681127193"><span class="annot"><span class="annottext">Int -&gt; MemoryInfo -&gt; ShowS
 [MemoryInfo] -&gt; ShowS
 MemoryInfo -&gt; String
 (Int -&gt; MemoryInfo -&gt; ShowS)
@@ -111,32 +111,32 @@ forall a. Maybe a
 -&gt; (MemoryInfo -&gt; Maybe Integer -&gt; MemoryInfo)
 -&gt; Lens MemoryInfo MemoryInfo (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.MemoryInfo.html#MemoryInfo%27"><span class="hs-identifier hs-type">MemoryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681127171"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.MemoryInfo.html#MemoryInfo%27"><span class="hs-identifier hs-type">MemoryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681127180"><span class="annot"><span class="annottext">Maybe Integer
 sizeInMiB :: Maybe Integer
 $sel:sizeInMiB:MemoryInfo' :: MemoryInfo -&gt; Maybe Integer
-</span><a href="#local-6989586621681127171"><span class="hs-identifier hs-var hs-var">sizeInMiB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681127171"><span class="hs-identifier hs-var">sizeInMiB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681127170"><span class="annot"><span class="annottext">s :: MemoryInfo
-</span><a href="#local-6989586621681127170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.MemoryInfo.html#MemoryInfo%27"><span class="hs-identifier hs-type">MemoryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681127169"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681127169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MemoryInfo
-</span><a href="#local-6989586621681127170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeInMiB:MemoryInfo' :: Maybe Integer
+</span><a href="#local-6989586621681127180"><span class="hs-identifier hs-var hs-var">sizeInMiB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681127180"><span class="hs-identifier hs-var">sizeInMiB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681127179"><span class="annot"><span class="annottext">s :: MemoryInfo
+</span><a href="#local-6989586621681127179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.MemoryInfo.html#MemoryInfo%27"><span class="hs-identifier hs-type">MemoryInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681127178"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681127178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MemoryInfo
+</span><a href="#local-6989586621681127179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeInMiB:MemoryInfo' :: Maybe Integer
 </span><a href="Network.AWS.EC2.Types.MemoryInfo.html#%24sel%3AsizeInMiB%3AMemoryInfo%27"><span class="hs-identifier hs-var">sizeInMiB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681127169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.MemoryInfo.html#MemoryInfo"><span class="hs-identifier hs-type">MemoryInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681127178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.MemoryInfo.html#MemoryInfo"><span class="hs-identifier hs-type">MemoryInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.MemoryInfo.html#MemoryInfo"><span class="hs-identifier hs-type">MemoryInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621681127166"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MemoryInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681127164"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681127164"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621681127175"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MemoryInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681127173"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681127173"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">Maybe Integer -&gt; MemoryInfo
 </span><a href="Network.AWS.EC2.Types.MemoryInfo.html#MemoryInfo%27"><span class="hs-identifier hs-var">MemoryInfo'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Integer -&gt; MemoryInfo)
 -&gt; Either String (Maybe Integer) -&gt; Either String MemoryInfo
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681127164"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621681127173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sizeInMiB&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681127158"><span id="local-6989586621681127160"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.MemoryInfo.html#MemoryInfo"><span class="hs-identifier hs-type">MemoryInfo</span></a></span></span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681127167"><span id="local-6989586621681127169"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.MemoryInfo.html#MemoryInfo"><span class="hs-identifier hs-type">MemoryInfo</span></a></span></span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681127155"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.MemoryInfo.html#MemoryInfo"><span class="hs-identifier hs-type">MemoryInfo</span></a></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681127164"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.MemoryInfo.html#MemoryInfo"><span class="hs-identifier hs-type">MemoryInfo</span></a></span></span><span>
 </span><span id="line-61"></span></pre></body></html>

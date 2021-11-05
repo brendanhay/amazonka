@@ -1,0 +1,964 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppRunner.Types.Service</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppRunner.Types.Service</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary.html"><span class="hs-identifier">Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.EncryptionConfiguration.html"><span class="hs-identifier">Network.AWS.AppRunner.Types.EncryptionConfiguration</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.HealthCheckConfiguration.html"><span class="hs-identifier">Network.AWS.AppRunner.Types.HealthCheckConfiguration</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.InstanceConfiguration.html"><span class="hs-identifier">Network.AWS.AppRunner.Types.InstanceConfiguration</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.ServiceStatus.html"><span class="hs-identifier">Network.AWS.AppRunner.Types.ServiceStatus</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.SourceConfiguration.html"><span class="hs-identifier">Network.AWS.AppRunner.Types.SourceConfiguration</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Describes an App Runner service. It can describe a service in any state,</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- including deleted services.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- This type contains the full information about a service, including</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- configuration details. It\'s returned by the</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apprunner/latest/api/API_CreateService.html CreateService&gt;,</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeService.html DescribeService&gt;,</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apprunner/latest/api/API_DeleteService.html DeleteService&gt;</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- actions. A subset of this information is returned by the</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apprunner/latest/api/API_ListServices.html ListServices&gt;</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- action using the</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apprunner/latest/api/API_ServiceSummary.html ServiceSummary&gt;</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- /See:/ 'newService' smart constructor.</span><span>
+</span><span id="line-48"></span><span id="local-6989586621679207188"><span id="local-6989586621679207189"></span></span><span class="hs-keyword">data</span><span> </span><span id="Service"><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-var">Service</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Service%27"><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-var">Service'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encryption key that App Runner uses to encrypt the service logs and</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- the copy of the source repository that App Runner maintains for the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- service. It can be either a customer-provided encryption key or an</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- Amazon Web Services managed CMK.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AencryptionConfiguration%3AService%27"><span class="annot"><span class="annottext">Service -&gt; Maybe EncryptionConfiguration
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AencryptionConfiguration%3AService%27"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The settings for the health check that App Runner performs to monitor</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- the health of this service.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AhealthCheckConfiguration%3AService%27"><span class="annot"><span class="annottext">Service -&gt; Maybe HealthCheckConfiguration
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AhealthCheckConfiguration%3AService%27"><span class="hs-identifier hs-var hs-var">healthCheckConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.HealthCheckConfiguration.html#HealthCheckConfiguration"><span class="hs-identifier hs-type">HealthCheckConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The time when the App Runner service was deleted. It\'s in the Unix time</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- stamp format.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdeletedAt%3AService%27"><span class="annot"><span class="annottext">Service -&gt; Maybe POSIX
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AdeletedAt%3AService%27"><span class="hs-identifier hs-var hs-var">deletedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The customer-provided service name.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AserviceName%3AService%27"><span class="annot"><span class="annottext">Service -&gt; Text
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AserviceName%3AService%27"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | An ID that App Runner generated for this service. It\'s unique within</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the Amazon Web Services Region.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AserviceId%3AService%27"><span class="annot"><span class="annottext">Service -&gt; Text
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AserviceId%3AService%27"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of this service.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AserviceArn%3AService%27"><span class="annot"><span class="annottext">Service -&gt; Text
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AserviceArn%3AService%27"><span class="hs-identifier hs-var hs-var">serviceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | A subdomain URL that App Runner generated for this service. You can use</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- this URL to access your service web application.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AserviceUrl%3AService%27"><span class="annot"><span class="annottext">Service -&gt; Text
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AserviceUrl%3AService%27"><span class="hs-identifier hs-var hs-var">serviceUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The time when the App Runner service was created. It\'s in the Unix time</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- stamp format.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AcreatedAt%3AService%27"><span class="annot"><span class="annottext">Service -&gt; POSIX
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AcreatedAt%3AService%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The time when the App Runner service was last updated at. It\'s in the</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- Unix time stamp format.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AupdatedAt%3AService%27"><span class="annot"><span class="annottext">Service -&gt; POSIX
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AupdatedAt%3AService%27"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The current state of the App Runner service. These particular values</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- mean the following.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   @CREATE_FAILED@ &#8211; The service failed to create. To troubleshoot this</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     failure, read the failure events and logs, change any parameters</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     that need to be fixed, and retry the call to create the service.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     The failed service isn\'t usable, and still counts towards your</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     service quota. When you\'re done analyzing the failure, delete the</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     service.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- -   @DELETE_FAILED@ &#8211; The service failed to delete and can\'t be</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--     successfully recovered. Retry the service deletion call to ensure</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--     that all related resources are removed.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3Astatus%3AService%27"><span class="annot"><span class="annottext">Service -&gt; ServiceStatus
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3Astatus%3AService%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The source deployed to the App Runner service. It can be a code or an</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- image repository.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AsourceConfiguration%3AService%27"><span class="annot"><span class="annottext">Service -&gt; SourceConfiguration
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AsourceConfiguration%3AService%27"><span class="hs-identifier hs-var hs-var">sourceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.SourceConfiguration.html#SourceConfiguration"><span class="hs-identifier hs-type">SourceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The runtime configuration of instances (scaling units) of this service.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AinstanceConfiguration%3AService%27"><span class="annot"><span class="annottext">Service -&gt; InstanceConfiguration
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AinstanceConfiguration%3AService%27"><span class="hs-identifier hs-var hs-var">instanceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.InstanceConfiguration.html#InstanceConfiguration"><span class="hs-identifier hs-type">InstanceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | Summary information for the App Runner automatic scaling configuration</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- resource that\'s associated with this service.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AautoScalingConfigurationSummary%3AService%27"><span class="annot"><span class="annottext">Service -&gt; AutoScalingConfigurationSummary
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AautoScalingConfigurationSummary%3AService%27"><span class="hs-identifier hs-var hs-var">autoScalingConfigurationSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary.html#AutoScalingConfigurationSummary"><span class="hs-identifier hs-type">AutoScalingConfigurationSummary</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207170"><span id="local-6989586621679207172"><span class="annot"><span class="annottext">Service -&gt; Service -&gt; Bool
+(Service -&gt; Service -&gt; Bool)
+-&gt; (Service -&gt; Service -&gt; Bool) -&gt; Eq Service
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Service -&gt; Service -&gt; Bool
+$c/= :: Service -&gt; Service -&gt; Bool
+== :: Service -&gt; Service -&gt; Bool
+$c== :: Service -&gt; Service -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207163"><span id="local-6989586621679207165"><span id="local-6989586621679207167"><span class="annot"><span class="annottext">Int -&gt; Service -&gt; ShowS
+[Service] -&gt; ShowS
+Service -&gt; String
+(Int -&gt; Service -&gt; ShowS)
+-&gt; (Service -&gt; String) -&gt; ([Service] -&gt; ShowS) -&gt; Show Service
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Service] -&gt; ShowS
+$cshowList :: [Service] -&gt; ShowS
+show :: Service -&gt; String
+$cshow :: Service -&gt; String
+showsPrec :: Int -&gt; Service -&gt; ShowS
+$cshowsPrec :: Int -&gt; Service -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Service -&gt; Rep Service x)
+-&gt; (forall x. Rep Service x -&gt; Service) -&gt; Generic Service
+forall x. Rep Service x -&gt; Service
+forall x. Service -&gt; Rep Service x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Service x -&gt; Service
+$cfrom :: forall x. Service -&gt; Rep Service x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Create a value of 'Service' with all optional fields omitted.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'encryptionConfiguration', 'service_encryptionConfiguration' - The encryption key that App Runner uses to encrypt the service logs and</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- the copy of the source repository that App Runner maintains for the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- service. It can be either a customer-provided encryption key or an</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Amazon Web Services managed CMK.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'healthCheckConfiguration', 'service_healthCheckConfiguration' - The settings for the health check that App Runner performs to monitor</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- the health of this service.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'deletedAt', 'service_deletedAt' - The time when the App Runner service was deleted. It\'s in the Unix time</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- stamp format.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'serviceName', 'service_serviceName' - The customer-provided service name.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'serviceId', 'service_serviceId' - An ID that App Runner generated for this service. It\'s unique within</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- the Amazon Web Services Region.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'serviceArn', 'service_serviceArn' - The Amazon Resource Name (ARN) of this service.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'serviceUrl', 'service_serviceUrl' - A subdomain URL that App Runner generated for this service. You can use</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- this URL to access your service web application.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'createdAt', 'service_createdAt' - The time when the App Runner service was created. It\'s in the Unix time</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- stamp format.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'updatedAt', 'service_updatedAt' - The time when the App Runner service was last updated at. It\'s in the</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Unix time stamp format.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'status', 'service_status' - The current state of the App Runner service. These particular values</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- mean the following.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   @CREATE_FAILED@ &#8211; The service failed to create. To troubleshoot this</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--     failure, read the failure events and logs, change any parameters</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--     that need to be fixed, and retry the call to create the service.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     The failed service isn\'t usable, and still counts towards your</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     service quota. When you\'re done analyzing the failure, delete the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--     service.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- -   @DELETE_FAILED@ &#8211; The service failed to delete and can\'t be</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--     successfully recovered. Retry the service deletion call to ensure</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--     that all related resources are removed.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'sourceConfiguration', 'service_sourceConfiguration' - The source deployed to the App Runner service. It can be a code or an</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- image repository.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'instanceConfiguration', 'service_instanceConfiguration' - The runtime configuration of instances (scaling units) of this service.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'autoScalingConfigurationSummary', 'service_autoScalingConfigurationSummary' - Summary information for the App Runner automatic scaling configuration</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- resource that\'s associated with this service.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#newService"><span class="hs-identifier hs-type">newService</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'serviceName'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-comment">-- | 'serviceId'</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-comment">-- | 'serviceArn'</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-comment">-- | 'serviceUrl'</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-comment">-- | 'createdAt'</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-comment">-- | 'updatedAt'</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.AppRunner.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-comment">-- | 'sourceConfiguration'</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.AppRunner.Types.SourceConfiguration.html#SourceConfiguration"><span class="hs-identifier hs-type">SourceConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-comment">-- | 'instanceConfiguration'</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.AppRunner.Types.InstanceConfiguration.html#InstanceConfiguration"><span class="hs-identifier hs-type">InstanceConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-comment">-- | 'autoScalingConfigurationSummary'</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary.html#AutoScalingConfigurationSummary"><span class="hs-identifier hs-type">AutoScalingConfigurationSummary</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span>
+</span><span id="line-181"></span><span id="newService"><span class="annot"><span class="annottext">newService :: Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; UTCTime
+-&gt; UTCTime
+-&gt; ServiceStatus
+-&gt; SourceConfiguration
+-&gt; InstanceConfiguration
+-&gt; AutoScalingConfigurationSummary
+-&gt; Service
+</span><a href="Network.AWS.AppRunner.Types.Service.html#newService"><span class="hs-identifier hs-var hs-var">newService</span></a></span></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679207157"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207157"><span class="hs-identifier hs-var">pServiceName_</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679207156"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207156"><span class="hs-identifier hs-var">pServiceId_</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679207155"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207155"><span class="hs-identifier hs-var">pServiceArn_</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679207154"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207154"><span class="hs-identifier hs-var">pServiceUrl_</span></a></span></span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679207153"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679207153"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679207152"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679207152"><span class="hs-identifier hs-var">pUpdatedAt_</span></a></span></span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679207151"><span class="annot"><span class="annottext">ServiceStatus
+</span><a href="#local-6989586621679207151"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679207150"><span class="annot"><span class="annottext">SourceConfiguration
+</span><a href="#local-6989586621679207150"><span class="hs-identifier hs-var">pSourceConfiguration_</span></a></span></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679207149"><span class="annot"><span class="annottext">InstanceConfiguration
+</span><a href="#local-6989586621679207149"><span class="hs-identifier hs-var">pInstanceConfiguration_</span></a></span></span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679207148"><span class="annot"><span class="annottext">AutoScalingConfigurationSummary
+</span><a href="#local-6989586621679207148"><span class="hs-identifier hs-var">pAutoScalingConfigurationSummary_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">Service' :: Maybe EncryptionConfiguration
+-&gt; Maybe HealthCheckConfiguration
+-&gt; Maybe POSIX
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; POSIX
+-&gt; ServiceStatus
+-&gt; SourceConfiguration
+-&gt; InstanceConfiguration
+-&gt; AutoScalingConfigurationSummary
+-&gt; Service
+</span><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:Service' :: Maybe EncryptionConfiguration
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AencryptionConfiguration%3AService%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">$sel:healthCheckConfiguration:Service' :: Maybe HealthCheckConfiguration
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AhealthCheckConfiguration%3AService%27"><span class="hs-identifier hs-var">healthCheckConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HealthCheckConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">$sel:deletedAt:Service' :: Maybe POSIX
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AdeletedAt%3AService%27"><span class="hs-identifier hs-var">deletedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceName:Service' :: Text
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AserviceName%3AService%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207157"><span class="hs-identifier hs-var">pServiceName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceId:Service' :: Text
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AserviceId%3AService%27"><span class="hs-identifier hs-var">serviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207156"><span class="hs-identifier hs-var">pServiceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceArn:Service' :: Text
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AserviceArn%3AService%27"><span class="hs-identifier hs-var">serviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207155"><span class="hs-identifier hs-var">pServiceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceUrl:Service' :: Text
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AserviceUrl%3AService%27"><span class="hs-identifier hs-var">serviceUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207154"><span class="hs-identifier hs-var">pServiceUrl_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:Service' :: POSIX
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AcreatedAt%3AService%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679207153"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">$sel:updatedAt:Service' :: POSIX
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AupdatedAt%3AService%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679207152"><span class="hs-identifier hs-var">pUpdatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:Service' :: ServiceStatus
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3Astatus%3AService%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceStatus
+</span><a href="#local-6989586621679207151"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceConfiguration:Service' :: SourceConfiguration
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AsourceConfiguration%3AService%27"><span class="hs-identifier hs-var">sourceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SourceConfiguration
+</span><a href="#local-6989586621679207150"><span class="hs-identifier hs-var">pSourceConfiguration_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceConfiguration:Service' :: InstanceConfiguration
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AinstanceConfiguration%3AService%27"><span class="hs-identifier hs-var">instanceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InstanceConfiguration
+</span><a href="#local-6989586621679207149"><span class="hs-identifier hs-var">pInstanceConfiguration_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoScalingConfigurationSummary:Service' :: AutoScalingConfigurationSummary
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AautoScalingConfigurationSummary%3AService%27"><span class="hs-identifier hs-var">autoScalingConfigurationSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>          </span><span class="annot"><span class="annottext">AutoScalingConfigurationSummary
+</span><a href="#local-6989586621679207148"><span class="hs-identifier hs-var">pAutoScalingConfigurationSummary_</span></a></span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The encryption key that App Runner uses to encrypt the service logs and</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- the copy of the source repository that App Runner maintains for the</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- service. It can be either a customer-provided encryption key or an</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- Amazon Web Services managed CMK.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#service_encryptionConfiguration"><span class="hs-identifier hs-type">service_encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="service_encryptionConfiguration"><span class="annot"><span class="annottext">service_encryptionConfiguration :: (Maybe EncryptionConfiguration
+ -&gt; f (Maybe EncryptionConfiguration))
+-&gt; Service -&gt; f Service
+</span><a href="Network.AWS.AppRunner.Types.Service.html#service_encryptionConfiguration"><span class="hs-identifier hs-var hs-var">service_encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Service -&gt; Maybe EncryptionConfiguration)
+-&gt; (Service -&gt; Maybe EncryptionConfiguration -&gt; Service)
+-&gt; Lens
+     Service
+     Service
+     (Maybe EncryptionConfiguration)
+     (Maybe EncryptionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207142"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+encryptionConfiguration :: Maybe EncryptionConfiguration
+$sel:encryptionConfiguration:Service' :: Service -&gt; Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679207142"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679207142"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207141"><span class="annot"><span class="annottext">s :: Service
+</span><a href="#local-6989586621679207141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207140"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679207140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679207141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:Service' :: Maybe EncryptionConfiguration
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AencryptionConfiguration%3AService%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679207140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The settings for the health check that App Runner performs to monitor</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- the health of this service.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#service_healthCheckConfiguration"><span class="hs-identifier hs-type">service_healthCheckConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.HealthCheckConfiguration.html#HealthCheckConfiguration"><span class="hs-identifier hs-type">HealthCheckConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="service_healthCheckConfiguration"><span class="annot"><span class="annottext">service_healthCheckConfiguration :: (Maybe HealthCheckConfiguration
+ -&gt; f (Maybe HealthCheckConfiguration))
+-&gt; Service -&gt; f Service
+</span><a href="Network.AWS.AppRunner.Types.Service.html#service_healthCheckConfiguration"><span class="hs-identifier hs-var hs-var">service_healthCheckConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Service -&gt; Maybe HealthCheckConfiguration)
+-&gt; (Service -&gt; Maybe HealthCheckConfiguration -&gt; Service)
+-&gt; Lens
+     Service
+     Service
+     (Maybe HealthCheckConfiguration)
+     (Maybe HealthCheckConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207138"><span class="annot"><span class="annottext">Maybe HealthCheckConfiguration
+healthCheckConfiguration :: Maybe HealthCheckConfiguration
+$sel:healthCheckConfiguration:Service' :: Service -&gt; Maybe HealthCheckConfiguration
+</span><a href="#local-6989586621679207138"><span class="hs-identifier hs-var hs-var">healthCheckConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HealthCheckConfiguration
+</span><a href="#local-6989586621679207138"><span class="hs-identifier hs-var">healthCheckConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207137"><span class="annot"><span class="annottext">s :: Service
+</span><a href="#local-6989586621679207137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207136"><span class="annot"><span class="annottext">Maybe HealthCheckConfiguration
+</span><a href="#local-6989586621679207136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679207137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckConfiguration:Service' :: Maybe HealthCheckConfiguration
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AhealthCheckConfiguration%3AService%27"><span class="hs-identifier hs-var">healthCheckConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HealthCheckConfiguration
+</span><a href="#local-6989586621679207136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The time when the App Runner service was deleted. It\'s in the Unix time</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- stamp format.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#service_deletedAt"><span class="hs-identifier hs-type">service_deletedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="service_deletedAt"><span class="annot"><span class="annottext">service_deletedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Service -&gt; f Service
+</span><a href="Network.AWS.AppRunner.Types.Service.html#service_deletedAt"><span class="hs-identifier hs-var hs-var">service_deletedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Service -&gt; Maybe POSIX)
+-&gt; (Service -&gt; Maybe POSIX -&gt; Service)
+-&gt; Lens Service Service (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207134"><span class="annot"><span class="annottext">Maybe POSIX
+deletedAt :: Maybe POSIX
+$sel:deletedAt:Service' :: Service -&gt; Maybe POSIX
+</span><a href="#local-6989586621679207134"><span class="hs-identifier hs-var hs-var">deletedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679207134"><span class="hs-identifier hs-var">deletedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207133"><span class="annot"><span class="annottext">s :: Service
+</span><a href="#local-6989586621679207133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207132"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679207132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679207133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletedAt:Service' :: Maybe POSIX
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AdeletedAt%3AService%27"><span class="hs-identifier hs-var">deletedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679207132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Service -&gt; f Service)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Service
+-&gt; f Service
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The customer-provided service name.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#service_serviceName"><span class="hs-identifier hs-type">service_serviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-228"></span><span id="service_serviceName"><span class="annot"><span class="annottext">service_serviceName :: (Text -&gt; f Text) -&gt; Service -&gt; f Service
+</span><a href="Network.AWS.AppRunner.Types.Service.html#service_serviceName"><span class="hs-identifier hs-var hs-var">service_serviceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Service -&gt; Text)
+-&gt; (Service -&gt; Text -&gt; Service) -&gt; Lens Service Service Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207128"><span class="annot"><span class="annottext">Text
+serviceName :: Text
+$sel:serviceName:Service' :: Service -&gt; Text
+</span><a href="#local-6989586621679207128"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207128"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207127"><span class="annot"><span class="annottext">s :: Service
+</span><a href="#local-6989586621679207127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207126"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679207127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:Service' :: Text
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AserviceName%3AService%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | An ID that App Runner generated for this service. It\'s unique within</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- the Amazon Web Services Region.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#service_serviceId"><span class="hs-identifier hs-type">service_serviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-233"></span><span id="service_serviceId"><span class="annot"><span class="annottext">service_serviceId :: (Text -&gt; f Text) -&gt; Service -&gt; f Service
+</span><a href="Network.AWS.AppRunner.Types.Service.html#service_serviceId"><span class="hs-identifier hs-var hs-var">service_serviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Service -&gt; Text)
+-&gt; (Service -&gt; Text -&gt; Service) -&gt; Lens Service Service Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207124"><span class="annot"><span class="annottext">Text
+serviceId :: Text
+$sel:serviceId:Service' :: Service -&gt; Text
+</span><a href="#local-6989586621679207124"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207124"><span class="hs-identifier hs-var">serviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207123"><span class="annot"><span class="annottext">s :: Service
+</span><a href="#local-6989586621679207123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207122"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679207123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceId:Service' :: Text
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AserviceId%3AService%27"><span class="hs-identifier hs-var">serviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of this service.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#service_serviceArn"><span class="hs-identifier hs-type">service_serviceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-237"></span><span id="service_serviceArn"><span class="annot"><span class="annottext">service_serviceArn :: (Text -&gt; f Text) -&gt; Service -&gt; f Service
+</span><a href="Network.AWS.AppRunner.Types.Service.html#service_serviceArn"><span class="hs-identifier hs-var hs-var">service_serviceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Service -&gt; Text)
+-&gt; (Service -&gt; Text -&gt; Service) -&gt; Lens Service Service Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207120"><span class="annot"><span class="annottext">Text
+serviceArn :: Text
+$sel:serviceArn:Service' :: Service -&gt; Text
+</span><a href="#local-6989586621679207120"><span class="hs-identifier hs-var hs-var">serviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207120"><span class="hs-identifier hs-var">serviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207119"><span class="annot"><span class="annottext">s :: Service
+</span><a href="#local-6989586621679207119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207118"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679207119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceArn:Service' :: Text
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AserviceArn%3AService%27"><span class="hs-identifier hs-var">serviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | A subdomain URL that App Runner generated for this service. You can use</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- this URL to access your service web application.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#service_serviceUrl"><span class="hs-identifier hs-type">service_serviceUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-242"></span><span id="service_serviceUrl"><span class="annot"><span class="annottext">service_serviceUrl :: (Text -&gt; f Text) -&gt; Service -&gt; f Service
+</span><a href="Network.AWS.AppRunner.Types.Service.html#service_serviceUrl"><span class="hs-identifier hs-var hs-var">service_serviceUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Service -&gt; Text)
+-&gt; (Service -&gt; Text -&gt; Service) -&gt; Lens Service Service Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207116"><span class="annot"><span class="annottext">Text
+serviceUrl :: Text
+$sel:serviceUrl:Service' :: Service -&gt; Text
+</span><a href="#local-6989586621679207116"><span class="hs-identifier hs-var hs-var">serviceUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207116"><span class="hs-identifier hs-var">serviceUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207115"><span class="annot"><span class="annottext">s :: Service
+</span><a href="#local-6989586621679207115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207114"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679207115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceUrl:Service' :: Text
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AserviceUrl%3AService%27"><span class="hs-identifier hs-var">serviceUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The time when the App Runner service was created. It\'s in the Unix time</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- stamp format.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#service_createdAt"><span class="hs-identifier hs-type">service_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-247"></span><span id="service_createdAt"><span class="annot"><span class="annottext">service_createdAt :: (UTCTime -&gt; f UTCTime) -&gt; Service -&gt; f Service
+</span><a href="Network.AWS.AppRunner.Types.Service.html#service_createdAt"><span class="hs-identifier hs-var hs-var">service_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Service -&gt; POSIX)
+-&gt; (Service -&gt; POSIX -&gt; Service)
+-&gt; Lens Service Service POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207112"><span class="annot"><span class="annottext">POSIX
+createdAt :: POSIX
+$sel:createdAt:Service' :: Service -&gt; POSIX
+</span><a href="#local-6989586621679207112"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679207112"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207111"><span class="annot"><span class="annottext">s :: Service
+</span><a href="#local-6989586621679207111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207110"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679207110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679207111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:Service' :: POSIX
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AcreatedAt%3AService%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679207110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; Service -&gt; f Service)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; Service
+-&gt; f Service
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The time when the App Runner service was last updated at. It\'s in the</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- Unix time stamp format.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#service_updatedAt"><span class="hs-identifier hs-type">service_updatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-252"></span><span id="service_updatedAt"><span class="annot"><span class="annottext">service_updatedAt :: (UTCTime -&gt; f UTCTime) -&gt; Service -&gt; f Service
+</span><a href="Network.AWS.AppRunner.Types.Service.html#service_updatedAt"><span class="hs-identifier hs-var hs-var">service_updatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Service -&gt; POSIX)
+-&gt; (Service -&gt; POSIX -&gt; Service)
+-&gt; Lens Service Service POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207108"><span class="annot"><span class="annottext">POSIX
+updatedAt :: POSIX
+$sel:updatedAt:Service' :: Service -&gt; POSIX
+</span><a href="#local-6989586621679207108"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679207108"><span class="hs-identifier hs-var">updatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207107"><span class="annot"><span class="annottext">s :: Service
+</span><a href="#local-6989586621679207107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207106"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679207106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679207107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedAt:Service' :: POSIX
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AupdatedAt%3AService%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679207106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; Service -&gt; f Service)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; Service
+-&gt; f Service
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The current state of the App Runner service. These particular values</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- mean the following.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- -   @CREATE_FAILED@ &#8211; The service failed to create. To troubleshoot this</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--     failure, read the failure events and logs, change any parameters</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--     that need to be fixed, and retry the call to create the service.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--     The failed service isn\'t usable, and still counts towards your</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--     service quota. When you\'re done analyzing the failure, delete the</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--     service.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- -   @DELETE_FAILED@ &#8211; The service failed to delete and can\'t be</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--     successfully recovered. Retry the service deletion call to ensure</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--     that all related resources are removed.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#service_status"><span class="hs-identifier hs-type">service_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span>
+</span><span id="line-269"></span><span id="service_status"><span class="annot"><span class="annottext">service_status :: (ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service
+</span><a href="Network.AWS.AppRunner.Types.Service.html#service_status"><span class="hs-identifier hs-var hs-var">service_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Service -&gt; ServiceStatus)
+-&gt; (Service -&gt; ServiceStatus -&gt; Service)
+-&gt; Lens Service Service ServiceStatus ServiceStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207104"><span class="annot"><span class="annottext">ServiceStatus
+status :: ServiceStatus
+$sel:status:Service' :: Service -&gt; ServiceStatus
+</span><a href="#local-6989586621679207104"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceStatus
+</span><a href="#local-6989586621679207104"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207103"><span class="annot"><span class="annottext">s :: Service
+</span><a href="#local-6989586621679207103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207102"><span class="annot"><span class="annottext">ServiceStatus
+</span><a href="#local-6989586621679207102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679207103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Service' :: ServiceStatus
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3Astatus%3AService%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceStatus
+</span><a href="#local-6989586621679207102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | The source deployed to the App Runner service. It can be a code or an</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- image repository.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#service_sourceConfiguration"><span class="hs-identifier hs-type">service_sourceConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.SourceConfiguration.html#SourceConfiguration"><span class="hs-identifier hs-type">SourceConfiguration</span></a></span><span>
+</span><span id="line-274"></span><span id="service_sourceConfiguration"><span class="annot"><span class="annottext">service_sourceConfiguration :: (SourceConfiguration -&gt; f SourceConfiguration)
+-&gt; Service -&gt; f Service
+</span><a href="Network.AWS.AppRunner.Types.Service.html#service_sourceConfiguration"><span class="hs-identifier hs-var hs-var">service_sourceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Service -&gt; SourceConfiguration)
+-&gt; (Service -&gt; SourceConfiguration -&gt; Service)
+-&gt; Lens Service Service SourceConfiguration SourceConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207100"><span class="annot"><span class="annottext">SourceConfiguration
+sourceConfiguration :: SourceConfiguration
+$sel:sourceConfiguration:Service' :: Service -&gt; SourceConfiguration
+</span><a href="#local-6989586621679207100"><span class="hs-identifier hs-var hs-var">sourceConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConfiguration
+</span><a href="#local-6989586621679207100"><span class="hs-identifier hs-var">sourceConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207099"><span class="annot"><span class="annottext">s :: Service
+</span><a href="#local-6989586621679207099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207098"><span class="annot"><span class="annottext">SourceConfiguration
+</span><a href="#local-6989586621679207098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679207099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceConfiguration:Service' :: SourceConfiguration
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AsourceConfiguration%3AService%27"><span class="hs-identifier hs-var">sourceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SourceConfiguration
+</span><a href="#local-6989586621679207098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | The runtime configuration of instances (scaling units) of this service.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#service_instanceConfiguration"><span class="hs-identifier hs-type">service_instanceConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.InstanceConfiguration.html#InstanceConfiguration"><span class="hs-identifier hs-type">InstanceConfiguration</span></a></span><span>
+</span><span id="line-278"></span><span id="service_instanceConfiguration"><span class="annot"><span class="annottext">service_instanceConfiguration :: (InstanceConfiguration -&gt; f InstanceConfiguration)
+-&gt; Service -&gt; f Service
+</span><a href="Network.AWS.AppRunner.Types.Service.html#service_instanceConfiguration"><span class="hs-identifier hs-var hs-var">service_instanceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Service -&gt; InstanceConfiguration)
+-&gt; (Service -&gt; InstanceConfiguration -&gt; Service)
+-&gt; Lens Service Service InstanceConfiguration InstanceConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207096"><span class="annot"><span class="annottext">InstanceConfiguration
+instanceConfiguration :: InstanceConfiguration
+$sel:instanceConfiguration:Service' :: Service -&gt; InstanceConfiguration
+</span><a href="#local-6989586621679207096"><span class="hs-identifier hs-var hs-var">instanceConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceConfiguration
+</span><a href="#local-6989586621679207096"><span class="hs-identifier hs-var">instanceConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207095"><span class="annot"><span class="annottext">s :: Service
+</span><a href="#local-6989586621679207095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207094"><span class="annot"><span class="annottext">InstanceConfiguration
+</span><a href="#local-6989586621679207094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679207095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceConfiguration:Service' :: InstanceConfiguration
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AinstanceConfiguration%3AService%27"><span class="hs-identifier hs-var">instanceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InstanceConfiguration
+</span><a href="#local-6989586621679207094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | Summary information for the App Runner automatic scaling configuration</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- resource that\'s associated with this service.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#service_autoScalingConfigurationSummary"><span class="hs-identifier hs-type">service_autoScalingConfigurationSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary.html#AutoScalingConfigurationSummary"><span class="hs-identifier hs-type">AutoScalingConfigurationSummary</span></a></span><span>
+</span><span id="line-283"></span><span id="service_autoScalingConfigurationSummary"><span class="annot"><span class="annottext">service_autoScalingConfigurationSummary :: (AutoScalingConfigurationSummary
+ -&gt; f AutoScalingConfigurationSummary)
+-&gt; Service -&gt; f Service
+</span><a href="Network.AWS.AppRunner.Types.Service.html#service_autoScalingConfigurationSummary"><span class="hs-identifier hs-var hs-var">service_autoScalingConfigurationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Service -&gt; AutoScalingConfigurationSummary)
+-&gt; (Service -&gt; AutoScalingConfigurationSummary -&gt; Service)
+-&gt; Lens
+     Service
+     Service
+     AutoScalingConfigurationSummary
+     AutoScalingConfigurationSummary
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207092"><span class="annot"><span class="annottext">AutoScalingConfigurationSummary
+autoScalingConfigurationSummary :: AutoScalingConfigurationSummary
+$sel:autoScalingConfigurationSummary:Service' :: Service -&gt; AutoScalingConfigurationSummary
+</span><a href="#local-6989586621679207092"><span class="hs-identifier hs-var hs-var">autoScalingConfigurationSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingConfigurationSummary
+</span><a href="#local-6989586621679207092"><span class="hs-identifier hs-var">autoScalingConfigurationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207091"><span class="annot"><span class="annottext">s :: Service
+</span><a href="#local-6989586621679207091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-type">Service'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207090"><span class="annot"><span class="annottext">AutoScalingConfigurationSummary
+</span><a href="#local-6989586621679207090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679207091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingConfigurationSummary:Service' :: AutoScalingConfigurationSummary
+</span><a href="Network.AWS.AppRunner.Types.Service.html#%24sel%3AautoScalingConfigurationSummary%3AService%27"><span class="hs-identifier hs-var">autoScalingConfigurationSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AutoScalingConfigurationSummary
+</span><a href="#local-6989586621679207090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207087"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-286"></span><span>  </span><span id="local-6989586621679207085"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Service
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Service) -&gt; Value -&gt; Parser Service
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-288"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Service&quot;</span></span><span>
+</span><span id="line-289"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679207082"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207082"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-290"></span><span>          </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+-&gt; Maybe HealthCheckConfiguration
+-&gt; Maybe POSIX
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; POSIX
+-&gt; ServiceStatus
+-&gt; SourceConfiguration
+-&gt; InstanceConfiguration
+-&gt; AutoScalingConfigurationSummary
+-&gt; Service
+</span><a href="Network.AWS.AppRunner.Types.Service.html#Service%27"><span class="hs-identifier hs-var">Service'</span></a></span><span>
+</span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EncryptionConfiguration
+ -&gt; Maybe HealthCheckConfiguration
+ -&gt; Maybe POSIX
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; POSIX
+ -&gt; ServiceStatus
+ -&gt; SourceConfiguration
+ -&gt; InstanceConfiguration
+ -&gt; AutoScalingConfigurationSummary
+ -&gt; Service)
+-&gt; Parser (Maybe EncryptionConfiguration)
+-&gt; Parser
+     (Maybe HealthCheckConfiguration
+      -&gt; Maybe POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; ServiceStatus
+      -&gt; SourceConfiguration
+      -&gt; InstanceConfiguration
+      -&gt; AutoScalingConfigurationSummary
+      -&gt; Service)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe HealthCheckConfiguration
+   -&gt; Maybe POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; ServiceStatus
+   -&gt; SourceConfiguration
+   -&gt; InstanceConfiguration
+   -&gt; AutoScalingConfigurationSummary
+   -&gt; Service)
+-&gt; Parser (Maybe HealthCheckConfiguration)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; ServiceStatus
+      -&gt; SourceConfiguration
+      -&gt; InstanceConfiguration
+      -&gt; AutoScalingConfigurationSummary
+      -&gt; Service)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HealthCheckConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HealthCheckConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; ServiceStatus
+   -&gt; SourceConfiguration
+   -&gt; InstanceConfiguration
+   -&gt; AutoScalingConfigurationSummary
+   -&gt; Service)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; ServiceStatus
+      -&gt; SourceConfiguration
+      -&gt; InstanceConfiguration
+      -&gt; AutoScalingConfigurationSummary
+      -&gt; Service)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeletedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; ServiceStatus
+   -&gt; SourceConfiguration
+   -&gt; InstanceConfiguration
+   -&gt; AutoScalingConfigurationSummary
+   -&gt; Service)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; ServiceStatus
+      -&gt; SourceConfiguration
+      -&gt; InstanceConfiguration
+      -&gt; AutoScalingConfigurationSummary
+      -&gt; Service)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; ServiceStatus
+   -&gt; SourceConfiguration
+   -&gt; InstanceConfiguration
+   -&gt; AutoScalingConfigurationSummary
+   -&gt; Service)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; ServiceStatus
+      -&gt; SourceConfiguration
+      -&gt; InstanceConfiguration
+      -&gt; AutoScalingConfigurationSummary
+      -&gt; Service)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; ServiceStatus
+   -&gt; SourceConfiguration
+   -&gt; InstanceConfiguration
+   -&gt; AutoScalingConfigurationSummary
+   -&gt; Service)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; ServiceStatus
+      -&gt; SourceConfiguration
+      -&gt; InstanceConfiguration
+      -&gt; AutoScalingConfigurationSummary
+      -&gt; Service)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; ServiceStatus
+   -&gt; SourceConfiguration
+   -&gt; InstanceConfiguration
+   -&gt; AutoScalingConfigurationSummary
+   -&gt; Service)
+-&gt; Parser Text
+-&gt; Parser
+     (POSIX
+      -&gt; POSIX
+      -&gt; ServiceStatus
+      -&gt; SourceConfiguration
+      -&gt; InstanceConfiguration
+      -&gt; AutoScalingConfigurationSummary
+      -&gt; Service)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX
+   -&gt; POSIX
+   -&gt; ServiceStatus
+   -&gt; SourceConfiguration
+   -&gt; InstanceConfiguration
+   -&gt; AutoScalingConfigurationSummary
+   -&gt; Service)
+-&gt; Parser POSIX
+-&gt; Parser
+     (POSIX
+      -&gt; ServiceStatus
+      -&gt; SourceConfiguration
+      -&gt; InstanceConfiguration
+      -&gt; AutoScalingConfigurationSummary
+      -&gt; Service)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX
+   -&gt; ServiceStatus
+   -&gt; SourceConfiguration
+   -&gt; InstanceConfiguration
+   -&gt; AutoScalingConfigurationSummary
+   -&gt; Service)
+-&gt; Parser POSIX
+-&gt; Parser
+     (ServiceStatus
+      -&gt; SourceConfiguration
+      -&gt; InstanceConfiguration
+      -&gt; AutoScalingConfigurationSummary
+      -&gt; Service)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (ServiceStatus
+   -&gt; SourceConfiguration
+   -&gt; InstanceConfiguration
+   -&gt; AutoScalingConfigurationSummary
+   -&gt; Service)
+-&gt; Parser ServiceStatus
+-&gt; Parser
+     (SourceConfiguration
+      -&gt; InstanceConfiguration
+      -&gt; AutoScalingConfigurationSummary
+      -&gt; Service)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ServiceStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (SourceConfiguration
+   -&gt; InstanceConfiguration
+   -&gt; AutoScalingConfigurationSummary
+   -&gt; Service)
+-&gt; Parser SourceConfiguration
+-&gt; Parser
+     (InstanceConfiguration
+      -&gt; AutoScalingConfigurationSummary -&gt; Service)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SourceConfiguration
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (InstanceConfiguration
+   -&gt; AutoScalingConfigurationSummary -&gt; Service)
+-&gt; Parser InstanceConfiguration
+-&gt; Parser (AutoScalingConfigurationSummary -&gt; Service)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser InstanceConfiguration
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>            </span><span class="annot"><span class="annottext">Parser (AutoScalingConfigurationSummary -&gt; Service)
+-&gt; Parser AutoScalingConfigurationSummary -&gt; Parser Service
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AutoScalingConfigurationSummary
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutoScalingConfigurationSummary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207075"><span id="local-6989586621679207077"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span></span></span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207072"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.Service.html#Service"><span class="hs-identifier hs-type">Service</span></a></span></span><span>
+</span><span id="line-309"></span></pre></body></html>

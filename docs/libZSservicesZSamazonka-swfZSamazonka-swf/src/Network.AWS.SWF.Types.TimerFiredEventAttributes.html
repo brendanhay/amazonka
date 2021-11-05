@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Provides the details of the @TimerFired@ event.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTimerFiredEventAttributes' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679352175"><span id="local-6989586621679352176"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimerFiredEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes"><span class="hs-identifier hs-var">TimerFiredEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimerFiredEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes%27"><span class="hs-identifier hs-var">TimerFiredEventAttributes'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679352184"><span id="local-6989586621679352185"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimerFiredEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes"><span class="hs-identifier hs-var">TimerFiredEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimerFiredEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes%27"><span class="hs-identifier hs-var">TimerFiredEventAttributes'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the timer that fired.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AtimerId%3ATimerFiredEventAttributes%27"><span class="annot"><span class="annottext">TimerFiredEventAttributes -&gt; Text
 </span><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#%24sel%3AtimerId%3ATimerFiredEventAttributes%27"><span class="hs-identifier hs-var hs-var">timerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AstartedEventId%3ATimerFiredEventAttributes%27"><span class="annot"><span class="annottext">TimerFiredEventAttributes -&gt; Integer
 </span><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#%24sel%3AstartedEventId%3ATimerFiredEventAttributes%27"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679352168"><span id="local-6989586621679352170"><span class="annot"><span class="annottext">TimerFiredEventAttributes -&gt; TimerFiredEventAttributes -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679352177"><span id="local-6989586621679352179"><span class="annot"><span class="annottext">TimerFiredEventAttributes -&gt; TimerFiredEventAttributes -&gt; Bool
 (TimerFiredEventAttributes -&gt; TimerFiredEventAttributes -&gt; Bool)
 -&gt; (TimerFiredEventAttributes -&gt; TimerFiredEventAttributes -&gt; Bool)
 -&gt; Eq TimerFiredEventAttributes
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TimerFiredEventAttributes -&gt; TimerFiredEventAttributes -&gt; Bool
 == :: TimerFiredEventAttributes -&gt; TimerFiredEventAttributes -&gt; Bool
 $c== :: TimerFiredEventAttributes -&gt; TimerFiredEventAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352159"><span id="local-6989586621679352161"><span id="local-6989586621679352163"><span id="local-6989586621679352165"><span class="annot"><span class="annottext">ReadPrec [TimerFiredEventAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352168"><span id="local-6989586621679352170"><span id="local-6989586621679352172"><span id="local-6989586621679352174"><span class="annot"><span class="annottext">ReadPrec [TimerFiredEventAttributes]
 ReadPrec TimerFiredEventAttributes
 Int -&gt; ReadS TimerFiredEventAttributes
 ReadS [TimerFiredEventAttributes]
@@ -65,7 +65,7 @@ readList :: ReadS [TimerFiredEventAttributes]
 $creadList :: ReadS [TimerFiredEventAttributes]
 readsPrec :: Int -&gt; ReadS TimerFiredEventAttributes
 $creadsPrec :: Int -&gt; ReadS TimerFiredEventAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352152"><span id="local-6989586621679352154"><span id="local-6989586621679352156"><span class="annot"><span class="annottext">Int -&gt; TimerFiredEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352161"><span id="local-6989586621679352163"><span id="local-6989586621679352165"><span class="annot"><span class="annottext">Int -&gt; TimerFiredEventAttributes -&gt; ShowS
 [TimerFiredEventAttributes] -&gt; ShowS
 TimerFiredEventAttributes -&gt; String
 (Int -&gt; TimerFiredEventAttributes -&gt; ShowS)
@@ -118,18 +118,18 @@ TimerFiredEventAttributes -&gt; Rep TimerFiredEventAttributes x
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes"><span class="hs-identifier hs-type">TimerFiredEventAttributes</span></a></span><span>
 </span><span id="line-58"></span><span id="newTimerFiredEventAttributes"><span class="annot"><span class="annottext">newTimerFiredEventAttributes :: Text -&gt; Integer -&gt; TimerFiredEventAttributes
 </span><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#newTimerFiredEventAttributes"><span class="hs-identifier hs-var hs-var">newTimerFiredEventAttributes</span></a></span></span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679352146"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679352146"><span class="hs-identifier hs-var">pTimerId_</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679352145"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679352145"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679352155"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679352155"><span class="hs-identifier hs-var">pTimerId_</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679352154"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679352154"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">TimerFiredEventAttributes' :: Text -&gt; Integer -&gt; TimerFiredEventAttributes
 </span><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes%27"><span class="hs-identifier hs-type">TimerFiredEventAttributes'</span></a></span><span>
 </span><span id="line-62"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timerId:TimerFiredEventAttributes' :: Text
 </span><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#%24sel%3AtimerId%3ATimerFiredEventAttributes%27"><span class="hs-identifier hs-var">timerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679352146"><span class="hs-identifier hs-var">pTimerId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679352155"><span class="hs-identifier hs-var">pTimerId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">$sel:startedEventId:TimerFiredEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#%24sel%3AstartedEventId%3ATimerFiredEventAttributes%27"><span class="hs-identifier hs-var">startedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679352145"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span><span>
+</span><a href="#local-6989586621679352154"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The unique ID of the timer that fired.</span><span>
@@ -141,16 +141,16 @@ TimerFiredEventAttributes -&gt; Rep TimerFiredEventAttributes x
 -&gt; Lens
      TimerFiredEventAttributes TimerFiredEventAttributes Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes%27"><span class="hs-identifier hs-type">TimerFiredEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352141"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes%27"><span class="hs-identifier hs-type">TimerFiredEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352150"><span class="annot"><span class="annottext">Text
 timerId :: Text
 $sel:timerId:TimerFiredEventAttributes' :: TimerFiredEventAttributes -&gt; Text
-</span><a href="#local-6989586621679352141"><span class="hs-identifier hs-var hs-var">timerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679352141"><span class="hs-identifier hs-var">timerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352140"><span class="annot"><span class="annottext">s :: TimerFiredEventAttributes
-</span><a href="#local-6989586621679352140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes%27"><span class="hs-identifier hs-type">TimerFiredEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352139"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679352139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimerFiredEventAttributes
-</span><a href="#local-6989586621679352140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timerId:TimerFiredEventAttributes' :: Text
+</span><a href="#local-6989586621679352150"><span class="hs-identifier hs-var hs-var">timerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679352150"><span class="hs-identifier hs-var">timerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352149"><span class="annot"><span class="annottext">s :: TimerFiredEventAttributes
+</span><a href="#local-6989586621679352149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes%27"><span class="hs-identifier hs-type">TimerFiredEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352148"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679352148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimerFiredEventAttributes
+</span><a href="#local-6989586621679352149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timerId:TimerFiredEventAttributes' :: Text
 </span><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#%24sel%3AtimerId%3ATimerFiredEventAttributes%27"><span class="hs-identifier hs-var">timerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679352139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes"><span class="hs-identifier hs-type">TimerFiredEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679352148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes"><span class="hs-identifier hs-type">TimerFiredEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The ID of the @TimerStarted@ event that was recorded when this timer was</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- started. This information can be useful for diagnosing problems by</span><span>
@@ -164,19 +164,19 @@ $sel:timerId:TimerFiredEventAttributes' :: TimerFiredEventAttributes -&gt; Text
 -&gt; Lens
      TimerFiredEventAttributes TimerFiredEventAttributes Integer Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes%27"><span class="hs-identifier hs-type">TimerFiredEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352137"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes%27"><span class="hs-identifier hs-type">TimerFiredEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352146"><span class="annot"><span class="annottext">Integer
 startedEventId :: Integer
 $sel:startedEventId:TimerFiredEventAttributes' :: TimerFiredEventAttributes -&gt; Integer
-</span><a href="#local-6989586621679352137"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679352137"><span class="hs-identifier hs-var">startedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352136"><span class="annot"><span class="annottext">s :: TimerFiredEventAttributes
-</span><a href="#local-6989586621679352136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes%27"><span class="hs-identifier hs-type">TimerFiredEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352135"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679352135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimerFiredEventAttributes
-</span><a href="#local-6989586621679352136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedEventId:TimerFiredEventAttributes' :: Integer
+</span><a href="#local-6989586621679352146"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679352146"><span class="hs-identifier hs-var">startedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352145"><span class="annot"><span class="annottext">s :: TimerFiredEventAttributes
+</span><a href="#local-6989586621679352145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes%27"><span class="hs-identifier hs-type">TimerFiredEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352144"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679352144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimerFiredEventAttributes
+</span><a href="#local-6989586621679352145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedEventId:TimerFiredEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#%24sel%3AstartedEventId%3ATimerFiredEventAttributes%27"><span class="hs-identifier hs-var">startedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679352135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes"><span class="hs-identifier hs-type">TimerFiredEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679352144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes"><span class="hs-identifier hs-type">TimerFiredEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352132"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes"><span class="hs-identifier hs-type">TimerFiredEventAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679352130"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimerFiredEventAttributes
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352141"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes"><span class="hs-identifier hs-type">TimerFiredEventAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679352139"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimerFiredEventAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TimerFiredEventAttributes)
@@ -186,15 +186,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TimerFiredEventAttributes&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679352127"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679352127"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679352136"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679352136"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; TimerFiredEventAttributes
 </span><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes%27"><span class="hs-identifier hs-var">TimerFiredEventAttributes'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Integer -&gt; TimerFiredEventAttributes)
 -&gt; Parser Text -&gt; Parser (Integer -&gt; TimerFiredEventAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679352127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679352136"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timerId&quot;</span></span><span class="hs-special">)</span><span>
@@ -202,13 +202,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Integer -&gt; Parser TimerFiredEventAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679352127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679352136"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startedEventId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352121"><span id="local-6989586621679352123"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes"><span class="hs-identifier hs-type">TimerFiredEventAttributes</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352130"><span id="local-6989586621679352132"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes"><span class="hs-identifier hs-type">TimerFiredEventAttributes</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352118"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes"><span class="hs-identifier hs-type">TimerFiredEventAttributes</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352127"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.TimerFiredEventAttributes.html#TimerFiredEventAttributes"><span class="hs-identifier hs-type">TimerFiredEventAttributes</span></a></span></span><span>
 </span><span id="line-89"></span></pre></body></html>

@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679334014"><span id="local-6989586621679334015"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WarmPoolStatus"><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolStatus.html#WarmPoolStatus"><span class="hs-identifier hs-var">WarmPoolStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WarmPoolStatus%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolStatus.html#WarmPoolStatus%27"><span class="hs-identifier hs-var">WarmPoolStatus'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679334023"><span id="local-6989586621679334024"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WarmPoolStatus"><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolStatus.html#WarmPoolStatus"><span class="hs-identifier hs-var">WarmPoolStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WarmPoolStatus%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolStatus.html#WarmPoolStatus%27"><span class="hs-identifier hs-var">WarmPoolStatus'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWarmPoolStatus"><span class="annot"><span class="annottext">WarmPoolStatus -&gt; Text
 </span><a href="Network.AWS.AutoScaling.Types.WarmPoolStatus.html#fromWarmPoolStatus"><span class="hs-identifier hs-var hs-var">fromWarmPoolStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679334006"><span id="local-6989586621679334008"><span id="local-6989586621679334010"><span class="annot"><span class="annottext">Int -&gt; WarmPoolStatus -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679334015"><span id="local-6989586621679334017"><span id="local-6989586621679334019"><span class="annot"><span class="annottext">Int -&gt; WarmPoolStatus -&gt; ShowS
 [WarmPoolStatus] -&gt; ShowS
 WarmPoolStatus -&gt; String
 (Int -&gt; WarmPoolStatus -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: WarmPoolStatus -&gt; String
 showsPrec :: Int -&gt; WarmPoolStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; WarmPoolStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679333997"><span id="local-6989586621679333999"><span id="local-6989586621679334001"><span id="local-6989586621679334003"><span class="annot"><span class="annottext">ReadPrec [WarmPoolStatus]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679334006"><span id="local-6989586621679334008"><span id="local-6989586621679334010"><span id="local-6989586621679334012"><span class="annot"><span class="annottext">ReadPrec [WarmPoolStatus]
 ReadPrec WarmPoolStatus
 Int -&gt; ReadS WarmPoolStatus
 ReadS [WarmPoolStatus]
@@ -71,7 +71,7 @@ $creadList :: ReadS [WarmPoolStatus]
 readsPrec :: Int -&gt; ReadS WarmPoolStatus
 $creadsPrec :: Int -&gt; ReadS WarmPoolStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679333992"><span id="local-6989586621679333994"><span class="annot"><span class="annottext">WarmPoolStatus -&gt; WarmPoolStatus -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679334001"><span id="local-6989586621679334003"><span class="annot"><span class="annottext">WarmPoolStatus -&gt; WarmPoolStatus -&gt; Bool
 (WarmPoolStatus -&gt; WarmPoolStatus -&gt; Bool)
 -&gt; (WarmPoolStatus -&gt; WarmPoolStatus -&gt; Bool) -&gt; Eq WarmPoolStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: WarmPoolStatus -&gt; WarmPoolStatus -&gt; Bool
 == :: WarmPoolStatus -&gt; WarmPoolStatus -&gt; Bool
 $c== :: WarmPoolStatus -&gt; WarmPoolStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679333976"><span id="local-6989586621679333978"><span id="local-6989586621679333980"><span id="local-6989586621679333982"><span id="local-6989586621679333984"><span id="local-6989586621679333986"><span id="local-6989586621679333988"><span class="annot"><span class="annottext">Eq WarmPoolStatus
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679333985"><span id="local-6989586621679333987"><span id="local-6989586621679333989"><span id="local-6989586621679333991"><span id="local-6989586621679333993"><span id="local-6989586621679333995"><span id="local-6989586621679333997"><span class="annot"><span class="annottext">Eq WarmPoolStatus
 Eq WarmPoolStatus
 -&gt; (WarmPoolStatus -&gt; WarmPoolStatus -&gt; Ordering)
 -&gt; (WarmPoolStatus -&gt; WarmPoolStatus -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. WarmPoolStatus -&gt; Rep WarmPoolStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679333968"><span id="local-6989586621679333970"><span class="annot"><span class="annottext">Int -&gt; WarmPoolStatus -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679333977"><span id="local-6989586621679333979"><span class="annot"><span class="annottext">Int -&gt; WarmPoolStatus -&gt; Int
 WarmPoolStatus -&gt; Int
 (Int -&gt; WarmPoolStatus -&gt; Int)
 -&gt; (WarmPoolStatus -&gt; Int) -&gt; Hashable WarmPoolStatus
@@ -141,50 +141,50 @@ $chash :: WarmPoolStatus -&gt; Int
 hashWithSalt :: Int -&gt; WarmPoolStatus -&gt; Int
 $chashWithSalt :: Int -&gt; WarmPoolStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679333965"><span class="annot"><span class="annottext">WarmPoolStatus -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679333974"><span class="annot"><span class="annottext">WarmPoolStatus -&gt; ()
 (WarmPoolStatus -&gt; ()) -&gt; NFData WarmPoolStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WarmPoolStatus -&gt; ()
 $crnf :: WarmPoolStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679333962"><span class="annot"><span class="annottext">Text -&gt; Either String WarmPoolStatus
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679333971"><span class="annot"><span class="annottext">Text -&gt; Either String WarmPoolStatus
 (Text -&gt; Either String WarmPoolStatus) -&gt; FromText WarmPoolStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WarmPoolStatus
 $cfromText :: Text -&gt; Either String WarmPoolStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679333959"><span class="annot"><span class="annottext">WarmPoolStatus -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679333968"><span class="annot"><span class="annottext">WarmPoolStatus -&gt; Text
 (WarmPoolStatus -&gt; Text) -&gt; ToText WarmPoolStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WarmPoolStatus -&gt; Text
 $ctoText :: WarmPoolStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679333956"><span class="annot"><span class="annottext">WarmPoolStatus -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679333965"><span class="annot"><span class="annottext">WarmPoolStatus -&gt; ByteString
 (WarmPoolStatus -&gt; ByteString) -&gt; ToByteString WarmPoolStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WarmPoolStatus -&gt; ByteString
 $ctoBS :: WarmPoolStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679333953"><span class="annot"><span class="annottext">WarmPoolStatus -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679333962"><span class="annot"><span class="annottext">WarmPoolStatus -&gt; ByteStringBuilder
 (WarmPoolStatus -&gt; ByteStringBuilder) -&gt; ToLog WarmPoolStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WarmPoolStatus -&gt; ByteStringBuilder
 $cbuild :: WarmPoolStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679333950"><span class="annot"><span class="annottext">HeaderName -&gt; WarmPoolStatus -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679333959"><span class="annot"><span class="annottext">HeaderName -&gt; WarmPoolStatus -&gt; [Header]
 (HeaderName -&gt; WarmPoolStatus -&gt; [Header])
 -&gt; ToHeader WarmPoolStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WarmPoolStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WarmPoolStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679333947"><span class="annot"><span class="annottext">WarmPoolStatus -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679333956"><span class="annot"><span class="annottext">WarmPoolStatus -&gt; QueryString
 (WarmPoolStatus -&gt; QueryString) -&gt; ToQuery WarmPoolStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WarmPoolStatus -&gt; QueryString
 $ctoQuery :: WarmPoolStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679333942"><span id="local-6989586621679333944"><span class="annot"><span class="annottext">Value -&gt; Parser [WarmPoolStatus]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679333951"><span id="local-6989586621679333953"><span class="annot"><span class="annottext">Value -&gt; Parser [WarmPoolStatus]
 Value -&gt; Parser WarmPoolStatus
 (Value -&gt; Parser WarmPoolStatus)
 -&gt; (Value -&gt; Parser [WarmPoolStatus]) -&gt; FromJSON WarmPoolStatus
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [WarmPoolStatus]
 parseJSON :: Value -&gt; Parser WarmPoolStatus
 $cparseJSON :: Value -&gt; Parser WarmPoolStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679333937"><span id="local-6989586621679333939"><span class="annot"><span class="annottext">FromJSONKeyFunction [WarmPoolStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679333946"><span id="local-6989586621679333948"><span class="annot"><span class="annottext">FromJSONKeyFunction [WarmPoolStatus]
 FromJSONKeyFunction WarmPoolStatus
 FromJSONKeyFunction WarmPoolStatus
 -&gt; FromJSONKeyFunction [WarmPoolStatus]
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WarmPoolStatus]
 fromJSONKey :: FromJSONKeyFunction WarmPoolStatus
 $cfromJSONKey :: FromJSONKeyFunction WarmPoolStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679333928"><span id="local-6989586621679333930"><span id="local-6989586621679333932"><span id="local-6989586621679333934"><span class="annot"><span class="annottext">[WarmPoolStatus] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679333937"><span id="local-6989586621679333939"><span id="local-6989586621679333941"><span id="local-6989586621679333943"><span class="annot"><span class="annottext">[WarmPoolStatus] -&gt; Encoding
 [WarmPoolStatus] -&gt; Value
 WarmPoolStatus -&gt; Encoding
 WarmPoolStatus -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: WarmPoolStatus -&gt; Encoding
 toJSON :: WarmPoolStatus -&gt; Value
 $ctoJSON :: WarmPoolStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679333923"><span id="local-6989586621679333925"><span class="annot"><span class="annottext">ToJSONKeyFunction [WarmPoolStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679333932"><span id="local-6989586621679333934"><span class="annot"><span class="annottext">ToJSONKeyFunction [WarmPoolStatus]
 ToJSONKeyFunction WarmPoolStatus
 ToJSONKeyFunction WarmPoolStatus
 -&gt; ToJSONKeyFunction [WarmPoolStatus] -&gt; ToJSONKey WarmPoolStatus
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WarmPoolStatus]
 toJSONKey :: ToJSONKeyFunction WarmPoolStatus
 $ctoJSONKey :: ToJSONKeyFunction WarmPoolStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679333920"><span class="annot"><span class="annottext">[Node] -&gt; Either String WarmPoolStatus
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679333929"><span class="annot"><span class="annottext">[Node] -&gt; Either String WarmPoolStatus
 ([Node] -&gt; Either String WarmPoolStatus) -&gt; FromXML WarmPoolStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WarmPoolStatus
 $cparseXML :: [Node] -&gt; Either String WarmPoolStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679333917"><span class="annot"><span class="annottext">WarmPoolStatus -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679333926"><span class="annot"><span class="annottext">WarmPoolStatus -&gt; XML
 (WarmPoolStatus -&gt; XML) -&gt; ToXML WarmPoolStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: WarmPoolStatus -&gt; XML

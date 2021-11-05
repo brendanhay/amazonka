@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus"><span class="hs-identifier">FirewallRuleGroupAssociationStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus_COMPLETE"><span class="hs-identifier">FirewallRuleGroupAssociationStatus_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus_DELETING"><span class="hs-identifier">FirewallRuleGroupAssociationStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus_UPDATING"><span class="hs-identifier">FirewallRuleGroupAssociationStatus_UPDATING</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679283302"><span id="local-6989586621679283303"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FirewallRuleGroupAssociationStatus"><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus"><span class="hs-identifier hs-var">FirewallRuleGroupAssociationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FirewallRuleGroupAssociationStatus%27"><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus%27"><span class="hs-identifier hs-var">FirewallRuleGroupAssociationStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFirewallRuleGroupAssociationStatus"><span class="annot"><span class="annottext">FirewallRuleGroupAssociationStatus -&gt; Text
+</span><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#fromFirewallRuleGroupAssociationStatus"><span class="hs-identifier hs-var hs-var">fromFirewallRuleGroupAssociationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679283294"><span id="local-6989586621679283296"><span id="local-6989586621679283298"><span class="annot"><span class="annottext">Int -&gt; FirewallRuleGroupAssociationStatus -&gt; ShowS
+[FirewallRuleGroupAssociationStatus] -&gt; ShowS
+FirewallRuleGroupAssociationStatus -&gt; String
+(Int -&gt; FirewallRuleGroupAssociationStatus -&gt; ShowS)
+-&gt; (FirewallRuleGroupAssociationStatus -&gt; String)
+-&gt; ([FirewallRuleGroupAssociationStatus] -&gt; ShowS)
+-&gt; Show FirewallRuleGroupAssociationStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FirewallRuleGroupAssociationStatus] -&gt; ShowS
+$cshowList :: [FirewallRuleGroupAssociationStatus] -&gt; ShowS
+show :: FirewallRuleGroupAssociationStatus -&gt; String
+$cshow :: FirewallRuleGroupAssociationStatus -&gt; String
+showsPrec :: Int -&gt; FirewallRuleGroupAssociationStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; FirewallRuleGroupAssociationStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679283285"><span id="local-6989586621679283287"><span id="local-6989586621679283289"><span id="local-6989586621679283291"><span class="annot"><span class="annottext">ReadPrec [FirewallRuleGroupAssociationStatus]
+ReadPrec FirewallRuleGroupAssociationStatus
+Int -&gt; ReadS FirewallRuleGroupAssociationStatus
+ReadS [FirewallRuleGroupAssociationStatus]
+(Int -&gt; ReadS FirewallRuleGroupAssociationStatus)
+-&gt; ReadS [FirewallRuleGroupAssociationStatus]
+-&gt; ReadPrec FirewallRuleGroupAssociationStatus
+-&gt; ReadPrec [FirewallRuleGroupAssociationStatus]
+-&gt; Read FirewallRuleGroupAssociationStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FirewallRuleGroupAssociationStatus]
+$creadListPrec :: ReadPrec [FirewallRuleGroupAssociationStatus]
+readPrec :: ReadPrec FirewallRuleGroupAssociationStatus
+$creadPrec :: ReadPrec FirewallRuleGroupAssociationStatus
+readList :: ReadS [FirewallRuleGroupAssociationStatus]
+$creadList :: ReadS [FirewallRuleGroupAssociationStatus]
+readsPrec :: Int -&gt; ReadS FirewallRuleGroupAssociationStatus
+$creadsPrec :: Int -&gt; ReadS FirewallRuleGroupAssociationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679283280"><span id="local-6989586621679283282"><span class="annot"><span class="annottext">FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus -&gt; Bool
+(FirewallRuleGroupAssociationStatus
+ -&gt; FirewallRuleGroupAssociationStatus -&gt; Bool)
+-&gt; (FirewallRuleGroupAssociationStatus
+    -&gt; FirewallRuleGroupAssociationStatus -&gt; Bool)
+-&gt; Eq FirewallRuleGroupAssociationStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus -&gt; Bool
+$c/= :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus -&gt; Bool
+== :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus -&gt; Bool
+$c== :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679283264"><span id="local-6989586621679283266"><span id="local-6989586621679283268"><span id="local-6989586621679283270"><span id="local-6989586621679283272"><span id="local-6989586621679283274"><span id="local-6989586621679283276"><span class="annot"><span class="annottext">Eq FirewallRuleGroupAssociationStatus
+Eq FirewallRuleGroupAssociationStatus
+-&gt; (FirewallRuleGroupAssociationStatus
+    -&gt; FirewallRuleGroupAssociationStatus -&gt; Ordering)
+-&gt; (FirewallRuleGroupAssociationStatus
+    -&gt; FirewallRuleGroupAssociationStatus -&gt; Bool)
+-&gt; (FirewallRuleGroupAssociationStatus
+    -&gt; FirewallRuleGroupAssociationStatus -&gt; Bool)
+-&gt; (FirewallRuleGroupAssociationStatus
+    -&gt; FirewallRuleGroupAssociationStatus -&gt; Bool)
+-&gt; (FirewallRuleGroupAssociationStatus
+    -&gt; FirewallRuleGroupAssociationStatus -&gt; Bool)
+-&gt; (FirewallRuleGroupAssociationStatus
+    -&gt; FirewallRuleGroupAssociationStatus
+    -&gt; FirewallRuleGroupAssociationStatus)
+-&gt; (FirewallRuleGroupAssociationStatus
+    -&gt; FirewallRuleGroupAssociationStatus
+    -&gt; FirewallRuleGroupAssociationStatus)
+-&gt; Ord FirewallRuleGroupAssociationStatus
+FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus -&gt; Bool
+FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus -&gt; Ordering
+FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus
+$cmin :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus
+max :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus
+$cmax :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus
+&gt;= :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus -&gt; Bool
+$c&gt;= :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus -&gt; Bool
+&gt; :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus -&gt; Bool
+$c&gt; :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus -&gt; Bool
+&lt;= :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus -&gt; Bool
+$c&lt;= :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus -&gt; Bool
+&lt; :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus -&gt; Bool
+$c&lt; :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus -&gt; Bool
+compare :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus -&gt; Ordering
+$ccompare :: FirewallRuleGroupAssociationStatus
+-&gt; FirewallRuleGroupAssociationStatus -&gt; Ordering
+$cp1Ord :: Eq FirewallRuleGroupAssociationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ FirewallRuleGroupAssociationStatus
+ -&gt; Rep FirewallRuleGroupAssociationStatus x)
+-&gt; (forall x.
+    Rep FirewallRuleGroupAssociationStatus x
+    -&gt; FirewallRuleGroupAssociationStatus)
+-&gt; Generic FirewallRuleGroupAssociationStatus
+forall x.
+Rep FirewallRuleGroupAssociationStatus x
+-&gt; FirewallRuleGroupAssociationStatus
+forall x.
+FirewallRuleGroupAssociationStatus
+-&gt; Rep FirewallRuleGroupAssociationStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep FirewallRuleGroupAssociationStatus x
+-&gt; FirewallRuleGroupAssociationStatus
+$cfrom :: forall x.
+FirewallRuleGroupAssociationStatus
+-&gt; Rep FirewallRuleGroupAssociationStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679283256"><span id="local-6989586621679283258"><span class="annot"><span class="annottext">Int -&gt; FirewallRuleGroupAssociationStatus -&gt; Int
+FirewallRuleGroupAssociationStatus -&gt; Int
+(Int -&gt; FirewallRuleGroupAssociationStatus -&gt; Int)
+-&gt; (FirewallRuleGroupAssociationStatus -&gt; Int)
+-&gt; Hashable FirewallRuleGroupAssociationStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FirewallRuleGroupAssociationStatus -&gt; Int
+$chash :: FirewallRuleGroupAssociationStatus -&gt; Int
+hashWithSalt :: Int -&gt; FirewallRuleGroupAssociationStatus -&gt; Int
+$chashWithSalt :: Int -&gt; FirewallRuleGroupAssociationStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679283253"><span class="annot"><span class="annottext">FirewallRuleGroupAssociationStatus -&gt; ()
+(FirewallRuleGroupAssociationStatus -&gt; ())
+-&gt; NFData FirewallRuleGroupAssociationStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FirewallRuleGroupAssociationStatus -&gt; ()
+$crnf :: FirewallRuleGroupAssociationStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679283250"><span class="annot"><span class="annottext">Text -&gt; Either String FirewallRuleGroupAssociationStatus
+(Text -&gt; Either String FirewallRuleGroupAssociationStatus)
+-&gt; FromText FirewallRuleGroupAssociationStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FirewallRuleGroupAssociationStatus
+$cfromText :: Text -&gt; Either String FirewallRuleGroupAssociationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679283247"><span class="annot"><span class="annottext">FirewallRuleGroupAssociationStatus -&gt; Text
+(FirewallRuleGroupAssociationStatus -&gt; Text)
+-&gt; ToText FirewallRuleGroupAssociationStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FirewallRuleGroupAssociationStatus -&gt; Text
+$ctoText :: FirewallRuleGroupAssociationStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679283244"><span class="annot"><span class="annottext">FirewallRuleGroupAssociationStatus -&gt; ByteString
+(FirewallRuleGroupAssociationStatus -&gt; ByteString)
+-&gt; ToByteString FirewallRuleGroupAssociationStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FirewallRuleGroupAssociationStatus -&gt; ByteString
+$ctoBS :: FirewallRuleGroupAssociationStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679283241"><span class="annot"><span class="annottext">FirewallRuleGroupAssociationStatus -&gt; ByteStringBuilder
+(FirewallRuleGroupAssociationStatus -&gt; ByteStringBuilder)
+-&gt; ToLog FirewallRuleGroupAssociationStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FirewallRuleGroupAssociationStatus -&gt; ByteStringBuilder
+$cbuild :: FirewallRuleGroupAssociationStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679283238"><span class="annot"><span class="annottext">HeaderName -&gt; FirewallRuleGroupAssociationStatus -&gt; [Header]
+(HeaderName -&gt; FirewallRuleGroupAssociationStatus -&gt; [Header])
+-&gt; ToHeader FirewallRuleGroupAssociationStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FirewallRuleGroupAssociationStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FirewallRuleGroupAssociationStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679283235"><span class="annot"><span class="annottext">FirewallRuleGroupAssociationStatus -&gt; QueryString
+(FirewallRuleGroupAssociationStatus -&gt; QueryString)
+-&gt; ToQuery FirewallRuleGroupAssociationStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FirewallRuleGroupAssociationStatus -&gt; QueryString
+$ctoQuery :: FirewallRuleGroupAssociationStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679283230"><span id="local-6989586621679283232"><span class="annot"><span class="annottext">Value -&gt; Parser [FirewallRuleGroupAssociationStatus]
+Value -&gt; Parser FirewallRuleGroupAssociationStatus
+(Value -&gt; Parser FirewallRuleGroupAssociationStatus)
+-&gt; (Value -&gt; Parser [FirewallRuleGroupAssociationStatus])
+-&gt; FromJSON FirewallRuleGroupAssociationStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FirewallRuleGroupAssociationStatus]
+$cparseJSONList :: Value -&gt; Parser [FirewallRuleGroupAssociationStatus]
+parseJSON :: Value -&gt; Parser FirewallRuleGroupAssociationStatus
+$cparseJSON :: Value -&gt; Parser FirewallRuleGroupAssociationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679283225"><span id="local-6989586621679283227"><span class="annot"><span class="annottext">FromJSONKeyFunction [FirewallRuleGroupAssociationStatus]
+FromJSONKeyFunction FirewallRuleGroupAssociationStatus
+FromJSONKeyFunction FirewallRuleGroupAssociationStatus
+-&gt; FromJSONKeyFunction [FirewallRuleGroupAssociationStatus]
+-&gt; FromJSONKey FirewallRuleGroupAssociationStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FirewallRuleGroupAssociationStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [FirewallRuleGroupAssociationStatus]
+fromJSONKey :: FromJSONKeyFunction FirewallRuleGroupAssociationStatus
+$cfromJSONKey :: FromJSONKeyFunction FirewallRuleGroupAssociationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679283216"><span id="local-6989586621679283218"><span id="local-6989586621679283220"><span id="local-6989586621679283222"><span class="annot"><span class="annottext">[FirewallRuleGroupAssociationStatus] -&gt; Encoding
+[FirewallRuleGroupAssociationStatus] -&gt; Value
+FirewallRuleGroupAssociationStatus -&gt; Encoding
+FirewallRuleGroupAssociationStatus -&gt; Value
+(FirewallRuleGroupAssociationStatus -&gt; Value)
+-&gt; (FirewallRuleGroupAssociationStatus -&gt; Encoding)
+-&gt; ([FirewallRuleGroupAssociationStatus] -&gt; Value)
+-&gt; ([FirewallRuleGroupAssociationStatus] -&gt; Encoding)
+-&gt; ToJSON FirewallRuleGroupAssociationStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FirewallRuleGroupAssociationStatus] -&gt; Encoding
+$ctoEncodingList :: [FirewallRuleGroupAssociationStatus] -&gt; Encoding
+toJSONList :: [FirewallRuleGroupAssociationStatus] -&gt; Value
+$ctoJSONList :: [FirewallRuleGroupAssociationStatus] -&gt; Value
+toEncoding :: FirewallRuleGroupAssociationStatus -&gt; Encoding
+$ctoEncoding :: FirewallRuleGroupAssociationStatus -&gt; Encoding
+toJSON :: FirewallRuleGroupAssociationStatus -&gt; Value
+$ctoJSON :: FirewallRuleGroupAssociationStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679283211"><span id="local-6989586621679283213"><span class="annot"><span class="annottext">ToJSONKeyFunction [FirewallRuleGroupAssociationStatus]
+ToJSONKeyFunction FirewallRuleGroupAssociationStatus
+ToJSONKeyFunction FirewallRuleGroupAssociationStatus
+-&gt; ToJSONKeyFunction [FirewallRuleGroupAssociationStatus]
+-&gt; ToJSONKey FirewallRuleGroupAssociationStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FirewallRuleGroupAssociationStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [FirewallRuleGroupAssociationStatus]
+toJSONKey :: ToJSONKeyFunction FirewallRuleGroupAssociationStatus
+$ctoJSONKey :: ToJSONKeyFunction FirewallRuleGroupAssociationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679283208"><span class="annot"><span class="annottext">[Node] -&gt; Either String FirewallRuleGroupAssociationStatus
+([Node] -&gt; Either String FirewallRuleGroupAssociationStatus)
+-&gt; FromXML FirewallRuleGroupAssociationStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FirewallRuleGroupAssociationStatus
+$cparseXML :: [Node] -&gt; Either String FirewallRuleGroupAssociationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679283205"><span class="annot"><span class="annottext">FirewallRuleGroupAssociationStatus -&gt; XML
+(FirewallRuleGroupAssociationStatus -&gt; XML)
+-&gt; ToXML FirewallRuleGroupAssociationStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FirewallRuleGroupAssociationStatus -&gt; XML
+$ctoXML :: FirewallRuleGroupAssociationStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus_COMPLETE"><span class="hs-identifier hs-type">FirewallRuleGroupAssociationStatus_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus"><span class="hs-identifier hs-type">FirewallRuleGroupAssociationStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFirewallRuleGroupAssociationStatus_COMPLETE"><span id="%24mFirewallRuleGroupAssociationStatus_COMPLETE"><span id="FirewallRuleGroupAssociationStatus_COMPLETE"><span class="annot"><span class="annottext">$bFirewallRuleGroupAssociationStatus_COMPLETE :: FirewallRuleGroupAssociationStatus
+$mFirewallRuleGroupAssociationStatus_COMPLETE :: forall r.
+FirewallRuleGroupAssociationStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#%24bFirewallRuleGroupAssociationStatus_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">FirewallRuleGroupAssociationStatus_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus%27"><span class="hs-identifier hs-type">FirewallRuleGroupAssociationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus_DELETING"><span class="hs-identifier hs-type">FirewallRuleGroupAssociationStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus"><span class="hs-identifier hs-type">FirewallRuleGroupAssociationStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFirewallRuleGroupAssociationStatus_DELETING"><span id="%24mFirewallRuleGroupAssociationStatus_DELETING"><span id="FirewallRuleGroupAssociationStatus_DELETING"><span class="annot"><span class="annottext">$bFirewallRuleGroupAssociationStatus_DELETING :: FirewallRuleGroupAssociationStatus
+$mFirewallRuleGroupAssociationStatus_DELETING :: forall r.
+FirewallRuleGroupAssociationStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#%24bFirewallRuleGroupAssociationStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">FirewallRuleGroupAssociationStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus%27"><span class="hs-identifier hs-type">FirewallRuleGroupAssociationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus_UPDATING"><span class="hs-identifier hs-type">FirewallRuleGroupAssociationStatus_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus"><span class="hs-identifier hs-type">FirewallRuleGroupAssociationStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFirewallRuleGroupAssociationStatus_UPDATING"><span id="%24mFirewallRuleGroupAssociationStatus_UPDATING"><span id="FirewallRuleGroupAssociationStatus_UPDATING"><span class="annot"><span class="annottext">$bFirewallRuleGroupAssociationStatus_UPDATING :: FirewallRuleGroupAssociationStatus
+$mFirewallRuleGroupAssociationStatus_UPDATING :: forall r.
+FirewallRuleGroupAssociationStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#%24bFirewallRuleGroupAssociationStatus_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">FirewallRuleGroupAssociationStatus_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus%27"><span class="hs-identifier hs-type">FirewallRuleGroupAssociationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus_COMPLETE"><span class="hs-pragma hs-type">FirewallRuleGroupAssociationStatus_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus_DELETING"><span class="hs-pragma hs-type">FirewallRuleGroupAssociationStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus_UPDATING"><span class="hs-pragma hs-type">FirewallRuleGroupAssociationStatus_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.FirewallRuleGroupAssociationStatus.html#FirewallRuleGroupAssociationStatus%27"><span class="hs-pragma hs-type">FirewallRuleGroupAssociationStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

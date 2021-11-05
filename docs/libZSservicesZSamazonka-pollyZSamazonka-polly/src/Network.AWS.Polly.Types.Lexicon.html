@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- &lt;https://www.w3.org/TR/pronunciation-lexicon/ Pronunciation Lexicon Specification (PLS) Version 1.0&gt;.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLexicon' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679171167"><span id="local-6989586621679171168"></span></span><span class="hs-keyword">data</span><span> </span><span id="Lexicon"><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon"><span class="hs-identifier hs-var">Lexicon</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Lexicon%27"><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon%27"><span class="hs-identifier hs-var">Lexicon'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679171176"><span id="local-6989586621679171177"></span></span><span class="hs-keyword">data</span><span> </span><span id="Lexicon"><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon"><span class="hs-identifier hs-var">Lexicon</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Lexicon%27"><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon%27"><span class="hs-identifier hs-var">Lexicon'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Lexicon content in string format. The content of a lexicon must be in</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- PLS format.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Acontent%3ALexicon%27"><span class="annot"><span class="annottext">Lexicon -&gt; Maybe (Sensitive Text)
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aname%3ALexicon%27"><span class="annot"><span class="annottext">Lexicon -&gt; Maybe Text
 </span><a href="Network.AWS.Polly.Types.Lexicon.html#%24sel%3Aname%3ALexicon%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171160"><span id="local-6989586621679171162"><span class="annot"><span class="annottext">Lexicon -&gt; Lexicon -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171169"><span id="local-6989586621679171171"><span class="annot"><span class="annottext">Lexicon -&gt; Lexicon -&gt; Bool
 (Lexicon -&gt; Lexicon -&gt; Bool)
 -&gt; (Lexicon -&gt; Lexicon -&gt; Bool) -&gt; Eq Lexicon
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Lexicon -&gt; Lexicon -&gt; Bool
 == :: Lexicon -&gt; Lexicon -&gt; Bool
 $c== :: Lexicon -&gt; Lexicon -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171153"><span id="local-6989586621679171155"><span id="local-6989586621679171157"><span class="annot"><span class="annottext">Int -&gt; Lexicon -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171162"><span id="local-6989586621679171164"><span id="local-6989586621679171166"><span class="annot"><span class="annottext">Int -&gt; Lexicon -&gt; ShowS
 [Lexicon] -&gt; ShowS
 Lexicon -&gt; String
 (Int -&gt; Lexicon -&gt; ShowS)
@@ -105,16 +105,16 @@ forall a. Maybe a
 -&gt; Lens
      Lexicon Lexicon (Maybe (Sensitive Text)) (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon%27"><span class="hs-identifier hs-type">Lexicon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171144"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon%27"><span class="hs-identifier hs-type">Lexicon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171153"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 content :: Maybe (Sensitive Text)
 $sel:content:Lexicon' :: Lexicon -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679171144"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679171144"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171143"><span class="annot"><span class="annottext">s :: Lexicon
-</span><a href="#local-6989586621679171143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon%27"><span class="hs-identifier hs-type">Lexicon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171142"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679171142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Lexicon
-</span><a href="#local-6989586621679171143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:Lexicon' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679171153"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679171153"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171152"><span class="annot"><span class="annottext">s :: Lexicon
+</span><a href="#local-6989586621679171152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon%27"><span class="hs-identifier hs-type">Lexicon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171151"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679171151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Lexicon
+</span><a href="#local-6989586621679171152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:Lexicon' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.Polly.Types.Lexicon.html#%24sel%3Acontent%3ALexicon%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679171142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon"><span class="hs-identifier hs-type">Lexicon</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679171151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon"><span class="hs-identifier hs-type">Lexicon</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; Lexicon -&gt; f Lexicon)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -142,27 +142,27 @@ forall a. Iso' (Sensitive a) a
 -&gt; (Lexicon -&gt; Maybe Text -&gt; Lexicon)
 -&gt; Lens Lexicon Lexicon (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon%27"><span class="hs-identifier hs-type">Lexicon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171137"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon%27"><span class="hs-identifier hs-type">Lexicon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171146"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Lexicon' :: Lexicon -&gt; Maybe Text
-</span><a href="#local-6989586621679171137"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171137"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171136"><span class="annot"><span class="annottext">s :: Lexicon
-</span><a href="#local-6989586621679171136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon%27"><span class="hs-identifier hs-type">Lexicon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171135"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Lexicon
-</span><a href="#local-6989586621679171136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Lexicon' :: Maybe Text
+</span><a href="#local-6989586621679171146"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171146"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171145"><span class="annot"><span class="annottext">s :: Lexicon
+</span><a href="#local-6989586621679171145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon%27"><span class="hs-identifier hs-type">Lexicon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171144"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Lexicon
+</span><a href="#local-6989586621679171145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Lexicon' :: Maybe Text
 </span><a href="Network.AWS.Polly.Types.Lexicon.html#%24sel%3Aname%3ALexicon%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon"><span class="hs-identifier hs-type">Lexicon</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679171144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon"><span class="hs-identifier hs-type">Lexicon</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171132"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon"><span class="hs-identifier hs-type">Lexicon</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679171130"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Lexicon
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171141"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon"><span class="hs-identifier hs-type">Lexicon</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679171139"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Lexicon
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Lexicon) -&gt; Value -&gt; Parser Lexicon
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Lexicon&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679171127"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679171127"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679171136"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171136"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text) -&gt; Maybe Text -&gt; Lexicon
 </span><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon%27"><span class="hs-identifier hs-var">Lexicon'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (Sensitive Text) -&gt; Maybe Text -&gt; Lexicon)
@@ -170,7 +170,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Lexicon)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679171127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679171136"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Content&quot;</span></span><span class="hs-special">)</span><span>
@@ -178,13 +178,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Lexicon
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679171127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679171136"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171121"><span id="local-6989586621679171123"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon"><span class="hs-identifier hs-type">Lexicon</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171130"><span id="local-6989586621679171132"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon"><span class="hs-identifier hs-type">Lexicon</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171118"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon"><span class="hs-identifier hs-type">Lexicon</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171127"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Lexicon.html#Lexicon"><span class="hs-identifier hs-type">Lexicon</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

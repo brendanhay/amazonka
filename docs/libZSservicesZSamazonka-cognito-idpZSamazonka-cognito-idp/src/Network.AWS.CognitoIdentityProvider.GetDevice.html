@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | Represents the request to get the device.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newGetDevice' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679447068"><span id="local-6989586621679447069"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDevice"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-var">GetDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDevice%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-var">GetDevice'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679447077"><span id="local-6989586621679447078"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDevice"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-var">GetDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDevice%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-var">GetDevice'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The access token.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AaccessToken%3AGetDevice%27"><span class="annot"><span class="annottext">GetDevice -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#%24sel%3AaccessToken%3AGetDevice%27"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AdeviceKey%3AGetDevice%27"><span class="annot"><span class="annottext">GetDevice -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#%24sel%3AdeviceKey%3AGetDevice%27"><span class="hs-identifier hs-var hs-var">deviceKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447061"><span id="local-6989586621679447063"><span class="annot"><span class="annottext">GetDevice -&gt; GetDevice -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447070"><span id="local-6989586621679447072"><span class="annot"><span class="annottext">GetDevice -&gt; GetDevice -&gt; Bool
 (GetDevice -&gt; GetDevice -&gt; Bool)
 -&gt; (GetDevice -&gt; GetDevice -&gt; Bool) -&gt; Eq GetDevice
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDevice -&gt; GetDevice -&gt; Bool
 == :: GetDevice -&gt; GetDevice -&gt; Bool
 $c== :: GetDevice -&gt; GetDevice -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447054"><span id="local-6989586621679447056"><span id="local-6989586621679447058"><span class="annot"><span class="annottext">Int -&gt; GetDevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447063"><span id="local-6989586621679447065"><span id="local-6989586621679447067"><span class="annot"><span class="annottext">Int -&gt; GetDevice -&gt; ShowS
 [GetDevice] -&gt; ShowS
 GetDevice -&gt; String
 (Int -&gt; GetDevice -&gt; ShowS)
@@ -107,8 +107,8 @@ $cfrom :: forall x. GetDevice -&gt; Rep GetDevice x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span><span>
 </span><span id="line-76"></span><span id="newGetDevice"><span class="annot"><span class="annottext">newGetDevice :: Text -&gt; GetDevice
-</span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#newGetDevice"><span class="hs-identifier hs-var hs-var">newGetDevice</span></a></span></span><span> </span><span id="local-6989586621679447049"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447049"><span class="hs-identifier hs-var">pDeviceKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#newGetDevice"><span class="hs-identifier hs-var hs-var">newGetDevice</span></a></span></span><span> </span><span id="local-6989586621679447058"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447058"><span class="hs-identifier hs-var">pDeviceKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">GetDevice' :: Maybe (Sensitive Text) -&gt; Text -&gt; GetDevice
 </span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-type">GetDevice'</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accessToken:GetDevice' :: Maybe (Sensitive Text)
@@ -117,7 +117,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceKey:GetDevice' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#%24sel%3AdeviceKey%3AGetDevice%27"><span class="hs-identifier hs-var">deviceKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447049"><span class="hs-identifier hs-var">pDeviceKey_</span></a></span><span>
+</span><a href="#local-6989586621679447058"><span class="hs-identifier hs-var">pDeviceKey_</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The access token.</span><span>
@@ -131,16 +131,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-type">GetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447046"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-type">GetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447055"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 accessToken :: Maybe (Sensitive Text)
 $sel:accessToken:GetDevice' :: GetDevice -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679447046"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679447046"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447045"><span class="annot"><span class="annottext">s :: GetDevice
-</span><a href="#local-6989586621679447045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-type">GetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447044"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679447044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDevice
-</span><a href="#local-6989586621679447045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:GetDevice' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679447055"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679447055"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447054"><span class="annot"><span class="annottext">s :: GetDevice
+</span><a href="#local-6989586621679447054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-type">GetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447053"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679447053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDevice
+</span><a href="#local-6989586621679447054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:GetDevice' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#%24sel%3AaccessToken%3AGetDevice%27"><span class="hs-identifier hs-var">accessToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679447044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679447053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; GetDevice -&gt; f GetDevice)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -168,25 +168,25 @@ forall a. Iso' (Sensitive a) a
 -&gt; (GetDevice -&gt; Text -&gt; GetDevice)
 -&gt; Lens GetDevice GetDevice Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-type">GetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447040"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-type">GetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447049"><span class="annot"><span class="annottext">Text
 deviceKey :: Text
 $sel:deviceKey:GetDevice' :: GetDevice -&gt; Text
-</span><a href="#local-6989586621679447040"><span class="hs-identifier hs-var hs-var">deviceKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447040"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447039"><span class="annot"><span class="annottext">s :: GetDevice
-</span><a href="#local-6989586621679447039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-type">GetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447038"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDevice
-</span><a href="#local-6989586621679447039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceKey:GetDevice' :: Text
+</span><a href="#local-6989586621679447049"><span class="hs-identifier hs-var hs-var">deviceKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447049"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447048"><span class="annot"><span class="annottext">s :: GetDevice
+</span><a href="#local-6989586621679447048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-type">GetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447047"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDevice
+</span><a href="#local-6989586621679447048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceKey:GetDevice' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#%24sel%3AdeviceKey%3AGetDevice%27"><span class="hs-identifier hs-var">deviceKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679447034"><span class="annot"><span class="annottext">request :: GetDevice -&gt; Request GetDevice
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679447043"><span class="annot"><span class="annottext">request :: GetDevice -&gt; Request GetDevice
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDevice -&gt; Request GetDevice
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679447030"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679447039"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetDevice
 -&gt; ClientResponse ClientBody
@@ -210,10 +210,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679447027"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447027"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679447026"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679447026"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679447025"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679447025"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679447036"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447036"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679447035"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679447035"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679447034"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679447034"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeviceType -&gt; GetDeviceResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-var">GetDeviceResponse'</span></a></span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeviceType -&gt; GetDeviceResponse)
@@ -225,23 +225,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447027"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447036"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either String (DeviceType -&gt; GetDeviceResponse)
 -&gt; Either String DeviceType -&gt; Either String GetDeviceResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679447025"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String DeviceType
+</span><a href="#local-6989586621679447034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String DeviceType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Device&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447017"><span id="local-6989586621679447019"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447026"><span id="local-6989586621679447028"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447014"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447023"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679447010"><span class="annot"><span class="annottext">toHeaders :: GetDevice -&gt; ResponseHeaders
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679447019"><span class="annot"><span class="annottext">toHeaders :: GetDevice -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDevice -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -268,15 +268,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447000"><span id="local-6989586621679447002"><span id="local-6989586621679447004"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679446998"><span class="annot"><span class="annottext">toJSON :: GetDevice -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-type">GetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446995"><span id="local-6989586621679446996"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447009"><span id="local-6989586621679447011"><span id="local-6989586621679447013"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679447007"><span class="annot"><span class="annottext">toJSON :: GetDevice -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice%27"><span class="hs-identifier hs-type">GetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447004"><span id="local-6989586621679447005"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 Text
 deviceKey :: Text
 accessToken :: Maybe (Sensitive Text)
 $sel:deviceKey:GetDevice' :: GetDevice -&gt; Text
 $sel:accessToken:GetDevice' :: GetDevice -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679446995"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679447004"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -288,26 +288,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679446996"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679447005"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446995"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447004"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679446989"><span class="annot"><span class="annottext">toPath :: GetDevice -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679446998"><span class="annot"><span class="annottext">toPath :: GetDevice -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDevice -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDevice"><span class="hs-identifier hs-type">GetDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679446985"><span class="annot"><span class="annottext">toQuery :: GetDevice -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679446994"><span class="annot"><span class="annottext">toQuery :: GetDevice -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDevice -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -317,7 +317,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-135"></span><span class="hs-comment">-- | Gets the device response.</span><span>
 </span><span id="line-136"></span><span class="hs-comment">--</span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- /See:/ 'newGetDeviceResponse' smart constructor.</span><span>
-</span><span id="line-138"></span><span id="local-6989586621679446982"><span id="local-6989586621679446983"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDeviceResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-var">GetDeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDeviceResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-var">GetDeviceResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span id="local-6989586621679446991"><span id="local-6989586621679446992"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDeviceResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-var">GetDeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDeviceResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-var">GetDeviceResponse'</span></a></span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDeviceResponse%27"><span class="annot"><span class="annottext">GetDeviceResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#%24sel%3AhttpStatus%3AGetDeviceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -325,7 +325,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3Adevice%3AGetDeviceResponse%27"><span class="annot"><span class="annottext">GetDeviceResponse -&gt; DeviceType
 </span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#%24sel%3Adevice%3AGetDeviceResponse%27"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446976"><span id="local-6989586621679446978"><span class="annot"><span class="annottext">GetDeviceResponse -&gt; GetDeviceResponse -&gt; Bool
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446985"><span id="local-6989586621679446987"><span class="annot"><span class="annottext">GetDeviceResponse -&gt; GetDeviceResponse -&gt; Bool
 (GetDeviceResponse -&gt; GetDeviceResponse -&gt; Bool)
 -&gt; (GetDeviceResponse -&gt; GetDeviceResponse -&gt; Bool)
 -&gt; Eq GetDeviceResponse
@@ -334,7 +334,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDeviceResponse -&gt; GetDeviceResponse -&gt; Bool
 == :: GetDeviceResponse -&gt; GetDeviceResponse -&gt; Bool
 $c== :: GetDeviceResponse -&gt; GetDeviceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446970"><span id="local-6989586621679446972"><span id="local-6989586621679446974"><span class="annot"><span class="annottext">Int -&gt; GetDeviceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446979"><span id="local-6989586621679446981"><span id="local-6989586621679446983"><span class="annot"><span class="annottext">Int -&gt; GetDeviceResponse -&gt; ShowS
 [GetDeviceResponse] -&gt; ShowS
 GetDeviceResponse -&gt; String
 (Int -&gt; GetDeviceResponse -&gt; ShowS)
@@ -378,17 +378,17 @@ $cfrom :: forall x. GetDeviceResponse -&gt; Rep GetDeviceResponse x
 </span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span><span>
 </span><span id="line-163"></span><span id="newGetDeviceResponse"><span class="annot"><span class="annottext">newGetDeviceResponse :: Int -&gt; DeviceType -&gt; GetDeviceResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#newGetDeviceResponse"><span class="hs-identifier hs-var hs-var">newGetDeviceResponse</span></a></span></span><span> </span><span id="local-6989586621679446967"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446967"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679446966"><span class="annot"><span class="annottext">DeviceType
-</span><a href="#local-6989586621679446966"><span class="hs-identifier hs-var">pDevice_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#newGetDeviceResponse"><span class="hs-identifier hs-var hs-var">newGetDeviceResponse</span></a></span></span><span> </span><span id="local-6989586621679446976"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446976"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679446975"><span class="annot"><span class="annottext">DeviceType
+</span><a href="#local-6989586621679446975"><span class="hs-identifier hs-var">pDevice_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">GetDeviceResponse' :: Int -&gt; DeviceType -&gt; GetDeviceResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDeviceResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#%24sel%3AhttpStatus%3AGetDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446967"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679446976"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:device:GetDeviceResponse' :: DeviceType
 </span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#%24sel%3Adevice%3AGetDeviceResponse%27"><span class="hs-identifier hs-var">device</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeviceType
-</span><a href="#local-6989586621679446966"><span class="hs-identifier hs-var">pDevice_</span></a></span><span>
+</span><a href="#local-6989586621679446975"><span class="hs-identifier hs-var">pDevice_</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -398,16 +398,16 @@ $cfrom :: forall x. GetDeviceResponse -&gt; Rep GetDeviceResponse x
 -&gt; (GetDeviceResponse -&gt; Int -&gt; GetDeviceResponse)
 -&gt; Lens GetDeviceResponse GetDeviceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446965"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446974"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetDeviceResponse' :: GetDeviceResponse -&gt; Int
-</span><a href="#local-6989586621679446965"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446965"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446964"><span class="annot"><span class="annottext">s :: GetDeviceResponse
-</span><a href="#local-6989586621679446964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446963"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeviceResponse
-</span><a href="#local-6989586621679446964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDeviceResponse' :: Int
+</span><a href="#local-6989586621679446974"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446974"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446973"><span class="annot"><span class="annottext">s :: GetDeviceResponse
+</span><a href="#local-6989586621679446973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446972"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeviceResponse
+</span><a href="#local-6989586621679446973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDeviceResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#%24sel%3AhttpStatus%3AGetDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The device.</span><span>
 </span><span id="line-174"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#getDeviceResponse_device"><span class="hs-identifier hs-type">getDeviceResponse_device</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceType.html#DeviceType"><span class="hs-identifier hs-type">DeviceType</span></a></span><span>
@@ -417,16 +417,16 @@ $sel:httpStatus:GetDeviceResponse' :: GetDeviceResponse -&gt; Int
 -&gt; (GetDeviceResponse -&gt; DeviceType -&gt; GetDeviceResponse)
 -&gt; Lens GetDeviceResponse GetDeviceResponse DeviceType DeviceType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446962"><span class="annot"><span class="annottext">DeviceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446971"><span class="annot"><span class="annottext">DeviceType
 device :: DeviceType
 $sel:device:GetDeviceResponse' :: GetDeviceResponse -&gt; DeviceType
-</span><a href="#local-6989586621679446962"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceType
-</span><a href="#local-6989586621679446962"><span class="hs-identifier hs-var">device</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446961"><span class="annot"><span class="annottext">s :: GetDeviceResponse
-</span><a href="#local-6989586621679446961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446960"><span class="annot"><span class="annottext">DeviceType
-</span><a href="#local-6989586621679446960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeviceResponse
-</span><a href="#local-6989586621679446961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:device:GetDeviceResponse' :: DeviceType
+</span><a href="#local-6989586621679446971"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceType
+</span><a href="#local-6989586621679446971"><span class="hs-identifier hs-var">device</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446970"><span class="annot"><span class="annottext">s :: GetDeviceResponse
+</span><a href="#local-6989586621679446970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse%27"><span class="hs-identifier hs-type">GetDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446969"><span class="annot"><span class="annottext">DeviceType
+</span><a href="#local-6989586621679446969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeviceResponse
+</span><a href="#local-6989586621679446970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:device:GetDeviceResponse' :: DeviceType
 </span><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#%24sel%3Adevice%3AGetDeviceResponse%27"><span class="hs-identifier hs-var">device</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeviceType
-</span><a href="#local-6989586621679446960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446958"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446967"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetDevice.html#GetDeviceResponse"><span class="hs-identifier hs-type">GetDeviceResponse</span></a></span></span><span>
 </span><span id="line-178"></span></pre></body></html>

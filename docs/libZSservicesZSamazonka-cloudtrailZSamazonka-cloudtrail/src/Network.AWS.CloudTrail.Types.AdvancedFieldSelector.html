@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A single selector statement in an advanced event selector.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAdvancedFieldSelector' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679194681"><span id="local-6989586621679194682"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdvancedFieldSelector"><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-var">AdvancedFieldSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdvancedFieldSelector%27"><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-var">AdvancedFieldSelector'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679194690"><span id="local-6989586621679194691"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdvancedFieldSelector"><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-var">AdvancedFieldSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdvancedFieldSelector%27"><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-var">AdvancedFieldSelector'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An operator that includes events that match the last few characters of</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- the event record field specified as the value of @Field@.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AendsWith%3AAdvancedFieldSelector%27"><span class="annot"><span class="annottext">AdvancedFieldSelector -&gt; Maybe (NonEmpty Text)
@@ -146,7 +146,7 @@
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3Afield%3AAdvancedFieldSelector%27"><span class="annot"><span class="annottext">AdvancedFieldSelector -&gt; Text
 </span><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#%24sel%3Afield%3AAdvancedFieldSelector%27"><span class="hs-identifier hs-var hs-var">field</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194669"><span id="local-6989586621679194671"><span class="annot"><span class="annottext">AdvancedFieldSelector -&gt; AdvancedFieldSelector -&gt; Bool
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194678"><span id="local-6989586621679194680"><span class="annot"><span class="annottext">AdvancedFieldSelector -&gt; AdvancedFieldSelector -&gt; Bool
 (AdvancedFieldSelector -&gt; AdvancedFieldSelector -&gt; Bool)
 -&gt; (AdvancedFieldSelector -&gt; AdvancedFieldSelector -&gt; Bool)
 -&gt; Eq AdvancedFieldSelector
@@ -155,7 +155,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AdvancedFieldSelector -&gt; AdvancedFieldSelector -&gt; Bool
 == :: AdvancedFieldSelector -&gt; AdvancedFieldSelector -&gt; Bool
 $c== :: AdvancedFieldSelector -&gt; AdvancedFieldSelector -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194660"><span id="local-6989586621679194662"><span id="local-6989586621679194664"><span id="local-6989586621679194666"><span class="annot"><span class="annottext">ReadPrec [AdvancedFieldSelector]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194669"><span id="local-6989586621679194671"><span id="local-6989586621679194673"><span id="local-6989586621679194675"><span class="annot"><span class="annottext">ReadPrec [AdvancedFieldSelector]
 ReadPrec AdvancedFieldSelector
 Int -&gt; ReadS AdvancedFieldSelector
 ReadS [AdvancedFieldSelector]
@@ -175,7 +175,7 @@ readList :: ReadS [AdvancedFieldSelector]
 $creadList :: ReadS [AdvancedFieldSelector]
 readsPrec :: Int -&gt; ReadS AdvancedFieldSelector
 $creadsPrec :: Int -&gt; ReadS AdvancedFieldSelector
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194653"><span id="local-6989586621679194655"><span id="local-6989586621679194657"><span class="annot"><span class="annottext">Int -&gt; AdvancedFieldSelector -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194662"><span id="local-6989586621679194664"><span id="local-6989586621679194666"><span class="annot"><span class="annottext">Int -&gt; AdvancedFieldSelector -&gt; ShowS
 [AdvancedFieldSelector] -&gt; ShowS
 AdvancedFieldSelector -&gt; String
 (Int -&gt; AdvancedFieldSelector -&gt; ShowS)
@@ -324,8 +324,8 @@ $cfrom :: forall x. AdvancedFieldSelector -&gt; Rep AdvancedFieldSelector x
 </span><span id="line-264"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-265"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span><span>
 </span><span id="line-266"></span><span id="newAdvancedFieldSelector"><span class="annot"><span class="annottext">newAdvancedFieldSelector :: Text -&gt; AdvancedFieldSelector
-</span><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#newAdvancedFieldSelector"><span class="hs-identifier hs-var hs-var">newAdvancedFieldSelector</span></a></span></span><span> </span><span id="local-6989586621679194647"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194647"><span class="hs-identifier hs-var">pField_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#newAdvancedFieldSelector"><span class="hs-identifier hs-var hs-var">newAdvancedFieldSelector</span></a></span></span><span> </span><span id="local-6989586621679194656"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194656"><span class="hs-identifier hs-var">pField_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-267"></span><span>  </span><span class="annot"><span class="annottext">AdvancedFieldSelector' :: Maybe (NonEmpty Text)
 -&gt; Maybe (NonEmpty Text)
 -&gt; Maybe (NonEmpty Text)
@@ -361,7 +361,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">$sel:field:AdvancedFieldSelector' :: Text
 </span><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#%24sel%3Afield%3AAdvancedFieldSelector%27"><span class="hs-identifier hs-var">field</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194647"><span class="hs-identifier hs-var">pField_</span></a></span><span>
+</span><a href="#local-6989586621679194656"><span class="hs-identifier hs-var">pField_</span></a></span><span>
 </span><span id="line-275"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-276"></span><span>
 </span><span id="line-277"></span><span class="hs-comment">-- | An operator that includes events that match the last few characters of</span><span>
@@ -378,16 +378,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194643"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194652"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 endsWith :: Maybe (NonEmpty Text)
 $sel:endsWith:AdvancedFieldSelector' :: AdvancedFieldSelector -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194643"><span class="hs-identifier hs-var hs-var">endsWith</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194643"><span class="hs-identifier hs-var">endsWith</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194642"><span class="annot"><span class="annottext">s :: AdvancedFieldSelector
-</span><a href="#local-6989586621679194642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194641"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedFieldSelector
-</span><a href="#local-6989586621679194642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endsWith:AdvancedFieldSelector' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194652"><span class="hs-identifier hs-var hs-var">endsWith</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194652"><span class="hs-identifier hs-var">endsWith</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194651"><span class="annot"><span class="annottext">s :: AdvancedFieldSelector
+</span><a href="#local-6989586621679194651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194650"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedFieldSelector
+</span><a href="#local-6989586621679194651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endsWith:AdvancedFieldSelector' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#%24sel%3AendsWith%3AAdvancedFieldSelector%27"><span class="hs-identifier hs-var">endsWith</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679194650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; AdvancedFieldSelector -&gt; f AdvancedFieldSelector)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -424,16 +424,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194636"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194645"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 notStartsWith :: Maybe (NonEmpty Text)
 $sel:notStartsWith:AdvancedFieldSelector' :: AdvancedFieldSelector -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194636"><span class="hs-identifier hs-var hs-var">notStartsWith</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194636"><span class="hs-identifier hs-var">notStartsWith</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194635"><span class="annot"><span class="annottext">s :: AdvancedFieldSelector
-</span><a href="#local-6989586621679194635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194634"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedFieldSelector
-</span><a href="#local-6989586621679194635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notStartsWith:AdvancedFieldSelector' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194645"><span class="hs-identifier hs-var hs-var">notStartsWith</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194645"><span class="hs-identifier hs-var">notStartsWith</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194644"><span class="annot"><span class="annottext">s :: AdvancedFieldSelector
+</span><a href="#local-6989586621679194644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194643"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedFieldSelector
+</span><a href="#local-6989586621679194644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notStartsWith:AdvancedFieldSelector' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#%24sel%3AnotStartsWith%3AAdvancedFieldSelector%27"><span class="hs-identifier hs-var">notStartsWith</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679194643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; AdvancedFieldSelector -&gt; f AdvancedFieldSelector)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -472,16 +472,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194632"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194641"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 equals :: Maybe (NonEmpty Text)
 $sel:equals:AdvancedFieldSelector' :: AdvancedFieldSelector -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194632"><span class="hs-identifier hs-var hs-var">equals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194632"><span class="hs-identifier hs-var">equals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194631"><span class="annot"><span class="annottext">s :: AdvancedFieldSelector
-</span><a href="#local-6989586621679194631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194630"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedFieldSelector
-</span><a href="#local-6989586621679194631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:equals:AdvancedFieldSelector' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194641"><span class="hs-identifier hs-var hs-var">equals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194641"><span class="hs-identifier hs-var">equals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194640"><span class="annot"><span class="annottext">s :: AdvancedFieldSelector
+</span><a href="#local-6989586621679194640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194639"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedFieldSelector
+</span><a href="#local-6989586621679194640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:equals:AdvancedFieldSelector' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#%24sel%3Aequals%3AAdvancedFieldSelector%27"><span class="hs-identifier hs-var">equals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679194639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; AdvancedFieldSelector -&gt; f AdvancedFieldSelector)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -518,16 +518,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194628"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194637"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 notEquals :: Maybe (NonEmpty Text)
 $sel:notEquals:AdvancedFieldSelector' :: AdvancedFieldSelector -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194628"><span class="hs-identifier hs-var hs-var">notEquals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194628"><span class="hs-identifier hs-var">notEquals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194627"><span class="annot"><span class="annottext">s :: AdvancedFieldSelector
-</span><a href="#local-6989586621679194627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194626"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedFieldSelector
-</span><a href="#local-6989586621679194627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notEquals:AdvancedFieldSelector' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194637"><span class="hs-identifier hs-var hs-var">notEquals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194637"><span class="hs-identifier hs-var">notEquals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194636"><span class="annot"><span class="annottext">s :: AdvancedFieldSelector
+</span><a href="#local-6989586621679194636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194635"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedFieldSelector
+</span><a href="#local-6989586621679194636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notEquals:AdvancedFieldSelector' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#%24sel%3AnotEquals%3AAdvancedFieldSelector%27"><span class="hs-identifier hs-var">notEquals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679194635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; AdvancedFieldSelector -&gt; f AdvancedFieldSelector)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -564,16 +564,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194624"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194633"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 notEndsWith :: Maybe (NonEmpty Text)
 $sel:notEndsWith:AdvancedFieldSelector' :: AdvancedFieldSelector -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194624"><span class="hs-identifier hs-var hs-var">notEndsWith</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194624"><span class="hs-identifier hs-var">notEndsWith</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194623"><span class="annot"><span class="annottext">s :: AdvancedFieldSelector
-</span><a href="#local-6989586621679194623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194622"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedFieldSelector
-</span><a href="#local-6989586621679194623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notEndsWith:AdvancedFieldSelector' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194633"><span class="hs-identifier hs-var hs-var">notEndsWith</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194633"><span class="hs-identifier hs-var">notEndsWith</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194632"><span class="annot"><span class="annottext">s :: AdvancedFieldSelector
+</span><a href="#local-6989586621679194632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194631"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedFieldSelector
+</span><a href="#local-6989586621679194632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notEndsWith:AdvancedFieldSelector' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#%24sel%3AnotEndsWith%3AAdvancedFieldSelector%27"><span class="hs-identifier hs-var">notEndsWith</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679194631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; AdvancedFieldSelector -&gt; f AdvancedFieldSelector)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -610,16 +610,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194620"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194629"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 startsWith :: Maybe (NonEmpty Text)
 $sel:startsWith:AdvancedFieldSelector' :: AdvancedFieldSelector -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194620"><span class="hs-identifier hs-var hs-var">startsWith</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194620"><span class="hs-identifier hs-var">startsWith</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194619"><span class="annot"><span class="annottext">s :: AdvancedFieldSelector
-</span><a href="#local-6989586621679194619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194618"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedFieldSelector
-</span><a href="#local-6989586621679194619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startsWith:AdvancedFieldSelector' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194629"><span class="hs-identifier hs-var hs-var">startsWith</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194629"><span class="hs-identifier hs-var">startsWith</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194628"><span class="annot"><span class="annottext">s :: AdvancedFieldSelector
+</span><a href="#local-6989586621679194628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194627"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679194627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedFieldSelector
+</span><a href="#local-6989586621679194628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startsWith:AdvancedFieldSelector' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#%24sel%3AstartsWith%3AAdvancedFieldSelector%27"><span class="hs-identifier hs-var">startsWith</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679194627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; AdvancedFieldSelector -&gt; f AdvancedFieldSelector)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -739,19 +739,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (AdvancedFieldSelector -&gt; Text -&gt; AdvancedFieldSelector)
 -&gt; Lens AdvancedFieldSelector AdvancedFieldSelector Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194616"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194625"><span class="annot"><span class="annottext">Text
 field :: Text
 $sel:field:AdvancedFieldSelector' :: AdvancedFieldSelector -&gt; Text
-</span><a href="#local-6989586621679194616"><span class="hs-identifier hs-var hs-var">field</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194616"><span class="hs-identifier hs-var">field</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194615"><span class="annot"><span class="annottext">s :: AdvancedFieldSelector
-</span><a href="#local-6989586621679194615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194614"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedFieldSelector
-</span><a href="#local-6989586621679194615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:field:AdvancedFieldSelector' :: Text
+</span><a href="#local-6989586621679194625"><span class="hs-identifier hs-var hs-var">field</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194625"><span class="hs-identifier hs-var">field</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194624"><span class="annot"><span class="annottext">s :: AdvancedFieldSelector
+</span><a href="#local-6989586621679194624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194623"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdvancedFieldSelector
+</span><a href="#local-6989586621679194624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:field:AdvancedFieldSelector' :: Text
 </span><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#%24sel%3Afield%3AAdvancedFieldSelector%27"><span class="hs-identifier hs-var">field</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-401"></span><span>
-</span><span id="line-402"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194611"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-403"></span><span>  </span><span id="local-6989586621679194609"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AdvancedFieldSelector
+</span><span id="line-402"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194620"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-403"></span><span>  </span><span id="local-6989586621679194618"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AdvancedFieldSelector
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-404"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AdvancedFieldSelector)
@@ -761,8 +761,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-405"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AdvancedFieldSelector&quot;</span></span><span>
-</span><span id="line-406"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679194606"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194606"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-406"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679194615"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194615"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-407"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 -&gt; Maybe (NonEmpty Text)
 -&gt; Maybe (NonEmpty Text)
@@ -791,7 +791,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; AdvancedFieldSelector)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679194615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndsWith&quot;</span></span><span class="hs-special">)</span><span>
@@ -813,7 +813,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AdvancedFieldSelector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679194615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotStartsWith&quot;</span></span><span class="hs-special">)</span><span>
@@ -833,7 +833,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AdvancedFieldSelector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679194615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Equals&quot;</span></span><span class="hs-special">)</span><span>
@@ -849,7 +849,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe (NonEmpty Text) -&gt; Text -&gt; AdvancedFieldSelector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679194615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotEquals&quot;</span></span><span class="hs-special">)</span><span>
@@ -860,7 +860,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (NonEmpty Text) -&gt; Text -&gt; AdvancedFieldSelector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679194615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotEndsWith&quot;</span></span><span class="hs-special">)</span><span>
@@ -869,7 +869,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; AdvancedFieldSelector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679194615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartsWith&quot;</span></span><span class="hs-special">)</span><span>
@@ -877,19 +877,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser AdvancedFieldSelector
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679194615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Field&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-415"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-416"></span><span>
-</span><span id="line-417"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194599"><span id="local-6989586621679194601"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span></span></span><span>
+</span><span id="line-417"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194608"><span id="local-6989586621679194610"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span></span></span><span>
 </span><span id="line-418"></span><span>
-</span><span id="line-419"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194596"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span></span><span>
+</span><span id="line-419"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194605"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span></span><span>
 </span><span id="line-420"></span><span>
-</span><span id="line-421"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194588"><span id="local-6989586621679194590"><span id="local-6989586621679194592"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-422"></span><span>  </span><span id="local-6989586621679194586"><span class="annot"><span class="annottext">toJSON :: AdvancedFieldSelector -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194578"><span id="local-6989586621679194579"><span id="local-6989586621679194580"><span id="local-6989586621679194581"><span id="local-6989586621679194582"><span id="local-6989586621679194583"><span id="local-6989586621679194584"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-421"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194597"><span id="local-6989586621679194599"><span id="local-6989586621679194601"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector"><span class="hs-identifier hs-type">AdvancedFieldSelector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-422"></span><span>  </span><span id="local-6989586621679194595"><span class="annot"><span class="annottext">toJSON :: AdvancedFieldSelector -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.AdvancedFieldSelector.html#AdvancedFieldSelector%27"><span class="hs-identifier hs-type">AdvancedFieldSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194587"><span id="local-6989586621679194588"><span id="local-6989586621679194589"><span id="local-6989586621679194590"><span id="local-6989586621679194591"><span id="local-6989586621679194592"><span id="local-6989586621679194593"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 Text
 field :: Text
 startsWith :: Maybe (NonEmpty Text)
@@ -905,7 +905,7 @@ $sel:notEquals:AdvancedFieldSelector' :: AdvancedFieldSelector -&gt; Maybe (NonE
 $sel:equals:AdvancedFieldSelector' :: AdvancedFieldSelector -&gt; Maybe (NonEmpty Text)
 $sel:notStartsWith:AdvancedFieldSelector' :: AdvancedFieldSelector -&gt; Maybe (NonEmpty Text)
 $sel:endsWith:AdvancedFieldSelector' :: AdvancedFieldSelector -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194578"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679194587"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-423"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-424"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -917,49 +917,49 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194584"><span class="hs-identifier hs-var">endsWith</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679194593"><span class="hs-identifier hs-var">endsWith</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-426"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotStartsWith&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194583"><span class="hs-identifier hs-var">notStartsWith</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679194592"><span class="hs-identifier hs-var">notStartsWith</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-427"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Equals&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194582"><span class="hs-identifier hs-var">equals</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679194591"><span class="hs-identifier hs-var">equals</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-428"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotEquals&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194581"><span class="hs-identifier hs-var">notEquals</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679194590"><span class="hs-identifier hs-var">notEquals</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-429"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotEndsWith&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194580"><span class="hs-identifier hs-var">notEndsWith</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679194589"><span class="hs-identifier hs-var">notEndsWith</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-430"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartsWith&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679194579"><span class="hs-identifier hs-var">startsWith</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679194588"><span class="hs-identifier hs-var">startsWith</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-431"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Field&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194578"><span class="hs-identifier hs-var">field</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194587"><span class="hs-identifier hs-var">field</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-432"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-433"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-434"></span></pre></body></html>

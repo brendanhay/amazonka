@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621681190700"><span id="local-6989586621681190701"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VpnState"><span class="annot"><a href="Network.AWS.EC2.Types.VpnState.html#VpnState"><span class="hs-identifier hs-var">VpnState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpnState%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpnState.html#VpnState%27"><span class="hs-identifier hs-var">VpnState'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681190709"><span id="local-6989586621681190710"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VpnState"><span class="annot"><a href="Network.AWS.EC2.Types.VpnState.html#VpnState"><span class="hs-identifier hs-var">VpnState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpnState%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpnState.html#VpnState%27"><span class="hs-identifier hs-var">VpnState'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVpnState"><span class="annot"><span class="annottext">VpnState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.VpnState.html#fromVpnState"><span class="hs-identifier hs-var hs-var">fromVpnState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681190692"><span id="local-6989586621681190694"><span id="local-6989586621681190696"><span class="annot"><span class="annottext">Int -&gt; VpnState -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681190701"><span id="local-6989586621681190703"><span id="local-6989586621681190705"><span class="annot"><span class="annottext">Int -&gt; VpnState -&gt; ShowS
 [VpnState] -&gt; ShowS
 VpnState -&gt; String
 (Int -&gt; VpnState -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: VpnState -&gt; String
 showsPrec :: Int -&gt; VpnState -&gt; ShowS
 $cshowsPrec :: Int -&gt; VpnState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681190683"><span id="local-6989586621681190685"><span id="local-6989586621681190687"><span id="local-6989586621681190689"><span class="annot"><span class="annottext">ReadPrec [VpnState]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681190692"><span id="local-6989586621681190694"><span id="local-6989586621681190696"><span id="local-6989586621681190698"><span class="annot"><span class="annottext">ReadPrec [VpnState]
 ReadPrec VpnState
 Int -&gt; ReadS VpnState
 ReadS [VpnState]
@@ -73,7 +73,7 @@ $creadList :: ReadS [VpnState]
 readsPrec :: Int -&gt; ReadS VpnState
 $creadsPrec :: Int -&gt; ReadS VpnState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681190678"><span id="local-6989586621681190680"><span class="annot"><span class="annottext">VpnState -&gt; VpnState -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681190687"><span id="local-6989586621681190689"><span class="annot"><span class="annottext">VpnState -&gt; VpnState -&gt; Bool
 (VpnState -&gt; VpnState -&gt; Bool)
 -&gt; (VpnState -&gt; VpnState -&gt; Bool) -&gt; Eq VpnState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: VpnState -&gt; VpnState -&gt; Bool
 == :: VpnState -&gt; VpnState -&gt; Bool
 $c== :: VpnState -&gt; VpnState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681190662"><span id="local-6989586621681190664"><span id="local-6989586621681190666"><span id="local-6989586621681190668"><span id="local-6989586621681190670"><span id="local-6989586621681190672"><span id="local-6989586621681190674"><span class="annot"><span class="annottext">Eq VpnState
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681190671"><span id="local-6989586621681190673"><span id="local-6989586621681190675"><span id="local-6989586621681190677"><span id="local-6989586621681190679"><span id="local-6989586621681190681"><span id="local-6989586621681190683"><span class="annot"><span class="annottext">Eq VpnState
 Eq VpnState
 -&gt; (VpnState -&gt; VpnState -&gt; Ordering)
 -&gt; (VpnState -&gt; VpnState -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. VpnState -&gt; Rep VpnState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681190654"><span id="local-6989586621681190656"><span class="annot"><span class="annottext">Int -&gt; VpnState -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681190663"><span id="local-6989586621681190665"><span class="annot"><span class="annottext">Int -&gt; VpnState -&gt; Int
 VpnState -&gt; Int
 (Int -&gt; VpnState -&gt; Int) -&gt; (VpnState -&gt; Int) -&gt; Hashable VpnState
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -141,49 +141,49 @@ $chash :: VpnState -&gt; Int
 hashWithSalt :: Int -&gt; VpnState -&gt; Int
 $chashWithSalt :: Int -&gt; VpnState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681190651"><span class="annot"><span class="annottext">VpnState -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681190660"><span class="annot"><span class="annottext">VpnState -&gt; ()
 (VpnState -&gt; ()) -&gt; NFData VpnState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VpnState -&gt; ()
 $crnf :: VpnState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681190648"><span class="annot"><span class="annottext">Text -&gt; Either String VpnState
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681190657"><span class="annot"><span class="annottext">Text -&gt; Either String VpnState
 (Text -&gt; Either String VpnState) -&gt; FromText VpnState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VpnState
 $cfromText :: Text -&gt; Either String VpnState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681190645"><span class="annot"><span class="annottext">VpnState -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681190654"><span class="annot"><span class="annottext">VpnState -&gt; Text
 (VpnState -&gt; Text) -&gt; ToText VpnState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VpnState -&gt; Text
 $ctoText :: VpnState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681190642"><span class="annot"><span class="annottext">VpnState -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681190651"><span class="annot"><span class="annottext">VpnState -&gt; ByteString
 (VpnState -&gt; ByteString) -&gt; ToByteString VpnState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VpnState -&gt; ByteString
 $ctoBS :: VpnState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681190639"><span class="annot"><span class="annottext">VpnState -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681190648"><span class="annot"><span class="annottext">VpnState -&gt; ByteStringBuilder
 (VpnState -&gt; ByteStringBuilder) -&gt; ToLog VpnState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VpnState -&gt; ByteStringBuilder
 $cbuild :: VpnState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681190636"><span class="annot"><span class="annottext">HeaderName -&gt; VpnState -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681190645"><span class="annot"><span class="annottext">HeaderName -&gt; VpnState -&gt; [Header]
 (HeaderName -&gt; VpnState -&gt; [Header]) -&gt; ToHeader VpnState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VpnState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VpnState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681190633"><span class="annot"><span class="annottext">VpnState -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681190642"><span class="annot"><span class="annottext">VpnState -&gt; QueryString
 (VpnState -&gt; QueryString) -&gt; ToQuery VpnState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VpnState -&gt; QueryString
 $ctoQuery :: VpnState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681190628"><span id="local-6989586621681190630"><span class="annot"><span class="annottext">Value -&gt; Parser [VpnState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681190637"><span id="local-6989586621681190639"><span class="annot"><span class="annottext">Value -&gt; Parser [VpnState]
 Value -&gt; Parser VpnState
 (Value -&gt; Parser VpnState)
 -&gt; (Value -&gt; Parser [VpnState]) -&gt; FromJSON VpnState
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [VpnState]
 parseJSON :: Value -&gt; Parser VpnState
 $cparseJSON :: Value -&gt; Parser VpnState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681190623"><span id="local-6989586621681190625"><span class="annot"><span class="annottext">FromJSONKeyFunction [VpnState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681190632"><span id="local-6989586621681190634"><span class="annot"><span class="annottext">FromJSONKeyFunction [VpnState]
 FromJSONKeyFunction VpnState
 FromJSONKeyFunction VpnState
 -&gt; FromJSONKeyFunction [VpnState] -&gt; FromJSONKey VpnState
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VpnState]
 fromJSONKey :: FromJSONKeyFunction VpnState
 $cfromJSONKey :: FromJSONKeyFunction VpnState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681190614"><span id="local-6989586621681190616"><span id="local-6989586621681190618"><span id="local-6989586621681190620"><span class="annot"><span class="annottext">[VpnState] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681190623"><span id="local-6989586621681190625"><span id="local-6989586621681190627"><span id="local-6989586621681190629"><span class="annot"><span class="annottext">[VpnState] -&gt; Encoding
 [VpnState] -&gt; Value
 VpnState -&gt; Encoding
 VpnState -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: VpnState -&gt; Encoding
 toJSON :: VpnState -&gt; Value
 $ctoJSON :: VpnState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681190609"><span id="local-6989586621681190611"><span class="annot"><span class="annottext">ToJSONKeyFunction [VpnState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681190618"><span id="local-6989586621681190620"><span class="annot"><span class="annottext">ToJSONKeyFunction [VpnState]
 ToJSONKeyFunction VpnState
 ToJSONKeyFunction VpnState
 -&gt; ToJSONKeyFunction [VpnState] -&gt; ToJSONKey VpnState
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VpnState]
 toJSONKey :: ToJSONKeyFunction VpnState
 $ctoJSONKey :: ToJSONKeyFunction VpnState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681190606"><span class="annot"><span class="annottext">[Node] -&gt; Either String VpnState
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681190615"><span class="annot"><span class="annottext">[Node] -&gt; Either String VpnState
 ([Node] -&gt; Either String VpnState) -&gt; FromXML VpnState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VpnState
 $cparseXML :: [Node] -&gt; Either String VpnState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681190603"><span class="annot"><span class="annottext">VpnState -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681190612"><span class="annot"><span class="annottext">VpnState -&gt; XML
 (VpnState -&gt; XML) -&gt; ToXML VpnState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VpnState -&gt; XML

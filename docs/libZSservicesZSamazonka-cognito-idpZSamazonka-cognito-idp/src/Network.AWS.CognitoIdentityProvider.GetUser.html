@@ -53,13 +53,13 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Represents the request to get information about the user.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newGetUser' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679445983"><span id="local-6989586621679445984"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUser"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser"><span class="hs-identifier hs-var">GetUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUser%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser%27"><span class="hs-identifier hs-var">GetUser'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679445992"><span id="local-6989586621679445993"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUser"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser"><span class="hs-identifier hs-var">GetUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUser%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser%27"><span class="hs-identifier hs-var">GetUser'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The access token returned by the server response to get information</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- about the user.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AaccessToken%3AGetUser%27"><span class="annot"><span class="annottext">GetUser -&gt; Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#%24sel%3AaccessToken%3AGetUser%27"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679445977"><span id="local-6989586621679445979"><span class="annot"><span class="annottext">GetUser -&gt; GetUser -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679445986"><span id="local-6989586621679445988"><span class="annot"><span class="annottext">GetUser -&gt; GetUser -&gt; Bool
 (GetUser -&gt; GetUser -&gt; Bool)
 -&gt; (GetUser -&gt; GetUser -&gt; Bool) -&gt; Eq GetUser
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetUser -&gt; GetUser -&gt; Bool
 == :: GetUser -&gt; GetUser -&gt; Bool
 $c== :: GetUser -&gt; GetUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445970"><span id="local-6989586621679445972"><span id="local-6989586621679445974"><span class="annot"><span class="annottext">Int -&gt; GetUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445979"><span id="local-6989586621679445981"><span id="local-6989586621679445983"><span class="annot"><span class="annottext">Int -&gt; GetUser -&gt; ShowS
 [GetUser] -&gt; ShowS
 GetUser -&gt; String
 (Int -&gt; GetUser -&gt; ShowS)
@@ -105,8 +105,8 @@ $cfrom :: forall x. GetUser -&gt; Rep GetUser x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser"><span class="hs-identifier hs-type">GetUser</span></a></span><span>
 </span><span id="line-77"></span><span id="newGetUser"><span class="annot"><span class="annottext">newGetUser :: Text -&gt; GetUser
-</span><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#newGetUser"><span class="hs-identifier hs-var hs-var">newGetUser</span></a></span></span><span> </span><span id="local-6989586621679445965"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679445965"><span class="hs-identifier hs-var">pAccessToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#newGetUser"><span class="hs-identifier hs-var hs-var">newGetUser</span></a></span></span><span> </span><span id="local-6989586621679445974"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445974"><span class="hs-identifier hs-var">pAccessToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">GetUser' :: Sensitive Text -&gt; GetUser
 </span><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser%27"><span class="hs-identifier hs-type">GetUser'</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accessToken:GetUser' :: Sensitive Text
@@ -119,7 +119,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679445965"><span class="hs-identifier hs-var">pAccessToken_</span></a></span><span>
+</span><a href="#local-6989586621679445974"><span class="hs-identifier hs-var">pAccessToken_</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The access token returned by the server response to get information</span><span>
@@ -130,16 +130,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (GetUser -&gt; Sensitive Text -&gt; GetUser)
 -&gt; Lens GetUser GetUser (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser%27"><span class="hs-identifier hs-type">GetUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445960"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser%27"><span class="hs-identifier hs-type">GetUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445969"><span class="annot"><span class="annottext">Sensitive Text
 accessToken :: Sensitive Text
 $sel:accessToken:GetUser' :: GetUser -&gt; Sensitive Text
-</span><a href="#local-6989586621679445960"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679445960"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445959"><span class="annot"><span class="annottext">s :: GetUser
-</span><a href="#local-6989586621679445959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser%27"><span class="hs-identifier hs-type">GetUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445958"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679445958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUser
-</span><a href="#local-6989586621679445959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:GetUser' :: Sensitive Text
+</span><a href="#local-6989586621679445969"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679445969"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445968"><span class="annot"><span class="annottext">s :: GetUser
+</span><a href="#local-6989586621679445968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser%27"><span class="hs-identifier hs-type">GetUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445967"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679445967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUser
+</span><a href="#local-6989586621679445968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:GetUser' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#%24sel%3AaccessToken%3AGetUser%27"><span class="hs-identifier hs-var">accessToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679445958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser"><span class="hs-identifier hs-type">GetUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text)) -&gt; GetUser -&gt; f GetUser)
+</span><a href="#local-6989586621679445967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser"><span class="hs-identifier hs-type">GetUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text)) -&gt; GetUser -&gt; f GetUser)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
 -&gt; GetUser
@@ -151,12 +151,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser"><span class="hs-identifier hs-type">GetUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser"><span class="hs-identifier hs-type">GetUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-type">GetUserResponse</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679445953"><span class="annot"><span class="annottext">request :: GetUser -&gt; Request GetUser
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679445962"><span class="annot"><span class="annottext">request :: GetUser -&gt; Request GetUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetUser -&gt; Request GetUser
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679445949"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679445958"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetUser
 -&gt; ClientResponse ClientBody
@@ -180,10 +180,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679445946"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679445946"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679445945"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679445945"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679445944"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679445944"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679445955"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445955"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679445954"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679445954"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679445953"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679445953"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe [MFAOptionType]
 -&gt; Maybe Text
@@ -210,7 +210,7 @@ MonadResource m =&gt;
       -&gt; GetUserResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679445944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679445953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserMFASettingList&quot;</span></span><span>
@@ -236,7 +236,7 @@ forall a. Monoid a =&gt; a
       -&gt; Int -&gt; Sensitive Text -&gt; [AttributeType] -&gt; GetUserResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679445944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [MFAOptionType]))
+</span><a href="#local-6989586621679445953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [MFAOptionType]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MFAOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [MFAOptionType]))
@@ -255,7 +255,7 @@ forall a. Monoid a =&gt; a
      (Int -&gt; Sensitive Text -&gt; [AttributeType] -&gt; GetUserResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679445944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679445953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PreferredMfaSetting&quot;</span></span><span class="hs-special">)</span><span>
@@ -271,14 +271,14 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679445946"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679445955"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (Sensitive Text -&gt; [AttributeType] -&gt; GetUserResponse)
 -&gt; Either String (Sensitive Text)
 -&gt; Either String ([AttributeType] -&gt; GetUserResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679445944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Sensitive Text)
+</span><a href="#local-6989586621679445953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Sensitive Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Username&quot;</span></span><span class="hs-special">)</span><span>
@@ -286,7 +286,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String [AttributeType] -&gt; Either String GetUserResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679445944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [AttributeType])
+</span><a href="#local-6989586621679445953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [AttributeType])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserAttributes&quot;</span></span><span>
@@ -299,12 +299,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-104"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445934"><span id="local-6989586621679445936"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser"><span class="hs-identifier hs-type">GetUser</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445943"><span id="local-6989586621679445945"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser"><span class="hs-identifier hs-type">GetUser</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445931"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser"><span class="hs-identifier hs-type">GetUser</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445940"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser"><span class="hs-identifier hs-type">GetUser</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser"><span class="hs-identifier hs-type">GetUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679445927"><span class="annot"><span class="annottext">toHeaders :: GetUser -&gt; ResponseHeaders
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679445936"><span class="annot"><span class="annottext">toHeaders :: GetUser -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetUser -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -331,12 +331,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445917"><span id="local-6989586621679445919"><span id="local-6989586621679445921"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser"><span class="hs-identifier hs-type">GetUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679445915"><span class="annot"><span class="annottext">toJSON :: GetUser -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser%27"><span class="hs-identifier hs-type">GetUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445913"><span class="annot"><span class="annottext">Sensitive Text
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445926"><span id="local-6989586621679445928"><span id="local-6989586621679445930"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser"><span class="hs-identifier hs-type">GetUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679445924"><span class="annot"><span class="annottext">toJSON :: GetUser -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser%27"><span class="hs-identifier hs-type">GetUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445922"><span class="annot"><span class="annottext">Sensitive Text
 accessToken :: Sensitive Text
 $sel:accessToken:GetUser' :: GetUser -&gt; Sensitive Text
-</span><a href="#local-6989586621679445913"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679445922"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -348,18 +348,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AccessToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679445913"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679445922"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser"><span class="hs-identifier hs-type">GetUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679445907"><span class="annot"><span class="annottext">toPath :: GetUser -&gt; ByteString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679445916"><span class="annot"><span class="annottext">toPath :: GetUser -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetUser -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUser"><span class="hs-identifier hs-type">GetUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679445903"><span class="annot"><span class="annottext">toQuery :: GetUser -&gt; QueryString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679445912"><span class="annot"><span class="annottext">toQuery :: GetUser -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetUser -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -370,7 +370,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-140"></span><span class="hs-comment">-- information about the user.</span><span>
 </span><span id="line-141"></span><span class="hs-comment">--</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- /See:/ 'newGetUserResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679445900"><span id="local-6989586621679445901"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUserResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-var">GetUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUserResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-var">GetUserResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span id="local-6989586621679445909"><span id="local-6989586621679445910"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUserResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-var">GetUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUserResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-var">GetUserResponse'</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The MFA options that are enabled for the user. The possible values in</span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-comment">-- this list are @SMS_MFA@ and @SOFTWARE_TOKEN_MFA@.</span><span>
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3AuserMFASettingList%3AGetUserResponse%27"><span class="annot"><span class="annottext">GetUserResponse -&gt; Maybe [Text]
@@ -399,7 +399,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-164"></span><span>    </span><span id="%24sel%3AuserAttributes%3AGetUserResponse%27"><span class="annot"><span class="annottext">GetUserResponse -&gt; [AttributeType]
 </span><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#%24sel%3AuserAttributes%3AGetUserResponse%27"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AttributeType.html#AttributeType"><span class="hs-identifier hs-type">AttributeType</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679445890"><span id="local-6989586621679445892"><span class="annot"><span class="annottext">GetUserResponse -&gt; GetUserResponse -&gt; Bool
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679445899"><span id="local-6989586621679445901"><span class="annot"><span class="annottext">GetUserResponse -&gt; GetUserResponse -&gt; Bool
 (GetUserResponse -&gt; GetUserResponse -&gt; Bool)
 -&gt; (GetUserResponse -&gt; GetUserResponse -&gt; Bool)
 -&gt; Eq GetUserResponse
@@ -408,7 +408,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetUserResponse -&gt; GetUserResponse -&gt; Bool
 == :: GetUserResponse -&gt; GetUserResponse -&gt; Bool
 $c== :: GetUserResponse -&gt; GetUserResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445884"><span id="local-6989586621679445886"><span id="local-6989586621679445888"><span class="annot"><span class="annottext">Int -&gt; GetUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445893"><span id="local-6989586621679445895"><span id="local-6989586621679445897"><span class="annot"><span class="annottext">Int -&gt; GetUserResponse -&gt; ShowS
 [GetUserResponse] -&gt; ShowS
 GetUserResponse -&gt; String
 (Int -&gt; GetUserResponse -&gt; ShowS)
@@ -469,9 +469,9 @@ $cfrom :: forall x. GetUserResponse -&gt; Rep GetUserResponse x
 </span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-201"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-type">GetUserResponse</span></a></span><span>
 </span><span id="line-202"></span><span id="newGetUserResponse"><span class="annot"><span class="annottext">newGetUserResponse :: Int -&gt; Text -&gt; GetUserResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#newGetUserResponse"><span class="hs-identifier hs-var hs-var">newGetUserResponse</span></a></span></span><span> </span><span id="local-6989586621679445881"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679445881"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679445880"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679445880"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#newGetUserResponse"><span class="hs-identifier hs-var hs-var">newGetUserResponse</span></a></span></span><span> </span><span id="local-6989586621679445890"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445890"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679445889"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445889"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-203"></span><span>  </span><span class="annot"><span class="annottext">GetUserResponse' :: Maybe [Text]
 -&gt; Maybe [MFAOptionType]
 -&gt; Maybe Text
@@ -495,7 +495,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetUserResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#%24sel%3AhttpStatus%3AGetUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679445881"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679445890"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:GetUserResponse' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#%24sel%3Ausername%3AGetUserResponse%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -505,7 +505,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679445880"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679445889"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:userAttributes:GetUserResponse' :: [AttributeType]
 </span><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#%24sel%3AuserAttributes%3AGetUserResponse%27"><span class="hs-identifier hs-var">userAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AttributeType]
 forall a. Monoid a =&gt; a
@@ -522,16 +522,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      GetUserResponse GetUserResponse (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445879"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445888"><span class="annot"><span class="annottext">Maybe [Text]
 userMFASettingList :: Maybe [Text]
 $sel:userMFASettingList:GetUserResponse' :: GetUserResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679445879"><span class="hs-identifier hs-var hs-var">userMFASettingList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679445879"><span class="hs-identifier hs-var">userMFASettingList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445878"><span class="annot"><span class="annottext">s :: GetUserResponse
-</span><a href="#local-6989586621679445878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445877"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679445877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserResponse
-</span><a href="#local-6989586621679445878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userMFASettingList:GetUserResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679445888"><span class="hs-identifier hs-var hs-var">userMFASettingList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679445888"><span class="hs-identifier hs-var">userMFASettingList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445887"><span class="annot"><span class="annottext">s :: GetUserResponse
+</span><a href="#local-6989586621679445887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445886"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679445886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserResponse
+</span><a href="#local-6989586621679445887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userMFASettingList:GetUserResponse' :: Maybe [Text]
 </span><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#%24sel%3AuserMFASettingList%3AGetUserResponse%27"><span class="hs-identifier hs-var">userMFASettingList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679445877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-type">GetUserResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679445886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-type">GetUserResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; GetUserResponse -&gt; f GetUserResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -564,16 +564,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [MFAOptionType])
      (Maybe [MFAOptionType])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445874"><span class="annot"><span class="annottext">Maybe [MFAOptionType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445883"><span class="annot"><span class="annottext">Maybe [MFAOptionType]
 mfaOptions :: Maybe [MFAOptionType]
 $sel:mfaOptions:GetUserResponse' :: GetUserResponse -&gt; Maybe [MFAOptionType]
-</span><a href="#local-6989586621679445874"><span class="hs-identifier hs-var hs-var">mfaOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MFAOptionType]
-</span><a href="#local-6989586621679445874"><span class="hs-identifier hs-var">mfaOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445873"><span class="annot"><span class="annottext">s :: GetUserResponse
-</span><a href="#local-6989586621679445873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445872"><span class="annot"><span class="annottext">Maybe [MFAOptionType]
-</span><a href="#local-6989586621679445872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserResponse
-</span><a href="#local-6989586621679445873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mfaOptions:GetUserResponse' :: Maybe [MFAOptionType]
+</span><a href="#local-6989586621679445883"><span class="hs-identifier hs-var hs-var">mfaOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MFAOptionType]
+</span><a href="#local-6989586621679445883"><span class="hs-identifier hs-var">mfaOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445882"><span class="annot"><span class="annottext">s :: GetUserResponse
+</span><a href="#local-6989586621679445882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445881"><span class="annot"><span class="annottext">Maybe [MFAOptionType]
+</span><a href="#local-6989586621679445881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserResponse
+</span><a href="#local-6989586621679445882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mfaOptions:GetUserResponse' :: Maybe [MFAOptionType]
 </span><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#%24sel%3AmfaOptions%3AGetUserResponse%27"><span class="hs-identifier hs-var">mfaOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MFAOptionType]
-</span><a href="#local-6989586621679445872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-type">GetUserResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MFAOptionType] -&gt; f (Maybe [MFAOptionType]))
+</span><a href="#local-6989586621679445881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-type">GetUserResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MFAOptionType] -&gt; f (Maybe [MFAOptionType]))
  -&gt; GetUserResponse -&gt; f GetUserResponse)
 -&gt; ((Maybe [MFAOptionType] -&gt; f (Maybe [MFAOptionType]))
     -&gt; Maybe [MFAOptionType] -&gt; f (Maybe [MFAOptionType]))
@@ -604,16 +604,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetUserResponse -&gt; Maybe Text -&gt; GetUserResponse)
 -&gt; Lens GetUserResponse GetUserResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445871"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445880"><span class="annot"><span class="annottext">Maybe Text
 preferredMfaSetting :: Maybe Text
 $sel:preferredMfaSetting:GetUserResponse' :: GetUserResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679445871"><span class="hs-identifier hs-var hs-var">preferredMfaSetting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679445871"><span class="hs-identifier hs-var">preferredMfaSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445870"><span class="annot"><span class="annottext">s :: GetUserResponse
-</span><a href="#local-6989586621679445870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445869"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679445869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserResponse
-</span><a href="#local-6989586621679445870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preferredMfaSetting:GetUserResponse' :: Maybe Text
+</span><a href="#local-6989586621679445880"><span class="hs-identifier hs-var hs-var">preferredMfaSetting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445880"><span class="hs-identifier hs-var">preferredMfaSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445879"><span class="annot"><span class="annottext">s :: GetUserResponse
+</span><a href="#local-6989586621679445879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445878"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserResponse
+</span><a href="#local-6989586621679445879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preferredMfaSetting:GetUserResponse' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#%24sel%3ApreferredMfaSetting%3AGetUserResponse%27"><span class="hs-identifier hs-var">preferredMfaSetting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679445869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-type">GetUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679445878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-type">GetUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-231"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#getUserResponse_httpStatus"><span class="hs-identifier hs-type">getUserResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-type">GetUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -622,16 +622,16 @@ $sel:preferredMfaSetting:GetUserResponse' :: GetUserResponse -&gt; Maybe Text
 -&gt; (GetUserResponse -&gt; Int -&gt; GetUserResponse)
 -&gt; Lens GetUserResponse GetUserResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445868"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445877"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetUserResponse' :: GetUserResponse -&gt; Int
-</span><a href="#local-6989586621679445868"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679445868"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445867"><span class="annot"><span class="annottext">s :: GetUserResponse
-</span><a href="#local-6989586621679445867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445866"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679445866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserResponse
-</span><a href="#local-6989586621679445867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetUserResponse' :: Int
+</span><a href="#local-6989586621679445877"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445877"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445876"><span class="annot"><span class="annottext">s :: GetUserResponse
+</span><a href="#local-6989586621679445876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445875"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserResponse
+</span><a href="#local-6989586621679445876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetUserResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#%24sel%3AhttpStatus%3AGetUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679445866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-type">GetUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679445875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-type">GetUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | The user name of the user you wish to retrieve from the get user</span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- request.</span><span>
@@ -642,16 +642,16 @@ $sel:httpStatus:GetUserResponse' :: GetUserResponse -&gt; Int
 -&gt; Lens
      GetUserResponse GetUserResponse (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445865"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445874"><span class="annot"><span class="annottext">Sensitive Text
 username :: Sensitive Text
 $sel:username:GetUserResponse' :: GetUserResponse -&gt; Sensitive Text
-</span><a href="#local-6989586621679445865"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679445865"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445864"><span class="annot"><span class="annottext">s :: GetUserResponse
-</span><a href="#local-6989586621679445864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445863"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679445863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserResponse
-</span><a href="#local-6989586621679445864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:GetUserResponse' :: Sensitive Text
+</span><a href="#local-6989586621679445874"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679445874"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445873"><span class="annot"><span class="annottext">s :: GetUserResponse
+</span><a href="#local-6989586621679445873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445872"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679445872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserResponse
+</span><a href="#local-6989586621679445873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:GetUserResponse' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#%24sel%3Ausername%3AGetUserResponse%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679445863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-type">GetUserResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679445872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-type">GetUserResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; GetUserResponse -&gt; f GetUserResponse)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -674,16 +674,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; Lens
      GetUserResponse GetUserResponse [AttributeType] [AttributeType]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445862"><span class="annot"><span class="annottext">[AttributeType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445871"><span class="annot"><span class="annottext">[AttributeType]
 userAttributes :: [AttributeType]
 $sel:userAttributes:GetUserResponse' :: GetUserResponse -&gt; [AttributeType]
-</span><a href="#local-6989586621679445862"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AttributeType]
-</span><a href="#local-6989586621679445862"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445861"><span class="annot"><span class="annottext">s :: GetUserResponse
-</span><a href="#local-6989586621679445861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445860"><span class="annot"><span class="annottext">[AttributeType]
-</span><a href="#local-6989586621679445860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserResponse
-</span><a href="#local-6989586621679445861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributes:GetUserResponse' :: [AttributeType]
+</span><a href="#local-6989586621679445871"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AttributeType]
+</span><a href="#local-6989586621679445871"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445870"><span class="annot"><span class="annottext">s :: GetUserResponse
+</span><a href="#local-6989586621679445870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse%27"><span class="hs-identifier hs-type">GetUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445869"><span class="annot"><span class="annottext">[AttributeType]
+</span><a href="#local-6989586621679445869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserResponse
+</span><a href="#local-6989586621679445870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributes:GetUserResponse' :: [AttributeType]
 </span><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#%24sel%3AuserAttributes%3AGetUserResponse%27"><span class="hs-identifier hs-var">userAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AttributeType]
-</span><a href="#local-6989586621679445860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-type">GetUserResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AttributeType] -&gt; f [AttributeType])
+</span><a href="#local-6989586621679445869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-type">GetUserResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AttributeType] -&gt; f [AttributeType])
  -&gt; GetUserResponse -&gt; f GetUserResponse)
 -&gt; (([AttributeType] -&gt; f [AttributeType])
     -&gt; [AttributeType] -&gt; f [AttributeType])
@@ -696,5 +696,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-245"></span><span>
-</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445858"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-type">GetUserResponse</span></a></span></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445867"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.GetUser.html#GetUserResponse"><span class="hs-identifier hs-type">GetUserResponse</span></a></span></span><span>
 </span><span id="line-247"></span></pre></body></html>

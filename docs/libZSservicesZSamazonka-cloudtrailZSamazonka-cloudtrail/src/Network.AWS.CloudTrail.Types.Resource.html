@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies the type and name of a resource referenced by an event.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newResource' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679196258"><span id="local-6989586621679196259"></span></span><span class="hs-keyword">data</span><span> </span><span id="Resource"><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource"><span class="hs-identifier hs-var">Resource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Resource%27"><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource%27"><span class="hs-identifier hs-var">Resource'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679196267"><span id="local-6989586621679196268"></span></span><span class="hs-keyword">data</span><span> </span><span id="Resource"><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource"><span class="hs-identifier hs-var">Resource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Resource%27"><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource%27"><span class="hs-identifier hs-var">Resource'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of a resource referenced by the event returned. When the</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- resource type cannot be determined, null is returned. Some examples of</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- resource types are: __Instance__ for EC2, __Trail__ for CloudTrail,</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AresourceName%3AResource%27"><span class="annot"><span class="annottext">Resource -&gt; Maybe Text
 </span><a href="Network.AWS.CloudTrail.Types.Resource.html#%24sel%3AresourceName%3AResource%27"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196251"><span id="local-6989586621679196253"><span class="annot"><span class="annottext">Resource -&gt; Resource -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196260"><span id="local-6989586621679196262"><span class="annot"><span class="annottext">Resource -&gt; Resource -&gt; Bool
 (Resource -&gt; Resource -&gt; Bool)
 -&gt; (Resource -&gt; Resource -&gt; Bool) -&gt; Eq Resource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Resource -&gt; Resource -&gt; Bool
 == :: Resource -&gt; Resource -&gt; Bool
 $c== :: Resource -&gt; Resource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196242"><span id="local-6989586621679196244"><span id="local-6989586621679196246"><span id="local-6989586621679196248"><span class="annot"><span class="annottext">ReadPrec [Resource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196251"><span id="local-6989586621679196253"><span id="local-6989586621679196255"><span id="local-6989586621679196257"><span class="annot"><span class="annottext">ReadPrec [Resource]
 ReadPrec Resource
 Int -&gt; ReadS Resource
 ReadS [Resource]
@@ -71,7 +71,7 @@ readList :: ReadS [Resource]
 $creadList :: ReadS [Resource]
 readsPrec :: Int -&gt; ReadS Resource
 $creadsPrec :: Int -&gt; ReadS Resource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196235"><span id="local-6989586621679196237"><span id="local-6989586621679196239"><span class="annot"><span class="annottext">Int -&gt; Resource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196244"><span id="local-6989586621679196246"><span id="local-6989586621679196248"><span class="annot"><span class="annottext">Int -&gt; Resource -&gt; ShowS
 [Resource] -&gt; ShowS
 Resource -&gt; String
 (Int -&gt; Resource -&gt; ShowS)
@@ -143,16 +143,16 @@ forall a. Maybe a
 -&gt; (Resource -&gt; Maybe Text -&gt; Resource)
 -&gt; Lens Resource Resource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196226"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196235"><span class="annot"><span class="annottext">Maybe Text
 resourceType :: Maybe Text
 $sel:resourceType:Resource' :: Resource -&gt; Maybe Text
-</span><a href="#local-6989586621679196226"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196226"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196225"><span class="annot"><span class="annottext">s :: Resource
-</span><a href="#local-6989586621679196225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196224"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resource
-</span><a href="#local-6989586621679196225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:Resource' :: Maybe Text
+</span><a href="#local-6989586621679196235"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196235"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196234"><span class="annot"><span class="annottext">s :: Resource
+</span><a href="#local-6989586621679196234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196233"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resource
+</span><a href="#local-6989586621679196234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:Resource' :: Maybe Text
 </span><a href="Network.AWS.CloudTrail.Types.Resource.html#%24sel%3AresourceType%3AResource%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The name of the resource referenced by the event returned. These are</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- user-created names whose values will depend on the environment. For</span><span>
@@ -164,34 +164,34 @@ $sel:resourceType:Resource' :: Resource -&gt; Maybe Text
 -&gt; (Resource -&gt; Maybe Text -&gt; Resource)
 -&gt; Lens Resource Resource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196222"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196231"><span class="annot"><span class="annottext">Maybe Text
 resourceName :: Maybe Text
 $sel:resourceName:Resource' :: Resource -&gt; Maybe Text
-</span><a href="#local-6989586621679196222"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196222"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196221"><span class="annot"><span class="annottext">s :: Resource
-</span><a href="#local-6989586621679196221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196220"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resource
-</span><a href="#local-6989586621679196221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:Resource' :: Maybe Text
+</span><a href="#local-6989586621679196231"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196231"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196230"><span class="annot"><span class="annottext">s :: Resource
+</span><a href="#local-6989586621679196230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource%27"><span class="hs-identifier hs-type">Resource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196229"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resource
+</span><a href="#local-6989586621679196230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:Resource' :: Maybe Text
 </span><a href="Network.AWS.CloudTrail.Types.Resource.html#%24sel%3AresourceName%3AResource%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196217"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679196215"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Resource
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196226"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679196224"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Resource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Resource) -&gt; Value -&gt; Parser Resource
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Resource&quot;</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679196212"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196212"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679196221"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679196221"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Resource
 </span><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource%27"><span class="hs-identifier hs-var">Resource'</span></a></span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Resource)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Resource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679196221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
@@ -199,13 +199,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Resource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679196221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196206"><span id="local-6989586621679196208"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196215"><span id="local-6989586621679196217"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196203"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Resource.html#Resource"><span class="hs-identifier hs-type">Resource</span></a></span></span><span>
 </span><span id="line-104"></span></pre></body></html>

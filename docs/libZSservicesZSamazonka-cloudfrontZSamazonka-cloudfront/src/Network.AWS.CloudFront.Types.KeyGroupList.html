@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A list of key groups.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newKeyGroupList' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679393938"><span id="local-6989586621679393939"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyGroupList"><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-var">KeyGroupList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyGroupList%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-var">KeyGroupList'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679393947"><span id="local-6989586621679393948"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyGroupList"><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-var">KeyGroupList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyGroupList%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-var">KeyGroupList'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of key groups.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aitems%3AKeyGroupList%27"><span class="annot"><span class="annottext">KeyGroupList -&gt; Maybe [KeyGroupSummary]
 </span><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#%24sel%3Aitems%3AKeyGroupList%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-type">KeyGroupSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Aquantity%3AKeyGroupList%27"><span class="annot"><span class="annottext">KeyGroupList -&gt; Int
 </span><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#%24sel%3Aquantity%3AKeyGroupList%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393929"><span id="local-6989586621679393931"><span class="annot"><span class="annottext">KeyGroupList -&gt; KeyGroupList -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393938"><span id="local-6989586621679393940"><span class="annot"><span class="annottext">KeyGroupList -&gt; KeyGroupList -&gt; Bool
 (KeyGroupList -&gt; KeyGroupList -&gt; Bool)
 -&gt; (KeyGroupList -&gt; KeyGroupList -&gt; Bool) -&gt; Eq KeyGroupList
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KeyGroupList -&gt; KeyGroupList -&gt; Bool
 == :: KeyGroupList -&gt; KeyGroupList -&gt; Bool
 $c== :: KeyGroupList -&gt; KeyGroupList -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393920"><span id="local-6989586621679393922"><span id="local-6989586621679393924"><span id="local-6989586621679393926"><span class="annot"><span class="annottext">ReadPrec [KeyGroupList]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393929"><span id="local-6989586621679393931"><span id="local-6989586621679393933"><span id="local-6989586621679393935"><span class="annot"><span class="annottext">ReadPrec [KeyGroupList]
 ReadPrec KeyGroupList
 Int -&gt; ReadS KeyGroupList
 ReadS [KeyGroupList]
@@ -71,7 +71,7 @@ readList :: ReadS [KeyGroupList]
 $creadList :: ReadS [KeyGroupList]
 readsPrec :: Int -&gt; ReadS KeyGroupList
 $creadsPrec :: Int -&gt; ReadS KeyGroupList
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393913"><span id="local-6989586621679393915"><span id="local-6989586621679393917"><span class="annot"><span class="annottext">Int -&gt; KeyGroupList -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393922"><span id="local-6989586621679393924"><span id="local-6989586621679393926"><span class="annot"><span class="annottext">Int -&gt; KeyGroupList -&gt; ShowS
 [KeyGroupList] -&gt; ShowS
 KeyGroupList -&gt; String
 (Int -&gt; KeyGroupList -&gt; ShowS)
@@ -121,9 +121,9 @@ $cfrom :: forall x. KeyGroupList -&gt; Rep KeyGroupList x
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-type">KeyGroupList</span></a></span><span>
 </span><span id="line-67"></span><span id="newKeyGroupList"><span class="annot"><span class="annottext">newKeyGroupList :: Int -&gt; Int -&gt; KeyGroupList
-</span><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#newKeyGroupList"><span class="hs-identifier hs-var hs-var">newKeyGroupList</span></a></span></span><span> </span><span id="local-6989586621679393907"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393907"><span class="hs-identifier hs-var">pMaxItems_</span></a></span></span><span> </span><span id="local-6989586621679393906"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393906"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#newKeyGroupList"><span class="hs-identifier hs-var hs-var">newKeyGroupList</span></a></span></span><span> </span><span id="local-6989586621679393916"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393916"><span class="hs-identifier hs-var">pMaxItems_</span></a></span></span><span> </span><span id="local-6989586621679393915"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393915"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">KeyGroupList' :: Maybe [KeyGroupSummary] -&gt; Maybe Text -&gt; Int -&gt; Int -&gt; KeyGroupList
 </span><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-type">KeyGroupList'</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:KeyGroupList' :: Maybe [KeyGroupSummary]
@@ -136,10 +136,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxItems:KeyGroupList' :: Int
 </span><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#%24sel%3AmaxItems%3AKeyGroupList%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393907"><span class="hs-identifier hs-var">pMaxItems_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679393916"><span class="hs-identifier hs-var">pMaxItems_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:quantity:KeyGroupList' :: Int
 </span><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#%24sel%3Aquantity%3AKeyGroupList%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393906"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
+</span><a href="#local-6989586621679393915"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | A list of key groups.</span><span>
@@ -154,16 +154,16 @@ forall a. Maybe a
      (Maybe [KeyGroupSummary])
      (Maybe [KeyGroupSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-type">KeyGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393902"><span class="annot"><span class="annottext">Maybe [KeyGroupSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-type">KeyGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393911"><span class="annot"><span class="annottext">Maybe [KeyGroupSummary]
 items :: Maybe [KeyGroupSummary]
 $sel:items:KeyGroupList' :: KeyGroupList -&gt; Maybe [KeyGroupSummary]
-</span><a href="#local-6989586621679393902"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyGroupSummary]
-</span><a href="#local-6989586621679393902"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393901"><span class="annot"><span class="annottext">s :: KeyGroupList
-</span><a href="#local-6989586621679393901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-type">KeyGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393900"><span class="annot"><span class="annottext">Maybe [KeyGroupSummary]
-</span><a href="#local-6989586621679393900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyGroupList
-</span><a href="#local-6989586621679393901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:KeyGroupList' :: Maybe [KeyGroupSummary]
+</span><a href="#local-6989586621679393911"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyGroupSummary]
+</span><a href="#local-6989586621679393911"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393910"><span class="annot"><span class="annottext">s :: KeyGroupList
+</span><a href="#local-6989586621679393910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-type">KeyGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393909"><span class="annot"><span class="annottext">Maybe [KeyGroupSummary]
+</span><a href="#local-6989586621679393909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyGroupList
+</span><a href="#local-6989586621679393910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:KeyGroupList' :: Maybe [KeyGroupSummary]
 </span><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#%24sel%3Aitems%3AKeyGroupList%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyGroupSummary]
-</span><a href="#local-6989586621679393900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-type">KeyGroupList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [KeyGroupSummary] -&gt; f (Maybe [KeyGroupSummary]))
+</span><a href="#local-6989586621679393909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-type">KeyGroupList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [KeyGroupSummary] -&gt; f (Maybe [KeyGroupSummary]))
  -&gt; KeyGroupList -&gt; f KeyGroupList)
 -&gt; ((Maybe [KeyGroupSummary] -&gt; f (Maybe [KeyGroupSummary]))
     -&gt; Maybe [KeyGroupSummary] -&gt; f (Maybe [KeyGroupSummary]))
@@ -201,16 +201,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (KeyGroupList -&gt; Maybe Text -&gt; KeyGroupList)
 -&gt; Lens KeyGroupList KeyGroupList (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-type">KeyGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393895"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-type">KeyGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393904"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:KeyGroupList' :: KeyGroupList -&gt; Maybe Text
-</span><a href="#local-6989586621679393895"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679393895"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393894"><span class="annot"><span class="annottext">s :: KeyGroupList
-</span><a href="#local-6989586621679393894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-type">KeyGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393893"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679393893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyGroupList
-</span><a href="#local-6989586621679393894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:KeyGroupList' :: Maybe Text
+</span><a href="#local-6989586621679393904"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393904"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393903"><span class="annot"><span class="annottext">s :: KeyGroupList
+</span><a href="#local-6989586621679393903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-type">KeyGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393902"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679393902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyGroupList
+</span><a href="#local-6989586621679393903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:KeyGroupList' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#%24sel%3AnextMarker%3AKeyGroupList%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679393893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-type">KeyGroupList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-type">KeyGroupList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The maximum number of key groups requested.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#keyGroupList_maxItems"><span class="hs-identifier hs-type">keyGroupList_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-type">KeyGroupList</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -219,16 +219,16 @@ $sel:nextMarker:KeyGroupList' :: KeyGroupList -&gt; Maybe Text
 -&gt; (KeyGroupList -&gt; Int -&gt; KeyGroupList)
 -&gt; Lens KeyGroupList KeyGroupList Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-type">KeyGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393891"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-type">KeyGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393900"><span class="annot"><span class="annottext">Int
 maxItems :: Int
 $sel:maxItems:KeyGroupList' :: KeyGroupList -&gt; Int
-</span><a href="#local-6989586621679393891"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393891"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393890"><span class="annot"><span class="annottext">s :: KeyGroupList
-</span><a href="#local-6989586621679393890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-type">KeyGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393889"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyGroupList
-</span><a href="#local-6989586621679393890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:KeyGroupList' :: Int
+</span><a href="#local-6989586621679393900"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393900"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393899"><span class="annot"><span class="annottext">s :: KeyGroupList
+</span><a href="#local-6989586621679393899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-type">KeyGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393898"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyGroupList
+</span><a href="#local-6989586621679393899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:KeyGroupList' :: Int
 </span><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#%24sel%3AmaxItems%3AKeyGroupList%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-type">KeyGroupList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-type">KeyGroupList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The number of key groups returned in the response.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#keyGroupList_quantity"><span class="hs-identifier hs-type">keyGroupList_quantity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-type">KeyGroupList</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -237,21 +237,21 @@ $sel:maxItems:KeyGroupList' :: KeyGroupList -&gt; Int
 -&gt; (KeyGroupList -&gt; Int -&gt; KeyGroupList)
 -&gt; Lens KeyGroupList KeyGroupList Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-type">KeyGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393887"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-type">KeyGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393896"><span class="annot"><span class="annottext">Int
 quantity :: Int
 $sel:quantity:KeyGroupList' :: KeyGroupList -&gt; Int
-</span><a href="#local-6989586621679393887"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393887"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393886"><span class="annot"><span class="annottext">s :: KeyGroupList
-</span><a href="#local-6989586621679393886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-type">KeyGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393885"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyGroupList
-</span><a href="#local-6989586621679393886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:KeyGroupList' :: Int
+</span><a href="#local-6989586621679393896"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393896"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393895"><span class="annot"><span class="annottext">s :: KeyGroupList
+</span><a href="#local-6989586621679393895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-type">KeyGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393894"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyGroupList
+</span><a href="#local-6989586621679393895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:KeyGroupList' :: Int
 </span><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#%24sel%3Aquantity%3AKeyGroupList%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-type">KeyGroupList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-type">KeyGroupList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-type">KeyGroupList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679393882"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String KeyGroupList
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679393880"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679393880"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679393891"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String KeyGroupList
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679393889"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679393889"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">Maybe [KeyGroupSummary] -&gt; Maybe Text -&gt; Int -&gt; Int -&gt; KeyGroupList
 </span><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList%27"><span class="hs-identifier hs-var">KeyGroupList'</span></a></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [KeyGroupSummary]
@@ -260,7 +260,7 @@ $sel:quantity:KeyGroupList' :: KeyGroupList -&gt; Int
 -&gt; Either String (Maybe Text -&gt; Int -&gt; Int -&gt; KeyGroupList)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679393880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679393889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -287,7 +287,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; Int -&gt; KeyGroupList)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679393880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679393889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -295,7 +295,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Int -&gt; Either String (Int -&gt; KeyGroupList)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679393880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679393889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span class="hs-special">)</span><span>
@@ -303,12 +303,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Int -&gt; Either String KeyGroupList
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679393880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679393889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393870"><span id="local-6989586621679393872"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-type">KeyGroupList</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393879"><span id="local-6989586621679393881"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-type">KeyGroupList</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393867"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-type">KeyGroupList</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393876"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupList.html#KeyGroupList"><span class="hs-identifier hs-type">KeyGroupList</span></a></span></span><span>
 </span><span id="line-106"></span></pre></body></html>

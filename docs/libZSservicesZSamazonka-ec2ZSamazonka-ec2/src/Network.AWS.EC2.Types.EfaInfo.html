@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the Elastic Fabric Adapters for the instance type.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEfaInfo' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681102546"><span id="local-6989586621681102547"></span></span><span class="hs-keyword">data</span><span> </span><span id="EfaInfo"><span class="annot"><a href="Network.AWS.EC2.Types.EfaInfo.html#EfaInfo"><span class="hs-identifier hs-var">EfaInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EfaInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.EfaInfo.html#EfaInfo%27"><span class="hs-identifier hs-var">EfaInfo'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681102555"><span id="local-6989586621681102556"></span></span><span class="hs-keyword">data</span><span> </span><span id="EfaInfo"><span class="annot"><a href="Network.AWS.EC2.Types.EfaInfo.html#EfaInfo"><span class="hs-identifier hs-var">EfaInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EfaInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.EfaInfo.html#EfaInfo%27"><span class="hs-identifier hs-var">EfaInfo'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of Elastic Fabric Adapters for the instance type.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AmaximumEfaInterfaces%3AEfaInfo%27"><span class="annot"><span class="annottext">EfaInfo -&gt; Maybe Int
 </span><a href="Network.AWS.EC2.Types.EfaInfo.html#%24sel%3AmaximumEfaInterfaces%3AEfaInfo%27"><span class="hs-identifier hs-var hs-var">maximumEfaInterfaces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681102540"><span id="local-6989586621681102542"><span class="annot"><span class="annottext">EfaInfo -&gt; EfaInfo -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681102549"><span id="local-6989586621681102551"><span class="annot"><span class="annottext">EfaInfo -&gt; EfaInfo -&gt; Bool
 (EfaInfo -&gt; EfaInfo -&gt; Bool)
 -&gt; (EfaInfo -&gt; EfaInfo -&gt; Bool) -&gt; Eq EfaInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EfaInfo -&gt; EfaInfo -&gt; Bool
 == :: EfaInfo -&gt; EfaInfo -&gt; Bool
 $c== :: EfaInfo -&gt; EfaInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681102531"><span id="local-6989586621681102533"><span id="local-6989586621681102535"><span id="local-6989586621681102537"><span class="annot"><span class="annottext">ReadPrec [EfaInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681102540"><span id="local-6989586621681102542"><span id="local-6989586621681102544"><span id="local-6989586621681102546"><span class="annot"><span class="annottext">ReadPrec [EfaInfo]
 ReadPrec EfaInfo
 Int -&gt; ReadS EfaInfo
 ReadS [EfaInfo]
@@ -60,7 +60,7 @@ readList :: ReadS [EfaInfo]
 $creadList :: ReadS [EfaInfo]
 readsPrec :: Int -&gt; ReadS EfaInfo
 $creadsPrec :: Int -&gt; ReadS EfaInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681102524"><span id="local-6989586621681102526"><span id="local-6989586621681102528"><span class="annot"><span class="annottext">Int -&gt; EfaInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681102533"><span id="local-6989586621681102535"><span id="local-6989586621681102537"><span class="annot"><span class="annottext">Int -&gt; EfaInfo -&gt; ShowS
 [EfaInfo] -&gt; ShowS
 EfaInfo -&gt; String
 (Int -&gt; EfaInfo -&gt; ShowS)
@@ -109,33 +109,33 @@ forall a. Maybe a
 -&gt; (EfaInfo -&gt; Maybe Int -&gt; EfaInfo)
 -&gt; Lens EfaInfo EfaInfo (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EfaInfo.html#EfaInfo%27"><span class="hs-identifier hs-type">EfaInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681102515"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EfaInfo.html#EfaInfo%27"><span class="hs-identifier hs-type">EfaInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681102524"><span class="annot"><span class="annottext">Maybe Int
 maximumEfaInterfaces :: Maybe Int
 $sel:maximumEfaInterfaces:EfaInfo' :: EfaInfo -&gt; Maybe Int
-</span><a href="#local-6989586621681102515"><span class="hs-identifier hs-var hs-var">maximumEfaInterfaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681102515"><span class="hs-identifier hs-var">maximumEfaInterfaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681102514"><span class="annot"><span class="annottext">s :: EfaInfo
-</span><a href="#local-6989586621681102514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EfaInfo.html#EfaInfo%27"><span class="hs-identifier hs-type">EfaInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681102513"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681102513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EfaInfo
-</span><a href="#local-6989586621681102514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumEfaInterfaces:EfaInfo' :: Maybe Int
+</span><a href="#local-6989586621681102524"><span class="hs-identifier hs-var hs-var">maximumEfaInterfaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681102524"><span class="hs-identifier hs-var">maximumEfaInterfaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681102523"><span class="annot"><span class="annottext">s :: EfaInfo
+</span><a href="#local-6989586621681102523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EfaInfo.html#EfaInfo%27"><span class="hs-identifier hs-type">EfaInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681102522"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681102522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EfaInfo
+</span><a href="#local-6989586621681102523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumEfaInterfaces:EfaInfo' :: Maybe Int
 </span><a href="Network.AWS.EC2.Types.EfaInfo.html#%24sel%3AmaximumEfaInterfaces%3AEfaInfo%27"><span class="hs-identifier hs-var">maximumEfaInterfaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681102513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EfaInfo.html#EfaInfo"><span class="hs-identifier hs-type">EfaInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681102522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EfaInfo.html#EfaInfo"><span class="hs-identifier hs-type">EfaInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EfaInfo.html#EfaInfo"><span class="hs-identifier hs-type">EfaInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621681102510"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EfaInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681102508"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681102508"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621681102519"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EfaInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681102517"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681102517"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; EfaInfo
 </span><a href="Network.AWS.EC2.Types.EfaInfo.html#EfaInfo%27"><span class="hs-identifier hs-var">EfaInfo'</span></a></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int -&gt; EfaInfo)
 -&gt; Either String (Maybe Int) -&gt; Either String EfaInfo
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681102508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621681102517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maximumEfaInterfaces&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681102502"><span id="local-6989586621681102504"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EfaInfo.html#EfaInfo"><span class="hs-identifier hs-type">EfaInfo</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681102511"><span id="local-6989586621681102513"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EfaInfo.html#EfaInfo"><span class="hs-identifier hs-type">EfaInfo</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681102499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EfaInfo.html#EfaInfo"><span class="hs-identifier hs-type">EfaInfo</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681102508"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EfaInfo.html#EfaInfo"><span class="hs-identifier hs-type">EfaInfo</span></a></span></span><span>
 </span><span id="line-62"></span></pre></body></html>

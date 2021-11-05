@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.GetMediaCapturePipeline</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets an existing media capture pipeline.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.GetMediaCapturePipeline</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipeline"><span class="hs-identifier">GetMediaCapturePipeline</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#newGetMediaCapturePipeline"><span class="hs-identifier">newGetMediaCapturePipeline</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#getMediaCapturePipeline_mediaPipelineId"><span class="hs-identifier">getMediaCapturePipeline_mediaPipelineId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipelineResponse"><span class="hs-identifier">GetMediaCapturePipelineResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#newGetMediaCapturePipelineResponse"><span class="hs-identifier">newGetMediaCapturePipelineResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#getMediaCapturePipelineResponse_mediaCapturePipeline"><span class="hs-identifier">getMediaCapturePipelineResponse_mediaCapturePipeline</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#getMediaCapturePipelineResponse_httpStatus"><span class="hs-identifier">getMediaCapturePipelineResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.html"><span class="hs-identifier">Network.AWS.Chime.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetMediaCapturePipeline' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679541721"><span id="local-6989586621679541722"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMediaCapturePipeline"><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipeline"><span class="hs-identifier hs-var">GetMediaCapturePipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMediaCapturePipeline%27"><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipeline%27"><span class="hs-identifier hs-var">GetMediaCapturePipeline'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the pipeline that you want to get.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AmediaPipelineId%3AGetMediaCapturePipeline%27"><span class="annot"><span class="annottext">GetMediaCapturePipeline -&gt; Text
+</span><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#%24sel%3AmediaPipelineId%3AGetMediaCapturePipeline%27"><span class="hs-identifier hs-var hs-var">mediaPipelineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679541715"><span id="local-6989586621679541717"><span class="annot"><span class="annottext">GetMediaCapturePipeline -&gt; GetMediaCapturePipeline -&gt; Bool
+(GetMediaCapturePipeline -&gt; GetMediaCapturePipeline -&gt; Bool)
+-&gt; (GetMediaCapturePipeline -&gt; GetMediaCapturePipeline -&gt; Bool)
+-&gt; Eq GetMediaCapturePipeline
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetMediaCapturePipeline -&gt; GetMediaCapturePipeline -&gt; Bool
+$c/= :: GetMediaCapturePipeline -&gt; GetMediaCapturePipeline -&gt; Bool
+== :: GetMediaCapturePipeline -&gt; GetMediaCapturePipeline -&gt; Bool
+$c== :: GetMediaCapturePipeline -&gt; GetMediaCapturePipeline -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679541706"><span id="local-6989586621679541708"><span id="local-6989586621679541710"><span id="local-6989586621679541712"><span class="annot"><span class="annottext">ReadPrec [GetMediaCapturePipeline]
+ReadPrec GetMediaCapturePipeline
+Int -&gt; ReadS GetMediaCapturePipeline
+ReadS [GetMediaCapturePipeline]
+(Int -&gt; ReadS GetMediaCapturePipeline)
+-&gt; ReadS [GetMediaCapturePipeline]
+-&gt; ReadPrec GetMediaCapturePipeline
+-&gt; ReadPrec [GetMediaCapturePipeline]
+-&gt; Read GetMediaCapturePipeline
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetMediaCapturePipeline]
+$creadListPrec :: ReadPrec [GetMediaCapturePipeline]
+readPrec :: ReadPrec GetMediaCapturePipeline
+$creadPrec :: ReadPrec GetMediaCapturePipeline
+readList :: ReadS [GetMediaCapturePipeline]
+$creadList :: ReadS [GetMediaCapturePipeline]
+readsPrec :: Int -&gt; ReadS GetMediaCapturePipeline
+$creadsPrec :: Int -&gt; ReadS GetMediaCapturePipeline
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679541699"><span id="local-6989586621679541701"><span id="local-6989586621679541703"><span class="annot"><span class="annottext">Int -&gt; GetMediaCapturePipeline -&gt; ShowS
+[GetMediaCapturePipeline] -&gt; ShowS
+GetMediaCapturePipeline -&gt; String
+(Int -&gt; GetMediaCapturePipeline -&gt; ShowS)
+-&gt; (GetMediaCapturePipeline -&gt; String)
+-&gt; ([GetMediaCapturePipeline] -&gt; ShowS)
+-&gt; Show GetMediaCapturePipeline
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetMediaCapturePipeline] -&gt; ShowS
+$cshowList :: [GetMediaCapturePipeline] -&gt; ShowS
+show :: GetMediaCapturePipeline -&gt; String
+$cshow :: GetMediaCapturePipeline -&gt; String
+showsPrec :: Int -&gt; GetMediaCapturePipeline -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetMediaCapturePipeline -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetMediaCapturePipeline -&gt; Rep GetMediaCapturePipeline x)
+-&gt; (forall x.
+    Rep GetMediaCapturePipeline x -&gt; GetMediaCapturePipeline)
+-&gt; Generic GetMediaCapturePipeline
+forall x. Rep GetMediaCapturePipeline x -&gt; GetMediaCapturePipeline
+forall x. GetMediaCapturePipeline -&gt; Rep GetMediaCapturePipeline x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetMediaCapturePipeline x -&gt; GetMediaCapturePipeline
+$cfrom :: forall x. GetMediaCapturePipeline -&gt; Rep GetMediaCapturePipeline x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'GetMediaCapturePipeline' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'mediaPipelineId', 'getMediaCapturePipeline_mediaPipelineId' - The ID of the pipeline that you want to get.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#newGetMediaCapturePipeline"><span class="hs-identifier hs-type">newGetMediaCapturePipeline</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'mediaPipelineId'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipeline"><span class="hs-identifier hs-type">GetMediaCapturePipeline</span></a></span><span>
+</span><span id="line-69"></span><span id="newGetMediaCapturePipeline"><span class="annot"><span class="annottext">newGetMediaCapturePipeline :: Text -&gt; GetMediaCapturePipeline
+</span><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#newGetMediaCapturePipeline"><span class="hs-identifier hs-var hs-var">newGetMediaCapturePipeline</span></a></span></span><span> </span><span id="local-6989586621679541694"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679541694"><span class="hs-identifier hs-var">pMediaPipelineId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetMediaCapturePipeline' :: Text -&gt; GetMediaCapturePipeline
+</span><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipeline%27"><span class="hs-identifier hs-type">GetMediaCapturePipeline'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mediaPipelineId:GetMediaCapturePipeline' :: Text
+</span><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#%24sel%3AmediaPipelineId%3AGetMediaCapturePipeline%27"><span class="hs-identifier hs-var">mediaPipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679541694"><span class="hs-identifier hs-var">pMediaPipelineId_</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The ID of the pipeline that you want to get.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#getMediaCapturePipeline_mediaPipelineId"><span class="hs-identifier hs-type">getMediaCapturePipeline_mediaPipelineId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipeline"><span class="hs-identifier hs-type">GetMediaCapturePipeline</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="getMediaCapturePipeline_mediaPipelineId"><span class="annot"><span class="annottext">getMediaCapturePipeline_mediaPipelineId :: (Text -&gt; f Text)
+-&gt; GetMediaCapturePipeline -&gt; f GetMediaCapturePipeline
+</span><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#getMediaCapturePipeline_mediaPipelineId"><span class="hs-identifier hs-var hs-var">getMediaCapturePipeline_mediaPipelineId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMediaCapturePipeline -&gt; Text)
+-&gt; (GetMediaCapturePipeline -&gt; Text -&gt; GetMediaCapturePipeline)
+-&gt; Lens GetMediaCapturePipeline GetMediaCapturePipeline Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipeline%27"><span class="hs-identifier hs-type">GetMediaCapturePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679541691"><span class="annot"><span class="annottext">Text
+mediaPipelineId :: Text
+$sel:mediaPipelineId:GetMediaCapturePipeline' :: GetMediaCapturePipeline -&gt; Text
+</span><a href="#local-6989586621679541691"><span class="hs-identifier hs-var hs-var">mediaPipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679541691"><span class="hs-identifier hs-var">mediaPipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679541690"><span class="annot"><span class="annottext">s :: GetMediaCapturePipeline
+</span><a href="#local-6989586621679541690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipeline%27"><span class="hs-identifier hs-type">GetMediaCapturePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679541689"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679541689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMediaCapturePipeline
+</span><a href="#local-6989586621679541690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaPipelineId:GetMediaCapturePipeline' :: Text
+</span><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#%24sel%3AmediaPipelineId%3AGetMediaCapturePipeline%27"><span class="hs-identifier hs-var">mediaPipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679541689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipeline"><span class="hs-identifier hs-type">GetMediaCapturePipeline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipeline"><span class="hs-identifier hs-type">GetMediaCapturePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipeline"><span class="hs-identifier hs-type">GetMediaCapturePipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipelineResponse"><span class="hs-identifier hs-type">GetMediaCapturePipelineResponse</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679541685"><span class="annot"><span class="annottext">request :: GetMediaCapturePipeline -&gt; Request GetMediaCapturePipeline
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetMediaCapturePipeline -&gt; Request GetMediaCapturePipeline
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679541681"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetMediaCapturePipeline
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetMediaCapturePipeline)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetMediaCapturePipeline))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetMediaCapturePipeline
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetMediaCapturePipeline)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679541678"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679541678"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679541677"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679541677"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679541676"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679541676"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe MediaCapturePipeline
+-&gt; Int -&gt; GetMediaCapturePipelineResponse
+</span><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipelineResponse%27"><span class="hs-identifier hs-var">GetMediaCapturePipelineResponse'</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MediaCapturePipeline
+ -&gt; Int -&gt; GetMediaCapturePipelineResponse)
+-&gt; Either String (Maybe MediaCapturePipeline)
+-&gt; Either String (Int -&gt; GetMediaCapturePipelineResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679541676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MediaCapturePipeline)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MediaCapturePipeline&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetMediaCapturePipelineResponse)
+-&gt; Either String Int
+-&gt; Either String GetMediaCapturePipelineResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679541678"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679541668"><span id="local-6989586621679541670"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipeline"><span class="hs-identifier hs-type">GetMediaCapturePipeline</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679541665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipeline"><span class="hs-identifier hs-type">GetMediaCapturePipeline</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipeline"><span class="hs-identifier hs-type">GetMediaCapturePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679541661"><span class="annot"><span class="annottext">toHeaders :: GetMediaCapturePipeline -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetMediaCapturePipeline -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipeline"><span class="hs-identifier hs-type">GetMediaCapturePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679541656"><span class="annot"><span class="annottext">toPath :: GetMediaCapturePipeline -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipeline%27"><span class="hs-identifier hs-type">GetMediaCapturePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679541654"><span class="annot"><span class="annottext">Text
+mediaPipelineId :: Text
+$sel:mediaPipelineId:GetMediaCapturePipeline' :: GetMediaCapturePipeline -&gt; Text
+</span><a href="#local-6989586621679541654"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/media-capture-pipelines/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679541654"><span class="hs-identifier hs-var">mediaPipelineId</span></a></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipeline"><span class="hs-identifier hs-type">GetMediaCapturePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679541650"><span class="annot"><span class="annottext">toQuery :: GetMediaCapturePipeline -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetMediaCapturePipeline -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | /See:/ 'newGetMediaCapturePipelineResponse' smart constructor.</span><span>
+</span><span id="line-110"></span><span id="local-6989586621679541647"><span id="local-6989586621679541648"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMediaCapturePipelineResponse"><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipelineResponse"><span class="hs-identifier hs-var">GetMediaCapturePipelineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMediaCapturePipelineResponse%27"><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipelineResponse%27"><span class="hs-identifier hs-var">GetMediaCapturePipelineResponse'</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The media capture pipeline object.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3AmediaCapturePipeline%3AGetMediaCapturePipelineResponse%27"><span class="annot"><span class="annottext">GetMediaCapturePipelineResponse -&gt; Maybe MediaCapturePipeline
+</span><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#%24sel%3AmediaCapturePipeline%3AGetMediaCapturePipelineResponse%27"><span class="hs-identifier hs-var hs-var">mediaCapturePipeline</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.MediaCapturePipeline.html#MediaCapturePipeline"><span class="hs-identifier hs-type">MediaCapturePipeline</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetMediaCapturePipelineResponse%27"><span class="annot"><span class="annottext">GetMediaCapturePipelineResponse -&gt; Int
+</span><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#%24sel%3AhttpStatus%3AGetMediaCapturePipelineResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679541641"><span id="local-6989586621679541643"><span class="annot"><span class="annottext">GetMediaCapturePipelineResponse
+-&gt; GetMediaCapturePipelineResponse -&gt; Bool
+(GetMediaCapturePipelineResponse
+ -&gt; GetMediaCapturePipelineResponse -&gt; Bool)
+-&gt; (GetMediaCapturePipelineResponse
+    -&gt; GetMediaCapturePipelineResponse -&gt; Bool)
+-&gt; Eq GetMediaCapturePipelineResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetMediaCapturePipelineResponse
+-&gt; GetMediaCapturePipelineResponse -&gt; Bool
+$c/= :: GetMediaCapturePipelineResponse
+-&gt; GetMediaCapturePipelineResponse -&gt; Bool
+== :: GetMediaCapturePipelineResponse
+-&gt; GetMediaCapturePipelineResponse -&gt; Bool
+$c== :: GetMediaCapturePipelineResponse
+-&gt; GetMediaCapturePipelineResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679541635"><span id="local-6989586621679541637"><span id="local-6989586621679541639"><span class="annot"><span class="annottext">Int -&gt; GetMediaCapturePipelineResponse -&gt; ShowS
+[GetMediaCapturePipelineResponse] -&gt; ShowS
+GetMediaCapturePipelineResponse -&gt; String
+(Int -&gt; GetMediaCapturePipelineResponse -&gt; ShowS)
+-&gt; (GetMediaCapturePipelineResponse -&gt; String)
+-&gt; ([GetMediaCapturePipelineResponse] -&gt; ShowS)
+-&gt; Show GetMediaCapturePipelineResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetMediaCapturePipelineResponse] -&gt; ShowS
+$cshowList :: [GetMediaCapturePipelineResponse] -&gt; ShowS
+show :: GetMediaCapturePipelineResponse -&gt; String
+$cshow :: GetMediaCapturePipelineResponse -&gt; String
+showsPrec :: Int -&gt; GetMediaCapturePipelineResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetMediaCapturePipelineResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetMediaCapturePipelineResponse
+ -&gt; Rep GetMediaCapturePipelineResponse x)
+-&gt; (forall x.
+    Rep GetMediaCapturePipelineResponse x
+    -&gt; GetMediaCapturePipelineResponse)
+-&gt; Generic GetMediaCapturePipelineResponse
+forall x.
+Rep GetMediaCapturePipelineResponse x
+-&gt; GetMediaCapturePipelineResponse
+forall x.
+GetMediaCapturePipelineResponse
+-&gt; Rep GetMediaCapturePipelineResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetMediaCapturePipelineResponse x
+-&gt; GetMediaCapturePipelineResponse
+$cfrom :: forall x.
+GetMediaCapturePipelineResponse
+-&gt; Rep GetMediaCapturePipelineResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Create a value of 'GetMediaCapturePipelineResponse' with all optional fields omitted.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'mediaCapturePipeline', 'getMediaCapturePipelineResponse_mediaCapturePipeline' - The media capture pipeline object.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'httpStatus', 'getMediaCapturePipelineResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#newGetMediaCapturePipelineResponse"><span class="hs-identifier hs-type">newGetMediaCapturePipelineResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipelineResponse"><span class="hs-identifier hs-type">GetMediaCapturePipelineResponse</span></a></span><span>
+</span><span id="line-133"></span><span id="newGetMediaCapturePipelineResponse"><span class="annot"><span class="annottext">newGetMediaCapturePipelineResponse :: Int -&gt; GetMediaCapturePipelineResponse
+</span><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#newGetMediaCapturePipelineResponse"><span class="hs-identifier hs-var hs-var">newGetMediaCapturePipelineResponse</span></a></span></span><span> </span><span id="local-6989586621679541632"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679541632"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">GetMediaCapturePipelineResponse' :: Maybe MediaCapturePipeline
+-&gt; Int -&gt; GetMediaCapturePipelineResponse
+</span><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipelineResponse%27"><span class="hs-identifier hs-type">GetMediaCapturePipelineResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mediaCapturePipeline:GetMediaCapturePipelineResponse' :: Maybe MediaCapturePipeline
+</span><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#%24sel%3AmediaCapturePipeline%3AGetMediaCapturePipelineResponse%27"><span class="hs-identifier hs-var">mediaCapturePipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Maybe MediaCapturePipeline
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetMediaCapturePipelineResponse' :: Int
+</span><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#%24sel%3AhttpStatus%3AGetMediaCapturePipelineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679541632"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The media capture pipeline object.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#getMediaCapturePipelineResponse_mediaCapturePipeline"><span class="hs-identifier hs-type">getMediaCapturePipelineResponse_mediaCapturePipeline</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipelineResponse"><span class="hs-identifier hs-type">GetMediaCapturePipelineResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.MediaCapturePipeline.html#MediaCapturePipeline"><span class="hs-identifier hs-type">MediaCapturePipeline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="getMediaCapturePipelineResponse_mediaCapturePipeline"><span class="annot"><span class="annottext">getMediaCapturePipelineResponse_mediaCapturePipeline :: (Maybe MediaCapturePipeline -&gt; f (Maybe MediaCapturePipeline))
+-&gt; GetMediaCapturePipelineResponse
+-&gt; f GetMediaCapturePipelineResponse
+</span><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#getMediaCapturePipelineResponse_mediaCapturePipeline"><span class="hs-identifier hs-var hs-var">getMediaCapturePipelineResponse_mediaCapturePipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMediaCapturePipelineResponse -&gt; Maybe MediaCapturePipeline)
+-&gt; (GetMediaCapturePipelineResponse
+    -&gt; Maybe MediaCapturePipeline -&gt; GetMediaCapturePipelineResponse)
+-&gt; Lens
+     GetMediaCapturePipelineResponse
+     GetMediaCapturePipelineResponse
+     (Maybe MediaCapturePipeline)
+     (Maybe MediaCapturePipeline)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipelineResponse%27"><span class="hs-identifier hs-type">GetMediaCapturePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679541631"><span class="annot"><span class="annottext">Maybe MediaCapturePipeline
+mediaCapturePipeline :: Maybe MediaCapturePipeline
+$sel:mediaCapturePipeline:GetMediaCapturePipelineResponse' :: GetMediaCapturePipelineResponse -&gt; Maybe MediaCapturePipeline
+</span><a href="#local-6989586621679541631"><span class="hs-identifier hs-var hs-var">mediaCapturePipeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MediaCapturePipeline
+</span><a href="#local-6989586621679541631"><span class="hs-identifier hs-var">mediaCapturePipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679541630"><span class="annot"><span class="annottext">s :: GetMediaCapturePipelineResponse
+</span><a href="#local-6989586621679541630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipelineResponse%27"><span class="hs-identifier hs-type">GetMediaCapturePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679541629"><span class="annot"><span class="annottext">Maybe MediaCapturePipeline
+</span><a href="#local-6989586621679541629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMediaCapturePipelineResponse
+</span><a href="#local-6989586621679541630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaCapturePipeline:GetMediaCapturePipelineResponse' :: Maybe MediaCapturePipeline
+</span><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#%24sel%3AmediaCapturePipeline%3AGetMediaCapturePipelineResponse%27"><span class="hs-identifier hs-var">mediaCapturePipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MediaCapturePipeline
+</span><a href="#local-6989586621679541629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipelineResponse"><span class="hs-identifier hs-type">GetMediaCapturePipelineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#getMediaCapturePipelineResponse_httpStatus"><span class="hs-identifier hs-type">getMediaCapturePipelineResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipelineResponse"><span class="hs-identifier hs-type">GetMediaCapturePipelineResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-146"></span><span id="getMediaCapturePipelineResponse_httpStatus"><span class="annot"><span class="annottext">getMediaCapturePipelineResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetMediaCapturePipelineResponse
+-&gt; f GetMediaCapturePipelineResponse
+</span><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#getMediaCapturePipelineResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getMediaCapturePipelineResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMediaCapturePipelineResponse -&gt; Int)
+-&gt; (GetMediaCapturePipelineResponse
+    -&gt; Int -&gt; GetMediaCapturePipelineResponse)
+-&gt; Lens
+     GetMediaCapturePipelineResponse
+     GetMediaCapturePipelineResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipelineResponse%27"><span class="hs-identifier hs-type">GetMediaCapturePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679541628"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetMediaCapturePipelineResponse' :: GetMediaCapturePipelineResponse -&gt; Int
+</span><a href="#local-6989586621679541628"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679541628"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679541627"><span class="annot"><span class="annottext">s :: GetMediaCapturePipelineResponse
+</span><a href="#local-6989586621679541627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipelineResponse%27"><span class="hs-identifier hs-type">GetMediaCapturePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679541626"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679541626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMediaCapturePipelineResponse
+</span><a href="#local-6989586621679541627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMediaCapturePipelineResponse' :: Int
+</span><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#%24sel%3AhttpStatus%3AGetMediaCapturePipelineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679541626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipelineResponse"><span class="hs-identifier hs-type">GetMediaCapturePipelineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679541624"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetMediaCapturePipeline.html#GetMediaCapturePipelineResponse"><span class="hs-identifier hs-type">GetMediaCapturePipelineResponse</span></a></span></span><span>
+</span><span id="line-151"></span></pre></body></html>

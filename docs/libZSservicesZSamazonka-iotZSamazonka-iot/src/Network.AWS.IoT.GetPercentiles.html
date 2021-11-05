@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newGetPercentiles' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679831625"><span id="local-6989586621679831626"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPercentiles"><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-var">GetPercentiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPercentiles%27"><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-var">GetPercentiles'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679831634"><span id="local-6989586621679831635"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPercentiles"><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-var">GetPercentiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPercentiles%27"><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-var">GetPercentiles'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The percentile groups returned.</span><span>
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3Apercents%3AGetPercentiles%27"><span class="annot"><span class="annottext">GetPercentiles -&gt; Maybe [Double]
 </span><a href="Network.AWS.IoT.GetPercentiles.html#%24sel%3Apercents%3AGetPercentiles%27"><span class="hs-identifier hs-var hs-var">percents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -82,7 +82,7 @@
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3AqueryString%3AGetPercentiles%27"><span class="annot"><span class="annottext">GetPercentiles -&gt; Text
 </span><a href="Network.AWS.IoT.GetPercentiles.html#%24sel%3AqueryString%3AGetPercentiles%27"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679831615"><span id="local-6989586621679831617"><span class="annot"><span class="annottext">GetPercentiles -&gt; GetPercentiles -&gt; Bool
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679831624"><span id="local-6989586621679831626"><span class="annot"><span class="annottext">GetPercentiles -&gt; GetPercentiles -&gt; Bool
 (GetPercentiles -&gt; GetPercentiles -&gt; Bool)
 -&gt; (GetPercentiles -&gt; GetPercentiles -&gt; Bool) -&gt; Eq GetPercentiles
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetPercentiles -&gt; GetPercentiles -&gt; Bool
 == :: GetPercentiles -&gt; GetPercentiles -&gt; Bool
 $c== :: GetPercentiles -&gt; GetPercentiles -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831606"><span id="local-6989586621679831608"><span id="local-6989586621679831610"><span id="local-6989586621679831612"><span class="annot"><span class="annottext">ReadPrec [GetPercentiles]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831615"><span id="local-6989586621679831617"><span id="local-6989586621679831619"><span id="local-6989586621679831621"><span class="annot"><span class="annottext">ReadPrec [GetPercentiles]
 ReadPrec GetPercentiles
 Int -&gt; ReadS GetPercentiles
 ReadS [GetPercentiles]
@@ -110,7 +110,7 @@ readList :: ReadS [GetPercentiles]
 $creadList :: ReadS [GetPercentiles]
 readsPrec :: Int -&gt; ReadS GetPercentiles
 $creadsPrec :: Int -&gt; ReadS GetPercentiles
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831599"><span id="local-6989586621679831601"><span id="local-6989586621679831603"><span class="annot"><span class="annottext">Int -&gt; GetPercentiles -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831608"><span id="local-6989586621679831610"><span id="local-6989586621679831612"><span class="annot"><span class="annottext">Int -&gt; GetPercentiles -&gt; ShowS
 [GetPercentiles] -&gt; ShowS
 GetPercentiles -&gt; String
 (Int -&gt; GetPercentiles -&gt; ShowS)
@@ -158,8 +158,8 @@ $cfrom :: forall x. GetPercentiles -&gt; Rep GetPercentiles x
 </span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span>
 </span><span id="line-103"></span><span id="newGetPercentiles"><span class="annot"><span class="annottext">newGetPercentiles :: Text -&gt; GetPercentiles
-</span><a href="Network.AWS.IoT.GetPercentiles.html#newGetPercentiles"><span class="hs-identifier hs-var hs-var">newGetPercentiles</span></a></span></span><span> </span><span id="local-6989586621679831594"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831594"><span class="hs-identifier hs-var">pQueryString_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.GetPercentiles.html#newGetPercentiles"><span class="hs-identifier hs-var hs-var">newGetPercentiles</span></a></span></span><span> </span><span id="local-6989586621679831603"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679831603"><span class="hs-identifier hs-var">pQueryString_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">GetPercentiles' :: Maybe [Double]
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; GetPercentiles
 </span><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span>
@@ -181,7 +181,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryString:GetPercentiles' :: Text
 </span><a href="Network.AWS.IoT.GetPercentiles.html#%24sel%3AqueryString%3AGetPercentiles%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831594"><span class="hs-identifier hs-var">pQueryString_</span></a></span><span>
+</span><a href="#local-6989586621679831603"><span class="hs-identifier hs-var">pQueryString_</span></a></span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The percentile groups returned.</span><span>
@@ -193,16 +193,16 @@ forall a. Maybe a
 -&gt; Lens
      GetPercentiles GetPercentiles (Maybe [Double]) (Maybe [Double])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831591"><span class="annot"><span class="annottext">Maybe [Double]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831600"><span class="annot"><span class="annottext">Maybe [Double]
 percents :: Maybe [Double]
 $sel:percents:GetPercentiles' :: GetPercentiles -&gt; Maybe [Double]
-</span><a href="#local-6989586621679831591"><span class="hs-identifier hs-var hs-var">percents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679831591"><span class="hs-identifier hs-var">percents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831590"><span class="annot"><span class="annottext">s :: GetPercentiles
-</span><a href="#local-6989586621679831590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831589"><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679831589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPercentiles
-</span><a href="#local-6989586621679831590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percents:GetPercentiles' :: Maybe [Double]
+</span><a href="#local-6989586621679831600"><span class="hs-identifier hs-var hs-var">percents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
+</span><a href="#local-6989586621679831600"><span class="hs-identifier hs-var">percents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831599"><span class="annot"><span class="annottext">s :: GetPercentiles
+</span><a href="#local-6989586621679831599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831598"><span class="annot"><span class="annottext">Maybe [Double]
+</span><a href="#local-6989586621679831598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPercentiles
+</span><a href="#local-6989586621679831599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percents:GetPercentiles' :: Maybe [Double]
 </span><a href="Network.AWS.IoT.GetPercentiles.html#%24sel%3Apercents%3AGetPercentiles%27"><span class="hs-identifier hs-var">percents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679831589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Double] -&gt; f (Maybe [Double]))
+</span><a href="#local-6989586621679831598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Double] -&gt; f (Maybe [Double]))
  -&gt; GetPercentiles -&gt; f GetPercentiles)
 -&gt; ((Maybe [Double] -&gt; f (Maybe [Double]))
     -&gt; Maybe [Double] -&gt; f (Maybe [Double]))
@@ -228,16 +228,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetPercentiles -&gt; Maybe Text -&gt; GetPercentiles)
 -&gt; Lens GetPercentiles GetPercentiles (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831585"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831594"><span class="annot"><span class="annottext">Maybe Text
 queryVersion :: Maybe Text
 $sel:queryVersion:GetPercentiles' :: GetPercentiles -&gt; Maybe Text
-</span><a href="#local-6989586621679831585"><span class="hs-identifier hs-var hs-var">queryVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831585"><span class="hs-identifier hs-var">queryVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831584"><span class="annot"><span class="annottext">s :: GetPercentiles
-</span><a href="#local-6989586621679831584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831583"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPercentiles
-</span><a href="#local-6989586621679831584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryVersion:GetPercentiles' :: Maybe Text
+</span><a href="#local-6989586621679831594"><span class="hs-identifier hs-var hs-var">queryVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679831594"><span class="hs-identifier hs-var">queryVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831593"><span class="annot"><span class="annottext">s :: GetPercentiles
+</span><a href="#local-6989586621679831593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831592"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679831592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPercentiles
+</span><a href="#local-6989586621679831593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryVersion:GetPercentiles' :: Maybe Text
 </span><a href="Network.AWS.IoT.GetPercentiles.html#%24sel%3AqueryVersion%3AGetPercentiles%27"><span class="hs-identifier hs-var">queryVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679831592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The field to aggregate.</span><span>
 </span><span id="line-121"></span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#getPercentiles_aggregationField"><span class="hs-identifier hs-type">getPercentiles_aggregationField</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -247,16 +247,16 @@ $sel:queryVersion:GetPercentiles' :: GetPercentiles -&gt; Maybe Text
 -&gt; (GetPercentiles -&gt; Maybe Text -&gt; GetPercentiles)
 -&gt; Lens GetPercentiles GetPercentiles (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831582"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831591"><span class="annot"><span class="annottext">Maybe Text
 aggregationField :: Maybe Text
 $sel:aggregationField:GetPercentiles' :: GetPercentiles -&gt; Maybe Text
-</span><a href="#local-6989586621679831582"><span class="hs-identifier hs-var hs-var">aggregationField</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831582"><span class="hs-identifier hs-var">aggregationField</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831581"><span class="annot"><span class="annottext">s :: GetPercentiles
-</span><a href="#local-6989586621679831581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831580"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPercentiles
-</span><a href="#local-6989586621679831581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregationField:GetPercentiles' :: Maybe Text
+</span><a href="#local-6989586621679831591"><span class="hs-identifier hs-var hs-var">aggregationField</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679831591"><span class="hs-identifier hs-var">aggregationField</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831590"><span class="annot"><span class="annottext">s :: GetPercentiles
+</span><a href="#local-6989586621679831590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831589"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679831589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPercentiles
+</span><a href="#local-6989586621679831590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregationField:GetPercentiles' :: Maybe Text
 </span><a href="Network.AWS.IoT.GetPercentiles.html#%24sel%3AaggregationField%3AGetPercentiles%27"><span class="hs-identifier hs-var">aggregationField</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679831589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The name of the index to search.</span><span>
 </span><span id="line-125"></span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#getPercentiles_indexName"><span class="hs-identifier hs-type">getPercentiles_indexName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -266,16 +266,16 @@ $sel:aggregationField:GetPercentiles' :: GetPercentiles -&gt; Maybe Text
 -&gt; (GetPercentiles -&gt; Maybe Text -&gt; GetPercentiles)
 -&gt; Lens GetPercentiles GetPercentiles (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831579"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831588"><span class="annot"><span class="annottext">Maybe Text
 indexName :: Maybe Text
 $sel:indexName:GetPercentiles' :: GetPercentiles -&gt; Maybe Text
-</span><a href="#local-6989586621679831579"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831579"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831578"><span class="annot"><span class="annottext">s :: GetPercentiles
-</span><a href="#local-6989586621679831578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831577"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPercentiles
-</span><a href="#local-6989586621679831578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:GetPercentiles' :: Maybe Text
+</span><a href="#local-6989586621679831588"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679831588"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831587"><span class="annot"><span class="annottext">s :: GetPercentiles
+</span><a href="#local-6989586621679831587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831586"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679831586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPercentiles
+</span><a href="#local-6989586621679831587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:GetPercentiles' :: Maybe Text
 </span><a href="Network.AWS.IoT.GetPercentiles.html#%24sel%3AindexName%3AGetPercentiles%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679831586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The search query string.</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#getPercentiles_queryString"><span class="hs-identifier hs-type">getPercentiles_queryString</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -284,27 +284,27 @@ $sel:indexName:GetPercentiles' :: GetPercentiles -&gt; Maybe Text
 -&gt; (GetPercentiles -&gt; Text -&gt; GetPercentiles)
 -&gt; Lens GetPercentiles GetPercentiles Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831576"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831585"><span class="annot"><span class="annottext">Text
 queryString :: Text
 $sel:queryString:GetPercentiles' :: GetPercentiles -&gt; Text
-</span><a href="#local-6989586621679831576"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831576"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831575"><span class="annot"><span class="annottext">s :: GetPercentiles
-</span><a href="#local-6989586621679831575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831574"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPercentiles
-</span><a href="#local-6989586621679831575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryString:GetPercentiles' :: Text
+</span><a href="#local-6989586621679831585"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679831585"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831584"><span class="annot"><span class="annottext">s :: GetPercentiles
+</span><a href="#local-6989586621679831584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831583"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679831583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPercentiles
+</span><a href="#local-6989586621679831584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryString:GetPercentiles' :: Text
 </span><a href="Network.AWS.IoT.GetPercentiles.html#%24sel%3AqueryString%3AGetPercentiles%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679831583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse"><span class="hs-identifier hs-type">GetPercentilesResponse</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679831570"><span class="annot"><span class="annottext">request :: GetPercentiles -&gt; Request GetPercentiles
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679831579"><span class="annot"><span class="annottext">request :: GetPercentiles -&gt; Request GetPercentiles
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetPercentiles -&gt; Request GetPercentiles
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679831566"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679831575"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetPercentiles
 -&gt; ClientResponse ClientBody
@@ -328,10 +328,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679831563"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831563"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679831562"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679831562"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679831561"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679831561"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679831572"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679831572"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679831571"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679831571"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679831570"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679831570"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PercentPair] -&gt; Int -&gt; GetPercentilesResponse
 </span><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse%27"><span class="hs-identifier hs-var">GetPercentilesResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PercentPair] -&gt; Int -&gt; GetPercentilesResponse)
@@ -339,7 +339,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetPercentilesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679831561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PercentPair]))
+</span><a href="#local-6989586621679831570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PercentPair]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;percentiles&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PercentPair]))
@@ -356,24 +356,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831563"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679831572"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831552"><span id="local-6989586621679831554"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831561"><span id="local-6989586621679831563"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831549"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679831545"><span class="annot"><span class="annottext">toHeaders :: GetPercentiles -&gt; ResponseHeaders
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679831554"><span class="annot"><span class="annottext">toHeaders :: GetPercentiles -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetPercentiles -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831536"><span id="local-6989586621679831538"><span id="local-6989586621679831540"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679831534"><span class="annot"><span class="annottext">toJSON :: GetPercentiles -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831528"><span id="local-6989586621679831529"><span id="local-6989586621679831530"><span id="local-6989586621679831531"><span id="local-6989586621679831532"><span class="annot"><span class="annottext">Maybe [Double]
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831545"><span id="local-6989586621679831547"><span id="local-6989586621679831549"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679831543"><span class="annot"><span class="annottext">toJSON :: GetPercentiles -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles%27"><span class="hs-identifier hs-type">GetPercentiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831537"><span id="local-6989586621679831538"><span id="local-6989586621679831539"><span id="local-6989586621679831540"><span id="local-6989586621679831541"><span class="annot"><span class="annottext">Maybe [Double]
 Maybe Text
 Text
 queryString :: Text
@@ -386,7 +386,7 @@ $sel:indexName:GetPercentiles' :: GetPercentiles -&gt; Maybe Text
 $sel:aggregationField:GetPercentiles' :: GetPercentiles -&gt; Maybe Text
 $sel:queryVersion:GetPercentiles' :: GetPercentiles -&gt; Maybe Text
 $sel:percents:GetPercentiles' :: GetPercentiles -&gt; Maybe [Double]
-</span><a href="#local-6989586621679831528"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679831537"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -398,14 +398,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Double] -&gt; Pair) -&gt; Maybe [Double] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Double]
-</span><a href="#local-6989586621679831532"><span class="hs-identifier hs-var">percents</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679831541"><span class="hs-identifier hs-var">percents</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;queryVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831531"><span class="hs-identifier hs-var">queryVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679831540"><span class="hs-identifier hs-var">queryVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;aggregationField&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -413,33 +413,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831530"><span class="hs-identifier hs-var">aggregationField</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679831539"><span class="hs-identifier hs-var">aggregationField</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;indexName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831529"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679831538"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;queryString&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831528"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679831537"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679831522"><span class="annot"><span class="annottext">toPath :: GetPercentiles -&gt; ByteString
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679831531"><span class="annot"><span class="annottext">toPath :: GetPercentiles -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetPercentiles -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/indices/percentiles&quot;</span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentiles"><span class="hs-identifier hs-type">GetPercentiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679831518"><span class="annot"><span class="annottext">toQuery :: GetPercentiles -&gt; QueryString
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679831527"><span class="annot"><span class="annottext">toQuery :: GetPercentiles -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetPercentiles -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -447,7 +447,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | /See:/ 'newGetPercentilesResponse' smart constructor.</span><span>
-</span><span id="line-172"></span><span id="local-6989586621679831515"><span id="local-6989586621679831516"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPercentilesResponse"><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse"><span class="hs-identifier hs-var">GetPercentilesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPercentilesResponse%27"><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse%27"><span class="hs-identifier hs-var">GetPercentilesResponse'</span></a></span></span><span>
+</span><span id="line-172"></span><span id="local-6989586621679831524"><span id="local-6989586621679831525"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPercentilesResponse"><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse"><span class="hs-identifier hs-var">GetPercentilesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPercentilesResponse%27"><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse%27"><span class="hs-identifier hs-var">GetPercentilesResponse'</span></a></span></span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The percentile values of the aggregated fields.</span><span>
 </span><span id="line-174"></span><span>    </span><span id="%24sel%3Apercentiles%3AGetPercentilesResponse%27"><span class="annot"><span class="annottext">GetPercentilesResponse -&gt; Maybe [PercentPair]
 </span><a href="Network.AWS.IoT.GetPercentiles.html#%24sel%3Apercentiles%3AGetPercentilesResponse%27"><span class="hs-identifier hs-var hs-var">percentiles</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.PercentPair.html#PercentPair"><span class="hs-identifier hs-type">PercentPair</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -455,7 +455,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetPercentilesResponse%27"><span class="annot"><span class="annottext">GetPercentilesResponse -&gt; Int
 </span><a href="Network.AWS.IoT.GetPercentiles.html#%24sel%3AhttpStatus%3AGetPercentilesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679831509"><span id="local-6989586621679831511"><span class="annot"><span class="annottext">GetPercentilesResponse -&gt; GetPercentilesResponse -&gt; Bool
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679831518"><span id="local-6989586621679831520"><span class="annot"><span class="annottext">GetPercentilesResponse -&gt; GetPercentilesResponse -&gt; Bool
 (GetPercentilesResponse -&gt; GetPercentilesResponse -&gt; Bool)
 -&gt; (GetPercentilesResponse -&gt; GetPercentilesResponse -&gt; Bool)
 -&gt; Eq GetPercentilesResponse
@@ -464,7 +464,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetPercentilesResponse -&gt; GetPercentilesResponse -&gt; Bool
 == :: GetPercentilesResponse -&gt; GetPercentilesResponse -&gt; Bool
 $c== :: GetPercentilesResponse -&gt; GetPercentilesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831501"><span id="local-6989586621679831503"><span id="local-6989586621679831505"><span id="local-6989586621679831507"><span class="annot"><span class="annottext">ReadPrec [GetPercentilesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831510"><span id="local-6989586621679831512"><span id="local-6989586621679831514"><span id="local-6989586621679831516"><span class="annot"><span class="annottext">ReadPrec [GetPercentilesResponse]
 ReadPrec GetPercentilesResponse
 Int -&gt; ReadS GetPercentilesResponse
 ReadS [GetPercentilesResponse]
@@ -484,7 +484,7 @@ readList :: ReadS [GetPercentilesResponse]
 $creadList :: ReadS [GetPercentilesResponse]
 readsPrec :: Int -&gt; ReadS GetPercentilesResponse
 $creadsPrec :: Int -&gt; ReadS GetPercentilesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831495"><span id="local-6989586621679831497"><span id="local-6989586621679831499"><span class="annot"><span class="annottext">Int -&gt; GetPercentilesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831504"><span id="local-6989586621679831506"><span id="local-6989586621679831508"><span class="annot"><span class="annottext">Int -&gt; GetPercentilesResponse -&gt; ShowS
 [GetPercentilesResponse] -&gt; ShowS
 GetPercentilesResponse -&gt; String
 (Int -&gt; GetPercentilesResponse -&gt; ShowS)
@@ -527,8 +527,8 @@ $cfrom :: forall x. GetPercentilesResponse -&gt; Rep GetPercentilesResponse x
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse"><span class="hs-identifier hs-type">GetPercentilesResponse</span></a></span><span>
 </span><span id="line-195"></span><span id="newGetPercentilesResponse"><span class="annot"><span class="annottext">newGetPercentilesResponse :: Int -&gt; GetPercentilesResponse
-</span><a href="Network.AWS.IoT.GetPercentiles.html#newGetPercentilesResponse"><span class="hs-identifier hs-var hs-var">newGetPercentilesResponse</span></a></span></span><span> </span><span id="local-6989586621679831492"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831492"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.GetPercentiles.html#newGetPercentilesResponse"><span class="hs-identifier hs-var hs-var">newGetPercentilesResponse</span></a></span></span><span> </span><span id="local-6989586621679831501"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679831501"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">GetPercentilesResponse' :: Maybe [PercentPair] -&gt; Int -&gt; GetPercentilesResponse
 </span><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse%27"><span class="hs-identifier hs-type">GetPercentilesResponse'</span></a></span><span>
 </span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:percentiles:GetPercentilesResponse' :: Maybe [PercentPair]
@@ -538,7 +538,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetPercentilesResponse' :: Int
 </span><a href="Network.AWS.IoT.GetPercentiles.html#%24sel%3AhttpStatus%3AGetPercentilesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831492"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679831501"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The percentile values of the aggregated fields.</span><span>
@@ -554,16 +554,16 @@ forall a. Maybe a
      (Maybe [PercentPair])
      (Maybe [PercentPair])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse%27"><span class="hs-identifier hs-type">GetPercentilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831491"><span class="annot"><span class="annottext">Maybe [PercentPair]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse%27"><span class="hs-identifier hs-type">GetPercentilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831500"><span class="annot"><span class="annottext">Maybe [PercentPair]
 percentiles :: Maybe [PercentPair]
 $sel:percentiles:GetPercentilesResponse' :: GetPercentilesResponse -&gt; Maybe [PercentPair]
-</span><a href="#local-6989586621679831491"><span class="hs-identifier hs-var hs-var">percentiles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PercentPair]
-</span><a href="#local-6989586621679831491"><span class="hs-identifier hs-var">percentiles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831490"><span class="annot"><span class="annottext">s :: GetPercentilesResponse
-</span><a href="#local-6989586621679831490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse%27"><span class="hs-identifier hs-type">GetPercentilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831489"><span class="annot"><span class="annottext">Maybe [PercentPair]
-</span><a href="#local-6989586621679831489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPercentilesResponse
-</span><a href="#local-6989586621679831490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percentiles:GetPercentilesResponse' :: Maybe [PercentPair]
+</span><a href="#local-6989586621679831500"><span class="hs-identifier hs-var hs-var">percentiles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PercentPair]
+</span><a href="#local-6989586621679831500"><span class="hs-identifier hs-var">percentiles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831499"><span class="annot"><span class="annottext">s :: GetPercentilesResponse
+</span><a href="#local-6989586621679831499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse%27"><span class="hs-identifier hs-type">GetPercentilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831498"><span class="annot"><span class="annottext">Maybe [PercentPair]
+</span><a href="#local-6989586621679831498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPercentilesResponse
+</span><a href="#local-6989586621679831499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percentiles:GetPercentilesResponse' :: Maybe [PercentPair]
 </span><a href="Network.AWS.IoT.GetPercentiles.html#%24sel%3Apercentiles%3AGetPercentilesResponse%27"><span class="hs-identifier hs-var">percentiles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PercentPair]
-</span><a href="#local-6989586621679831489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse"><span class="hs-identifier hs-type">GetPercentilesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PercentPair] -&gt; f (Maybe [PercentPair]))
+</span><a href="#local-6989586621679831498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse"><span class="hs-identifier hs-type">GetPercentilesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PercentPair] -&gt; f (Maybe [PercentPair]))
  -&gt; GetPercentilesResponse -&gt; f GetPercentilesResponse)
 -&gt; ((Maybe [PercentPair] -&gt; f (Maybe [PercentPair]))
     -&gt; Maybe [PercentPair] -&gt; f (Maybe [PercentPair]))
@@ -592,16 +592,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetPercentilesResponse -&gt; Int -&gt; GetPercentilesResponse)
 -&gt; Lens GetPercentilesResponse GetPercentilesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse%27"><span class="hs-identifier hs-type">GetPercentilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831488"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse%27"><span class="hs-identifier hs-type">GetPercentilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831497"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetPercentilesResponse' :: GetPercentilesResponse -&gt; Int
-</span><a href="#local-6989586621679831488"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831488"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831487"><span class="annot"><span class="annottext">s :: GetPercentilesResponse
-</span><a href="#local-6989586621679831487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse%27"><span class="hs-identifier hs-type">GetPercentilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831486"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPercentilesResponse
-</span><a href="#local-6989586621679831487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPercentilesResponse' :: Int
+</span><a href="#local-6989586621679831497"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679831497"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831496"><span class="annot"><span class="annottext">s :: GetPercentilesResponse
+</span><a href="#local-6989586621679831496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse%27"><span class="hs-identifier hs-type">GetPercentilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831495"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679831495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPercentilesResponse
+</span><a href="#local-6989586621679831496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPercentilesResponse' :: Int
 </span><a href="Network.AWS.IoT.GetPercentiles.html#%24sel%3AhttpStatus%3AGetPercentilesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse"><span class="hs-identifier hs-type">GetPercentilesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679831495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse"><span class="hs-identifier hs-type">GetPercentilesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831484"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse"><span class="hs-identifier hs-type">GetPercentilesResponse</span></a></span></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831493"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetPercentiles.html#GetPercentilesResponse"><span class="hs-identifier hs-type">GetPercentilesResponse</span></a></span></span><span>
 </span><span id="line-211"></span></pre></body></html>

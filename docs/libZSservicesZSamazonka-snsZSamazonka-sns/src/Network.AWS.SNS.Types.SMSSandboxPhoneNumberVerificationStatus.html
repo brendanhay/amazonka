@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- statuses. The following enum values are supported. 1. PENDING : The</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- destination phone number is pending verification. 2. VERIFIED : The</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- destination phone number is verified.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679192240"><span id="local-6989586621679192241"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SMSSandboxPhoneNumberVerificationStatus"><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus"><span class="hs-identifier hs-var">SMSSandboxPhoneNumberVerificationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SMSSandboxPhoneNumberVerificationStatus%27"><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus%27"><span class="hs-identifier hs-var">SMSSandboxPhoneNumberVerificationStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679192249"><span id="local-6989586621679192250"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SMSSandboxPhoneNumberVerificationStatus"><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus"><span class="hs-identifier hs-var">SMSSandboxPhoneNumberVerificationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SMSSandboxPhoneNumberVerificationStatus%27"><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus%27"><span class="hs-identifier hs-var">SMSSandboxPhoneNumberVerificationStatus'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSMSSandboxPhoneNumberVerificationStatus"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; Text
 </span><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#fromSMSSandboxPhoneNumberVerificationStatus"><span class="hs-identifier hs-var hs-var">fromSMSSandboxPhoneNumberVerificationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679192232"><span id="local-6989586621679192234"><span id="local-6989586621679192236"><span class="annot"><span class="annottext">Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679192241"><span id="local-6989586621679192243"><span id="local-6989586621679192245"><span class="annot"><span class="annottext">Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; ShowS
 [SMSSandboxPhoneNumberVerificationStatus] -&gt; ShowS
 SMSSandboxPhoneNumberVerificationStatus -&gt; String
 (Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: SMSSandboxPhoneNumberVerificationStatus -&gt; String
 showsPrec :: Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679192223"><span id="local-6989586621679192225"><span id="local-6989586621679192227"><span id="local-6989586621679192229"><span class="annot"><span class="annottext">ReadPrec [SMSSandboxPhoneNumberVerificationStatus]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679192232"><span id="local-6989586621679192234"><span id="local-6989586621679192236"><span id="local-6989586621679192238"><span class="annot"><span class="annottext">ReadPrec [SMSSandboxPhoneNumberVerificationStatus]
 ReadPrec SMSSandboxPhoneNumberVerificationStatus
 Int -&gt; ReadS SMSSandboxPhoneNumberVerificationStatus
 ReadS [SMSSandboxPhoneNumberVerificationStatus]
@@ -76,7 +76,7 @@ $creadList :: ReadS [SMSSandboxPhoneNumberVerificationStatus]
 readsPrec :: Int -&gt; ReadS SMSSandboxPhoneNumberVerificationStatus
 $creadsPrec :: Int -&gt; ReadS SMSSandboxPhoneNumberVerificationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679192218"><span id="local-6989586621679192220"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679192227"><span id="local-6989586621679192229"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus
 -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool
 (SMSSandboxPhoneNumberVerificationStatus
  -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool)
@@ -93,7 +93,7 @@ $c/= :: SMSSandboxPhoneNumberVerificationStatus
 $c== :: SMSSandboxPhoneNumberVerificationStatus
 -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679192202"><span id="local-6989586621679192204"><span id="local-6989586621679192206"><span id="local-6989586621679192208"><span id="local-6989586621679192210"><span id="local-6989586621679192212"><span id="local-6989586621679192214"><span class="annot"><span class="annottext">Eq SMSSandboxPhoneNumberVerificationStatus
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679192211"><span id="local-6989586621679192213"><span id="local-6989586621679192215"><span id="local-6989586621679192217"><span id="local-6989586621679192219"><span id="local-6989586621679192221"><span id="local-6989586621679192223"><span class="annot"><span class="annottext">Eq SMSSandboxPhoneNumberVerificationStatus
 Eq SMSSandboxPhoneNumberVerificationStatus
 -&gt; (SMSSandboxPhoneNumberVerificationStatus
     -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Ordering)
@@ -187,7 +187,7 @@ SMSSandboxPhoneNumberVerificationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679192194"><span id="local-6989586621679192196"><span class="annot"><span class="annottext">Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679192203"><span id="local-6989586621679192205"><span class="annot"><span class="annottext">Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Int
 SMSSandboxPhoneNumberVerificationStatus -&gt; Int
 (Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Int)
 -&gt; (SMSSandboxPhoneNumberVerificationStatus -&gt; Int)
@@ -198,56 +198,56 @@ $chash :: SMSSandboxPhoneNumberVerificationStatus -&gt; Int
 hashWithSalt :: Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Int
 $chashWithSalt :: Int -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679192191"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679192200"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; ()
 (SMSSandboxPhoneNumberVerificationStatus -&gt; ())
 -&gt; NFData SMSSandboxPhoneNumberVerificationStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SMSSandboxPhoneNumberVerificationStatus -&gt; ()
 $crnf :: SMSSandboxPhoneNumberVerificationStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679192188"><span class="annot"><span class="annottext">Text -&gt; Either String SMSSandboxPhoneNumberVerificationStatus
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679192197"><span class="annot"><span class="annottext">Text -&gt; Either String SMSSandboxPhoneNumberVerificationStatus
 (Text -&gt; Either String SMSSandboxPhoneNumberVerificationStatus)
 -&gt; FromText SMSSandboxPhoneNumberVerificationStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SMSSandboxPhoneNumberVerificationStatus
 $cfromText :: Text -&gt; Either String SMSSandboxPhoneNumberVerificationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679192185"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679192194"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; Text
 (SMSSandboxPhoneNumberVerificationStatus -&gt; Text)
 -&gt; ToText SMSSandboxPhoneNumberVerificationStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SMSSandboxPhoneNumberVerificationStatus -&gt; Text
 $ctoText :: SMSSandboxPhoneNumberVerificationStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679192182"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679192191"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; ByteString
 (SMSSandboxPhoneNumberVerificationStatus -&gt; ByteString)
 -&gt; ToByteString SMSSandboxPhoneNumberVerificationStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SMSSandboxPhoneNumberVerificationStatus -&gt; ByteString
 $ctoBS :: SMSSandboxPhoneNumberVerificationStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679192179"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679192188"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; ByteStringBuilder
 (SMSSandboxPhoneNumberVerificationStatus -&gt; ByteStringBuilder)
 -&gt; ToLog SMSSandboxPhoneNumberVerificationStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SMSSandboxPhoneNumberVerificationStatus -&gt; ByteStringBuilder
 $cbuild :: SMSSandboxPhoneNumberVerificationStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679192176"><span class="annot"><span class="annottext">HeaderName -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679192185"><span class="annot"><span class="annottext">HeaderName -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; [Header]
 (HeaderName -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; [Header])
 -&gt; ToHeader SMSSandboxPhoneNumberVerificationStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SMSSandboxPhoneNumberVerificationStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679192173"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679192182"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; QueryString
 (SMSSandboxPhoneNumberVerificationStatus -&gt; QueryString)
 -&gt; ToQuery SMSSandboxPhoneNumberVerificationStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SMSSandboxPhoneNumberVerificationStatus -&gt; QueryString
 $ctoQuery :: SMSSandboxPhoneNumberVerificationStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679192168"><span id="local-6989586621679192170"><span class="annot"><span class="annottext">Value -&gt; Parser [SMSSandboxPhoneNumberVerificationStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679192177"><span id="local-6989586621679192179"><span class="annot"><span class="annottext">Value -&gt; Parser [SMSSandboxPhoneNumberVerificationStatus]
 Value -&gt; Parser SMSSandboxPhoneNumberVerificationStatus
 (Value -&gt; Parser SMSSandboxPhoneNumberVerificationStatus)
 -&gt; (Value -&gt; Parser [SMSSandboxPhoneNumberVerificationStatus])
@@ -259,7 +259,7 @@ $cparseJSONList :: Value -&gt; Parser [SMSSandboxPhoneNumberVerificationStatus]
 parseJSON :: Value -&gt; Parser SMSSandboxPhoneNumberVerificationStatus
 $cparseJSON :: Value -&gt; Parser SMSSandboxPhoneNumberVerificationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679192163"><span id="local-6989586621679192165"><span class="annot"><span class="annottext">FromJSONKeyFunction [SMSSandboxPhoneNumberVerificationStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679192172"><span id="local-6989586621679192174"><span class="annot"><span class="annottext">FromJSONKeyFunction [SMSSandboxPhoneNumberVerificationStatus]
 FromJSONKeyFunction SMSSandboxPhoneNumberVerificationStatus
 FromJSONKeyFunction SMSSandboxPhoneNumberVerificationStatus
 -&gt; FromJSONKeyFunction [SMSSandboxPhoneNumberVerificationStatus]
@@ -271,7 +271,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SMSSandboxPhoneNumberVerificationStatu
 fromJSONKey :: FromJSONKeyFunction SMSSandboxPhoneNumberVerificationStatus
 $cfromJSONKey :: FromJSONKeyFunction SMSSandboxPhoneNumberVerificationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679192154"><span id="local-6989586621679192156"><span id="local-6989586621679192158"><span id="local-6989586621679192160"><span class="annot"><span class="annottext">[SMSSandboxPhoneNumberVerificationStatus] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679192163"><span id="local-6989586621679192165"><span id="local-6989586621679192167"><span id="local-6989586621679192169"><span class="annot"><span class="annottext">[SMSSandboxPhoneNumberVerificationStatus] -&gt; Encoding
 [SMSSandboxPhoneNumberVerificationStatus] -&gt; Value
 SMSSandboxPhoneNumberVerificationStatus -&gt; Encoding
 SMSSandboxPhoneNumberVerificationStatus -&gt; Value
@@ -295,7 +295,7 @@ $ctoEncoding :: SMSSandboxPhoneNumberVerificationStatus -&gt; Encoding
 toJSON :: SMSSandboxPhoneNumberVerificationStatus -&gt; Value
 $ctoJSON :: SMSSandboxPhoneNumberVerificationStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679192149"><span id="local-6989586621679192151"><span class="annot"><span class="annottext">ToJSONKeyFunction [SMSSandboxPhoneNumberVerificationStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679192158"><span id="local-6989586621679192160"><span class="annot"><span class="annottext">ToJSONKeyFunction [SMSSandboxPhoneNumberVerificationStatus]
 ToJSONKeyFunction SMSSandboxPhoneNumberVerificationStatus
 ToJSONKeyFunction SMSSandboxPhoneNumberVerificationStatus
 -&gt; ToJSONKeyFunction [SMSSandboxPhoneNumberVerificationStatus]
@@ -307,14 +307,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SMSSandboxPhoneNumberVerificationStatus]
 toJSONKey :: ToJSONKeyFunction SMSSandboxPhoneNumberVerificationStatus
 $ctoJSONKey :: ToJSONKeyFunction SMSSandboxPhoneNumberVerificationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679192146"><span class="annot"><span class="annottext">[Node] -&gt; Either String SMSSandboxPhoneNumberVerificationStatus
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679192155"><span class="annot"><span class="annottext">[Node] -&gt; Either String SMSSandboxPhoneNumberVerificationStatus
 ([Node] -&gt; Either String SMSSandboxPhoneNumberVerificationStatus)
 -&gt; FromXML SMSSandboxPhoneNumberVerificationStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SMSSandboxPhoneNumberVerificationStatus
 $cparseXML :: [Node] -&gt; Either String SMSSandboxPhoneNumberVerificationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679192143"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679192152"><span class="annot"><span class="annottext">SMSSandboxPhoneNumberVerificationStatus -&gt; XML
 (SMSSandboxPhoneNumberVerificationStatus -&gt; XML)
 -&gt; ToXML SMSSandboxPhoneNumberVerificationStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

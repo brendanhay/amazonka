@@ -73,13 +73,13 @@
 </span><span id="line-73"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- /See:/ 'newDescribeRuntimeConfiguration' smart constructor.</span><span>
-</span><span id="line-76"></span><span id="local-6989586621679450732"><span id="local-6989586621679450733"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRuntimeConfiguration"><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration"><span class="hs-identifier hs-var">DescribeRuntimeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRuntimeConfiguration%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration%27"><span class="hs-identifier hs-var">DescribeRuntimeConfiguration'</span></a></span></span><span>
+</span><span id="line-76"></span><span id="local-6989586621679450741"><span id="local-6989586621679450742"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRuntimeConfiguration"><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration"><span class="hs-identifier hs-var">DescribeRuntimeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRuntimeConfiguration%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration%27"><span class="hs-identifier hs-var">DescribeRuntimeConfiguration'</span></a></span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the fleet to get the runtime configuration for.</span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-comment">-- You can use either the fleet ID or ARN value.</span><span>
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3AfleetId%3ADescribeRuntimeConfiguration%27"><span class="annot"><span class="annottext">DescribeRuntimeConfiguration -&gt; Text
 </span><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#%24sel%3AfleetId%3ADescribeRuntimeConfiguration%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450726"><span id="local-6989586621679450728"><span class="annot"><span class="annottext">DescribeRuntimeConfiguration
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450735"><span id="local-6989586621679450737"><span class="annot"><span class="annottext">DescribeRuntimeConfiguration
 -&gt; DescribeRuntimeConfiguration -&gt; Bool
 (DescribeRuntimeConfiguration
  -&gt; DescribeRuntimeConfiguration -&gt; Bool)
@@ -95,7 +95,7 @@ $c/= :: DescribeRuntimeConfiguration
 -&gt; DescribeRuntimeConfiguration -&gt; Bool
 $c== :: DescribeRuntimeConfiguration
 -&gt; DescribeRuntimeConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450717"><span id="local-6989586621679450719"><span id="local-6989586621679450721"><span id="local-6989586621679450723"><span class="annot"><span class="annottext">ReadPrec [DescribeRuntimeConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450726"><span id="local-6989586621679450728"><span id="local-6989586621679450730"><span id="local-6989586621679450732"><span class="annot"><span class="annottext">ReadPrec [DescribeRuntimeConfiguration]
 ReadPrec DescribeRuntimeConfiguration
 Int -&gt; ReadS DescribeRuntimeConfiguration
 ReadS [DescribeRuntimeConfiguration]
@@ -115,7 +115,7 @@ readList :: ReadS [DescribeRuntimeConfiguration]
 $creadList :: ReadS [DescribeRuntimeConfiguration]
 readsPrec :: Int -&gt; ReadS DescribeRuntimeConfiguration
 $creadsPrec :: Int -&gt; ReadS DescribeRuntimeConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450710"><span id="local-6989586621679450712"><span id="local-6989586621679450714"><span class="annot"><span class="annottext">Int -&gt; DescribeRuntimeConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450719"><span id="local-6989586621679450721"><span id="local-6989586621679450723"><span class="annot"><span class="annottext">Int -&gt; DescribeRuntimeConfiguration -&gt; ShowS
 [DescribeRuntimeConfiguration] -&gt; ShowS
 DescribeRuntimeConfiguration -&gt; String
 (Int -&gt; DescribeRuntimeConfiguration -&gt; ShowS)
@@ -162,12 +162,12 @@ DescribeRuntimeConfiguration -&gt; Rep DescribeRuntimeConfiguration x
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration</span></a></span><span>
 </span><span id="line-97"></span><span id="newDescribeRuntimeConfiguration"><span class="annot"><span class="annottext">newDescribeRuntimeConfiguration :: Text -&gt; DescribeRuntimeConfiguration
-</span><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#newDescribeRuntimeConfiguration"><span class="hs-identifier hs-var hs-var">newDescribeRuntimeConfiguration</span></a></span></span><span> </span><span id="local-6989586621679450705"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450705"><span class="hs-identifier hs-var">pFleetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#newDescribeRuntimeConfiguration"><span class="hs-identifier hs-var hs-var">newDescribeRuntimeConfiguration</span></a></span></span><span> </span><span id="local-6989586621679450714"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450714"><span class="hs-identifier hs-var">pFleetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">DescribeRuntimeConfiguration' :: Text -&gt; DescribeRuntimeConfiguration
 </span><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration%27"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:DescribeRuntimeConfiguration' :: Text
 </span><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#%24sel%3AfleetId%3ADescribeRuntimeConfiguration%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450705"><span class="hs-identifier hs-var">pFleetId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679450714"><span class="hs-identifier hs-var">pFleetId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | A unique identifier for the fleet to get the runtime configuration for.</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- You can use either the fleet ID or ARN value.</span><span>
@@ -180,22 +180,22 @@ DescribeRuntimeConfiguration -&gt; Rep DescribeRuntimeConfiguration x
 -&gt; Lens
      DescribeRuntimeConfiguration DescribeRuntimeConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration%27"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450702"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration%27"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450711"><span class="annot"><span class="annottext">Text
 fleetId :: Text
 $sel:fleetId:DescribeRuntimeConfiguration' :: DescribeRuntimeConfiguration -&gt; Text
-</span><a href="#local-6989586621679450702"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450702"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450701"><span class="annot"><span class="annottext">s :: DescribeRuntimeConfiguration
-</span><a href="#local-6989586621679450701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration%27"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450700"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRuntimeConfiguration
-</span><a href="#local-6989586621679450701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:DescribeRuntimeConfiguration' :: Text
+</span><a href="#local-6989586621679450711"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450711"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450710"><span class="annot"><span class="annottext">s :: DescribeRuntimeConfiguration
+</span><a href="#local-6989586621679450710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration%27"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450709"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679450709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRuntimeConfiguration
+</span><a href="#local-6989586621679450710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:DescribeRuntimeConfiguration' :: Text
 </span><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#%24sel%3AfleetId%3ADescribeRuntimeConfiguration%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-107"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse"><span class="hs-identifier hs-type">DescribeRuntimeConfigurationResponse</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679450696"><span class="annot"><span class="annottext">request :: DescribeRuntimeConfiguration
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679450705"><span class="annot"><span class="annottext">request :: DescribeRuntimeConfiguration
 -&gt; Request DescribeRuntimeConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeRuntimeConfiguration
@@ -203,7 +203,7 @@ $sel:fleetId:DescribeRuntimeConfiguration' :: DescribeRuntimeConfiguration -&gt;
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679450692"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679450701"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeRuntimeConfiguration
 -&gt; ClientResponse ClientBody
@@ -229,10 +229,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679450689"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450689"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679450688"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679450688"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679450687"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679450687"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679450698"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450698"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679450697"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679450697"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679450696"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679450696"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe RuntimeConfiguration
 -&gt; Int -&gt; DescribeRuntimeConfigurationResponse
 </span><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse%27"><span class="hs-identifier hs-var">DescribeRuntimeConfigurationResponse'</span></a></span><span>
@@ -242,7 +242,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeRuntimeConfigurationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679450687"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RuntimeConfiguration)
+</span><a href="#local-6989586621679450696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RuntimeConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RuntimeConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -255,17 +255,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450689"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450698"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679450679"><span id="local-6989586621679450681"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679450688"><span id="local-6989586621679450690"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450676"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration</span></a></span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679450672"><span class="annot"><span class="annottext">toHeaders :: DescribeRuntimeConfiguration -&gt; ResponseHeaders
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679450681"><span class="annot"><span class="annottext">toHeaders :: DescribeRuntimeConfiguration -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeRuntimeConfiguration -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -292,12 +292,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450662"><span id="local-6989586621679450664"><span id="local-6989586621679450666"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679450660"><span class="annot"><span class="annottext">toJSON :: DescribeRuntimeConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration%27"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450658"><span class="annot"><span class="annottext">Text
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450671"><span id="local-6989586621679450673"><span id="local-6989586621679450675"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679450669"><span class="annot"><span class="annottext">toJSON :: DescribeRuntimeConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration%27"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450667"><span class="annot"><span class="annottext">Text
 fleetId :: Text
 $sel:fleetId:DescribeRuntimeConfiguration' :: DescribeRuntimeConfiguration -&gt; Text
-</span><a href="#local-6989586621679450658"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679450667"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -309,18 +309,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;FleetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679450658"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679450667"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679450652"><span class="annot"><span class="annottext">toPath :: DescribeRuntimeConfiguration -&gt; ByteString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679450661"><span class="annot"><span class="annottext">toPath :: DescribeRuntimeConfiguration -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeRuntimeConfiguration -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfiguration"><span class="hs-identifier hs-type">DescribeRuntimeConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679450648"><span class="annot"><span class="annottext">toQuery :: DescribeRuntimeConfiguration -&gt; QueryString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679450657"><span class="annot"><span class="annottext">toQuery :: DescribeRuntimeConfiguration -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeRuntimeConfiguration -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -330,7 +330,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-152"></span><span class="hs-comment">-- | Represents the returned data in response to a request operation.</span><span>
 </span><span id="line-153"></span><span class="hs-comment">--</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- /See:/ 'newDescribeRuntimeConfigurationResponse' smart constructor.</span><span>
-</span><span id="line-155"></span><span id="local-6989586621679450645"><span id="local-6989586621679450646"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRuntimeConfigurationResponse"><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse"><span class="hs-identifier hs-var">DescribeRuntimeConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRuntimeConfigurationResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse%27"><span class="hs-identifier hs-var">DescribeRuntimeConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span id="local-6989586621679450654"><span id="local-6989586621679450655"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRuntimeConfigurationResponse"><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse"><span class="hs-identifier hs-var">DescribeRuntimeConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRuntimeConfigurationResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse%27"><span class="hs-identifier hs-var">DescribeRuntimeConfigurationResponse'</span></a></span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Instructions that describe how server processes should be launched and</span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-comment">-- maintained on each instance in the fleet.</span><span>
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AruntimeConfiguration%3ADescribeRuntimeConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeRuntimeConfigurationResponse -&gt; Maybe RuntimeConfiguration
@@ -339,7 +339,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeRuntimeConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeRuntimeConfigurationResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#%24sel%3AhttpStatus%3ADescribeRuntimeConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450639"><span id="local-6989586621679450641"><span class="annot"><span class="annottext">DescribeRuntimeConfigurationResponse
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450648"><span id="local-6989586621679450650"><span class="annot"><span class="annottext">DescribeRuntimeConfigurationResponse
 -&gt; DescribeRuntimeConfigurationResponse -&gt; Bool
 (DescribeRuntimeConfigurationResponse
  -&gt; DescribeRuntimeConfigurationResponse -&gt; Bool)
@@ -355,7 +355,7 @@ $c/= :: DescribeRuntimeConfigurationResponse
 -&gt; DescribeRuntimeConfigurationResponse -&gt; Bool
 $c== :: DescribeRuntimeConfigurationResponse
 -&gt; DescribeRuntimeConfigurationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450631"><span id="local-6989586621679450633"><span id="local-6989586621679450635"><span id="local-6989586621679450637"><span class="annot"><span class="annottext">ReadPrec [DescribeRuntimeConfigurationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450640"><span id="local-6989586621679450642"><span id="local-6989586621679450644"><span id="local-6989586621679450646"><span class="annot"><span class="annottext">ReadPrec [DescribeRuntimeConfigurationResponse]
 ReadPrec DescribeRuntimeConfigurationResponse
 Int -&gt; ReadS DescribeRuntimeConfigurationResponse
 ReadS [DescribeRuntimeConfigurationResponse]
@@ -375,7 +375,7 @@ readList :: ReadS [DescribeRuntimeConfigurationResponse]
 $creadList :: ReadS [DescribeRuntimeConfigurationResponse]
 readsPrec :: Int -&gt; ReadS DescribeRuntimeConfigurationResponse
 $creadsPrec :: Int -&gt; ReadS DescribeRuntimeConfigurationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450625"><span id="local-6989586621679450627"><span id="local-6989586621679450629"><span class="annot"><span class="annottext">Int -&gt; DescribeRuntimeConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450634"><span id="local-6989586621679450636"><span id="local-6989586621679450638"><span class="annot"><span class="annottext">Int -&gt; DescribeRuntimeConfigurationResponse -&gt; ShowS
 [DescribeRuntimeConfigurationResponse] -&gt; ShowS
 DescribeRuntimeConfigurationResponse -&gt; String
 (Int -&gt; DescribeRuntimeConfigurationResponse -&gt; ShowS)
@@ -430,8 +430,8 @@ DescribeRuntimeConfigurationResponse
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse"><span class="hs-identifier hs-type">DescribeRuntimeConfigurationResponse</span></a></span><span>
 </span><span id="line-180"></span><span id="newDescribeRuntimeConfigurationResponse"><span class="annot"><span class="annottext">newDescribeRuntimeConfigurationResponse :: Int -&gt; DescribeRuntimeConfigurationResponse
-</span><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#newDescribeRuntimeConfigurationResponse"><span class="hs-identifier hs-var hs-var">newDescribeRuntimeConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679450622"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450622"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#newDescribeRuntimeConfigurationResponse"><span class="hs-identifier hs-var hs-var">newDescribeRuntimeConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679450631"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450631"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">DescribeRuntimeConfigurationResponse' :: Maybe RuntimeConfiguration
 -&gt; Int -&gt; DescribeRuntimeConfigurationResponse
 </span><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeRuntimeConfigurationResponse'</span></a></span><span>
@@ -442,7 +442,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRuntimeConfigurationResponse' :: Int
 </span><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#%24sel%3AhttpStatus%3ADescribeRuntimeConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450622"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679450631"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | Instructions that describe how server processes should be launched and</span><span>
@@ -462,16 +462,16 @@ forall a. Maybe a
      (Maybe RuntimeConfiguration)
      (Maybe RuntimeConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeRuntimeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450621"><span class="annot"><span class="annottext">Maybe RuntimeConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeRuntimeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450630"><span class="annot"><span class="annottext">Maybe RuntimeConfiguration
 runtimeConfiguration :: Maybe RuntimeConfiguration
 $sel:runtimeConfiguration:DescribeRuntimeConfigurationResponse' :: DescribeRuntimeConfigurationResponse -&gt; Maybe RuntimeConfiguration
-</span><a href="#local-6989586621679450621"><span class="hs-identifier hs-var hs-var">runtimeConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RuntimeConfiguration
-</span><a href="#local-6989586621679450621"><span class="hs-identifier hs-var">runtimeConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450620"><span class="annot"><span class="annottext">s :: DescribeRuntimeConfigurationResponse
-</span><a href="#local-6989586621679450620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeRuntimeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450619"><span class="annot"><span class="annottext">Maybe RuntimeConfiguration
-</span><a href="#local-6989586621679450619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRuntimeConfigurationResponse
-</span><a href="#local-6989586621679450620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runtimeConfiguration:DescribeRuntimeConfigurationResponse' :: Maybe RuntimeConfiguration
+</span><a href="#local-6989586621679450630"><span class="hs-identifier hs-var hs-var">runtimeConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RuntimeConfiguration
+</span><a href="#local-6989586621679450630"><span class="hs-identifier hs-var">runtimeConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450629"><span class="annot"><span class="annottext">s :: DescribeRuntimeConfigurationResponse
+</span><a href="#local-6989586621679450629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeRuntimeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450628"><span class="annot"><span class="annottext">Maybe RuntimeConfiguration
+</span><a href="#local-6989586621679450628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRuntimeConfigurationResponse
+</span><a href="#local-6989586621679450629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runtimeConfiguration:DescribeRuntimeConfigurationResponse' :: Maybe RuntimeConfiguration
 </span><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#%24sel%3AruntimeConfiguration%3ADescribeRuntimeConfigurationResponse%27"><span class="hs-identifier hs-var">runtimeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RuntimeConfiguration
-</span><a href="#local-6989586621679450619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse"><span class="hs-identifier hs-type">DescribeRuntimeConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse"><span class="hs-identifier hs-type">DescribeRuntimeConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-193"></span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#describeRuntimeConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">describeRuntimeConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse"><span class="hs-identifier hs-type">DescribeRuntimeConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -487,18 +487,18 @@ $sel:runtimeConfiguration:DescribeRuntimeConfigurationResponse' :: DescribeRunti
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeRuntimeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450618"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeRuntimeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450627"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeRuntimeConfigurationResponse' :: DescribeRuntimeConfigurationResponse -&gt; Int
-</span><a href="#local-6989586621679450618"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450618"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450617"><span class="annot"><span class="annottext">s :: DescribeRuntimeConfigurationResponse
-</span><a href="#local-6989586621679450617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeRuntimeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450616"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRuntimeConfigurationResponse
-</span><a href="#local-6989586621679450617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRuntimeConfigurationResponse' :: Int
+</span><a href="#local-6989586621679450627"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450627"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450626"><span class="annot"><span class="annottext">s :: DescribeRuntimeConfigurationResponse
+</span><a href="#local-6989586621679450626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeRuntimeConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450625"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679450625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRuntimeConfigurationResponse
+</span><a href="#local-6989586621679450626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRuntimeConfigurationResponse' :: Int
 </span><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#%24sel%3AhttpStatus%3ADescribeRuntimeConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679450616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse"><span class="hs-identifier hs-type">DescribeRuntimeConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse"><span class="hs-identifier hs-type">DescribeRuntimeConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679450614"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679450623"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DescribeRuntimeConfiguration.html#DescribeRuntimeConfigurationResponse"><span class="hs-identifier hs-type">DescribeRuntimeConfigurationResponse</span></a></span></span><span>
 </span><span id="line-199"></span></pre></body></html>

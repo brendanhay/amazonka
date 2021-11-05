@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The attribute payload.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAttributePayload' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679774502"><span id="local-6989586621679774503"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttributePayload"><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload"><span class="hs-identifier hs-var">AttributePayload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributePayload%27"><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload%27"><span class="hs-identifier hs-var">AttributePayload'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679774511"><span id="local-6989586621679774512"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttributePayload"><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload"><span class="hs-identifier hs-var">AttributePayload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributePayload%27"><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload%27"><span class="hs-identifier hs-var">AttributePayload'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A JSON string containing up to three key-value pair in JSON format. For</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- example:</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -45,7 +45,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Amerge%3AAttributePayload%27"><span class="annot"><span class="annottext">AttributePayload -&gt; Maybe Bool
 </span><a href="Network.AWS.IoT.Types.AttributePayload.html#%24sel%3Amerge%3AAttributePayload%27"><span class="hs-identifier hs-var hs-var">merge</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679774495"><span id="local-6989586621679774497"><span class="annot"><span class="annottext">AttributePayload -&gt; AttributePayload -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679774504"><span id="local-6989586621679774506"><span class="annot"><span class="annottext">AttributePayload -&gt; AttributePayload -&gt; Bool
 (AttributePayload -&gt; AttributePayload -&gt; Bool)
 -&gt; (AttributePayload -&gt; AttributePayload -&gt; Bool)
 -&gt; Eq AttributePayload
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttributePayload -&gt; AttributePayload -&gt; Bool
 == :: AttributePayload -&gt; AttributePayload -&gt; Bool
 $c== :: AttributePayload -&gt; AttributePayload -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774486"><span id="local-6989586621679774488"><span id="local-6989586621679774490"><span id="local-6989586621679774492"><span class="annot"><span class="annottext">ReadPrec [AttributePayload]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774495"><span id="local-6989586621679774497"><span id="local-6989586621679774499"><span id="local-6989586621679774501"><span class="annot"><span class="annottext">ReadPrec [AttributePayload]
 ReadPrec AttributePayload
 Int -&gt; ReadS AttributePayload
 ReadS [AttributePayload]
@@ -74,7 +74,7 @@ readList :: ReadS [AttributePayload]
 $creadList :: ReadS [AttributePayload]
 readsPrec :: Int -&gt; ReadS AttributePayload
 $creadsPrec :: Int -&gt; ReadS AttributePayload
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774479"><span id="local-6989586621679774481"><span id="local-6989586621679774483"><span class="annot"><span class="annottext">Int -&gt; AttributePayload -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774488"><span id="local-6989586621679774490"><span id="local-6989586621679774492"><span class="annot"><span class="annottext">Int -&gt; AttributePayload -&gt; ShowS
 [AttributePayload] -&gt; ShowS
 AttributePayload -&gt; String
 (Int -&gt; AttributePayload -&gt; ShowS)
@@ -154,16 +154,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload%27"><span class="hs-identifier hs-type">AttributePayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774470"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload%27"><span class="hs-identifier hs-type">AttributePayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774479"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 attributes :: Maybe (HashMap Text Text)
 $sel:attributes:AttributePayload' :: AttributePayload -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679774470"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679774470"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774469"><span class="annot"><span class="annottext">s :: AttributePayload
-</span><a href="#local-6989586621679774469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload%27"><span class="hs-identifier hs-type">AttributePayload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774468"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679774468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributePayload
-</span><a href="#local-6989586621679774469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:AttributePayload' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679774479"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679774479"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774478"><span class="annot"><span class="annottext">s :: AttributePayload
+</span><a href="#local-6989586621679774478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload%27"><span class="hs-identifier hs-type">AttributePayload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774477"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679774477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributePayload
+</span><a href="#local-6989586621679774478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:AttributePayload' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.IoT.Types.AttributePayload.html#%24sel%3Aattributes%3AAttributePayload%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679774468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload"><span class="hs-identifier hs-type">AttributePayload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679774477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload"><span class="hs-identifier hs-type">AttributePayload</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; AttributePayload -&gt; f AttributePayload)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -208,19 +208,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (AttributePayload -&gt; Maybe Bool -&gt; AttributePayload)
 -&gt; Lens AttributePayload AttributePayload (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload%27"><span class="hs-identifier hs-type">AttributePayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774463"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload%27"><span class="hs-identifier hs-type">AttributePayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774472"><span class="annot"><span class="annottext">Maybe Bool
 merge :: Maybe Bool
 $sel:merge:AttributePayload' :: AttributePayload -&gt; Maybe Bool
-</span><a href="#local-6989586621679774463"><span class="hs-identifier hs-var hs-var">merge</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679774463"><span class="hs-identifier hs-var">merge</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774462"><span class="annot"><span class="annottext">s :: AttributePayload
-</span><a href="#local-6989586621679774462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload%27"><span class="hs-identifier hs-type">AttributePayload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774461"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679774461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributePayload
-</span><a href="#local-6989586621679774462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:merge:AttributePayload' :: Maybe Bool
+</span><a href="#local-6989586621679774472"><span class="hs-identifier hs-var hs-var">merge</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679774472"><span class="hs-identifier hs-var">merge</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774471"><span class="annot"><span class="annottext">s :: AttributePayload
+</span><a href="#local-6989586621679774471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload%27"><span class="hs-identifier hs-type">AttributePayload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774470"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679774470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributePayload
+</span><a href="#local-6989586621679774471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:merge:AttributePayload' :: Maybe Bool
 </span><a href="Network.AWS.IoT.Types.AttributePayload.html#%24sel%3Amerge%3AAttributePayload%27"><span class="hs-identifier hs-var">merge</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679774461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload"><span class="hs-identifier hs-type">AttributePayload</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload"><span class="hs-identifier hs-type">AttributePayload</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774458"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload"><span class="hs-identifier hs-type">AttributePayload</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679774456"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttributePayload
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774467"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload"><span class="hs-identifier hs-type">AttributePayload</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679774465"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttributePayload
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AttributePayload)
@@ -230,8 +230,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AttributePayload&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679774453"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679774453"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679774462"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679774462"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; Maybe Bool -&gt; AttributePayload
 </span><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload%27"><span class="hs-identifier hs-var">AttributePayload'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text) -&gt; Maybe Bool -&gt; AttributePayload)
@@ -239,7 +239,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Bool -&gt; AttributePayload)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679774453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679774462"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -252,25 +252,25 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Bool) -&gt; Parser AttributePayload
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679774453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679774462"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;merge&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774446"><span id="local-6989586621679774448"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload"><span class="hs-identifier hs-type">AttributePayload</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774455"><span id="local-6989586621679774457"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload"><span class="hs-identifier hs-type">AttributePayload</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload"><span class="hs-identifier hs-type">AttributePayload</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774452"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload"><span class="hs-identifier hs-type">AttributePayload</span></a></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774435"><span id="local-6989586621679774437"><span id="local-6989586621679774439"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload"><span class="hs-identifier hs-type">AttributePayload</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679774433"><span class="annot"><span class="annottext">toJSON :: AttributePayload -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload%27"><span class="hs-identifier hs-type">AttributePayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774430"><span id="local-6989586621679774431"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774444"><span id="local-6989586621679774446"><span id="local-6989586621679774448"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload"><span class="hs-identifier hs-type">AttributePayload</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679774442"><span class="annot"><span class="annottext">toJSON :: AttributePayload -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AttributePayload.html#AttributePayload%27"><span class="hs-identifier hs-type">AttributePayload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774439"><span id="local-6989586621679774440"><span class="annot"><span class="annottext">Maybe Bool
 Maybe (HashMap Text Text)
 merge :: Maybe Bool
 attributes :: Maybe (HashMap Text Text)
 $sel:merge:AttributePayload' :: AttributePayload -&gt; Maybe Bool
 $sel:attributes:AttributePayload' :: AttributePayload -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679774430"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679774439"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -283,14 +283,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679774431"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679774440"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;merge&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679774430"><span class="hs-identifier hs-var">merge</span></a></span><span>
+</span><a href="#local-6989586621679774439"><span class="hs-identifier hs-var">merge</span></a></span><span>
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span></pre></body></html>

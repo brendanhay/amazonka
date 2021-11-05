@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- contains HTTP.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAwsJobPresignedUrlConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679778456"><span id="local-6989586621679778457"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsJobPresignedUrlConfig"><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig"><span class="hs-identifier hs-var">AwsJobPresignedUrlConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsJobPresignedUrlConfig%27"><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig%27"><span class="hs-identifier hs-var">AwsJobPresignedUrlConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679778465"><span id="local-6989586621679778466"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsJobPresignedUrlConfig"><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig"><span class="hs-identifier hs-var">AwsJobPresignedUrlConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsJobPresignedUrlConfig%27"><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig%27"><span class="hs-identifier hs-var">AwsJobPresignedUrlConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | How long (in seconds) pre-signed URLs are valid. Valid values are 60 -</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- 3600, the default value is 1800 seconds. Pre-signed URLs are generated</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- when a request for the job document is received.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AexpiresInSec%3AAwsJobPresignedUrlConfig%27"><span class="annot"><span class="annottext">AwsJobPresignedUrlConfig -&gt; Maybe Integer
 </span><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#%24sel%3AexpiresInSec%3AAwsJobPresignedUrlConfig%27"><span class="hs-identifier hs-var hs-var">expiresInSec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679778450"><span id="local-6989586621679778452"><span class="annot"><span class="annottext">AwsJobPresignedUrlConfig -&gt; AwsJobPresignedUrlConfig -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679778459"><span id="local-6989586621679778461"><span class="annot"><span class="annottext">AwsJobPresignedUrlConfig -&gt; AwsJobPresignedUrlConfig -&gt; Bool
 (AwsJobPresignedUrlConfig -&gt; AwsJobPresignedUrlConfig -&gt; Bool)
 -&gt; (AwsJobPresignedUrlConfig -&gt; AwsJobPresignedUrlConfig -&gt; Bool)
 -&gt; Eq AwsJobPresignedUrlConfig
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AwsJobPresignedUrlConfig -&gt; AwsJobPresignedUrlConfig -&gt; Bool
 == :: AwsJobPresignedUrlConfig -&gt; AwsJobPresignedUrlConfig -&gt; Bool
 $c== :: AwsJobPresignedUrlConfig -&gt; AwsJobPresignedUrlConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778441"><span id="local-6989586621679778443"><span id="local-6989586621679778445"><span id="local-6989586621679778447"><span class="annot"><span class="annottext">ReadPrec [AwsJobPresignedUrlConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778450"><span id="local-6989586621679778452"><span id="local-6989586621679778454"><span id="local-6989586621679778456"><span class="annot"><span class="annottext">ReadPrec [AwsJobPresignedUrlConfig]
 ReadPrec AwsJobPresignedUrlConfig
 Int -&gt; ReadS AwsJobPresignedUrlConfig
 ReadS [AwsJobPresignedUrlConfig]
@@ -63,7 +63,7 @@ readList :: ReadS [AwsJobPresignedUrlConfig]
 $creadList :: ReadS [AwsJobPresignedUrlConfig]
 readsPrec :: Int -&gt; ReadS AwsJobPresignedUrlConfig
 $creadsPrec :: Int -&gt; ReadS AwsJobPresignedUrlConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778434"><span id="local-6989586621679778436"><span id="local-6989586621679778438"><span class="annot"><span class="annottext">Int -&gt; AwsJobPresignedUrlConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778443"><span id="local-6989586621679778445"><span id="local-6989586621679778447"><span class="annot"><span class="annottext">Int -&gt; AwsJobPresignedUrlConfig -&gt; ShowS
 [AwsJobPresignedUrlConfig] -&gt; ShowS
 AwsJobPresignedUrlConfig -&gt; String
 (Int -&gt; AwsJobPresignedUrlConfig -&gt; ShowS)
@@ -134,19 +134,19 @@ forall a. Maybe a
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig%27"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778425"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig%27"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778434"><span class="annot"><span class="annottext">Maybe Integer
 expiresInSec :: Maybe Integer
 $sel:expiresInSec:AwsJobPresignedUrlConfig' :: AwsJobPresignedUrlConfig -&gt; Maybe Integer
-</span><a href="#local-6989586621679778425"><span class="hs-identifier hs-var hs-var">expiresInSec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679778425"><span class="hs-identifier hs-var">expiresInSec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778424"><span class="annot"><span class="annottext">s :: AwsJobPresignedUrlConfig
-</span><a href="#local-6989586621679778424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig%27"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778423"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679778423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobPresignedUrlConfig
-</span><a href="#local-6989586621679778424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expiresInSec:AwsJobPresignedUrlConfig' :: Maybe Integer
+</span><a href="#local-6989586621679778434"><span class="hs-identifier hs-var hs-var">expiresInSec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679778434"><span class="hs-identifier hs-var">expiresInSec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778433"><span class="annot"><span class="annottext">s :: AwsJobPresignedUrlConfig
+</span><a href="#local-6989586621679778433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig%27"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778432"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679778432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobPresignedUrlConfig
+</span><a href="#local-6989586621679778433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expiresInSec:AwsJobPresignedUrlConfig' :: Maybe Integer
 </span><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#%24sel%3AexpiresInSec%3AAwsJobPresignedUrlConfig%27"><span class="hs-identifier hs-var">expiresInSec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679778423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679778432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778420"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679778418"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsJobPresignedUrlConfig
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778429"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679778427"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsJobPresignedUrlConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AwsJobPresignedUrlConfig)
@@ -156,30 +156,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AwsJobPresignedUrlConfig&quot;</span></span><span>
-</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679778415"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679778415"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679778424"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679778424"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer -&gt; AwsJobPresignedUrlConfig
 </span><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig%27"><span class="hs-identifier hs-var">AwsJobPresignedUrlConfig'</span></a></span><span>
 </span><span id="line-69"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer -&gt; AwsJobPresignedUrlConfig)
 -&gt; Parser (Maybe Integer) -&gt; Parser AwsJobPresignedUrlConfig
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679778415"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679778424"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;expiresInSec&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778409"><span id="local-6989586621679778411"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778418"><span id="local-6989586621679778420"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778406"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778415"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778398"><span id="local-6989586621679778400"><span id="local-6989586621679778402"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679778396"><span class="annot"><span class="annottext">toJSON :: AwsJobPresignedUrlConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig%27"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778394"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778407"><span id="local-6989586621679778409"><span id="local-6989586621679778411"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679778405"><span class="annot"><span class="annottext">toJSON :: AwsJobPresignedUrlConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobPresignedUrlConfig.html#AwsJobPresignedUrlConfig%27"><span class="hs-identifier hs-type">AwsJobPresignedUrlConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778403"><span class="annot"><span class="annottext">Maybe Integer
 expiresInSec :: Maybe Integer
 $sel:expiresInSec:AwsJobPresignedUrlConfig' :: AwsJobPresignedUrlConfig -&gt; Maybe Integer
-</span><a href="#local-6989586621679778394"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679778403"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -191,6 +191,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679778394"><span class="hs-identifier hs-var">expiresInSec</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679778403"><span class="hs-identifier hs-var">expiresInSec</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span></pre></body></html>

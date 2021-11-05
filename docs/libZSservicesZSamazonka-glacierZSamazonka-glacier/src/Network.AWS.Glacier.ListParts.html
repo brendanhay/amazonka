@@ -88,7 +88,7 @@
 </span><span id="line-88"></span><span class="hs-comment">-- been uploaded in a specific multipart upload.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- /See:/ 'newListParts' smart constructor.</span><span>
-</span><span id="line-91"></span><span id="local-6989586621679221787"><span id="local-6989586621679221788"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListParts"><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-var">ListParts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListParts%27"><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-var">ListParts'</span></a></span></span><span>
+</span><span id="line-91"></span><span id="local-6989586621679221796"><span id="local-6989586621679221797"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListParts"><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-var">ListParts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListParts%27"><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-var">ListParts'</span></a></span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An opaque string used for pagination. This value specifies the part at</span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-comment">-- which the listing of parts should begin. Get the marker value from the</span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-comment">-- response of a previous List Parts response. You need only include the</span><span>
@@ -115,7 +115,7 @@
 </span><span id="line-111"></span><span>    </span><span id="%24sel%3AuploadId%3AListParts%27"><span class="annot"><span class="annottext">ListParts -&gt; Text
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3AuploadId%3AListParts%27"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221777"><span id="local-6989586621679221779"><span class="annot"><span class="annottext">ListParts -&gt; ListParts -&gt; Bool
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221786"><span id="local-6989586621679221788"><span class="annot"><span class="annottext">ListParts -&gt; ListParts -&gt; Bool
 (ListParts -&gt; ListParts -&gt; Bool)
 -&gt; (ListParts -&gt; ListParts -&gt; Bool) -&gt; Eq ListParts
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -123,7 +123,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListParts -&gt; ListParts -&gt; Bool
 == :: ListParts -&gt; ListParts -&gt; Bool
 $c== :: ListParts -&gt; ListParts -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221768"><span id="local-6989586621679221770"><span id="local-6989586621679221772"><span id="local-6989586621679221774"><span class="annot"><span class="annottext">ReadPrec [ListParts]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221777"><span id="local-6989586621679221779"><span id="local-6989586621679221781"><span id="local-6989586621679221783"><span class="annot"><span class="annottext">ReadPrec [ListParts]
 ReadPrec ListParts
 Int -&gt; ReadS ListParts
 ReadS [ListParts]
@@ -143,7 +143,7 @@ readList :: ReadS [ListParts]
 $creadList :: ReadS [ListParts]
 readsPrec :: Int -&gt; ReadS ListParts
 $creadsPrec :: Int -&gt; ReadS ListParts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221761"><span id="local-6989586621679221763"><span id="local-6989586621679221765"><span class="annot"><span class="annottext">Int -&gt; ListParts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221770"><span id="local-6989586621679221772"><span id="local-6989586621679221774"><span class="annot"><span class="annottext">Int -&gt; ListParts -&gt; ShowS
 [ListParts] -&gt; ShowS
 ListParts -&gt; String
 (Int -&gt; ListParts -&gt; ShowS)
@@ -204,10 +204,10 @@ $cfrom :: forall x. ListParts -&gt; Rep ListParts x
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span>
 </span><span id="line-150"></span><span id="newListParts"><span class="annot"><span class="annottext">newListParts :: Text -&gt; Text -&gt; Text -&gt; ListParts
-</span><a href="Network.AWS.Glacier.ListParts.html#newListParts"><span class="hs-identifier hs-var hs-var">newListParts</span></a></span></span><span> </span><span id="local-6989586621679221756"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221756"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679221755"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221755"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span id="local-6989586621679221754"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221754"><span class="hs-identifier hs-var">pUploadId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.ListParts.html#newListParts"><span class="hs-identifier hs-var hs-var">newListParts</span></a></span></span><span> </span><span id="local-6989586621679221765"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221765"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679221764"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221764"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span id="local-6989586621679221763"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221763"><span class="hs-identifier hs-var">pUploadId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">ListParts' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; ListParts
 </span><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListParts' :: Maybe Text
@@ -220,13 +220,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:ListParts' :: Text
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3AaccountId%3AListParts%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221756"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679221765"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:ListParts' :: Text
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3AvaultName%3AListParts%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221755"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679221764"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:uploadId:ListParts' :: Text
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3AuploadId%3AListParts%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221754"><span class="hs-identifier hs-var">pUploadId_</span></a></span><span>
+</span><a href="#local-6989586621679221763"><span class="hs-identifier hs-var">pUploadId_</span></a></span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | An opaque string used for pagination. This value specifies the part at</span><span>
@@ -240,16 +240,16 @@ forall a. Maybe a
 -&gt; (ListParts -&gt; Maybe Text -&gt; ListParts)
 -&gt; Lens ListParts ListParts (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221752"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221761"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListParts' :: ListParts -&gt; Maybe Text
-</span><a href="#local-6989586621679221752"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221752"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221751"><span class="annot"><span class="annottext">s :: ListParts
-</span><a href="#local-6989586621679221751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221750"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
-</span><a href="#local-6989586621679221751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListParts' :: Maybe Text
+</span><a href="#local-6989586621679221761"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221761"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221760"><span class="annot"><span class="annottext">s :: ListParts
+</span><a href="#local-6989586621679221760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221759"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
+</span><a href="#local-6989586621679221760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListParts' :: Maybe Text
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3Amarker%3AListParts%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The maximum number of parts to be returned. The default limit is 50. The</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- number of parts returned might be fewer than the specified limit, but</span><span>
@@ -260,16 +260,16 @@ $sel:marker:ListParts' :: ListParts -&gt; Maybe Text
 -&gt; (ListParts -&gt; Maybe Text -&gt; ListParts)
 -&gt; Lens ListParts ListParts (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221749"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221758"><span class="annot"><span class="annottext">Maybe Text
 limit :: Maybe Text
 $sel:limit:ListParts' :: ListParts -&gt; Maybe Text
-</span><a href="#local-6989586621679221749"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221749"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221748"><span class="annot"><span class="annottext">s :: ListParts
-</span><a href="#local-6989586621679221748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221747"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
-</span><a href="#local-6989586621679221748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListParts' :: Maybe Text
+</span><a href="#local-6989586621679221758"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221758"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221757"><span class="annot"><span class="annottext">s :: ListParts
+</span><a href="#local-6989586621679221757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221756"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
+</span><a href="#local-6989586621679221757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListParts' :: Maybe Text
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3Alimit%3AListParts%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
@@ -282,16 +282,16 @@ $sel:limit:ListParts' :: ListParts -&gt; Maybe Text
 -&gt; (ListParts -&gt; Text -&gt; ListParts)
 -&gt; Lens ListParts ListParts Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221746"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221755"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:ListParts' :: ListParts -&gt; Text
-</span><a href="#local-6989586621679221746"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221746"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221745"><span class="annot"><span class="annottext">s :: ListParts
-</span><a href="#local-6989586621679221745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221744"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
-</span><a href="#local-6989586621679221745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ListParts' :: Text
+</span><a href="#local-6989586621679221755"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221755"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221754"><span class="annot"><span class="annottext">s :: ListParts
+</span><a href="#local-6989586621679221754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221753"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
+</span><a href="#local-6989586621679221754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ListParts' :: Text
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3AaccountId%3AListParts%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The name of the vault.</span><span>
 </span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#listParts_vaultName"><span class="hs-identifier hs-type">listParts_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -300,16 +300,16 @@ $sel:accountId:ListParts' :: ListParts -&gt; Text
 -&gt; (ListParts -&gt; Text -&gt; ListParts)
 -&gt; Lens ListParts ListParts Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221743"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221752"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 $sel:vaultName:ListParts' :: ListParts -&gt; Text
-</span><a href="#local-6989586621679221743"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221743"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221742"><span class="annot"><span class="annottext">s :: ListParts
-</span><a href="#local-6989586621679221742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221741"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
-</span><a href="#local-6989586621679221742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:ListParts' :: Text
+</span><a href="#local-6989586621679221752"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221752"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221751"><span class="annot"><span class="annottext">s :: ListParts
+</span><a href="#local-6989586621679221751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221750"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
+</span><a href="#local-6989586621679221751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:ListParts' :: Text
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3AvaultName%3AListParts%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The upload ID of the multipart upload.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#listParts_uploadId"><span class="hs-identifier hs-type">listParts_uploadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -318,28 +318,28 @@ $sel:vaultName:ListParts' :: ListParts -&gt; Text
 -&gt; (ListParts -&gt; Text -&gt; ListParts)
 -&gt; Lens ListParts ListParts Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221740"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221749"><span class="annot"><span class="annottext">Text
 uploadId :: Text
 $sel:uploadId:ListParts' :: ListParts -&gt; Text
-</span><a href="#local-6989586621679221740"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221740"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221739"><span class="annot"><span class="annottext">s :: ListParts
-</span><a href="#local-6989586621679221739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221738"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
-</span><a href="#local-6989586621679221739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:ListParts' :: Text
+</span><a href="#local-6989586621679221749"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221749"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221748"><span class="annot"><span class="annottext">s :: ListParts
+</span><a href="#local-6989586621679221748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221747"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListParts
+</span><a href="#local-6989586621679221748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:ListParts' :: Text
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3AuploadId%3AListParts%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679221734"><span class="annot"><span class="annottext">page :: ListParts -&gt; AWSResponse ListParts -&gt; Maybe ListParts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679221732"><span class="annot"><span class="annottext">ListParts
-</span><a href="#local-6989586621679221732"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679221731"><span class="annot"><span class="annottext">AWSResponse ListParts
-</span><a href="#local-6989586621679221731"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679221743"><span class="annot"><span class="annottext">page :: ListParts -&gt; AWSResponse ListParts -&gt; Maybe ListParts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679221741"><span class="annot"><span class="annottext">ListParts
+</span><a href="#local-6989586621679221741"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679221740"><span class="annot"><span class="annottext">AWSResponse ListParts
+</span><a href="#local-6989586621679221740"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-192"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListParts
 ListPartsResponse
-</span><a href="#local-6989586621679221731"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679221740"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">ListPartsResponse
 -&gt; Getting (First Text) ListPartsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -365,7 +365,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-197"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListParts
 ListPartsResponse
-</span><a href="#local-6989586621679221731"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679221740"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">ListPartsResponse
 -&gt; Getting
      (First [PartListElement]) ListPartsResponse [PartListElement]
@@ -405,7 +405,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">ListParts
-</span><a href="#local-6989586621679221732"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679221741"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-204"></span><span>          </span><span class="annot"><span class="annottext">ListParts -&gt; (ListParts -&gt; ListParts) -&gt; ListParts
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -418,7 +418,7 @@ Lens ListParts ListParts (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListParts
 ListPartsResponse
-</span><a href="#local-6989586621679221731"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679221740"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-206"></span><span>          </span><span class="annot"><span class="annottext">ListPartsResponse
 -&gt; Getting (First Text) ListPartsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -438,7 +438,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-209"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679221721"><span class="annot"><span class="annottext">request :: ListParts -&gt; Request ListParts
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679221730"><span class="annot"><span class="annottext">request :: ListParts -&gt; Request ListParts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-211"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; Request ListParts -&gt; Request ListParts
 forall a. ByteString -&gt; Request a -&gt; Request a
@@ -454,7 +454,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679221715"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679221724"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListParts
 -&gt; ClientResponse ClientBody
@@ -478,10 +478,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221712"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221712"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679221711"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679221711"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679221710"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221710"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221721"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221721"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679221720"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679221720"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679221719"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221719"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PartListElement]
 -&gt; Maybe Text
 -&gt; Maybe Integer
@@ -514,7 +514,7 @@ MonadResource m =&gt;
       -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PartListElement]))
+</span><a href="#local-6989586621679221719"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PartListElement]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PartListElement]))
@@ -546,7 +546,7 @@ forall a. Monoid a =&gt; a
       -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679221719"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MultipartUploadId&quot;</span></span><span class="hs-special">)</span><span>
@@ -570,7 +570,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679221719"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PartSizeInBytes&quot;</span></span><span class="hs-special">)</span><span>
@@ -589,7 +589,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679221719"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ArchiveDescription&quot;</span></span><span class="hs-special">)</span><span>
@@ -602,7 +602,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679221719"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VaultARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -612,7 +612,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679221719"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -621,7 +621,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListPartsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679221719"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -633,15 +633,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221712"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221721"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221701"><span id="local-6989586621679221703"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span></span></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221710"><span id="local-6989586621679221712"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span></span></span><span>
 </span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221707"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span></span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679221694"><span class="annot"><span class="annottext">toHeaders :: ListParts -&gt; ResponseHeaders
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679221703"><span class="annot"><span class="annottext">toHeaders :: ListParts -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListParts -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -649,8 +649,8 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-235"></span><span>  </span><span id="local-6989586621679221689"><span class="annot"><span class="annottext">toPath :: ListParts -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221683"><span id="local-6989586621679221684"><span id="local-6989586621679221685"><span id="local-6989586621679221686"><span id="local-6989586621679221687"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679221698"><span class="annot"><span class="annottext">toPath :: ListParts -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221692"><span id="local-6989586621679221693"><span id="local-6989586621679221694"><span id="local-6989586621679221695"><span id="local-6989586621679221696"><span class="annot"><span class="annottext">Maybe Text
 Text
 uploadId :: Text
 vaultName :: Text
@@ -662,7 +662,7 @@ $sel:vaultName:ListParts' :: ListParts -&gt; Text
 $sel:accountId:ListParts' :: ListParts -&gt; Text
 $sel:limit:ListParts' :: ListParts -&gt; Maybe Text
 $sel:marker:ListParts' :: ListParts -&gt; Maybe Text
-</span><a href="#local-6989586621679221683"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679221692"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-236"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -671,24 +671,24 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221685"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679221694"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-239"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221684"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679221693"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-241"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/multipart-uploads/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221683"><span class="hs-identifier hs-var">uploadId</span></a></span><span>
+</span><a href="#local-6989586621679221692"><span class="hs-identifier hs-var">uploadId</span></a></span><span>
 </span><span id="line-243"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts"><span class="hs-identifier hs-type">ListParts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-246"></span><span>  </span><span id="local-6989586621679221679"><span class="annot"><span class="annottext">toQuery :: ListParts -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221673"><span id="local-6989586621679221674"><span id="local-6989586621679221675"><span id="local-6989586621679221676"><span id="local-6989586621679221677"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679221688"><span class="annot"><span class="annottext">toQuery :: ListParts -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListParts%27"><span class="hs-identifier hs-type">ListParts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221682"><span id="local-6989586621679221683"><span id="local-6989586621679221684"><span id="local-6989586621679221685"><span id="local-6989586621679221686"><span class="annot"><span class="annottext">Maybe Text
 Text
 uploadId :: Text
 vaultName :: Text
@@ -700,7 +700,7 @@ $sel:vaultName:ListParts' :: ListParts -&gt; Text
 $sel:accountId:ListParts' :: ListParts -&gt; Text
 $sel:limit:ListParts' :: ListParts -&gt; Maybe Text
 $sel:marker:ListParts' :: ListParts -&gt; Maybe Text
-</span><a href="#local-6989586621679221673"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679221682"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-247"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -708,16 +708,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221677"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679221686"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221676"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679221685"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- | Contains the Amazon S3 Glacier response to your request.</span><span>
 </span><span id="line-251"></span><span class="hs-comment">--</span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- /See:/ 'newListPartsResponse' smart constructor.</span><span>
-</span><span id="line-253"></span><span id="local-6989586621679221670"><span id="local-6989586621679221671"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPartsResponse"><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-var">ListPartsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPartsResponse%27"><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-var">ListPartsResponse'</span></a></span></span><span>
+</span><span id="line-253"></span><span id="local-6989586621679221679"><span id="local-6989586621679221680"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPartsResponse"><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-var">ListPartsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPartsResponse%27"><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-var">ListPartsResponse'</span></a></span></span><span>
 </span><span id="line-254"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the part sizes of the multipart upload. Each object in the</span><span>
 </span><span id="line-255"></span><span>    </span><span class="hs-comment">-- array contains a @RangeBytes@ and @sha256-tree-hash@ name\/value pair.</span><span>
 </span><span id="line-256"></span><span>    </span><span id="%24sel%3Aparts%3AListPartsResponse%27"><span class="annot"><span class="annottext">ListPartsResponse -&gt; Maybe [PartListElement]
@@ -749,7 +749,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-275"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPartsResponse%27"><span class="annot"><span class="annottext">ListPartsResponse -&gt; Int
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3AhttpStatus%3AListPartsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-276"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-277"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221658"><span id="local-6989586621679221660"><span class="annot"><span class="annottext">ListPartsResponse -&gt; ListPartsResponse -&gt; Bool
+</span><span id="line-277"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221667"><span id="local-6989586621679221669"><span class="annot"><span class="annottext">ListPartsResponse -&gt; ListPartsResponse -&gt; Bool
 (ListPartsResponse -&gt; ListPartsResponse -&gt; Bool)
 -&gt; (ListPartsResponse -&gt; ListPartsResponse -&gt; Bool)
 -&gt; Eq ListPartsResponse
@@ -758,7 +758,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListPartsResponse -&gt; ListPartsResponse -&gt; Bool
 == :: ListPartsResponse -&gt; ListPartsResponse -&gt; Bool
 $c== :: ListPartsResponse -&gt; ListPartsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221650"><span id="local-6989586621679221652"><span id="local-6989586621679221654"><span id="local-6989586621679221656"><span class="annot"><span class="annottext">ReadPrec [ListPartsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221659"><span id="local-6989586621679221661"><span id="local-6989586621679221663"><span id="local-6989586621679221665"><span class="annot"><span class="annottext">ReadPrec [ListPartsResponse]
 ReadPrec ListPartsResponse
 Int -&gt; ReadS ListPartsResponse
 ReadS [ListPartsResponse]
@@ -778,7 +778,7 @@ readList :: ReadS [ListPartsResponse]
 $creadList :: ReadS [ListPartsResponse]
 readsPrec :: Int -&gt; ReadS ListPartsResponse
 $creadsPrec :: Int -&gt; ReadS ListPartsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221644"><span id="local-6989586621679221646"><span id="local-6989586621679221648"><span class="annot"><span class="annottext">Int -&gt; ListPartsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221653"><span id="local-6989586621679221655"><span id="local-6989586621679221657"><span class="annot"><span class="annottext">Int -&gt; ListPartsResponse -&gt; ShowS
 [ListPartsResponse] -&gt; ShowS
 ListPartsResponse -&gt; String
 (Int -&gt; ListPartsResponse -&gt; ShowS)
@@ -838,8 +838,8 @@ $cfrom :: forall x. ListPartsResponse -&gt; Rep ListPartsResponse x
 </span><span id="line-310"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-311"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span>
 </span><span id="line-312"></span><span id="newListPartsResponse"><span class="annot"><span class="annottext">newListPartsResponse :: Int -&gt; ListPartsResponse
-</span><a href="Network.AWS.Glacier.ListParts.html#newListPartsResponse"><span class="hs-identifier hs-var hs-var">newListPartsResponse</span></a></span></span><span> </span><span id="local-6989586621679221641"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221641"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.ListParts.html#newListPartsResponse"><span class="hs-identifier hs-var hs-var">newListPartsResponse</span></a></span></span><span> </span><span id="local-6989586621679221650"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221650"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-313"></span><span>  </span><span class="annot"><span class="annottext">ListPartsResponse' :: Maybe [PartListElement]
 -&gt; Maybe Text
 -&gt; Maybe Integer
@@ -880,7 +880,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-321"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPartsResponse' :: Int
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3AhttpStatus%3AListPartsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221641"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679221650"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-322"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-323"></span><span>
 </span><span id="line-324"></span><span class="hs-comment">-- | A list of the part sizes of the multipart upload. Each object in the</span><span>
@@ -893,16 +893,16 @@ forall a. Maybe a
     -&gt; Maybe [PartListElement] -&gt; ListPartsResponse)
 -&gt; Lens' ListPartsResponse (Maybe [PartListElement])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221640"><span class="annot"><span class="annottext">Maybe [PartListElement]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221649"><span class="annot"><span class="annottext">Maybe [PartListElement]
 parts :: Maybe [PartListElement]
 $sel:parts:ListPartsResponse' :: ListPartsResponse -&gt; Maybe [PartListElement]
-</span><a href="#local-6989586621679221640"><span class="hs-identifier hs-var hs-var">parts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PartListElement]
-</span><a href="#local-6989586621679221640"><span class="hs-identifier hs-var">parts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221639"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679221639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221638"><span class="annot"><span class="annottext">Maybe [PartListElement]
-</span><a href="#local-6989586621679221638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679221639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parts:ListPartsResponse' :: Maybe [PartListElement]
+</span><a href="#local-6989586621679221649"><span class="hs-identifier hs-var hs-var">parts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PartListElement]
+</span><a href="#local-6989586621679221649"><span class="hs-identifier hs-var">parts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221648"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679221648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221647"><span class="annot"><span class="annottext">Maybe [PartListElement]
+</span><a href="#local-6989586621679221647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679221648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parts:ListPartsResponse' :: Maybe [PartListElement]
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3Aparts%3AListPartsResponse%27"><span class="hs-identifier hs-var">parts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PartListElement]
-</span><a href="#local-6989586621679221638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PartListElement] -&gt; f (Maybe [PartListElement]))
+</span><a href="#local-6989586621679221647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PartListElement] -&gt; f (Maybe [PartListElement]))
  -&gt; ListPartsResponse -&gt; f ListPartsResponse)
 -&gt; ((Maybe [PartListElement] -&gt; f (Maybe [PartListElement]))
     -&gt; Maybe [PartListElement] -&gt; f (Maybe [PartListElement]))
@@ -939,16 +939,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListPartsResponse -&gt; Maybe Text -&gt; ListPartsResponse)
 -&gt; Lens' ListPartsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221635"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221644"><span class="annot"><span class="annottext">Maybe Text
 multipartUploadId :: Maybe Text
 $sel:multipartUploadId:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679221635"><span class="hs-identifier hs-var hs-var">multipartUploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221635"><span class="hs-identifier hs-var">multipartUploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221634"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679221634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221633"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679221634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multipartUploadId:ListPartsResponse' :: Maybe Text
+</span><a href="#local-6989586621679221644"><span class="hs-identifier hs-var hs-var">multipartUploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221644"><span class="hs-identifier hs-var">multipartUploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221643"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679221643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221642"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679221643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multipartUploadId:ListPartsResponse' :: Maybe Text
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3AmultipartUploadId%3AListPartsResponse%27"><span class="hs-identifier hs-var">multipartUploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-332"></span><span>
 </span><span id="line-333"></span><span class="hs-comment">-- | The part size in bytes. This is the same value that you specified in the</span><span>
 </span><span id="line-334"></span><span class="hs-comment">-- Initiate Multipart Upload request.</span><span>
@@ -960,16 +960,16 @@ $sel:multipartUploadId:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Text
 -&gt; Lens
      ListPartsResponse ListPartsResponse (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221632"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221641"><span class="annot"><span class="annottext">Maybe Integer
 partSizeInBytes :: Maybe Integer
 $sel:partSizeInBytes:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Integer
-</span><a href="#local-6989586621679221632"><span class="hs-identifier hs-var hs-var">partSizeInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679221632"><span class="hs-identifier hs-var">partSizeInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221631"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679221631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221630"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679221630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679221631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partSizeInBytes:ListPartsResponse' :: Maybe Integer
+</span><a href="#local-6989586621679221641"><span class="hs-identifier hs-var hs-var">partSizeInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679221641"><span class="hs-identifier hs-var">partSizeInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221640"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679221640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221639"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679221639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679221640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partSizeInBytes:ListPartsResponse' :: Maybe Integer
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3ApartSizeInBytes%3AListPartsResponse%27"><span class="hs-identifier hs-var">partSizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679221630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-337"></span><span>
 </span><span id="line-338"></span><span class="hs-comment">-- | The description of the archive that was specified in the Initiate</span><span>
 </span><span id="line-339"></span><span class="hs-comment">-- Multipart Upload request.</span><span>
@@ -980,16 +980,16 @@ $sel:partSizeInBytes:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Integer
 -&gt; (ListPartsResponse -&gt; Maybe Text -&gt; ListPartsResponse)
 -&gt; Lens' ListPartsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221629"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221638"><span class="annot"><span class="annottext">Maybe Text
 archiveDescription :: Maybe Text
 $sel:archiveDescription:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679221629"><span class="hs-identifier hs-var hs-var">archiveDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221629"><span class="hs-identifier hs-var">archiveDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221628"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679221628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221627"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679221628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveDescription:ListPartsResponse' :: Maybe Text
+</span><a href="#local-6989586621679221638"><span class="hs-identifier hs-var hs-var">archiveDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221638"><span class="hs-identifier hs-var">archiveDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221637"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679221637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221636"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679221637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveDescription:ListPartsResponse' :: Maybe Text
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3AarchiveDescription%3AListPartsResponse%27"><span class="hs-identifier hs-var">archiveDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-342"></span><span>
 </span><span id="line-343"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the vault to which the multipart</span><span>
 </span><span id="line-344"></span><span class="hs-comment">-- upload was initiated.</span><span>
@@ -1000,16 +1000,16 @@ $sel:archiveDescription:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Text
 -&gt; (ListPartsResponse -&gt; Maybe Text -&gt; ListPartsResponse)
 -&gt; Lens' ListPartsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221626"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221635"><span class="annot"><span class="annottext">Maybe Text
 vaultARN :: Maybe Text
 $sel:vaultARN:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679221626"><span class="hs-identifier hs-var hs-var">vaultARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221626"><span class="hs-identifier hs-var">vaultARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221625"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679221625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221624"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679221625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultARN:ListPartsResponse' :: Maybe Text
+</span><a href="#local-6989586621679221635"><span class="hs-identifier hs-var hs-var">vaultARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221635"><span class="hs-identifier hs-var">vaultARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221634"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679221634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221633"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679221634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultARN:ListPartsResponse' :: Maybe Text
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3AvaultARN%3AListPartsResponse%27"><span class="hs-identifier hs-var">vaultARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-347"></span><span>
 </span><span id="line-348"></span><span class="hs-comment">-- | An opaque string that represents where to continue pagination of the</span><span>
 </span><span id="line-349"></span><span class="hs-comment">-- results. You use the marker in a new List Parts request to obtain more</span><span>
@@ -1021,16 +1021,16 @@ $sel:vaultARN:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Text
 -&gt; (ListPartsResponse -&gt; Maybe Text -&gt; ListPartsResponse)
 -&gt; Lens' ListPartsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221623"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221632"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679221623"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221623"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221622"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679221622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221621"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679221622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListPartsResponse' :: Maybe Text
+</span><a href="#local-6989586621679221632"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221632"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221631"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679221631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221630"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679221631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListPartsResponse' :: Maybe Text
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3Amarker%3AListPartsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-353"></span><span>
 </span><span id="line-354"></span><span class="hs-comment">-- | The UTC time at which the multipart upload was initiated.</span><span>
 </span><span id="line-355"></span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#listPartsResponse_creationDate"><span class="hs-identifier hs-type">listPartsResponse_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -1040,16 +1040,16 @@ $sel:marker:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Text
 -&gt; (ListPartsResponse -&gt; Maybe Text -&gt; ListPartsResponse)
 -&gt; Lens' ListPartsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221620"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221629"><span class="annot"><span class="annottext">Maybe Text
 creationDate :: Maybe Text
 $sel:creationDate:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679221620"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221620"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221619"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679221619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221618"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679221619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:ListPartsResponse' :: Maybe Text
+</span><a href="#local-6989586621679221629"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221629"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221628"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679221628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221627"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679221628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:ListPartsResponse' :: Maybe Text
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3AcreationDate%3AListPartsResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-357"></span><span>
 </span><span id="line-358"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-359"></span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#listPartsResponse_httpStatus"><span class="hs-identifier hs-type">listPartsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1058,16 +1058,16 @@ $sel:creationDate:ListPartsResponse' :: ListPartsResponse -&gt; Maybe Text
 -&gt; (ListPartsResponse -&gt; Int -&gt; ListPartsResponse)
 -&gt; Lens ListPartsResponse ListPartsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221617"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221626"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListPartsResponse' :: ListPartsResponse -&gt; Int
-</span><a href="#local-6989586621679221617"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221617"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221616"><span class="annot"><span class="annottext">s :: ListPartsResponse
-</span><a href="#local-6989586621679221616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221615"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
-</span><a href="#local-6989586621679221616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPartsResponse' :: Int
+</span><a href="#local-6989586621679221626"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221626"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221625"><span class="annot"><span class="annottext">s :: ListPartsResponse
+</span><a href="#local-6989586621679221625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse%27"><span class="hs-identifier hs-type">ListPartsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221624"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPartsResponse
+</span><a href="#local-6989586621679221625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPartsResponse' :: Int
 </span><a href="Network.AWS.Glacier.ListParts.html#%24sel%3AhttpStatus%3AListPartsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-361"></span><span>
-</span><span id="line-362"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221613"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span></span><span>
+</span><span id="line-362"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221622"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListParts.html#ListPartsResponse"><span class="hs-identifier hs-type">ListPartsResponse</span></a></span></span><span>
 </span><span id="line-363"></span></pre></body></html>

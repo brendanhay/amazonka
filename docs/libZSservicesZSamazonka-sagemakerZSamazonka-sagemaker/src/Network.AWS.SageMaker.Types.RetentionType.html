@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680338849"><span id="local-6989586621680338850"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RetentionType"><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionType.html#RetentionType"><span class="hs-identifier hs-var">RetentionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetentionType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionType.html#RetentionType%27"><span class="hs-identifier hs-var">RetentionType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680338858"><span id="local-6989586621680338859"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RetentionType"><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionType.html#RetentionType"><span class="hs-identifier hs-var">RetentionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetentionType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.RetentionType.html#RetentionType%27"><span class="hs-identifier hs-var">RetentionType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRetentionType"><span class="annot"><span class="annottext">RetentionType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.RetentionType.html#fromRetentionType"><span class="hs-identifier hs-var hs-var">fromRetentionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680338841"><span id="local-6989586621680338843"><span id="local-6989586621680338845"><span class="annot"><span class="annottext">Int -&gt; RetentionType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680338850"><span id="local-6989586621680338852"><span id="local-6989586621680338854"><span class="annot"><span class="annottext">Int -&gt; RetentionType -&gt; ShowS
 [RetentionType] -&gt; ShowS
 RetentionType -&gt; String
 (Int -&gt; RetentionType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: RetentionType -&gt; String
 showsPrec :: Int -&gt; RetentionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; RetentionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680338832"><span id="local-6989586621680338834"><span id="local-6989586621680338836"><span id="local-6989586621680338838"><span class="annot"><span class="annottext">ReadPrec [RetentionType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680338841"><span id="local-6989586621680338843"><span id="local-6989586621680338845"><span id="local-6989586621680338847"><span class="annot"><span class="annottext">ReadPrec [RetentionType]
 ReadPrec RetentionType
 Int -&gt; ReadS RetentionType
 ReadS [RetentionType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [RetentionType]
 readsPrec :: Int -&gt; ReadS RetentionType
 $creadsPrec :: Int -&gt; ReadS RetentionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680338827"><span id="local-6989586621680338829"><span class="annot"><span class="annottext">RetentionType -&gt; RetentionType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680338836"><span id="local-6989586621680338838"><span class="annot"><span class="annottext">RetentionType -&gt; RetentionType -&gt; Bool
 (RetentionType -&gt; RetentionType -&gt; Bool)
 -&gt; (RetentionType -&gt; RetentionType -&gt; Bool) -&gt; Eq RetentionType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: RetentionType -&gt; RetentionType -&gt; Bool
 == :: RetentionType -&gt; RetentionType -&gt; Bool
 $c== :: RetentionType -&gt; RetentionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680338811"><span id="local-6989586621680338813"><span id="local-6989586621680338815"><span id="local-6989586621680338817"><span id="local-6989586621680338819"><span id="local-6989586621680338821"><span id="local-6989586621680338823"><span class="annot"><span class="annottext">Eq RetentionType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680338820"><span id="local-6989586621680338822"><span id="local-6989586621680338824"><span id="local-6989586621680338826"><span id="local-6989586621680338828"><span id="local-6989586621680338830"><span id="local-6989586621680338832"><span class="annot"><span class="annottext">Eq RetentionType
 Eq RetentionType
 -&gt; (RetentionType -&gt; RetentionType -&gt; Ordering)
 -&gt; (RetentionType -&gt; RetentionType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. RetentionType -&gt; Rep RetentionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680338803"><span id="local-6989586621680338805"><span class="annot"><span class="annottext">Int -&gt; RetentionType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680338812"><span id="local-6989586621680338814"><span class="annot"><span class="annottext">Int -&gt; RetentionType -&gt; Int
 RetentionType -&gt; Int
 (Int -&gt; RetentionType -&gt; Int)
 -&gt; (RetentionType -&gt; Int) -&gt; Hashable RetentionType
@@ -142,49 +142,49 @@ $chash :: RetentionType -&gt; Int
 hashWithSalt :: Int -&gt; RetentionType -&gt; Int
 $chashWithSalt :: Int -&gt; RetentionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680338800"><span class="annot"><span class="annottext">RetentionType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680338809"><span class="annot"><span class="annottext">RetentionType -&gt; ()
 (RetentionType -&gt; ()) -&gt; NFData RetentionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RetentionType -&gt; ()
 $crnf :: RetentionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680338797"><span class="annot"><span class="annottext">Text -&gt; Either String RetentionType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680338806"><span class="annot"><span class="annottext">Text -&gt; Either String RetentionType
 (Text -&gt; Either String RetentionType) -&gt; FromText RetentionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RetentionType
 $cfromText :: Text -&gt; Either String RetentionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680338794"><span class="annot"><span class="annottext">RetentionType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680338803"><span class="annot"><span class="annottext">RetentionType -&gt; Text
 (RetentionType -&gt; Text) -&gt; ToText RetentionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RetentionType -&gt; Text
 $ctoText :: RetentionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680338791"><span class="annot"><span class="annottext">RetentionType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680338800"><span class="annot"><span class="annottext">RetentionType -&gt; ByteString
 (RetentionType -&gt; ByteString) -&gt; ToByteString RetentionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RetentionType -&gt; ByteString
 $ctoBS :: RetentionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680338788"><span class="annot"><span class="annottext">RetentionType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680338797"><span class="annot"><span class="annottext">RetentionType -&gt; ByteStringBuilder
 (RetentionType -&gt; ByteStringBuilder) -&gt; ToLog RetentionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RetentionType -&gt; ByteStringBuilder
 $cbuild :: RetentionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680338785"><span class="annot"><span class="annottext">HeaderName -&gt; RetentionType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680338794"><span class="annot"><span class="annottext">HeaderName -&gt; RetentionType -&gt; [Header]
 (HeaderName -&gt; RetentionType -&gt; [Header]) -&gt; ToHeader RetentionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RetentionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RetentionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680338782"><span class="annot"><span class="annottext">RetentionType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680338791"><span class="annot"><span class="annottext">RetentionType -&gt; QueryString
 (RetentionType -&gt; QueryString) -&gt; ToQuery RetentionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RetentionType -&gt; QueryString
 $ctoQuery :: RetentionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680338777"><span id="local-6989586621680338779"><span class="annot"><span class="annottext">Value -&gt; Parser [RetentionType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680338786"><span id="local-6989586621680338788"><span class="annot"><span class="annottext">Value -&gt; Parser [RetentionType]
 Value -&gt; Parser RetentionType
 (Value -&gt; Parser RetentionType)
 -&gt; (Value -&gt; Parser [RetentionType]) -&gt; FromJSON RetentionType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [RetentionType]
 parseJSON :: Value -&gt; Parser RetentionType
 $cparseJSON :: Value -&gt; Parser RetentionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680338772"><span id="local-6989586621680338774"><span class="annot"><span class="annottext">FromJSONKeyFunction [RetentionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680338781"><span id="local-6989586621680338783"><span class="annot"><span class="annottext">FromJSONKeyFunction [RetentionType]
 FromJSONKeyFunction RetentionType
 FromJSONKeyFunction RetentionType
 -&gt; FromJSONKeyFunction [RetentionType] -&gt; FromJSONKey RetentionType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RetentionType]
 fromJSONKey :: FromJSONKeyFunction RetentionType
 $cfromJSONKey :: FromJSONKeyFunction RetentionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680338763"><span id="local-6989586621680338765"><span id="local-6989586621680338767"><span id="local-6989586621680338769"><span class="annot"><span class="annottext">[RetentionType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680338772"><span id="local-6989586621680338774"><span id="local-6989586621680338776"><span id="local-6989586621680338778"><span class="annot"><span class="annottext">[RetentionType] -&gt; Encoding
 [RetentionType] -&gt; Value
 RetentionType -&gt; Encoding
 RetentionType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: RetentionType -&gt; Encoding
 toJSON :: RetentionType -&gt; Value
 $ctoJSON :: RetentionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680338758"><span id="local-6989586621680338760"><span class="annot"><span class="annottext">ToJSONKeyFunction [RetentionType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680338767"><span id="local-6989586621680338769"><span class="annot"><span class="annottext">ToJSONKeyFunction [RetentionType]
 ToJSONKeyFunction RetentionType
 ToJSONKeyFunction RetentionType
 -&gt; ToJSONKeyFunction [RetentionType] -&gt; ToJSONKey RetentionType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RetentionType]
 toJSONKey :: ToJSONKeyFunction RetentionType
 $ctoJSONKey :: ToJSONKeyFunction RetentionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680338755"><span class="annot"><span class="annottext">[Node] -&gt; Either String RetentionType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680338764"><span class="annot"><span class="annottext">[Node] -&gt; Either String RetentionType
 ([Node] -&gt; Either String RetentionType) -&gt; FromXML RetentionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RetentionType
 $cparseXML :: [Node] -&gt; Either String RetentionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680338752"><span class="annot"><span class="annottext">RetentionType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680338761"><span class="annot"><span class="annottext">RetentionType -&gt; XML
 (RetentionType -&gt; XML) -&gt; ToXML RetentionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RetentionType -&gt; XML

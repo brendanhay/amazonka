@@ -1,0 +1,677 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ApplicationInsights.ListLogPatterns</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the log patterns in the specific log @LogPatternSet@.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ApplicationInsights.ListLogPatterns</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier">ListLogPatterns</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#newListLogPatterns"><span class="hs-identifier">newListLogPatterns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatterns_nextToken"><span class="hs-identifier">listLogPatterns_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatterns_patternSetName"><span class="hs-identifier">listLogPatterns_patternSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatterns_maxResults"><span class="hs-identifier">listLogPatterns_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatterns_resourceGroupName"><span class="hs-identifier">listLogPatterns_resourceGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse"><span class="hs-identifier">ListLogPatternsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#newListLogPatternsResponse"><span class="hs-identifier">newListLogPatternsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatternsResponse_resourceGroupName"><span class="hs-identifier">listLogPatternsResponse_resourceGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatternsResponse_nextToken"><span class="hs-identifier">listLogPatternsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatternsResponse_logPatterns"><span class="hs-identifier">listLogPatternsResponse_logPatterns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatternsResponse_httpStatus"><span class="hs-identifier">listLogPatternsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.html"><span class="hs-identifier">Network.AWS.ApplicationInsights.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListLogPatterns' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679218996"><span id="local-6989586621679218997"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLogPatterns"><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-var">ListLogPatterns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLogPatterns%27"><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns%27"><span class="hs-identifier hs-var">ListLogPatterns'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to request the next page of results.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3AListLogPatterns%27"><span class="annot"><span class="annottext">ListLogPatterns -&gt; Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AnextToken%3AListLogPatterns%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The name of the log pattern set.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3ApatternSetName%3AListLogPatterns%27"><span class="annot"><span class="annottext">ListLogPatterns -&gt; Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3ApatternSetName%3AListLogPatterns%27"><span class="hs-identifier hs-var hs-var">patternSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return in a single call. To retrieve</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @NextToken@</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmaxResults%3AListLogPatterns%27"><span class="annot"><span class="annottext">ListLogPatterns -&gt; Maybe Natural
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AmaxResults%3AListLogPatterns%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The name of the resource group.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AresourceGroupName%3AListLogPatterns%27"><span class="annot"><span class="annottext">ListLogPatterns -&gt; Text
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AresourceGroupName%3AListLogPatterns%27"><span class="hs-identifier hs-var hs-var">resourceGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218987"><span id="local-6989586621679218989"><span class="annot"><span class="annottext">ListLogPatterns -&gt; ListLogPatterns -&gt; Bool
+(ListLogPatterns -&gt; ListLogPatterns -&gt; Bool)
+-&gt; (ListLogPatterns -&gt; ListLogPatterns -&gt; Bool)
+-&gt; Eq ListLogPatterns
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListLogPatterns -&gt; ListLogPatterns -&gt; Bool
+$c/= :: ListLogPatterns -&gt; ListLogPatterns -&gt; Bool
+== :: ListLogPatterns -&gt; ListLogPatterns -&gt; Bool
+$c== :: ListLogPatterns -&gt; ListLogPatterns -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218978"><span id="local-6989586621679218980"><span id="local-6989586621679218982"><span id="local-6989586621679218984"><span class="annot"><span class="annottext">ReadPrec [ListLogPatterns]
+ReadPrec ListLogPatterns
+Int -&gt; ReadS ListLogPatterns
+ReadS [ListLogPatterns]
+(Int -&gt; ReadS ListLogPatterns)
+-&gt; ReadS [ListLogPatterns]
+-&gt; ReadPrec ListLogPatterns
+-&gt; ReadPrec [ListLogPatterns]
+-&gt; Read ListLogPatterns
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListLogPatterns]
+$creadListPrec :: ReadPrec [ListLogPatterns]
+readPrec :: ReadPrec ListLogPatterns
+$creadPrec :: ReadPrec ListLogPatterns
+readList :: ReadS [ListLogPatterns]
+$creadList :: ReadS [ListLogPatterns]
+readsPrec :: Int -&gt; ReadS ListLogPatterns
+$creadsPrec :: Int -&gt; ReadS ListLogPatterns
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218971"><span id="local-6989586621679218973"><span id="local-6989586621679218975"><span class="annot"><span class="annottext">Int -&gt; ListLogPatterns -&gt; ShowS
+[ListLogPatterns] -&gt; ShowS
+ListLogPatterns -&gt; String
+(Int -&gt; ListLogPatterns -&gt; ShowS)
+-&gt; (ListLogPatterns -&gt; String)
+-&gt; ([ListLogPatterns] -&gt; ShowS)
+-&gt; Show ListLogPatterns
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListLogPatterns] -&gt; ShowS
+$cshowList :: [ListLogPatterns] -&gt; ShowS
+show :: ListLogPatterns -&gt; String
+$cshow :: ListLogPatterns -&gt; String
+showsPrec :: Int -&gt; ListLogPatterns -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListLogPatterns -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListLogPatterns -&gt; Rep ListLogPatterns x)
+-&gt; (forall x. Rep ListLogPatterns x -&gt; ListLogPatterns)
+-&gt; Generic ListLogPatterns
+forall x. Rep ListLogPatterns x -&gt; ListLogPatterns
+forall x. ListLogPatterns -&gt; Rep ListLogPatterns x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListLogPatterns x -&gt; ListLogPatterns
+$cfrom :: forall x. ListLogPatterns -&gt; Rep ListLogPatterns x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'ListLogPatterns' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'nextToken', 'listLogPatterns_nextToken' - The token to request the next page of results.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'patternSetName', 'listLogPatterns_patternSetName' - The name of the log pattern set.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'maxResults', 'listLogPatterns_maxResults' - The maximum number of results to return in a single call. To retrieve</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- the remaining results, make another call with the returned @NextToken@</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'resourceGroupName', 'listLogPatterns_resourceGroupName' - The name of the resource group.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#newListLogPatterns"><span class="hs-identifier hs-type">newListLogPatterns</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'resourceGroupName'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-type">ListLogPatterns</span></a></span><span>
+</span><span id="line-90"></span><span id="newListLogPatterns"><span class="annot"><span class="annottext">newListLogPatterns :: Text -&gt; ListLogPatterns
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#newListLogPatterns"><span class="hs-identifier hs-var hs-var">newListLogPatterns</span></a></span></span><span> </span><span id="local-6989586621679218966"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679218966"><span class="hs-identifier hs-var">pResourceGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">ListLogPatterns' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListLogPatterns
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns%27"><span class="hs-identifier hs-type">ListLogPatterns'</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListLogPatterns' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AnextToken%3AListLogPatterns%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:patternSetName:ListLogPatterns' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3ApatternSetName%3AListLogPatterns%27"><span class="hs-identifier hs-var">patternSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListLogPatterns' :: Maybe Natural
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AmaxResults%3AListLogPatterns%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceGroupName:ListLogPatterns' :: Text
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AresourceGroupName%3AListLogPatterns%27"><span class="hs-identifier hs-var">resourceGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679218966"><span class="hs-identifier hs-var">pResourceGroupName_</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The token to request the next page of results.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatterns_nextToken"><span class="hs-identifier hs-type">listLogPatterns_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-type">ListLogPatterns</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="listLogPatterns_nextToken"><span class="annot"><span class="annottext">listLogPatterns_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListLogPatterns -&gt; f ListLogPatterns
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatterns_nextToken"><span class="hs-identifier hs-var hs-var">listLogPatterns_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLogPatterns -&gt; Maybe Text)
+-&gt; (ListLogPatterns -&gt; Maybe Text -&gt; ListLogPatterns)
+-&gt; Lens ListLogPatterns ListLogPatterns (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns%27"><span class="hs-identifier hs-type">ListLogPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218963"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListLogPatterns' :: ListLogPatterns -&gt; Maybe Text
+</span><a href="#local-6989586621679218963"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218963"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218962"><span class="annot"><span class="annottext">s :: ListLogPatterns
+</span><a href="#local-6989586621679218962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns%27"><span class="hs-identifier hs-type">ListLogPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218961"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogPatterns
+</span><a href="#local-6989586621679218962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLogPatterns' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AnextToken%3AListLogPatterns%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-type">ListLogPatterns</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The name of the log pattern set.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatterns_patternSetName"><span class="hs-identifier hs-type">listLogPatterns_patternSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-type">ListLogPatterns</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="listLogPatterns_patternSetName"><span class="annot"><span class="annottext">listLogPatterns_patternSetName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListLogPatterns -&gt; f ListLogPatterns
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatterns_patternSetName"><span class="hs-identifier hs-var hs-var">listLogPatterns_patternSetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLogPatterns -&gt; Maybe Text)
+-&gt; (ListLogPatterns -&gt; Maybe Text -&gt; ListLogPatterns)
+-&gt; Lens ListLogPatterns ListLogPatterns (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns%27"><span class="hs-identifier hs-type">ListLogPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218960"><span class="annot"><span class="annottext">Maybe Text
+patternSetName :: Maybe Text
+$sel:patternSetName:ListLogPatterns' :: ListLogPatterns -&gt; Maybe Text
+</span><a href="#local-6989586621679218960"><span class="hs-identifier hs-var hs-var">patternSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218960"><span class="hs-identifier hs-var">patternSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218959"><span class="annot"><span class="annottext">s :: ListLogPatterns
+</span><a href="#local-6989586621679218959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns%27"><span class="hs-identifier hs-type">ListLogPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218958"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogPatterns
+</span><a href="#local-6989586621679218959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patternSetName:ListLogPatterns' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3ApatternSetName%3AListLogPatterns%27"><span class="hs-identifier hs-var">patternSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-type">ListLogPatterns</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The maximum number of results to return in a single call. To retrieve</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- the remaining results, make another call with the returned @NextToken@</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatterns_maxResults"><span class="hs-identifier hs-type">listLogPatterns_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-type">ListLogPatterns</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="listLogPatterns_maxResults"><span class="annot"><span class="annottext">listLogPatterns_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListLogPatterns -&gt; f ListLogPatterns
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatterns_maxResults"><span class="hs-identifier hs-var hs-var">listLogPatterns_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLogPatterns -&gt; Maybe Natural)
+-&gt; (ListLogPatterns -&gt; Maybe Natural -&gt; ListLogPatterns)
+-&gt; Lens
+     ListLogPatterns ListLogPatterns (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns%27"><span class="hs-identifier hs-type">ListLogPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218957"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListLogPatterns' :: ListLogPatterns -&gt; Maybe Natural
+</span><a href="#local-6989586621679218957"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679218957"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218956"><span class="annot"><span class="annottext">s :: ListLogPatterns
+</span><a href="#local-6989586621679218956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns%27"><span class="hs-identifier hs-type">ListLogPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218955"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679218955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogPatterns
+</span><a href="#local-6989586621679218956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListLogPatterns' :: Maybe Natural
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AmaxResults%3AListLogPatterns%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679218955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-type">ListLogPatterns</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The name of the resource group.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatterns_resourceGroupName"><span class="hs-identifier hs-type">listLogPatterns_resourceGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-type">ListLogPatterns</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span id="listLogPatterns_resourceGroupName"><span class="annot"><span class="annottext">listLogPatterns_resourceGroupName :: (Text -&gt; f Text) -&gt; ListLogPatterns -&gt; f ListLogPatterns
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatterns_resourceGroupName"><span class="hs-identifier hs-var hs-var">listLogPatterns_resourceGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLogPatterns -&gt; Text)
+-&gt; (ListLogPatterns -&gt; Text -&gt; ListLogPatterns)
+-&gt; Lens ListLogPatterns ListLogPatterns Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns%27"><span class="hs-identifier hs-type">ListLogPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218954"><span class="annot"><span class="annottext">Text
+resourceGroupName :: Text
+$sel:resourceGroupName:ListLogPatterns' :: ListLogPatterns -&gt; Text
+</span><a href="#local-6989586621679218954"><span class="hs-identifier hs-var hs-var">resourceGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679218954"><span class="hs-identifier hs-var">resourceGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218953"><span class="annot"><span class="annottext">s :: ListLogPatterns
+</span><a href="#local-6989586621679218953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns%27"><span class="hs-identifier hs-type">ListLogPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218952"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679218952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogPatterns
+</span><a href="#local-6989586621679218953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceGroupName:ListLogPatterns' :: Text
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AresourceGroupName%3AListLogPatterns%27"><span class="hs-identifier hs-var">resourceGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679218952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-type">ListLogPatterns</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-type">ListLogPatterns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-118"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-type">ListLogPatterns</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse"><span class="hs-identifier hs-type">ListLogPatternsResponse</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679218948"><span class="annot"><span class="annottext">request :: ListLogPatterns -&gt; Request ListLogPatterns
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListLogPatterns -&gt; Request ListLogPatterns
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ApplicationInsights.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679218944"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListLogPatterns
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListLogPatterns)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListLogPatterns))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListLogPatterns
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListLogPatterns)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679218941"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679218941"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679218940"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679218940"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679218939"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218939"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [LogPattern]
+-&gt; Int
+-&gt; ListLogPatternsResponse
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse%27"><span class="hs-identifier hs-var">ListLogPatternsResponse'</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [LogPattern]
+ -&gt; Int
+ -&gt; ListLogPatternsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [LogPattern] -&gt; Int -&gt; ListLogPatternsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [LogPattern] -&gt; Int -&gt; ListLogPatternsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [LogPattern] -&gt; Int -&gt; ListLogPatternsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [LogPattern] -&gt; Int -&gt; ListLogPatternsResponse)
+-&gt; Either String (Maybe [LogPattern])
+-&gt; Either String (Int -&gt; ListLogPatternsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [LogPattern]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogPatterns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [LogPattern]))
+-&gt; Maybe [LogPattern] -&gt; Either String (Maybe [LogPattern])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LogPattern]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListLogPatternsResponse)
+-&gt; Either String Int -&gt; Either String ListLogPatternsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679218941"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218930"><span id="local-6989586621679218932"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-type">ListLogPatterns</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218927"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-type">ListLogPatterns</span></a></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-type">ListLogPatterns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679218923"><span class="annot"><span class="annottext">toHeaders :: ListLogPatterns -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListLogPatterns -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EC2WindowsBarleyService.ListLogPatterns&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-141"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-142"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-145"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-146"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218913"><span id="local-6989586621679218915"><span id="local-6989586621679218917"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-type">ListLogPatterns</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679218911"><span class="annot"><span class="annottext">toJSON :: ListLogPatterns -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns%27"><span class="hs-identifier hs-type">ListLogPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218906"><span id="local-6989586621679218907"><span id="local-6989586621679218908"><span id="local-6989586621679218909"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+resourceGroupName :: Text
+maxResults :: Maybe Natural
+patternSetName :: Maybe Text
+nextToken :: Maybe Text
+$sel:resourceGroupName:ListLogPatterns' :: ListLogPatterns -&gt; Text
+$sel:maxResults:ListLogPatterns' :: ListLogPatterns -&gt; Maybe Natural
+$sel:patternSetName:ListLogPatterns' :: ListLogPatterns -&gt; Maybe Text
+$sel:nextToken:ListLogPatterns' :: ListLogPatterns -&gt; Maybe Text
+</span><a href="#local-6989586621679218906"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218909"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PatternSetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218908"><span class="hs-identifier hs-var">patternSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679218907"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-159"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679218906"><span class="hs-identifier hs-var">resourceGroupName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-type">ListLogPatterns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679218900"><span class="annot"><span class="annottext">toPath :: ListLogPatterns -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListLogPatterns -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatterns"><span class="hs-identifier hs-type">ListLogPatterns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679218896"><span class="annot"><span class="annottext">toQuery :: ListLogPatterns -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListLogPatterns -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | /See:/ 'newListLogPatternsResponse' smart constructor.</span><span>
+</span><span id="line-170"></span><span id="local-6989586621679218893"><span id="local-6989586621679218894"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLogPatternsResponse"><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse"><span class="hs-identifier hs-var">ListLogPatternsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLogPatternsResponse%27"><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse%27"><span class="hs-identifier hs-var">ListLogPatternsResponse'</span></a></span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the resource group.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AresourceGroupName%3AListLogPatternsResponse%27"><span class="annot"><span class="annottext">ListLogPatternsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AresourceGroupName%3AListLogPatternsResponse%27"><span class="hs-identifier hs-var hs-var">resourceGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The token used to retrieve the next page of results. This value is</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3AnextToken%3AListLogPatternsResponse%27"><span class="annot"><span class="annottext">ListLogPatternsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AnextToken%3AListLogPatternsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- | The list of log patterns.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3AlogPatterns%3AListLogPatternsResponse%27"><span class="annot"><span class="annottext">ListLogPatternsResponse -&gt; Maybe [LogPattern]
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AlogPatterns%3AListLogPatternsResponse%27"><span class="hs-identifier hs-var hs-var">logPatterns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.LogPattern.html#LogPattern"><span class="hs-identifier hs-type">LogPattern</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListLogPatternsResponse%27"><span class="annot"><span class="annottext">ListLogPatternsResponse -&gt; Int
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AhttpStatus%3AListLogPatternsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218885"><span id="local-6989586621679218887"><span class="annot"><span class="annottext">ListLogPatternsResponse -&gt; ListLogPatternsResponse -&gt; Bool
+(ListLogPatternsResponse -&gt; ListLogPatternsResponse -&gt; Bool)
+-&gt; (ListLogPatternsResponse -&gt; ListLogPatternsResponse -&gt; Bool)
+-&gt; Eq ListLogPatternsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListLogPatternsResponse -&gt; ListLogPatternsResponse -&gt; Bool
+$c/= :: ListLogPatternsResponse -&gt; ListLogPatternsResponse -&gt; Bool
+== :: ListLogPatternsResponse -&gt; ListLogPatternsResponse -&gt; Bool
+$c== :: ListLogPatternsResponse -&gt; ListLogPatternsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218877"><span id="local-6989586621679218879"><span id="local-6989586621679218881"><span id="local-6989586621679218883"><span class="annot"><span class="annottext">ReadPrec [ListLogPatternsResponse]
+ReadPrec ListLogPatternsResponse
+Int -&gt; ReadS ListLogPatternsResponse
+ReadS [ListLogPatternsResponse]
+(Int -&gt; ReadS ListLogPatternsResponse)
+-&gt; ReadS [ListLogPatternsResponse]
+-&gt; ReadPrec ListLogPatternsResponse
+-&gt; ReadPrec [ListLogPatternsResponse]
+-&gt; Read ListLogPatternsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListLogPatternsResponse]
+$creadListPrec :: ReadPrec [ListLogPatternsResponse]
+readPrec :: ReadPrec ListLogPatternsResponse
+$creadPrec :: ReadPrec ListLogPatternsResponse
+readList :: ReadS [ListLogPatternsResponse]
+$creadList :: ReadS [ListLogPatternsResponse]
+readsPrec :: Int -&gt; ReadS ListLogPatternsResponse
+$creadsPrec :: Int -&gt; ReadS ListLogPatternsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218871"><span id="local-6989586621679218873"><span id="local-6989586621679218875"><span class="annot"><span class="annottext">Int -&gt; ListLogPatternsResponse -&gt; ShowS
+[ListLogPatternsResponse] -&gt; ShowS
+ListLogPatternsResponse -&gt; String
+(Int -&gt; ListLogPatternsResponse -&gt; ShowS)
+-&gt; (ListLogPatternsResponse -&gt; String)
+-&gt; ([ListLogPatternsResponse] -&gt; ShowS)
+-&gt; Show ListLogPatternsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListLogPatternsResponse] -&gt; ShowS
+$cshowList :: [ListLogPatternsResponse] -&gt; ShowS
+show :: ListLogPatternsResponse -&gt; String
+$cshow :: ListLogPatternsResponse -&gt; String
+showsPrec :: Int -&gt; ListLogPatternsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListLogPatternsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListLogPatternsResponse -&gt; Rep ListLogPatternsResponse x)
+-&gt; (forall x.
+    Rep ListLogPatternsResponse x -&gt; ListLogPatternsResponse)
+-&gt; Generic ListLogPatternsResponse
+forall x. Rep ListLogPatternsResponse x -&gt; ListLogPatternsResponse
+forall x. ListLogPatternsResponse -&gt; Rep ListLogPatternsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListLogPatternsResponse x -&gt; ListLogPatternsResponse
+$cfrom :: forall x. ListLogPatternsResponse -&gt; Rep ListLogPatternsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Create a value of 'ListLogPatternsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'resourceGroupName', 'listLogPatternsResponse_resourceGroupName' - The name of the resource group.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'nextToken', 'listLogPatternsResponse_nextToken' - The token used to retrieve the next page of results. This value is</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'logPatterns', 'listLogPatternsResponse_logPatterns' - The list of log patterns.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'httpStatus', 'listLogPatternsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#newListLogPatternsResponse"><span class="hs-identifier hs-type">newListLogPatternsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse"><span class="hs-identifier hs-type">ListLogPatternsResponse</span></a></span><span>
+</span><span id="line-203"></span><span id="newListLogPatternsResponse"><span class="annot"><span class="annottext">newListLogPatternsResponse :: Int -&gt; ListLogPatternsResponse
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#newListLogPatternsResponse"><span class="hs-identifier hs-var hs-var">newListLogPatternsResponse</span></a></span></span><span> </span><span id="local-6989586621679218868"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679218868"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="annottext">ListLogPatternsResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [LogPattern]
+-&gt; Int
+-&gt; ListLogPatternsResponse
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse%27"><span class="hs-identifier hs-type">ListLogPatternsResponse'</span></a></span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceGroupName:ListLogPatternsResponse' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AresourceGroupName%3AListLogPatternsResponse%27"><span class="hs-identifier hs-var">resourceGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListLogPatternsResponse' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AnextToken%3AListLogPatternsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:logPatterns:ListLogPatternsResponse' :: Maybe [LogPattern]
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AlogPatterns%3AListLogPatternsResponse%27"><span class="hs-identifier hs-var">logPatterns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LogPattern]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListLogPatternsResponse' :: Int
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AhttpStatus%3AListLogPatternsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679218868"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The name of the resource group.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatternsResponse_resourceGroupName"><span class="hs-identifier hs-type">listLogPatternsResponse_resourceGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse"><span class="hs-identifier hs-type">ListLogPatternsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="listLogPatternsResponse_resourceGroupName"><span class="annot"><span class="annottext">listLogPatternsResponse_resourceGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListLogPatternsResponse -&gt; f ListLogPatternsResponse
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatternsResponse_resourceGroupName"><span class="hs-identifier hs-var hs-var">listLogPatternsResponse_resourceGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLogPatternsResponse -&gt; Maybe Text)
+-&gt; (ListLogPatternsResponse
+    -&gt; Maybe Text -&gt; ListLogPatternsResponse)
+-&gt; Lens
+     ListLogPatternsResponse
+     ListLogPatternsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse%27"><span class="hs-identifier hs-type">ListLogPatternsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218867"><span class="annot"><span class="annottext">Maybe Text
+resourceGroupName :: Maybe Text
+$sel:resourceGroupName:ListLogPatternsResponse' :: ListLogPatternsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679218867"><span class="hs-identifier hs-var hs-var">resourceGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218867"><span class="hs-identifier hs-var">resourceGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218866"><span class="annot"><span class="annottext">s :: ListLogPatternsResponse
+</span><a href="#local-6989586621679218866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse%27"><span class="hs-identifier hs-type">ListLogPatternsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218865"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogPatternsResponse
+</span><a href="#local-6989586621679218866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceGroupName:ListLogPatternsResponse' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AresourceGroupName%3AListLogPatternsResponse%27"><span class="hs-identifier hs-var">resourceGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse"><span class="hs-identifier hs-type">ListLogPatternsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The token used to retrieve the next page of results. This value is</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatternsResponse_nextToken"><span class="hs-identifier hs-type">listLogPatternsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse"><span class="hs-identifier hs-type">ListLogPatternsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="listLogPatternsResponse_nextToken"><span class="annot"><span class="annottext">listLogPatternsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListLogPatternsResponse -&gt; f ListLogPatternsResponse
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatternsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listLogPatternsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLogPatternsResponse -&gt; Maybe Text)
+-&gt; (ListLogPatternsResponse
+    -&gt; Maybe Text -&gt; ListLogPatternsResponse)
+-&gt; Lens
+     ListLogPatternsResponse
+     ListLogPatternsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse%27"><span class="hs-identifier hs-type">ListLogPatternsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218864"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListLogPatternsResponse' :: ListLogPatternsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679218864"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218864"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218863"><span class="annot"><span class="annottext">s :: ListLogPatternsResponse
+</span><a href="#local-6989586621679218863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse%27"><span class="hs-identifier hs-type">ListLogPatternsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218862"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogPatternsResponse
+</span><a href="#local-6989586621679218863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLogPatternsResponse' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AnextToken%3AListLogPatternsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse"><span class="hs-identifier hs-type">ListLogPatternsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The list of log patterns.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatternsResponse_logPatterns"><span class="hs-identifier hs-type">listLogPatternsResponse_logPatterns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse"><span class="hs-identifier hs-type">ListLogPatternsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.LogPattern.html#LogPattern"><span class="hs-identifier hs-type">LogPattern</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="listLogPatternsResponse_logPatterns"><span class="annot"><span class="annottext">listLogPatternsResponse_logPatterns :: (Maybe [LogPattern] -&gt; f (Maybe [LogPattern]))
+-&gt; ListLogPatternsResponse -&gt; f ListLogPatternsResponse
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatternsResponse_logPatterns"><span class="hs-identifier hs-var hs-var">listLogPatternsResponse_logPatterns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLogPatternsResponse -&gt; Maybe [LogPattern])
+-&gt; (ListLogPatternsResponse
+    -&gt; Maybe [LogPattern] -&gt; ListLogPatternsResponse)
+-&gt; Lens
+     ListLogPatternsResponse
+     ListLogPatternsResponse
+     (Maybe [LogPattern])
+     (Maybe [LogPattern])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse%27"><span class="hs-identifier hs-type">ListLogPatternsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218861"><span class="annot"><span class="annottext">Maybe [LogPattern]
+logPatterns :: Maybe [LogPattern]
+$sel:logPatterns:ListLogPatternsResponse' :: ListLogPatternsResponse -&gt; Maybe [LogPattern]
+</span><a href="#local-6989586621679218861"><span class="hs-identifier hs-var hs-var">logPatterns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LogPattern]
+</span><a href="#local-6989586621679218861"><span class="hs-identifier hs-var">logPatterns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218860"><span class="annot"><span class="annottext">s :: ListLogPatternsResponse
+</span><a href="#local-6989586621679218860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse%27"><span class="hs-identifier hs-type">ListLogPatternsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218859"><span class="annot"><span class="annottext">Maybe [LogPattern]
+</span><a href="#local-6989586621679218859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogPatternsResponse
+</span><a href="#local-6989586621679218860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logPatterns:ListLogPatternsResponse' :: Maybe [LogPattern]
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AlogPatterns%3AListLogPatternsResponse%27"><span class="hs-identifier hs-var">logPatterns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LogPattern]
+</span><a href="#local-6989586621679218859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse"><span class="hs-identifier hs-type">ListLogPatternsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LogPattern] -&gt; f (Maybe [LogPattern]))
+ -&gt; ListLogPatternsResponse -&gt; f ListLogPatternsResponse)
+-&gt; ((Maybe [LogPattern] -&gt; f (Maybe [LogPattern]))
+    -&gt; Maybe [LogPattern] -&gt; f (Maybe [LogPattern]))
+-&gt; (Maybe [LogPattern] -&gt; f (Maybe [LogPattern]))
+-&gt; ListLogPatternsResponse
+-&gt; f ListLogPatternsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [LogPattern] [LogPattern] [LogPattern] [LogPattern]
+-&gt; Iso
+     (Maybe [LogPattern])
+     (Maybe [LogPattern])
+     (Maybe [LogPattern])
+     (Maybe [LogPattern])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [LogPattern] [LogPattern] [LogPattern] [LogPattern]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatternsResponse_httpStatus"><span class="hs-identifier hs-type">listLogPatternsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse"><span class="hs-identifier hs-type">ListLogPatternsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-227"></span><span id="listLogPatternsResponse_httpStatus"><span class="annot"><span class="annottext">listLogPatternsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListLogPatternsResponse -&gt; f ListLogPatternsResponse
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#listLogPatternsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listLogPatternsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLogPatternsResponse -&gt; Int)
+-&gt; (ListLogPatternsResponse -&gt; Int -&gt; ListLogPatternsResponse)
+-&gt; Lens ListLogPatternsResponse ListLogPatternsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse%27"><span class="hs-identifier hs-type">ListLogPatternsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218855"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListLogPatternsResponse' :: ListLogPatternsResponse -&gt; Int
+</span><a href="#local-6989586621679218855"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679218855"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218854"><span class="annot"><span class="annottext">s :: ListLogPatternsResponse
+</span><a href="#local-6989586621679218854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse%27"><span class="hs-identifier hs-type">ListLogPatternsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218853"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679218853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogPatternsResponse
+</span><a href="#local-6989586621679218854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListLogPatternsResponse' :: Int
+</span><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#%24sel%3AhttpStatus%3AListLogPatternsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679218853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse"><span class="hs-identifier hs-type">ListLogPatternsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218851"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListLogPatterns.html#ListLogPatternsResponse"><span class="hs-identifier hs-type">ListLogPatternsResponse</span></a></span></span><span>
+</span><span id="line-230"></span></pre></body></html>

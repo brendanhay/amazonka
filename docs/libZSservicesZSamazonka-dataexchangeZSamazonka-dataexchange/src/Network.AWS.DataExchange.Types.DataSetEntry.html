@@ -1,0 +1,630 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DataExchange.Types.DataSetEntry</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DataExchange.Types.DataSetEntry</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.AssetType.html"><span class="hs-identifier">Network.AWS.DataExchange.Types.AssetType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.Origin.html"><span class="hs-identifier">Network.AWS.DataExchange.Types.Origin</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.OriginDetails.html"><span class="hs-identifier">Network.AWS.DataExchange.Types.OriginDetails</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | A data set is an AWS resource with one or more revisions.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDataSetEntry' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679236638"><span id="local-6989586621679236639"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataSetEntry"><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-var">DataSetEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataSetEntry%27"><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-var">DataSetEntry'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The data set ID of the owned data set corresponding to the entitled data</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- set being viewed. This parameter is returned when a data set owner is</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- viewing the entitled copy of its owned data set.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AsourceId%3ADataSetEntry%27"><span class="annot"><span class="annottext">DataSetEntry -&gt; Maybe Text
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3AsourceId%3ADataSetEntry%27"><span class="hs-identifier hs-var hs-var">sourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | If the origin of this data set is ENTITLED, includes the details for the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- product on AWS Marketplace.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AoriginDetails%3ADataSetEntry%27"><span class="annot"><span class="annottext">DataSetEntry -&gt; Maybe OriginDetails
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3AoriginDetails%3ADataSetEntry%27"><span class="hs-identifier hs-var hs-var">originDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.OriginDetails.html#OriginDetails"><span class="hs-identifier hs-type">OriginDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A property that defines the data set as OWNED by the account (for</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- providers) or ENTITLED to the account (for subscribers).</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aorigin%3ADataSetEntry%27"><span class="annot"><span class="annottext">DataSetEntry -&gt; Origin
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3Aorigin%3ADataSetEntry%27"><span class="hs-identifier hs-var hs-var">origin</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The type of asset that is added to a data set.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AassetType%3ADataSetEntry%27"><span class="annot"><span class="annottext">DataSetEntry -&gt; AssetType
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3AassetType%3ADataSetEntry%27"><span class="hs-identifier hs-var hs-var">assetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.AssetType.html#AssetType"><span class="hs-identifier hs-type">AssetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The description for the data set.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Adescription%3ADataSetEntry%27"><span class="annot"><span class="annottext">DataSetEntry -&gt; Text
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3Adescription%3ADataSetEntry%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The date and time that the data set was created, in ISO 8601 format.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcreatedAt%3ADataSetEntry%27"><span class="annot"><span class="annottext">DataSetEntry -&gt; POSIX
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3AcreatedAt%3ADataSetEntry%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the data set.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aid%3ADataSetEntry%27"><span class="annot"><span class="annottext">DataSetEntry -&gt; Text
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3Aid%3ADataSetEntry%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The ARN for the data set.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aarn%3ADataSetEntry%27"><span class="annot"><span class="annottext">DataSetEntry -&gt; Text
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3Aarn%3ADataSetEntry%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The date and time that the data set was last updated, in ISO 8601</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AupdatedAt%3ADataSetEntry%27"><span class="annot"><span class="annottext">DataSetEntry -&gt; POSIX
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3AupdatedAt%3ADataSetEntry%27"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The name of the data set.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aname%3ADataSetEntry%27"><span class="annot"><span class="annottext">DataSetEntry -&gt; Text
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3Aname%3ADataSetEntry%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679236623"><span id="local-6989586621679236625"><span class="annot"><span class="annottext">DataSetEntry -&gt; DataSetEntry -&gt; Bool
+(DataSetEntry -&gt; DataSetEntry -&gt; Bool)
+-&gt; (DataSetEntry -&gt; DataSetEntry -&gt; Bool) -&gt; Eq DataSetEntry
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataSetEntry -&gt; DataSetEntry -&gt; Bool
+$c/= :: DataSetEntry -&gt; DataSetEntry -&gt; Bool
+== :: DataSetEntry -&gt; DataSetEntry -&gt; Bool
+$c== :: DataSetEntry -&gt; DataSetEntry -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236614"><span id="local-6989586621679236616"><span id="local-6989586621679236618"><span id="local-6989586621679236620"><span class="annot"><span class="annottext">ReadPrec [DataSetEntry]
+ReadPrec DataSetEntry
+Int -&gt; ReadS DataSetEntry
+ReadS [DataSetEntry]
+(Int -&gt; ReadS DataSetEntry)
+-&gt; ReadS [DataSetEntry]
+-&gt; ReadPrec DataSetEntry
+-&gt; ReadPrec [DataSetEntry]
+-&gt; Read DataSetEntry
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataSetEntry]
+$creadListPrec :: ReadPrec [DataSetEntry]
+readPrec :: ReadPrec DataSetEntry
+$creadPrec :: ReadPrec DataSetEntry
+readList :: ReadS [DataSetEntry]
+$creadList :: ReadS [DataSetEntry]
+readsPrec :: Int -&gt; ReadS DataSetEntry
+$creadsPrec :: Int -&gt; ReadS DataSetEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236607"><span id="local-6989586621679236609"><span id="local-6989586621679236611"><span class="annot"><span class="annottext">Int -&gt; DataSetEntry -&gt; ShowS
+[DataSetEntry] -&gt; ShowS
+DataSetEntry -&gt; String
+(Int -&gt; DataSetEntry -&gt; ShowS)
+-&gt; (DataSetEntry -&gt; String)
+-&gt; ([DataSetEntry] -&gt; ShowS)
+-&gt; Show DataSetEntry
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataSetEntry] -&gt; ShowS
+$cshowList :: [DataSetEntry] -&gt; ShowS
+show :: DataSetEntry -&gt; String
+$cshow :: DataSetEntry -&gt; String
+showsPrec :: Int -&gt; DataSetEntry -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataSetEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DataSetEntry -&gt; Rep DataSetEntry x)
+-&gt; (forall x. Rep DataSetEntry x -&gt; DataSetEntry)
+-&gt; Generic DataSetEntry
+forall x. Rep DataSetEntry x -&gt; DataSetEntry
+forall x. DataSetEntry -&gt; Rep DataSetEntry x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DataSetEntry x -&gt; DataSetEntry
+$cfrom :: forall x. DataSetEntry -&gt; Rep DataSetEntry x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'DataSetEntry' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'sourceId', 'dataSetEntry_sourceId' - The data set ID of the owned data set corresponding to the entitled data</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- set being viewed. This parameter is returned when a data set owner is</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- viewing the entitled copy of its owned data set.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'originDetails', 'dataSetEntry_originDetails' - If the origin of this data set is ENTITLED, includes the details for the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- product on AWS Marketplace.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'origin', 'dataSetEntry_origin' - A property that defines the data set as OWNED by the account (for</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- providers) or ENTITLED to the account (for subscribers).</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'assetType', 'dataSetEntry_assetType' - The type of asset that is added to a data set.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'description', 'dataSetEntry_description' - The description for the data set.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'createdAt', 'dataSetEntry_createdAt' - The date and time that the data set was created, in ISO 8601 format.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'id', 'dataSetEntry_id' - The unique identifier for the data set.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'arn', 'dataSetEntry_arn' - The ARN for the data set.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'updatedAt', 'dataSetEntry_updatedAt' - The date and time that the data set was last updated, in ISO 8601</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'name', 'dataSetEntry_name' - The name of the data set.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#newDataSetEntry"><span class="hs-identifier hs-type">newDataSetEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'origin'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.DataExchange.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'assetType'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.DataExchange.Types.AssetType.html#AssetType"><span class="hs-identifier hs-type">AssetType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'description'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'createdAt'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-comment">-- | 'updatedAt'</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span>
+</span><span id="line-111"></span><span id="newDataSetEntry"><span class="annot"><span class="annottext">newDataSetEntry :: Origin
+-&gt; AssetType
+-&gt; Text
+-&gt; UTCTime
+-&gt; Text
+-&gt; Text
+-&gt; UTCTime
+-&gt; Text
+-&gt; DataSetEntry
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#newDataSetEntry"><span class="hs-identifier hs-var hs-var">newDataSetEntry</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679236601"><span class="annot"><span class="annottext">Origin
+</span><a href="#local-6989586621679236601"><span class="hs-identifier hs-var">pOrigin_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679236600"><span class="annot"><span class="annottext">AssetType
+</span><a href="#local-6989586621679236600"><span class="hs-identifier hs-var">pAssetType_</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679236599"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236599"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679236598"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679236598"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679236597"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236597"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679236596"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236596"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679236595"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679236595"><span class="hs-identifier hs-var">pUpdatedAt_</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679236594"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236594"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">DataSetEntry' :: Maybe Text
+-&gt; Maybe OriginDetails
+-&gt; Origin
+-&gt; AssetType
+-&gt; Text
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; Text
+-&gt; DataSetEntry
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceId:DataSetEntry' :: Maybe Text
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3AsourceId%3ADataSetEntry%27"><span class="hs-identifier hs-var">sourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:originDetails:DataSetEntry' :: Maybe OriginDetails
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3AoriginDetails%3ADataSetEntry%27"><span class="hs-identifier hs-var">originDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OriginDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:origin:DataSetEntry' :: Origin
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3Aorigin%3ADataSetEntry%27"><span class="hs-identifier hs-var">origin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Origin
+</span><a href="#local-6989586621679236601"><span class="hs-identifier hs-var">pOrigin_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:assetType:DataSetEntry' :: AssetType
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3AassetType%3ADataSetEntry%27"><span class="hs-identifier hs-var">assetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssetType
+</span><a href="#local-6989586621679236600"><span class="hs-identifier hs-var">pAssetType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:DataSetEntry' :: Text
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3Adescription%3ADataSetEntry%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236599"><span class="hs-identifier hs-var">pDescription_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:DataSetEntry' :: POSIX
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3AcreatedAt%3ADataSetEntry%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679236598"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:DataSetEntry' :: Text
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3Aid%3ADataSetEntry%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236597"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:DataSetEntry' :: Text
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3Aarn%3ADataSetEntry%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236596"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:updatedAt:DataSetEntry' :: POSIX
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3AupdatedAt%3ADataSetEntry%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679236595"><span class="hs-identifier hs-var">pUpdatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:DataSetEntry' :: Text
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3Aname%3ADataSetEntry%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236594"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The data set ID of the owned data set corresponding to the entitled data</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- set being viewed. This parameter is returned when a data set owner is</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- viewing the entitled copy of its owned data set.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_sourceId"><span class="hs-identifier hs-type">dataSetEntry_sourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="dataSetEntry_sourceId"><span class="annot"><span class="annottext">dataSetEntry_sourceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DataSetEntry -&gt; f DataSetEntry
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_sourceId"><span class="hs-identifier hs-var hs-var">dataSetEntry_sourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetEntry -&gt; Maybe Text)
+-&gt; (DataSetEntry -&gt; Maybe Text -&gt; DataSetEntry)
+-&gt; Lens DataSetEntry DataSetEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236588"><span class="annot"><span class="annottext">Maybe Text
+sourceId :: Maybe Text
+$sel:sourceId:DataSetEntry' :: DataSetEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679236588"><span class="hs-identifier hs-var hs-var">sourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236588"><span class="hs-identifier hs-var">sourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236587"><span class="annot"><span class="annottext">s :: DataSetEntry
+</span><a href="#local-6989586621679236587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236586"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetEntry
+</span><a href="#local-6989586621679236587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceId:DataSetEntry' :: Maybe Text
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3AsourceId%3ADataSetEntry%27"><span class="hs-identifier hs-var">sourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | If the origin of this data set is ENTITLED, includes the details for the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- product on AWS Marketplace.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_originDetails"><span class="hs-identifier hs-type">dataSetEntry_originDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.OriginDetails.html#OriginDetails"><span class="hs-identifier hs-type">OriginDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="dataSetEntry_originDetails"><span class="annot"><span class="annottext">dataSetEntry_originDetails :: (Maybe OriginDetails -&gt; f (Maybe OriginDetails))
+-&gt; DataSetEntry -&gt; f DataSetEntry
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_originDetails"><span class="hs-identifier hs-var hs-var">dataSetEntry_originDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetEntry -&gt; Maybe OriginDetails)
+-&gt; (DataSetEntry -&gt; Maybe OriginDetails -&gt; DataSetEntry)
+-&gt; Lens
+     DataSetEntry
+     DataSetEntry
+     (Maybe OriginDetails)
+     (Maybe OriginDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236584"><span class="annot"><span class="annottext">Maybe OriginDetails
+originDetails :: Maybe OriginDetails
+$sel:originDetails:DataSetEntry' :: DataSetEntry -&gt; Maybe OriginDetails
+</span><a href="#local-6989586621679236584"><span class="hs-identifier hs-var hs-var">originDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OriginDetails
+</span><a href="#local-6989586621679236584"><span class="hs-identifier hs-var">originDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236583"><span class="annot"><span class="annottext">s :: DataSetEntry
+</span><a href="#local-6989586621679236583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236582"><span class="annot"><span class="annottext">Maybe OriginDetails
+</span><a href="#local-6989586621679236582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetEntry
+</span><a href="#local-6989586621679236583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originDetails:DataSetEntry' :: Maybe OriginDetails
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3AoriginDetails%3ADataSetEntry%27"><span class="hs-identifier hs-var">originDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OriginDetails
+</span><a href="#local-6989586621679236582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | A property that defines the data set as OWNED by the account (for</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- providers) or ENTITLED to the account (for subscribers).</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_origin"><span class="hs-identifier hs-type">dataSetEntry_origin</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span>
+</span><span id="line-147"></span><span id="dataSetEntry_origin"><span class="annot"><span class="annottext">dataSetEntry_origin :: (Origin -&gt; f Origin) -&gt; DataSetEntry -&gt; f DataSetEntry
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_origin"><span class="hs-identifier hs-var hs-var">dataSetEntry_origin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetEntry -&gt; Origin)
+-&gt; (DataSetEntry -&gt; Origin -&gt; DataSetEntry)
+-&gt; Lens DataSetEntry DataSetEntry Origin Origin
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236580"><span class="annot"><span class="annottext">Origin
+origin :: Origin
+$sel:origin:DataSetEntry' :: DataSetEntry -&gt; Origin
+</span><a href="#local-6989586621679236580"><span class="hs-identifier hs-var hs-var">origin</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origin
+</span><a href="#local-6989586621679236580"><span class="hs-identifier hs-var">origin</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236579"><span class="annot"><span class="annottext">s :: DataSetEntry
+</span><a href="#local-6989586621679236579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236578"><span class="annot"><span class="annottext">Origin
+</span><a href="#local-6989586621679236578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetEntry
+</span><a href="#local-6989586621679236579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:origin:DataSetEntry' :: Origin
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3Aorigin%3ADataSetEntry%27"><span class="hs-identifier hs-var">origin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Origin
+</span><a href="#local-6989586621679236578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The type of asset that is added to a data set.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_assetType"><span class="hs-identifier hs-type">dataSetEntry_assetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.AssetType.html#AssetType"><span class="hs-identifier hs-type">AssetType</span></a></span><span>
+</span><span id="line-151"></span><span id="dataSetEntry_assetType"><span class="annot"><span class="annottext">dataSetEntry_assetType :: (AssetType -&gt; f AssetType) -&gt; DataSetEntry -&gt; f DataSetEntry
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_assetType"><span class="hs-identifier hs-var hs-var">dataSetEntry_assetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetEntry -&gt; AssetType)
+-&gt; (DataSetEntry -&gt; AssetType -&gt; DataSetEntry)
+-&gt; Lens DataSetEntry DataSetEntry AssetType AssetType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236576"><span class="annot"><span class="annottext">AssetType
+assetType :: AssetType
+$sel:assetType:DataSetEntry' :: DataSetEntry -&gt; AssetType
+</span><a href="#local-6989586621679236576"><span class="hs-identifier hs-var hs-var">assetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetType
+</span><a href="#local-6989586621679236576"><span class="hs-identifier hs-var">assetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236575"><span class="annot"><span class="annottext">s :: DataSetEntry
+</span><a href="#local-6989586621679236575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236574"><span class="annot"><span class="annottext">AssetType
+</span><a href="#local-6989586621679236574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetEntry
+</span><a href="#local-6989586621679236575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assetType:DataSetEntry' :: AssetType
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3AassetType%3ADataSetEntry%27"><span class="hs-identifier hs-var">assetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssetType
+</span><a href="#local-6989586621679236574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The description for the data set.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_description"><span class="hs-identifier hs-type">dataSetEntry_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-155"></span><span id="dataSetEntry_description"><span class="annot"><span class="annottext">dataSetEntry_description :: (Text -&gt; f Text) -&gt; DataSetEntry -&gt; f DataSetEntry
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_description"><span class="hs-identifier hs-var hs-var">dataSetEntry_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetEntry -&gt; Text)
+-&gt; (DataSetEntry -&gt; Text -&gt; DataSetEntry)
+-&gt; Lens DataSetEntry DataSetEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236572"><span class="annot"><span class="annottext">Text
+description :: Text
+$sel:description:DataSetEntry' :: DataSetEntry -&gt; Text
+</span><a href="#local-6989586621679236572"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236572"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236571"><span class="annot"><span class="annottext">s :: DataSetEntry
+</span><a href="#local-6989586621679236571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236570"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetEntry
+</span><a href="#local-6989586621679236571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:DataSetEntry' :: Text
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3Adescription%3ADataSetEntry%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The date and time that the data set was created, in ISO 8601 format.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_createdAt"><span class="hs-identifier hs-type">dataSetEntry_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-159"></span><span id="dataSetEntry_createdAt"><span class="annot"><span class="annottext">dataSetEntry_createdAt :: (UTCTime -&gt; f UTCTime) -&gt; DataSetEntry -&gt; f DataSetEntry
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_createdAt"><span class="hs-identifier hs-var hs-var">dataSetEntry_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetEntry -&gt; POSIX)
+-&gt; (DataSetEntry -&gt; POSIX -&gt; DataSetEntry)
+-&gt; Lens DataSetEntry DataSetEntry POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236568"><span class="annot"><span class="annottext">POSIX
+createdAt :: POSIX
+$sel:createdAt:DataSetEntry' :: DataSetEntry -&gt; POSIX
+</span><a href="#local-6989586621679236568"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679236568"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236567"><span class="annot"><span class="annottext">s :: DataSetEntry
+</span><a href="#local-6989586621679236567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236566"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679236566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetEntry
+</span><a href="#local-6989586621679236567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:DataSetEntry' :: POSIX
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3AcreatedAt%3ADataSetEntry%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679236566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; DataSetEntry -&gt; f DataSetEntry)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; DataSetEntry
+-&gt; f DataSetEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The unique identifier for the data set.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_id"><span class="hs-identifier hs-type">dataSetEntry_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-163"></span><span id="dataSetEntry_id"><span class="annot"><span class="annottext">dataSetEntry_id :: (Text -&gt; f Text) -&gt; DataSetEntry -&gt; f DataSetEntry
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_id"><span class="hs-identifier hs-var hs-var">dataSetEntry_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetEntry -&gt; Text)
+-&gt; (DataSetEntry -&gt; Text -&gt; DataSetEntry)
+-&gt; Lens DataSetEntry DataSetEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236563"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DataSetEntry' :: DataSetEntry -&gt; Text
+</span><a href="#local-6989586621679236563"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236563"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236562"><span class="annot"><span class="annottext">s :: DataSetEntry
+</span><a href="#local-6989586621679236562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236561"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetEntry
+</span><a href="#local-6989586621679236562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DataSetEntry' :: Text
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3Aid%3ADataSetEntry%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The ARN for the data set.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_arn"><span class="hs-identifier hs-type">dataSetEntry_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-167"></span><span id="dataSetEntry_arn"><span class="annot"><span class="annottext">dataSetEntry_arn :: (Text -&gt; f Text) -&gt; DataSetEntry -&gt; f DataSetEntry
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_arn"><span class="hs-identifier hs-var hs-var">dataSetEntry_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetEntry -&gt; Text)
+-&gt; (DataSetEntry -&gt; Text -&gt; DataSetEntry)
+-&gt; Lens DataSetEntry DataSetEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236559"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:DataSetEntry' :: DataSetEntry -&gt; Text
+</span><a href="#local-6989586621679236559"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236559"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236558"><span class="annot"><span class="annottext">s :: DataSetEntry
+</span><a href="#local-6989586621679236558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236557"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetEntry
+</span><a href="#local-6989586621679236558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DataSetEntry' :: Text
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3Aarn%3ADataSetEntry%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The date and time that the data set was last updated, in ISO 8601</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_updatedAt"><span class="hs-identifier hs-type">dataSetEntry_updatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-172"></span><span id="dataSetEntry_updatedAt"><span class="annot"><span class="annottext">dataSetEntry_updatedAt :: (UTCTime -&gt; f UTCTime) -&gt; DataSetEntry -&gt; f DataSetEntry
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_updatedAt"><span class="hs-identifier hs-var hs-var">dataSetEntry_updatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetEntry -&gt; POSIX)
+-&gt; (DataSetEntry -&gt; POSIX -&gt; DataSetEntry)
+-&gt; Lens DataSetEntry DataSetEntry POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236555"><span class="annot"><span class="annottext">POSIX
+updatedAt :: POSIX
+$sel:updatedAt:DataSetEntry' :: DataSetEntry -&gt; POSIX
+</span><a href="#local-6989586621679236555"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679236555"><span class="hs-identifier hs-var">updatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236554"><span class="annot"><span class="annottext">s :: DataSetEntry
+</span><a href="#local-6989586621679236554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236553"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679236553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetEntry
+</span><a href="#local-6989586621679236554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedAt:DataSetEntry' :: POSIX
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3AupdatedAt%3ADataSetEntry%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679236553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; DataSetEntry -&gt; f DataSetEntry)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; DataSetEntry
+-&gt; f DataSetEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The name of the data set.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_name"><span class="hs-identifier hs-type">dataSetEntry_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-176"></span><span id="dataSetEntry_name"><span class="annot"><span class="annottext">dataSetEntry_name :: (Text -&gt; f Text) -&gt; DataSetEntry -&gt; f DataSetEntry
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#dataSetEntry_name"><span class="hs-identifier hs-var hs-var">dataSetEntry_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetEntry -&gt; Text)
+-&gt; (DataSetEntry -&gt; Text -&gt; DataSetEntry)
+-&gt; Lens DataSetEntry DataSetEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236551"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:DataSetEntry' :: DataSetEntry -&gt; Text
+</span><a href="#local-6989586621679236551"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236551"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236550"><span class="annot"><span class="annottext">s :: DataSetEntry
+</span><a href="#local-6989586621679236550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-type">DataSetEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236549"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetEntry
+</span><a href="#local-6989586621679236550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DataSetEntry' :: Text
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#%24sel%3Aname%3ADataSetEntry%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236546"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679236544"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataSetEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DataSetEntry) -&gt; Value -&gt; Parser DataSetEntry
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DataSetEntry&quot;</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679236541"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236541"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe OriginDetails
+-&gt; Origin
+-&gt; AssetType
+-&gt; Text
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; Text
+-&gt; DataSetEntry
+</span><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry%27"><span class="hs-identifier hs-var">DataSetEntry'</span></a></span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe OriginDetails
+ -&gt; Origin
+ -&gt; AssetType
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; DataSetEntry)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe OriginDetails
+      -&gt; Origin
+      -&gt; AssetType
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; DataSetEntry)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OriginDetails
+   -&gt; Origin
+   -&gt; AssetType
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; DataSetEntry)
+-&gt; Parser (Maybe OriginDetails)
+-&gt; Parser
+     (Origin
+      -&gt; AssetType
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; DataSetEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OriginDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OriginDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Origin
+   -&gt; AssetType
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; DataSetEntry)
+-&gt; Parser Origin
+-&gt; Parser
+     (AssetType
+      -&gt; Text -&gt; POSIX -&gt; Text -&gt; Text -&gt; POSIX -&gt; Text -&gt; DataSetEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Origin
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Origin&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (AssetType
+   -&gt; Text -&gt; POSIX -&gt; Text -&gt; Text -&gt; POSIX -&gt; Text -&gt; DataSetEntry)
+-&gt; Parser AssetType
+-&gt; Parser
+     (Text -&gt; POSIX -&gt; Text -&gt; Text -&gt; POSIX -&gt; Text -&gt; DataSetEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AssetType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssetType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; POSIX -&gt; Text -&gt; Text -&gt; POSIX -&gt; Text -&gt; DataSetEntry)
+-&gt; Parser Text
+-&gt; Parser (POSIX -&gt; Text -&gt; Text -&gt; POSIX -&gt; Text -&gt; DataSetEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; Text -&gt; Text -&gt; POSIX -&gt; Text -&gt; DataSetEntry)
+-&gt; Parser POSIX
+-&gt; Parser (Text -&gt; Text -&gt; POSIX -&gt; Text -&gt; DataSetEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; POSIX -&gt; Text -&gt; DataSetEntry)
+-&gt; Parser Text -&gt; Parser (Text -&gt; POSIX -&gt; Text -&gt; DataSetEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; POSIX -&gt; Text -&gt; DataSetEntry)
+-&gt; Parser Text -&gt; Parser (POSIX -&gt; Text -&gt; DataSetEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; Text -&gt; DataSetEntry)
+-&gt; Parser POSIX -&gt; Parser (Text -&gt; DataSetEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; DataSetEntry) -&gt; Parser Text -&gt; Parser DataSetEntry
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236534"><span id="local-6989586621679236536"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span></span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236531"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier hs-type">DataSetEntry</span></a></span></span><span>
+</span><span id="line-199"></span></pre></body></html>

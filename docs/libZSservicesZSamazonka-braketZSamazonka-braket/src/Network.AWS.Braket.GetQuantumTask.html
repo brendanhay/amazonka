@@ -1,0 +1,1074 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Braket.GetQuantumTask</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the specified quantum task.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Braket.GetQuantumTask</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTask"><span class="hs-identifier">GetQuantumTask</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#newGetQuantumTask"><span class="hs-identifier">newGetQuantumTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTask_quantumTaskArn"><span class="hs-identifier">getQuantumTask_quantumTaskArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier">GetQuantumTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#newGetQuantumTaskResponse"><span class="hs-identifier">newGetQuantumTaskResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_failureReason"><span class="hs-identifier">getQuantumTaskResponse_failureReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_endedAt"><span class="hs-identifier">getQuantumTaskResponse_endedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_tags"><span class="hs-identifier">getQuantumTaskResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_httpStatus"><span class="hs-identifier">getQuantumTaskResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_createdAt"><span class="hs-identifier">getQuantumTaskResponse_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_deviceArn"><span class="hs-identifier">getQuantumTaskResponse_deviceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_deviceParameters"><span class="hs-identifier">getQuantumTaskResponse_deviceParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_outputS3Bucket"><span class="hs-identifier">getQuantumTaskResponse_outputS3Bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_outputS3Directory"><span class="hs-identifier">getQuantumTaskResponse_outputS3Directory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_quantumTaskArn"><span class="hs-identifier">getQuantumTaskResponse_quantumTaskArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_shots"><span class="hs-identifier">getQuantumTaskResponse_shots</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_status"><span class="hs-identifier">getQuantumTaskResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.html"><span class="hs-identifier">Network.AWS.Braket.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newGetQuantumTask' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679163411"><span id="local-6989586621679163412"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetQuantumTask"><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTask"><span class="hs-identifier hs-var">GetQuantumTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetQuantumTask%27"><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTask%27"><span class="hs-identifier hs-var">GetQuantumTask'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | the ARN of the task to retrieve.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AquantumTaskArn%3AGetQuantumTask%27"><span class="annot"><span class="annottext">GetQuantumTask -&gt; Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AquantumTaskArn%3AGetQuantumTask%27"><span class="hs-identifier hs-var hs-var">quantumTaskArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679163405"><span id="local-6989586621679163407"><span class="annot"><span class="annottext">GetQuantumTask -&gt; GetQuantumTask -&gt; Bool
+(GetQuantumTask -&gt; GetQuantumTask -&gt; Bool)
+-&gt; (GetQuantumTask -&gt; GetQuantumTask -&gt; Bool) -&gt; Eq GetQuantumTask
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetQuantumTask -&gt; GetQuantumTask -&gt; Bool
+$c/= :: GetQuantumTask -&gt; GetQuantumTask -&gt; Bool
+== :: GetQuantumTask -&gt; GetQuantumTask -&gt; Bool
+$c== :: GetQuantumTask -&gt; GetQuantumTask -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163396"><span id="local-6989586621679163398"><span id="local-6989586621679163400"><span id="local-6989586621679163402"><span class="annot"><span class="annottext">ReadPrec [GetQuantumTask]
+ReadPrec GetQuantumTask
+Int -&gt; ReadS GetQuantumTask
+ReadS [GetQuantumTask]
+(Int -&gt; ReadS GetQuantumTask)
+-&gt; ReadS [GetQuantumTask]
+-&gt; ReadPrec GetQuantumTask
+-&gt; ReadPrec [GetQuantumTask]
+-&gt; Read GetQuantumTask
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetQuantumTask]
+$creadListPrec :: ReadPrec [GetQuantumTask]
+readPrec :: ReadPrec GetQuantumTask
+$creadPrec :: ReadPrec GetQuantumTask
+readList :: ReadS [GetQuantumTask]
+$creadList :: ReadS [GetQuantumTask]
+readsPrec :: Int -&gt; ReadS GetQuantumTask
+$creadsPrec :: Int -&gt; ReadS GetQuantumTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163389"><span id="local-6989586621679163391"><span id="local-6989586621679163393"><span class="annot"><span class="annottext">Int -&gt; GetQuantumTask -&gt; ShowS
+[GetQuantumTask] -&gt; ShowS
+GetQuantumTask -&gt; String
+(Int -&gt; GetQuantumTask -&gt; ShowS)
+-&gt; (GetQuantumTask -&gt; String)
+-&gt; ([GetQuantumTask] -&gt; ShowS)
+-&gt; Show GetQuantumTask
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetQuantumTask] -&gt; ShowS
+$cshowList :: [GetQuantumTask] -&gt; ShowS
+show :: GetQuantumTask -&gt; String
+$cshow :: GetQuantumTask -&gt; String
+showsPrec :: Int -&gt; GetQuantumTask -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetQuantumTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetQuantumTask -&gt; Rep GetQuantumTask x)
+-&gt; (forall x. Rep GetQuantumTask x -&gt; GetQuantumTask)
+-&gt; Generic GetQuantumTask
+forall x. Rep GetQuantumTask x -&gt; GetQuantumTask
+forall x. GetQuantumTask -&gt; Rep GetQuantumTask x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetQuantumTask x -&gt; GetQuantumTask
+$cfrom :: forall x. GetQuantumTask -&gt; Rep GetQuantumTask x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'GetQuantumTask' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'quantumTaskArn', 'getQuantumTask_quantumTaskArn' - the ARN of the task to retrieve.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#newGetQuantumTask"><span class="hs-identifier hs-type">newGetQuantumTask</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'quantumTaskArn'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTask"><span class="hs-identifier hs-type">GetQuantumTask</span></a></span><span>
+</span><span id="line-79"></span><span id="newGetQuantumTask"><span class="annot"><span class="annottext">newGetQuantumTask :: Text -&gt; GetQuantumTask
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#newGetQuantumTask"><span class="hs-identifier hs-var hs-var">newGetQuantumTask</span></a></span></span><span> </span><span id="local-6989586621679163384"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163384"><span class="hs-identifier hs-var">pQuantumTaskArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">GetQuantumTask' :: Text -&gt; GetQuantumTask
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTask%27"><span class="hs-identifier hs-type">GetQuantumTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantumTaskArn:GetQuantumTask' :: Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AquantumTaskArn%3AGetQuantumTask%27"><span class="hs-identifier hs-var">quantumTaskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163384"><span class="hs-identifier hs-var">pQuantumTaskArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | the ARN of the task to retrieve.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTask_quantumTaskArn"><span class="hs-identifier hs-type">getQuantumTask_quantumTaskArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTask"><span class="hs-identifier hs-type">GetQuantumTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="getQuantumTask_quantumTaskArn"><span class="annot"><span class="annottext">getQuantumTask_quantumTaskArn :: (Text -&gt; f Text) -&gt; GetQuantumTask -&gt; f GetQuantumTask
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTask_quantumTaskArn"><span class="hs-identifier hs-var hs-var">getQuantumTask_quantumTaskArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQuantumTask -&gt; Text)
+-&gt; (GetQuantumTask -&gt; Text -&gt; GetQuantumTask)
+-&gt; Lens GetQuantumTask GetQuantumTask Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTask%27"><span class="hs-identifier hs-type">GetQuantumTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163381"><span class="annot"><span class="annottext">Text
+quantumTaskArn :: Text
+$sel:quantumTaskArn:GetQuantumTask' :: GetQuantumTask -&gt; Text
+</span><a href="#local-6989586621679163381"><span class="hs-identifier hs-var hs-var">quantumTaskArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163381"><span class="hs-identifier hs-var">quantumTaskArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163380"><span class="annot"><span class="annottext">s :: GetQuantumTask
+</span><a href="#local-6989586621679163380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTask%27"><span class="hs-identifier hs-type">GetQuantumTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163379"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQuantumTask
+</span><a href="#local-6989586621679163380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantumTaskArn:GetQuantumTask' :: Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AquantumTaskArn%3AGetQuantumTask%27"><span class="hs-identifier hs-var">quantumTaskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTask"><span class="hs-identifier hs-type">GetQuantumTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTask"><span class="hs-identifier hs-type">GetQuantumTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTask"><span class="hs-identifier hs-type">GetQuantumTask</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679163375"><span class="annot"><span class="annottext">request :: GetQuantumTask -&gt; Request GetQuantumTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetQuantumTask -&gt; Request GetQuantumTask
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Braket.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679163371"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetQuantumTask
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetQuantumTask)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetQuantumTask))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetQuantumTask
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetQuantumTask)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679163368"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679163368"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679163367"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679163367"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679163366"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163366"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Integer
+-&gt; QuantumTaskStatus
+-&gt; GetQuantumTaskResponse
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-var">GetQuantumTaskResponse'</span></a></span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Integer
+ -&gt; QuantumTaskStatus
+ -&gt; GetQuantumTaskResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Integer
+      -&gt; QuantumTaskStatus
+      -&gt; GetQuantumTaskResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Integer
+   -&gt; QuantumTaskStatus
+   -&gt; GetQuantumTaskResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Integer
+      -&gt; QuantumTaskStatus
+      -&gt; GetQuantumTaskResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;endedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Integer
+   -&gt; QuantumTaskStatus
+   -&gt; GetQuantumTaskResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either
+     String
+     (Int
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Integer
+      -&gt; QuantumTaskStatus
+      -&gt; GetQuantumTaskResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Integer
+   -&gt; QuantumTaskStatus
+   -&gt; GetQuantumTaskResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Integer
+      -&gt; QuantumTaskStatus
+      -&gt; GetQuantumTaskResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679163368"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Integer
+   -&gt; QuantumTaskStatus
+   -&gt; GetQuantumTaskResponse)
+-&gt; Either String POSIX
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Integer
+      -&gt; QuantumTaskStatus
+      -&gt; GetQuantumTaskResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Integer
+   -&gt; QuantumTaskStatus
+   -&gt; GetQuantumTaskResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Integer
+      -&gt; QuantumTaskStatus
+      -&gt; GetQuantumTaskResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Integer
+   -&gt; QuantumTaskStatus
+   -&gt; GetQuantumTaskResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Integer
+      -&gt; QuantumTaskStatus
+      -&gt; GetQuantumTaskResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceParameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Integer
+   -&gt; QuantumTaskStatus
+   -&gt; GetQuantumTaskResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text
+      -&gt; Text -&gt; Integer -&gt; QuantumTaskStatus -&gt; GetQuantumTaskResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outputS3Bucket&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text -&gt; Integer -&gt; QuantumTaskStatus -&gt; GetQuantumTaskResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text -&gt; Integer -&gt; QuantumTaskStatus -&gt; GetQuantumTaskResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outputS3Directory&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text -&gt; Integer -&gt; QuantumTaskStatus -&gt; GetQuantumTaskResponse)
+-&gt; Either String Text
+-&gt; Either
+     String (Integer -&gt; QuantumTaskStatus -&gt; GetQuantumTaskResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;quantumTaskArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Integer -&gt; QuantumTaskStatus -&gt; GetQuantumTaskResponse)
+-&gt; Either String Integer
+-&gt; Either String (QuantumTaskStatus -&gt; GetQuantumTaskResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;shots&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either String (QuantumTaskStatus -&gt; GetQuantumTaskResponse)
+-&gt; Either String QuantumTaskStatus
+-&gt; Either String GetQuantumTaskResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String QuantumTaskStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163356"><span id="local-6989586621679163358"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTask"><span class="hs-identifier hs-type">GetQuantumTask</span></a></span></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163353"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTask"><span class="hs-identifier hs-type">GetQuantumTask</span></a></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTask"><span class="hs-identifier hs-type">GetQuantumTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679163349"><span class="annot"><span class="annottext">toHeaders :: GetQuantumTask -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetQuantumTask -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-120"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTask"><span class="hs-identifier hs-type">GetQuantumTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679163343"><span class="annot"><span class="annottext">toPath :: GetQuantumTask -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTask%27"><span class="hs-identifier hs-type">GetQuantumTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163341"><span class="annot"><span class="annottext">Text
+quantumTaskArn :: Text
+$sel:quantumTaskArn:GetQuantumTask' :: GetQuantumTask -&gt; Text
+</span><a href="#local-6989586621679163341"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/quantum-task/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163341"><span class="hs-identifier hs-var">quantumTaskArn</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTask"><span class="hs-identifier hs-type">GetQuantumTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679163337"><span class="annot"><span class="annottext">toQuery :: GetQuantumTask -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetQuantumTask -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newGetQuantumTaskResponse' smart constructor.</span><span>
+</span><span id="line-133"></span><span id="local-6989586621679163334"><span id="local-6989586621679163335"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetQuantumTaskResponse"><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-var">GetQuantumTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetQuantumTaskResponse%27"><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-var">GetQuantumTaskResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The reason that a task failed.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AfailureReason%3AGetQuantumTaskResponse%27"><span class="annot"><span class="annottext">GetQuantumTaskResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AfailureReason%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The time at which the task ended.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AendedAt%3AGetQuantumTaskResponse%27"><span class="annot"><span class="annottext">GetQuantumTaskResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AendedAt%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var hs-var">endedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The tags that belong to this task.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3Atags%3AGetQuantumTaskResponse%27"><span class="annot"><span class="annottext">GetQuantumTaskResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3Atags%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetQuantumTaskResponse%27"><span class="annot"><span class="annottext">GetQuantumTaskResponse -&gt; Int
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AhttpStatus%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The time at which the task was created.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AcreatedAt%3AGetQuantumTaskResponse%27"><span class="annot"><span class="annottext">GetQuantumTaskResponse -&gt; POSIX
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AcreatedAt%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | The ARN of the device the task was run on.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AdeviceArn%3AGetQuantumTaskResponse%27"><span class="annot"><span class="annottext">GetQuantumTaskResponse -&gt; Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AdeviceArn%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The parameters for the device on which the task ran.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AdeviceParameters%3AGetQuantumTaskResponse%27"><span class="annot"><span class="annottext">GetQuantumTaskResponse -&gt; Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AdeviceParameters%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var hs-var">deviceParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The S3 bucket where task results are stored.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AoutputS3Bucket%3AGetQuantumTaskResponse%27"><span class="annot"><span class="annottext">GetQuantumTaskResponse -&gt; Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AoutputS3Bucket%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var hs-var">outputS3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The folder in the S3 bucket where task results are stored.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AoutputS3Directory%3AGetQuantumTaskResponse%27"><span class="annot"><span class="annottext">GetQuantumTaskResponse -&gt; Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AoutputS3Directory%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var hs-var">outputS3Directory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The ARN of the task.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AquantumTaskArn%3AGetQuantumTaskResponse%27"><span class="annot"><span class="annottext">GetQuantumTaskResponse -&gt; Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AquantumTaskArn%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var hs-var">quantumTaskArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The number of shots used in the task.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3Ashots%3AGetQuantumTaskResponse%27"><span class="annot"><span class="annottext">GetQuantumTaskResponse -&gt; Integer
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3Ashots%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var hs-var">shots</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | The status of the task.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3Astatus%3AGetQuantumTaskResponse%27"><span class="annot"><span class="annottext">GetQuantumTaskResponse -&gt; QuantumTaskStatus
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3Astatus%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus"><span class="hs-identifier hs-type">QuantumTaskStatus</span></a></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679163318"><span id="local-6989586621679163320"><span class="annot"><span class="annottext">GetQuantumTaskResponse -&gt; GetQuantumTaskResponse -&gt; Bool
+(GetQuantumTaskResponse -&gt; GetQuantumTaskResponse -&gt; Bool)
+-&gt; (GetQuantumTaskResponse -&gt; GetQuantumTaskResponse -&gt; Bool)
+-&gt; Eq GetQuantumTaskResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetQuantumTaskResponse -&gt; GetQuantumTaskResponse -&gt; Bool
+$c/= :: GetQuantumTaskResponse -&gt; GetQuantumTaskResponse -&gt; Bool
+== :: GetQuantumTaskResponse -&gt; GetQuantumTaskResponse -&gt; Bool
+$c== :: GetQuantumTaskResponse -&gt; GetQuantumTaskResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163310"><span id="local-6989586621679163312"><span id="local-6989586621679163314"><span id="local-6989586621679163316"><span class="annot"><span class="annottext">ReadPrec [GetQuantumTaskResponse]
+ReadPrec GetQuantumTaskResponse
+Int -&gt; ReadS GetQuantumTaskResponse
+ReadS [GetQuantumTaskResponse]
+(Int -&gt; ReadS GetQuantumTaskResponse)
+-&gt; ReadS [GetQuantumTaskResponse]
+-&gt; ReadPrec GetQuantumTaskResponse
+-&gt; ReadPrec [GetQuantumTaskResponse]
+-&gt; Read GetQuantumTaskResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetQuantumTaskResponse]
+$creadListPrec :: ReadPrec [GetQuantumTaskResponse]
+readPrec :: ReadPrec GetQuantumTaskResponse
+$creadPrec :: ReadPrec GetQuantumTaskResponse
+readList :: ReadS [GetQuantumTaskResponse]
+$creadList :: ReadS [GetQuantumTaskResponse]
+readsPrec :: Int -&gt; ReadS GetQuantumTaskResponse
+$creadsPrec :: Int -&gt; ReadS GetQuantumTaskResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163304"><span id="local-6989586621679163306"><span id="local-6989586621679163308"><span class="annot"><span class="annottext">Int -&gt; GetQuantumTaskResponse -&gt; ShowS
+[GetQuantumTaskResponse] -&gt; ShowS
+GetQuantumTaskResponse -&gt; String
+(Int -&gt; GetQuantumTaskResponse -&gt; ShowS)
+-&gt; (GetQuantumTaskResponse -&gt; String)
+-&gt; ([GetQuantumTaskResponse] -&gt; ShowS)
+-&gt; Show GetQuantumTaskResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetQuantumTaskResponse] -&gt; ShowS
+$cshowList :: [GetQuantumTaskResponse] -&gt; ShowS
+show :: GetQuantumTaskResponse -&gt; String
+$cshow :: GetQuantumTaskResponse -&gt; String
+showsPrec :: Int -&gt; GetQuantumTaskResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetQuantumTaskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetQuantumTaskResponse -&gt; Rep GetQuantumTaskResponse x)
+-&gt; (forall x.
+    Rep GetQuantumTaskResponse x -&gt; GetQuantumTaskResponse)
+-&gt; Generic GetQuantumTaskResponse
+forall x. Rep GetQuantumTaskResponse x -&gt; GetQuantumTaskResponse
+forall x. GetQuantumTaskResponse -&gt; Rep GetQuantumTaskResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetQuantumTaskResponse x -&gt; GetQuantumTaskResponse
+$cfrom :: forall x. GetQuantumTaskResponse -&gt; Rep GetQuantumTaskResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Create a value of 'GetQuantumTaskResponse' with all optional fields omitted.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'failureReason', 'getQuantumTaskResponse_failureReason' - The reason that a task failed.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'endedAt', 'getQuantumTaskResponse_endedAt' - The time at which the task ended.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'tags', 'getQuantumTaskResponse_tags' - The tags that belong to this task.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'httpStatus', 'getQuantumTaskResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'createdAt', 'getQuantumTaskResponse_createdAt' - The time at which the task was created.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'deviceArn', 'getQuantumTaskResponse_deviceArn' - The ARN of the device the task was run on.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'deviceParameters', 'getQuantumTaskResponse_deviceParameters' - The parameters for the device on which the task ran.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'outputS3Bucket', 'getQuantumTaskResponse_outputS3Bucket' - The S3 bucket where task results are stored.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'outputS3Directory', 'getQuantumTaskResponse_outputS3Directory' - The folder in the S3 bucket where task results are stored.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'quantumTaskArn', 'getQuantumTaskResponse_quantumTaskArn' - The ARN of the task.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'shots', 'getQuantumTaskResponse_shots' - The number of shots used in the task.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'status', 'getQuantumTaskResponse_status' - The status of the task.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#newGetQuantumTaskResponse"><span class="hs-identifier hs-type">newGetQuantumTaskResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'createdAt'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-comment">-- | 'deviceArn'</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-comment">-- | 'deviceParameters'</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-comment">-- | 'outputS3Bucket'</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-comment">-- | 'outputS3Directory'</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-comment">-- | 'quantumTaskArn'</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-comment">-- | 'shots'</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus"><span class="hs-identifier hs-type">QuantumTaskStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span>
+</span><span id="line-212"></span><span id="newGetQuantumTaskResponse"><span class="annot"><span class="annottext">newGetQuantumTaskResponse :: Int
+-&gt; UTCTime
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Integer
+-&gt; QuantumTaskStatus
+-&gt; GetQuantumTaskResponse
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#newGetQuantumTaskResponse"><span class="hs-identifier hs-var hs-var">newGetQuantumTaskResponse</span></a></span></span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679163301"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679163301"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679163300"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679163300"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679163299"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163299"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span></span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679163298"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163298"><span class="hs-identifier hs-var">pDeviceParameters_</span></a></span></span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679163297"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163297"><span class="hs-identifier hs-var">pOutputS3Bucket_</span></a></span></span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679163296"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163296"><span class="hs-identifier hs-var">pOutputS3Directory_</span></a></span></span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679163295"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163295"><span class="hs-identifier hs-var">pQuantumTaskArn_</span></a></span></span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679163294"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679163294"><span class="hs-identifier hs-var">pShots_</span></a></span></span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679163293"><span class="annot"><span class="annottext">QuantumTaskStatus
+</span><a href="#local-6989586621679163293"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><span class="annottext">GetQuantumTaskResponse' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Integer
+-&gt; QuantumTaskStatus
+-&gt; GetQuantumTaskResponse
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failureReason:GetQuantumTaskResponse' :: Maybe Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AfailureReason%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">$sel:endedAt:GetQuantumTaskResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AendedAt%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">endedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:GetQuantumTaskResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3Atags%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetQuantumTaskResponse' :: Int
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AhttpStatus%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679163301"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:GetQuantumTaskResponse' :: POSIX
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AcreatedAt%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679163300"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">$sel:deviceArn:GetQuantumTaskResponse' :: Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AdeviceArn%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163299"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">$sel:deviceParameters:GetQuantumTaskResponse' :: Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AdeviceParameters%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">deviceParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163298"><span class="hs-identifier hs-var">pDeviceParameters_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputS3Bucket:GetQuantumTaskResponse' :: Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AoutputS3Bucket%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">outputS3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163297"><span class="hs-identifier hs-var">pOutputS3Bucket_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputS3Directory:GetQuantumTaskResponse' :: Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AoutputS3Directory%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">outputS3Directory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163296"><span class="hs-identifier hs-var">pOutputS3Directory_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">$sel:quantumTaskArn:GetQuantumTaskResponse' :: Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AquantumTaskArn%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">quantumTaskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163295"><span class="hs-identifier hs-var">pQuantumTaskArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">$sel:shots:GetQuantumTaskResponse' :: Integer
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3Ashots%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">shots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679163294"><span class="hs-identifier hs-var">pShots_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:GetQuantumTaskResponse' :: QuantumTaskStatus
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3Astatus%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QuantumTaskStatus
+</span><a href="#local-6989586621679163293"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The reason that a task failed.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_failureReason"><span class="hs-identifier hs-type">getQuantumTaskResponse_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="getQuantumTaskResponse_failureReason"><span class="annot"><span class="annottext">getQuantumTaskResponse_failureReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetQuantumTaskResponse -&gt; f GetQuantumTaskResponse
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_failureReason"><span class="hs-identifier hs-var hs-var">getQuantumTaskResponse_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQuantumTaskResponse -&gt; Maybe Text)
+-&gt; (GetQuantumTaskResponse -&gt; Maybe Text -&gt; GetQuantumTaskResponse)
+-&gt; Lens
+     GetQuantumTaskResponse
+     GetQuantumTaskResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163290"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:GetQuantumTaskResponse' :: GetQuantumTaskResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679163290"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163290"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163289"><span class="annot"><span class="annottext">s :: GetQuantumTaskResponse
+</span><a href="#local-6989586621679163289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163288"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQuantumTaskResponse
+</span><a href="#local-6989586621679163289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:GetQuantumTaskResponse' :: Maybe Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AfailureReason%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The time at which the task ended.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_endedAt"><span class="hs-identifier hs-type">getQuantumTaskResponse_endedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="getQuantumTaskResponse_endedAt"><span class="annot"><span class="annottext">getQuantumTaskResponse_endedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetQuantumTaskResponse -&gt; f GetQuantumTaskResponse
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_endedAt"><span class="hs-identifier hs-var hs-var">getQuantumTaskResponse_endedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQuantumTaskResponse -&gt; Maybe POSIX)
+-&gt; (GetQuantumTaskResponse
+    -&gt; Maybe POSIX -&gt; GetQuantumTaskResponse)
+-&gt; Lens
+     GetQuantumTaskResponse
+     GetQuantumTaskResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163287"><span class="annot"><span class="annottext">Maybe POSIX
+endedAt :: Maybe POSIX
+$sel:endedAt:GetQuantumTaskResponse' :: GetQuantumTaskResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679163287"><span class="hs-identifier hs-var hs-var">endedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679163287"><span class="hs-identifier hs-var">endedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163286"><span class="annot"><span class="annottext">s :: GetQuantumTaskResponse
+</span><a href="#local-6989586621679163286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163285"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679163285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQuantumTaskResponse
+</span><a href="#local-6989586621679163286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endedAt:GetQuantumTaskResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AendedAt%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">endedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679163285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetQuantumTaskResponse -&gt; f GetQuantumTaskResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetQuantumTaskResponse
+-&gt; f GetQuantumTaskResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The tags that belong to this task.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_tags"><span class="hs-identifier hs-type">getQuantumTaskResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="getQuantumTaskResponse_tags"><span class="annot"><span class="annottext">getQuantumTaskResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetQuantumTaskResponse -&gt; f GetQuantumTaskResponse
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_tags"><span class="hs-identifier hs-var hs-var">getQuantumTaskResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQuantumTaskResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (GetQuantumTaskResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; GetQuantumTaskResponse)
+-&gt; Lens
+     GetQuantumTaskResponse
+     GetQuantumTaskResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163282"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:GetQuantumTaskResponse' :: GetQuantumTaskResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679163282"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679163282"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163281"><span class="annot"><span class="annottext">s :: GetQuantumTaskResponse
+</span><a href="#local-6989586621679163281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163280"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679163280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQuantumTaskResponse
+</span><a href="#local-6989586621679163281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetQuantumTaskResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3Atags%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679163280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; GetQuantumTaskResponse -&gt; f GetQuantumTaskResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetQuantumTaskResponse
+-&gt; f GetQuantumTaskResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_httpStatus"><span class="hs-identifier hs-type">getQuantumTaskResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-252"></span><span id="getQuantumTaskResponse_httpStatus"><span class="annot"><span class="annottext">getQuantumTaskResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetQuantumTaskResponse -&gt; f GetQuantumTaskResponse
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getQuantumTaskResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQuantumTaskResponse -&gt; Int)
+-&gt; (GetQuantumTaskResponse -&gt; Int -&gt; GetQuantumTaskResponse)
+-&gt; Lens GetQuantumTaskResponse GetQuantumTaskResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163278"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetQuantumTaskResponse' :: GetQuantumTaskResponse -&gt; Int
+</span><a href="#local-6989586621679163278"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679163278"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163277"><span class="annot"><span class="annottext">s :: GetQuantumTaskResponse
+</span><a href="#local-6989586621679163277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163276"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679163276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQuantumTaskResponse
+</span><a href="#local-6989586621679163277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetQuantumTaskResponse' :: Int
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AhttpStatus%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679163276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The time at which the task was created.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_createdAt"><span class="hs-identifier hs-type">getQuantumTaskResponse_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-256"></span><span id="getQuantumTaskResponse_createdAt"><span class="annot"><span class="annottext">getQuantumTaskResponse_createdAt :: (UTCTime -&gt; f UTCTime)
+-&gt; GetQuantumTaskResponse -&gt; f GetQuantumTaskResponse
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_createdAt"><span class="hs-identifier hs-var hs-var">getQuantumTaskResponse_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQuantumTaskResponse -&gt; POSIX)
+-&gt; (GetQuantumTaskResponse -&gt; POSIX -&gt; GetQuantumTaskResponse)
+-&gt; Lens GetQuantumTaskResponse GetQuantumTaskResponse POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163275"><span class="annot"><span class="annottext">POSIX
+createdAt :: POSIX
+$sel:createdAt:GetQuantumTaskResponse' :: GetQuantumTaskResponse -&gt; POSIX
+</span><a href="#local-6989586621679163275"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679163275"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163274"><span class="annot"><span class="annottext">s :: GetQuantumTaskResponse
+</span><a href="#local-6989586621679163274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163273"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679163273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQuantumTaskResponse
+</span><a href="#local-6989586621679163274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:GetQuantumTaskResponse' :: POSIX
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AcreatedAt%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679163273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; GetQuantumTaskResponse -&gt; f GetQuantumTaskResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; GetQuantumTaskResponse
+-&gt; f GetQuantumTaskResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The ARN of the device the task was run on.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_deviceArn"><span class="hs-identifier hs-type">getQuantumTaskResponse_deviceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-260"></span><span id="getQuantumTaskResponse_deviceArn"><span class="annot"><span class="annottext">getQuantumTaskResponse_deviceArn :: (Text -&gt; f Text)
+-&gt; GetQuantumTaskResponse -&gt; f GetQuantumTaskResponse
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_deviceArn"><span class="hs-identifier hs-var hs-var">getQuantumTaskResponse_deviceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQuantumTaskResponse -&gt; Text)
+-&gt; (GetQuantumTaskResponse -&gt; Text -&gt; GetQuantumTaskResponse)
+-&gt; Lens GetQuantumTaskResponse GetQuantumTaskResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163272"><span class="annot"><span class="annottext">Text
+deviceArn :: Text
+$sel:deviceArn:GetQuantumTaskResponse' :: GetQuantumTaskResponse -&gt; Text
+</span><a href="#local-6989586621679163272"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163272"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163271"><span class="annot"><span class="annottext">s :: GetQuantumTaskResponse
+</span><a href="#local-6989586621679163271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163270"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQuantumTaskResponse
+</span><a href="#local-6989586621679163271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceArn:GetQuantumTaskResponse' :: Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AdeviceArn%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | The parameters for the device on which the task ran.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_deviceParameters"><span class="hs-identifier hs-type">getQuantumTaskResponse_deviceParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-264"></span><span id="getQuantumTaskResponse_deviceParameters"><span class="annot"><span class="annottext">getQuantumTaskResponse_deviceParameters :: (Text -&gt; f Text)
+-&gt; GetQuantumTaskResponse -&gt; f GetQuantumTaskResponse
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_deviceParameters"><span class="hs-identifier hs-var hs-var">getQuantumTaskResponse_deviceParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQuantumTaskResponse -&gt; Text)
+-&gt; (GetQuantumTaskResponse -&gt; Text -&gt; GetQuantumTaskResponse)
+-&gt; Lens GetQuantumTaskResponse GetQuantumTaskResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163269"><span class="annot"><span class="annottext">Text
+deviceParameters :: Text
+$sel:deviceParameters:GetQuantumTaskResponse' :: GetQuantumTaskResponse -&gt; Text
+</span><a href="#local-6989586621679163269"><span class="hs-identifier hs-var hs-var">deviceParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163269"><span class="hs-identifier hs-var">deviceParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163268"><span class="annot"><span class="annottext">s :: GetQuantumTaskResponse
+</span><a href="#local-6989586621679163268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163267"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQuantumTaskResponse
+</span><a href="#local-6989586621679163268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceParameters:GetQuantumTaskResponse' :: Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AdeviceParameters%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">deviceParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | The S3 bucket where task results are stored.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_outputS3Bucket"><span class="hs-identifier hs-type">getQuantumTaskResponse_outputS3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-268"></span><span id="getQuantumTaskResponse_outputS3Bucket"><span class="annot"><span class="annottext">getQuantumTaskResponse_outputS3Bucket :: (Text -&gt; f Text)
+-&gt; GetQuantumTaskResponse -&gt; f GetQuantumTaskResponse
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_outputS3Bucket"><span class="hs-identifier hs-var hs-var">getQuantumTaskResponse_outputS3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQuantumTaskResponse -&gt; Text)
+-&gt; (GetQuantumTaskResponse -&gt; Text -&gt; GetQuantumTaskResponse)
+-&gt; Lens GetQuantumTaskResponse GetQuantumTaskResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163266"><span class="annot"><span class="annottext">Text
+outputS3Bucket :: Text
+$sel:outputS3Bucket:GetQuantumTaskResponse' :: GetQuantumTaskResponse -&gt; Text
+</span><a href="#local-6989586621679163266"><span class="hs-identifier hs-var hs-var">outputS3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163266"><span class="hs-identifier hs-var">outputS3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163265"><span class="annot"><span class="annottext">s :: GetQuantumTaskResponse
+</span><a href="#local-6989586621679163265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163264"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQuantumTaskResponse
+</span><a href="#local-6989586621679163265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputS3Bucket:GetQuantumTaskResponse' :: Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AoutputS3Bucket%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">outputS3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | The folder in the S3 bucket where task results are stored.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_outputS3Directory"><span class="hs-identifier hs-type">getQuantumTaskResponse_outputS3Directory</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-272"></span><span id="getQuantumTaskResponse_outputS3Directory"><span class="annot"><span class="annottext">getQuantumTaskResponse_outputS3Directory :: (Text -&gt; f Text)
+-&gt; GetQuantumTaskResponse -&gt; f GetQuantumTaskResponse
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_outputS3Directory"><span class="hs-identifier hs-var hs-var">getQuantumTaskResponse_outputS3Directory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQuantumTaskResponse -&gt; Text)
+-&gt; (GetQuantumTaskResponse -&gt; Text -&gt; GetQuantumTaskResponse)
+-&gt; Lens GetQuantumTaskResponse GetQuantumTaskResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163263"><span class="annot"><span class="annottext">Text
+outputS3Directory :: Text
+$sel:outputS3Directory:GetQuantumTaskResponse' :: GetQuantumTaskResponse -&gt; Text
+</span><a href="#local-6989586621679163263"><span class="hs-identifier hs-var hs-var">outputS3Directory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163263"><span class="hs-identifier hs-var">outputS3Directory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163262"><span class="annot"><span class="annottext">s :: GetQuantumTaskResponse
+</span><a href="#local-6989586621679163262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163261"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQuantumTaskResponse
+</span><a href="#local-6989586621679163262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputS3Directory:GetQuantumTaskResponse' :: Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AoutputS3Directory%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">outputS3Directory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | The ARN of the task.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_quantumTaskArn"><span class="hs-identifier hs-type">getQuantumTaskResponse_quantumTaskArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-276"></span><span id="getQuantumTaskResponse_quantumTaskArn"><span class="annot"><span class="annottext">getQuantumTaskResponse_quantumTaskArn :: (Text -&gt; f Text)
+-&gt; GetQuantumTaskResponse -&gt; f GetQuantumTaskResponse
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_quantumTaskArn"><span class="hs-identifier hs-var hs-var">getQuantumTaskResponse_quantumTaskArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQuantumTaskResponse -&gt; Text)
+-&gt; (GetQuantumTaskResponse -&gt; Text -&gt; GetQuantumTaskResponse)
+-&gt; Lens GetQuantumTaskResponse GetQuantumTaskResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163260"><span class="annot"><span class="annottext">Text
+quantumTaskArn :: Text
+$sel:quantumTaskArn:GetQuantumTaskResponse' :: GetQuantumTaskResponse -&gt; Text
+</span><a href="#local-6989586621679163260"><span class="hs-identifier hs-var hs-var">quantumTaskArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163260"><span class="hs-identifier hs-var">quantumTaskArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163259"><span class="annot"><span class="annottext">s :: GetQuantumTaskResponse
+</span><a href="#local-6989586621679163259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163258"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQuantumTaskResponse
+</span><a href="#local-6989586621679163259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantumTaskArn:GetQuantumTaskResponse' :: Text
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3AquantumTaskArn%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">quantumTaskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679163258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | The number of shots used in the task.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_shots"><span class="hs-identifier hs-type">getQuantumTaskResponse_shots</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-280"></span><span id="getQuantumTaskResponse_shots"><span class="annot"><span class="annottext">getQuantumTaskResponse_shots :: (Integer -&gt; f Integer)
+-&gt; GetQuantumTaskResponse -&gt; f GetQuantumTaskResponse
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_shots"><span class="hs-identifier hs-var hs-var">getQuantumTaskResponse_shots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQuantumTaskResponse -&gt; Integer)
+-&gt; (GetQuantumTaskResponse -&gt; Integer -&gt; GetQuantumTaskResponse)
+-&gt; Lens
+     GetQuantumTaskResponse GetQuantumTaskResponse Integer Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163257"><span class="annot"><span class="annottext">Integer
+shots :: Integer
+$sel:shots:GetQuantumTaskResponse' :: GetQuantumTaskResponse -&gt; Integer
+</span><a href="#local-6989586621679163257"><span class="hs-identifier hs-var hs-var">shots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679163257"><span class="hs-identifier hs-var">shots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163256"><span class="annot"><span class="annottext">s :: GetQuantumTaskResponse
+</span><a href="#local-6989586621679163256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163255"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679163255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQuantumTaskResponse
+</span><a href="#local-6989586621679163256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shots:GetQuantumTaskResponse' :: Integer
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3Ashots%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">shots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679163255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The status of the task.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_status"><span class="hs-identifier hs-type">getQuantumTaskResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus"><span class="hs-identifier hs-type">QuantumTaskStatus</span></a></span><span>
+</span><span id="line-284"></span><span id="getQuantumTaskResponse_status"><span class="annot"><span class="annottext">getQuantumTaskResponse_status :: (QuantumTaskStatus -&gt; f QuantumTaskStatus)
+-&gt; GetQuantumTaskResponse -&gt; f GetQuantumTaskResponse
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#getQuantumTaskResponse_status"><span class="hs-identifier hs-var hs-var">getQuantumTaskResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetQuantumTaskResponse -&gt; QuantumTaskStatus)
+-&gt; (GetQuantumTaskResponse
+    -&gt; QuantumTaskStatus -&gt; GetQuantumTaskResponse)
+-&gt; Lens
+     GetQuantumTaskResponse
+     GetQuantumTaskResponse
+     QuantumTaskStatus
+     QuantumTaskStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163254"><span class="annot"><span class="annottext">QuantumTaskStatus
+status :: QuantumTaskStatus
+$sel:status:GetQuantumTaskResponse' :: GetQuantumTaskResponse -&gt; QuantumTaskStatus
+</span><a href="#local-6989586621679163254"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QuantumTaskStatus
+</span><a href="#local-6989586621679163254"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163253"><span class="annot"><span class="annottext">s :: GetQuantumTaskResponse
+</span><a href="#local-6989586621679163253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse%27"><span class="hs-identifier hs-type">GetQuantumTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163252"><span class="annot"><span class="annottext">QuantumTaskStatus
+</span><a href="#local-6989586621679163252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQuantumTaskResponse
+</span><a href="#local-6989586621679163253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetQuantumTaskResponse' :: QuantumTaskStatus
+</span><a href="Network.AWS.Braket.GetQuantumTask.html#%24sel%3Astatus%3AGetQuantumTaskResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QuantumTaskStatus
+</span><a href="#local-6989586621679163252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163250"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.GetQuantumTask.html#GetQuantumTaskResponse"><span class="hs-identifier hs-type">GetQuantumTaskResponse</span></a></span></span><span>
+</span><span id="line-287"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679396313"><span id="local-6989586621679396314"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OriginRequestPolicyCookieBehavior"><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyCookieBehavior.html#OriginRequestPolicyCookieBehavior"><span class="hs-identifier hs-var">OriginRequestPolicyCookieBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OriginRequestPolicyCookieBehavior%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyCookieBehavior.html#OriginRequestPolicyCookieBehavior%27"><span class="hs-identifier hs-var">OriginRequestPolicyCookieBehavior'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679396322"><span id="local-6989586621679396323"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OriginRequestPolicyCookieBehavior"><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyCookieBehavior.html#OriginRequestPolicyCookieBehavior"><span class="hs-identifier hs-var">OriginRequestPolicyCookieBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OriginRequestPolicyCookieBehavior%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyCookieBehavior.html#OriginRequestPolicyCookieBehavior%27"><span class="hs-identifier hs-var">OriginRequestPolicyCookieBehavior'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOriginRequestPolicyCookieBehavior"><span class="annot"><span class="annottext">OriginRequestPolicyCookieBehavior -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.OriginRequestPolicyCookieBehavior.html#fromOriginRequestPolicyCookieBehavior"><span class="hs-identifier hs-var hs-var">fromOriginRequestPolicyCookieBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396305"><span id="local-6989586621679396307"><span id="local-6989586621679396309"><span class="annot"><span class="annottext">Int -&gt; OriginRequestPolicyCookieBehavior -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396314"><span id="local-6989586621679396316"><span id="local-6989586621679396318"><span class="annot"><span class="annottext">Int -&gt; OriginRequestPolicyCookieBehavior -&gt; ShowS
 [OriginRequestPolicyCookieBehavior] -&gt; ShowS
 OriginRequestPolicyCookieBehavior -&gt; String
 (Int -&gt; OriginRequestPolicyCookieBehavior -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: OriginRequestPolicyCookieBehavior -&gt; String
 showsPrec :: Int -&gt; OriginRequestPolicyCookieBehavior -&gt; ShowS
 $cshowsPrec :: Int -&gt; OriginRequestPolicyCookieBehavior -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679396296"><span id="local-6989586621679396298"><span id="local-6989586621679396300"><span id="local-6989586621679396302"><span class="annot"><span class="annottext">ReadPrec [OriginRequestPolicyCookieBehavior]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679396305"><span id="local-6989586621679396307"><span id="local-6989586621679396309"><span id="local-6989586621679396311"><span class="annot"><span class="annottext">ReadPrec [OriginRequestPolicyCookieBehavior]
 ReadPrec OriginRequestPolicyCookieBehavior
 Int -&gt; ReadS OriginRequestPolicyCookieBehavior
 ReadS [OriginRequestPolicyCookieBehavior]
@@ -73,7 +73,7 @@ $creadList :: ReadS [OriginRequestPolicyCookieBehavior]
 readsPrec :: Int -&gt; ReadS OriginRequestPolicyCookieBehavior
 $creadsPrec :: Int -&gt; ReadS OriginRequestPolicyCookieBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679396291"><span id="local-6989586621679396293"><span class="annot"><span class="annottext">OriginRequestPolicyCookieBehavior
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679396300"><span id="local-6989586621679396302"><span class="annot"><span class="annottext">OriginRequestPolicyCookieBehavior
 -&gt; OriginRequestPolicyCookieBehavior -&gt; Bool
 (OriginRequestPolicyCookieBehavior
  -&gt; OriginRequestPolicyCookieBehavior -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: OriginRequestPolicyCookieBehavior
 $c== :: OriginRequestPolicyCookieBehavior
 -&gt; OriginRequestPolicyCookieBehavior -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679396275"><span id="local-6989586621679396277"><span id="local-6989586621679396279"><span id="local-6989586621679396281"><span id="local-6989586621679396283"><span id="local-6989586621679396285"><span id="local-6989586621679396287"><span class="annot"><span class="annottext">Eq OriginRequestPolicyCookieBehavior
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679396284"><span id="local-6989586621679396286"><span id="local-6989586621679396288"><span id="local-6989586621679396290"><span id="local-6989586621679396292"><span id="local-6989586621679396294"><span id="local-6989586621679396296"><span class="annot"><span class="annottext">Eq OriginRequestPolicyCookieBehavior
 Eq OriginRequestPolicyCookieBehavior
 -&gt; (OriginRequestPolicyCookieBehavior
     -&gt; OriginRequestPolicyCookieBehavior -&gt; Ordering)
@@ -184,7 +184,7 @@ OriginRequestPolicyCookieBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396267"><span id="local-6989586621679396269"><span class="annot"><span class="annottext">Int -&gt; OriginRequestPolicyCookieBehavior -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396276"><span id="local-6989586621679396278"><span class="annot"><span class="annottext">Int -&gt; OriginRequestPolicyCookieBehavior -&gt; Int
 OriginRequestPolicyCookieBehavior -&gt; Int
 (Int -&gt; OriginRequestPolicyCookieBehavior -&gt; Int)
 -&gt; (OriginRequestPolicyCookieBehavior -&gt; Int)
@@ -195,56 +195,56 @@ $chash :: OriginRequestPolicyCookieBehavior -&gt; Int
 hashWithSalt :: Int -&gt; OriginRequestPolicyCookieBehavior -&gt; Int
 $chashWithSalt :: Int -&gt; OriginRequestPolicyCookieBehavior -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679396264"><span class="annot"><span class="annottext">OriginRequestPolicyCookieBehavior -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679396273"><span class="annot"><span class="annottext">OriginRequestPolicyCookieBehavior -&gt; ()
 (OriginRequestPolicyCookieBehavior -&gt; ())
 -&gt; NFData OriginRequestPolicyCookieBehavior
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OriginRequestPolicyCookieBehavior -&gt; ()
 $crnf :: OriginRequestPolicyCookieBehavior -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679396261"><span class="annot"><span class="annottext">Text -&gt; Either String OriginRequestPolicyCookieBehavior
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679396270"><span class="annot"><span class="annottext">Text -&gt; Either String OriginRequestPolicyCookieBehavior
 (Text -&gt; Either String OriginRequestPolicyCookieBehavior)
 -&gt; FromText OriginRequestPolicyCookieBehavior
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OriginRequestPolicyCookieBehavior
 $cfromText :: Text -&gt; Either String OriginRequestPolicyCookieBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679396258"><span class="annot"><span class="annottext">OriginRequestPolicyCookieBehavior -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679396267"><span class="annot"><span class="annottext">OriginRequestPolicyCookieBehavior -&gt; Text
 (OriginRequestPolicyCookieBehavior -&gt; Text)
 -&gt; ToText OriginRequestPolicyCookieBehavior
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OriginRequestPolicyCookieBehavior -&gt; Text
 $ctoText :: OriginRequestPolicyCookieBehavior -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679396255"><span class="annot"><span class="annottext">OriginRequestPolicyCookieBehavior -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679396264"><span class="annot"><span class="annottext">OriginRequestPolicyCookieBehavior -&gt; ByteString
 (OriginRequestPolicyCookieBehavior -&gt; ByteString)
 -&gt; ToByteString OriginRequestPolicyCookieBehavior
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OriginRequestPolicyCookieBehavior -&gt; ByteString
 $ctoBS :: OriginRequestPolicyCookieBehavior -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679396252"><span class="annot"><span class="annottext">OriginRequestPolicyCookieBehavior -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679396261"><span class="annot"><span class="annottext">OriginRequestPolicyCookieBehavior -&gt; ByteStringBuilder
 (OriginRequestPolicyCookieBehavior -&gt; ByteStringBuilder)
 -&gt; ToLog OriginRequestPolicyCookieBehavior
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OriginRequestPolicyCookieBehavior -&gt; ByteStringBuilder
 $cbuild :: OriginRequestPolicyCookieBehavior -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679396249"><span class="annot"><span class="annottext">HeaderName -&gt; OriginRequestPolicyCookieBehavior -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679396258"><span class="annot"><span class="annottext">HeaderName -&gt; OriginRequestPolicyCookieBehavior -&gt; [Header]
 (HeaderName -&gt; OriginRequestPolicyCookieBehavior -&gt; [Header])
 -&gt; ToHeader OriginRequestPolicyCookieBehavior
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OriginRequestPolicyCookieBehavior -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OriginRequestPolicyCookieBehavior -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679396246"><span class="annot"><span class="annottext">OriginRequestPolicyCookieBehavior -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679396255"><span class="annot"><span class="annottext">OriginRequestPolicyCookieBehavior -&gt; QueryString
 (OriginRequestPolicyCookieBehavior -&gt; QueryString)
 -&gt; ToQuery OriginRequestPolicyCookieBehavior
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OriginRequestPolicyCookieBehavior -&gt; QueryString
 $ctoQuery :: OriginRequestPolicyCookieBehavior -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679396241"><span id="local-6989586621679396243"><span class="annot"><span class="annottext">Value -&gt; Parser [OriginRequestPolicyCookieBehavior]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679396250"><span id="local-6989586621679396252"><span class="annot"><span class="annottext">Value -&gt; Parser [OriginRequestPolicyCookieBehavior]
 Value -&gt; Parser OriginRequestPolicyCookieBehavior
 (Value -&gt; Parser OriginRequestPolicyCookieBehavior)
 -&gt; (Value -&gt; Parser [OriginRequestPolicyCookieBehavior])
@@ -256,7 +256,7 @@ $cparseJSONList :: Value -&gt; Parser [OriginRequestPolicyCookieBehavior]
 parseJSON :: Value -&gt; Parser OriginRequestPolicyCookieBehavior
 $cparseJSON :: Value -&gt; Parser OriginRequestPolicyCookieBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679396236"><span id="local-6989586621679396238"><span class="annot"><span class="annottext">FromJSONKeyFunction [OriginRequestPolicyCookieBehavior]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679396245"><span id="local-6989586621679396247"><span class="annot"><span class="annottext">FromJSONKeyFunction [OriginRequestPolicyCookieBehavior]
 FromJSONKeyFunction OriginRequestPolicyCookieBehavior
 FromJSONKeyFunction OriginRequestPolicyCookieBehavior
 -&gt; FromJSONKeyFunction [OriginRequestPolicyCookieBehavior]
@@ -268,7 +268,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OriginRequestPolicyCookieBehavior]
 fromJSONKey :: FromJSONKeyFunction OriginRequestPolicyCookieBehavior
 $cfromJSONKey :: FromJSONKeyFunction OriginRequestPolicyCookieBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679396227"><span id="local-6989586621679396229"><span id="local-6989586621679396231"><span id="local-6989586621679396233"><span class="annot"><span class="annottext">[OriginRequestPolicyCookieBehavior] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679396236"><span id="local-6989586621679396238"><span id="local-6989586621679396240"><span id="local-6989586621679396242"><span class="annot"><span class="annottext">[OriginRequestPolicyCookieBehavior] -&gt; Encoding
 [OriginRequestPolicyCookieBehavior] -&gt; Value
 OriginRequestPolicyCookieBehavior -&gt; Encoding
 OriginRequestPolicyCookieBehavior -&gt; Value
@@ -292,7 +292,7 @@ $ctoEncoding :: OriginRequestPolicyCookieBehavior -&gt; Encoding
 toJSON :: OriginRequestPolicyCookieBehavior -&gt; Value
 $ctoJSON :: OriginRequestPolicyCookieBehavior -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679396222"><span id="local-6989586621679396224"><span class="annot"><span class="annottext">ToJSONKeyFunction [OriginRequestPolicyCookieBehavior]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679396231"><span id="local-6989586621679396233"><span class="annot"><span class="annottext">ToJSONKeyFunction [OriginRequestPolicyCookieBehavior]
 ToJSONKeyFunction OriginRequestPolicyCookieBehavior
 ToJSONKeyFunction OriginRequestPolicyCookieBehavior
 -&gt; ToJSONKeyFunction [OriginRequestPolicyCookieBehavior]
@@ -304,14 +304,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OriginRequestPolicyCookieBehavior]
 toJSONKey :: ToJSONKeyFunction OriginRequestPolicyCookieBehavior
 $ctoJSONKey :: ToJSONKeyFunction OriginRequestPolicyCookieBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679396219"><span class="annot"><span class="annottext">[Node] -&gt; Either String OriginRequestPolicyCookieBehavior
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679396228"><span class="annot"><span class="annottext">[Node] -&gt; Either String OriginRequestPolicyCookieBehavior
 ([Node] -&gt; Either String OriginRequestPolicyCookieBehavior)
 -&gt; FromXML OriginRequestPolicyCookieBehavior
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OriginRequestPolicyCookieBehavior
 $cparseXML :: [Node] -&gt; Either String OriginRequestPolicyCookieBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679396216"><span class="annot"><span class="annottext">OriginRequestPolicyCookieBehavior -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679396225"><span class="annot"><span class="annottext">OriginRequestPolicyCookieBehavior -&gt; XML
 (OriginRequestPolicyCookieBehavior -&gt; XML)
 -&gt; ToXML OriginRequestPolicyCookieBehavior
 forall a. (a -&gt; XML) -&gt; ToXML a

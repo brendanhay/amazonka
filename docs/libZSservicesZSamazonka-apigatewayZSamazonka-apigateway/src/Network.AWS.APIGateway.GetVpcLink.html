@@ -54,13 +54,13 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | Gets a specified VPC link under the caller\'s account in a region.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newGetVpcLink' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679376712"><span id="local-6989586621679376713"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetVpcLink"><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink"><span class="hs-identifier hs-var">GetVpcLink</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetVpcLink%27"><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink%27"><span class="hs-identifier hs-var">GetVpcLink'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679376721"><span id="local-6989586621679376722"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetVpcLink"><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink"><span class="hs-identifier hs-var">GetVpcLink</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetVpcLink%27"><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink%27"><span class="hs-identifier hs-var">GetVpcLink'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | [Required] The identifier of the VpcLink. It is used in an Integration</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- to reference this VpcLink.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AvpcLinkId%3AGetVpcLink%27"><span class="annot"><span class="annottext">GetVpcLink -&gt; Text
 </span><a href="Network.AWS.APIGateway.GetVpcLink.html#%24sel%3AvpcLinkId%3AGetVpcLink%27"><span class="hs-identifier hs-var hs-var">vpcLinkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376706"><span id="local-6989586621679376708"><span class="annot"><span class="annottext">GetVpcLink -&gt; GetVpcLink -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376715"><span id="local-6989586621679376717"><span class="annot"><span class="annottext">GetVpcLink -&gt; GetVpcLink -&gt; Bool
 (GetVpcLink -&gt; GetVpcLink -&gt; Bool)
 -&gt; (GetVpcLink -&gt; GetVpcLink -&gt; Bool) -&gt; Eq GetVpcLink
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetVpcLink -&gt; GetVpcLink -&gt; Bool
 == :: GetVpcLink -&gt; GetVpcLink -&gt; Bool
 $c== :: GetVpcLink -&gt; GetVpcLink -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376697"><span id="local-6989586621679376699"><span id="local-6989586621679376701"><span id="local-6989586621679376703"><span class="annot"><span class="annottext">ReadPrec [GetVpcLink]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376706"><span id="local-6989586621679376708"><span id="local-6989586621679376710"><span id="local-6989586621679376712"><span class="annot"><span class="annottext">ReadPrec [GetVpcLink]
 ReadPrec GetVpcLink
 Int -&gt; ReadS GetVpcLink
 ReadS [GetVpcLink]
@@ -88,7 +88,7 @@ readList :: ReadS [GetVpcLink]
 $creadList :: ReadS [GetVpcLink]
 readsPrec :: Int -&gt; ReadS GetVpcLink
 $creadsPrec :: Int -&gt; ReadS GetVpcLink
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376690"><span id="local-6989586621679376692"><span id="local-6989586621679376694"><span class="annot"><span class="annottext">Int -&gt; GetVpcLink -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376699"><span id="local-6989586621679376701"><span id="local-6989586621679376703"><span class="annot"><span class="annottext">Int -&gt; GetVpcLink -&gt; ShowS
 [GetVpcLink] -&gt; ShowS
 GetVpcLink -&gt; String
 (Int -&gt; GetVpcLink -&gt; ShowS)
@@ -128,12 +128,12 @@ $cfrom :: forall x. GetVpcLink -&gt; Rep GetVpcLink x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink"><span class="hs-identifier hs-type">GetVpcLink</span></a></span><span>
 </span><span id="line-78"></span><span id="newGetVpcLink"><span class="annot"><span class="annottext">newGetVpcLink :: Text -&gt; GetVpcLink
-</span><a href="Network.AWS.APIGateway.GetVpcLink.html#newGetVpcLink"><span class="hs-identifier hs-var hs-var">newGetVpcLink</span></a></span></span><span> </span><span id="local-6989586621679376685"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679376685"><span class="hs-identifier hs-var">pVpcLinkId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.GetVpcLink.html#newGetVpcLink"><span class="hs-identifier hs-var hs-var">newGetVpcLink</span></a></span></span><span> </span><span id="local-6989586621679376694"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679376694"><span class="hs-identifier hs-var">pVpcLinkId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">GetVpcLink' :: Text -&gt; GetVpcLink
 </span><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink%27"><span class="hs-identifier hs-type">GetVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcLinkId:GetVpcLink' :: Text
 </span><a href="Network.AWS.APIGateway.GetVpcLink.html#%24sel%3AvpcLinkId%3AGetVpcLink%27"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679376685"><span class="hs-identifier hs-var">pVpcLinkId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679376694"><span class="hs-identifier hs-var">pVpcLinkId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | [Required] The identifier of the VpcLink. It is used in an Integration</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- to reference this VpcLink.</span><span>
@@ -143,25 +143,25 @@ $cfrom :: forall x. GetVpcLink -&gt; Rep GetVpcLink x
 -&gt; (GetVpcLink -&gt; Text -&gt; GetVpcLink)
 -&gt; Lens GetVpcLink GetVpcLink Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink%27"><span class="hs-identifier hs-type">GetVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376682"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink%27"><span class="hs-identifier hs-type">GetVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376691"><span class="annot"><span class="annottext">Text
 vpcLinkId :: Text
 $sel:vpcLinkId:GetVpcLink' :: GetVpcLink -&gt; Text
-</span><a href="#local-6989586621679376682"><span class="hs-identifier hs-var hs-var">vpcLinkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679376682"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376681"><span class="annot"><span class="annottext">s :: GetVpcLink
-</span><a href="#local-6989586621679376681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink%27"><span class="hs-identifier hs-type">GetVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376680"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679376680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVpcLink
-</span><a href="#local-6989586621679376681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcLinkId:GetVpcLink' :: Text
+</span><a href="#local-6989586621679376691"><span class="hs-identifier hs-var hs-var">vpcLinkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679376691"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376690"><span class="annot"><span class="annottext">s :: GetVpcLink
+</span><a href="#local-6989586621679376690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink%27"><span class="hs-identifier hs-type">GetVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376689"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679376689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVpcLink
+</span><a href="#local-6989586621679376690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcLinkId:GetVpcLink' :: Text
 </span><a href="Network.AWS.APIGateway.GetVpcLink.html#%24sel%3AvpcLinkId%3AGetVpcLink%27"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679376680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink"><span class="hs-identifier hs-type">GetVpcLink</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink"><span class="hs-identifier hs-type">GetVpcLink</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink"><span class="hs-identifier hs-type">GetVpcLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink"><span class="hs-identifier hs-type">GetVpcLink</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.VpcLink.html#VpcLink"><span class="hs-identifier hs-type">VpcLink</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679376676"><span class="annot"><span class="annottext">request :: GetVpcLink -&gt; Request GetVpcLink
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679376685"><span class="annot"><span class="annottext">request :: GetVpcLink -&gt; Request GetVpcLink
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetVpcLink -&gt; Request GetVpcLink
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679376672"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679376681"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetVpcLink
 -&gt; ClientResponse ClientBody
@@ -185,20 +185,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376669"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376669"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679376668"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679376668"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679376667"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376667"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String VpcLink
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376678"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679376678"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679376677"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679376677"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679376676"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376676"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String VpcLink
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376667"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376676"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376662"><span id="local-6989586621679376664"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink"><span class="hs-identifier hs-type">GetVpcLink</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376671"><span id="local-6989586621679376673"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink"><span class="hs-identifier hs-type">GetVpcLink</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376659"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink"><span class="hs-identifier hs-type">GetVpcLink</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376668"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink"><span class="hs-identifier hs-type">GetVpcLink</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink"><span class="hs-identifier hs-type">GetVpcLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679376655"><span class="annot"><span class="annottext">toHeaders :: GetVpcLink -&gt; ResponseHeaders
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679376664"><span class="annot"><span class="annottext">toHeaders :: GetVpcLink -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetVpcLink -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -216,21 +216,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink"><span class="hs-identifier hs-type">GetVpcLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679376649"><span class="annot"><span class="annottext">toPath :: GetVpcLink -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink%27"><span class="hs-identifier hs-type">GetVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376647"><span class="annot"><span class="annottext">Text
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679376658"><span class="annot"><span class="annottext">toPath :: GetVpcLink -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink%27"><span class="hs-identifier hs-type">GetVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376656"><span class="annot"><span class="annottext">Text
 vpcLinkId :: Text
 $sel:vpcLinkId:GetVpcLink' :: GetVpcLink -&gt; Text
-</span><a href="#local-6989586621679376647"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679376656"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/vpclinks/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679376647"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679376656"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetVpcLink.html#GetVpcLink"><span class="hs-identifier hs-type">GetVpcLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679376643"><span class="annot"><span class="annottext">toQuery :: GetVpcLink -&gt; QueryString
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679376652"><span class="annot"><span class="annottext">toQuery :: GetVpcLink -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetVpcLink -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

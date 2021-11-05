@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- | The broker\'s status.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679221809"><span id="local-6989586621679221810"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BrokerState"><span class="annot"><a href="Network.AWS.MQ.Types.BrokerState.html#BrokerState"><span class="hs-identifier hs-var">BrokerState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BrokerState%27"><span class="annot"><a href="Network.AWS.MQ.Types.BrokerState.html#BrokerState%27"><span class="hs-identifier hs-var">BrokerState'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679221818"><span id="local-6989586621679221819"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BrokerState"><span class="annot"><a href="Network.AWS.MQ.Types.BrokerState.html#BrokerState"><span class="hs-identifier hs-var">BrokerState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BrokerState%27"><span class="annot"><a href="Network.AWS.MQ.Types.BrokerState.html#BrokerState%27"><span class="hs-identifier hs-var">BrokerState'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBrokerState"><span class="annot"><span class="annottext">BrokerState -&gt; Text
 </span><a href="Network.AWS.MQ.Types.BrokerState.html#fromBrokerState"><span class="hs-identifier hs-var hs-var">fromBrokerState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679221801"><span id="local-6989586621679221803"><span id="local-6989586621679221805"><span class="annot"><span class="annottext">Int -&gt; BrokerState -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679221810"><span id="local-6989586621679221812"><span id="local-6989586621679221814"><span class="annot"><span class="annottext">Int -&gt; BrokerState -&gt; ShowS
 [BrokerState] -&gt; ShowS
 BrokerState -&gt; String
 (Int -&gt; BrokerState -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: BrokerState -&gt; String
 showsPrec :: Int -&gt; BrokerState -&gt; ShowS
 $cshowsPrec :: Int -&gt; BrokerState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679221792"><span id="local-6989586621679221794"><span id="local-6989586621679221796"><span id="local-6989586621679221798"><span class="annot"><span class="annottext">ReadPrec [BrokerState]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679221801"><span id="local-6989586621679221803"><span id="local-6989586621679221805"><span id="local-6989586621679221807"><span class="annot"><span class="annottext">ReadPrec [BrokerState]
 ReadPrec BrokerState
 Int -&gt; ReadS BrokerState
 ReadS [BrokerState]
@@ -76,7 +76,7 @@ $creadList :: ReadS [BrokerState]
 readsPrec :: Int -&gt; ReadS BrokerState
 $creadsPrec :: Int -&gt; ReadS BrokerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679221787"><span id="local-6989586621679221789"><span class="annot"><span class="annottext">BrokerState -&gt; BrokerState -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679221796"><span id="local-6989586621679221798"><span class="annot"><span class="annottext">BrokerState -&gt; BrokerState -&gt; Bool
 (BrokerState -&gt; BrokerState -&gt; Bool)
 -&gt; (BrokerState -&gt; BrokerState -&gt; Bool) -&gt; Eq BrokerState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: BrokerState -&gt; BrokerState -&gt; Bool
 == :: BrokerState -&gt; BrokerState -&gt; Bool
 $c== :: BrokerState -&gt; BrokerState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679221771"><span id="local-6989586621679221773"><span id="local-6989586621679221775"><span id="local-6989586621679221777"><span id="local-6989586621679221779"><span id="local-6989586621679221781"><span id="local-6989586621679221783"><span class="annot"><span class="annottext">Eq BrokerState
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679221780"><span id="local-6989586621679221782"><span id="local-6989586621679221784"><span id="local-6989586621679221786"><span id="local-6989586621679221788"><span id="local-6989586621679221790"><span id="local-6989586621679221792"><span class="annot"><span class="annottext">Eq BrokerState
 Eq BrokerState
 -&gt; (BrokerState -&gt; BrokerState -&gt; Ordering)
 -&gt; (BrokerState -&gt; BrokerState -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. BrokerState -&gt; Rep BrokerState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679221763"><span id="local-6989586621679221765"><span class="annot"><span class="annottext">Int -&gt; BrokerState -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679221772"><span id="local-6989586621679221774"><span class="annot"><span class="annottext">Int -&gt; BrokerState -&gt; Int
 BrokerState -&gt; Int
 (Int -&gt; BrokerState -&gt; Int)
 -&gt; (BrokerState -&gt; Int) -&gt; Hashable BrokerState
@@ -146,49 +146,49 @@ $chash :: BrokerState -&gt; Int
 hashWithSalt :: Int -&gt; BrokerState -&gt; Int
 $chashWithSalt :: Int -&gt; BrokerState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679221760"><span class="annot"><span class="annottext">BrokerState -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679221769"><span class="annot"><span class="annottext">BrokerState -&gt; ()
 (BrokerState -&gt; ()) -&gt; NFData BrokerState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BrokerState -&gt; ()
 $crnf :: BrokerState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679221757"><span class="annot"><span class="annottext">Text -&gt; Either String BrokerState
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679221766"><span class="annot"><span class="annottext">Text -&gt; Either String BrokerState
 (Text -&gt; Either String BrokerState) -&gt; FromText BrokerState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BrokerState
 $cfromText :: Text -&gt; Either String BrokerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679221754"><span class="annot"><span class="annottext">BrokerState -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679221763"><span class="annot"><span class="annottext">BrokerState -&gt; Text
 (BrokerState -&gt; Text) -&gt; ToText BrokerState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BrokerState -&gt; Text
 $ctoText :: BrokerState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679221751"><span class="annot"><span class="annottext">BrokerState -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679221760"><span class="annot"><span class="annottext">BrokerState -&gt; ByteString
 (BrokerState -&gt; ByteString) -&gt; ToByteString BrokerState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BrokerState -&gt; ByteString
 $ctoBS :: BrokerState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679221748"><span class="annot"><span class="annottext">BrokerState -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679221757"><span class="annot"><span class="annottext">BrokerState -&gt; ByteStringBuilder
 (BrokerState -&gt; ByteStringBuilder) -&gt; ToLog BrokerState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BrokerState -&gt; ByteStringBuilder
 $cbuild :: BrokerState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679221745"><span class="annot"><span class="annottext">HeaderName -&gt; BrokerState -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679221754"><span class="annot"><span class="annottext">HeaderName -&gt; BrokerState -&gt; [Header]
 (HeaderName -&gt; BrokerState -&gt; [Header]) -&gt; ToHeader BrokerState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BrokerState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BrokerState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679221742"><span class="annot"><span class="annottext">BrokerState -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679221751"><span class="annot"><span class="annottext">BrokerState -&gt; QueryString
 (BrokerState -&gt; QueryString) -&gt; ToQuery BrokerState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BrokerState -&gt; QueryString
 $ctoQuery :: BrokerState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679221737"><span id="local-6989586621679221739"><span class="annot"><span class="annottext">Value -&gt; Parser [BrokerState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679221746"><span id="local-6989586621679221748"><span class="annot"><span class="annottext">Value -&gt; Parser [BrokerState]
 Value -&gt; Parser BrokerState
 (Value -&gt; Parser BrokerState)
 -&gt; (Value -&gt; Parser [BrokerState]) -&gt; FromJSON BrokerState
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [BrokerState]
 parseJSON :: Value -&gt; Parser BrokerState
 $cparseJSON :: Value -&gt; Parser BrokerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679221732"><span id="local-6989586621679221734"><span class="annot"><span class="annottext">FromJSONKeyFunction [BrokerState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679221741"><span id="local-6989586621679221743"><span class="annot"><span class="annottext">FromJSONKeyFunction [BrokerState]
 FromJSONKeyFunction BrokerState
 FromJSONKeyFunction BrokerState
 -&gt; FromJSONKeyFunction [BrokerState] -&gt; FromJSONKey BrokerState
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BrokerState]
 fromJSONKey :: FromJSONKeyFunction BrokerState
 $cfromJSONKey :: FromJSONKeyFunction BrokerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679221723"><span id="local-6989586621679221725"><span id="local-6989586621679221727"><span id="local-6989586621679221729"><span class="annot"><span class="annottext">[BrokerState] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679221732"><span id="local-6989586621679221734"><span id="local-6989586621679221736"><span id="local-6989586621679221738"><span class="annot"><span class="annottext">[BrokerState] -&gt; Encoding
 [BrokerState] -&gt; Value
 BrokerState -&gt; Encoding
 BrokerState -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: BrokerState -&gt; Encoding
 toJSON :: BrokerState -&gt; Value
 $ctoJSON :: BrokerState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679221718"><span id="local-6989586621679221720"><span class="annot"><span class="annottext">ToJSONKeyFunction [BrokerState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679221727"><span id="local-6989586621679221729"><span class="annot"><span class="annottext">ToJSONKeyFunction [BrokerState]
 ToJSONKeyFunction BrokerState
 ToJSONKeyFunction BrokerState
 -&gt; ToJSONKeyFunction [BrokerState] -&gt; ToJSONKey BrokerState
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BrokerState]
 toJSONKey :: ToJSONKeyFunction BrokerState
 $ctoJSONKey :: ToJSONKeyFunction BrokerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679221715"><span class="annot"><span class="annottext">[Node] -&gt; Either String BrokerState
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679221724"><span class="annot"><span class="annottext">[Node] -&gt; Either String BrokerState
 ([Node] -&gt; Either String BrokerState) -&gt; FromXML BrokerState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BrokerState
 $cparseXML :: [Node] -&gt; Either String BrokerState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679221712"><span class="annot"><span class="annottext">BrokerState -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679221721"><span class="annot"><span class="annottext">BrokerState -&gt; XML
 (BrokerState -&gt; XML) -&gt; ToXML BrokerState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BrokerState -&gt; XML

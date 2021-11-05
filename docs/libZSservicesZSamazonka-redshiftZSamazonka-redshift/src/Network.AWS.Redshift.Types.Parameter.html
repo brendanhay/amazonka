@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a parameter in a cluster parameter group.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newParameter' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679494147"><span id="local-6989586621679494148"></span></span><span class="hs-keyword">data</span><span> </span><span id="Parameter"><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-var">Parameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Parameter%27"><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-var">Parameter'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679494156"><span id="local-6989586621679494157"></span></span><span class="hs-keyword">data</span><span> </span><span id="Parameter"><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-var">Parameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Parameter%27"><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-var">Parameter'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies how to apply the WLM configuration parameter. Some properties</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- can be applied dynamically, while other properties require that any</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- associated clusters be rebooted for the configuration changes to be</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3Adescription%3AParameter%27"><span class="annot"><span class="annottext">Parameter -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.Parameter.html#%24sel%3Adescription%3AParameter%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679494133"><span id="local-6989586621679494135"><span class="annot"><span class="annottext">Parameter -&gt; Parameter -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679494142"><span id="local-6989586621679494144"><span class="annot"><span class="annottext">Parameter -&gt; Parameter -&gt; Bool
 (Parameter -&gt; Parameter -&gt; Bool)
 -&gt; (Parameter -&gt; Parameter -&gt; Bool) -&gt; Eq Parameter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Parameter -&gt; Parameter -&gt; Bool
 == :: Parameter -&gt; Parameter -&gt; Bool
 $c== :: Parameter -&gt; Parameter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679494124"><span id="local-6989586621679494126"><span id="local-6989586621679494128"><span id="local-6989586621679494130"><span class="annot"><span class="annottext">ReadPrec [Parameter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679494133"><span id="local-6989586621679494135"><span id="local-6989586621679494137"><span id="local-6989586621679494139"><span class="annot"><span class="annottext">ReadPrec [Parameter]
 ReadPrec Parameter
 Int -&gt; ReadS Parameter
 ReadS [Parameter]
@@ -95,7 +95,7 @@ readList :: ReadS [Parameter]
 $creadList :: ReadS [Parameter]
 readsPrec :: Int -&gt; ReadS Parameter
 $creadsPrec :: Int -&gt; ReadS Parameter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679494117"><span id="local-6989586621679494119"><span id="local-6989586621679494121"><span class="annot"><span class="annottext">Int -&gt; Parameter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679494126"><span id="local-6989586621679494128"><span id="local-6989586621679494130"><span class="annot"><span class="annottext">Int -&gt; Parameter -&gt; ShowS
 [Parameter] -&gt; ShowS
 Parameter -&gt; String
 (Int -&gt; Parameter -&gt; ShowS)
@@ -226,16 +226,16 @@ forall a. Maybe a
      (Maybe ParameterApplyType)
      (Maybe ParameterApplyType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494108"><span class="annot"><span class="annottext">Maybe ParameterApplyType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494117"><span class="annot"><span class="annottext">Maybe ParameterApplyType
 applyType :: Maybe ParameterApplyType
 $sel:applyType:Parameter' :: Parameter -&gt; Maybe ParameterApplyType
-</span><a href="#local-6989586621679494108"><span class="hs-identifier hs-var hs-var">applyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterApplyType
-</span><a href="#local-6989586621679494108"><span class="hs-identifier hs-var">applyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494107"><span class="annot"><span class="annottext">s :: Parameter
-</span><a href="#local-6989586621679494107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494106"><span class="annot"><span class="annottext">Maybe ParameterApplyType
-</span><a href="#local-6989586621679494106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
-</span><a href="#local-6989586621679494107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyType:Parameter' :: Maybe ParameterApplyType
+</span><a href="#local-6989586621679494117"><span class="hs-identifier hs-var hs-var">applyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterApplyType
+</span><a href="#local-6989586621679494117"><span class="hs-identifier hs-var">applyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494116"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679494116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494115"><span class="annot"><span class="annottext">Maybe ParameterApplyType
+</span><a href="#local-6989586621679494115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679494116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyType:Parameter' :: Maybe ParameterApplyType
 </span><a href="Network.AWS.Redshift.Types.Parameter.html#%24sel%3AapplyType%3AParameter%27"><span class="hs-identifier hs-var">applyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterApplyType
-</span><a href="#local-6989586621679494106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679494115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The value of the parameter. If @ParameterName@ is</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- @wlm_json_configuration@, then the maximum size of @ParameterValue@ is</span><span>
@@ -246,16 +246,16 @@ $sel:applyType:Parameter' :: Parameter -&gt; Maybe ParameterApplyType
 -&gt; (Parameter -&gt; Maybe Text -&gt; Parameter)
 -&gt; Lens Parameter Parameter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494104"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494113"><span class="annot"><span class="annottext">Maybe Text
 parameterValue :: Maybe Text
 $sel:parameterValue:Parameter' :: Parameter -&gt; Maybe Text
-</span><a href="#local-6989586621679494104"><span class="hs-identifier hs-var hs-var">parameterValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494104"><span class="hs-identifier hs-var">parameterValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494103"><span class="annot"><span class="annottext">s :: Parameter
-</span><a href="#local-6989586621679494103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494102"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
-</span><a href="#local-6989586621679494103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterValue:Parameter' :: Maybe Text
+</span><a href="#local-6989586621679494113"><span class="hs-identifier hs-var hs-var">parameterValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494113"><span class="hs-identifier hs-var">parameterValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494112"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679494112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494111"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679494112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterValue:Parameter' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.Parameter.html#%24sel%3AparameterValue%3AParameter%27"><span class="hs-identifier hs-var">parameterValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679494111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The earliest engine version to which the parameter can apply.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#parameter_minimumEngineVersion"><span class="hs-identifier hs-type">parameter_minimumEngineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -264,16 +264,16 @@ $sel:parameterValue:Parameter' :: Parameter -&gt; Maybe Text
 -&gt; (Parameter -&gt; Maybe Text -&gt; Parameter)
 -&gt; Lens Parameter Parameter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494100"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494109"><span class="annot"><span class="annottext">Maybe Text
 minimumEngineVersion :: Maybe Text
 $sel:minimumEngineVersion:Parameter' :: Parameter -&gt; Maybe Text
-</span><a href="#local-6989586621679494100"><span class="hs-identifier hs-var hs-var">minimumEngineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494100"><span class="hs-identifier hs-var">minimumEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494099"><span class="annot"><span class="annottext">s :: Parameter
-</span><a href="#local-6989586621679494099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494098"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
-</span><a href="#local-6989586621679494099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumEngineVersion:Parameter' :: Maybe Text
+</span><a href="#local-6989586621679494109"><span class="hs-identifier hs-var hs-var">minimumEngineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494109"><span class="hs-identifier hs-var">minimumEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494108"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679494108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494107"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679494108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumEngineVersion:Parameter' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.Parameter.html#%24sel%3AminimumEngineVersion%3AParameter%27"><span class="hs-identifier hs-var">minimumEngineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679494107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The source of the parameter value, such as \&quot;engine-default\&quot; or</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- \&quot;user\&quot;.</span><span>
@@ -283,16 +283,16 @@ $sel:minimumEngineVersion:Parameter' :: Parameter -&gt; Maybe Text
 -&gt; (Parameter -&gt; Maybe Text -&gt; Parameter)
 -&gt; Lens Parameter Parameter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494096"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494105"><span class="annot"><span class="annottext">Maybe Text
 source :: Maybe Text
 $sel:source:Parameter' :: Parameter -&gt; Maybe Text
-</span><a href="#local-6989586621679494096"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494096"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494095"><span class="annot"><span class="annottext">s :: Parameter
-</span><a href="#local-6989586621679494095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494094"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
-</span><a href="#local-6989586621679494095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:Parameter' :: Maybe Text
+</span><a href="#local-6989586621679494105"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494105"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494104"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679494104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494103"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679494104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:Parameter' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.Parameter.html#%24sel%3Asource%3AParameter%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679494103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | If @true@, the parameter can be modified. Some parameters have security</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- or operational implications that prevent them from being changed.</span><span>
@@ -302,16 +302,16 @@ $sel:source:Parameter' :: Parameter -&gt; Maybe Text
 -&gt; (Parameter -&gt; Maybe Bool -&gt; Parameter)
 -&gt; Lens Parameter Parameter (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494092"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494101"><span class="annot"><span class="annottext">Maybe Bool
 isModifiable :: Maybe Bool
 $sel:isModifiable:Parameter' :: Parameter -&gt; Maybe Bool
-</span><a href="#local-6989586621679494092"><span class="hs-identifier hs-var hs-var">isModifiable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679494092"><span class="hs-identifier hs-var">isModifiable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494091"><span class="annot"><span class="annottext">s :: Parameter
-</span><a href="#local-6989586621679494091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494090"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679494090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
-</span><a href="#local-6989586621679494091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isModifiable:Parameter' :: Maybe Bool
+</span><a href="#local-6989586621679494101"><span class="hs-identifier hs-var hs-var">isModifiable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679494101"><span class="hs-identifier hs-var">isModifiable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494100"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679494100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494099"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679494099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679494100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isModifiable:Parameter' :: Maybe Bool
 </span><a href="Network.AWS.Redshift.Types.Parameter.html#%24sel%3AisModifiable%3AParameter%27"><span class="hs-identifier hs-var">isModifiable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679494090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679494099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The data type of the parameter.</span><span>
 </span><span id="line-144"></span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#parameter_dataType"><span class="hs-identifier hs-type">parameter_dataType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -320,16 +320,16 @@ $sel:isModifiable:Parameter' :: Parameter -&gt; Maybe Bool
 -&gt; (Parameter -&gt; Maybe Text -&gt; Parameter)
 -&gt; Lens Parameter Parameter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494088"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494097"><span class="annot"><span class="annottext">Maybe Text
 dataType :: Maybe Text
 $sel:dataType:Parameter' :: Parameter -&gt; Maybe Text
-</span><a href="#local-6989586621679494088"><span class="hs-identifier hs-var hs-var">dataType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494088"><span class="hs-identifier hs-var">dataType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494087"><span class="annot"><span class="annottext">s :: Parameter
-</span><a href="#local-6989586621679494087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494086"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
-</span><a href="#local-6989586621679494087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataType:Parameter' :: Maybe Text
+</span><a href="#local-6989586621679494097"><span class="hs-identifier hs-var hs-var">dataType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494097"><span class="hs-identifier hs-var">dataType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494096"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679494096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494095"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679494096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataType:Parameter' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.Parameter.html#%24sel%3AdataType%3AParameter%27"><span class="hs-identifier hs-var">dataType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679494095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The valid range of values for the parameter.</span><span>
 </span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#parameter_allowedValues"><span class="hs-identifier hs-type">parameter_allowedValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -338,16 +338,16 @@ $sel:dataType:Parameter' :: Parameter -&gt; Maybe Text
 -&gt; (Parameter -&gt; Maybe Text -&gt; Parameter)
 -&gt; Lens Parameter Parameter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494084"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494093"><span class="annot"><span class="annottext">Maybe Text
 allowedValues :: Maybe Text
 $sel:allowedValues:Parameter' :: Parameter -&gt; Maybe Text
-</span><a href="#local-6989586621679494084"><span class="hs-identifier hs-var hs-var">allowedValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494084"><span class="hs-identifier hs-var">allowedValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494083"><span class="annot"><span class="annottext">s :: Parameter
-</span><a href="#local-6989586621679494083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494082"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
-</span><a href="#local-6989586621679494083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedValues:Parameter' :: Maybe Text
+</span><a href="#local-6989586621679494093"><span class="hs-identifier hs-var hs-var">allowedValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494093"><span class="hs-identifier hs-var">allowedValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494092"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679494092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494091"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679494092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedValues:Parameter' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.Parameter.html#%24sel%3AallowedValues%3AParameter%27"><span class="hs-identifier hs-var">allowedValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679494091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The name of the parameter.</span><span>
 </span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#parameter_parameterName"><span class="hs-identifier hs-type">parameter_parameterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -356,16 +356,16 @@ $sel:allowedValues:Parameter' :: Parameter -&gt; Maybe Text
 -&gt; (Parameter -&gt; Maybe Text -&gt; Parameter)
 -&gt; Lens Parameter Parameter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494080"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494089"><span class="annot"><span class="annottext">Maybe Text
 parameterName :: Maybe Text
 $sel:parameterName:Parameter' :: Parameter -&gt; Maybe Text
-</span><a href="#local-6989586621679494080"><span class="hs-identifier hs-var hs-var">parameterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494080"><span class="hs-identifier hs-var">parameterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494079"><span class="annot"><span class="annottext">s :: Parameter
-</span><a href="#local-6989586621679494079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494078"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
-</span><a href="#local-6989586621679494079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterName:Parameter' :: Maybe Text
+</span><a href="#local-6989586621679494089"><span class="hs-identifier hs-var hs-var">parameterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494089"><span class="hs-identifier hs-var">parameterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494088"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679494088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494087"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679494088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterName:Parameter' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.Parameter.html#%24sel%3AparameterName%3AParameter%27"><span class="hs-identifier hs-var">parameterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679494087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | A description of the parameter.</span><span>
 </span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#parameter_description"><span class="hs-identifier hs-type">parameter_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -374,21 +374,21 @@ $sel:parameterName:Parameter' :: Parameter -&gt; Maybe Text
 -&gt; (Parameter -&gt; Maybe Text -&gt; Parameter)
 -&gt; Lens Parameter Parameter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494076"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494085"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:Parameter' :: Parameter -&gt; Maybe Text
-</span><a href="#local-6989586621679494076"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494076"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494075"><span class="annot"><span class="annottext">s :: Parameter
-</span><a href="#local-6989586621679494075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494074"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
-</span><a href="#local-6989586621679494075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Parameter' :: Maybe Text
+</span><a href="#local-6989586621679494085"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494085"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494084"><span class="annot"><span class="annottext">s :: Parameter
+</span><a href="#local-6989586621679494084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494083"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Parameter
+</span><a href="#local-6989586621679494084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Parameter' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.Parameter.html#%24sel%3Adescription%3AParameter%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679494083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679494071"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Parameter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679494069"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494069"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679494080"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Parameter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679494078"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679494078"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">Maybe ParameterApplyType
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -424,7 +424,7 @@ $sel:description:Parameter' :: Parameter -&gt; Maybe Text
       -&gt; Parameter)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494069"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ParameterApplyType)
+</span><a href="#local-6989586621679494078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ParameterApplyType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ApplyType&quot;</span></span><span class="hs-special">)</span><span>
@@ -452,7 +452,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Parameter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494069"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679494078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ParameterValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -478,7 +478,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Parameter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494069"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679494078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinimumEngineVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -502,7 +502,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Parameter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494069"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679494078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Source&quot;</span></span><span class="hs-special">)</span><span>
@@ -520,7 +520,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Parameter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494069"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679494078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsModifiable&quot;</span></span><span class="hs-special">)</span><span>
@@ -532,7 +532,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Parameter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494069"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679494078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataType&quot;</span></span><span class="hs-special">)</span><span>
@@ -541,7 +541,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; Parameter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494069"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679494078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllowedValues&quot;</span></span><span class="hs-special">)</span><span>
@@ -550,7 +550,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Parameter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494069"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679494078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ParameterName&quot;</span></span><span class="hs-special">)</span><span>
@@ -558,18 +558,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String Parameter
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494069"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679494078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679494063"><span id="local-6989586621679494065"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679494072"><span id="local-6989586621679494074"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span></span></span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679494060"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679494069"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679494056"><span class="annot"><span class="annottext">toQuery :: Parameter -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494046"><span id="local-6989586621679494047"><span id="local-6989586621679494048"><span id="local-6989586621679494049"><span id="local-6989586621679494050"><span id="local-6989586621679494051"><span id="local-6989586621679494052"><span id="local-6989586621679494053"><span id="local-6989586621679494054"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679494065"><span class="annot"><span class="annottext">toQuery :: Parameter -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter%27"><span class="hs-identifier hs-type">Parameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494055"><span id="local-6989586621679494056"><span id="local-6989586621679494057"><span id="local-6989586621679494058"><span id="local-6989586621679494059"><span id="local-6989586621679494060"><span id="local-6989586621679494061"><span id="local-6989586621679494062"><span id="local-6989586621679494063"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe ParameterApplyType
 description :: Maybe Text
@@ -590,7 +590,7 @@ $sel:source:Parameter' :: Parameter -&gt; Maybe Text
 $sel:minimumEngineVersion:Parameter' :: Parameter -&gt; Maybe Text
 $sel:parameterValue:Parameter' :: Parameter -&gt; Maybe Text
 $sel:applyType:Parameter' :: Parameter -&gt; Maybe ParameterApplyType
-</span><a href="#local-6989586621679494046"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679494055"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -598,46 +598,46 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;ApplyType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ParameterApplyType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ParameterApplyType
-</span><a href="#local-6989586621679494054"><span class="hs-identifier hs-var">applyType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679494063"><span class="hs-identifier hs-var">applyType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ParameterValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494053"><span class="hs-identifier hs-var">parameterValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679494062"><span class="hs-identifier hs-var">parameterValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MinimumEngineVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494052"><span class="hs-identifier hs-var">minimumEngineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679494061"><span class="hs-identifier hs-var">minimumEngineVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Source&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494051"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679494060"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;IsModifiable&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679494050"><span class="hs-identifier hs-var">isModifiable</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679494059"><span class="hs-identifier hs-var">isModifiable</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DataType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494049"><span class="hs-identifier hs-var">dataType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679494058"><span class="hs-identifier hs-var">dataType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AllowedValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494048"><span class="hs-identifier hs-var">allowedValues</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679494057"><span class="hs-identifier hs-var">allowedValues</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ParameterName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494047"><span class="hs-identifier hs-var">parameterName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679494056"><span class="hs-identifier hs-var">parameterName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494046"><span class="hs-identifier hs-var">description</span></a></span><span>
+</span><a href="#local-6989586621679494055"><span class="hs-identifier hs-var">description</span></a></span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span></pre></body></html>

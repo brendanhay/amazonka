@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newExecuteTransaction' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679390567"><span id="local-6989586621679390568"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecuteTransaction"><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-var">ExecuteTransaction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecuteTransaction%27"><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction%27"><span class="hs-identifier hs-var">ExecuteTransaction'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679390576"><span id="local-6989586621679390577"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecuteTransaction"><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-var">ExecuteTransaction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecuteTransaction%27"><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction%27"><span class="hs-identifier hs-var">ExecuteTransaction'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set this value to get remaining results, if @NextToken@ was returned in</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- the statement response.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AclientRequestToken%3AExecuteTransaction%27"><span class="annot"><span class="annottext">ExecuteTransaction -&gt; Maybe Text
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AtransactStatements%3AExecuteTransaction%27"><span class="annot"><span class="annottext">ExecuteTransaction -&gt; NonEmpty ParameterizedStatement
 </span><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#%24sel%3AtransactStatements%3AExecuteTransaction%27"><span class="hs-identifier hs-var hs-var">transactStatements</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ParameterizedStatement.html#ParameterizedStatement"><span class="hs-identifier hs-type">ParameterizedStatement</span></a></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390560"><span id="local-6989586621679390562"><span class="annot"><span class="annottext">ExecuteTransaction -&gt; ExecuteTransaction -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390569"><span id="local-6989586621679390571"><span class="annot"><span class="annottext">ExecuteTransaction -&gt; ExecuteTransaction -&gt; Bool
 (ExecuteTransaction -&gt; ExecuteTransaction -&gt; Bool)
 -&gt; (ExecuteTransaction -&gt; ExecuteTransaction -&gt; Bool)
 -&gt; Eq ExecuteTransaction
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExecuteTransaction -&gt; ExecuteTransaction -&gt; Bool
 == :: ExecuteTransaction -&gt; ExecuteTransaction -&gt; Bool
 $c== :: ExecuteTransaction -&gt; ExecuteTransaction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390551"><span id="local-6989586621679390553"><span id="local-6989586621679390555"><span id="local-6989586621679390557"><span class="annot"><span class="annottext">ReadPrec [ExecuteTransaction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390560"><span id="local-6989586621679390562"><span id="local-6989586621679390564"><span id="local-6989586621679390566"><span class="annot"><span class="annottext">ReadPrec [ExecuteTransaction]
 ReadPrec ExecuteTransaction
 Int -&gt; ReadS ExecuteTransaction
 ReadS [ExecuteTransaction]
@@ -87,7 +87,7 @@ readList :: ReadS [ExecuteTransaction]
 $creadList :: ReadS [ExecuteTransaction]
 readsPrec :: Int -&gt; ReadS ExecuteTransaction
 $creadsPrec :: Int -&gt; ReadS ExecuteTransaction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390544"><span id="local-6989586621679390546"><span id="local-6989586621679390548"><span class="annot"><span class="annottext">Int -&gt; ExecuteTransaction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390553"><span id="local-6989586621679390555"><span id="local-6989586621679390557"><span class="annot"><span class="annottext">Int -&gt; ExecuteTransaction -&gt; ShowS
 [ExecuteTransaction] -&gt; ShowS
 ExecuteTransaction -&gt; String
 (Int -&gt; ExecuteTransaction -&gt; ShowS)
@@ -130,8 +130,8 @@ $cfrom :: forall x. ExecuteTransaction -&gt; Rep ExecuteTransaction x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ParameterizedStatement.html#ParameterizedStatement"><span class="hs-identifier hs-type">ParameterizedStatement</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-type">ExecuteTransaction</span></a></span><span>
 </span><span id="line-77"></span><span id="newExecuteTransaction"><span class="annot"><span class="annottext">newExecuteTransaction :: NonEmpty ParameterizedStatement -&gt; ExecuteTransaction
-</span><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#newExecuteTransaction"><span class="hs-identifier hs-var hs-var">newExecuteTransaction</span></a></span></span><span> </span><span id="local-6989586621679390539"><span class="annot"><span class="annottext">NonEmpty ParameterizedStatement
-</span><a href="#local-6989586621679390539"><span class="hs-identifier hs-var">pTransactStatements_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#newExecuteTransaction"><span class="hs-identifier hs-var hs-var">newExecuteTransaction</span></a></span></span><span> </span><span id="local-6989586621679390548"><span class="annot"><span class="annottext">NonEmpty ParameterizedStatement
+</span><a href="#local-6989586621679390548"><span class="hs-identifier hs-var">pTransactStatements_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">ExecuteTransaction' :: Maybe Text -&gt; NonEmpty ParameterizedStatement -&gt; ExecuteTransaction
 </span><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction%27"><span class="hs-identifier hs-type">ExecuteTransaction'</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientRequestToken:ExecuteTransaction' :: Maybe Text
@@ -158,7 +158,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty ParameterizedStatement
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty ParameterizedStatement
-</span><a href="#local-6989586621679390539"><span class="hs-identifier hs-var">pTransactStatements_</span></a></span><span>
+</span><a href="#local-6989586621679390548"><span class="hs-identifier hs-var">pTransactStatements_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Set this value to get remaining results, if @NextToken@ was returned in</span><span>
@@ -171,16 +171,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      ExecuteTransaction ExecuteTransaction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction%27"><span class="hs-identifier hs-type">ExecuteTransaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390534"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction%27"><span class="hs-identifier hs-type">ExecuteTransaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390543"><span class="annot"><span class="annottext">Maybe Text
 clientRequestToken :: Maybe Text
 $sel:clientRequestToken:ExecuteTransaction' :: ExecuteTransaction -&gt; Maybe Text
-</span><a href="#local-6989586621679390534"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390534"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390533"><span class="annot"><span class="annottext">s :: ExecuteTransaction
-</span><a href="#local-6989586621679390533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction%27"><span class="hs-identifier hs-type">ExecuteTransaction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390532"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteTransaction
-</span><a href="#local-6989586621679390533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:ExecuteTransaction' :: Maybe Text
+</span><a href="#local-6989586621679390543"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390543"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390542"><span class="annot"><span class="annottext">s :: ExecuteTransaction
+</span><a href="#local-6989586621679390542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction%27"><span class="hs-identifier hs-type">ExecuteTransaction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390541"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteTransaction
+</span><a href="#local-6989586621679390542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:ExecuteTransaction' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#%24sel%3AclientRequestToken%3AExecuteTransaction%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-type">ExecuteTransaction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-type">ExecuteTransaction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The list of PartiQL statements representing the transaction to run.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#executeTransaction_transactStatements"><span class="hs-identifier hs-type">executeTransaction_transactStatements</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-type">ExecuteTransaction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ParameterizedStatement.html#ParameterizedStatement"><span class="hs-identifier hs-type">ParameterizedStatement</span></a></span><span class="hs-special">)</span><span>
@@ -196,16 +196,16 @@ $sel:clientRequestToken:ExecuteTransaction' :: ExecuteTransaction -&gt; Maybe Te
      (NonEmpty ParameterizedStatement)
      (NonEmpty ParameterizedStatement)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction%27"><span class="hs-identifier hs-type">ExecuteTransaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390531"><span class="annot"><span class="annottext">NonEmpty ParameterizedStatement
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction%27"><span class="hs-identifier hs-type">ExecuteTransaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390540"><span class="annot"><span class="annottext">NonEmpty ParameterizedStatement
 transactStatements :: NonEmpty ParameterizedStatement
 $sel:transactStatements:ExecuteTransaction' :: ExecuteTransaction -&gt; NonEmpty ParameterizedStatement
-</span><a href="#local-6989586621679390531"><span class="hs-identifier hs-var hs-var">transactStatements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty ParameterizedStatement
-</span><a href="#local-6989586621679390531"><span class="hs-identifier hs-var">transactStatements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390530"><span class="annot"><span class="annottext">s :: ExecuteTransaction
-</span><a href="#local-6989586621679390530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction%27"><span class="hs-identifier hs-type">ExecuteTransaction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390529"><span class="annot"><span class="annottext">NonEmpty ParameterizedStatement
-</span><a href="#local-6989586621679390529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteTransaction
-</span><a href="#local-6989586621679390530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transactStatements:ExecuteTransaction' :: NonEmpty ParameterizedStatement
+</span><a href="#local-6989586621679390540"><span class="hs-identifier hs-var hs-var">transactStatements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty ParameterizedStatement
+</span><a href="#local-6989586621679390540"><span class="hs-identifier hs-var">transactStatements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390539"><span class="annot"><span class="annottext">s :: ExecuteTransaction
+</span><a href="#local-6989586621679390539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction%27"><span class="hs-identifier hs-type">ExecuteTransaction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390538"><span class="annot"><span class="annottext">NonEmpty ParameterizedStatement
+</span><a href="#local-6989586621679390538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteTransaction
+</span><a href="#local-6989586621679390539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transactStatements:ExecuteTransaction' :: NonEmpty ParameterizedStatement
 </span><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#%24sel%3AtransactStatements%3AExecuteTransaction%27"><span class="hs-identifier hs-var">transactStatements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty ParameterizedStatement
-</span><a href="#local-6989586621679390529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-type">ExecuteTransaction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty ParameterizedStatement
+</span><a href="#local-6989586621679390538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-type">ExecuteTransaction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty ParameterizedStatement
   -&gt; f (NonEmpty ParameterizedStatement))
  -&gt; ExecuteTransaction -&gt; f ExecuteTransaction)
 -&gt; ((NonEmpty ParameterizedStatement
@@ -228,12 +228,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-type">ExecuteTransaction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse"><span class="hs-identifier hs-type">ExecuteTransactionResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679390524"><span class="annot"><span class="annottext">request :: ExecuteTransaction -&gt; Request ExecuteTransaction
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679390533"><span class="annot"><span class="annottext">request :: ExecuteTransaction -&gt; Request ExecuteTransaction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ExecuteTransaction -&gt; Request ExecuteTransaction
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679390520"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679390529"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ExecuteTransaction
 -&gt; ClientResponse ClientBody
@@ -259,10 +259,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679390517"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390517"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679390516"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679390516"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679390515"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679390515"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679390526"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390526"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679390525"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679390525"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679390524"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679390524"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty ItemResponse) -&gt; Int -&gt; ExecuteTransactionResponse
 </span><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse%27"><span class="hs-identifier hs-var">ExecuteTransactionResponse'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty ItemResponse)
@@ -271,7 +271,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ExecuteTransactionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679390515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty ItemResponse))
+</span><a href="#local-6989586621679390524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty ItemResponse))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Responses&quot;</span></span><span class="hs-special">)</span><span>
@@ -283,15 +283,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390517"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390526"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390507"><span id="local-6989586621679390509"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-type">ExecuteTransaction</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390516"><span id="local-6989586621679390518"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-type">ExecuteTransaction</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390504"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-type">ExecuteTransaction</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390513"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-type">ExecuteTransaction</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-type">ExecuteTransaction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679390500"><span class="annot"><span class="annottext">toHeaders :: ExecuteTransaction -&gt; ResponseHeaders
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679390509"><span class="annot"><span class="annottext">toHeaders :: ExecuteTransaction -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ExecuteTransaction -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -318,15 +318,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390490"><span id="local-6989586621679390492"><span id="local-6989586621679390494"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-type">ExecuteTransaction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679390488"><span class="annot"><span class="annottext">toJSON :: ExecuteTransaction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction%27"><span class="hs-identifier hs-type">ExecuteTransaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390485"><span id="local-6989586621679390486"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390499"><span id="local-6989586621679390501"><span id="local-6989586621679390503"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-type">ExecuteTransaction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679390497"><span class="annot"><span class="annottext">toJSON :: ExecuteTransaction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction%27"><span class="hs-identifier hs-type">ExecuteTransaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390494"><span id="local-6989586621679390495"><span class="annot"><span class="annottext">Maybe Text
 NonEmpty ParameterizedStatement
 transactStatements :: NonEmpty ParameterizedStatement
 clientRequestToken :: Maybe Text
 $sel:transactStatements:ExecuteTransaction' :: ExecuteTransaction -&gt; NonEmpty ParameterizedStatement
 $sel:clientRequestToken:ExecuteTransaction' :: ExecuteTransaction -&gt; Maybe Text
-</span><a href="#local-6989586621679390485"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679390494"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -339,7 +339,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390486"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679390495"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -347,19 +347,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TransactStatements&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ParameterizedStatement -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty ParameterizedStatement
-</span><a href="#local-6989586621679390485"><span class="hs-identifier hs-var">transactStatements</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390494"><span class="hs-identifier hs-var">transactStatements</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-type">ExecuteTransaction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679390479"><span class="annot"><span class="annottext">toPath :: ExecuteTransaction -&gt; ByteString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679390488"><span class="annot"><span class="annottext">toPath :: ExecuteTransaction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ExecuteTransaction -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransaction"><span class="hs-identifier hs-type">ExecuteTransaction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679390475"><span class="annot"><span class="annottext">toQuery :: ExecuteTransaction -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679390484"><span class="annot"><span class="annottext">toQuery :: ExecuteTransaction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ExecuteTransaction -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -367,7 +367,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newExecuteTransactionResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679390472"><span id="local-6989586621679390473"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecuteTransactionResponse"><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse"><span class="hs-identifier hs-var">ExecuteTransactionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecuteTransactionResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse%27"><span class="hs-identifier hs-var">ExecuteTransactionResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679390481"><span id="local-6989586621679390482"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecuteTransactionResponse"><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse"><span class="hs-identifier hs-var">ExecuteTransactionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecuteTransactionResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse%27"><span class="hs-identifier hs-var">ExecuteTransactionResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response to a PartiQL transaction.</span><span>
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3Aresponses%3AExecuteTransactionResponse%27"><span class="annot"><span class="annottext">ExecuteTransactionResponse -&gt; Maybe (NonEmpty ItemResponse)
 </span><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#%24sel%3Aresponses%3AExecuteTransactionResponse%27"><span class="hs-identifier hs-var hs-var">responses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ItemResponse.html#ItemResponse"><span class="hs-identifier hs-type">ItemResponse</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -375,7 +375,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3AExecuteTransactionResponse%27"><span class="annot"><span class="annottext">ExecuteTransactionResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#%24sel%3AhttpStatus%3AExecuteTransactionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390466"><span id="local-6989586621679390468"><span class="annot"><span class="annottext">ExecuteTransactionResponse -&gt; ExecuteTransactionResponse -&gt; Bool
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390475"><span id="local-6989586621679390477"><span class="annot"><span class="annottext">ExecuteTransactionResponse -&gt; ExecuteTransactionResponse -&gt; Bool
 (ExecuteTransactionResponse -&gt; ExecuteTransactionResponse -&gt; Bool)
 -&gt; (ExecuteTransactionResponse
     -&gt; ExecuteTransactionResponse -&gt; Bool)
@@ -385,7 +385,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExecuteTransactionResponse -&gt; ExecuteTransactionResponse -&gt; Bool
 == :: ExecuteTransactionResponse -&gt; ExecuteTransactionResponse -&gt; Bool
 $c== :: ExecuteTransactionResponse -&gt; ExecuteTransactionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390458"><span id="local-6989586621679390460"><span id="local-6989586621679390462"><span id="local-6989586621679390464"><span class="annot"><span class="annottext">ReadPrec [ExecuteTransactionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390467"><span id="local-6989586621679390469"><span id="local-6989586621679390471"><span id="local-6989586621679390473"><span class="annot"><span class="annottext">ReadPrec [ExecuteTransactionResponse]
 ReadPrec ExecuteTransactionResponse
 Int -&gt; ReadS ExecuteTransactionResponse
 ReadS [ExecuteTransactionResponse]
@@ -405,7 +405,7 @@ readList :: ReadS [ExecuteTransactionResponse]
 $creadList :: ReadS [ExecuteTransactionResponse]
 readsPrec :: Int -&gt; ReadS ExecuteTransactionResponse
 $creadsPrec :: Int -&gt; ReadS ExecuteTransactionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390452"><span id="local-6989586621679390454"><span id="local-6989586621679390456"><span class="annot"><span class="annottext">Int -&gt; ExecuteTransactionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390461"><span id="local-6989586621679390463"><span id="local-6989586621679390465"><span class="annot"><span class="annottext">Int -&gt; ExecuteTransactionResponse -&gt; ShowS
 [ExecuteTransactionResponse] -&gt; ShowS
 ExecuteTransactionResponse -&gt; String
 (Int -&gt; ExecuteTransactionResponse -&gt; ShowS)
@@ -453,8 +453,8 @@ ExecuteTransactionResponse -&gt; Rep ExecuteTransactionResponse x
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse"><span class="hs-identifier hs-type">ExecuteTransactionResponse</span></a></span><span>
 </span><span id="line-167"></span><span id="newExecuteTransactionResponse"><span class="annot"><span class="annottext">newExecuteTransactionResponse :: Int -&gt; ExecuteTransactionResponse
-</span><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#newExecuteTransactionResponse"><span class="hs-identifier hs-var hs-var">newExecuteTransactionResponse</span></a></span></span><span> </span><span id="local-6989586621679390449"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#newExecuteTransactionResponse"><span class="hs-identifier hs-var hs-var">newExecuteTransactionResponse</span></a></span></span><span> </span><span id="local-6989586621679390458"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390458"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">ExecuteTransactionResponse' :: Maybe (NonEmpty ItemResponse) -&gt; Int -&gt; ExecuteTransactionResponse
 </span><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse%27"><span class="hs-identifier hs-type">ExecuteTransactionResponse'</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:responses:ExecuteTransactionResponse' :: Maybe (NonEmpty ItemResponse)
@@ -464,7 +464,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ExecuteTransactionResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#%24sel%3AhttpStatus%3AExecuteTransactionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679390458"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The response to a PartiQL transaction.</span><span>
@@ -481,16 +481,16 @@ forall a. Maybe a
      (Maybe (NonEmpty ItemResponse))
      (Maybe (NonEmpty ItemResponse))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse%27"><span class="hs-identifier hs-type">ExecuteTransactionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390448"><span class="annot"><span class="annottext">Maybe (NonEmpty ItemResponse)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse%27"><span class="hs-identifier hs-type">ExecuteTransactionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390457"><span class="annot"><span class="annottext">Maybe (NonEmpty ItemResponse)
 responses :: Maybe (NonEmpty ItemResponse)
 $sel:responses:ExecuteTransactionResponse' :: ExecuteTransactionResponse -&gt; Maybe (NonEmpty ItemResponse)
-</span><a href="#local-6989586621679390448"><span class="hs-identifier hs-var hs-var">responses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ItemResponse)
-</span><a href="#local-6989586621679390448"><span class="hs-identifier hs-var">responses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390447"><span class="annot"><span class="annottext">s :: ExecuteTransactionResponse
-</span><a href="#local-6989586621679390447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse%27"><span class="hs-identifier hs-type">ExecuteTransactionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390446"><span class="annot"><span class="annottext">Maybe (NonEmpty ItemResponse)
-</span><a href="#local-6989586621679390446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteTransactionResponse
-</span><a href="#local-6989586621679390447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responses:ExecuteTransactionResponse' :: Maybe (NonEmpty ItemResponse)
+</span><a href="#local-6989586621679390457"><span class="hs-identifier hs-var hs-var">responses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ItemResponse)
+</span><a href="#local-6989586621679390457"><span class="hs-identifier hs-var">responses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390456"><span class="annot"><span class="annottext">s :: ExecuteTransactionResponse
+</span><a href="#local-6989586621679390456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse%27"><span class="hs-identifier hs-type">ExecuteTransactionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390455"><span class="annot"><span class="annottext">Maybe (NonEmpty ItemResponse)
+</span><a href="#local-6989586621679390455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteTransactionResponse
+</span><a href="#local-6989586621679390456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responses:ExecuteTransactionResponse' :: Maybe (NonEmpty ItemResponse)
 </span><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#%24sel%3Aresponses%3AExecuteTransactionResponse%27"><span class="hs-identifier hs-var">responses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ItemResponse)
-</span><a href="#local-6989586621679390446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse"><span class="hs-identifier hs-type">ExecuteTransactionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ItemResponse)
+</span><a href="#local-6989586621679390455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse"><span class="hs-identifier hs-type">ExecuteTransactionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ItemResponse)
   -&gt; f (Maybe (NonEmpty ItemResponse)))
  -&gt; ExecuteTransactionResponse -&gt; f ExecuteTransactionResponse)
 -&gt; ((Maybe (NonEmpty ItemResponse)
@@ -533,16 +533,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ExecuteTransactionResponse ExecuteTransactionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse%27"><span class="hs-identifier hs-type">ExecuteTransactionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390444"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse%27"><span class="hs-identifier hs-type">ExecuteTransactionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390453"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ExecuteTransactionResponse' :: ExecuteTransactionResponse -&gt; Int
-</span><a href="#local-6989586621679390444"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390444"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390443"><span class="annot"><span class="annottext">s :: ExecuteTransactionResponse
-</span><a href="#local-6989586621679390443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse%27"><span class="hs-identifier hs-type">ExecuteTransactionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390442"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteTransactionResponse
-</span><a href="#local-6989586621679390443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ExecuteTransactionResponse' :: Int
+</span><a href="#local-6989586621679390453"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390453"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390452"><span class="annot"><span class="annottext">s :: ExecuteTransactionResponse
+</span><a href="#local-6989586621679390452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse%27"><span class="hs-identifier hs-type">ExecuteTransactionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390451"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteTransactionResponse
+</span><a href="#local-6989586621679390452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ExecuteTransactionResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#%24sel%3AhttpStatus%3AExecuteTransactionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse"><span class="hs-identifier hs-type">ExecuteTransactionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse"><span class="hs-identifier hs-type">ExecuteTransactionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390440"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse"><span class="hs-identifier hs-type">ExecuteTransactionResponse</span></a></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390449"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ExecuteTransaction.html#ExecuteTransactionResponse"><span class="hs-identifier hs-type">ExecuteTransactionResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

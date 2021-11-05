@@ -57,13 +57,13 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span id="local-6989586621679682014"><span id="local-6989586621679682015"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectionPropertyKey"><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionPropertyKey.html#ConnectionPropertyKey"><span class="hs-identifier hs-var">ConnectionPropertyKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionPropertyKey%27"><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionPropertyKey.html#ConnectionPropertyKey%27"><span class="hs-identifier hs-var">ConnectionPropertyKey'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679682023"><span id="local-6989586621679682024"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectionPropertyKey"><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionPropertyKey.html#ConnectionPropertyKey"><span class="hs-identifier hs-var">ConnectionPropertyKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionPropertyKey%27"><span class="annot"><a href="Network.AWS.Glue.Types.ConnectionPropertyKey.html#ConnectionPropertyKey%27"><span class="hs-identifier hs-var">ConnectionPropertyKey'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConnectionPropertyKey"><span class="annot"><span class="annottext">ConnectionPropertyKey -&gt; Text
 </span><a href="Network.AWS.Glue.Types.ConnectionPropertyKey.html#fromConnectionPropertyKey"><span class="hs-identifier hs-var hs-var">fromConnectionPropertyKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679682006"><span id="local-6989586621679682008"><span id="local-6989586621679682010"><span class="annot"><span class="annottext">Int -&gt; ConnectionPropertyKey -&gt; ShowS
+</span><span id="line-65"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679682015"><span id="local-6989586621679682017"><span id="local-6989586621679682019"><span class="annot"><span class="annottext">Int -&gt; ConnectionPropertyKey -&gt; ShowS
 [ConnectionPropertyKey] -&gt; ShowS
 ConnectionPropertyKey -&gt; String
 (Int -&gt; ConnectionPropertyKey -&gt; ShowS)
@@ -79,7 +79,7 @@ $cshow :: ConnectionPropertyKey -&gt; String
 showsPrec :: Int -&gt; ConnectionPropertyKey -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConnectionPropertyKey -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679681997"><span id="local-6989586621679681999"><span id="local-6989586621679682001"><span id="local-6989586621679682003"><span class="annot"><span class="annottext">ReadPrec [ConnectionPropertyKey]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679682006"><span id="local-6989586621679682008"><span id="local-6989586621679682010"><span id="local-6989586621679682012"><span class="annot"><span class="annottext">ReadPrec [ConnectionPropertyKey]
 ReadPrec ConnectionPropertyKey
 Int -&gt; ReadS ConnectionPropertyKey
 ReadS [ConnectionPropertyKey]
@@ -100,7 +100,7 @@ $creadList :: ReadS [ConnectionPropertyKey]
 readsPrec :: Int -&gt; ReadS ConnectionPropertyKey
 $creadsPrec :: Int -&gt; ReadS ConnectionPropertyKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679681992"><span id="local-6989586621679681994"><span class="annot"><span class="annottext">ConnectionPropertyKey -&gt; ConnectionPropertyKey -&gt; Bool
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679682001"><span id="local-6989586621679682003"><span class="annot"><span class="annottext">ConnectionPropertyKey -&gt; ConnectionPropertyKey -&gt; Bool
 (ConnectionPropertyKey -&gt; ConnectionPropertyKey -&gt; Bool)
 -&gt; (ConnectionPropertyKey -&gt; ConnectionPropertyKey -&gt; Bool)
 -&gt; Eq ConnectionPropertyKey
@@ -110,7 +110,7 @@ $c/= :: ConnectionPropertyKey -&gt; ConnectionPropertyKey -&gt; Bool
 == :: ConnectionPropertyKey -&gt; ConnectionPropertyKey -&gt; Bool
 $c== :: ConnectionPropertyKey -&gt; ConnectionPropertyKey -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679681976"><span id="local-6989586621679681978"><span id="local-6989586621679681980"><span id="local-6989586621679681982"><span id="local-6989586621679681984"><span id="local-6989586621679681986"><span id="local-6989586621679681988"><span class="annot"><span class="annottext">Eq ConnectionPropertyKey
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679681985"><span id="local-6989586621679681987"><span id="local-6989586621679681989"><span id="local-6989586621679681991"><span id="local-6989586621679681993"><span id="local-6989586621679681995"><span id="local-6989586621679681997"><span class="annot"><span class="annottext">Eq ConnectionPropertyKey
 Eq ConnectionPropertyKey
 -&gt; (ConnectionPropertyKey -&gt; ConnectionPropertyKey -&gt; Ordering)
 -&gt; (ConnectionPropertyKey -&gt; ConnectionPropertyKey -&gt; Bool)
@@ -168,7 +168,7 @@ $cfrom :: forall x. ConnectionPropertyKey -&gt; Rep ConnectionPropertyKey x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679681968"><span id="local-6989586621679681970"><span class="annot"><span class="annottext">Int -&gt; ConnectionPropertyKey -&gt; Int
+</span><span id="line-72"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679681977"><span id="local-6989586621679681979"><span class="annot"><span class="annottext">Int -&gt; ConnectionPropertyKey -&gt; Int
 ConnectionPropertyKey -&gt; Int
 (Int -&gt; ConnectionPropertyKey -&gt; Int)
 -&gt; (ConnectionPropertyKey -&gt; Int) -&gt; Hashable ConnectionPropertyKey
@@ -178,54 +178,54 @@ $chash :: ConnectionPropertyKey -&gt; Int
 hashWithSalt :: Int -&gt; ConnectionPropertyKey -&gt; Int
 $chashWithSalt :: Int -&gt; ConnectionPropertyKey -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679681965"><span class="annot"><span class="annottext">ConnectionPropertyKey -&gt; ()
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679681974"><span class="annot"><span class="annottext">ConnectionPropertyKey -&gt; ()
 (ConnectionPropertyKey -&gt; ()) -&gt; NFData ConnectionPropertyKey
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConnectionPropertyKey -&gt; ()
 $crnf :: ConnectionPropertyKey -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679681962"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectionPropertyKey
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679681971"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectionPropertyKey
 (Text -&gt; Either String ConnectionPropertyKey)
 -&gt; FromText ConnectionPropertyKey
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConnectionPropertyKey
 $cfromText :: Text -&gt; Either String ConnectionPropertyKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679681959"><span class="annot"><span class="annottext">ConnectionPropertyKey -&gt; Text
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679681968"><span class="annot"><span class="annottext">ConnectionPropertyKey -&gt; Text
 (ConnectionPropertyKey -&gt; Text) -&gt; ToText ConnectionPropertyKey
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConnectionPropertyKey -&gt; Text
 $ctoText :: ConnectionPropertyKey -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679681956"><span class="annot"><span class="annottext">ConnectionPropertyKey -&gt; ByteString
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679681965"><span class="annot"><span class="annottext">ConnectionPropertyKey -&gt; ByteString
 (ConnectionPropertyKey -&gt; ByteString)
 -&gt; ToByteString ConnectionPropertyKey
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConnectionPropertyKey -&gt; ByteString
 $ctoBS :: ConnectionPropertyKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679681953"><span class="annot"><span class="annottext">ConnectionPropertyKey -&gt; ByteStringBuilder
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679681962"><span class="annot"><span class="annottext">ConnectionPropertyKey -&gt; ByteStringBuilder
 (ConnectionPropertyKey -&gt; ByteStringBuilder)
 -&gt; ToLog ConnectionPropertyKey
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConnectionPropertyKey -&gt; ByteStringBuilder
 $cbuild :: ConnectionPropertyKey -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621679681950"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectionPropertyKey -&gt; [Header]
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679681959"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectionPropertyKey -&gt; [Header]
 (HeaderName -&gt; ConnectionPropertyKey -&gt; [Header])
 -&gt; ToHeader ConnectionPropertyKey
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConnectionPropertyKey -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConnectionPropertyKey -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span id="local-6989586621679681947"><span class="annot"><span class="annottext">ConnectionPropertyKey -&gt; QueryString
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679681956"><span class="annot"><span class="annottext">ConnectionPropertyKey -&gt; QueryString
 (ConnectionPropertyKey -&gt; QueryString)
 -&gt; ToQuery ConnectionPropertyKey
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConnectionPropertyKey -&gt; QueryString
 $ctoQuery :: ConnectionPropertyKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621679681942"><span id="local-6989586621679681944"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectionPropertyKey]
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679681951"><span id="local-6989586621679681953"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectionPropertyKey]
 Value -&gt; Parser ConnectionPropertyKey
 (Value -&gt; Parser ConnectionPropertyKey)
 -&gt; (Value -&gt; Parser [ConnectionPropertyKey])
@@ -237,7 +237,7 @@ $cparseJSONList :: Value -&gt; Parser [ConnectionPropertyKey]
 parseJSON :: Value -&gt; Parser ConnectionPropertyKey
 $cparseJSON :: Value -&gt; Parser ConnectionPropertyKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span id="local-6989586621679681937"><span id="local-6989586621679681939"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectionPropertyKey]
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679681946"><span id="local-6989586621679681948"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectionPropertyKey]
 FromJSONKeyFunction ConnectionPropertyKey
 FromJSONKeyFunction ConnectionPropertyKey
 -&gt; FromJSONKeyFunction [ConnectionPropertyKey]
@@ -249,7 +249,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConnectionPropertyKey]
 fromJSONKey :: FromJSONKeyFunction ConnectionPropertyKey
 $cfromJSONKey :: FromJSONKeyFunction ConnectionPropertyKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span id="local-6989586621679681928"><span id="local-6989586621679681930"><span id="local-6989586621679681932"><span id="local-6989586621679681934"><span class="annot"><span class="annottext">[ConnectionPropertyKey] -&gt; Encoding
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679681937"><span id="local-6989586621679681939"><span id="local-6989586621679681941"><span id="local-6989586621679681943"><span class="annot"><span class="annottext">[ConnectionPropertyKey] -&gt; Encoding
 [ConnectionPropertyKey] -&gt; Value
 ConnectionPropertyKey -&gt; Encoding
 ConnectionPropertyKey -&gt; Value
@@ -273,7 +273,7 @@ $ctoEncoding :: ConnectionPropertyKey -&gt; Encoding
 toJSON :: ConnectionPropertyKey -&gt; Value
 $ctoJSON :: ConnectionPropertyKey -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span id="local-6989586621679681923"><span id="local-6989586621679681925"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectionPropertyKey]
+</span><span id="line-83"></span><span>      </span><span id="local-6989586621679681932"><span id="local-6989586621679681934"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectionPropertyKey]
 ToJSONKeyFunction ConnectionPropertyKey
 ToJSONKeyFunction ConnectionPropertyKey
 -&gt; ToJSONKeyFunction [ConnectionPropertyKey]
@@ -285,14 +285,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConnectionPropertyKey]
 toJSONKey :: ToJSONKeyFunction ConnectionPropertyKey
 $ctoJSONKey :: ToJSONKeyFunction ConnectionPropertyKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span id="local-6989586621679681920"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectionPropertyKey
+</span><span id="line-84"></span><span>      </span><span id="local-6989586621679681929"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectionPropertyKey
 ([Node] -&gt; Either String ConnectionPropertyKey)
 -&gt; FromXML ConnectionPropertyKey
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConnectionPropertyKey
 $cparseXML :: [Node] -&gt; Either String ConnectionPropertyKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span id="local-6989586621679681917"><span class="annot"><span class="annottext">ConnectionPropertyKey -&gt; XML
+</span><span id="line-85"></span><span>      </span><span id="local-6989586621679681926"><span class="annot"><span class="annottext">ConnectionPropertyKey -&gt; XML
 (ConnectionPropertyKey -&gt; XML) -&gt; ToXML ConnectionPropertyKey
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ConnectionPropertyKey -&gt; XML

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679786536"><span id="local-6989586621679786537"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IndexStatus"><span class="annot"><a href="Network.AWS.IoT.Types.IndexStatus.html#IndexStatus"><span class="hs-identifier hs-var">IndexStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IndexStatus%27"><span class="annot"><a href="Network.AWS.IoT.Types.IndexStatus.html#IndexStatus%27"><span class="hs-identifier hs-var">IndexStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679786545"><span id="local-6989586621679786546"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IndexStatus"><span class="annot"><a href="Network.AWS.IoT.Types.IndexStatus.html#IndexStatus"><span class="hs-identifier hs-var">IndexStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IndexStatus%27"><span class="annot"><a href="Network.AWS.IoT.Types.IndexStatus.html#IndexStatus%27"><span class="hs-identifier hs-var">IndexStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromIndexStatus"><span class="annot"><span class="annottext">IndexStatus -&gt; Text
 </span><a href="Network.AWS.IoT.Types.IndexStatus.html#fromIndexStatus"><span class="hs-identifier hs-var hs-var">fromIndexStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679786528"><span id="local-6989586621679786530"><span id="local-6989586621679786532"><span class="annot"><span class="annottext">Int -&gt; IndexStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679786537"><span id="local-6989586621679786539"><span id="local-6989586621679786541"><span class="annot"><span class="annottext">Int -&gt; IndexStatus -&gt; ShowS
 [IndexStatus] -&gt; ShowS
 IndexStatus -&gt; String
 (Int -&gt; IndexStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: IndexStatus -&gt; String
 showsPrec :: Int -&gt; IndexStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; IndexStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679786519"><span id="local-6989586621679786521"><span id="local-6989586621679786523"><span id="local-6989586621679786525"><span class="annot"><span class="annottext">ReadPrec [IndexStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679786528"><span id="local-6989586621679786530"><span id="local-6989586621679786532"><span id="local-6989586621679786534"><span class="annot"><span class="annottext">ReadPrec [IndexStatus]
 ReadPrec IndexStatus
 Int -&gt; ReadS IndexStatus
 ReadS [IndexStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [IndexStatus]
 readsPrec :: Int -&gt; ReadS IndexStatus
 $creadsPrec :: Int -&gt; ReadS IndexStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679786514"><span id="local-6989586621679786516"><span class="annot"><span class="annottext">IndexStatus -&gt; IndexStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679786523"><span id="local-6989586621679786525"><span class="annot"><span class="annottext">IndexStatus -&gt; IndexStatus -&gt; Bool
 (IndexStatus -&gt; IndexStatus -&gt; Bool)
 -&gt; (IndexStatus -&gt; IndexStatus -&gt; Bool) -&gt; Eq IndexStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: IndexStatus -&gt; IndexStatus -&gt; Bool
 == :: IndexStatus -&gt; IndexStatus -&gt; Bool
 $c== :: IndexStatus -&gt; IndexStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679786498"><span id="local-6989586621679786500"><span id="local-6989586621679786502"><span id="local-6989586621679786504"><span id="local-6989586621679786506"><span id="local-6989586621679786508"><span id="local-6989586621679786510"><span class="annot"><span class="annottext">Eq IndexStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679786507"><span id="local-6989586621679786509"><span id="local-6989586621679786511"><span id="local-6989586621679786513"><span id="local-6989586621679786515"><span id="local-6989586621679786517"><span id="local-6989586621679786519"><span class="annot"><span class="annottext">Eq IndexStatus
 Eq IndexStatus
 -&gt; (IndexStatus -&gt; IndexStatus -&gt; Ordering)
 -&gt; (IndexStatus -&gt; IndexStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. IndexStatus -&gt; Rep IndexStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679786490"><span id="local-6989586621679786492"><span class="annot"><span class="annottext">Int -&gt; IndexStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679786499"><span id="local-6989586621679786501"><span class="annot"><span class="annottext">Int -&gt; IndexStatus -&gt; Int
 IndexStatus -&gt; Int
 (Int -&gt; IndexStatus -&gt; Int)
 -&gt; (IndexStatus -&gt; Int) -&gt; Hashable IndexStatus
@@ -143,49 +143,49 @@ $chash :: IndexStatus -&gt; Int
 hashWithSalt :: Int -&gt; IndexStatus -&gt; Int
 $chashWithSalt :: Int -&gt; IndexStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679786487"><span class="annot"><span class="annottext">IndexStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679786496"><span class="annot"><span class="annottext">IndexStatus -&gt; ()
 (IndexStatus -&gt; ()) -&gt; NFData IndexStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: IndexStatus -&gt; ()
 $crnf :: IndexStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679786484"><span class="annot"><span class="annottext">Text -&gt; Either String IndexStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679786493"><span class="annot"><span class="annottext">Text -&gt; Either String IndexStatus
 (Text -&gt; Either String IndexStatus) -&gt; FromText IndexStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String IndexStatus
 $cfromText :: Text -&gt; Either String IndexStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679786481"><span class="annot"><span class="annottext">IndexStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679786490"><span class="annot"><span class="annottext">IndexStatus -&gt; Text
 (IndexStatus -&gt; Text) -&gt; ToText IndexStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: IndexStatus -&gt; Text
 $ctoText :: IndexStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679786478"><span class="annot"><span class="annottext">IndexStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679786487"><span class="annot"><span class="annottext">IndexStatus -&gt; ByteString
 (IndexStatus -&gt; ByteString) -&gt; ToByteString IndexStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: IndexStatus -&gt; ByteString
 $ctoBS :: IndexStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679786475"><span class="annot"><span class="annottext">IndexStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679786484"><span class="annot"><span class="annottext">IndexStatus -&gt; ByteStringBuilder
 (IndexStatus -&gt; ByteStringBuilder) -&gt; ToLog IndexStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: IndexStatus -&gt; ByteStringBuilder
 $cbuild :: IndexStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679786472"><span class="annot"><span class="annottext">HeaderName -&gt; IndexStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679786481"><span class="annot"><span class="annottext">HeaderName -&gt; IndexStatus -&gt; [Header]
 (HeaderName -&gt; IndexStatus -&gt; [Header]) -&gt; ToHeader IndexStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; IndexStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; IndexStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679786469"><span class="annot"><span class="annottext">IndexStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679786478"><span class="annot"><span class="annottext">IndexStatus -&gt; QueryString
 (IndexStatus -&gt; QueryString) -&gt; ToQuery IndexStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: IndexStatus -&gt; QueryString
 $ctoQuery :: IndexStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679786464"><span id="local-6989586621679786466"><span class="annot"><span class="annottext">Value -&gt; Parser [IndexStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679786473"><span id="local-6989586621679786475"><span class="annot"><span class="annottext">Value -&gt; Parser [IndexStatus]
 Value -&gt; Parser IndexStatus
 (Value -&gt; Parser IndexStatus)
 -&gt; (Value -&gt; Parser [IndexStatus]) -&gt; FromJSON IndexStatus
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [IndexStatus]
 parseJSON :: Value -&gt; Parser IndexStatus
 $cparseJSON :: Value -&gt; Parser IndexStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679786459"><span id="local-6989586621679786461"><span class="annot"><span class="annottext">FromJSONKeyFunction [IndexStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679786468"><span id="local-6989586621679786470"><span class="annot"><span class="annottext">FromJSONKeyFunction [IndexStatus]
 FromJSONKeyFunction IndexStatus
 FromJSONKeyFunction IndexStatus
 -&gt; FromJSONKeyFunction [IndexStatus] -&gt; FromJSONKey IndexStatus
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [IndexStatus]
 fromJSONKey :: FromJSONKeyFunction IndexStatus
 $cfromJSONKey :: FromJSONKeyFunction IndexStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679786450"><span id="local-6989586621679786452"><span id="local-6989586621679786454"><span id="local-6989586621679786456"><span class="annot"><span class="annottext">[IndexStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679786459"><span id="local-6989586621679786461"><span id="local-6989586621679786463"><span id="local-6989586621679786465"><span class="annot"><span class="annottext">[IndexStatus] -&gt; Encoding
 [IndexStatus] -&gt; Value
 IndexStatus -&gt; Encoding
 IndexStatus -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: IndexStatus -&gt; Encoding
 toJSON :: IndexStatus -&gt; Value
 $ctoJSON :: IndexStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679786445"><span id="local-6989586621679786447"><span class="annot"><span class="annottext">ToJSONKeyFunction [IndexStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679786454"><span id="local-6989586621679786456"><span class="annot"><span class="annottext">ToJSONKeyFunction [IndexStatus]
 ToJSONKeyFunction IndexStatus
 ToJSONKeyFunction IndexStatus
 -&gt; ToJSONKeyFunction [IndexStatus] -&gt; ToJSONKey IndexStatus
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [IndexStatus]
 toJSONKey :: ToJSONKeyFunction IndexStatus
 $ctoJSONKey :: ToJSONKeyFunction IndexStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679786442"><span class="annot"><span class="annottext">[Node] -&gt; Either String IndexStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679786451"><span class="annot"><span class="annottext">[Node] -&gt; Either String IndexStatus
 ([Node] -&gt; Either String IndexStatus) -&gt; FromXML IndexStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String IndexStatus
 $cparseXML :: [Node] -&gt; Either String IndexStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679786439"><span class="annot"><span class="annottext">IndexStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679786448"><span class="annot"><span class="annottext">IndexStatus -&gt; XML
 (IndexStatus -&gt; XML) -&gt; ToXML IndexStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: IndexStatus -&gt; XML

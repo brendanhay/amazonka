@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- | Specifies the dimension settings for a segment.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newSegmentDimensions' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679610999"><span id="local-6989586621679611000"></span></span><span class="hs-keyword">data</span><span> </span><span id="SegmentDimensions"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-var">SegmentDimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SegmentDimensions%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-var">SegmentDimensions'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679611008"><span id="local-6989586621679611009"></span></span><span class="hs-keyword">data</span><span> </span><span id="SegmentDimensions"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-var">SegmentDimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SegmentDimensions%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-var">SegmentDimensions'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more custom metrics to use as criteria for the segment.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Ametrics%3ASegmentDimensions%27"><span class="annot"><span class="annottext">SegmentDimensions -&gt; Maybe (HashMap Text MetricDimension)
 </span><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#%24sel%3Ametrics%3ASegmentDimensions%27"><span class="hs-identifier hs-var hs-var">metrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Aattributes%3ASegmentDimensions%27"><span class="annot"><span class="annottext">SegmentDimensions -&gt; Maybe (HashMap Text AttributeDimension)
 </span><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#%24sel%3Aattributes%3ASegmentDimensions%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-type">AttributeDimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679610988"><span id="local-6989586621679610990"><span class="annot"><span class="annottext">SegmentDimensions -&gt; SegmentDimensions -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679610997"><span id="local-6989586621679610999"><span class="annot"><span class="annottext">SegmentDimensions -&gt; SegmentDimensions -&gt; Bool
 (SegmentDimensions -&gt; SegmentDimensions -&gt; Bool)
 -&gt; (SegmentDimensions -&gt; SegmentDimensions -&gt; Bool)
 -&gt; Eq SegmentDimensions
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SegmentDimensions -&gt; SegmentDimensions -&gt; Bool
 == :: SegmentDimensions -&gt; SegmentDimensions -&gt; Bool
 $c== :: SegmentDimensions -&gt; SegmentDimensions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610979"><span id="local-6989586621679610981"><span id="local-6989586621679610983"><span id="local-6989586621679610985"><span class="annot"><span class="annottext">ReadPrec [SegmentDimensions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610988"><span id="local-6989586621679610990"><span id="local-6989586621679610992"><span id="local-6989586621679610994"><span class="annot"><span class="annottext">ReadPrec [SegmentDimensions]
 ReadPrec SegmentDimensions
 Int -&gt; ReadS SegmentDimensions
 ReadS [SegmentDimensions]
@@ -83,7 +83,7 @@ readList :: ReadS [SegmentDimensions]
 $creadList :: ReadS [SegmentDimensions]
 readsPrec :: Int -&gt; ReadS SegmentDimensions
 $creadsPrec :: Int -&gt; ReadS SegmentDimensions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610972"><span id="local-6989586621679610974"><span id="local-6989586621679610976"><span class="annot"><span class="annottext">Int -&gt; SegmentDimensions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610981"><span id="local-6989586621679610983"><span id="local-6989586621679610985"><span class="annot"><span class="annottext">Int -&gt; SegmentDimensions -&gt; ShowS
 [SegmentDimensions] -&gt; ShowS
 SegmentDimensions -&gt; String
 (Int -&gt; SegmentDimensions -&gt; ShowS)
@@ -183,16 +183,16 @@ forall a. Maybe a
      (Maybe (HashMap Text MetricDimension))
      (Maybe (HashMap Text MetricDimension))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610963"><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610972"><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
 metrics :: Maybe (HashMap Text MetricDimension)
 $sel:metrics:SegmentDimensions' :: SegmentDimensions -&gt; Maybe (HashMap Text MetricDimension)
-</span><a href="#local-6989586621679610963"><span class="hs-identifier hs-var hs-var">metrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
-</span><a href="#local-6989586621679610963"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610962"><span class="annot"><span class="annottext">s :: SegmentDimensions
-</span><a href="#local-6989586621679610962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610961"><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
-</span><a href="#local-6989586621679610961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDimensions
-</span><a href="#local-6989586621679610962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metrics:SegmentDimensions' :: Maybe (HashMap Text MetricDimension)
+</span><a href="#local-6989586621679610972"><span class="hs-identifier hs-var hs-var">metrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
+</span><a href="#local-6989586621679610972"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610971"><span class="annot"><span class="annottext">s :: SegmentDimensions
+</span><a href="#local-6989586621679610971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610970"><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
+</span><a href="#local-6989586621679610970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDimensions
+</span><a href="#local-6989586621679610971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metrics:SegmentDimensions' :: Maybe (HashMap Text MetricDimension)
 </span><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#%24sel%3Ametrics%3ASegmentDimensions%27"><span class="hs-identifier hs-var">metrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
-</span><a href="#local-6989586621679610961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MetricDimension)
+</span><a href="#local-6989586621679610970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MetricDimension)
   -&gt; f (Maybe (HashMap Text MetricDimension)))
  -&gt; SegmentDimensions -&gt; f SegmentDimensions)
 -&gt; ((Maybe (HashMap Text MetricDimension)
@@ -239,16 +239,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe SegmentLocation)
      (Maybe SegmentLocation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610956"><span class="annot"><span class="annottext">Maybe SegmentLocation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610965"><span class="annot"><span class="annottext">Maybe SegmentLocation
 location :: Maybe SegmentLocation
 $sel:location:SegmentDimensions' :: SegmentDimensions -&gt; Maybe SegmentLocation
-</span><a href="#local-6989586621679610956"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentLocation
-</span><a href="#local-6989586621679610956"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610955"><span class="annot"><span class="annottext">s :: SegmentDimensions
-</span><a href="#local-6989586621679610955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610954"><span class="annot"><span class="annottext">Maybe SegmentLocation
-</span><a href="#local-6989586621679610954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDimensions
-</span><a href="#local-6989586621679610955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:SegmentDimensions' :: Maybe SegmentLocation
+</span><a href="#local-6989586621679610965"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentLocation
+</span><a href="#local-6989586621679610965"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610964"><span class="annot"><span class="annottext">s :: SegmentDimensions
+</span><a href="#local-6989586621679610964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610963"><span class="annot"><span class="annottext">Maybe SegmentLocation
+</span><a href="#local-6989586621679610963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDimensions
+</span><a href="#local-6989586621679610964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:SegmentDimensions' :: Maybe SegmentLocation
 </span><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#%24sel%3Alocation%3ASegmentDimensions%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentLocation
-</span><a href="#local-6989586621679610954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The demographic-based criteria, such as device platform, for the</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- segment.</span><span>
@@ -264,16 +264,16 @@ $sel:location:SegmentDimensions' :: SegmentDimensions -&gt; Maybe SegmentLocatio
      (Maybe SegmentDemographics)
      (Maybe SegmentDemographics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610952"><span class="annot"><span class="annottext">Maybe SegmentDemographics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610961"><span class="annot"><span class="annottext">Maybe SegmentDemographics
 demographic :: Maybe SegmentDemographics
 $sel:demographic:SegmentDimensions' :: SegmentDimensions -&gt; Maybe SegmentDemographics
-</span><a href="#local-6989586621679610952"><span class="hs-identifier hs-var hs-var">demographic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentDemographics
-</span><a href="#local-6989586621679610952"><span class="hs-identifier hs-var">demographic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610951"><span class="annot"><span class="annottext">s :: SegmentDimensions
-</span><a href="#local-6989586621679610951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610950"><span class="annot"><span class="annottext">Maybe SegmentDemographics
-</span><a href="#local-6989586621679610950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDimensions
-</span><a href="#local-6989586621679610951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:demographic:SegmentDimensions' :: Maybe SegmentDemographics
+</span><a href="#local-6989586621679610961"><span class="hs-identifier hs-var hs-var">demographic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentDemographics
+</span><a href="#local-6989586621679610961"><span class="hs-identifier hs-var">demographic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610960"><span class="annot"><span class="annottext">s :: SegmentDimensions
+</span><a href="#local-6989586621679610960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610959"><span class="annot"><span class="annottext">Maybe SegmentDemographics
+</span><a href="#local-6989586621679610959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDimensions
+</span><a href="#local-6989586621679610960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:demographic:SegmentDimensions' :: Maybe SegmentDemographics
 </span><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#%24sel%3Ademographic%3ASegmentDimensions%27"><span class="hs-identifier hs-var">demographic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentDemographics
-</span><a href="#local-6989586621679610950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | One or more custom user attributes to use as criteria for the segment.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#segmentDimensions_userAttributes"><span class="hs-identifier hs-type">segmentDimensions_userAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-type">AttributeDimension</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -289,16 +289,16 @@ $sel:demographic:SegmentDimensions' :: SegmentDimensions -&gt; Maybe SegmentDemo
      (Maybe (HashMap Text AttributeDimension))
      (Maybe (HashMap Text AttributeDimension))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610948"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610957"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
 userAttributes :: Maybe (HashMap Text AttributeDimension)
 $sel:userAttributes:SegmentDimensions' :: SegmentDimensions -&gt; Maybe (HashMap Text AttributeDimension)
-</span><a href="#local-6989586621679610948"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
-</span><a href="#local-6989586621679610948"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610947"><span class="annot"><span class="annottext">s :: SegmentDimensions
-</span><a href="#local-6989586621679610947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610946"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
-</span><a href="#local-6989586621679610946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDimensions
-</span><a href="#local-6989586621679610947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributes:SegmentDimensions' :: Maybe (HashMap Text AttributeDimension)
+</span><a href="#local-6989586621679610957"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
+</span><a href="#local-6989586621679610957"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610956"><span class="annot"><span class="annottext">s :: SegmentDimensions
+</span><a href="#local-6989586621679610956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610955"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
+</span><a href="#local-6989586621679610955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDimensions
+</span><a href="#local-6989586621679610956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributes:SegmentDimensions' :: Maybe (HashMap Text AttributeDimension)
 </span><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#%24sel%3AuserAttributes%3ASegmentDimensions%27"><span class="hs-identifier hs-var">userAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
-</span><a href="#local-6989586621679610946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeDimension)
+</span><a href="#local-6989586621679610955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeDimension)
   -&gt; f (Maybe (HashMap Text AttributeDimension)))
  -&gt; SegmentDimensions -&gt; f SegmentDimensions)
 -&gt; ((Maybe (HashMap Text AttributeDimension)
@@ -345,16 +345,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe SegmentBehaviors)
      (Maybe SegmentBehaviors)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610944"><span class="annot"><span class="annottext">Maybe SegmentBehaviors
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610953"><span class="annot"><span class="annottext">Maybe SegmentBehaviors
 behavior :: Maybe SegmentBehaviors
 $sel:behavior:SegmentDimensions' :: SegmentDimensions -&gt; Maybe SegmentBehaviors
-</span><a href="#local-6989586621679610944"><span class="hs-identifier hs-var hs-var">behavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentBehaviors
-</span><a href="#local-6989586621679610944"><span class="hs-identifier hs-var">behavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610943"><span class="annot"><span class="annottext">s :: SegmentDimensions
-</span><a href="#local-6989586621679610943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610942"><span class="annot"><span class="annottext">Maybe SegmentBehaviors
-</span><a href="#local-6989586621679610942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDimensions
-</span><a href="#local-6989586621679610943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:behavior:SegmentDimensions' :: Maybe SegmentBehaviors
+</span><a href="#local-6989586621679610953"><span class="hs-identifier hs-var hs-var">behavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentBehaviors
+</span><a href="#local-6989586621679610953"><span class="hs-identifier hs-var">behavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610952"><span class="annot"><span class="annottext">s :: SegmentDimensions
+</span><a href="#local-6989586621679610952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610951"><span class="annot"><span class="annottext">Maybe SegmentBehaviors
+</span><a href="#local-6989586621679610951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDimensions
+</span><a href="#local-6989586621679610952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:behavior:SegmentDimensions' :: Maybe SegmentBehaviors
 </span><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#%24sel%3Abehavior%3ASegmentDimensions%27"><span class="hs-identifier hs-var">behavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentBehaviors
-</span><a href="#local-6989586621679610942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | One or more custom attributes to use as criteria for the segment.</span><span>
 </span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#segmentDimensions_attributes"><span class="hs-identifier hs-type">segmentDimensions_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-type">AttributeDimension</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -370,16 +370,16 @@ $sel:behavior:SegmentDimensions' :: SegmentDimensions -&gt; Maybe SegmentBehavio
      (Maybe (HashMap Text AttributeDimension))
      (Maybe (HashMap Text AttributeDimension))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610940"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610949"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
 attributes :: Maybe (HashMap Text AttributeDimension)
 $sel:attributes:SegmentDimensions' :: SegmentDimensions -&gt; Maybe (HashMap Text AttributeDimension)
-</span><a href="#local-6989586621679610940"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
-</span><a href="#local-6989586621679610940"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610939"><span class="annot"><span class="annottext">s :: SegmentDimensions
-</span><a href="#local-6989586621679610939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610938"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
-</span><a href="#local-6989586621679610938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDimensions
-</span><a href="#local-6989586621679610939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:SegmentDimensions' :: Maybe (HashMap Text AttributeDimension)
+</span><a href="#local-6989586621679610949"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
+</span><a href="#local-6989586621679610949"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610948"><span class="annot"><span class="annottext">s :: SegmentDimensions
+</span><a href="#local-6989586621679610948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610947"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
+</span><a href="#local-6989586621679610947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDimensions
+</span><a href="#local-6989586621679610948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:SegmentDimensions' :: Maybe (HashMap Text AttributeDimension)
 </span><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#%24sel%3Aattributes%3ASegmentDimensions%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
-</span><a href="#local-6989586621679610938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeDimension)
+</span><a href="#local-6989586621679610947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeDimension)
   -&gt; f (Maybe (HashMap Text AttributeDimension)))
  -&gt; SegmentDimensions -&gt; f SegmentDimensions)
 -&gt; ((Maybe (HashMap Text AttributeDimension)
@@ -412,8 +412,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610935"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679610933"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SegmentDimensions
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610944"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679610942"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SegmentDimensions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SegmentDimensions)
@@ -423,8 +423,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SegmentDimensions&quot;</span></span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679610930"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679610930"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679610939"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679610939"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
 -&gt; Maybe SegmentLocation
 -&gt; Maybe SegmentDemographics
@@ -450,7 +450,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; SegmentDimensions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679610930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679610939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text MetricDimension)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -477,7 +477,7 @@ forall a. Monoid a =&gt; a
       -&gt; SegmentDimensions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679610930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SegmentLocation)
+</span><a href="#local-6989586621679610939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SegmentLocation)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Location&quot;</span></span><span class="hs-special">)</span><span>
@@ -495,7 +495,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; SegmentDimensions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679610930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SegmentDemographics)
+</span><a href="#local-6989586621679610939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SegmentDemographics)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Demographic&quot;</span></span><span class="hs-special">)</span><span>
@@ -510,7 +510,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe (HashMap Text AttributeDimension) -&gt; SegmentDimensions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679610930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679610939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text AttributeDimension)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -529,7 +529,7 @@ forall a. Monoid a =&gt; a
      (Maybe (HashMap Text AttributeDimension) -&gt; SegmentDimensions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679610930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SegmentBehaviors)
+</span><a href="#local-6989586621679610939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SegmentBehaviors)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Behavior&quot;</span></span><span class="hs-special">)</span><span>
@@ -539,7 +539,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser SegmentDimensions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679610930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679610939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text AttributeDimension)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -552,13 +552,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610923"><span id="local-6989586621679610925"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610932"><span id="local-6989586621679610934"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610920"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610929"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610912"><span id="local-6989586621679610914"><span id="local-6989586621679610916"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679610910"><span class="annot"><span class="annottext">toJSON :: SegmentDimensions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610903"><span id="local-6989586621679610904"><span id="local-6989586621679610905"><span id="local-6989586621679610906"><span id="local-6989586621679610907"><span id="local-6989586621679610908"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610921"><span id="local-6989586621679610923"><span id="local-6989586621679610925"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679610919"><span class="annot"><span class="annottext">toJSON :: SegmentDimensions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions%27"><span class="hs-identifier hs-type">SegmentDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610912"><span id="local-6989586621679610913"><span id="local-6989586621679610914"><span id="local-6989586621679610915"><span id="local-6989586621679610916"><span id="local-6989586621679610917"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
 Maybe (HashMap Text MetricDimension)
 Maybe SegmentBehaviors
 Maybe SegmentLocation
@@ -575,7 +575,7 @@ $sel:userAttributes:SegmentDimensions' :: SegmentDimensions -&gt; Maybe (HashMap
 $sel:demographic:SegmentDimensions' :: SegmentDimensions -&gt; Maybe SegmentDemographics
 $sel:location:SegmentDimensions' :: SegmentDimensions -&gt; Maybe SegmentLocation
 $sel:metrics:SegmentDimensions' :: SegmentDimensions -&gt; Maybe (HashMap Text MetricDimension)
-</span><a href="#local-6989586621679610903"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679610912"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -588,14 +588,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text MetricDimension) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
-</span><a href="#local-6989586621679610908"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610917"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SegmentLocation -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SegmentLocation -&gt; Pair) -&gt; Maybe SegmentLocation -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SegmentLocation
-</span><a href="#local-6989586621679610907"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610916"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Demographic&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SegmentDemographics -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -603,7 +603,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe SegmentDemographics -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SegmentDemographics
-</span><a href="#local-6989586621679610906"><span class="hs-identifier hs-var">demographic</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610915"><span class="hs-identifier hs-var">demographic</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeDimension -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -612,14 +612,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text AttributeDimension) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
-</span><a href="#local-6989586621679610905"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610914"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Behavior&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SegmentBehaviors -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SegmentBehaviors -&gt; Pair) -&gt; Maybe SegmentBehaviors -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SegmentBehaviors
-</span><a href="#local-6989586621679610904"><span class="hs-identifier hs-var">behavior</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610913"><span class="hs-identifier hs-var">behavior</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeDimension -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -627,7 +627,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text AttributeDimension) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
-</span><a href="#local-6989586621679610903"><span class="hs-identifier hs-var">attributes</span></a></span><span>
+</span><a href="#local-6989586621679610912"><span class="hs-identifier hs-var">attributes</span></a></span><span>
 </span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span></pre></body></html>

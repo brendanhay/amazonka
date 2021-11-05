@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | Information about the resource record set to create or delete.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newResourceRecordSet' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679296911"><span id="local-6989586621679296912"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceRecordSet"><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-var">ResourceRecordSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceRecordSet%27"><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-var">ResourceRecordSet'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679296920"><span id="local-6989586621679296921"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceRecordSet"><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-var">ResourceRecordSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceRecordSet%27"><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-var">ResourceRecordSet'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource record cache time to live (TTL), in seconds. Note the</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- following:</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -511,7 +511,7 @@
 </span><span id="line-499"></span><span>    </span><span id="%24sel%3Atype%27%3AResourceRecordSet%27"><span class="annot"><span class="annottext">ResourceRecordSet -&gt; RRType
 </span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#%24sel%3Atype%27%3AResourceRecordSet%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.RRType.html#RRType"><span class="hs-identifier hs-type">RRType</span></a></span><span>
 </span><span id="line-500"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-501"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296893"><span id="local-6989586621679296895"><span class="annot"><span class="annottext">ResourceRecordSet -&gt; ResourceRecordSet -&gt; Bool
+</span><span id="line-501"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296902"><span id="local-6989586621679296904"><span class="annot"><span class="annottext">ResourceRecordSet -&gt; ResourceRecordSet -&gt; Bool
 (ResourceRecordSet -&gt; ResourceRecordSet -&gt; Bool)
 -&gt; (ResourceRecordSet -&gt; ResourceRecordSet -&gt; Bool)
 -&gt; Eq ResourceRecordSet
@@ -520,7 +520,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceRecordSet -&gt; ResourceRecordSet -&gt; Bool
 == :: ResourceRecordSet -&gt; ResourceRecordSet -&gt; Bool
 $c== :: ResourceRecordSet -&gt; ResourceRecordSet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296884"><span id="local-6989586621679296886"><span id="local-6989586621679296888"><span id="local-6989586621679296890"><span class="annot"><span class="annottext">ReadPrec [ResourceRecordSet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296893"><span id="local-6989586621679296895"><span id="local-6989586621679296897"><span id="local-6989586621679296899"><span class="annot"><span class="annottext">ReadPrec [ResourceRecordSet]
 ReadPrec ResourceRecordSet
 Int -&gt; ReadS ResourceRecordSet
 ReadS [ResourceRecordSet]
@@ -540,7 +540,7 @@ readList :: ReadS [ResourceRecordSet]
 $creadList :: ReadS [ResourceRecordSet]
 readsPrec :: Int -&gt; ReadS ResourceRecordSet
 $creadsPrec :: Int -&gt; ReadS ResourceRecordSet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296877"><span id="local-6989586621679296879"><span id="local-6989586621679296881"><span class="annot"><span class="annottext">Int -&gt; ResourceRecordSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296886"><span id="local-6989586621679296888"><span id="local-6989586621679296890"><span class="annot"><span class="annottext">Int -&gt; ResourceRecordSet -&gt; ShowS
 [ResourceRecordSet] -&gt; ShowS
 ResourceRecordSet -&gt; String
 (Int -&gt; ResourceRecordSet -&gt; ShowS)
@@ -1044,9 +1044,9 @@ $cfrom :: forall x. ResourceRecordSet -&gt; Rep ResourceRecordSet x
 </span><span id="line-978"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.RRType.html#RRType"><span class="hs-identifier hs-type">RRType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-979"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span>
 </span><span id="line-980"></span><span id="newResourceRecordSet"><span class="annot"><span class="annottext">newResourceRecordSet :: Text -&gt; RRType -&gt; ResourceRecordSet
-</span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#newResourceRecordSet"><span class="hs-identifier hs-var hs-var">newResourceRecordSet</span></a></span></span><span> </span><span id="local-6989586621679296871"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296871"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679296870"><span class="annot"><span class="annottext">RRType
-</span><a href="#local-6989586621679296870"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#newResourceRecordSet"><span class="hs-identifier hs-var hs-var">newResourceRecordSet</span></a></span></span><span> </span><span id="local-6989586621679296880"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296880"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679296879"><span class="annot"><span class="annottext">RRType
+</span><a href="#local-6989586621679296879"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-981"></span><span>  </span><span class="annot"><span class="annottext">ResourceRecordSet' :: Maybe Natural
 -&gt; Maybe (NonEmpty ResourceRecord)
 -&gt; Maybe AliasTarget
@@ -1108,10 +1108,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-993"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ResourceRecordSet' :: Text
 </span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#%24sel%3Aname%3AResourceRecordSet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296871"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679296880"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-994"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ResourceRecordSet' :: RRType
 </span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#%24sel%3Atype%27%3AResourceRecordSet%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RRType
-</span><a href="#local-6989586621679296870"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679296879"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-995"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-996"></span><span>
 </span><span id="line-997"></span><span class="hs-comment">-- | The resource record cache time to live (TTL), in seconds. Note the</span><span>
@@ -1143,16 +1143,16 @@ forall a. Maybe a
 -&gt; Lens
      ResourceRecordSet ResourceRecordSet (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296866"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296875"><span class="annot"><span class="annottext">Maybe Natural
 ttl :: Maybe Natural
 $sel:ttl:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe Natural
-</span><a href="#local-6989586621679296866"><span class="hs-identifier hs-var hs-var">ttl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679296866"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296865"><span class="annot"><span class="annottext">s :: ResourceRecordSet
-</span><a href="#local-6989586621679296865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296864"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679296864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
-</span><a href="#local-6989586621679296865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ttl:ResourceRecordSet' :: Maybe Natural
+</span><a href="#local-6989586621679296875"><span class="hs-identifier hs-var hs-var">ttl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679296875"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296874"><span class="annot"><span class="annottext">s :: ResourceRecordSet
+</span><a href="#local-6989586621679296874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296873"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679296873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
+</span><a href="#local-6989586621679296874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ttl:ResourceRecordSet' :: Maybe Natural
 </span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#%24sel%3Attl%3AResourceRecordSet%27"><span class="hs-identifier hs-var">ttl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679296864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1020"></span><span>
 </span><span id="line-1021"></span><span class="hs-comment">-- | Information about the resource records to act upon.</span><span>
 </span><span id="line-1022"></span><span class="hs-comment">--</span><span>
@@ -1171,16 +1171,16 @@ $sel:ttl:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe Natural
      (Maybe (NonEmpty ResourceRecord))
      (Maybe (NonEmpty ResourceRecord))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296862"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceRecord)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296871"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceRecord)
 resourceRecords :: Maybe (NonEmpty ResourceRecord)
 $sel:resourceRecords:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe (NonEmpty ResourceRecord)
-</span><a href="#local-6989586621679296862"><span class="hs-identifier hs-var hs-var">resourceRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceRecord)
-</span><a href="#local-6989586621679296862"><span class="hs-identifier hs-var">resourceRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296861"><span class="annot"><span class="annottext">s :: ResourceRecordSet
-</span><a href="#local-6989586621679296861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296860"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceRecord)
-</span><a href="#local-6989586621679296860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
-</span><a href="#local-6989586621679296861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceRecords:ResourceRecordSet' :: Maybe (NonEmpty ResourceRecord)
+</span><a href="#local-6989586621679296871"><span class="hs-identifier hs-var hs-var">resourceRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceRecord)
+</span><a href="#local-6989586621679296871"><span class="hs-identifier hs-var">resourceRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296870"><span class="annot"><span class="annottext">s :: ResourceRecordSet
+</span><a href="#local-6989586621679296870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296869"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceRecord)
+</span><a href="#local-6989586621679296869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
+</span><a href="#local-6989586621679296870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceRecords:ResourceRecordSet' :: Maybe (NonEmpty ResourceRecord)
 </span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#%24sel%3AresourceRecords%3AResourceRecordSet%27"><span class="hs-identifier hs-var">resourceRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceRecord)
-</span><a href="#local-6989586621679296860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourceRecord)
+</span><a href="#local-6989586621679296869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourceRecord)
   -&gt; f (Maybe (NonEmpty ResourceRecord)))
  -&gt; ResourceRecordSet -&gt; f ResourceRecordSet)
 -&gt; ((Maybe (NonEmpty ResourceRecord)
@@ -1241,16 +1241,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe AliasTarget)
      (Maybe AliasTarget)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296855"><span class="annot"><span class="annottext">Maybe AliasTarget
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296864"><span class="annot"><span class="annottext">Maybe AliasTarget
 aliasTarget :: Maybe AliasTarget
 $sel:aliasTarget:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe AliasTarget
-</span><a href="#local-6989586621679296855"><span class="hs-identifier hs-var hs-var">aliasTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AliasTarget
-</span><a href="#local-6989586621679296855"><span class="hs-identifier hs-var">aliasTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296854"><span class="annot"><span class="annottext">s :: ResourceRecordSet
-</span><a href="#local-6989586621679296854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296853"><span class="annot"><span class="annottext">Maybe AliasTarget
-</span><a href="#local-6989586621679296853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
-</span><a href="#local-6989586621679296854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasTarget:ResourceRecordSet' :: Maybe AliasTarget
+</span><a href="#local-6989586621679296864"><span class="hs-identifier hs-var hs-var">aliasTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AliasTarget
+</span><a href="#local-6989586621679296864"><span class="hs-identifier hs-var">aliasTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296863"><span class="annot"><span class="annottext">s :: ResourceRecordSet
+</span><a href="#local-6989586621679296863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296862"><span class="annot"><span class="annottext">Maybe AliasTarget
+</span><a href="#local-6989586621679296862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
+</span><a href="#local-6989586621679296863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasTarget:ResourceRecordSet' :: Maybe AliasTarget
 </span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#%24sel%3AaliasTarget%3AResourceRecordSet%27"><span class="hs-identifier hs-var">aliasTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AliasTarget
-</span><a href="#local-6989586621679296853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1047"></span><span>
 </span><span id="line-1048"></span><span class="hs-comment">-- | /Weighted resource record sets only:/ Among resource record sets that</span><span>
 </span><span id="line-1049"></span><span class="hs-comment">-- have the same combination of DNS name and type, a value that determines</span><span>
@@ -1293,16 +1293,16 @@ $sel:aliasTarget:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe AliasTarget
 -&gt; Lens
      ResourceRecordSet ResourceRecordSet (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296851"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296860"><span class="annot"><span class="annottext">Maybe Natural
 weight :: Maybe Natural
 $sel:weight:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe Natural
-</span><a href="#local-6989586621679296851"><span class="hs-identifier hs-var hs-var">weight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679296851"><span class="hs-identifier hs-var">weight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296850"><span class="annot"><span class="annottext">s :: ResourceRecordSet
-</span><a href="#local-6989586621679296850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296849"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679296849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
-</span><a href="#local-6989586621679296850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:weight:ResourceRecordSet' :: Maybe Natural
+</span><a href="#local-6989586621679296860"><span class="hs-identifier hs-var hs-var">weight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679296860"><span class="hs-identifier hs-var">weight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296859"><span class="annot"><span class="annottext">s :: ResourceRecordSet
+</span><a href="#local-6989586621679296859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296858"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679296858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
+</span><a href="#local-6989586621679296859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:weight:ResourceRecordSet' :: Maybe Natural
 </span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#%24sel%3Aweight%3AResourceRecordSet%27"><span class="hs-identifier hs-var">weight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679296849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1083"></span><span>
 </span><span id="line-1084"></span><span class="hs-comment">-- | When you create a traffic policy instance, Amazon Route 53 automatically</span><span>
 </span><span id="line-1085"></span><span class="hs-comment">-- creates a resource record set. @TrafficPolicyInstanceId@ is the ID of</span><span>
@@ -1323,16 +1323,16 @@ $sel:weight:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe Natural
 -&gt; Lens
      ResourceRecordSet ResourceRecordSet (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296847"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296856"><span class="annot"><span class="annottext">Maybe Text
 trafficPolicyInstanceId :: Maybe Text
 $sel:trafficPolicyInstanceId:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe Text
-</span><a href="#local-6989586621679296847"><span class="hs-identifier hs-var hs-var">trafficPolicyInstanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296847"><span class="hs-identifier hs-var">trafficPolicyInstanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296846"><span class="annot"><span class="annottext">s :: ResourceRecordSet
-</span><a href="#local-6989586621679296846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296845"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
-</span><a href="#local-6989586621679296846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficPolicyInstanceId:ResourceRecordSet' :: Maybe Text
+</span><a href="#local-6989586621679296856"><span class="hs-identifier hs-var hs-var">trafficPolicyInstanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296856"><span class="hs-identifier hs-var">trafficPolicyInstanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296855"><span class="annot"><span class="annottext">s :: ResourceRecordSet
+</span><a href="#local-6989586621679296855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296854"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
+</span><a href="#local-6989586621679296855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficPolicyInstanceId:ResourceRecordSet' :: Maybe Text
 </span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#%24sel%3AtrafficPolicyInstanceId%3AResourceRecordSet%27"><span class="hs-identifier hs-var">trafficPolicyInstanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1097"></span><span>
 </span><span id="line-1098"></span><span class="hs-comment">-- | /Resource record sets that have a routing policy other than simple:/ An</span><span>
 </span><span id="line-1099"></span><span class="hs-comment">-- identifier that differentiates among multiple resource record sets that</span><span>
@@ -1352,16 +1352,16 @@ $sel:trafficPolicyInstanceId:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe
 -&gt; Lens
      ResourceRecordSet ResourceRecordSet (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296843"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296852"><span class="annot"><span class="annottext">Maybe Text
 setIdentifier :: Maybe Text
 $sel:setIdentifier:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe Text
-</span><a href="#local-6989586621679296843"><span class="hs-identifier hs-var hs-var">setIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296843"><span class="hs-identifier hs-var">setIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296842"><span class="annot"><span class="annottext">s :: ResourceRecordSet
-</span><a href="#local-6989586621679296842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296841"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
-</span><a href="#local-6989586621679296842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:setIdentifier:ResourceRecordSet' :: Maybe Text
+</span><a href="#local-6989586621679296852"><span class="hs-identifier hs-var hs-var">setIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296852"><span class="hs-identifier hs-var">setIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296851"><span class="annot"><span class="annottext">s :: ResourceRecordSet
+</span><a href="#local-6989586621679296851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296850"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
+</span><a href="#local-6989586621679296851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:setIdentifier:ResourceRecordSet' :: Maybe Text
 </span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#%24sel%3AsetIdentifier%3AResourceRecordSet%27"><span class="hs-identifier hs-var">setIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1110"></span><span>
 </span><span id="line-1111"></span><span class="hs-comment">-- | /Failover resource record sets only:/ To configure failover, you add the</span><span>
 </span><span id="line-1112"></span><span class="hs-comment">-- @Failover@ element to two resource record sets. For one resource record</span><span>
@@ -1419,16 +1419,16 @@ $sel:setIdentifier:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe Text
      (Maybe ResourceRecordSetFailover)
      (Maybe ResourceRecordSetFailover)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296839"><span class="annot"><span class="annottext">Maybe ResourceRecordSetFailover
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296848"><span class="annot"><span class="annottext">Maybe ResourceRecordSetFailover
 failover :: Maybe ResourceRecordSetFailover
 $sel:failover:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe ResourceRecordSetFailover
-</span><a href="#local-6989586621679296839"><span class="hs-identifier hs-var hs-var">failover</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceRecordSetFailover
-</span><a href="#local-6989586621679296839"><span class="hs-identifier hs-var">failover</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296838"><span class="annot"><span class="annottext">s :: ResourceRecordSet
-</span><a href="#local-6989586621679296838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296837"><span class="annot"><span class="annottext">Maybe ResourceRecordSetFailover
-</span><a href="#local-6989586621679296837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
-</span><a href="#local-6989586621679296838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failover:ResourceRecordSet' :: Maybe ResourceRecordSetFailover
+</span><a href="#local-6989586621679296848"><span class="hs-identifier hs-var hs-var">failover</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceRecordSetFailover
+</span><a href="#local-6989586621679296848"><span class="hs-identifier hs-var">failover</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296847"><span class="annot"><span class="annottext">s :: ResourceRecordSet
+</span><a href="#local-6989586621679296847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296846"><span class="annot"><span class="annottext">Maybe ResourceRecordSetFailover
+</span><a href="#local-6989586621679296846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
+</span><a href="#local-6989586621679296847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failover:ResourceRecordSet' :: Maybe ResourceRecordSetFailover
 </span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#%24sel%3Afailover%3AResourceRecordSet%27"><span class="hs-identifier hs-var">failover</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceRecordSetFailover
-</span><a href="#local-6989586621679296837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1156"></span><span>
 </span><span id="line-1157"></span><span class="hs-comment">-- | If you want Amazon Route 53 to return this resource record set in</span><span>
 </span><span id="line-1158"></span><span class="hs-comment">-- response to a DNS query only when the status of a health check is</span><span>
@@ -1556,16 +1556,16 @@ $sel:failover:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe ResourceRecord
 -&gt; Lens
      ResourceRecordSet ResourceRecordSet (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296835"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296844"><span class="annot"><span class="annottext">Maybe Text
 healthCheckId :: Maybe Text
 $sel:healthCheckId:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe Text
-</span><a href="#local-6989586621679296835"><span class="hs-identifier hs-var hs-var">healthCheckId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296835"><span class="hs-identifier hs-var">healthCheckId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296834"><span class="annot"><span class="annottext">s :: ResourceRecordSet
-</span><a href="#local-6989586621679296834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296833"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
-</span><a href="#local-6989586621679296834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckId:ResourceRecordSet' :: Maybe Text
+</span><a href="#local-6989586621679296844"><span class="hs-identifier hs-var hs-var">healthCheckId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296844"><span class="hs-identifier hs-var">healthCheckId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296843"><span class="annot"><span class="annottext">s :: ResourceRecordSet
+</span><a href="#local-6989586621679296843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296842"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
+</span><a href="#local-6989586621679296843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckId:ResourceRecordSet' :: Maybe Text
 </span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#%24sel%3AhealthCheckId%3AResourceRecordSet%27"><span class="hs-identifier hs-var">healthCheckId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1277"></span><span>
 </span><span id="line-1278"></span><span class="hs-comment">-- | /Latency-based resource record sets only:/ The Amazon EC2 Region where</span><span>
 </span><span id="line-1279"></span><span class="hs-comment">-- you created the resource that this resource record set refers to. The</span><span>
@@ -1606,16 +1606,16 @@ $sel:healthCheckId:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe Text
 -&gt; Lens
      ResourceRecordSet ResourceRecordSet (Maybe Region) (Maybe Region)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296831"><span class="annot"><span class="annottext">Maybe Region
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296840"><span class="annot"><span class="annottext">Maybe Region
 region :: Maybe Region
 $sel:region:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe Region
-</span><a href="#local-6989586621679296831"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Region
-</span><a href="#local-6989586621679296831"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296830"><span class="annot"><span class="annottext">s :: ResourceRecordSet
-</span><a href="#local-6989586621679296830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296829"><span class="annot"><span class="annottext">Maybe Region
-</span><a href="#local-6989586621679296829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
-</span><a href="#local-6989586621679296830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:ResourceRecordSet' :: Maybe Region
+</span><a href="#local-6989586621679296840"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Region
+</span><a href="#local-6989586621679296840"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296839"><span class="annot"><span class="annottext">s :: ResourceRecordSet
+</span><a href="#local-6989586621679296839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296838"><span class="annot"><span class="annottext">Maybe Region
+</span><a href="#local-6989586621679296838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
+</span><a href="#local-6989586621679296839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:ResourceRecordSet' :: Maybe Region
 </span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#%24sel%3Aregion%3AResourceRecordSet%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Region
-</span><a href="#local-6989586621679296829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1311"></span><span>
 </span><span id="line-1312"></span><span class="hs-comment">-- | /Geolocation resource record sets only:/ A complex type that lets you</span><span>
 </span><span id="line-1313"></span><span class="hs-comment">-- control how Amazon Route 53 responds to DNS queries based on the</span><span>
@@ -1667,16 +1667,16 @@ $sel:region:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe Region
      (Maybe GeoLocation)
      (Maybe GeoLocation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296827"><span class="annot"><span class="annottext">Maybe GeoLocation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296836"><span class="annot"><span class="annottext">Maybe GeoLocation
 geoLocation :: Maybe GeoLocation
 $sel:geoLocation:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe GeoLocation
-</span><a href="#local-6989586621679296827"><span class="hs-identifier hs-var hs-var">geoLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GeoLocation
-</span><a href="#local-6989586621679296827"><span class="hs-identifier hs-var">geoLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296826"><span class="annot"><span class="annottext">s :: ResourceRecordSet
-</span><a href="#local-6989586621679296826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296825"><span class="annot"><span class="annottext">Maybe GeoLocation
-</span><a href="#local-6989586621679296825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
-</span><a href="#local-6989586621679296826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geoLocation:ResourceRecordSet' :: Maybe GeoLocation
+</span><a href="#local-6989586621679296836"><span class="hs-identifier hs-var hs-var">geoLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GeoLocation
+</span><a href="#local-6989586621679296836"><span class="hs-identifier hs-var">geoLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296835"><span class="annot"><span class="annottext">s :: ResourceRecordSet
+</span><a href="#local-6989586621679296835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296834"><span class="annot"><span class="annottext">Maybe GeoLocation
+</span><a href="#local-6989586621679296834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
+</span><a href="#local-6989586621679296835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geoLocation:ResourceRecordSet' :: Maybe GeoLocation
 </span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#%24sel%3AgeoLocation%3AResourceRecordSet%27"><span class="hs-identifier hs-var">geoLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GeoLocation
-</span><a href="#local-6989586621679296825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1353"></span><span>
 </span><span id="line-1354"></span><span class="hs-comment">-- | /Multivalue answer resource record sets only/: To route traffic</span><span>
 </span><span id="line-1355"></span><span class="hs-comment">-- approximately randomly to multiple resources, such as web servers,</span><span>
@@ -1714,16 +1714,16 @@ $sel:geoLocation:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe GeoLocation
 -&gt; Lens
      ResourceRecordSet ResourceRecordSet (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296823"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296832"><span class="annot"><span class="annottext">Maybe Bool
 multiValueAnswer :: Maybe Bool
 $sel:multiValueAnswer:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe Bool
-</span><a href="#local-6989586621679296823"><span class="hs-identifier hs-var hs-var">multiValueAnswer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679296823"><span class="hs-identifier hs-var">multiValueAnswer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296822"><span class="annot"><span class="annottext">s :: ResourceRecordSet
-</span><a href="#local-6989586621679296822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296821"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679296821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
-</span><a href="#local-6989586621679296822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiValueAnswer:ResourceRecordSet' :: Maybe Bool
+</span><a href="#local-6989586621679296832"><span class="hs-identifier hs-var hs-var">multiValueAnswer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679296832"><span class="hs-identifier hs-var">multiValueAnswer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296831"><span class="annot"><span class="annottext">s :: ResourceRecordSet
+</span><a href="#local-6989586621679296831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296830"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679296830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
+</span><a href="#local-6989586621679296831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiValueAnswer:ResourceRecordSet' :: Maybe Bool
 </span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#%24sel%3AmultiValueAnswer%3AResourceRecordSet%27"><span class="hs-identifier hs-var">multiValueAnswer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679296821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1384"></span><span>
 </span><span id="line-1385"></span><span class="hs-comment">-- | For @ChangeResourceRecordSets@ requests, the name of the record that you</span><span>
 </span><span id="line-1386"></span><span class="hs-comment">-- want to create, update, or delete. For @ListResourceRecordSets@</span><span>
@@ -1769,16 +1769,16 @@ $sel:multiValueAnswer:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe Bool
 -&gt; (ResourceRecordSet -&gt; Text -&gt; ResourceRecordSet)
 -&gt; Lens ResourceRecordSet ResourceRecordSet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296819"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296828"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:ResourceRecordSet' :: ResourceRecordSet -&gt; Text
-</span><a href="#local-6989586621679296819"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296819"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296818"><span class="annot"><span class="annottext">s :: ResourceRecordSet
-</span><a href="#local-6989586621679296818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296817"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
-</span><a href="#local-6989586621679296818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ResourceRecordSet' :: Text
+</span><a href="#local-6989586621679296828"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296828"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296827"><span class="annot"><span class="annottext">s :: ResourceRecordSet
+</span><a href="#local-6989586621679296827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296826"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
+</span><a href="#local-6989586621679296827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ResourceRecordSet' :: Text
 </span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#%24sel%3Aname%3AResourceRecordSet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1425"></span><span>
 </span><span id="line-1426"></span><span class="hs-comment">-- | The DNS record type. For information about different record types and</span><span>
 </span><span id="line-1427"></span><span class="hs-comment">-- how data is encoded for them, see</span><span>
@@ -1844,21 +1844,21 @@ $sel:name:ResourceRecordSet' :: ResourceRecordSet -&gt; Text
 -&gt; (ResourceRecordSet -&gt; RRType -&gt; ResourceRecordSet)
 -&gt; Lens ResourceRecordSet ResourceRecordSet RRType RRType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296815"><span class="annot"><span class="annottext">RRType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296824"><span class="annot"><span class="annottext">RRType
 type' :: RRType
 $sel:type':ResourceRecordSet' :: ResourceRecordSet -&gt; RRType
-</span><a href="#local-6989586621679296815"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RRType
-</span><a href="#local-6989586621679296815"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296814"><span class="annot"><span class="annottext">s :: ResourceRecordSet
-</span><a href="#local-6989586621679296814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296813"><span class="annot"><span class="annottext">RRType
-</span><a href="#local-6989586621679296813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
-</span><a href="#local-6989586621679296814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ResourceRecordSet' :: RRType
+</span><a href="#local-6989586621679296824"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RRType
+</span><a href="#local-6989586621679296824"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296823"><span class="annot"><span class="annottext">s :: ResourceRecordSet
+</span><a href="#local-6989586621679296823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296822"><span class="annot"><span class="annottext">RRType
+</span><a href="#local-6989586621679296822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecordSet
+</span><a href="#local-6989586621679296823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ResourceRecordSet' :: RRType
 </span><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#%24sel%3Atype%27%3AResourceRecordSet%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RRType
-</span><a href="#local-6989586621679296813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1486"></span><span>
 </span><span id="line-1487"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-1488"></span><span>  </span><span id="local-6989586621679296810"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ResourceRecordSet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679296808"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296808"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-1488"></span><span>  </span><span id="local-6989586621679296819"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ResourceRecordSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679296817"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-1489"></span><span>    </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe (NonEmpty ResourceRecord)
 -&gt; Maybe AliasTarget
@@ -1906,7 +1906,7 @@ $sel:type':ResourceRecordSet' :: ResourceRecordSet -&gt; RRType
       -&gt; ResourceRecordSet)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TTL&quot;</span></span><span class="hs-special">)</span><span>
@@ -1942,7 +1942,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ResourceRecordSet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -1994,7 +1994,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String (NonEmpty a)
       -&gt; ResourceRecordSet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AliasTarget)
+</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AliasTarget)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AliasTarget&quot;</span></span><span class="hs-special">)</span><span>
@@ -2026,7 +2026,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ResourceRecordSet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Weight&quot;</span></span><span class="hs-special">)</span><span>
@@ -2056,7 +2056,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ResourceRecordSet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrafficPolicyInstanceId&quot;</span></span><span class="hs-special">)</span><span>
@@ -2084,7 +2084,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ResourceRecordSet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SetIdentifier&quot;</span></span><span class="hs-special">)</span><span>
@@ -2110,7 +2110,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ResourceRecordSet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ResourceRecordSetFailover)
+</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ResourceRecordSetFailover)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Failover&quot;</span></span><span class="hs-special">)</span><span>
@@ -2134,7 +2134,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ResourceRecordSet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HealthCheckId&quot;</span></span><span class="hs-special">)</span><span>
@@ -2153,7 +2153,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Bool -&gt; Text -&gt; RRType -&gt; ResourceRecordSet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Region)
+</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Region)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Region&quot;</span></span><span class="hs-special">)</span><span>
@@ -2166,7 +2166,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Bool -&gt; Text -&gt; RRType -&gt; ResourceRecordSet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe GeoLocation)
+</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe GeoLocation)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GeoLocation&quot;</span></span><span class="hs-special">)</span><span>
@@ -2175,7 +2175,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Text -&gt; RRType -&gt; ResourceRecordSet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MultiValueAnswer&quot;</span></span><span class="hs-special">)</span><span>
@@ -2184,7 +2184,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (RRType -&gt; ResourceRecordSet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -2192,18 +2192,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String RRType -&gt; Either String ResourceRecordSet
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679296808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String RRType
+</span><a href="#local-6989586621679296817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String RRType
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-1505"></span><span>
-</span><span id="line-1506"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296798"><span id="local-6989586621679296800"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span></span></span><span>
+</span><span id="line-1506"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296807"><span id="local-6989586621679296809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span></span></span><span>
 </span><span id="line-1507"></span><span>
-</span><span id="line-1508"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span></span><span>
+</span><span id="line-1508"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span></span><span>
 </span><span id="line-1509"></span><span>
 </span><span id="line-1510"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet"><span class="hs-identifier hs-type">ResourceRecordSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-1511"></span><span>  </span><span id="local-6989586621679296791"><span class="annot"><span class="annottext">toXML :: ResourceRecordSet -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296777"><span id="local-6989586621679296778"><span id="local-6989586621679296779"><span id="local-6989586621679296780"><span id="local-6989586621679296781"><span id="local-6989586621679296782"><span id="local-6989586621679296783"><span id="local-6989586621679296784"><span id="local-6989586621679296785"><span id="local-6989586621679296786"><span id="local-6989586621679296787"><span id="local-6989586621679296788"><span id="local-6989586621679296789"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-1511"></span><span>  </span><span id="local-6989586621679296800"><span class="annot"><span class="annottext">toXML :: ResourceRecordSet -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ResourceRecordSet.html#ResourceRecordSet%27"><span class="hs-identifier hs-type">ResourceRecordSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296786"><span id="local-6989586621679296787"><span id="local-6989586621679296788"><span id="local-6989586621679296789"><span id="local-6989586621679296790"><span id="local-6989586621679296791"><span id="local-6989586621679296792"><span id="local-6989586621679296793"><span id="local-6989586621679296794"><span id="local-6989586621679296795"><span id="local-6989586621679296796"><span id="local-6989586621679296797"><span id="local-6989586621679296798"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe (NonEmpty ResourceRecord)
 Maybe Text
@@ -2239,7 +2239,7 @@ $sel:weight:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe Natural
 $sel:aliasTarget:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe AliasTarget
 $sel:resourceRecords:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe (NonEmpty ResourceRecord)
 $sel:ttl:ResourceRecordSet' :: ResourceRecordSet -&gt; Maybe Natural
-</span><a href="#local-6989586621679296777"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679296786"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-1512"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -2247,7 +2247,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;TTL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Natural -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679296789"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679296798"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1514"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ResourceRecords&quot;</span></span><span>
 </span><span id="line-1515"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
@@ -2263,63 +2263,63 @@ forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 -&gt; Maybe (NonEmpty ResourceRecord) -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceRecord)
-</span><a href="#local-6989586621679296788"><span class="hs-identifier hs-var">resourceRecords</span></a></span><span>
+</span><a href="#local-6989586621679296797"><span class="hs-identifier hs-var">resourceRecords</span></a></span><span>
 </span><span id="line-1518"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-1519"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;AliasTarget&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe AliasTarget -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe AliasTarget
-</span><a href="#local-6989586621679296787"><span class="hs-identifier hs-var">aliasTarget</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679296796"><span class="hs-identifier hs-var">aliasTarget</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1520"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Weight&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Natural -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679296786"><span class="hs-identifier hs-var">weight</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679296795"><span class="hs-identifier hs-var">weight</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1521"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;TrafficPolicyInstanceId&quot;</span></span><span>
 </span><span id="line-1522"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296785"><span class="hs-identifier hs-var">trafficPolicyInstanceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679296794"><span class="hs-identifier hs-var">trafficPolicyInstanceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1523"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;SetIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296784"><span class="hs-identifier hs-var">setIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679296793"><span class="hs-identifier hs-var">setIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1524"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Failover&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe ResourceRecordSetFailover -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResourceRecordSetFailover
-</span><a href="#local-6989586621679296783"><span class="hs-identifier hs-var">failover</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679296792"><span class="hs-identifier hs-var">failover</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1525"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;HealthCheckId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679296782"><span class="hs-identifier hs-var">healthCheckId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679296791"><span class="hs-identifier hs-var">healthCheckId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1526"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Region&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Region -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Region
-</span><a href="#local-6989586621679296781"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679296790"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1527"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;GeoLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe GeoLocation -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe GeoLocation
-</span><a href="#local-6989586621679296780"><span class="hs-identifier hs-var">geoLocation</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679296789"><span class="hs-identifier hs-var">geoLocation</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1528"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;MultiValueAnswer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Bool -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679296779"><span class="hs-identifier hs-var">multiValueAnswer</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679296788"><span class="hs-identifier hs-var">multiValueAnswer</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1529"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679296778"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679296787"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1530"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; RRType -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">RRType
-</span><a href="#local-6989586621679296777"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621679296786"><span class="hs-identifier hs-var">type'</span></a></span><span>
 </span><span id="line-1531"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-1532"></span></pre></body></html>

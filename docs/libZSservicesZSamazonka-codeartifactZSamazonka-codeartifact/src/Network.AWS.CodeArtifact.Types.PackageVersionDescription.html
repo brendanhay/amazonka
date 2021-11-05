@@ -1,0 +1,950 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeArtifact.Types.PackageVersionDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeArtifact.Types.PackageVersionDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.LicenseInfo.html"><span class="hs-identifier">Network.AWS.CodeArtifact.Types.LicenseInfo</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageFormat.html"><span class="hs-identifier">Network.AWS.CodeArtifact.Types.PackageFormat</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html"><span class="hs-identifier">Network.AWS.CodeArtifact.Types.PackageVersionStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Details about a package version.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPackageVersionDescription' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679231563"><span id="local-6989586621679231564"></span></span><span class="hs-keyword">data</span><span> </span><span id="PackageVersionDescription"><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-var">PackageVersionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PackageVersionDescription%27"><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-var">PackageVersionDescription'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A summary of the package version. The summary is extracted from the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- package. The information in and detail level of the summary depends on</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the package version\'s format.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Asummary%3APackageVersionDescription%27"><span class="annot"><span class="annottext">PackageVersionDescription -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Asummary%3APackageVersionDescription%27"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The homepage associated with the package.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AhomePage%3APackageVersionDescription%27"><span class="annot"><span class="annottext">PackageVersionDescription -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3AhomePage%3APackageVersionDescription%27"><span class="hs-identifier hs-var hs-var">homePage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A string that contains the status of the package version. It can be one</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- of the following:</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   @Published@</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   @Unfinished@</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   @Unlisted@</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   @Archived@</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @Disposed@</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Astatus%3APackageVersionDescription%27"><span class="annot"><span class="annottext">PackageVersionDescription -&gt; Maybe PackageVersionStatus
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Astatus%3APackageVersionDescription%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus"><span class="hs-identifier hs-type">PackageVersionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The repository for the source code in the package version, or the source</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- code used to build it.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AsourceCodeRepository%3APackageVersionDescription%27"><span class="annot"><span class="annottext">PackageVersionDescription -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3AsourceCodeRepository%3APackageVersionDescription%27"><span class="hs-identifier hs-var hs-var">sourceCodeRepository</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The name of the requested package.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3ApackageName%3APackageVersionDescription%27"><span class="annot"><span class="annottext">PackageVersionDescription -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3ApackageName%3APackageVersionDescription%27"><span class="hs-identifier hs-var hs-var">packageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | A timestamp that contains the date and time the package version was</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- published.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3ApublishedTime%3APackageVersionDescription%27"><span class="annot"><span class="annottext">PackageVersionDescription -&gt; Maybe POSIX
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3ApublishedTime%3APackageVersionDescription%27"><span class="hs-identifier hs-var hs-var">publishedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The format of the package version. The valid package formats are:</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   @npm@: A Node Package Manager (npm) package.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   @pypi@: A Python Package Index (PyPI) package.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   @maven@: A Maven package that contains compiled code in a</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     distributable format, such as a JAR file.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Aformat%3APackageVersionDescription%27"><span class="annot"><span class="annottext">PackageVersionDescription -&gt; Maybe PackageFormat
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Aformat%3APackageVersionDescription%27"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageFormat.html#PackageFormat"><span class="hs-identifier hs-type">PackageFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Anamespace%3APackageVersionDescription%27"><span class="annot"><span class="annottext">PackageVersionDescription -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Anamespace%3APackageVersionDescription%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The version of the package.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Aversion%3APackageVersionDescription%27"><span class="annot"><span class="annottext">PackageVersionDescription -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Aversion%3APackageVersionDescription%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The name of the package that is displayed. The @displayName@ varies</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- depending on the package version\'s format. For example, if an npm</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- package is named @ui@, is in the namespace @vue@, and has the format</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- @npm@, then the @displayName@ is @\@vue\/ui@.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AdisplayName%3APackageVersionDescription%27"><span class="annot"><span class="annottext">PackageVersionDescription -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3AdisplayName%3APackageVersionDescription%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | Information about licenses associated with the package version.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3Alicenses%3APackageVersionDescription%27"><span class="annot"><span class="annottext">PackageVersionDescription -&gt; Maybe [LicenseInfo]
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Alicenses%3APackageVersionDescription%27"><span class="hs-identifier hs-var hs-var">licenses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.LicenseInfo.html#LicenseInfo"><span class="hs-identifier hs-type">LicenseInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The revision of the package version.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3Arevision%3APackageVersionDescription%27"><span class="annot"><span class="annottext">PackageVersionDescription -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Arevision%3APackageVersionDescription%27"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231546"><span id="local-6989586621679231548"><span class="annot"><span class="annottext">PackageVersionDescription -&gt; PackageVersionDescription -&gt; Bool
+(PackageVersionDescription -&gt; PackageVersionDescription -&gt; Bool)
+-&gt; (PackageVersionDescription -&gt; PackageVersionDescription -&gt; Bool)
+-&gt; Eq PackageVersionDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PackageVersionDescription -&gt; PackageVersionDescription -&gt; Bool
+$c/= :: PackageVersionDescription -&gt; PackageVersionDescription -&gt; Bool
+== :: PackageVersionDescription -&gt; PackageVersionDescription -&gt; Bool
+$c== :: PackageVersionDescription -&gt; PackageVersionDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231537"><span id="local-6989586621679231539"><span id="local-6989586621679231541"><span id="local-6989586621679231543"><span class="annot"><span class="annottext">ReadPrec [PackageVersionDescription]
+ReadPrec PackageVersionDescription
+Int -&gt; ReadS PackageVersionDescription
+ReadS [PackageVersionDescription]
+(Int -&gt; ReadS PackageVersionDescription)
+-&gt; ReadS [PackageVersionDescription]
+-&gt; ReadPrec PackageVersionDescription
+-&gt; ReadPrec [PackageVersionDescription]
+-&gt; Read PackageVersionDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PackageVersionDescription]
+$creadListPrec :: ReadPrec [PackageVersionDescription]
+readPrec :: ReadPrec PackageVersionDescription
+$creadPrec :: ReadPrec PackageVersionDescription
+readList :: ReadS [PackageVersionDescription]
+$creadList :: ReadS [PackageVersionDescription]
+readsPrec :: Int -&gt; ReadS PackageVersionDescription
+$creadsPrec :: Int -&gt; ReadS PackageVersionDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231530"><span id="local-6989586621679231532"><span id="local-6989586621679231534"><span class="annot"><span class="annottext">Int -&gt; PackageVersionDescription -&gt; ShowS
+[PackageVersionDescription] -&gt; ShowS
+PackageVersionDescription -&gt; String
+(Int -&gt; PackageVersionDescription -&gt; ShowS)
+-&gt; (PackageVersionDescription -&gt; String)
+-&gt; ([PackageVersionDescription] -&gt; ShowS)
+-&gt; Show PackageVersionDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PackageVersionDescription] -&gt; ShowS
+$cshowList :: [PackageVersionDescription] -&gt; ShowS
+show :: PackageVersionDescription -&gt; String
+$cshow :: PackageVersionDescription -&gt; String
+showsPrec :: Int -&gt; PackageVersionDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; PackageVersionDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PackageVersionDescription -&gt; Rep PackageVersionDescription x)
+-&gt; (forall x.
+    Rep PackageVersionDescription x -&gt; PackageVersionDescription)
+-&gt; Generic PackageVersionDescription
+forall x.
+Rep PackageVersionDescription x -&gt; PackageVersionDescription
+forall x.
+PackageVersionDescription -&gt; Rep PackageVersionDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PackageVersionDescription x -&gt; PackageVersionDescription
+$cfrom :: forall x.
+PackageVersionDescription -&gt; Rep PackageVersionDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Create a value of 'PackageVersionDescription' with all optional fields omitted.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'summary', 'packageVersionDescription_summary' - A summary of the package version. The summary is extracted from the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- package. The information in and detail level of the summary depends on</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- the package version\'s format.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'homePage', 'packageVersionDescription_homePage' - The homepage associated with the package.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'status', 'packageVersionDescription_status' - A string that contains the status of the package version. It can be one</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- of the following:</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- -   @Published@</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- -   @Unfinished@</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- -   @Unlisted@</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- -   @Archived@</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   @Disposed@</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'sourceCodeRepository', 'packageVersionDescription_sourceCodeRepository' - The repository for the source code in the package version, or the source</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- code used to build it.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'packageName', 'packageVersionDescription_packageName' - The name of the requested package.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'publishedTime', 'packageVersionDescription_publishedTime' - A timestamp that contains the date and time the package version was</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- published.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'format', 'packageVersionDescription_format' - The format of the package version. The valid package formats are:</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- -   @npm@: A Node Package Manager (npm) package.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- -   @pypi@: A Python Package Index (PyPI) package.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -   @maven@: A Maven package that contains compiled code in a</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--     distributable format, such as a JAR file.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'namespace', 'packageVersionDescription_namespace' - The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'version', 'packageVersionDescription_version' - The version of the package.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'displayName', 'packageVersionDescription_displayName' - The name of the package that is displayed. The @displayName@ varies</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- depending on the package version\'s format. For example, if an npm</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- package is named @ui@, is in the namespace @vue@, and has the format</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- @npm@, then the @displayName@ is @\@vue\/ui@.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'licenses', 'packageVersionDescription_licenses' - Information about licenses associated with the package version.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'revision', 'packageVersionDescription_revision' - The revision of the package version.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#newPackageVersionDescription"><span class="hs-identifier hs-type">newPackageVersionDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span>
+</span><span id="line-159"></span><span id="newPackageVersionDescription"><span class="annot"><span class="annottext">newPackageVersionDescription :: PackageVersionDescription
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#newPackageVersionDescription"><span class="hs-identifier hs-var hs-var">newPackageVersionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">PackageVersionDescription' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe PackageVersionStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe PackageFormat
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [LicenseInfo]
+-&gt; Maybe Text
+-&gt; PackageVersionDescription
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:summary:PackageVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Asummary%3APackageVersionDescription%27"><span class="hs-identifier hs-var">summary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:homePage:PackageVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3AhomePage%3APackageVersionDescription%27"><span class="hs-identifier hs-var">homePage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:PackageVersionDescription' :: Maybe PackageVersionStatus
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Astatus%3APackageVersionDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PackageVersionStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceCodeRepository:PackageVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3AsourceCodeRepository%3APackageVersionDescription%27"><span class="hs-identifier hs-var">sourceCodeRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:packageName:PackageVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3ApackageName%3APackageVersionDescription%27"><span class="hs-identifier hs-var">packageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:publishedTime:PackageVersionDescription' :: Maybe POSIX
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3ApublishedTime%3APackageVersionDescription%27"><span class="hs-identifier hs-var">publishedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:format:PackageVersionDescription' :: Maybe PackageFormat
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Aformat%3APackageVersionDescription%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PackageFormat
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespace:PackageVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Anamespace%3APackageVersionDescription%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:PackageVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Aversion%3APackageVersionDescription%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:PackageVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3AdisplayName%3APackageVersionDescription%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:licenses:PackageVersionDescription' :: Maybe [LicenseInfo]
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Alicenses%3APackageVersionDescription%27"><span class="hs-identifier hs-var">licenses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LicenseInfo]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:revision:PackageVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Arevision%3APackageVersionDescription%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | A summary of the package version. The summary is extracted from the</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- package. The information in and detail level of the summary depends on</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- the package version\'s format.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_summary"><span class="hs-identifier hs-type">packageVersionDescription_summary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="packageVersionDescription_summary"><span class="annot"><span class="annottext">packageVersionDescription_summary :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PackageVersionDescription -&gt; f PackageVersionDescription
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_summary"><span class="hs-identifier hs-var hs-var">packageVersionDescription_summary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageVersionDescription -&gt; Maybe Text)
+-&gt; (PackageVersionDescription
+    -&gt; Maybe Text -&gt; PackageVersionDescription)
+-&gt; Lens
+     PackageVersionDescription
+     PackageVersionDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231521"><span class="annot"><span class="annottext">Maybe Text
+summary :: Maybe Text
+$sel:summary:PackageVersionDescription' :: PackageVersionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679231521"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231521"><span class="hs-identifier hs-var">summary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231520"><span class="annot"><span class="annottext">s :: PackageVersionDescription
+</span><a href="#local-6989586621679231520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231519"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageVersionDescription
+</span><a href="#local-6989586621679231520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summary:PackageVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Asummary%3APackageVersionDescription%27"><span class="hs-identifier hs-var">summary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The homepage associated with the package.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_homePage"><span class="hs-identifier hs-type">packageVersionDescription_homePage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="packageVersionDescription_homePage"><span class="annot"><span class="annottext">packageVersionDescription_homePage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PackageVersionDescription -&gt; f PackageVersionDescription
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_homePage"><span class="hs-identifier hs-var hs-var">packageVersionDescription_homePage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageVersionDescription -&gt; Maybe Text)
+-&gt; (PackageVersionDescription
+    -&gt; Maybe Text -&gt; PackageVersionDescription)
+-&gt; Lens
+     PackageVersionDescription
+     PackageVersionDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231517"><span class="annot"><span class="annottext">Maybe Text
+homePage :: Maybe Text
+$sel:homePage:PackageVersionDescription' :: PackageVersionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679231517"><span class="hs-identifier hs-var hs-var">homePage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231517"><span class="hs-identifier hs-var">homePage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231516"><span class="annot"><span class="annottext">s :: PackageVersionDescription
+</span><a href="#local-6989586621679231516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231515"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageVersionDescription
+</span><a href="#local-6989586621679231516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:homePage:PackageVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3AhomePage%3APackageVersionDescription%27"><span class="hs-identifier hs-var">homePage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | A string that contains the status of the package version. It can be one</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- of the following:</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- -   @Published@</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- -   @Unfinished@</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- -   @Unlisted@</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- -   @Archived@</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- -   @Disposed@</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_status"><span class="hs-identifier hs-type">packageVersionDescription_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus"><span class="hs-identifier hs-type">PackageVersionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="packageVersionDescription_status"><span class="annot"><span class="annottext">packageVersionDescription_status :: (Maybe PackageVersionStatus -&gt; f (Maybe PackageVersionStatus))
+-&gt; PackageVersionDescription -&gt; f PackageVersionDescription
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_status"><span class="hs-identifier hs-var hs-var">packageVersionDescription_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageVersionDescription -&gt; Maybe PackageVersionStatus)
+-&gt; (PackageVersionDescription
+    -&gt; Maybe PackageVersionStatus -&gt; PackageVersionDescription)
+-&gt; Lens
+     PackageVersionDescription
+     PackageVersionDescription
+     (Maybe PackageVersionStatus)
+     (Maybe PackageVersionStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231513"><span class="annot"><span class="annottext">Maybe PackageVersionStatus
+status :: Maybe PackageVersionStatus
+$sel:status:PackageVersionDescription' :: PackageVersionDescription -&gt; Maybe PackageVersionStatus
+</span><a href="#local-6989586621679231513"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PackageVersionStatus
+</span><a href="#local-6989586621679231513"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231512"><span class="annot"><span class="annottext">s :: PackageVersionDescription
+</span><a href="#local-6989586621679231512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231511"><span class="annot"><span class="annottext">Maybe PackageVersionStatus
+</span><a href="#local-6989586621679231511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageVersionDescription
+</span><a href="#local-6989586621679231512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:PackageVersionDescription' :: Maybe PackageVersionStatus
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Astatus%3APackageVersionDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PackageVersionStatus
+</span><a href="#local-6989586621679231511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The repository for the source code in the package version, or the source</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- code used to build it.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_sourceCodeRepository"><span class="hs-identifier hs-type">packageVersionDescription_sourceCodeRepository</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="packageVersionDescription_sourceCodeRepository"><span class="annot"><span class="annottext">packageVersionDescription_sourceCodeRepository :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PackageVersionDescription -&gt; f PackageVersionDescription
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_sourceCodeRepository"><span class="hs-identifier hs-var hs-var">packageVersionDescription_sourceCodeRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageVersionDescription -&gt; Maybe Text)
+-&gt; (PackageVersionDescription
+    -&gt; Maybe Text -&gt; PackageVersionDescription)
+-&gt; Lens
+     PackageVersionDescription
+     PackageVersionDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231509"><span class="annot"><span class="annottext">Maybe Text
+sourceCodeRepository :: Maybe Text
+$sel:sourceCodeRepository:PackageVersionDescription' :: PackageVersionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679231509"><span class="hs-identifier hs-var hs-var">sourceCodeRepository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231509"><span class="hs-identifier hs-var">sourceCodeRepository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231508"><span class="annot"><span class="annottext">s :: PackageVersionDescription
+</span><a href="#local-6989586621679231508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231507"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageVersionDescription
+</span><a href="#local-6989586621679231508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCodeRepository:PackageVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3AsourceCodeRepository%3APackageVersionDescription%27"><span class="hs-identifier hs-var">sourceCodeRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The name of the requested package.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_packageName"><span class="hs-identifier hs-type">packageVersionDescription_packageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="packageVersionDescription_packageName"><span class="annot"><span class="annottext">packageVersionDescription_packageName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PackageVersionDescription -&gt; f PackageVersionDescription
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_packageName"><span class="hs-identifier hs-var hs-var">packageVersionDescription_packageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageVersionDescription -&gt; Maybe Text)
+-&gt; (PackageVersionDescription
+    -&gt; Maybe Text -&gt; PackageVersionDescription)
+-&gt; Lens
+     PackageVersionDescription
+     PackageVersionDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231505"><span class="annot"><span class="annottext">Maybe Text
+packageName :: Maybe Text
+$sel:packageName:PackageVersionDescription' :: PackageVersionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679231505"><span class="hs-identifier hs-var hs-var">packageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231505"><span class="hs-identifier hs-var">packageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231504"><span class="annot"><span class="annottext">s :: PackageVersionDescription
+</span><a href="#local-6989586621679231504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231503"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageVersionDescription
+</span><a href="#local-6989586621679231504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageName:PackageVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3ApackageName%3APackageVersionDescription%27"><span class="hs-identifier hs-var">packageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | A timestamp that contains the date and time the package version was</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- published.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_publishedTime"><span class="hs-identifier hs-type">packageVersionDescription_publishedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="packageVersionDescription_publishedTime"><span class="annot"><span class="annottext">packageVersionDescription_publishedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PackageVersionDescription -&gt; f PackageVersionDescription
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_publishedTime"><span class="hs-identifier hs-var hs-var">packageVersionDescription_publishedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageVersionDescription -&gt; Maybe POSIX)
+-&gt; (PackageVersionDescription
+    -&gt; Maybe POSIX -&gt; PackageVersionDescription)
+-&gt; Lens
+     PackageVersionDescription
+     PackageVersionDescription
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231501"><span class="annot"><span class="annottext">Maybe POSIX
+publishedTime :: Maybe POSIX
+$sel:publishedTime:PackageVersionDescription' :: PackageVersionDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679231501"><span class="hs-identifier hs-var hs-var">publishedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679231501"><span class="hs-identifier hs-var">publishedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231500"><span class="annot"><span class="annottext">s :: PackageVersionDescription
+</span><a href="#local-6989586621679231500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231499"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679231499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageVersionDescription
+</span><a href="#local-6989586621679231500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publishedTime:PackageVersionDescription' :: Maybe POSIX
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3ApublishedTime%3APackageVersionDescription%27"><span class="hs-identifier hs-var">publishedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679231499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PackageVersionDescription -&gt; f PackageVersionDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PackageVersionDescription
+-&gt; f PackageVersionDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The format of the package version. The valid package formats are:</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- -   @npm@: A Node Package Manager (npm) package.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- -   @pypi@: A Python Package Index (PyPI) package.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- -   @maven@: A Maven package that contains compiled code in a</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--     distributable format, such as a JAR file.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_format"><span class="hs-identifier hs-type">packageVersionDescription_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageFormat.html#PackageFormat"><span class="hs-identifier hs-type">PackageFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="packageVersionDescription_format"><span class="annot"><span class="annottext">packageVersionDescription_format :: (Maybe PackageFormat -&gt; f (Maybe PackageFormat))
+-&gt; PackageVersionDescription -&gt; f PackageVersionDescription
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_format"><span class="hs-identifier hs-var hs-var">packageVersionDescription_format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageVersionDescription -&gt; Maybe PackageFormat)
+-&gt; (PackageVersionDescription
+    -&gt; Maybe PackageFormat -&gt; PackageVersionDescription)
+-&gt; Lens
+     PackageVersionDescription
+     PackageVersionDescription
+     (Maybe PackageFormat)
+     (Maybe PackageFormat)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231494"><span class="annot"><span class="annottext">Maybe PackageFormat
+format :: Maybe PackageFormat
+$sel:format:PackageVersionDescription' :: PackageVersionDescription -&gt; Maybe PackageFormat
+</span><a href="#local-6989586621679231494"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PackageFormat
+</span><a href="#local-6989586621679231494"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231493"><span class="annot"><span class="annottext">s :: PackageVersionDescription
+</span><a href="#local-6989586621679231493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231492"><span class="annot"><span class="annottext">Maybe PackageFormat
+</span><a href="#local-6989586621679231492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageVersionDescription
+</span><a href="#local-6989586621679231493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:PackageVersionDescription' :: Maybe PackageFormat
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Aformat%3APackageVersionDescription%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PackageFormat
+</span><a href="#local-6989586621679231492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_namespace"><span class="hs-identifier hs-type">packageVersionDescription_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="packageVersionDescription_namespace"><span class="annot"><span class="annottext">packageVersionDescription_namespace :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PackageVersionDescription -&gt; f PackageVersionDescription
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_namespace"><span class="hs-identifier hs-var hs-var">packageVersionDescription_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageVersionDescription -&gt; Maybe Text)
+-&gt; (PackageVersionDescription
+    -&gt; Maybe Text -&gt; PackageVersionDescription)
+-&gt; Lens
+     PackageVersionDescription
+     PackageVersionDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231490"><span class="annot"><span class="annottext">Maybe Text
+namespace :: Maybe Text
+$sel:namespace:PackageVersionDescription' :: PackageVersionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679231490"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231490"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231489"><span class="annot"><span class="annottext">s :: PackageVersionDescription
+</span><a href="#local-6989586621679231489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231488"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageVersionDescription
+</span><a href="#local-6989586621679231489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:PackageVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Anamespace%3APackageVersionDescription%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The version of the package.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_version"><span class="hs-identifier hs-type">packageVersionDescription_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="packageVersionDescription_version"><span class="annot"><span class="annottext">packageVersionDescription_version :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PackageVersionDescription -&gt; f PackageVersionDescription
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_version"><span class="hs-identifier hs-var hs-var">packageVersionDescription_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageVersionDescription -&gt; Maybe Text)
+-&gt; (PackageVersionDescription
+    -&gt; Maybe Text -&gt; PackageVersionDescription)
+-&gt; Lens
+     PackageVersionDescription
+     PackageVersionDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231486"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:PackageVersionDescription' :: PackageVersionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679231486"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231486"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231485"><span class="annot"><span class="annottext">s :: PackageVersionDescription
+</span><a href="#local-6989586621679231485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231484"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageVersionDescription
+</span><a href="#local-6989586621679231485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:PackageVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Aversion%3APackageVersionDescription%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The name of the package that is displayed. The @displayName@ varies</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- depending on the package version\'s format. For example, if an npm</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- package is named @ui@, is in the namespace @vue@, and has the format</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- @npm@, then the @displayName@ is @\@vue\/ui@.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_displayName"><span class="hs-identifier hs-type">packageVersionDescription_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="packageVersionDescription_displayName"><span class="annot"><span class="annottext">packageVersionDescription_displayName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PackageVersionDescription -&gt; f PackageVersionDescription
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_displayName"><span class="hs-identifier hs-var hs-var">packageVersionDescription_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageVersionDescription -&gt; Maybe Text)
+-&gt; (PackageVersionDescription
+    -&gt; Maybe Text -&gt; PackageVersionDescription)
+-&gt; Lens
+     PackageVersionDescription
+     PackageVersionDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231482"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:PackageVersionDescription' :: PackageVersionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679231482"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231482"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231481"><span class="annot"><span class="annottext">s :: PackageVersionDescription
+</span><a href="#local-6989586621679231481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231480"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageVersionDescription
+</span><a href="#local-6989586621679231481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:PackageVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3AdisplayName%3APackageVersionDescription%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | Information about licenses associated with the package version.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_licenses"><span class="hs-identifier hs-type">packageVersionDescription_licenses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.LicenseInfo.html#LicenseInfo"><span class="hs-identifier hs-type">LicenseInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="packageVersionDescription_licenses"><span class="annot"><span class="annottext">packageVersionDescription_licenses :: (Maybe [LicenseInfo] -&gt; f (Maybe [LicenseInfo]))
+-&gt; PackageVersionDescription -&gt; f PackageVersionDescription
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_licenses"><span class="hs-identifier hs-var hs-var">packageVersionDescription_licenses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageVersionDescription -&gt; Maybe [LicenseInfo])
+-&gt; (PackageVersionDescription
+    -&gt; Maybe [LicenseInfo] -&gt; PackageVersionDescription)
+-&gt; Lens
+     PackageVersionDescription
+     PackageVersionDescription
+     (Maybe [LicenseInfo])
+     (Maybe [LicenseInfo])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231478"><span class="annot"><span class="annottext">Maybe [LicenseInfo]
+licenses :: Maybe [LicenseInfo]
+$sel:licenses:PackageVersionDescription' :: PackageVersionDescription -&gt; Maybe [LicenseInfo]
+</span><a href="#local-6989586621679231478"><span class="hs-identifier hs-var hs-var">licenses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LicenseInfo]
+</span><a href="#local-6989586621679231478"><span class="hs-identifier hs-var">licenses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231477"><span class="annot"><span class="annottext">s :: PackageVersionDescription
+</span><a href="#local-6989586621679231477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231476"><span class="annot"><span class="annottext">Maybe [LicenseInfo]
+</span><a href="#local-6989586621679231476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageVersionDescription
+</span><a href="#local-6989586621679231477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenses:PackageVersionDescription' :: Maybe [LicenseInfo]
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Alicenses%3APackageVersionDescription%27"><span class="hs-identifier hs-var">licenses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LicenseInfo]
+</span><a href="#local-6989586621679231476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LicenseInfo] -&gt; f (Maybe [LicenseInfo]))
+ -&gt; PackageVersionDescription -&gt; f PackageVersionDescription)
+-&gt; ((Maybe [LicenseInfo] -&gt; f (Maybe [LicenseInfo]))
+    -&gt; Maybe [LicenseInfo] -&gt; f (Maybe [LicenseInfo]))
+-&gt; (Maybe [LicenseInfo] -&gt; f (Maybe [LicenseInfo]))
+-&gt; PackageVersionDescription
+-&gt; f PackageVersionDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [LicenseInfo] [LicenseInfo] [LicenseInfo] [LicenseInfo]
+-&gt; Iso
+     (Maybe [LicenseInfo])
+     (Maybe [LicenseInfo])
+     (Maybe [LicenseInfo])
+     (Maybe [LicenseInfo])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [LicenseInfo] [LicenseInfo] [LicenseInfo] [LicenseInfo]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | The revision of the package version.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_revision"><span class="hs-identifier hs-type">packageVersionDescription_revision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="packageVersionDescription_revision"><span class="annot"><span class="annottext">packageVersionDescription_revision :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PackageVersionDescription -&gt; f PackageVersionDescription
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#packageVersionDescription_revision"><span class="hs-identifier hs-var hs-var">packageVersionDescription_revision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PackageVersionDescription -&gt; Maybe Text)
+-&gt; (PackageVersionDescription
+    -&gt; Maybe Text -&gt; PackageVersionDescription)
+-&gt; Lens
+     PackageVersionDescription
+     PackageVersionDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231473"><span class="annot"><span class="annottext">Maybe Text
+revision :: Maybe Text
+$sel:revision:PackageVersionDescription' :: PackageVersionDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679231473"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231473"><span class="hs-identifier hs-var">revision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231472"><span class="annot"><span class="annottext">s :: PackageVersionDescription
+</span><a href="#local-6989586621679231472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-type">PackageVersionDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231471"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageVersionDescription
+</span><a href="#local-6989586621679231472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revision:PackageVersionDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#%24sel%3Arevision%3APackageVersionDescription%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231468"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679231466"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PackageVersionDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PackageVersionDescription)
+-&gt; Value
+-&gt; Parser PackageVersionDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-260"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PackageVersionDescription&quot;</span></span><span>
+</span><span id="line-261"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679231463"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231463"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-262"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe PackageVersionStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe PackageFormat
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [LicenseInfo]
+-&gt; Maybe Text
+-&gt; PackageVersionDescription
+</span><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription%27"><span class="hs-identifier hs-var">PackageVersionDescription'</span></a></span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe PackageVersionStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe PackageFormat
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [LicenseInfo]
+ -&gt; Maybe Text
+ -&gt; PackageVersionDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe PackageVersionStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe PackageFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [LicenseInfo]
+      -&gt; Maybe Text
+      -&gt; PackageVersionDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;summary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe PackageVersionStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe PackageFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [LicenseInfo]
+   -&gt; Maybe Text
+   -&gt; PackageVersionDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe PackageVersionStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe PackageFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [LicenseInfo]
+      -&gt; Maybe Text
+      -&gt; PackageVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;homePage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PackageVersionStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe PackageFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [LicenseInfo]
+   -&gt; Maybe Text
+   -&gt; PackageVersionDescription)
+-&gt; Parser (Maybe PackageVersionStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe PackageFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [LicenseInfo]
+      -&gt; Maybe Text
+      -&gt; PackageVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PackageVersionStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe PackageFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [LicenseInfo]
+   -&gt; Maybe Text
+   -&gt; PackageVersionDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe PackageFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [LicenseInfo]
+      -&gt; Maybe Text
+      -&gt; PackageVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceCodeRepository&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe PackageFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [LicenseInfo]
+   -&gt; Maybe Text
+   -&gt; PackageVersionDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe PackageFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [LicenseInfo]
+      -&gt; Maybe Text
+      -&gt; PackageVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;packageName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe PackageFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [LicenseInfo]
+   -&gt; Maybe Text
+   -&gt; PackageVersionDescription)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe PackageFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [LicenseInfo]
+      -&gt; Maybe Text
+      -&gt; PackageVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;publishedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PackageFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [LicenseInfo]
+   -&gt; Maybe Text
+   -&gt; PackageVersionDescription)
+-&gt; Parser (Maybe PackageFormat)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [LicenseInfo]
+      -&gt; Maybe Text
+      -&gt; PackageVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PackageFormat)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;format&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [LicenseInfo]
+   -&gt; Maybe Text
+   -&gt; PackageVersionDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [LicenseInfo]
+      -&gt; Maybe Text
+      -&gt; PackageVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;namespace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [LicenseInfo]
+   -&gt; Maybe Text
+   -&gt; PackageVersionDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [LicenseInfo] -&gt; Maybe Text -&gt; PackageVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [LicenseInfo] -&gt; Maybe Text -&gt; PackageVersionDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [LicenseInfo] -&gt; Maybe Text -&gt; PackageVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;displayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [LicenseInfo] -&gt; Maybe Text -&gt; PackageVersionDescription)
+-&gt; Parser (Maybe [LicenseInfo])
+-&gt; Parser (Maybe Text -&gt; PackageVersionDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [LicenseInfo]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;licenses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [LicenseInfo]))
+-&gt; Maybe [LicenseInfo] -&gt; Parser (Maybe [LicenseInfo])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LicenseInfo]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PackageVersionDescription)
+-&gt; Parser (Maybe Text) -&gt; Parser PackageVersionDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;revision&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231456"><span id="local-6989586621679231458"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span></span></span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageVersionDescription.html#PackageVersionDescription"><span class="hs-identifier hs-type">PackageVersionDescription</span></a></span></span><span>
+</span><span id="line-280"></span></pre></body></html>

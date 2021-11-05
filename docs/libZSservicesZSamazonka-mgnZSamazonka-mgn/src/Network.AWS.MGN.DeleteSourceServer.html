@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MGN.DeleteSourceServer</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a single source server by ID.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MGN.DeleteSourceServer</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer"><span class="hs-identifier">DeleteSourceServer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#newDeleteSourceServer"><span class="hs-identifier">newDeleteSourceServer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#deleteSourceServer_sourceServerID"><span class="hs-identifier">deleteSourceServer_sourceServerID</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServerResponse"><span class="hs-identifier">DeleteSourceServerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#newDeleteSourceServerResponse"><span class="hs-identifier">newDeleteSourceServerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#deleteSourceServerResponse_httpStatus"><span class="hs-identifier">deleteSourceServerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.html"><span class="hs-identifier">Network.AWS.MGN.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteSourceServer' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679234878"><span id="local-6989586621679234879"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSourceServer"><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer"><span class="hs-identifier hs-var">DeleteSourceServer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSourceServer%27"><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer%27"><span class="hs-identifier hs-var">DeleteSourceServer'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Request to delete Source Server from service by Server ID.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AsourceServerID%3ADeleteSourceServer%27"><span class="annot"><span class="annottext">DeleteSourceServer -&gt; Text
+</span><a href="Network.AWS.MGN.DeleteSourceServer.html#%24sel%3AsourceServerID%3ADeleteSourceServer%27"><span class="hs-identifier hs-var hs-var">sourceServerID</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679234872"><span id="local-6989586621679234874"><span class="annot"><span class="annottext">DeleteSourceServer -&gt; DeleteSourceServer -&gt; Bool
+(DeleteSourceServer -&gt; DeleteSourceServer -&gt; Bool)
+-&gt; (DeleteSourceServer -&gt; DeleteSourceServer -&gt; Bool)
+-&gt; Eq DeleteSourceServer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteSourceServer -&gt; DeleteSourceServer -&gt; Bool
+$c/= :: DeleteSourceServer -&gt; DeleteSourceServer -&gt; Bool
+== :: DeleteSourceServer -&gt; DeleteSourceServer -&gt; Bool
+$c== :: DeleteSourceServer -&gt; DeleteSourceServer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234863"><span id="local-6989586621679234865"><span id="local-6989586621679234867"><span id="local-6989586621679234869"><span class="annot"><span class="annottext">ReadPrec [DeleteSourceServer]
+ReadPrec DeleteSourceServer
+Int -&gt; ReadS DeleteSourceServer
+ReadS [DeleteSourceServer]
+(Int -&gt; ReadS DeleteSourceServer)
+-&gt; ReadS [DeleteSourceServer]
+-&gt; ReadPrec DeleteSourceServer
+-&gt; ReadPrec [DeleteSourceServer]
+-&gt; Read DeleteSourceServer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteSourceServer]
+$creadListPrec :: ReadPrec [DeleteSourceServer]
+readPrec :: ReadPrec DeleteSourceServer
+$creadPrec :: ReadPrec DeleteSourceServer
+readList :: ReadS [DeleteSourceServer]
+$creadList :: ReadS [DeleteSourceServer]
+readsPrec :: Int -&gt; ReadS DeleteSourceServer
+$creadsPrec :: Int -&gt; ReadS DeleteSourceServer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234856"><span id="local-6989586621679234858"><span id="local-6989586621679234860"><span class="annot"><span class="annottext">Int -&gt; DeleteSourceServer -&gt; ShowS
+[DeleteSourceServer] -&gt; ShowS
+DeleteSourceServer -&gt; String
+(Int -&gt; DeleteSourceServer -&gt; ShowS)
+-&gt; (DeleteSourceServer -&gt; String)
+-&gt; ([DeleteSourceServer] -&gt; ShowS)
+-&gt; Show DeleteSourceServer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteSourceServer] -&gt; ShowS
+$cshowList :: [DeleteSourceServer] -&gt; ShowS
+show :: DeleteSourceServer -&gt; String
+$cshow :: DeleteSourceServer -&gt; String
+showsPrec :: Int -&gt; DeleteSourceServer -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteSourceServer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteSourceServer -&gt; Rep DeleteSourceServer x)
+-&gt; (forall x. Rep DeleteSourceServer x -&gt; DeleteSourceServer)
+-&gt; Generic DeleteSourceServer
+forall x. Rep DeleteSourceServer x -&gt; DeleteSourceServer
+forall x. DeleteSourceServer -&gt; Rep DeleteSourceServer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteSourceServer x -&gt; DeleteSourceServer
+$cfrom :: forall x. DeleteSourceServer -&gt; Rep DeleteSourceServer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'DeleteSourceServer' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'sourceServerID', 'deleteSourceServer_sourceServerID' - Request to delete Source Server from service by Server ID.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#newDeleteSourceServer"><span class="hs-identifier hs-type">newDeleteSourceServer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'sourceServerID'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer"><span class="hs-identifier hs-type">DeleteSourceServer</span></a></span><span>
+</span><span id="line-68"></span><span id="newDeleteSourceServer"><span class="annot"><span class="annottext">newDeleteSourceServer :: Text -&gt; DeleteSourceServer
+</span><a href="Network.AWS.MGN.DeleteSourceServer.html#newDeleteSourceServer"><span class="hs-identifier hs-var hs-var">newDeleteSourceServer</span></a></span></span><span> </span><span id="local-6989586621679234851"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234851"><span class="hs-identifier hs-var">pSourceServerID_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteSourceServer' :: Text -&gt; DeleteSourceServer
+</span><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer%27"><span class="hs-identifier hs-type">DeleteSourceServer'</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceServerID:DeleteSourceServer' :: Text
+</span><a href="Network.AWS.MGN.DeleteSourceServer.html#%24sel%3AsourceServerID%3ADeleteSourceServer%27"><span class="hs-identifier hs-var">sourceServerID</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234851"><span class="hs-identifier hs-var">pSourceServerID_</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | Request to delete Source Server from service by Server ID.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#deleteSourceServer_sourceServerID"><span class="hs-identifier hs-type">deleteSourceServer_sourceServerID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer"><span class="hs-identifier hs-type">DeleteSourceServer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span id="deleteSourceServer_sourceServerID"><span class="annot"><span class="annottext">deleteSourceServer_sourceServerID :: (Text -&gt; f Text) -&gt; DeleteSourceServer -&gt; f DeleteSourceServer
+</span><a href="Network.AWS.MGN.DeleteSourceServer.html#deleteSourceServer_sourceServerID"><span class="hs-identifier hs-var hs-var">deleteSourceServer_sourceServerID</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteSourceServer -&gt; Text)
+-&gt; (DeleteSourceServer -&gt; Text -&gt; DeleteSourceServer)
+-&gt; Lens DeleteSourceServer DeleteSourceServer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer%27"><span class="hs-identifier hs-type">DeleteSourceServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234848"><span class="annot"><span class="annottext">Text
+sourceServerID :: Text
+$sel:sourceServerID:DeleteSourceServer' :: DeleteSourceServer -&gt; Text
+</span><a href="#local-6989586621679234848"><span class="hs-identifier hs-var hs-var">sourceServerID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234848"><span class="hs-identifier hs-var">sourceServerID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234847"><span class="annot"><span class="annottext">s :: DeleteSourceServer
+</span><a href="#local-6989586621679234847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer%27"><span class="hs-identifier hs-type">DeleteSourceServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234846"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSourceServer
+</span><a href="#local-6989586621679234847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceServerID:DeleteSourceServer' :: Text
+</span><a href="Network.AWS.MGN.DeleteSourceServer.html#%24sel%3AsourceServerID%3ADeleteSourceServer%27"><span class="hs-identifier hs-var">sourceServerID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer"><span class="hs-identifier hs-type">DeleteSourceServer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer"><span class="hs-identifier hs-type">DeleteSourceServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer"><span class="hs-identifier hs-type">DeleteSourceServer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServerResponse"><span class="hs-identifier hs-type">DeleteSourceServerResponse</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679234842"><span class="annot"><span class="annottext">request :: DeleteSourceServer -&gt; Request DeleteSourceServer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteSourceServer -&gt; Request DeleteSourceServer
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MGN.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679234838"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteSourceServer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteSourceServer)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteSourceServer))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteSourceServer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteSourceServer)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679234835"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679234835"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679234834"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679234834"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679234833"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679234833"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteSourceServerResponse
+</span><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServerResponse%27"><span class="hs-identifier hs-var">DeleteSourceServerResponse'</span></a></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteSourceServerResponse)
+-&gt; Either String Int -&gt; Either String DeleteSourceServerResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679234835"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234826"><span id="local-6989586621679234828"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer"><span class="hs-identifier hs-type">DeleteSourceServer</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234823"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer"><span class="hs-identifier hs-type">DeleteSourceServer</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer"><span class="hs-identifier hs-type">DeleteSourceServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679234819"><span class="annot"><span class="annottext">toHeaders :: DeleteSourceServer -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteSourceServer -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-101"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234809"><span id="local-6989586621679234811"><span id="local-6989586621679234813"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer"><span class="hs-identifier hs-type">DeleteSourceServer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679234807"><span class="annot"><span class="annottext">toJSON :: DeleteSourceServer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer%27"><span class="hs-identifier hs-type">DeleteSourceServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234805"><span class="annot"><span class="annottext">Text
+sourceServerID :: Text
+$sel:sourceServerID:DeleteSourceServer' :: DeleteSourceServer -&gt; Text
+</span><a href="#local-6989586621679234805"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-110"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceServerID&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234805"><span class="hs-identifier hs-var">sourceServerID</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer"><span class="hs-identifier hs-type">DeleteSourceServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679234799"><span class="annot"><span class="annottext">toPath :: DeleteSourceServer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteSourceServer -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/DeleteSourceServer&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServer"><span class="hs-identifier hs-type">DeleteSourceServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679234795"><span class="annot"><span class="annottext">toQuery :: DeleteSourceServer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteSourceServer -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newDeleteSourceServerResponse' smart constructor.</span><span>
+</span><span id="line-121"></span><span id="local-6989586621679234792"><span id="local-6989586621679234793"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSourceServerResponse"><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServerResponse"><span class="hs-identifier hs-var">DeleteSourceServerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSourceServerResponse%27"><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServerResponse%27"><span class="hs-identifier hs-var">DeleteSourceServerResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteSourceServerResponse%27"><span class="annot"><span class="annottext">DeleteSourceServerResponse -&gt; Int
+</span><a href="Network.AWS.MGN.DeleteSourceServer.html#%24sel%3AhttpStatus%3ADeleteSourceServerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679234787"><span id="local-6989586621679234789"><span class="annot"><span class="annottext">DeleteSourceServerResponse -&gt; DeleteSourceServerResponse -&gt; Bool
+(DeleteSourceServerResponse -&gt; DeleteSourceServerResponse -&gt; Bool)
+-&gt; (DeleteSourceServerResponse
+    -&gt; DeleteSourceServerResponse -&gt; Bool)
+-&gt; Eq DeleteSourceServerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteSourceServerResponse -&gt; DeleteSourceServerResponse -&gt; Bool
+$c/= :: DeleteSourceServerResponse -&gt; DeleteSourceServerResponse -&gt; Bool
+== :: DeleteSourceServerResponse -&gt; DeleteSourceServerResponse -&gt; Bool
+$c== :: DeleteSourceServerResponse -&gt; DeleteSourceServerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234779"><span id="local-6989586621679234781"><span id="local-6989586621679234783"><span id="local-6989586621679234785"><span class="annot"><span class="annottext">ReadPrec [DeleteSourceServerResponse]
+ReadPrec DeleteSourceServerResponse
+Int -&gt; ReadS DeleteSourceServerResponse
+ReadS [DeleteSourceServerResponse]
+(Int -&gt; ReadS DeleteSourceServerResponse)
+-&gt; ReadS [DeleteSourceServerResponse]
+-&gt; ReadPrec DeleteSourceServerResponse
+-&gt; ReadPrec [DeleteSourceServerResponse]
+-&gt; Read DeleteSourceServerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteSourceServerResponse]
+$creadListPrec :: ReadPrec [DeleteSourceServerResponse]
+readPrec :: ReadPrec DeleteSourceServerResponse
+$creadPrec :: ReadPrec DeleteSourceServerResponse
+readList :: ReadS [DeleteSourceServerResponse]
+$creadList :: ReadS [DeleteSourceServerResponse]
+readsPrec :: Int -&gt; ReadS DeleteSourceServerResponse
+$creadsPrec :: Int -&gt; ReadS DeleteSourceServerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234773"><span id="local-6989586621679234775"><span id="local-6989586621679234777"><span class="annot"><span class="annottext">Int -&gt; DeleteSourceServerResponse -&gt; ShowS
+[DeleteSourceServerResponse] -&gt; ShowS
+DeleteSourceServerResponse -&gt; String
+(Int -&gt; DeleteSourceServerResponse -&gt; ShowS)
+-&gt; (DeleteSourceServerResponse -&gt; String)
+-&gt; ([DeleteSourceServerResponse] -&gt; ShowS)
+-&gt; Show DeleteSourceServerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteSourceServerResponse] -&gt; ShowS
+$cshowList :: [DeleteSourceServerResponse] -&gt; ShowS
+show :: DeleteSourceServerResponse -&gt; String
+$cshow :: DeleteSourceServerResponse -&gt; String
+showsPrec :: Int -&gt; DeleteSourceServerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteSourceServerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteSourceServerResponse -&gt; Rep DeleteSourceServerResponse x)
+-&gt; (forall x.
+    Rep DeleteSourceServerResponse x -&gt; DeleteSourceServerResponse)
+-&gt; Generic DeleteSourceServerResponse
+forall x.
+Rep DeleteSourceServerResponse x -&gt; DeleteSourceServerResponse
+forall x.
+DeleteSourceServerResponse -&gt; Rep DeleteSourceServerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteSourceServerResponse x -&gt; DeleteSourceServerResponse
+$cfrom :: forall x.
+DeleteSourceServerResponse -&gt; Rep DeleteSourceServerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Create a value of 'DeleteSourceServerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'httpStatus', 'deleteSourceServerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#newDeleteSourceServerResponse"><span class="hs-identifier hs-type">newDeleteSourceServerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServerResponse"><span class="hs-identifier hs-type">DeleteSourceServerResponse</span></a></span><span>
+</span><span id="line-140"></span><span id="newDeleteSourceServerResponse"><span class="annot"><span class="annottext">newDeleteSourceServerResponse :: Int -&gt; DeleteSourceServerResponse
+</span><a href="Network.AWS.MGN.DeleteSourceServer.html#newDeleteSourceServerResponse"><span class="hs-identifier hs-var hs-var">newDeleteSourceServerResponse</span></a></span></span><span> </span><span id="local-6989586621679234770"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679234770"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="annottext">DeleteSourceServerResponse' :: Int -&gt; DeleteSourceServerResponse
+</span><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServerResponse%27"><span class="hs-identifier hs-type">DeleteSourceServerResponse'</span></a></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSourceServerResponse' :: Int
+</span><a href="Network.AWS.MGN.DeleteSourceServer.html#%24sel%3AhttpStatus%3ADeleteSourceServerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679234770"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#deleteSourceServerResponse_httpStatus"><span class="hs-identifier hs-type">deleteSourceServerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServerResponse"><span class="hs-identifier hs-type">DeleteSourceServerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-148"></span><span id="deleteSourceServerResponse_httpStatus"><span class="annot"><span class="annottext">deleteSourceServerResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteSourceServerResponse -&gt; f DeleteSourceServerResponse
+</span><a href="Network.AWS.MGN.DeleteSourceServer.html#deleteSourceServerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteSourceServerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteSourceServerResponse -&gt; Int)
+-&gt; (DeleteSourceServerResponse
+    -&gt; Int -&gt; DeleteSourceServerResponse)
+-&gt; Lens
+     DeleteSourceServerResponse DeleteSourceServerResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServerResponse%27"><span class="hs-identifier hs-type">DeleteSourceServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234769"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteSourceServerResponse' :: DeleteSourceServerResponse -&gt; Int
+</span><a href="#local-6989586621679234769"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679234769"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234768"><span class="annot"><span class="annottext">s :: DeleteSourceServerResponse
+</span><a href="#local-6989586621679234768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServerResponse%27"><span class="hs-identifier hs-type">DeleteSourceServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234767"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679234767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSourceServerResponse
+</span><a href="#local-6989586621679234768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSourceServerResponse' :: Int
+</span><a href="Network.AWS.MGN.DeleteSourceServer.html#%24sel%3AhttpStatus%3ADeleteSourceServerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679234767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServerResponse"><span class="hs-identifier hs-type">DeleteSourceServerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234765"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.DeleteSourceServer.html#DeleteSourceServerResponse"><span class="hs-identifier hs-type">DeleteSourceServerResponse</span></a></span></span><span>
+</span><span id="line-151"></span></pre></body></html>
